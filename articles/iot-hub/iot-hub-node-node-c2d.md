@@ -1,6 +1,6 @@
 ---
-title: Cloud-naar-apparaat-berichten met Azure IoT Hub (Node) | Microsoft Docs
-description: Klik hier voor meer informatie over het cloud-naar-apparaat-berichten verzenden naar een apparaat van een Azure IoT-hub met behulp van de Azure IoT SDK's voor Node.js. Een gesimuleerde apparaat-app voor het ontvangen van berichten van cloud-naar-apparaat en het wijzigen van een back-end-app om de cloud-naar-apparaat-berichten te verzenden kunt u wijzigen.
+title: Cloud-naar-apparaat-berichten met Azure IoT Hub (node) | Microsoft Docs
+description: Cloud-naar-apparaat-berichten verzenden naar een apparaat vanuit een Azure IoT-hub met behulp van de Azure IoT-Sdk's voor node. js. U wijzigt een gesimuleerde apparaat-app om Cloud-naar-apparaat-berichten te ontvangen en een back-end-app te wijzigen om de Cloud-naar-apparaat-berichten te verzenden.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -9,53 +9,53 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.openlocfilehash: 35acc1448b662a9b0c08e9d1f91886903444bcb8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: b1aa8f2ce7d271187657d57993032069639ca9c7
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620062"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404099"
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Cloud-naar-apparaat-berichten verzenden met IoT Hub (Node)
+# <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Cloud-naar-apparaat-berichten verzenden met IoT Hub (knoop punt)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>Inleiding
 
-Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen apparaten inschakelen en een back-end oplossing. De [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-node.md) quickstart laat zien hoe u een IoT-hub maken, een apparaat-id in het inrichten en code van een gesimuleerde apparaat-app dat apparaat-naar-cloud-berichten verzendt.
+Azure IoT Hub is een volledig beheerde service die zorgt voor betrouw bare en veilige bidirectionele communicatie tussen miljoenen apparaten en een back-end van een oplossing. Het [verzenden van telemetrie van een apparaat naar een IOT hub](quickstart-send-telemetry-node.md) Quick Start laat zien hoe u een IOT-hub kunt maken, een apparaat-id kunt inrichten en een gesimuleerde apparaat-app kunt coderen die apparaat-naar-Cloud-berichten verzendt.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-In deze zelfstudie bouwt voort op [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-node.md). Hier ziet u hoe aan:
+Deze zelf studie is gebaseerd op het [verzenden van telemetrie van een apparaat naar een IOT-hub](quickstart-send-telemetry-node.md). U ziet hoe u het volgende kunt doen:
 
-* Vanuit de back-end, cloud-naar-apparaat-berichten naar een enkel apparaat via IoT Hub te verzenden.
+* Via de back-end van uw oplossing kunt u Cloud-naar-apparaat-berichten verzenden naar één apparaat via IoT Hub.
 * Cloud-naar-apparaat-berichten op een apparaat ontvangen.
-* Aanvragen van de back-end, levering bevestiging (*feedback*) voor berichten die worden verzonden naar een apparaat vanuit IoT Hub.
+* Van de back-end van uw oplossing, aanvraag bezorgings bevestiging (*feedback*) aanvragen voor berichten die worden verzonden naar een apparaat vanuit IOT hub.
 
-U vindt meer informatie over cloud-naar-apparaat-berichten in de [Ontwikkelaarshandleiding voor IoT Hub](iot-hub-devguide-messaging.md).
+Meer informatie over Cloud-naar-apparaat-berichten vindt u in de [hand leiding voor IOT hub ontwikkel aars](iot-hub-devguide-messaging.md).
 
-Aan het einde van deze zelfstudie, moet u twee Node.js-consoletoepassingen uitvoeren:
+Aan het einde van deze zelf studie voert u twee node. js-console-apps uit:
 
-* **SimulatedDevice**, een aangepaste versie van de app gemaakt [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-node.md), die verbinding maakt met uw IoT-hub en cloud-naar-apparaat-berichten worden ontvangen.
+* **SimulatedDevice**, een gewijzigde versie van de app die is gemaakt in telemetrie [verzenden van een apparaat naar een IOT-hub](quickstart-send-telemetry-node.md), die verbinding maakt met uw IOT-hub en Cloud-naar-apparaat-berichten ontvangt.
 
-* **SendCloudToDeviceMessage**, die een cloud-naar-apparaat-bericht naar de gesimuleerde apparaattoepassing via IoT Hub verzendt en ontvangt u vervolgens de bevestiging levering.
+* **SendCloudToDeviceMessage**, waarmee een Cloud-naar-apparaat-bericht naar de gesimuleerde apparaat-app wordt verzonden via IOT hub, waarna de ontvangst bevestiging wordt ontvangen.
 
 > [!NOTE]
-> IoT-Hub heeft SDK-ondersteuning voor vele platformen voor apparaten en talen (waaronder C, Java en Javascript) via Azure IoT device-SDK's. Zie voor stapsgewijze instructies voor het verbinding maken tussen uw apparaat in de code van deze zelfstudie, en in het algemeen voor Azure IoT Hub, de [Azure IoT-ontwikkelaarscentrum](https://azure.microsoft.com/develop/iot).
+> IoT Hub heeft SDK-ondersteuning voor veel platformen en talen (waaronder C, Java en Java script) via Azure IoT-apparaat-Sdk's. Zie het [Azure IOT-ontwikkelaars centrum](https://azure.microsoft.com/develop/iot)voor stapsgewijze instructies voor het verbinden van uw apparaat met de code van deze zelf studie en over het algemeen tot Azure IOT hub.
 >
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Node.js versie 10.0 x of hoger.
-* Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial) binnen een paar minuten.)
+* Node. js versie 10.0. x of hoger.
+* Een actief Azure-account. (Als u geen account hebt, kunt u in slechts een paar minuten een [gratis account](https://azure.microsoft.com/pricing/free-trial) maken.)
 
-## <a name="receive-messages-in-the-simulated-device-app"></a>Berichten ontvangen in het gesimuleerde apparaat-app
+## <a name="receive-messages-in-the-simulated-device-app"></a>Berichten ontvangen in de gesimuleerde apparaat-app
 
-In deze sectie maakt u de gesimuleerde apparaat-app die u hebt gemaakt in [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-node.md) cloud-naar-apparaat-berichten ontvangen van de IoT-hub.
+In deze sectie wijzigt u de gesimuleerde apparaat-app die u hebt gemaakt in telemetrie [van een apparaat naar een IOT-hub verzenden](quickstart-send-telemetry-node.md) om Cloud-naar-apparaat-berichten van de IOT-hub te ontvangen.
 
-1. Open met een teksteditor het bestand SimulatedDevice.js.
+1. Open het bestand SimulatedDevice. js met behulp van een tekst editor.
 
-2. Wijzig de **connectCallback** functie voor het afhandelen van berichten uit IoT Hub. In dit voorbeeld wordt het apparaat altijd roept de **voltooid** functie voor het melden van IoT Hub dat deze het bericht is verwerkt. De nieuwe versie van de **connectCallback** functie ziet eruit als in het volgende codefragment:
+2. Wijzig de functie **connectCallback** voor het afhandelen van berichten die vanuit IOT hub worden verzonden. In dit voor beeld roept het apparaat altijd de **volledige** functie aan om IOT hub te melden dat het bericht is verwerkt. De nieuwe versie van de functie **connectCallback** ziet eruit als in het volgende code fragment:
 
     ```javascript
     var connectCallback = function (err) {
@@ -82,28 +82,34 @@ In deze sectie maakt u de gesimuleerde apparaat-app die u hebt gemaakt in [verze
     ```
   
    > [!NOTE]
-   > Als u HTTPS in plaats van MQTT- of AMQP als het transport, de **DeviceClient** exemplaar wordt gecontroleerd op berichten uit IoT Hub weinig (minder dan elke 25 minuten). Zie voor meer informatie over de verschillen tussen MQTT-, AMQP- en HTTPS-ondersteuning en het beperken van IoT Hub, de [Ontwikkelaarshandleiding voor IoT Hub](iot-hub-devguide-messaging.md).
+   > Als u HTTPS gebruikt in plaats van MQTT of AMQP als Trans Port, controleert het **DeviceClient** -exemplaar voor berichten van IOT hub niet regel matig (minder dan elke 25 minuten). Raadpleeg de [IOT hub ontwikkelaars handleiding](iot-hub-devguide-messaging.md)voor meer informatie over de verschillen tussen MQTT, AMQP en HTTPS-ondersteuning en IOT hub beperking.
    >
 
-## <a name="send-a-cloud-to-device-message"></a>Een cloud-naar-apparaat-bericht verzenden
+## <a name="get-the-iot-hub-connection-string"></a>De IoT hub-connection string ophalen
 
-In deze sectie maakt maken u een Node.js-consoletoepassing die cloud-naar-apparaat-berichten naar de gesimuleerde apparaattoepassing verzendt. U moet de apparaat-ID van het apparaat dat u hebt toegevoegd in de [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-node.md) Quick Start. U moet ook de IoT Hub-verbindingsreeks voor uw hub die u kunt vinden in de [Azure-portal](https://portal.azure.com).
+In dit artikel maakt u een back-end-service om Cloud-naar-apparaat-berichten te verzenden via de IoT-hub die u hebt gemaakt in telemetrie [van een apparaat naar een IOT-hub verzenden](quickstart-send-telemetry-node.md). Als u Cloud-naar-apparaat-berichten wilt verzenden, moet u de service **Connect** -machtiging hebben. Standaard wordt elke IoT Hub gemaakt met een gedeeld toegangs beleid met de naam **service** dat deze machtiging verleent.
 
-1. Maak een lege map genaamd **sendcloudtodevicemessage**. In de **sendcloudtodevicemessage** map, maakt u een package.json-bestand met de volgende opdracht in uw opdrachtvenster. Accepteer alle standaardwaarden:
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
+## <a name="send-a-cloud-to-device-message"></a>Een Cloud-naar-apparaat-bericht verzenden
+
+In deze sectie maakt u een node. JS-Console-app die Cloud-naar-apparaat-berichten naar de gesimuleerde apparaat-app verzendt. U hebt de apparaat-ID van het apparaat dat u hebt toegevoegd in de telemetrie [van een apparaat verzenden naar een IOT hub](quickstart-send-telemetry-node.md) Quick Start. U hebt ook de IoT hub-connection string nodig die u eerder hebt gekopieerd in [de IOT hub-Connection String ophalen](#get-the-iot-hub-connection-string).
+
+1. Maak een lege map met de naam **sendcloudtodevicemessage**. Maak in de map **sendcloudtodevicemessage** een package. JSON-bestand met de volgende opdracht achter de opdracht prompt. Accepteer alle standaardwaarden:
 
     ```shell
     npm init
     ```
 
-2. In het opdrachtprompt in de **sendcloudtodevicemessage** map, voer de volgende opdracht voor het installeren van de **azure-iothub** pakket:
+2. Voer bij de opdracht prompt in de map **sendcloudtodevicemessage** de volgende opdracht uit om het **Azure-iothub-** pakket te installeren:
 
     ```shell
     npm install azure-iothub --save
     ```
 
-3. Maak met een teksteditor een **SendCloudToDeviceMessage.js** -bestand in de **sendcloudtodevicemessage** map.
+3. Maak met een tekst editor een **SendCloudToDeviceMessage. js** -bestand in de map **SendCloudToDeviceMessage** .
 
-4. Voeg de volgende `require` instructies toe aan het begin van de **SendCloudToDeviceMessage.js** bestand:
+4. Voeg de volgende `require` -instructies toe aan het begin van het bestand **SendCloudToDeviceMessage. js** :
 
     ```javascript
     'use strict';
@@ -112,7 +118,7 @@ In deze sectie maakt maken u een Node.js-consoletoepassing die cloud-naar-appara
     var Message = require('azure-iot-common').Message;
     ```
 
-5. Voeg de volgende code aan **SendCloudToDeviceMessage.js** bestand. Vervang de waarde '{iot hub connection string}'-tijdelijke aanduiding door de IoT Hub-verbindingsreeks voor de hub die u hebt gemaakt in de [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-node.md) Quick Start. Vervang de tijdelijke aanduiding voor '{apparaat-id}' met de apparaat-ID van het apparaat dat u hebt toegevoegd in de [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-node.md) Quick Start:
+5. Voeg de volgende code toe aan het bestand **SendCloudToDeviceMessage. js** . Vervang de tijdelijke aanduidingen ' {IOT hub connection string} ' en ' {apparaat id} ' door de connection string van de IoT-hub en de apparaat-ID die u eerder hebt genoteerd:
 
     ```javascript
     var connectionString = '{iot hub connection string}';
@@ -121,7 +127,7 @@ In deze sectie maakt maken u een Node.js-consoletoepassing die cloud-naar-appara
     var serviceClient = Client.fromConnectionString(connectionString);
     ```
 
-6. Voeg de volgende functie als u wilt afdrukken van resultaten van de bewerking naar de console:
+6. Voeg de volgende functie toe om de resultaten van de bewerking af te drukken naar de-console:
 
     ```javascript
     function printResultFor(op) {
@@ -132,7 +138,7 @@ In deze sectie maakt maken u een Node.js-consoletoepassing die cloud-naar-appara
     }
     ```
 
-7. Voeg de volgende functie als u wilt afdrukken van levering Feedbackberichten naar de console:
+7. Voeg de volgende functie toe om verzend feedback berichten af te drukken naar de-console:
 
     ```javascript
     function receiveFeedback(err, receiver){
@@ -143,7 +149,7 @@ In deze sectie maakt maken u een Node.js-consoletoepassing die cloud-naar-appara
     }
     ```
 
-8. Voeg de volgende code om een bericht verzenden naar uw apparaat en de verwerking van het Feedbackbericht wanneer het apparaat het cloud-naar-apparaat bericht erkent:
+8. Voeg de volgende code toe om een bericht te verzenden naar uw apparaat en het feedback bericht af te handelen wanneer het apparaat het Cloud-naar-apparaat-bericht bevestigt:
 
     ```javascript
     serviceClient.open(function (err) {
@@ -161,36 +167,36 @@ In deze sectie maakt maken u een Node.js-consoletoepassing die cloud-naar-appara
     });
     ```
 
-9. Opslaan en sluiten **SendCloudToDeviceMessage.js** bestand.
+9. Sla het bestand **SendCloudToDeviceMessage. js** op en sluit het.
 
 ## <a name="run-the-applications"></a>De toepassingen uitvoeren
 
 U kunt nu de toepassingen gaan uitvoeren.
 
-1. Bij de opdrachtprompt in de **simulateddevice** map, voer de volgende opdracht voor het verzenden van telemetrie naar IoT Hub en om te luisteren naar berichten van cloud-naar-apparaat:
+1. Voer bij de opdracht prompt in de map **simulateddevice** de volgende opdracht uit om telemetrie te verzenden naar IOT hub en om te Luis teren naar Cloud-naar-apparaat-berichten:
 
     ```shell
     node SimulatedDevice.js
     ```
 
-    ![De gesimuleerde apparaat-app uitvoeren](./media/iot-hub-node-node-c2d/receivec2d.png)
+    ![De app gesimuleerde apparaten uitvoeren](./media/iot-hub-node-node-c2d/receivec2d.png)
 
-2. Bij een opdrachtprompt in de **sendcloudtodevicemessage** map, voer de volgende opdracht voor het verzenden van een cloud-naar-apparaat-bericht en wacht tot de feedback bevestiging:
+2. Voer bij een opdracht prompt in de map **sendcloudtodevicemessage** de volgende opdracht uit om een Cloud-naar-apparaat-bericht te verzenden en te wachten op de bevestigings feedback:
 
     ```shell
     node SendCloudToDeviceMessage.js
     ```
 
-    ![De app voor het verzenden van de cloud-naar-apparaat-opdracht uitvoeren](./media/iot-hub-node-node-c2d/sendc2d.png)
+    ![Voer de app uit om de Cloud-naar-apparaat-opdracht te verzenden](./media/iot-hub-node-node-c2d/sendc2d.png)
 
    > [!NOTE]
-   > Voor het gemak wordt in deze zelfstudie niet geïmplementeerd voor een beleid voor opnieuw proberen. Bij de productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals aangegeven in het artikel implementeren [afhandeling van tijdelijke fouten](/azure/architecture/best-practices/transient-faults).
+   > Voor het gemak implementeert deze zelf studie geen beleid voor opnieuw proberen. In productie code moet u beleid voor opnieuw proberen implementeren (zoals exponentiële uitstel), zoals wordt voorgesteld in het artikel, [tijdelijke fout afhandeling](/azure/architecture/best-practices/transient-faults).
    >
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u cloud-naar-apparaat-berichten verzenden en ontvangen.
+In deze zelf studie hebt u geleerd hoe u Cloud-naar-apparaat-berichten kunt verzenden en ontvangen.
 
-Zie voor voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT-Hub [Azure IoT Remote Monitoring solution accelerator](https://azure.microsoft.com/documentation/suites/iot-suite/).
+Voor voor beelden van complete end-to-end-oplossingen die gebruikmaken van IoT Hub, raadpleegt u de [Azure IOT-oplossing voor externe controle](https://azure.microsoft.com/documentation/suites/iot-suite/).
 
-Zie voor meer informatie over het ontwikkelen van oplossingen met IoT Hub, de [Ontwikkelaarshandleiding voor IoT Hub](iot-hub-devguide.md).
+Raadpleeg de [IOT hub ontwikkelaars handleiding](iot-hub-devguide.md)voor meer informatie over het ontwikkelen van oplossingen met IOT hub.

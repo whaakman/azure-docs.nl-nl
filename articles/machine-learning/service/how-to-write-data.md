@@ -1,5 +1,5 @@
 ---
-title: 'Schrijven: dataprep Python-SDK'
+title: 'Schrijven: gegevens prep python SDK'
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over het schrijven van gegevens met Azure Machine Learning Data Prep SDK. U kunt schrijven van gegevens op elk gewenst moment in een gegevensstroom en bestanden in elk van onze ondersteunde locaties (lokale bestandssysteem, Azure Blob Storage en Azure Data Lake Storage).
 services: machine-learning
@@ -12,20 +12,20 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6206ad1a7356221bf94134e5d293c27d778cc187
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6753be5613b10b64936cddaafbb9859aad837b02
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752867"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358640"
 ---
-# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Schrijven en configureren van gegevens met de Azure Machine Learning Data Prep SDK
+# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Gegevens schrijven en configureren met de Azure Machine Learning data prep SDK
 
-In dit artikel leert u verschillende methoden voor het schrijven van gegevens met behulp van de [Azure Machine Learning Data Prep Python SDK](https://aka.ms/data-prep-sdk) en het configureren van die gegevens voor experimenteren met de [Azure Machine Learning-SDK voor Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Uitgevoerde gegevens kunnen op elk gewenst moment in een gegevensstroom worden geschreven. Schrijfbewerkingen worden toegevoegd als stappen om de resulterende gegevensstroom en deze stappen worden uitgevoerd telkens wanneer de gegevensstroom wordt uitgevoerd. Gegevens worden naar meerdere partitiebestanden naar parallelle schrijfbewerkingen geschreven.
+In dit artikel leert u verschillende methoden voor het schrijven van gegevens met behulp van de [Azure machine learning data prep PYTHON SDK](https://aka.ms/data-prep-sdk) en hoe u die gegevens kunt configureren voor experimenten met de [Azure machine learning SDK voor python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Uitvoer gegevens kunnen op elk punt in een gegevensstroom worden geschreven. Schrijf bewerkingen worden toegevoegd als stappen voor de resulterende gegevens stroom en deze stappen worden uitgevoerd telkens wanneer de gegevens stroom wordt uitgevoerd. Gegevens worden naar meerdere partitiebestanden naar parallelle schrijfbewerkingen geschreven.
 
 > [!Important]
-> Als u een nieuwe oplossing bouwt, kunt u de [Azure Machine Learning gegevenssets](how-to-explore-prepare-data.md) (preview) uw gegevens, een momentopname van de gegevens transformeren en opslaan van definities van de gegevensset is samengesteld. Gegevenssets is de volgende versie van de SDK biedt uitgebreide functionaliteit voor het beheren van gegevenssets in AI-oplossingen voor gegevensvoorbereiding.
-> Als u de `azureml-dataprep` pakket maken van een gegevensstroom met uw transformaties in plaats van de `azureml-datasets` pakket voor het maken van een gegevensset, kunt u zich niet voor later gebruik van momentopnamen of versioned gegevenssets.
+> Als u een nieuwe oplossing bouwt, probeert u de [Azure machine learning gegevens sets](how-to-explore-prepare-data.md) (preview) om uw gegevens te transformeren, momentopname gegevens op te slaan en gegevensset-definities op basis van een archief te bewaren. Gegevens sets is de volgende versie van de data prep SDK, die uitgebreide functionaliteit biedt voor het beheren van gegevens sets in AI-oplossingen.
+> Als u het `azureml-dataprep` pakket gebruikt om een gegevensstroom te maken met uw trans formaties in plaats `azureml-datasets` van het pakket te gebruiken om een gegevensset te maken, kunt u later geen moment opnamen of versie gegevens sets gebruiken.
 
 Aangezien er geen beperkingen voor het aantal schrijven stappen er zijn in een pijplijn, kunt u eenvoudig aanvullende schrijven stappen voor het ophalen van tussenliggende resultaten voor het oplossen van problemen of voor andere pijplijnen toevoegen.
 
@@ -37,7 +37,7 @@ De volgende indelingen worden ondersteund
 -   Bestanden met scheidingstekens (CSV, TSV, enz.)
 -   Parquet-bestanden
 
-Met de Azure Machine Learning Data Prep Python SDK, kunt u gegevens te schrijven:
+Met behulp van de Azure Machine Learning data prep python SDK kunt u gegevens schrijven naar:
 + een lokaal bestandssysteem
 + Azure Blob Storage
 + Azure Data Lake Storage
@@ -52,7 +52,7 @@ Een sentinel-bestand met de naam geslaagd is voor uw gemak hebt gegenereerd als 
 
 ## <a name="example-write-code"></a>Voorbeeld schrijven van code
 
-In dit voorbeeld beginnen door het laden van gegevens in een gegevens-stroom via `auto_read_file()`. U deze gegevens met verschillende indelingen opnieuw gebruiken.
+Voor dit voor beeld begint u met het laden van gegevens in een `auto_read_file()`gegevens stroom met behulp van. U deze gegevens met verschillende indelingen opnieuw gebruiken.
 
 ```python
 import azureml.dataprep as dprep
@@ -73,10 +73,10 @@ Voorbeelduitvoer:
 
 ### <a name="delimited-file-example"></a>Voorbeeld van een bestand met scheidingstekens
 
-De volgende code gebruikt de [ `write_to_csv()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-csv-directory-path--datadestination--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) functie voor het schrijven van gegevens naar een bestand met scheidingstekens.
+De volgende code gebruikt de [`write_to_csv()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-csv-directory-path--datadestination--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) functie om gegevens te schrijven naar een bestand met scheidings tekens.
 
 ```python
-# Create a new data flow using `write_to_csv` 
+# Create a new data flow using `write_to_csv`
 write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'))
 
 # Run the data flow to begin the write operation.
@@ -101,7 +101,7 @@ In de uitvoer van de voorgaande weergegeven verschillende fouten in de numerieke
 Parameters als onderdeel van uw schrijven aanroepen en geef een tekenreeks die moet worden gebruikt voor null-waarden toevoegen.
 
 ```python
-write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'), 
+write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'),
                          error='BadData',
                          na='NA')
 write_t.run_local()
@@ -121,11 +121,11 @@ De bovenstaande code wordt deze uitvoer gegenereerd:
 
 ### <a name="parquet-file-example"></a>Voorbeeld van een parquet
 
-Vergelijkbaar met `write_to_csv()`, wordt de [ `write_to_parquet()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-parquet-file-path--typing-union--datadestination--nonetype----none--directory-path--typing-union--datadestination--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) functie geeft als resultaat een nieuwe gegevensstroom met een schrijfbewerking Parquet stap die wordt uitgevoerd wanneer de gegevensstroom wordt uitgevoerd.
+[`write_to_parquet()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-parquet-file-path--typing-union--datadestination--nonetype----none--directory-path--typing-union--datadestination--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) Vergelijkbaar met `write_to_csv()`, retourneert de functie een nieuwe gegevens stroom met een schrijf Parquet-stap die wordt uitgevoerd wanneer de gegevens stroom wordt uitgevoerd.
 
 ```python
 write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./test_parquet_out/'),
-error='MiscreantData')
+                                     error='MiscreantData')
 ```
 
 De gegevensstroom voor het starten van de write-bewerking uitvoeren.
@@ -147,11 +147,11 @@ De bovenstaande code wordt deze uitvoer gegenereerd:
 |3| 10013.0 | 99999.0 | MiscreantData | NO| NO| |   MiscreantData|    MiscreantData|    MiscreantData|
 |4| 10014.0 | 99999.0 | MiscreantData | NO| NO| ENSO|   59783.0|    5350.0| 500.0|
 
-## <a name="configure-data-for-automated-machine-learning-training"></a>Configureren van gegevens voor geautomatiseerde machine learning-cursussen
+## <a name="configure-data-for-automated-machine-learning-training"></a>Gegevens configureren voor automatische machine learning training
 
-Doorgeven van het gegevensbestand nieuw geschreven in een [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) object ter voorbereiding op geautomatiseerde machine learning-cursussen. 
+Geef uw zojuist geschreven gegevens bestand door aan [`AutoMLConfig`](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) een object ter voor bereiding op automatische machine learning training. 
 
-Het volgende codevoorbeeld ziet u hoe u uw gegevensstroom converteren naar een Pandas dataframe en deze vervolgens te splitsen in trainings- en testset gegevenssets voor geautomatiseerde machine learning-cursussen.
+In het volgende code voorbeeld ziet u hoe u uw gegevens stroom kunt converteren naar een Panda data frame en deze vervolgens splitsen in trainings-en test sets voor automatische machine learning training.
 
 ```Python
 from azureml.train.automl import AutoMLConfig
@@ -180,7 +180,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ```
 
-Als u niet alle tussenliggende stappen voor gegevensvoorbereiding, zoals in het voorgaande voorbeeld hoeven, kunt u uw gegevensstroom rechtstreeks in doorgeven `AutoMLConfig`.
+Als u geen tussenliggende gegevens voorbereidings stappen nodig hebt, zoals in het voor gaande voor beeld, kunt u uw `AutoMLConfig`gegevens stroom rechtstreeks door geven naar.
 
 ```Python
 automated_ml_config = AutoMLConfig(task = 'regression', 
@@ -193,5 +193,5 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie de SDK [overzicht](https://aka.ms/data-prep-sdk) voor ontwerppatronen en voorbeelden van het gebruik 
-* Zie de geautomatiseerde machine learning [zelfstudie](tutorial-auto-train-models.md) voor een voorbeeld van een regressie model
+* Zie het [overzicht](https://aka.ms/data-prep-sdk) van de SDK voor ontwerp patronen en gebruiks voorbeelden 
+* Raadpleeg de [zelf studie](tutorial-auto-train-models.md) geautomatiseerde machine learning voor een regressie model-voor beeld

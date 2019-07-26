@@ -1,72 +1,66 @@
 ---
-title: Een Azure-Cloud-Service controleren | Microsoft Docs
-description: Hierin wordt beschreven wat de bewaking van een Azure Cloud Service omvat en aantal van uw opties zijn.
+title: Een Azure-Cloud service bewaken | Microsoft Docs
+description: Hierin wordt beschreven welke bewaking een Azure-Cloud service omvat en wat uw opties zijn.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: ''
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: jeconnoc
-ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: ac0ea7557774f0e59cb6a6eca1fc739592ab971d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61432893"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359110"
 ---
-# <a name="introduction-to-cloud-service-monitoring"></a>Inleiding tot Cloudservice controleren
+# <a name="introduction-to-cloud-service-monitoring"></a>Inleiding tot Cloud service monitoring
 
-U kunt de van de belangrijkste metrische prestatiegegevens voor elke cloudservice bewaken. Elke cloudservicerol minimale gegevens worden verzameld: CPU-gebruik, netwerkgebruik en schijfgebruik. Als de service in de cloud heeft de `Microsoft.Azure.Diagnostics` extensie toegepast op een rol die rol kan extra punten van de gegevens worden verzameld. In dit artikel bevat een inleiding tot Azure Diagnostics voor Cloud Services.
+U kunt belang rijke prestatie gegevens voor elke Cloud service bewaken. Elke Cloud service functie verzamelt minimale gegevens: CPU-gebruik, netwerk gebruik en schijf gebruik. Als de Cloud service de `Microsoft.Azure.Diagnostics` uitbrei ding op een rol heeft toegepast, kan die rol aanvullende gegevens punten verzamelen. Dit artikel bevat een inleiding tot Azure Diagnostics voor Cloud Services.
 
-Met eenvoudige controle, gegevens van prestatiemeteritems van instanties van de voorbeelden worden gemaakt en die worden verzameld met 3 minuten durende intervallen. Deze eenvoudige bewaking gegevens worden niet opgeslagen in uw storage-account en is zonder extra kosten aan gekoppeld.
+Met de basis controle worden gegevens van de prestatie meter items uit rolinstanties gesampled en verzameld met een interval van 3 minuten. Deze basis bewakings gegevens worden niet opgeslagen in uw opslag account en er zijn geen extra kosten aan verbonden.
 
-Aanvullende metrische gegevens zijn met geavanceerde bewaking voorbeelden worden gemaakt en die worden verzameld met intervallen van vijf minuten, 1 uur en 12 uur. De samengevoegde gegevens worden opgeslagen in een storage-account in tabellen, en na 10 dagen wordt verwijderd. Het opslagaccount dat wordt gebruikt is door de rol; geconfigureerd u kunt verschillende opslagaccounts gebruiken voor verschillende rollen. Dit is geconfigureerd met een verbindingsreeks in de [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) en [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) bestanden.
+Met geavanceerde controle worden extra metrische gegevens bemonsterd en verzameld met intervallen van vijf minuten, 1 uur en 12 uur. De geaggregeerde gegevens worden opgeslagen in een opslag account, in tabellen, en worden na 10 dagen verwijderd. Het gebruikte opslag account wordt geconfigureerd door de rol; u kunt verschillende opslag accounts voor verschillende rollen gebruiken. Dit is geconfigureerd met een connection string in de [. csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) -en [. cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) -bestanden.
 
 
 ## <a name="basic-monitoring"></a>Basiscontrole
 
-Zoals vermeld in de inleiding, verzamelt een cloudservice automatisch basic bewakingsgegevens van de virtuele machine van de host. Deze gegevens omvatten CPU-percentage, in/uit-netwerk en schijf lezen/schrijven. De verzamelde gegevens wordt automatisch weergegeven op de pagina overzicht en metrische gegevens van de cloudservice in Azure portal. 
+Zoals vermeld in de inleiding, verzamelt een Cloud service automatisch elementaire bewakings gegevens van de virtuele machine van de host. Deze gegevens omvatten het CPU-percentage, het netwerk in/uit en de lees-en schrijf bewerking van de schijf. De verzamelde bewakings gegevens worden automatisch weer gegeven op het overzicht en de metrische pagina's van de Cloud service in de Azure Portal. 
 
-Basiscontrole, hoeft niet een storage-account. 
+Voor basis bewaking is geen opslag account vereist. 
 
-![tegels voor servicecontrole over de cloud](media/cloud-services-how-to-monitor/basic-tiles.png)
+![basis tegels voor Cloud Service bewaking](media/cloud-services-how-to-monitor/basic-tiles.png)
 
 ## <a name="advanced-monitoring"></a>Geavanceerde controle
 
-Geavanceerde controle omvat het gebruik van de **Azure Diagnostics** -extensie (en eventueel de Application Insights-SDK) van de rol die u wilt bewaken. De diagnostics-extensie gebruikmaakt van een configuratiebestand (per rol) met de naam **diagnostics.wadcfgx** het configureren van de metrische gegevens bewaakt. De diagnostische Azure-extensie verzamelt en gegevens worden opgeslagen in een Azure Storage-account. Deze instellingen zijn geconfigureerd in de **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef), en [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) bestanden. Dit betekent dat er extra kosten die gepaard gaan met geavanceerde controle.
+Geavanceerde bewaking vereist het gebruik van de **Azure Diagnostics** extensie (en eventueel de Application Insights SDK) voor de rol die u wilt bewaken. De diagnostische uitbrei ding maakt gebruik van een configuratie bestand (per rol) met de naam diagnostische gegevens **. wadcfgx** om de bewaakte metrische gegevens van de diagnostische functies te configureren. Met de diagnostische extensie van Azure worden gegevens verzameld en opgeslagen in een Azure Storage-account. Deze instellingen worden geconfigureerd in de **. wadcfgx**-, [. csdef](cloud-services-model-and-package.md#servicedefinitioncsdef)-en [. cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) -bestanden. Dit betekent dat er extra kosten zijn gekoppeld aan geavanceerde bewaking.
 
-Omdat elke rol is gemaakt, wordt de Azure Diagnostics-extensie in Visual Studio toegevoegd aan het. Deze extensie voor diagnostische gegevens kan de volgende soorten informatie verzamelen:
+Terwijl elke rol wordt gemaakt, voegt Visual Studio de Azure Diagnostics-extensie toe aan het bestand. Deze uitbrei ding van diagnostische gegevens kan de volgende typen informatie verzamelen:
 
-* Aangepaste prestatiemeteritems
+* Aangepaste prestatie meter items
 * Toepassingslogboeken
 * Windows-gebeurtenislogboeken
-* De bron van de .NET-gebeurtenis
+* .NET-gebeurtenis bron
 * IIS-logboeken
 * ETW op basis van manifest
 * Crashdumps
-* Klant-foutenlogboeken
+* Fouten logboeken van klanten
 
 > [!IMPORTANT]
-> Hoewel al deze gegevens worden samengevoegd in de storage-account, de portal biedt **niet** bieden een systeemeigen manier om de gegevens van grafiek. Het is raadzaam dat u een andere service, zoals Application Insights in uw toepassing integreren.
+> Hoewel al deze gegevens worden geaggregeerd naar het opslag account, biedt de portal **geen** systeem eigen manier om de gegevens in een grafiek te plaatsen. Het is sterk aan te raden om een andere service, zoals Application Insights, te integreren in uw toepassing.
 
-## <a name="setup-diagnostics-extension"></a>Setup-extensie voor diagnostische gegevens
+## <a name="setup-diagnostics-extension"></a>Uitbrei ding voor installatie van diagnostische gegevens
 
-Eerste, als u geen een **klassieke** storage-account, [maakt u er een](../storage/common/storage-quickstart-create-account.md). Zorg ervoor dat het opslagaccount is gemaakt met de **klassieke implementatiemodel** opgegeven.
+Als u geen **klassiek** opslag account hebt, [maakt u er eerst een](../storage/common/storage-quickstart-create-account.md). Zorg ervoor dat het opslag account is gemaakt met het **klassieke implementatie model** dat is opgegeven.
 
-Vervolgens gaat u naar de **opslagaccount (klassiek)** resource. Selecteer **instellingen** > **toegangssleutels** en kopieer de **primaire verbindingsreeks** waarde. In dat geval moet u deze waarde in voor de cloudservice. 
+Ga vervolgens naar de resource van het **opslag account (klassiek)** . Selecteer **instellingen** > **toegangs sleutels** en kopieer de **primaire Connection String** waarde. U hebt deze waarde nodig voor de Cloud service. 
 
-Er zijn twee configuratiebestanden voor geavanceerde diagnostische gegevens worden ingeschakeld, moet u **ServiceDefinition.csdef** en **ServiceConfiguration.cscfg**.
+Er zijn twee configuratie bestanden die u moet wijzigen om geavanceerde diagnoses in te scha kelen: **ServiceDefinition. csdef** en **ServiceConfiguration. cscfg**.
 
 ### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
-In de **ServiceDefinition.csdef** bestand, Voeg een nieuwe instelling `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` voor elke rol die gebruikmaakt van geavanceerde diagnostische gegevens. Wanneer u een nieuw project maakt, Visual Studio deze waarde toegevoegd aan het bestand. Als deze ontbreekt, kunt u deze nu toevoegen. 
+Voeg in het bestand **ServiceDefinition. csdef** een nieuwe instelling toe met `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` de naam voor elke rol die gebruikmaakt van geavanceerde diagnoses. Visual Studio voegt deze waarde toe aan het bestand wanneer u een nieuw project maakt. Als de app ontbreekt, kunt u deze nu toevoegen. 
 
 ```xml
 <ServiceDefinition name="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -75,9 +69,9 @@ In de **ServiceDefinition.csdef** bestand, Voeg een nieuwe instelling `Microsoft
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
-Hiermee definieert u een nieuwe instelling die moet worden toegevoegd voor elke **ServiceConfiguration.cscfg** bestand. 
+Hiermee definieert u een nieuwe instelling die moet worden toegevoegd aan elk **ServiceConfiguration. cscfg** -bestand. 
 
-Waarschijnlijk hebt u twee **.cscfg** bestanden, één met de naam **ServiceConfiguration.cloud.cscfg** voor het implementeren op Azure en één met de naam **ServiceConfiguration.local.cscfg** die wordt gebruikt voor lokale implementaties in de geëmuleerde omgeving. Open en wijzig elke **.cscfg** bestand. Voeg een instelling met de naam `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Stel de waarde voor de **primaire verbindingsreeks** van het klassieke storage-account. Als u gebruiken van de lokale opslag op uw ontwikkelcomputer wilt, gebruikt u `UseDevelopmentStorage=true`.
+Waarschijnlijk hebt u twee **. cscfg** -bestanden, een met de naam **ServiceConfiguration. Cloud. cscfg** voor de implementatie naar Azure, en één met de naam **ServiceConfiguration. local. cscfg** die wordt gebruikt voor lokale implementaties in de geëmuleerde omgeving. Open en wijzig elk **cscfg** -bestand. Voeg een instelling toe `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`met de naam. Stel de waarde in op de **primaire Connection String** van het klassieke opslag account. Als u de lokale opslag op uw ontwikkel computer wilt gebruiken, gebruikt `UseDevelopmentStorage=true`u.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
@@ -93,13 +87,13 @@ Waarschijnlijk hebt u twee **.cscfg** bestanden, één met de naam **ServiceConf
 
 ## <a name="use-application-insights"></a>Application Insights gebruiken
 
-Wanneer u de Cloud-Service van Visual Studio publiceert, krijgt u de optie voor het verzenden van diagnostische gegevens naar Application Insights. U kunt maken van de Application Insights-Azure-resource op dat moment of de gegevens verzenden naar een bestaande Azure-resource. Uw cloudservice kan worden bewaakt door Application Insights voor beschikbaarheid, prestaties, fouten en gebruik. Aangepaste grafieken kunnen worden toegevoegd aan Application Insights, zodat u de gegevens kunt zien die het meest belangrijk is. Gegevens van exemplaar van rol kunnen worden verzameld met behulp van de Application Insights SDK in uw cloud service-project. Zie voor meer informatie over hoe u Application Insights integreert [Application Insights met Cloud Services](../azure-monitor/app/cloudservices.md).
+Wanneer u de Cloud service vanuit Visual Studio publiceert, krijgt u de optie om de diagnostische gegevens naar Application Insights te verzenden. U kunt de Application Insights Azure-resource op dat moment maken of de gegevens naar een bestaande Azure-resource verzenden. Uw Cloud service kan worden bewaakt door Application Insights voor Beschik baarheid, prestaties, fouten en gebruik. Aangepaste grafieken kunnen worden toegevoegd aan Application Insights zodat u de gegevens kunt zien die het meest van belang zijn. Gegevens van rolinstantie kunnen worden verzameld met behulp van de Application Insights SDK in uw Cloud service project. Zie [Application Insights met Cloud Services](../azure-monitor/app/cloudservices.md)voor meer informatie over het integreren van Application Insights.
 
-Houd er rekening mee dat wanneer u Application Insights gebruiken kunt om weer te geven van de prestatiemeteritems (en de andere instellingen) u hebt opgegeven via de Windows Azure Diagnostics-extensie, u alleen een rijkere ervaring krijgen door de integratie van Application Insights SDK in uw Worker en webservice-rollen.
+Hoewel u Application Insights kunt gebruiken om de prestatie meter items (en de andere instellingen) weer te geven die u via de Windows Azure Diagnostics-extensie hebt opgegeven, krijgt u een uitgebreidere ervaring door de Application Insights SDK te integreren in uw werk nemer-en webrollen.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Meer informatie over Application Insights met Cloudservices](../azure-monitor/app/cloudservices.md)
-- [Instellen van prestatiemeteritems](diagnostics-performance-counters.md)
+- [Meer informatie over Application Insights met Cloud Services](../azure-monitor/app/cloudservices.md)
+- [Prestatie meter items instellen](diagnostics-performance-counters.md)
 

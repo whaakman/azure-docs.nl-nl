@@ -1,7 +1,6 @@
 ---
 title: Waarvan kan Azure Backup Server back-ups maken?
 description: In dit artikel wordt een ondersteunings matrix weer gegeven met alle werk belastingen, gegevens typen en installaties die Azure Backup Server beveiligt.
-services: backup
 author: rayne-wiselman
 ms.service: backup
 keywords: ''
@@ -9,12 +8,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: ad6d1b067e396b8f46578484d3c960372e51176c
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 2e8004b07542efed3ddc2b5a390cfb12fd48cc1b
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234761"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465065"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Beveiligingsmatrix voor Azure Backup Server
 
@@ -43,10 +42,10 @@ In dit artikel vindt u een overzicht van de verschillende servers en workloads d
 |Servers (32-bits en 64-bits)|Windows Server 2008 SP2|Fysieke server<br /><br />On-premises virtuele Hyper-V-machine<br /> <br /> Azure Stack|N|N|Volume, share, map, bestand, systeem status/bare metal|
 |Servers (32-bits en 64-bits)|Windows Server 2008 SP2|Virtuele Windows-machine in VMWare (beveiligt workloads die worden uitgevoerd in de virtuele Windows-machine in VMWare)<br /> <br /> Azure Stack|J|J|Volume, share, map, bestand, systeem status/bare metal|
 |Servers (32-bits en 64-bits)|Windows Storage Server 2008|Fysieke server<br /><br />On-premises virtuele Hyper-V-machine<br /> <br /> Azure Stack|J|J|Volume, share, map, bestand, systeem status/bare metal|
-|SQL Server|SQL Server 2017|Fysieke server <br /><br /> On-premises virtuele Hyper-V-machine <br /> <br /> virtuele Azure-machine <br /><br /> Virtuele Windows-machine in VMWare (beveiligt workloads die worden uitgevoerd in de virtuele Windows-machine in VMWare)<br /> <br /> Azure Stack|J|N|Alle implementatie scenario's: data base|
-|SQL Server|SQL Server 2016 SP2|Fysieke server <br /><br /> On-premises virtuele Hyper-V-machine <br /> <br /> virtuele Azure-machine <br /><br /> Virtuele Windows-machine in VMWare (beveiligt workloads die worden uitgevoerd in de virtuele Windows-machine in VMWare)<br /> <br /> Azure Stack|J|J|Alle implementatie scenario's: data base|
-|SQL Server|SQL Server 2016 SP1|Fysieke server <br /><br /> On-premises virtuele Hyper-V-machine <br /> <br /> virtuele Azure-machine <br /><br /> Virtuele Windows-machine in VMWare (beveiligt workloads die worden uitgevoerd in de virtuele Windows-machine in VMWare)<br /> <br /> Azure Stack|J|J|Alle implementatie scenario's: data base|
-|SQL Server|SQL Server 2016|Fysieke server <br /><br /> On-premises virtuele Hyper-V-machine <br /> <br /> virtuele Azure-machine <br /><br /> Virtuele Windows-machine in VMWare (beveiligt workloads die worden uitgevoerd in de virtuele Windows-machine in VMWare)<br /> <br /> Azure Stack|J|J |Alle implementatie scenario's: data base|
+|SQL Server|SQL Server 2017|Fysieke server <br /><br /> On-premises virtuele Hyper-V-machine <br /> <br /> Virtuele Azure-machine <br /><br /> Virtuele Windows-machine in VMWare (beveiligt workloads die worden uitgevoerd in de virtuele Windows-machine in VMWare)<br /> <br /> Azure Stack|J|N|Alle implementatie scenario's: data base|
+|SQL Server|SQL Server 2016 SP2|Fysieke server <br /><br /> On-premises virtuele Hyper-V-machine <br /> <br /> Virtuele Azure-machine <br /><br /> Virtuele Windows-machine in VMWare (beveiligt workloads die worden uitgevoerd in de virtuele Windows-machine in VMWare)<br /> <br /> Azure Stack|J|J|Alle implementatie scenario's: data base|
+|SQL Server|SQL Server 2016 SP1|Fysieke server <br /><br /> On-premises virtuele Hyper-V-machine <br /> <br /> Virtuele Azure-machine <br /><br /> Virtuele Windows-machine in VMWare (beveiligt workloads die worden uitgevoerd in de virtuele Windows-machine in VMWare)<br /> <br /> Azure Stack|J|J|Alle implementatie scenario's: data base|
+|SQL Server|SQL Server 2016|Fysieke server <br /><br /> On-premises virtuele Hyper-V-machine <br /> <br /> Virtuele Azure-machine <br /><br /> Virtuele Windows-machine in VMWare (beveiligt workloads die worden uitgevoerd in de virtuele Windows-machine in VMWare)<br /> <br /> Azure Stack|J|J |Alle implementatie scenario's: data base|
 |SQL Server|SQL Server 2014|Virtuele Azure-machine (wanneer de werk belasting wordt uitgevoerd als virtuele machine van Azure)<br /> <br /> Azure Stack|J|J|Alle implementatie scenario's: data base|
 |SQL Server|SQL Server 2014|Virtuele Windows-machine in VMWare (beveiligt workloads die worden uitgevoerd in de virtuele Windows-machine in VMWare)<br /> <br /> Azure Stack|J|J|Alle implementatie scenario's: data base|
 |SQL Server|SQL Server 2012 met SP2|Fysieke server<br /><br />On-premises virtuele Hyper-V-machine<br /> <br /> Azure Stack|J|J|Alle implementatie scenario's: data base|

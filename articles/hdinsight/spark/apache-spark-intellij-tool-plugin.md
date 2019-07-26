@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: a2b6cdf9fbdb27372b089a29c1a3c5d0f1c629c9
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 32f5ff2ebc9d938b1936d7f2929af83d552a543d
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442109"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489866"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Zelfstudie: Azure-toolkit voor IntelliJ gebruiken om Apache Spark-toepassingen voor een HDInsight-cluster te maken
 
@@ -171,7 +171,7 @@ De gebruiker kan [zich aanmelden bij het Azure-abonnement](#sign-in-to-your-azur
 
 ### <a name="link-a-cluster"></a>Een cluster koppelen
 
-U kunt een HDInsight-cluster koppelen met behulp van de Apache Ambari Managed username. Op dezelfde manier kunt u voor een HDInsight-cluster dat is gekoppeld aan een domein een koppeling maken met behulp user1@contoso.comvan het domein en de gebruikers naam, zoals. U kunt ook een livy-service cluster koppelen.
+U kunt een HDInsight-cluster koppelen met behulp van de Apache Ambari Managed username. Op dezelfde manier kunt u voor een HDInsight-cluster dat is gekoppeld aan een domein een koppeling maken met behulp `user1@contoso.com`van het domein en de gebruikers naam, zoals. U kunt ook een livy-service cluster koppelen.
 
 1. Ga in de menu balk naar het**hulp programma Windows** > **Azure Verkenner** **bekijken** > .
 
@@ -187,7 +187,7 @@ U kunt een HDInsight-cluster koppelen met behulp van de Apache Ambari Managed us
         |----|----|
         |Resource type voor koppeling|Selecteer **HDInsight-cluster** in de vervolg keuzelijst.|
         |Cluster naam/URL| Voer de cluster naam in.|
-        |Authenticatietype| Als **basis verificatie** laten staan|
+        |Verificatietype| Als **basis verificatie** laten staan|
         |Naam van gebruiker| Voer de gebruikers naam van het cluster in, de standaard instelling is admin.|
         |Wachtwoord| Voer het wacht woord in voor de gebruikers naam.|
     
@@ -201,7 +201,7 @@ U kunt een HDInsight-cluster koppelen met behulp van de Apache Ambari Managed us
         |Livy-eind punt| Livy-eind punt invoeren|
         |Clusternaam| Voer de cluster naam in.|
         |Eind punt van garen|Optioneel.|
-        |Authenticatietype| Als **basis verificatie** laten staan|
+        |Verificatietype| Als **basis verificatie** laten staan|
         |Naam van gebruiker| Voer de gebruikers naam van het cluster in, de standaard instelling is admin.|
         |Wachtwoord| Voer het wacht woord in voor de gebruikers naam.|
 
@@ -227,7 +227,7 @@ Nadat u een scala-toepassing hebt gemaakt, kunt u deze verzenden naar het cluste
 
 3. Geef in het venster **configuratie bewerken** de volgende waarden op en selecteer **OK**:
 
-    |Eigenschap |Waarde |
+    |Eigenschap |Value |
     |----|----|
     |Spark-clusters (alleen Linux)|Selecteer het HDInsight Spark-cluster waarop u de toepassing wilt uitvoeren.|
     |Een artefact selecteren om in te dienen|De standaard instelling ongewijzigd.|
@@ -312,7 +312,7 @@ Zorg ervoor dat u tevreden bent over de WINUTILS. EXE-vereiste.
 
 4. Geef de volgende waarden op en selecteer **OK**:
 
-    |Eigenschap |Value |
+    |Eigenschap |Waarde |
     |----|----|
     |Hoofd klasse van taak|De standaard waarde is de hoofd klasse van het geselecteerde bestand. U kunt de klasse wijzigen door het weglatings teken ( **...** ) te selecteren.  en kies een andere klasse.|
     |Omgevingsvariabelen|Zorg ervoor dat de waarde voor HADOOP_HOME juist is.|
@@ -346,7 +346,7 @@ Het wordt alleen ondersteund op IntelliJ 2018,2 en 2018,3.
 
 4. Geef de volgende waarden op en selecteer **OK**:
 
-    |Eigenschap |Waarde |
+    |Eigenschap |Value |
     |----|----|
     |Spark-clusters (alleen Linux)|Selecteer het HDInsight Spark-cluster waarop u de toepassing wilt uitvoeren.|
     |Naam van hoofd klasse|De standaard waarde is de hoofd klasse van het geselecteerde bestand. U kunt de klasse wijzigen door het weglatings teken ( **...** ) te selecteren.  en kies een andere klasse.|

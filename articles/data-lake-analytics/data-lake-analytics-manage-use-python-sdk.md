@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Analytics met behulp van Python beheren
-description: In dit artikel wordt beschreven hoe u Python gebruikt voor het beheren van Data Lake Analytics-accounts, gegevensbronnen, gebruikers en taken.
+title: Azure Data Lake Analytics beheren met python
+description: In dit artikel wordt beschreven hoe u python gebruikt om Data Lake Analytics accounts, gegevens bronnen, gebruikers & taken te beheren.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: matt1883
@@ -9,35 +9,35 @@ ms.reviewer: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 82007c780a0c9ff3bb2e1a50a4826499f9df9c9f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d40658e1510c9ae8a2e3e1f865df7ac95f61abfb
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811704"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68355974"
 ---
-# <a name="manage-azure-data-lake-analytics-using-python"></a>Azure Data Lake Analytics met behulp van Python beheren
+# <a name="manage-azure-data-lake-analytics-using-python"></a>Azure Data Lake Analytics beheren met python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-In dit artikel wordt beschreven hoe u Azure Data Lake Analytics-accounts, gegevensbronnen, gebruikers en taken beheren met behulp van Python.
+In dit artikel wordt beschreven hoe u Azure Data Lake Analytics accounts, gegevens bronnen, gebruikers en taken beheert met behulp van python.
 
-## <a name="supported-python-versions"></a>Ondersteunde versies van Python
+## <a name="supported-python-versions"></a>Ondersteunde python-versies
 
-* Gebruik een 64-bits versie van Python.
-* U kunt de standaard Python-distributie die is gevonden op  **[Python.org downloads](https://www.python.org/downloads/)** . 
-* Veel ontwikkelaars vindt u het gemakkelijk te gebruiken de  **[Anaconda Python-distributie](https://www.anaconda.com/download/)** .  
-* In dit artikel is geschreven met behulp van Python 3.6-versie van de standaard Python-distributie
+* Gebruik een 64-bits versie van python.
+* U kunt de standaard python-distributie gebruiken die wordt gevonden bij **[python.org-Down loads](https://www.python.org/downloads/)** . 
+* Veel ontwikkel aars vinden het handig om de **[Anaconda python-distributie](https://www.anaconda.com/download/)** te gebruiken.  
+* Dit artikel is geschreven met python-versie 3,6 van de Standard python-distributie
 
 ## <a name="install-azure-python-sdk"></a>Azure Python-SDK installeren
 
 Installeer de volgende modules:
 
-* De **azure-mgmt-resource** -module bevat andere Azure-modules voor Active Directory, enzovoort.
-* De **azure-datalake-store** -module bevat de bestandssysteembewerkingen voor Azure Data Lake Store. 
-* De **azure-mgmt-datalake-store** -module bevat de accountbeheerbewerkingen voor Azure Data Lake Store.
-* De **azure-mgmt-datalake-analytics** -module bevat de Azure Data Lake Analytics-bewerkingen. 
+* De module **Azure-beheer-resource** bevat andere Azure-modules voor Active Directory, enzovoort.
+* De **Azure-datalake-Store-** module bevat de bewerkingen van het Azure data Lake Store-bestands systeem. 
+* De **Azure-beheer-datalake-Store-** module bevat de Azure data Lake Store account beheer bewerkingen.
+* De module **Azure--beheer-datalake-Analytics** bevat de Azure data Lake Analytics bewerkingen. 
 
-Eerst, zorg ervoor dat u hebt de meest recente `pip` door het uitvoeren van de volgende opdracht uit:
+Eerst moet u de volgende opdracht uitvoeren `pip` om te controleren of u het meest recente hebt:
 
 ```
 python -m pip install --upgrade pip
@@ -45,7 +45,7 @@ python -m pip install --upgrade pip
 
 Dit document is geschreven met `pip version 9.0.1`.
 
-Gebruik de volgende `pip` opdrachten de modules installeren vanaf de opdrachtregel:
+Gebruik de volgende `pip` opdrachten om de modules te installeren vanuit de commandline:
 
 ```
 pip install azure-mgmt-resource
@@ -54,55 +54,60 @@ pip install azure-mgmt-datalake-store
 pip install azure-mgmt-datalake-analytics
 ```
 
-## <a name="create-a-new-python-script"></a>Maak een nieuwe Python-script
+## <a name="create-a-new-python-script"></a>Een nieuw python-script maken
 
 Plak de volgende code in het script:
 
 ```python
-## Use this only for Azure AD service-to-service authentication
+# Use this only for Azure AD service-to-service authentication
 #from azure.common.credentials import ServicePrincipalCredentials
 
-## Use this only for Azure AD end-user authentication
+# Use this only for Azure AD end-user authentication
 #from azure.common.credentials import UserPassCredentials
 
-## Required for Azure Resource Manager
+# Required for Azure Resource Manager
 from azure.mgmt.resource.resources import ResourceManagementClient
 from azure.mgmt.resource.resources.models import ResourceGroup
 
-## Required for Azure Data Lake Store account management
+# Required for Azure Data Lake Store account management
 from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
 from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-## Required for Azure Data Lake Store filesystem management
+# Required for Azure Data Lake Store filesystem management
 from azure.datalake.store import core, lib, multithread
 
-## Required for Azure Data Lake Analytics account management
+# Required for Azure Data Lake Analytics account management
 from azure.mgmt.datalake.analytics.account import DataLakeAnalyticsAccountManagementClient
 from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeStoreAccountInformation
 
-## Required for Azure Data Lake Analytics job management
+# Required for Azure Data Lake Analytics job management
 from azure.mgmt.datalake.analytics.job import DataLakeAnalyticsJobManagementClient
 from azure.mgmt.datalake.analytics.job.models import JobInformation, JobState, USqlJobProperties
 
-## Required for Azure Data Lake Analytics catalog management
+# Required for Azure Data Lake Analytics catalog management
 from azure.mgmt.datalake.analytics.catalog import DataLakeAnalyticsCatalogManagementClient
 
-## Use these as needed for your application
-import logging, getpass, pprint, uuid, time
+# Use these as needed for your application
+import logging
+import getpass
+import pprint
+import uuid
+import time
 ```
 
-Voer dit script om te controleren dat de modules kunnen worden geïmporteerd.
+Voer dit script uit om te controleren of de modules kunnen worden geïmporteerd.
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
-### <a name="interactive-user-authentication-with-a-pop-up"></a>Interactieve gebruikersverificatie met een pop-upvenster
+### <a name="interactive-user-authentication-with-a-pop-up"></a>Interactieve gebruikers verificatie met een pop-up
 
 Deze methode wordt niet ondersteund.
 
-### <a name="interactive-user-authentication-with-a-device-code"></a>Interactieve gebruikersverificatie met de apparaatcode van een
+### <a name="interactive-user-authentication-with-a-device-code"></a>Interactieve gebruikers verificatie met een apparaatcode
 
 ```python
-user = input('Enter the user to authenticate with that has permission to subscription: ')
+user = input(
+    'Enter the user to authenticate with that has permission to subscription: ')
 password = getpass.getpass()
 credentials = UserPassCredentials(user, password)
 ```
@@ -110,21 +115,22 @@ credentials = UserPassCredentials(user, password)
 ### <a name="noninteractive-authentication-with-spi-and-a-secret"></a>Niet-interactieve verificatie met SPI en een geheim
 
 ```python
-credentials = ServicePrincipalCredentials(client_id = 'FILL-IN-HERE', secret = 'FILL-IN-HERE', tenant = 'FILL-IN-HERE')
+credentials = ServicePrincipalCredentials(
+    client_id='FILL-IN-HERE', secret='FILL-IN-HERE', tenant='FILL-IN-HERE')
 ```
 
 ### <a name="noninteractive-authentication-with-api-and-a-certificate"></a>Niet-interactieve verificatie met API en een certificaat
 
 Deze methode wordt niet ondersteund.
 
-## <a name="common-script-variables"></a>Algemene scriptvariabelen
+## <a name="common-script-variables"></a>Algemene script variabelen
 
-Deze variabelen worden gebruikt in de voorbeelden.
+Deze variabelen worden gebruikt in de voor beelden.
 
 ```python
-subid= '<Azure Subscription ID>'
+subid = '<Azure Subscription ID>'
 rg = '<Azure Resource Group Name>'
-location = '<Location>' # i.e. 'eastus2'
+location = '<Location>'  # i.e. 'eastus2'
 adls = '<Azure Data Lake Store Account Name>'
 adla = '<Azure Data Lake Analytics Account Name>'
 ```
@@ -134,18 +140,20 @@ adla = '<Azure Data Lake Analytics Account Name>'
 ```python
 resourceClient = ResourceManagementClient(credentials, subid)
 adlaAcctClient = DataLakeAnalyticsAccountManagementClient(credentials, subid)
-adlaJobClient = DataLakeAnalyticsJobManagementClient( credentials, 'azuredatalakeanalytics.net')
+adlaJobClient = DataLakeAnalyticsJobManagementClient(
+    credentials, 'azuredatalakeanalytics.net')
 ```
 
 ## <a name="create-an-azure-resource-group"></a>Een Azure-resourcegroep maken
 
 ```python
-armGroupResult = resourceClient.resource_groups.create_or_update( rg, ResourceGroup( location=location ) )
+armGroupResult = resourceClient.resource_groups.create_or_update(
+    rg, ResourceGroup(location=location))
 ```
 
 ## <a name="create-data-lake-analytics-account"></a>Een Data Lake Analytics-account maken
 
-Maak eerst een store-account.
+Maak eerst een opslag account.
 
 ```python
 adlsAcctResult = adlsAcctClient.account.create(
@@ -156,7 +164,7 @@ adlsAcctResult = adlsAcctClient.account.create(
     )
 ).wait()
 ```
-Vervolgens maakt u een ADLA-account dat gebruikmaakt van dat archief.
+Maak vervolgens een ADLA-account dat dat archief gebruikt.
 
 ```python
 adlaAcctResult = adlaAcctClient.account.create(
@@ -198,20 +206,21 @@ jobResult = adlaJobClient.job.create(
 )
 ```
 
-## <a name="wait-for-a-job-to-end"></a>Wachten op een taak te beëindigen
+## <a name="wait-for-a-job-to-end"></a>Wachten tot een taak is beëindigd
 
 ```python
 jobResult = adlaJobClient.job.get(adla, jobId)
 while(jobResult.state != JobState.ended):
-    print('Job is not yet done, waiting for 3 seconds. Current state: ' + jobResult.state.value)
+    print('Job is not yet done, waiting for 3 seconds. Current state: ' +
+          jobResult.state.value)
     time.sleep(3)
     jobResult = adlaJobClient.job.get(adla, jobId)
 
-print ('Job finished with result: ' + jobResult.result.value)
+print('Job finished with result: ' + jobResult.result.value)
 ```
 
-## <a name="list-pipelines-and-recurrences"></a>Lijst met pijplijnen en herhalingen
-Afhankelijk van of uw taken pijplijn of terugkeerpatroon metagegevens die zijn gekoppeld hebben, kunt u pijplijnen en herhalingen weergeven.
+## <a name="list-pipelines-and-recurrences"></a>Pijp lijnen en herhalingen weer geven
+Afhankelijk van of uw taken pijp lijn-of terugkerende meta gegevens hebben, kunt u pijp lijnen en herhalingen weer geven.
 
 ```python
 pipelines = adlaJobClient.pipeline.list(adla)
@@ -223,28 +232,31 @@ for r in recurrences:
     print('Recurrence: ' + r.name + ' ' + r.recurrenceId)
 ```
 
-## <a name="manage-compute-policies"></a>Compute-beleid beheren
+## <a name="manage-compute-policies"></a>Reken beleid beheren
 
-Het object DataLakeAnalyticsAccountManagementClient biedt methoden voor het beheren van de compute-beleidsregels voor een Data Lake Analytics-account.
+Het DataLakeAnalyticsAccountManagementClient-object biedt methoden voor het beheren van het reken beleid voor een Data Lake Analytics-account.
 
-### <a name="list-compute-policies"></a>Lijst met compute-beleid
+### <a name="list-compute-policies"></a>Reken beleid weer geven
 
-De volgende code haalt een lijst met compute-beleidsregels voor een Data Lake Analytics-account.
+Met de volgende code wordt een lijst van reken beleid voor een Data Lake Analytics-account opgehaald.
 
 ```python
 policies = adlaAccountClient.computePolicies.listByAccount(rg, adla)
 for p in policies:
-    print('Name: ' + p.name + 'Type: ' + p.objectType + 'Max AUs / job: ' + p.maxDegreeOfParallelismPerJob + 'Min priority / job: ' + p.minPriorityPerJob)
+    print('Name: ' + p.name + 'Type: ' + p.objectType + 'Max AUs / job: ' +
+          p.maxDegreeOfParallelismPerJob + 'Min priority / job: ' + p.minPriorityPerJob)
 ```
 
-### <a name="create-a-new-compute-policy"></a>Maak een nieuw beleid voor compute
+### <a name="create-a-new-compute-policy"></a>Een nieuw reken beleid maken
 
-De volgende code maakt een nieuw beleid voor compute voor een Data Lake Analytics-account, het maximumaantal AU's beschikbaar stellen voor de opgegeven gebruiker tot 50 en de prioriteit van de minimale job tot 250 tekens.
+Met de volgende code wordt een nieuw reken beleid gemaakt voor een Data Lake Analytics-account, waarbij het maximum aantal van AUs wordt ingesteld op de opgegeven gebruiker tot 50 en de minimale taak prioriteit op 250.
 
 ```python
 userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde"
-newPolicyParams = ComputePolicyCreateOrUpdateParameters(userAadObjectId, "User", 50, 250)
-adlaAccountClient.computePolicies.createOrUpdate(rg, adla, "GaryMcDaniel", newPolicyParams)
+newPolicyParams = ComputePolicyCreateOrUpdateParameters(
+    userAadObjectId, "User", 50, 250)
+adlaAccountClient.computePolicies.createOrUpdate(
+    rg, adla, "GaryMcDaniel", newPolicyParams)
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

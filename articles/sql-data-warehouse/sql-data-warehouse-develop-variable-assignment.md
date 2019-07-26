@@ -1,8 +1,8 @@
 ---
-title: Toewijzen van variabelen in Azure SQL Data Warehouse | Microsoft Docs
-description: Tips voor het toewijzen van T-SQL-variabelen in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+title: Variabelen toewijzen in Azure SQL Data Warehouse | Microsoft Docs
+description: Tips voor het toewijzen van T-SQL-variabelen in Azure SQL Data Warehouse voor het ontwikkelen van oplossingen.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,27 +10,27 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 62c4273a02e02aff268a96e1b13483088ba33f87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c943478f3904aac17a572f012f2b2b69ffa2223
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861684"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479550"
 ---
-# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Toewijzen van variabelen in Azure SQL Data Warehouse
+# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Variabelen toewijzen in Azure SQL Data Warehouse
 
-Tips voor het toewijzen van T-SQL-variabelen in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+Tips voor het toewijzen van T-SQL-variabelen in Azure SQL Data Warehouse voor het ontwikkelen van oplossingen.
 
-## <a name="setting-variables-with-declare"></a>Variabelen met DECLARE instellen
+## <a name="setting-variables-with-declare"></a>Variabelen instellen met DECLAReren
 
-Variabelen in SQL Data Warehouse worden ingesteld met behulp van de `DECLARE` instructie of de `SET` instructie. Tijdens de initialisatie van variabelen met DECLARE, is een van de meest flexibele manieren voor het instellen van een variabele waarde in SQL Data Warehouse.
+Variabelen in SQL Data Warehouse worden ingesteld met behulp van `DECLARE` de `SET` instructie of de instructie. Initialisatie van variabelen met DECLAReren is een van de meest flexibele manieren om een variabele waarde in SQL Data Warehouse in te stellen.
 
 ```sql
 DECLARE @v  int = 0
 ;
 ```
 
-U kunt ook DECLARE meer dan één variabele instellen op een tijdstip. U kunt selecteren of de UPDATE niet gebruiken het volgende doen:
+U kunt DECLARe ook gebruiken om meer dan één variabele per keer in te stellen. U kunt niet selecteren of bijwerken gebruiken om het volgende te doen:
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -38,7 +38,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-U kunt geen initialiseren en het gebruik van een variabele in dezelfde instructie DECLARE. Ter illustratie van de punt, het volgende voorbeeld is **niet** toegestaan omdat @p1 is geïnitialiseerd en gebruikt in dezelfde instructie DECLARE. Het volgende voorbeeld wordt een fout.
+U kunt een variabele niet initialiseren en gebruiken in dezelfde DECLARe-instructie. Om het punt te illustreren, is het volgende voor beeld **niet** toegestaan @p1 omdat het is geïnitialiseerd en wordt gebruikt in dezelfde Declare-instructie. In het volgende voor beeld wordt een fout weer geven.
 
 ```sql
 DECLARE @p1 int = 0
@@ -46,11 +46,11 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="setting-values-with-set"></a>Instellingswaarden is ingesteld
+## <a name="setting-values-with-set"></a>Waarden instellen met SET
 
-Een veelgebruikte methode voor het instellen van een enkele variabele is ingesteld, is.
+SET is een gemeen schappelijke methode voor het instellen van één variabele.
 
-De volgende instructies zijn alle geldige manieren voor het instellen van een variabele is ingesteld:
+De volgende instructies zijn allemaal geldige manieren om een variabele in te stellen met SET:
 
 ```sql
 SET     @v = (Select max(database_id) from sys.databases);
@@ -59,12 +59,12 @@ SET     @v = @v+1;
 SET     @v +=1;
 ```
 
-U kunt alleen een variabele instellen op een tijdstip is ingesteld. Samengestelde operators zijn echter toegestaan.
+U kunt slechts één variabele tegelijk instellen met SET. Samengestelde Opera tors zijn echter wel toegestaan.
 
 ## <a name="limitations"></a>Beperkingen
 
-U kunt UPDATE niet gebruiken voor variabele toewijzing.
+U kunt UPDATE niet gebruiken voor het toewijzen van variabelen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer tips voor ontwikkelaars [overzicht voor ontwikkelaars](sql-data-warehouse-overview-develop.md).
+Zie [ontwikkelings overzicht](sql-data-warehouse-overview-develop.md)voor meer tips voor ontwikkel aars.

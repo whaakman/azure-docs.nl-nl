@@ -1,8 +1,8 @@
 ---
-title: Het maken, bijwerken van statistieken - Azure SQL Data Warehouse | Microsoft Docs
-description: Aanbevelingen en voorbeelden voor het maken en bijwerken van statistieken van de query-optimalisatie voor tabellen in Azure SQL Data Warehouse.
+title: Statistieken maken, bijwerken-Azure SQL Data Warehouse | Microsoft Docs
+description: Aanbevelingen en voor beelden voor het maken en bijwerken van statistieken voor het optimaliseren van query's voor tabellen in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -11,83 +11,83 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: c5043d99dd130bc7dc7b35eaa5ecadf11d7644db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00643e303b3352ce9ce39e5a27fd8b42246aac51
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851526"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479169"
 ---
-# <a name="table-statistics-in-azure-sql-data-warehouse"></a>Tabelstatistieken voor de in Azure SQL Data Warehouse
+# <a name="table-statistics-in-azure-sql-data-warehouse"></a>Tabel statistieken in Azure SQL Data Warehouse
 
-Aanbevelingen en voorbeelden voor het maken en bijwerken van statistieken van de query-optimalisatie voor tabellen in Azure SQL Data Warehouse.
+Aanbevelingen en voor beelden voor het maken en bijwerken van statistieken voor het optimaliseren van query's voor tabellen in Azure SQL Data Warehouse.
 
-## <a name="why-use-statistics"></a>Waarom gebruik maken van statistieken
+## <a name="why-use-statistics"></a>Waarom statistieken gebruiken?
 
-Hoe Azure SQL Data Warehouse weet over uw gegevens, des te sneller query's op deze kunnen worden uitgevoerd. Na het laden van gegevens in SQL Data Warehouse, is verzamelen van gegevens over uw gegevens een van de meest belangrijke dingen die u doen kunt voor het optimaliseren van uw query's. Het queryoptimalisatieprogramma van SQL Data Warehouse zorgt voor optimalisatie op basis van kosten. Hiermee vergelijkt de kosten van de verschillende queryplannen en kiest vervolgens het plan met de laagste kosten. In de meeste gevallen wordt het abonnement dat wordt uitgevoerd de snelste gekozen. Bijvoorbeeld, als het optimalisatieprogramma maakt een schatting van de datum waarop die de query wordt gefilterd op retourneert één rij wordt gekozen één plan. Als u deze maakt een schatting van de geselecteerde datum worden op 1 miljoen rijen worden geretourneerd, wordt een ander abonnement geretourneerd.
+Hoe meer Azure SQL Data Warehouse weet wat uw gegevens zijn, des te sneller query's kunnen worden uitgevoerd. Wanneer u gegevens in SQL Data Warehouse hebt geladen, is het verzamelen van statistieken voor uw gegevens een van de belangrijkste dingen die u kunt doen om uw query's te optimaliseren. Het queryoptimalisatieprogramma van SQL Data Warehouse zorgt voor optimalisatie op basis van kosten. Hiermee worden de kosten van verschillende query plannen vergeleken en wordt vervolgens het abonnement met de laagste kosten gekozen. In de meeste gevallen kiest u het plan dat het snelst wordt uitgevoerd. Als de Optimizer bijvoorbeeld een schatting maakt van de datum waarop uw query wordt gefilterd, wordt er één regel geretourneerd. Als er wordt geschat dat de geselecteerde datum 1.000.000 rijen retourneert, wordt een ander plan geretourneerd.
 
-## <a name="automatic-creation-of-statistic"></a>Automatisch maken van statistieken
+## <a name="automatic-creation-of-statistic"></a>Automatisch statistieken maken
 
-Als de database AUTO_CREATE_STATISTICS optie ingeschakeld is, analyseert SQL Data Warehouse binnenkomende query's van gebruikers voor ontbrekende statistieken. Als statistische gegevens ontbreken, maakt het queryoptimalisatieprogramma statistieken op afzonderlijke kolommen in de query predikaat of join-voorwaarde voor het verbeteren van de kardinaliteit schattingen voor het queryplan. Automatisch maken van statistieken is momenteel standaard ingeschakeld.
+Wanneer de optie Data Base-AUTO_CREATE_STATISTICS is ingeschakeld, analyseert SQL Data Warehouse binnenkomende gebruikers query's voor ontbrekende statistieken. Als er statistieken ontbreken, worden in de query Optimizer statistieken gemaakt voor afzonderlijke kolommen in het query-predikaat of de samenvoegings voorwaarde om de kardinaliteit voor het query plan te verbeteren. Automatisch maken van statistieken is momenteel standaard ingeschakeld.
 
-U kunt controleren of uw datawarehouse AUTO_CREATE_STATISTICS geconfigureerd heeft door de volgende opdracht uit:
+U kunt controleren of voor uw data warehouse AUTO_CREATE_STATISTICS is geconfigureerd door de volgende opdracht uit te voeren:
 
 ```sql
 SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-Als uw datawarehouse heeft geen AUTO_CREATE_STATISTICS geconfigureerd, raden we dat u deze eigenschap inschakelen door de volgende opdracht uit:
+Als voor uw data warehouse geen AUTO_CREATE_STATISTICS is geconfigureerd, raden we u aan deze eigenschap in te scha kelen door de volgende opdracht uit te voeren:
 
 ```sql
 ALTER DATABASE <yourdatawarehousename>
 SET AUTO_CREATE_STATISTICS ON
 ```
 
-Deze instructies wordt automatisch maken van statistieken geactiveerd:
+Met deze instructies wordt het automatisch maken van statistieken geactiveerd:
 
-- SELECT
-- INSERT-SELECT
+- SELECTEREN
+- INVOEGEN-SELECTEREN
 - CTAS
 - UPDATE
 - DELETE
-- Wordt UITGELEGD wanneer met een join of de aanwezigheid van een predicaat is gedetecteerd
+- UITLEGGEN wanneer een samen voeging of aanwezigheid van een predikaat wordt gedetecteerd
 
 > [!NOTE]
-> Automatisch maken van statistieken worden niet gemaakt voor tijdelijke of externe tabellen.
+> Het automatisch maken van statistieken wordt niet gemaakt voor tijdelijke of externe tabellen.
 
-Automatisch maken van statistieken wordt synchroon uitgevoerd, zodat u mogelijk iets slechtere queryprestaties in rekening als uw kolommen worden statistieken ontbreekt. De tijd voor het maken van statistieken voor één kolom, is afhankelijk van de grootte van de tabel. Om te voorkomen dat meetbare prestatievermindering, met name in benchmarks voor prestaties, moet u ervoor zorgen dat statistieken eerst gemaakt met de benchmark-werkbelasting wordt uitgevoerd voordat de profilering van het systeem.
+Het automatisch maken van statistieken wordt synchroon uitgevoerd, zodat u een slechtere query prestaties kunt opdoen als in uw kolommen statistieken ontbreken. De tijd om statistieken voor één kolom te maken, is afhankelijk van de grootte van de tabel. Om te voor komen dat de prestaties verslechteren, met name bij de benchmarking van de prestaties, moet u ervoor zorgen dat de statistieken zijn gemaakt door de benchmark workload uit te voeren voordat u het systeem profileert.
 
 > [!NOTE]
-> Het maken van statistieken worden geregistreerd in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) in de context van een andere gebruiker.
+> Het maken van statistieken wordt geregistreerd in [sys. DM _pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) onder een andere gebruikers context.
 
-Wanneer automatische statistieken zijn gemaakt, nemen ze de vorm: _WA_Sys_< 8 cijfers kolom-id in een hexadecimale waarde > _ < 8 cijfers tabel-id in een hexadecimale waarde >. Vindt u statistieken die al zijn gemaakt door het uitvoeren van de [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) opdracht:
+Wanneer er automatische statistieken worden gemaakt, wordt het volgende gevormd door het formulier: _WA_Sys_< 8-cijferige kolom-id in hexadecimale > _ < tabel-ID in hexadecimale >. U kunt de statistieken weer geven die al zijn gemaakt door de [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) -opdracht uit te voeren:
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
 ```
 
-De tabelnaam is de naam van de tabel bevat de statistische gegevens om weer te geven. Dit kan een externe tabel niet. Het doel is de naam van de doelindex, statistieken of kolom waarvoor om statistische gegevens weer te geven.
+De table_name is de naam van de tabel die de statistieken bevat die moeten worden weer gegeven. Dit kan geen externe tabel zijn. Het doel is de naam van de doel index, statistieken of kolom waarvoor statistische gegevens moeten worden weer gegeven.
 
-## <a name="updating-statistics"></a>Bijwerken van statistieken
+## <a name="updating-statistics"></a>Statistieken bijwerken
 
-Een aanbevolen procedure is het bijwerken van statistieken op datumkolommen elke dag nieuwe datums worden toegevoegd. Elke keer nieuwe rijen worden geladen in het datawarehouse, worden nieuwe load datums of transactiedatums toegevoegd. Deze de verdeling van de gegevens wijzigen en de statistieken niet actueel te maken. Daarentegen statistieken op een land/regio-kolom in een tabel van de klant mogelijk nooit moeten worden bijgewerkt, omdat de verdeling van waarden in het algemeen niet wijzigen. Ervan uitgaande dat de distributie is constant tussen klanten, wordt nieuwe rijen toe te voegen aan de variant van de tabel niet de verdeling van de gegevens wijzigen. Echter, als uw datawarehouse alleen een land/regio bevat en u in de gegevens van een nieuw land/regio brengt, wat resulteert in gegevens uit meerdere landen/regio's worden opgeslagen, moet u bijwerken van statistieken voor de kolom land/regio.
+Een best practice is het bijwerken van statistieken voor datum kolommen elke dag wanneer er nieuwe datums worden toegevoegd. Telkens wanneer er nieuwe rijen worden geladen in het Data Warehouse, worden er nieuwe belasting-of transactie datums toegevoegd. Deze wijzigen de gegevens distributie en maken de statistieken verouderd. Daarentegen kunnen statistieken voor een kolom land/regio in een tabel klant nooit worden bijgewerkt, omdat de verdeling van waarden doorgaans niet wordt gewijzigd. Ervan uitgaande dat de distributie een constante is tussen klanten, het toevoegen van nieuwe rijen aan de tabel variatie is geen wijziging van de gegevens distributie. Als uw data warehouse echter slechts één land/regio bevat en u gegevens uit een nieuw land/nieuwe regio haalt, waardoor gegevens uit meerdere landen/regio's worden opgeslagen, moet u de statistieken bijwerken in de kolom land/regio.
 
-Hier volgen de aanbevelingen statistieken bij te werken:
+Hier volgen de aanbevelingen voor het bijwerken van statistieken:
 
 |||
 |-|-|
-| **Frequentie van updates van statistieken**  | Conservatief: Dagelijks </br> Na het laden van of uw gegevens te transformeren |
-| **Steekproeven** |  Minder dan 1 miljard rijen, gebruiken standaard steekproeven (20 procent). </br> Gebruiken met meer dan 1 miljard rijen, steekproeven van twee procent. |
+| **Frequentie van updates voor statistieken**  | Conservatief Dagelijks </br> Nadat u uw gegevens hebt geladen of getransformeerd |
+| **Steekproeven** |  Minder dan 1.000.000.000 rijen, gebruik standaard steekproef (20 procent). </br> Gebruik meer dan 1.000.000.000 rijen om de steek proef van twee procent te gebruiken. |
 
-Een van de eerste vragen wanneer u problemen met een query is, **"Zijn de statistieken bijgewerkt?"**
+Een van de eerste vragen die u kunt stellen wanneer u problemen met een query wilt oplossen, **zijn "zijn de statistieken bijgewerkt?"**
 
-Deze vraag is niet een die door de leeftijd van de gegevens kunnen worden beantwoord. Een object up-to-date statistieken mogelijk oude als er geen belangrijke wijzigingen in de onderliggende gegevens zijn. Wanneer het aantal rijen aanzienlijk is gewijzigd, of er een belangrijke wijziging in de distributie van de waarden voor een kolom is, *vervolgens* is het tijd om het bijwerken van statistieken.
+Deze vraag is niet een die kan worden beantwoord door de leeftijd van de gegevens. Een up-to-date statistieken object kan oud zijn als er geen wezenlijke wijzigingen zijn aangebracht in de onderliggende gegevens. Wanneer het aantal rijen ingrijpend is gewijzigd of als er sprake is van een aanmerkelijke wijziging in de verdeling van waarden voor een *kolom, is* het tijd om statistieken bij te werken.
 
-Er is geen dynamische Beheerweergave om te bepalen of de gegevens in de tabel is gewijzigd sinds de laatste tijd statistische gegevens zijn bijgewerkt. Wetenschap dat de leeftijd van de statistieken, kunt u met een gedeelte van de afbeelding opgeven. U kunt de volgende query uit om te bepalen van de laatste keer dat de statistieken zijn bijgewerkt voor elke tabel.
+Er is geen dynamische beheer weergave om te bepalen of de gegevens in de tabel zijn gewijzigd sinds de laatste keer dat de statistieken zijn bijgewerkt. Als u de leeftijd van uw statistieken kent, kunt u deel uitmaken van de afbeelding. U kunt de volgende query gebruiken om de laatste keer te bepalen dat uw statistieken op elke tabel zijn bijgewerkt.
 
 > [!NOTE]
-> Als er een aanzienlijke wijzigingen in de distributie van de waarden voor een kolom, moet u bijwerken van statistieken, ongeacht de laatste keer dat ze zijn bijgewerkt.
+> Als er sprake is van een aanmerkelijke wijziging in de verdeling van waarden voor een kolom, moet u de statistieken bijwerken, onafhankelijk van de laatste keer dat ze zijn bijgewerkt.
 
 ```sql
 SELECT
@@ -116,33 +116,33 @@ WHERE
     st.[user_created] = 1;
 ```
 
-**Datum van kolommen** in een datawarehouse, bijvoorbeeld meestal regelmatig moeten worden statistieken updates. Elke keer nieuwe rijen worden geladen in het datawarehouse, worden nieuwe load datums of transactiedatums toegevoegd. Deze de verdeling van de gegevens wijzigen en de statistieken niet actueel te maken. Daarentegen statistieken op een kolom geslacht in een tabel van de klant mogelijk nooit moeten worden bijgewerkt. Ervan uitgaande dat de distributie is constant tussen klanten, wordt nieuwe rijen toe te voegen aan de variant van de tabel niet de verdeling van de gegevens wijzigen. Echter, als uw datawarehouse slechts één geslacht en een nieuwe vereiste resultaten in meerdere geslachten bevat, moet u bijwerken van statistieken voor de kolom geslacht.
+Voor **datum kolommen** in een Data Warehouse, bijvoorbeeld, moeten updates voor regel matige statistieken doorgaans worden bijgewerkt. Telkens wanneer er nieuwe rijen worden geladen in het Data Warehouse, worden er nieuwe belasting-of transactie datums toegevoegd. Deze wijzigen de gegevens distributie en maken de statistieken verouderd. De statistieken voor de kolom gender in een tabel Klant kunnen echter nooit worden bijgewerkt. Ervan uitgaande dat de distributie een constante is tussen klanten, het toevoegen van nieuwe rijen aan de tabel variatie is geen wijziging van de gegevens distributie. Als uw data warehouse echter slechts één gender bevat en een nieuwe vereiste resulteert in meerdere geslachten, moet u de statistieken bijwerken in de kolom gender.
 
-Zie voor meer informatie, algemene richtlijnen voor [statistieken](/sql/relational-databases/statistics/statistics).
+Zie algemene richt lijnen voor [Statistieken](/sql/relational-databases/statistics/statistics)voor meer informatie.
 
-## <a name="implementing-statistics-management"></a>Statistieken management implementeren
+## <a name="implementing-statistics-management"></a>Statistieken beheer implementeren
 
-Het is vaak een goed idee om uit te breiden van uw gegevens laden-proces om ervoor te zorgen dat de statistieken worden bijgewerkt aan het einde van de belasting. Het laden van gegevens is als tabellen vaakst van de grootte en/of de verdeling van waarden wijzigen. Daarom is dit een logische plaats voor het implementeren van bepaalde processen.
+Het is vaak een goed idee om het proces voor het laden van gegevens uit te breiden om ervoor te zorgen dat de statistieken aan het einde van de belasting worden bijgewerkt. Het laden van gegevens is het vaak wijzigen van de grootte van de tabellen en/of de verdeling van waarden. Daarom is dit een logische plaats voor het implementeren van een aantal beheer processen.
 
-De volgende principes die worden geleverd voor het bijwerken van uw statistieken tijdens het laadproces:
+De volgende richt lijnen zijn van toepassing op het bijwerken van uw statistieken tijdens het laad proces:
 
-* Zorg ervoor dat elke tabel geladen ten minste één statistieken-object bijgewerkt. Hiermee wordt de informatie over de grootte (aantal rijen en aantal pagina's) van tabel als onderdeel van de update van de statistieken bijgewerkt.
-* Richt u op kolommen die deel uitmaken van de EU JOIN, GROUP BY, ORDER BY en DISTINCT.
-* Houd rekening met bijwerken van kolommen 'oplopende sleutel' zoals transactie datums vaker, omdat deze waarden niet worden opgenomen in het histogram statistieken.
-* Houd rekening met statische distributiekolommen minder vaak wordt bijgewerkt.
-* Onthoud dat elk object statistiek is bijgewerkt in de reeks. Eenvoudig implementeren `UPDATE STATISTICS <TABLE_NAME>` is niet altijd ideaal zijn, vooral bij brede tabellen met veel objecten van statistieken.
+* Zorg ervoor dat voor elke geladen tabel ten minste één statistiek object is bijgewerkt. Hiermee wordt de informatie over de tabel grootte (aantal rijen en aantal pagina's) bijgewerkt als onderdeel van de statistieken-update.
+* Focus op kolommen die deel uitmaken van de componenten samen voegen, groeperen op, ORDER BY en DISTINCT.
+* Overweeg om kolommen met een oplopende sleutel, zoals transactie datums, vaker bij te werken, omdat deze waarden niet in het statistieken histogram worden opgenomen.
+* Overweeg om kolommen met statische distributie minder vaak bij te werken.
+* Houd er rekening mee dat elk statistiek object in volg orde wordt bijgewerkt. Eenvoudig implementeren `UPDATE STATISTICS <TABLE_NAME>` is niet altijd ideaal, met name voor Wide tables met veel statistieken objecten.
 
-Zie voor meer informatie, [Kardinaliteitsschatting](/sql/relational-databases/performance/cardinality-estimation-sql-server).
+Zie voor meer informatie de [schatting](/sql/relational-databases/performance/cardinality-estimation-sql-server)van kardinaliteit.
 
 ## <a name="examples-create-statistics"></a>Voorbeelden: Statistieken maken
 
-Deze voorbeelden laten zien hoe u verschillende opties voor het maken van statistieken. De opties die u voor elke kolom gebruiken, is afhankelijk van de kenmerken van uw gegevens en hoe u de kolom wordt gebruikt in query's.
+Deze voor beelden laten zien hoe u verschillende opties kunt gebruiken om statistieken te maken. De opties die u voor elke kolom gebruikt, zijn afhankelijk van de kenmerken van uw gegevens en de manier waarop de kolom wordt gebruikt in query's.
 
-### <a name="create-single-column-statistics-with-default-options"></a>Statistieken voor één kolom maken met standaardopties
+### <a name="create-single-column-statistics-with-default-options"></a>Statistieken met één kolom maken met standaard opties
 
-Voor het maken van statistieken op een kolom, moet u gewoon een naam voor het object statistieken en de naam van de kolom bevatten.
+Als u statistieken wilt maken voor een kolom, geeft u een naam op voor het statistiek object en de naam van de kolom.
 
-Deze syntaxis gebruikt al de standaardopties. Voorbeelden van SQL Data Warehouse standaard **20 procent** van de tabel bij het maken van statistieken.
+Deze syntaxis maakt gebruik van alle standaard opties. Standaard worden SQL Data Warehouse monsters van **20 procent** van de tabel bij het maken van statistieken.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -154,11 +154,11 @@ Bijvoorbeeld:
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
-### <a name="create-single-column-statistics-by-examining-every-row"></a>Statistieken voor één kolom maken door te controleren van elke rij
+### <a name="create-single-column-statistics-by-examining-every-row"></a>Statistieken voor één kolom maken door elke rij te controleren
 
-De samplefrequentie voor de standaardwaarde van 20 procent is voldoende voor de meeste situaties. U kunt echter de samplingfrequentie aanpassen.
+Het standaard sampling-percentage van 20 procent is voldoende voor de meeste situaties. U kunt de sampling frequentie echter aanpassen.
 
-Als u wilt de volledige tabel voorbeeld, gebruik de volgende syntaxis:
+Gebruik de volgende syntaxis om een voor beeld te hebben van de volledige tabel:
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
@@ -170,57 +170,57 @@ Bijvoorbeeld:
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
-### <a name="create-single-column-statistics-by-specifying-the-sample-size"></a>Statistieken voor één kolom maken door te geven van de grootte van de steekproef
+### <a name="create-single-column-statistics-by-specifying-the-sample-size"></a>Statistieken met één kolom maken door de steekproef grootte op te geven
 
-U kunt ook de grootte van de steekproef opgeven als een percentage:
+U kunt de steekproef grootte ook opgeven als een percentage:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
-### <a name="create-single-column-statistics-on-only-some-of-the-rows"></a>Statistieken voor één kolom maken in slechts enkele van de rijen
+### <a name="create-single-column-statistics-on-only-some-of-the-rows"></a>Statistieken voor één kolom maken op enkele rijen
 
-U kunt ook statistieken maken voor een gedeelte van de rijen in de tabel. Dit is een gefilterde statistieken genoemd.
+U kunt ook statistieken maken voor een deel van de rijen in uw tabel. Dit wordt een gefilterde statistiek genoemd.
 
-U kunt bijvoorbeeld gefilterde statistieken gebruiken wanneer u van plan bent om op te vragen van een specifieke partitie van een grote gepartitioneerde tabel. Als u statistieken maakt op basis van alleen de waarden van de partitie, wordt de nauwkeurigheid van de statistieken verbeteren en daarom de queryprestaties te verbeteren.
+U kunt bijvoorbeeld gefilterde statistieken gebruiken wanneer u van plan bent om een specifieke partitie van een grote gepartitioneerde tabel op te vragen. Door alleen statistieken te maken op basis van de partitie waarden, wordt de nauw keurigheid van de statistieken verbeterd, waardoor de query prestaties worden verbeterd.
 
-In dit voorbeeld worden statistieken in een bereik met waarden. De waarden kunnen eenvoudig worden gedefinieerd zodat deze overeenkomt met het bereik van waarden in een partitie.
+In dit voor beeld worden statistieken gemaakt voor een reeks waarden. De waarden kunnen eenvoudig worden gedefinieerd, zodat ze overeenkomen met het bereik van de waarden in een partitie.
 
 ```sql
 CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
 > [!NOTE]
-> Voor het queryoptimalisatieprogramma om te overwegen gefilterde statistieken wanneer deze de gedistribueerd queryplan kiest, moet de query in de definitie van het object statistieken passen. Met behulp van het vorige voorbeeld van de query waar component moet waarden tussen 2000101 en 20001231 col1 op te geven.
+> Voor het query optimalisatie programma om te overwegen gefilterde statistieken te gebruiken bij het kiezen van het gedistribueerde query plan, moet de query binnen de definitie van het statistiek object passen. In het vorige voor beeld moet de WHERE-component van de query Kol1 waarden opgeven tussen 2000101 en 20001231.
 
-### <a name="create-single-column-statistics-with-all-the-options"></a>Statistieken voor één kolom maken met alle opties
+### <a name="create-single-column-statistics-with-all-the-options"></a>Statistieken met één kolom maken met alle opties
 
-U kunt ook de opties samen combineren. Het volgende voorbeeld wordt een gefilterde statistieken-object met een aangepaste samplegrootte:
+U kunt de opties ook samen combi neren. In het volgende voor beeld wordt een gefilterd statistiek object gemaakt met een aangepaste steekproef grootte:
 
 ```sql
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Zie voor de volledige verwijzing [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql).
+Zie [Statistieken maken](/sql/t-sql/statements/create-statistics-transact-sql)voor de volledige verwijzing.
 
-### <a name="create-multi-column-statistics"></a>Meerdere kolommen statistieken maken
+### <a name="create-multi-column-statistics"></a>Statistieken over meerdere kolommen maken
 
-Voor het maken van een object met meerdere kolommen statistieken, gewoon met de eerdere voorbeelden, maar meer kolommen opgeven.
+Als u een statistieken object met meerdere kolommen wilt maken, gebruikt u gewoon de voor gaande voor beelden, maar geeft u meer kolommen op.
 
 > [!NOTE]
-> Het histogram, wordt gebruikt voor het aantal rijen in het queryresultaat schatten, is alleen beschikbaar voor de eerste kolom die worden vermeld in de objectdefinitie van statistieken.
+> Het histogram dat wordt gebruikt om het aantal rijen in het query resultaat te schatten, is alleen beschikbaar voor de eerste kolom die wordt vermeld in de definitie van het statistieken-object.
 
-In dit voorbeeld wordt het histogram is op *product\_categorie*. Statistieken voor cross-kolom worden berekend op *product\_categorie* en *product\_sub_category*:
+In dit voor beeld is het histogram voor *de\_product categorie*. Kruis kolom statistieken worden berekend voor *product\_categorie* -en *product\_-sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Omdat er een correlatie tussen *product\_categorie* en *product\_sub\_categorie*, een object met meerdere kolommen statistieken kan nuttig zijn als deze kolommen zijn toegankelijk op hetzelfde moment.
+Omdat er een correlatie bestaat tussen *product\_categorie* en *product\_\_subcategorie*, kan een statistieken object met meerdere kolommen nuttig zijn als deze kolommen tegelijkertijd worden gebruikt.
 
 ### <a name="create-statistics-on-all-columns-in-a-table"></a>Statistieken maken voor alle kolommen in een tabel
 
-Eén manier om statistieken te maken is het uitgeven van CREATE STATISTICS opdrachten na het maken van de tabel:
+Een manier om statistieken te maken, is door opdrachten voor het maken van statistieken op te geven nadat u de tabel hebt gemaakt:
 
 ```sql
 CREATE TABLE dbo.table1
@@ -240,11 +240,11 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Een opgeslagen procedure gebruiken om statistieken te maken voor alle kolommen in een database
+### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Een opgeslagen procedure gebruiken om statistieken te maken voor alle kolommen in een Data Base
 
-SQL Data Warehouse heeft geen een in het systeem opgeslagen procedure die gelijk is aan sp_create_stats in SQL Server. Deze opgeslagen procedure maakt een object van de statistieken één kolom voor elke kolom van de database die nog geen statistieken.
+SQL Data Warehouse heeft geen opgeslagen systeem procedure die gelijk is aan sp_create_stats in SQL Server. Met deze opgeslagen procedure maakt u één kolom statistieken-object op elke kolom van de data base waarvoor nog geen statistieken zijn.
 
-Het volgende voorbeeld ziet u een aan de slag met het ontwerpen van uw databases. U kunt deze aanpassen aan uw behoeften:
+Het volgende voor beeld helpt u aan de slag te gaan met uw database ontwerp. U kunt deze aanpassen aan uw behoeften:
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
@@ -332,36 +332,36 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-Voor het maken van statistieken voor alle kolommen in de tabel met de standaardinstellingen, moet u de opgeslagen procedure uitvoeren.
+Voer de opgeslagen procedure uit om statistieken te maken voor alle kolommen in de tabel met behulp van de standaard waarden.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
 ```
 
-Voor het maken van statistieken voor alle kolommen in de tabel met behulp van een fullscan, moet u deze procedure aanroept:
+Als u statistieken wilt maken voor alle kolommen in de tabel met behulp van een fullscan, roept u deze procedure aan:
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 2, NULL;
 ```
 
-Voer Voorbeeldstatistieken maken voor alle kolommen in de tabel, 3 en het percentage van het voorbeeld. Deze procedures maakt gebruik van een samplefrequentie 20 procent.
+Als u voorbeeld statistieken wilt maken voor alle kolommen in de tabel, typt u 3 en het steek proef percentage. Deze procedure maakt gebruik van een sample frequentie van 20 procent.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 ```
 
-Steekproef statistieken over alle kolommen te maken.
+Voorbeeld statistieken maken voor alle kolommen
 
 ## <a name="examples-update-statistics"></a>Voorbeelden: Statistieken bijwerken
 
-Voor het bijwerken van statistieken, kunt u het volgende doen:
+Als u statistieken wilt bijwerken, kunt u het volgende doen:
 
-- Een object van de statistieken worden bijgewerkt. Geef de naam van de statistieken-object dat u wilt bijwerken.
-- Alle objecten voor statistieken in een tabel bijwerken. Geef de naam van de tabel in plaats van een specifieke statistieken-object.
+- Eén statistiek object bijwerken. Geef de naam op van het statistiek object dat u wilt bijwerken.
+- Alle statistieken-objecten in een tabel bijwerken. Geef de naam van de tabel op in plaats van één specifiek statistiek object.
 
-### <a name="update-one-specific-statistics-object"></a>Object voor een specifieke statistieken bijwerken
+### <a name="update-one-specific-statistics-object"></a>Een specifiek statistieken object bijwerken
 
-Gebruik de volgende syntaxis om bij te werken van een specifieke statistieken-object:
+Gebruik de volgende syntaxis om een specifiek statistiek object bij te werken:
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
@@ -373,11 +373,11 @@ Bijvoorbeeld:
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
-Door het bijwerken van statistieken voor specifieke objecten, kunt u de tijd en resources die nodig zijn voor het beheren van statistieken minimaliseren. Hiervoor moeten enkele beschouwd kiezen van de beste objecten statistieken bij te werken.
+Door specifieke statistieken objecten bij te werken, kunt u de tijd en resources die nodig zijn om statistieken te beheren, minimaliseren. Hiervoor moet u de beste statistieken objecten kiezen om bij te werken.
 
-### <a name="update-all-statistics-on-a-table"></a>Alle statistische gegevens in een tabel bijwerken
+### <a name="update-all-statistics-on-a-table"></a>Alle statistieken voor een tabel bijwerken
 
-Er is een eenvoudige methode voor het bijwerken van de statistieken-objecten in een tabel:
+Een eenvoudige methode voor het bijwerken van alle statistieken objecten in een tabel is:
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name];
@@ -389,45 +389,45 @@ Bijvoorbeeld:
 UPDATE STATISTICS dbo.table1;
 ```
 
-De instructie UPDATE STATISTICS is eenvoudig te gebruiken. Let erop dat het bijwerken van *alle* statistieken voor de tabel en kan daarom meer werk dan nodig is uitgevoerd. Als prestaties niet een probleem is, is dit de eenvoudigste en meest complete manier om te garanderen dat de statistieken bijgewerkt zijn.
+De instructie UPDATE STATISTICs is eenvoudig te gebruiken. Houd er rekening mee dat *alle* statistieken in de tabel worden bijgewerkt en dat daarom meer werk kan worden uitgevoerd dan nodig is. Als de prestaties geen probleem zijn, is dit de eenvoudigste en meest volledige manier om te garanderen dat statistieken up-to-date zijn.
 
 > [!NOTE]
-> Tijdens het bijwerken van alle statistische gegevens in een tabel, biedt SQL Data Warehouse een scan, voorbeeld van de tabel voor elk object statistieken. Als de tabel groot is en veel kolommen en veel statistieken bevat, kan het efficiënter om bij te werken van afzonderlijke statistieken op basis van behoeften zijn.
+> Bij het bijwerken van alle statistieken voor een tabel, SQL Data Warehouse een voor beeld van de tabel voor elk statistiek object wordt gecontroleerd. Als de tabel groot is en veel kolommen en veel statistieken heeft, kan het efficiënter zijn om afzonderlijke statistieken bij te werken op basis van de behoefte.
 
-Voor een implementatie van een `UPDATE STATISTICS` procedure, Zie [tijdelijke tabellen](sql-data-warehouse-tables-temporary.md). De implementatie-methode is enigszins afwijken van de voorgaande `CREATE STATISTICS` procedure, maar het resultaat hetzelfde is.
+Zie [tijdelijke tabellen](sql-data-warehouse-tables-temporary.md)voor een `UPDATE STATISTICS` implementatie van een procedure. De implementatie methode wijkt enigszins af van de voor `CREATE STATISTICS` gaande procedure, maar het resultaat is hetzelfde.
 
-Zie voor de volledige syntaxis [Update Statistics](/sql/t-sql/statements/update-statistics-transact-sql).
+Zie [Statistieken bijwerken](/sql/t-sql/statements/update-statistics-transact-sql)voor de volledige syntaxis.
 
-## <a name="statistics-metadata"></a>De metagegevens van statistieken
+## <a name="statistics-metadata"></a>Statistieken meta gegevens
 
-Er zijn verschillende systeemweergaven en functies die u gebruiken kunt om informatie over statistieken te vinden. U kunt bijvoorbeeld zien als een object statistieken mogelijk verouderd met behulp van de functie statistieken-datum om te zien wanneer statistieken laatst zijn gemaakt of bijgewerkt.
+Er zijn verschillende systeem weergaven en-functies die u kunt gebruiken om informatie te vinden over statistieken. U kunt bijvoorbeeld zien of een statistiek object verouderd is door gebruik te maken van de functie voor statistieken-datum om te zien wanneer de statistieken voor het laatst zijn gemaakt of bijgewerkt.
 
-### <a name="catalog-views-for-statistics"></a>Weergaven voor statistieken van catalogus
+### <a name="catalog-views-for-statistics"></a>Catalogus weergaven voor statistieken
 
-Deze systeemweergaven bevatten informatie over statistieken:
+Deze systeem weergaven bieden informatie over statistieken:
 
-| Catalogusweergave | Description |
+| Catalogus weergave | Description |
 |:--- |:--- |
-| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Een rij voor elke kolom. |
-| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Een rij voor elk object in de database. |
-| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Een rij voor elk schema in de database. |
-| [sys.Stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |Een rij voor elk object statistieken. |
-| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |Een rij voor elke kolom in het object statistieken. Koppelingen naar sys.columns. |
-| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |Een rij voor elke tabel (inclusief externe tabellen). |
-| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |Een rij voor elk gegevenstype. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Eén rij voor elke kolom. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Eén rij voor elk object in de data base. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Eén rij voor elk schema in de data base. |
+| [sys. stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |Eén rij voor elk statistiek object. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |Eén rij voor elke kolom in het statistiek object. Koppelingen terug naar sys. Columns. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |Eén rij voor elke tabel (inclusief externe tabellen). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |Eén rij voor elk gegevens type. |
 
-### <a name="system-functions-for-statistics"></a>Systeemfuncties voor statistieken
+### <a name="system-functions-for-statistics"></a>Systeem functies voor statistieken
 
-Deze systeemfuncties zijn nuttig voor het werken met statistieken:
+Deze systeem functies zijn handig voor het werken met statistieken:
 
-| Systeemfunctie | Description |
+| Systeem functie | Description |
 |:--- |:--- |
-| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |De datum is die het object statistieken voor het laatst is bijgewerkt. |
-| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Samenvatting niveau en gedetailleerde informatie over de distributie van waarden zoals begrepen door het object statistieken. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |Datum waarop het statistieken object voor het laatst is bijgewerkt. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Overzichts niveau en gedetailleerde informatie over de distributie van waarden, zoals begrepen door het statistiek object. |
 
-### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Functies en statistieken kolommen combineren in één weergave
+### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Statistische kolommen en-functies combi neren in één weer gave
 
-In deze weergave zorgt voor kolommen die betrekking op statistieken hebben en resultaten van de functie STATS_DATE() samen.
+Met deze weer gave worden kolommen met betrekking tot statistieken en resultaten van de functie STATS_DATE () gecombineerd.
 
 ```sql
 CREATE VIEW dbo.vstats_columns
@@ -465,19 +465,19 @@ AND     st.[user_created] = 1
 ;
 ```
 
-## <a name="dbcc-showstatistics-examples"></a>DBCC SHOW_STATISTICS() voorbeelden
+## <a name="dbcc-showstatistics-examples"></a>DBCC SHOW_STATISTICS ()-voor beelden
 
-DBCC SHOW_STATISTICS() bevat gegevens die zijn opgeslagen in een object statistieken. Deze gegevens zijn afkomstig uit drie delen:
+DBCC SHOW_STATISTICS () toont de gegevens binnen een statistiek object. Deze gegevens zijn afkomstig uit drie delen:
 
 - Header
-- Dichtheid vector
+- Dichtheids vector
 - Histogram
 
-De koptekst van metagegevens over de statistieken. Het histogram geeft de distributie van de waarden in de eerste kolom van de sleutel van het object statistieken. De dichtheid vector metingen cross-kolom correlatie. SQL Data Warehouse berekend kardinaliteit schattingen met een van de gegevens in het object statistieken.
+De meta gegevens van de koptekst over de statistieken. In het histogram wordt de verdeling weer gegeven van de waarden in de eerste sleutel kolom van het statistiek object. De dichtheids vector meet de correlatie tussen kolommen. SQL Data Warehouse de kardinaliteit met een van de gegevens in het statistiek object berekent.
 
-### <a name="show-header-density-and-histogram"></a>Koptekst, een dichtheid en histogram weergeven
+### <a name="show-header-density-and-histogram"></a>Koptekst, densiteit en histogram weer geven
 
-Dit eenvoudige voorbeeld ziet u alle drie de gedeelten van een object statistieken:
+In dit eenvoudige voor beeld worden alle drie delen van een statistiek object weer gegeven:
 
 ```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
@@ -489,9 +489,9 @@ Bijvoorbeeld:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### <a name="show-one-or-more-parts-of-dbcc-showstatistics"></a>Een of meer onderdelen van DBCC SHOW_STATISTICS() weergeven
+### <a name="show-one-or-more-parts-of-dbcc-showstatistics"></a>Een of meer delen van DBCC SHOW_STATISTICS () weer geven
 
-Als u alleen geïnteresseerd bent in specifieke onderdelen weergeven, gebruikt u de `WITH` component en geeft u welke onderdelen die u wilt zien:
+Als u alleen specifieke onderdelen wilt weer geven, gebruikt u de `WITH` -component en geeft u op welke onderdelen u wilt zien:
 
 ```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
@@ -503,18 +503,18 @@ Bijvoorbeeld:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## <a name="dbcc-showstatistics-differences"></a>DBCC SHOW_STATISTICS() verschillen
+## <a name="dbcc-showstatistics-differences"></a>DBCC SHOW_STATISTICS () verschillen
 
-DBCC SHOW_STATISTICS() wordt meer strikt in SQL Data Warehouse ten opzichte van SQL Server geïmplementeerd:
+DBCC SHOW_STATISTICS () is strikt geïmplementeerd in SQL Data Warehouse vergeleken met SQL Server:
 
 - Niet-gedocumenteerde functies worden niet ondersteund.
-- Stats_stream kan niet worden gebruikt.
-- Kan geen join-resultaten voor specifieke subreeksen van statistische gegevens. Bijvoorbeeld: STAT_HEADER JOIN DENSITY_VECTOR.
-- NO_INFOMSGS kan niet worden ingesteld voor de onderdrukking van het bericht.
-- Vierkante haken om de namen van statistieken kan niet worden gebruikt.
-- Kan geen kolomnamen gebruiken om statistieken objecten te identificeren.
-- Aangepaste foutpagina 2767 wordt niet ondersteund.
+- Kan Stats_stream niet gebruiken.
+- Kan geen resultaten voor specifieke subsets met statistische gegevens samen voegen. Bijvoorbeeld STAT_HEADER toevoegen aan DENSITY_VECTOR.
+- NO_INFOMSGS kan niet worden ingesteld voor het onderdrukken van berichten.
+- De namen van de vier Kante haken rondom statistieken kunnen niet worden gebruikt.
+- Kan geen kolom namen gebruiken om statistieken objecten te identificeren.
+- Aangepaste fout 2767 wordt niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor prestaties van query's verder verbeteren, Zie [uw workload controleren](sql-data-warehouse-manage-monitor.md)
+Zie [uw werk belasting controleren](sql-data-warehouse-manage-monitor.md) voor meer informatie over het verbeteren van de prestaties van query's

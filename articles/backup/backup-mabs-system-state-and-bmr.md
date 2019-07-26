@@ -1,7 +1,6 @@
 ---
-title: Azure Backup Server systeemstatus beveiligt en herstelt u bare-metalcomputers
-description: Azure Backup Server gebruiken voor back-up van de systeemstatus en bare metal recovery (BMR) beveiligen.
-services: backup
+title: Azure Backup Server beveiligt de systeem status en herstelt deze op bare metal
+description: Gebruik Azure Backup Server om een back-up te maken van uw systeem status en BMR-beveiliging (Bare Metal Recovery) te bieden.
 author: rayne-wiselman
 manager: carmonm
 keywords: ''
@@ -9,216 +8,216 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: raynew
-ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a21169a5d9da7c9f1baf8a7d1e7365348860fca1
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62116172"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465035"
 ---
-# <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Back-up van systeemstatus en bare-metalcomputers maken met Azure Backup Server herstellen
+# <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Maak een back-up van de systeem status en herstel op bare metal met Azure Backup Server
 
-Azure Backup-Server een back-up van systeemstatus en bare metal recovery (BMR)-beveiliging biedt.
+Azure Backup Server maakt een back-up van de systeem status en biedt BMR-beveiliging (bare-metal herstel).
 
-*   **Systeemstatusback-up**: Back-ups van besturingssysteembestanden, zodat u herstellen kunt wanneer een computer wordt gestart, maar u systeembestanden en het register, gaan verloren. Een systeemstatusback-up bevat:
-    * Lid van domein: Opstartbestanden, registratiedatabase van COM +-klasse, register
-    * Domeincontroller: Windows Server Active Directory (NTDS), opstartbestanden, registratiedatabase van COM +-klasse, register, systeemvolume (SYSVOL)
-    * De computer waarop clusterservices: Metagegevens van de server-cluster
-    * De computer waarop certificaatservices: Certificaatgegevens
-* **Bare metal-back-up**: Back-ups van besturingssysteembestanden en alle gegevens op essentiële volumes (met uitzondering van gebruikersgegevens). Een BMR back-up bevat per definitie een systeemstatusback-up. Het biedt beveiliging wanneer een computer niet start en u alles moet herstellen.
+*   **Systeem status back-up**: Maakt back-ups van bestanden van het besturings systeem, zodat u kunt herstellen wanneer een computer wordt opgestart, maar systeem bestanden en het REGI ster gaan verloren. Een systeem status back-up omvat:
+    * Domeinlid: Opstart bestanden, registratie database van COM+-klasse, REGI ster
+    * Domein controller: Windows Server-Active Directory (NTDS), opstart bestanden, registratie database van COM+-klasse, REGI ster, systeem volume (SYSVOL)
+    * Computer waarop Cluster Services worden uitgevoerd: Meta gegevens van Cluster Server
+    * Computer waarop Certificate Services wordt uitgevoerd: Certificaatgegevens
+* **Bare-metal back-up**: Maakt back-ups van bestanden van het besturings systeem en alle gegevens op essentiële volumes (met uitzonde ring van gebruikers gegevens). Een BMR-back-up bevat per definitie een systeem status back-up. Het biedt beveiliging wanneer een computer niet start en u moet alles herstellen.
 
-De volgende tabel geeft een overzicht van wat u kunt een back-up en herstellen. Zie voor gedetailleerde informatie over app-versies die kunnen worden beveiligd met systeemstatus en BMR [wat Azure Backup Server doet een back-up?](backup-mabs-protection-matrix.md).
+De volgende tabel bevat een overzicht van waar u een back-up kunt maken en herstellen. Voor gedetailleerde informatie over de app-versies die kunnen worden beveiligd met systeem status-en BMR, Zie [waarover Azure backup server back-ups maken?](backup-mabs-protection-matrix.md).
 
-|Backup|Probleem|Herstellen vanuit back-up van Azure Backup-Server|Herstellen vanaf systeemstatusback-up|BMR|
+|Back-up|Probleem|Herstellen van Azure Backup Server back-up|Herstellen van systeem status back-up|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
-|**Gegevens uit een bestand**<br /><br />Standaard gegevensback-up<br /><br />BMR/systeemstatusback-up|Verloren bestandsgegevens|J|N|N|
-|**Gegevens uit een bestand**<br /><br />Azure Backup-Server back-up van gegevens uit een bestand<br /><br />BMR/systeemstatusback-up|Verloren of beschadigd besturingssysteem|N|J|J|
-|**Gegevens uit een bestand**<br /><br />Azure Backup-Server back-up van gegevens uit een bestand<br /><br />BMR/systeemstatusback-up|Verloren server (gegevensvolumes intact)|N|N|J|
-|**Gegevens uit een bestand**<br /><br />Azure Backup-Server back-up van gegevens uit een bestand<br /><br />BMR/systeemstatusback-up|Verloren server (gegevensvolumes verloren)|J|Nee|Ja (BMR, gevolgd door normaal herstel van gegevens uit een back-up-bestand)|
-|**SharePoint-gegevens**:<br /><br />Azure Backup-Server back-up van Farmgegevens<br /><br />BMR/systeemstatusback-up|Verloren site, lijsten, lijstitems, documenten|J|N|N|
-|**SharePoint-gegevens**:<br /><br />Azure Backup-Server back-up van Farmgegevens<br /><br />BMR/systeemstatusback-up|Verloren of beschadigd besturingssysteem|N|J|J|
-|**SharePoint-gegevens**:<br /><br />Azure Backup-Server back-up van Farmgegevens<br /><br />BMR/systeemstatusback-up|Herstel na noodgeval|N|N|N|
-|Windows Server 2012 R2 Hyper-V<br /><br />Azure Backup-Server back-up van Hyper-V-host of Gast<br /><br />BMR/systeemstatusback-up van host|Verloren virtuele machine|J|N|N|
-|Hyper-V<br /><br />Azure Backup-Server back-up van Hyper-V-host of Gast<br /><br />BMR/systeemstatusback-up van host|Verloren of beschadigd besturingssysteem|N|J|J|
-|Hyper-V<br /><br />Azure Backup-Server back-up van Hyper-V-host of Gast<br /><br />BMR/systeemstatusback-up van host|Verloren Hyper-V-host (virtuele machines intact)|N|N|J|
-|Hyper-V<br /><br />Azure Backup-Server back-up van Hyper-V-host of Gast<br /><br />BMR/systeemstatusback-up van host|Verloren Hyper-V-host (verloren virtuele machines)|N|N|J<br /><br />BMR, gevolgd door normaal herstel van de Azure Backup Server|
-|SQL Server/Exchange<br /><br />Back-up van Azure back-upserver van app<br /><br />BMR/systeemstatusback-up|Verloren appgegevens|J|N|N|
-|SQL Server/Exchange<br /><br />Back-up van Azure back-upserver van app<br /><br />BMR/systeemstatusback-up|Verloren of beschadigd besturingssysteem|N|Y|J|
-|SQL Server/Exchange<br /><br />Back-up van Azure back-upserver van app<br /><br />BMR/systeemstatusback-up|Verloren server (database/transactielogboekbestanden intact)|N|N|J|
-|SQL Server/Exchange<br /><br />Back-up van Azure back-upserver van app<br /><br />BMR/systeemstatusback-up|Verloren server (database/transactielogboekbestanden verloren)|N|N|J<br /><br />BMR-herstel, gevolgd door normaal herstel van de Azure Backup Server|
+|**Bestands gegevens**<br /><br />Reguliere gegevens back-up<br /><br />BMR/systeem status back-up|Verloren bestands gegevens|J|N|N|
+|**Bestands gegevens**<br /><br />Azure Backup Server back-up van bestands gegevens<br /><br />BMR/systeem status back-up|Verloren of beschadigd besturings systeem|N|J|J|
+|**Bestands gegevens**<br /><br />Azure Backup Server back-up van bestands gegevens<br /><br />BMR/systeem status back-up|Verloren server (gegevens volumes intact)|N|N|J|
+|**Bestands gegevens**<br /><br />Azure Backup Server back-up van bestands gegevens<br /><br />BMR/systeem status back-up|Verloren server (gegevens volumes verloren)|J|Nee|Ja (BMR, gevolgd door normaal herstel van back-ups van bestands gegevens)|
+|**Share point-gegevens**:<br /><br />Azure Backup Server back-up van farm gegevens<br /><br />BMR/systeem status back-up|Verloren site, lijsten, lijst items, documenten|J|N|N|
+|**Share point-gegevens**:<br /><br />Azure Backup Server back-up van farm gegevens<br /><br />BMR/systeem status back-up|Verloren of beschadigd besturings systeem|N|J|J|
+|**Share point-gegevens**:<br /><br />Azure Backup Server back-up van farm gegevens<br /><br />BMR/systeem status back-up|Herstel na noodgeval|N|N|N|
+|Windows Server 2012 R2 Hyper-V<br /><br />Azure Backup Server back-up van Hyper-V-host of gast<br /><br />BMR/systeem status back-up van host|Verloren VM|J|N|N|
+|Hyper-V<br /><br />Azure Backup Server back-up van Hyper-V-host of gast<br /><br />BMR/systeem status back-up van host|Verloren of beschadigd besturings systeem|N|J|J|
+|Hyper-V<br /><br />Azure Backup Server back-up van Hyper-V-host of gast<br /><br />BMR/systeem status back-up van host|Verloren Hyper-V-host (Vm's intact)|N|N|J|
+|Hyper-V<br /><br />Azure Backup Server back-up van Hyper-V-host of gast<br /><br />BMR/systeem status back-up van host|Verloren Hyper-V-host (Vm's verloren)|N|N|J<br /><br />BMR, gevolgd door regulier Azure Backup Server herstel|
+|SQL Server/Exchange<br /><br />Azure Backup Server app-back-up<br /><br />BMR/systeem status back-up|Verloren app-gegevens|J|N|N|
+|SQL Server/Exchange<br /><br />Azure Backup Server app-back-up<br /><br />BMR/systeem status back-up|Verloren of beschadigd besturings systeem|N|Y|J|
+|SQL Server/Exchange<br /><br />Azure Backup Server app-back-up<br /><br />BMR/systeem status back-up|Verloren server (data base/transactie logboeken intact)|N|N|J|
+|SQL Server/Exchange<br /><br />Azure Backup Server app-back-up<br /><br />BMR/systeem status back-up|Verloren server (data base/transactie logboeken verloren)|N|N|J<br /><br />BMR-herstel, gevolgd door het normale Azure Backup Server herstel|
 
-## <a name="how-system-state-backup-works"></a>De werking van systeemstatusback-up
+## <a name="how-system-state-backup-works"></a>De werking van systeem status back-up
 
-Wanneer een systeemstatusback-up wordt uitgevoerd, wordt back-Server communiceert met Windows Server back-up om aan te vragen van een back-up van de systeemstatus van de server. Back-up-Server en Windows Server back-up gebruiken standaard het station dat de meeste beschikbare vrije ruimte heeft. Informatie over dit station wordt opgeslagen in het bestand PSDataSourceConfig.xml. Dit is het station dat gebruikmaakt van Windows Server back-up voor back-ups.
+Wanneer een systeem status back-up wordt uitgevoerd, communiceert de back-upserver met Windows Server Back-up om een back-up van de systeem status van de server aan te vragen. Standaard maakt de back-upserver en Windows Server Back-up gebruik van het station met de meeste beschik bare vrije ruimte. Informatie over dit station wordt opgeslagen in het bestand bestand psdatasourceconfig. XML. Dit is het station dat Windows Server Back-up gebruikt voor back-ups.
 
-U kunt het station dat gebruikmaakt van back-upserver voor de systeemstatusback-up aanpassen. Ga op de beveiligde server naar C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources. Open het bestand PSDataSourceConfig.xml voor bewerken. Wijzig de \<FilesToProtect\> waarde voor de stationsletter. Sla het bestand op en sluit het. Als er een beveiligingsgroepset ter bescherming van de systeemstatus van de computer, moet u een consistentiecontrole uitvoeren. Als u een waarschuwing wordt gegenereerd, selecteert u **beveiligingsgroep wijzigen** in de waarschuwing en voltooi de wizard. Voer vervolgens nog een consistentiecontrole uit.
+U kunt het station dat door de back-upserver wordt gebruikt, aanpassen voor de systeem status back-up. Ga op de beveiligde server naar C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources. Open het bestand bestand psdatasourceconfig. XML om het te bewerken. Wijzig de \<FilesToProtect\> -waarde voor de stationsletter. Sla het bestand op en sluit het. Als er een beveiligings groep is ingesteld om de systeem status van de computer te beveiligen, voert u een consistentie controle uit. Als er een waarschuwing wordt gegenereerd, selecteert u **beveiligings groep wijzigen** in de waarschuwing en voltooit u de wizard. Voer vervolgens een andere consistentie controle uit.
 
-Houd er rekening mee dat als de beveiligingsserver zich in een cluster, is het mogelijk dat een clusterstation wordt geselecteerd als de schijf met de meeste vrije ruimte. Als eigendom van het station is overgeschakeld naar een ander knooppunt en een system state back-up wordt uitgevoerd, wordt het station is niet beschikbaar en wordt de back-up mislukt. In dit scenario wijzigen PSDataSourceConfig.xml om te verwijzen naar een lokaal station.
+Als de beveiligings server zich in een cluster bevindt, is het mogelijk dat een cluster station wordt geselecteerd als de schijf met de meeste vrije ruimte. Als het eigendom van het station is overgeschakeld naar een ander knoop punt en een systeem status back-up wordt uitgevoerd, is het station niet beschikbaar en mislukt de back-up. In dit scenario wijzigt u bestand psdatasourceconfig. XML zodat deze verwijst naar een lokaal station.
 
-Windows Server back-up maakt vervolgens een map met de naam WindowsImageBackup in de hoofdmap van de map voor terugzetten. Als Windows Server back-up maakt de back-up, wordt alle gegevens in deze map geplaatst. Wanneer de back-up is voltooid, wordt het bestand overgebracht naar de back-Server-computer. Let op de volgende informatie:
+Windows Server Back-up maakt vervolgens een map met de naam WindowsImageBackup in de hoofdmap van de map Restore. Als Windows Server Back-up de back-up maakt, worden alle gegevens in deze map geplaatst. Wanneer de back-up is voltooid, wordt het bestand overgebracht naar de back-upserver computer. Let op de volgende informatie:
 
-* Deze map en de inhoud ervan worden niet opgeschoond wanneer de back-up of overdracht is voltooid. De beste manier om na te denken hiervan is dat de ruimte wordt gereserveerd voor de volgende keer dat een back-up is voltooid.
-* De map wordt gemaakt telkens wanneer een back-up wordt gemaakt. De datum en tijd stempel de tijd van de laatste systeemstatusback-up weer.
+* Deze map en de inhoud ervan worden niet opgeschoond wanneer de back-up of overdracht is voltooid. De beste manier om dit te zien is dat de ruimte wordt gereserveerd voor de volgende keer dat een back-up wordt voltooid.
+* De map wordt gemaakt telkens wanneer een back-up wordt gemaakt. Het tijds tempel tijd en datum geeft de tijd weer van de laatste back-up van de systeem status.
 
 ## <a name="bmr-backup"></a>BMR-back-up
 
-Voor BMR (inclusief een systeemstatusback-up), wordt de back-uptaak rechtstreeks naar een share opgeslagen op de servercomputer van de back-up. Het is niet opgeslagen in een map op de beveiligde server.
+Voor BMR (inclusief een systeem status back-up) wordt de back-uptaak rechtstreeks opgeslagen in een share op de Server computer van de back-up. Het wordt niet opgeslagen in een map op de beveiligde server.
 
-Back-upserver van Windows Server back-up-aanroepen en deelt het replicavolume voor BMR back-up. In dit geval duidelijk niet Windows Server back-up voor het gebruik van het station met de meeste vrije ruimte. In plaats daarvan wordt de share die is gemaakt voor de taak gebruikt.
+De back-upserver roept Windows Server Back-up aan en deelt het replica volume voor die BMR-back-up. In dit geval weet het niet Windows Server Back-up het station met de meeste vrije ruimte te gebruiken. In plaats daarvan wordt de share gebruikt die voor de taak is gemaakt.
 
-Wanneer de back-up is voltooid, wordt het bestand overgebracht naar de back-Server-computer. Logboeken worden opgeslagen in C:\Windows\Logs\WindowsServerBackup.
+Wanneer de back-up is voltooid, wordt het bestand overgebracht naar de back-upserver computer. Logboeken worden opgeslagen in C:\Windows\Logs\WindowsServerBackup.
 
 ## <a name="prerequisites-and-limitations"></a>Vereisten en beperkingen
 
--   BMR wordt niet ondersteund voor computers met Windows Server 2003 of voor computers waarop een client-besturingssysteem wordt uitgevoerd.
+-   BMR wordt niet ondersteund voor computers met Windows Server 2003 of voor computers waarop een client besturingssysteem wordt uitgevoerd.
 
--   U kunt BMR en systeemstatus voor dezelfde computer in verschillende beveiligingsgroepen niet beveiligen.
+-   U kunt BMR en de systeem status voor dezelfde computer in verschillende beveiligings groepen niet beveiligen.
 
--   Een back-up-Server-computer kan zelf voor BMR beveiligen.
+-   Een back-upserver computer kan zichzelf niet beveiligen voor BMR.
 
--   Beveiliging op korte termijn naar tape (schijf-naar-tape of D2T) wordt niet ondersteund voor BMR. Langdurige opslag op tape (schijf-naar-schijf-naar-tape of D2D2T) wordt ondersteund.
+-   Kortetermijnbeveiliging op tape (schijf-naar-tape of D2T) wordt niet ondersteund voor BMR. Lange termijn opslag op tape (schijf-naar-schijf-naar-tape of D2D2T) wordt ondersteund.
 
--   Windows Server back-up moet worden geïnstalleerd op de beveiligde computer voor BMR-beveiliging.
+-   Voor BMR-beveiliging moet Windows Server Back-up op de beveiligde computer zijn geïnstalleerd.
 
--   Voor BMR-beveiliging, in tegenstelling tot voor beveiliging van de systeemstatus, back-up-Server geen schijfruimtevereisten op de beveiligde computer. Back-ups van overgebracht Windows Server back-up rechtstreeks naar de back-up-Server-computer. De overdrachtstaak back-niet wordt weergegeven in de back-upserver **taken** weergeven.
+-   Voor BMR-beveiliging, in tegens telling tot systeem status beveiliging, heeft de back-upserver geen schijfruimte vereisten op de beveiligde computer. Windows Server Back-up stuurt back-ups rechtstreeks naar de back-upserver computer. De taak back-upoverdracht wordt niet weer gegeven in de weer gave **taken** van de back-upserver.
 
--   Back-upserver reserveert 30 GB aan ruimte op het replicavolume voor BMR. U kunt dit wijzigen op de **Schijftoewijzing** pagina in de wizard beveiligingsgroep wijzigen of met behulp van de cmdlets Get-DatasourceDiskAllocation en Set-DatasourceDiskAllocation PowerShell. Op het herstelpuntvolume vereist BMR-beveiliging ongeveer 6 GB voor een vijf dagen bewaren.
-    * Houd er rekening mee dat u de grootte van het replicavolume tot minder dan 15 GB kunt beperken.
-    * Back-upserver berekent niet de grootte van de BMR-gegevensbron. Wordt ervan uitgegaan dat 30 GB voor alle servers. Wijzig de waarde op basis van de grootte van BMR-back-ups die u in uw omgeving verwacht. De grootte van een BMR back-up kan ongeveer worden berekend als de som van de gebruikte ruimte op alle essentiële volumes. Essentiële volumes = opstartvolume + systeemvolume + volume die als host fungeert voor systeemstatusgegevens zoals Active Directory.
+-   De back-upserver reserveert 30 GB aan ruimte op het replica volume voor BMR. U kunt dit wijzigen op de pagina **schijf toewijzing** in de wizard beveiligings groep wijzigen of met behulp van de Get-DatasourceDiskAllocation en set-DatasourceDiskAllocation Power shell-cmdlets. Op het herstel punt volume vereist BMR-beveiliging ongeveer 6 GB voor een Bewaar periode van vijf dagen.
+    * Houd er rekening mee dat u de grootte van het replica volume niet tot minder dan 15 GB kunt beperken.
+    * De back-upserver berekent niet de grootte van de BMR-gegevens bron. Hierbij wordt uitgegaan van 30 GB voor alle servers. Wijzig de waarde op basis van de grootte van de BMR-back-ups die u in uw omgeving verwacht. De grootte van een BMR-back-up kan ruwweg worden berekend als de som van de gebruikte ruimte op alle essentiële volumes. Essentiële volumes = opstart volume + systeem volume + volume dat als host fungeert voor systeem status gegevens, zoals Active Directory.
 
--   Als u van systeemstatusbeveiliging naar BMR-beveiliging, vereist BMR-beveiliging minder ruimte op de *herstelpuntvolume*. De extra ruimte op het volume is echter niet vrijgemaakt. U kunt de volumegrootte handmatig verkleinen op de **Schijftoewijzing wijzigen** pagina van de wizard beveiligingsgroep wijzigen of met behulp van de cmdlets Get-DatasourceDiskAllocation en Set-DatasourceDiskAllocation PowerShell.
+-   Als u van systeem status beveiliging naar BMR-beveiliging overschakelt, is voor BMR-beveiliging minder ruimte op het *herstel punt volume*nodig. De extra ruimte op het volume wordt echter niet vrijgemaakt. U kunt de volume grootte hand matig verkleinen op de pagina **schijf toewijzing wijzigen** van de wizard beveiligings groep wijzigen of met behulp van de Get-DatasourceDiskAllocation en set-DatasourceDiskAllocation Power shell-cmdlets.
 
-    Als u van systeemstatusbeveiliging naar BMR-beveiliging, vereist BMR-beveiliging meer ruimte op de *replicavolume*. Het volume wordt automatisch uitgebreid. Als u wijzigen van de standaard ruimtetoewijzingen wilt, gebruikt u de Modify-DiskAllocation PowerShell-cmdlet.
+    Als u van systeem status beveiliging naar BMR-beveiliging overschakelt, is er voor BMR-beveiliging meer ruimte op het *replica volume*nodig. Het volume wordt automatisch uitgebreid. Als u de standaard ruimte toewijzingen wilt wijzigen, gebruikt u de Power shell-cmdlet Modify-Diskallocation gebruiken.
 
--   Als u van BMR-beveiliging naar systeemstatusbeveiliging, moet u meer ruimte op het herstelpuntvolume. Back-upserver mogelijk probeert automatisch te vergroten het volume. Als er onvoldoende ruimte in de opslaggroep, wordt er een fout optreedt.
+-   Als u van BMR-beveiliging naar systeem status beveiliging overschakelt, hebt u meer ruimte nodig op het herstel punt volume. De back-upserver probeert het volume mogelijk automatisch te verg Roten. Als er onvoldoende ruimte in de opslag groep is, treedt er een fout op.
 
-    Als u van BMR-beveiliging naar systeemstatusbeveiliging, moet u ruimte op de beveiligde computer. Dit is omdat de systeemstatusbeveiliging de replica eerst naar de lokale computer schrijft en brengt deze naar de back-up-Server-computer.
+    Als u van BMR-beveiliging naar systeem status beveiliging overschakelt, hebt u ruimte op de beveiligde computer nodig. Dit is omdat de systeem status beveiliging de replica eerst naar de lokale computer schrijft en deze vervolgens overdraagt naar de back-upserver computer.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-1.  **Azure Backup-Server implementeren**. Controleer of de back-up-Server correct is geïmplementeerd. Zie voor meer informatie:
-    * [Systeemvereisten voor Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
-    * [Beveiligingsmatrix voor back-Server](backup-mabs-protection-matrix.md)
+1.  **Azure backup server implementeren**. Controleer of de back-upserver op de juiste wijze is geïmplementeerd. Zie voor meer informatie:
+    * [Systeem vereisten voor Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
+    * [Beveiligings matrix van de back-upserver](backup-mabs-protection-matrix.md)
 
-2.  **Opslag instellen**. U kunt back-upgegevens opslaan op schijf, op tape en in de cloud met Azure. Zie voor meer informatie, [gegevensopslag voorbereiden](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage).
+2.  **Opslag instellen**. U kunt back-upgegevens opslaan op schijf, op tape en in de Cloud met Azure. Zie voor meer informatie [voorbereiden van gegevens opslag](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage).
 
-3.  **De beveiligingsagent instellen**. Installeer de beveiligingsagent op de computer die u back wilt-up. Zie voor meer informatie, [de DPM-beveiligingsagent implementeren](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent).
+3.  **Stel de beveiligings agent**in. Installeer de beveiligings agent op de computer waarvan u een back-up wilt maken. Zie [de DPM-beveiligings agent implementeren](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent)voor meer informatie.
 
-## <a name="back-up-system-state-and-bare-metal"></a>Back-up van systeemstatus en bare metal
-Instellen van een beveiligingsgroep, zoals beschreven in [beveiligingsgroepen implementeren](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Houd er rekening mee dat u kunt BMR en systeemstatus voor dezelfde computer in verschillende groepen niet beveiligen. Ook, wanneer u BMR selecteert, systeemstatus automatisch ingeschakeld.
+## <a name="back-up-system-state-and-bare-metal"></a>Back-up maken van systeem status en bare metal
+Stel een beveiligings groep in zoals beschreven in [beveiligings groepen implementeren](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Houd er rekening mee dat u de BMR en de systeem status voor dezelfde computer in verschillende groepen niet kunt beveiligen. Wanneer u BMR selecteert, wordt de systeem status automatisch ingeschakeld.
 
 
-1.  Als u wilt de wizard nieuwe beveiligingsgroep maken in de back-up Server Administrator-Console opent, selecteer **Protection** > **acties** > **beveiligingsgroep maken** .
+1.  Selecteer **beveiligings** > actiesbeveiligings > **groep maken**om de wizard nieuwe beveiligings groep maken te openen in de Administrator-console van de back-upserver.
 
-2.  Op de **Type beveiligingsgroep selecteren** pagina, selecteert u **Servers**, en selecteer vervolgens **volgende**.
+2.  Selecteer op de pagina **type beveiligings groep selecteren** de optie **servers**en selecteer vervolgens **volgende**.
 
-3.  Op de **groepsleden selecteren** pagina, vouw de computer uit en selecteer dan **BMR** of **systeemstatus**.
+3.  Op de pagina **groeps leden selecteren** vouwt u de computer uit en selecteert u vervolgens **BMR** of **systeem status**.
 
-    Houd er rekening mee dat u kunt zowel BMR en systeemstatus voor dezelfde computer in verschillende groepen niet beveiligen. Ook, wanneer u BMR selecteert, systeemstatus automatisch ingeschakeld. Zie voor meer informatie, [beveiligingsgroepen implementeren](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups).
+    Houd er rekening mee dat u de BMR en de systeem status voor dezelfde computer in verschillende groepen niet kunt beveiligen. Wanneer u BMR selecteert, wordt de systeem status automatisch ingeschakeld. Zie [Deploying Protection groups](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups)(Engelstalig) voor meer informatie.
 
-4.  Op de **methode voor gegevensbeveiliging selecteren** pagina, selecteert u hoe u wilt voor het afhandelen van back-ups op korte termijn en op lange termijn. Kortetermijnback-up is altijd naar de schijf het eerst met de optie back-up van de schijf op de Azure-cloud met behulp van Azure Backup (korte of lange termijn). Er is een alternatief voor langetermijnback-up naar de cloud voor het instellen van langetermijnback-up naar een zelfstandige apparaat dat of tapewisselaar tapewisselaar die verbonden met de back-upserver.
+4.  Selecteer op de pagina **methode voor gegevens beveiliging selecteren** hoe u back-ups voor de korte en de lange termijn wilt afhandelen. Back-ups op korte termijn zijn altijd eerst op schijf, met de optie om een back-up te maken van de schijf naar de Azure-Cloud met behulp van Azure Backup (kortetermijnbeveiliging of lange termijn). Een alternatief voor lange termijn back-up naar de Cloud is het instellen van back-ups op lange termijn naar een zelfstandig tape apparaat of een tape wisselaar die is verbonden met de back-upserver.
 
-5.  Op de **Kortetermijndoelen selecteren** pagina, selecteert u hoe u back-up maken naar kortetermijnopslag op schijf wilt:
-    1. Voor **bewaartermijn**, selecteert u hoe lang u wilt de gegevens op schijf bewaren. 
-    2. Voor **Synchronisatiefrequentie**, selecteert u hoe vaak u wilt uitvoeren van een incrementele back-up naar schijf. Als u niet om in te stellen van een back-upinterval wilt, kunt u controleren de **net vóór een herstelpunt** optie. Back-upserver wordt een snelle, volledige back-up uitgevoerd net voordat elk herstelpunt is gepland.
+5.  Selecteer op de pagina doel stellingen voor de **korte termijn selecteren** hoe u een back-up wilt maken naar de kortetermijnbeveiliging op schijf:
+    1. Voor **Bewaar periode**selecteert u hoe lang u de gegevens op de schijf wilt bewaren. 
+    2. Voor **synchronisatie frequentie**selecteert u hoe vaak u een incrementele back-up naar schijf wilt uitvoeren. Als u geen back-upinterval wilt instellen, kunt u de optie **net voor een herstel punt** controleren. De back-upserver voert een snelle, volledige back-up uit vlak voordat elk herstel punt is gepland.
 
-6.  Als u opslaan van gegevens op tape voor langdurige opslag wilt op de **langetermijndoelen weergeven** pagina, selecteert u hoe lang u tapegegevens wilt bewaren (1-99 jaar). 
-    1. Voor **frequentie van back-up**, selecteer hoe vaak back-up naar tape moet worden uitgevoerd. De frequentie is gebaseerd op de bewaartermijn die u hebt geselecteerd:
-        * Wanneer de bewaartermijn 1-99 jaar is, kunt u back-ups dagelijks, wekelijks, tweewekelijks, maandelijks, elk kwartaal, elk half jaar of jaarlijks kunt selecteren.
-        * Wanneer de bewaartermijn 1-11 maanden is, kunt u back-ups dagelijks, wekelijks, tweewekelijks of maandelijks.
-        * Wanneer de bewaartermijn 1-4 weken is, kunt u back-ups dagelijks of wekelijks.
+6.  Als u gegevens op tape wilt opslaan voor lange termijn opslag, selecteert u op de pagina **lange termijn doelen opgeven** hoelang u tape gegevens wilt bewaren (1-99 jaar). 
+    1. Voor de **frequentie van back-ups**selecteert u hoe vaak back-ups op tape moeten worden uitgevoerd. De frequentie is gebaseerd op de Bewaar termijn die u hebt geselecteerd:
+        * Wanneer de Bewaar termijn 1-99 jaar is, kunt u back-ups selecteren die dagelijks, wekelijks, twee wekelijks, maandelijks, elk kwar taal, halfjaarlijks of jaarlijks moeten worden uitgevoerd.
+        * Wanneer de Bewaar termijn 1-11 maanden bedraagt, kunt u back-ups selecteren die dagelijks, wekelijks, twee wekelijks of maandelijks worden uitgevoerd.
+        * Wanneer de Bewaar termijn 1-4 weken is, kunt u back-ups dagelijks of wekelijks selecteren.
 
-    2. Op de **Tape selecteren en de Details van tapewisselaar** pagina, selecteert u de tape en bibliotheek te gebruiken en of de gegevens moeten worden gecomprimeerd en versleuteld.
+    2. Selecteer op de pagina **Details van tape en bibliotheek selecteren** de tape en bibliotheek die u wilt gebruiken en geef aan of gegevens moeten worden gecomprimeerd en versleuteld.
 
-7.  Op de **Schijftoewijzing controleren** pagina, Controleer de schijfruimte voor opslag van toepassingen die voor de beveiligingsgroep toegewezen.
+7.  Controleer op de pagina **schijf toewijzing controleren** de schijf ruimte van de opslag groep die is toegewezen aan de beveiligings groep.
 
-    1. **Totale grootte van de gegevens** is de grootte van de gegevens die u back wilt-up.
-    2. **Schijfruimte die moet worden ingericht op Azure Backup Server** is de ruimte die back-up-Server wordt aanbevolen voor de beveiligingsgroep. Back-upserver kiest de ideale back-upvolume op basis van de instellingen. U kunt echter de keuzes van de back-upvolume in bewerken **Schijftoewijzingsdetails**. 
-    3. Voor werkbelastingen, selecteer de gewenste opslag in de vervolgkeuzelijst. Uw bewerkingen wijzigen de waarden voor **totale opslag** en **vrije opslagruimte** in de **beschikbare schijfopslag** deelvenster. Ingerichte ruimte is de hoeveelheid opslag die back-upserver dat u toevoegen aan het volume stelt, om ervoor te zorgen goede back-ups.
+    1. **Totale gegevens grootte** is de grootte van de gegevens waarvan u een back-up wilt maken.
+    2. **Schijf ruimte die moet worden ingericht op Azure backup server** is de ruimte die de back-upserver voor de beveiligings groep adviseert. Met de back-upserver wordt het ideale back-upvolume gekozen op basis van de instellingen. U kunt de keuze van het back-upvolume echter bewerken in **schijf toewijzings Details**. 
+    3. Voor werk belastingen selecteert u in de vervolg keuzelijst de voorkeurs opslag. Met uw wijzigingen wijzigt u de waarden voor de **totale opslag** en **vrije opslag ruimte** in het deel venster beschik **bare Disk Storage** . Onderingerichte ruimte is de hoeveelheid opslag die door de back-upserver wordt voorgesteld om aan het volume toe te voegen, om soepele back-ups te garanderen.
 
-8.  Op de **Replica methode voor maken** pagina, selecteert u hoe u voor het afhandelen van de eerste volledige gegevensreplicatie wilt. Als u ervoor kiest om te repliceren via het netwerk, wordt u aangeraden een tijdstip buiten de piekuren te kiezen. Voor grote hoeveelheden gegevens of netwerkomstandigheden die minder dan optimale zijn, houd rekening met de gegevens offline repliceren met behulp van verwisselbare media.
+8.  Op de pagina **methode voor maken van replica** selecteren selecteert u hoe u de eerste volledige gegevens replicatie wilt verwerken. Als u ervoor kiest om via het netwerk te repliceren, wordt u aangeraden een rustige tijd te kiezen. Voor grote hoeveel heden gegevens of voor netwerk omstandigheden die minder dan optimaal zijn, kunt u overwegen om de gegevens offline te repliceren met behulp van Verwissel bare media.
 
-9. Op de **kiest u opties voor consistentiecontrole** pagina, selecteert u hoe u wilt automatiseren consistentiecontroles. U kunt een controle uitvoeren alleen wanneer replicagegevens is inconsistent, of volgens een schema. Als u het configureren van automatische consistentiecontrole niet wilt, kunt u een handmatige controle uitvoeren op elk gewenst moment. Om uit te voeren een handmatige controle in de **Protection** gebied van de back-up Server Administrator-Console met de rechtermuisknop op de beveiligingsgroep en selecteer vervolgens **consistentiecontrole uitvoeren**.
+9. Selecteer op de pagina **Opties voor consistentie controle kiezen** hoe u consistentie controles wilt automatiseren. U kunt ervoor kiezen om een controle alleen uit te voeren als de replica gegevens inconsistent worden of volgens een planning. Als u geen automatische consistentie controle wilt configureren, kunt u op elk gewenst moment een hand matige controle uitvoeren. Als u een hand matige controle wilt uitvoeren, klikt u in het gebied **beveiliging** van de Administrator-console van de back-upserver met de rechter muisknop op de beveiligings groep en selecteert u vervolgens **consistentie controle uitvoeren**.
 
-10. Als u hebt gekozen om de back-up naar de cloud met behulp van Azure Backup, op de **gegevens voor Online beveiliging opgeven** pagina, zorg ervoor dat u de werkbelastingen die u back selecteert wilt-up naar Azure.
+10. Als u ervoor hebt gekozen om een back-up naar de cloud te maken met behulp van Azure Backup, moet u op de pagina **gegevens voor online beveiliging opgeven** de werk belastingen selecteren waarvan u een back-up wilt maken naar Azure.
 
-11. Op de **Online back-upschema opgeven** pagina, selecteer hoe vaak incrementele back-ups naar Azure wordt uitgevoerd. Back-ups uitvoeren elke dag, week, maand en jaar en selecteer de datum en tijd waarop u deze wilt uitvoeren, kunt u plannen. Back-ups kunnen maximaal twee keer per dag uitgevoerd. Telkens wanneer die een back-up wordt uitgevoerd, is een herstelpunt voor gegevens gemaakt in Azure vanaf de kopie van de back-upgegevens die zijn opgeslagen op schijf op de back-Server.
+11. Selecteer op de pagina **online back-upschema opgeven** hoe vaak incrementele back-ups naar Azure worden uitgevoerd. U kunt back-ups plannen die elke dag, week, maand en jaar worden uitgevoerd en de tijd en datum selecteren waarop ze moeten worden uitgevoerd. Back-ups kunnen Maxi maal twee keer per dag plaatsvinden. Telkens wanneer een back-up wordt uitgevoerd, wordt er een gegevens herstel punt gemaakt in azure van de kopie van de back-upgegevens die zijn opgeslagen op de back-upserver schijf.
 
-12. Op de **Online bewaarbeleid opgeven** pagina, selecteert u hoe de herstelpunten die zijn gemaakt op basis van de dagelijkse, wekelijkse, maandelijkse en jaarlijkse back-ups worden bewaard in Azure.
+12. Selecteer op de pagina **online retentie beleid opgeven** hoe de herstel punten die zijn gemaakt op basis van de dagelijkse, wekelijkse, maandelijkse en jaarlijkse back-ups, worden bewaard in Azure.
 
-13. Op de **Kies Onlinereplicatie** pagina, selecteert u hoe de eerste volledige replicatie van gegevens plaatsvindt. U kunt repliceren via het netwerk of een offline back-up (offline-seeding). Offline back-up maakt gebruik van de functie Azure Import. Zie voor meer informatie, [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md).
+13. Selecteer op de pagina **online replicatie kiezen** hoe de eerste volledige replicatie van gegevens wordt uitgevoerd. U kunt repliceren via het netwerk of een offline back-up uitvoeren (offline seeding). Offline back-up maakt gebruik van de Azure import-functie. Zie [offline back-upwerk stroom in azure backup](backup-azure-backup-import-export.md)voor meer informatie.
 
-14. Op de **samenvatting** pagina, Controleer uw instellingen. Nadat u hebt geselecteerd **groep maken**, een eerste replica van de gegevens gemaakt. Wanneer replicatie van gegevens is voltooid, op de **Status** pagina, de status van de beveiliging groep is **OK**. Back-up vindt plaats per de beveiliging vervolgens beveiligingsgroepsinstellingen.
+14. Controleer uw instellingen op de pagina **samen vatting** . Nadat u **groep maken**hebt geselecteerd, vindt de initiële replicatie van de gegevens plaats. Wanneer de gegevens replicatie is voltooid, is de status van de beveiligings groep op de pagina **status** **OK**. De back-up wordt uitgevoerd volgens de instellingen van de beveiligings groep.
 
-## <a name="recover-system-state-or-bmr"></a>Systeemstatus of BMR herstellen
-U kunt BMR of systeemstatus naar een netwerklocatie herstellen. Als u een BMR up hebt gemaakt, gebruikt u Windows Recovery Environment (WinRE) op uw systeem te starten en verbinding met het netwerk. Vervolgens gebruikt u Windows Server back-up te herstellen van de netwerklocatie. Als u een systeemstatus up hebt gemaakt, moet u alleen back-up van Windows Server gebruiken om te herstellen van de netwerklocatie.
+## <a name="recover-system-state-or-bmr"></a>Systeem status of BMR herstellen
+U kunt de BMR of systeem status herstellen naar een netwerk locatie. Als u een back-up hebt gemaakt van BMR, gebruikt u Windows Recovery Environment (WinRE) om uw systeem te starten en verbinding te maken met het netwerk. Gebruik vervolgens Windows Server Back-up om de netwerk locatie te herstellen. Als u een back-up hebt gemaakt van de systeem status, gebruikt u Windows Server Back-up om de netwerk locatie te herstellen.
 
 ### <a name="restore-bmr"></a>BMR herstellen
-Herstel uitvoeren op de servercomputer van de back-up:
+Herstel uitvoeren op de back-upserver computer:
 
-1.  In de **Recovery** deelvenster, zoek de computer die u wilt herstellen en selecteer vervolgens **Bare Metal Recovery**.
+1.  Zoek in het deel venster **herstel** de computer die u wilt herstellen en selecteer vervolgens bare **Metal Recovery**.
 
-2.  Beschikbare herstelpunten worden vet weergegeven in de kalender. Selecteer de datum en tijd voor het herstelpunt dat u wilt gebruiken.
+2.  Beschik bare herstel punten worden vet weer gegeven in de agenda. Selecteer de datum en tijd voor het herstel punt dat u wilt gebruiken.
 
-3.  Op de **Type herstelbewerking selecteren** pagina, selecteert u **kopiëren naar een netwerkmap.**
+3.  Selecteer op de pagina **type herstel bewerking selecteren** de optie **kopiëren naar een** netwerkmap.
 
-4.  Op de **bestemming opgeven** weergeeft, schakelt waar u de gegevens te kopiëren. Houd er rekening mee dat de geselecteerde bestemming moet er voldoende ruimte. U wordt aangeraden dat u een nieuwe map maken.
+4.  Selecteer op de pagina **bestemming opgeven** waarnaar u de gegevens wilt kopiëren. Houd er rekening mee dat de geselecteerde bestemming voldoende ruimte moet hebben. U wordt aangeraden een nieuwe map te maken.
 
-5.  Op de **herstelopties opgeven** pagina, selecteert u de beveiligingsinstellingen om toe te passen. Selecteer of u wilt gebruiken, storage area network (SAN)-op basis van momentopnamen van hardware, voor sneller herstel. (Dit is een optie alleen als u een SAN met deze functionaliteit beschikbaar is en de mogelijkheid om te maken en een kloon splitsen zodat deze schrijfbaar. Daarnaast kunnen moeten de beveiligde computer en de back-up-Server-computer zijn verbonden met hetzelfde netwerk.)
+5.  Selecteer op de pagina **herstel opties opgeven** de beveiligings instellingen die u wilt Toep assen. Selecteer vervolgens of u moment opnamen op basis van Storage Area Network (SAN) wilt gebruiken voor sneller herstel. (Dit is alleen een optie als u een SAN hebt waarin deze functionaliteit beschikbaar is, en de mogelijkheid om een kloon te maken en te splitsen om deze te beschrijfbaar maken. Daarnaast moeten de beveiligde computer en de back-upserver computer zijn verbonden met hetzelfde netwerk.)
 
-6.  Stel meldingsopties. Op de **bevestiging** weergeeft, schakelt **herstellen**.
+6.  Stel meldings opties in. Selecteer op de pagina **bevestiging** de optie **herstellen**.
 
-De sharelocatie instellen:
+De share locatie instellen:
 
-1.  In de locatie voor terugzetten, gaat u naar de map met de back-up.
+1.  Ga in de terugzet locatie naar de map met de back-up.
 
-2.  Deel de map die zich één niveau boven WindowsImageBackup, zodat de hoofdmap van de gedeelde map de map WindowsImageBackup is. Als u dit niet doet, kan herstel de back-up niet gevonden. Als u wilt verbinding maken met behulp van Windows Recovery Environment (WinRE), moet u een share die u in WinRE met de juiste IP-adres en referenties openen kunt.
+2.  Deel de map die zich op één niveau boven WindowsImageBackup bevindt, zodat de hoofdmap van de gedeelde map de map WindowsImageBackup is. Als u dit niet doet, wordt de back-up niet gevonden. Als u verbinding wilt maken met behulp van Windows Recovery Environment (WinRE), hebt u een share nodig die u kunt openen in WinRE met het juiste IP-adres en referenties.
 
 Het systeem herstellen:
 
-1.  Start de computer waarop u herstellen van de installatiekopie wilt met behulp van de Windows-DVD voor het systeem die u wilt herstellen.
+1.  Start de computer waarop u de installatie kopie wilt herstellen met behulp van de Windows-DVD voor het systeem dat u wilt herstellen.
 
-2.  Op de eerste pagina, Controleer of de taal en landinstellingen. Op de **installeren** weergeeft, schakelt **uw computer herstellen**.
+2.  Controleer op de eerste pagina de taal-en land instellingen. Selecteer op de pagina **installeren** **de optie uw computer herstellen**.
 
-3.  Op de **opties voor Systeemherstel** weergeeft, schakelt **computer met behulp van een eerder gemaakte systeemkopie herstellen**.
+3.  Selecteer op de pagina **Opties voor systeem herstel** **de optie uw computer herstellen met een systeem installatie kopie die u eerder hebt gemaakt**.
 
-4.  Op de **Selecteer een systeemkopieback-up** pagina, selecteert u **een andere systeemkopie herstellen** > **Geavanceerd** > **een systeemkopie zoeken in het netwerk**. Als u een waarschuwing wordt weergegeven, selecteert u **Ja**. Ga in het sharepad, voer de referenties in en selecteer vervolgens het herstelpunt. Hiermee wordt er gescand voor specifieke back-ups die beschikbaar in dat herstelpunt zijn. Selecteer het herstelpunt dat u wilt gebruiken.
+4.  Selecteer op de pagina **Selecteer een systeem kopie back-up** de optie **Selecteer een** > systeem kopie**Geavanceerd** > **zoeken naar een systeem installatie kopie op het netwerk**. Als er een waarschuwing wordt weer gegeven, selecteert u **Ja**. Ga naar het pad naar de share, voer de referenties in en selecteer het herstel punt. Hiermee wordt gekeken naar specifieke back-ups die in dat herstel punt beschikbaar zijn. Selecteer het herstel punt dat u wilt gebruiken.
 
-5.  Op de **kiezen hoe u de back-up herstellen** weergeeft, schakelt **schijven formatteren en opnieuw partitioneren**. Controleer de instellingen op de volgende pagina. 
+5.  Selecteer op de pagina **Kies hoe u de back-upbewerking wilt herstellen de** optie **schijven Format teren en opnieuw partitioneren**. Controleer op de volgende pagina instellingen. 
 
-6.  Om te beginnen met het herstellen, selecteert u **voltooien**. Opnieuw opstarten is vereist.
+6.  Selecteer **volt ooien**om de herstel bewerking te starten. De computer moet opnieuw worden opgestart.
 
-### <a name="restore-system-state"></a>Systeemstatus herstellen
+### <a name="restore-system-state"></a>Systeem status herstellen
 
-Voer het herstel van back-up-Server:
+Herstel uitvoeren in back-upserver:
 
-1.  In de **Recovery** deelvenster, zoek de computer die u wilt herstellen en selecteer vervolgens **Bare Metal Recovery**.
+1.  Zoek in het deel venster **herstel** de computer die u wilt herstellen en selecteer vervolgens bare **Metal Recovery**.
 
-2.  Beschikbare herstelpunten worden vet weergegeven in de kalender. Selecteer de datum en tijd voor het herstelpunt dat u wilt gebruiken.
+2.  Beschik bare herstel punten worden vet weer gegeven in de agenda. Selecteer de datum en tijd voor het herstel punt dat u wilt gebruiken.
 
-3.  Op de **Type herstelbewerking selecteren** pagina, selecteert u **kopiëren naar een netwerkmap**.
+3.  Selecteer op de pagina **type herstel bewerking selecteren** de optie **kopiëren naar een**netwerkmap.
 
-4.  Op de **bestemming opgeven** weergeeft, schakelt waarnaar u wilt kopiëren van de gegevens. Houd er rekening mee dat de geselecteerde bestemming voldoende ruimte moet. U wordt aangeraden dat u een nieuwe map maken.
+4.  Selecteer op de pagina **bestemming opgeven** waar u de gegevens wilt kopiëren. Houd er rekening mee dat er voldoende ruimte nodig is voor de geselecteerde bestemming. U wordt aangeraden een nieuwe map te maken.
 
-5.  Op de **herstelopties opgeven** pagina, selecteert u de beveiligingsinstellingen om toe te passen. Selecteer vervolgens of u wilt gebruiken op basis van SAN hardwaremomentopnamen voor sneller herstel. (Dit is een optie alleen als u een SAN met deze functionaliteit en de mogelijkheid om te maken en een kloon om deze beschrijfbaar te splitsen. Daarnaast kunnen moeten de beveiligde computer en de back-up-server zijn verbonden met hetzelfde netwerk.)
+5.  Selecteer op de pagina **herstel opties opgeven** de beveiligings instellingen die u wilt Toep assen. Selecteer vervolgens of u op SAN gebaseerde moment opnamen van de hardware wilt gebruiken voor sneller herstel. (Dit is alleen een optie als u een SAN hebt met deze functionaliteit en de mogelijkheid om een kloon te maken en te splitsen om deze te kunnen beschrijfbaar zijn. Bovendien moet de beveiligde computer en de back-upserver server zijn verbonden met hetzelfde netwerk.)
 
-6.  Stel meldingsopties. Op de **bevestiging** weergeeft, schakelt **herstellen**.
+6.  Stel meldings opties in. Selecteer op de pagina **bevestiging** de optie **herstellen**.
 
-Windows Server Backup uitvoeren:
+Windows Server Back-up uitvoeren:
 
-1.  Selecteer **acties** > **herstellen** > **deze Server** > **volgende**.
+1.  Selecteer **acties** >  > **deze**serverherstellen > **volgende**.
 
-2.  Selecteer **een andere Server**, selecteer de **Type locatie opgeven** pagina en selecteer vervolgens **externe gedeelde map**. Geef het pad naar de map die het herstelpunt bevat.
+2.  Selecteer **een andere server**, selecteer de pagina **type locatie opgeven** en selecteer vervolgens **externe gedeelde map**. Geef het pad op naar de map die het herstel punt bevat.
 
-3.  Op de **Type herstelbewerking selecteren** pagina, selecteert u **systeemstatus**. 
+3.  Selecteer op de pagina **type herstel bewerking selecteren** de optie **systeem status**. 
 
-4. Op de **locatie voor Systeemtoestandherstel selecteren** pagina, selecteert u **oorspronkelijke locatie**.
+4. Selecteer op de pagina **locatie voor systeem status herstel selecteren** de optie **oorspronkelijke locatie**.
 
-5.  Op de **bevestiging** weergeeft, schakelt **herstellen**. De server opnieuw opstarten na het herstel.
+5.  Selecteer op de pagina **bevestiging** de optie **herstellen**. Start de server opnieuw op nadat de herstel bewerking is gestart.
 
-6.  U kunt ook de systeemstatusherstel uitvoeren bij een opdrachtprompt. Om dit te doen, start u Windows Server back-up op de computer die u wilt herstellen. Als u de versie-id bij een opdrachtprompt, typ: ```wbadmin get versions -backuptarget \<servername\sharename\>```
+6.  U kunt ook de systeem status herstellen uitvoeren vanaf een opdracht prompt. Als u dit wilt doen, start u Windows Server Back-up op de computer die u wilt herstellen. Als u de versie-id wilt ophalen, voert u bij de opdracht prompt het volgende in:```wbadmin get versions -backuptarget \<servername\sharename\>```
 
-    Start de systeemstatusherstel met behulp van de versie-id. Voer het volgende achter de opdrachtprompt: ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
+    Gebruik de versie-id om de systeem status herstellen te starten. Voer bij de opdracht prompt het volgende in:```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
 
-    Bevestig dat u wilt het herstel start. Hier ziet u het proces in het opdrachtpromptvenster. Er wordt een herstellogboek gemaakt. De server opnieuw opstarten na het herstel.
+    Bevestig dat u het herstel wilt starten. U ziet het proces in het opdracht prompt venster. Er wordt een herstel logboek gemaakt. Start de server opnieuw op nadat de herstel bewerking is gestart.
 

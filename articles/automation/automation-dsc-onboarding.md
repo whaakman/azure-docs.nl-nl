@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: ca53d85a09727b75f68da8d049ac3fcd6723a041
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: b003c0cc6480c5d03c3755e7c57785ab2026194b
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302270"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498396"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding van machines voor beheer door Azure Automation status configuratie
 
@@ -67,7 +67,7 @@ Als u een Schaalset voor virtuele machines beheert, raadpleegt u de voorbeeld sj
 
 ### <a name="powershell"></a>PowerShell
 
-De cmdlet [REGI ster-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) kan worden gebruikt om virtuele machines in de Azure portal te verwijderen via Power shell.
+De cmdlet [REGI ster-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode) kan worden gebruikt om virtuele machines in de Azure portal te verwijderen via Power shell.
 
 ### <a name="registering-virtual-machines-across-azure-subscriptions"></a>Virtuele machines in azure-abonnementen registreren
 
@@ -269,11 +269,11 @@ Voor een algemene onboarding van elke machine naar Azure Automation status confi
 Als de lokale Configuration Manager standaard instellingen van Power shell overeenkomen met uw use-case en u de computers wilt opdoen, zodat ze worden opgehaald van en rapporteren aan Azure Automation status configuratie, bieden de Azure Automation-cmdlets een vereenvoudigde methode voor het genereren van de DSC-configuratie die nodig is:
 
 1. Open de Power shell-console of VSCode als beheerder op een computer in uw lokale omgeving.
-2. Verbinding maken met Azure Resource Manager met behulp van`Connect-AzureRmAccount`
+2. Verbinding maken met Azure Resource Manager met behulp van`Connect-AzAccount`
 3. Down load de Power shell DSC-configuratie voor de computers die u wilt vrijgeven uit het Automation-account waarvoor u de knoop punten wilt voorbereiden:
 
    ```powershell
-   # Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
+   # Define the parameters for Get-AzAutomationDscOnboardingMetaconfig using PowerShell Splatting
    $Params = @{
        ResourceGroupName = 'ContosoResources'; # The name of the Resource Group that contains your Azure Automation Account
        AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
@@ -282,7 +282,7 @@ Als de lokale Configuration Manager standaard instellingen van Power shell overe
    }
    # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
    # For more info about splatting, run: Get-Help -Name about_Splatting
-   Get-AzureRmAutomationDscOnboardingMetaconfig @Params
+   Get-AzAutomationDscOnboardingMetaconfig @Params
    ```
 
 1. U hebt nu een map met de naam ***DscMetaConfigs***, met daarin de Power shell DSC-configuratie voor de machines voor onboarding (als beheerder):
@@ -326,6 +326,6 @@ Opnieuw registreren kan op dezelfde manier worden uitgevoerd als u het knoop pun
 
 - Zie aan de slag [met de configuratie van de Azure Automation-status](automation-dsc-getting-started.md) om aan de slag te gaan.
 - Zie [configuraties compileren in azure Automation status configuratie](automation-dsc-compile.md) voor meer informatie over het compileren van DSC-configuraties zodat u ze aan doel knooppunten kunt toewijzen.
-- Zie [Azure Automation status configuratie](/powershell/module/azurerm.automation/#automation) -cmdlets voor informatie over de Power shell-cmdlet.
+- Zie [Azure Automation status configuratie](/powershell/module/az.automation#automation) -cmdlets voor informatie over de Power shell-cmdlet.
 - Zie [prijzen voor Azure Automation status configuratie](https://azure.microsoft.com/pricing/details/automation/) voor prijs informatie.
 - Voor een voor beeld van het gebruik van Azure Automation status configuratie in een pijp lijn voor continue implementatie gaat u naar [continue implementatie met behulp van Azure Automation-status configuratie en chocolade](automation-dsc-cd-chocolatey.md)

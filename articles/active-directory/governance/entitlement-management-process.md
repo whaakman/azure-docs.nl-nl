@@ -1,10 +1,10 @@
 ---
-title: Aanvraag verwerken en e-mailmeldingen in Azure AD-recht beheer (Preview) - Azure Active Directory
-description: Meer informatie over het proces voor aanvragen voor een pakket toegang en het e-mailmeldingen worden verzonden in beheer van de rechten van een Azure Active Directory (Preview).
+title: Aanvraag proces en e-mail meldingen in azure AD-rechts beheer (preview)-Azure Active Directory
+description: Meer informatie over het aanvraag proces voor een toegangs pakket en wanneer e-mail meldingen worden verzonden in Azure Active Directory rechten beheer (preview).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
@@ -13,85 +13,85 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 05/30/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aede5e315141251026867f7028ebf989d44da4d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25ad17f4c4d338e1d0b8118c1a172e0aaad7118e
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473053"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489106"
 ---
-# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Aanvraag verwerken en e-mailmeldingen in beheer van de rechten van een Azure AD (Preview)
+# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Aanvraag proces en e-mail meldingen in het beheer van rechten van Azure AD (preview-versie)
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) waar u recht op management is momenteel in openbare preview.
+> Azure Active Directory (Azure AD)-rechts beheer is momenteel beschikbaar als open bare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
 > Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-Wanneer een gebruiker een aanvraag aan een pakket toegang verzendt, wordt een proces gestart om te leveren die aanvraag. Beheer van de rechten van een Azure AD verzendt ook e-mailmeldingen naar goedkeurders en aanvragers wanneer belangrijke gebeurtenissen tijdens het proces optreden.
+Wanneer een gebruiker een aanvraag indient bij een toegangs pakket, wordt een proces gestart om die aanvraag te verzenden. Het beheer van rechten van Azure AD verzendt ook e-mail meldingen naar goed keurders en aanvragers wanneer er belang rijke gebeurtenissen optreden tijdens het proces.
 
-In dit artikel beschrijft het proces voor aanvragen en de e-mailmeldingen die worden verzonden.
+In dit artikel worden het aanvraag proces beschreven en de e-mail meldingen die worden verzonden.
 
-## <a name="request-process"></a>Proces voor aanvragen
+## <a name="request-process"></a>Aanvraag proces
 
-Een gebruiker die toegang tot een pakket toegang nodig heeft, kunt een aanvraag voor toegang indienen. Afhankelijk van de configuratie van het beleid, kan de aanvraag een goedkeuring vereisen. Wanneer een aanvraag is goedgekeurd, wordt een proces begint met de gebruikerstoegang toewijzen aan elke resource in het pakket toegang. Het volgende diagram toont een overzicht van het proces en de verschillende statussen.
+Een gebruiker die toegang tot een toegangs pakket nodig heeft, kan een toegangs aanvraag indienen. Afhankelijk van de configuratie van het beleid, kan de aanvraag een goed keuring vereisen. Wanneer een aanvraag wordt goedgekeurd, begint een proces met het toewijzen van de gebruikers toegang tot elke resource in het toegangs pakket. In het volgende diagram ziet u een overzicht van het proces en de verschillende statussen.
 
-![Procesdiagram van goedkeuring](./media/entitlement-management-process/request-process.png)
+![Diagram goedkeurings proces](./media/entitlement-management-process/request-process.png)
 
 | Status | Description |
 | --- | --- |
-| Verzonden | Gebruiker indient een aanvraag. |
-| Wachten op goedkeuring | Als het beleid voor een pakket toegang moet worden goedgekeurd, een aanvraag wordt verplaatst naar in afwachting van goedkeuring. |
-| Vervallen | Als u geen fiatteurs een aanvraag binnen de time-out van de aanvraag voor goedkeuring goedkeurt, wordt de aanvraag is verlopen. Probeer het opnieuw heeft de gebruiker de aanvraag opnieuw indienen. |
-| Geweigerd | Goedkeurder een aanvraag wordt geweigerd. |
-| Goedgekeurd | Goedkeurder goedkeurt een aanvraag. |
-| Leveren | Gebruiker heeft **niet** is toegang tot alle resources in het pakket met toegang tot toegewezen. Als dit een externe gebruiker, is nog niet de gebruiker toegang krijgen tot de resource-map en de prompt machtigingen geaccepteerd. |
-| Afgeleverd | Gebruiker is toegang toegewezen aan alle resources in het pakket toegang. |
-| Uitgebreide toegang | Als de extensies zijn toegestaan in het beleid, wordt door de gebruiker de toewijzing uitgebreid. |
-| Toegang is verlopen | Van de gebruiker toegang tot het pakket toegang is verlopen. Om toegang te krijgen, heeft de gebruiker een aanvraag indienen. |
+| Verzonden | Gebruiker een aanvraag indient. |
+| Wachten op goedkeuring | Als voor het beleid voor een toegangs pakket goed keuring is vereist, wordt een aanvraag verplaatst naar wachtende goed keuring. |
+| Vervallen | Als geen goed keurders een aanvraag binnen de time-out van de goedkeurings aanvraag goed keuren, verloopt de aanvraag. Als u het opnieuw wilt proberen, moet de gebruiker de aanvraag opnieuw verzenden. |
+| Toegang geweigerd | Goed keurder weigert een aanvraag. |
+| Goedgekeurd | Goed keurder keurt een aanvraag goed. |
+| Afleveren | Aan de gebruiker is **geen** toegang toegewezen tot alle resources in het toegangs pakket. Als dit een externe gebruiker is, heeft de gebruiker nog geen toegang tot de resource directory en de machtigings prompt geaccepteerd. |
+| Afgeleverd | Aan de gebruiker is toegang toegewezen tot alle resources in het toegangs pakket. |
+| Toegang uitgebreid | Als de uitbrei dingen in het beleid zijn toegestaan, wordt de toewijzing door de gebruiker uitgebreid. |
+| Toegang is verlopen | De toegang van de gebruiker tot het toegangs pakket is verlopen. Als u opnieuw toegang wilt krijgen, moet de gebruiker een aanvraag indienen. |
 
-## <a name="email-notifications"></a>E-mailmeldingen
+## <a name="email-notifications"></a>E-mailwaarschuwingen
 
-Als u een goedkeurder, kunt u e-mailmeldingen worden verzonden wanneer u wilt goedkeuren van een aanvraag voor toegang tot en wanneer een aanvraag voor toegang tot is voltooid. Als u een aanvrager bent, kunt u e-mailmeldingen die wijzen op de status van uw aanvraag worden verzonden. Het volgende diagram laat zien wanneer deze e-mailmeldingen worden verzonden.
+Als u een goed keurder bent, ontvangt u e-mail meldingen wanneer u een toegangs aanvraag moet goed keuren en wanneer een toegangs aanvraag is voltooid. Als u een aanvrager bent, worden er e-mail meldingen verzonden die de status van uw aanvraag aangeven. In het volgende diagram ziet u wanneer deze e-mail meldingen worden verzonden.
 
-![E-proces voor het beheren van rechten](./media/entitlement-management-process/email-notifications.png)
+![E-mail proces van recht beheer](./media/entitlement-management-process/email-notifications.png)
 
-De volgende tabel vindt u meer informatie over elk van deze e-mailmeldingen.
+De volgende tabel bevat meer details over elk van deze e-mail meldingen.
 
-| # | E-mailonderwerp | Wanneer verzonden | Verzonden naar |
+| # | E-mailonderwerp | Na verzen ding | Verzonden naar |
 | --- | --- | --- | --- |
-| 1 | Actie vereist: Toegang tot aanvraag beoordelen van *[aanvrager]* naar *[package toegang]* door *[datum]* | Wanneer een aanvrager verzendt een verzoek voor een pakket toegang | Alle goedkeurders |
-| 2 | Actie vereist: Toegang tot aanvraag beoordelen van *[aanvrager]* naar *[package toegang]* door *[datum]* | Time-out voor de X dagen voor de goedkeuring van de aanvraag | Alle goedkeurders |
-| 3 | Statusmelding: *[aanvrager]* van toegangsaanvraag voor *[package toegang]* is verlopen | Wanneer de goedkeurders niet goedkeuren of weigeren van een aanvraag voor toegang tot binnen de duur van de aanvraag | Aanvrager |
-| 4 | Statusmelding: *[aanvrager]* toegangsaanvraag voor *[package toegang]* is voltooid | Wanneer de eerste fiatteur goedkeurt of weigert een aanvraag voor toegang tot | Alle goedkeurders |
-| 5 | U kunt geen toegang tot *[package toegang]* | Wanneer een aanvrager toegang tot het pakket toegang is geweigerd | Aanvrager |
-| 6 | U hebt nu toegang tot *[package toegang]*  | Wanneer een aanvrager toegang tot elke resource in het pakket toegang is verleend | Aanvrager |
-| 7 | Uw toegang tot *[package toegang]* verloopt over X dag(en) | X dagen voor de toegang van de aanvrager aan het pakket toegang is verlopen | Aanvrager |
-| 8 | Uw toegang tot *[package toegang]* is verlopen | Wanneer de toegang van de aanvrager aan een pakket toegang is verlopen | Aanvrager |
+| 1 | Actie vereist: Toegangs aanvraag van *[aanvrager]* controleren op *[toegangs pakket]* door *[date]* | Wanneer een aanvrager een aanvraag indient voor een toegangs pakket | Alle goed keurders |
+| 2 | Actie vereist: Toegangs aanvraag van *[aanvrager]* controleren op *[toegangs pakket]* door *[date]* | X dagen vóór de time-out van de goedkeurings aanvraag | Alle goed keurders |
+| 3 | Status melding: de toegangs aanvraag van *[aanvrager]* voor *[Access package]* is verlopen | Wanneer de goed keurders een toegangs aanvraag niet goed keuren of weigeren binnen de aanvraag duur | Aanvrager |
+| 4 | Status melding: de toegangs aanvraag voor [ *aanvrager]* voor *[Access package]* is voltooid | Wanneer de eerste goed keurder een toegangs aanvraag goedkeurt of weigert | Alle goed keurders |
+| 5 | U hebt geen toegang tot *[toegangs pakket]* | Wanneer een aanvrager geen toegang meer heeft tot het toegangs pakket | Aanvrager |
+| 6 | U hebt nu toegang tot *[toegangs pakket]*  | Wanneer een aanvrager toegang heeft gekregen tot elke bron in het toegangs pakket | Aanvrager |
+| 7 | Uw toegang tot *[toegangs pakket]* verloopt over X dag (en) | X dagen voordat de aanvrager toegang tot het toegangs pakket verloopt | Aanvrager |
+| 8 | Uw toegang tot *[toegangs pakket]* is verlopen | Wanneer de toegang van de aanvrager tot een toegangs pakket verloopt | Aanvrager |
 
-### <a name="access-request-emails"></a>Toegang tot aanvraag e-mailberichten
+### <a name="access-request-emails"></a>E-mail berichten voor toegang
 
-Wanneer een aanvrager een verzoek om een access-pakket dat is geconfigureerd verzendt voor goedkeuring vereisen voor toegang tot, ontvangen alle goedkeurders die zijn geconfigureerd in het beleid voor een e-mailbericht met details van de aanvraag. Details van de aanvrager de naam, organisatie, toegang tot de begin- en datum indien opgegeven, zakelijke reden, wanneer de aanvraag is ingediend en verloopt de aanvraag. Het e-mailbericht bevat een koppeling waar goedkeurders kunnen goedkeuren of weigeren van de aanvraag. Hier volgt een voorbeeld e-mailmelding die aan een goedkeurder wordt verzonden wanneer een aanvrager een aanvraag voor toegang verstuurt.
+Wanneer een aanvrager een toegangs aanvraag indient voor een toegangs pakket dat is geconfigureerd om goed keuring te vereisen, ontvangen alle goed keurders die in het beleid zijn geconfigureerd, een e-mail melding met de details van de aanvraag. Details bevatten de naam van de aanvrager, de organisatie, de start-en eind datum van de toegang, indien van toepassing, zakelijke rechtvaardiging, wanneer de aanvraag is ingediend en wanneer de aanvraag verloopt. Het e-mail bericht bevat een koppeling waarbij goed keurders de toegangs aanvraag kunnen goed keuren of weigeren. Hier volgt een voor beeld van een e-mail melding die wordt verzonden naar een goed keurder wanneer een aanvrager een toegangs aanvraag indient.
 
-![Een e-mail met toegang controleren](./media/entitlement-management-shared/email-approve-request.png)
+![E-mail van toegangs aanvraag controleren](./media/entitlement-management-shared/email-approve-request.png)
 
-### <a name="approved-or-denied-emails"></a>E-mailberichten goedgekeurd of geweigerd
+### <a name="approved-or-denied-emails"></a>Goedgekeurde of geweigerde e-mail berichten
 
-Aanvragers worden op de hoogte gesteld als hun toegang tot de aanvraag is goedgekeurd en beschikbaar voor toegang, of wanneer de toegangsaanvraag voor is geweigerd. Wanneer een goedkeurder een aanvraag voor toegang tot verzonden door een aanvrager ontvangt, kunnen ze goedkeuren of afwijzen van de aanvraag. De fiatteur moet een zakelijke rechtvaardiging voor hun besluit toevoegen.
+Aanvragers worden gewaarschuwd wanneer hun toegangs aanvraag wordt goedgekeurd en beschikbaar voor toegang, of wanneer hun toegangs aanvraag wordt geweigerd. Wanneer een goed keurder een toegangs aanvraag ontvangt die door een aanvrager is ingediend, kan hij of zij de toegangs aanvraag goed keuren of weigeren. De fiatteur moet een zakelijke rechtvaardiging toevoegen voor hun beslissing.
 
-Wanneer een aanvraag voor toegang tot is goedgekeurd, begint management waar u recht op het proces van de aanvrager toegang tot elk van de resources in het pakket toegang verlenen. Nadat de aanvrager heeft toegang tot elke resource in het pakket toegang is verleend, wordt een e-mailmelding verzonden naar de aanvrager dat de access-aanvraag is goedgekeurd en of ze nu toegang tot het pakket toegang hebben. Hier volgt een voorbeeld e-mailbericht wordt verzonden naar een aanvrager wanneer ze toegang tot een package toegang worden verleend.
+Wanneer een toegangs aanvraag wordt goedgekeurd, start het rechten beheer het proces van het verlenen van toegang tot alle resources in het toegangs pakket aan de aanvrager. Nadat de aanvrager toegang tot elke resource in het toegangs pakket heeft gekregen, wordt een e-mail melding verzonden naar de aanvrager dat hun toegangs aanvraag is goedgekeurd en dat ze nu toegang tot het toegangs pakket hebben. Hier volgt een voor beeld van een e-mail melding die wordt verzonden naar een aanvrager wanneer ze toegang krijgen tot een toegangs pakket.
 
-Wanneer een aanvraag voor toegang is geweigerd, wordt een e-mailmelding verzonden naar de aanvrager. Hier volgt een voorbeeld e-mailbericht wordt verzonden naar een aanvrager als hun toegang tot de aanvraag is geweigerd.
+Wanneer een toegangs aanvraag wordt geweigerd, wordt een e-mail melding verzonden naar de aanvrager. Hier volgt een voor beeld van een e-mail melding die wordt verzonden naar een aanvrager wanneer hun toegangs aanvraag wordt geweigerd.
 
-### <a name="expired-access-request-emails"></a>Toegang tot aanvraag e-mailberichten verlopen
+### <a name="expired-access-request-emails"></a>Verlopen e-mail berichten voor toegang
 
-Aanvragers worden gewaarschuwd wanneer de toegangsaanvraag is verlopen. Wanneer een aanvrager een aanvraag voor toegang tot verstuurt, heeft de aanvraag de aanvraagduur van een daarna verloopt. Als er geen goedkeurders een beslissing goedkeuren/weigeren verzenden, blijft de aanvraag moet worden bewaard in een status in afwachting van goedkeuring. Wanneer de aanvraag de vervaltijd van de geconfigureerde bereikt, kan de aanvraag is verlopen, en niet meer worden goedgekeurd of geweigerd door de goedkeurders. In dit geval wordt de aanvraag wordt verwerkt in een verlopen staat. Een verlopen aanvraag kan niet meer worden goedgekeurd of geweigerd. Een e-mailmelding wordt verzonden naar de aanvrager dat de aanvraag voor toegang tot is verlopen, en die ze nodig hebben om de aanvraag opnieuw indienen. Hier volgt een voorbeeld e-mailbericht wordt verzonden naar een aanvrager wanneer de toegangsaanvraag is verlopen.
+Aanvragers worden gewaarschuwd wanneer hun toegangs aanvraag is verlopen. Wanneer een aanvrager een toegangs aanvraag indient, heeft de aanvraag een aanvraag duur, waarna deze verloopt. Als er geen goed keurders zijn die een beslissing over goed keuren/weigeren indienen, blijft de aanvraag in de goedkeurings status in behandeling. Wanneer de aanvraag de geconfigureerde verloop tijd bereikt, verloopt de aanvraag en kan deze niet meer worden goedgekeurd of geweigerd door de goed keurders. In dit geval wordt de aanvraag verlopen. Een verlopen aanvraag kan niet meer worden goedgekeurd of geweigerd. Er wordt een e-mail melding verzonden naar de aanvrager of de toegangs aanvraag is verlopen en dat de toegangs aanvraag opnieuw moet worden ingediend. Hier volgt een voor beeld van een e-mail melding die wordt verzonden naar een aanvrager wanneer hun toegangs aanvraag is verlopen.
 
-![Toegang tot aanvraag e-mail over verlopen](./media/entitlement-management-process/email-expired-access-request.png)
+![Verlopen e-mail met toegangs aanvraag](./media/entitlement-management-process/email-expired-access-request.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Aanvraag voor toegang tot een package toegang](entitlement-management-request-access.md)
-- [Goedkeuren of weigeren van toegangsaanvragen](entitlement-management-request-approve.md)
+- [Toegang aanvragen tot een toegangs pakket](entitlement-management-request-access.md)
+- [Toegangs aanvragen goed keuren of weigeren](entitlement-management-request-approve.md)

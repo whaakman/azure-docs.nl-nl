@@ -1,33 +1,28 @@
 ---
-title: Azure Cloud Services-Rolschema | Microsoft Docs
+title: Rollen schema voor Azure Cloud Services | Microsoft Docs
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
-ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
 ms.topic: reference
-ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
 caps.latest.revision: 12
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: aa6f8a821edea6261d64bb411154e82fdf212a8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+author: georgewallace
+ms.author: gwallace
+ms.openlocfilehash: 481301333ada39297bf2813bbea5f096c2abd3ad
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130242"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360655"
 ---
-# <a name="azure-cloud-services-config-role-schema"></a>Azure Cloud Services-rol Config-Schema
+# <a name="azure-cloud-services-config-role-schema"></a>Rollen schema voor Azure Cloud Services Configuration
 
-De `Role` element van het configuratiebestand geeft het aantal rolinstanties implementeren voor elke rol in de service, de waarden van alle configuratie-instellingen, en de vingerafdrukken instellen voor alle certificaten die zijn gekoppeld aan een rol.
+Het `Role` element van het configuratie bestand bevat het aantal rolinstanties dat moet worden geïmplementeerd voor elke rol in de service, de waarden van configuratie-instellingen en de vinger afdrukken voor alle certificaten die aan een rol zijn gekoppeld.
 
-Zie voor meer informatie over het configuratieschema van de Azure-Service, [configuratieschema voor Cloud-Service (klassiek)](schema-cscfg-file.md). Zie voor meer informatie over de definitie van Schema van de Azure-Service, [Definitieschema voor Cloud-Service (klassiek)](schema-csdef-file.md).
+Zie [Cloud service (klassiek)-configuratie schema](schema-cscfg-file.md)voor meer informatie over het configuratie schema van de Azure-service. Zie het [definitie schema voor Cloud service (klassiek)](schema-csdef-file.md)voor meer informatie over het Azure service definition-schema.
 
-##  <a name="Role"></a> Rol-Element
-Het volgende voorbeeld wordt de `Role` -element en de onderliggende elementen.
+##  <a name="Role"></a>Role-element
+In het volgende voor beeld `Role` ziet u het element en de onderliggende elementen.
 
 ```xml 
 <ServiceConfiguration>
@@ -43,20 +38,20 @@ Het volgende voorbeeld wordt de `Role` -element en de onderliggende elementen.
 </ServiceConfiguration>
 ```
 
-De volgende tabel beschrijft de kenmerken voor de `Role` element.
+In de volgende tabel worden de kenmerken voor `Role` het element beschreven.
 
 | Kenmerk | Description |
 | --------- | ----------- |
-| name   | Vereist. Hiermee geeft u de naam van de rol. De naam moet overeenkomen met de naam opgegeven voor de rol in het servicedefinitiebestand.|
-| vmName | Optioneel. Hiermee geeft u de DNS-naam voor een virtuele Machine. De naam moet uit 10 tekens of minder.|
+| name   | Vereist. Hiermee geeft u de naam van de rol op. De naam moet overeenkomen met de naam die is opgegeven voor de rol in het service definitie bestand.|
+| vmName | Optioneel. Hiermee geeft u de DNS-naam voor een virtuele machine. De naam mag Maxi maal 10 tekens bevatten.|
 
-De volgende tabel beschrijft de onderliggende elementen van de `Role` element.
+In de volgende tabel worden de onderliggende elementen van `Role` het element beschreven.
 
 | Element | Description |
 | ------- | ----------- |
-| exemplaren | Vereist. Hiermee geeft u het aantal exemplaren moeten worden geïmplementeerd voor de rol. Het aantal exemplaren wordt gedefinieerd door een geheel getal voor de `count` kenmerk.|
-| Instelling   | Optioneel. Hiermee geeft u een naam van de instelling en waarde in een verzameling instellingen voor een rol. Naam van de instelling wordt gedefinieerd door een tekenreeks op voor de `name` kenmerk en de waarde van de instelling wordt gedefinieerd door een tekenreeks op voor de `value` kenmerk.|
-| Certificaat | Optioneel. Hiermee geeft u de naam, de vingerafdruk en het algoritme van het certificaat van een service die moet worden gekoppeld aan de rol. Naam van het certificaat wordt gedefinieerd door een tekenreeks op voor de `name` kenmerk. Vingerafdruk van het certificaat wordt gedefinieerd door een reeks hexadecimale cijfers die bevat geen spaties bevatten voor de `thumbprint` kenmerk. De hexadecimale cijfers moet worden weergegeven met cijfers en alfanumerieke tekens in hoofdletters. De certificaat-algoritme wordt gedefinieerd door een tekenreeks op voor de `thumbprintAlgorithm` kenmerk.|
+| exemplaren | Vereist. Hiermee geeft u het aantal instanties op dat moet worden geïmplementeerd voor de rol. Het aantal exemplaren wordt gedefinieerd door een geheel getal voor het `count` kenmerk.|
+| Instelling   | Optioneel. Hiermee geeft u een naam en waarde voor de instelling op in een verzameling instellingen voor een rol. De naam van de instelling wordt gedefinieerd door een teken `name` reeks voor het kenmerk en de waarde van de instelling wordt gedefinieerd `value` door een teken reeks voor het kenmerk.|
+| Certificaat | Optioneel. Hiermee geeft u de naam, vinger afdruk en het algoritme op van een service certificaat dat moet worden gekoppeld aan de rol. De naam van het certificaat wordt gedefinieerd door een teken `name` reeks voor het kenmerk. De vinger afdruk van het certificaat wordt gedefinieerd door een reeks hexadecimale getallen die geen `thumbprint` spaties voor het kenmerk bevatten. De hexadecimale getallen moeten worden weer gegeven met cijfers en hoofd letters. Het certificaat algoritme wordt gedefinieerd door een teken reeks voor `thumbprintAlgorithm` het kenmerk.|
 
 ## <a name="see-also"></a>Zie ook
-[Schema van de cloud Service (klassiek)-configuratie](schema-cscfg-file.md)
+[Configuratie schema van Cloud service (klassiek)](schema-cscfg-file.md)

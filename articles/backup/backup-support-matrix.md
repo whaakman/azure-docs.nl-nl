@@ -1,109 +1,108 @@
 ---
 title: Ondersteuningsmatrix voor Azure Backup
 description: Bevat een samenvatting van ondersteuningsinstellingen en -beperkingen voor de Azure Backup-service.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 99dd3c0b07307f2d0bf97dbff697e32e648705ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6b7dfe8fb8ade7f84f41fb5602aff68b4f52cf2
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400181"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464837"
 ---
 # <a name="azure-backup-support-matrix"></a>Ondersteuningsmatrix voor Azure Backup
 
-U kunt [Azure Backup](backup-overview.md) naar back-ups naar de Microsoft Azure-cloud-platform. In dit artikel bevat een overzicht van de instellingen voor de algemene ondersteuning en beperkingen voor Azure Backup-scenario's en implementaties.
+U kunt [Azure backup](backup-overview.md) gebruiken om een back-up te maken van gegevens naar het Microsoft Azure Cloud platform. In dit artikel vindt u een overzicht van de algemene ondersteunings instellingen en-beperkingen voor Azure Backup scenario's en implementaties.
 
-Andere matrices ondersteuning zijn beschikbaar:
+Andere ondersteunings matrices zijn beschikbaar:
 
-- Ondersteuningsmatrix voor [back-up van virtuele Azure-machine (VM)](backup-support-matrix-iaas.md)
-- Ondersteuningsmatrix voor back-up met behulp van [System Center Data Protection Manager (DPM) / Microsoft Azure Backup Server (MABS)](backup-support-matrix-mabs-dpm.md)
-- Ondersteuningsmatrix voor back-up met behulp van de [Microsoft Azure Recovery Services agent (MARS)](backup-support-matrix-mars-agent.md)
+- Ondersteunings matrix voor [back-up van Azure virtual machine (VM)](backup-support-matrix-iaas.md)
+- Ondersteunings matrix voor back-up met behulp van [System Center Data Protection Manager (DPM)/Microsoft Azure backup server (MABS)](backup-support-matrix-mabs-dpm.md)
+- Ondersteunings matrix voor back-up met behulp van de [Microsoft Azure Recovery Services-agent (Mars)](backup-support-matrix-mars-agent.md)
 
 ## <a name="vault-support"></a>Ondersteuning voor kluizen
 
-Azure Backup maakt gebruik van Recovery Services-kluizen te coördineren en beheren van back-ups. Kluizen worden ook gebruikt voor het opslaan van back-upgegevens.
+Azure Backup gebruikt Recovery Services kluizen om back-ups te organiseren en te beheren. Er worden ook kluizen gebruikt voor het opslaan van back-upgegevens.
 
-De volgende tabel beschrijft de functies van Recovery Services-kluizen:
+In de volgende tabel worden de functies van Recovery Services kluizen beschreven:
 
 **Functie** | **Details**
 --- | ---
 **Kluizen in het abonnement** | Maximaal 500 Recovery Services-kluizen in één abonnement.
-**Machines in een kluis** | Maximaal 1000 virtuele Azure-machines in een enkele kluis.<br/><br/> Maximaal 50 MABS kunnen de servers in een enkele kluis worden geregistreerd.
-**Gegevensbronnen in de kluis opslag** | Maximale 54,400 GB. Er is geen limiet voor back-ups van virtuele Azure-machines.
-**Back-ups naar de kluis** | **Azure VM's:** Eenmaal per dag.<br/><br/>**Machines die zijn beveiligd door DPM/MABS:** Twee keer per dag.<br/><br/> **Machines een back-up direct met behulp van de MARS-agent:** Drie keer per dag.
-**Back-ups tussen kluizen** | Back-up is binnen een regio.<br/><br/> U moet een kluis in elke Azure-regio die u back wilt-up van virtuele machines bevat. U kunt geen back-up naar een andere regio.
-**Verplaatsen van kluizen** | U kunt [verplaatsen van kluizen](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) meerdere abonnementen of tussen resourcegroepen in hetzelfde abonnement.
-**Gegevens verplaatsen tussen kluizen** | Een back-up gegevens verplaatsen tussen kluizen wordt niet ondersteund.
-**Opslagtype vault wijzigen** | U kunt het replicatietype storage (geografisch redundante opslag of lokaal redundante opslag) voor een kluis wijzigen voordat de back-ups worden opgeslagen. Nadat een back-ups in de kluis is begonnen, kan het replicatietype niet meer worden gewijzigd.
+**Machines in een kluis** | Maxi maal 1.000 Azure-Vm's in één kluis.<br/><br/> Maxi maal 50 MABS-servers kunnen worden geregistreerd in één kluis.
+**Gegevens bronnen in de kluis opslag** | Maxi maal 54.400 GB. Er is geen limiet voor back-ups van virtuele Azure-machines.
+**Back-ups naar de kluis** | **Azure-Vm's:** Eenmaal per dag.<br/><br/>**Machines die worden beveiligd door DPM-MABS:** Twee keer per dag.<br/><br/> **Machines maken rechtstreeks back-ups met behulp van de MARS-agent:** Drie keer per dag.
+**Back-ups tussen kluizen** | De back-up bevindt zich in een regio.<br/><br/> U hebt een kluis nodig in elke Azure-regio die virtuele machines bevat waarvan u een back-up wilt maken. U kunt geen back-up maken naar een andere regio.
+**Kluizen verplaatsen** | U kunt [kluizen verplaatsen](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) tussen abonnementen of tussen resource groepen in hetzelfde abonnement.
+**Gegevens verplaatsen tussen kluizen** | Het verplaatsen van gegevens waarvan een back-up wordt gemaakt tussen kluizen, wordt niet ondersteund.
+**Type kluis opslag wijzigen** | U kunt het type opslag replicatie (geografisch redundante opslag of lokaal redundante opslag) voor een kluis wijzigen voordat er back-ups worden opgeslagen. Nadat een back-ups in de kluis is begonnen, kan het replicatietype niet meer worden gewijzigd.
 
 ## <a name="on-premises-backup-support"></a>On-premises ondersteuning voor back-ups
 
-Dit is wat wordt ondersteund als u wilt back-up van on-premises computers:
+Dit wordt what's ondersteund als u een back-up wilt maken van on-premises machines:
 
-**Machine** | **Wat de back-up** | **Location** | **Functies**
+**Machine** | **Waarvan wordt een back-up gemaakt?** | **Location** | **Functies**
 --- | --- | --- | ---
-**Directe back-ups van Windows-machine met de MARS-agent** | Bestanden, mappen, systeemstatus | Back-up naar de Recovery Services-kluis. | Back-up van drie keer per dag<br/><br/> Geen app-bewuste back-up<br/><br/> Bestand, map, volume herstellen
-**Directe back-ups van Linux-machine met de MARS-agent** | Back-up niet ondersteund
-**Back-up naar DPM** | Bestanden, mappen, volumes, systeemstatus, app-gegevens | Back-up naar de lokale DPM-opslag. DPM voert vervolgens een back-up uit naar de kluis. | App-bewuste momentopnamen<br/><br/> Volledige granulariteit voor back-up en herstel<br/><br/> Linux ondersteund voor virtuele machines (Hyper-V-/ VMware)<br/><br/> Oracle niet ondersteund
-**Back-up naar MABS** | Bestanden, mappen, volumes, systeemstatus, app-gegevens | Back-up naar de lokale opslag van MABS. MABS voert vervolgens een back-up uit naar de kluis. | App-bewuste momentopnamen<br/><br/> Volledige granulariteit voor back-up en herstel<br/><br/> Linux ondersteund voor virtuele machines (Hyper-V-/ VMware)<br/><br/> Oracle niet ondersteund
+**Directe back-up van Windows-machine met MARS-agent** | Bestanden, mappen, systeemstatus | Maak een back-up naar Recovery Services kluis. | Drie keer per dag een back-up maken<br/><br/> Geen app-bewuste back-up<br/><br/> Bestand herstellen, map, volume
+**Directe back-up van Linux-machine met MARS-agent** | Back-up wordt niet ondersteund
+**Back-ups maken naar DPM** | Bestanden, mappen, volumes, systeem status, app-gegevens | Maak een back-up naar de lokale DPM-opslag. DPM voert vervolgens een back-up uit naar de kluis. | App-bewuste momentopnamen<br/><br/> Volledige granulatie voor back-up en herstel<br/><br/> Linux ondersteund voor virtuele machines (Hyper-V/VMware)<br/><br/> Oracle wordt niet ondersteund
+**Back-up naar MABS** | Bestanden, mappen, volumes, systeem status, app-gegevens | Maak een back-up naar MABS lokale opslag. MABS voert vervolgens een back-up uit naar de kluis. | App-bewuste momentopnamen<br/><br/> Volledige granulatie voor back-up en herstel<br/><br/> Linux ondersteund voor virtuele machines (Hyper-V/VMware)<br/><br/> Oracle wordt niet ondersteund
 
-## <a name="azure-vm-backup-support"></a>Azure VM-back-upondersteuning
+## <a name="azure-vm-backup-support"></a>Ondersteuning voor Azure VM-back-ups
 
 ### <a name="azure-vm-limits"></a>Limieten voor Azure VM's
 
 **Limiet** | **Details**
 --- | ---
-**Azure VM-gegevensschijven** | Limiet van 16
-**Azure schijfgrootte van de VM-gegevens** | Afzonderlijke schijven mag maximaal 4095 GB
+**Gegevens schijven van virtuele machines van Azure** | Limiet van 16
+**Grootte van de Azure VM-gegevens schijf** | Afzonderlijke schijven kunnen Maxi maal 4.095 GB zijn
 
 ### <a name="azure-vm-backup-options"></a>Azure VM-back-upopties
 
-Dit is wat wordt ondersteund als u wilt back-up van virtuele Azure-machines:
+Dit wordt what's ondersteund als u back-ups wilt maken van virtuele Azure-machines:
 
-**Machine** | **Wat de back-up** | **Location** | **Functies**
+**Machine** | **Waarvan wordt een back-up gemaakt?** | **Location** | **Functies**
 --- | --- | --- | ---
-**Azure VM backup met behulp van de VM-extensie** | Hele virtuele machine | Back-up naar de kluis. | De extensie wordt geïnstalleerd wanneer u een back-up voor een virtuele machine inschakelen.<br/><br/> Back-up eenmaal per dag.<br/><br/> App-bewuste back-up voor virtuele Windows-machines; bestandsconsistente back-up voor virtuele Linux-machines. U kunt app-consistentie voor Linux-machines configureren met behulp van aangepaste scripts.<br/><br/> VM of schijf herstellen.<br/><br/> Kan geen back-up van een Azure-VM naar een on-premises locatie.
-**Azure VM backup met behulp van de MARS-agent** | Bestanden, mappen, systeemstatus | Back-up naar de kluis. | Back-up drie keer per dag.<br/><br/> Als u back-up van specifieke bestanden of mappen in plaats van de hele virtuele machine wilt, worden de MARS-agent kunt uitvoeren samen met de VM-extensie.
-**Azure VM met DPM** | Bestanden, mappen, volumes, systeemstatus, app-gegevens | Back-up naar de lokale opslag van Azure-VM die door DPM wordt uitgevoerd. DPM voert vervolgens een back-up uit naar de kluis. | App-gerichte momentopnamen.<br/><br/> Volledige granulariteit voor back-up en herstel.<br/><br/> Linux wordt ondersteund voor virtuele machines (Hyper-V-/VMware).<br/><br/> Oracle wordt niet ondersteund.
-**Azure VM met MABS** | Bestanden, mappen, volumes, systeemstatus, app-gegevens | Back-up naar de lokale opslag van Azure-VM met MABS. MABS voert vervolgens een back-up uit naar de kluis. | App-gerichte momentopnamen.<br/><br/> Volledige granulariteit voor back-up en herstel.<br/><br/> Linux wordt ondersteund voor virtuele machines (Hyper-V-/VMware).<br/><br/> Oracle wordt niet ondersteund.
+**Back-ups van Azure VM met behulp van VM-extensie** | Volledige VM | Maak een back-up naar de kluis. | De uitbrei ding wordt geïnstalleerd wanneer u back-up voor een virtuele machine inschakelt.<br/><br/> Eenmaal per dag een back-up maken.<br/><br/> App-bewuste back-up voor Windows-Vm's; bestands consistente back-up voor Linux Vm's. U kunt app-consistentie voor Linux-machines configureren met aangepaste scripts.<br/><br/> Herstel de VM of schijf.<br/><br/> Kan geen back-up maken van een virtuele machine van Azure naar een on-premises locatie.
+**Back-ups van Azure-VM'S met behulp van MARS-agent** | Bestanden, mappen, systeemstatus | Maak een back-up naar de kluis. | Drie keer per dag een back-up maken.<br/><br/> Als u een back-up wilt maken van specifieke bestanden of mappen in plaats van de hele virtuele machine, kan de MARS-agent worden uitgevoerd naast de VM-extensie.
+**Azure VM met DPM** | Bestanden, mappen, volumes, systeem status, app-gegevens | Maak een back-up naar de lokale opslag van de virtuele machine van Azure waarop DPM wordt uitgevoerd. DPM voert vervolgens een back-up uit naar de kluis. | App-bewuste moment opnamen.<br/><br/> Volledige granulariteit voor back-up en herstel.<br/><br/> Linux wordt ondersteund voor virtuele machines (Hyper-V-/VMware).<br/><br/> Oracle wordt niet ondersteund.
+**Azure VM met MABS** | Bestanden, mappen, volumes, systeem status, app-gegevens | Maak een back-up naar de lokale opslag van de virtuele machine van Azure waarop MABS wordt uitgevoerd. MABS voert vervolgens een back-up uit naar de kluis. | App-bewuste moment opnamen.<br/><br/> Volledige granulariteit voor back-up en herstel.<br/><br/> Linux wordt ondersteund voor virtuele machines (Hyper-V-/VMware).<br/><br/> Oracle wordt niet ondersteund.
 
 ## <a name="linux-backup-support"></a>Ondersteuning voor Linux-back-ups
 
-Dit is wat wordt ondersteund als u wilt back-up van Linux-machines:
+Dit wordt what's ondersteund als u een back-up wilt maken van Linux-machines:
 
-**Type back-up** | **Linux (goedgekeurd door Azure)**
+**Back-uptype** | **Linux (goedgekeurd door Azure)**
 --- | ---
-**Directe back-ups van on-premises machine waarop Linux wordt uitgevoerd** | Wordt niet ondersteund. De MARS-agent kan alleen worden geïnstalleerd op Windows-machines.
-**Met behulp van de agent-extensie voor back-up van virtuele Azure-machine waarop Linux wordt uitgevoerd** | App-consistente back-up met behulp van [aangepaste scripts](backup-azure-linux-app-consistent.md).<br/><br/> Herstel op bestandsniveau.<br/><br/> Herstellen door het maken van een VM vanaf een herstelpunt of schijf.
-**Met behulp van DPM back-up on-premises of virtuele Azure-machine waarop Linux wordt uitgevoerd** | Bestandsconsistente back-up van Linux Gast-VM's op Hyper-V en VMWare.<br/><br/> Herstel van de virtuele machine van Hyper-V en VMWare Linux Gast-VM's.<br/><br/> Bestandsconsistente back-up niet beschikbaar voor virtuele Azure-machine.
-**Met behulp van MABS back-up on-premises computer of virtuele Azure-machine waarop Linux wordt uitgevoerd** | Bestandsconsistente back-up van Linux Gast-VM's op Hyper-V en VMWare.<br/><br/> Herstel van de virtuele machine van Hyper-V en VMWare Linux Gast-VM's.<br/><br/> Bestandsconsistente back-up is niet beschikbaar voor virtuele Azure-machines.
+**Directe back-up van on-premises machine waarop Linux wordt uitgevoerd** | Wordt niet ondersteund. De MARS-agent kan alleen worden geïnstalleerd op Windows-computers.
+**Agent-extensie gebruiken om een back-up te maken van Azure VM waarop Linux wordt uitgevoerd** | App-consistente back-up met [aangepaste scripts](backup-azure-linux-app-consistent.md).<br/><br/> Herstel op bestandsniveau.<br/><br/> Herstellen door het maken van een VM vanaf een herstelpunt of schijf.
+**DPM gebruiken om een back-up te maken van on-premises of Azure VM waarop Linux wordt uitgevoerd** | Bestands consistente back-up van Linux-gast-Vm's op Hyper-V en VMWare.<br/><br/> VM-herstel van Hyper-V-en VMWare Linux-gast-Vm's.<br/><br/> Bestands consistente back-up niet beschikbaar voor Azure VM.
+**MABS gebruiken om een back-up te maken van on-premises machine of Azure VM waarop Linux wordt uitgevoerd** | Bestands consistente back-up van Linux-gast-Vm's op Hyper-V en VMWare.<br/><br/> VM-herstel van Hyper-V-en VMWare Linux-gast-Vm's.<br/><br/> Bestandsconsistente back-up is niet beschikbaar voor virtuele Azure-machines.
 
-## <a name="daylight-saving-time-support"></a>Ondersteuning voor zomer-en wintertijd
+## <a name="daylight-saving-time-support"></a>Ondersteuning voor zomer tijd
 
-Azure Backup biedt geen ondersteuning voor automatische clock correctie voor zomer-/ wintertijd voor back-ups van virtuele Azure-machine. Back-upbeleid handmatig zo nodig wijzigen.
+Azure Backup biedt geen ondersteuning voor automatische klok aanpassing voor zomer-en winter tijd voor back-ups van Azure-VM'S. Wijzig de back-upbeleiden naar behoefte hand matig.
 
-## <a name="disk-deduplication-support"></a>Ondersteuning voor Ontdubbeling van schijf
+## <a name="disk-deduplication-support"></a>Ondersteuning voor schijf ontdubbeling
 
 Ondersteuning voor schijfontdubbeling is als volgt:
 
-- Schijfontdubbeling is ondersteunde on-premises wanneer u DPM- of MABs voor back-up van Hyper-V-machines met Windows. Windows Server voert gegevensontdubbeling (op hostniveau) op virtuele harde schijven (VHD's) die zijn gekoppeld aan de virtuele machine als back-upopslag.
-- Ontdubbeling wordt niet ondersteund in Azure voor Backup-onderdelen. Wanneer DPM en MABS zijn geïmplementeerd in Azure, kan het storage-schijven die zijn gekoppeld aan de virtuele machine kunnen niet worden ontdubbeld.
+- Schijf ontdubbeling wordt on-premises ondersteund wanneer u DPM of MABs gebruikt om een back-up te maken van Hyper-V-Vm's waarop Windows wordt uitgevoerd. Windows Server voert gegevensontdubbeling (op het niveau van de host) uit op virtuele harde schijven (Vhd's) die als back-upopslag aan de VM zijn gekoppeld.
+- Ontdubbeling wordt niet ondersteund in Azure voor Backup-onderdelen. Wanneer DPM en MABS in azure zijn geïmplementeerd, kunnen de opslag schijven die aan de virtuele machine zijn gekoppeld, niet worden ontdubbeld.
 
 ## <a name="security-and-encryption-support"></a>Ondersteuning voor beveiliging en versleuteling
 
-Azure Backup ondersteunt versleuteling voor in-transit en inactieve gegevens.
+Azure Backup ondersteunt versleuteling voor in-transit en op rest-gegevens.
 
-### <a name="network-traffic-to-azure"></a>Netwerkverkeer naar Azure
+### <a name="network-traffic-to-azure"></a>Netwerk verkeer naar Azure
 
-- Back-upverkeer van servers naar de Recovery Services-kluis wordt versleuteld met Advanced Encryption Standard 256.
+- Back-upverkeer van servers naar de Recovery Services-kluis wordt versleuteld met behulp van Advanced Encryption Standard 256.
 - Back-upgegevens worden verzonden via een beveiligde HTTPS-koppeling.
-- Back-upgegevens is opgeslagen in de Recovery Services-kluis in een versleutelde vorm.
+- Back-upgegevens worden in een versleutelde vorm opgeslagen in de Recovery Services kluis.
 - Alleen u beschikt over de wachtwoordzin waarmee deze gegevens kunnen worden ontgrendeld. De back-upgegevens kunnen niet door Microsoft ontsleuteld.
 
     > [!WARNING]
@@ -111,45 +110,45 @@ Azure Backup ondersteunt versleuteling voor in-transit en inactieve gegevens.
 
 ### <a name="data-security"></a>Gegevensbeveiliging
 
-- Wanneer u een back-up van virtuele Azure-machines, moet u het instellen van versleuteling *binnen* de virtuele machine.
+- Wanneer u een back-up maakt van virtuele Azure-machines, moet u de versleuteling instellen *in* de Virtual Machine.
 - Azure Backup biedt ondersteuning voor Azure Disk Encryption, dat gebruikmaakt van BitLocker op virtuele Windows-machines en **dm-crypt** op virtuele Linux-machines.
-- Op de back-end Azure Backup gebruikt [Azure Storage-Serviceversleuteling](../storage/common/storage-service-encryption.md), data-at-rest te beschermen.
+- Op de back-end gebruikt Azure Backup [Azure Storage-service versleuteling](../storage/common/storage-service-encryption.md), waarmee gegevens in rust worden beschermd.
 
 **Machine** | **In-transit** | **Inactief**
 --- | --- | ---
-**On-premises Windows-computers zonder DPM/MABS** | ![Ja][green] | ![Ja][green]
+**On-premises Windows-computers zonder DPM-MABS** | ![Ja][green] | ![Ja][green]
 **Azure VM's** | ![Ja][green] | ![Ja][green]
-**On-premises Windows-machines of virtuele Azure-machines met DPM** | ![Ja][green] | ![Ja][green]
-**On-premises Windows-machines of virtuele Azure-machines met MABS** | ![Ja][green] | ![Ja][green]
+**On-premises Windows-machines of Azure-Vm's met DPM** | ![Ja][green] | ![Ja][green]
+**On-premises Windows-machines of Azure-Vm's met MABS** | ![Ja][green] | ![Ja][green]
 
 ## <a name="compression-support"></a>Compressieondersteuning voor
 
-Backup biedt ondersteuning voor de compressie van het back-verkeer, zoals samengevat in de volgende tabel.
+Backup ondersteunt de compressie van het back-upverkeer, zoals wordt beschreven in de volgende tabel.
 
-- Voor Azure VM's leest de VM-extensie de gegevens rechtstreeks vanuit de Azure storage-account via het opslagnetwerk, dus het is niet nodig voor het comprimeren van dit verkeer.
-- Als u DPM- of MABS gebruikt, kunt u bandbreedte besparen door wanneer de gegevens worden gecomprimeerd voordat er een back-wordt gemaakt.
+- Voor virtuele Azure-machines leest de VM-extensie de gegevens rechtstreeks vanuit het Azure Storage-account via het opslag netwerk. Dit is dus niet nodig om dit verkeer te comprimeren.
+- Als u DPM of MABS gebruikt, kunt u band breedte besparen door de gegevens te comprimeren voordat er een back-up van wordt gemaakt.
 
-**Machine** | **Comprimeren naar MABS/DPM (TCP)** | **Comprimeren naar de kluis (HTTPS)**
+**Machine** | **Comprimeren naar MABS/DPM (TCP)** | **Comprimeren naar kluis (HTTPS)**
 --- | --- | ---
-**Directe back-ups van on-premises Windows-machines** | N.V.T. | ![Ja][green]
-**Back-up van virtuele Azure-machines met behulp van de VM-extensie** | N.V.T. | N.V.T.
-**Back-up op de on-premises/Azure-machines met behulp van MABS/DPM** | ![Ja][green] | ![Ja][green]
+**Directe back-ups van on-premises Windows-computers** | N.v.t. | ![Ja][green]
+**Back-ups van virtuele Azure-machines maken met behulp van VM-extensie** | N.v.t. | N.v.t.
+**Back-ups op on-premises/Azure-computers met behulp van MABS/DPM** | ![Ja][green] | ![Ja][green]
 
 ## <a name="retention-limits"></a>Bewaarlimieten
 
 **Instelling** | **Limieten**
 --- | ---
-**Maximum aantal herstelpunten per beveiligd exemplaar (machine of workload)** | 9,999
-**Max verlooptijd voor een herstelpunt** | Geen limiet
-**Maximum aantal back-upfrequentie naar DPM/MABS** | Om de 15 minuten voor SQL Server<br/><br/> Eenmaal per uur voor andere werkbelastingen
-**Maximale frequentie van back-up naar de kluis** | **On-premises Windows-machines of virtuele Azure-machines MARS uitgevoerd:** Drie per dag<br/><br/> **DPM/MABS:** Twee per dag<br/><br/> **Azure VM backup:** Een per dag
-**Bewaarperiode voor herstelpunten** | Dagelijks, wekelijks, maandelijks, jaarlijks
-**Maximale bewaarperiode** | Afhankelijk van back-upfrequentie
-**Herstelpunten op DPM/MABS-schijf** | 64 voor bestandsservers; 448 voor appservers <br/><br/>Onbeperkte tapeherstelpunten die voor on-premises DPM
+**Maximum aantal herstel punten per beveiligd exemplaar (computer of werk belasting)** | 9\.999
+**Maximale verloop tijd voor een herstel punt** | Geen limiet
+**Maximale back-upfrequentie naar DPM/MABS** | Om de 15 minuten voor SQL Server<br/><br/> Eenmaal per uur voor andere workloads
+**Maximale back-upfrequentie naar kluis** | **On-premises Windows-machines of Azure Vm's met MARS:** Drie per dag<br/><br/> **DPM-MABS:** Twee per dag<br/><br/> **Azure VM-back-up:** Eén per dag
+**Bewaar periode van het herstel punt** | Dagelijks, wekelijks, maandelijks, jaarlijks
+**Maximale Bewaar periode** | Afhankelijk van back-upfrequentie
+**Herstel punten op DPM/MABS-schijf** | 64 voor bestands servers; 448 voor app-servers <br/><br/>Onbeperkte tape herstel punten voor on-premises DPM
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Ondersteuningsmatrix voor revisie](backup-support-matrix-iaas.md) voor Azure VM backup.
+- [Raadpleeg](backup-support-matrix-iaas.md) de ondersteunings matrix voor Azure VM-back-up.
 
 [green]: ./media/backup-support-matrix/green.png
 [yellow]: ./media/backup-support-matrix/yellow.png

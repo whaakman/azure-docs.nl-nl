@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
-ms.openlocfilehash: 4a8c69dc06b2de08016ae282413402061cdb89d1
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: fc2d7e4f611e1eee9c369ef26aa7bf66feb7c888
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314393"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385676"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Bekende problemen met Azure Data Lake Storage Gen2
 
@@ -54,20 +54,9 @@ Als u zich registreert voor de open bare preview van toegang via meerdere protoc
 
 In deze sectie worden de problemen en beperkingen beschreven met het gebruik van BLOB-Api's en Data Lake Storage Gen2 Api's om op dezelfde gegevens te werken.
 
-Deze BLOB REST Api's worden niet ondersteund:
-
-* [BLOB plaatsen (pagina)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Pagina plaatsen](https://docs.microsoft.com/rest/api/storageservices/put-page)
-* [Paginabereiken ophalen](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
-* [BLOB voor incrementele kopie](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
-* [Pagina van URL plaatsen](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Put-BLOB (toevoegen)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Blok toevoegen](https://docs.microsoft.com/rest/api/storageservices/append-block)
-* [Blok van URL toevoegen](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
-
 * U kunt niet zowel BLOB-Api's als Data Lake Storage Api's gebruiken om naar hetzelfde exemplaar van een bestand te schrijven.
 
-* Als u naar een bestand schrijft met behulp van Data Lake Storage Gen2 Api's, zijn de blokken van dat bestand niet zichtbaar voor aanroepen naar de BLOB-API voor [blok keren ophalen](https://docs.microsoft.comrest/api/storageservices/get-block-list) .
+* Als u naar een bestand schrijft met behulp van Data Lake Storage Gen2 Api's, zijn de blokken van dat bestand niet zichtbaar voor aanroepen naar de BLOB-API voor [blok keren ophalen](https://docs.microsoft.com/rest/api/storageservices/get-block-list) .
 
 * U kunt een bestand overschrijven door gebruik te maken van Data Lake Storage Gen2 Api's of BLOB-Api's. Dit heeft geen invloed op de bestands eigenschappen.
 
@@ -78,6 +67,17 @@ Deze BLOB REST Api's worden niet ondersteund:
 * Als u de [Delete BLOB](https://docs.microsoft.com/rest/api/storageservices/delete-blob) API gebruikt om een map te verwijderen, wordt die map alleen verwijderd als deze leeg is.
 
   Dit betekent dat u de BLOB-API niet recursief kunt gebruiken.
+
+Deze BLOB REST Api's worden niet ondersteund:
+
+* [BLOB plaatsen (pagina)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+* [Pagina plaatsen](https://docs.microsoft.com/rest/api/storageservices/put-page)
+* [Paginabereiken ophalen](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
+* [BLOB voor incrementele kopie](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
+* [Pagina van URL plaatsen](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
+* [Put-BLOB (toevoegen)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+* [Blok toevoegen](https://docs.microsoft.com/rest/api/storageservices/append-block)
+* [Blok van URL toevoegen](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
 
 ## <a name="issues-with-unmanaged-virtual-machine-vm-disks"></a>Problemen met niet-beheerde virtuele machine schijven (VM)
 
@@ -94,12 +94,13 @@ De volgende tabel bevat alle andere functies en hulpprogram ma's die nog niet wo
 | **AzCopy** | Versie-specifieke ondersteuning <br><br>Gebruik alleen de meest recente versie van AzCopy ([AzCopy V10 toevoegen](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Eerdere versies van AzCopy, zoals AzCopy v 8.1, worden niet ondersteund.|
 | **Beleid voor levenscyclus beheer van Azure Blob-opslag** | Alleen ondersteund als u zich registreert bij de [toegang tot meerdere protocollen op Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview. Koel-en archief toegangs lagen worden alleen ondersteund door de preview-versie. Het verwijderen van BLOB-moment opnamen wordt nog niet ondersteund. |
 | **Azure-Content Delivery Network (CDN)** | Nog niet ondersteund|
-| **Azure Search** |Nog niet ondersteund|
+| **Azure Search** |Alleen ondersteund als u zich registreert bij de [toegang tot meerdere protocollen op Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview.|
 | **Azure-opslagverkenner** | Versie-specifieke ondersteuning <br><br>Gebruik alleen versie `1.6.0` of hoger. <br>Versie `1.6.0` is beschikbaar als [gratis down load](https://azure.microsoft.com/features/storage-explorer/).|
 | **BLOB-container-Acl's** |Nog niet ondersteund|
 | **Blobfuse** |Nog niet ondersteund|
 | **Aangepaste domeinen** |Nog niet ondersteund|
 | **Bestands systeem Verkenner** | Beperkte ondersteuning |
+| **Registratie in diagnoselogboek** |Alleen ondersteund als u zich registreert bij de [toegang tot meerdere protocollen op Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview.|
 | **Onveranderbare opslag** |Nog niet ondersteund <br><br>Onveranderbare opslag biedt de mogelijkheid om gegevens op te slaan in een [worm (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) .|
 | **Lagen op object niveau** |De lagen cool en Archive worden alleen ondersteund als u zich registreert bij de [toegang tot meerdere protocollen op Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview. <br><br> Alle andere toegangs lagen worden nog niet ondersteund.|
 | **Ondersteuning voor Power shell en CLI** | Beperkte functionaliteit <br><br>Beheer bewerkingen, zoals het maken van een account, worden ondersteund. Gegevenslaag bewerkingen, zoals het uploaden en downloaden van bestanden, bevinden zich in de open bare preview als onderdeel van [toegang tot meerdere protocollen op Data Lake Storage](data-lake-storage-multi-protocol-access.md). Werken met mappen en toegangs beheer lijsten (Acl's) instellen wordt nog niet ondersteund. |

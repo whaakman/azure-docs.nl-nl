@@ -1,99 +1,98 @@
 ---
-title: Veelgestelde vragen over back-ups van SQL Server-databases op Azure Virtual machines met Azure Backup
-description: Vind antwoorden op veelgestelde vragen over back-ups van SQL Server-databases op Azure Virtual machines met Azure Backup.
-services: backup
+title: Veelgestelde vragen over het maken van back-ups van SQL Server-data bases op virtuele machines van Azure met Azure Backup
+description: Vind antwoorden op veelgestelde vragen over het maken van back-ups van SQL Server-data bases op virtuele machines van Azure met Azure Backup.
 author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vijayts
-ms.openlocfilehash: b5e6b1b07f986228eef66e2e92fb9ac3caef32fa
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 082817899adc6ab9b4d57f7e0d4bc4e7c2f0a2ab
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704825"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464806"
 ---
-# <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Veelgestelde vragen over SQL Server-databases die worden uitgevoerd op een Azure-VM back-up
+# <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Veelgestelde vragen over SQL Server-data bases die worden uitgevoerd op een back-up van Azure VM
 
-In dit artikel vindt u antwoorden op veelgestelde vragen over back-ups van SQL Server-databases die uitvoeren op Azure virtual machines (VM's) en die gebruikmaken van de [Azure Backup](backup-overview.md) service.
+In dit artikel vindt u antwoorden op veelgestelde vragen over het maken van back-ups van SQL Server-data bases die worden uitgevoerd op Azure virtual machines (Vm's) en die gebruikmaken van de [Azure backup](backup-overview.md) -service.
 
-## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Kan ik Azure back-up voor IaaS-VM, evenals SQL Server op dezelfde computer gebruiken?
-Ja, u kunt zowel VM back-up en SQL-back-up hebben op dezelfde VM. In dit geval, activeren we intern kopie-alleen volledige back-up op de virtuele machine de logboeken worden niet afgekapt.
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Kan ik Azure Backup gebruiken voor IaaS VM en SQL Server op dezelfde computer?
+Ja, u kunt zowel een VM-back-up als een SQL-back-up op dezelfde VM hebben. In dit geval wordt alleen de volledige back-up van kopiëren naar de virtuele machine intern geactiveerd, zodat de logboeken niet worden afgekapt.
 
 
-## <a name="does-the-solution-retry-or-auto-heal-the-backups"></a>De oplossing opnieuw proberen of de back-ups automatisch-genezen?
+## <a name="does-the-solution-retry-or-auto-heal-the-backups"></a>Wordt de back-up opnieuw door de oplossing opnieuw of hersteld?
 
-Onder bepaalde omstandigheden, wordt de Azure Backup-service geactiveerd corrigerende back-ups. Automatisch-herstel knooppuntservice kunnen gebeuren voor elk van de zes onderstaande voorwaarden:
+In sommige gevallen worden herstel back-ups door de Azure Backup-service geactiveerd. Automatisch herstellen kan plaatsvinden voor elk van de zes onderstaande voor waarden:
 
-  - Als het logboek of de differentiële back-up is mislukt vanwege een fout tijdens het valideren van LSN, wordt in plaats daarvan volgende logboek of de differentiële back-up geconverteerd naar een volledige back-up.
-  - Als er geen volledige back-up is opgetreden voordat een logboek of de differentiële back-up, wordt in plaats daarvan dat logboek of de differentiële back-up geconverteerd naar een volledige back-up.
-  - Als de meest recente volledige back-up van point-in-time ouder dan 15 dagen is, wordt in plaats daarvan de volgende aanmelding of differentiële back-up geconverteerd naar een volledige back-up.
-  - De back-uptaken die te worden geannuleerd vanwege een upgrade van een extensie zijn opnieuw geactiveerd nadat de upgrade is voltooid en de extensie wordt gestart.
-  - Als u ervoor kiest om de database tijdens het terugzetten, het volgende logboekbestand/differentiële back-up mislukt en een volledige back-up in plaats daarvan wordt geactiveerd.
-  - Een volledige opgehaald in gevallen waarin een volledige back-up is vereist voor het opnieuw instellen van het logboek-ketens vervaldatum in database-herstelmodel wijzigen, automatisch geactiveerd op het volgende schema.
+  - Als het logboek of een differentiële back-up is mislukt vanwege een LSN-validatie fout, wordt het volgende logboek of een differentiële back-up in plaats daarvan geconverteerd naar een volledige back-up.
+  - Als er geen volledige back-up is gemaakt vóór een logboek of differentiële back-up, wordt dat logboek of een differentiële back-up in plaats daarvan geconverteerd naar een volledige back-up.
+  - Als het tijdstip van de laatste volledige back-up ouder is dan 15 dagen, wordt het volgende logboek of differentiële back-up in plaats daarvan geconverteerd naar een volledige back-up.
+  - Alle back-uptaken die worden geannuleerd als gevolg van een upgrade van een extensie, worden opnieuw geactiveerd nadat de upgrade is voltooid en de uitbrei ding is gestart.
+  - Als u ervoor kiest om de data base te overschrijven tijdens het herstellen, mislukt het volgende logboek/differentiële back-up en wordt in plaats daarvan een volledige back-up geactiveerd.
+  - In gevallen waarin een volledige back-up is vereist voor het opnieuw instellen van de logboek ketens als gevolg van een wijziging in het database herstel model, wordt er automatisch een volledige activering uitgevoerd in de volgende planning.
 
-Automatisch-herstel knooppuntservice als een functie is ingeschakeld voor alle gebruikers standaard; Maar als u kiest voor opt-out van it, voert u de onderstaande:
+Automatisch herstellen als een mogelijkheid is standaard ingeschakeld voor alle gebruikers. Als u er echter voor kiest om dit te doen, voert u de onderstaande stappen uit:
 
-  * Op de SQL Server-exemplaar in de *C:\Program Files\Azure werkbelasting Backup\bin* map maken of bewerken van de **ExtensionSettingsOverrides.json** bestand.
-  * In de **ExtensionSettingsOverrides.json**, stel *{"EnableAutoHealer": false}* .
-  * Sla uw wijzigingen op en sluit het bestand.
-  * Open op de SQL Server-exemplaar **taak beheren** en start vervolgens opnieuw de **AzureWLBackupCoordinatorSvc** service.  
+  * Op het SQL Server-exemplaar in de map *C:\Program Files\Azure workload Backup\bin* maakt of bewerkt u het bestand **ExtensionSettingsOverrides. json** .
+  * Stel *{"EnableAutoHealer": False}* in in **ExtensionSettingsOverrides. json**.
+  * Sla de wijzigingen op en sluit het bestand.
+  * Open op het SQL Server-exemplaar **taak beheer** en start de **AzureWLBackupCoordinatorSvc** -service vervolgens opnieuw.  
 
-## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>Kan ik bepalen dat het aantal gelijktijdige back-ups op de SQL server uitvoeren?
+## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>Kan ik bepalen hoeveel gelijktijdige back-ups er worden uitgevoerd op de SQL Server?
 
-Ja. De snelheid waarmee het back-upbeleid voor het minimaliseren van de impact op een exemplaar van SQL Server wordt uitgevoerd, kunt u beperken. Ga als volgt te werk om de instelling te wijzigen:
-1. Op de SQL Server-exemplaar in de *C:\Program Files\Azure werkbelasting Backup\bin* map, maken de *ExtensionSettingsOverrides.json* bestand.
-2. In de *ExtensionSettingsOverrides.json* bestand, wijzig de **DefaultBackupTasksThreshold** instellen op een lagere waarde (bijvoorbeeld 5). <br>
+Ja. U kunt de snelheid waarmee het back-upbeleid wordt uitgevoerd, beperken om de impact op een SQL Server-exemplaar te minimaliseren. Ga als volgt te werk om de instelling te wijzigen:
+1. Maak het bestand *ExtensionSettingsOverrides. json* in de map *C:\Program Files\Azure workload Backup\bin* van het SQL Server-exemplaar.
+2. In het bestand *ExtensionSettingsOverrides. json* wijzigt u de instelling **DefaultBackupTasksThreshold** in een lagere waarde (bijvoorbeeld 5). <br>
   `{"DefaultBackupTasksThreshold": 5}`
 
-3. Sla uw wijzigingen op en sluit het bestand.
+3. Sla de wijzigingen op en sluit het bestand.
 4. Open **Taakbeheer** op het SQL Server-exemplaar. Start de service **AzureWLBackupCoordinatorSvc** opnieuw.<br/> <br/>
- Hoewel deze methode als de back-uptoepassing van een groot aantal bronnen, SQL Server gebruikmaakt al helpt [Resourceregeling](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) is een meer algemene manier om op te geven van limieten voor de hoeveelheid CPU, fysieke i/o- en geheugen die kan worden binnenkomende aanvragen voor toepassingen gebruik.
+ Hoewel deze methode ervoor zorgt dat de back-uptoepassing veel resources verbruikt, is SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) een meer algemene manier om limieten op te geven voor de hoeveelheid CPU, fysieke io en het geheugen die door binnenkomende toepassings aanvragen kunnen worden gebruikt.
 
 > [!NOTE]
-> In de UX kunt u nog eens en zo veel back-ups plannen op een bepaald moment, maar ze worden verwerkt in een sliding window van bijvoorbeeld 5, aan de hand van het bovenstaande voorbeeld.
+> In de UX kunt u nog steeds een aantal back-ups op elk gewenst moment plannen, maar deze worden verwerkt in een sliding window van zeg, 5, conform het bovenstaande voor beeld.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Kan ik een volledige back-up van een secundaire replica uitvoeren?
-Aan de hand van beperkingen voor SQL, kunt u exemplaar alleen volledige back-up uitvoeren op de secundaire Replica. maar volledige back-up is niet toegestaan.
+Op basis van SQL-beperkingen kunt u alleen volledige back-up kopiëren op de secundaire replica. Volledige back-up is echter niet toegestaan.
 
-## <a name="can-i-protect-availability-groups-on-premises"></a>Kan ik beschikbaarheid groepen on-premises beveiligen?
-Nee. Azure Backup beschermt SQL Server-databases die worden uitgevoerd in Azure. Als u een beschikbaarheidsgroep (AG) wordt verdeeld tussen Azure en on-premises machines, kan de AG worden beveiligd, alleen als de primaire replica wordt uitgevoerd in Azure. Azure Backup beschermt ook alleen de knooppunten die worden uitgevoerd in dezelfde Azure-regio als de Recovery Services-kluis.
+## <a name="can-i-protect-availability-groups-on-premises"></a>Kan ik beschikbaarheids groepen on-premises beveiligen?
+Nee. Azure Backup beschermt SQL Server data bases die worden uitgevoerd in Azure. Als een beschikbaarheids groep (AG) wordt gespreid tussen Azure-en on-premises machines, kan de AG alleen worden beveiligd als de primaire replica wordt uitgevoerd in Azure. Azure Backup beschermt ook alleen de knoop punten die worden uitgevoerd in dezelfde Azure-regio als de Recovery Services kluis.
 
-## <a name="can-i-protect-availability-groups-across-regions"></a>Kan ik beschikbaarheidsgroepen in regio's beveiligen?
-De Azure Backup Recovery Services-kluis kunt detecteren en alle knooppunten die zich in dezelfde regio bevinden als de kluis beveiligen. Als uw SQL Server Always On-beschikbaarheidsgroep meerdere Azure-regio's omvat, stelt u de back-up van de regio waaraan het primaire knooppunt. Azure Backup kunt detecteren en beveiligen van alle databases in de beschikbaarheidsgroep op basis van uw back-upvoorkeur. Als uw back-upvoorkeur niet wordt voldaan, back-ups mislukken en krijgt u de waarschuwing voor fout.
+## <a name="can-i-protect-availability-groups-across-regions"></a>Kan ik beschikbaarheids groepen beveiligen in verschillende regio's?
+De Azure Backup Recovery Services kluis kan alle knoop punten die zich in dezelfde regio bevinden als de kluis detecteren en beveiligen. Als uw SQL Server AlwaysOn-beschikbaarheids groep meerdere Azure-regio's omvat, stelt u de back-up in vanuit de regio die het primaire knoop punt heeft. Azure Backup kunnen alle data bases in de beschikbaarheids groep detecteren en beveiligen op basis van uw voor keuren voor back-ups. Wanneer er niet aan de voor keur voor de back-up wordt voldaan, mislukken de back-ups en wordt de fout melding weer geven.
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>Maken succesvolle back-uptaken waarschuwingen?
-Nee. Succesvolle back-uptaken maken geen waarschuwingen. Er worden alleen waarschuwingen verzonden voor mislukte back-uptaken. Gedetailleerde gedrag voor portal waarschuwingen wordt gedocumenteerd [hier](backup-azure-monitoring-built-in-monitor.md). Als u geïnteresseerd bent hoeven echter waarschuwingen zelfs voor geslaagde taken, kunt u [bewaken met behulp van Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+Nee. Succesvolle back-uptaken maken geen waarschuwingen. Er worden alleen waarschuwingen verzonden voor mislukte back-uptaken. Gedetailleerd gedrag voor portal waarschuwingen wordt [hier](backup-azure-monitoring-built-in-monitor.md)beschreven. Als u echter geïnteresseerd bent over waarschuwingen, zelfs voor geslaagde taken, kunt u bewaking gebruiken [met behulp van Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
 
-## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Kan ik de geplande back-uptaken in het menu back-uptaken zien?
-De **back-uptaak** menu wordt alleen weergegeven voor ad-hoc back-uptaken. Gebruik voor de geplande taak [bewaken met behulp van Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Kan ik geplande back-uptaken weer geven in het menu back-uptaken?
+In het menu **back-uptaak** worden alleen ad-hoc back-uptaken weer gegeven. Gebruik voor een geplande taak [bewaking met behulp van Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
 
-## <a name="are-future-databases-automatically-added-for-backup"></a>Toekomstige databases automatisch toegevoegd voor back-up?
-Ja, kunt u deze mogelijkheid met bereiken [automatische beveiliging](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
+## <a name="are-future-databases-automatically-added-for-backup"></a>Worden toekomstige data bases automatisch toegevoegd voor back-up?
+Ja, u kunt deze mogelijkheid met [automatische beveiliging](backup-sql-server-database-azure-vms.md#enable-auto-protection)krijgen.  
 
-## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Als ik een database uit een exemplaar van autoprotected verwijdert, wat gebeurt er met de back-ups?
-Als een database wordt verwijderd uit een exemplaar van autoprotected, worden er nog steeds de databaseback-ups geprobeerd. Dit betekent dat de verwijderde database moeten worden weergegeven als niet in orde onder begint **back-Upitems** en nog steeds is beveiligd.
+## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Wat gebeurt er met de back-ups als ik een Data Base uit een automatisch beveiligde exemplaar Verwijder?
+Als een Data Base uit een niet-beveiligd exemplaar wordt verwijderd, worden er nog steeds back-ups van de data base geprobeerd. Dit betekent dat de verwijderde data base wordt weer gegeven als beschadigd onder **back-** upitems en nog steeds is beveiligd.
 
-De juiste manier om te stoppen met het beveiligen van de database van dit te doen is **back-up stoppen** met **gegevens verwijderen** voor deze database.  
+De juiste manier om de beveiliging van deze data base te stoppen, is het stoppen van de **back-up** met het **verwijderen van gegevens** in deze data base.  
 
-## <a name="if-i-do-stop-backup-operation-of-an-autoprotected-database-what-will-be-its-behavior"></a>Wat is het gedrag als ik back-up van een database autoprotected stop?
-Als u dit doet **back-up stoppen met gegevensbehoud**, geen toekomstige back-ups van plaatsvinden en de bestaande herstelpunten blijven intact. De database wordt nog steeds worden beschouwd als beveiligd en worden weergegeven onder de **back-up items**.
+## <a name="if-i-do-stop-backup-operation-of-an-autoprotected-database-what-will-be-its-behavior"></a>Als ik de back-upbewerking van een automatisch beveiligde data base stop, wat is dan het gedrag?
+Als u **back-up met behoud van gegevens stopt**, zullen er geen back-ups meer worden gemaakt en worden de bestaande herstel punten intact gelaten. De data base wordt nog steeds beschouwd als beveiligd en wordt weer gegeven onder de **back-** upitems.
 
-Als u dit doet **back-up stoppen en verwijder gegevens**, geen toekomstige back-ups van plaatsvinden en de bestaande herstelpunten worden ook verwijderd. De database wordt beschouwd als niet-beveiligde en worden weergegeven onder het exemplaar in de back-up configureren. Echter, in tegenstelling tot andere van beveiligde databases die handmatig kan worden geselecteerd of die autoprotected kunt ophalen, deze database wordt grijs weergegeven en kan niet worden geselecteerd. De enige manier om deze database opnieuw beveiligen is om uit te schakelen van automatische beveiliging op het exemplaar. U kunt nu deze database selecteren en configureren van beveiliging op deze of opnieuw opnieuw inschakelen automatische beveiliging op het exemplaar.
+Als u geen **back-up maakt met gegevens verwijderen**, zullen er geen toekomstige back-ups meer plaatsvinden en worden de bestaande herstel punten ook verwijderd. De data base wordt als niet-beveiligd beschouwd en wordt weer gegeven onder het exemplaar van de back-up configureren. Maar in tegens telling tot andere, beveiligde data bases die hand matig kunnen worden geselecteerd of die automatisch kunnen worden beveiligd, wordt deze data base grijs weer gegeven en kan deze niet worden geselecteerd. De enige manier om deze data base opnieuw te beveiligen, is door automatische beveiliging uit te scha kelen voor het exemplaar. U kunt deze data base nu selecteren en de beveiliging ervan configureren of de automatische beveiliging opnieuw inschakelen voor het exemplaar.
 
-## <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior"></a>Als ik de naam van de database wijzigen nadat deze is beveiligd, wat is het gedrag?
-Een database opnieuw met de naam wordt behandeld als een nieuwe database. De service wordt daarom kan deze situatie behandelen alsof de database zijn niet gevonden en de back-ups met mislukt.
+## <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior"></a>Als ik de naam van de data base Wijzig nadat deze is beveiligd, wat is dan het gedrag?
+Een Data Base die opnieuw wordt genoemd, wordt beschouwd als een nieuwe data base. De service behandelt deze situatie dus als de data base niet is gevonden en de back-ups mislukken.
 
-U kunt de database, die nu wordt gewijzigd en configureer beveiliging op deze selecteren. In het geval de automatische beveiliging is ingeschakeld op het exemplaar, zal de nieuwe naam database automatisch worden gedetecteerd en beveiligd.
+U kunt de data base selecteren, waarvan de naam nu wordt gewijzigd en er beveiliging op configureren. Als de automatische beveiliging is ingeschakeld voor het exemplaar, wordt de data base waarvan de naam is gewijzigd, automatisch gedetecteerd en beveiligd.
 
-##  <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Waarom zie ik een database toegevoegd voor een exemplaar autoprotected niet?
-Een database die u [toevoegen aan een exemplaar autoprotected](backup-sql-server-database-azure-vms.md#enable-auto-protection) mogelijk niet direct weergegeven onder beveiligde items. Dat komt doordat de detectie doorgaans om de 8 uur wordt uitgevoerd. U kunt echter detecteren en direct nieuwe databases beveiligen als u handmatig een detectie door te selecteren uitvoeren **databases herstellen**, zoals wordt weergegeven in de volgende afbeelding.
+##  <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Waarom kan ik een toegevoegde data base niet zien voor een niet-beveiligde instantie?
+Een Data Base die u [aan een niet-beveiligd exemplaar toevoegt](backup-sql-server-database-azure-vms.md#enable-auto-protection) , wordt mogelijk niet direct weer gegeven onder beveiligde items. Dat komt doordat de detectie doorgaans om de 8 uur wordt uitgevoerd. U kunt echter direct nieuwe data bases detecteren en beveiligen als u hand matig een detectie uitvoert door **Db's herstellen**te selecteren, zoals wordt weer gegeven in de volgende afbeelding.
 
-  ![Handmatig een nieuw toegevoegde database detecteren](./media/backup-azure-sql-database/view-newly-added-database.png)
+  ![Een nieuw toegevoegde data base hand matig detecteren](./media/backup-azure-sql-database/view-newly-added-database.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het [maakt u een back-up van een SQL Server-database](backup-azure-sql-database.md) die wordt uitgevoerd op een Azure-VM.
+Meer informatie over het maken van een back-up van [een SQL Server-Data Base](backup-azure-sql-database.md) die wordt uitgevoerd op een virtuele machine van Azure.

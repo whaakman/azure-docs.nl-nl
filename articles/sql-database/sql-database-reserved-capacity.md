@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 07/15/2019
-ms.openlocfilehash: fa64177dfa5bfadad5db4116224b94ffac2fadc0
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.date: 07/19/2019
+ms.openlocfilehash: 1cc8828f5a936b130480c2c7516d00b8bee6760f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233054"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357273"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Vooruitbetalen voor het SQL Database Compute-resources met Azure SQL Database gereserveerde capaciteit
 
@@ -55,10 +55,10 @@ In de volgende tabel worden de vereiste velden beschreven.
 |Subscription|Het abonnement dat wordt gebruikt om te betalen voor de reserve ring van de SQL Database gereserveerde capaciteit. Voor de betalings methode voor het abonnement worden de kosten vooraf in rekening gebracht voor de reserve ring van de SQL Database gereserveerde capaciteit. Het abonnements type moet een Enter prise Agreement zijn (nummers van aanbiedingen: MS-AZR-0017P of MS-AZR-0148P) of een afzonderlijke overeenkomst met betalen per gebruik-prijs (aanbiedings nummers: MS-AZR-0003P of MS-AZR-0023P). Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding. Voor een individueel abonnement met betalen per gebruik-tarieven worden de kosten in rekening gebracht op basis van de credit card of factuur betalings methode voor het abonnement.|
 |Scope       |Het bereik van de vCore-reserve ring kan betrekking hebben op één abonnement of meerdere abonnementen (gedeeld bereik). Als u het volgende selecteert: <br/><br/>**Gedeeld**, de vCore-reserverings korting wordt toegepast op SQL database exemplaren die worden uitgevoerd in abonnementen binnen uw facturerings context. Voor zakelijke klanten is het gedeelde bereik de inschrijving en omvat alle abonnementen binnen de inschrijving. Voor betalen per gebruik-klanten is de gedeelde Scope alle abonnementen met betalen per gebruik, gemaakt door de account beheerder.<br/><br/>**Eén abonnement**, de vCore-reserverings korting wordt toegepast op SQL database exemplaren in dit abonnement. <br/><br/>**Eén resource groep**, de reserverings korting wordt toegepast op SQL database exemplaren in het geselecteerde abonnement en de geselecteerde resource groep binnen dat abonnement.|
 |Regio      |De Azure-regio die wordt gedekt door de SQL Database gereserveerde capaciteits reservering.|
-|Implementatie type|Het SQL-resource type waarvoor u de reserve ring wilt aanschaffen.|
+|Implementatietype|Het SQL-resource type waarvoor u de reserve ring wilt aanschaffen.|
 |Prestatielaag|De servicelaag voor de SQL Database exemplaren.
 |Begrip        |Eén jaar of drie jaar.|
-|Aantal    |De hoeveelheid reken resources die worden aangeschaft in de SQL Database gereserveerde capaciteits reservering. De hoeveelheid is een aantal vCores in de geselecteerde Azure-regio en-prestatie-laag die worden gereserveerd en de facturerings korting krijgt. Als u bijvoorbeeld uitvoert of van plan bent om SQL Database instanties uit te voeren met de totale reken capaciteit van GEN5 16 vCores in de regio VS-Oost, geeft u hoeveelheid op als 16 om het voor deel van alle exemplaren te maximaliseren. |
+|Hoeveelheid    |De hoeveelheid reken resources die worden aangeschaft in de SQL Database gereserveerde capaciteits reservering. De hoeveelheid is een aantal vCores in de geselecteerde Azure-regio en-prestatie-laag die worden gereserveerd en de facturerings korting krijgt. Als u bijvoorbeeld uitvoert of van plan bent om SQL Database instanties uit te voeren met de totale reken capaciteit van GEN5 16 vCores in de regio VS-Oost, geeft u hoeveelheid op als 16 om het voor deel van alle exemplaren te maximaliseren. |
 
 1. Controleer de kosten van de SQL Database gereserveerde capaciteits reservering in het gedeelte **kosten** .
 1. Selecteer **Aankoop**.
@@ -66,9 +66,9 @@ In de volgende tabel worden de vereiste velden beschreven.
 
 ## <a name="cancellations-and-exchanges"></a>Annuleringen en uitwisselingen
 
-Als u de reserve ring van de gereserveerde capaciteit van SQL Database moet annuleren, kunnen er 12% vroege ontslag kosten in rekening worden gebracht. Restituties worden gebaseerd op de laagste prijs, zijnde de aankoopprijs of de huidige prijs van de reservering, welke het laagste is. Restituties zijn beperkt tot $ 50.000 per jaar. De restitutie die u ontvangt, is het resterende bedrag naar rato saldo minus de kosten voor vroegtijdige beëindiging van 12%. Als u een annulering wilt aanvragen, gaat u naar de reserve ring in het Azure Portal en selecteert u **terugbetaling** om een ondersteunings aanvraag te maken.
+Als u de reserve ring van de gereserveerde capaciteit van SQL Database moet annuleren, kunnen er 12% vroege ontslag kosten in rekening worden gebracht. Restituties worden gebaseerd op de laagste prijs, zijnde de aankoopprijs of de huidige prijs van de reservering, welke het laagste is. Restituties zijn beperkt tot $ 50.000 per jaar. De restitutie die u ontvangt, is het resterende bedrag naar rato saldo minus de kosten voor vroegtijdige beëindiging van 12%. Als u wilt annuleren, gaat u naar de reserve ring in het Azure Portal en selecteert u **terugbetaling**.
 
-Als u de reservering voor SQL Database-reservecapaciteit wilt wijzigen in een andere regio, implementatietype, prestatielaag of termijn, kunt u de reservering uitwisselen voor een andere reservering van gelijke of grotere waarde. De begindatum van de periode voor de nieuwe reservering wordt niet meegenomen naar de uitgewisselde reservering. De periode van één of drie jaar start vanaf het moment dat u de nieuwe reservering maakt. Als u een uitwisseling wilt aanvragen, gaat u naar de reserve ring in het Azure Portal en selecteert u **Exchange** om een ondersteunings aanvraag te maken.
+Als u de reservering voor SQL Database-reservecapaciteit wilt wijzigen in een andere regio, implementatietype, prestatielaag of termijn, kunt u de reservering uitwisselen voor een andere reservering van gelijke of grotere waarde. De begindatum van de periode voor de nieuwe reservering wordt niet meegenomen naar de uitgewisselde reservering. De periode van één of drie jaar start vanaf het moment dat u de nieuwe reservering maakt. Als u Exchange wilt, gaat u naar de reserve ring in het Azure Portal en selecteert u **Exchange**.
 
 Zie reserverings [uitwisselingen en](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)terugbetalingen voor meer informatie over het omruilen of terugbetalen van reserve ringen.
 

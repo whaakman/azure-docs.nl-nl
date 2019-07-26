@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: a1ff1449b5cc63c16035f8785662f250a008fbc1
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 4159eed04ff1a4e81ea36a4d7f06f342a63fe367
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305523"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442032"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Clusters in HDInsight instellen met Apache Hadoop, Apache Spark, Apache Kafka en meer
 
@@ -53,7 +53,7 @@ Volg de instructies op het scherm om een basis cluster installatie uit te voeren
 * [Aanmeldings gegevens van het cluster en SSH-gebruikers naam](#cluster-login-and-ssh-username)
 * [Location](#location)
 
-## <a name="resource-group-name"></a>Naam van de resourcegroep
+## <a name="resource-group-name"></a>Resourcegroepnaam
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helpt u bij het werken met de resources in uw toepassing als een groep, een Azure-resource groep genoemd. U kunt in één gecoördineerde bewerking alle resources voor uw toepassing implementeren, bijwerken, bewaken of verwijderen.
 
@@ -155,7 +155,7 @@ Aangepaste cluster installatie bouwt voort op de instellingen voor snel maken en
  
 ## <a name="enterprise-security-package"></a>Enter prise-beveiligings pakket
 
-Voor Hadoop-, Spark-, HBase-, Kafka-en interactieve query cluster typen kunt u ervoor kiezen om de **Enterprise Security Package**in te scha kelen. Met dit pakket beschikt u over een veiligere cluster installatie door Apache zwerver te gebruiken en te integreren met Azure Active Directory. Zie [Enterprise Security package in azure HDInsight](./domain-joined/apache-domain-joined-introduction.md)voor meer informatie.
+Voor Hadoop-, Spark-, HBase-, Kafka-en interactieve query cluster typen kunt u ervoor kiezen om de **Enterprise Security Package**in te scha kelen. Met dit pakket beschikt u over een veiligere cluster installatie door Apache zwerver te gebruiken en te integreren met Azure Active Directory. Zie [overzicht van Bedrijfs beveiliging in azure HDInsight](./domain-joined/hdinsight-security-overview.md)voor meer informatie.
 
 ![opties voor het maken van hdinsight het ondernemings beveiligings pakket kiezen](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
 
@@ -215,7 +215,7 @@ Als u wilt weten welke waarde u moet gebruiken om een VM-grootte op te geven tij
 
 Zie voor meer informatie, [grootten voor virtuele machines](../virtual-machines/windows/sizes.md). Zie [prijzen voor HDInsight](https://azure.microsoft.com/pricing/details/hdinsight)voor meer informatie over de prijzen van de verschillende grootten.   
 
-## <a name="advanced-settings-script-actions"></a>Geavanceerde instellingen: Script acties
+## <a name="advanced-settings-script-actions"></a>Geavanceerde instellingen: Scriptacties
 
 U kunt extra onderdelen installeren of cluster configuratie aanpassen met behulp van scripts tijdens het maken. Dergelijke scripts worden aangeroepen via **script actie**, een configuratie optie die kan worden gebruikt vanuit de Azure Portal, Hdinsight Windows Power shell-cmdlets of de HDINSIGHT .NET SDK. Zie [HDInsight-cluster aanpassen met script actie](hdinsight-hadoop-customize-cluster-linux.md)voor meer informatie.
 
@@ -249,9 +249,9 @@ Zie [HDInsight-clusters aanpassen met Boots trap](hdinsight-hadoop-customize-clu
 ## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>Geavanceerde instellingen: Clusters uitbreiden met een virtueel netwerk
 Als uw oplossing technologieën vereist die verspreid zijn over meerdere typen HDInsight-clusters, kan een [virtueel Azure-netwerk](https://docs.microsoft.com/azure/virtual-network) verbinding maken met de vereiste cluster typen. Met deze configuratie kunnen de clusters en alle code die u hier implementeert, direct met elkaar communiceren.
 
-Zie [HDInsight uitbreiden met virtuele Azure-netwerken](hdinsight-extend-hadoop-virtual-network.md)voor meer informatie over het gebruik van een virtueel Azure-netwerk met HDInsight.
+Zie [een virtueel netwerk plannen voor hdinsight](hdinsight-plan-virtual-network-deployment.md)voor meer informatie over het gebruik van een virtueel Azure-netwerk met hdinsight.
 
-Zie [Apache Spark Structured streaming gebruiken met Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md)voor een voor beeld van het gebruik van twee cluster typen in een virtueel Azure-netwerk. Zie [hdinsight-mogelijkheden uitbreiden met Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)voor meer informatie over het gebruik van hdinsight met een virtueel netwerk, inclusief specifieke configuratie vereisten voor het virtuele netwerk.
+Zie [Apache Spark Structured streaming gebruiken met Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md)voor een voor beeld van het gebruik van twee cluster typen in een virtueel Azure-netwerk. Zie [een virtueel netwerk plannen voor HDInsight](hdinsight-plan-virtual-network-deployment.md)voor meer informatie over het gebruik van HDInsight met een virtueel netwerk, inclusief specifieke configuratie vereisten voor het virtuele netwerk.
 
 
 ## <a name="next-steps"></a>Volgende stappen

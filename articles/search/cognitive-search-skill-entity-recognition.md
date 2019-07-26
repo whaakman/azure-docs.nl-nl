@@ -1,6 +1,6 @@
 ---
-title: Entiteit erkenning cognitief zoeken vaardigheid - Azure Search
-description: Verschillende typen entiteiten extraheren uit tekst in een Azure Search cognitief zoeken-pijplijn.
+title: Vaardig heden voor herkenning van entity erkennen-Azure Search
+description: Haal verschillende typen entiteiten op uit tekst in een Azure Search cognitieve Zoek pijplijn.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,67 +11,67 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f05161dbbfd9293cd7b1cbf447bb7ca1c313250c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ca3b953f84677c13908028af968d5a2bf28b57c
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023447"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347747"
 ---
-#    <a name="entity-recognition-cognitive-skill"></a>Entiteit herkenning van cognitieve vaardigheden
+#    <a name="entity-recognition-cognitive-skill"></a>Herkennings vaardigheid van entity erkennen
 
-De **entiteit erkenning** vaardigheid entiteiten van verschillende typen geëxtraheerd uit tekst. Deze vaardigheid maakt gebruik van de machine learning-modellen die worden geleverd door [Tekstanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Cognitive Services.
+De kwalificatie voor **entiteits herkenning** extraheert entiteiten van verschillende typen van tekst. Deze vaardigheid maakt gebruik van de machine learning modellen van [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in cognitive Services.
 
 > [!NOTE]
-> Als u bereik uitbreiden door het verhogen van de frequentie van de verwerking, meer documenten toe te voegen of toe te voegen meer AI-algoritmen, u moet [een factureerbare Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md). Kosten toenemen bij het aanroepen van API's in Cognitive Services en voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken in Azure Search. Er zijn geen kosten voor het ophalen van de tekst van documenten.
+> Als u het bereik uitbreidt door de verwerkings frequentie te verhogen, meer documenten toe te voegen of meer AI-algoritmen toe te voegen, moet u [een factureer bare Cognitive Services resource koppelen](cognitive-search-attach-cognitive-services.md). Er worden kosten in rekening gebracht bij het aanroepen van Api's in Cognitive Services en voor het ophalen van afbeeldingen als onderdeel van de fase voor het kraken van documenten in Azure Search. Er worden geen kosten in rekening gebracht voor het ophalen van tekst uit documenten.
 >
-> Uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/). Afbeelding extractie prijzen wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
+> De uitvoering van ingebouwde vaardig heden wordt in rekening gebracht op basis van de bestaande [Cognitive Services betalen naar](https://azure.microsoft.com/pricing/details/cognitive-services/)gebruik-prijs. Prijzen voor Image extractie worden beschreven op de [pagina met Azure Search prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## <a name="data-limits"></a>Gegevenslimieten
-De maximale grootte van een record moet tussen de 50.000 tekens wordt gemeten door `String.Length`. Als u moet het opsplitsen van uw gegevens voordat deze naar de extractor sleuteluitdrukkingen verzonden, kunt u overwegen de [tekst splitsen vaardigheid](cognitive-search-skill-textsplit.md).
+De maximale grootte van een record moet 50.000 tekens zijn, zoals gemeten [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)door. Als u uw gegevens moet opsplitsen voordat u deze naar de sleutel woord groep verstuurt, kunt u overwegen de [Kwalificatie tekst splitsen](cognitive-search-skill-textsplit.md)te gebruiken.
 
-## <a name="skill-parameters"></a>Kwalificatie parameters
+## <a name="skill-parameters"></a>Vaardigheids parameters
 
-Parameters zijn hoofdlettergevoelig en zijn optioneel.
+Para meters zijn hoofdletter gevoelig en zijn allemaal optioneel.
 
 | Parameternaam     | Description |
 |--------------------|-------------|
-| categorieën    | Matrix van categorieën die moeten worden geëxtraheerd.  Mogelijke categorietypen: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Als er geen categorie is opgegeven, worden alle typen worden geretourneerd.|
-|defaultLanguageCode |  De taalcode van de invoertekst. De volgende talen worden ondersteund: `de, en, es, fr, it`|
-|minimumPrecision | Niet-gebruikte. Gereserveerd voor toekomstig gebruik. |
-|includeTypelessEntities | Als de waarde in op true als de tekst bevat van een entiteit erg bekend is, maar kan niet worden onderverdeeld in een van de ondersteunde categorieën, deze wordt geretourneerd als onderdeel van de `"entities"` complexe uitvoerveld. 
-Dit zijn de entiteiten die goed bekend zijn, maar niet zijn geclassificeerd als onderdeel van de huidige ondersteunde 'categorieën'. Bijvoorbeeld ' Windows 10 ' is een bekende entiteit (product), maar 'Producten' zich niet in de categorieën die tegenwoordig wordt ondersteund. De standaardwaarde is `false` |
+| categories    | Matrix van categorieën die moeten worden geëxtraheerd.  Mogelijke categorie typen: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, ,`"URL"`. `"Email"` Als er geen categorie wordt opgegeven, worden alle typen geretourneerd.|
+|defaultLanguageCode |  De taal code van de invoer tekst. De volgende talen worden ondersteund:`de, en, es, fr, it`|
+|minimumPrecision | Vrij. Gereserveerd voor toekomstig gebruik. |
+|includeTypelessEntities | Als deze eigenschap is ingesteld op True als de tekst een bekende entiteit bevat, maar niet in een van de ondersteunde categorieën kan worden gecategoriseerd, wordt deze geretourneerd als `"entities"` onderdeel van het complexe uitvoer veld. 
+Dit zijn entiteiten die goed bekend zijn, maar niet zijn geclassificeerd als onderdeel van de huidige ondersteunde ' categorieën '. Bijvoorbeeld ' Windows 10 ' is een bekende entiteit (een product), maar ' Products ' is niet in de categorieën die vandaag worden ondersteund. Standaard waarde is`false` |
 
 
-## <a name="skill-inputs"></a>Kwalificatie invoer
+## <a name="skill-inputs"></a>Vaardigheids invoer
 
-| Voer een naam in      | Description                   |
+| Invoer naam      | Description                   |
 |---------------|-------------------------------|
 | languageCode  | Optioneel. De standaardwaarde is `"en"`.  |
-| text          | De tekst te analyseren.          |
+| text          | De tekst die moet worden geanalyseerd.          |
 
-## <a name="skill-outputs"></a>Kwalificatie uitvoer
+## <a name="skill-outputs"></a>Vaardigheids uitvoer
 
 > [!NOTE]
-> Niet alle categorieën van de entiteit worden ondersteund voor alle talen. Alleen _en_, _es_ ondersteuning voor extractie van `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` typen.
+> Niet alle entiteits categorieën worden ondersteund voor alle talen. Alleen _en_, _es_ `"Quantity"`ondersteunen extractie `"Datetime"` `"Email"` van,,, typen. `"URL"`
 
-| Naam van de uitvoer     | Description                   |
+| Uitvoer naam     | Description                   |
 |---------------|-------------------------------|
-| personen      | Een matrix met tekenreeksen waarbij elke tekenreeks de naam van een persoon vertegenwoordigt. |
-| locations  | Een matrix met tekenreeksen waarbij elke tekenreeks een locatie vertegenwoordigt. |
-| organizations  | Een matrix met tekenreeksen waarbij elke tekenreeks een organisatie vertegenwoordigt. |
-| hoeveelheden  | Een matrix met tekenreeksen waarbij elke tekenreeks een hoeveelheid vertegenwoordigt. |
-| datum/tijd  | Een matrix met tekenreeksen, waarbij elke tekenreeks een datum/tijd vertegenwoordigt (zoals deze wordt weergegeven in de tekst) waarde. |
-| URL 's | Een matrix met tekenreeksen, waarbij elke tekenreeks een URL vertegenwoordigt |
-| e-mailberichten | Een matrix met tekenreeksen, waarbij elke tekenreeks een e-mailbericht vertegenwoordigt |
-| namedEntities | Een matrix van complexe typen die de volgende velden bevat: <ul><li>category</li> <li>waarde (de naam van de werkelijke entiteit)</li><li>offset (de locatie waar deze is gevonden in de tekst)</li><li>vertrouwen (wordt niet gebruikt voor nu. Wordt ingesteld op een waarde van-1)</li></ul> |
-| Entiteiten | Een matrix van complexe typen die uitgebreide informatie over de entiteiten die zijn geëxtraheerd uit tekst, met de volgende velden bevat <ul><li> naam (de naam van de werkelijke entiteit. Hiermee wordt een formulier "genormaliseerde")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (een koppeling naar Wikipedia-pagina voor de entiteit)</li><li>bingId</li><li>type (de categorie van de entiteit herkend)</li><li>subType (alleen beschikbaar voor bepaalde categorieën, dit biedt een meer gedetailleerd overzicht van het entiteitstype)</li><li> komt overeen met (een complexe verzameling met)<ul><li>tekst (de onbewerkte tekst voor de entiteit)</li><li>offset (de locatie waar deze is gevonden)</li><li>lengte (de lengte van de entiteit onbewerkte tekst)</li></ul></li></ul> |
+| personen      | Een matrix met teken reeksen waarbij elke teken reeks de naam van een persoon vertegenwoordigt. |
+| locations  | Een matrix met teken reeksen waarbij elke teken reeks een locatie vertegenwoordigt. |
+| organizations  | Een matrix met teken reeksen waarbij elke teken reeks een organisatie vertegenwoordigt. |
+| groot  | Een matrix met teken reeksen waarbij elke teken reeks een hoeveelheid vertegenwoordigt. |
+| Tijd  | Een matrix met teken reeksen waarbij elke teken reeks een datum/tijd vertegenwoordigt (zoals deze in de tekst) waarde wordt weer gegeven. |
+| adres | Een matrix met teken reeksen waarbij elke teken reeks een URL vertegenwoordigt |
+| e-mails | Een matrix met teken reeksen waarbij elke teken reeks een e-mail vertegenwoordigt |
+| namedEntities | Een matrix met complexe typen die de volgende velden bevat: <ul><li>category</li> <li>waarde (de werkelijke naam van de entiteit)</li><li>offset (de locatie waar deze zich bevindt in de tekst)</li><li>vertrouwen (op dit moment niet gebruikt. Wordt ingesteld op de waarde-1)</li></ul> |
+| entiteiten | Een matrix met complexe typen met uitgebreide informatie over de entiteiten die zijn geëxtraheerd uit de tekst, met de volgende velden <ul><li> naam (de werkelijke naam van de entiteit. Dit vertegenwoordigt een ' genormaliseerd ' formulier.</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (een koppeling naar de Wikipedia-pagina voor de entiteit)</li><li>bingId</li><li>type (de categorie van de entiteit die wordt herkend)</li><li>subtype (alleen beschikbaar voor bepaalde categorieën geeft dit een gedetailleerdere weer gave van het entiteits type)</li><li> komt overeen (een complexe verzameling die bevat)<ul><li>tekst (de onbewerkte tekst voor de entiteit)</li><li>offset (de locatie waar deze zich bevindt)</li><li>lengte (de lengte van de tekst van de onbewerkte entiteit)</li></ul></li></ul> |
 
-##  <a name="sample-definition"></a>Van voorbeelddefinitie
+##  <a name="sample-definition"></a>Voorbeeld definitie
 
 ```json
   {
@@ -100,7 +100,7 @@ Dit zijn de entiteiten die goed bekend zijn, maar niet zijn geclassificeerd als 
     ]
   }
 ```
-##  <a name="sample-input"></a>Van Voorbeeldinvoer
+##  <a name="sample-input"></a>Voorbeeld invoer
 
 ```json
 {
@@ -191,10 +191,10 @@ Dit zijn de entiteiten die goed bekend zijn, maar niet zijn geclassificeerd als 
 ```
 
 
-## <a name="error-cases"></a>Foutgevallen
-Als de taal van het document niet ondersteund wordt, wordt een fout geretourneerd en er zijn geen entiteiten worden opgehaald.
+## <a name="error-cases"></a>Fout cases
+Als de taal code voor het document niet wordt ondersteund, wordt een fout geretourneerd en worden er geen entiteiten geëxtraheerd.
 
 ## <a name="see-also"></a>Zie ook
 
-+ [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md)
-+ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
++ [Vooraf gedefinieerde vaardig heden](cognitive-search-predefined-skills.md)
++ [Een vaardig heden definiëren](cognitive-search-defining-skillset.md)

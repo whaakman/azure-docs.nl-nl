@@ -1,6 +1,6 @@
 ---
-title: Uw account voor werk of school toevoegen aan de Microsoft Authenticator-app - Azure Active Directory | Microsoft Docs
-description: Hoe u uw account voor werk of school toevoegen aan de Microsoft Authenticator-app voor tweeledige verificatie.
+title: Voeg uw werk-of school account toe aan de app-Azure Active Directory van Microsoft Authenticator | Microsoft Docs
+description: Hoe u uw werk-of school account toevoegt aan de app Microsoft Authenticator voor twee ledige verificatie.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,45 +12,46 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 231f3c44344f4119bab6e1efb5546e6fded0c784
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a73500d17a0dd5d55e60700f7c0b6dbe92a3f96b
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473845"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382527"
 ---
-# <a name="add-your-work-or-school-account"></a>Uw werk- of schoolaccount toevoegen
-Als uw organisatie gebruikmaakt van tweeledige verificatie, kunt u uw werk of school-account instellen om te gebruiken van de Microsoft Authenticator-app als een van de verificatiemethoden.
+# <a name="add-your-work-or-school-account"></a>Uw werk-of school account toevoegen
+
+Als uw organisatie twee ledige verificatie gebruikt, kunt u uw werk-of school account instellen om de Microsoft Authenticator-app als een van de verificatie methoden te gebruiken.
 
 >[!Important]
->Voordat u uw account toevoegen kunt, moet u download en installeer de Microsoft Authenticator-app. Als u dat nog niet hebt gedaan, volgt u de stappen in de [downloaden en installeren van de app](user-help-auth-app-download-install.md) artikel.
+>Voordat u uw account kunt toevoegen, moet u de app Microsoft Authenticator downloaden en installeren. Als u dat nog niet hebt gedaan, volgt u de stappen in het artikel [app downloaden en installeren](user-help-auth-app-download-install.md) .
 
-## <a name="add-your-work-or-school-account"></a>Uw werk- of schoolaccount toevoegen
+## <a name="add-your-work-or-school-account"></a>Uw werk-of school account toevoegen
 
-1. Op uw computer, gaat u naar de [aanvullende beveiligingsverificatie](https://aka.ms/mfasetup) pagina.
-
-    >[!Note]
-    >Als er geen de **aanvullende beveiligingsverificatie** pagina, is het mogelijk dat de beheerder de ervaring van de gegevens (preview) beveiliging is ingeschakeld. Als dit het geval is, moet u de instructies in de [beveiligingsgegevens ingesteld voor het gebruik van een verificator-app](security-info-setup-auth-app.md) sectie. Als dat niet het geval is, moet u contact op met de helpdesk van uw organisatie voor hulp. Zie voor meer informatie over beveiligingsgegevens [info (preview) beveiligingsoverzicht](user-help-security-info-overview.md).
-
-2. Schakel het selectievakje in naast **Authenticator-app**, en selecteer vervolgens **configureren**.
-
-    De **mobiele app configureren** pagina wordt weergegeven.
-    
-    ![Scherm waarmee de QR-code](./media/user-help-auth-app-download-install/auth-app-barcode.png)
-
-3. Open de Microsoft Authenticator-app, selecteer **account toevoegen** uit de **aanpassen en controle** pictogram in de rechterbovenhoek en selecteer vervolgens **werk- of schoolaccount**.
-
-4. De camera van uw apparaat gebruiken om te scannen van de QR-code uit de **mobiele app configureren** scherm op uw computer en kies vervolgens **gedaan**.
+1. Ga op uw computer naar de pagina [aanvullende beveiligings verificatie](https://aka.ms/mfasetup) .
 
     >[!Note]
-    >Als uw camera niet kan om vast te leggen van de QR-code, kunt u gegevens over uw account handmatig toevoegen aan de Microsoft Authenticator-app voor tweeledige verificatie. Zie voor meer informatie en hoe u dit doet, [handmatig toevoegen van uw account](user-help-auth-app-add-account-manual.md).
+    >Als de pagina **aanvullende beveiligings verificatie** niet wordt weer gegeven, is het mogelijk dat de beheerder de ervaring voor beveiligings gegevens (preview) heeft ingeschakeld. Als dat het geval is, volgt u de instructies in de sectie [beveiligings gegevens instellen voor het gebruik van een verificator-app](security-info-setup-auth-app.md) . Als dat niet het geval is, moet u contact opnemen met de Help Desk van uw organisatie voor hulp. Zie voor meer informatie over beveiligings informatie [overzicht van beveiligings gegevens (preview)](user-help-security-info-overview.md).
 
-5. Controleer de **Accounts** scherm van de app op uw apparaat, om te controleren of uw account wordt rechts en er is een bijbehorende 6-cijferige verificatiecode. Voor extra beveiliging verandert de verificatiecode in die elke 30 seconden zo wordt voorkomen dat iemand met een code meerdere keren.
+2. Schakel het selectie vakje naast de **verificator-app**in en selecteer **configureren**.
+
+    De pagina **mobiele app configureren** wordt weer gegeven.
+
+    ![Scherm met de QR-code](./media/user-help-auth-app-download-install/auth-app-barcode.png)
+
+3. Open de Microsoft Authenticator-app, selecteer **account toevoegen** uit het pictogram **aanpassen en beheer** in de rechter bovenhoek en selecteer vervolgens **werk-of school account**.
+
+4. Gebruik de camera van uw apparaat om de QR-code te scannen vanuit het scherm **mobiele app configureren** op uw computer en kies vervolgens **gereed**.
+
+    >[!Note]
+    >Als uw camera de QR-code niet kan vastleggen, kunt u uw account gegevens hand matig toevoegen aan de Microsoft Authenticator-app voor twee ledige verificatie. Zie [hand matig uw account toevoegen](user-help-auth-app-add-account-manual.md)voor meer informatie en hoe u dit doet.
+
+5. Bekijk het scherm **accounts** van de app op uw apparaat om te controleren of uw account juist is en of er een verificatie code van zes cijfers is. Voor extra beveiliging verandert de verificatie code elke 30 seconden om te voor komen dat iemand meerdere keren een code gebruikt.
 
     ![Scherm accounts](./media/user-help-auth-app-download-install/auth-app-accounts.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Nadat u uw accounts aan de app toevoegen, kunt u zich bij het gebruik van de Authenticator-app op uw apparaat. Zie voor meer informatie, [Meld u aan met behulp van de app](user-help-auth-app-sign-in.md).
+- Nadat u uw accounts aan de app hebt toegevoegd, kunt u zich aanmelden met behulp van de verificator-app op uw apparaat. Zie [Aanmelden met de app](user-help-auth-app-sign-in.md)voor meer informatie.
 
-- Voor apparaten met iOS, u kunt ook een back-up maken van de accountreferenties van uw en appinstellingen, zoals de volgorde van uw accounts, die betrekking hebben op de cloud. Zie voor meer informatie, [back-up en herstellen met de Microsoft Authenticator-app](user-help-auth-app-backup-recovery.md).
+- Voor apparaten met iOS kunt u ook een back-up maken van uw account referenties en de bijbehorende app-instellingen, zoals de volg orde van uw accounts, naar de Cloud. Zie [back-up en herstellen met Microsoft Authenticator-app](user-help-auth-app-backup-recovery.md)voor meer informatie.

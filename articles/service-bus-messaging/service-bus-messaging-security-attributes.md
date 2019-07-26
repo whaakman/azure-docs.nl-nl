@@ -1,6 +1,6 @@
 ---
-title: Algemene beveiligingskenmerken voor Azure Service Bus-berichten
-description: Een controlelijst met algemene beveiligingskenmerken voor het evalueren van Azure Service Bus-berichten
+title: Beveiligings kenmerken voor Azure Service Bus berichten
+description: Een controle lijst met beveiligings kenmerken voor het evalueren van Azure Service Bus berichten
 services: service-bus-messaging
 ms.service: service-bus-messaging
 documentationcenter: ''
@@ -9,62 +9,62 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d68ffe6561da6a23c288dfabd1d3eb6b34099bb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e1d6e041b47a261b549fb8b608cf09d0d6362dd
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003116"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443902"
 ---
-# <a name="security-attributes-for-azure-service-bus-messaging"></a>Beveiligingskenmerken voor Azure Service Bus-berichten
+# <a name="security-attributes-for-azure-service-bus-messaging"></a>Beveiligings kenmerken voor Azure Service Bus berichten
 
-In dit artikel worden de beveiligingskenmerken die is ingebouwd in Azure Service Bus Messaging.
+In dit artikel worden de beveiligings kenmerken gedocumenteerd die zijn ingebouwd in Azure Service Bus berichten.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-## <a name="preventative"></a>Preventative
+## <a name="preventative"></a>Preventie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen |
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
-| Versleuteling-at-rest:<ul><li>Versleuteling aan de serverzijde</li><li>Versleuteling op de server met de klant beheerde sleutels</li><li>Andere versleutelingsfuncties (zoals client-side altijd versleuteld, enz.)</ul>|  Ja voor serverzijde versleuteling-at-rest standaard. | Beheerd door de klant sleutels en BYOK zijn nog niet ondersteund. Versleuteling aan de clientzijde is de verantwoordelijkheid van de client |
-| Versleuteling tijdens overdracht:<ul><li>Express route-versleuteling</li><li>VNet-versleuteling</li><li>VNet-VNet-versleuteling</ul>| Ja | Biedt ondersteuning voor standaard HTTPS/TLS-mechanisme. |
-| Versleuteling verwerking (CMK, BYOK, enz.)| Nee |   |
-| Versleuteling op kolom (Azure Data Services)| N/A | |
-| API-aanroepen die zijn versleuteld| Ja | API-aanroepen worden gedaan via [Azure Resource Manager](../azure-resource-manager/index.yml) - en HTTPS. |
+| Versleuteling bij rest (zoals versleuteling aan server zijde, versleuteling aan server zijde met door de klant beheerde sleutels en andere versleutelings functies)|  Ja voor versleuteling aan de server zijde is standaard ingesteld op rest. | Door de klant beheerde sleutels en BYOK worden nog niet ondersteund. Versleuteling aan client zijde is de verantwoordelijkheid van de client |
+| Versleuteling in transit (zoals ExpressRoute-versleuteling, in VNet-versleuteling en VNet-VNet-versleuteling)| Ja | Ondersteunt het standaard HTTPS/TLS-mechanisme. |
+| Verwerking van versleutelings sleutels (CMK, BYOK, enz.)| Nee |   |
+| Versleuteling op kolom niveau (Azure Data Services)| N/A | |
+| Versleutelde API-aanroepen| Ja | API-aanroepen worden gedaan via [Azure Resource Manager](../azure-resource-manager/index.yml) en HTTPS. |
 
-## <a name="network-segmentation"></a>Segmentatie
+## <a name="network-segmentation"></a>Netwerk segmentatie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen |
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
-| Ondersteuning voor service-eindpunt| Ja (alleen Premium-laag) | VNet-service-eindpunten worden ondersteund voor [Service Bus Premium-laag](service-bus-premium-messaging.md) alleen. |
+| Ondersteuning voor service-eind punten| Ja (alleen Premium-laag) | VNet-service-eind punten worden alleen ondersteund voor [Service Bus-laag Premium](service-bus-premium-messaging.md) . |
 | Ondersteuning voor VNet-injectie| Nee | |
-| Netwerkisolatie en ondersteuning netwerkfunctie| Ja (alleen Premium-laag) |  |
-| Geforceerde tunneling ondersteuning| Nee |  |
+| Ondersteuning voor netwerk isolatie en firewalling| Ja (alleen Premium-laag) |  |
+| Ondersteuning voor geforceerde tunneling| Nee |  |
 
 ## <a name="detection"></a>Detectie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Azure monitoring ondersteuning (Log analytics, Application insights, enz.)| Ja | Ondersteund via [Azure Monitor en waarschuwingen](service-bus-metrics-azure-monitor.md). |
+| Ondersteuning voor Azure-bewaking (log Analytics, app Insights, enz.)| Ja | Ondersteund via [Azure monitor en waarschuwingen](service-bus-metrics-azure-monitor.md). |
 
 ## <a name="identity-and-access-management"></a>Identiteits- en toegangsbeheer
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Verificatie| Ja | Beheerd via [Azure Active Directory beheerde Service-identiteit](service-bus-managed-service-identity.md); Zie [Service Bus-verificatie en autorisatie](service-bus-authentication-and-authorization.md).|
-| Autorisatie| Ja | Biedt ondersteuning voor autorisatie via [RBAC](service-bus-role-based-access-control.md) (Preview) en SAS-token; Zie [Service Bus-verificatie en autorisatie](service-bus-authentication-and-authorization.md). |
+| Authentication| Ja | Beheerd via [Azure Active Directory Managed Service Identity](service-bus-managed-service-identity.md); Zie [Service Bus verificatie en autorisatie](service-bus-authentication-and-authorization.md).|
+| Authorization| Ja | Ondersteunt autorisatie via [RBAC](service-bus-role-based-access-control.md) (preview) en SAS-token; Zie [Service Bus verificatie en autorisatie](service-bus-authentication-and-authorization.md). |
 
 
 
 ## <a name="audit-trail"></a>Audittrail
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Controle en beheer vlak logboekregistratie en controle| Ja | Operations-logboeken zijn beschikbaar. Zie [diagnostische logboeken van Service Bus](service-bus-diagnostic-logs.md).  |
-| Gegevens vlak logboekregistratie en controle| Nee |  |
+| Logboek registratie en controle op het vlak van controle en beheer| Ja | Er zijn bewerkings logboeken beschikbaar. Zie [Service Bus Diagnostische logboeken](service-bus-diagnostic-logs.md).  |
+| Logboek registratie en controle van het gegevens vlak| Nee |  |
 
 ## <a name="configuration-management"></a>Configuratiebeheer
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Configuration management-ondersteuning (versiebeheer van de configuratie, enz.)| Ja | Biedt ondersteuning voor resource provider versiebeheer via de [Azure Resource Manager API](/rest/api/resources/).|
+| Ondersteuning voor configuratie beheer (versie van configuratie, enz.)| Ja | Ondersteunt versie beheer van de resource provider via de [Azure Resource Manager-API](/rest/api/resources/).|

@@ -12,15 +12,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/30/2019
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 5d0c8b458f11076ea87d74eae3eecd72fb37eb40
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 979c94e0c577c2a7dbcb11434ac5544e4dd1df64
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621530"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385141"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Quickstart: Linux-containers implementeren op Service Fabric
 
@@ -179,7 +179,7 @@ Gebruik het uninstall-script (uninstall.sh) dat is opgegeven in de sjabloon om h
 
 De eenvoudigste manier om het cluster en alle resources te verwijderen, is om de resourcegroep te verwijderen.
 
-Aanmelden bij Azure en selecteer de abonnements-ID die u wilt verwijderen van het cluster. U kunt uw abonnements-id vinden door u aan te melden bij de Azure-portal. Verwijder de resourcegroep en alle clusterresources met behulp van de opdracht [az group delete](/cli/azure/group?view=azure-cli-latest).
+Meld u aan bij Azure en selecteer het abonnement-ID waarmee u het cluster wilt verwijderen. U kunt uw abonnements-id vinden door u aan te melden bij de Azure-portal. Verwijder de resourcegroep en alle clusterresources met behulp van de opdracht [az group delete](/cli/azure/group?view=azure-cli-latest).
 
 ```azurecli
 az login

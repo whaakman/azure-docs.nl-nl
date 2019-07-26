@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18b5f3877538d26e55bf0550a995ca0c50699de5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a164276d41d182c5b439efc691d80693f1ac831e
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65914128"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360124"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Wat is er gebeurd met Azure Machine Learning Workbench?
 
@@ -60,7 +60,7 @@ Uitvoeringsgeschiedenissen heten voortaan **experimenten**. U kunt de experiment
 
 Het werkruimtedashboard van de portal wordt alleen ondersteund in Microsoft Edge, Chrome en Firefox:
 
-[![Online-portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![Online Portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 Start uw modellen trainen en de uitvoeringsgeschiedenis met behulp van de nieuwe SDK en CLI bij te houden. Ga voor meer informatie naar de zelfstudie [ een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md).
 
@@ -68,7 +68,7 @@ Start uw modellen trainen en de uitvoeringsgeschiedenis met behulp van de nieuwe
 
 Uw bestaande gegevensvoorbereidingsbestanden zijn niet overdraagbaar naar de nieuwste versie omdat Machine Learning Workbench niet meer bestaat. U kunt echter nog steeds u een gegevensset van elke grootte voorbereiden voor modellering.   
 
-Met gegevenssets van elke grootte, kunt u de [pakket voor gegevensvoorbereiding van Azure Machine Learning](https://aka.ms/data-prep-sdk) snel uw gegevens voorafgaand aan het maken van modellering voorbereiden door Python-code te schrijven. 
+Met gegevens sets van elke grootte kunt u het [gegevens prep-pakket voor Azure machine learning](https://aka.ms/data-prep-sdk) gebruiken om snel uw gegevens voor te bereiden voordat deze worden gemodelleerd door python-code te schrijven. 
 
 U kunt [deze zelfstudie](tutorial-data-prep.md) volgen voor meer informatie over het gebruik van de Azure Machine Learning Data Prep SDK.
 
@@ -76,18 +76,19 @@ U kunt [deze zelfstudie](tutorial-data-prep.md) volgen voor meer informatie over
 
 U verliest geen code of werk. Projecten zijn in de oudere versie cloudentiteiten met een lokale map. In de nieuwste versie kunt u lokale mappen koppelen aan de werkruimte van Azure Machine Learning Service met behulp van een lokaal configuratiebestand. Bekijk een [diagram van de meest recente architectuur](concept-azure-machine-learning-architecture.md).
 
-Veel van de projectinhoud staat al op uw lokale computer. U hoeft alleen een configuratiebestand in die map te maken en ernaar te verwijzen in uw code om het aan uw werkruimte te koppelen. Om door te gaan met behulp van de lokale directory met uw bestanden en scripts, geef de naam van de map in de ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python-opdracht, of met behulp van de `az ml project attach` CLI-opdracht.  Bijvoorbeeld:
+Veel van de projectinhoud staat al op uw lokale computer. U hoeft alleen een configuratiebestand in die map te maken en ernaar te verwijzen in uw code om het aan uw werkruimte te koppelen. Als u wilt door gaan met het gebruik van de lokale map met uw bestanden en scripts, geeft u de naam van de map op in de opdracht `az ml project attach` ' [experiment. Submit '](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) van python of met de CLI-opdracht.  Bijvoorbeeld:
 ```python
-run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
+run = exp.submit(source_directory=script_folder,
+                 script='train.py', run_config=run_config_system_managed)
 ```
 
-[Een werkruimte maken](setup-create-workspace.md#portal) aan de slag.
+[Maak een werk ruimte](setup-create-workspace.md#portal) om aan de slag te gaan.
 
 ## <a name="what-about-my-registered-models-and-images"></a>Hoe zit het met mijn geregistreerde modellen en installatiekopieën?
 
 De modellen die u in uw oude modelregister hebt geregistreerd, moeten worden gemigreerd naar uw nieuwe werkruimte als u ze wilt blijven gebruiken. Voor het migreren van uw modellen downloadt u de modellen en registreert u deze opnieuw in uw nieuwe werkruimte. 
 
-De installatiekopieën die u hebt gemaakt in het register van de oude installatiekopie kunnen niet rechtstreeks worden gemigreerd naar de nieuwe werkruimte. In de meeste gevallen kan het model worden geïmplementeerd zonder te hoeven maken van een installatiekopie. Indien nodig, kunt u een installatiekopie voor het model in de nieuwe werkruimte maken. Zie voor meer informatie, [beheren, registreren, implementeren en bewaken van machine learning-modellen](concept-model-management-and-deployment.md).
+De installatie kopieën die u in het oude installatie kopie register hebt gemaakt, kunnen niet rechtstreeks naar de nieuwe werk ruimte worden gemigreerd. In de meeste gevallen kan het model worden geïmplementeerd zonder dat er een installatie kopie hoeft te worden gemaakt. Als dat nodig is, kunt u een installatie kopie maken voor het model in de nieuwe werk ruimte. Zie [machine learning modellen beheren, registreren, implementeren en bewaken](concept-model-management-and-deployment.md)voor meer informatie.
 
 ## <a name="what-about-deployed-web-services"></a>Hoe zit het met geïmplementeerde webservices?
 
@@ -109,7 +110,7 @@ Met de nieuwe Python-SDK in de nieuwste versie kunt u met Azure Machine Learning
 
 In deze nieuwste release is de naam van de extensie gewijzigd in Azure Machine Learning voor Visual Studio Code. De extensie is uitgebreid en verbeterd voor gebruik met de eerdergenoemde nieuwe functies.
 
-[![Azure Machine Learning voor Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)](./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[![Azure Machine Learning voor Visual Studio code](./media/overview-what-happened-to-workbench/vscode.png)](./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## <a name="what-about-domain-packages"></a>Hoe zit het met domeinpakketten?
 
@@ -121,6 +122,6 @@ Meer informatie over de [meest recente architectuur voor Azure Machine Learning 
 
 Zie [Wat is Azure Machine Learning Service?](overview-what-is-azure-ml.md) voor een overzicht van de service.
 
-Voor een snelstart u voor het uitvoeren van een script en de uitvoeringsgeschiedenis van het script met de meest recente versie van Azure Machine Learning-service te verkennen, kunt u proberen [aan de slag met Azure Machine Learning-service](quickstart-run-cloud-notebook.md).
+Voor een Snelstartgids waarin wordt getoond hoe u een script uitvoert en de uitvoerings geschiedenis van het script bekijkt met de nieuwste versie van Azure Machine Learning service, kunt u aan de [slag met Azure machine learning-service](quickstart-run-cloud-notebook.md).
 
 Voor een uitgebreid overzicht van deze werkstroom volgt u de [volledige zelfstudie](tutorial-train-models-with-aml.md), met gedetailleerde stappen voor het trainen en implementeren van modellen met Azure Machine Learning service. 

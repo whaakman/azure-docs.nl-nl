@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: 88fdaec9e19c082a6fe981dc4d9a0e015335f1e2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f86dc92b4df45119930970acfe9e173f32f894fb
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60202969"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356047"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Het gebruik van Azure Event Hubs in een Python-toepassing
 Azure Event Hubs is een big data-platform voor het streamen van gegevens en een gebeurtenisopneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Event Hubs kan gebeurtenissen, gegevens of telemetrie die wordt geproduceerd door gedistribueerde software en apparaten verwerken en opslaan. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Zie voor meer informatie, [Inleiding tot Event Hubs](event-hubs-what-is-event-hubs.md). 
@@ -29,10 +29,10 @@ In dit artikel vindt u koppelingen naar artikelen die laten hoe u de volgende ta
 
 - [Gebeurtenissen verzenden naar een event hub](#send-events-to-event-hubs)
 - [Gebeurtenissen ontvangen van een event hub](#receive-events-from-event-hubs)
-- Lezen vastgelegd gebeurtenisgegevens van een Azure-opslag. 
+- Vastgelegde gebeurtenis gegevens van een Azure-opslag lezen. 
 
 ## <a name="prerequisites"></a>Vereisten
-- Een event hub maken door de volgende uitvoer van deze Quick starts: [Azure-portal](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [Azure Resource Manager-sjabloon](event-hubs-resource-manager-namespace-event-hub.md). 
+- Maak een Event Hub door een van de volgende Quick starts te volgen: [Azure Portal](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md) [Azure Resource Manager-sjabloon](event-hubs-resource-manager-namespace-event-hub.md). 
 - Python 3.4 of hoger is geïnstalleerd op uw computer.
 
 ## <a name="install-python-package"></a>Python-pakket installeren
@@ -94,7 +94,8 @@ De volgende code toont u hoe u gebeurtenissen ontvangen van een event hub uit ee
 client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
 
 # Add a receiver to the client
-receiver = client.add_receiver(CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
+receiver = client.add_receiver(
+    CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
 
 # Run the Event Hubs client
 client.run()
@@ -112,7 +113,7 @@ client.stop()
 Zie voor een volledige zelfstudie over het ontvangen van gebeurtenissen van een event hub vanuit een toepassing die is geschreven in Python [in dit artikel](event-hubs-python-get-started-receive.md)
 
 ## <a name="read-capture-event-data-from-azure-storage"></a>Alleen vastleggen van gebeurtenisgegevens uit Azure Storage
-De volgende code toont u het lezen van de gegevens van de vastgelegde gebeurtenis die opgeslagen in een **Azure blob-opslag** uit een Python-toepassing: Schakel **vastleggen** functie voor de event hub met de instructies uit: [Event Hubs Capture met behulp van de Azure-portal inschakelen](event-hubs-capture-enable-through-portal.md). Klik, sommige gebeurtenissen verzenden naar de event hub voordat u test de code. 
+De volgende code laat zien hoe u vastgelegde gebeurtenis gegevens kunt lezen die zijn opgeslagen in een **Azure Blob-opslag** van een python-toepassing: Schakel de functie **vastleggen** in voor de Event hub door de volgende instructies uit te voeren: [Schakel Event hubs Capture in met behulp van de Azure Portal](event-hubs-capture-enable-through-portal.md). Klik, sommige gebeurtenissen verzenden naar de event hub voordat u test de code. 
 
 ```python
 import os
@@ -156,7 +157,6 @@ def startProcessing(accountName, key, container):
             os.remove(cleanName)
         block_blob_service.delete_blob(container, blob.name)
 startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'capture')
-
 ```
 
 Zie voor een volledige zelfstudie over het lezen van vastgelegde gegevens van Event Hubs in een Azure blob storage vanuit een toepassing die is geschreven in Python [in dit artikel](event-hubs-capture-python.md)

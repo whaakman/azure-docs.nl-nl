@@ -1,110 +1,89 @@
 ---
-title: Het sluiten van actieve risicogebeurtenissen in Azure Active Directory Identity Protection | Microsoft Docs
-description: Lees welke opties dat u sluiten active risicogebeurtenissen hebt.
+title: Actieve risico gebeurtenissen in Azure Active Directory Identity Protection sluiten | Microsoft Docs
+description: Meer informatie over de opties waarmee u actieve risico gebeurtenissen kunt sluiten.
 services: active-directory
-keywords: Azure active directory identity protection cloud app discovery, toepassingen, beveiliging, risico's, risiconiveau, beveiligingsproblemen, beveiligingsbeleid beheren
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55c56674b04c4359fba741d10176fc91e3a991eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5e24c12b72852ee7009533c8dc24d231fe636f2
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109029"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333998"
 ---
 # <a name="how-to-close-active-risk-events"></a>Procedure: Actieve risicogebeurtenissen sluiten
 
-Met [risicogebeurtenissen](../reports-monitoring/concept-risk-events.md), Azure Active Directory detecteert indicatoren voor eventueel verdachte gebruikersaccounts. Als beheerder, die u wilt ophalen van alle risicogebeurtenissen gesloten, zodat de betrokken gebruikers niet meer risico zijn.
+Met [risico gebeurtenissen](../reports-monitoring/concept-risk-events.md)Azure Active Directory detecteert indica toren voor mogelijk gemanipuleerde gebruikers accounts. Als beheerder wilt u alle risico gebeurtenissen gesloten laten, zodat de betrokken gebruikers niet langer risico lopen.
 
-In dit artikel biedt een overzicht van de aanvullende opties die u moet actieve risicogebeurtenissen sluiten.
+In dit artikel vindt u een overzicht van de aanvullende opties die u hebt om actieve risico gebeurtenissen te sluiten.
 
-## <a name="options-to-close-risk-events"></a>Opties voor het sluiten van de risicogebeurtenissen 
+## <a name="options-to-close-risk-events"></a>Opties voor het sluiten van risico gebeurtenissen 
 
-De status van een risicogebeurtenis is **active** of **gesloten**. Alle actieve risicogebeurtenissen bijdragen aan de berekening van een waarde met de naam van gebruiker risiconiveau. Het risiconiveau van de gebruiker is een indicator (laag, Gemiddeld, hoog) voor de waarschijnlijkheid dat een account is aangetast. 
+De status van een risico gebeurtenis is **actief** of **gesloten**. Alle actieve risico gebeurtenissen dragen bij aan de berekening van een waarde met de naam gebruikers risico niveau. Het risico niveau van de gebruiker is een indicator (laag, gemiddeld, hoog) voor de kans dat een account is aangetast. 
 
-Als u wilt sluiten active risicogebeurtenissen, hebt u de volgende opties:
+Als u actieve risico gebeurtenissen wilt sluiten, hebt u de volgende opties:
 
-- Wachtwoord opnieuw instellen met een beleid voor gebruikersrisico 's
+- Vereisen dat wacht woord opnieuw wordt ingesteld met een beleid voor gebruikers Risico's
+- Hand matig opnieuw instellen van wacht woorden
+- Alle risico gebeurtenissen verwijderen 
+- Afzonderlijke risico gebeurtenissen hand matig sluiten
 
-- Handmatige voor wachtwoord opnieuw instellen
- 
-- Alle risicogebeurtenissen verwijderen 
+## <a name="require-password-reset-with-a-user-risk-policy"></a>Vereisen dat wacht woord opnieuw wordt ingesteld met een beleid voor gebruikers Risico's
 
-- Afzonderlijke risicogebeurtenissen handmatig sluiten
-
-
-
-## <a name="require-password-reset-with-a-user-risk-policy"></a>Wachtwoord opnieuw instellen met een beleid voor gebruikersrisico 's
-
-Door het configureren van de [gebruikersrisico beleid voor voorwaardelijke toegang](howto-user-risk-policy.md), kunt u een wachtwoordwijziging vereisen als een risiconiveau van de opgegeven gebruiker is automatisch gedetecteerd. 
+Door het [beleid voor voorwaardelijke toegang voor gebruikers Risico's](howto-user-risk-policy.md)te configureren, kunt u een wachtwoord wijziging vereisen als een opgegeven gebruikers risico niveau automatisch is gedetecteerd. 
 
 ![Wachtwoord opnieuw instellen](./media/howto-close-active-risk-events/13.png)
 
-Een wachtwoord opnieuw instellen wordt gesloten gebeurtenissen voor alle actieve risico's van de gerelateerde gebruiker en voorziet in de identiteit weer in een veilige status heeft. Met behulp van een beleid voor gebruikersrisico's is de aanbevolen methode om te sluiten, actieve risicogebeurtenissen omdat deze methode is geautomatiseerd. Er is geen tussenkomst vereist tussen de betrokken gebruiker en de help helpdesk of beheerder.
+Bij het opnieuw instellen van een wacht woord worden alle actieve risico gebeurtenissen van de gerelateerde gebruiker gesloten en wordt de identiteit weer ingesteld op een veilige status. Het gebruik van een gebruikers risico beleid is de voorkeurs methode voor het sluiten van actieve risico gebeurtenissen omdat deze methode is geautomatiseerd. Er is geen interactie vereist tussen de betrokken gebruiker en Help Desk of beheerder.
 
-Met behulp van een beleid voor gebruikersrisico's is echter niet altijd van toepassing. Dit is van toepassing, bijvoorbeeld op:
+Het gebruik van een gebruikers risico beleid is echter niet altijd van toepassing. Dit is bijvoorbeeld van toepassing op:
 
-- Gebruikers die niet zijn geregistreerd voor multi-factor authentication (MFA).
-- Gebruikers met actieve risicogebeurtenissen die zijn verwijderd.
-- Een onderzoek die blijkt dat een gerapporteerde risicogebeurtenis is uitgevoerd door de bevoegde gebruiker.
+- Gebruikers die niet zijn geregistreerd voor multi-factor Authentication (MFA).
+- Gebruikers met actieve risico gebeurtenissen die zijn verwijderd.
+- Een onderzoek dat laat zien dat een gerapporteerde risico gebeurtenis is uitgevoerd door de legitieme gebruiker.
 
+## <a name="manual-password-reset"></a>Hand matig opnieuw instellen van wacht woorden
 
-## <a name="manual-password-reset"></a>Handmatige voor wachtwoord opnieuw instellen
-
-Als u een wachtwoord opnieuw instellen met behulp van een beleid voor gebruikersrisico's kan niet worden gebruikt, krijgt u alle risicogebeurtenissen voor een gebruiker gesloten met een handmatige wachtwoord opnieuw instellen.
+Als het vereisen van een wacht woord opnieuw instellen met behulp van een gebruikers risico beleid geen optie is, kunt u alle risico gebeurtenissen voor een gebruiker sluiten met hand matig opnieuw instellen van het wacht woord.
 
 ![Wachtwoord opnieuw instellen](./media/howto-close-active-risk-events/04.png)
 
-
-De gerelateerde dialoogvenster biedt twee verschillende methoden om een wachtwoord opnieuw instellen:
+Het gerelateerde dialoog venster biedt twee verschillende methoden om een wacht woord opnieuw in te stellen:
 
 ![Wachtwoord opnieuw instellen](./media/howto-close-active-risk-events/05.png)
 
+**Een tijdelijk wacht woord genereren** : door een tijdelijk wacht woord te genereren, kunt u direct een identiteit weer in een veilige staat zetten. Deze methode vereist interactie met de betrokken gebruikers omdat ze moeten weten wat het tijdelijke wacht woord is. U kunt bijvoorbeeld het nieuwe tijdelijke wacht woord verzenden naar een alternatief e-mail adres voor de gebruiker of naar de Manager van de gebruiker. Omdat het wacht woord tijdelijk is, wordt de gebruiker gevraagd het wacht woord te wijzigen tijdens de volgende aanmelding.
 
-**Genereer een tijdelijk wachtwoord** -door het genereren van een tijdelijk wachtwoord, u kunt onmiddellijk terugbrengen een identiteit met een veilige status. Deze methode moet de interactie met de betrokken gebruikers, omdat ze nodig hebben om te weten wat het tijdelijke wachtwoord is. U kunt bijvoorbeeld het tijdelijke wachtwoord verzenden naar een alternatieve e-mailadres voor de gebruiker of naar de manager van de gebruiker. Omdat het wachtwoord tijdelijk is, wordt de gebruiker gevraagd het wachtwoord moet wijzigen tijdens de volgende aanmelding.
+**De gebruiker verplichten om wacht woord opnieuw in te stellen** : als u wilt dat gebruikers hun wacht woorden opnieuw moeten instellen, kunnen ze zelf herstel zonder contact opnemen met de Help Desk of een beheerder. Net als in het geval van een beleid voor gebruikers Risico's is deze methode alleen van toepassing op gebruikers die zijn geregistreerd voor MFA. Voor gebruikers die nog niet zijn geregistreerd voor MFA, is deze optie niet beschikbaar.
 
+## <a name="dismiss-all-risk-events"></a>Alle risico gebeurtenissen verwijderen
 
-**Vereisen dat de gebruiker opnieuw instellen van wachtwoord** -self-herstel de gebruikers te verlangen dat wachtwoorden opnieuw instellen kunt zonder contact opnemen met de helpdesk of beheerder. Net als in het geval van een beleid voor gebruikersrisico's, deze methode is alleen van toepassing op gebruikers die zijn geregistreerd voor MFA. Deze optie niet beschikbaar voor gebruikers die niet zijn geregistreerd voor MFA nog.
-
-
-## <a name="dismiss-all-risk-events"></a>Alle risicogebeurtenissen verwijderen
-
-Als een wachtwoord opnieuw instellen is geen een optie voor u, kunt u ook alle risicogebeurtenissen verwijderen. 
+Als het opnieuw instellen van een wacht woord geen optie is, kunt u ook alle risico gebeurtenissen negeren. 
 
 ![Wachtwoord opnieuw instellen](./media/howto-close-active-risk-events/03.png)
 
-Wanneer u klikt op **alle gebeurtenissen sluiten**, alle gebeurtenissen worden gesloten en de betrokken gebruiker is niet meer risico. Echter, omdat deze methode niet van invloed op het bestaande wachtwoord zijn, deze niet terughalen de identiteit van de gerelateerde met een veilige status. De gewenste use-case voor deze methode is een verwijderde gebruiker met actieve risico's. 
+Wanneer u op **alle gebeurtenissen negeren**klikt, worden alle gebeurtenissen gesloten en loopt de betrokken gebruiker geen risico meer. Omdat deze methode echter geen invloed heeft op het bestaande wacht woord, wordt de bijbehorende identiteit niet opnieuw in een veilige staat gebracht. De voorkeurs use-case voor deze methode is een verwijderde gebruiker met actieve risico gebeurtenissen. 
 
+## <a name="close-individual-risk-events-manually"></a>Afzonderlijke risico gebeurtenissen hand matig sluiten
 
-## <a name="close-individual-risk-events-manually"></a>Afzonderlijke risicogebeurtenissen handmatig sluiten
-
-U kunt afzonderlijke risicogebeurtenissen handmatig sluiten. Risicogebeurtenissen handmatig sluit, kunt u het risiconiveau van de gebruiker te verlagen. Normaal gesproken zijn risicogebeurtenissen handmatig afgesloten in reactie op een gerelateerde onderzoek. Bijvoorbeeld, wanneer de communicatie met geeft een gebruiker aan dat een actieve risicogebeurtenis niet vereist meer is. 
+U kunt afzonderlijke risico gebeurtenissen hand matig sluiten. Door risico gebeurtenissen hand matig te sluiten, kunt u het risico niveau van de gebruiker verlagen. Normaal gesp roken worden risico gebeurtenissen hand matig worden gesloten in reactie op een gerelateerd onderzoek. Als er bijvoorbeeld een gesprek met een gebruiker laat zien dat een actieve risico gebeurtenis niet meer nodig is. 
  
-Wanneer risicogebeurtenissen handmatig sluiten, kunt u enkele van de volgende acties om de status van een risicogebeurtenis wijzigen:
+Wanneer risico gebeurtenissen hand matig worden gesloten, kunt u een van de volgende acties uitvoeren om de status van een risico gebeurtenis te wijzigen:
 
 ![Acties](./media/howto-close-active-risk-events/06.png)
 
 - **Oplossen** - als u na onderzoek van een risicogebeurtenis een juiste herstelactie buiten Identity Protection hebt ondernomen en van mening bent dat de risicogebeurtenis kan worden gesloten, markeert u de gebeurtenis als Opgelost. Een opgeloste risicogebeurtenis krijgt de status Gesloten. Bovendien draagt de risicogebeurtenis niet meer bij aan het gebruikersrisico.
-
-- **Markeren als fout-positieve** -In sommige gevallen kan u een risicogebeurtenis onderzoeken en ontdek ten onrechte is gemarkeerd als een riskant. U kunt het nummer van deze instanties verminderen door de risicogebeurtenis als fout-positieve markeren. Hiermee kunt u de machine learning-algoritmen voor de classificatie van soortgelijke gebeurtenissen in de toekomst te verbeteren. De status van de fout-positieve gebeurtenissen wordt gesloten en ze niet meer dragen bij aan gebruikersrisico.
-
+- **Markeren als onjuist-positief** : in sommige gevallen kunt u een risico gebeurtenis onderzoeken en detecteren dat deze onjuist is gemarkeerd als riskant. U kunt het aantal dergelijke gevallen verminderen door de risico gebeurtenis te markeren als onwaar-positief. Dit helpt de algoritmen van machine learning om de classificatie van soort gelijke gebeurtenissen in de toekomst te verbeteren. De status van valse gebeurtenissen is om te worden gesloten en er worden geen bijdragen meer aan gebruikers Risico's.
 - **Negeren** :  als u geen herstelactie heb uitgevoerd, maar wilt dat de risicogebeurtenis wordt verwijderd uit de actieve lijst, kunt u een risicogebeurtenis markeren als Negeren. De status van de gebeurtenis wordt dan Gesloten. Genegeerde gebeurtenissen dragen niet bij aan het gebruikersrisico. Deze optie dient alleen in ongebruikelijke omstandigheden te worden gebruikt.
-
-- **Opnieuw activeren** -risicogebeurtenissen die handmatig zijn gesloten (door oplossen, fout-positief, of op negeren te kiezen) kunnen opnieuw worden geactiveerd, de gebeurtenisstatus van de instellen terug naar actief. Opnieuw geactiveerde risicogebeurtenissen dragen bij aan de berekening van het gebruikersrisiconiveau. Risico's die gesloten zijn via herstelacties (zoals het opnieuw instellen van een beveiligd wachtwoord), kunnen niet opnieuw worden geactiveerd.
-  
+- **Opnieuw activeren** : risico gebeurtenissen die hand matig zijn gesloten (door omzetten, fout positief of negeren), kunnen opnieuw worden geactiveerd, waarbij de gebeurtenis status weer actief wordt. Opnieuw geactiveerde risicogebeurtenissen dragen bij aan de berekening van het gebruikersrisiconiveau. Risico's die gesloten zijn via herstelacties (zoals het opnieuw instellen van een beveiligd wachtwoord), kunnen niet opnieuw worden geactiveerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u een overzicht van Azure AD Identity Protection, raadpleegt u de [overzicht van Azure AD Identity Protection](overview.md).
+Zie overzicht van de [Azure AD Identity Protection](overview.md)voor een overzicht van Azure AD Identity Protection.

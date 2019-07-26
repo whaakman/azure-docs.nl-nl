@@ -1,6 +1,6 @@
 ---
-title: Hulp krijgen bij de portal mijn Apps - Azure Active Directory | Microsoft Docs
-description: Hulp bij het aanmelden bij en veelvoorkomende taken uitvoeren in de portal mijn Apps.
+title: Hulp krijgen bij de portal mijn apps-Azure Active Directory | Microsoft Docs
+description: U kunt hulp krijgen bij het aanmelden bij en het uitvoeren van algemene taken in de portal mijn apps.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,73 +13,83 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e87ae0a8adf28176d9a97cbf1b78943179884a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11a7376720661e13a03be65df4ee180e0bca20c3
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475024"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383077"
 ---
-# <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Oplossen van problemen met de portal mijn Apps
-Als u problemen ondervindt met aanmelden bij of met behulp van de **mijn Apps** portal, probeert deze tips voor probleemoplossing voordat u contact opnemen met helpdesk of beheerder voor hulp.
+# <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Problemen met de portal mijn apps oplossen
 
-## <a name="im-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Ik ondervind problemen bij het installeren van de extensie mijn Apps beveiligen aanmelden
-Als u problemen bij het installeren van de extensie mijn Apps beveiligen aanmelden:
+Als u problemen ondervindt met het aanmelden bij of het gebruik van de portal **mijn apps** , kunt u deze tips voor probleem oplossing proberen voordat u contact opneemt met de Help Desk of uw beheerder voor hulp.
 
-- Zorg ervoor dat u een ondersteunde browser, met inbegrip van:
+## <a name="im-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Ik ondervind problemen bij het installeren van de beveiligde aanmeldings extensie voor mijn apps
 
-    - **Microsoft Edge.** Wordt uitgevoerd op Windows 10 Anniversary Edition of hoger.
-    - **Google Chrome.** Wordt uitgevoerd op Windows 7 of hoger, en in Mac OS X of hoger.
-    - **Mozilla Firefox 26,0 of hoger.** Wordt uitgevoerd op Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger.
-    - **Internet Explorer 11.** Uitgevoerd op Windows 7 of hoger (beperkte ondersteuning).
+Als u problemen ondervindt met de installatie van de uitbrei ding voor beveiligde aanmelding van mijn apps:
 
-- Zorg ervoor dat de instellingen van uw browser-extensie worden ingeschakeld.
+- Zorg ervoor dat u een ondersteunde browser gebruikt, met inbegrip van:
 
-- Probeer het opnieuw starten van uw browser en aan te melden bij de **mijn Apps** portal opnieuw.
+    - **Microsoft Edge.** Wordt uitgevoerd op Windows 10 jubileum Edition of hoger.
 
-- Wist u cookies van uw browser, en start opnieuw op en meld u aan de **mijn Apps** portal opnieuw.
+    - **Google Chrome.** Wordt uitgevoerd op Windows 7 of hoger en op Mac OS X of hoger.
 
-## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>Ik kan niet aanmelden bij de **mijn Apps** portal
-Als u problemen bij het aanmelden ondervindt bij de **mijn Apps** portal, kunt u het volgende proberen:
+    - **Mozilla Firefox 26,0 of hoger.** Wordt uitgevoerd op Windows XP SP2 of hoger en op Mac OS X 10,6 of hoger.
 
-- Zorg ervoor dat u de juiste URL. Deze moet https://myapps.microsoft.com of een aangepaste pagina voor uw organisatie, zoals https://myapps.microsoft.com/contoso.com.
+    - **Internet Explorer 11.** Wordt uitgevoerd op Windows 7 of hoger (beperkte ondersteuning).
 
-- Zorg ervoor dat uw wachtwoord juist is en nog niet is verlopen. Zie voor meer informatie, [uw werk- of schoolaccount wachtwoord opnieuw instellen](active-directory-passwords-update-your-own-password.md).
+- Zorg ervoor dat de instellingen voor de browser uitbreiding zijn ingeschakeld.
 
-- Zorg ervoor dat de verificatie-informatie huidige en nauwkeurige. Zie voor meer informatie, [wat Azure multi-factor Authentication betekent voor mij?](multi-factor-authentication-end-user.md) of [wijzigen van de gegevens van uw informatie beveiligingsmethoden en](security-info-add-update-methods-overview.md).
+- Probeer de browser opnieuw te starten en u opnieuw aan te melden bij de portal **mijn apps** .
 
-- Toevoegen de **mijn App** portal URL naar de **Internet-eigenschappen > Beveiliging > vertrouwde websites** instelling.
+- Probeer de cookies van uw browser te wissen en vervolgens opnieuw te starten en u opnieuw aan te melden bij de portal **mijn apps** .
 
-- Wis de cache van uw browser en probeer het opnieuw aanmelden.
+## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>Ik kan me niet aanmelden bij de portal **mijn apps**
 
-## <a name="my-password-isnt-working"></a>Mijn wachtwoord werkt niet
-Als u uw wachtwoord bent vergeten, nooit van uw organisatie ontvangen, toegang tot uw account worden geblokkeerd of uw wachtwoord wilt wijzigen, raadpleegt u [Help, ik ben mijn wachtwoord voor Azure AD vergeten](active-directory-passwords-update-your-own-password.md).
+Als u problemen ondervindt bij het aanmelden bij de portal **mijn apps** , kunt u het volgende proberen:
 
-## <a name="i-want-to-be-able-to-reset-my-own-password"></a>Ik wil mijn eigen wachtwoord opnieuw instellen
-Als u uw eigen wachtwoord opnieuw instellen, de beheerder moet eerst de functie inschakelen voor uw organisatie, en vervolgens moet u bijwerken en controleer of de vereiste verificatiemethoden. Zie voor meer informatie over het bijwerken van uw verificatiemethoden [registreren voor self-service voor wachtwoord opnieuw instellen](active-directory-passwords-reset-register.md).
+- Zorg ervoor dat u de juiste URL gebruikt. Dit moet een https://myapps.microsoft.com aangepaste pagina voor uw organisatie zijn, https://myapps.microsoft.com/contoso.com zoals.
 
-## <a name="im-getting-an-access-denied-message-when-i-start-an-app"></a>Ik krijg bericht toegang geweigerd wanneer ik een app te starten
-Als u een **toegang geweigerd** bericht na het starten van een app uit de **mijn App** portal, kunt u het volgende proberen:
+- Zorg ervoor dat uw wacht woord juist is en niet is verlopen. Zie [uw werk-of school wachtwoord opnieuw instellen](active-directory-passwords-update-your-own-password.md)voor meer informatie.
 
-- Zorg ervoor dat u hebt geïnstalleerd het [mijn Apps beveiligde aanmelding extensie](my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) en die u gebruikt een [ondersteunde browser](my-apps-portal-end-user-access.md#supported-browsers).
+- Zorg ervoor dat uw verificatie gegevens actueel en nauw keurig zijn. Zie [wat betekent Azure multi-factor Authentication? voor](multi-factor-authentication-end-user.md) meer informatie. u kunt ook [de methoden en informatie voor uw beveiligings gegevens wijzigen](security-info-add-update-methods-overview.md).
 
-- Zorg ervoor dat u de juiste URL voor de app en de URL is op uw **Internet-eigenschappen > Beveiliging > vertrouwde websites** lijst.
+- Voeg de URL van **mijn app** -portal toe aan de **Internet eigenschappen > beveiliging > instellingen voor vertrouwde sites** .
 
-- Zorg ervoor dat uw wachtwoord juist is en nog niet is verlopen. Zie voor meer informatie, [uw werk- of schoolaccount wachtwoord opnieuw instellen](active-directory-passwords-update-your-own-password.md).
+- Wis de cache van uw browser en probeer u opnieuw aan te melden.
 
-- Zorg ervoor dat de verificatie-informatie huidige en nauwkeurige. Zie voor meer informatie, [wat Azure multi-factor Authentication betekent voor mij?](multi-factor-authentication-end-user.md) of [wijzigen van de gegevens van uw informatie beveiligingsmethoden en](security-info-add-update-methods-overview.md).
+## <a name="my-password-isnt-working"></a>Mijn wacht woord werkt niet
 
-- Wis de cache van uw browser en probeer het opnieuw aanmelden.
+Als u uw wacht woord bent verg eten, u het nooit hebt ontvangen van uw organisatie, uw account hebt vergrendeld of uw wacht woord wilt wijzigen, raadpleegt u [Help, ik ben mijn wacht woord voor Azure AD verg eten](active-directory-passwords-update-your-own-password.md).
 
-Als nadat u hebt geprobeerd deze dingen die u nog steeds geen toegang uw app tot, moet u contact op met de helpdesk van uw organisatie voor hulp.
+## <a name="i-want-to-be-able-to-reset-my-own-password"></a>Ik wil mijn eigen wacht woord opnieuw instellen
+
+Als u uw eigen wacht woord opnieuw wilt instellen, moet uw beheerder eerst de functie voor uw organisatie inschakelen en vervolgens uw vereiste verificatie methoden bijwerken en verifiëren. Zie [registreren voor Self-service voor wachtwoord herstel](active-directory-passwords-reset-register.md)voor meer informatie over het bijwerken van uw verificatie methoden.
+
+## <a name="im-getting-an-access-denied-message-when-i-start-an-app"></a>Ik krijg een bericht dat de toegang wordt geweigerd wanneer ik een app start
+
+Als u een bericht ontvangt dat de **toegang is geweigerd** nadat u een app hebt gestart vanuit de **mijn app** -Portal, kunt u het volgende proberen:
+
+- Zorg ervoor dat u de [beveiligde aanmeldings extensie voor mijn apps](my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) hebt geïnstalleerd en dat u een [ondersteunde browser](my-apps-portal-end-user-access.md#supported-browsers)gebruikt.
+
+- Zorg ervoor dat u de juiste URL voor de app gebruikt en dat de URL zich op uw Internet-eigenschappen bevindt > lijst met **vertrouwde sites voor beveiliging >** .
+
+- Zorg ervoor dat uw wacht woord juist is en niet is verlopen. Zie [uw werk-of school wachtwoord opnieuw instellen](active-directory-passwords-update-your-own-password.md)voor meer informatie.
+
+- Zorg ervoor dat uw verificatie gegevens actueel en nauw keurig zijn. Zie [wat betekent Azure multi-factor Authentication? voor](multi-factor-authentication-end-user.md) meer informatie. u kunt ook [de methoden en informatie voor uw beveiligings gegevens wijzigen](security-info-add-update-methods-overview.md).
+
+- Wis de cache van uw browser en probeer u opnieuw aan te melden.
+
+Als u na het uitvoeren van deze dingen nog steeds geen toegang hebt tot uw app, neemt u contact op met de Help Desk van uw organisatie voor hulp.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u zich aanmeldt bij de **mijn Apps** portal, u kunt ook uw profiel bijwerken en accountgegevens, uw gegevens en de toegang controleert informatie (indien u bent gemachtigd).
 
-- [Toegang tot en gebruik apps op de portal mijn Apps](my-apps-portal-end-user-access.md).
+Nadat u zich hebt aangemeld bij de portal **mijn apps** , kunt u uw profiel-en account gegevens, uw groeps gegevens en toegangs beoordelings gegevens bijwerken (als u hiervoor toestemming hebt).
 
-- [Wijzig uw profielgegevens](my-apps-portal-end-user-update-profile.md).
+- [Apps openen en gebruiken in de portal voor mijn apps](my-apps-portal-end-user-access.md).
 
-- [Weergeven en bijwerken van uw gegevens met betrekking tot groepen](my-apps-portal-end-user-groups.md).
+- [Wijzig de profiel gegevens](my-apps-portal-end-user-update-profile.md).
 
-- [Uitvoeren van uw eigen toegangsbeoordelingen](my-apps-portal-end-user-access-reviews.md).
+- [Gegevens over groepen weer geven en bijwerken](my-apps-portal-end-user-groups.md).
+
+- [Voer uw eigen toegangs beoordelingen uit](my-apps-portal-end-user-access-reviews.md).

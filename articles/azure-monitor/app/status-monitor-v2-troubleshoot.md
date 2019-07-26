@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c61d54fc49ddd0a8a9ac5063c1a2a3edea66a899
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: e34beba32eace370664893225dd85b6f4b79c886
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326216"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424097"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>Problemen met Status Monitor v2 oplossen
 
@@ -78,11 +78,13 @@ Nadat u de opdracht inschakelen hebt uitgevoerd, voert u de volgende stappen uit
 
 ### <a name="iis-nested-applications"></a>Geneste IIS-toepassingen
 
-Geneste toepassingen in IIS in versie 1,0 worden niet gebruikt om [Dit probleem op](https://github.com/microsoft/ApplicationInsights-Home/issues/369)te lossen.
+Geneste toepassingen in IIS in versie 1,0 worden niet geinstrumenteerd.
+Dit probleem wordt [hier](https://github.com/microsoft/ApplicationInsights-Home/issues/369)bijgehouden.
 
 ### <a name="advanced-sdk-configuration-isnt-available"></a>Geavanceerde SDK-configuratie is niet beschikbaar.
 
-De SDK-configuratie wordt niet weer gegeven voor de eind gebruiker in versie 1,0 dit probleem wordt [hier](https://github.com/microsoft/ApplicationInsights-Home/issues/375)bijgehouden.
+De SDK-configuratie wordt niet weer gegeven aan de eind gebruiker in versie 1,0.
+Dit probleem wordt [hier](https://github.com/microsoft/ApplicationInsights-Home/issues/375)bijgehouden.
 
     
     
@@ -116,7 +118,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 ```
 
 #### <a name="determine-the-current-version-of-the-status-monitor-v2-module"></a>De huidige versie van de Status Monitor V2-module bepalen
-Voer de `Get-ApplicationInsightsMonitoringStatus` opdracht uit om de volgende informatie over de module weer te geven:
+Voer de `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` opdracht uit om de volgende informatie over de module weer te geven:
    - Versie van Power shell-module
    - Application Insights SDK-versie
    - Bestands paden van de Power shell-module

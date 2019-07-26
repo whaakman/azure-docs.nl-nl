@@ -3,23 +3,19 @@ title: Aan de slag met Azure Cloud Services en ASP.NET | Microsoft Docs
 description: Informatie over het maken van een app met meerdere lagen met ASP.NET MVC en Azure. De app wordt uitgevoerd in een cloudservice, met een webrol en een werkrol. De app maakt gebruik van Entity Framework, SQL Database, en wachtrijen en blobs van Azure Storage.
 services: cloud-services, storage
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
+author: georgewallace
+manager: carmonm
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 3082ca34f2bcb71dd7aa02b4539899997374cfc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 802ece106099e8a475b83c820130c3c238d330d2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595156"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359208"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
 
@@ -51,7 +47,7 @@ In de zelfstudie wordt ervan uitgegaan dat u bekend bent met de [basisconcepten 
 
 U kunt de app lokaal zonder Azure-abonnement uitvoeren, maar u hebt wel een abonnement nodig om de toepassing in de cloud te implementeren. Als u geen account hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) of [zich aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
-Instructies in de zelfstudie werken met een van de volgende producten:
+De instructies voor de zelf studie werken met een van de volgende producten:
 
 * Visual Studio 2013
 * Visual Studio 2015
@@ -392,7 +388,7 @@ In deze sectie configureert u Azure Storage- en SQL-verbindingsreeksen om lokaal
 8. Terwijl u zich nog in het eigenschappenvenster **ContosoAdsWorker [rol]** bevindt, voegt u nog een verbindingsreeks toe:
 
    * Naam: ContosoAdsDbConnectionString
-   * Type: String
+   * Type: Tekenreeks
    * Waarde: plak hier dezelfde verbindingsreeks die u voor het webrolproject hebt gebruikt. (Het volgende voorbeeld is voor Visual Studio 2013. Als u Visual Studio 2015 of hoger gebruikt en dit voorbeeld kopieert, vergeet dan niet om de gegevensbron te wijzigen.)
 
        ```

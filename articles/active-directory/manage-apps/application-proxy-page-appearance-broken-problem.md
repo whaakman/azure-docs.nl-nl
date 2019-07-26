@@ -1,5 +1,5 @@
 ---
-title: Toepassingspagina wordt niet correct weergegeven voor een toepassingsproxy-toepassing | Microsoft Docs
+title: App-pagina wordt niet correct weer gegeven voor de app Application proxy | Microsoft Docs
 description: Richtlijnen voor wanneer de pagina wordt niet correct in een toepassing voor een toepassingsproxy weergegeven hebt geïntegreerd met Azure AD
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99c2c53f3bf723c1d45edf2e62cd404615924c9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13e73f0ed56648ce162f00d6df5e7b86a922ca01
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783739"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381428"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Toepassingspagina wordt niet correct weergegeven voor een toepassingsproxy-toepassing
 
@@ -29,7 +29,7 @@ Dit artikel helpt u problemen met Azure Active Directory-toepassingsproxy-toepas
 ## <a name="overview"></a>Overzicht
 Wanneer u een Application Proxy-app publiceert, zijn alleen pagina's in de hoofdmap van uw toegankelijk bij het openen van de toepassing. Als de pagina wordt niet correct weergegeven, kan de interne basis-URL die wordt gebruikt voor de toepassing enkele pagina resources ontbreken. Als u wilt oplossen, zorg ervoor dat u hebt gepubliceerd *alle* de resources voor de pagina als onderdeel van uw toepassing.
 
-U kunt controleren als het probleem ontbrekende resources is door het openen van het beheer van uw netwerk (zoals Fiddler of F12 tools in Internet Explorer/Microsoft Edge), het laden van de pagina en zoek naar 404-fouten. Dat geeft aan de pagina's op dit moment kunnen niet worden gevonden en dat u wilt publiceren.
+U kunt controleren of ontbrekende resources het probleem zijn door uw netwerk vastleggen (zoals Fiddler of F12-hulpprogram ma's in Internet Explorer/micro soft Edge) te openen, de pagina te laden en te zoeken naar 404-fouten. Dat geeft aan de pagina's op dit moment kunnen niet worden gevonden en dat u wilt publiceren.
 
 Als een voorbeeld van deze aanvraag, wordt ervan uitgegaan een onkosten-toepassing met behulp van de interne URL publiceert `http://myapps/expenses`, maar de app gebruikmaakt van het opmaakmodel `http://myapps/style.css`. Het opmaakmodel is in dit geval niet gepubliceerd in uw toepassing, zodat het laden van de app onkosten genereert een 404-fout tijdens het laden van style.css. In dit voorbeeld wordt het probleem is opgelost door het publiceren van de toepassing met een interne URL `http://myapp/`.
 

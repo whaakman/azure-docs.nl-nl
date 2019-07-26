@@ -1,83 +1,96 @@
 ---
-title: Meld u querybereik in Azure Monitor Log Analytics | Microsoft Docs
-description: Beschrijving van het bereik- en bereik voor een logboekquery in Azure Monitor Log Analytics.
+title: Query bereik vastleggen in Azure Monitor Log Analytics | Microsoft Docs
+description: Beschrijft het bereik en het tijds bereik voor een logboek query in Azure Monitor Log Analytics.
 services: log-analytics
 author: bwren
 manager: carmonm
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 06/25/2019
 ms.author: bwren
-ms.openlocfilehash: a948b80f6524339f0908a2fb19c4a83d70b3b140
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: e67dcb1236fd5ef113835dfe99de444fc2594481
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67297237"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405739"
 ---
-# <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Meld u query bereik en tijdsbereik in Azure Monitor Log Analytics
-Bij het uitvoeren van een [logboekquery](log-query-overview.md) in [Log Analytics in Azure portal](get-started-portal.md), de set gegevens die worden geëvalueerd door de query is afhankelijk van het bereik en het tijdsbereik dat u selecteert. Dit artikel beschrijft de bereik- en tijdbereik en hoe u elk afhankelijk van uw vereisten kunt instellen. Hierin wordt ook het gedrag van verschillende typen bereiken.
+# <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Query bereik en tijds bereik in Azure Monitor vastleggen Log Analytics
+Wanneer u een [logboek query](log-query-overview.md) uitvoert in [Log Analytics in het Azure Portal](get-started-portal.md), is de set gegevens die door de query wordt geëvalueerd, afhankelijk van het bereik en het tijds bereik dat u selecteert. In dit artikel worden de bereik-en tijds periode beschreven en wordt uitgelegd hoe u deze kunt instellen, afhankelijk van uw vereisten. Ook wordt het gedrag van verschillende soorten bereiken beschreven.
 
 
 ## <a name="query-scope"></a>Querybereik
-De querybereik definieert de records die worden geëvalueerd door de query. Deze bevat gewoonlijk alle records in een enkele Log Analytics-werkruimte of Application Insights-toepassing. Log Analytics kunt u een bereik voor een bepaalde bewaakte Azure-resource instellen. Hiermee wordt een resource-eigenaar in te richten op hun gegevens, zelfs als die resource naar meerdere werkruimten schrijft.
+Het query bereik definieert de records die door de query worden geëvalueerd. Dit geldt meestal voor alle records in één Log Analytics werkruimte of Application Insights toepassing. Met Log Analytics kunt u ook een bereik instellen voor een bepaalde bewaakte Azure-resource. Hiermee kan een resource-eigenaar zich alleen richten op hun gegevens, zelfs als die resource naar meerdere werk ruimten schrijft.
 
-Het bereik wordt altijd weergegeven bovenaan links van de Log Analytics-venster. Een pictogram geeft aan of het bereik een Log Analytics-werkruimte of een Application Insights-toepassing is. Er is geen pictogram geeft aan een andere Azure-resource.
+De scope wordt altijd linksboven in het Log Analytics-venster weer gegeven. Een pictogram geeft aan of het bereik een Log Analytics-werk ruimte of een Application Insights-toepassing is. Geen pictogram geeft aan dat er een andere Azure-resource is.
 
 ![Scope](media/scope/scope.png)
 
-Het bereik wordt bepaald door de methode met kunt u Log Analytics starten en in sommige gevallen kunt u het bereik wijzigen door erop te klikken. De volgende tabel bevat de verschillende typen bereik dat wordt gebruikt en andere details voor elk.
+Het bereik wordt bepaald door de methode die u gebruikt om Log Analytics te starten. in sommige gevallen kunt u het bereik wijzigen door erop te klikken. De volgende tabel geeft een lijst van de verschillende soorten bereiken die worden gebruikt en de verschillende Details voor elk bereik.
 
-| Querybereik | Records in het bereik | Selecteren | Bereik wijzigen |
+| Querybereik | Records in bereik | Het selecteren van | Bereik wijzigen |
 |:---|:---|:---|:---|
-| Log Analytics-werkruimte | Alle records in de Log Analytics-werkruimte. | Selecteer **logboeken** uit de **Azure Monitor** menu of de **Log Analytics-werkruimten** menu.  | Kan bereik wijzigen met een andere resourcetype. |
-| Application Insights-toepassing | Alle records in de Application Insights-toepassing. | Selecteer **Analytics** van **overzicht** pagina van Application Insights. | Kan alleen bereik wijzigen naar een andere Application Insights-toepassing. |
-| Resourcegroep | Records die zijn gemaakt door alle resources in de resourcegroep. Kan gegevens opnemen uit meerdere Log Analytics-werkruimten. | Selecteer **logboeken** vanuit het menu resourcegroep. | Kan het bereik niet wijzigen.|
-| Abonnement | Records die zijn gemaakt door alle resources in het abonnement. Kan gegevens opnemen uit meerdere Log Analytics-werkruimten. | Selecteer **logboeken** in het menu abonnement.   | Kan het bereik niet wijzigen. |
-| Andere Azure-resources | Records die zijn gemaakt door de resource. Kan gegevens opnemen uit meerdere Log Analytics-werkruimten.  | Selecteer **logboeken** in het resourcemenu.<br>OF<br>Selecteer **logboeken** uit de **Azure Monitor** menu en selecteer vervolgens een nieuwe scope. | Kan alleen bereik wijzigen naar dezelfde resourcetype. |
+| Log Analytics-werkruimte | Alle records in de Log Analytics-werk ruimte. | Selecteer **Logboeken** in het menu **Azure monitor** of in het menu **log Analytics-werk ruimten** .  | Kan het bereik wijzigen in elk ander resource type. |
+| Application Insights toepassing | Alle records in de Application Insights-toepassing. | Selecteer **analyse** op de pagina **overzicht** van Application Insights. | Kan het bereik alleen wijzigen in een andere Application Insights toepassing. |
+| Resource group | Records die zijn gemaakt door alle resources in de resource groep. Kan gegevens uit meerdere Log Analytics-werk ruimten bevatten. | Selecteer **Logboeken** in het menu van de resource groep. | Kan bereik niet wijzigen.|
+| Subscription | Records die zijn gemaakt door alle resources in het abonnement. Kan gegevens uit meerdere Log Analytics-werk ruimten bevatten. | Selecteer **Logboeken** in het menu abonnement.   | Kan bereik niet wijzigen. |
+| Andere Azure-resources | Records die zijn gemaakt door de resource. Kan gegevens uit meerdere Log Analytics-werk ruimten bevatten.  | Selecteer **Logboeken** in het menu resource.<br>OF<br>Selecteer **Logboeken** in het menu **Azure monitor** en selecteer vervolgens een nieuwe scope. | Kan het bereik alleen wijzigen in hetzelfde resource type. |
 
-### <a name="limitations-when-scoped-to-a-resource"></a>Beperkingen bij het binnen het bereik van een resource
+### <a name="limitations-when-scoped-to-a-resource"></a>Beperkingen bij het bereiken van een resource
 
-Als het querybereik een Log Analytics-werkruimte of een Application Insights-toepassing is, zijn alle opties in de portal en alle queryopdrachten beschikbaar. Als echter bereik aan een resource, de volgende opties in de portal niet beschikbaar omdat ze gekoppeld aan een één werkruimte of de toepassing zijn:
+Wanneer het query bereik een Log Analytics werk ruimte of een Application Insights toepassing is, zijn alle opties in de portal en alle query opdrachten beschikbaar. De volgende opties in de portal zijn niet beschikbaar als deze zijn gekoppeld aan een resource, omdat ze zijn verbonden met één werk ruimte of toepassing:
 
 - Opslaan
 - Queryverkenner
 - Nieuwe waarschuwingsregel
 
-U kunt de volgende opdrachten in een query als binnen het bereik van een resource omdat het querybereik nog geen werkruimten met gegevens voor die resource of set resources bevat gebruiken:
+U kunt de volgende opdrachten niet gebruiken in een query wanneer het bereik is ingesteld op een resource, omdat het query bereik al werk ruimten bevat met gegevens voor die resource of set resources:
 
 - [app](app-expression.md)
 - [workspace](workspace-expression.md)
  
 
+## <a name="query-limits"></a>Query limieten
+Mogelijk hebt u zakelijke vereisten voor een Azure-resource om gegevens te schrijven naar meerdere Log Analytics-werk ruimten. De werk ruimte hoeft zich niet in dezelfde regio te bevinden als de resource en er kunnen in één werk ruimte gegevens worden verzameld van resources in verschillende regio's.  
+
+Het instellen van het bereik op een resource of set resources is een bijzonder krachtige functie van Log Analytics, omdat u hiermee automatisch gedistribueerde gegevens kunt samen voegen in één query. Dit kan een grote invloed hebben op de prestaties, maar als er gegevens moeten worden opgehaald uit werk ruimten in meerdere Azure-regio's.
+
+Log Analytics biedt beveiliging tegen buitensporige overhead van query's die werk ruimten in meerdere regio's omvatten door een waarschuwing of fout te geven wanneer een bepaald aantal regio's wordt gebruikt. In de query wordt een waarschuwing weer gegeven als het bereik werk ruimten in vijf of meer regio's bevat. het wordt nog steeds uitgevoerd, maar het kan veel tijd kosten om te volt ooien.
+
+![Query waarschuwing](media/scope/query-warning.png)
+
+De uitvoering van uw query wordt geblokkeerd als het bereik werk ruimten in 20 of meer regio's bevat. In dit geval wordt u gevraagd om het aantal werkruimte regio's te verminderen en probeert u de query opnieuw uit te voeren. In de vervolg keuzelijst worden alle regio's in het bereik van de query weer gegeven. u moet het aantal regio's verminderen voordat u de query opnieuw probeert uit te voeren.
+
+![Query mislukt](media/scope/query-failed.png)
+
 
 ## <a name="time-range"></a>Tijdsbereik
-Het tijdsbereik Hiermee geeft u de set met records die worden geëvalueerd voor de query op basis van wanneer de record is gemaakt. Dit wordt gedefinieerd door de eigenschap van een standaard op elke record in de werkruimte of de toepassing zoals opgegeven in de volgende tabel.
+Met het tijds bereik wordt de set records opgegeven die voor de query worden geëvalueerd op basis van het moment waarop de record is gemaakt. Dit wordt gedefinieerd door een standaard eigenschap op elke record in de werk ruimte of toepassing, zoals opgegeven in de volgende tabel.
 
-| Locatie | Eigenschap |
+| Location | Eigenschap |
 |:---|:---|
 | Log Analytics-werkruimte          | TimeGenerated |
-| Application Insights-toepassing | timestamp     |
+| Application Insights toepassing | timestamp     |
 
-Stel het tijdsbereik op door deze te selecteren van de tijd kiezen aan de bovenkant van het venster Log Analytics.  U kunt een vooraf gedefinieerde periode selecteren of **aangepaste** om op te geven van een bepaalde periode.
+Stel het tijds bereik in door het te selecteren in de tijd kiezer boven aan het Log Analytics-venster.  U kunt een vooraf gedefinieerde periode selecteren of **aangepast** selecteren om een specifiek tijds bereik op te geven.
 
-![Tijdkiezer](media/scope/time-picker.png)
+![Tijd kiezer](media/scope/time-picker.png)
 
-Als u een filter in de query die gebruikmaakt van de eigenschap (standaardtijd instellen) zoals weergegeven in de bovenstaande tabel, de tijdkiezer gewijzigd naar **in query instellen**, en de tijdkiezer is uitgeschakeld. In dit geval is het meest efficiënt is om het filter aan de bovenkant van de query zodat elke verdere verwerking is alleen nodig heeft om te werken met de gefilterde records.
+Als u een filter instelt in de query die gebruikmaakt van de eigenschap standaard tijd zoals weer gegeven in de bovenstaande tabel, wordt de tijd kiezer gewijzigd **in de query**en wordt de tijd kiezer uitgeschakeld. In dit geval is het het meest efficiënt om het filter boven aan de query te plaatsen, zodat alle volgende verwerkingen alleen met de gefilterde records hoeven te werken.
 
 ![Gefilterde query](media/scope/query-filtered.png)
 
-Als u de [werkruimte](workspace-expression.md) of [app](app-expression.md) opdracht gegevens ophalen uit een andere werkruimte of toepassing, de tijdkiezer kan zich anders gedragen. Als het bereik een Log Analytics-werkruimte is en u gebruikt **app**, of als het bereik een Application Insights-toepassing is en u gebruikt **werkruimte**, en vervolgens de Log Analytics mogelijk niet weten dat de eigenschap moet worden gebruikt in de filter moet het tijdfilter bepalen.
+Als u de [werk ruimte](workspace-expression.md) -of [app](app-expression.md) -opdracht gebruikt om gegevens op te halen uit een andere werk ruimte of toepassing, kan het zijn dat de tijd kiezer anders werkt. Als het bereik een Log Analytics-werk ruimte is en u **app**gebruikt, of als het bereik een Application Insights toepassing is en u de **werk ruimte**gebruikt, moet log Analytics mogelijk niet begrijpen dat de eigenschap die in het filter wordt gebruikt, het tijd filter kan bepalen.
 
-In het volgende voorbeeld wordt het bereik ingesteld op een Log Analytics-werkruimte.  De query gebruikt **werkruimte** gegevens ophalen uit een andere Log Analytics-werkruimte. De tijdkiezer wordt gewijzigd in **in query instellen** omdat deze een filter die gebruikmaakt van de verwachte ziet **TimeGenerated** eigenschap.
+In het volgende voor beeld wordt de scope ingesteld op een Log Analytics-werk ruimte.  De query gebruikt de **werk ruimte** om gegevens op te halen uit een andere log Analytics-werk ruimte. De tijd kiezer verandert **in een query** , omdat er een filter wordt gezien dat gebruikmaakt van de verwachte **TimeGenerated** -eigenschap.
 
-![Query's uitvoeren met de werkruimte](media/scope/query-workspace.png)
+![Query met werk ruimte](media/scope/query-workspace.png)
 
-Als de query gebruikt **app** als u wilt echter gegevens ophaalt uit een toepassing Application Insights, Log Analytics niet wordt herkend door de **timestamp** eigenschap in het filter en de tijdkiezer ongewijzigd blijft. In dit geval worden beide filters toegepast. In het voorbeeld, alleen de records die zijn gemaakt in de afgelopen 24 uur zijn opgenomen in de query zelfs als deze zeven dagen in Hiermee geeft u de **waar** component.
+Als de query gebruik maakt van de **app** om gegevens op te halen uit een Application Insights toepassing, wordt de **tijds tempel** eigenschap in het filter niet door log Analytics herkend en blijft de tijd kiezer ongewijzigd. In dit geval worden beide filters toegepast. In het voor beeld worden alleen records die in de afgelopen 24 uur zijn gemaakt, opgenomen in de query, zelfs als deze 7 dagen opgeeft in de **where** -component.
 
-![Query's uitvoeren met de app](media/scope/query-app.png)
+![Query's uitvoeren met app](media/scope/query-app.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Doorloop een [zelfstudie over het gebruik van Log Analytics in Azure portal](get-started-portal.md).
-- Doorloop een [zelfstudie over het schrijven van query's](get-started-queries.md).
+- Door loop een [zelf studie over het gebruik van log Analytics in het Azure Portal](get-started-portal.md).
+- Door loop een [zelf studie over het schrijven van query's](get-started-queries.md).

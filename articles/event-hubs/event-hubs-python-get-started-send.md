@@ -1,6 +1,6 @@
 ---
-title: Verzenden of ontvangen van gebeurtenissen met behulp van Python - Azure Event Hubs | Microsoft Docs
-description: Dit artikel bevat een overzicht voor het maken van een Python-toepassing die gebeurtenissen naar Azure Event Hubs verzendt.
+title: Gebeurtenissen verzenden of ontvangen met python-Azure Event Hubs | Microsoft Docs
+description: Dit artikel bevat een overzicht van het maken van een python-toepassing die gebeurtenissen naar Azure Event Hubs verzendt.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
@@ -9,18 +9,18 @@ ms.workload: core
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 6a8f0ddcfe6de904219059c6e761ead4c004732d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9018df73c85486f5ffc9b16c1dbb70d4d99fcc65
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60461447"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360181"
 ---
-# <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>Gebeurtenissen te verzenden of ontvangen van gebeurtenissen van Event Hubs met behulp van Python
+# <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>Gebeurtenissen verzenden naar of ontvangen van Event Hubs met behulp van python
 
 Azure Event Hubs is een big data-platform voor het streamen van gegevens en een gebeurtenisopneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Event Hubs kan gebeurtenissen, gegevens of telemetrie die wordt geproduceerd door gedistribueerde software en apparaten verwerken en opslaan. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Zie [Overzicht van Event Hubs](event-hubs-about.md) en [Functies van Event Hubs](event-hubs-features.md) voor een gedetailleerd overzicht van Event Hubs.
 
-In deze zelfstudie wordt beschreven hoe u Python-toepassingen gebeurtenissen te verzenden of ontvangen van gebeurtenissen van een event hub maken. 
+In deze zelf studie wordt beschreven hoe u python-toepassingen maakt voor het verzenden van gebeurtenissen naar of het ontvangen van gebeurtenissen van een Event Hub. 
 
 > [!NOTE]
 > U kunt deze snelstart als voorbeeld downloaden van de [GitHub](https://github.com/Azure/azure-event-hubs-python/tree/master/examples), de tekenreeksen `EventHubConnectionString` en `EventHubName` vervangen door uw event hub-waarden en deze uitvoeren. U kunt ook de stappen in deze zelfstudie volgen om uw eigen oplossing te maken.
@@ -31,7 +31,7 @@ Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden vol
 
 - Een Azure-abonnement. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
 - Python 3.4 of hoger.
-- Gebruik de [Azure-portal](https://portal.azure.com) voor het maken van een naamruimte van het type Event Hubs en de beheerreferenties die de toepassing nodig heeft om te communiceren met de event hub te verkrijgen. Als u wilt een naamruimte en een event hub maken, volgt u de procedure in [in dit artikel](event-hubs-create.md). Haal vervolgens de waarde van de toegangssleutel voor de event hub met de instructies in het artikel: [Verbindingstekenreeks ophalen](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). U gebruikt de toegangssleutel in de code die u verderop in deze zelfstudie schrijft. De naam van de standaard-sleutel is: **RootManageSharedAccessKey**.
+- Gebruik de [Azure Portal](https://portal.azure.com) om een naam ruimte van het type Event hubs te maken en de beheer referenties te verkrijgen die uw toepassing nodig heeft om met de Event hub te communiceren. Als u wilt een naamruimte en een event hub maken, volgt u de procedure in [in dit artikel](event-hubs-create.md). Vervolgens haalt u de waarde van de toegangs sleutel voor de Event Hub door de volgende instructies uit het artikel: [Verbindingstekenreeks ophalen](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). U gebruikt de toegangssleutel in de code die u verderop in deze zelfstudie schrijft. De naam van de standaard sleutel is: **RootManageSharedAccessKey**.
 
 ## <a name="install-python-package"></a>Python-pakket installeren
 
@@ -47,7 +47,7 @@ pip install azure-eventhub
 
 Maak vervolgens een Python-toepassing die gebeurtenissen naar een event hub verzendt:
 
-1. Open uw favoriete Python-editor, zoals [Visual Studio Code](https://code.visualstudio.com/)
+1. Open uw favoriete python-editor, zoals [Visual Studio code](https://code.visualstudio.com/)
 2. Maken van een script met de naam **send.py**. Met dit script verzonden 100 gebeurtenissen naar uw event hub.
 3. Plak de volgende code in send.py, vervang de waarden van de adres-, gebruikers- en -sleutel door de waarden die u hebt verkregen via de Azure portal in de vorige sectie: 
 
@@ -113,7 +113,7 @@ Gefeliciteerd! U hebt nu berichten verzonden naar een Event Hub.
 
 Maak vervolgens een Python-toepassing die gebeurtenissen vanaf een event hub ontvangt:
 
-1. Open uw favoriete Python-editor, zoals [Visual Studio Code](https://code.visualstudio.com/)
+1. Open uw favoriete python-editor, zoals [Visual Studio code](https://code.visualstudio.com/)
 2. Maken van een script met de naam **recv.py**.
 3. Plak de volgende code in recv.py, vervang de waarden van de adres-, gebruikers- en -sleutel door de waarden die u hebt verkregen via de Azure portal in de vorige sectie: 
 
@@ -144,7 +144,8 @@ last_sn = -1
 last_offset = "-1"
 client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
 try:
-    receiver = client.add_receiver(CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
+    receiver = client.add_receiver(
+        CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
     client.run()
     start_time = time.time()
     for event_data in receiver.receive(timeout=100):
@@ -176,6 +177,6 @@ start python recv.py
 Lees de volgende artikelen:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Functies en de belangrijkste termen in de Azure Event Hubs](event-hubs-features.md)
+- [Functies en terminologie in Azure Event Hubs](event-hubs-features.md)
 - [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)
 

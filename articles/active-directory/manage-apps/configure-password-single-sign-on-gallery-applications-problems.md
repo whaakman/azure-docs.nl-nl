@@ -1,6 +1,6 @@
 ---
-title: Probleem bij het configureren wachtwoord eenmalige aanmelding voor een toepassing in Azure AD-galerie | Microsoft Docs
-description: Inzicht in het gezicht voor mensen van algemene problemen bij het configureren van wachtwoord eenmalige aanmelding voor toepassingen die al worden vermeld in de Azure AD-Toepassingsgalerie
+title: Problemen met het configureren van eenmalige aanmelding met een wacht woord voor Azure AD Gallery-app | Microsoft Docs
+description: Meer informatie over de veelvoorkomende problemen bij het configureren van eenmalige aanmelding met een wacht woord voor toepassingen die al zijn opgenomen in de Azure AD-toepassings galerie
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -14,98 +14,98 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a35ef95074099499186eae0fadd37f1995d8e725
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: bc75346b1093cc41a44edad1376c5f10dfec2409
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190296"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381139"
 ---
-# <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Probleem bij het configureren wachtwoord eenmalige aanmelding voor een toepassing in Azure AD-galerie
+# <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Probleem met het configureren van een eenmalige aanmelding met een wacht woord voor een toepassing in de Azure AD-galerie
 
-In dit artikel krijgt u inzicht in het gezicht voor mensen van algemene problemen bij het configureren van **wachtwoord Single Sign-on** met een toepassing in Azure AD-galerie.
+Dit artikel helpt u inzicht te krijgen in de veelvoorkomende problemen bij het configureren van eenmalige aanmelding met een **wacht woord** met een Azure AD Gallery-toepassing.
 
-## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>Referenties zijn ingevuld, maar de extensie niet worden verzonden
+## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>Referenties zijn ingevuld, maar de extensie verzendt deze niet
 
-Dit probleem gebeurt gewoonlijk als leverancier van de toepassing is gewijzigd van hun aanmeldingspagina onlangs om toe te voegen een veld, een id die wordt gebruikt voor het detecteren van de velden gebruikersnaam en wachtwoord gewijzigd of hoe de aanmelding ervaren geschikt is voor hun toepassing gewijzigd. In veel gevallen kan Microsoft gelukkig werken met leveranciers van deze problemen snel oplossen door toepassingen.
+Dit probleem treedt doorgaans op als de leverancier van de toepassing onlangs een veld heeft gewijzigd, een id heeft gewijzigd die wordt gebruikt voor het detecteren van de gebruikers naam en het wacht woord, of het wijzigen van de manier waarop de aanmeldings ervaring werkt voor de toepassing. Gelukkig kan micro soft in veel gevallen samen werken met leveranciers van toepassingen om deze problemen snel op te lossen.
 
-Microsoft heeft technologieën voor het automatisch detecteren wanneer integraties verbreekt, is niet mogelijk is de meteen de problemen vinden, of de problemen even duren om op te lossen. In het geval wanneer een van deze integraties niet correct werkt, opent u een ondersteuningsverzoek in, zodat deze zo snel mogelijk kan worden opgelost.
+Micro soft heeft technologieën om automatisch te detecteren wanneer integraties zijn verbroken. het is mogelijk dat u de problemen niet meteen kunt vinden of dat de problemen enige tijd duren om op te lossen. Als een van deze integraties niet correct werkt, opent u een ondersteunings aanvraag zodat deze zo snel mogelijk kan worden opgelost.
 
-**Als u verbonden met de leverancier van deze toepassing bent,** ze de TIP naar ons verzenden zodat Microsoft kan samen met hun toepassing systeemeigen integratie met Azure Active Directory. U kunt de leverancier verzenden de [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](../develop/howto-app-gallery-listing.md) aan om ze aan de slag.
+**Als u contact opneemt met de leverancier van deze toepassing, kunt u** ze onze manier sturen zodat micro soft ermee kan samen werken om hun toepassing systeem eigen te integreren met Azure Active Directory. U kunt de leverancier verzenden naar de [vermelding uw toepassing in de galerie met Azure Active Directory toepassingen](../develop/howto-app-gallery-listing.md) om ze te starten.
 
-## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Referenties zijn ingevuld en verzonden, maar de pagina geeft aan dat de referenties zijn onjuist
+## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Referenties worden ingevuld en verzonden, maar de pagina geeft aan dat de referenties onjuist zijn
 
-U lost dit probleem, moet u eerst deze dingen proberen:
+Voer de volgende stappen uit om dit probleem op te lossen:
 
-- Laat de gebruiker die het eerst **rechtstreeks aanmelden bij de website van de toepassing** met de referenties die voor hen zijn opgeslagen.
+- Laat de gebruiker eerst proberen **zich rechtstreeks aan te melden bij de toepassings website** met de referenties die voor hen zijn opgeslagen.
 
-  * Als u werkt, hebt u de gebruiker klikt u op de **referenties bijwerken** knop op de **toepassing naast elkaar** in de **Apps** sectie van de [toegang tot toepassingen Deelvenster](https://myapps.microsoft.com/) ze updaten naar de laatste bekende werken gebruikersnaam en wachtwoord.
+  * Als de gebruiker zich aanmeldt, klikt u op de knop **referenties bijwerken** op de **tegel toepassing** in de sectie **apps** van het [toegangs venster](https://myapps.microsoft.com/) voor de toepassing om ze bij te werken naar de meest recente werkende gebruikers naam en het nieuwste wacht woord.
 
-  * Als u, of een andere beheerder de referenties voor deze gebruiker is toegewezen, vindt de gebruiker of de toewijzing van de groep van toepassingen door te navigeren naar de **gebruikers en groepen** tabblad van de toepassing, selecteert u de toewijzing en op de  **Referenties bijwerken** knop.
+  * Als u of een andere beheerder de referenties voor deze gebruiker heeft toegewezen, zoekt u de toepassings toewijzing van de gebruiker of groep door te navigeren naar het tabblad **gebruikers & groepen** van de toepassing, de toewijzing te selecteren en te klikken op de **Update referenties** knop.
 
-- Als de gebruiker hun eigen referenties toegewezen, laat de gebruiker **controleren om ervoor te zorgen dat hun wachtwoord niet is verlopen in de toepassing** en zo ja, **hun wachtwoord verlopen** door het aanmelden bij de toepassing rechtstreeks.
+- Als de gebruiker zijn of haar eigen referenties heeft toegewezen, moet de gebruiker controleren of het **wacht woord niet is verlopen in de toepassing** . als dat het geval is, werkt u het **verlopen wacht woord** bij door u rechtstreeks aan te melden bij de toepassing.
 
-  * Nadat het wachtwoord is bijgewerkt in de toepassing, de gebruiker op te vragen de **referenties bijwerken** knop op de **toepassing tegel** in de **Apps** sectie van de [Toegangsvenster](https://myapps.microsoft.com/) ze updaten naar de laatste bekende werken gebruikersnaam en wachtwoord.
+  * Wanneer het wacht woord in de toepassing is bijgewerkt, vraagt u de gebruiker om te klikken op de knop **referenties bijwerken** op de **tegel toepassing** in de sectie **apps** van het [toegangs venster](https://myapps.microsoft.com/) voor de toepassing om ze bij te werken naar de meest recente bekende werk gebruikers naam en wacht woord.
 
-  * Als u, of een andere beheerder de referenties voor deze gebruiker is toegewezen, vindt de gebruiker of de toewijzing van de groep van toepassingen door te navigeren naar de **gebruikers en groepen** tabblad van de toepassing, selecteert u de toewijzing en op de  **Referenties bijwerken** knop.
+  * Als u of een andere beheerder de referenties voor deze gebruiker heeft toegewezen, zoekt u de toepassings toewijzing van de gebruiker of groep door te navigeren naar het tabblad **gebruikers & groepen** van de toepassing, de toewijzing te selecteren en te klikken op de **Update referenties** knop.
 
-- Laat de gebruiker de uitbreiding voor toegang tot deelvenster browser bijwerken met de volgende stappen hieronder in de [het installeren van de extensie toegang deelvenster Browser](#how-to-install-the-access-panel-browser-extension) sectie.
+- Laat de gebruiker de browser uitbreiding van het toegangs venster bijwerken met behulp van de volgende stappen in de sectie [de browser uitbreiding van het toegangs venster installeren](#how-to-install-the-access-panel-browser-extension) .
 
-- Zorg ervoor dat de uitbreiding voor toegang tot deelvenster browser uitgevoerd en ingeschakeld in de browser van de gebruiker wordt.
+- Zorg ervoor dat de browser uitbreiding van het toegangs venster wordt uitgevoerd en is ingeschakeld in de browser van uw gebruiker.
 
-- Zorg ervoor dat uw gebruikers niet wilt aanmelden bij de toepassing van het toegangsvenster, terwijl in **incognito, InPrivate- of persoonlijke modus**. De extensie van het Configuratiescherm toegang wordt niet ondersteund in deze modi.
+- Zorg ervoor dat uw gebruikers zich niet bij de toepassing aanmelden vanuit het toegangs venster in **incognito, InPrivate of private**. De uitbrei ding van het toegangs paneel wordt niet ondersteund in deze modus.
 
-Als de vorige suggesties niet werkt, wordt het geval dat een wijziging aan de toepassing die tijdelijk niet van de toepassing-integratie met Azure AD werken is is opgetreden. Bijvoorbeeld, kan dit gebeuren wanneer de leverancier van de toepassing wordt geïntroduceerd een script op de pagina die zich anders voor handmatige vs gedraagt geautomatiseerde invoer, waardoor automatische integratie, net als onze eigen, verbreken. In veel gevallen kan Microsoft gelukkig werken met leveranciers van deze problemen snel oplossen door toepassingen.
+Als de vorige suggesties niet werken, is het mogelijk dat er een wijziging is opgetreden aan de kant van de toepassing die de integratie van de toepassing met Azure AD tijdelijk heeft verbroken. Dit kan bijvoorbeeld gebeuren wanneer de leverancier van de toepassing een script op de pagina maakt dat anders werkt voor hand matig en geautomatiseerd invoeren, waardoor automatische integratie, zoals onze eigen, kan worden onderbroken. Gelukkig kan micro soft in veel gevallen samen werken met leveranciers van toepassingen om deze problemen snel op te lossen.
 
-Het Microsoft technologieën voor het automatisch detecteren wanneer de toepassing integraties verbroken is, is niet mogelijk is de meteen de problemen vinden of de problemen kunnen even duren om op te lossen. Wanneer een integratie niet correct werkt, kunt u een ondersteuningsaanvraag om hiermee aan vaste zo snel mogelijk te openen. 
+Micro soft heeft technologieën om automatisch te detecteren wanneer een toepassings integratie is verbroken. het is mogelijk dat u de problemen niet meteen kunt vinden of dat de problemen enige tijd in beslag nemen. Wanneer een integratie niet correct werkt, kunt u een ondersteunings aanvraag openen om deze zo snel mogelijk vast te krijgen. 
 
-Daarnaast **als u verbonden met de leverancier van deze toepassing bent,** **ze de TIP naar ons verzenden** , zodat we kunnen werken met hun toepassing systeemeigen integratie met Azure Active Directory. U kunt de leverancier verzenden de [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](../develop/howto-app-gallery-listing.md) aan om ze aan de slag.
+Daarnaast kunt **u, als u in contact komt met de leverancier van deze toepassing,** **hen onze manier sturen** zodat we met hen kunnen samen werken om hun toepassing systeem eigen te integreren met Azure Active Directory. U kunt de leverancier verzenden naar de [vermelding uw toepassing in de galerie met Azure Active Directory toepassingen](../develop/howto-app-gallery-listing.md) om ze te starten.
 
-## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>De extensie werkt in Chrome en Firefox, maar niet in Internet Explorer
+## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>De uitbrei ding werkt in Chrome en Firefox, maar niet in Internet Explorer
 
-Er zijn twee mogelijke oorzaken voor dit probleem:
+Er zijn twee hoofd oorzaken voor dit probleem:
 
-- Afhankelijk van de beveiligingsinstellingen die zijn ingeschakeld in Internet Explorer, als de website geen deel uitmaakt van een **Zone met vertrouwde**, soms in het script wordt uitgevoerd voor de toepassing worden geblokkeerd.
+- Afhankelijk van de beveiligings instellingen die zijn ingeschakeld in Internet Explorer, wordt het uitvoeren van de uitvoering van het script voor de toepassing soms geblokkeerd als de website geen deel uitmaakt van een **vertrouwde zone**.
 
-  *  U kunt dit oplossen, moet de gebruiker **website van de toepassing toevoegen** naar de **vertrouwde Sites** weergeven binnen hun **instellingen van Internet Explorer**. U kunt uw gebruikers te verzenden de [een site toevoegen aan mijn lijst met vertrouwde sites](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) artikel voor gedetailleerde instructies.
+  *  Om dit probleem op te lossen, geeft u de gebruiker de **website van de toepassing** toe te voegen aan de lijst met **vertrouwde sites** in de **beveiligings instellingen van Internet Explorer**. U kunt uw gebruikers verzenden naar het artikel [een site toevoegen aan mijn lijst met vertrouwde sites](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) voor gedetailleerde instructies.
 
-- Validatie van de beveiliging van Internet Explorer in zeldzame gevallen kan kan soms de pagina te laden trager dan het uitvoeren van het script veroorzaken.
+- In zeldzame omstandigheden kan de beveiligings validatie van Internet Explorer soms trager worden geladen dan het uitvoeren van het script.
 
-  * Deze situatie kan helaas variëren afhankelijk van de browserversie, de Computersnelheid of de site bezocht. In dit geval is het raadzaam dat u contact op met ondersteuning, zodat we de integratie voor deze specifieke toepassing kunt oplossen.
+  * Helaas kan deze situatie variëren, afhankelijk van de browser versie, de computer snelheid of de bezochte site. In dit geval raden we u aan om contact op te nemen met de ondersteuning, zodat we de integratie voor deze specifieke toepassing kunnen oplossen.
 
-Daarnaast **als u verbonden met de leverancier van deze toepassing bent,** **ze de TIP naar ons verzenden** , zodat we kunnen werken met hun toepassing systeemeigen integratie met Azure Active Directory. U kunt de leverancier verzenden de [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](../develop/howto-app-gallery-listing.md) aan om ze aan de slag.
+Daarnaast kunt **u, als u in contact komt met de leverancier van deze toepassing,** **hen onze manier sturen** zodat we met hen kunnen samen werken om hun toepassing systeem eigen te integreren met Azure Active Directory. U kunt de leverancier verzenden naar de [vermelding uw toepassing in de galerie met Azure Active Directory toepassingen](../develop/howto-app-gallery-listing.md) om ze te starten.
 
-## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Controleer of de aanmeldingspagina van de toepassing onlangs is gewijzigd of een extra veld is vereist
+## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Controleren of de aanmeldings pagina van de toepassing onlangs is gewijzigd of een extra veld vereist
 
-Als de aanmeldingspagina van de toepassing hebt u aanzienlijk is gewijzigd, soms dit zorgt ervoor dat onze integraties te kraken. Een voorbeeld hiervan is wanneer de leverancier van een toepassing een veld aanmelden, captcha of multi-factor authentication wordt toegevoegd aan hun ervaringen. In veel gevallen kan Microsoft gelukkig werken met leveranciers van deze problemen snel oplossen door toepassingen.
+Als de aanmeldings pagina van de toepassing drastisch is gewijzigd, is het mogelijk dat onze integraties worden verbroken. Een voor beeld hiervan is wanneer een toepassings leverancier een aanmeld veld, een CAPTCHA of multi-factor Authentication toevoegt aan hun ervaringen. Gelukkig kan micro soft in veel gevallen samen werken met leveranciers van toepassingen om deze problemen snel op te lossen.
 
-Het Microsoft technologieën voor het automatisch detecteren wanneer de toepassing integraties verbroken is, is niet mogelijk is de meteen de problemen vinden of de problemen kunnen even duren om op te lossen. Wanneer een integratie niet correct werkt, kunt u een ondersteuningsaanvraag om hiermee aan vaste zo snel mogelijk te openen. 
+Micro soft heeft technologieën om automatisch te detecteren wanneer een toepassings integratie is verbroken. het is mogelijk dat u de problemen niet meteen kunt vinden of dat de problemen enige tijd in beslag nemen. Wanneer een integratie niet correct werkt, kunt u een ondersteunings aanvraag openen om deze zo snel mogelijk vast te krijgen. 
 
-Daarnaast **als u verbonden met de leverancier van deze toepassing bent,** **ze de TIP naar ons verzenden** , zodat we kunnen werken met hun toepassing systeemeigen integratie met Azure Active Directory. U kunt de leverancier verzenden de [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](../develop/howto-app-gallery-listing.md) aan om ze aan de slag.
+Daarnaast kunt **u, als u in contact komt met de leverancier van deze toepassing,** **hen onze manier sturen** zodat we met hen kunnen samen werken om hun toepassing systeem eigen te integreren met Azure Active Directory. U kunt de leverancier verzenden naar de [vermelding uw toepassing in de galerie met Azure Active Directory toepassingen](../develop/howto-app-gallery-listing.md) om ze te starten.
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Het installeren van de extensie toegang deelvenster Browser
+## <a name="how-to-install-the-access-panel-browser-extension"></a>De browser uitbreiding van het toegangs venster installeren
 
-Voor het installeren van de Browseruitbreiding van toegang deelvenster de volgende stappen uit te voeren:
+Volg de onderstaande stappen om de browser uitbreiding van het toegangs venster te installeren:
 
-1.  Open de [Toegangsvenster](https://myapps.microsoft.com) in een van de ondersteunde browsers en meld u aan als een **gebruiker** in uw Azure AD.
+1.  Open het [toegangs venster](https://myapps.microsoft.com) in een van de ondersteunde browsers en meld u aan als een **gebruiker** in uw Azure AD.
 
-2.  Klik op een **wachtwoord-SSO-toepassing** in het toegangsvenster.
+2.  Klik op een **wacht woord-SSO-toepassing** in het toegangs venster.
 
-3.  Selecteer in de vraag of de software te installeren, **nu installeren**.
+3.  Selecteer **nu installeren**bij de vraag of u de software wilt installeren.
 
-4.  Op basis van uw browser, wordt u omgeleid naar de downloadkoppeling. **Voeg** de uitbreiding van uw browser.
+4.  Op basis van uw browser wordt u omgeleid naar de download koppeling. **Voeg** de uitbrei ding toe aan uw browser.
 
-5.  Als hierom wordt gevraagd, selecteert u op een **inschakelen** of **toestaan** de extensie.
+5.  Als uw browser vraagt, selecteert u de extensie **inschakelen** of **toestaan** .
 
-6.  Nadat deze is geïnstalleerd, **opnieuw** uw browsersessie.
+6.  Nadat de installatie is voltooid, start u de browser sessie **opnieuw** .
 
-7.  Meld u aan in het toegangsvenster en zien als u kunt **starten** uw wachtwoord-SSO-toepassingen
+7.  Meld u aan bij het toegangs venster en controleer of u uw wacht woord-SSO-toepassingen kunt **starten** .
 
-U kunt ook de extensie voor Chrome en Firefox downloaden via de rechtstreekse koppelingen hieronder:
+U kunt de uitbrei ding voor Chrome en Firefox ook downloaden via de onderstaande rechtstreekse koppelingen:
 
--   [Chrome-extensie voor toegang deelvenster](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+-   [Uitbrei ding Chrome toegangs paneel](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Uitbreiding van het Configuratiescherm Firefox-toegang](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Extensie voor het toegangs paneel van Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
 ## <a name="next-steps"></a>Volgende stappen
 [Geef single sign-on bij uw apps met Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)

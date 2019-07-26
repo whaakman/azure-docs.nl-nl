@@ -1,6 +1,6 @@
 ---
-title: Inzicht in gegevens van Azure Cost Management | Microsoft Docs
-description: In dit artikel kunt u beter begrijpen welke gegevens is opgenomen in Azure Cost Management en hoe vaak deze wordt verwerkt, die worden verzameld, wordt weergegeven en gesloten.
+title: Informatie over Azure Cost Management gegevens | Microsoft Docs
+description: Dit artikel helpt u bij het beter begrijpen van gegevens die zijn opgenomen in Azure Cost Management en hoe vaak deze worden verwerkt, verzameld, weer gegeven en gesloten.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -10,56 +10,56 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 44b95c92f51ca9782fca492f3dec3142087ecc91
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 8aaaa6465b501cee83f4c2d8cb60729282651967
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797022"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384851"
 ---
 # <a name="understand-cost-management-data"></a>Inzicht in gegevens van Cost Management
 
-In dit artikel kunt u beter begrijpen Azure kosten en gebruik gegevens die zijn opgenomen in Azure Cost Management. Hierin wordt uitgelegd hoe vaak gegevens worden verwerkt, die worden verzameld, wordt weergegeven en gesloten. U wordt maandelijks gefactureerd voor gebruik van Azure. Hoewel de factureringscyclus maandelijkse periodes, cyclus start zijn en end datums per abonnementstype variëren. Hoe vaak Cost Management ontvangt gebruik gegevens varieert op basis van verschillende factoren. Deze factoren omvatten hoe lang het duurt om de gegevens te verwerken en hoe vaak de gebruik het factureringssysteem voor het verzenden van Azure-services.
+Dit artikel helpt u beter inzicht te krijgen in de kosten en gebruiks gegevens van Azure die zijn opgenomen in Azure Cost Management. Hierin wordt uitgelegd hoe vaak gegevens worden verwerkt, verzameld, weer gegeven en gesloten. U wordt maandelijks gefactureerd voor Azure-gebruik. Hoewel facturerings cycli maandelijkse Peri Oden zijn, variëren de begin-en eind datum van de cyclus per abonnements type. Hoe vaak Cost Management het ontvangen van gebruiks gegevens verschilt, is afhankelijk van verschillende factoren. Deze factoren omvatten hoe lang het duurt om de gegevens te verwerken en hoe vaak Azure-Services het gebruik naar het facturerings systeem verzenden.
 
-Cost Management omvat alle gebruik en aankopen, met inbegrip van reserveringen en aanbiedingen van derden voor Enterprise Agreement (EA)-accounts. Overeenkomst voor Microsoft-klanten (MCA) accounts en afzonderlijke abonnementen met betalen per gebruik-tarieven zijn alleen gebruik van Azure en Marketplace-services. Ondersteuning en andere kosten zijn niet opgenomen. Kosten worden geschat totdat een factuur wordt gegenereerd en niet doen factor aan tegoed.
+Cost Management omvat alle gebruik en aankopen, inclusief reserve ringen en aanbiedingen van derden voor Enterprise Agreement (EA). Micro soft-accounts voor klanten overeenkomst (MCA) en individuele abonnementen met betalen per gebruik-tarieven omvatten alleen gebruiks doeleinden van Azure en Marketplace-Services. Ondersteuning en andere kosten zijn niet inbegrepen. Kosten worden geschat tot er een factuur wordt gegenereerd en er wordt geen rekening gehouden met de credit bedragen.
 
-## <a name="supported-microsoft-azure-offers"></a>Ondersteunde Microsoft Azure-aanbiedingen
+## <a name="supported-microsoft-azure-offers"></a>Ondersteunde Microsoft Azure aanbiedingen
 
-De volgende informatie wordt weergegeven de momenteel ondersteunde [Microsoft Azure biedt](https://azure.microsoft.com/support/legal/offer-details/) in Azure Cost Management. Een Azure-aanbieding is het type van de Azure-abonnement dat u hebt. Gegevens zijn beschikbaar in Cost Management vanaf de **gegevens beschikbaar is via** datum. Als een abonnement wordt gewijzigd biedt, zijn kosten vóór de datum van de aanbieding niet meer beschikbaar. 
+De volgende informatie bevat de momenteel ondersteunde [Microsoft Azure aanbiedingen](https://azure.microsoft.com/support/legal/offer-details/) in azure Cost Management. Een Azure-aanbieding is het type Azure-abonnement dat u hebt. Gegevens zijn beschikbaar in Cost Management vanaf de datum **van de beschik bare gegevens** . Als een abonnement wordt gewijzigd, zijn de kosten voor de wijzigings datum van de aanbieding niet beschikbaar. 
 
-| **Categorie**  | **Naam van aanbieding** | **Quotum-ID** | **Nummer van de aanbieding** | **Gegevens die beschikbaar is via** |
+| **Categorie**  | **Naam van aanbieding** | **Quotum-ID** | **Aanbiedings nummer** | **Beschik bare gegevens van** |
 | --- | --- | --- | --- | --- |
 | **Azure Duitsland** | [Azure Duitsland-betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P | 2 oktober 2018<sup>2</sup> |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | Mei 2014<sup>1</sup> |
 | **Enterprise Agreement (EA)** | Enterprise Dev/Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | Mei 2014<sup>1</sup> |
 | **Enterprise Agreement (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | Mei 2014<sup>1</sup> |
-| **Overeenkomst van de klant van Microsoft** | [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A | Maart 2019<sup>3</sup> |
-| **Overeenkomst van de klant van Microsoft** | [Microsoft Azure-abonnement voor ontwikkelen en testen](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | N/A | Maart 2019<sup>3</sup> |
-| **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 oktober 2018<sup>2</sup> |
+| **Micro soft-klant overeenkomst** | [Microsoft Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A | Mrt 2019<sup>3</sup> |
+| **Micro soft-klant overeenkomst** | [Microsoft Azure plan voor dev/test](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | N/A | Mrt 2019<sup>3</sup> |
+| **Micro soft Developer Network (MSDN)** | [MSDN platforms](https://azure.microsoft.com/offers/ms-azr-0062p) <sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 oktober 2018<sup>2</sup> |
 | **Pay-As-You-Go** | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 oktober 2018<sup>2</sup> |
 | **Pay-As-You-Go** | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 oktober 2018<sup>2</sup> |
 | **Pay-As-You-Go** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)      | MPN_2014-09-01 | MS-AZR-0025P | 2 oktober 2018<sup>2</sup> |
-| **Pay-As-You-Go** | [Gratis proefversie](https://azure.microsoft.com/offers/ms-azr-0044p)<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 oktober 2018<sup>2</sup> |
-| **Pay-As-You-Go** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p)<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 oktober 2018<sup>2</sup> |
-| **Pay-As-You-Go** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p)<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P | 2 oktober 2018<sup>2</sup> |
-| **Pay-As-You-Go** | Azure Pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | 2 oktober 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 oktober 2018<sup>2</sup> |
+| **Pay-As-You-Go** | [Gratis proef versie](https://azure.microsoft.com/offers/ms-azr-0044p) <sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 oktober 2018<sup>2</sup> |
+| **Pay-As-You-Go** | [Azure in open](https://azure.microsoft.com/offers/ms-azr-0111p) <sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 oktober 2018<sup>2</sup> |
+| **Pay-As-You-Go** | [Azure for students](https://azure.microsoft.com/offers/ms-azr-0170p) <sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P | 2 oktober 2018<sup>2</sup> |
+| **Pay-As-You-Go** | Azure Pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P-MS-AZR-0125P, MS-AZR-0128P-MS-AZR-0130P | 2 oktober 2018<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Enter prise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p) <sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 oktober 2018<sup>2</sup> |
 | **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2 oktober 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2 oktober 2018<sup>2</sup> |
+| **Visual Studio** | [Visual Studio test Professional](https://azure.microsoft.com/offers/ms-azr-0060p) <sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2 oktober 2018<sup>2</sup> |
 | **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2 oktober 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2 oktober 2018<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Enter prise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2 oktober 2018<sup>2</sup> |
 
-_<sup>**1** </sup> voor gegevens vóór mei 2014, gaat u naar de [Azure Enterprise portal](https://ea.azure.com)._
+_<sup>**1**</sup> voor gegevens vóór 2014 mei gaat u naar de [Azure Enter prise Portal](https://ea.azure.com)._
 
-_<sup>**2** </sup> voor gegevens vóór 2 oktober 2018, gaat u naar de [Azure-Accountcentrum](https://account.azure.com/subscriptions)._
+_<sup>**2**</sup> voor gegevens vóór 2 oktober 2018 gaat u naar de [Azure-Accountcentrum](https://account.azure.com/subscriptions)._
 
-_<sup>**3** </sup> Microsoft Customer overeenkomsten aan de slag in maart 2019 en ook geen historische gegevens voordat u dit punt._
+_<sup>**3**</sup> micro soft-klant overeenkomsten zijn gestart in mrt 2019 en bevatten vóór dit punt geen historische gegevens._
 
-_<sup>**4** </sup> historische gegevens voor abonnementen op basis van een creditcard en vooraf betalen mogelijk niet overeen met uw factuur. Zie [historische gegevens mogelijk niet overeenkomt met de factuur](#historical-data-might-not-match-invoice) hieronder._
+_<sup>**4**</sup> historische gegevens voor tegoed-en kasvoorschot abonnementen komen mogelijk niet overeen met je factuur. Zie [historische gegevens komen mogelijk niet overeen met de factuur](#historical-data-might-not-match-invoice) hieronder._
 
-De volgende tabel bevat aanbiedingen die nog niet worden ondersteund.
+De volgende aanbiedingen worden nog niet ondersteund:
 
-| Categorie  | **Naam van aanbieding** | **Quotum-ID** | **Nummer van de aanbieding** |
+| Categorie  | **Naam van aanbieding** | **Quotum-ID** | **Aanbiedings nummer** |
 | --- | --- | --- | --- |
 | **Azure Duitsland** | [Azure Duitsland-betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-de-0003p) | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Cloud Solution Provider (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
@@ -67,82 +67,83 @@ De volgende tabel bevat aanbiedingen die nog niet worden ondersteund.
 | **Cloud Solution Provider (CSP)** | Azure Duitsland in CSP voor Microsoft Cloud Duitsland   | CSP_2015-05-01 | MS-AZR-DE-0145P |
 | **Pay-As-You-Go**                 | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
 | **Pay-As-You-Go**                 | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
-| **Ondersteuningsabonnementen** | Standard Support                    | Default_2014-09-01 | MS-AZR-0041P |
-| **Ondersteuningsabonnementen** | Professional Direct-ondersteuning         | Default_2014-09-01 | MS-AZR-0042P |
-| **Ondersteuningsabonnementen** | Developer-ondersteuning                   | Default_2014-09-01 | MS-AZR-0043P |
-| **Ondersteuningsabonnementen** | Duitsland-ondersteuningsplan                | Default_2014-09-01 | MS-AZR-DE-0043P |
-| **Ondersteuningsabonnementen** | Azure Government Standard Support   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
-| **Ondersteuningsabonnementen** | Azure Government Pro-direct Support | Default_2014-09-01 | MS-AZR-USGOV-0042P |
-| **Ondersteuningsabonnementen** | Azure gov-Developer Support  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
+| **Ondersteunings abonnementen** | Standard Support                    | Default_2014-09-01 | MS-AZR-0041P |
+| **Ondersteunings abonnementen** | Ondersteuning voor Professional Direct         | Default_2014-09-01 | MS-AZR-0042P |
+| **Ondersteunings abonnementen** | Ondersteuning voor ontwikkel aars                   | Default_2014-09-01 | MS-AZR-0043P |
+| **Ondersteunings abonnementen** | Duitsland-ondersteunings plan                | Default_2014-09-01 | MS-AZR-DE-0043P |
+| **Ondersteunings abonnementen** | Azure Government Standard Support   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
+| **Ondersteunings abonnementen** | Azure Government Pro-direct-ondersteuning | Default_2014-09-01 | MS-AZR-USGOV-0042P |
+| **Ondersteunings abonnementen** | Azure Government Developer Support  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-## <a name="determine-your-offer-type"></a>Bepalen van het aanbiedingstype
-Als er geen gegevens voor een abonnement en u bepalen wilt als het abonnement onder de ondersteunde biedt valt, kunt u valideren dat uw abonnement wordt ondersteund. Als u wilt valideren of een Azure-abonnement wordt ondersteund, aanmelden bij de [Azure-portal](https://portal.azure.com). Selecteer vervolgens **alle Services** in het menu links. Selecteer in de lijst met services, **abonnementen**. Klik op het abonnement dat u wilt controleren in het menu van de lijst met abonnementen. Uw abonnement wordt weergegeven op het tabblad Overzicht en ziet u de **bieden** en **aanbiedings-ID**. In de volgende afbeelding ziet u een voorbeeld.
+## <a name="determine-your-offer-type"></a>Uw aanbiedings type bepalen
+Als u geen gegevens voor een abonnement ziet en u wilt bepalen of uw abonnement onder de ondersteunde aanbiedingen valt, kunt u controleren of uw abonnement wordt ondersteund. Als u wilt valideren dat een Azure-abonnement wordt ondersteund, meldt u zich aan bij de [Azure Portal](https://portal.azure.com). Selecteer vervolgens **alle services** in het linkerdeel venster. Selecteer in de lijst met Services **abonnementen**. Klik in het menu abonnements lijst op het abonnement dat u wilt controleren. Uw abonnement wordt weer gegeven op het tabblad Overzicht en u kunt de ID van de **aanbieding** en de **aanbieding**bekijken. In de volgende afbeelding ziet u een voorbeeld.
 
-![Voorbeeld van het tabblad van het abonnement overzicht weergegeven van de aanbieding en aanbiedings-ID](./media/understand-cost-mgt-data/offer-and-offer-id.png)
+![Voor beeld van het tabblad Overzicht van het abonnement met de ID aanbieding en aanbieding](./media/understand-cost-mgt-data/offer-and-offer-id.png)
 
-## <a name="costs-included-in-cost-management"></a>Kosten die zijn opgenomen in Cost Management
+## <a name="costs-included-in-cost-management"></a>Kosten opgenomen in Cost Management
 
-De volgende tabellen bevatten gegevens die is opgenomen of zich niet in Cost Management. Alle kosten worden geschat totdat een factuur wordt gegenereerd. Kosten weergegeven, omvatten geen voorafbetaalde en gratis tegoed.
+In de volgende tabellen worden de gegevens weer gegeven die zijn opgenomen of zich niet bevinden in Cost Management. Alle kosten worden geschat totdat er een factuur wordt gegenereerd. De weer gegeven kosten omvatten geen gratis en vooruitbetaalde tegoeden.
 
-**Kosten en gebruiksgegevens**
+**Kosten-en gebruiks gegevens**
 
-| **Opgenomen** | **Niet inbegrepen** |
+| **Omvat** | **Niet inbegrepen** |
 | --- | --- |
-| Gebruik van Azure service<sup>5</sup>        | Kosten - ondersteuning voor meer informatie, Zie [condities uitgelegd](../billing/billing-understand-your-invoice.md). |
-| Marketplace-aanbieding gebruik<sup>6</sup> | Belasting - Zie voor meer informatie, [condities uitgelegd](../billing/billing-understand-your-invoice.md). |
-| Marketplace-aankopen<sup>6</sup>      | Tegoed - Zie voor meer informatie, [condities uitgelegd](../billing/billing-understand-your-invoice.md). |
-| Aankopen in de reservering<sup>7</sup>      |  |
+| Azure-service gebruik<sup>5</sup>        | Ondersteunings kosten-Zie [factuur voorwaarden](../billing/billing-understand-your-invoice.md)voor meer informatie. |
+| Marketplace met gebruiks versie<sup>6</sup> | Belastingen: Zie [factuur voorwaarden](../billing/billing-understand-your-invoice.md)voor meer informatie. |
+| Marketplace-aankopen<sup>6</sup>      | Tegoed-Zie [factuur voorwaarden](../billing/billing-understand-your-invoice.md)voor meer informatie. |
+| Reserverings aankopen<sup>7</sup>      |  |
+| Afschrijving van reserve ringen<sup>7</sup>      |  |
 
-_<sup>**5** </sup> gebruik van de azure-service is gebaseerd op de reservering en heeft onderhandeld over prijzen._
+_<sup>**5**</sup> Azure-service gebruik is gebaseerd op de reserve ring en de overeengekomen prijzen._
 
-_<sup>**6** </sup> marketplace gebruiks- en -aankopen zijn niet beschikbaar voor betalen per gebruik, MSDN, en Visual Studio biedt op dit moment._
+_<sup>**6**</sup> Marketplace-aankopen zijn op dit moment niet beschikbaar voor betalen per gebruik, MSDN en Visual Studio._
 
-_<sup>**7** </sup> reservering aankopen zijn op dit moment alleen beschikbaar voor Enterprise Agreement (EA)-accounts._
+_<sup>**7**</sup> reserve ringen zijn op dit moment alleen beschikbaar voor Enterprise Agreement (EA)-accounts._
 
 **Metadata**
 
-| **Opgenomen** | **Niet inbegrepen** |
+| **Omvat** | **Niet inbegrepen** |
 | --- | --- |
-| Resourcetags<sup>8</sup> | groep resourcetags |
+| Resource tags<sup>8</sup> | Tags voor de resource groep |
 
-_<sup>**8** </sup> resourcetags worden toegepast als het gebruik van elke service is verzonden en zijn niet beschikbaar met terugwerkende kracht voor historische gebruik._
+_<sup>**8**</sup> resource Tags worden toegepast wanneer het gebruik van elke service wordt verzonden en niet met terugwerkende kracht naar historisch gebruik kan worden gesteld._
 
-## <a name="rated-usage-data-refresh-schedule"></a>Schema voor gegevensvernieuwing geclassificeerde gebruik
+## <a name="rated-usage-data-refresh-schedule"></a>Vernieuwings schema gebruiks gegevens
 
-Kosten en gebruik gegevens zijn beschikbaar in kostenbeheer en facturering in Azure portal en [ondersteuning voor API's](index.yml). Houd er rekening mee met de volgende punten als u kosten bekijken:
+Kosten-en gebruiks gegevens zijn beschikbaar in Cost Management en facturering in de Azure Portal en [ondersteunende api's](index.yml). Houd rekening met de volgende punten als u de kosten bekijkt:
 
-- Geschatte kosten in rekening gebracht voor de huidige factureringsperiode worden zes keer per dag bijgewerkt.
-- Geschatte kosten in rekening gebracht voor de huidige factureringsperiode kunnen wijzigen als u meer gebruik in rekening worden gebracht.
-- Elke update is cumulatief en bevat de regels en gegevens uit de vorige update.
-- Azure wordt of _wordt gesloten_ de huidige factureringsperiode tot 72 uur (drie kalenderdagen) nadat de facturering afloopt.
+- Geschatte kosten voor de huidige facturerings periode worden zes keer per dag bijgewerkt.
+- Geschatte kosten voor de huidige facturerings periode kunnen veranderen naarmate u meer gebruikt.
+- Elke update is cumulatief en bevat alle regel items en informatie van de vorige update.
+- Azure voltooit of _sluit_ de huidige facturerings periode tot 72 uur (drie kalender dagen) nadat de facturerings periode is beëindigd.
 
-De volgende voorbeelden laten zien hoe factureringsperioden kan beëindigen.
+In de volgende voor beelden ziet u hoe facturerings perioden kunnen worden beëindigd.
 
-Enterprise Agreement (EA)-abonnementen: als de Factureringsmaand op 31 maart eindigt, geschatte kosten van 72 uur later worden bijgewerkt. In dit voorbeeld door April 4 middernacht (UTC).
+Enterprise Agreement (EA)-abonnementen: als de facturerings maand eindigt op 31 maart, worden de geschatte kosten later tot 72 uur bijgewerkt. In dit voor beeld wordt door middernacht (UTC) 4 april.
 
-Betalen per gebruik-abonnementen: als de Factureringsmaand wordt beëindigd op 15 mei en vervolgens de geschatte kosten van bijgewerkt naar de 72 uur later opnieuw mogelijk. In dit voorbeeld door 19 mei middernacht (UTC).
+Betalen per gebruik-abonnementen: als de facturerings maand eindigt op 15 mei, worden de geschatte kosten mogelijk later bijgewerkt tot 72 uur. In dit voor beeld wordt door middernacht (UTC) 19 mei.
 
-### <a name="rerated-data"></a>Rerated gegevens
+### <a name="rerated-data"></a>Opnieuw geclassificeerde gegevens
 
-Of u gebruikt de [Cost Management-API's](index.yml), Power BI of de Azure-portal voor het ophalen van gegevens, verwacht dat de kosten voor de huidige factureringsperiode opnieuw worden geclassificeerd en als gevolg hiervan wijzigen, totdat de factuur wordt gesloten.
+Of u de [Cost Management-api's](index.yml), Power bi of de Azure Portal gebruikt om gegevens op te halen, de kosten van de huidige facturerings periode moeten worden geclassificeerd en daarom worden gewijzigd totdat de factuur is gesloten.
 
-## <a name="usage-data-update-frequency-varies"></a>Gebruik gegevens updatefrequentie varieert
+## <a name="usage-data-update-frequency-varies"></a>De update frequentie van gebruiks gegevens varieert
 
-De beschikbaarheid van de gemaakte gebruiksgegevens in Cost Management, is afhankelijk van een aantal factoren, onder andere:
+De beschik baarheid van uw gemaakte gebruiks gegevens in Cost Management is afhankelijk van een aantal factoren, waaronder:
 
-- Hoe vaak introduceren de Azure-services (zoals opslag, berekeningen, CDN en SQL) gebruik.
-- De gebruikte tijd voor het verwerken van gegevens over gebruik tot en met de classificatie-engine en kosten van beheer van pijplijnen.
+- Hoe vaak Azure-Services (zoals opslag, compute, CDN en SQL) het gebruik van het verzend proces.
+- De tijd die nodig is om de gebruiks gegevens te verwerken met behulp van de waarderings engine en de kosten beheer pijplijnen.
 
-Sommige services introduceren gebruik vaker dan andere. Dus, ziet u mogelijk gegevens in Cost Management voor sommige services sneller dan andere services die gegevens die minder vaak te verzenden. Gebruik voor services duurt normaal gesproken 8 tot 24 uur worden weergegeven in Cost Management. Houd er rekening mee dat de gegevens voor een open maand wordt vernieuwd als u meer gebruik in rekening gebracht omdat updates cumulatief zijn.
+Sommige services verzenden het gebruik vaker dan andere. Het is dus mogelijk dat de gegevens in Cost Management voor sommige services eerder dan andere services worden weer gegeven die minder vaak gegevens verzenden. Normaal gesp roken duurt het gebruik voor Services 8-24 uur in Cost Management. Houd er rekening mee dat gegevens voor een open maand worden vernieuwd wanneer u meer gebruik maakt omdat updates cumulatief zijn.
 
-## <a name="historical-data-might-not-match-invoice"></a>Historische gegevens mogelijk niet overeen met factuur
+## <a name="historical-data-might-not-match-invoice"></a>Historische gegevens komen mogelijk niet overeen met factuur
 
-Historische gegevens voor aanbiedingen op basis van een creditcard en vooraf betaalt, mogelijk niet overeen met uw factuur. Sommige Azure betalen naar gebruik, MSDN en Visual Studio biedt kunnen zijn Azure-tegoed en geavanceerde betalingen toegepast op de factuur. De historische gegevens weergegeven in Cost Management is echter gebaseerd op alleen de kosten voor uw geschatte verbruik. Historische gegevens van Cost Management bevat geen betalingen en tegoeden. De historische gegevens weergegeven voor de volgende aanbiedingen mogelijk als gevolg hiervan niet overeenkomt met precies afgestemd op uw factuur.
+Historische gegevens voor aanbiedingen op basis van tegoed en voor uitbetalingen kunnen mogelijk niet overeenkomen met uw factuur. Bij sommige aanbiedingen van Azure betalen per gebruik, MSDN en Visual Studio kunnen Azure-tegoeden en geavanceerde betalingen op de factuur worden toegepast. De historische gegevens die in Cost Management worden weer gegeven, zijn echter alleen gebaseerd op uw geschatte verbruiks kosten. Cost Management historische gegevens bevatten geen betalingen en tegoeden. Als gevolg hiervan komen de historische gegevens die worden weer gegeven voor de volgende aanbiedingen mogelijk niet exact overeen met uw factuur.
 
-- Azure for Students (MS-AZR - 0170P)
-- Azure in Open (MS-AZR - 0111P)
-- Azure geslaagd (MS-AZR - 0120P, MS - AZR - 0123P, MS - AZR - 0125P, MS - AZR - 0128P, MS - AZR - 0129P)
-- Gratis proefversie (MS-AZR - 0044P)
+- Azure for students (MS-AZR-0170P)
+- Azure in Open (MS-AZR-0111P)
+- Azure Pass (MS-AZR-0120P, MS-AZR-0123P, MS-AZR-0125P, MS-AZR-0128P, MS-AZR-0129P)
+- Gratis proef versie (MS-AZR-0044P)
 - MSDN (MS-AZR-0062P)
 - Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P, MS-AZR-0064P)
 

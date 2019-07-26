@@ -1,6 +1,6 @@
 ---
-title: Waarschuwingen met Azure Sentinel Preview onderzoeken | Microsoft Docs
-description: Gebruik deze zelfstudie voor informatie over het onderzoeken van waarschuwingen met Azure Sentinel.
+title: Waarschuwingen onderzoeken met Azure Sentinel preview | Microsoft Docs
+description: Gebruik deze zelf studie om te leren hoe u waarschuwingen met Azure Sentinel kunt onderzoeken.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,48 +13,48 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2019
+ms.date: 07/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: e20f6fc0dc8dbe02b09490f62ce84af12aa31b87
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: ad9c752898733286701db2d0f0b1fc40029b7521
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621238"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370706"
 ---
-# <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Zelfstudie: Detectie van bedreigingen met Azure Sentinel Preview
+# <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Zelfstudie: Bedreigingen detecteren met de preview-versie van Azure Sentinel
 
 > [!IMPORTANT]
-> Azure Sentinel is momenteel in openbare preview.
+> Azure Sentinel is momenteel beschikbaar als open bare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-Nadat u [uw gegevensbronnen verbonden](quickstart-onboard.md) Azure Sentinel, u wilt worden gewaarschuwd wanneer er iets verdachte gebeurt. Zodat u kunt dit doen Sentinel van Azure kunt u geavanceerde regels voor waarschuwingen, die aanvragen die u kunt genereren en gebruiken voor het onderzoeken van diep afwijkingen en bedreigingen in uw omgeving. 
+Nadat u [uw gegevens bronnen hebt verbonden](quickstart-onboard.md) met Azure Sentinel, wilt u een melding ontvangen wanneer er iets verdacht is. Als u dit wilt doen, kunt u met Azure Sentinel geavanceerde waarschuwings regels maken waarmee aanvragen worden gegenereerd die u kunt toewijzen en gebruiken om afwijkingen en bedreigingen in uw omgeving nauw keurig te onderzoeken. 
 
-Deze zelfstudie helpt u bedreigingen in een met Azure Sentinel.
+Deze zelf studie helpt u bij het detecteren van bedreigingen met Azure Sentinel.
 > [!div class="checklist"]
-> * Detectieregels maken
-> * Op bedreigingen reageren
+> * Detectie regels maken
+> * Bedreigings reacties automatiseren
 
-## <a name="create-detection-rules"></a>Detectieregels maken
+## <a name="create-detection-rules"></a>Detectie regels maken
 
-Voor het onderzoeken van aanvragen, moet u eerst detectieregels maken. 
+Als u cases wilt onderzoeken, moet u eerst detectie regels maken. 
 
 > [!NOTE]
-> Waarschuwingen die zijn gegenereerd in Azure Sentinel zijn beschikbaar via [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Raadpleeg de [documentatie voor Microsoft Graph-beveiligingswaarschuwingen](https://aka.ms/graphsecurityreferencebetadocs) voor meer informatie en van integratiepartners.
+> Waarschuwingen die zijn gegenereerd in azure Sentinel zijn beschikbaar via [Microsoft Graph beveiliging](https://aka.ms/securitygraphdocs). Raadpleeg de [documentatie over Microsoft Graph Security Alerts](https://aka.ms/graphsecurityreferencebetadocs) voor meer informatie en integratie partners.
 
-Detectieregels zijn gebaseerd op de typen dreigingen en afwijkingen die gebruikt in uw omgeving die u weten worden kunnen wilt over meteen verdachte ervoor te zorgen dat ze zijn opgehaald, onderzocht, en hersteld. 
+Detectie regels zijn gebaseerd op de typen bedreigingen en afwijkingen die in uw omgeving kunnen worden verdacht die u direct wilt weten, zodat ze worden opgehaald, onderzocht en opgelost. 
 
-1. Selecteer in de Azure-portal onder Azure Sentinel **Analytics**.
+1. Selecteer in de Azure Portal onder Azure Sentinel **Analytics**.
 
    ![Analyse](./media/tutorial-detect-threats/alert-rules.png)
 
-2. Klik in de bovenste menubalk op **+ toevoegen**.  
+2. Klik in de bovenste menu balk op **+ toevoegen**.  
 
    ![Waarschuwingsregel maken](./media/tutorial-detect-threats/create-alert-rule.png)
 
-3. Onder **waarschuwingsregel maken**, Geef een beschrijvende naam en stel de **ernst** indien nodig. 
+3. Geef onder **waarschuwings regel maken**een beschrijvende naam op en stel de **Ernst** in als dat nodig is. 
 
-4. De query is gemaakt in Log Analytics en plak deze in de **Set waarschuwingsregel** veld. Hier volgt een voorbeeldquery die u waarschuwen wilt wanneer een afwijkende aantal resources in Azure-activiteit wordt gemaakt.
+4. Maak de query in Log Analytics en plak deze in het veld **waarschuwings regel instellen** . Hier volgt een voorbeeld query waarmee u wordt gewaarschuwd wanneer een afwijkend aantal resources wordt gemaakt in azure activity.
 
         AzureActivity
         | where OperationName == "Create or Update Virtual Machine" or OperationName == "Create Deployment"
@@ -62,42 +62,52 @@ Detectieregels zijn gebaseerd op de typen dreigingen en afwijkingen die gebruikt
         | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
 
    > [!NOTE]
-   > De lengte van de query moet tussen 1 en 10.000 tekens en mag ' search * "en" union * ".
+   > De lengte van de query moet tussen 1 en 10000 tekens lang zijn en mag niet ' Search * ' en ' Union * ' bevatten.
 
 
-5. In de **entiteitstoewijzing** sectie, gebruikt u de velden onder **entiteitstype** toewijzen van de kolommen in uw query aan entiteitsvelden wordt herkend door het Azure-Sentinel. Voor elk veld de betreffende kolom in de query die u hebt gemaakt in Log Analytics, naar het entiteitveld juiste worden toegewezen. Selecteer de naam van de desbetreffende kolom onder de **eigenschap**. Elke entiteit bevat meerdere velden, zoals SID, GUID, enzovoort. U kunt de entiteit op basis van een van de velden, niet alleen de bovenste niveau entiteit toewijzen.
+5. Gebruik in de sectie **entiteits toewijzing** de velden onder **entiteits type** om de kolommen in uw query toe te wijzen aan entiteits velden die worden herkend door Azure Sentinel. Wijs voor elk veld de relevante kolom toe aan de query die u in Log Analytics hebt gemaakt, naar het juiste entiteits veld. Selecteer de relevante kolom naam onder de **eigenschap**. Elke entiteit bevat meerdere velden, zoals SID, GUID, enzovoort. U kunt de entiteit toewijzen op basis van een van de velden, niet alleen de entiteit op het hoogste niveau.
 
-6. Voorwaarden voor de waarschuwingsactivering definiëren **waarschuwingsactivering**. Hiermee definieert u de voorwaarden die de waarschuwing. 
+6. Definieer de voor waarden voor waarschuwings Triggers onder **waarschuwings trigger**. Hiermee definieert u de voor waarden die de waarschuwing activeren. 
 
-7. Stel de **frequentie** voor hoe vaak de query wordt uitgevoerd - als vaak als elke 5 minuten of weinig eenmaal per dag. 
+7. Stel de **frequentie** in voor hoe vaak de query wordt uitgevoerd, net zo vaak als elke 5 minuten of als een keer per dag. 
 
-8. Stel de **periode** voor het beheren van het tijdvenster voor de hoeveelheid gegevens die de query wordt uitgevoerd op - bijvoorbeeld het kunt uitvoeren om het uur over 60 minuten aan gegevens.
+8. Stel de **periode** in voor het bepalen van het tijd venster voor het aantal gegevens dat door de query wordt uitgevoerd. Dit kan bijvoorbeeld elk uur over 60 minuten aan gegevens worden uitgevoerd.
 
-9. U kunt ook instellen de **onderdrukking**. Onderdrukking is handig als u stoppen van dubbele waarschuwingen wilt van hetzelfde incident wordt geactiveerd. Op deze manier kunt u waarschuwingen van die wordt geactiveerd tijdens een bepaalde periode stoppen. Dit kan helpen u bij het voorkomen van dubbele waarschuwingen voor hetzelfde incident en kunt u opeenvolgende waarschuwingen onderdrukken gedurende een bepaalde periode. Bijvoorbeeld, als de **waarschuwen planning** **frequentie** is ingesteld op 60 minuten en de **waarschuwen planning periode** is ingesteld op twee uur en resultaten van de query de gedefinieerde overschreden drempelwaarde, er wordt een waarschuwing geactiveerd tweemaal zodra wanneer het eerst wordt gedetecteerd in de afgelopen 60 minuten en het opnieuw wanneer het zich in de eerste 60 minuten van de 2-uren van gegevens, worden steekproeven genomen. U wordt aangeraden dat als een waarschuwing wordt geactiveerd, de onderdrukking voor de hoeveelheid tijd die is ingesteld in de waarschuwing periode moet zijn. In ons voorbeeld, kunt u om in te stellen onderdrukking gedurende 60 minuten zodat de worden alleen waarschuwingen gegenereerd voor gebeurtenissen die hebben plaatsgevonden in het meest recente uur.
+9. U kunt ook de **onderdrukking**instellen. Onderdrukking is handig als u wilt voor komen dat dubbele waarschuwingen worden geactiveerd voor hetzelfde incident. Op deze manier kunt u stoppen met het activeren van waarschuwingen tijdens een bepaalde periode. Dit kan u helpen dubbele waarschuwingen voor hetzelfde incident te voor komen en u in staat te stellen opeenvolgende waarschuwingen voor een bepaalde tijd te onderdrukken. Als de **frequentie** van de **waarschuwings planning** bijvoorbeeld is ingesteld op 60 minuten en de **plannings periode** van de waarschuwing is ingesteld op twee uur, en de query resultaten de gedefinieerde drempel overschrijden, wordt een waarschuwing twee keer geactiveerd, eenmaal wanneer deze voor het eerst wordt gedetecteerd in de afgelopen 60 minuten en opnieuw wanneer deze zich in de eerste 60 minuten van de gegevens van 2 uur van de bemonsterde periode bevindt. Als er een waarschuwing wordt geactiveerd, moet de onderdrukking worden uitgevoerd voor de hoeveelheid tijd die in de waarschuwings periode is ingesteld. In ons voor beeld wilt u mogelijk onderdrukking instellen gedurende 60 minuten, zodat waarschuwingen alleen worden geactiveerd voor gebeurtenissen die zijn opgetreden tijdens het meest recente uur.
 
-8. Nadat u plakt u de query in de **Set waarschuwingsregel** veld, kunt u direct een simulatie van de waarschuwing onder zien **alert Logic-simulatie** zodat krijgt u inzicht in van hoeveel gegevens worden gegenereerd gedurende een bepaald tijdsinterval voor de waarschuwing die u hebt gemaakt. Dit is afhankelijk van wat u instelt voor **frequentie** en **drempelwaarde**. Als u ziet dat gemiddeld, de waarschuwing wordt geactiveerd te vaak, wilt u het aantal resultaten hoger instellen zodat deze hoger dan de gemiddelde basislijn is.
+8. Nadat u de query hebt geplakt in het veld **waarschuwings regel instellen** , kunt u direct een simulatie van de waarschuwing bekijken onder **Logic alert simulatie** zodat u kunt zien hoeveel gegevens er worden gegenereerd over een bepaald tijds interval voor de waarschuwing u hebt gemaakt. Dit is afhankelijk van wat u hebt ingesteld voor **frequentie** en **drempel waarde**. Als u ziet dat uw waarschuwing gemiddeld te vaak wordt geactiveerd, moet u het aantal resultaten hoger instellen, zodat het boven uw gemiddelde basis lijn komt.
 
-9. Klik op **maken** initialiseren van de waarschuwingsregel. Nadat de waarschuwing is gemaakt, wordt er een aanvraag gemaakt die de waarschuwing bevat. U kunt de gedefinieerde detectieregels zien als rijen in de **beveiligingsanalyses** tabblad. U ziet ook het aantal overeenkomsten voor elke regel - de waarschuwingen geactiveerd. In deze lijst die kunt u inschakelen, uitschakelen of verwijderen van elke regel. U kunt ook rechts: Selecteer het weglatingsteken (...) aan het einde van de rij voor elke waarschuwing te bewerken, uitschakelen, klonen, komt overeen met weergeven of verwijderen van een regel. De **Analytics** pagina is een galerie met alle actieve waarschuwingsregels, waaronder sjablonen u inschakelen en waarschuwingsregels u maken op basis van sjablonen.
+9. Klik op **maken** om uw waarschuwings regel te initialiseren. Nadat de waarschuwing is gemaakt, wordt er een aanvraag gemaakt die de waarschuwing bevat. U kunt de gedefinieerde detectie regels als rijen zien op het tabblad **Security Analytics** . U kunt ook het aantal overeenkomsten voor elke regel bekijken. de waarschuwingen worden geactiveerd. In deze lijst kunt u elke regel inschakelen, uitschakelen of verwijderen. U kunt ook met de rechter muisknop het weglatings teken (...) aan het einde van de rij selecteren om elke waarschuwing te bewerken, uit te scha kelen, te klonen, overeenkomsten weer te geven of een regel te verwijderen. De **Analytics** -pagina is een galerie met al uw actieve waarschuwings regels, waaronder sjablonen die u hebt ingeschakeld en waarschuwings regels die u maakt op basis van sjablonen.
 
-1. De resultaten van de regels voor waarschuwingen kunnen worden weergegeven de **gevallen** pagina, waar u sorteren kunt, [onderzoeken gevallen](tutorial-investigate-cases.md), en de bedreigingen te herstellen.
+1. De resultaten van de waarschuwings regels kunnen worden weer gegeven op  de pagina cases, waar u de bedreigingen kunt sorteren, [onderzoeken](tutorial-investigate-cases.md)en oplossen.
 
 
 
-## <a name="respond-to-threats"></a>Op bedreigingen reageren
+## <a name="automate-threat-responses"></a>Bedreigings reacties automatiseren
 
-Azure Sentinel kunt u twee primaire manieren voor het reageren op bedreigingen met behulp van playbooks. U kunt een playbook worden automatisch uitgevoerd wanneer een waarschuwing wordt geactiveerd, of u handmatig een playbook in reactie op een waarschuwing uitvoeren kunt instellen.
+SIEM/SOC-teams kunnen regel matig worden overspoeld met beveiligings waarschuwingen. Het gegenereerde volume van waarschuwingen is zo zeer groot dat beschik bare beveiligings beheerders worden overspoeld. Dit resulteert al te vaak in situaties waarin veel waarschuwingen niet kunnen worden onderzocht, waardoor de organisatie kwetsbaar is voor aanvallen die niet meer worden opgemerkt. 
 
-- Stel een playbook worden automatisch uitgevoerd wanneer een waarschuwing wordt geactiveerd wanneer u de playbook configureren. 
+Veel, indien niet de meeste, van deze waarschuwingen voldoen aan terugkerende patronen die kunnen worden aangepakt door specifieke en gedefinieerde herstel acties. Met Azure Sentinel kunt u al uw herbemiddeling definiëren in playbooks. Het is ook mogelijk om realtime-automatisering in te stellen als onderdeel van de Playbook-definitie zodat u een bepaald antwoord op bepaalde beveiligings waarschuwingen volledig kunt automatiseren. Met behulp van realtime-automatisering kunnen antwoord teams hun werk belasting aanzienlijk verminderen door de routine reacties op terugkerende waarschuwingen volledig te automatiseren, waardoor u meer kunt concentreren op unieke waarschuwingen, patronen kunt analyseren, de jacht kunt automatiseren en meer.
 
-- Een playbook uit in de waarschuwing handmatig uitvoeren door te klikken op **playbooks weergeven** en selecteer vervolgens een playbook om uit te voeren.
+Voor het automatiseren van antwoorden:
 
+1. Kies de waarschuwing waarvoor u het antwoord wilt automatiseren.
+1. Selecteer in het navigatie menu van de Azure-Sentinel-werk ruimte **Analytics**.
+1. Selecteer de waarschuwing die u wilt automatiseren. 
+1. Kies op de pagina **waarschuwings regel bewerken** onder **realtime automatisering**de **geactiveerde Playbook** die u wilt uitvoeren wanneer deze waarschuwings regel overeenkomt.
+1. Selecteer **Opslaan**.
+
+   ![realtime-automatisering](./media/tutorial-detect-threats/rt-configuration.png)
+
+
+Daarnaast kunt u een waarschuwing hand matig herstellen door vanuit de waarschuwing een Playbook uit te voeren, door te klikken op **Playbooks weer geven** en vervolgens een Playbook te selecteren dat u wilt uitvoeren. Zie [werken met playbooks in azure Sentinel](tutorial-respond-threats-playbook.md)voor meer informatie over het maken van een nieuwe Playbook of het bewerken van een bestaande.
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe u aan de slag voor het detecteren van bedreigingen met behulp van Azure Sentinel. 
+In deze zelf studie hebt u geleerd hoe u aan de slag gaat met het detecteren van bedreigingen met behulp van Azure Sentinel. 
 
-Voor informatie over het automatiseren van uw antwoorden op bedreigingen, [het reageren op bedreigingen met behulp van geautomatiseerde playbooks](tutorial-respond-threats-playbook.md).
+Voor meer informatie over hoe u uw reacties op bedreigingen kunt automatiseren, kunt u [reageren op bedreigingen met behulp van automatische playbooks](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
-> [Reageren op bedreigingen](tutorial-respond-threats-playbook.md) voor het automatiseren van uw antwoorden op bedreigingen.
+> [Reageer op bedreigingen](tutorial-respond-threats-playbook.md) om uw reacties op bedreigingen te automatiseren.
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 75ff3bdf7a0900c32feb7090e0c24af748080a76
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a85ced787529db7e6d607665d81632ab1c450dfe
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323492"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466978"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Taak voorbereiding en taak release taken uitvoeren op batch Compute-knoop punten
 
@@ -58,7 +58,7 @@ Mogelijk wilt u een kopie van de logboek bestanden die door uw taken worden gege
 > 
 > 
 
-## <a name="job-preparation-task"></a>Taak voor het voorbereiden van taken
+## <a name="job-preparation-task"></a>Taakvoorbereidingstaak
 Voordat de taken van een taak worden uitgevoerd, voert batch de taak voorbereidings taken uit op elk reken knooppunt dat is gepland om een taak uit te voeren. Standaard wacht de batch-service dat de taak voorbereidings taak moet worden voltooid voordat de taken worden uitgevoerd die zijn gepland om te worden uitgevoerd op het knoop punt. U kunt de service echter zo configureren dat deze niet wordt gewacht. Als het knoop punt opnieuw wordt opgestart, wordt de taak voor het voorbereiden van de taak opnieuw uitgevoerd, maar u kunt dit gedrag ook uitschakelen.
 
 De taak voor het voorbereiden van taken wordt alleen uitgevoerd op knoop punten waarop een taak is gepland. Hiermee wordt voor komen dat een voorbereidings taak onnodig wordt uitgevoerd als er geen taak aan een knoop punt is toegewezen. Dit kan gebeuren wanneer het aantal taken voor een taak kleiner is dan het aantal knoop punten in een pool. Dit geldt ook wanneer [gelijktijdige taak uitvoering](batch-parallel-node-tasks.md) is ingeschakeld, waardoor enkele knoop punten niet-actief blijven als het aantal taken lager is dan het totale aantal mogelijke gelijktijdige taken. Door de taak voorbereidings taak niet uit te voeren op niet-actieve knoop punten, kunt u minder geld best Eden aan de kosten voor gegevens overdracht.
@@ -68,11 +68,13 @@ De taak voor het voorbereiden van taken wordt alleen uitgevoerd op knoop punten 
 > 
 > 
 
-## <a name="job-release-task"></a>Taak voor taak release
+## <a name="job-release-task"></a>Taakvrijgevingstaak
 Zodra een taak is gemarkeerd als voltooid, wordt de taak vrijgave uitgevoerd op elk knoop punt in de pool dat ten minste één taak heeft uitgevoerd. U markeert een taak als voltooid door een Terminate-aanvraag uit te geven. De batch-service stelt vervolgens de taak status in op *beëindigen*, beëindigt actieve of actieve taken die zijn gekoppeld aan de taak en voert de taak vrijgave uit. De taak wordt vervolgens verplaatst naar de status *voltooid* .
 
 > [!NOTE]
 > Bij het verwijderen van de taak wordt ook de taak release uitgevoerd. Als een taak echter al is beëindigd, wordt de release taak niet een tweede keer uitgevoerd als de taak later wordt verwijderd.
+
+Taak release taken kunnen Maxi maal 15 minuten worden uitgevoerd voordat de batch-service wordt beëindigd. Zie de [documentatie over rest API](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask)voor meer informatie.
 > 
 > 
 

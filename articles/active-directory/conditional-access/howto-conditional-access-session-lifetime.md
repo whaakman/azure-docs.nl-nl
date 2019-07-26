@@ -1,6 +1,6 @@
 ---
-title: Sessiebeheer voor verificatie met Azure Active Directory voor voorwaardelijke toegang configureren
-description: Azure AD-verificatie-sessieconfiguratie met inbegrip van de aanmelding door een gebruiker in frequentie en de browser sessiepersistentie aanpassen.
+title: Beheer van verificatie sessies configureren met voorwaardelijke toegang Azure Active Directory
+description: De configuratie van de Azure AD-verificatie sessie aanpassen, inclusief de aanmeldings frequentie van de gebruiker en de persistentie van de browser sessie.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,97 +11,97 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e15cf9b2e10a581c72a5035b52be47c3e2c9dfda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05c93c9fe2b34ae3b87c44608cc5c5c8947ecc73
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112328"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499839"
 ---
-# <a name="configure-authentication-session-management-with-conditional-access"></a>Sessiebeheer voor verificatie met voorwaardelijke toegang configureren
+# <a name="configure-authentication-session-management-with-conditional-access"></a>Verificatie sessie beheer met voorwaardelijke toegang configureren
 
-In complexe implementaties mogelijk organisaties behoefte aan het beperken van verificatiesessies. Sommige scenario's zijn onder andere:
+In complexe implementaties moeten organisaties wellicht verificatie sessies beperken. Enkele scenario's zijn onder andere:
 
-* Toegang tot bronnen vanaf een niet-beheerde of gedeeld apparaat
+* Toegang tot bronnen vanaf een niet-beheerd of gedeeld apparaat
 * Toegang tot gevoelige informatie van een extern netwerk
-* Gebruikers met hoge impact
-* Kritieke zakelijke toepassingen
+* Grote invloed op gebruikers
+* Essentiële zakelijke toepassingen
 
-Besturingselementen voor voorwaardelijke toegang kunnen u beleidsregels die zijn gericht op specifieke gebruiksvoorbeelden binnen uw organisatie zonder gevolgen voor alle gebruikers maken.
+Met besturings elementen voor voorwaardelijke toegang kunt u beleids regels maken die gericht zijn op specifieke use cases binnen uw organisatie zonder dat dit van invloed is op alle gebruikers.
 
-Wilt details over het configureren van het beleid, voordat we gaan de standaardconfiguratie.
+Voordat u meer informatie over het configureren van het beleid krijgt, gaan we de standaard configuratie bekijken.
 
-## <a name="user-sign-in-frequency"></a>Gebruiker aanmelden frequentie
+## <a name="user-sign-in-frequency"></a>Aanmeldings frequentie van gebruikers
 
-Aanmelden frequentie definieert de tijdsperiode op waarna een gebruiker wordt gevraagd zich opnieuw aanmelden bij een poging te krijgen tot een resource.
+Met de aanmeldings frequentie wordt de tijds periode gedefinieerd voordat een gebruiker wordt gevraagd om zich opnieuw aan te melden wanneer wordt geprobeerd om toegang te krijgen tot een bron.
 
-De standaardconfiguratie voor Azure Active Directory (Azure AD) voor aanmelding door een gebruiker in frequentie is een rolling venster van 90 dagen. Gebruikers vragen om referenties vaak denkt dat u een functionele wat u moet doen, maar het kan nadelig: gebruikers die zijn getraind hun referenties moeten opgeven zonder denken kan onbedoeld ze naar een schadelijke referentieprompt opgeven.
+De standaard configuratie van de Azure Active Directory (Azure AD) voor de aanmeldings frequentie van gebruikers is een draaiende Window van 90 dagen. Het is vaak een goed idee om gebruikers te vragen om referenties, maar dit kan Backfire: gebruikers die zijn getraind om hun referenties op te geven zonder dat ze dit doen, kunnen ze per ongeluk door geven aan een kwaad aardige referentie prompt.
 
-Klinkt aanwezig niet vragen om een gebruiker zich opnieuw aanmelden voor 90 dagen in werkelijkheid die een schending van IT-beleid wordt de sessie ingetrokken. Enkele voorbeelden bevatten (maar niet beperkt tot) een wachtwoordwijziging, een incompliant apparaat of een account uitschakelen. U kunt ook expliciet [intrekken van gebruikers-sessies met behulp van PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). De standaardconfiguratie van Azure AD wordt geleverd omlaag voor 'geen gebruikers vragen om hun referenties als beveiligingsstatus van de sessies niet is gewijzigd'.
+Het kan erop klinken dat een waarschuwing wordt weer gegeven om te voor komen dat een gebruiker zich gedurende 90 dagen opnieuw kan aanmelden. in werkelijkheid wordt een schending van de IT-beleids regels voor de sessie ingetrokken. Enkele voor beelden zijn (maar niet beperkt tot) het wijzigen van een wacht woord, een niet-compatibel apparaat of het uitschakelen van een account. U kunt [gebruikers sessies ook expliciet intrekken met behulp van Power shell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). De standaard configuratie van Azure AD wordt niet meer door gebruikers gevraagd om hun referenties op te geven als de beveiligings postuur van hun sessies niet is gewijzigd.
 
-Aanmelden frequentie-instelling werkt met apps die OATH2 of OIDC-protocollen volgens de normen hebt geïmplementeerd. De meeste Microsoft systeemeigen apps voor Windows, Mac en mobiele voldoet aan de instelling.
+De instelling voor de aanmeldings frequentie werkt met apps waarop OAUTH2 of OIDC-protocollen zijn geïmplementeerd volgens de standaarden. De meeste micro soft-apps voor Windows, Mac en Mobile voldoen aan de instelling.
 
-## <a name="persistence-of-browsing-sessions"></a>Persistentie van sessies bladeren
+## <a name="persistence-of-browsing-sessions"></a>Persistentie van Browse sessies
 
-Een permanente browsersessie kan gebruikers aangemeld blijven na sluiten en opnieuw openen van het browservenster.
+Met een permanente browser sessie kunnen gebruikers aangemeld blijven nadat ze het browser venster hebben gesloten en opnieuw hebben geopend.
 
-De standaard Azure AD voor sessiepersistentie browser kan gebruikers op persoonlijke apparaten te kiezen of om vast te leggen van de sessie waarin een 'Blijf aangemeld?" na een succesvolle verificatie wordt gevraagd. Als de persistentie van de browser is geconfigureerd in AD FS met behulp van de richtlijnen in het artikel [AD FS Single Sign-On-instellingen](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
-), wordt dat beleid voldoen en de Azure AD-sessie tevens behouden. U kunt ook configureren of gebruikers in uw tenant zien de "Blijf aangemeld?" vragen door het veranderen van de juiste instelling in het deelvenster in Azure portal met behulp van de richtlijnen in het artikel aangepaste huisstijl [aanpassen van uw Azure AD-aanmeldingspagina](../fundamentals/customize-branding.md).
+Met de Azure AD-standaard voor browser sessie persistent kunnen gebruikers op persoonlijke apparaten kiezen of ze de sessie willen blijven door een ' aangemeld blijven? ' weer te geven. vragen na geslaagde verificatie. Als de browser persistentie is geconfigureerd in AD FS met behulp van [de richt lijnen in het artikel](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+)AD FS instellingen voor eenmalige aanmelding, zullen we voldoen aan dit beleid en de Azure AD-sessie behouden. U kunt ook configureren of gebruikers in uw Tenant de ' aangemeld blijven? ' moeten zien. prompt door de juiste instelling te wijzigen in het deel venster huis stijl in Azure Portal met behulp van de richt lijnen in het artikel [uw Azure AD-aanmeldings pagina aanpassen](../fundamentals/customize-branding.md).
 
-## <a name="configuring-authentication-session-controls"></a>Configureren van verificatie-sessiebesturingselementen
+## <a name="configuring-authentication-session-controls"></a>Verificatie sessie besturings elementen configureren
 
-Voorwaardelijke toegang is een Azure AD Premium-capaciteit en is een premium-licentie vereist. Als u meer informatie over voorwaardelijke toegang wilt, raadpleegt u [wat is voorwaardelijke toegang in Azure Active Directory?](overview.md#license-requirements)
+Voorwaardelijke toegang is een Azure AD Premium mogelijkheid en vereist een Premium-licentie. Zie [Wat is voorwaardelijke toegang in azure Active Directory?](overview.md#license-requirements) voor meer informatie over voorwaardelijke toegang.
 
 > [!WARNING]
-> Als u de [configureerbare levensduur van vernieuwingstoken](../develop/active-directory-configurable-token-lifetimes.md) functie momenteel in openbare preview, houd er rekening mee dat we bieden geen ondersteuning voor het maken van twee verschillende beleidsregels voor dezelfde gebruiker of app combinatie: met deze functie en een ander subnet met de functie configureerbare levensduur van tokens. Microsoft wil buiten gebruik stellen van de functie configureerbare levensduur van vernieuwingstoken op 1 November en vervang deze door de functie voor beheer van voorwaardelijke toegang verificatie-sessie.  
+> Als u de functie [levens duur](../develop/active-directory-configurable-token-lifetimes.md) van het token in de open bare preview gebruikt, bieden we geen ondersteuning voor het maken van twee verschillende beleids regels voor dezelfde combi natie van gebruiker of app: een met deze functie en een andere met een configureerbaar token functie levens duur. Micro soft is van plan de Configureer bare levens duur van het token op 1 november in te stellen en te vervangen door de beheer functie voor de verificatie van de voorwaardelijke toegang.  
 
-### <a name="policy-1-sign-in-frequency-control"></a>Beleid 1: Frequentie-aanmelden-besturingselement
-
-1. Nieuw beleid maken
-1. Kies alle vereiste voorwaarden voor de omgeving van de klant, met inbegrip van de doel-cloud-apps.
-
-   > [!NOTE]
-   > Het verdient aanbeveling om in te stellen van vragen frequentie gelijk verificatie voor belangrijke Microsoft Office-apps, zoals Exchange Online en SharePoint Online voor de beste gebruikerservaring.
-
-1. Ga naar **toegangsbeheer** > **sessie** en klikt u op **aanmelden frequentie**
-1. Voer de vereiste waarde van dagen en tijdstippen in het eerste tekstvak
-1. Selecteer een waarde van **uur** of **dagen** in vervolgkeuzelijst
-1. Sla het beleid
-
-![Beleid voor voorwaardelijke toegang geconfigureerd voor aanmelding in frequentie](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
-
-In Azure AD ingeschreven Windows-apparaten aanmelden bij het apparaat wordt beschouwd als een prompt. Als u het teken in frequentie tot 24 uur voor Office-apps hebt geconfigureerd, geregistreerde gebruikers van Azure AD Windows-apparaten, voldoen aan de aanmeldingspagina in frequentie beleid door het aanmelden bij het apparaat en wordt niet gevraagd opnieuw bij het openen van Office-apps.
-
-Als u andere aanmelden frequentie voor verschillende web-apps die worden uitgevoerd in dezelfde browsersessie hebt geconfigureerd, wordt de strengste beleid worden toegepast op beide apps omdat alle apps die worden uitgevoerd in dezelfde browsersessie een token tijdens één sessie delen.
-
-### <a name="policy-2-persistent-browser-session"></a>Beleid 2: Permanente browsersessie
+### <a name="policy-1-sign-in-frequency-control"></a>Beleid 1: Besturings element voor aanmeldings frequentie
 
 1. Nieuw beleid maken
-1. Kies alle vereiste voorwaarden.
+1. Kies alle vereiste voor waarden voor de omgeving van de klant, inclusief de doel-Cloud-apps.
 
    > [!NOTE]
-   > Houd er rekening mee dat dit besturingselement is vereist 'Alle Cloud-Apps' kiezen als een voorwaarde. Browser sessiepersistentie wordt bepaald door het verificatietoken voor de sessie. Alle tabbladen in een browsersessie delen een token tijdens één sessie en daarom alle persistentie status moeten delen.
+   > Het is raadzaam om een gelijke frequentie voor verificatie prompts in te stellen voor Key Microsoft Office-apps, zoals Exchange Online en share point online voor een optimale gebruikers ervaring.
 
-1. Ga naar **toegangsbeheer** > **sessie** en klikt u op **permanente browsersessie**
-1. Selecteer een waarde in de vervolgkeuzelijst
-1. U beleid opslaan
+1. Ga naar de **Access controls** > -**sessie** en klik op **aanmeldings frequentie**
+1. Voer de vereiste waarde van dagen en uren in het eerste tekstvak in
+1. Een waarde van **uren** of **dagen** selecteren in de vervolg keuzelijst
+1. Uw beleid opslaan
+
+![Beleid voor voorwaardelijke toegang geconfigureerd voor aanmeldings frequentie](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
+
+Op Azure AD geregistreerde Windows-apparaten aanmelden bij het apparaat wordt beschouwd als een prompt. Als u bijvoorbeeld de aanmeldings frequentie hebt ingesteld op 24 uur voor Office-apps, voldoen gebruikers op Azure AD geregistreerde Windows-apparaten aan het beleid voor aanmeldings frequentie door zich aan te melden bij het apparaat en wordt er niet opnieuw gevraagd om de Office-apps te openen.
+
+Als u een andere aanmeldings frequentie hebt geconfigureerd voor verschillende web-apps die worden uitgevoerd in dezelfde browser sessie, wordt het meest strikte beleid toegepast op beide apps, omdat alle apps die in dezelfde browser sessie worden uitgevoerd, een token van één sessie delen.
+
+### <a name="policy-2-persistent-browser-session"></a>Beleid 2: Permanente browser sessie
+
+1. Nieuw beleid maken
+1. Kies alle vereiste voor waarden.
+
+   > [!NOTE]
+   > Houd er rekening mee dat dit besturings element vereist dat alle Cloud-apps als voor waarde worden gekozen. De browser sessie persistentie wordt bepaald door het verificatie sessie token. Alle tabbladen in een browser sessie delen één sessie token en daarom moeten alle gebruikers de persistentie status delen.
+
+1. Ga naar de **Access controls** > -**sessie** en klik op **permanente browser sessie**
+1. Selecteer een waarde in de vervolg keuzelijst
+1. Beleid opslaan
 
 ![Beleid voor voorwaardelijke toegang geconfigureerd voor permanente browser](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
 
 > [!NOTE]
-> Permanente browsersessie configuratie in Azure AD voor voorwaardelijke toegang wordt overschreven de "blijven zich aangemeld?" instellen in de huisstijl van de deelvenster in de Azure-portal voor dezelfde gebruiker als u beide beleidsregels hebt geconfigureerd.
+> Met de permanente configuratie van de browser sessie in azure AD voorwaardelijke toegang wordt de ' aangemeld blijven? ' overschreven. in het deel venster huis stijl van het bedrijf in de Azure Portal voor dezelfde gebruiker als u beide beleids regels hebt geconfigureerd.
 
 ## <a name="validation"></a>Validatie
 
-Het hulpprogramma What-If gebruiken voor het simuleren van een aanmelding van de gebruiker de doeltoepassing en andere voorwaarden op basis van hoe u uw beleid hebt geconfigureerd. De besturingselementen voor verificatie sessie beheer weergegeven in het resultaat van het hulpprogramma.
+Gebruik het hulp programma What-if voor het simuleren van een aanmelding van de gebruiker naar de doel toepassing en andere voor waarden op basis van de manier waarop u het beleid hebt geconfigureerd. De besturings elementen voor verificatie sessie beheer worden weer gegeven in het resultaat van het hulp programma.
 
-![Voorwaardelijke toegang What If hulpprogramma resultaten](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+![Resultaten van What If tool voor voorwaardelijke toegang](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
 ## <a name="policy-deployment"></a>Implementatie van beleid
 
-Om ervoor te zorgen dat uw beleid werkt zoals verwacht, is het aanbevolen om deze te testen voordat u implementeert in productie. In het ideale geval gebruik een testtenant om te controleren of het nieuwe beleid werkt zoals bedoeld. Zie voor meer informatie het artikel [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md).
+Om ervoor te zorgen dat uw beleid werkt zoals verwacht, is het aanbevolen best practice het te testen voordat u het in productie neemt. In het ideale geval gebruikt u een test Tenant om te controleren of uw nieuwe beleid werkt zoals bedoeld. Zie voor meer informatie het artikel [Aanbevolen procedures voor voorwaardelijke toegang in azure Active Directory](best-practices.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie het artikel [MFA vereisen voor specifieke apps met Azure Active Directory voor voorwaardelijke toegang](app-based-mfa.md).
-* Als u klaar om te configureren van beleid voor voorwaardelijke toegang voor uw omgeving bent, Zie het artikel [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md).
+* Als u wilt weten hoe u een beleid voor voorwaardelijke toegang kunt configureren, raadpleegt u het artikel [MFA vereisen voor specifieke apps met Azure Active Directory voorwaardelijke toegang](app-based-mfa.md).
+* Als u klaar bent voor het configureren van beleid voor voorwaardelijke toegang voor uw omgeving, raadpleegt u het artikel [Aanbevolen procedures voor voorwaardelijke toegang in azure Active Directory](best-practices.md).

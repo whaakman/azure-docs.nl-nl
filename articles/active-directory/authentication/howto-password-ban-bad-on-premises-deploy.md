@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11532fbae4565ec1fc3625abe60b98d2ccd26fec
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 01a9cc4ec4788422337b77b285ed8ee440f6acd4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68319749"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68346900"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Wachtwoordbeveiliging in Azure AD implementeren
 
@@ -135,11 +135,11 @@ Er zijn twee vereiste installatie Programma's voor Azure AD-wachtwoord beveiligi
         ```
 
         > [!NOTE]
-        > Deze modus mislukt als Azure multi-factor Authentication vereist is. In dat geval gebruikt u een van de twee voor gaande verificatie modi of gebruikt u een van de onderstaande tijdelijke oplossingen. U wordt aangeraden MFA-vereisten alleen voor test doeleinden te gebruiken.
+        > Deze modus mislukt als Azure multi-factor Authentication is vereist voor uw account. In dat geval gebruikt u een van de twee voor gaande verificatie modi, of gebruikt u in plaats daarvan een ander account waarvoor MFA niet vereist is.
         >
-        > Als uw Azure-account specifiek is geconfigureerd om MFA te vereisen, kunt u in plaats daarvan een ander account gebruiken waarvoor MFA niet vereist is.
+        > U ziet misschien ook MFA vereist als registratie van Azure-apparaten (die wordt gebruikt onder de voor vallen van Azure AD-wachtwoord beveiliging), is geconfigureerd om wereld wijd MFA te vereisen. U kunt dit probleem omzeilen door een ander account te gebruiken dat MFA ondersteunt met een van de twee vorige verificatie modi, of u kunt ook tijdelijk de MFA-vereiste voor de Azure Device Registration versoepelen. Ga hiervoor naar de Azure-beheer Portal en ga vervolgens naar Azure Active Directory, vervolgens op apparaten, vervolgens op Apparaatinstellingen en stel ' multi-factor Authentication vereisen voor het samen voegen van apparaten ' in op Nee. Zorg ervoor dat u deze instelling opnieuw configureert op Ja zodra de registratie is voltooid.
         >
-        > U ziet misschien ook MFA vereist als registratie van Azure-apparaten (die wordt gebruikt onder de voor vallen van Azure AD-wachtwoord beveiliging), is geconfigureerd om wereld wijd MFA te vereisen. U kunt dit probleem omzeilen door een ander account te gebruiken waarvoor MFA niet is vereist, of als u de vereiste voor de Azure Device Registration-MFA tijdelijk wilt versoepelen. Ga hiervoor naar de Azure-beheer Portal en ga vervolgens naar Azure Active Directory, vervolgens op apparaten, vervolgens op Apparaatinstellingen en stel ' multi-factor Authentication vereisen voor het samen voegen van apparaten ' in op Nee.  Zorg ervoor dat u deze instelling opnieuw configureert op Ja zodra de registratie is voltooid.
+        > U wordt aangeraden MFA-vereisten alleen voor test doeleinden te gebruiken.
 
        U hoeft momenteel niet de para meter *-ForestCredential* op te geven. deze is gereserveerd voor toekomstige functionaliteit.
 
@@ -179,11 +179,11 @@ Er zijn twee vereiste installatie Programma's voor Azure AD-wachtwoord beveiligi
         ```
 
         > [!NOTE]
-        > Deze modus mislukt als Azure multi-factor Authentication vereist is. In dat geval gebruikt u een van de twee voor gaande verificatie modi of gebruikt u een van de onderstaande tijdelijke oplossingen. U wordt aangeraden MFA-vereisten alleen voor test doeleinden te gebruiken.
+        > Deze modus mislukt als Azure multi-factor Authentication is vereist voor uw account. In dat geval gebruikt u een van de twee voor gaande verificatie modi, of gebruikt u in plaats daarvan een ander account waarvoor MFA niet vereist is.
         >
-        > Als uw Azure-account specifiek is geconfigureerd om MFA te vereisen, kunt u in plaats daarvan een ander account gebruiken waarvoor MFA niet vereist is.
+        > U ziet misschien ook MFA vereist als registratie van Azure-apparaten (die wordt gebruikt onder de voor vallen van Azure AD-wachtwoord beveiliging), is geconfigureerd om wereld wijd MFA te vereisen. U kunt dit probleem omzeilen door een ander account te gebruiken dat MFA ondersteunt met een van de twee vorige verificatie modi, of u kunt ook tijdelijk de MFA-vereiste voor de Azure Device Registration versoepelen. Ga hiervoor naar de Azure-beheer Portal en ga vervolgens naar Azure Active Directory, vervolgens op apparaten, vervolgens op Apparaatinstellingen en stel ' multi-factor Authentication vereisen voor het samen voegen van apparaten ' in op Nee. Zorg ervoor dat u deze instelling opnieuw configureert op Ja zodra de registratie is voltooid.
         >
-        > U ziet misschien ook MFA vereist als registratie van Azure-apparaten (die wordt gebruikt onder de voor vallen van Azure AD-wachtwoord beveiliging), is geconfigureerd om wereld wijd MFA te vereisen. U kunt dit probleem omzeilen door een ander account te gebruiken waarvoor MFA niet is vereist, of als u de vereiste voor de Azure Device Registration-MFA tijdelijk wilt versoepelen. Ga hiervoor naar de Azure-beheer Portal en ga vervolgens naar Azure Active Directory, vervolgens op apparaten, vervolgens op Apparaatinstellingen en stel ' multi-factor Authentication vereisen voor het samen voegen van apparaten ' in op Nee.  Zorg ervoor dat u deze instelling opnieuw configureert op Ja zodra de registratie is voltooid.
+        > U wordt aangeraden MFA-vereisten alleen voor test doeleinden te gebruiken.
 
        Deze voor beelden slagen alleen als de gebruiker die momenteel is aangemeld ook een Active Directory domein beheerder is voor het hoofd domein. Als dit niet het geval is, kunt u alternatieve domein referenties opgeven via de para meter *-ForestCredential* .
 

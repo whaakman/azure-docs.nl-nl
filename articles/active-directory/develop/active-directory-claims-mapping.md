@@ -1,5 +1,5 @@
 ---
-title: Claims aanpassen die worden verzonden in tokens voor een specifieke app in een Azure AD-Tenant (open bare preview)
+title: Claims voor een App aanpassen in een Azure AD-Tenant (open bare preview)
 description: Op deze pagina wordt Azure Active Directory claim toewijzing beschreven.
 services: active-directory
 author: rwike77
@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e923cde3cfcffe594226f6b8b665053d1fc584f6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 97de45ef94afa9da8a5e928a3d4a8911db052107
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324994"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381068"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedure: Claims aanpassen die worden verzonden in tokens voor een specifieke app in een Tenant (preview-versie)
 
@@ -302,9 +302,9 @@ Het ID-element identificeert welke eigenschap van de bron de waarde voor de clai
 | Gebruiker | CompanyName| De naam van organisatie |
 | Gebruiker | streetaddress | Adres |
 | Gebruiker | code | Postcode |
-| Gebruiker | preferredlanguange | Voorkeurs taal |
+| Gebruiker | preferredlanguange | Voorkeurstaal |
 | Gebruiker | onpremisesuserprincipalname | On-premises UPN |
-| Gebruiker | mailNickname | E-mail bijnaam |
+| Gebruiker | mailNickname | E-mailbijnaam |
 | Gebruiker | extensionattribute1 | Uitbreidings kenmerk 1 |
 | Gebruiker | extensionattribute2 | Uitbreidings kenmerk 2 |
 | Gebruiker | extensionattribute3 | Uitbreidings kenmerk 3 |
@@ -321,15 +321,15 @@ Het ID-element identificeert welke eigenschap van de bron de waarde voor de clai
 | Gebruiker | extensionattribute14 | Uitbreidings kenmerk 14 |
 | Gebruiker | extensionattribute15 | Uitbreidings kenmerk 15 |
 | Gebruiker | othermail | Andere E-mail |
-| Gebruiker | Regio | Country |
+| Gebruiker | regio | Country |
 | Gebruiker | city | City |
-| Gebruiker | state | Status |
+| Gebruiker | toestand | Status |
 | Gebruiker | JobTitle | Functie |
-| Gebruiker | werknemer-id | Werk nemer-ID |
+| Gebruiker | werknemer-id | Werknemer-id |
 | Gebruiker | facsimiletelephonenumber | Telefoon nummer Fax |
 | toepassing, resource, doel groep | displayName | Weergavenaam |
 | toepassing, resource, doel groep | geobjecteerd | ObjectID |
-| toepassing, resource, doel groep | tags | Service-Principal-tag |
+| toepassing, resource, doel groep | labels | Service-Principal-tag |
 | Bedrijf | tenantcountry | Land van de Tenant |
 
 **TransformationID:** Het TransformationID-element moet alleen worden opgegeven als het bron element is ingesteld op trans formatie.
@@ -391,7 +391,7 @@ Op basis van de gekozen methode wordt een set invoer en uitvoer verwacht. Defini
 | Gebruiker | mail|E-mailadres|
 | Gebruiker | userPrincipalName|User Principal Name|
 | Gebruiker | onpremisessamaccountname|Naam van on-premises SAM-account|
-| Gebruiker | werknemer-id|Werk nemer-ID|
+| Gebruiker | werknemer-id|Werknemer-id|
 | Gebruiker | extensionattribute1 | Uitbreidings kenmerk 1 |
 | Gebruiker | extensionattribute2 | Uitbreidings kenmerk 2 |
 | Gebruiker | extensionattribute3 | Uitbreidings kenmerk 3 |

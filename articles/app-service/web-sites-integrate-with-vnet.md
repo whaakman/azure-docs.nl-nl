@@ -1,6 +1,6 @@
 ---
-title: App integreren met Azure Virtual Network - Azure App Service
-description: Ziet u hoe u een app in Azure App Service verbinden met een nieuwe of bestaande Azure-netwerk
+title: App integreren met Azure Virtual Network-Azure App Service
+description: Laat zien hoe u een app in Azure App Service verbindt met een nieuw of bestaand virtueel Azure-netwerk
 services: app-service
 documentationcenter: ''
 author: ccompy
@@ -11,311 +11,313 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 07/25/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 940163d01e562d5a7d9107e8d893ba981fa0f84a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 20ef71f98817a57f884e9c5a3cef4ceeaebe74eb
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795928"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498444"
 ---
-# <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uw app integreren met een Azure-netwerk
-Dit document beschrijft de functie voor integratie met virtueel netwerk Azure App Service en hoe u om in te stellen met apps in de [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Virtuele netwerken van Azure][VNETOverview] (VNets) kunt u veel van uw Azure-resources in een niet-internet routeerbare netwerk plaatsen.  
+# <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uw app integreren met een Azure-Virtual Network
+In dit document wordt de Azure App Service functie voor de integratie van virtuele netwerken beschreven en wordt uitgelegd hoe u deze kunt instellen met apps in de [Azure app service](https://go.microsoft.com/fwlink/?LinkId=529714). [Virtuele netwerken van Azure][VNETOverview] (VNets) kunt u veel van uw Azure-resources in een niet-Internet routeerbaar netwerk plaatsen.  
 
-De Azure App Service zijn er twee verschillende. 
+De Azure App Service heeft twee variaties. 
 
-1. De multitenant-systemen die ondersteuning bieden voor het volledige bereik van prijzen en abonnementen, behalve geïsoleerd
-2. App Service Environment (ASE), die wordt geïmplementeerd in uw VNet en biedt ondersteuning voor geïsoleerde prijs-plan-apps
+1. De multi tenant systemen die ondersteuning bieden voor het volledige aanbod aan prijs plannen, behalve geïsoleerd
+2. De App Service Environment (ASE), die in uw VNet wordt geïmplementeerd en die ondersteuning biedt voor geïsoleerd prijs plan-apps
 
-Dit document gaat via de twee VNet-integratie-functies, die is bedoeld voor gebruik in de App Service met meerdere tenants. Als uw app in [App Service-omgeving][ASEintro], en vervolgens deze al in een VNet is en geen gebruik van de VNet-integratiefunctie vereist tot resources in hetzelfde VNet. Lees voor meer informatie over alle van de App Service-netwerkfuncties, [App Service-functies voor netwerkbeheer](networking-features.md)
+Dit document gaat over de twee VNet-integratie functies, die u kunt gebruiken in de multi tenant-App Service. Als uw app zich in [app service Environment][ASEintro]bevindt, is deze al in een VNet en is het niet nodig om de VNet-integratie functie te gebruiken om resources in hetzelfde VNet te bereiken. Lees [app service-netwerk functies](networking-features.md) voor meer informatie over alle app service-netwerk functies
 
-Er zijn twee vormen op de functie voor VNet-integratie
+Er zijn twee formulieren voor de VNet-integratie functie
 
-1. Één versie maakt integratie met VNets in dezelfde regio. Deze vorm van de functie vereist een subnet in een VNet in dezelfde regio. Deze functie is nog in preview, maar wordt ondersteund voor productieworkloads voor Windows-app met enkele aanvullende opmerkingen hieronder aangegeven.
-2. De andere versie maakt integratie met vnet's in andere regio's of met klassieke VNets. Deze versie van de functie vereist de implementatie van een virtuele netwerkgateway in uw VNet. Dit is de punt-naar-site VPN op basis van functie en wordt alleen ondersteund met Windows-apps.
+1. Met één versie kan de integratie met VNets in dezelfde regio worden geïntegreerd. Deze vorm van de functie vereist een subnet in een VNet in dezelfde regio. Deze functie is nog steeds beschikbaar als preview, maar wordt wel ondersteund voor werk belastingen voor de Windows-app-productie met enkele aanvullende voor waarden die hieronder zijn vermeld.
+2. De andere versie maakt integratie mogelijk met VNets in andere regio's of met klassieke VNets. Voor deze versie van de functie is een Virtual Network-gateway in uw VNet geïmplementeerd. Dit is de punt-naar-site-VPN-functie en wordt alleen ondersteund met Windows-apps.
 
-Een app kan alleen een vorm van de VNet-integratiefunctie tegelijk gebruiken. Klik in de vraag is welke functie moet u gebruiken. U kunt gebruiken voor veel dingen. Er zijn echter de duidelijke verschillen:
+Een app kan slechts één vorm van de VNet-integratie functie tegelijk gebruiken. De vraag is vervolgens welke functie u moet gebruiken. U kunt voor een groot aantal dingen gebruiken. De Clear verschillen zijn als volgt:
 
 | Probleem  | Oplossing | 
 |----------|----------|
-| Een adres RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) bereiken in dezelfde regio wilt | regionale VNet-integratie |
-| Doelgroep van resources in een klassiek VNet of een VNet in een andere regio | Gateway vereist een VNet-integratie |
-| Wilt u RFC 1918 eindpunten via ExpressRoute bereiken | regionale VNet-integratie |
-| Wilt u resources via de service-eindpunten bereiken | regionale VNet-integratie |
+| U wilt een RFC 1918-adres bereiken (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) in dezelfde regio | regionale VNet-integratie |
+| U wilt bronnen bereiken in een klassiek VNet of een VNet in een andere regio | vereiste VNet-integratie voor gateway |
+| U wilt RFC 1918-eind punten bereiken via ExpressRoute | regionale VNet-integratie |
+| Resources willen bereiken tussen service-eind punten | regionale VNet-integratie |
 
-Geen van beide functie kunt u bereiken RFC 1918 adressen via ExpressRoute. Als u wilt doen die u wilt gebruiken een as-omgeving voor nu.
+Geen van beide functies biedt u de mogelijkheid om niet-RFC 1918-adressen te bereiken in ExpressRoute. Hiervoor moet u nu een ASE gebruiken.
 
-Met behulp van de regionale VNet-integratie geen verbinding maken met uw VNet naar on-premises of service-eindpunten configureren. Dat is gescheiden Clusternetwerkconfiguratie. De regionale VNet-integratie kunt gewoon uw app voor aanroepen voor deze verbindingstypen.
+Het gebruik van de regionale VNet-integratie verbindt uw VNet niet met on-premises of het configureren van service-eind punten. Dit is een afzonderlijke netwerk configuratie. Met de regionale VNet-integratie kan uw app eenvoudig aanroepen over deze verbindings typen.
 
-Ongeacht de versie die wordt gebruikt, VNet-integratie uw web-apptoegang geeft tot resources in uw virtuele netwerk, maar niet inkomende persoonlijke toegang verleend aan uw web-app vanuit het virtuele netwerk. Toegang tot de persoonlijke site verwijst naar het maken van uw app alleen toegankelijk is vanaf een particulier netwerk zoals uit binnen een virtueel Azure-netwerk. VNet-integratie is alleen voor uitgaande gesprekken vanuit uw app in uw VNet. 
+VNet-integratie geeft uw web-app toegang tot resources in uw virtuele netwerk, maar verleent geen inkomende persoonlijke toegang tot uw web-app vanuit het virtuele netwerk, ongeacht de gebruikte versie. Toegang via een persoonlijke site verwijst naar het toegankelijk maken van uw app vanaf een particulier netwerk, zoals vanuit een virtueel Azure-netwerk. VNet-integratie is alleen voor het maken van uitgaande oproepen vanuit uw app naar uw VNet. 
 
-De functie van de VNet-integratie:
+De VNet-integratie functie:
 
-* vereist een Standard, Premium of PremiumV2 prijsstelling 
-* biedt ondersteuning voor TCP en UDP
+* vereist een Standard-, Premium-of PremiumV2-prijs plan 
+* ondersteunt TCP en UDP
 * werkt met App Service-apps en functie-apps
 
-Er zijn enkele dingen die VNet-integratie biedt geen ondersteuning voor met inbegrip van:
+Er zijn enkele zaken die VNet-integratie niet ondersteunt, waaronder:
 
-* een schijf koppelen
+* een station koppelen
 * AD-integratie 
 * NetBios
 
-## <a name="regional-vnet-integration"></a>regionale VNet-integratie 
+## <a name="regional-vnet-integration"></a>Regionale VNet-integratie 
 
-Als VNet-integratie met VNets in dezelfde regio als uw app wordt gebruikt, is het vereist het gebruik van een gedelegeerde subnet met ten minste 32 adressen erin. Het subnet kan niet worden gebruikt voor iets anders. Uitgaande oproepen vanuit uw app worden gemaakt vanuit de adressen in de gedelegeerde subnet. Wanneer u deze versie van VNet-integratie, bestaan de aanroepen van adressen in uw VNet. Met behulp van de adressen in uw VNet, kan uw app:
+Wanneer VNet-integratie wordt gebruikt in combi natie met VNets in dezelfde regio als uw app, is het gebruik van een overgedragen subnet vereist met ten minste 32 adressen. Het subnet kan niet worden gebruikt voor iets anders. Uitgaande oproepen van uw app worden gemaakt op basis van de adressen in het overgedragen subnet. Wanneer u deze versie van VNet-integratie gebruikt, worden de aanroepen gemaakt op basis van adressen in uw VNet. Door gebruik te maken van adressen in uw VNet kan uw app:
 
-* aanroepen naar service-eindpunt beveiligde services
-* toegang tot resources via ExpressRoute-verbindingen
-* toegang tot bronnen in het VNet dat u met verbonden bent
-* toegang tot resources via gekoppelde verbindingen met inbegrip van ExpressRoute-verbindingen
+* Aanroepen naar beveiligde services voor service-eind punten
+* Toegang tot resources via ExpressRoute-verbindingen
+* Toegang tot resources in het VNet waarmee u verbinding hebt
+* Toegang tot bronnen tussen peered verbindingen, waaronder ExpressRoute-verbindingen
 
-Deze functie is beschikbaar als preview, maar dit wordt ondersteund voor productieworkloads van Windows-app met de volgende beperkingen:
+Deze functie is beschikbaar als preview-versie, maar wordt wel ondersteund voor werk belastingen voor Windows-app-productie met de volgende beperkingen:
 
-* u kunt alleen adressen die zich binnen het bereik van RFC 1918 bereiken. De zijn adressen in het 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16-adresblokken.
-* u kunt resources niet bereiken over wereldwijde peering-verbindingen
-* u kunt routes niet instellen op het verkeer dat afkomstig is van uw app in uw VNet
-* de functie is alleen beschikbaar via nieuwe App Service-schaaleenheden die ondersteuning bieden voor PremiumV2 App Service-plannen.
-* Het subnet van de integratie kan alleen worden gebruikt door slechts één App Service-plan
-* de functie kan niet worden gebruikt door Isolated-abonnement-apps die zich in een App Service Environment
-* De functie moet een niet-gebruikte subnet plaatsen dat is een/27 met 32 adressen of groter zijn in uw Resource Manager VNet
-* De app en het VNet moet zich in dezelfde regio
+* U kunt alleen adressen bereiken die zich in het RFC 1918-bereik bevinden. Dit zijn adressen in de blokken 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16.
+* U kunt geen resources bereiken in globale peering-verbindingen
+* U kunt geen routes instellen voor het verkeer dat afkomstig is van uw app naar uw VNet
+* De functie is alleen beschikbaar vanaf nieuwere App Service schaal eenheden die ondersteuning bieden voor PremiumV2 App Service-plannen.
+* Het integratie subnet kan slechts door één App Service plan worden gebruikt
+* De functie kan niet worden gebruikt door toepassingen van het geïsoleerde abonnement in een App Service Environment
+* Voor de functie is een ongebruikt subnet met een/27 met 32-adressen of groter vereist in uw Resource Manager VNet
+* De app en het VNet moeten zich in dezelfde regio bevinden
 * U kunt een VNet met een geïntegreerde app niet verwijderen. U moet eerst de integratie verwijderen 
-* U kunt slechts één regionale VNet-integratie per App Service-plan hebben. Meerdere apps in hetzelfde App Service-plan kunnen gebruiken hetzelfde VNet. 
+* U kunt slechts één regionale VNet-integratie per App Service plan hebben. Meerdere apps in hetzelfde App Service-abonnement kunnen hetzelfde VNet gebruiken. 
 
-Een adres wordt gebruikt voor elk exemplaar van App Service-plan. Als u uw app naar 5 exemplaren geschaald, dat is 5 adressen die worden gebruikt. Omdat de grootte van het gatewaysubnet kan niet worden gewijzigd nadat de toewijzing, moet u een subnet die groot genoeg is om te voldoen aan de gewenste contact met uw app opnemen kunt. Een/27 met 32 adressen is de aanbevolen grootte, zoals die overeenkomt met een Premium App Service-plan dat is geschaald naar 20 instanties.
+Er wordt één adres gebruikt voor elk exemplaar van de App Service-abonnement. Als u uw app hebt geschaald naar 5 exemplaren, is dat 5 gebruikte adressen. Aangezien de grootte van het subnet niet kan worden gewijzigd na toewijzing, moet u een subnet gebruiken dat groot genoeg is om te kunnen voldoen aan de schaal van uw app. A/27 met 32-adressen is de aanbevolen grootte voor een Premium-App Service plan dat wordt geschaald naar 20 exemplaren.
 
-De functie is in Preview-versie ook voor Linux. Gebruik de functie VNet-integratie met een Resource Manager VNet in dezelfde regio:
+Als u wilt dat uw apps in een andere App Service een VNet bereiken dat al is verbonden met apps in een ander App Service-abonnement, moet u een ander subnet selecteren dan dat van de bestaande VNet-integratie.  
 
-1. Ga naar de gebruikersinterface van netwerken in de portal. Als uw app kan de nieuwe functie wilt gebruiken, ziet u een optie voor het VNet toevoegen (preview).  
+De functie is ook beschikbaar als preview-versie voor Linux. De VNet-integratie functie gebruiken met een resource manager VNet in dezelfde regio:
 
-   ![Selecteer de VNet-integratie][6]
+1. Ga naar de gebruikers interface van het netwerk in de portal. Als uw app de nieuwe functie kan gebruiken, wordt er een optie weer gegeven voor het toevoegen van VNet (preview).  
+
+   ![VNet-integratie selecteren][6]
 
 1. Selecteer **VNet toevoegen (preview)** .  
 
-1. Selecteer het Resource Manager VNet die u wilt integreren in en klikt u vervolgens een nieuw subnet maken of kies een bestaand leeg subnet. De integratie van neemt minder dan een minuut in beslag. Uw app wordt tijdens de integratie wordt opnieuw gestart.  Als integratie is voltooid, ziet u details over de VNet die u kunnen worden geïntegreerd in en een banner aan de bovenkant waarin u dat de functie is beschikbaar als preview.
+1. Selecteer de Resource Manager VNet die u wilt integreren met en maak vervolgens een nieuw subnet of kies een leeg al bestaand subnet. Het volt ooien van de integratie duurt minder dan een minuut. Tijdens de integratie wordt uw app opnieuw opgestart.  Wanneer de integratie is voltooid, ziet u de details van het VNet dat u hebt geïntegreerd en een banner bovenaan die aangeeft dat de functie in preview is.
 
-   ![Selecteer het VNet en subnet][7]
+   ![Het VNet en subnet selecteren][7]
 
-Zodra uw app is geïntegreerd met uw VNet, wordt de DNS-server die uw VNet is geconfigureerd met gebruikt. 
+Als uw app is geïntegreerd met uw VNet, wordt dezelfde DNS-server gebruikt als uw VNet is geconfigureerd met. 
 
-Als u wilt verbreken uw app van het VNet, selecteer **verbinding verbreken**. Hiermee wordt uw web-app opnieuw opgestart. 
+Selecteer de **verbinding verbreken**om uw app te verbreken vanuit het VNet. Hiermee wordt de web-app opnieuw opgestart. 
 
 
-#### <a name="web-app-for-containers"></a>Web App for Containers
+#### <a name="web-app-for-containers"></a>Web-app voor containers
 
-Als u App Service op Linux met de ingebouwde installatiekopieën gebruikt, wordt het regionale VNet-integratiefunctie werkt zonder aanvullende wijzigingen. Als u Web App for Containers gebruikt, moet u uw docker-installatiekopie wijzigen als u wilt gebruiken van VNet-integratie. In uw docker-installatiekopie, gebruikt u de omgevingsvariabele poort als de luisterende poort van de belangrijkste webserver, in plaats van een poortnummer vastgelegd. De omgevingsvariabele poort bij het opstarten van de container automatisch ingesteld door App Service-platform.
+Als u gebruikmaakt van App Service op Linux met de ingebouwde installatie kopieën, werkt de regionale VNet-integratie functie zonder extra wijzigingen. Als u Web App for Containers gebruikt, moet u uw docker-installatie kopie aanpassen om VNet-integratie te kunnen gebruiken. Gebruik in uw docker-installatie kopie de variabele poort omgeving als de gateway poort van de hoofd webserver, in plaats van een hardcoded poort nummer te gebruiken. De variabele poort omgeving wordt automatisch ingesteld door App Service platform op de opstart tijd van de container.
 
 ### <a name="service-endpoints"></a>Service-eindpunten
 
-De nieuwe functie voor VNet-integratie kunt u gebruikmaken van service-eindpunten.  Als u service-eindpunten met uw app, gebruikt u de nieuwe VNet-integratie verbinding maken met een geselecteerde VNet en configureer vervolgens de service-eindpunten op het subnet dat u hebt gebruikt voor de integratie. 
+Met de nieuwe functie VNet-integratie kunt u service-eind punten gebruiken.  Als u service-eind punten wilt gebruiken in combi natie met uw app, gebruikt u de nieuwe VNet-integratie om verbinding te maken met een geselecteerd VNet en configureert u vervolgens service-eind punten in het subnet dat u voor de integratie hebt gebruikt. 
 
 
-### <a name="how-vnet-integration-works"></a>De werking van VNet-integratie
+### <a name="how-vnet-integration-works"></a>Hoe VNet-integratie werkt
 
-Apps in de App-Service worden gehost op werkrollen. De Basic en hoger prijzen en abonnementen zijn toegewezen die als host fungeert voor abonnementen waarbij er geen andere klanten workloads die worden uitgevoerd op de dezelfde werknemers. VNet-integratie werkt door de virtuele-interfaces met adressen in het gedelegeerde subnet koppelen. Omdat het van-adres is in uw VNet, het toegang heeft tot de meeste dingen in of via uw VNet net zoals een virtuele machine in uw VNet wilt. De VPN-implementatie is anders dan het uitvoeren van een VM in uw VNet, en dat is waarom sommige netwerkfuncties zijn nog niet beschikbaar tijdens het gebruik van deze functie.
+Apps in de App Service worden gehost op werk rollen. De basis-en hogere prijs plannen zijn toegewezen hosting plannen waarbij er geen andere werk belastingen voor klanten op dezelfde werk nemers worden uitgevoerd. VNet-integratie werkt door virtuele interfaces te koppelen aan adressen in het overgedragen subnet. Omdat het van-adres zich in uw VNet bevindt, heeft het toegang tot de meeste zaken in of via uw VNet, net zoals een virtuele machine in uw VNet zou. De netwerk implementatie verschilt van het uitvoeren van een virtuele machine in uw VNet en daarom zijn sommige netwerk functies nog niet beschikbaar tijdens het gebruik van deze functie.
 
 ![VNet-integratie](media/web-sites-integrate-with-vnet/vnet-integration.png)
 
-Als VNet-integratie is ingeschakeld, wordt uw app nog steeds uitgaande gesprekken op internet via dezelfde kanalen als normale maken. De uitgaande adressen die worden vermeld in de portal voor app-eigenschappen zijn nog steeds de adressen die worden gebruikt door uw app. Wat wijzigingen voor uw app zijn oproepen aan service-eindpunt beveiligde services of RFC 1918 adressen in uw VNet gaat. 
+Wanneer VNet-integratie is ingeschakeld, maakt uw app nog steeds uitgaande oproepen naar het Internet via dezelfde kanalen als normaal. De uitgaande adressen die worden vermeld in de app-eigenschappen Portal zijn nog steeds de adressen die worden gebruikt door uw app. Welke wijzigingen voor uw app zijn, aanroepen naar service-eind punten beveiligde services of RFC 1918-adressen gaan naar uw VNet. 
 
-De functie biedt alleen ondersteuning voor een virtuele hostinterface per worker.  Een virtuele hostinterface per worker betekent een regionale VNet-integratie per App Service-plan. Alle apps in hetzelfde App Service-plan het hetzelfde VNet-integratie kunt gebruiken, maar als u een app te verbinden met een extra VNet nodig hebt, moet u een andere App Service-plan maken. De virtuele-interface gebruikt, is geen resource die klanten rechtstreeks toegang tot hebben.
+De functie ondersteunt slechts één virtuele interface per werk nemer.  Eén virtuele interface per werk nemer betekent één regionale VNet-integratie per App Service plan. Alle apps in hetzelfde App Service-abonnement kunnen dezelfde VNet-integratie gebruiken, maar als u een app nodig hebt om verbinding te maken met een extra VNet, moet u een ander App Service-abonnement aanmaken. De gebruikte virtuele interface is geen resource waarmee klanten rechtstreeks toegang hebben.
 
-Vanwege de aard van de werking van deze technologie, wordt het verkeer dat wordt gebruikt met VNet-integratie niet weergegeven in Network Watcher of de NSG-stroomlogboeken.  
+Vanwege de aard van de werking van deze technologie wordt het verkeer dat wordt gebruikt met VNet-integratie niet weer gegeven in Network Watcher-of NSG-stroom Logboeken.  
 
-## <a name="gateway-required-vnet-integration"></a>Gateway vereist een VNet-integratie 
+## <a name="gateway-required-vnet-integration"></a>Vereiste VNet-integratie voor gateway 
 
-De Gateway vereist een VNet-integratiefunctie:
+De gateway vereist VNet-integratie functie:
 
-* kan worden gebruikt om verbinding maken met VNets in elke regio worden ze Resource Manager of klassieke vnet 's
-* Hiermee kunt een app te verbinden met slechts 1 VNet tegelijk
-* Hiermee kunt maximaal vijf VNets kunnen worden geïntegreerd met in een App Service-Plan 
-* Hiermee kunt u hetzelfde VNet moet worden gebruikt door meerdere apps in een App Service-Plan zonder enige impact op het totale aantal die kan worden gebruikt door een App Service-plan.  Hebt u 6 apps met hetzelfde VNet in hetzelfde App Service-plan, telt dat als 1 VNet wordt gebruikt. 
-* een virtuele netwerkgateway die is geconfigureerd met een punt bij Site-VPN is vereist
+* Kan worden gebruikt om verbinding te maken met VNets in een wille keurige regio, de resources Resource Manager of klassieke VNets
+* Hiermee kan een app verbinding maken met slechts één VNet per keer
+* Hiermee kunnen Maxi maal vijf VNets worden geïntegreerd met in een App Service-abonnement 
+* Hiermee kan hetzelfde VNet worden gebruikt door meerdere apps in een App Service-abonnement zonder dat dit van invloed is op het totale aantal dat kan worden gebruikt door een App Service plan.  Als u 6 apps hebt die gebruikmaken van hetzelfde VNet in hetzelfde App Service-abonnement, wordt het aantal gebruikte VNet gebruikt. 
+* Vereist een Virtual Network gateway die is geconfigureerd met Point-to-site VPN
 * Wordt niet ondersteund voor gebruik met Linux-apps
-* Biedt ondersteuning voor een SLA van 99,9% vanwege de SLA voor de gateway
+* Ondersteunt een SLA van 99,9% door de SLA op de gateway
 
-Deze functie biedt geen ondersteuning:
+Deze functie biedt geen ondersteuning voor:
 
 * Toegang tot resources in ExpressRoute 
 * Toegang tot resources in service-eindpunten 
 
 ### <a name="getting-started"></a>Aan de slag
 
-Hier volgen een aantal zaken waarmee u rekening moet houden voordat u uw web-app verbinden met een virtueel netwerk:
+Hier volgen enkele dingen die u moet onthouden voordat u uw Web-App verbindt met een virtueel netwerk:
 
-* Een doel virtueel netwerk moet punt-naar-site VPN is ingeschakeld met een op route gebaseerde gateway voordat deze kan worden verbonden met de app hebben. 
-* Het VNet moet zich in hetzelfde abonnement als uw App Service-Plan(ASP).
-* De apps die zijn geïntegreerd met een VNet gebruiken de DNS-server die is opgegeven voor dit VNet.
+* Voor een virtueel doelnet doel moet punt-naar-site-VPN zijn ingeschakeld met een op route gebaseerde gateway voordat deze kan worden verbonden met de app. 
+* Het VNet moet zich in hetzelfde abonnement benemen als uw App Service plan (ASP).
+* De apps die met een VNet worden geïntegreerd, gebruiken de DNS die voor dat VNet is opgegeven.
 
-### <a name="set-up-a-gateway-in-your-vnet"></a>Een gateway in uw VNet instellen ###
+### <a name="set-up-a-gateway-in-your-vnet"></a>Een gateway instellen in uw VNet ###
 
-Als u al een gateway zijn geconfigureerd met punt-naar-site-adressen hebt, kunt u overslaan met het configureren van VNet-integratie met uw app.  
+Als u al een gateway hebt geconfigureerd met Point-to-site-adressen, kunt u door gaan met het configureren van de VNet-integratie met uw app.  
 Een gateway maken:
 
-1. [Een gatewaysubnet maken][creategatewaysubnet] in uw VNet.  
+1. [Maak een gateway-subnet][creategatewaysubnet] in uw VNet.  
 
-1. [Maken van de VPN-gateway][creategateway]. Selecteer een op route gebaseerde VPN-type.
+1. [Maak de VPN-gateway][creategateway]. Selecteer een op route gebaseerd VPN-type.
 
-1. [Het punt ingesteld op siteadressen][setp2saddresses]. Als de gateway niet in de basis-SKU, klikt u vervolgens IKEV2 moet worden uitgeschakeld in de punt-naar-site-configuratie en SSTP moet worden geselecteerd. De adresruimte moet zich in de RFC 1918-adresblokken, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
+1. [Stel het punt in op site adressen][setp2saddresses]. Als de gateway zich niet in de basis-SKU bevindt, moet IKEV2 worden uitgeschakeld in de punt-naar-site-configuratie en moet SSTP worden geselecteerd. De adres ruimte moet de RFC 1918-adres blokken, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 zijn.
 
-Als u alleen het maken van de gateway voor gebruik met App Service-VNet-integratie, vervolgens u niet nodig hebt om een certificaat te uploaden. Het maken van de gateway kan 30 minuten duren. Niet mogelijk het integreren van uw app met uw VNet totdat de gateway is ingericht. 
+Als u de gateway alleen maakt voor gebruik met App Service VNet-integratie, hoeft u geen certificaat te uploaden. Het maken van de gateway kan 30 minuten duren. U kunt uw app pas met uw VNet integreren nadat de gateway is ingericht. 
 
 ### <a name="configure-vnet-integration-with-your-app"></a>VNet-integratie met uw app configureren 
 
-VNet-integratie inschakelen voor uw app: 
+VNet-integratie voor uw app inschakelen: 
 
-1. Gaat u naar uw app in Azure portal en app-instellingen openen en selecteert u netwerken > VNet-integratie. Uw ASP moet zich in een standaard-SKU of beter om een VNet-integratie-functie te gebruiken. 
- ![VNet-integratie UI][1]
+1. Ga naar uw app in de Azure Portal en open de app-instellingen en selecteer Netwerk > VNet-integratie. Uw ASP moet zich in een standaard-SKU of beter kunnen gebruiken voor het gebruik van de VNet-integratie functie. 
+ ![VNet-integratie GEBRUIKERSINTERFACE][1]
 
 1. Selecteer **VNet toevoegen**. 
- ![Toevoegen van VNet-integratie][2]
+ ![VNet-integratie toevoegen][2]
 
 1. Selecteer uw VNet. 
-  ![Selecteer uw VNet][8]
+  ![Uw VNet selecteren][8]
   
-Uw app wordt opnieuw gestart na deze laatste stap.  
+De app wordt na deze laatste stap opnieuw opgestart.  
 
-### <a name="how-the-gateway-required-vnet-integration-feature-works"></a>Hoe de gateway vereist voor VNet-integratiefunctie werkt
+### <a name="how-the-gateway-required-vnet-integration-feature-works"></a>Hoe de gateway de vereiste VNet-integratie functie werkt
 
-De gateway vereist VNet-integratiefunctie is gebaseerd op een punt-naar-site VPN-technologie. De technologie voor punt-naar-site beperkt de toegang tot het netwerk met alleen de virtuele machine die als host fungeert de app. Apps zijn beperkt tot alleen verkeer verzendt uit met het internet, via hybride verbindingen of via VNet-integratie. 
+De gateway vereiste VNet-integratie functie is gebouwd op basis van punt-naar-site-VPN-technologie. De punt-naar-site-technologie beperkt netwerk toegang tot alleen de virtuele machine die als host fungeert voor de app. Apps worden beperkt tot het verzenden van verkeer naar Internet, via Hybride verbindingen of via VNet-integratie. 
 
-![De werking van VNet-integratie][3]
+![Hoe VNet-integratie werkt][3]
 
-## <a name="managing-vnet-integration"></a>Beheer van VNet-integratie
-De mogelijkheid om verbinding te verbreken met een VNet is op het niveau van een app. Bewerkingen die invloed hebben op de VNet-integratie voor meerdere apps zijn op het niveau van de App Service-plan. Vanuit de app > netwerken > portal voor VNet-integratie kunt u informatie krijgen over uw VNet. U kunt zien dat vergelijkbare informatie op het niveau van de ASP in de ASP-> netwerken > VNet-integratie-portal onder andere voor welke apps in het App Service-plan met behulp van een bepaalde integratie.
+## <a name="managing-vnet-integration"></a>VNet-integratie beheren
+De mogelijkheid om verbinding te maken en de verbinding met een VNet te verbreken is op een app-niveau. Bewerkingen die van invloed kunnen zijn op de VNet-integratie tussen meerdere apps, bevinden zich op het niveau van App Service plan. Vanuit de app > Network > VNet-integratie Portal kunt u meer informatie krijgen over uw VNet. U kunt vergelijk bare gegevens zien op het ASP-niveau in het ASP-> netwerk > VNet-integratie Portal, met inbegrip van de apps in dat App Service plan een bepaalde integratie te gebruiken.
 
- ![VNet-details][4]
+ ![VNet-Details][4]
 
-De informatie die u beschikbaar zijn voor u in de gebruikersinterface van de VNet-integratie is hetzelfde tussen de app en de ASP-Portal.
+De gegevens die u in de gebruikers interface van de VNet-integratie hebt, zijn hetzelfde als die van de app-en ASP-portals.
 
-* Naam van de VNet - koppelingen naar het virtuele netwerk UI
-* Locatie - komt overeen met de locatie van uw VNet. Integreren met een VNet in een andere locatie kan leiden tot latentieproblemen met voor uw app. 
-* Status van het certificaat - weerspiegelt als uw certificaten gesynchroniseerd tussen uw App Service-plan en uw VNet zijn.
-* Status van de gateway - moet u de gateway vereist een VNet-integratie, ziet u de status van de gateway.
-* VNet-adresruimte - ziet u de IP-adresruimte voor uw VNet. 
-* Punt-naar-site-adresruimte - ziet u het punt om te site IP-adresruimte voor uw VNet. Bij het aanroepen in uw VNet tijdens het gebruik van de functie voor de gateway vereist, worden de FROM-adres van uw app een van deze adressen. 
-* Site-naar-site-adresruimte - kunt u site-naar-site VPN-verbindingen naar uw VNet verbinding maken met uw on-premises bronnen of andere VNet. De IP-bereiken die zijn gedefinieerd met deze VPN-verbinding worden hier weergegeven.
-* DNS-Servers - geeft de DNS-Servers geconfigureerd met uw VNet.
-* IP-adressen die zijn doorgestuurd naar het VNet - toont de-adresblokken doorgestuurd gebruikt voor verkeer van het station in uw VNet 
+* VNet-naam-koppelingen naar de gebruikers interface van het virtuele netwerk
+* Locatie: komt overeen met de locatie van uw VNet. Integreren met een VNet op een andere locatie kan latentie problemen veroorzaken voor uw app. 
+* Certificaat status: geeft aan of uw certificaten synchroon zijn tussen uw App Service-abonnement en uw VNet.
+* Status van de gateway: als u de gateway-vereiste VNet-integratie gebruikt, ziet u de status van de gateway.
+* VNet-adres ruimte: toont de IP-adres ruimte voor uw VNet. 
+* Punt-naar-site-adres ruimte: toont het punt van de site-IP-adres ruimte voor uw VNet. Wanneer u uw VNet aanroept terwijl u de functie gateway vereist gebruikt, is uw app van adres een van deze adressen. 
+* Site-naar-site-adres ruimte: u kunt site-naar-site-Vpn's gebruiken om uw VNet te verbinden met uw on-premises resources of een ander VNet. De IP-adresbereiken die zijn gedefinieerd voor deze VPN-verbinding worden hier weer gegeven.
+* DNS-servers: hier worden de DNS-servers weer gegeven die zijn geconfigureerd met uw VNet.
+* IP-adressen die naar het VNet worden gerouteerd, worden in de adres blokken weer gegeven die worden gebruikt om het verkeer naar uw VNet te sturen 
 
-De enige bewerking die u in de app-weergave van uw VNet-integratie uitvoeren kunt is uw app ontkoppelt van het momenteel is verbonden met VNet. Als u wilt verbreken uw app van een VNet, selecteer **verbinding verbreken**. Uw app wordt opnieuw gestart wanneer u een VNet te verbreken. Verbinding verbreken verandert uw VNet niet. Het subnet of de gateway is niet verwijderd. Als u vervolgens verwijderen van uw VNet wilt, moet u eerst uw app ontkoppelt van het VNet en verwijderen van de resources, zoals gateways. 
+De enige bewerking die u kunt uitvoeren in de app-weer gave van uw VNet-integratie is het verbreken van de verbinding van uw app met het VNet waarmee momenteel verbinding is gemaakt. Als u uw app wilt loskoppelen van een VNet, selecteert u **verbinding verbreken**. Uw app wordt opnieuw gestart wanneer u de verbinding met een VNet verbreekt. Als u de verbinding verbreekt, wordt uw VNet niet gewijzigd. Het subnet of de gateway wordt niet verwijderd. Als u uw VNet vervolgens wilt verwijderen, moet u de app eerst loskoppelen van het VNet en de resources hierin verwijderen, zoals gateways. 
 
-Als u wilt de gebruikersinterface van ASP-VNet-integratie is bereikt, open uw ASP-gebruikersinterface en selecteer **netwerken**.  Selecteer onder de VNet-integratie, **Klik hier om te configureren** openen van de gebruikersinterface voor het netwerk functie Status.
+Als u de gebruikers interface voor de integratie van ASP wilt bereiken, opent u uw ASP-gebruikers interface en selecteert u **netwerken**.  Selecteer onder VNet-integratie de optie **Klik hier om te configureren** om de gebruikers interface van de netwerk functie te openen.
 
-![ASP-VNet-integratie-informatie][5]
+![Informatie over ASP VNet-integratie][5]
 
-De ASP-VNet-integratie-gebruikersinterface ziet u alle van de vnet's die worden gebruikt door de apps in uw ASP. Voor informatie over elk VNet, klikt u op het VNet waarin u geïnteresseerd bent. Er zijn twee acties die u hier kunt uitvoeren.
+De gebruikers interface van de ASP VNet-integratie geeft alle VNets weer die worden gebruikt door de apps in uw ASP. Als u de details van elk VNet wilt bekijken, klikt u op het VNet waarin u bent geïnteresseerd. U kunt hier twee acties uitvoeren.
 
-* **Netwerk synchroniseren**. De synchronisatiebewerking van het netwerk is alleen voor de functie afhankelijk zijn van het gateway-VNet-integratie. Uitvoeren van een synchronisatiebewerking van het netwerk zorgt ervoor dat uw certificaten en netwerkgegevens gesynchroniseerd zijn. Als u toevoegen of wijzigen van de DNS-server van uw VNet, moet u om uit te voeren een **netwerk synchroniseren** bewerking. Met deze bewerking wordt opnieuw opgestart alle apps met behulp van dit VNet.
-* **Routes toevoegen** routes toe te voegen de basis van uitgaand verkeer in uw VNet.
+* **Netwerk synchroniseren**. De synchronisatie netwerk bewerking is alleen voor de gateway-afhankelijke VNet-integratie functie. Wanneer u een synchronisatie netwerk uitvoert, zorgt u ervoor dat uw certificaten en netwerk gegevens synchroon zijn. Als u de DNS van uw VNet toevoegt of wijzigt, moet u een **synchronisatie netwerk** bewerking uitvoeren. Met deze bewerking worden alle apps die gebruikmaken van dit VNet, opnieuw gestart.
+* **Routes toevoegen** Door routes toe te voegen, wordt uitgaand verkeer naar uw VNet geleid.
 
-**Routering** de routes die zijn gedefinieerd in uw VNet worden gebruikt om verkeer te regelen in uw VNet vanaf uw app. Als u aanvullende uitgaand verkeer verzenden naar het VNet wilt, kunt u deze-adresblokken hier toevoegen. Deze mogelijkheid alleen werkt met gateway vereist een VNet-integratie.
+**Route ring** De routes die in uw VNet zijn gedefinieerd, worden gebruikt voor het omleiden van verkeer naar uw VNet vanuit uw app. Als u extra uitgaand verkeer naar het VNet wilt verzenden, kunt u deze adres blokken hier toevoegen. Deze functie werkt alleen met Gateway vereiste VNet-integratie.
 
-**Certificaten** wanneer de gateway vereist een VNet-integratie is ingeschakeld, er is een vereiste uitwisselen van certificaten om te controleren of de beveiliging van de verbinding. Samen met de certificaten zijn de DNS-configuratie, routes en andere vergelijkbare dingen die worden beschreven van het netwerk.
-Als certificaten of netwerkgegevens wordt gewijzigd, moet u klikken op 'Sync netwerk'. Als u 'Sync netwerk' klikt, zorgt u ervoor dat een korte onderbreking in de verbinding tussen uw app en uw VNet. Terwijl uw app wordt niet opnieuw opgestart, het verlies van connectiviteit kan ervoor zorgen dat uw site niet correct. 
+**Certificaten** Wanneer de gateway vereist VNet-integratie is ingeschakeld, is er een vereiste uitwisseling van certificaten vereist om te zorgen voor de beveiliging van de verbinding. Naast de certificaten zijn de DNS-configuratie, routes en andere vergelijk bare dingen die het netwerk beschrijven.
+Als certificaten of netwerk gegevens worden gewijzigd, moet u klikken op netwerk synchroniseren. Wanneer u op netwerk synchroniseren klikt, wordt er een korte onderbreking in de connectiviteit tussen uw app en uw VNet veroorzaakt. Als uw app niet opnieuw wordt gestart, kan het verlies van de connectiviteit ertoe leiden dat uw site niet goed werkt. 
 
-## <a name="accessing-on-premises-resources"></a>Toegang tot on-premises bronnen
-Apps toegang hebben tot on-premises bronnen door te integreren met VNets met site-naar-site-verbindingen. Als u de gateway vereist een VNet-integratie, moet u uw on-premises VPN-gateway routes bijwerken met de punt-naar-site-adresblokken. Wanneer de site-naar-site VPN-verbinding eerst is ingesteld, moeten de scripts die worden gebruikt om deze te configureren routes correct ingesteld. Als u de punt-naar-site-adressen toevoegen nadat u uw site-naar-site-VPN hebt gemaakt, moet u de routes, handmatig bijwerken. Informatie over hoe u dat doen variëren per gateway en worden hier niet beschreven. U kunt geen BGP is geconfigureerd met een site-naar-site VPN-verbinding.
+## <a name="accessing-on-premises-resources"></a>Toegang tot on-premises resources
+Apps kunnen toegang krijgen tot on-premises resources door te integreren met VNets met site-naar-site-verbindingen. Als u de gateway vereiste VNet-integratie gebruikt, moet u uw on-premises VPN-gateway routes bijwerken met uw punt-naar-site-adres blokken. Wanneer de site-naar-site-VPN voor het eerst wordt ingesteld, moeten de scripts die worden gebruikt voor het configureren van de server routes op de juiste wijze instellen. Als u de punt-naar-site-adressen toevoegt nadat u uw site-naar-site-VPN hebt gemaakt, moet u de routes hand matig bijwerken. Meer informatie over hoe u dit doet, verschilt per gateway en wordt hier niet beschreven. U kunt BGP niet geconfigureerd met een site-naar-site-VPN-verbinding.
 
-Er is geen aanvullende configuratie vereist voor de regionale VNet-integratiefunctie te bereiken via uw VNet, en met on-premises. U hoeft uw VNet naar on-premises verbinding met behulp van ExpressRoute of een site-naar-site-VPN. 
+Er is geen aanvullende configuratie vereist voor de functie van de regionale VNet-integratie die u kunt bereiken via uw VNet en on-premises. U hoeft alleen maar uw VNet te verbinden met on-premises met behulp van ExpressRoute of een site-naar-site-VPN. 
 
 > [!NOTE]
-> De gateway vereist VNet-integratiefunctie niet geïntegreerd is een app met een VNet met een ExpressRoute-Gateway. Zelfs als de ExpressRoute-Gateway is geconfigureerd [co-existentie modus][VPNERCoex] the VNet Integration doesn't work. If you need to access resources through an ExpressRoute connection, then you can use the regional VNet Integration feature or an [App Service Environment][ASE], die wordt uitgevoerd in uw VNet. 
+> De gateway vereist VNet-integratie functie integreert geen app met een VNet met een ExpressRoute-gateway. Zelfs als de ExpressRoute-gateway is geconfigureerd in de modus voor samen [werking][VPNERCoex] , werkt de VNet-integratie niet. Als u toegang nodig hebt tot bronnen via een ExpressRoute-verbinding, kunt u de functie voor regionale VNet-integratie gebruiken of een [app service Environment][ASE], die wordt uitgevoerd in uw VNet. 
 > 
 > 
 
 ## <a name="peering"></a>Peering
-Als u met de integratie van regionale VNet-peering gebruikt, hoeft u niet elke extra configuratie. 
+Als u peering met de regionale VNet-integratie gebruikt, hoeft u geen aanvullende configuratie uit te voeren. 
 
-Als u de gateway vereist een VNet-integratie met peers, moet u een paar extra items configureren. Het configureren van peering om te werken met uw app:
+Als u de gateway vereist VNet-integratie met peering gebruikt, moet u enkele extra items configureren. Peering configureren voor gebruik met uw app:
 
-1. Voeg dat een peeringverbinding op het VNet uw app verbinding maakt met. Bij het toevoegen van de peeringverbinding inschakelen **toestaan van toegang tot het virtuele netwerk** en Controleer **doorgestuurd verkeer toestaan** en **gatewayoverdracht toestaan**.
-1. Een peeringverbinding toevoegen op het VNet dat gekoppeld is met het VNet dat u met verbonden bent. Bij het toevoegen van de peeringverbinding op de doel-VNet, inschakelen **toestaan van toegang tot het virtuele netwerk** en Controleer **doorgestuurd verkeer toestaan** en **toestaan van externe gateways**.
-1. Ga naar de App Service-plan > netwerken > gebruikersinterface van de VNet-integratie in de portal.  Selecteer het VNet dat uw app maakt verbinding met. Voeg het adresbereik van het VNet dat is gekoppeld aan het VNet dat uw app is verbonden met onder de sectie routering.  
+1. Een peering-verbinding toevoegen op het VNet waarmee uw app verbinding maakt. Wanneer u de peering-verbinding toevoegt, schakelt u **toegang tot virtueel netwerk toestaan** in en schakelt u **doorgestuurd verkeer toestaan** uit en laat u toe dat **gateway door Voer**.
+1. Voeg een peering-verbinding toe op het VNet dat wordt gekoppeld aan het VNet waarmee u verbinding hebt. Bij het toevoegen van de peering-verbinding op het doel-VNet schakelt u **toegang tot virtueel netwerk toestaan** in en schakelt u **doorgestuurd verkeer toestaan** uit en **externe gateways toestaan**.
+1. Ga naar het App Service plan > netwerken > VNet-integratie GEBRUIKERSINTERFACE in de portal.  Selecteer het VNet waarmee uw app verbinding maakt. Voeg onder de sectie route ring het adres bereik toe van het VNet dat is gekoppeld aan het VNet waarmee uw app is verbonden.  
 
 
-## <a name="pricing-details"></a>Prijsdetails
-De regionale VNet-integratie-functie heeft geen extra kosten voor gebruik buiten de ASP prijzen laag kosten in rekening gebracht.
+## <a name="pricing-details"></a>Prijsinformatie
+De regionale VNet-integratie functie heeft geen extra kosten voor gebruik buiten de ASP-prijs categorie kosten.
 
-Er zijn drie gerelateerde kosten voor het gebruik van de VNet-integratiefunctie gateway vereist:
+Er zijn drie kosten verbonden aan het gebruik van de gateway vereiste VNet-integratie functie:
 
-* Kosten voor ASP-prijzen laag - uw apps moeten zich in een Standard, Premium of PremiumV2 App Service-Plan. U kunt meer details weergeven op de kosten die u hier: [App Service-prijzen][ASPricing]. 
-* Kosten van gegevensoverdracht - er is een kosten in rekening gebracht voor uitgaande gegevens, zelfs als het VNet in hetzelfde Datacenter. Deze kosten worden beschreven in [Data Transfer prijsinformatie over][DataPricing]. 
-* Kosten voor VPN-Gateway - er zijn kosten verbonden aan de VNet-gateway die is vereist voor de punt-naar-site VPN-verbinding is. De gegevens zijn op de [prijzen voor VPN-Gateway][VNETPricing] pagina.
+* Kosten voor ASP-prijs Categorieën: uw apps moeten zich in een Standard-, Premium-of PremiumV2-abonnement beApp Service. U kunt hier meer informatie over deze kosten bekijken: [App service prijzen][ASPricing]. 
+* Kosten voor gegevens overdracht: er worden kosten in rekening gebracht voor het afrekenen van gegevens, zelfs als het VNet zich in hetzelfde Data Center bevindt. Deze kosten worden beschreven in [gegevensoverdracht prijs informatie][DataPricing]. 
+* VPN Gateway kosten: er zijn kosten verbonden aan de VNet-gateway die is vereist voor het punt-naar-site-VPN. De details zijn te vinden op de pagina met [VPN gateway prijzen][VNETPricing] .
 
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-Wanneer de functie eenvoudig om in te stellen is, betekent dat niet dat uw ervaring probleem gratis zijn. Moet u ondervindt zijn problemen met het openen van uw gewenste eindpunt er enkele hulpprogramma's die u gebruiken kunt voor het testen van de connectiviteit van de app-console. Er zijn twee consoles die u kunt gebruiken. Is de Kudu-console en de andere is de console in de Azure-portal. Als u wilt de Kudu-console vanuit uw app is bereikt, Ga naar Extra -> Kudu. Dit is hetzelfde als het gaat [sitename]. scm.azurewebsites.net. Zodra dat wordt geopend, gaat u naar het foutopsporingstabblad van de console. Ga naar hulpprogramma's om op te halen voor de Azure portal gehoste-console en vervolgens vanuit uw app-Console >. 
+Hoewel de functie eenvoudig kan worden ingesteld, betekent dat niet dat uw ervaring geen probleem is. Als u problemen ondervindt met het verkrijgen van toegang tot uw gewenste eind punt, kunt u een aantal hulpprogram ma's gebruiken om de connectiviteit vanuit de app-console te testen. Er zijn twee consoles die u kunt gebruiken. Een van de kudu-console en de andere is de console in de Azure Portal. Als u de kudu-console wilt bereiken vanuit uw app, gaat u naar extra-> kudu. Dit is hetzelfde als voor [site naam]. scm. azurewebsites. net. Als dat is geopend, gaat u naar het tabblad debug console. Als u naar de Azure Portal gehoste console wilt gaan vanuit uw app, gaat u naar Hulpprogram Ma's->-console. 
 
 #### <a name="tools"></a>Hulpprogramma's
-De hulpprogramma's **ping**, **nslookup** en **tracert** via de console vanwege veiligheidsbeperkingen werkt niet. Om in te vullen de void twee afzonderlijke hulpprogramma's toegevoegd. Als u wilt testen DNS-functionaliteit, hebben we een hulpprogramma met de naam nameresolver.exe toegevoegd. De syntaxis is:
+De **ping**-hulpprogram ma's van **nslookup** en **tracert** werken niet via de console vanwege beveiligings beperkingen. Als u de void wilt vullen, worden er twee afzonderlijke extra hulp middelen toegevoegd. We hebben een hulp programma met de naam nameresolver. exe toegevoegd om de DNS-functionaliteit te testen. De syntaxis is:
 
     nameresolver.exe hostname [optional: DNS Server]
 
-U kunt **nameresolver** om te controleren of de hostnamen die afhankelijk van uw app. Op deze manier kunt u als u niets verkeerd geconfigureerd met uw DNS of mogelijk geen toegang tot de DNS-server hebt testen. Hier ziet u de DNS-server die uw app wordt gebruikt in de console door te kijken de omgevingsvariabelen WEBSITE_DNS_SERVER en WEBSITE_DNS_ALT_SERVER.
+U kunt **nameresolver** gebruiken om de hostnamen te controleren waarvan uw app afhankelijk is. Op deze manier kunt u testen of er iets mis is met uw DNS of dat u mogelijk geen toegang hebt tot uw DNS-server. U kunt de DNS-server zien die door uw app wordt gebruikt in de-console door te kijken naar de omgevings variabelen WEBSITE_DNS_SERVER en WEBSITE_DNS_ALT_SERVER.
 
-De volgende hulpprogramma kunt u testen voor TCP-verbinding met een combinatie van de host en poort. Dit hulpprogramma wordt aangeroepen **tcpping** en de syntaxis is:
+Met het volgende hulp programma kunt u testen op TCP-connectiviteit met een combi natie van host en poort. Dit hulp programma heet **tcpping** en de syntaxis is:
 
     tcpping.exe hostname [optional: port]
 
-De **tcpping** hulpprogramma geeft u aan als u een specifieke host en poort kunt bereiken. Alleen succes kan weergegeven als: Er is een toepassing die luistert op de combinatie van de host en poort en er is toegang tot het netwerk van uw app naar de opgegeven host en poort.
+Het **tcpping** -hulp programma vertelt u of u een specifieke host en poort kunt bereiken. Het kan alleen succes weer geven als: er luistert een toepassing naar de combi natie van host en poort en er is netwerk toegang vanuit uw app naar de opgegeven host en poort.
 
-#### <a name="debugging-access-to-vnet-hosted-resources"></a>Toegang tot de VNet-foutopsporing gehoste bronnen
-Er zijn een aantal dingen die u kunt voorkomen dat uw app in een specifieke host en poort bereikt. De meeste gevallen is het een van drie dingen:
+#### <a name="debugging-access-to-vnet-hosted-resources"></a>Fout opsporing voor gehoste resources in VNet
+Er zijn een aantal dingen die kunnen voor komen dat uw app een specifieke host en poort bereikt. De meeste tijd is het een van de volgende drie dingen:
 
-* **Er is een firewall op de manier.** Als u een firewall op de manier hebt, kunt u de time-out voor TCP wordt bereikt. De TCP-time is in dit geval 21 seconden. Gebruik de **tcpping** hulpprogramma connectiviteit testen. TCP-time-outs kan vanwege een groot aantal dingen voorbij firewalls maar het begin beginnen. 
-* **DNS is niet toegankelijk is.** De DNS-out is drie seconden per DNS-server. Als u twee DNS-servers hebt, is de time-out 6 seconden. Gebruik nameresolver om te zien of DNS werkt. Vergeet niet dat je niet nslookup gebruiken als die niet van de uw VNet is geconfigureerd gebruikmaken met DNS-server. Als deze niet toegankelijk is, kan er een firewall of NSG blokkeren van toegang tot de DNS- of deze zijn mogelijk niet beschikbaar.
+* **Een firewall is in de weg.** Als u een firewall op de gewenste manier hebt, bereikt u de TCP-time-out. In dit geval is de TCP-time-out 21 seconden. Gebruik het hulp programma **tcpping** om de connectiviteit te testen. TCP-time-outs kunnen te wijten zijn aan veel dingen buiten firewalls, maar u kunt hier beginnen. 
+* **DNS is niet toegankelijk.** De DNS-time-out is drie seconden per DNS-server. Als u twee DNS-servers hebt, is de time-out 6 seconden. Gebruik nameresolver om te controleren of DNS werkt. Houd er rekening mee dat u Nslookup niet kunt gebruiken als dat geen gebruik maakt van de DNS waarvoor uw VNet is geconfigureerd. Als dat niet mogelijk is, kunt u een firewall hebben of NSG de toegang tot DNS blok keren of kan deze worden uitgeschakeld.
 
-Als deze items geen antwoord op uw problemen, er eerst voor zaken zoals: 
+Als dat niet het geval is, zoekt u eerst naar zaken als: 
 
 **regionale VNet-integratie**
-* is de bestemming een adres RFC 1918
-* is er een NSG geblokkeerd uitgaand verkeer vanuit uw subnet integratie
-* Als het gaat via ExpressRoute of een VPN-verbinding, is uw on-premises gateway geconfigureerd routeren van verkeer back-up naar Azure? Als u eindpunten in uw VNet, maar niet on-premises bereiken kunt, is dit goed om te controleren.
+* is uw doel een RFC 1918-adres
+* is er een NSG die uitkomend verkeer van uw integratie subnet blokkeert
+* Als u een ExpressRoute of een VPN-verbinding wilt maken, is uw on-premises gateway geconfigureerd voor het routeren van verkeer naar Azure? Als u eind punten in uw VNet maar niet on-premises kunt bereiken, is dit goed te controleren.
 
-**Gateway vereist een VNet-integratie**
-* is het punt-naar-site-adresbereik in de RFC 1918 bereiken (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255)?
-* Wordt de Gateway weergegeven alsof ze van de portal? Als uw gateway niet actief is, brengt u deze back-up.
-* Certificaten worden weergegeven alsof ze synchroon of u vermoedt dat de configuratie van het netwerk is gewijzigd?  Als uw certificaten niet gesynchroniseerd zijn of als u vermoedt dat er is een wijziging aangebracht in uw VNet-configuratie die niet is gesynchroniseerd met uw ASP's, drukt u op 'Sync netwerk'.
-* Als het gaat via ExpressRoute of een VPN-verbinding, is uw on-premises gateway geconfigureerd routeren van verkeer back-up naar Azure? Als u eindpunten in uw VNet, maar niet on-premises bereiken kunt, is dit goed om te controleren.
+**vereiste VNet-integratie voor gateway**
+* is het punt-naar-site-adres bereik in de RFC 1918-bereiken (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255)?
+* Wordt de gateway in de portal weer gegeven? Als uw gateway niet beschikbaar is, zet u deze terug.
+* Worden certificaten weer gegeven als gesynchroniseerd of vermoedt u dat de netwerk configuratie is gewijzigd?  Als uw certificaten niet zijn gesynchroniseerd of als u vermoedt dat er een wijziging is aangebracht in uw VNet-configuratie die niet is gesynchroniseerd met uw ASPs, klikt u op ' netwerk synchroniseren '.
+* Als u een ExpressRoute of een VPN-verbinding wilt maken, is uw on-premises gateway geconfigureerd voor het routeren van verkeer naar Azure? Als u eind punten in uw VNet maar niet on-premises kunt bereiken, is dit goed te controleren.
 
-Het is een uitdaging netwerkproblemen foutopsporing, omdat er niet wordt weergegeven wat blokkeert de toegang tot de combinatie van een specifieke host: poort. Enkele van de oorzaken zijn:
+Fout opsporing in netwerk problemen is een uitdaging omdat u niet kunt zien wat de toegang tot een specifieke host blokkeert: poort combinatie. Enkele oorzaken zijn onder andere:
 
-* u hebt een firewall van op de host geen toegang tot poort van de toepassing vanaf het punt aan site IP-adresbereik. Vaak overschrijden van subnetten vereist openbare toegang.
-* de doelhost is niet actief
-* uw toepassing is niet actief
-* u hebt het verkeerde IP of hostnaam
-* uw toepassing luistert op een andere poort dan wat u verwacht. U kunt uw proces-ID met de poort voor luisteren vergelijken met behulp van 'netstat - aon' op de host van het eindpunt. 
-* uw netwerkbeveiligingsgroepen zijn geconfigureerd in zodanig dat ze toegang tot uw toepassingshost en poort van de punt aan site IP-adresbereik voorkomen
+* u hebt een firewall op uw host waarmee u de toegang tot de toepassings poort van uw Point-site-IP-bereik kunt voor komen. Voor kruisende subnetten is vaak open bare toegang vereist.
+* de doelhost is niet beschikbaar
+* uw toepassing is niet beschikbaar
+* u hebt een onjuist IP-adres of hostnaam
+* uw toepassing luistert op een andere poort dan verwacht. U kunt uw proces-ID met de luister poort overeenkomen met ' netstat-Aon ' op de host van het eind punt. 
+* uw netwerk beveiligings groepen worden zo geconfigureerd dat ze de toegang tot uw toepassingshost en poort van uw punt tot het IP-bereik van de site verhinderen
 
-Houd er rekening mee dat u weet welk adres de app daadwerkelijk wordt gebruikt niet. Dit kan elk adres in het integratie subnet of een punt-naar-site-adresbereik, worden, zodat u wilt toestaan dat toegang vanaf het gehele adresbereik. 
+Houd er rekening mee dat u niet weet welk adres uw app daad werkelijk zal gebruiken. Dit kan elk adres zijn in het integratie subnet of het adres bereik van punt-naar-site. u moet dus toegang tot het hele adres bereik toestaan. 
 
-Extra stappen zijn onder andere:
+Aanvullende stappen voor fout opsporing zijn onder andere:
 
-* verbinding maken met een virtuele machine in uw VNet en probeert te krijgen tot de resource-host: poort van daaruit. Als u wilt testen voor TCP-toegang, gebruik de PowerShell-opdracht **test-netconnection**. De syntaxis is:
+* Maak verbinding met een virtuele machine in uw VNet en probeer uw bronhost: poort te bereiken. Als u wilt testen op TCP-toegang, gebruikt u de Power shell **-opdracht test-NetConnection**. De syntaxis is:
 
       test-netconnection hostname [optional: -Port]
 
-* een toepassing op een virtuele machine en test de toegang op die host en poort van de console van uw app met behulp **tcpping**
+* een toepassing op een virtuele machine weer geven en de toegang tot die host en poort testen vanuit de console vanuit uw app met behulp van **tcpping**
 
-#### <a name="on-premises-resources"></a>On-premises bronnen ####
+#### <a name="on-premises-resources"></a>On-premises resources ####
 
-Als uw app niet kan van een resource on-premises bereiken, controleert u of als u de resource van uw VNet kunt bereiken. Gebruik de **test-netconnection** PowerShell-opdracht uit om te controleren op TCP-toegang. Als uw virtuele machine tijdelijk niet bereikbaar voor uw on-premises bron, uw VPN of ExpressRoute-verbinding niet juist geconfigureerd.
+Als uw app een on-premises resource niet kan bereiken, controleert u of u de bron kunt bereiken vanuit uw VNet. Gebruik de Power shell **-opdracht test-NetConnection** om te controleren op TCP-toegang. Als uw virtuele machine uw on-premises resource niet kan bereiken, is uw VPN-of ExpressRoute-verbinding mogelijk niet juist geconfigureerd.
 
-Als uw VNet die worden gehost virtuele machine kan bereiken uw on-premises systeem, maar uw app kan niet, wordt de oorzaak is waarschijnlijk een van de volgende redenen:
+Als uw door VNet gehoste VM uw on-premises systeem kan bereiken, maar uw app niet kan, kan dit een van de volgende oorzaken hebben:
 
-* de routes zijn niet geconfigureerd met het subnet of verwijzen naar de site-adresbereiken in uw on-premises gateway
-* uw netwerkbeveiligingsgroepen worden blokkeert de toegang voor uw punt-naar-Site-IP-adresbereik
-* uw on-premises firewall blokkeert verkeer van de punt-naar-Site-IP-adresbereik
-* u probeert te bereiken een RFC 1918-adres met behulp van de regionale VNet-integratiefunctie
+* uw routes zijn niet geconfigureerd met uw subnet of verwijzen naar site adresbereiken in uw on-premises gateway
+* uw netwerk beveiligings groepen blok keren de toegang voor uw punt-naar-site-IP-bereik
+* uw on-premises firewalls blok keren verkeer van uw punt-naar-site-IP-bereik
+* u probeert een niet-RFC 1918-adres te bereiken met behulp van de regionale VNet-integratie functie
 
 
-## <a name="powershell-automation"></a>PowerShell-automatisering
+## <a name="powershell-automation"></a>Power shell-automatisering
 
-U kunt App Service integreren met een Azure-netwerk met behulp van PowerShell. Zie voor een kant-en-klaar script, [een app in Azure App Service verbinden met een Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
+U kunt App Service integreren met een Azure Virtual Network met behulp van Power shell. Zie [verbinding maken met een app in azure app service met een Azure-Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3)voor een kant-en-klaar script.
 
 
 <!--Image references-->

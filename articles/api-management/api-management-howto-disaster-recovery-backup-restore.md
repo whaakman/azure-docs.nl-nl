@@ -1,6 +1,6 @@
 ---
-title: Met behulp implementeren disaster recovery back-up en herstellen in Azure API Management | Microsoft Docs
-description: Informatie over het gebruik van back-up en herstellen als u wilt uitvoeren van herstel na noodgevallen in Azure API Management.
+title: Herstel na nood geval met behulp van back-up en herstel implementeren in azure API Management | Microsoft Docs
+description: Meer informatie over het gebruik van back-up en herstel om herstel na nood gevallen in azure API Management uit te voeren.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,81 +13,81 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 6507c39faecfa0e56fc19597e414e9d25d368567
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 619a4de993f052f143e4117f0100ed1e0aa77b03
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460880"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498593"
 ---
-# <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Herstel na noodgeval met behulp van back-up van de service implementeren en te herstellen in Azure API Management
+# <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Herstel na nood geval implementeren met behulp van back-up en herstel van de service in azure API Management
 
-Door te publiceren en beheren van uw API's via Azure API Management, bent u profiteert van fouttolerantie en mogelijkheden in de infrastructuur die u anders ontwerpen, implementeren en beheren van handmatig had. Het Azure-platform vermindert een groot deel van mogelijke problemen met de tegen een fractie van de kosten.
+Door uw Api's via Azure API Management te publiceren en te beheren, profiteert u van de fout tolerantie en infrastructuur mogelijkheden die u op een andere manier hand matig ontwerpt, implementeert en beheert. Het Azure-platform vermindert een grote fractie van mogelijke fouten tegen een fractie van de kosten.
 
-Als u wilt herstellen van problemen met beschikbaarheid die invloed hebben op de regio die als host fungeert voor uw API Management-service, zijn gereed voor uw service in een andere regio op elk gewenst moment reconstrueren. Afhankelijk van de beoogde hersteltijd, is het raadzaam om te houden van een stand-by-service in een of meer regio's. U kunt ook proberen te houden met de configuratie en de inhoud synchroon met de actieve service op basis van uw herstelpuntdoel. De service back-up en herstel functies biedt de benodigde bouwstenen voor het implementeren van de strategie voor herstel na noodgevallen.
+Als u de beschikbaarheids problemen wilt herstellen die van invloed zijn op de regio die als host fungeert voor uw API Management-service, kunt u op elk gewenst moment uw service in een andere regio maken. Afhankelijk van de beoogde herstel tijd wilt u mogelijk een stand-by-service in een of meer regio's blijven gebruiken. U kunt ook proberen de configuratie en inhoud te behouden in synchronisatie met de actieve service volgens uw Recovery Point Objective. De functies voor back-up en herstel van de service bieden de benodigde bouw stenen voor het implementeren van een strategie voor herstel na nood gevallen.
 
-Back-up en herstelbewerkingen kunnen ook worden gebruikt voor het repliceren van de configuratie van API Management-service tussen operationele omgevingen, zoals ontwikkelings- en fasering. Houd er rekening mee dat runtime-gegevens, zoals gebruikers en abonnementen worden gekopieerd, die niet altijd mogelijk wenselijk is.
+Back-up-en herstel bewerkingen kunnen ook worden gebruikt voor het repliceren van API Management service configuratie tussen de operationele omgevingen, zoals ontwikkeling en fase ring. Houd er rekening mee dat runtime gegevens, zoals gebruikers en abonnementen, ook worden gekopieerd, wat mogelijk niet altijd wenselijk is.
 
-Deze handleiding leest over het automatiseren van back-up en herstelbewerkingen en om te controleren geslaagde verificatie van back-up en herstellen van aanvragen door Azure Resource Manager.
+In deze hand leiding wordt beschreven hoe u back-up-en herstel bewerkingen automatiseert en hoe u een geslaagde verificatie van aanvragen voor back-up en herstel kunt garanderen door Azure Resource Manager.
 
 > [!IMPORTANT]
-> Herstellen bewerking configuratie van de aangepaste hostnaam van de doelservice niet wijzigen. We raden aan dezelfde aangepaste hostnaam en TLS-certificaat gebruiken voor zowel actieve en stand-by-services, zodat nadat de herstelbewerking is voltooid, het verkeer kan zich opnieuw gerichte naar de stand-by instantie door een eenvoudige DNS CNAME-wijziging.
+> Met de herstel bewerking wordt de aangepaste hostname-configuratie van de doel service niet gewijzigd. We raden u aan om hetzelfde aangepaste hostname-en TLS-certificaat te gebruiken voor de services actief en stand-by, zodat het verkeer na het volt ooien van de herstel bewerking opnieuw kan worden omgeleid naar het stand-by-exemplaar door een eenvoudige DNS CNAME-wijziging.
 >
-> Back-upbewerking wordt niet vastgelegd vooraf samengevoegde logboekgegevens die worden gebruikt in rapporten weergegeven op de blade met gebruiksanalyses in Azure portal.
+> Met de back-upbewerking worden geen vooraf geaggregeerde logboek gegevens vastgelegd die worden gebruikt in rapporten die worden weer gegeven op de Blade Analytics in de Azure Portal.
 
 > [!WARNING]
-> Elke back-up verloopt na 30 dagen. Als u probeert te herstellen van een back-up nadat de verloopperiode van 30 dagen is verlopen, wordt het herstellen mislukken met een `Cannot restore: backup expired` bericht.
+> Elke back-up verloopt na 30 dagen. Als u een back-up probeert te herstellen nadat de verval periode van 30 dagen is verstreken, mislukt de herstel bewerking `Cannot restore: backup expired` met een bericht.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="authenticating-azure-resource-manager-requests"></a>Verificatie van Azure Resource Manager-aanvragen
+## <a name="authenticating-azure-resource-manager-requests"></a>Azure Resource Manager aanvragen verifiëren
 
 > [!IMPORTANT]
-> De REST-API voor back-up en herstel maakt gebruik van Azure Resource Manager en heeft een ander verificatiemechanisme dan de REST API's voor het beheren van uw API Management-entiteiten. De stappen in deze sectie wordt beschreven hoe u Azure Resource Manager-aanvragen verifiëren. Zie voor meer informatie, [verificatie van Azure Resource Manager-aanvragen](/rest/api/index).
+> De REST API voor back-up en herstel maakt gebruik van Azure Resource Manager en heeft een ander verificatie mechanisme dan de REST Api's voor het beheren van uw API Management entiteiten. In de stappen in deze sectie wordt beschreven hoe u Azure Resource Manager-aanvragen verifieert. Zie voor meer informatie [verificatie van Azure Resource Manager aanvragen](/rest/api/index).
 
-Alle taken die u doen op resources met behulp van Azure Resource Manager moeten worden geverifieerd bij Azure Active Directory met de volgende stappen uit:
+Alle taken die u op resources uitvoert met behulp van de Azure Resource Manager moeten worden geverifieerd met Azure Active Directory door de volgende stappen uit te voeren:
 
--   Een toepassing toevoegen aan de Azure Active Directory-tenant.
--   Machtigingen instellen voor de toepassing die u hebt toegevoegd.
--   Ophalen van het token voor het verifiëren van aanvragen naar Azure Resource Manager.
+-   Een toepassing toevoegen aan de Azure Active Directory-Tenant.
+-   Stel machtigingen in voor de toepassing die u hebt toegevoegd.
+-   Het token ophalen voor het verifiëren van aanvragen voor het Azure Resource Manager.
 
 ### <a name="create-an-azure-active-directory-application"></a>Een Azure Active Directory-toepassing maken
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Met behulp van het abonnement met uw API Management-service-exemplaar, gaat u naar de **App-registraties** tabblad **Azure Active Directory** (Azure Active Directory > beheren/App-registraties).
+2. Ga met het abonnement dat uw API Management service-exemplaar bevat naar het tabblad **app-registraties** in **Azure Active Directory** (Azure Active Directory > beheer/app-registraties).
 
     > [!NOTE]
-    > Als de standaarddirectory van Azure Active Directory niet zichtbaar is voor uw account, contact op met de beheerder van het Azure-abonnement om de vereiste machtigingen toewijzen aan uw account.
+    > Als de standaard directory Azure Active Directory niet zichtbaar is voor uw account, neemt u contact op met de beheerder van het Azure-abonnement om de vereiste machtigingen voor uw account te verlenen.
 
 3. Klik op **Nieuwe toepassing registreren**.
 
-    De **maken** venster wordt weergegeven aan de rechterkant. Dat is waar u de relevante informatie voor AAD-app.
+    Het venster **maken** wordt aan de rechter kant weer gegeven. Daar voert u de relevante gegevens van de AAD-app in.
 
 4. Voer een naam in voor de toepassing.
-5. Selecteer voor het toepassingstype **systeemeigen**.
-6. Voer de URL van een tijdelijke aanduiding zoals `http://resources` voor de **omleidings-URI**, zoals het is een verplicht veld, maar de waarde later wordt niet gebruikt. Klik op het selectievakje in om op te slaan van de toepassing.
+5. Selecteer **systeem eigen**voor het toepassings type.
+6. Voer een URL `http://resources` voor de tijdelijke aanduiding in, zoals voor de omleidings- **URI**, omdat het een vereist veld is, maar de waarde niet later wordt gebruikt. Klik op het selectie vakje om de toepassing op te slaan.
 7. Klik op **Create**.
 
 ### <a name="add-an-application"></a>Een toepassing toevoegen
 
-1. Nadat de toepassing is gemaakt, klikt u op **instellingen**.
+1. Zodra de toepassing is gemaakt, klikt u op **instellingen**.
 2. Klik op **vereiste machtigingen**.
 3. Klik op **+ toevoegen**.
-4. Druk op **Select an API**.
-5. Kies **Windows** **Azure Service Management API**.
-6. Druk op **Selecteer**.
+4. Druk op **een API selecteren**.
+5. Kies **Windows** **Azure Service Management-API**.
+6. Druk op **selecteren**.
 
     ![Machtigingen toevoegen](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. Klik op **gedelegeerde machtigingen** naast de zojuist toegevoegde toepassing, schakel het selectievakje voor **toegang tot Azure Service Management (preview)** .
-8. Druk op **Selecteer**.
+7. Klik op **gedelegeerde machtigingen** naast de zojuist toegevoegde toepassing, schakel het selectie vakje in voor **toegang tot Azure Service Management (preview)** .
+8. Druk op **selecteren**.
 9. Klik op **machtigingen verlenen**.
 
-### <a name="configuring-your-app"></a>Configureren van uw app
+### <a name="configuring-your-app"></a>Uw app configureren
 
-Voordat u de API's die de back-up genereren en deze herstellen, moet u een token verkrijgen. Het volgende voorbeeld wordt de [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet-pakket aan het token opgehaald.
+Voordat u de Api's aanroept die de back-up genereren en deze herstellen, moet u een Token ophalen. In het volgende voor beeld wordt het NuGet-pakket [micro soft. Identity model. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) gebruikt om het token op te halen.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -114,48 +114,48 @@ namespace GetTokenResourceManagerRequests
 }
 ```
 
-Vervang `{tenant id}`, `{application id}`, en `{redirect uri}` met behulp van de volgende instructies:
+Vervang `{tenant id}`, `{application id}` en`{redirect uri}` gebruik de volgende instructies:
 
-1. Vervang `{tenant id}` met de tenant-ID van de Azure Active Directory-toepassing die u hebt gemaakt. U kunt de ID openen door te klikken **App-registraties** -> **eindpunten**.
+1. Vervang `{tenant id}` door de Tenant-id van de Azure Active Directory toepassing die u hebt gemaakt. U kunt de id openen door te klikken op **app-registraties** -> -**eind punten**.
 
     ![Eindpunten][api-management-endpoint]
 
-2. Vervang `{application id}` met de waarde die u door te navigeren naar de **instellingen** pagina.
-3. Vervang de `{redirect uri}` met de waarde van de **omleidings-URI's** tab van uw Azure Active Directory-toepassing.
+2. Vervang `{application id}` door de waarde die u krijgt door te navigeren naar de pagina **instellingen** .
+3. Vervang de `{redirect uri}` door de waarde van het tabblad omleidings- **uri's** van uw Azure Active Directory-toepassing.
 
-    Zodra de waarden zijn opgegeven, moet het codevoorbeeld retourneren een token die vergelijkbaar is met het volgende voorbeeld:
+    Zodra de waarden zijn opgegeven, moet in het code voorbeeld een token worden geretourneerd dat lijkt op het volgende voor beeld:
 
     ![Token][api-management-arm-token]
 
     > [!NOTE]
-    > Het token kan verlopen na een bepaalde periode. Het codevoorbeeld om een nieuw token opnieuw te worden uitgevoerd.
+    > Het token verloopt mogelijk na een bepaalde periode. Voer het code voorbeeld opnieuw uit om een nieuw token te genereren.
 
-## <a name="calling-the-backup-and-restore-operations"></a>Aanroepen van de bewerkingen voor back-up en herstel
+## <a name="calling-the-backup-and-restore-operations"></a>De back-up-en herstel bewerkingen aanroepen
 
-De REST-API's zijn [Api Management-Service - back-up](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) en [Api Management-Service - terugzetten](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore).
+De REST-Api's zijn [API Management-service-Backup](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) -en [API Management-service-herstellen](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore).
 
-Voordat het aanroepen van de 'back-up en herstellen' bewerkingen die worden beschreven in de volgende secties stelt u de autorisatie-header voor aanvraag voor de REST-aanroep.
+Voordat u de bewerkingen ' back-up maken en terugzetten ' aanroept die in de volgende secties worden beschreven, stelt u de header van de autorisatie aanvraag in voor uw REST-aanroep.
 
 ```csharp
 request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 
-### <a name="step1"> </a>Back-up van een API Management-service
+### <a name="step1"> </a>Een back-up maken van een API Management-service
 
-Back-up een probleem van API Management-service de volgende HTTP-aanvraag:
+Als u een back-up wilt maken van een API Management service, geeft u de volgende HTTP-aanvraag:
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
 ```
 
-Waar:
+positie
 
--   `subscriptionId` -ID van het abonnement waarin de API Management-service waarmee u een back-up wilt maken
--   `resourceGroupName` -naam van de resourcegroep van uw Azure API Management-service
--   `serviceName` -de naam van de API Management-service dat een back-up van de opgegeven op het moment van aanmaak
--   `api-version` -vervangen `2018-06-01-preview`
+-   `subscriptionId`-ID van het abonnement dat de API Management-service bevat waarvan u een back-up wilt maken
+-   `resourceGroupName`-de naam van de resource groep van uw Azure API Management-service
+-   `serviceName`-de naam van de API Management-service waarvan u een back-up wilt maken die is opgegeven op het moment dat deze wordt gemaakt
+-   `api-version`-vervangen door`2018-06-01-preview`
 
-Geef in de hoofdtekst van de aanvraag, de doelnaam van het Azure storage-account, toegangssleutel, de naam van de blob-container en de naam van de back-up:
+Geef in de hoofd tekst van de aanvraag de doel-Azure Storage-account naam, de toegangs sleutel, de naam van de BLOB-container en de naam van de back-up op:
 
 ```json
 {
@@ -166,35 +166,36 @@ Geef in de hoofdtekst van de aanvraag, de doelnaam van het Azure storage-account
 }
 ```
 
-Stel de waarde van de `Content-Type` aanvraagheader naar `application/json`.
+Stel de waarde van de `Content-Type` aanvraag header in `application/json`op.
 
-Back-up is een langdurige bewerking die meer dan een minuut in beslag kan nemen. Als de aanvraag is voltooid en het back-upproces is begonnen, ontvangt u een `202 Accepted` antwoordstatuscode met een `Location` header. Controleer 'GET-aanvragen naar de URL in de `Location` header om de status van de bewerking erachter te komen. Terwijl de back-up uitgevoerd wordt, moet u blijven ontvangen van een statuscode '202 geaccepteerd'. Een Antwoordcode van `200 OK` geeft aan dat de back-upbewerking is voltooid.
+Het maken van een back-up is een langlopende bewerking die langer dan een minuut kan duren. Als de aanvraag is voltooid en het back-upproces is gestart `202 Accepted` , ontvangt u een antwoord `Location` status code met een header. Stel Get-aanvragen naar de URL in de `Location` header in om de status van de bewerking te bepalen. Terwijl de back-up wordt uitgevoerd, blijft de status code ' 202 geaccepteerd ' ontvangen. Met een antwoord code `200 OK` wordt aangegeven dat de back-upbewerking is voltooid.
 
 Houd rekening met de volgende beperkingen bij het maken van een back-upaanvraag:
 
--   **Container** opgegeven in de aanvraagtekst **moet bestaan**.
--   Wanneer back-up uitgevoerd wordt, **te voorkomen dat wijzigingen in service management** zoals SKU upgrade of downgrade, wijzigt u in de domeinnaam van het, en meer.
--   Herstellen van een **back-up kan worden gegarandeerd alleen voor 30 dagen** sinds het moment van aanmaak.
--   **Gebruiksgegevens** gebruikt voor het maken van analyserapporten **niet is opgenomen** in de back-up. Gebruik [Azure API Management REST API][azure api management rest api] periodiek ophalen analyserapporten veilig wordt gesteld.
--   De frequentie waarmee u service back-ups uitvoeren van invloed zijn op uw beoogd herstelpunt. Als u wilt minimaliseren, raden wij uitvoering van regelmatige back-ups en back-ups op aanvraag uitvoeren nadat u wijzigingen in uw API Management-service aanbrengt.
--   **Wijzigingen** aangebracht in de serviceconfiguratie (bijvoorbeeld API's, beleidsregels en ontwikkelaarsportal) tijdens het back-up wordt proces **kunnen worden uitgesloten van de back-up en verloren**.
+-   De in de hoofd tekst van de aanvraag opgegeven **container** **moet bestaan**.
+-   Zorg dat er een back-up wordt gemaakt **van wijzigingen in Service beheer** , zoals SKU-upgrade of downgrade, wijziging in domein naam en meer.
+-   Het terugzetten van een **back-up wordt alleen 30 dagen** na het moment van maken gegarandeerd.
+-   **Gebruiks gegevens** die worden gebruikt voor het maken van analyse rapporten, worden **niet opgenomen** in de back-up. Gebruik [Azure API Management rest API][azure api management rest api] om periodiek analyse rapporten op te halen voor het bewaren van gegevens.
+-   De frequentie waarmee u Service back-ups uitvoert, is van invloed op uw Recovery Point Objective. Om het te minimaliseren, wordt u aangeraden regel matige back-ups te implementeren en back-ups op aanvraag uit te voeren nadat u wijzigingen hebt aangebracht in uw API Management-service.
+-   **Wijzigingen** in de service configuratie, (bijvoorbeeld api's, beleids regels en ontwikkelaars Portal) terwijl de back-upbewerking wordt uitgevoerd, wordt **mogelijk uitgesloten van de back-up en gaat verloren**.
+-   Toegang vanaf het besturings element tot Azure Storage account **toestaan** . De klant moet de volgende set inkomende Ip's op hun opslag account openen voor back-up. 
+    > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
+### <a name="step2"> </a>Een API Management-service herstellen
 
-### <a name="step2"> </a>Herstellen van een API Management-service
-
-Als u een API Management-service van een eerder gemaakte back-up herstellen, moet u de volgende HTTP-aanvraag:
+Als u een API Management-service van een eerder gemaakte back-up wilt herstellen, moet u de volgende HTTP-aanvraag doen:
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
 ```
 
-Waar:
+positie
 
--   `subscriptionId` -ID van het abonnement waarin u bij het herstellen van een back-up in de API Management-service
--   `resourceGroupName` -naam van de resourcegroep waarin u bij het herstellen van een back-up in Azure API Management-service
--   `serviceName` -de naam van de API Management-service wordt hersteld in die is opgegeven bij de aanmaaktijd
--   `api-version` -vervangen `2018-06-01-preview`
+-   `subscriptionId`-ID van het abonnement dat de API Management-service bevat waarvan u een back-up wilt herstellen
+-   `resourceGroupName`-de naam van de resource groep die de Azure API Management-service bevat waarvan u een back-up wilt herstellen
+-   `serviceName`-de naam van de API Management-service die wordt hersteld op de aanmaak tijd die wordt gemaakt
+-   `api-version`-vervangen door`2018-06-01-preview`
 
-Geef de locatie van de back-upbestand in de hoofdtekst van de aanvraag. Dat wil zeggen, voeg de Azure storage-accountnaam, toegangssleutel, de naam van de blob-container en de naam van de back-up:
+In de hoofd tekst van de aanvraag geeft u de locatie van het back-upbestand op. Dat wil zeggen, de Azure Storage-account naam, de toegangs sleutel, de naam van de BLOB-container en de naam van de back-up toevoegen:
 
 ```json
 {
@@ -205,28 +206,28 @@ Geef de locatie van de back-upbestand in de hoofdtekst van de aanvraag. Dat wil 
 }
 ```
 
-Stel de waarde van de `Content-Type` aanvraagheader naar `application/json`.
+Stel de waarde van de `Content-Type` aanvraag header in `application/json`op.
 
-Terugzetten is een langdurige bewerking die op meer dan 30 minuten duren kan om uit te voeren. Als de aanvraag is voltooid en het herstelproces is begonnen, ontvangt u een `202 Accepted` antwoordstatuscode met een `Location` header. Controleer 'GET-aanvragen naar de URL in de `Location` header om de status van de bewerking erachter te komen. Terwijl het herstel uitgevoerd wordt, blijft u '202 geaccepteerd' statuscode. Een Antwoordcode van `200 OK` geeft aan dat de herstelbewerking is voltooid.
+Herstellen is een langlopende bewerking die Maxi maal 30 minuten kan duren. Als de aanvraag is voltooid en het herstel proces is gestart, ontvangt `202 Accepted` u een antwoord status code `Location` met een header. Stel Get-aanvragen naar de URL in de `Location` header in om de status van de bewerking te bepalen. Terwijl het herstel wordt uitgevoerd, blijft de status code ' 202 accepted ' ontvangen. Met een antwoord code `200 OK` wordt aangegeven dat de herstel bewerking is voltooid.
 
 > [!IMPORTANT]
-> **De SKU** van de service wordt hersteld in **moet overeenkomen met** de SKU van de back-up-service wordt hersteld.
+> **De SKU** van de service die wordt hersteld in **moet overeenkomen met** de SKU van de back-upservice die wordt hersteld.
 >
-> **Wijzigingen** aangebracht aan de serviceconfiguratie (bijvoorbeeld API's, beleid, ontwikkelaarsportal) tijdens het herstel wordt uitgevoerd **kan worden overschreven**.
+> **Wijzigingen** die zijn aangebracht in de service configuratie (bijvoorbeeld api's, beleids regels, ontwikkelaars Portal vormgeving) terwijl de herstel bewerking wordt uitgevoerd, **kunnen worden overschreven**.
 
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> Back-up en herstelbewerkingen kunnen ook worden uitgevoerd met PowerShell _back-up-AzApiManagement_ en _terugzetten AzApiManagement_ respectievelijk-opdrachten.
+> Back-up-en herstel bewerkingen kunnen ook worden uitgevoerd met respectievelijk Power shell _Backup-AzApiManagement_ en Restore _-AzApiManagement-_ opdrachten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de volgende bronnen voor verschillende scenario's van het proces van het back-up/herstellen.
+Bekijk de volgende bronnen voor verschillende scenario's van het back-up-en herstel proces.
 
--   [Azure API Management-Accounts repliceren](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
+-   [Azure API Management-accounts repliceren](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Back-up maken en terugzetten in API Management automatiseren met Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
--   [Azure API Management: Back-Up en herstellen van configuratie](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-    _de aanpak van gedetailleerde door Stuart komt niet overeen met de officiële richtlijnen, maar het is interessant._
+-   [Azure API Management: Het maken van een back-](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)up en het herstellen van_de configuratie de aanpak die wordt gedetailleerd door Stuart komt niet overeen met de officiële richt lijnen, maar is wel interessant._ 
+    
 
 [backup an api management service]: #step1
 [restore an api management service]: #step2

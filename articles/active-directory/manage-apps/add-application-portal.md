@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/09/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3de6a2cbdfe7a6d006a3bbfab16792376eda0d07
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 466660a1e064ef41eb330b36107dbdcb1d097498
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702541"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477307"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Quickstart: een toepassing toevoegen aan uw Azure Active Directory-tenant
 
@@ -24,7 +24,7 @@ Azure AD (Azure Active Directory) heeft een galerie met duizenden vooraf geïnte
 
 Nadat een toepassing is toegevoegd aan de Azure AD-tenant, kunt u:
 
-- Toegang tot de toepassing met een beleid voor voorwaardelijke toegang voor gebruikers beheren.
+- Gebruikers toegang tot de toepassing beheren met beleid voor voorwaardelijke toegang.
 - Gebruikers configureren voor eenmalige aanmelding bij de toepassing via hun Azure AD-accounts.
 
 ## <a name="before-you-begin"></a>Voordat u begint
@@ -42,56 +42,56 @@ Als u de stappen in deze zelfstudie wilt testen, raden we u aan om een niet-prod
 
 Ga als volgt te werk om een galerietoepassing toe te voegen aan de Azure AD-tenant:
 
-1. In de [Azure-portal](https://portal.azure.com), selecteer in het navigatievenster aan de linkerkant **Azure Active Directory**.
-1. In de **Azure Active Directory** venster **bedrijfstoepassingen**.
-1. De **alle toepassingen** deelvenster geopend om weer te geven van een steekproef van de toepassingen in uw Azure AD-tenant. Selecteer **nieuwe toepassing** aan de bovenkant van de **alle toepassingen** deelvenster een galerie-app toevoegen aan uw tenant.
+1. In de [Azure Portal](https://portal.azure.com), in het navigatie venster aan de linkerkant, selecteert u **Azure Active Directory**.
+1. Selecteer in  het deel venster Azure Active Directory **bedrijfs toepassingen**.
+1. Het deel venster **alle toepassingen** wordt geopend, waarin een wille keurig voor beeld van de toepassingen in uw Azure AD-Tenant wordt weer gegeven. Selecteer **nieuwe toepassing** boven aan het deel venster **alle toepassingen** om een galerie-app toe te voegen aan uw Tenant.
 
-    ![Selecteer de nieuwe toepassing in een galerie-app toevoegen aan uw tenant](media/add-application-portal/new-application.png)
+    ![Selecteer nieuwe toepassing om een galerie-app toe te voegen aan uw Tenant](media/add-application-portal/new-application.png)
 
-1. In de **categorieën** deelvenster ziet u pictogrammen onder de **aanbevolen toepassingen** gebied die zijn van een steekproef van galerietoepassingen. Als u wilt meer toepassingen zien, kunt u selecteren **meer weergeven** , maar u kunt beter geen op deze manier worden doorzocht, omdat er duizenden toepassingen in de galerie zijn.
+1. In het deel venster **Categorieën** ziet u pictogrammen onder het gebied **Aanbevolen toepassingen** die een wille keurig voor beeld zijn van Galerie toepassingen. Als u meer toepassingen wilt zien, kunt u **meer weer geven** selecteren, maar dit wordt niet aangeraden om op deze manier te zoeken omdat er duizenden toepassingen in de galerie zijn.
 
-    ![Zoeken naar een app met de naam of categorie](media/add-application-portal/categories.png)
+    ![Zoeken naar een app op naam of categorie](media/add-application-portal/categories.png)
 
-1. Om te zoeken naar een toepassing, onder **toevoegen vanuit de galerie**, voer de naam van de toepassing die u wilt toevoegen. Selecteer de toepassing uit de resultaten en selecteer **toevoegen**. In het volgende voorbeeld ziet u het formulier **App toevoegen** dat wordt weergegeven nadat u hebt gezocht naar github.com.
+1. Als u wilt zoeken naar een toepassing, voert u onder **toevoegen in de galerie**de naam in van de toepassing die u wilt toevoegen. Selecteer de toepassing uit de resultaten en selecteer **toevoegen**. In het volgende voorbeeld ziet u het formulier **App toevoegen** dat wordt weergegeven nadat u hebt gezocht naar github.com.
 
-    ![Laat zien hoe u een toepassing uit de galerie toevoegen](media/add-application-portal/add-an-application.png)
+    ![Laat zien hoe u een toepassing kunt toevoegen vanuit de galerie](media/add-application-portal/add-an-application.png)
 
 1. In het toepassingsformulier kunt u de eigenschapsinformatie wijzigen. U kunt bijvoorbeeld de naam van de toepassing bewerken zodat deze past bij de behoeften in uw organisatie. In dit voorbeeld wordt de naam **GitHub-test** gebruikt.
 1. Wanneer u klaar bent met het aanbrengen van wijzigingen in de eigenschappen, selecteert u **toevoegen**.
 1. Er wordt nu een pagina Aan de slag weergegeven met de opties voor het configureren van de toepassing voor uw organisatie.
 
-U klaar bent met het toevoegen van uw toepassing. Neem gerust even pauze. In de volgende secties ziet u hoe u het logo kunt wijzigen en andere eigenschappen voor de toepassing kunt bewerken.
+U bent klaar met het toevoegen van uw toepassing. Neem gerust even pauze. In de volgende secties ziet u hoe u het logo kunt wijzigen en andere eigenschappen voor de toepassing kunt bewerken.
 
 ## <a name="find-your-azure-ad-tenant-application"></a>Uw Azure AD-tenanttoepassing zoeken
 
-Laten we aannemen dat u even weg bent gegaan en dat u nu verdergaat met het configureren van de toepassing. Het eerste wat te doen is uw toepassing vinden.
+Laten we aannemen dat u even weg bent gegaan en dat u nu verdergaat met het configureren van de toepassing. Het eerste wat u moet doen, is uw toepassing te vinden.
 
-1. In de  **[Azure-portal](https://portal.azure.com)** , selecteer in het navigatievenster aan de linkerkant **Azure Active Directory**.
-1. In de **Azure Active Directory** venster **bedrijfstoepassingen**.
-1. Uit de **toepassingstype** vervolgkeuzelijst in het menu **alle toepassingen**, en selecteer vervolgens **toepassen**. Zie [Tenanttoepassingen weergeven](view-applications-portal.md) voor meer informatie over de weergaveopties.
-1. U ziet nu een lijst met alle toepassingen in de Azure AD-tenant. De lijst is een willekeurig voorbeeld. Meer toepassingen Selecteer **meer weergeven** een of meer keer.
-1. Als u wilt snel een toepassing in uw tenant kunt vinden, van de toepassing invoeren in het zoekvak en selecteer **toepassen**. In dit voorbeeld wordt gezocht naar de GitHub-testtoepassing eerder toegevoegd.
+1. In de **[Azure Portal](https://portal.azure.com)** , in het navigatie venster aan de linkerkant, selecteert u **Azure Active Directory**.
+1. Selecteer in  het deel venster Azure Active Directory **bedrijfs toepassingen**.
+1. Selecteer **alle toepassingen**in het vervolg keuzemenu **toepassings type** en selecteer vervolgens **Toep assen**. Zie [Tenanttoepassingen weergeven](view-applications-portal.md) voor meer informatie over de weergaveopties.
+1. U ziet nu een lijst met alle toepassingen in de Azure AD-tenant. De lijst is een willekeurig voorbeeld. Als u meer toepassingen wilt zien, selecteert u meer dan een of meer keren **weer geven** .
+1. Als u snel een toepassing in uw Tenant wilt vinden, voert u de naam van de toepassing in het zoekvak in en selecteert u **Toep assen**. In dit voor beeld wordt gezocht naar de GitHub-test toepassing die u eerder hebt toegevoegd.
 
-    ![Laat zien hoe u een toepassing met behulp van het zoekvak zoeken](media/add-application-portal/find-application.png)
+    ![Laat zien hoe u een toepassing kunt vinden met het zoekvak](media/add-application-portal/find-application.png)
 
 ## <a name="configure-user-sign-in-properties"></a>Eigenschappen voor gebruikersaanmelding configureren
 
-Nu dat u de toepassing hebt gevonden, kunt u deze kunt openen en configureren van eigenschappen voor de toepassing.
+Nu u de toepassing hebt gevonden, kunt u deze openen en toepassings eigenschappen configureren.
 
-De toepassingseigenschappen bewerken:
+De eigenschappen van de toepassing bewerken:
 
 1. Selecteer de toepassing om deze te openen.
-1. Selecteer **eigenschappen** te openen voor het bewerken van het deelvenster met eigenschappen.
+1. Selecteer **Eigenschappen** om het deel venster Eigenschappen te openen om het te bewerken.
 
-    ![Geeft de eigenschappen van scherm en bewerkbare app-eigenschappen](media/add-application-portal/edit-properties.png)
+    ![Het eigenschappen scherm en bewerk bare app-eigenschappen weer geven](media/add-application-portal/edit-properties.png)
 
-1. Neem even de tijd om de opties voor aanmelden goed te bestuderen. De opties te bepalen hoe gebruikers die zijn toegewezen of niet-toegewezen aan de toepassing kunnen zich aanmelden bij de toepassing. En de opties bepalen ook als een gebruiker de toepassing in het toegangsvenster kunt zien.
+1. Neem even de tijd om de opties voor aanmelden goed te bestuderen. De opties bepalen hoe gebruikers die zijn toegewezen aan of niet toegewezen aan de toepassing, zich kunnen aanmelden bij de toepassing. En de opties bepalen ook of een gebruiker de toepassing kan zien in het toegangs venster.
 
     - Met **Ingeschakeld voor gebruikers voor aanmelden** wordt bepaald of gebruikers die zijn toegewezen aan de toepassing, zich kunnen aanmelden.
-    - **Gebruikerstoewijzing vereist** bepaalt of gebruikers die niet zijn toegewezen aan de toepassing kunnen aanmelden.
+    - **Gebruikers toewijzing vereist** bepaalt of gebruikers die niet zijn toegewezen aan de toepassing zich kunnen aanmelden.
     - Met **Zichtbaar voor gebruiker** wordt bepaald of gebruikers die zijn toegewezen aan een app, deze kunnen zien in het toegangsvenster en het startprogramma voor O365.
 
-1. Gebruik de volgende tabellen kunt u het beste opties kiezen voor uw behoeften.
+1. Gebruik de volgende tabellen om u te helpen bij het kiezen van de beste opties voor uw behoeften.
 
    - Gedrag voor **toegewezen** gebruikers:
 
@@ -111,7 +111,7 @@ De toepassingseigenschappen bewerken:
 
        | Instellingen voor toepassingseigenschappen | | | Niet-toegewezen gebruikerservaring | |
        |---|---|---|---|---|
-       | Ingeschakeld voor gebruikers zich aanmelden? | Gebruikerstoewijzing vereist? | Zichtbaar voor gebruiker? | Kunnen niet-toegewezen gebruikers zich aanmelden? | Kunnen niet-toegewezen gebruikers de toepassing zien?* |
+       | Ingeschakeld voor gebruikers om zich aan te melden? | Gebruikerstoewijzing vereist? | Zichtbaar voor gebruiker? | Kunnen niet-toegewezen gebruikers zich aanmelden? | Kunnen niet-toegewezen gebruikers de toepassing zien?* |
        | ja | ja | ja | nee  | nee   |
        | ja | ja | nee  | nee  | nee   |
        | ja | nee  | ja | ja | nee   |
@@ -129,17 +129,16 @@ Ga als volgt te werk om een aangepast logo te gebruiken:
 
 1. Maak een logo van 215 x 215 pixels en sla dit op in de PNG-indeling.
 1. Omdat u uw toepassing al hebt gevonden, selecteert u de toepassing.
-1. Selecteer in het linkerdeelvenster **eigenschappen**.
+1. Selecteer **Eigenschappen**in het linkerdeel venster.
 1. Upload het logo.
-1. Wanneer u klaar bent, selecteert u **opslaan**.
+1. Wanneer u klaar bent, selecteert u **Opslaan**.
 
-    ![Laat zien hoe u het logo van de pagina eigenschappen van de app wijzigen](media/add-application-portal/change-logo.png)
+    ![Laat zien hoe u het logo kunt wijzigen op de eigenschappen pagina van de app](media/add-application-portal/change-logo.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u geleerd hoe u een galerietoepassing kunt toevoegen aan uw Azure AD-tenant. U hebt geleerd hoe u de eigenschappen van een toepassing kunt bewerken.
+Nu u de toepassing aan uw Azure AD-organisatie hebt toegevoegd, [kiest](what-is-single-sign-on.md#choosing-a-single-sign-on-method) u de methode voor eenmalige aanmelding die u wilt gebruiken en raadpleegt u het juiste artikel hieronder:
 
-Nu bent u klaar om de toepassing te configureren voor eenmalige aanmelding.
-
-> [!div class="nextstepaction"]
-> [Eenmalige aanmelding configureren](configure-single-sign-on-portal.md)
+- [Eenmalige aanmelding op basis van SAML configureren](configure-single-sign-on-non-gallery-applications.md)
+- [Eenmalige aanmelding met een wacht woord configureren](configure-password-single-sign-on-non-gallery-applications.md)
+- [Gekoppelde aanmelding configureren](configure-linked-sign-on.md)
