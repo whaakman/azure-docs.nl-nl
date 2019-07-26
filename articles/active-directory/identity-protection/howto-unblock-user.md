@@ -1,64 +1,61 @@
 ---
-title: Hoe gebruikers met Azure Active Directory Identity Protection | Microsoft Docs
-description: Informatie over hoe de blokkering opheffen gebruikers die zijn geblokkeerd door een Azure Active Directory Identity Protection-beleid.
+title: Gebruikers deblokkeren met Azure Active Directory Identity Protection | Microsoft Docs
+description: Meer informatie over het deblokkeren van gebruikers die zijn geblokkeerd door een Azure Active Directory Identity Protection beleid.
 services: active-directory
-keywords: Azure active directory identity protection, deblokkeren van gebruiker
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d22fa7fd3964f99c426e8e21d34dcfdea6d1b36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c28e30b8e44b6888cdb7416b9c7b563b955a68ce
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60294402"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335376"
 ---
 # <a name="how-to-unblock-users"></a>Procedure: Gebruikers deblokkeren
 
-Met Azure Active Directory Identity Protection, kunt u beleid voor het blokkeren van gebruikers als de geconfigureerde voorwaarden is voldaan. Normaal gesproken een geblokkeerde gebruiker contactpersonen helpdesk om te worden opgeheven. In dit artikel worden de stappen beschreven die u kunt uitvoeren om een geblokkeerde gebruiker deblokkeren.
+Met Azure Active Directory Identity Protection kunt u beleids regels configureren om gebruikers te blok keren als aan de geconfigureerde voor waarden is voldaan. Normaal gesp roken neemt een geblokkeerde gebruiker contact op met de Help Desk om te worden gedeblokkeerd. In dit artikel worden de stappen beschreven die u kunt uitvoeren om de blok kering van een geblokkeerde gebruiker op te heffen.
 
-## <a name="determine-the-reason-for-blocking"></a>Bepaal de oorzaak voor het blokkeren van
-Als eerste stap om de blokkering van een gebruiker te, moet u bepalen welk type beleid dat de gebruiker is geblokkeerd omdat de volgende stappen zijn afhankelijk van het.
-Met Azure Active Directory Identity Protection, kan een gebruiker, ofwel worden geblokkeerd door een beleid voor aanmeldingsrisico of een beleid voor gebruikersrisico's.
+## <a name="determine-the-reason-for-blocking"></a>De reden voor blok kering bepalen
 
-U kunt het type beleid dat een gebruiker uit de kop in het dialoogvenster dat is opgegeven voor de gebruiker tijdens een poging tot aanmelden is geblokkeerd krijgen:
+Als eerste stap voor het deblokkeren van een gebruiker moet u het type beleid bepalen dat de gebruiker heeft geblokkeerd omdat uw volgende stappen hiervan afhankelijk zijn.
+Met Azure Active Directory Identity Protection kan een gebruiker worden geblokkeerd door een beleid voor aanmeldings Risico's of door een beleid voor gebruikers Risico's.
 
-| Beleid | Dialoogvenster voor de gebruiker |
+U kunt het type beleid ophalen dat een gebruiker heeft geblokkeerd vanuit de kop in het dialoog venster dat tijdens een aanmeldings poging aan de gebruiker is gepresenteerd:
+
+| Beleid | Gebruikers dialoogvenster |
 | --- | --- |
-| Aanmeldingsrisico |![Geblokkeerde aanmelden](./media/howto-unblock-user/02.png) |
-| Gebruikersrisico |![Geblokkeerde account](./media/howto-unblock-user/104.png) |
+| Aanmeldingsrisico |![Geblokkeerde aanmelding](./media/howto-unblock-user/02.png) |
+| Gebruikersrisico |![Geblokkeerd account](./media/howto-unblock-user/104.png) |
 
 Een gebruiker die wordt geblokkeerd door:
 
-* Een beleid voor aanmeldingsrisico wordt ook wel bekend als verdachte aanmelding
-* Een beleid voor gebruikersrisico's wordt ook wel bekend als een account op risico 's
+* Een beleid voor aanmeldings Risico's staat ook bekend als verdachte aanmelding
+* Een beleid voor gebruikers Risico's wordt ook wel een risico voor een account genoemd
 
-## <a name="unblocking-suspicious-sign-ins"></a>Blokkering verdachte aanmeldingen
-Als u wilt deblokkeren een verdachte aanmelding, hebt u de volgende opties:
+## <a name="unblocking-suspicious-sign-ins"></a>De blok kering van verdachte aanmeldingen opheffen
 
-1. **Zich aanmelden vanaf een vertrouwde locatie of een apparaat** -een veelvoorkomende reden voor geblokkeerde verdachte aanmeldingen zijn aanmeldpogingen vanaf onbekende locaties of apparaten. Uw gebruikers kunnen snel te bepalen of dit de reden blokkeren is door te proberen om aan te melden vanaf een vertrouwde locatie of het apparaat.
-2. **Uitsluiten van beleid** : als u denkt dat de huidige configuratie van uw beleid aanmelden wordt veroorzaakt door problemen voor specifieke gebruikers, kunt u de gebruikers uitsluiten van deze. Zie voor meer informatie, [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-3. **Beleid uitschakelen** : als u denkt dat uw beleidsconfiguratie wordt veroorzaakt door problemen voor al uw gebruikers, kunt u het beleid uitschakelen. Zie voor meer informatie, [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+Als u de blok kering van een verdachte aanmelding wilt opheffen, hebt u de volgende opties:
 
-## <a name="unblocking-accounts-at-risk"></a>Blokkering accounts lopen risico
-Als u wilt deblokkeren van een account op risico's, hebt u de volgende opties:
+1. **Aanmelden vanaf een bekende locatie of apparaat** : een veelvoorkomende reden voor geblokkeerde verdachte aanmeldingen is aanmeldings pogingen vanaf onbekende locaties of apparaten. Uw gebruikers kunnen snel bepalen of dit de blokkerings reden is door u aan te melden vanaf een bekende locatie of apparaat.
+2. **Uitsluiten van beleid** : als u denkt dat de huidige configuratie van uw aanmeldings beleid problemen veroorzaakt voor specifieke gebruikers, kunt u de gebruikers hiervan uitsluiten. Zie [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)voor meer informatie.
+3. **Beleid uitschakelen** : als u denkt dat uw beleids configuratie problemen veroorzaakt voor al uw gebruikers, kunt u het beleid uitschakelen. Zie [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)voor meer informatie.
 
-1. **Wachtwoord opnieuw instellen** -kunt u van de gebruiker-wachtwoord opnieuw instellen. 
-2. **Alle risicogebeurtenissen verwijderen** : de gebruiker beleid blokken van het risico van een gebruiker als de geconfigureerde gebruiker voor het blokkeren van toegang tot de risiconiveau is bereikt. U kunt een gebruiker beperken het risiconiveau door handmatig sluiten risicogebeurtenissen die worden gerapporteerd. 
-3. **Uitsluiten van beleid** : als u denkt dat de huidige configuratie van uw beleid aanmelden wordt veroorzaakt door problemen voor specifieke gebruikers, kunt u de gebruikers uitsluiten van deze. Zie voor meer informatie, [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-4. **Beleid uitschakelen** : als u denkt dat uw beleidsconfiguratie wordt veroorzaakt door problemen voor al uw gebruikers, kunt u het beleid uitschakelen. Zie voor meer informatie, [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+## <a name="unblocking-accounts-at-risk"></a>Blok keren van een risico voor accounts
+
+Als u de blok kering van een account dat risico loopt, hebt u de volgende opties:
+
+1. **Wacht woord opnieuw instellen** : u kunt het wacht woord van de gebruiker opnieuw instellen. 
+2. **Alle risico gebeurtenissen negeren** : het gebruikers risico beleid blokkeert een gebruiker als het geconfigureerde risico niveau van de gebruiker voor het blok keren van toegang is bereikt. U kunt het risico niveau van een gebruiker verlagen door gerapporteerde risico gebeurtenissen hand matig af te sluiten. 
+3. **Uitsluiten van beleid** : als u denkt dat de huidige configuratie van uw aanmeldings beleid problemen veroorzaakt voor specifieke gebruikers, kunt u de gebruikers hiervan uitsluiten. Zie [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)voor meer informatie.
+4. **Beleid uitschakelen** : als u denkt dat uw beleids configuratie problemen veroorzaakt voor al uw gebruikers, kunt u het beleid uitschakelen. Zie [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
  
-Wilt u meer weten over Azure AD Identity Protection? Bekijk [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+Wilt u meer weten over Azure AD Identity Protection? Bekijk de [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).

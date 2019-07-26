@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2019
+ms.date: 07/25/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d50019e8de1daf3d69342dcaf9eeecfba493a83
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
-ms.translationtype: HT
+ms.openlocfilehash: c3d9f96f0b61129a0f881c8fe8676bd5df7376ad
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302443"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494568"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Verificatie stromen en toepassings scenario's
 
@@ -80,6 +80,14 @@ De beveiligings tokens kunnen worden verkregen uit een aantal toepassings typen.
 
 Het micro soft Identity platform-eind punt ondersteunt verificatie voor diverse app-architecturen: apps met één pagina, Web-apps, Web-Api's, mobiele en systeem eigen apps, daemons en apps aan de server zijde.  Toepassingen gebruiken de verschillende verificatie stromen voor het aanmelden van gebruikers en het ophalen van tokens om beveiligde Api's aan te roepen.
 
+### <a name="single-page-application"></a>Toepassing met één pagina
+
+Veel moderne webtoepassingen zijn gebouwd als toepassingen met één pagina op de client die zijn geschreven met behulp van Java script of een beveiligd-wachtwoord verificatie-Framework zoals een hoek, vue. js en reageren. js. Deze toepassingen worden uitgevoerd in een webbrowser en hebben verschillende verificatie kenmerken dan traditionele webtoepassingen aan de server zijde. Met het micro soft Identity-platform kunnen toepassingen met één pagina worden aangemeld en tokens worden opgehaald om toegang te krijgen tot back-end-services of Web-Api's.
+
+![Toepassing met één pagina](media/scenarios/spa-app.svg)
+
+Lees voor meer informatie [toepassingen met één pagina](scenario-spa-overview.md).
+
 ### <a name="web-application-signing-in-a-user"></a>Aanmelding van webtoepassingen: een gebruiker
 
 ![Web-app-ondertekening in gebruikers](media/scenarios/scenario-webapp-signs-in-users.svg)
@@ -90,51 +98,54 @@ Als u **een web-app wilt beveiligen** (aanmelden bij de gebruiker), gebruikt u:
 
 - Als u in node. js ontwikkelt, gebruikt u Pass Port. js.
 
-Bekijk [de web-app die gebruikers](scenario-web-app-sign-user-overview.md) aanmeldt voor meer informatie
+Lees voor meer informatie [Web-app die gebruikers](scenario-web-app-sign-user-overview.md)aanmeldt.
 
 ### <a name="web-application-signing-in-a-user-and-calling-a-web-api-on-behalf-of-the-user"></a>Webtoepassing voor het aanmelden van een gebruiker en het aanroepen van een web-API namens de gebruiker
 
 ![Web-app roept Web-Api's aan](media/scenarios/web-app.svg)
 
-Vanuit de web-app gebruikt u MSAL `ConfidentialClientApplication`om **de Web-API** namens de gebruiker aan te roepen. U gebruikt de autorisatie code stroom, waarbij u het verkregen token opslaat in de token cache. De controller schaft vervolgens, indien nodig, tokens af van de cache. MSAL vernieuwt het token als dat nodig is.
+Gebruik MSAL `ConfidentialClientApplication`in de web-app om **de Web-API** namens de gebruiker aan te roepen. U gebruikt de autorisatie code stroom, waarbij u het verkregen token opslaat in de token cache. De controller schaft vervolgens, indien nodig, tokens af van de cache. MSAL vernieuwt het token als dat nodig is.
 
-Ga voor meer informatie naar web-app-aanroepen web- [api's](scenario-web-app-call-api-overview.md)
+Lees web- [apps](scenario-web-app-call-api-overview.md)voor meer informatie.
 
 ### <a name="desktop-application-calling-a-web-api-on-behalf-of-the-signed-in-user"></a>Bureaublad toepassing die een web-API aanroept namens de aangemelde gebruiker
 
-Als u een web-API wilt aanroepen vanuit een bureaublad toepassing die gebruikers aanmeldt, gebruikt u de methoden voor het PublicClientApplication's van interactieve tokens van MSAL. Met deze interactieve methoden kunt u de aanmelding van de gebruikers interface van het aanmeldings proces beheren. MSAL maakt gebruik van een webbrowser om deze interactie in te scha kelen
+Als u een web-API wilt aanroepen vanuit een bureaublad toepassing die zich aanmeldt bij gebruikers, gebruikt u de methoden voor het PublicClientApplication's van interactieve tokens van MSAL. Met deze interactieve methoden kunt u de aanmelding van de gebruikers interface van het aanmeldings proces beheren. MSAL maakt gebruik van een webbrowser om deze interactie in te scha kelen.
 
 ![Bureaublad](media/scenarios/desktop-app.svg)
 
-Voor Windows-gehoste toepassingen die worden uitgevoerd op computers die zijn gekoppeld aan een Windows-domein of AAD, is er een andere mogelijkheid. Ze kunnen een token met behulp van [geïntegreerde Windows-verificatie](https://aka.ms/msal-net-iwa) op de achtergrond verkrijgen
+Voor Windows-gehoste toepassingen die worden uitgevoerd op computers die zijn gekoppeld aan een Windows-domein of AAD, is er een andere mogelijkheid. Deze toepassingen kunnen een token op de achtergrond verkrijgen met [geïntegreerde Windows-verificatie](https://aka.ms/msal-net-iwa).
 
 Toepassingen die worden uitgevoerd op een apparaat zonder browser, kunnen nog steeds een API aanroepen namens een gebruiker. Als u zich wilt verifiëren, moet de gebruiker zich aanmelden op een ander apparaat met een webbrowser. Als u dit scenario wilt inschakelen, moet u de [code stroom](https://aka.ms/msal-net-device-code-flow) van het apparaat gebruiken
 
-![Toestel code stroom](media/scenarios/device-code-flow-app.svg)
+![Stroom voor apparaatcode](media/scenarios/device-code-flow-app.svg)
 
-Ten slotte, hoewel dit niet wordt aangeraden, kunt u de [gebruikers naam en het wacht woord](https://aka.ms/msal-net-up) in open bare client toepassingen gebruiken. Deze stroom is nog steeds nodig in sommige scenario's (zoals DevOps), maar houd er wel rekening mee dat het gebruik ervan beperkingen oplegt aan uw toepassing. Apps die deze stroom gebruiken, kunnen bijvoorbeeld geen gebruiker aanmelden die multi-factor Authentication (voorwaardelijke toegang) moet uitvoeren. Het is niet mogelijk om uw toepassing te laten profiteren van eenmalige aanmelding. Het is ook van toepassing op de principes van moderne authenticatie en wordt alleen voor verouderde redenen verschaft.
+Ten slotte, hoewel dit niet wordt aangeraden, kunt u de [gebruikers naam en het wacht woord](https://aka.ms/msal-net-up) in open bare client toepassingen gebruiken. Deze stroom is nog steeds nodig in sommige scenario's (zoals DevOps), maar houd er wel rekening mee dat het gebruik ervan beperkingen oplegt aan uw toepassing. Apps die deze stroom gebruiken, kunnen bijvoorbeeld niet worden aangemeld bij een gebruiker die multi-factor Authentication moet uitvoeren (voorwaardelijke toegang). Het is niet mogelijk om uw toepassing te laten profiteren van een eenmalige aanmelding. Verificatie met gebruikers naam/wacht woord verloopt tegen de beginselen van moderne authenticatie en wordt alleen voor verouderde redenen gegeven.
 
 Als u de token cache permanent wilt maken, moet u in bureaublad toepassingen [de token cache-serialisatie aanpassen](https://aka.ms/msal-net-token-cache-serialization). U kunt zelfs achterwaartse en forward compatibele token caches met eerdere generaties van verificatie bibliotheken (ADAL.NET 3. x en 4. x) inschakelen door de implementatie van [dubbele token-cache](https://aka.ms/msal-net-dual-cache-serialization)-serialisatie.
 
-Zie [bureau blad-app die web-api's aanroept](scenario-desktop-overview.md) voor meer informatie
+Lees voor meer informatie [bureau blad-app die web-api's aanroept](scenario-desktop-overview.md).
 
 ### <a name="mobile-application-calling-a-web-api-on-behalf-of-the-user-whos-signed-in-interactively"></a>Mobiele toepassing die een web-API aanroept namens de gebruiker die zich interactief aanmeldt
 
+Net als bij desktop toepassingen maakt een mobiele toepassing gebruik van de MSAL PublicClientApplication's Interactive token Acquisition-methoden voor het verkrijgen van een token om een web-API aan te roepen.
+
 ![mobiele](media/scenarios/mobile-app.svg)
 
-Net als voor desktop toepassingen, voor het verkrijgen van een token om een web-API aan te roepen, maakt een mobiele toepassing gebruik van de MSAL-methoden voor het PublicClientApplication's van interactieve tokens. Op iOS en Android gebruikt MSAL standaard de webbrowser van het systeem. U kunt de webweergave echter wel gebruiken. Er zijn specifieke kenmerken afhankelijk van het mobiele platform: (UWP, iOS, Android).
+MSAL iOS en MSAL Android gebruiken standaard de webbrowser van het systeem. U kunt het echter ook gebruiken om de Inge sloten Webweergave uit te geven. Er zijn specifieke kenmerken afhankelijk van het mobiele platform: (UWP, iOS, Android).
+
 In sommige scenario's, met betrekking tot voorwaardelijke toegang tot de apparaat-ID of een apparaat dat wordt geregistreerd, moet een [Broker](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS) op een apparaat worden geïnstalleerd. Voor beelden van makelaars zijn micro soft-bedrijfs portal (op Android) Microsoft Authenticator (Android en iOS). MSAL is nu geschikt voor interactie met makelaars.
 
 > [!NOTE]
 > Uw mobiele app (met MSAL. iOS, MSAL. Op de Android-of MSAL.NET/Xamarin) kan beveiligings beleid voor apps worden toegepast (bijvoorbeeld voor komen dat de gebruiker beveiligde tekst kopieert). Dit wordt [beheerd door intune](https://docs.microsoft.com/intune/app-sdk) en herkend door intune als een beheerde app. De [intune SDK](https://docs.microsoft.com/intune/app-sdk-get-started) is gescheiden van MSAL-bibliotheken en wordt op basis van een eigen service aan Aad door gepraatd.
 
-Bekijk [de mobiele app die web-api's aanroept](scenario-mobile-overview.md) voor meer informatie
+Lees voor meer informatie [de mobiele app die web-api's aanroept](scenario-mobile-overview.md).
 
 ### <a name="protected-web-api"></a>Beveiligde web-API
 
 U kunt het micro soft Identity platform-eind punt gebruiken voor het beveiligen van webservices, zoals de REST Web API van uw app. Een beveiligde web-API wordt aangeroepen met een toegangs token om de gegevens te beveiligen en inkomende aanvragen te verifiëren. De aanroeper van een web-API voegt een toegangs token toe in de autorisatie-header van een HTTP-aanvraag. Als u ASP.NET of ASP.NET Core Web-API wilt beveiligen, moet u het toegangs token valideren. Hiervoor gebruikt u de ASP.NET JWT-middleware. Onder de motorkap wordt de validatie uitgevoerd door de [Identity model-extensies voor .net](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) -bibliotheek, niet MSAL.net
 
-Zie de [beveiligde web-API](scenario-protected-web-api-overview.md) voor meer informatie
+Lees de [beveiligde web-API](scenario-protected-web-api-overview.md)voor meer informatie.
 
 ### <a name="web-api-calling-another-downstream-web-api-on-behalf-of-the-user-for-whom-it-was-called"></a>Web-API die een andere stroomafwaartse Web-API aanroept namens de gebruiker voor wie deze is aangeroepen
 
@@ -143,14 +154,16 @@ De Web-Api's die andere web-API aanroepen, moeten ook een aangepaste cache-seria
 
   ![Web-API](media/scenarios/web-api.svg)
 
-Zie [Web API die web-api's aanroept](scenario-web-api-call-api-overview.md) voor meer informatie
+Lees voor meer informatie [Web API die web-api's aanroept](scenario-web-api-call-api-overview.md).
 
 ### <a name="desktopservice-or-web-daemon-application-calling-web-api-without-a-user-in-its-own-name"></a>Desktop/service-of Web daemon-toepassing die Web-API aanroept zonder een gebruiker (met een eigen naam)
 
-Apps die langlopende processen hebben of die werken zonder interactie met een gebruiker, hebben ook een manier nodig om toegang te krijgen tot beveiligde web-Api's. Deze apps kunnen tokens verifiëren en ophalen met behulp van de identiteit van de app, in plaats van de gedelegeerde identiteit van een gebruiker. Ze bewijzen hun identiteit met behulp van een client geheim of certificaat.
+Apps die langlopende processen hebben of die werken zonder tussen komst van de gebruiker, hebben ook een manier nodig om toegang te krijgen tot beveiligde web-Api's. Deze apps kunnen tokens verifiëren en ophalen met behulp van de identiteit van de app, in plaats van de gedelegeerde identiteit van een gebruiker. Ze bewijzen hun identiteit met behulp van een client geheim of certificaat.
 U kunt dergelijke apps (daemon-app) schrijven voor het verkrijgen van een token voor de app op de hoogste wijze met behulp van de MSAL ConfidentialClientApplication's- [client referenties](https://aka.ms/msal-net-client-credentials) . Dit veronderstelt dat de app eerder een geheim (toepassings wachtwoord of certificaat of client bevestiging) heeft geregistreerd bij Azure AD, dat vervolgens deelt met deze aanroep.
 
 ![Daemon-apps](media/scenarios/daemon-app.svg)
+
+Lees voor meer informatie [daemon-toepassing die web-api's aanroept](scenario-daemon-overview.md).
 
 ## <a name="scenarios-and-supported-authentication-flows"></a>Scenario's en ondersteunde verificatie stromen
 
@@ -164,7 +177,7 @@ Scenario's met betrekking tot het verkrijgen van tokens zijn ook toegewezen aan 
 | [![Bureau blad-app die web-Api's aanroept](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) | [Desktop-app die web-API's aanroept](scenario-desktop-overview.md)| Interactief ([verificatie code](v2-oauth2-auth-code-flow.md) met PKCE) | Werk-of school accounts en persoonlijke accounts, B2C |
 | | | Geïntegreerde Windows | Werk-of school accounts |
 | | | [Wacht woord van resource-eigenaar](v2-oauth-ropc.md)  | Werk-of school accounts, B2C |
-| ![Toestel code stroom](media/scenarios/device-code-flow-app.svg)| [Desktop-app die web-API's aanroept](scenario-desktop-overview.md) | [Apparaatcode](v2-oauth2-device-code.md)  | Werk-of school accounts * |
+| ![Stroom voor apparaatcode](media/scenarios/device-code-flow-app.svg)| [Desktop-app die web-API's aanroept](scenario-desktop-overview.md) | [Apparaatcode](v2-oauth2-device-code.md)  | Werk-of school accounts * |
 | [![Mobiele app die web-Api's aanroept](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | [Mobiele app die web-Api's aanroept](scenario-mobile-overview.md) | Interactief ([verificatie code](v2-oauth2-auth-code-flow.md) met PKCE)  |   Werk-of school accounts en persoonlijke accounts, B2C
 | | | Wacht woord van resource-eigenaar  | Werk-of school accounts, B2C |
 | [![Daemon-app](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | [Daemon-app](scenario-daemon-overview.md) | [Clientreferenties](v2-oauth2-client-creds-grant-flow.md)  |   Alleen app-machtigingen (geen gebruiker) voor AAD-organisaties
@@ -183,6 +196,8 @@ Niet elk toepassings type is beschikbaar op elk platform. U kunt ook verschillen
 | [Mobiele app die web-Api's aanroept](scenario-mobile-overview.md) <br/> [![Mobiele app die web-Api's aanroept](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/logo_xamarin.png) MSAL.NET | | | ![iOS/objectief C of SWIFT](media/sample-v2-code/logo_iOS.png) MSAL. iOS | ![Android](media/sample-v2-code/logo_Android.png) MSAL. Android
 | [Daemon-app](scenario-daemon-overview.md) <br/> [![Daemon-app](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python
 | [Web-API die web-Api's aanroept](scenario-web-api-call-api-overview.md) <br/> [![Web-API die web-Api's aanroept](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) <br/> ASP.NET + MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png) <br/> ASP.NET Core + MSAL.NET| ![.NET Core](media/sample-v2-code/logo_NETcore.png) <br/> ASP.NET Core + MSAL.NET| ![.NET Core](media/sample-v2-code/logo_NETcore.png)<br/> ASP.NET Core + MSAL.NET
+
+Zie ook [door micro soft ondersteunde bibliotheken per OS/taal](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language)
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over de [basis principes van verificatie](authentication-scenarios.md) en [toegangs tokens](access-tokens.md).

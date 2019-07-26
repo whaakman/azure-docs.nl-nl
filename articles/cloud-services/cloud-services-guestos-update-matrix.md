@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/18/2019
 ms.author: raiye
-ms.openlocfilehash: edf120fa7997cf2d0381dcb7cd3ee0d4e16dd72b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 2dac76ef0d0d71c11291e63fdb3a7ce307638b50
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321406"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405551"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Guest OS releases en SDK Compatibility Matrix
 Voorziet in actuele informatie over de nieuwste versies van het Azure-gast besturingssysteem voor Cloud Services. Deze informatie helpt u bij het plannen van het upgradepad voordat een gast besturingssysteem wordt uitgeschakeld. Als u uw rollen configureert voor het gebruik van *automatische* updates van gast besturingssystemen zoals beschreven in de update-instellingen van het [Azure-gast besturingssysteem][Azure Guest OS Update Settings], is het niet belang rijk dat u deze pagina leest.
@@ -76,7 +76,7 @@ Het besturings systeem van oktober gast is uitgebracht.
 ###### <a name="october-12-2018"></a>**12 oktober 2018**
 Het besturings systeem september gast is uitgebracht.
 
-## <a name="releases"></a>Releases
+## <a name="releases"></a>Versies
 
 ## <a name="family-6-releases"></a>Versies van familie 6
 **Windows Server 2019**
@@ -96,7 +96,7 @@ Het besturings systeem september gast is uitgebracht.
 >
 
 
-| Configuratie teken reeks | Releasedatum | Datum uitschakelen |
+| Configuratie teken reeks | Uitgebracht op | Datum uitschakelen |
 | --- | --- | --- |
 | WA-GUEST-OS-6.8_201906-01 |8 juli 2019 |Post 6,10 |
 | WA-GUEST-OS-6.7_201905-01 |6 juni 2019 |Post 6,9 |
@@ -110,14 +110,14 @@ Het besturings systeem september gast is uitgebracht.
 ## <a name="family-5-releases"></a>Versies van familie 5
 **Windows Server 2016**
 
-.NET Framework geïnstalleerd: 3,5, 4.6.2, 4.7.2
+.NET Framework geïnstalleerd: 3,5, 4,6
 
 > [!NOTE]
 > Het RDP-wacht woord voor besturingssysteem familie 5 moet mini maal 10 tekens bevatten.
 >
 
 
-| Configuratie teken reeks | Releasedatum | Datum uitschakelen |
+| Configuratie teken reeks | Uitgebracht op | Datum uitschakelen |
 | --- | --- | --- |
 | WA-GUEST-OS-5.32_201906-01 |8 juli 2019 |Post 5,34 |
 | WA-GUEST-OS-5.31_201905-01 |6 juni 2019 |Post 5,33 |
@@ -135,7 +135,7 @@ Het besturings systeem september gast is uitgebracht.
 
 .NET Framework geïnstalleerd: 3.5, 4.5.1, 4.5.2
 
-| Configuratie teken reeks | Releasedatum | Datum uitschakelen |
+| Configuratie teken reeks | Uitgebracht op | Datum uitschakelen |
 | --- | --- | --- |
 | WA-GUEST-OS-4.67_201906-01 |8 juli 2019 |Post 4,69 |
 | WA-GUEST-OS-4.66_201905-01 |6 juni 2019 |Post 4,68 |
@@ -153,7 +153,7 @@ Het besturings systeem september gast is uitgebracht.
 
 .NET Framework geïnstalleerd: 3.5, 4.5
 
-| Configuratie teken reeks | Releasedatum | Datum uitschakelen |
+| Configuratie teken reeks | Uitgebracht op | Datum uitschakelen |
 | --- | --- | --- |
 | WA-GUEST-OS-3.74_201906-01 |8 juli 2019 |Post 3,76 |
 | WA-GUEST-OS-3.73_201905-01 |6 juni 2019 |Post 3,75 |
@@ -171,7 +171,7 @@ Het besturings systeem september gast is uitgebracht.
 
 .NET Framework geïnstalleerd: 3,5 (inclusief 2,0 en 3,0), 4,5
 
-| Configuratie teken reeks | Releasedatum | Datum uitschakelen |
+| Configuratie teken reeks | Uitgebracht op | Datum uitschakelen |
 | --- | --- | --- |
 | WA-GUEST-OS-2.87_201906-01 |8 juli 2019 |Post 2,89 |
 | WA-GUEST-OS-2.86_201905-01 |6 juni 2019 |Post 2,88 |
