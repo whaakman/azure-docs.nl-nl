@@ -408,8 +408,9 @@
                   href: app/telemetry-channels.md
                 - name: TelemetryProcessors
                   displayname: 'processors, filtering, telemetry filtering, telemetry processor'
-                - name: Telemetriecorrelatie
                   href: app/api-filtering-sampling.md
+                - name: Telemetriecorrelatie
+                  href: app/correlation.md
                 - name: Aangepaste bewerkingen in .NET-SDK bijhouden
                   href: app/custom-operations-tracking.md
                 - name: Aangepaste e-mail-rapporten
@@ -603,6 +604,8 @@
                       href: insights/vminsights-enable-at-scale-powershell.md
                     - name: Inschakelen voor een hybride omgeving
                       href: insights/vminsights-enable-hybrid-cloud.md
+                    - name: Integratie met Operations Manager
+                      href: insights/service-map-scom.md
                 - name: Statusbewaking
                   href: insights/vminsights-health.md
                 - name: Afhankelijkheden toewijzen
@@ -621,14 +624,8 @@
               href: insights/vmware.md
             - name: Oplossing voor bedradingsgegevens
               href: insights/wire-data.md
-            - name: Servicetoewijzing
-              items:
-                - name: Gebruiken
-                  href: insights/service-map.md
-                - name: Configureren
-                  href: insights/service-map-configure.md
-                - name: Integratie met Operations Manager
-                  href: insights/service-map-scom.md
+            - name: Oplossing voor servicetoewijzing
+              href: insights/service-map.md
             - name: Computergroepen
               href: platform/computer-groups.md
             - name: Configuratiebeheer

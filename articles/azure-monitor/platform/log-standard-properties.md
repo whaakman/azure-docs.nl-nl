@@ -1,6 +1,6 @@
 ---
-title: Logboekregistratie van records standaardeigenschappen in Azure Monitor | Microsoft Docs
-description: Beschrijft eigenschappen die gemeenschappelijk voor meerdere gegevenstypen in Logboeken van Azure Monitor zijn.
+title: Standaard eigenschappen in Azure Monitor logboek records | Microsoft Docs
+description: Hierin worden eigenschappen beschreven die gemeen schappelijk zijn voor meerdere gegevens typen in Azure Monitor-Logboeken.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -10,26 +10,29 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: 50804e1f6ab4f352239d3f405e5b41e4e0c58d14
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: b9a4a0a18e120a2843e23d44b03c0fe53b0d84fc
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67292808"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370670"
 ---
-# <a name="standard-properties-in-azure-monitor-logs"></a>Standaardeigenschappen in Logboeken van Azure Monitor
-Gegevens in Azure controleren logboeken [opgeslagen als een set records in een Log Analytics-werkruimte of in Application Insights-toepassing](../log-query/logs-structure.md), elk met een bepaald type met een unieke set eigenschappen. Veel gegevenstypen heeft standaard-eigenschappen die betrekking hebben op meerdere typen. Dit artikel worden deze eigenschappen en voorbeelden van hoe u ze in query's gebruiken kunt.
+# <a name="standard-properties-in-azure-monitor-logs"></a>Standaard eigenschappen in Azure Monitor logboeken
+Gegevens in Azure Monitor logboeken worden [opgeslagen als een set records in een log Analytics werk ruimte of Application Insights toepassing](../log-query/logs-structure.md), elk met een bepaald gegevens type met een unieke set eigenschappen. Veel gegevens typen hebben standaard eigenschappen die gemeen schappelijk zijn voor meerdere typen. In dit artikel worden deze eigenschappen beschreven en vindt u voor beelden van hoe u deze kunt gebruiken in query's.
 
-Sommige van deze eigenschappen zijn nog steeds wordt geïmplementeerd, zodat u ze in bepaalde gegevenstypen, maar nog niet in andere kan zien.
+> [!NOTE]
+> Sommige van de standaard-PERT-versies worden niet weer gegeven in de schema weergave of IntelliSense in Log Analytics en ze worden niet weer gegeven in query resultaten tenzij u de eigenschap expliciet opgeeft in de uitvoer.
 
-## <a name="timegenerated-and-timestamp"></a>TimeGenerated en tijdstempel
-De **TimeGenerated** (Log Analytics-werkruimte) en **timestamp** (Application Insights-toepassing) eigenschappen bevatten de datum en tijd waarop de record is gemaakt. Het biedt een algemene eigenschap moet worden gebruikt voor filteren of samen te vatten door de tijd. Wanneer u een tijdsbereik voor een weergave of dashboard in Azure portal selecteert, gebruikt deze TimeGenerated of tijdstempel om de resultaten te filteren.
+## <a name="timegenerated-and-timestamp"></a>TimeGenerated en tijds tempel
+De eigenschappen van de **TimeGenerated** (log Analytics-werk ruimte) en de **Time Stamp** -eigenschap (Application Insights toepassing) bevatten de datum en tijd waarop de record is gemaakt door de gegevens bron. Zie [opname tijd van logboek gegevens in azure monitor](data-ingestion-time.md) voor meer informatie.
+
+**TimeGenerated** en **Time Stamp** bieden een gemeen schappelijke eigenschap voor filteren of samen vatting op tijd. Wanneer u een tijds bereik voor een weer gave of dash board in de Azure Portal selecteert, wordt TimeGenerated of Time Stamp gebruikt om de resultaten te filteren. 
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende query retourneert het aantal foutgebeurtenissen die zijn gemaakt voor elke dag in de vorige week.
+De volgende query retourneert het aantal fout gebeurtenissen dat voor elke dag in de vorige week wordt gemaakt.
 
 ```Kusto
 Event
@@ -39,7 +42,7 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-De volgende query retourneert het aantal uitzonderingen die zijn gemaakt voor elke dag in de vorige week.
+De volgende query retourneert het aantal uitzonde ringen dat voor elke dag in de vorige week is gemaakt.
 
 ```Kusto
 exceptions
@@ -48,28 +51,46 @@ exceptions
 | sort by timestamp asc 
 ```
 
-## <a name="type-and-itemtype"></a>Type en het itemType
-De **Type** (Log Analytics-werkruimte) en **itemType** blokkering van de eigenschappen (Application Insights-toepassing) de naam van de tabel die de record is opgehaald van kan ook worden beschouwd als de record type. Deze eigenschap is handig in query's met een combinatie van records uit meerdere tabellen, zoals die waarin de `search` -operator, onderscheid maken tussen de records van verschillende typen. **$table** kan worden gebruikt in plaats van **Type** op bepaalde plaatsen.
+## <a name="timereceived"></a>\_TimeReceived
+De eigenschap TimeReceived bevat de datum en tijd waarop de record is ontvangen door het Azure monitor opname punt in de Azure-Cloud.  **\_** Dit kan handig zijn om latentie problemen tussen de gegevens bron en de cloud te identificeren. Een voor beeld hiervan is een netwerk probleem dat een vertraging veroorzaakt bij het verzenden van gegevens van een agent. Zie [opname tijd van logboek gegevens in azure monitor](data-ingestion-time.md) voor meer informatie.
+
+De volgende query geeft de gemiddelde latentie per uur voor gebeurtenis records van een agent. Dit omvat de tijd van de agent naar de Cloud en de totale tijd voor de record die beschikbaar is voor logboek query's.
+
+```Kusto
+Event
+| where TimeGenerated > ago(1d) 
+| project TimeGenerated, TimeReceived = _TimeReceived, IngestionTime = ingestion_time() 
+| extend AgentLatency = toreal(datetime_diff('Millisecond',TimeReceived,TimeGenerated)) / 1000
+| extend TotalLatency = toreal(datetime_diff('Millisecond',IngestionTime,TimeGenerated)) / 1000
+| summarize avg(AgentLatency), avg(TotalLatency) by bin(TimeGenerated,1hr)
+``` 
+
+## <a name="type-and-itemtype"></a>Typ en item type
+De eigenschappen van het **type** (log Analytics werk ruimte) en het eigenschaps **item** (Application Insights toepassing) bevatten de naam van de tabel waaruit de record is opgehaald, die ook als het record type kan worden beschouwd. Deze eigenschap is handig in query's die records uit meerdere tabellen combi neren, zoals de gegevens die gebruikmaken `search` van de operator om onderscheid te maken tussen records van verschillende typen. **$Table** kan in plaats van het **type** op sommige locaties worden gebruikt.
 
 ### <a name="examples"></a>Voorbeelden
-De volgende query retourneert het aantal records per type in het afgelopen uur worden verzameld.
+Met de volgende query wordt het aantal records geretourneerd op basis van het type dat in het afgelopen uur is verzameld.
 
 ```Kusto
 search * 
 | where TimeGenerated > ago(1h)
 | summarize count() by Type
+
 ```
+## <a name="itemid"></a>\_ItemId
+De eigenschap Itemid bevat een unieke id voor de record.  **\_**
+
 
 ## <a name="resourceid"></a>\_ResourceId
-De  **\_ResourceId** eigenschap bevat een unieke id voor de resource die de record is gekoppeld. Dit biedt u een standard-eigenschap gebruikt als bereik voor de query alleen records uit een bepaalde resource, of voor gerelateerde gegevens tussen meerdere tabellen samenvoegen.
+De eigenschap ResourceID bevat een unieke id voor de resource waaraan de record is gekoppeld.  **\_** Dit geeft u een standaard eigenschap die u kunt gebruiken om uw query te beperken tot alleen records van een bepaalde resource, of om gerelateerde gegevens over meerdere tabellen samen te voegen.
 
-Voor Azure-resources, de waarde van **_ResourceId** is de [Azure-resource-ID URL](../../azure-resource-manager/resource-group-template-functions-resource.md). De eigenschap is momenteel beperkt tot Azure-resources, maar dit zal worden uitgebreid tot resources buiten Azure, zoals on-premises computers.
+Voor Azure-resources is de waarde van **_ResourceId** de [URL van de Azure-resource-id](../../azure-resource-manager/resource-group-template-functions-resource.md). De eigenschap is momenteel beperkt tot Azure-resources, maar wordt uitgebreid naar bronnen buiten Azure, zoals on-premises computers.
 
 > [!NOTE]
-> Sommige gegevenstypes al velden die Azure-resource-ID bevatten of ten minste onderdelen van het abonnements-ID. Terwijl deze velden voor achterwaartse compatibiliteit behouden, verdient het _ResourceId gebruiken voor het uitvoeren van meerdere correlatie, omdat deze wordt consistenter zijn.
+> Sommige gegevens typen bevatten al velden met een Azure-Resource-ID of ten minste delen daarvan, zoals de abonnements-ID. Hoewel deze velden voor compatibiliteit met eerdere versies worden bewaard, is het raadzaam om de _ResourceId te gebruiken om een kruis correlatie uit te voeren, omdat het consistenter is.
 
 ### <a name="examples"></a>Voorbeelden
-Prestatie- en gegevens voor elke computer lid wordt van de volgende query uit. U ziet alle gebeurtenissen met de ID van _101_ en CPU-gebruik meer dan 50%.
+Met de volgende query worden de prestatie-en gebeurtenis gegevens voor elke computer samengevoegd. Alle gebeurtenissen met de ID _101_ en processor gebruik worden weer gegeven via 50%.
 
 ```Kusto
 Perf 
@@ -80,7 +101,7 @@ Perf
 ) on _ResourceId
 ```
 
-De volgende query joins _AzureActivity_ records met _SecurityEvent_ records. Hier ziet u alle activiteit bewerkingen met gebruikers die zijn aangemeld bij deze machines.
+Met de volgende query worden _AzureActivity_ -records samengevoegd met _SecurityEvent_ -records. Het geeft alle activiteiten bewerkingen weer met gebruikers die zijn aangemeld bij deze machines.
 
 ```Kusto
 AzureActivity 
@@ -94,7 +115,7 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-De volgende query parseert **_ResourceId** en statistische functies in rekening gebracht gegevensvolumes per Azure-abonnement.
+De volgende query parseert **_ResourceId** en aggregeert gefactureerde gegevens volumes per Azure-abonnement.
 
 ```Kusto
 union withsource = tt * 
@@ -104,16 +125,16 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
 ```
 
-Gebruik deze `union withsource = tt *` spaarzaam scans in verschillende gegevenstypen zijn duur in het uitvoeren van query's.
+Gebruik deze `union withsource = tt *` query's spaarzaam als scans over gegevens typen duur zijn om uit te voeren.
 
 ## <a name="isbillable"></a>\_IsBillable
-De  **\_IsBillable** eigenschap geeft aan of opgenomen gegevens betaald zijn. Gegevens met  **\_IsBillable** gelijk zijn aan _false_ worden verzameld voor gratis en niet in rekening gebracht bij uw Azure-account.
+De eigenschap IsBillable geeft aan of geconsumeerde gegevens Factureerbaar zijn.  **\_** Gegevens waarbij  **\_IsBillable** gelijk is aan _False_ , worden gratis verzameld en worden niet in rekening gebracht voor uw Azure-account.
 
 ### <a name="examples"></a>Voorbeelden
-Als u een lijst met computers die worden gefactureerd gegevenstypen verzenden, gebruikt u de volgende query uit:
+Gebruik de volgende query om een lijst op te halen met computers die gefactureerde gegevens typen verzenden:
 
 > [!NOTE]
-> Met query's met `union withsource = tt *` spaarzaam scans in verschillende gegevenstypen zijn kostbaar zijn om uit te voeren. 
+> Gebruik query's met `union withsource = tt *` spaarzaam als scans over gegevens typen duur zijn om uit te voeren. 
 
 ```Kusto
 union withsource = tt * 
@@ -123,7 +144,7 @@ union withsource = tt *
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
-Dit kan worden uitgebreid om terug te keren de telling van computers per uur die verzenden in rekening gebracht gegevenstypen:
+Dit kan worden uitgebreid om het aantal computers per uur te retour neren dat gefactureerde gegevens typen verzendt:
 
 ```Kusto
 union withsource = tt * 
@@ -134,10 +155,11 @@ union withsource = tt *
 ```
 
 ## <a name="billedsize"></a>\_BilledSize
-De  **\_BilledSize** eigenschap geeft de grootte in bytes aan gegevens dat wordt gefactureerd naar uw Azure-account als  **\_IsBillable** is ingesteld op true.
+**\_**  **De\_eigenschap BilledSize** geeft de grootte in bytes aan gegevens aan die worden gefactureerd naar uw Azure-account als IsBillable waar is.
+
 
 ### <a name="examples"></a>Voorbeelden
-Als de grootte van factureerbare gebeurtenissen die per computer weergeven, gebruikt u de `_BilledSize` eigenschap waarmee u de grootte in bytes:
+Als u de grootte van het aantal factureer bare gebeurtenissen per computer wilt zien `_BilledSize` , gebruikt u de eigenschap die de grootte in bytes levert:
 
 ```Kusto
 union withsource = tt * 
@@ -145,7 +167,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
 ```
 
-Als u wilt zien van de grootte van factureerbare gebeurtenissen die per abonnement zijn opgenomen, gebruikt u de volgende query:
+Gebruik de volgende query om de omvang van de factureer bare gebeurtenissen die per abonnement zijn opgenomen te bekijken:
 
 ```Kusto
 union withsource=table * 
@@ -154,7 +176,7 @@ union withsource=table *
 | summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
 ```
 
-Als de grootte van factureerbare gebeurtenissen die per resourcegroep weergeven, gebruikt u de volgende query uit:
+Gebruik de volgende query om de omvang van de factureer bare gebeurtenissen per resource groep te bekijken:
 
 ```Kusto
 union withsource=table * 
@@ -165,14 +187,14 @@ union withsource=table *
 ```
 
 
-Als het aantal gebeurtenissen die per computer weergeven, gebruikt u de volgende query uit:
+Voor een overzicht van het aantal gebeurtenissen dat per computer is opgenomen, gebruikt u de volgende query:
 
 ```Kusto
 union withsource = tt *
 | summarize count() by Computer | sort by count_ nulls last
 ```
 
-Als het aantal factureerbare gebeurtenissen die per computer weergeven, gebruikt u de volgende query uit: 
+Gebruik de volgende query om het aantal factureer bare gebeurtenissen per computer te bekijken: 
 
 ```Kusto
 union withsource = tt * 
@@ -180,7 +202,7 @@ union withsource = tt *
 | summarize count() by Computer  | sort by count_ nulls last
 ```
 
-Als het aantal factureerbare gegevenstypen van een specifieke computer weergeven, gebruikt u de volgende query uit:
+Gebruik de volgende query om het aantal factureer bare gegevens typen van een specifieke computer te bekijken:
 
 ```Kusto
 union withsource = tt *
@@ -191,6 +213,6 @@ union withsource = tt *
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over hoe u [Azure Monitor log-gegevens worden opgeslagen](../log-query/log-query-overview.md).
-- Ophalen van een les op [logboeken-query's schrijven](../../azure-monitor/log-query/get-started-queries.md).
-- Ophalen van een les op [samenvoegen van tabellen in Logboeken-query's](../../azure-monitor/log-query/joins.md).
+- Lees meer over hoe [Azure monitor logboek gegevens worden opgeslagen](../log-query/log-query-overview.md).
+- Lees een les over het [schrijven van logboek query's](../../azure-monitor/log-query/get-started-queries.md).
+- Maak een les over het [koppelen van tabellen in logboek query's](../../azure-monitor/log-query/joins.md).

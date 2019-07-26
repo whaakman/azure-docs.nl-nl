@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: e1ec6987f1a142e9bf9cd4413cfb4444bde1b7dd
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 66b11ef8e746222074eadab2348f8a2cf9dab39f
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797003"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479152"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Veelgestelde vragen over Eventhubs
 
@@ -24,14 +24,14 @@ ms.locfileid: "67797003"
 ### <a name="what-is-an-event-hubs-namespace"></a>Wat is een Event Hubs-naamruimte?
 Een naamruimte is een scoping container voor Event Hub/Kafka-onderwerpen. Dit biedt u een unieke [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Een naamruimte fungeert als een toepassingscontainer dat met meerdere Event Hub/Kafka-onderwerpen werken kan. 
 
-### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>Wanneer maak ik een nieuwe naamruimte versus gebruik een bestaande naamruimte?
-Capaciteit toewijzingen ([doorvoereenheden (Doorvoereenheden)](#throughput-units)) worden in rekening gebracht op het niveau van de naamruimte. Een naamruimte is ook gekoppeld aan een regio.
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>Wanneer moet ik een nieuwe naam ruimte maken versus een bestaande naam ruimte gebruiken?
+Capaciteits toewijzingen ([doorvoer eenheden (TUs)](#throughput-units)) worden gefactureerd op het niveau van de naam ruimte. Een naam ruimte is ook gekoppeld aan een regio.
 
-U wilt maken van een nieuwe naamruimte in plaats van een bestaande een in een van de volgende scenario's: 
+U kunt een nieuwe naam ruimte maken in plaats van een bestaande te gebruiken in een van de volgende scenario's: 
 
-- U moet een Event Hub die is gekoppeld aan een nieuwe regio.
-- U moet een Event Hub die is gekoppeld aan een ander abonnement.
-- U moet een Event Hub met een afzonderlijke capaciteitstoewijzing (dat wil zeggen, de capaciteit nodig hebt voor de naamruimte met de toegevoegde event hub de 40 Doorvoereenheden drempelwaarde wordt overschreden en u niet wilt dat voor de specifieke cluster)  
+- U hebt een event hub nodig die aan een nieuwe regio is gekoppeld.
+- U hebt een event hub nodig die is gekoppeld aan een ander abonnement.
+- U hebt een event hub met een afzonderlijke capaciteits toewijzing nodig (dat wil zeggen, de capaciteits behoefte voor de naam ruimte met de toegevoegde Event Hub zou de drempel waarde 40 TU overschrijden en u niet wilt voor het toegewezen cluster)  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Wat is het verschil tussen Event Hubs basis en standaard-laag?
 
@@ -60,46 +60,46 @@ Event Hubs Standard-laag biedt momenteel ondersteuning voor een maximale bewaarp
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Hoe bewaak ik mijn Event Hubs?
 Eventhubs verzendt uitgebreide metrische gegevens die de status van uw resources te bieden [Azure Monitor](../azure-monitor/overview.md). Ook kunt u bij het bepalen van de algemene status van de Event Hubs-service niet alleen op het niveau van de naamruimte, maar ook op het entiteitsniveau van de. Meer informatie over welke bewaking wordt aangeboden voor [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Welke poorten moet ik gebruiken om te openen op de firewall? 
-U kunt de volgende protocollen gebruiken met Azure Service Bus berichten te verzenden en ontvangen:
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Welke poorten moet ik op de firewall openen? 
+U kunt de volgende protocollen gebruiken met Azure Service Bus voor het verzenden en ontvangen van berichten:
 
 - Advanced Message Queuing Protocol (AMQP)
 - HTTP
 - Apache Kafka
 
-Zie de volgende tabel voor de uitgaande poorten die u wilt openen om deze protocollen gebruiken om te communiceren met Azure Event Hubs te maken. 
+Zie de volgende tabel voor de uitgaande poorten die u moet openen om deze protocollen te gebruiken om te communiceren met Azure Event Hubs. 
 
 | Protocol | Poorten | Details | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 en 5672 | Zie [AMQP-protocolhandleiding](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| AMQP | 5671 en 5672 | Zie [AMQP protocol Guide (Engelstalig](../service-bus-messaging/service-bus-amqp-protocol-guide.md) ) | 
 | HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | Zie [Event Hubs gebruiken vanuit toepassingen van Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | Zie [Event hubs gebruiken in Kafka-toepassingen](event-hubs-for-kafka-ecosystem-overview.md)
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Welke IP-adressen moet ik aan lijst met geaccepteerde?
-Als u wilt zoeken witte lijst de juiste IP-adressen voor uw verbindingen, de volgende stappen uit:
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Welke IP-adressen moet ik white list?
+Ga als volgt te werk om de juiste IP-adressen voor uw verbindingen te zoeken naar een witte lijst:
 
-1. Voer de volgende opdracht uit vanaf een opdrachtprompt: 
+1. Voer de volgende opdracht uit vanaf een opdracht prompt: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Noteer de IP-adres dat is geretourneerd `Non-authoritative answer`. Het enige punt in tijd gewijzigd zou is als u de naamruimte die u aan bij een ander cluster herstellen.
+2. Noteer het IP-adres dat is `Non-authoritative answer`geretourneerd in. Wanneer u de naam ruimte op een ander cluster herstelt, wordt het enige tijdstip gewijzigd dat het zou veranderen.
 
-Als u de zoneredundantie voor uw naamruimte gebruikt, moet u een paar extra stappen uitvoeren: 
+Als u de zone redundantie voor uw naam ruimte gebruikt, moet u een aantal extra stappen uitvoeren: 
 
-1. Eerst, voert u nslookup op de naamruimte.
+1. Eerst voert u Nslookup uit op de naam ruimte.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Noteer de naam in de **niet-bindend antwoord** sectie, die zich in een van de volgende indelingen: 
+2. Noteer de naam in de sectie **niet-bindende antwoord** , die een van de volgende indelingen heeft: 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. Nslookup uitvoeren voor elke opdracht met de achtervoegsels s1, s2 en s3 om op te halen van de IP-adressen van alle drie exemplaren die worden uitgevoerd in drie beschikbaarheidszones, 
+3. Voer nslookup uit voor elk met achtervoegsels S1, S2 en S3 om de IP-adressen te verkrijgen van alle drie de instanties die worden uitgevoerd in drie beschikbaarheids zones, 
 
 ## <a name="apache-kafka-integration"></a>Integratie van Apache Kafka
 
@@ -115,7 +115,7 @@ Voorbeeld:
 
 bootstrap.servers=dummynamespace.servicebus.Windows.NET:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule vereist gebruikersnaam = "$ Password="Endpoint=sb://dummynamespace.servicebus.windows.net/ ConnectionString'; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = 5dOntTRytoC24opYThisAsit3is2B + OGY1US/fuL3ly = ";
 
-Opmerking: Als sasl.jaas.config geen ondersteunde configuratie in uw framework is, vindt u de configuraties die worden gebruikt voor het instellen van de SASL-gebruikersnaam en het wachtwoord en deze in plaats daarvan gebruiken. Stel de gebruikersnaam op $ConnectionString en het wachtwoord voor uw Event Hubs-verbindingsreeks.
+Opmerking: Als sasl. JAAS. config geen ondersteunde configuratie in uw Framework is, zoekt u de configuraties die worden gebruikt voor het instellen van de SASL gebruikers naam en het wacht woord en het gebruik daarvan. Stel de gebruikersnaam op $ConnectionString en het wachtwoord voor uw Event Hubs-verbindingsreeks.
 
 ### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>Wat is de bericht-/ gebeurtenisgrootte voor Event Hubs waarvoor Kafka is ingeschakeld?
 De maximale berichtgrootte die is toegestaan voor de Event-Hubs voor Kafka-functionaliteit is 1MB.
@@ -185,8 +185,9 @@ U een specifieke Event Hubs-cluster maken door het indienen van een [ondersteuni
 ## <a name="best-practices"></a>Aanbevolen procedures
 
 ### <a name="how-many-partitions-do-i-need"></a>Het aantal partities heb ik nodig?
+Het aantal partities wordt opgegeven bij het maken en moet tussen 2 en 32 liggen. Het aantal partities kan niet worden gewijzigd. Houd bij het instellen van het aantal partities dus uw doelen op de lange termijn in gedachten. Partities zijn een mechanisme voor gegevensordening. Ze hebben betrekking op de mate van downstreamparallelheid die is vereist bij het gebruik van toepassingen. Het aantal partities in een Event Hub houdt rechtstreeks verband met het aantal verwachte gelijktijdige lezers. Zie [partities](event-hubs-features.md#partitions)voor meer informatie over partities.
 
-Het aantal partities op een event hub kan niet worden gewijzigd na de installatie. Met die in rekening met is het belangrijk om na te denken over het aantal partities die u nodig hebt voordat u aan de slag. 
+Het is raadzaam om de waarde in te stellen op het hoogst mogelijke niveau: 32, op het moment dat deze wordt gemaakt. Houd er rekening mee dat er meer dan één partitie heeft als gevolg dat er gebeurtenissen worden verzonden naar meerdere partities zonder de volg orde te behouden, tenzij u afzenders configureert om alleen te verzenden naar één enkele partitie van de 32, waardoor de resterende 31 partities overbodig zijn. In het eerste geval moet u gebeurtenissen lezen in alle 32-partities. In het laatste geval zijn er geen duidelijke extra kosten van de extra configuratie die u moet maken op de host van de gebeurtenis processor.
 
 Eventhubs is ontworpen om toe te staan een lezer één partitie per consumergroep. Gebruik in de meeste gevallen is de standaardinstelling van vier partities voldoende. Als u schalen van de verwerking van gebeurtenissen wilt, kunt u overwegen extra partities toe te voegen. Er is geen doorvoerlimiet voor specifieke op een partitie, maar de geaggregeerde doorvoer in uw naamruimte wordt beperkt door het aantal doorvoereenheden. Als u het aantal throughput units in uw naamruimte verhoogt, kunt u extra partities om toe te staan van gelijktijdige lezers hun eigen maximale doorvoer te realiseren.
 
@@ -232,8 +233,8 @@ Zie voor een lijst van alle Event Hubs-quota's, [quota](event-hubs-quotas.md).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Waarom kan ik geen een naamruimte maken na het verwijderen van een ander abonnement? 
-Wanneer u een naamruimte uit een abonnement verwijdert, te wachten gedurende 4 uur voordat opnieuw worden gemaakt met dezelfde naam in een ander abonnement. Anders, verschijnt de volgende strekking weergegeven: `Namespace already exists`. 
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Waarom kan ik geen naam ruimte maken nadat ik deze heb verwijderd uit een ander abonnement? 
+Wanneer u een naam ruimte uit een abonnement verwijdert, wacht u vier uur voordat u deze opnieuw maakt met dezelfde naam in een ander abonnement. Anders wordt het volgende fout bericht weer gegeven: `Namespace already exists`. 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Wat zijn enkele van de uitzonderingen die worden gegenereerd door de Event Hubs en hun voorgestelde acties?
 

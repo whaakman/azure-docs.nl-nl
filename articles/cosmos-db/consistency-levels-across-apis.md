@@ -1,62 +1,62 @@
 ---
 title: Consistentieniveaus en Azure Cosmos DB-API's
-description: Informatie over de consistentieniveaus voor API's in Azure Cosmos DB.
+description: Meer informatie over de consistentie niveaus van Api's in Azure Cosmos DB.
 author: rimman
 ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1129152c1823fbffb3d6c9ec918d7b8cb4426bbd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26cea6243a8b6d06c132325f0b2fe830c4030e9d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235615"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467778"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Consistentieniveaus en Azure Cosmos DB-API's
 
-Azure Cosmos DB biedt ingebouwde ondersteuning voor wire-protocol-compatibele API's voor populaire-databases. Het gaat hierbij om MongoDB, Apache Cassandra, Gremlin en Azure Table storage. Deze databases bieden nauwkeurig omschreven consistentiemodellen of SLA's gesteunde garanties met betrekking tot de consistentieniveaus. Ze bieden doorgaans slechts een subset van de vijf consistentiemodellen aangeboden door Azure Cosmos DB. 
+Azure Cosmos DB biedt systeem eigen ondersteuning voor Api's die compatibel zijn met wire-protocol voor populaire data bases. Dit zijn onder andere MongoDB, Apache Cassandra, Gremlin en Azure Table Storage. Deze data bases bieden niet nauw keurig gedefinieerde consistentie modellen of garanties met SLA-ondersteuning voor de consistentie niveaus. Ze bieden doorgaans slechts een subset van de vijf consistentie modellen die worden aangeboden door Azure Cosmos DB. 
 
-Wanneer u SQL-API, Gremlin-API en Table-API, wordt het standaardconsistentieniveau geconfigureerd op de Azure Cosmos-account wordt gebruikt. 
+Wanneer u SQL API, Gremlin API en Table-API gebruikt, wordt het standaard consistentie niveau gebruikt dat is geconfigureerd voor het Azure Cosmos-account. 
 
-Wanneer u de Cassandra-API of Azure Cosmos DB-API voor MongoDB, ophalen van de toepassingen een volledige set van consistentieniveaus die Apache Cassandra en MongoDB, respectievelijk, met nog krachtiger consistentie en garanties voor duurzaamheid. Dit document bevat de bijbehorende Azure Cosmos DB-consistentieniveaus voor Apache Cassandra en MongoDB-consistentieniveaus.
+Bij het gebruik van Cassandra-API-of Azure Cosmos DB-API voor MongoDB, krijgen toepassingen een volledige set consistentie niveaus die worden aangeboden door Apache Cassandra en MongoDB, met nog sterker consistentie-en duurzaamheids garanties. In dit document worden de bijbehorende Azure Cosmos DB consistentie niveaus voor Apache Cassandra-en MongoDB-consistentie niveaus weer gegeven.
 
 
-## <a id="cassandra-mapping"></a>Toewijzing tussen Apache Cassandra en Azure Cosmos DB-consistentieniveaus
+## <a id="cassandra-mapping"></a>Toewijzing tussen Apache Cassandra-en Azure Cosmos DB-consistentie niveaus
 
-In tegenstelling tot AzureCosmos DB biedt Apache Cassandra systeemeigen geen garanties voor nauwkeurig gedefinieerd consistentie.  Apache Cassandra biedt in plaats daarvan een consistentieniveau schrijven en een niveau lezen van consistentie, zodat de hoge beschikbaarheid, consistentie en latentie compromissen. Als u Azure Cosmos DB Cassandra-API: 
+In tegens telling tot AzureCosmos DB biedt Apache Cassandra geen systeem eigen, nauw keurig gedefinieerde consistentie garanties.  In plaats daarvan biedt Apache Cassandra een schrijf consistentie niveau en een consistentie niveau voor lezen om de hoge Beschik baarheid, consistentie en latentie-afwegingen mogelijk te maken. Bij het gebruik van de Cassandra-API van Azure Cosmos DB: 
 
-* Het niveau van de consistentie schrijven van Apache Cassandra wordt toegewezen aan het standaardconsistentieniveau geconfigureerd in uw Azure Cosmos-account. 
+* Het schrijf consistentie niveau van Apache Cassandra wordt toegewezen aan het standaard consistentie niveau dat is geconfigureerd voor uw Azure Cosmos-account. 
 
-* Azure Cosmos DB wordt dynamisch toegewezen voor het lezen van consistentieniveau dat is opgegeven door het stuurprogramma van de Cassandra-client op een van de Azure Cosmos DB-consistentieniveaus dynamisch geconfigureerd op een leesaanvraag. 
+* Azure Cosmos DB wijst het Lees consistentie niveau dat is opgegeven door het Cassandra-client stuur programma dynamisch toe aan een van de Azure Cosmos DB consistentie niveaus die dynamisch zijn geconfigureerd op een lees aanvraag. 
 
-De volgende tabel ziet u hoe de systeemeigen Cassandra-consistentieniveaus zijn toegewezen aan de Azure Cosmos DB-consistentieniveaus bij het gebruik van de Cassandra-API:  
+In de volgende tabel ziet u hoe de systeem eigen Cassandra consistentie niveaus worden toegewezen aan de consistentie niveaus van de Azure Cosmos DB wanneer u Cassandra-API gebruikt:  
 
-[![Toewijzing van Cassandra consistentie-model](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+[![Toewijzing van Cassandra-consistentie model](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
-## <a id="mongo-mapping"></a>Toewijzing tussen MongoDB en Azure Cosmos DB-consistentieniveaus
+## <a id="mongo-mapping"></a>Toewijzing tussen MongoDB en Azure Cosmos DB consistentie niveaus
 
-In tegenstelling tot Azure Cosmos DB biedt de systeemeigen MongoDB geen nauwkeurig gedefinieerde consistentiegarantie. In plaats daarvan systeemeigen MongoDB kan gebruikers de volgende garanties voor consistentie configureren: een probleem schrijven, lezen belang en de richtlijn isMaster - om de leesbewerkingen op de primaire of secundaire replica's om de gewenste consistentieniveau te regelen. 
+In tegens telling tot Azure Cosmos DB biedt de systeem eigen MongoDB niet precies gedefinieerde consistentie garanties. In plaats daarvan kunnen gebruikers met systeem eigen MongoDB de volgende consistentie garanties configureren: een schrijf probleem, een lees probleem en de isMaster-instructie-om de Lees bewerkingen naar primaire of secundaire replica's te sturen om het gewenste consistentie niveau te krijgen. 
 
-Wanneer u Azure Cosmos DB-API voor MongoDB, de MongoDB-stuurprogramma wordt uw schrijfregio beschouwd als de primaire replica en alle andere regio's worden gelezen replica. U kunt kiezen welke regio die is gekoppeld aan uw Azure Cosmos-account als een primaire replica. 
+Wanneer u de API van Azure Cosmos DB gebruikt voor MongoDB, behandelt het MongoDB-stuur programma uw schrijf regio als de primaire replica en worden alle andere regio's een replica lezen. U kunt kiezen welke regio is gekoppeld aan uw Azure Cosmos-account als primaire replica. 
 
-Tijdens het gebruik van Azure Cosmos DB-API voor MongoDB:
+Tijdens het gebruik van de API van Azure Cosmos DB voor MongoDB:
 
-* De bezorgdheid schrijven is toegewezen aan het standaardconsistentieniveau geconfigureerd in uw Azure Cosmos-account.
+* De schrijf bezorgdheid wordt toegewezen aan het standaard consistentie niveau dat is geconfigureerd voor uw Azure Cosmos-account.
  
-* Azure Cosmos DB wordt dynamisch toegewezen voor het lezen aandachtspunt opgegeven door het stuurprogramma van de MongoDB-client op een van de Azure Cosmos DB-consistentieniveaus die dynamisch is geconfigureerd op een leesaanvraag. 
+* Azure Cosmos DB wijst de Lees bezorgdheid die door het MongoDB-client stuur programma is opgegeven, dynamisch toe aan een van de Azure Cosmos DB consistentie niveaus die dynamisch zijn geconfigureerd voor een lees aanvraag. 
 
-* U kunt aantekeningen toevoegen aan een specifieke regio die is gekoppeld aan uw Azure Cosmos-account als 'Master' door de regio bevinden als de eerste beschrijfbare regio. 
+* U kunt aantekeningen toevoegen aan een specifieke regio die is gekoppeld aan uw Azure Cosmos-account als ' Master ' door de regio als de eerste Beschrijf bare regio te maken. 
 
-De volgende tabel ziet u hoe de systeemeigen MongoDB schrijven/lezen problemen worden toegewezen aan de Azure Cosmos-consistentieniveaus bij het gebruik van Azure Cosmos DB-API voor MongoDB:
+In de volgende tabel ziet u hoe de systeem eigen MongoDB-schrijf-en lees problemen worden toegewezen aan de consistentie niveaus van Azure Cosmos wanneer u de API van Azure Cosmos DB gebruikt voor MongoDB:
 
-[![Toewijzing van MongoDB consistentie-model](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+[![Toewijzing van MongoDB-consistentie model](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over consistentieniveaus en compatibiliteit tussen Azure Cosmos DB-API's met de open-source-API's. Zie de volgende artikelen:
+Lees meer over consistentie niveaus en compatibiliteit tussen Azure Cosmos DB Api's met de open source-Api's. Zie de volgende artikelen:
 
 * [Beschikbaarheid en prestaties van optimalisatie voor verschillende consistentieniveaus](consistency-levels-tradeoffs.md)
-* [MongoDB-functies worden ondersteund door de Azure Cosmos DB-API voor MongoDB](mongodb-feature-support.md)
-* [Apache Cassandra-functies worden ondersteund door de Cassandra-API van Azure Cosmos DB](cassandra-support.md)
+* [MongoDB-functies die worden ondersteund door de API van de Azure Cosmos DB voor MongoDB](mongodb-feature-support.md)
+* [Apache Cassandra-functies die worden ondersteund door de Azure Cosmos DB Cassandra-API](cassandra-support.md)

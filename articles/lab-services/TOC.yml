@@ -255,6 +255,8 @@
               href: devtest-lab-guidance-prescriptive-adoption.md
             - name: Referentiearchitectuur
               href: devtest-lab-reference-architecture.md
+            - name: Een werkbaar concept afleveren
+              href: deliver-proof-concept.md
             - name: Uw DevTest Labs-implementatie omhoog schalen
               href: devtest-lab-guidance-scale.md
             - name: De DevTest Labs-implementatie organiseren

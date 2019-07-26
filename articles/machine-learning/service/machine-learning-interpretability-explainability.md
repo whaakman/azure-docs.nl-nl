@@ -1,7 +1,7 @@
 ---
 title: Interpreteerbaarheid van modellen
 titleSuffix: Azure Machine Learning service
-description: Leer hoe u waarin wordt uitgelegd waarom uw model Hiermee worden voorspellingen gedaan met behulp van de SDK van Azure Machine Learning. Het kan worden gebruikt tijdens de training en Deductie om te begrijpen hoe het model voorspellingen maakt.
+description: Meer informatie over hoe u uw model voorspellingen maakt met behulp van de Azure Machine Learning SDK. Het kan worden gebruikt tijdens de training en om te begrijpen hoe uw model voor spellingen doet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,109 +10,109 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 06/21/2019
-ms.openlocfilehash: cba46a277dfce93d0080d8f04a26fd135407de15
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 1e742c278b9356c7501964541802e0c96dc74b09
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536736"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358659"
 ---
-# <a name="model-interpretability-with-azure-machine-learning-service"></a>Model interpretability met Azure Machine Learning-service
+# <a name="model-interpretability-with-azure-machine-learning-service"></a>Modellen interpreteren met Azure Machine Learning-service
 
-In dit artikel leert u hoe u waarin wordt uitgelegd waarom het model de voorspellingen gedaan zodanig met de verschillende interpretability pakketten van de Azure Machine Learning Python SDK.
+In dit artikel leert u hoe u kunt uitleggen waarom uw model de voor spellingen heeft gemaakt met de verschillende interpreteer bare pakketten van de Azure Machine Learning python SDK.
 
-Met behulp van de klassen en methoden in de SDK, kunt u krijgen:
-+ Functie van waarden van belang voor onbewerkte en Social engineering-functies
-+ Interpretability op echte gegevenssets op schaal, tijdens de training en Deductie.
-+ Interactieve visualisaties om u te helpen de detectie van patronen in gegevens en uitleg over training tegelijk
+Met de klassen en methoden in de SDK kunt u het volgende doen:
++ Belang rijke waarden van de functie voor zowel onbewerkte als ontworpen functies
++ Interpreteer baarheid voor de gegevens sets op schaal tijdens de training en de interferentie.
++ Interactieve visualisaties die u helpen bij het ontdekken van patronen in gegevens en uitleg tijdens de trainings tijd
 
-Tijdens de fase van de training van het ontwikkelingsproces doet, modelontwerpers en evaluaties interpretability uitvoer van een model gebruiken om te controleren hypothesen en bouw een vertrouwensrelatie met belanghebbenden.  Ze het inzicht in het model ook gebruiken voor het opsporen van fouten, valideren model gedrag komt overeen met hun doelstellingen, en om te controleren op de afwijking.
+Tijdens de trainings fase van de ontwikkelings cyclus kunnen model ontwerpers en evaluatorers gebruikmaken van de interpretatieve uitvoer van een model om hypo Thesen te controleren en om vertrouwen te bouwen met belanghebbenden.  Ze gebruiken ook de inzichten in het model voor het opsporen van fouten, het valideren van het model gedrag aan hun doel stellingen en om te controleren op bias.
 
-In machine learning, **functies** de gegevensvelden gebruikt om te voorspellen van een gegevenspunt doel. Bijvoorbeeld, om te voorspellen kredietrisico, kunnen gegevensvelden voor leeftijd, de accountgrootte en leeftijd van de account worden gebruikt. In dit geval, leeftijd, de accountgrootte en account leeftijd zijn **functies**. Urgentie van de functie kunt u zien hoe elk gegevensveld van het model voorspellingen beïnvloed. Bijvoorbeeld, kan leeftijd worden veel gebruikt in de voorspelling terwijl de accountgrootte van het en de leeftijd hebben geen invloed op de nauwkeurigheid aanzienlijk. Dit proces kan gegevenswetenschappers om uit te leggen van de resulterende voorspellingen zodat belanghebbenden inzicht hebben in welke gegevenspunten in het model het belangrijkst zijn.
+In machine learning zijn **functies** de gegevens velden die worden gebruikt om een doel gegevens punt te voors pellen. Bijvoorbeeld, om het krediet risico te voors pellen, kunnen gegevens velden voor leeftijd, account grootte en account leeftijd worden gebruikt. In dit geval zijn de leeftijd, de account grootte en de account duur **functies**. Functie belang vertelt u hoe elk gegevens veld de voor spellingen van het model beïnvloedt. Leeftijd kan bijvoorbeeld intensief worden gebruikt in de voor spelling, terwijl de grootte van het account en de leeftijd geen invloed hebben op de nauw keurigheid van de voor spelling. Met dit proces kunnen gegevens wetenschappers de resulterende voor spellingen uitleggen, zodat de belanghebbenden inzicht hebben in welke gegevens punten het belangrijkst zijn in het model.
 
-Met deze hulpprogramma's, kunt u machine learning-modellen uitleggen **wereldwijd op alle gegevens**, of **lokaal op een bepaald gegevenspunt** met behulp van de geavanceerde technologieën in een eenvoudig te gebruiken en schaalbare manier.
+Met deze hulpprogram ma's kunt u machine learning modellen **globaal op alle gegevens**of **lokaal op een specifiek gegevens punt** uitleggen met behulp van de geavanceerde technologieën in een gemakkelijk te gebruiken en schaal bare manier.
 
-De klassen interpretability zijn beschikbaar gemaakt via meerdere SDK-pakketten. Meer informatie over het [SDK-pakketten installeren voor Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+De interpreters klassen worden beschikbaar gesteld via meerdere SDK-pakketten. Meer informatie over het [installeren van SDK-pakketten voor Azure machine learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* [`azureml.explain.model`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), de belangrijkste pakket, met functies die worden ondersteund door Microsoft.
+* [`azureml.explain.model`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), het hoofd pakket, dat functionaliteiten bevat die door micro soft worden ondersteund.
 
-* `azureml.contrib.explain.model`, preview en experimentele functies die u kunt proberen.
+* `azureml.contrib.explain.model`, de preview-versie en experimentele functionele functies die u kunt proberen.
 
-* `azureml.train.automl.automlexplainer` pakket voor de interpretatie van geautomatiseerde machine learning-modellen.
+* `azureml.train.automl.automlexplainer`pakket voor het interpreteren van automatische machine learning modellen.
 
 > [!IMPORTANT]
-> De inhoud van de `contrib` naamruimte is niet volledig worden ondersteund. Zodra de experimentele functies volwassen, worden ze geleidelijk worden verplaatst naar de primaire naamruimte.
+> Inhoud in de `contrib` naam ruimte wordt niet volledig ondersteund. Naarmate de experimentele functionele onderdelen rijp worden, worden ze geleidelijk verplaatst naar de hoofd naam ruimte.
 
-## <a name="how-to-interpret-your-model"></a>Hoe u uw model interpreteren
+## <a name="how-to-interpret-your-model"></a>Het model interpreteren
 
-U kunt de interpretability klassen en methoden om te begrijpen van de globale gedrag van het model of voorspellingen op specifieke toepassen. De oude heet algemene uitleg en de laatste heet lokale uitleg.
+U kunt de klassen voor interpretaties en methoden Toep assen om inzicht te krijgen in het globale gedrag van het model of specifieke voor spellingen. De eerste wordt globale uitleg genoemd en de laatste wordt een lokale uitleg genoemd.
 
-De methoden kunnen ook worden ingedeeld op basis van of de methode model neutraal of specifieke model is. Sommige methoden gericht op bepaalde type modellen. Bijvoorbeeld, de Shapegegevens structuur uitleg alleen van toepassing op modellen op basis van een structuur. Bepaalde methoden voor behandelen het model als een zwart vak, zoals nabootsen uitleg of de Shapegegevens kernel uitleg. De `explain` pakket maakt gebruik van deze verschillende methoden die zijn gebaseerd op gegevenssets, modeltypen en use-cases.
+De methoden kunnen ook worden gecategoriseerd op basis van het feit of de methode model neutraal of model specifiek is. Sommige methoden richten zich op een bepaald type modellen. De boom uitleg van SHAP is bijvoorbeeld alleen van toepassing op op structuur gebaseerde modellen. Sommige methoden behandelen het model als een zwart vak, zoals nabootsen of de kernel-uitleg van SHAP. Het `explain` pakket maakt gebruik van deze verschillende benaderingen op basis van gegevens sets, model typen en use cases.
 
-De uitvoer is een verzameling van informatie over hoe een bepaald model in staat de voorspelling, zoals stelt:
-* Globale/lokale relatieve functie urgentie
+De uitvoer is een set informatie over hoe een bepaald model de voor spelling maakt, zoals:
+* Globaal/lokaal relatief belang rijk onderdeel
 
-* Relatie tussen de functie en voorspelling van de globale/lokale
+* Globale/lokale functie en Voorspellings relatie
 
-### <a name="explainers"></a>Explainers
+### <a name="explainers"></a>Uitleg
 
-Er zijn twee sets explainers: Directe Explainers en metagegevens Explainers in de SDK.
+Er zijn twee sets met uitleg: Directe uitleg en uitleg van Metaers in de SDK.
 
-__Directe explainers__ afkomstig zijn van geïntegreerde bibliotheken. De SDK wordt verpakt alle explainers zodat ze een gemeenschappelijke API en de indeling van uitvoer weergeven. Als u meer vertrouwd rechtstreeks met behulp van deze explainers bent, kunt u deze rechtstreeks in plaats van de algemene API en de uitvoerindeling aanroepen. Hier volgen een lijst van de directe explainers beschikbaar in de SDK:
+__Directe uitleg__ is afkomstig van geïntegreerde bibliotheken. De SDK verpakt alle uitleg zodat deze een gemeen schappelijke API-en uitvoer indeling beschikbaar stelt. Als u direct vertrouwd bent met deze uitleg, kunt u ze rechtstreeks aanroepen in plaats van de gemeen schappelijke API-en uitvoer indeling te gebruiken. Hieronder vindt u een lijst met de beschik bare directe uitleg voor de SDK:
 
-* **Shapegegevens structuur uitleg**: De Shapegegevens structuur uitleg, dat is gericht op polynomiale time snelle Shapegegevens waarde schatting van de algoritme specifiek voor bomen en ensembles van structuren.
-* **SHAP Deep Explainer**: Op basis van de uitleg van Shapegegevens, diepgaande uitleg "is een snelle schattingsalgoritme dat de waarden van de Shapegegevens in deep learning-modellen die gebruikmaakt van een verbinding met die worden beschreven in het document Shapegegevens NIPS DeepLIFT. TensorFlow-modellen en Keras-modellen met behulp van de TensorFlow back-end worden ondersteund (Er is ook voorlopige ondersteuning voor PyTorch) '.
-* **SHAP Kernel Explainer**: De Shapegegevens Kernel uitleg maakt gebruik van een speciaal gewogen lokale lineaire regressie kunt u schatten Shapegegevens waarden voor een model.
-* **Uitleg nabootsen**: Nabootsen uitleg is gebaseerd op het idee van globale surrogate modellen. Een globale surrogate-model is een intrinsiek interpreteerbare die naar schatting zo nauwkeurig mogelijk maken van de voorspellingen van een zwart vak model wordt getraind. Gegevenswetenschapper kan het model surrogate als u wilt tekenen conclusies over de zwarte doos-model worden geïnterpreteerd. U kunt een van de volgende interpreteerbare modellen gebruiken als uw model surrogate: LightGBM (LinearExplainableModel), lineaire regressie (LinearExplainableModel), stochastische leren met stochastische Gradiëntdaling explainable model (SGDExplainableModel) en beslissingsstructuur (DecisionTreeExplainableModel).
-
-
-* **Permutatie functie belang uitleg**: Permutatie functie urgentie is een techniek die wordt gebruikt om uit te leggen van de classificatie- en regressiemodellen modellen die is laat u inspireren door [Breiman van willekeurige Forests papier](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (Zie de sectie 10). Op hoog niveau is de manier waarop die deze werkt door willekeurige volgorde wijzigen van een functie van de gegevens op een tijdstip voor de volledige gegevensset en het berekenen van hoeveel de metrische gegevens voor prestaties van belang afneemt. Hoe groter de wijziging, het belangrijker is om deze functie.
-
-* **LICHTGROEN uitleg** (`contrib`): LICHTGROEN uitleg op basis van LICHTGROEN, gebruikt het status-of-the-art lokale interpreteerbare model-agnostische uitleg (LICHTGROEN)-algoritme om lokale surrogate modellen te maken. In tegenstelling tot de modellen globale surrogate is LICHTGROEN gericht op het lokale surrogate modellen om uit te leggen van afzonderlijke voorspellingen training.
-* **HAN tekst uitleg** (`contrib`): HAN tekst uitleg gebruikt een hiërarchische aandacht-netwerk voor het ophalen van model uitleg van de gegevens voor een bepaalde zwarte doos tekst-model. We het model van de vervangende HAN op de verwachte uitvoer van een bepaalde docent-model te trainen. Na de training wereldwijd in het corpus tekst, hebben we een stap fine-tune voor een bepaald document toegevoegd om te verbeteren van de nauwkeurigheid van de uitleg. HAN maakt gebruik van een in twee richtingen RNN met twee lagen van aandacht, voor de zin en word aandacht. Zodra de DNN is getraind model van de docent en zorgvuldig afgestemd op een bepaald document, kunnen we de importances word extraheren uit de lagen aandacht. We hebben HAN nauwkeuriger is dan LICHTGROEN of Shapegegevens voor tekstgegevens, maar duurder in termen van training, evenals de tijd worden gevonden. We hebben echter verbeteringen in de trainingstijd gemaakt door middel van de gebruiker de optie voor het initialiseren van het netwerk met GloVe woordinsluitingen, hoewel deze nog steeds traag is. De trainingstijd kan aanzienlijk worden verbeterd door het uitvoeren van HAN op een externe Azure-GPU VM. De implementatie van HAN wordt beschreven in 'Hiërarchische aandacht netwerken voor Document-classificatie (Yang markt, 2016)' ([https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)).
+* **Uitleg**over de Shap-structuur: De boom uitleg van de SHAP, die gericht is op een polynomiale, snelle SHAP waarde schattings algoritme die specifiek is voor bomen en ensembles van structuren.
+* **Shap diepe uitleg**: Op basis van de uitleg van SHAP is diepe uitleg een uiterst snelle benaderings algoritme voor SHAP-waarden in diepe leer modellen die zijn gebaseerd op een verbinding met DeepLIFT beschreven in het SHAP NIPS-papier. Tensor flow-modellen en Keras-modellen met behulp van de tensor flow-backend worden ondersteund (er is ook voorlopige ondersteuning voor PyTorch) '.
+* **Shap-kernel-uitleg**: De kernel-uitleg van SHAP maakt gebruik van een speciaal gewogen lokale lineaire regressie om SHAP-waarden voor elk model te schatten.
+* **Uitleg uitleggen**: Nabooter is gebaseerd op het idee van globale surrogaat modellen. Een globaal surrogaat model is een intrinsiek interpretable model dat is getraind om de voor spellingen van een Black Box-model zo nauw keurig mogelijk te benaderen. Data wetenschapper kan het surrogaat model interpreteren om conclusies over het zwarte box-model te tekenen. U kunt een van de volgende verwerkte modellen gebruiken als surrogaat model: LightGBM (LinearExplainableModel), lineaire regressie (LinearExplainableModel), stochastische kleur overgang Daal verklarend model (SGDExplainableModel) en beslissings structuur (DecisionTreeExplainableModel).
 
 
-__Metagegevens explainers__ automatisch een geschikte direct uitleg selecteren en genereren van de gegevens van de beste uitleg op basis van het opgegeven model en gegevenssets. De metagegevens explainers gebruikmaken van alle bibliotheken (Shapegegevens, LICHTGROEN, nagebootst, enzovoort) die we hebben geïntegreerd of die zijn ontwikkeld. Hier volgen de meta-explainers beschikbaar in de SDK:
+* **Belangrijkste uitleg**van de permutatie-functie: Het belang van de permutatie functie is een techniek die wordt gebruikt om classificatie-en regressie modellen te verklaren die zijn geïnspireerd op [het breiman van een wille keurige bossen](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (zie sectie 10). Op hoog niveau kan de manier waarop het werkt, worden uitgevoerd door in wille keurige volg orde gegevens één functie op te nemen voor de hele gegevensset en te berekenen hoeveel de prestatie metriek van de rente afneemt. Hoe groter de verandering, des te belang rijker deze functie is.
 
-* **Tabular Explainer**: Gebruikt in combinatie met tabellaire gegevenssets.
-* **Text Explainer**: Met de tekst gegevenssets gebruikt.
-* **Afbeelding van uitleg**: Met de installatiekopie van gegevenssets gebruikt.
-
-Verder naar META te selecteren van de directe explainers, meta explainers ontwikkelen van aanvullende functies boven op de onderliggende bibliotheken en de snelheid en schaalbaarheid verbeteren via de rechtstreekse explainers.
-
-Op dit moment `TabularExplainer` maakt gebruik van de volgende logica voor het aanroepen van de directe Shapegegevens Explainers:
-
-1. Als dit een model op basis van een structuur is, van toepassing Shapegegevens `TreeExplainer`, anders
-2. Als dit een model DNN is, van toepassing Shapegegevens `DeepExplainer`, anders
-3. Deze behandelen als een zwarte doos-model en Shapegegevens toepassen `KernelExplainer`
-
-De informatie die is ingebouwd in `TabularExplainer` meer geavanceerde worden meer bibliotheken zijn geïntegreerd in de SDK en we meer informatie over de voordelen en nadelen van elke uitleg.
-
-`TabularExplainer` heeft ook belangrijke functie en de prestaties zijn verbeteringen aangebracht via de rechtstreekse Explainers:
-
-* **Samenvatting van de gegevensset initialisatie**. In gevallen waar de snelheid van uitleg belangrijkste is we samenvatten van de gegevensset initialisatie en genereren van een klein aantal representatieve voorbeelden die globale en lokale uitleg wordt versneld.
-* **Sampling van de gegevensset evaluatie**. Als de gebruiker wordt doorgegeven in een groot aantal voorbeelden van de evaluatie, maar niet daadwerkelijk nodig voor al deze moet worden geëvalueerd, kunt u de parameter steekproeven instellen op true om de globale uitleg te versnellen.
-
-Het volgende diagram toont de huidige structuur van de directe en metagegevens explainers.
-
-[![Machine Learning Interpretability architectuur](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
+* **Kalk-uitleg** (`contrib`): Op basis van kalk maakt kalk lichter gebruik van het algoritme van de geavanceerde, lokaal interpretable-neutraal verklaring (kalk) om lokale surrogaat modellen te maken. In tegens telling tot de globale surrogaat modellen, is kalk gericht op het trainen van lokale surrogaat modellen om afzonderlijke voor spellingen te verklaren.
+* **Han-tekst uitleg** (`contrib`): HAN-tekst uitleg er wordt gebruikgemaakt van een hiërarchische aandacht voor het verkrijgen van model verklaringen van tekst gegevens voor een gegeven zwart vak in een tekst model. We trainen het surrogaat model van het HAN op een bepaald docent model voor spelde uitvoer. Na de wereld wijde training over de tekst verzameling hebben we een nauw keurige stap toegevoegd voor een specifiek document, zodat de nauw keurigheid van de uitleg kan worden verbeterd. HAN maakt gebruik van een bidirectionele RNN met twee attentie lagen, voor de aandacht van zinnen en woorden. Zodra de DNN is getraind op het docenten model en op een specifiek document is afgestemd, kunnen we de woord urgentie uit de attentie lagen extra heren. We hebben een HAN gevonden om nauw keuriger te zijn dan kalk-of SHAP voor tekst gegevens, maar ook meer kosten in het kader van de trainings tijd. We hebben echter verbeteringen aangebracht in de trainings tijd door de gebruiker de optie te geven het netwerk te initialiseren met ondersteunt woord insluitingen, hoewel het nog steeds langzaam is. De trainings tijd kan aanzienlijk worden verbeterd door een HAN uit te voeren op een externe Azure GPU-VM. De implementatie van HAN wordt beschreven in ' hiërarchische aandacht netwerken voor document classificatie (Yang et al., 2016) '[https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)().
 
 
-### <a name="models-supported"></a>Modellen dat wordt ondersteund
+__META uitlegers__ selecteren automatisch een geschikte directe uitleg en genereren de informatie over de beste uitleg op basis van de opgegeven model-en gegevens sets. De meta verklarende leden maken gebruik van alle bibliotheken (SHAP, kalk, naboot, enzovoort) die we hebben geïntegreerd of ontwikkeld. Hieronder vindt u de meta-uitleg die beschikbaar is in de SDK:
 
-Modellen die zijn getraind op gegevenssets in Python `numpy.array`, `pandas.DataFrame`, `iml.datatypes.DenseData`, of `scipy.sparse.csr_matrix` indeling worden ondersteund door de interpretability `explain` pakket van de SDK.
+* **Uitleg in tabel vorm**: Wordt gebruikt met tabellaire gegevens sets.
+* **Tekst uitleg**: Wordt gebruikt met tekst gegevens sets.
+* **Afbeeldings uitleg**: Wordt gebruikt bij afbeeldings gegevens sets.
 
-De uitleg-functies accepteren pijplijnen en modellen als invoer. Als een model is opgegeven, het model moet worden gebruikt voor het implementeren van de voorspellingsfunctie `predict` of `predict_proba` die voldoet aan de Scikit-overeenkomst. Als een pijplijn (naam van het script pijplijn) is opgegeven, de functie uitleg wordt ervan uitgegaan dat het script uit te voeren pijplijn een voorspelling retourneert. We ondersteunen modellen die zijn getraind via PyTorch, TensorFlow en Keras deep learning-frameworks.
+Naast het meta-selecteren van de rechtstreekse verklarende onderlichters, ontwikkelen de meta-uitleg voor de hand van de onderliggende bibliotheken aanvullende functies en worden de snelheid en schaal baarheid van de directe uitlegers verbeterd.
 
-### <a name="local-and-remote-compute-target"></a>Lokale en externe compute-doel
+Maakt `TabularExplainer` momenteel gebruik van de volgende logica voor het aanroepen van de directe Shap-uitleg:
 
-De `explain` pakket is ontworpen voor gebruik met zowel lokale als externe compute-doelen. Als lokaal uitvoert, wordt de SDK-functies niet contact op met de Azure-services. U kunt een uitleg op afstand uitvoeren in Azure Machine Learning-Computing en meld u aan de gegevens van de uitleg bij Azure Machine Learning uitvoeren geschiedenis van Services. Zodra deze informatie wordt geregistreerd, zijn rapporten en visualisaties uit de uitleg gemakkelijk beschikbaar zijn op de portal van Azure Machine Learning-werkruimte voor analyse van gebruikers.
+1. Als het een structuur model is, past u Shap `TreeExplainer`toe, else
+2. Als het een DNN-model is, past `DeepExplainer`u Shap toe, else
+3. Behandel het als een zwart-box model en pas SHAP toe`KernelExplainer`
 
-## <a name="interpretability-in-training"></a>Interpretability in training
+De ingebouwde `TabularExplainer` intelligentie wordt Geavanceerd geworden naarmate er meer bibliotheken zijn geïntegreerd in de SDK en we leren over de voor-en nadelen van elke uitleg.
 
-### <a name="train-and-explain-locally"></a>Trainen en wordt uitgelegd lokaal
+`TabularExplainer`heeft ook aanzienlijke verbeteringen aangebracht in de functie en prestaties ten opzichte van de rechtstreekse uitleg:
 
-1. Uw model in een lokaal Jupyter-notitieblok te trainen.
+* **Samen vatting van de initialisatie-gegevensset**. In gevallen waarin de snelheid van uitleg het belangrijkst is, vatten we de initialisatie-gegevensset samen en genereren ze een kleine set representatieve voor beelden, waardoor zowel globale als lokale uitleg wordt versneld.
+* Bemonstert u **de set evaluatie gegevens**. Als de gebruiker een grote set evaluatie voorbeelden heeft door gegeven, maar niet alle moet worden geëvalueerd, kan de para meter sample worden ingesteld op True om de globale uitleg te versnellen.
+
+In het volgende diagram ziet u de huidige structuur van directe en meta-uitleg.
+
+[![Architectuur van Machine Learning-interpretaties](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
+
+
+### <a name="models-supported"></a>Ondersteunde modellen
+
+Modellen die zijn getraind op gegevens sets `numpy.array`in `pandas.DataFrame`python `iml.datatypes.DenseData`,, `scipy.sparse.csr_matrix` `explain` of Format worden ondersteund door het interpreter-pakket van de SDK.
+
+De uitleg functies accepteren zowel modellen als pijp lijnen als invoer. Als er een model wordt gegeven, moet het model de Voorspellings functie `predict` implementeren `predict_proba` of voldoet aan de Scikit-Conventie. Als er een pijp lijn (naam van het pijplijn script) wordt gegeven, wordt ervan uitgegaan dat het actieve pijplijn script een voor spelling retourneert. We ondersteunen modellen die zijn getraind via PyTorch, tensor flow en Keras diepe leer frameworks.
+
+### <a name="local-and-remote-compute-target"></a>Lokaal en extern Compute-doel
+
+Het `explain` pakket is ontworpen om te werken met zowel lokale als externe Compute-doelen. Als de SDK-functies lokaal worden uitgevoerd, worden er geen contact opgenomen met Azure-Services. U kunt de uitleg op afstand uitvoeren op Azure Machine Learning Compute en de uitleg informatie vastleggen in Azure Machine Learning uitvoerings geschiedenis Services. Zodra deze informatie is geregistreerd, zijn rapporten en visualisaties van de uitleg beschikbaar op Azure Machine Learning-werkruimte portal voor gebruikers analyse.
+
+## <a name="interpretability-in-training"></a>Interpretiteit in training
+
+### <a name="train-and-explain-locally"></a>Lokaal trainen en uitleggen
+
+1. Train uw model in een lokale Jupyter-notebook.
 
     ```python
     # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
@@ -132,7 +132,7 @@ De `explain` pakket is ontworpen voor gebruik met zowel lokale als externe compu
     model = clf.fit(x_train, y_train)
     ```
 
-2. Roep de uitleg: Voor het initialiseren van een object uitleg, moet u uw model en sommige trainingsgegevens doorgeven aan de constructor van de uitleg. U kunt eventueel ook in de onderdeelnamen en uitvoer klassenamen (als classificatie) dat wordt gebruikt om de uitleg en visualisaties meer informatieve doorgeven. Hier wordt beschreven hoe u exemplaar maken van een uitleg object met [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), en [PFIExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.permutation.permutation_importance.pfiexplainer?view=azure-ml-py) lokaal. `TabularExplainer` roept een van de drie Shapegegevens explainers onder (`TreeExplainer`, `DeepExplainer`, of `KernelExplainer`), en is automatisch selecteren van de meest geschikt is voor uw situatie. U kunt echter elk van de drie onderliggende explainers rechtstreeks aanroepen.
+2. De uitleger aanroepen: Als u een uitleg object wilt initialiseren, moet u uw model en enkele trainings gegevens door geven aan de constructor van de uitleg. U kunt eventueel ook namen van functies en namen van uitvoer klassen door geven (als de classificatie wordt uitgevoerd), die wordt gebruikt om uw uitleg en visualisaties meer informatieend te maken. Hier wordt beschreven hoe u een object van een uitleg maakt met behulp van [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py)en [PFIExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.permutation.permutation_importance.pfiexplainer?view=azure-ml-py) . `TabularExplainer`roept een van de drie Shap-uitleg onder (`TreeExplainer`, `DeepExplainer`, of `KernelExplainer`) aan en selecteert automatisch het meest geschikte deel voor uw use-case. U kunt echter elk van de drie onderliggende uitlegers rechtstreeks aanroepen.
 
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
@@ -177,7 +177,7 @@ De `explain` pakket is ontworpen voor gebruik met zowel lokale als externe compu
                              classes=classes)
     ```
 
-3. De algemene functie belang waarden ophalen.
+3. De belang rijke waarden van de globale functie ophalen.
 
     ```python
     # you can use the training data or the test data here
@@ -195,7 +195,7 @@ De `explain` pakket is ontworpen voor gebruik met zowel lokale als externe compu
     global_explanation.get_feature_importance_dict()
     ```
 
-4. De functie voor lokale belang waarden ophalen: Gebruik de volgende functieaanroepen om een afzonderlijk exemplaar of een groep exemplaren van te leggen. Houd er rekening mee PFIExplainer biedt geen ondersteuning voor lokale uitleg.
+4. De prioriteits waarden van de lokale functie ophalen: gebruik de volgende functie aanroepen om een afzonderlijk exemplaar of een groep instanties te verklaren. Houd er rekening mee dat PFIExplainer geen lokale uitleg ondersteunt.
 
     ```python
     # explain the first data point in the test set
@@ -217,11 +217,11 @@ De `explain` pakket is ontworpen voor gebruik met zowel lokale als externe compu
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
     ```
 
-### <a name="train-and-explain-remotely"></a>Trainen en wordt uitgelegd op afstand
+### <a name="train-and-explain-remotely"></a>Train en leg op afstand
 
-Terwijl u op de diverse compute-doelen die door Azure Machine Learning-service worden ondersteund trainen kunt, ziet het voorbeeld in deze sectie u hoe u doet dit met een Azure Machine Learning-Computing-doel.
+Hoewel u kunt trainen op de verschillende reken doelen die door Azure Machine Learning service worden ondersteund, wordt in het voor beeld in deze sectie beschreven hoe u dit doet met behulp van een Azure Machine Learning Compute-doel.
 
-1. Maak een trainingsscript in een lokaal Jupyter-notitieblok (bijvoorbeeld run_explainer.py).
+1. Een trainings script maken in een lokale Jupyter-Notebook (bijvoorbeeld run_explainer. py).
 
     ```python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
@@ -251,9 +251,9 @@ Terwijl u op de diverse compute-doelen die door Azure Machine Learning-service w
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-2. Volg de instructies op [instellen van compute-doelen voor modeltraining](how-to-set-up-training-targets.md#amlcompute) voor meer informatie over het instellen van een Azure Machine Learning-Computing als uw compute-doel en het verzenden van uw training uitvoeren.
+2. Volg de instructies voor het [instellen van reken doelen voor model training voor](how-to-set-up-training-targets.md#amlcompute) meer informatie over het instellen van een Azure machine learning berekenen als uw reken doel en het verzenden van uw trainings uitvoering.
 
-3. Download de uitleg in uw lokaal Jupyter-notitieblok.
+3. Down load de uitleg in uw lokale Jupyter-notebook.
 
     ```python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
@@ -273,40 +273,40 @@ Terwijl u op de diverse compute-doelen die door Azure Machine Learning-service w
 
 ## <a name="visualizations"></a>Visualisaties
 
-Gebruik het dashboard van de visualisatie om te begrijpen en interpreteren van uw model:
+Gebruik het visualisatie dashboard om uw model te begrijpen en te interpreteren:
 
 ### <a name="global-visualizations"></a>Globale visualisaties
 
-De volgende grafieken geven een algemeen overzicht van het getrainde model samen met de voorspellingen en uitleg.
+De volgende grafieken bieden een globaal overzicht van het getrainde model samen met de voor spellingen en toelichtingen.
 
-|Tekengebied|Description|
+|Tekenen|Description|
 |----|-----------|
-|Data Exploration| Een overzicht van de gegevensset, samen met de voorspelling waarden.|
-|Globale urgentie|Geeft de top K (configureerbare K) belangrijke functies wereldwijd. In deze grafiek is handig om te begrijpen van de globale gedrag van het onderliggende model.|
-|Explanation Exploration|Laat zien hoe een functie is verantwoordelijk voor het maken van een wijziging in van het model prediction waarden (of kans op voorspelling waarden). |
-|Samenvatting| Maakt gebruik van de waarden van een ondertekende lokale functie belang voor alle gegevenspunten om weer te geven van de distributie van de impact die elke functie op de waarde voor de voorspelling heeft.|
+|Gegevens verkennen| Een overzicht van de gegevensset samen met de Voorspellings waarden.|
+|Wereld wijd belang|Hier worden de belangrijkste functies van de K (Configureer bare K) wereld wijd weer gegeven. Deze grafiek is handig als u wilt weten wat het globale gedrag van het onderliggende model is.|
+|Uitleg over verkennen|Laat zien hoe een functie verantwoordelijk is voor het maken van een wijziging in de Voorspellings waarden van het model (of waarschijnlijkheid van voorspellings waarden). |
+|Samenvatting| Gebruikt een ondertekende lokale functie belang rijke waarden voor alle gegevens punten om de distributie van de impact van elke functie op de Voorspellings waarde weer te geven.|
 
-[![Globale visualisatie-Dashboard](./media/machine-learning-interpretability-explainability/global-charts.png)](./media/machine-learning-interpretability-explainability/global-charts.png#lightbox)
+[![Visualisatie dashboard globaal](./media/machine-learning-interpretability-explainability/global-charts.png)](./media/machine-learning-interpretability-explainability/global-charts.png#lightbox)
 
 ### <a name="local-visualizations"></a>Lokale visualisaties
 
-U kunt op elk gewenst moment afzonderlijke klikken op elk gewenst moment van de voorgaande grafieken laden van de lokale functie belang plot voor het opgegeven gegevenspunt.
+U kunt op elk gewenst moment op elk wille keurig gegevens punt klikken om het urgentie diagram van de lokale functie te laden voor het gegeven gegevens punt.
 
-|Tekengebied|Description|
+|Tekenen|Description|
 |----|-----------|
-|Lokale urgentie|Geeft de top K (configureerbare K) belangrijke functies wereldwijd. In deze grafiek is handig om te begrijpen van de lokale gedrag van het onderliggende model op een bepaald gegevenspunt.|
-|Perturbation verkennen|Hiermee kunt u de functie waarden van de geselecteerde gegevens verwijzen en bekijk hoe deze wijzigingen invloed is op voorspelling waarde wijzigen.|
-|Afzonderlijke voorwaardelijke verwachting (IJS)| Hiermee kunt u een functie-waarde wijzigen van een minimale waarde in een maximumwaarde om te zien hoe de voorspelling van het gegevenspunt verandert wanneer een functie wordt gewijzigd.|
+|Lokale urgentie|Hier worden de belangrijkste functies van de K (Configureer bare K) wereld wijd weer gegeven. Deze grafiek is handig om het lokale gedrag van het onderliggende model op een specifiek gegevens punt te weten te komen.|
+|Perturbation-exploratie|Hiermee kunt u de functie waarden van het geselecteerde gegevens punt wijzigen en bekijken hoe deze wijzigingen van invloed zijn op de Voorspellings waarde.|
+|Afzonderlijke Voorwaardelijke verwachting (ijs)| Hiermee kunt u een onderdeel waarde van een minimum waarde wijzigen in een maximum waarde om te zien hoe de voor spelling van het gegevens punt wordt gewijzigd wanneer een functie wordt gewijzigd.|
 
-[![Visualisatie Dashboard lokale functie urgentie](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
-
-
-[![Visualisatie Dashboard functie Perturbation](./media/machine-learning-interpretability-explainability/perturbation.gif)](./media/machine-learning-interpretability-explainability/perturbation.gif#lightbox)
+[![Prioriteit van lokale functie van visualisatie dashboard](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
 
 
-[![Visualisatie Dashboard ICE grafieken](./media/machine-learning-interpretability-explainability/ice-plot.png)](./media/machine-learning-interpretability-explainability/ice-plot.png#lightbox)
+[![Functie perturbation voor visualisatie dashboard](./media/machine-learning-interpretability-explainability/perturbation.gif)](./media/machine-learning-interpretability-explainability/perturbation.gif#lightbox)
 
-Houd er rekening mee moet u beschikken over uitbreidingen voor widget van het dashboard visualisatie is ingeschakeld voordat het starten van een Jupyter-kernel.
+
+[![IJS van visualisatie dashboard](./media/machine-learning-interpretability-explainability/ice-plot.png)](./media/machine-learning-interpretability-explainability/ice-plot.png#lightbox)
+
+Opmerking: u moet beschikken over widget extensies van het visualisatie dashboard dat is ingeschakeld voordat de Jupyter-kernel wordt gestart.
 
 * Jupyter-notebooks
 
@@ -323,7 +323,7 @@ Houd er rekening mee moet u beschikken over uitbreidingen voor widget van het da
     jupyter labextension install @jupyter-widgets/jupyterlab-manager
     jupyter labextension install microsoft-mli-widget
     ```
-Gebruik de volgende code voor het laden van de visualisatie-dashboard:
+Gebruik de volgende code om het visualisatie dashboard te laden:
 
 ```python
 from azureml.contrib.explain.model.visualize import ExplanationDashboard
@@ -331,13 +331,13 @@ from azureml.contrib.explain.model.visualize import ExplanationDashboard
 ExplanationDashboard(global_explanation, model, x_test)
 ```
 
-## <a name="raw-feature-transformations"></a>Onbewerkte functie transformaties
+## <a name="raw-feature-transformations"></a>Trans formaties onbewerkte onderdelen
 
-U kunt eventueel uw functie transformation pipeline doorgeven aan de uitleg voor het ontvangen van uitleg wat betreft de onbewerkte functies voordat u de transformatie (in plaats dat functies). Als u deze stap overslaan, biedt de uitleg uitleg in termen van Social engineering functies.
+Optioneel kunt u uw functie transformatie pijplijn door geven aan de uitleg om uitleg te krijgen over de onbewerkte functies vóór de trans formatie (in plaats van de functies die zijn ontworpen). Als u dit overs laat, biedt de uitleg uitleg over de functies die zijn ontworpen voor de functie.
 
-De indeling van de ondersteunde transformaties is dezelfde als die wordt beschreven in [sklearn pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). Alle transformaties worden in het algemeen worden ondersteund, zolang ze met één kolom werken en daarom duidelijk op-veel zijn. 
+De indeling van ondersteunde trans formaties is hetzelfde als de notatie die wordt beschreven in [sklearn-Pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). Over het algemeen worden trans formaties ondersteund zolang ze worden toegepast op één kolom en daarom duidelijk een van de vele. 
 
-We uitgelegd onbewerkte functies met behulp van een `sklearn.compose.ColumnTransformer` of een lijst met gemonteerd transformator tuples. De cel hieronder wordt `sklearn.compose.ColumnTransformer`. 
+We kunnen onbewerkte functies uitleggen door gebruik `sklearn.compose.ColumnTransformer` te maken van een of een lijst met de bijpassende Tuples. De cel hieronder wordt `sklearn.compose.ColumnTransformer`gebruikt. 
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -361,7 +361,6 @@ clf = Pipeline(steps=[('preprocessor', preprocessor),
                       ('classifier', LogisticRegression(solver='lbfgs'))])
 
 
-
 # append classifier to preprocessing pipeline.
 # now we have a full prediction pipeline.
 clf = Pipeline(steps=[('preprocessor', preprocessor),
@@ -371,14 +370,14 @@ clf = Pipeline(steps=[('preprocessor', preprocessor),
 # clf.steps[-1][1] returns the trained classification model
 # pass transformation as an input to create the explanation object
 # "features" and "classes" fields are optional
-tabular_explainer = TabularExplainer(clf.steps[-1][1], 
-                                    initialization_examples=x_train, 
-                                    features=dataset_feature_names, 
-                                    classes=dataset_classes, 
-                                    transformations=preprocessor) 
+tabular_explainer = TabularExplainer(clf.steps[-1][1],
+                                     initialization_examples=x_train,
+                                     features=dataset_feature_names,
+                                     classes=dataset_classes,
+                                     transformations=preprocessor)
 ```
 
-Als u uitvoeren in het voorbeeld met de lijst met gemonteerd transformator tuples wilt, gebruikt u de volgende code: 
+Als u het voor beeld wilt uitvoeren met de lijst met ingebouwde Tuples, gebruikt u de volgende code: 
 ```python
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
@@ -388,35 +387,37 @@ from sklearn_pandas import DataFrameMapper
 
 # assume that we have created two arrays, numerical and categorical, which holds the numerical and categorical feature names
 
-numeric_transformations = [([f], Pipeline(steps=[('imputer', SimpleImputer(strategy='median')), ('scaler', StandardScaler())])) for f in numerical]
+numeric_transformations = [([f], Pipeline(steps=[('imputer', SimpleImputer(
+    strategy='median')), ('scaler', StandardScaler())])) for f in numerical]
 
-categorical_transformations = [([f], OneHotEncoder(handle_unknown='ignore', sparse=False)) for f in categorical]
+categorical_transformations = [([f], OneHotEncoder(
+    handle_unknown='ignore', sparse=False)) for f in categorical]
 
 transformations = numeric_transformations + categorical_transformations
 
 # append model to preprocessing pipeline.
 # now we have a full prediction pipeline.
 clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
-                    ('classifier', LogisticRegression(solver='lbfgs'))])
+                      ('classifier', LogisticRegression(solver='lbfgs'))])
 
 # clf.steps[-1][1] returns the trained classification model
 # pass transformation as an input to create the explanation object
 # "features" and "classes" fields are optional
-tabular_explainer = TabularExplainer(clf.steps[-1][1], 
-                                     initialization_examples=x_train, 
-                                     features=dataset_feature_names, 
-                                     classes=dataset_classes, 
+tabular_explainer = TabularExplainer(clf.steps[-1][1],
+                                     initialization_examples=x_train,
+                                     features=dataset_feature_names,
+                                     classes=dataset_classes,
                                      transformations=transformations)
 ```
 
-## <a name="interpretability-at-inferencing-time"></a>Interpretability inferentietaken tegelijk
+## <a name="interpretability-at-inferencing-time"></a>Interpretatieve tijd
 
-De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan worden gebruikt op het scoring-tijd uitleg van lokale gegevens op te geven. We bieden ook de scoring explainers lichtere zodat interpretability op inferentietaken keer beter. Het proces voor het implementeren van een lichtere scoring uitleg is vergelijkbaar met het implementeren van een model en bevat de volgende stappen uit:
-
-
+De uitleg kan samen met het oorspronkelijke model worden geïmplementeerd en kan worden gebruikt op het moment dat de informatie over de lokale uitleg wordt verstrekt. We bieden ook licht gewichten uitleg over scores om interacties te kunnen interpreteren. Het proces voor het implementeren van een lichtere Score uitleg is vergelijkbaar met het implementeren van een model en bevat de volgende stappen:
 
 
-1. Maken van een uitleg-object (bijvoorbeeld met behulp van TabularExplainer):
+
+
+1. Een object uitleg maken (bijvoorbeeld met behulp van TabularExplainer):
 
    ```python
    from azureml.contrib.explain.model.tabular_explainer import TabularExplainer
@@ -428,7 +429,7 @@ De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan
                                 transformations=transformations)
    ```
 
-1. Maak een scoring uitleg met behulp van het object uitleg:
+1. Maak een uitleg over scores met behulp van het uitleg-object:
 
    ```python
    from azureml.contrib.explain.model.scoring.scoring_explainer import KernelScoringExplainer, save
@@ -442,7 +443,7 @@ De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan
    save(scoring_explainer, directory=OUTPUT_DIR, exist_ok=True)
    ```
 
-1. Configureren en registreren van een installatiekopie die gebruikmaakt van het scoring uitleg-model.
+1. Configureer en Registreer een installatie kopie die gebruikmaakt van het scoreer uitleg model.
 
    ```python
    # register explainer model using the path from ScoringExplainer.save - could be done on remote compute
@@ -454,7 +455,7 @@ De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan
    print(scoring_explainer_model.name, scoring_explainer_model.id, scoring_explainer_model.version, sep = '\t')
    ```
 
-1. [Optioneel] De score uitleg ophalen uit de cloud en de uitleg testen
+1. Beschrijving Haal de uitleg over scores in de Cloud op en test de uitleg
 
    ```python
    from azureml.contrib.explain.model.scoring.scoring_explainer import load
@@ -471,9 +472,9 @@ De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan
    print(preds)
    ```
 
-1. De installatiekopie implementeert op een compute-doel:
+1. Implementeer de installatie kopie naar een berekenings doel:
 
-   1. Maak een scoring-bestand (voordat u deze stap maakt u de stappen in [Implementeer modellen met de service Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) voor het registreren van uw oorspronkelijke voorspellingsmodel)
+   1. Een score bestand maken (voordat u deze stap uitvoert, volgt u de stappen in [modellen implementeren met de Azure machine learning-service](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) om uw oorspronkelijke Voorspellings model te registreren)
 
         ```python
         %%writefile score.py
@@ -510,7 +511,7 @@ De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan
             return {'predictions': predictions.tolist(), 'local_importance_values': local_importance_values}
         ```
 
-   1. Definieer de configuratie van de implementatie (deze configuratie is afhankelijk van de vereisten van uw model. Het volgende voorbeeld definieert een configuratie die gebruikmaakt van één CPU-kern en 1 GB geheugen)
+   1. Definieer de implementatie configuratie (deze configuratie is afhankelijk van de vereisten van uw model. In het volgende voor beeld wordt een configuratie gedefinieerd die gebruikmaakt van één CPU-kern en 1 GB geheugen)
 
         ```python
         from azureml.core.webservice import AciWebservice
@@ -522,7 +523,7 @@ De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan
                                                        description='Get local explanations for NAME_OF_THE_PROBLEM')
         ```
 
-   1. Maak een bestand met de omgeving afhankelijkheden
+   1. Een bestand met omgevings afhankelijkheden maken
 
         ```python
         from azureml.core.conda_dependencies import CondaDependencies
@@ -545,14 +546,14 @@ De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan
             print(f.read())
         ```
 
-   1. Een aangepaste docker-bestand maken met g ++ geïnstalleerd
+   1. Een aangepaste dockerfile maken met g + + geïnstalleerd
 
         ```python
         %%writefile dockerfile
         RUN apt-get update && apt-get install -y g++
         ```
 
-   1. De gemaakte installatiekopie implementeert (geschatte tijd: 5 minuten)
+   1. De gemaakte installatie kopie implementeren (geschatte tijd: 5 minuten)
 
         ```python
         from azureml.core.webservice import Webservice
@@ -593,32 +594,11 @@ De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan
     print("prediction:", resp.text)
     ```
 
-1. Opschonen van: Als u wilt verwijderen van een geïmplementeerde webservice, gebruikt u `service.delete()`.
+1. Opschonen: Als u wilt verwijderen van een geïmplementeerde webservice, gebruikt u `service.delete()`.
 
-## <a name="interpretability-in-automated-ml"></a>Interpretability in geautomatiseerde ML
 
-Geautomatiseerde machine learning bevat-pakketten voor de functie belangrijk voor het automatisch getrainde modellen interpreteren. Bovendien kunnen classificatie scenario's u om op te halen op klasseniveau functie belang. Er zijn twee methoden voor het inschakelen van dit gedrag in geautomatiseerde machine learning:
 
-* Om in te schakelen belang van de functie voor een model getrainde ensembles, gebruikt u de [ `explain_model()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) functie.
-
-    ```python
-    from azureml.train.automl.automlexplainer import explain_model
-
-    shap_values, expected_values, overall_summary, overall_imp, \
-        per_class_summary, per_class_imp = explain_model(fitted_model, X_train, X_test)
-    ```
-
-* Om in te schakelen functie belang voor elke afzonderlijke uitvoering voordat een training, stel de `model_explainability` parameter `True` in de `AutoMLConfig` -object, samen met validatiegegevens levert. Gebruik vervolgens de [ `retrieve_model_explanation()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) functie.
-
-    ```python
-    from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, \
-        per_class_imp = retrieve_model_explanation(best_run)
-    ```
-
-Zie voor meer informatie de [procedures](how-to-configure-auto-train.md#explain-the-model-interpretability) over het inschakelen van interpretability functies in automatische leerprocessen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor een verzameling van Jupyter-notitieblokken die laten zien van de bovenstaande instructies, de [Azure Machine Learning Interpretability voorbeeldnotitieblokken](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+Als u een verzameling Jupyter-notebooks wilt weer geven met de bovenstaande instructies, raadpleegt u de [Azure machine learning interpretive sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).

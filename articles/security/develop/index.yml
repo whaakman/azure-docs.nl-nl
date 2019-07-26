@@ -34,6 +34,13 @@ sections:
             image:
               src: /media/common/i_learn-about.svg
             title: Uw vaardigheden ontwikkelen met Microsoft Learn
+  - title: Voorbeeld-apps beveiligen
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/security/develop/secure-web-app">Web-app in een Linux-container</a>
   - title: Concepten
     items:
       - type: list
