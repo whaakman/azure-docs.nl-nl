@@ -6,7 +6,7 @@ metadata:
   title: 'Language Understanding (LUIS) - Zelfstudies, snelstarts, API-naslag'
   description: Informatie over hoe u de service LUIS gebruikt om uw toepassing in staat te stellen te begrijpen wat een persoon in zijn eigen woorden wil zeggen.
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na

@@ -6,7 +6,7 @@ metadata:
   description: 'De Text Analytics-API is een op de cloud gebaseerde service die geavanceerde verwerking van natuurlijke taal biedt voor onbewerkte tekst. De service bevat vier hoofdfuncties: sentimentanalyse, sleuteltermextractie, benoemde entiteitsherkenning en taaldetectie.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: text-analytics

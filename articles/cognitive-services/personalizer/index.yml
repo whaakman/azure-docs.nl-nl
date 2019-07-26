@@ -6,7 +6,7 @@ metadata:
   title: 'Personalizer - zelfstudies, quickstarts, API-referentiemateriaal'
   description: 'Meer informatie over het gebruik van de Personalizer-service waarmee uw toepassing de beste ervaring kan kiezen om aan uw gebruikers te tonen, waarbij u leert van hun real-time gedrag.'
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na

@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 07/25/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e8e251aa5031a8eadd2d567bff2830449c7decc3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e9be7ef5c4f37c66f7cbf2c6226936438b367108
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689512"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515154"
 ---
-# <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Zelfstudie: Maak een Site-naar-Site-verbinding met behulp van Azure virtuele WAN
+# <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Zelfstudie: Een site-naar-site-verbinding maken met behulp van Azure Virtual WAN
 
 In deze zelfstudie leert u hoe u Virtual WAN kunt gebruiken om verbinding te maken met uw resources in Azure via een VPN-verbinding met IPsec/IKE (IKEv1 en IKEv2). Voor dit type verbinding moet er on-premises een VPN-apparaat aanwezig zijn waaraan een extern openbaar IP-adres is toegewezen. Zie voor meer informatie over Virtual WAN het [Overzicht van Virtual WAN](virtual-wan-about.md).
 
@@ -32,7 +32,7 @@ In deze zelfstudie leert u het volgende:
 > * Een site maken
 > * Een hub maken
 > * Een hub verbinden met een site
-> * Een compatibel VNet maken (als u nog een hebt)
+> * Een compatibel VNet maken (als u er nog geen hebt)
 > * Een VNet verbinden met een hub
 > * Een configuratie voor een VPN-apparaat downloaden en toepassen
 > * Uw virtuele WAN weergeven
@@ -57,13 +57,18 @@ Maak het aantal sites dat u nodig hebt voor uw fysieke locaties. Als u bijvoorbe
 2. Op de pagina **VPN sites** klikt u op **+Site maken**.
 3. Vul de volgende velden in op de pagina **Site maken**:
 
-   * **Naam** -de naam die u wilt verwijzen naar uw on-premises site.
-   * **Openbare IP-adres** -het openbare IP-adres van de VPN-apparaat bevindt zich op uw on-premises site.
+   * **Naam** : de naam waarmee u naar uw on-premises site wilt verwijzen.
+   * **Openbaar IP-adres** : het open bare IP-adres van het VPN-apparaat dat zich op uw on-premises site bevindt.
    * **Privié-adresruimte** - dit is de IP-adresruimte op uw on-premises site. Verkeer dat bestemd is voor deze adresruimte wordt doorgestuurd naar uw lokale site.
    * **Abonnement** - controleer of het abonnement klopt.
    * **Resourcegroep** - selecteer de resourcegroep die u wilt gebruiken.
-   * **Locatie**
-4. Klik op **Geavanceerd weergeven** om aanvullende instellingen weer te geven. U kunt selecteren **BGP** om in te schakelen, BGP, waarmee de functionaliteit BGP op alle verbindingen die zijn gemaakt voor deze site in Azure. U kunt ook **Apparaatgegevens** invoeren (optionele velden). In dat geval kan helpen bij het Azure-Team beter inzicht in uw omgeving om toe te voegen extra optimalisatiemogelijkheden in de toekomst, of om op te lossen.
+   * **Location**
+4. Klik op **Geavanceerd weergeven** om aanvullende instellingen weer te geven. 
+
+   U kunt **BGP** selecteren om BGP in te scha kelen. Hierdoor wordt de BGP-functionaliteit ingeschakeld op alle verbindingen die voor deze site in Azure worden gemaakt. Het configureren van BGP op een virtueel WAN is gelijk aan het configureren van BGP op een Azure VPN-gateway. Het adres van uw on-premises BGP-peer *mag niet* hetzelfde zijn als het open bare IP-adres van uw VPN naar het apparaat of de VNet-adres ruimte van de VPN-site. Gebruik een ander IP-adres op het VPN-apparaat voor uw BGP-peer-IP. Het kan een adres zijn dat is toegewezen aan de loopback-interface op het apparaat. Het kan echter *geen* APIPA zijn (169,254. *x*. *x*)-adres. Specificeer dit adres in de bijbehorende lokale netwerkgateway die de locatie vertegenwoordigt. Zie [over BGP met Azure VPN gateway](../vpn-gateway/vpn-gateway-bgp-overview.md)voor de BGP-vereisten.
+
+   U kunt ook **Apparaatgegevens** invoeren (optionele velden). Als u dit doet, kan het Azure-team beter inzicht krijgen in uw omgeving om in de toekomst extra optimalisatie mogelijkheden toe te voegen of om u te helpen bij het oplossen van problemen.
+   
 5. Klik op **Bevestigen**.
 6. Nadat u op **Bevestigen** hebt geklikt, kunt u de status bekijken op de pagina met de VPN-sites. De site verandert van **Inrichten** in **Ingericht**.
 
@@ -83,7 +88,7 @@ Hubs moeten in het algemeen worden gekoppeld aan sites die zich in dezelfde regi
 
 ## <a name="vnet"></a>5. Een virtueel netwerk maken
 
-Als u nog geen een VNet, kunt u snel één met PowerShell of Azure portal maken. Als u al een VNet hebt, dient u te controleren u of dit VNet voldoet aan de vereiste criteria en geen virtuele netwerkgateway heeft.
+Als u nog geen VNet hebt, kunt u er snel een maken met behulp van Power shell of de Azure Portal. Als u al een VNet hebt, dient u te controleren u of dit VNet voldoet aan de vereiste criteria en geen virtuele netwerkgateway heeft.
 
 [!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
 
@@ -115,7 +120,7 @@ Gebruik de VPN-apparaatconfiguratie om uw on-premises VPN-apparaat te configurer
 Het apparaatconfiguratiebestand bevat de instellingen die u dient te gebruiken om uw on-premises VPN-apparaat te configureren. Wanneer u dit bestand bekijkt, ziet u de volgende informatie:
 
 * **vpnSiteConfiguration -** in deze sectie vindt u de apparaatgegevens, ingesteld als een site die verbinding maakt met het virtuele WAN. Hier vindt u ook de naam en het openbare ip-adres van het branch-apparaat.
-* **vpnSiteConnections -** in deze sectie bevat informatie over de volgende instellingen:
+* **vpnSiteConnections-** Deze sectie bevat informatie over de volgende instellingen:
 
     * **Adresruimte** van het VNet van de virtuele hub(s)<br>Voorbeeld:
  
@@ -127,7 +132,7 @@ Het apparaatconfiguratiebestand bevat de instellingen die u dient te gebruiken o
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * **IP-adressen** van de VPN-gateway van de virtuele hub. Omdat elke verbinding van de VPN-gateway uit twee tunnels in actief / actief-configuratie bestaat, ziet u beide IP-adressen die worden vermeld in dit bestand. In dit voorbeeld ziet u voor elke site 'Instance0' en 'Instance1'.<br>Voorbeeld:
+    * **IP-adressen** van de VPN-gateway van de virtuele hub. Omdat elke verbinding van de vpngateway bestaat uit twee tunnels in actief/actief-configuratie, ziet u beide IP-adressen die in dit bestand staan vermeld. In dit voorbeeld ziet u voor elke site 'Instance0' en 'Instance1'.<br>Voorbeeld:
 
         ``` 
         "Instance0":"104.45.18.186"
@@ -270,7 +275,7 @@ Maak een verbinding om de communicatie tussen een Azure-VM en een externe site t
 
 ## <a name="cleanup"></a>11. Resources opschonen
 
-Als u deze resources niet meer nodig hebt, kunt u [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) om de resourcegroep en alle resources die deze bevat te verwijderen. Vervangen 'myResourceGroup' door de naam van uw resourcegroep en voer de volgende PowerShell-opdracht uit:
+Wanneer u deze resources niet meer nodig hebt, kunt u [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) gebruiken om de resource groep en alle resources die deze bevat, te verwijderen. Vervangen 'myResourceGroup' door de naam van uw resourcegroep en voer de volgende PowerShell-opdracht uit:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

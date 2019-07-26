@@ -1,5 +1,5 @@
 ---
-title: Java-web-app maken in Linux - Azure App Service
+title: Een Java-Web-app maken op Linux-Azure App Service
 description: In deze quickstart implementeert u in een paar minuten uw eerste Java-app (Hallo wereld) in Azure App Service in Linux.
 keywords: Azure, app service, Web-app, Linux, Java, Maven, Quick Start
 services: app-service\web
@@ -15,13 +15,13 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 30689e05a2567646ff541818dc68a90c13da7a56
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.custom: mvc, seo-java-july2019
+ms.openlocfilehash: f42cb361bbef028aa2e9afec87972a907c048a1b
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297258"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68514079"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Quickstart: Een Java-app maken in App Service in Linux
 
@@ -116,7 +116,7 @@ Confirm (Y/N)? : Y
 
 `pom.xml` Ga opnieuw naar opnieuw om te zien of de configuratie van de invoeg toepassing is bijgewerkt. u kunt indien nodig ook andere configuraties voor app service rechtstreeks in uw pom-bestand wijzigen, zoals hieronder wordt weer gegeven:
 
- Eigenschap | Verplicht | Description | Version
+ Eigenschap | Vereist | Description | Version
 ---|---|---|---
 `<schemaVersion>` | false | Geef de versie van het configuratie schema op. Ondersteunde waarden zijn: `v1`, `v2`. | 1.5.2
 `<resourceGroup>` | true | Azure-resource groep voor uw web-app. | 0.1.0+

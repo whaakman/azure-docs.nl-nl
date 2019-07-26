@@ -7,7 +7,7 @@ metadata:
   description: Lees hoe u met de Bing Afbeeldingen zoeken-API op internet kunt zoeken naar afbeeldingen.
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-image-search
   ms.tgt_pltfrm: na

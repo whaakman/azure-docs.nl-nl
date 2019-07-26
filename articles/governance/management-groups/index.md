@@ -7,12 +7,12 @@ ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 1958a829df2643bd218d4e8d7f6dd563b5b395e8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ca8351e7294c5a9cdd9f594eb4524d04a27b5c1
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237169"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516974"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Uw resources organiseren met Azure-beheergroepen
 
@@ -98,7 +98,7 @@ In de volgende tabel staat een lijst met rollen en de acties die worden onderste
 |Lezer                      |        |        |        |        |               |               | X     |
 |Beheergroep-lezer*                  |        |        |        |        |               |               | X     |
 |Inzender voor resourcebeleid |        |        |        |        |               | X             |       |
-|Beheerder van gebruikerstoegang   |        |        |        |        | X             |               |       |
+|Beheerder van gebruikerstoegang   |        |        |        |        | X             | X             |       |
 
 *: Met de rollen Beheergroep-inzender en Beheergroep-lezer kunnen gebruikers deze acties alleen uitvoeren op beheergroepniveau.  
 **: Bij roltoewijzingen hoeft er geen abonnement of beheergroep van of naar de hoofdbeheergroep te worden verplaatst.  Zie [Uw resources beheren met beheergroepen](manage.md) voor meer informatie over het verplaatsen van items binnen de hiërarchie.

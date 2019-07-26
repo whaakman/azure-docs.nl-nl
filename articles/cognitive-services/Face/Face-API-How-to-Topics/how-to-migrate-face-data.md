@@ -1,47 +1,47 @@
 ---
-title: De face-gegevens migreren tussen abonnementen - Face-API
+title: Uw gezichts gegevens migreren tussen abonnementen-Face-API
 titleSuffix: Azure Cognitive Services
-description: Deze handleiding wordt beschreven hoe u uw gegevens opgeslagen gezichten van één Face-API-abonnement migreren naar een andere.
+description: In deze hand leiding wordt beschreven hoe u uw opgeslagen gezichts gegevens van een Face-API abonnement naar een andere kunt migreren.
 services: cognitive-services
 author: lewlu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 702aed12860c090e83b997e6b56d56e06b416568
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 886e0ff353ab270bb823629d2068508531c14fc2
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65913802"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516866"
 ---
-# <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Uw gegevens face migreren naar een ander Face-abonnement
+# <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Uw gezichts gegevens migreren naar een ander gezichts abonnement
 
-Deze handleiding laat zien hoe u gegevens van de face-, zoals een opgeslagen PersonGroup-object met gezichten, verplaatsen naar een ander abonnement voor Azure Cognitive Services Face-API. Als u wilt de gegevens verplaatst, moet u de momentopname-functie gebruiken. Op deze manier hoeft u niet herhaaldelijk maken en trainen van een object PersonGroup of FaceList wanneer u verplaatst of uw activiteiten uitbreiden. Bijvoorbeeld, wellicht u een PersonGroup-object gemaakt met behulp van een gratis proefabonnement en wilt migreren naar uw betaalde abonnement. Of u moet mogelijk face gegevens synchroniseren tussen regio's voor een grote onderneming-bewerking.
+In deze hand leiding wordt beschreven hoe u gezichts gegevens, zoals een opgeslagen PersonGroup-object met gezichten, kunt verplaatsen naar een ander Azure Cognitive Services Face-API-abonnement. Als u de gegevens wilt verplaatsen, gebruikt u de functie snap shot. Zo voor komt u dat u een PersonGroup-of FaceList-object herhaaldelijk kunt bouwen en trainen wanneer u uw bewerkingen verplaatst of uitbreidt. Mogelijk hebt u bijvoorbeeld een PersonGroup-object gemaakt met behulp van een gratis proef abonnement en wilt u het nu migreren naar uw betaalde abonnement. Het is ook mogelijk dat u gezichts gegevens moet synchroniseren tussen regio's voor een grote bedrijfs activiteit.
 
-Deze dezelfde migratiestrategie geldt ook voor LargePersonGroup en LargeFaceList-objecten. Als u niet bekend bent met de concepten in deze handleiding, raadpleegt u de definities in de [geconfronteerd erkenning concepten](../concepts/face-recognition.md) handleiding. Deze handleiding gebruikt de Face-API .NET-clientbibliotheek met C#.
+Deze migratie strategie is ook van toepassing op LargePersonGroup-en LargeFaceList-objecten. Als u niet bekend bent met de concepten in deze hand leiding, raadpleegt u de definities hiervan in de hand leiding voor de [gezichts herkennings concepten](../concepts/face-recognition.md) . In deze hand leiding wordt gebruikgemaakt van de C#face-API .net-client bibliotheek met.
 
 ## <a name="prerequisites"></a>Vereisten
 
 U hebt de volgende items nodig:
 
-- Twee Face-API abonnementssleutels, één met de bestaande gegevens en één voor het migreren naar. Volg de instructies in om u te abonneren op de Face-API-service en haal uw sleutel, [een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
-- De Face-API-abonnement-id die overeenkomt met het doelabonnement. Selecteer om te zoeken, **overzicht** in Azure portal. 
+- Twee Face-API abonnements sleutels, één met de bestaande gegevens en één om naar te migreren. Volg de instructies in [Create a cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)om u te abonneren op de face-API-service en uw sleutel op te halen.
+- De teken reeks voor de Face-API-abonnement-ID die overeenkomt met het doel abonnement. Selecteer **overzicht** in het Azure Portal om het te vinden. 
 - Een versie van [Visual Studio 2015 of 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Het Visual Studio-project maken
 
-Deze handleiding gebruikt een eenvoudige consoletoepassing voor het uitvoeren van de face-gegevensmigratie. Zie voor een volledige implementatie, de [Face-API momentopname voorbeeld](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) op GitHub.
+In deze hand leiding wordt gebruikgemaakt van een eenvoudige console-app voor het uitvoeren van de gezichts gegevens migratie. Zie voor een volledige implementatie het voor [beeld van de face-API momentopname](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) op github.
 
-1. Maak een nieuw project voor het .NET Framework Console-app in Visual Studio. Geef het de naam **FaceApiSnapshotSample**.
-1. Download de vereiste NuGet-pakketten. Met de rechtermuisknop op uw project in Solution Explorer en selecteer **NuGet-pakketten beheren**. Selecteer de **Bladeren** tabblad, en selecteer **Include prerelease**. Zoeken en installeren van de volgende pakketten:
+1. Maak in Visual Studio een nieuwe console-app .NET Framework project. Noem deze **FaceApiSnapshotSample**.
+1. Download de vereiste NuGet-pakketten. Klik met de rechter muisknop op het project in de Solution Explorer en selecteer **NuGet-pakketten beheren**. Selecteer het tabblad **Bladeren** en selecteer op **include Prerelease**. Het volgende pakket zoeken en installeren:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
 ## <a name="create-face-clients"></a>Face-clients maken
 
-In de **Main** methode in *Program.cs*, twee [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) exemplaren voor uw bron- en -abonnementen. Dit voorbeeld wordt een abonnement gezicht in de regio Oost-Azië als de bron- en een VS-West-abonnement als het doel. In dit voorbeeld ziet u hoe u gegevens migreren van een Azure-regio naar een andere. Als uw abonnementen in verschillende regio's zijn, wijzigt u de `Endpoint` tekenreeksen.
+Maak in de methode **Main** in *Program.cs*twee [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) -instanties voor uw bron-en doel abonnementen. In dit voor beeld wordt een gezichts abonnement in de regio Azië-oost als bron en een West US-abonnement als doel gebruikt. In dit voor beeld ziet u hoe u gegevens migreert van de ene Azure-regio naar een andere. Als uw abonnementen zich in verschillende regio's bevinden, `Endpoint` wijzigt u de teken reeksen.
 
 ```csharp
 var FaceClientEastAsia = new FaceClient(new ApiKeyServiceClientCredentials("<East Asia Subscription Key>"))
@@ -55,21 +55,21 @@ var FaceClientWestUS = new FaceClient(new ApiKeyServiceClientCredentials("<West 
     };
 ```
 
-Vul de abonnement-sleutelwaarden en een eindpunt-URL's voor uw bron- en -abonnementen.
+Vul de abonnements sleutel waarden en eind punt-Url's in voor uw bron-en doel abonnementen.
 
 
 ## <a name="prepare-a-persongroup-for-migration"></a>Een PersonGroup voorbereiden voor migratie
 
-U moet de ID van de PersonGroup in uw bronabonnement om te migreren naar het doelabonnement. Gebruik de [PersonGroupOperationsExtensions.ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) methode voor het ophalen van een lijst met uw PersonGroup-objecten. Haal vervolgens de [PersonGroup.PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) eigenschap. Dit proces ziet er anders uit op basis van welke PersonGroup objecten hebt. In deze handleiding worden de bron-ID PersonGroup wordt opgeslagen in `personGroupId`.
+U hebt de ID van de PersonGroup in uw bron abonnement nodig om deze te migreren naar het doel abonnement. Gebruik de methode [PersonGroupOperationsExtensions. ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) om een lijst van uw PersonGroup-objecten op te halen. Haal vervolgens de eigenschap [PersonGroup. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) op. Dit proces ziet er anders uit op basis van de PersonGroup-objecten die u hebt. In deze hand leiding wordt de bron-PersonGroup-ID `personGroupId`opgeslagen in.
 
 > [!NOTE]
-> De [voorbeeldcode](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) maakt en traint u een nieuwe PersonGroup om te migreren. In de meeste gevallen moet u een PersonGroup gebruiken al hebt.
+> Met de [voorbeeld code](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) wordt een nieuwe PersonGroup gemaakt en getraind die kan worden gemigreerd. In de meeste gevallen moet u al een PersonGroup hebben om te gebruiken.
 
-## <a name="take-a-snapshot-of-a-persongroup"></a>Een momentopname van een PersonGroup
+## <a name="take-a-snapshot-of-a-persongroup"></a>Een moment opname van een PersonGroup maken
 
-Een momentopname is tijdelijke externe opslag voor bepaalde gegevenstypen Face. Het fungeert als een soort Klembord te kopiëren van gegevens van één abonnement naar een andere. Eerst, u een momentopname van de gegevens in de bronabonnement. Vervolgens toepassen u op een nieuw gegevensobject in het doelabonnement.
+Een moment opname is een tijdelijke externe opslag voor bepaalde gezichts gegevens typen. Het werkt als een soort klem bord om gegevens van het ene naar het andere abonnement te kopiëren. Eerst maakt u een moment opname van de gegevens in het bron abonnement. Vervolgens past u deze toe op een nieuw gegevens object in het doel abonnement.
 
-Het bronabonnement FaceClient exemplaar gebruiken om een momentopname van de PersonGroup. Gebruik [TakeAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet) met de PersonGroup-ID en de doel-abonnements-ID. Als u meerdere target-abonnementen hebt, kunt u deze als matrix vermeldingen in de derde parameter toevoegen.
+Gebruik het FaceClient-exemplaar van het bron abonnement om een moment opname van de PersonGroup te maken. Gebruik [TakeAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet) met de PersonGroup-id en de id van het doel abonnement. Als u meerdere doel abonnementen hebt, voegt u deze toe als matrix vermeldingen in de derde para meter.
 
 ```csharp
 var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
@@ -79,18 +79,18 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> Het proces van het maken en toepassen van momentopnamen niet de regelmatige aanroepen voor de bron worden onderbroken of richt u op PersonGroups of FaceLists. Maak niet gelijktijdige aanroepen die de bronobject, zoals wijzigen [FaceList beheeraanroepen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) of de [PersonGroup Train](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) aanroepen, zo. De momentopnamebewerking kan worden uitgevoerd vóór of na deze bewerkingen of kan er fouten optreden.
+> Het proces van het nemen en Toep assen van moment opnamen verstoort geen normale aanroepen naar de bron-of doel-PersonGroups of-FaceLists. Maak geen gelijktijdige aanroepen waarmee het bron object wordt gewijzigd, zoals [FaceList-beheer aanroepen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) of de oproep van de PersonGroup- [training](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) . De momentopname bewerking kan worden uitgevoerd vóór of na deze bewerkingen of kan fouten tegen komen.
 
-## <a name="retrieve-the-snapshot-id"></a>De momentopname-ID ophalen
+## <a name="retrieve-the-snapshot-id"></a>De moment opname-ID ophalen
 
-De methode die wordt gebruikt om momentopnamen te is asynchroon, dus u tot de voltooiing wachten moet. Momentopnamebewerkingen kunnen niet worden geannuleerd. In deze code wordt de `WaitForOperation` methode bewaakt de asynchrone aanroep. Er wordt gecontroleerd met de status van elke 100 ms. Nadat de bewerking is voltooid, een bewerkings-ID ophalen tijdens het parseren van de `OperationLocation` veld. 
+De methode die wordt gebruikt om moment opnamen te maken, is asynchroon, dus u moet wachten tot de bewerking is voltooid. Momentopname bewerkingen kunnen niet worden geannuleerd. In deze code bewaakt de `WaitForOperation` methode de asynchrone aanroep. Hiermee wordt de status elke 100 MS gecontroleerd. Wanneer de bewerking is voltooid, haalt u een bewerkings- `OperationLocation` id op door het veld te parseren. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
 var operationStatus = await WaitForOperation(FaceClientEastAsia, takeOperationId);
 ```
 
-Een typische `OperationLocation` waarde er als volgt uitzien:
+Een typische `OperationLocation` waarde ziet er als volgt uit:
 
 ```csharp
 "/operations/a63a3bdd-a1db-4d05-87b8-dbad6850062a"
@@ -125,21 +125,21 @@ private static async Task<OperationStatus> WaitForOperation(IFaceClient client, 
 }
 ```
 
-Nadat de status van de bewerking bevat `Succeeded`, de momentopname-ID ophalen tijdens het parseren van de `ResourceLocation` veld van het geretourneerde OperationStatus-exemplaar.
+Na de bewerkings `Succeeded`status wordt de moment opname-id opgehaald `ResourceLocation` door het veld van het geretourneerde OperationStatus-exemplaar te parseren.
 
 ```csharp
 var snapshotId = Guid.Parse(operationStatus.ResourceLocation.Split('/')[2]);
 ```
 
-Een typische `resourceLocation` waarde er als volgt uitzien:
+Een typische `resourceLocation` waarde ziet er als volgt uit:
 
 ```csharp
 "/snapshots/e58b3f08-1e8b-4165-81df-aa9858f233dc"
 ```
 
-## <a name="apply-a-snapshot-to-a-target-subscription"></a>Een momentopname van een toepassing naar een doelabonnement
+## <a name="apply-a-snapshot-to-a-target-subscription"></a>Een moment opname Toep assen op een doel abonnement
 
-Maak vervolgens de nieuwe PersonGroup in het doelabonnement met behulp van een willekeurig gegenereerde ID. Gebruik vervolgens het doelabonnement FaceClient exemplaar toe te passen van de momentopname op deze PersonGroup. Doorgeven in de momentopname-ID en de nieuwe PersonGroup-ID.
+Maak vervolgens de nieuwe PersonGroup in het doel abonnement met behulp van een wille keurig gegenereerde ID. Gebruik vervolgens het FaceClient-exemplaar van het doel abonnement om de moment opname toe te passen op deze PersonGroup. Geef de moment opname-ID en de nieuwe PersonGroup-ID door.
 
 ```csharp
 var newPersonGroupId = Guid.NewGuid().ToString();
@@ -148,25 +148,25 @@ var applySnapshotResult = await FaceClientWestUS.Snapshot.ApplyAsync(snapshotId,
 
 
 > [!NOTE]
-> Een Snapshot-object is alleen 48 uur geldig. Alleen een momentopname van een uitvoeren als u van plan bent te gebruiken voor gegevensmigratie snel na.
+> Een momentopname object is slechts 48 uur geldig. Maak een moment opname alleen als u deze binnenkort wilt gebruiken voor gegevens migratie.
 
-Een aanvraag voor het toepassen van momentopname retourneert een andere bewerking-ID. Als u deze ID, parseren de `OperationLocation` veld van het geretourneerde applySnapshotResult-exemplaar. 
+Een aanvraag voor het Toep assen van een moment opname retourneert een andere bewerking-ID. Als u deze id wilt ophalen, `OperationLocation` parseert u het veld van het geretourneerde applySnapshotResult-exemplaar. 
 
 ```csharp
 var applyOperationId = Guid.Parse(applySnapshotResult.OperationLocation.Split('/')[2]);
 ```
 
-Het proces van toepassing is ook asynchrone, gebruikt u dus opnieuw `WaitForOperation` te wachten tot deze is voltooid.
+Het momentopname toepassings proces is ook asynchroon, dus opnieuw gebruiken `WaitForOperation` om te wachten tot het is voltooid.
 
 ```csharp
 operationStatus = await WaitForOperation(FaceClientWestUS, applyOperationId);
 ```
 
-## <a name="test-the-data-migration"></a>Testen van de gegevensmigratie
+## <a name="test-the-data-migration"></a>De gegevens migratie testen
 
-Na het toepassen van de momentopname, wordt de nieuwe PersonGroup in het doelabonnement met de oorspronkelijke face-gegevens. Training resultaten worden standaard ook gekopieerd. De nieuwe PersonGroup is gereed voor face id aanroepen zonder opnieuw trainen.
+Nadat u de moment opname hebt toegepast, wordt de nieuwe PersonGroup in het doel abonnement gevuld met de oorspronkelijke gezichts gegevens. Standaard worden de resultaten van de training ook gekopieerd. De nieuwe PersonGroup is klaar voor het aanroepen van gezichts identificaties zonder opnieuw te hoeven trainen.
 
-Als u wilt testen van de migratie van gegevens, uitvoeren van de volgende bewerkingen en vergelijk de resultaten die ze naar de console afdrukken:
+Als u de gegevens migratie wilt testen, voert u de volgende bewerkingen uit en vergelijkt u de resultaten die ze naar de console afdrukken:
 
 ```csharp
 await DisplayPersonGroup(FaceClientEastAsia, personGroupId);
@@ -178,7 +178,7 @@ await DisplayPersonGroup(FaceClientWestUS, newPersonGroupId);
 await IdentifyInPersonGroup(FaceClientWestUS, newPersonGroupId);
 ```
 
-Gebruik de volgende methoden:
+Gebruik de volgende Help-methoden:
 
 ```csharp
 private static async Task DisplayPersonGroup(IFaceClient client, string personGroupId)
@@ -214,13 +214,13 @@ private static async Task IdentifyInPersonGroup(IFaceClient client, string perso
 }
 ```
 
-U kunt nu de nieuwe PersonGroup gebruiken in het doelabonnement. 
+U kunt nu de nieuwe PersonGroup gebruiken in het doel abonnement. 
 
-Om bij te werken in de toekomst opnieuw het doel PersonGroup, maakt u een nieuwe PersonGroup voor het ontvangen van de momentopname. U doet dit door de stappen in deze handleiding uit te voeren. Een enkel PersonGroup-object kan een momentopname die is toegepast op deze slechts één keer hebben.
+Als u de doel-PersonGroup in de toekomst opnieuw wilt bijwerken, maakt u een nieuwe PersonGroup om de moment opname te ontvangen. Volg hiervoor de stappen in deze hand leiding. Een enkel PersonGroup-object kan een moment opname hebben die slechts één keer wordt toegepast.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Nadat u klaar bent met het migreren van gegevens te maken krijgt, verwijdert u handmatig het snapshot-object.
+Wanneer u klaar bent met het migreren van gezichts gegevens, moet u het momentopname object hand matig verwijderen.
 
 ```csharp
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
@@ -228,10 +228,10 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Vervolgens ziet u de relevante API-referentiedocumentatie, bekijk een voorbeeld-app die gebruikmaakt van de momentopname-functie of een handleiding aan de slag met de andere API-bewerkingen die worden vermeld hier volgen:
+Bekijk vervolgens de relevante API-referentie documentatie, verken een voor beeld-app die gebruikmaakt van de snap shot-functie of volg een hand leiding om te beginnen met het gebruik van de andere API-bewerkingen die hier worden genoemd:
 
-- [Referentiedocumentatie voor momentopname (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
-- [Voorbeeld van de momentopname Face-API](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
+- [Naslag documentatie voor moment opnamen (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
+- [Voor beeld van Face-API moment opname](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Gezichten toevoegen](how-to-add-faces.md)
-- [Detecteer gezichten in een afbeelding](HowtoDetectFacesinImage.md)
-- [Identificeer gezichten in een afbeelding](HowtoIdentifyFacesinImage.md)
+- [Gezichten detecteren in een installatie kopie](HowtoDetectFacesinImage.md)
+- [Gezichten identificeren in een installatie kopie](HowtoIdentifyFacesinImage.md)

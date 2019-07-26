@@ -6,7 +6,7 @@ metadata:
   description: Informatie over hoe u Form Recognizer kunt gebruiken om op intelligente wijze sleutel-waardegegevens uit uw formulierdocumenten te extraheren.
   services: cognitive-services
   author: PatrickFarley
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: forms-recognizer
   ms.tgt_pltfrm: na

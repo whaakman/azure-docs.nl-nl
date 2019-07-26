@@ -7,7 +7,7 @@ metadata:
   description: 'Speech Services biedt ontwikkelaars een eenvoudige manier om krachtige spraakfuncties toe te voegen aan hun toepassingen. Voorbeelden zijn onder meer stembesturing en dialoog, natuurlijke taalinteractie, spraaktranscriptie en dicteren en spraakomzetting.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: speech-service

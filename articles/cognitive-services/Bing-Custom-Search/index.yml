@@ -6,7 +6,7 @@ metadata:
   description: Meer informatie over het gebruik van het Bing Aangepaste zoekopdrachtenportaal en de API om een aangepaste zoekervaring te maken
   services: cognitive-services
   author: v-deken
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.tgt_pltfrm: na

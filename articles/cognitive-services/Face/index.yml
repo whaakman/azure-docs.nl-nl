@@ -6,7 +6,7 @@ metadata:
   description: Informatie over het gebruik van de Face-API voor het opsporen en identificeren van gezichten in afbeeldingen en het retourneren van gezichtsinformatie. Zelfstudies laten zien hoe u apps maakt die gebruikmaken van de API.
   services: cognitive-services
   author: PatrickFarley
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: face-api
   ms.tgt_pltfrm: na

@@ -6,7 +6,7 @@ metadata:
   description: 'Gebruik de Anomaly Detector-API om gegevens een bepaalde periode te bewaken en om afwijkingen te detecteren met machine learning. Krijg inzicht in uw gegevens, ongeacht het volume, de sector of het scenario.'
   services: cognitive-services
   author: aahill
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.tgt_pltfrm: na

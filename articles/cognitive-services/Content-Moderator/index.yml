@@ -6,7 +6,7 @@ metadata:
   description: 'Leer hoe u de Content Moderator gebruikt om tekst, afbeeldingen en video''s te controleren op materiaal dat mogelijk aanstootgevend, riskant of anderszins ongewenst is.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: content-moderator
   ms.tgt_pltfrm: na

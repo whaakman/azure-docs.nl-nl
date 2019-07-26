@@ -1,7 +1,7 @@
 ---
-title: R gebruiken op Azure SQL Database-query
+title: R met Machine Learning Services gebruiken om een query uit te Azure SQL Database
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: In dit artikel wordt beschreven hoe u een R-script gebruiken om te verbinden met een Azure SQL database en query's uitvoeren met behulp van Transact-SQL-instructies.
+description: In dit artikel leest u hoe u een R-script gebruikt met Azure SQL Database Machine Learning Services om verbinding te maken met een Azure-SQL database en query's uit te voeren met behulp van Transact-SQL-instructies.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -13,16 +13,16 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: 1d4b17cf1e0349bf877c676cb4e591fc20ad4113
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: ff38346a9b3bd14db51383c116240b030d3ee42a
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416364"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514860"
 ---
-# <a name="quickstart-use-r-to-query-an-azure-sql-database-preview"></a>Quickstart: R gebruiken om te vragen van een Azure SQL-database (preview)
+# <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>Quickstart: Met R met Machine Learning Services een query uitvoeren op een Azure SQL database (preview-versie)
 
- In deze Quick Start ziet u hoe u [R](https://www.r-project.org/) met Machine Learning Services verbinding maken met een Azure SQL database en Transact-SQL-instructies gebruikt om gegevens te doorzoeken. Machine Learning-Services is een functie van Azure SQL Database, die wordt gebruikt voor het uitvoeren van R-scripts in de database. Zie voor meer informatie, [Azure SQL Database Machine Learning-Services met R (preview)](sql-database-machine-learning-services-overview.md).
+In deze Quick start ziet u hoe u met behulp van [R](https://www.r-project.org/) met Machine Learning Services verbinding maakt met een Azure SQL database en hoe u Transact-SQL-instructies gebruikt om gegevens op te vragen. Machine Learning Services is een functie van Azure SQL Database die wordt gebruikt voor het uitvoeren van een Data Base-R-script. Zie [Azure SQL Database Machine Learning Services met R (preview)](sql-database-machine-learning-services-overview.md)voor meer informatie.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -55,16 +55,16 @@ Zorg ervoor dat u over het volgende beschikt om deze snelstart te voltooien:
   |||
 
   > [!NOTE]
-  > Tijdens de Preview-versie van Azure SQL Database Machine Learning-Services met R, wordt de Implementatieoptie voor het beheerde exemplaar niet ondersteund.
+  > Tijdens de preview-versie van Azure SQL Database Machine Learning Services met R, wordt de implementatie optie Managed instance niet ondersteund.
 
 <!-- Managed instance is not supported during the preview
   > [!IMPORTANT]
   > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 -->
 
-- Machine Learning-Services (met R) ingeschakeld. Na de onboarding voor de openbare preview wordt Machine Learning voor u ingeschakeld voor uw bestaande of nieuwe database. Volg de stappen in [Meld u aan voor de preview-versie](sql-database-machine-learning-services-overview.md#signup).
+- Machine Learning Services (met R) ingeschakeld. Na de onboarding voor de openbare preview wordt Machine Learning voor u ingeschakeld voor uw bestaande of nieuwe database. Volg de stappen in [Meld u aan voor de preview-versie](sql-database-machine-learning-services-overview.md#signup).
 
-- De meest recente [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). U kunt R-scripts met behulp van het beheer van andere databases of hulpmiddelen voor query's uitvoeren, maar in deze snelstartgids gebruikt u SSMS.
+- De nieuwste [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). U kunt R-scripts uitvoeren met andere database beheer-of query hulpprogramma's, maar in deze Snelstartgids gebruikt u SSMS.
 
 ## <a name="get-sql-server-connection-information"></a>SQL Server-verbindingsgegevens ophalen
 
@@ -80,11 +80,11 @@ Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Az
 
 1. Open **SQL Server Management Studio** en maak verbinding met de SQL-database.
 
-   Als u hulp bij het maken van een verbinding nodig hebt, raadpleegt u [Quick Start: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren op een Azure SQL database](sql-database-connect-query-ssms.md).
+   Als u hulp nodig hebt bij het [maken van verbinding, raadpleegt u Quick Start: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren op een Azure SQL database](sql-database-connect-query-ssms.md).
 
-1. Het volledige R-script uit te geven de [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) opgeslagen procedure.
+1. Geef het volledige R-script door aan de opgeslagen procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) .
 
-   Het script wordt doorgegeven via de `@script` argument. Alles in de `@script` argument moet een geldige R-code.
+   Het script wordt door gegeven via `@script` het argument. Alles binnen het `@script` argument moet een geldige R-code zijn.
    
    >[!IMPORTANT]
    >Voor de code in dit voorbeeld worden de voorbeeldgegevens gebruikt van AdventureWorksLT, die u als bron kunt kiezen bij het maken van uw database. Als in uw database andere gegevens staan, kunt u tabellen uit uw eigen database gebruiken in de SELECT-query. 
@@ -97,17 +97,17 @@ Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Az
     ```
 
    > [!NOTE]
-   > Als er fouten optreden, kan dit zijn omdat de openbare preview van Machine Learning Services (met R) niet is ingeschakeld voor uw SQL-database. Zie [vereisten](#prerequisites) hierboven.
+   > Als er fouten optreden, kan dit zijn omdat de openbare preview van Machine Learning Services (met R) niet is ingeschakeld voor uw SQL-database. Zie bovenstaande [vereisten](#prerequisites) .
 
 ## <a name="run-the-code"></a>De code uitvoeren
 
-1. Voer de [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) opgeslagen procedure.
+1. Voer de opgeslagen procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) uit.
 
-1. Controleer of dat de categorie/Product bovenste 20 rijen worden geretourneerd in de **berichten** venster.
+1. Controleer of de bovenste 20 categorie/product rijen worden geretourneerd in het venster **berichten** .
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Uw eerste Azure SQL-database ontwerpen](sql-database-design-first-database.md)
 - [Azure SQL Database Machine Learning Services (met R)](sql-database-machine-learning-services-overview.md)
-- [Maken en eenvoudige R-scripts uitvoeren in Azure SQL Database Machine Learning-Services (preview)](sql-database-quickstart-r-create-script.md)
-- [Schrijven van geavanceerde R-functies in Azure SQL Database met behulp van Machine Learning-Services (preview)](sql-database-machine-learning-services-functions.md)
+- [Eenvoudige R-scripts maken en uitvoeren in Azure SQL Database Machine Learning Services (preview-versie)](sql-database-quickstart-r-create-script.md)
+- [Geavanceerde R-functies schrijven in Azure SQL Database met behulp van Machine Learning Services (preview)](sql-database-machine-learning-services-functions.md)
