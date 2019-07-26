@@ -1,193 +1,192 @@
 ---
-title: Gegevensmodel voor Azure Backup
-description: In dit artikel wordt besproken details van een Power BI-gegevens-model, voor Azure Backup-rapporten.
-services: backup
+title: Gegevens model voor Azure Backup
+description: In dit artikel vindt u informatie over Power BI gegevens model voor Azure Backup-rapporten.
 author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
-ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66245a25af000d999ded87c58e3ba225b373b101
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337575"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465601"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Gegevensmodel voor Azure Backup-rapporten
-Dit artikel beschrijft het gegevensmodel van Power BI gebruikt voor het maken van Azure Backup-rapporten. Met dit gegevensmodel, kunt u filteren op bestaande rapporten op basis van relevante velden en informatie bovendien uw eigen rapporten maken met behulp van tabellen en velden in het model. 
+In dit artikel wordt het Power BI gegevens model beschreven dat wordt gebruikt voor het maken van Azure Backup-rapporten. Met dit gegevens model kunt u bestaande rapporten filteren op basis van relevante velden en belang rijker rapporten maken met behulp van tabellen en velden in het model. 
 
-## <a name="creating-new-reports-in-power-bi"></a>Het maken van nieuwe rapporten in Power BI
-Power BI biedt functies die u kunt met [rapporten maken met het gegevensmodel](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
+## <a name="creating-new-reports-in-power-bi"></a>Nieuwe rapporten maken in Power BI
+Power BI biedt aanpassings functies die u kunt gebruiken om [rapporten te maken met behulp van het gegevens model](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
 
-## <a name="using-azure-backup-data-model"></a>Met behulp van Azure Backup-gegevensmodel
-Rapporten maken en aanpassen van bestaande rapporten kunt u de volgende velden geleverd als onderdeel van het gegevensmodel.
+## <a name="using-azure-backup-data-model"></a>Azure Backup gegevens model gebruiken
+U kunt de volgende velden gebruiken als onderdeel van het gegevens model voor het maken van rapporten en het aanpassen van bestaande rapporten.
 
 ### <a name="alert"></a>Waarschuwing
-Deze tabel bevat algemene velden en aggregaties die via verschillende gerelateerde waarschuwingsvelden.
+Deze tabel bevat basis velden en aggregaties over diverse velden die betrekking hebben op waarschuwingen.
 
 | Veld | Gegevenstype | Description |
 | --- | --- | --- |
-| #AlertsCreatedInPeriod |Geheel getal |Aantal waarschuwingen die zijn gemaakt in een geselecteerde tijdsperiode |
-| %ActiveAlertsCreatedInPeriod |Percentage |Percentage van actieve waarschuwingen in de geselecteerde periode |
-| %CriticalAlertsCreatedInPeriod |Percentage |Percentage van de kritieke waarschuwingen in de geselecteerde periode |
+| #AlertsCreatedInPeriod |Geheel getal |Aantal waarschuwingen dat is gemaakt in de geselecteerde tijds periode |
+| %ActiveAlertsCreatedInPeriod |Percentage |Percentage actieve waarschuwingen in de geselecteerde tijds periode |
+| %CriticalAlertsCreatedInPeriod |Percentage |Percentage kritieke waarschuwingen in de geselecteerde tijds periode |
 | AlertOccurrenceDate |Date |Datum waarop de waarschuwing is gemaakt |
-| AlertSeverity |Text |Ernst van de waarschuwing bijvoorbeeld: kritiek |
+| AlertSeverity |Text |Ernst van de waarschuwing bijvoorbeeld kritiek |
 | AlertStatus |Text |Status van de waarschuwing bijvoorbeeld actief |
-| AlertType |Text |Type van de gegenereerde waarschuwing bijvoorbeeld back-up |
-| AlertUniqueId |Text |De unieke Id van de gegenereerde waarschuwing |
-| AsOnDateTime |Datum/tijd |Vernieuwingstijd van laatste voor de geselecteerde rij |
-| AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Decimaal getal |Gemiddelde tijd (in minuten) op te lossen waarschuwing voor geselecteerde tijdsperiode |
-| EntityState |Text |Huidige status van de waarschuwing object bijvoorbeeld actief, verwijderd |
+| AlertType |Text |Type van de gegenereerde waarschuwing, bijvoorbeeld back-up |
+| AlertUniqueId |Text |Unieke id van de gegenereerde waarschuwing |
+| AsOnDateTime |Date/Time |Laatste vernieuwings tijd voor de geselecteerde rij |
+| AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Decimaal getal |Gemiddelde tijd (in minuten) voor het oplossen van de waarschuwing voor de geselecteerde tijds periode |
+| EntityState |Text |Huidige status van het waarschuwings object, bijvoorbeeld actief, verwijderd |
 
 ### <a name="backup-item"></a>Back-upitem
-Deze tabel bevat de algemene velden en aggregaties die via verschillende back-item-gerelateerde velden.
+Deze tabel bevat basis velden en aggregaties over diverse velden met betrekking tot back-upitems.
 
 | Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | #BackupItems |Geheel getal |Aantal back-upitems |
-| #UnprotectedBackupItems |Geheel getal |Aantal back-upitems voor beveiliging is gestopt of geconfigureerd voor back-ups, maar back-ups niet gestart|
-| AsOnDateTime |Datum/tijd |Vernieuwingstijd van laatste voor de geselecteerde rij |
-| BackupItemFriendlyName |Text |Beschrijvende naam van de back-upitem |
-| BackupItemId |Text |Id van de back-upitem |
-| BackupItemName |Text |Naam van de back-upitem |
-| BackupItemType |Text |Type back-upitem bijvoorbeeld VM FileFolder |
-| EntityState |Text |Huidige status van het object back-upitem bijvoorbeeld actief, verwijderd |
-| LastBackupDateTime |Datum/tijd |Tijd van laatste back-up voor de geselecteerde back-upitem |
-| LastBackupState |Text |Status van de laatste back-up voor de geselecteerde back-upitem bijvoorbeeld geslaagd, mislukt |
-| LastSuccessfulBackupDateTime |Datum/tijd |Tijd van laatste geslaagde back-up voor de geselecteerde back-upitem |
-| ProtectionState |Text |Huidige beveiligingsstatus van de back-upitem bijvoorbeeld beveiligd, ProtectionStopped |
+| #UnprotectedBackupItems |Geheel getal |Aantal back-upitems gestopt voor beveiliging of geconfigureerd voor back-ups, maar back-ups zijn niet gestart|
+| AsOnDateTime |Date/Time |Laatste vernieuwings tijd voor de geselecteerde rij |
+| BackupItemFriendlyName |Text |Beschrijvende naam van het back-upitem |
+| BackupItemId |Text |Id van back-upitem |
+| BackupItemName |Text |Naam van back-upitem |
+| BackupItemType |Text |Type back-upitem bijvoorbeeld VM, FileFolder |
+| EntityState |Text |Huidige status van het back-upitem-object bijvoorbeeld actief, verwijderd |
+| LastBackupDateTime |Date/Time |Tijdstip van laatste back-up voor geselecteerd back-upitem |
+| LastBackupState |Text |De status van de laatste back-up voor het geselecteerde back-upitem is bijvoorbeeld geslaagd, mislukt |
+| LastSuccessfulBackupDateTime |Date/Time |Tijdstip van de laatste geslaagde back-up voor het geselecteerde back-upitem |
+| ProtectionState |Text |Huidige beveiligings status van het back-upitem bijvoorbeeld beveiligd, ProtectionStopped |
 
 ### <a name="calendar"></a>Agenda
-Deze tabel bevat details over velden met betrekking tot de agenda.
+Deze tabel bevat details over kalender velden.
 
 | Veld | Gegevenstype | Description |
 | --- | --- | --- |
-| Date |Date |Datum geselecteerd voor het filteren van gegevens |
-| DateKey |Text |Unieke sleutel voor elk item datum |
-| DayDiff |Decimaal getal |Bijvoorbeeld het verschil in dagen voor het filteren van gegevens, 0 geeft aan dat de gegevens van de huidige dag, -1 geeft aan dat de gegevens van de vorige één dag, 0 en 1 geven gegevens voor de huidige en vorige dag  |
-| Maand |Text |Maand van het jaar dat is geselecteerd voor het filteren van gegevens, maand op de eerste dag begint en eindigt op 31 dagen |
-| MonthDate | Date |Datum in de maand waarop maand eindigt, geselecteerd voor het filteren van gegevens |
-| MonthDiff |Decimaal getal |Bijvoorbeeld het verschil in maanden voor het filteren van gegevens, 0 geeft aan dat de gegevens van de huidige maand, -1 geeft aan dat de vorige maand van de gegevens, 0 en 1 geven gegevens voor de huidige en vorige maand |
-| Wekelijks |Text |Week geselecteerd voor het filteren van gegevens, week op zondag begint en eindigt op zaterdag |
-| WeekDate |Date |Datum van de week waarop de week eindigt, geselecteerd voor het filteren van gegevens |
-| WeekDiff |Decimaal getal |Bijvoorbeeld het verschil in week voor het filteren van gegevens, 0 geeft aan dat de gegevens van de huidige week, -1 geeft aan dat de gegevens van de vorige week, 0 en 1 geven gegevens voor de huidige en vorige week |
-| Jaar |Text |Kalenderjaar geselecteerd voor het filteren van gegevens |
-| YearDate |Date |Datum in het jaar als jaar wordt beëindigd, geselecteerd voor het filteren van gegevens |
+| Date |Date |Geselecteerde datum voor het filteren van gegevens |
+| DateKey |Text |Unieke sleutel voor elk datum item |
+| DayDiff |Decimaal getal |Verschil in dag voor het filteren van gegevens, 0 geeft de gegevens van de huidige dag aan,-1 geeft de gegevens van de vorige dag aan, 0 en-1 geven gegevens voor de huidige en vorige dag aan  |
+| Maand |Text |Maand van het jaar dat is geselecteerd voor het filteren van gegevens, de maand begint op de eerste dag en eindigt op 31 dagen |
+| MonthDate | Date |De datum in de maand waarin de maand eindigt, geselecteerd voor het filteren van gegevens |
+| MonthDiff |Decimaal getal |Verschil in maand voor het filteren van gegevens, 0 geeft de gegevens van de huidige maand aan,-1 geeft de gegevens van de vorige maand aan, 0 en-1 geven gegevens voor de huidige en vorige maand aan |
+| Week |Text |De week die is geselecteerd voor het filteren van gegevens, begint op zondag en eindigt op zaterdag |
+| WeekDate |Date |De datum in de week waarop de week eindigt, geselecteerd voor het filteren van gegevens |
+| WeekDiff |Decimaal getal |Verschil in de week voor het filteren van gegevens, 0 geeft de gegevens van de huidige week aan,-1 geeft de gegevens van de vorige week aan, 0 en-1 geven gegevens voor de huidige en vorige week aan |
+| Jaar |Text |Kalender jaar geselecteerd voor het filteren van gegevens |
+| YearDate |Date |De datum in het jaar waarin het jaar eindigt, geselecteerd voor het filteren van gegevens |
 
 ### <a name="job"></a>Taak
-Deze tabel bevat de algemene velden en aggregaties die via verschillende velden met betrekking tot de taak.
+Deze tabel bevat basis velden en aggregaties ten opzichte van verschillende projectgerelateerde velden.
 
 | Veld | Gegevenstype | Description |
 | --- | --- | --- |
-| #JobsCreatedInPeriod |Geheel getal |Het aantal taken die zijn gemaakt in de geselecteerde periode |
-| %FailuresForJobsCreatedInPeriod |Percentage |Percentage algemene taak fouten in de geselecteerde periode |
-| 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Decimaal getal |80e percentielwaarde van de gegevens worden overgebracht in MB voor **back-up** taken die zijn gemaakt in de geselecteerde periode |
-| AsOnDateTime |Datum/tijd |Vernieuwingstijd van laatste voor de geselecteerde rij |
-| AvgBackupDurationInMinsForJobsCreatedInPeriod |Decimaal getal |Gemiddelde tijd in minuten voor **voltooide back-up** taken die zijn gemaakt in een geselecteerde tijdsperiode |
-| AvgRestoreDurationInMinsForJobsCreatedInPeriod |Decimaal getal |Gemiddelde tijd in minuten voor **voltooid van herstellen** taken die zijn gemaakt in een geselecteerde tijdsperiode |
-| BackupStorageDestination |Text |Bestemming van back-upopslag bijvoorbeeld Cloud schijf  |
-| EntityState |Text |Huidige status van het taakobject bijvoorbeeld actief, verwijderd |
-| JobFailureCode |Text |Mislukt codetekenreeks vanwege die taakfout opgetreden |
-| JobOperation |Text |Bewerking voor die taak wordt uitgevoerd, bijvoorbeeld back-up, herstel, configureren van back-up |
+| #JobsCreatedInPeriod |Geheel getal |Aantal taken dat in de geselecteerde tijds periode is gemaakt |
+| %FailuresForJobsCreatedInPeriod |Percentage |Percentage algemene taak fouten in de geselecteerde tijds periode |
+| 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Decimaal getal |80th percentiel waarde van gegevens die zijn overgebracht in MB voor **back-** uptaken die zijn gemaakt in de geselecteerde tijds periode |
+| AsOnDateTime |Date/Time |Laatste vernieuwings tijd voor de geselecteerde rij |
+| AvgBackupDurationInMinsForJobsCreatedInPeriod |Decimaal getal |Gemiddelde tijd in minuten voor **voltooide back-** uptaken die zijn gemaakt in de geselecteerde tijds periode |
+| AvgRestoreDurationInMinsForJobsCreatedInPeriod |Decimaal getal |Gemiddelde tijd in minuten voor **voltooide herstel** taken die zijn gemaakt in de geselecteerde tijds periode |
+| BackupStorageDestination |Text |Doel van back-upopslag voor beeld van Cloud, schijf  |
+| EntityState |Text |Huidige status van het taak object bijvoorbeeld actief, verwijderd |
+| JobFailureCode |Text |De teken reeks voor de fout code omdat de taak fout is opgetreden |
+| JobOperation |Text |Bewerking waarvoor de taak wordt uitgevoerd bijvoorbeeld back-ups maken, herstellen, back-up configureren |
 | JobStartDate |Date |Datum waarop de taak is gestart |
-| JobStartTime |Time |Tijd wanneer de taak is gestart |
-| JobStatus |Text |Status van de voltooide taak bijvoorbeeld voltooid, is mislukt |
-| JobUniqueId |Text |De unieke Id voor het identificeren van de taak |
+| JobStartTime |Time |Tijdstip waarop de taak is gestart |
+| JobStatus |Text |De status van de voltooide taak is bijvoorbeeld voltooid, mislukt |
+| JobUniqueId |Text |Unieke id voor het identificeren van de taak |
 
 ### <a name="policy"></a>Beleid
-Deze tabel bevat algemene velden en aggregaties die via verschillende beleid gerelateerde velden.
+Deze tabel bevat basis velden en aggregaties over diverse aan het beleid gerelateerde velden.
 
 | Veld | Gegevenstype | Description |
 | --- | --- | --- |
-| #Policies |Geheel getal |Aantal back-upbeleid die aanwezig zijn in het systeem |
-| #PoliciesInUse |Geheel getal |Aantal beleidsregels die momenteel wordt gebruikt voor het configureren van back-ups |
-| AsOnDateTime |Datum/tijd |Vernieuwingstijd van laatste voor de geselecteerde rij |
-| BackupDaysOfTheWeek |Text |Dagen van de week wanneer back-ups zijn gepland |
-| BackupFrequency |Text |Frequentie waarmee back-ups worden uitgevoerd, bijvoorbeeld dagelijks, wekelijks |
-| BackupTimes |Text |Datum en tijd wanneer de back-ups zijn gepland |
-| DailyRetentionDuration |Geheel getal |Totale bewaartermijn in dagen voor de geconfigureerde back-ups |
-| DailyRetentionTimes |Text |Datum en tijd wanneer de dagelijkse bewaarperiode is geconfigureerd |
-| EntityState |Text |Huidige status van het beleidsobject bijvoorbeeld actief, verwijderd |
-| MonthlyRetentionDaysOfTheMonth |Text |Datums van de maand geselecteerd voor het bewaren van maandelijkse |
-| MonthlyRetentionDaysOfTheWeek |Text |Dagen van de week geselecteerd voor het bewaren van maandelijkse |
-| MonthlyRetentionDuration |Decimaal getal |Totale bewaartermijn in maanden voor geconfigureerde back-ups |
-| MonthlyRetentionFormat |Text |Typ van de configuratie voor het bewaren van maandelijkse bijvoorbeeld dagelijks voor per dag, per week voor op basis van de week |
-| MonthlyRetentionTimes |Text |Datum en tijd wanneer de maandelijkse bewaarperiode is geconfigureerd |
-| MonthlyRetentionWeeksOfTheMonth |Text |Weken van de maand wanneer de bewaartermijn voor maandelijkse is geconfigureerd, bijvoorbeeld eerste, laatste enzovoort. |
-| PolicyName |Text |Naam van het beleid is gedefinieerd |
-| PolicyUniqueId |Text |De unieke Id voor het identificeren van het beleid |
-| RetentionType |Text |Type bewaarbeleid bijvoorbeeld, dagelijks, wekelijks, maandelijks, jaarlijks |
-| WeeklyRetentionDaysOfTheWeek |Text |Dagen van de week geselecteerd voor het bewaren van week |
-| WeeklyRetentionDuration |Decimaal getal |Totale duur van de wekelijkse bewaren in weken voor de geconfigureerde back-ups |
-| WeeklyRetentionTimes |Text |Datum en tijd wanneer de wekelijkse bewaarperiode is geconfigureerd |
-| YearlyRetentionDaysOfTheMonth |Text |Datums van de maand geselecteerd voor het bewaren van jaar |
-| YearlyRetentionDaysOfTheWeek |Text |Dagen van de week geselecteerd voor het bewaren van jaar |
-| YearlyRetentionDuration |Decimaal getal |Totale bewaartermijn in de jaren voor geconfigureerde back-ups |
-| YearlyRetentionFormat |Text |Typ van de configuratie voor het bewaren van jaarlijkse bijvoorbeeld dagelijks voor per dag, per week voor op basis van de week |
-| YearlyRetentionMonthsOfTheYear |Text |Maanden van het jaar voor jaarlijkse retentie geselecteerd |
-| YearlyRetentionTimes |Text |Datum en tijd wanneer de jaarlijkse bewaarperiode is geconfigureerd |
-| YearlyRetentionWeeksOfTheMonth |Text |Weken van de maand wanneer de bewaartermijn voor jaarlijkse is geconfigureerd, bijvoorbeeld eerste, laatste enzovoort. |
+| #Policies |Geheel getal |Het aantal back-upbeleiden dat in het systeem bestaat |
+| #PoliciesInUse |Geheel getal |Het aantal beleids regels dat momenteel wordt gebruikt voor het configureren van back-ups |
+| AsOnDateTime |Date/Time |Laatste vernieuwings tijd voor de geselecteerde rij |
+| BackupDaysOfTheWeek |Text |Dagen van de week waarop back-ups zijn gepland |
+| BackupFrequency |Text |Frequentie waarmee back-ups bijvoorbeeld dagelijks en wekelijks worden uitgevoerd |
+| BackupTimes |Text |De datum en tijd waarop back-ups zijn gepland |
+| DailyRetentionDuration |Geheel getal |Totale retentie duur in dagen voor geconfigureerde back-ups |
+| DailyRetentionTimes |Text |De datum en tijd waarop een dagelijkse Bewaar periode is geconfigureerd |
+| EntityState |Text |Huidige status van het beleids object, bijvoorbeeld actief, verwijderd |
+| MonthlyRetentionDaysOfTheMonth |Text |De datums van de maand die u hebt geselecteerd voor een maandelijkse retentie |
+| MonthlyRetentionDaysOfTheWeek |Text |Dagen van de week geselecteerd voor een maandelijkse Bewaar periode |
+| MonthlyRetentionDuration |Decimaal getal |Totale Bewaar periode in maanden voor geconfigureerde back-ups |
+| MonthlyRetentionFormat |Text |Type configuratie voor een maandelijkse Bewaar periode, bijvoorbeeld dagelijks voor dag, wekelijks op basis van een week |
+| MonthlyRetentionTimes |Text |De datum en tijd waarop de maandelijkse retentie is geconfigureerd |
+| MonthlyRetentionWeeksOfTheMonth |Text |Weken van de maand waarin de maandelijkse retentie is geconfigureerd, bijvoorbeeld eerst, laatste, enzovoort. |
+| PolicyName |Text |De naam van het beleid dat is gedefinieerd |
+| PolicyUniqueId |Text |Unieke id voor het identificeren van het beleid |
+| RetentionType |Text |Type Bewaar beleid voor bijvoorbeeld dagelijks, wekelijks, maandelijks, jaarlijks |
+| WeeklyRetentionDaysOfTheWeek |Text |Dagen van de week geselecteerd voor een wekelijkse Bewaar periode |
+| WeeklyRetentionDuration |Decimaal getal |Totale wekelijkse Bewaar periode in weken voor geconfigureerde back-ups |
+| WeeklyRetentionTimes |Text |De datum en tijd waarop een wekelijkse Bewaar periode is geconfigureerd |
+| YearlyRetentionDaysOfTheMonth |Text |De datums van de maand die zijn geselecteerd voor een jaarlijkse Bewaar periode |
+| YearlyRetentionDaysOfTheWeek |Text |Dagen van de week geselecteerd voor een jaarlijkse Bewaar periode |
+| YearlyRetentionDuration |Decimaal getal |Totale Bewaar duur in jaren voor geconfigureerde back-ups |
+| YearlyRetentionFormat |Text |Type configuratie voor jaarlijkse Bewaar periode, bijvoorbeeld dagelijks voor dag, wekelijks op basis van een week |
+| YearlyRetentionMonthsOfTheYear |Text |Maanden van het jaar dat is geselecteerd voor een jaarlijkse Bewaar periode |
+| YearlyRetentionTimes |Text |De datum en tijd waarop de jaarlijkse Bewaar periode is geconfigureerd |
+| YearlyRetentionWeeksOfTheMonth |Text |Weken van de maand waarin jaarlijks retentie is geconfigureerd, bijvoorbeeld eerst, laatste, enzovoort. |
 
-### <a name="protected-server"></a>Beveiligde Server
-Deze tabel bevat de algemene velden en aggregaties die via verschillende beveiligde server-gerelateerde velden.
+### <a name="protected-server"></a>Beveiligde server
+Deze tabel bevat basis velden en aggregaties over diverse beveiligde server velden.
 
 | Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | #ProtectedServers |Geheel getal |Aantal beveiligde servers |
-| AsOnDateTime |Datum/tijd |Vernieuwingstijd van laatste voor de geselecteerde rij |
-| AzureBackupAgentOSType |Text |Type besturingssysteem van de Azure Backup-Agent |
-| AzureBackupAgentOSVersion |Text |Versie van het besturingssysteem van de Azure Backup-Agent |
-| AzureBackupAgentUpdateDate |Text |Datum waarop de Agent Backup-Agent is bijgewerkt |
-| AzureBackupAgentVersion |Text |Versienummer van Agent back-up-versie |
-| BackupManagementType |Text |Providertype voor het uitvoeren van back-up bijvoorbeeld IaaSVM FileFolder |
-| EntityState |Text |Huidige status van het object van de beveiligde server bijvoorbeeld actief, verwijderd |
-| ProtectedServerFriendlyName |Text |Beschrijvende naam van de beveiligde server |
-| ProtectedServerName |Text |Naam van de beveiligde server |
-| ProtectedServerType |Text |Type van de beveiligde server een back-up bijvoorbeeld IaaSVMContainer |
-| ProtectedServerName |Text |Naam van de beveiligde server naar welke back-upitem behoort |
-| RegisteredContainerId |Text |Id van de container is geregistreerd voor back-up |
+| AsOnDateTime |Date/Time |Laatste vernieuwings tijd voor de geselecteerde rij |
+| AzureBackupAgentOSType |Text |Type besturings systeem van Azure Backup Agent |
+| AzureBackupAgentOSVersion |Text |Versie van het besturings systeem van Azure Backup Agent |
+| AzureBackupAgentUpdateDate |Text |Datum waarop de agent back-upagent is bijgewerkt |
+| AzureBackupAgentVersion |Text |Versie nummer van back-upversie van agent |
+| BackupManagementType |Text |Provider type voor het uitvoeren van back-ups bijvoorbeeld IaaSVM, FileFolder |
+| EntityState |Text |Huidige status van het beveiligde server object, bijvoorbeeld actief, verwijderd |
+| ProtectedServerFriendlyName |Text |Beschrijvende naam van beveiligde server |
+| ProtectedServerName |Text |Naam van beveiligde server |
+| ProtectedServerType |Text |Type beveiligde server waarvan een back-up is gemaakt, bijvoorbeeld IaaSVMContainer |
+| ProtectedServerName |Text |De naam van de beveiligde server waartoe het back-upitem behoort |
+| RegisteredContainerId |Text |Id van de container die is geregistreerd voor back-up |
 
-### <a name="storage"></a>Opslag
-Deze tabel bevat de algemene velden en aggregaties die via verschillende velden met betrekking tot opslag.
+### <a name="storage"></a>Storage
+Deze tabel bevat basis velden en aggregaties voor verschillende velden die betrekking hebben op opslag.
 
 | Veld | Gegevenstype | Description |
 | --- | --- | --- |
-| #ProtectedInstances |Decimaal getal |Aantal beveiligde exemplaren die worden gebruikt voor het berekenen van de frontend-opslag in facturering, berekend op basis van de laatste waarde in de geselecteerde tijd |
-| AsOnDateTime |Datum/tijd |Vernieuwingstijd van laatste voor de geselecteerde rij |
-| CloudStorageInMB |Decimaal getal |Back-cloudopslag die wordt gebruikt door back-ups, berekend op basis van de laatste waarde in de geselecteerde tijd |
+| #ProtectedInstances |Decimaal getal |Aantal beveiligde instanties dat wordt gebruikt voor het berekenen van de front-end opslag in de facturering, berekend op basis van de laatste waarde in de geselecteerde tijd |
+| AsOnDateTime |Date/Time |Laatste vernieuwings tijd voor de geselecteerde rij |
+| CloudStorageInMB |Decimaal getal |Cloud back-upopslag die wordt gebruikt door back-ups, berekend op basis van de nieuwste waarde in de geselecteerde tijd |
 | EntityState |Text |Huidige status van het object bijvoorbeeld actief, verwijderd |
-| LastUpdatedDate |Date |Wanneer de geselecteerde rij voor het laatst is bijgewerkt |
+| LastUpdatedDate |Date |De datum waarop de geselecteerde rij voor het laatst is bijgewerkt |
 
 ### <a name="time"></a>Time
-Deze tabel bevat details over velden met betrekking tot de tijd.
+Deze tabel bevat informatie over tijdgebonden velden.
 
 | Veld | Gegevenstype | Description |
 | --- | --- | --- |
-| Uur |Time |Uur van de dag bijvoorbeeld 13:00:00 uur |
-| HourNumber |Decimaal getal |Het aantal uren op een dag bijvoorbeeld 13,00 |
+| Uur |Time |Uur van de dag bijvoorbeeld 1:00:00 uur |
+| HourNumber |Decimaal getal |Het uur nummer op de dag bijvoorbeeld 13,00 |
 | Minuut |Decimaal getal |Minuut van het uur |
-| PeriodOfTheDay |Text |Periode sleuf van de tijd van de dag bijvoorbeeld 12-3 uur |
-| Time |Time |Tijd van de dag bijvoorbeeld 12:00:01 AM |
-| TimeKey |Text |Sleutelwaarde voor tijd |
+| PeriodOfTheDay |Text |Tijds periode van de dag, bijvoorbeeld 12-3 uur |
+| Time |Time |Tijdstip van de dag bijvoorbeeld 12:00:01 uur |
+| TimeKey |Text |Sleutel waarde om tijd weer te geven |
 
 ### <a name="vault"></a>Kluis
-Deze tabel bevat de algemene velden en aggregaties die via verschillende velden met betrekking tot de kluis.
+Deze tabel bevat basis velden en aggregaties voor verschillende velden die betrekking hebben op de kluis.
 
 | Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | #Vaults |Geheel getal |Aantal kluizen |
-| AsOnDateTime |Datum/tijd |Vernieuwingstijd van laatste voor de geselecteerde rij |
-| AzureDataCenter |Text |Datacenter waarin kluis zich bevindt |
-| EntityState |Text |Huidige status van het object kluis bijvoorbeeld actief, verwijderd |
-| StorageReplicationType |Text |Type van de storage-replicatie voor de kluis bijvoorbeeld GeoRedundant |
-| SubscriptionId |Text |Abonnements-Id van de klant geselecteerd voor het genereren van rapporten |
-| VaultName |Text |Naam van de kluis |
-| VaultTags |Text |Tags die zijn gekoppeld aan de kluis |
+| AsOnDateTime |Date/Time |Laatste vernieuwings tijd voor de geselecteerde rij |
+| AzureDataCenter |Text |Data Center waar de kluis zich bevindt |
+| EntityState |Text |Huidige status van het kluis object bijvoorbeeld actief, verwijderd |
+| StorageReplicationType |Text |Type opslag replicatie voor de kluis, bijvoorbeeld georedundant |
+| SubscriptionId |Text |Abonnements-id van de klant die is geselecteerd voor het genereren van rapporten |
+| VaultName |Text |De naam van de kluis |
+| VaultTags |Text |Labels die zijn gekoppeld aan de kluis |
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u het gegevensmodel voor het maken van Azure Backup-rapporten bekijken, raadpleegt u de volgende artikelen voor meer informatie over het maken en weergeven van rapporten in Power BI.
+Als u het gegevens model voor het maken van Azure Backup rapporten hebt bekeken, raadpleegt u de volgende artikelen voor meer informatie over het maken en weer geven van rapporten in Power BI.
 
-* [Het maken van rapporten in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-* [Filters gebruiken om rapporten in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+* [Rapporten maken in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+* [Rapporten filteren in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)

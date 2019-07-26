@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Aanroepen van uw Bing Custom Search-eindpunt met Python | Microsoft Docs'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Gebruik deze quickstart om te beginnen met het opvragen van zoekresultaten van uw Bing Custom Search-instantie met behulp van Python.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a6f8d3964c71d036053fe0d4136468fde690f872
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7d3aeb2fd9072c508cad5adec9ce9129087d3a88
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60593163"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405142"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-python"></a>Quickstart: Aanroepen van uw Bing Custom Search-eindpunt met Python
 

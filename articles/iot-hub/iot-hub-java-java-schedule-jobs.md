@@ -1,6 +1,6 @@
 ---
-title: Plannen van taken met Azure IoT Hub (Java) | Microsoft Docs
-description: Klik hier voor meer informatie over het plannen van een Azure IoT Hub-taak voor een rechtstreekse methode aanroepen en een gewenste eigenschap instellen op meerdere apparaten. U de Azure IoT-device-SDK voor Java gebruiken om de gesimuleerde apparaat-apps en de Azure IoT service SDK voor Java voor het implementeren van een service-app voor het uitvoeren van de taak te implementeren.
+title: Taken plannen met Azure IoT Hub (Java) | Microsoft Docs
+description: Een Azure IoT Hub-taak plannen om een directe methode aan te roepen en een gewenste eigenschap op meerdere apparaten in te stellen. U gebruikt de Azure IoT Device SDK voor Java voor het implementeren van de gesimuleerde apparaat-apps en de Azure IoT Service SDK voor Java om een service-app te implementeren om de taak uit te voeren.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -9,47 +9,47 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
-ms.openlocfilehash: ce7c70eef2d030a956ca5cc1ea85aff008074edb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ecbdbdd29a777a997c594f8119c1474a89e64a10
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64572458"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404184"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Taken plannen en uitzenden (Java)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
-Gebruik Azure IoT Hub voor het plannen en bijhouden van taken door miljoenen apparaten bij te werken. Taken die moeten worden gebruikt:
+Gebruik Azure IoT Hub om taken te plannen en bij te houden waarmee miljoenen apparaten worden bijgewerkt. Taken gebruiken voor:
 
 * Gewenste eigenschappen bijwerken
-* Bijwerken van tags
+* Tags bijwerken
 * Directe methoden aanroepen
 
-Een taak een van deze acties wordt verpakt en houdt de uitvoering op basis van een reeks apparaten. Een apparaat dubbele query definieert de set met apparaten die op de taak wordt uitgevoerd. Een back-end-app kunt bijvoorbeeld een taak aan een rechtstreekse methode aanroepen op 10.000 apparaten die de apparaten opnieuw is opgestart. U geeft de set met apparaten met een dubbel apparaatquery en plannen van de taak wordt uitgevoerd op een later tijdstip. De voortgang van de taak worden bijgehouden als elk van de apparaten ontvangen en voer de directe methode die opnieuw worden opgestart.
+Een taak verpakt een van deze acties en houdt de uitvoering bij van een set apparaten. Met een dubbele query van een apparaat wordt de set apparaten gedefinieerd waarop de taak wordt uitgevoerd. Een back-end-app kan bijvoorbeeld een taak gebruiken om een directe methode aan te roepen op 10.000-apparaten die de apparaten opnieuw opstarten. U geeft de set apparaten met een dubbele query voor een apparaat op en plant de taak op een later tijdstip. De taak houdt de voortgang bij wanneer elk apparaat wordt ontvangen en de methode voor opnieuw opstarten direct wordt uitgevoerd.
 
 Zie voor meer informatie over elk van deze mogelijkheden:
 
-* Apparaatdubbel en eigenschappen: [Aan de slag met apparaatdubbels](iot-hub-java-java-twin-getstarted.md)
+* Dubbele en eigenschappen van apparaat: [Aan de slag met apparaatdubbels](iot-hub-java-java-twin-getstarted.md)
 
-* Directe methoden: [Ontwikkelaarshandleiding voor IoT Hub - directe methoden](iot-hub-devguide-direct-methods.md) en [zelfstudie: Directe methoden gebruiken](quickstart-control-device-java.md)
+* Directe methoden: [IOT hub ontwikkelaars handleiding-directe methoden](iot-hub-devguide-direct-methods.md) en [zelf studie: Directe methoden gebruiken](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 In deze zelfstudie ontdekt u hoe u:
 
-* Maakt een apparaat-app die u een rechtstreekse methode met de naam implementeert **lockDoor**. De apparaat-app ontvangt ook wijzigingen in de gewenste eigenschappen van de back-end-app.
+* Maak een apparaat-app die een directe methode met de naam **lockDoor**implementeert. De apparaat-app ontvangt ook gewenste wijzigingen in de eigenschappen van de back-end-app.
 
-* Maakt een back-end-app die u maakt een taak aan te roepen de **lockDoor** directe methode op meerdere apparaten. Een andere taak verzendt gewenste eigenschap updates voor meerdere apparaten.
+* Maak een back-end-app die een taak maakt om de **lockDoor** direct-methode aan te roepen op meerdere apparaten. Een andere taak verzendt gewenste eigenschaps updates naar meerdere apparaten.
 
-Aan het einde van deze zelfstudie hebt u het hulpprogramma voor het apparaat van een java-consoletoepassing en het hulpprogramma voor het back-end van een java-consoletoepassing:
+Aan het einde van deze zelf studie hebt u een app voor het maken van een Java-Console en een back-end-app van een Java-Console:
 
-**simulated-device** die is verbonden met uw IoT-hub implementeert het **lockDoor** directe methode en verwerkt de gewenste wijzigingen in de eigenschappen.
+**gesimuleerd: apparaat** dat verbinding maakt met uw IOT-hub, implementeert de **lockDoor** direct-methode en verwerkt de gewenste eigenschaps wijzigingen.
 
-**taken plannen** die gebruikmaken van taken om aan te roepen de **lockDoor** directe methode en bijwerken van de gewenste apparaatdubbeleigenschappen op meerdere apparaten.
+**Schedule-Jobs** die gebruikmaken van taken om de **lockDoor** direct-methode aan te roepen en de dubbele gewenste eigenschappen van het apparaat op meerdere apparaten bij te werken.
 
 > [!NOTE]
-> Het artikel [Azure IoT SDK's](iot-hub-devguide-sdks.md) bevat informatie over de Azure IoT SDK's die u gebruiken kunt om apparaat- en back-end-apps te bouwen.
+> Het artikel [Azure IOT sdk's](iot-hub-devguide-sdks.md) bevat informatie over de Azure IOT-sdk's die u kunt gebruiken om zowel apparaat-als back-end-apps te bouwen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -59,41 +59,43 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 * [Maven 3](https://maven.apache.org/install.html)
 
-* Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
+* Een actief Azure-account. (Als u geen account hebt, kunt u in slechts een paar minuten een [gratis account](https://azure.microsoft.com/pricing/free-trial/) maken.)
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Verbindingsreeks voor IoT-hub ophalen
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 ## <a name="register-a-new-device-in-the-iot-hub"></a>Een nieuw apparaat registreren in de IoT-hub
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-U kunt ook de [IoT-extensie voor Azure CLI](https://github.com/Azure/azure-iot-cli-extension) hulpprogramma op een apparaat toevoegt aan uw IoT-hub.
+U kunt ook het hulp programma [IOT-extensie voor Azure cli](https://github.com/Azure/azure-iot-cli-extension) gebruiken om een apparaat toe te voegen aan uw IOT-hub.
+
+## <a name="get-the-iot-hub-connection-string"></a>De IoT hub-connection string ophalen
+
+[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
 ## <a name="create-the-service-app"></a>De service-app maken
 
-In deze sectie maakt maken u een Java-consoletoepassing die gebruikmaakt van taken te:
+In deze sectie maakt u een Java-Console-app die gebruikmaakt van taken:
 
-* Roep de **lockDoor** directe methode op meerdere apparaten.
+* De **lockDoor** direct-methode aanroepen op meerdere apparaten.
 
-* Gewenste eigenschappen verzenden naar meerdere apparaten.
+* Gewenste eigenschappen naar meerdere apparaten verzenden.
 
 De app maken:
 
-1. Maak op uw ontwikkelcomputer een lege map genaamd `iot-java-schedule-jobs`.
+1. Maak op de ontwikkel computer een lege map met de `iot-java-schedule-jobs`naam.
 
-2. In de `iot-java-schedule-jobs` map, maak een Maven-project met de naam **taken plannen** met de volgende opdracht in uw opdrachtvenster. Let op: dit is één enkele, lange opdracht:
+2. Maak in `iot-java-schedule-jobs` de map een Maven-project met de naam **Schedule-Jobs** met de volgende opdracht bij de opdracht prompt. Let op: dit is één enkele, lange opdracht:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=schedule-jobs -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-3. Bij de opdrachtprompt, gaat u naar de `schedule-jobs` map.
+3. Ga bij de opdracht prompt naar de `schedule-jobs` map.
 
-4. Open met behulp van een teksteditor en de `pom.xml` -bestand in de `schedule-jobs` map en voeg de volgende afhankelijkheid aan de **afhankelijkheden** knooppunt. Met deze afhankelijkheid kunt u gebruikmaken van de **iot-service-client** -pakket in uw app kan communiceren met uw IoT-hub:
+4. Open het `pom.xml` bestand in de `schedule-jobs` map met een tekst editor en voeg de volgende afhankelijkheden toe aan het knoop punt **afhankelijkheden** . Met deze afhankelijkheid kunt u het **IOT-service-client-** pakket in uw app gebruiken om te communiceren met uw IOT-hub:
 
     ```xml
     <dependency>
@@ -105,9 +107,9 @@ De app maken:
     ```
 
     > [!NOTE]
-    > U kunt controleren voor de meest recente versie van **iot-service-client** met behulp van [Maven zoeken](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > U kunt de meest recente versie van **IOT-service-client** controleren met behulp van [maven Search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-5. Voeg de volgende **bouwen** knooppunt na de **afhankelijkheden** knooppunt. Deze configuratie geeft Maven Java 1.8 gebruiken om de app te bouwen:
+5. Voeg het volgende **Build** -knoop punt  toe na het knoop punt afhankelijkheden. Deze configuratie zorgt ervoor dat maven Java 1,8 wordt gebruikt om de app te bouwen:
 
     ```xml
     <build>
@@ -125,9 +127,9 @@ De app maken:
     </build>
     ```
 
-6. Opslaan en sluiten de `pom.xml` bestand.
+6. Sla het bestand op `pom.xml` en sluit het.
 
-7. Open met behulp van een teksteditor en de `schedule-jobs\src\main\java\com\mycompany\app\App.java` bestand.
+7. Open het `schedule-jobs\src\main\java\com\mycompany\app\App.java` bestand met behulp van een tekst editor.
 
 8. Voeg de volgende **import**instructies toe aan het bestand:
 
@@ -147,7 +149,7 @@ De app maken:
     import java.util.UUID;
     ```
 
-9. Voeg de volgende variabelen op klasseniveau toe aan de **App**-klasse. Vervang `{youriothubconnectionstring}` met uw IoT hub-verbindingsreeks die u hebt genoteerd in de *maken van een IoT-Hub* sectie:
+9. Voeg de volgende variabelen op klasseniveau toe aan de **App**-klasse. Vervang `{youriothubconnectionstring}` door uw IOT hub-Connection String die u eerder hebt gekopieerd in [de IOT hub-Connection String ophalen](#get-the-iot-hub-connection-string):
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -158,7 +160,7 @@ De app maken:
     private static final long maxExecutionTimeInSeconds = 30;
     ```
 
-10. Toevoegen van de volgende methode aan de **App** klasse voor het plannen van een taak om bij te werken de **gebouw** en **Floor** gewenste eigenschappen op het dubbele apparaat:
+10. Voeg de volgende methode toe aan de **app** -klasse om een taak te plannen voor het bijwerken van de gewenste eigenschappen voor **bouwen** en **vloeren** op het apparaat dubbele:
 
     ```java
     private static JobResult scheduleJobSetDesiredProperties(JobClient jobClient, String jobId) {
@@ -188,7 +190,7 @@ De app maken:
     }
     ```
 
-11. Voor het plannen van een taak aan te roepen de **lockDoor** methode, voegt u de volgende methode naar de **App** klasse:
+11. Als u een taak wilt plannen om de **lockDoor** -methode aan te roepen, voegt u de volgende methode toe aan de **app** -klasse:
 
     ```java
     private static JobResult scheduleJobCallDirectMethod(JobClient jobClient, String jobId) {
@@ -212,7 +214,7 @@ De app maken:
     };
     ```
 
-12. Voor het controleren van een taak, voegt u de volgende methode naar de **App** klasse:
+12. Als u een taak wilt bewaken, voegt u de volgende methode toe aan de **app** -klasse:
 
     ```java
     private static void monitorJob(JobClient jobClient, String jobId) {
@@ -239,7 +241,7 @@ De app maken:
     }
     ```
 
-13. Om te vragen voor de details van de taken die u hebt uitgevoerd, voegt u de volgende methode toe:
+13. Als u een query wilt uitvoeren voor de details van de taken die u hebt uitgevoerd, voegt u de volgende methode toe:
 
     ```java
     private static void queryDeviceJobs(JobClient jobClient, String start) throws Exception {
@@ -256,13 +258,13 @@ De app maken:
     }
     ```
 
-14. Update de **belangrijkste** metody om op te nemen van de volgende `throws` component:
+14. Werk de hand tekening van de **hoofd** methode bij `throws` zodat deze de volgende component bevat:
 
     ```java
     public static void main( String[] args ) throws Exception
     ```
 
-15. Als u wilt uitvoeren en bewaken van twee taken sequentieel worden verwerkt, voeg de volgende code aan de **belangrijkste** methode:
+15. Als u twee taken opeenvolgend wilt uitvoeren en controleren, voegt u de volgende code toe aan de methode **Main** :
 
     ```java
     // Record the start time
@@ -289,23 +291,23 @@ De app maken:
     System.out.println("Shutting down schedule-jobs app");
     ```
 
-16. Opslaan en sluiten de `schedule-jobs\src\main\java\com\mycompany\app\App.java` bestand
+16. Sla het bestand op `schedule-jobs\src\main\java\com\mycompany\app\App.java` en sluit het
 
-17. Bouw de **taken plannen** app en eventuele fouten te corrigeren. Bij de opdrachtprompt, gaat u naar de `schedule-jobs` map en voer de volgende opdracht:
+17. Bouw de app **Schedule Jobs** en corrigeer eventuele fouten. Ga bij de opdracht prompt naar de `schedule-jobs` map en voer de volgende opdracht uit:
 
     `mvn clean package -DskipTests`
 
 ## <a name="create-a-device-app"></a>Een apparaat-app maken
 
-In deze sectie maakt u een Java-consoletoepassing die werkt met de gewenste eigenschappen van IoT Hub verzonden, en implementeert de aanroep van de directe methode.
+In deze sectie maakt u een Java-Console-app die de gewenste eigenschappen van IoT Hub verwerkt en de directe methode aanroep implementeert.
 
-1. In de `iot-java-schedule-jobs` map, maak een Maven-project met de naam **simulated-device** met de volgende opdracht in uw opdrachtvenster. Let op: dit is één enkele, lange opdracht:
+1. Maak in `iot-java-schedule-jobs` de map een Maven-project met de naam gesimuleerd **apparaat** met behulp van de volgende opdracht bij de opdracht prompt. Let op: dit is één enkele, lange opdracht:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-2. Bij de opdrachtprompt, gaat u naar de `simulated-device` map.
+2. Ga bij de opdracht prompt naar de `simulated-device` map.
 
-3. Open met behulp van een teksteditor en de `pom.xml` -bestand in de `simulated-device` map en voeg de volgende afhankelijkheden aan de **afhankelijkheden** knooppunt. Met deze afhankelijkheid kunt u gebruikmaken van de **iot-device-client** -pakket in uw app kan communiceren met uw IoT-hub:
+3. Open met een tekst editor het `pom.xml` bestand in de `simulated-device` map en voeg de volgende afhankelijkheden toe aan het knoop punt **afhankelijkheden** . Met deze afhankelijkheid kunt u het **IOT-apparaat-client-** pakket in uw app gebruiken om te communiceren met uw IOT-hub:
 
     ```xml
     <dependency>
@@ -316,9 +318,9 @@ In deze sectie maakt u een Java-consoletoepassing die werkt met de gewenste eige
     ```
 
     > [!NOTE]
-    > U kunt controleren voor de meest recente versie van **iot-device-client** met behulp van [Maven zoeken](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > U kunt de meest recente versie van **IOT-Device-client** controleren met behulp van [maven Search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Voeg de volgende **bouwen** knooppunt na de **afhankelijkheden** knooppunt. Deze configuratie geeft Maven Java 1.8 gebruiken om de app te bouwen:
+4. Voeg het volgende **Build** -knoop punt  toe na het knoop punt afhankelijkheden. Deze configuratie zorgt ervoor dat maven Java 1,8 wordt gebruikt om de app te bouwen:
 
     ```xml
     <build>
@@ -336,9 +338,9 @@ In deze sectie maakt u een Java-consoletoepassing die werkt met de gewenste eige
     </build>
     ```
 
-5. Opslaan en sluiten de `pom.xml` bestand.
+5. Sla het bestand op `pom.xml` en sluit het.
 
-6. Open met behulp van een teksteditor en de `simulated-device\src\main\java\com\mycompany\app\App.java` bestand.
+6. Open het `simulated-device\src\main\java\com\mycompany\app\App.java` bestand met behulp van een tekst editor.
 
 7. Voeg de volgende **import**instructies toe aan het bestand:
 
@@ -351,7 +353,7 @@ In deze sectie maakt u een Java-consoletoepassing die werkt met de gewenste eige
     import java.util.Scanner;
     ```
 
-8. Voeg de volgende variabelen op klasseniveau toe aan de **App**-klasse. Vervangen van `{youriothubname}` met de naam van uw IoT-hub en `{yourdevicekey}` door de sleutelwaarde die u hebt gegenereerd in de *maken van een apparaat-id* sectie:
+8. Voeg de volgende variabelen op klasseniveau toe aan de **App**-klasse. Vervang `{youriothubname}` door de naam van uw IOT- `{yourdevicekey}` hub en met de waarde voor de apparaatwaarde die u hebt gegenereerd in het gedeelte *een apparaat-id maken* :
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -362,7 +364,7 @@ In deze sectie maakt u een Java-consoletoepassing die werkt met de gewenste eige
 
     Deze voorbeeld-app gebruikt de **protocol**-variabele bij het maken van een **DeviceClient**-object.
 
-9. Toevoegen als u wilt afdrukken apparaat dubbele meldingen naar de console, de volgende geneste klasse om de **App** klasse:
+9. Als u dubbele meldingen naar de console wilt afdrukken, voegt u de volgende geneste klasse toe aan de **app** -klasse:
 
     ```java
     // Handler for device twin operation notifications from IoT Hub
@@ -373,7 +375,7 @@ In deze sectie maakt u een Java-consoletoepassing die werkt met de gewenste eige
     }
     ```
 
-10. Toevoegen als u wilt afdrukken directe methode meldingen naar de console, de volgende geneste klasse om de **App** klasse:
+10. Als u directe-methode meldingen wilt afdrukken naar de-console, voegt u de volgende geneste klasse toe aan de **app** -klasse:
 
     ```java
     // Handler for direct method notifications from IoT Hub
@@ -384,7 +386,7 @@ In deze sectie maakt u een Java-consoletoepassing die werkt met de gewenste eige
     }
     ```
 
-11. Voor het afhandelen van rechtstreekse methodeaanroepen van IoT Hub, toevoegen de volgende geneste klasse om de **App** klasse:
+11. Als u directe-methode aanroepen van IoT Hub wilt verwerken, voegt u de volgende geneste klasse toe aan de **app** -klasse:
 
     ```java
     // Handler for direct method calls from IoT Hub
@@ -409,15 +411,15 @@ In deze sectie maakt u een Java-consoletoepassing die werkt met de gewenste eige
     }
     ```
 
-12. Update de **belangrijkste** metody om op te nemen van de volgende `throws` component:
+12. Werk de hand tekening van de **hoofd** methode bij `throws` zodat deze de volgende component bevat:
 
     ```java
     public static void main( String[] args ) throws IOException, URISyntaxException
     ```
 
-13. Voeg de volgende code aan de **belangrijkste** methode:
-    * Een apparaatclient om te communiceren met IoT Hub maken.
-    * Maak een **apparaat** object voor het opslaan van de eigenschappen van het dubbele apparaat.
+13. Voeg de volgende code toe aan de methode **Main** om:
+    * Maak een apparaatclient om te communiceren met IoT Hub.
+    * Maak een **apparaatobject** om de dubbele eigenschappen van het apparaat op te slaan.
 
     ```java
     // Create a device client
@@ -433,7 +435,7 @@ In deze sectie maakt u een Java-consoletoepassing die werkt met de gewenste eige
     };
     ```
 
-14. Voor het starten van de services van de device-client, voeg de volgende code aan de **belangrijkste** methode:
+14. Als u de client services van het apparaat wilt starten, voegt u de volgende code toe aan de methode **Main** :
 
     ```java
     try {
@@ -451,7 +453,7 @@ In deze sectie maakt u een Java-consoletoepassing die werkt met de gewenste eige
     }
     ```
 
-15. Na afloop van de gebruiker op de **Enter** sleutel voordat u afsluit, voeg de volgende code toe aan het einde van de **belangrijkste** methode:
+15. Als u wilt wachten tot de gebruiker op **Enter** drukt voordat u het programma afsluit, voegt u de volgende code toe aan het einde van de methode **Main** :
 
     ```java
     // Close the app
@@ -463,38 +465,38 @@ In deze sectie maakt u een Java-consoletoepassing die werkt met de gewenste eige
     scanner.close();
     ```
 
-16. Opslaan en sluiten de `simulated-device\src\main\java\com\mycompany\app\App.java` bestand.
+16. Sla het bestand op `simulated-device\src\main\java\com\mycompany\app\App.java` en sluit het.
 
-17. Bouw de **simulated-device** app en eventuele fouten te corrigeren. Bij de opdrachtprompt, gaat u naar de `simulated-device` map en voer de volgende opdracht:
+17. Bouw de **gesimuleerde apparaat-** app op en corrigeer eventuele fouten. Ga bij de opdracht prompt naar de `simulated-device` map en voer de volgende opdracht uit:
 
     `mvn clean package -DskipTests`
 
 ## <a name="run-the-apps"></a>De apps uitvoeren
 
-U bent nu klaar om uit te voeren van de console-apps.
+U bent nu klaar om de console-apps uit te voeren.
 
-1. Bij een opdrachtprompt in de `simulated-device` map, voer de volgende opdracht om de apparaat-app die luisteren naar wijzigingen in de gewenste eigenschappen en rechtstreekse methodeaanroepen te starten:
+1. Voer bij een opdracht prompt in `simulated-device` de map de volgende opdracht uit om de apparaat-app te laten Luis teren naar gewenste eigenschaps wijzigingen en directe-methode aanroepen:
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
     ![De apparaatclient wordt gestart](./media/iot-hub-java-java-schedule-jobs/device-app-1.png)
 
-2. Bij een opdrachtprompt in de `schedule-jobs` map, voer de volgende opdracht om uit te voeren de **taken plannen** service-app twee taken uit te voeren. De eerste Hiermee stelt u de gewenste eigenschapswaarden, de tweede de directe methode aanroept:
+2. Voer bij een opdracht prompt in `schedule-jobs` de map de volgende opdracht uit om de service **-app Schedule-taken** uit te voeren om twee taken uit te voeren. Met de eerste worden de gewenste eigenschaps waarden ingesteld, de tweede roept de directe methode aan:
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![IoT-Hub voor Java service-app maakt u twee taken](./media/iot-hub-java-java-schedule-jobs/service-app-1.png)
+    ![Er worden twee taken gemaakt met de Java IoT Hub service-app](./media/iot-hub-java-java-schedule-jobs/service-app-1.png)
 
-3. De apparaat-app wordt gebruikt voor het wijzigen van de gewenste eigenschap en aanroepen van de directe methode:
+3. De apparaat-app handelt de gewenste eigenschaps wijziging en de aanroep van de directe methode af:
 
-    ![Client van het apparaat reageert op de wijzigingen](./media/iot-hub-java-java-schedule-jobs/device-app-2.png)
+    ![De apparaatclient reageert op de wijzigingen](./media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U hebt gemaakt met een back-end-app voor twee taken uitvoeren. De eerste taak gewenste eigenschapswaarden instellen en de tweede taak met de naam een rechtstreekse methode.
+In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U hebt een back-end-app gemaakt om twee taken uit te voeren. De eerste taak stelt gewenste eigenschaps waarden in en de tweede taak wordt een directe methode genoemd.
 
-Gebruik de volgende bronnen voor meer informatie over het:
+Gebruik de volgende bronnen voor meer informatie over:
 
-* Verzenden van telemetrie van apparaten met de [aan de slag met IoT Hub](quickstart-send-telemetry-java.md) zelfstudie.
+* Verzend telemetrie van apparaten met de zelf studie [aan de slag met IOT hub](quickstart-send-telemetry-java.md) .
 
-* Beheren van apparaten interactief (zoals het inschakelen van een fan, van een gebruiker beheerde app) met de [directe methoden gebruiken](quickstart-control-device-java.md) tutorial.s
+* Apparaten interactief beheren (bijvoorbeeld door een ventilator in te scha kelen vanuit een door de gebruiker beheerde app) met de zelf studie [directe methoden gebruiken](quickstart-control-device-java.md) . s

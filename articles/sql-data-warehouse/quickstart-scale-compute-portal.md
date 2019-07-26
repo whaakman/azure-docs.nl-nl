@@ -2,20 +2,20 @@
 title: 'Quickstart: De schaal van rekenkracht vergroten in Azure SQL Data Warehouse - Azure portal | Microsoft Docs'
 description: Rekenkracht uitschalen in Azure SQL Data Warehouse in Azure Portal. De schaal van rekenkracht vergroten voor betere prestaties of de schaal juist verkleinen om kosten te besparen.
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: Anthony.vanGemert
 ms.reviewer: jrasnick
-ms.openlocfilehash: b02259e2eaf497fb1bfefc4c1ed7611a22394d48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3e48cc57613b107e82cb0fbcb7d69aceb6cf0a
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475400"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479262"
 ---
 ## <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Quickstart: Rekenkracht uitschalen in Azure SQL Data Warehouse in de Azure-portal
 
@@ -50,7 +50,7 @@ DWU’s wijzigen:
 
     ![Schuifregelaar verplaatsen](media/quickstart-scale-compute-portal/scale-dwu.png)
 
-3. Klik op **Opslaan**. Er verschijnt een bevestigingsbericht. Klik op **Ja** om te bevestigen of **Nee** om te annuleren.
+3. Klik op **Opslaan**. Er wordt een bevestigingsbericht weergegeven. Klik op **Ja** om te bevestigen of **Nee** om te annuleren.
 
     ![Op Opslaan klikken](media/quickstart-scale-compute-portal/confirm-change.png)
 

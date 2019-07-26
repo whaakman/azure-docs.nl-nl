@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/1/2019
+ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2b98fea1d74f70a133b3068b7326b78c7183f2c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a313296a9a19aa762803652a3b139cdac7ca3a58
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729567"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359920"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Webverkeer met een toepassingsgateway beheren met behulp van Azure PowerShell
 
@@ -26,7 +26,7 @@ In dit artikel leert u het volgende:
 > * Een toepassingsgateway maken
 > * Een virtuele-machineschaalset maken met de standaard back-endpool
 
-Als u liever, kunt u het gebruik van deze procedure te voltooien [Azure CLI](tutorial-manage-web-traffic-cli.md).
+Als u wilt, kunt u deze procedure uitvoeren met behulp van [Azure cli](tutorial-manage-web-traffic-cli.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -34,11 +34,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van PowerShell lokaal, in dit artikel is vereist voor de Azure PowerShell-moduleversie 1.0.0 of hoger. Voer `Get-Module -ListAvailable Az` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u Power shell lokaal wilt installeren en gebruiken, moet u voor dit artikel gebruikmaken van de Azure PowerShell module versie 1.0.0 of hoger. Voer `Get-Module -ListAvailable Az` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een Azure-resource-groep met [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
+Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een Azure-resource groep met behulp van [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -46,7 +46,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Netwerkbronnen maken 
 
-Configureer de subnetten met de naam *myBackendSubnet* en *myAGSubnet* met behulp van [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Maken van het virtuele netwerk *myVNet* met behulp van [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) met de subnetconfiguraties. En maak ten slotte het openbare IP-adres met de naam *myAGPublicIPAddress* met behulp van [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Deze resources worden gebruikt om de netwerkverbinding naar de toepassingsgateway en de bijbehorende bronnen te leveren.
+Configureer de subnetten met de naam *myBackendSubnet* en *myAGSubnet* met behulp van [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Maak de *myVNet* van het virtuele netwerk met behulp van [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) met de subnet-configuraties. En ten slotte maakt u het open bare IP-adres met de naam *myAGPublicIPAddress* met behulp van [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Deze resources worden gebruikt om de netwerkverbinding naar de toepassingsgateway en de bijbehorende bronnen te leveren.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -68,7 +68,8 @@ $pip = New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Dynamic
+  -AllocationMethod Static `
+  -Sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
@@ -81,7 +82,7 @@ In deze sectie kunt u resources maken die ondersteuning bieden voor de toepassin
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP-configuraties en front-endpoort maken
 
-Koppelen *myAGSubnet* die u eerder hebt gemaakt met de application gateway via [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Toewijzen *myAGPublicIPAddress* aan de application gateway met [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
+Koppel *myAGSubnet* die u eerder hebt gemaakt voor de toepassings gateway met behulp van [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Wijs *myAGPublicIPAddress* toe aan de toepassings gateway met behulp van [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -105,7 +106,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool-and-settings"></a>Back-endpool en instellingen maken
 
-Maak de back-endadresgroep met de naam *appGatewayBackendPool* voor de application gateway met [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configureer de instellingen voor de back-end-adresgroepen met behulp van [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
+Maak de back-end-groep met de naam *appGatewayBackendPool* voor de toepassings gateway met behulp van [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configureer de instellingen voor de back-end-adres groepen met behulp van [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $defaultPool = New-AzApplicationGatewayBackendAddressPool `
@@ -123,7 +124,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 Een listener is nodig om de toepassingsgateway in staat te stellen het verkeer op de juiste manier naar de back-endpool door te sturen. In dit voorbeeld maakt u een eenvoudige listener die luistert naar verkeer op de basis-URL. 
 
-Maak een listener met de naam *mydefaultListener* met behulp van [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) met de front-end-configuratie en de frontend-poort die u eerder hebt gemaakt. Er is een regel vereist, zodat de listener weet welke back-endpool moet worden gebruikt voor binnenkomend verkeer. Maak een eenvoudige regel met de naam *rule1* met behulp van [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Maak een listener met de naam *mydefaultListener* met behulp van [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) met de front-end-configuratie en de frontend-poort die u eerder hebt gemaakt. Er is een regel vereist, zodat de listener weet welke back-endpool moet worden gebruikt voor binnenkomend verkeer. Maak een basis regel met de naam *firewallregel1* met behulp van [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $defaultlistener = New-AzApplicationGatewayHttpListener `
@@ -142,12 +143,12 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-Nu dat u de benodigde ondersteunende netwerkbronnen gemaakt, Geef parameters op voor de application gateway met [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku), en maak vervolgens met behulp van [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
+Nu u de nodige ondersteunende resources hebt gemaakt, geeft u para meters op voor de toepassings gateway met behulp van [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)en maakt u deze met behulp van [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
-  -Name Standard_Medium `
-  -Tier Standard `
+  -Name Standard_v2 `
+  -Tier Standard_v2 `
   -Capacity 2
 
 $appgw = New-AzApplicationGateway `
@@ -239,7 +240,7 @@ Update-AzVmss `
 
 ## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-Gebruik [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) om op te halen van het openbare IP-adres van de toepassingsgateway. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
+Gebruik [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) om het open bare IP-adres van de toepassings gateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -249,7 +250,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u niet meer nodig hebt, verwijdert u de resourcegroep, application-gateway en alle gerelateerde resources met behulp van [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+Als u deze niet meer nodig hebt, verwijdert u de resource groep, toepassings gateway en alle gerelateerde resources met [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroupAG

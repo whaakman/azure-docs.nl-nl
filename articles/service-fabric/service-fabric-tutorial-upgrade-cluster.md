@@ -12,24 +12,24 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/28/2017
+ms.date: 07/22/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 8bb8a635c3699828376390c489697b6315030937
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 187b1f760ca1e37da55f4d41b62334830043e592
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306679"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384949"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Zelfstudie: De runtime van een Service Fabric-cluster upgraden in Azure
 
-Deze zelfstudie is deel vier van een reeks en ziet u hoe u de Service Fabric-runtime upgraden op een Azure Service Fabric-cluster. In dit deel van de zelfstudie is geschreven voor Service Fabric-clusters die worden uitgevoerd op Azure en niet van toepassing op zelfstandige Service Fabric clusters.
+Deze zelf studie is deel vier van een reeks en laat zien hoe u de Service Fabric runtime op een Azure Service Fabric-cluster bijwerkt. Deze zelf studie is geschreven voor Service Fabric clusters die worden uitgevoerd op Azure en is niet van toepassing op zelfstandige Service Fabric clusters.
 
 > [!WARNING]
 > Voor dit deel van de zelfstudie is PowerShell vereist. De Azure CLI-hulpprogramma's bieden nog geen ondersteuning voor het upgraden van de clusterruntime. Een cluster kan ook worden geüpgraded in de portal. Zie [Een Azure Service Fabric-cluster upgraden](service-fabric-cluster-upgrade.md) voor meer informatie.
 
-Als uw cluster wordt al uitgevoerd voor de meest recente Service Fabric-runtime, bevindt u zich hoeft te doen in deze stap. Dit artikel kan echter worden gebruikt om elke willekeurige ondersteunde runtime te installeren op een Azure Service Fabric-cluster.
+Als op uw cluster al de nieuwste Service Fabric runtime wordt uitgevoerd, hoeft u deze stap niet uit te voeren. Dit artikel kan echter worden gebruikt om elke willekeurige ondersteunde runtime te installeren op een Azure Service Fabric-cluster.
 
 In deze zelfstudie leert u het volgende:
 
@@ -53,9 +53,9 @@ In deze zelfstudiereeks leert u het volgende:
 Voor u met deze zelfstudie begint:
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installeer [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) of [Azure CLI](/cli/azure/install-azure-cli).
+* Installeer [Azure Power shell](https://docs.microsoft.com/powershell/azure/install-Az-ps) of [Azure cli](/cli/azure/install-azure-cli).
 * Een beveiligd [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) maken in Azure
-* Stel een Windows-ontwikkelomgeving in. Installeer [Visual Studio 2019](https://www.visualstudio.com) en de **Azure-ontwikkeling**, **ASP.NET en webontwikkeling**, en **.NET Core platformoverschrijdende ontwikkeling**werkbelastingen.  Richt vervolgens een [.NET-ontwikkelomgeving in](service-fabric-get-started.md).
+* Stel een Windows-ontwikkelomgeving in. Installeer [Visual Studio 2019](https://www.visualstudio.com) en de ontwikkelings-, **ASP.net-en Web**-ontwikkeling van **Azure**en het ontwikkelen van **.net core-** werk belastingen.  Richt vervolgens een [.NET-ontwikkelomgeving in](service-fabric-get-started.md).
 
 ### <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -69,14 +69,14 @@ Set-AzContext -SubscriptionId <guid>
 
 ## <a name="get-the-runtime-version"></a>De runtimeversie ophalen
 
-Wanneer u verbinding hebt gemaakt naar Azure, het abonnement met de Service Fabric-cluster, krijgt u de runtimeversie van het cluster.
+Nadat u verbinding hebt gemaakt met Azure, selecteert u het abonnement dat het Service Fabric cluster bevat, kunt u de runtime versie van het cluster ophalen.
 
 ```powershell
 Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
-Of haal alleen een lijst met alle clusters in uw abonnement met het volgende voorbeeld:
+U kunt ook een lijst met alle clusters in uw abonnement ophalen met het volgende voor beeld:
 
 ```powershell
 Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion

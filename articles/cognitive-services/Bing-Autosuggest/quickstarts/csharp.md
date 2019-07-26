@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Zoekquery's met de Bing Automatische suggestie-REST-API voorstellen enC#"
-titlesuffix: Azure Cognitive Services
-description: Meer informatie over het snel starten voorstellen zoektermen in realtime met de Automatische suggestie-API.
+title: "Quickstart: Zoek query's Voorst Ellen met de Bing Automatische suggesties REST API enC#"
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over hoe u snel aan de slag kunt met de Automatische suggestie-API voor Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 4cd77c1e71287ea2cec2a4098e5ef7f713350f9f
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: c524f35416e29d2364e73b4b7007480cba0881d8
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388640"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405339"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Quickstart: Zoekquery's met de Bing Automatische suggestie-REST-API voorstellen enC#
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Quickstart: Zoek query's Voorst Ellen met de Bing Automatische suggesties REST API enC#
 
-Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Automatische suggestie-API en het ophalen van het JSON-antwoord. Dit eenvoudige C# toepassing een gedeeltelijke zoekquery verzendt naar de API en suggesties voor zoekopdrachten retourneert. Hoewel deze toepassing in C# is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal. De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
+Gebruik deze Quick Start om te beginnen met het aanroepen van de Automatische suggestie-API voor Bing en het verkrijgen van het JSON-antwoord. Met deze C# eenvoudige toepassing wordt een gedeeltelijke Zoek query naar de API verzonden en worden suggesties voor Zoek opdrachten geretourneerd. Hoewel deze toepassing in C# is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal. De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een versie van [Visual Studio 2017 of later](https://www.visualstudio.com/downloads/).
+* Een versie van [Visual Studio 2017 of hoger](https://www.visualstudio.com/downloads/).
 * Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
@@ -40,7 +40,7 @@ Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Aut
     using System.Text;
     ```
 
-2. Maak in een nieuwe klasse variabelen voor uw API-host en pad, [code markt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), en een gedeeltelijke zoekquery.
+2. Maak in een nieuwe klasse variabelen voor uw API-host en-pad, de [markt code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)en een gedeeltelijke Zoek query.
 
     ```csharp
     static string host = "https://api.cognitive.microsoft.com";
@@ -54,7 +54,7 @@ Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Aut
 
 ## <a name="create-and-send-an-api-request"></a>Een API-aanvraag maken en verzenden
 
-1. Maak een functie met de naam `Autosuggest()` een aanvraag te verzenden naar de API. Maak een nieuwe `HttpClient()`, en uw abonnementssleutel toevoegen aan de `Ocp-Apim-Subscription-Key` header.
+1. Maak een functie met `Autosuggest()` de naam voor het verzenden van een aanvraag naar de API. Maak een nieuwe `HttpClient()`en voeg uw abonnements sleutel toe aan de `Ocp-Apim-Subscription-Key` koptekst.
 
     ```csharp
     async static void Autosuggest()
@@ -65,13 +65,13 @@ Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Aut
     }
     ```
 
-2. In de bovenstaande dezelfde functie maakt u een aanvraag-URI door een combinatie van uw API-host en pad. Toevoegen van uw markt voor de `?mkt=` parameter en de query de `&query=` parameter. Zorg er URL coderen uw query. 
+2. In dezelfde functie hierboven maakt u een aanvraag-URI door uw API-host en-pad te combi neren. Voeg uw markt toe aan `?mkt=` de para meter en uw query naar `&query=` de-parameter. Zorg ervoor dat u URL-uw query versleutelt. 
 
     ```csharp
     string uri = host + path + "?mkt=" + market + "&query=" + System.Net.WebUtility.UrlEncode (query);
     ```
 
-3. De aanvraag verzenden naar de uri die is gebouwd boven en afdrukken van het antwoord.
+3. De aanvraag verzenden naar de URI die hierboven is gemaakt en het antwoord afdrukken.
 
     ```csharp
     HttpResponseMessage response = await client.GetAsync(uri);
@@ -80,7 +80,7 @@ Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Aut
     Console.WriteLine(contentString);
     ```
 
-4. In de belangrijkste methode van uw programma aanroepen `Autosuggest()`.
+4. Bel `Autosuggest()`in de hoofd methode van uw programma.
 
     ```csharp
     static void Main(string[] args)

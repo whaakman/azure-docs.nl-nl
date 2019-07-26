@@ -1,55 +1,56 @@
 ---
-title: Azure Container Registry-webhooks
-description: Informatie over het gebruik van webhooks voor het triggergebeurtenissen wanneer bepaalde acties worden uitgevoerd in de Register-opslagplaatsen.
+title: Azure Container Registry webhooks
+description: Meer informatie over het gebruik van webhooks om gebeurtenissen te activeren wanneer bepaalde acties worden uitgevoerd in uw register opslagplaatsen.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: danlep
-ms.openlocfilehash: 18ac3fcb2797b24c9d5e5f05968eed4bf8732af7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 59e8d4979e7be02d6097e1c3eccc44e64da87e95
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389451"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311593"
 ---
-# <a name="using-azure-container-registry-webhooks"></a>Met behulp van Azure Container Registry-webhooks
+# <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry-webhooks gebruiken
 
-Een Azure container registry worden opgeslagen en beheerd persoonlijke Docker-containerinstallatiekopieën, net als bij het die docker Hub openbare Docker-installatiekopieën worden opgeslagen. Het kan ook opslagplaatsen voor hosten [Helm-grafieken](container-registry-helm-repos.md) (preview), een verpakking opmaken voor het implementeren van toepassingen op Kubernetes. U kunt webhooks om triggergebeurtenissen wanneer bepaalde acties uitgevoerd in een van uw register-opslagplaatsen te gebruiken. Webhooks kan reageren op gebeurtenissen op het niveau van het register, of ze kunnen worden gericht op een specifieke opslagplaats-tag. Met een [geo-replicatie](container-registry-geo-replication.md) register, configureert u elke webhook om te reageren op gebeurtenissen in een specifieke regionale replica.
+In een Azure container Registry worden privé-docker-container installatie kopieën opgeslagen en beheerd, vergelijkbaar met de manier waarop docker hub open bare docker-installatie kopieën opslaat. Het kan ook opslag plaatsen hosten voor [helm-grafieken](container-registry-helm-repos.md) (preview), een verpakkings indeling voor het implementeren van toepassingen naar Kubernetes. U kunt webhooks gebruiken om gebeurtenissen te activeren wanneer bepaalde acties in een van uw register opslagplaatsen worden uitgevoerd. Webhooks kunnen reageren op gebeurtenissen op het register niveau of de scope kan worden beperkt tot een specifieke opslagplaats label. Met een [geo-gerepliceerd](container-registry-geo-replication.md) REGI ster configureert u elke webhook om te reageren op gebeurtenissen in een specifieke regionale replica.
 
-Zie voor meer informatie over webhook-aanvragen, [Naslaggids voor Azure Container Registry webhook-schema](container-registry-webhook-reference.md).
+Zie [Azure container Registry webhook-schema verwijzing](container-registry-webhook-reference.md)voor meer informatie over webhook-aanvragen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Azure container registry - een containerregister maken in uw Azure-abonnement. Gebruik bijvoorbeeld de [Azure-portal](container-registry-get-started-portal.md) of de [Azure CLI](container-registry-get-started-azure-cli.md). De [Azure Container Registry-SKU's](container-registry-skus.md) hebben verschillende webhooks quota.
-* Installeren van docker-CLI - instellen van uw lokale computer als een Docker-host en toegang tot de Docker CLI-opdrachten, [Docker-Engine](https://docs.docker.com/engine/installation/).
+* Azure container Registry: een container register maken in uw Azure-abonnement. Gebruik bijvoorbeeld de [Azure Portal](container-registry-get-started-portal.md) of de [Azure cli](container-registry-get-started-azure-cli.md). De [Azure container Registry sku's](container-registry-skus.md) hebben verschillende webhooks-quota.
+* Docker CLI: Installeer de docker- [engine](https://docs.docker.com/engine/installation/)om uw lokale computer in te stellen als een docker-host en toegang te krijgen tot de docker cli-opdrachten.
 
-## <a name="create-webhook---azure-portal"></a>Webhook - Azure portal maken
+## <a name="create-webhook---azure-portal"></a>Webhook-Azure Portal maken
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Ga naar het containerregister in die u wilt maken van een webhook.
-1. Onder **Services**, selecteer **Webhooks**.
-1. Selecteer **toevoegen** in de werkbalk van de webhook.
-1. Voltooi de *webhook maken* formulier met de volgende informatie:
+1. Navigeer naar het container register waarin u een webhook wilt maken.
+1. Onder **Services**selecteert u webhooks.
+1. Selecteer **toevoegen** op de werk balk van de webhook.
+1. Voltooi het formulier *webhook maken* met de volgende gegevens:
 
-| Value | Description |
+| Waarde | Description |
 |---|---|
-| Naam van de Webhook | De naam die u wilt geven tot de webhook. Deze mag alleen letters en cijfers bevatten en moet 5 tot 50 tekens lang zijn. |
-| Locatie | Voor een [geo-replicatie](container-registry-geo-replication.md) register, geef de Azure-regio van de Register-replica. 
+| Naam webhook | De naam die u aan de webhook wilt geven. Het mag alleen letters en cijfers bevatten en moet 5-50 tekens lang zijn. |
+| Location | Voor een [geo-gerepliceerd](container-registry-geo-replication.md) REGI ster geeft u de Azure-regio van de register replica op. 
 | Service-URI | De URI waar de webhook POST meldingen moet verzenden. |
-| Aangepaste kopteksten | Headers die u wilt doorgeven, samen met de POST-aanvraag. Deze moeten worden "sleutel: waarde" indeling. |
-| Triggeracties | Acties waarvoor de webhook is geactiveerd. Acties omvatten installatiekopie pushen, verwijderen van afbeelding, Helm-grafiek push, Helm-grafiek verwijderen en in quarantaine plaatsen van de installatiekopie van. U kunt een of meer acties voor het activeren van de webhook. |
-| Status | De status van de webhook nadat deze gemaakt. Dit standaard ingeschakeld. |
-| Scope | Het bereik op dat de webhook van toepassing. Indien niet opgegeven, is het bereik voor alle gebeurtenissen in het register. Het kan worden opgegeven voor een opslagplaats of op een label met de notatie '-opslagplaats: code' of ' opslagplaats: * "voor alle tags in een opslagplaats. |
+| Aangepaste kopteksten | Kopteksten die u wilt door geven samen met de POST-aanvraag. Ze moeten de indeling ' sleutel: waarde ' hebben. |
+| Trigger acties | Acties waarmee de webhook wordt geactiveerd. Acties zijn onder andere afbeeldings pushen, afbeeldingen verwijderen, helm-grafiek pushen, helm-grafieken verwijderen en afbeeldings quarantaine. U kunt een of meer acties kiezen om de webhook te activeren. |
+| Status | De status van de webhook nadat deze is gemaakt. Het is standaard ingeschakeld. |
+| Scope | Het bereik waarmee de webhook werkt. Als u niets opgeeft, geldt het bereik voor alle gebeurtenissen in het REGI ster. Het kan worden opgegeven voor een opslag plaats of een tag met de indeling ' opslag plaats: tag ' of ' opslag plaats: * ' voor alle labels onder een opslag plaats. |
 
-Voorbeeld van de webhook-formulier:
+Voor beeld van webhook-formulier:
 
-![ACR webhook maken gebruikersinterface in Azure portal](./media/container-registry-webhook/webhook.png)
+![Gebruikers interface voor het maken van ACR-webhooks in de Azure Portal](./media/container-registry-webhook/webhook.png)
 
-## <a name="create-webhook---azure-cli"></a>Webhook - Azure CLI maken
+## <a name="create-webhook---azure-cli"></a>Webhook maken-Azure CLI
 
-Gebruik voor het maken van een webhook met de Azure CLI de [az acr webhook maken](/cli/azure/acr/webhook#az-acr-webhook-create) opdracht. De volgende opdracht maakt u een webhook voor alle gebeurtenissen in het register afbeeldingen *mycontainerregistry*:
+Als u een webhook wilt maken met behulp van de Azure CLI, gebruikt u de opdracht [AZ ACR webhook Create](/cli/azure/acr/webhook#az-acr-webhook-create) . Met de volgende opdracht maakt u een webhook voor alle installatie kopieën gebeurtenissen verwijderen in het REGI ster *mycontainerregistry*:
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -59,23 +60,23 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Voordat u met behulp van de webhook, kunt u deze met testen de **Ping** knop. Ping een algemene POST-aanvraag verzendt naar het opgegeven eindpunt en logboeken van het antwoord. Met behulp van de ping-functie kunt u controleren of dat u de webhook correct hebt geconfigureerd.
+Voordat u de webhook gebruikt, kunt u deze testen met de knop **ping** . Ping verzendt een algemene POST-aanvraag naar het opgegeven eind punt en registreert het antwoord. Met de functie Ping kunt u controleren of u de webhook juist hebt geconfigureerd.
 
 1. Selecteer de webhook die u wilt testen.
-2. Selecteer in de bovenste werkbalk **Ping**.
-3. Controleer de reactie van het eindpunt in de **HTTP-STATUS** kolom.
+2. Selecteer **ping**in de bovenste werk balk.
+3. Controleer het antwoord van het eind punt in de kolom **HTTP-status** .
 
-![ACR webhook maken gebruikersinterface in Azure portal](./media/container-registry-webhook/webhook-02.png)
+![Gebruikers interface voor het maken van ACR-webhooks in de Azure Portal](./media/container-registry-webhook/webhook-02.png)
 
 ### <a name="azure-cli"></a>Azure-CLI
 
-Als u wilt testen een ACR-webhook met de Azure CLI, gebruikt u de [az acr webhook ping](/cli/azure/acr/webhook#az-acr-webhook-ping) opdracht.
+Als u een ACR-webhook met de Azure CLI wilt testen, gebruikt u de opdracht [AZ ACR webhook ping](/cli/azure/acr/webhook#az-acr-webhook-ping) .
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
 ```
 
-Als de resultaten wilt weergeven, gebruikt de [az acr list-webhookgebeurtenissen](/cli/azure/acr/webhook) opdracht.
+Als u de resultaten wilt weer geven, gebruikt u de opdracht [AZ ACR webhook List-Events](/cli/azure/acr/webhook) .
 
 ```azurecli-interactive
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01
@@ -85,7 +86,7 @@ az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook0
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Elke webhook kan worden verwijderd door de webhook te selecteren en vervolgens de **verwijderen** knop in de Azure portal.
+Elke webhook kan worden verwijderd door de webhook te selecteren en vervolgens de knop **verwijderen** in de Azure Portal.
 
 ### <a name="azure-cli"></a>Azure-CLI
 
@@ -95,14 +96,14 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 
 ## <a name="next-steps"></a>Volgende stappen
 
-### <a name="webhook-schema-reference"></a>Webhook-schemaverwijzing
+### <a name="webhook-schema-reference"></a>Webhook-schema verwijzing
 
-Zie voor meer informatie over de indeling en de eigenschappen van de JSON-gebeurtenis-nettoladingen gegenereerd door Azure Container Registry, de webhook-schema-verwijzing:
+Zie de verwijzing naar het webhook-schema voor meer informatie over de indeling en eigenschappen van de nettoladingen van JSON-gebeurtenissen die door Azure Container Registry worden gegenereerd:
 
-[Azure Container Registry webhook-schemaverwijzing](container-registry-webhook-reference.md)
+[Azure Container Registry webhook-schema verwijzing](container-registry-webhook-reference.md)
 
-### <a name="event-grid-events"></a>Event Grid-gebeurtenissen
+### <a name="event-grid-events"></a>Event Grid gebeurtenissen
 
-Naast de systeemeigen register webhookgebeurtenissen die in dit artikel worden besproken, kan Azure Container Registry gebeurtenissen naar Event Grid verzenden:
+Naast de systeem eigen register webhook-gebeurtenissen die in dit artikel worden besproken, kunnen Azure Container Registry gebeurtenissen naar Event Grid verzenden:
 
-[Snelstart: Container registry gebeurtenissen verzenden naar Event Grid](container-registry-event-grid-quickstart.md)
+[Snelstart: Container register gebeurtenissen naar Event Grid verzenden](container-registry-event-grid-quickstart.md)

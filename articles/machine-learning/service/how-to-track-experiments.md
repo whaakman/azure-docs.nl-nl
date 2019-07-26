@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 269568c172ff6c65c9877f9ad22067a11125b339
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: edc0da77fc1c2813c2485fca18d50952e3060db8
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67847468"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370468"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Metrische gegevens vastleggen tijdens trainings uitvoeringen in Azure Machine Learning
 
@@ -225,8 +225,8 @@ In het [Start-, controle-en geannuleerde trainings](how-to-manage-runs.md) artik
 
 ## <a name="view-run-details"></a>Details van de uitvoering weergeven
 
-### <a name="monitor-run-with-jupyter-notebook-widgets"></a>Monitor uitvoeren met Jupyter-notebook widgets
-Wanneer u gebruikt de **ScriptRunConfig** methode om in te dienen wordt uitgevoerd, kunt u de voortgang van de uitvoering met een Jupyter-notebook widget bekijken. Net als het indienen van de run, is de widget asynchroon en biedt deze elke 10-15 seconden live updates totdat de taak is voltooid.
+### <a name="monitor-run-with-jupyter-notebook-widget"></a>Bewaking uitvoeren met Jupyter notebook-widget
+Wanneer u de methode **ScriptRunConfig** gebruikt om uitvoeringen te verzenden, kunt u de voortgang van de uitvoering met een [Jupyter-widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)bekijken. Net als het indienen van de run, is de widget asynchroon en biedt deze elke 10-15 seconden live updates totdat de taak is voltooid.
 
 1. Bekijk de Jupyter-widget tijdens het wachten op voor het uitvoeren om te voltooien.
 
@@ -236,6 +236,12 @@ Wanneer u gebruikt de **ScriptRunConfig** methode om in te dienen wordt uitgevoe
    ```
 
    ![Schermafbeelding van de Jupyter-notebook widget](./media/how-to-track-experiments/run-details-widget.png)
+
+U kunt ook een koppeling naar dezelfde weer gave in uw werk ruimte ophalen.
+
+```python
+print(run.get_portal_url())
+```
 
 2. **[Voor geautomatiseerde machine learning-uitvoeringen]**  Voor toegang tot de grafieken van een vorige uitvoering. Vervang `<<experiment_name>>` door de juiste naam van het experiment:
 
@@ -257,7 +263,8 @@ Om verdere details van een pijplijn-Klik op de pijplijn weer te geven u graag zo
 ### <a name="get-log-results-upon-completion"></a>Resultaten van logboeken weergeven bij voltooiing
 
 Model trainen en bewaking optreden op de achtergrond, zodat u andere taken uitvoeren kunt terwijl u wacht. U kunt ook wachten totdat het model opleiding vóór het uitvoeren van meer code is voltooid. Bij het gebruik **ScriptRunConfig**, kunt u ```run.wait_for_completion(show_output = True)``` om weer te geven wanneer het trainen van het model is voltooid. De ```show_output``` vlag biedt uitgebreide uitvoer. 
-  
+
+
 ### <a name="query-run-metrics"></a>Uitvoering van metrische gegevens van de query
 
 U kunt de metrische gegevens van het gebruik van een getraind model weergeven ```run.get_metrics()```. U kunt nu alle van de metrische gegevens die zijn geregistreerd in het voorbeeld hierboven om te bepalen van het beste model krijgen.
@@ -287,140 +294,6 @@ Er zijn verschillende manieren voor het gebruik van de logboekregistratie van AP
 |Meld u een rij met 2 numerieke kolommen herhaaldelijk|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Twee variabelen lijndiagram weer te geven|
 |Logboektabel met 2 numerieke kolommen|`run.log_table(name='Sine Wave', value=sines)`|Twee variabelen lijndiagram weer te geven|
 
-<a name="auto"></a>
-## <a name="understanding-automated-ml-charts"></a>Informatie over geautomatiseerde ML-grafieken
-
-Na een geautomatiseerde ML-taak in een notitieblok in te dienen, een geschiedenis van alle uitvoeringen deze vindt u in uw machine learning-werkruimte-service. 
-
-Meer informatie over:
-+ [Grafieken en curven voor modellen voor classificatie](#classification)
-+ [Diagrammen en grafieken voor regressiemodellen](#regression)
-+ [Model uitgelegd mogelijkheid](#model-explain-ability-and-feature-importance)
-
-
-### <a name="view-the-run-charts"></a>De uitvoering grafieken bekijken
-
-1. Ga naar uw werkruimte. 
-
-1. Selecteer **experimenten** in het deelvenster uiterst links van uw werkruimte.
-
-   ![Schermopname van het experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-menu.png)
-
-1. Selecteer het experiment dat u geïnteresseerd bent in.
-
-   ![Lijst van experiment](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-list.png)
-
-1. Selecteer het aantal uitvoeren in de tabel.
-
-   ![Experiment uitvoeren](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-run.png)
-
-1. Selecteer in de tabel, het aantal herhalingen voor het model dat u graag verder te verkennen.
-
-   ![Model van experiment](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-model.png)
-
-
-
-### <a name="classification"></a>Classificatie
-
-Voor elke classificatie-model dat u bouwen met behulp van de geautomatiseerde machine learning-mogelijkheden van Azure Machine Learning, ziet u de volgende grafieken: 
-+ [Verwarringsmatrix](#confusion-matrix)
-+ [Precisie-/ Oproepdiagram grafiek](#precision-recall-chart)
-+ [Ontvanger operationele kenmerken (of ROC)](#roc)
-+ [Lift-curve](#lift-curve)
-+ [Winsten curve](#gains-curve)
-+ [Kalibreren tekengebied](#calibration-plot)
-
-#### <a name="confusion-matrix"></a>Verwarringsmatrix
-
-Een verwarringsmatrix wordt gebruikt om te beschrijven van de prestaties van een model voor classificatie. Elke rij geeft de exemplaren van de klasse ' True ', en elke kolom vertegenwoordigt de instanties van de voorspelde klasse. De verwarringsmatrix ziet u de labels correct ingedeeld en de onjuist ingedeeld labels voor een bepaald model.
-
-Voor problemen met de classificatie biedt Azure Machine Learning automatisch een verwarringsmatrix voor elk model dat is gebouwd. Voor elke verwarringsmatrix ziet geautomatiseerde ML u de labels correct ingedeeld als groen en onjuist ingedeeld labels als rood. De grootte van de cirkel geeft het aantal steekproeven in die bin. Bovendien vindt u de frequentie-telling van elk label voorspelde en elk label waar in de aangrenzende staafdiagrammen. 
-
-Voorbeeld 1: Een classificatie model met een slechte ![nauw keurigheid van een classificatie model met een slechte nauw keurigheid](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix1.png)
-
-Voorbeeld 2: Een classificatie model met hoge nauw keurigheid ( ![ideaal) een classificatie model met hoge nauw keurigheid](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix2.png)
-
-
-#### <a name="precision-recall-chart"></a>Precisie-/ oproepdiagram grafiek
-
-U kunt de precisie-/ oproepdiagram curven voor elk model om te bepalen welk model u al een acceptabele relatie tussen precisie en intrekken voor uw specifieke zakelijke probleem vergelijken met deze grafiek. In deze grafiek worden precisie-/ Oproepdiagram Macro gemiddeld, gemiddelde Micro-precisie-/ Oproepdiagram en de precisie-/ oproepdiagram die zijn gekoppeld aan alle klassen voor een model.
-
-De term die precisie vertegenwoordigt die mogelijkheid voor een classificatie voor alle instanties juist label. Intrekken vertegenwoordigt de mogelijkheid voor een classificatie om alle exemplaren van een bepaald label te vinden. De precisie-/ oproepdiagram curve ziet u de relatie tussen deze twee concepten. Het model zou in het ideale geval zijn 100% nauwkeurigheid en 100% nauwkeurigheid.
-
-Voorbeeld 1: Een classificatie model met lage precisie en laag ![een classificatie model met lage precisie en laag intrekken](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall1.png)
-
-Voorbeeld 2: Een classificatie model met ~ 100% Precision en ~ 100% intrekken (ideaal ![) een classificatie model met hoge precisie en intrekken](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall2.png)
-
-#### <a name="roc"></a>ROC
-
-Ontvanger operationele kenmerken (of ROC) is een diagram van de labels correct ingedeeld versus de onjuist ingedeeld labels voor een bepaald model. De ROC-curve zijn minder informatieve als training modellen op gegevenssets met hoge vertekening, zoals deze niet in de ONWAAR positief labels weergegeven wordt.
-
-Voorbeeld 1: Een classificatie model met lage labels en hoge onwaare ![labels met lage labels en hoog/onwaar labels](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-1.png)
-
-Voorbeeld 2: Een classificatie model met hoge, echte labels en laagloze ![labels een classificatie model met hoogwaardige labels en lage labels op ONWAAR](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-2.png)
-
-#### <a name="lift-curve"></a>Lift-curve
-
-U kunt de lift van het model automatisch gemaakt met Azure Machine Learning aan de basislijn om te bekijken van de toename van de waarde van dat specifieke model vergelijken.
-
-Lift-grafieken worden gebruikt voor het evalueren van de prestaties van een model voor classificatie. Hier ziet u hoeveel beter kunt u verwachten doen met een model in vergelijking met zonder een model. 
-
-Voorbeeld 1: Het model voert erger uit dan een wille keurig selectie model ![een classificatie model dat erger is dan een wille keurig selectie model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve1.png)
-
-Voorbeeld 2: Model voert beter uit dan een wille ![keurig selectie model, een classificatie model dat beter presteert](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve2.png)
-
-#### <a name="gains-curve"></a>Winsten curve
-
-Een diagram kolomopslag evalueert de prestaties van een model classificatie op basis van elk deel van de gegevens. Hier ziet voor elke percentiel van de gegevensset, hoeveel u kunt beter verwachten om uit te voeren vergeleken met een willekeurige selectie-model.
-
-Met de cumulatieve winsten grafiek kunt u de classificatie afsluitdatum met behulp van een percentage dat overeenkomt met een gewenste winst uit het model kiezen. Deze informatie geeft een andere manier om de resultaten in de bijbehorende lift-grafiek kijken.
-
-Voorbeeld 1: Een classificatie model met minimale ![toename van een classificatie model met minimale toename](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve1.png)
-
-Voorbeeld 2: Een classificatie model met aanzienlijke toename ![van een classificatie model met aanzienlijke winst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve2.png)
-
-#### <a name="calibration-plot"></a>Kalibreren tekengebied
-
-Voor alle problemen met de classificatie, kunt u de regel kalibreren voor micro-gemiddelde macro-gemiddelde en elke klasse in een bepaalde Voorspellend model bekijken. 
-
-Een diagram kalibreren wordt gebruikt om het vertrouwen van een Voorspellend model weer te geven. Dit gebeurt door de relatie tussen de voorspelde kans en de werkelijke kans op, waarbij "kans" vertegenwoordigt de kans dat een bepaalde instantie deel uitmaakt van een label. Een goed geijkte model wordt uitgelijnd met de y = x regel, waar deze redelijk zeker van zijn in de voorspellingen is. Een model te veel confident worden uitgelijnd met de y = 0 regel, waar de voorspelde kans is aanwezig, maar er is geen daadwerkelijke kans.
-
-Voorbeeld 1: Een meer goed gekalibreerd model ![ met meer goed gekalibreerd model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve1.png)
-
-Voorbeeld 2: Een over-verzekerd model ![van een model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve2.png)
-
-### <a name="regression"></a>Regressie
-Voor elke regressiemodel u bouwen met behulp van de geautomatiseerde machine learning-mogelijkheden van Azure Machine Learning, ziet u de volgende grafieken: 
-+ [Voorspelde vs. De waarde True](#pvt)
-+ [Histogram van dit](#histo)
-
-<a name="pvt"></a>
-
-#### <a name="predicted-vs-true"></a>Voorspelde vs. True
-
-Voorspelde vs. Waar wordt de relatie tussen een voorspelde waarde en de waarde voor correlerende waar een probleem met regressie. Deze grafiek kan worden gebruikt voor het meten van prestaties van een model als de dichter bij de y = x regel de voorspelde waarden zijn, hoe beter de nauwkeurigheid van een Voorspellend model.
-
-Na elke uitvoering ziet u een voorspelde versus waar graph voor elke regressiemodel. Als u wilt beveiligen privacy van gegevens, waarden samen worden binned en de grootte van elke bin wordt weergegeven als een staafdiagram in het onderste gedeelte van het grafiekgebied. U kunt het voorspellende model vergelijken met de lichtere schaduw-gebied met fout marges, op basis van de optimale waarde van waar het model moet worden.
-
-Voorbeeld 1: Een regressie model met lage nauw keurigheid bij ![het voors pellen van een regressie model met lage nauw keurigheid in voor spellingen](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.png)
-
-Voorbeeld 2: Een regressie model met hoge nauw keurigheid in de voor spellingen ![van een regressie model met hoge nauw keurigheid in de voor spellingen](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.png)
-
-<a name="histo"></a>
-
-#### <a name="histogram-of-residuals"></a>Histogram van dit
-
-Een resterende vertegenwoordigt een waargenomen y – de voorspelde y. Om weer te geven een foutmarge met lage afwijking, moet het histogram van dit als een rinkelende bel curve, gecentreerd rond 0 worden vormgegeven. 
-
-Voorbeeld 1: Een regressie model met bias in het fouten ![sa-regressie model met afwijking van fouten](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.png)
-
-Voorbeeld 2: Een regressie model met een meer gelijkmatige verdeling van ![fouten in een regressie model met meer gelijkmatige verdeling van fouten](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.png)
-
-### <a name="model-explain-ability-and-feature-importance"></a>Model functie en wordt uitgelegd mogelijkheid urgentie
-
-Urgentie van de functie biedt een score die aangeeft hoe waardevol elke functie is in het samenstellen van een model. U kunt de functie belang score voor het model algehele, evenals per klasse op een Voorspellend model bekijken. U kunt per functie zien hoe het belang worden vergeleken op basis van elke klasse en de algehele.
-
-![Functie uitleg mogelijkheid](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature-explain1.png)
 
 ## <a name="example-notebooks"></a>Voorbeeld-laptops
 De volgende notebooks illustratie van concepten in dit artikel:

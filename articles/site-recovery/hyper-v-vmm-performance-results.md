@@ -1,184 +1,362 @@
 ---
-title: Testresultaten voor replicatie van Hyper-V-machines in VMM-clouds naar een secundaire site met Azure Site Recovery | Microsoft Docs
-description: In dit artikel bevat informatie over de prestatietests voor replicatie van Hyper-V virtuele machines in VMM-clouds naar een secundaire site met Azure Site Recovery.
+title: Test resultaten voor replicatie van virtuele Hyper-V-machines in VMM-Clouds naar een secundaire site met Azure Site Recovery | Microsoft Docs
+description: Dit artikel bevat informatie over prestatie tests voor de replicatie van virtuele Hyper-V-machines in VMM-Clouds naar een secundaire site met behulp van Azure Site Recovery.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7413b2dcb24a42092eb2af9816b1d29a8306e19
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60363466"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377224"
 ---
-# <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Resultaten van belastingstests voor Hyper-V-replicatie naar een secundaire site
+# <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Test resultaten voor Hyper-V-replicatie naar een secundaire site
 
 
-Dit artikel bevat de resultaten van de prestaties bij het Hyper-V-machines in System Center Virtual Machine Manager (VMM)-clouds, repliceren naar een secundair datacenter te testen.
+In dit artikel vindt u de resultaten van het testen van de prestaties bij het repliceren van virtuele Hyper-V-machines in System Center Virtual Machine Manager-Clouds (VMM) naar een secundair Data Center.
 
-## <a name="test-goals"></a>Doelstellingen testen
+## <a name="test-goals"></a>Test doelen
 
-Het doel van het testen is om te onderzoeken hoe de Site Recovery tijdens de onveranderlijke replicatie uitvoert.
+Het doel van testen is om te onderzoeken hoe Site Recovery tijdens stabiele status replicatie uitvoert.
 
-- Onveranderlijke replicatie treedt op wanneer virtuele machines eerste replicatie is voltooid en wijzigingen worden gesynchroniseerd.
-- Dit is belangrijk om te meten van prestaties met stabiele status, omdat deze de status waarin de meeste VM's blijven ongewijzigd, tenzij er onverwachte storingen optreden.
-- De testimplementatie bestaat uit twee on-premises locaties, met een VMM-server op elke site. Deze testimplementatie is gebruikelijk van een implementatie van de office head kantoren/filialen met hoofdkantoor die fungeert als de primaire site en het filiaal als de site van secundaire of herstel.
+- Stabiele status replicatie vindt plaats wanneer virtuele machines de initiële replicatie hebben voltooid en wijzigingen in de Delta worden gesynchroniseerd.
+- Het is belang rijk om prestaties te meten met behulp van een stabiele status, omdat het de status is van de meeste Vm's, tenzij er onverwachte storingen optreden.
+- De test implementatie bestaat uit twee on-premises sites, met een VMM-server in elke site. Deze test implementatie is een typische implementatie van een hoofd kantoor/filiaal, met hoofd kantoor dat fungeert als de primaire site en het filiaal als de secundaire of herstel site.
 
 ## <a name="what-we-did"></a>Wat we hebben gedaan
 
-Dit is wat we is in de test geslaagd:
+Dit is wat we in de test fase hebben gedaan:
 
-1. Virtuele machines met behulp van VMM-sjablonen.
-2. Virtuele machines gestart en maatstaven voor prestaties van basislijn meer dan 12 uur vastgelegd.
-3. Gemaakte clouds op de primaire en het herstel-VMM-servers.
-4. Geconfigureerde replicatie in Site Recovery, met inbegrip van toewijzing tussen de bron- en herstelinstellingen clouds.
-5. Beveiliging voor virtuele machines ingeschakeld en mag deze initiële replicatie is voltooid.
-6. Een paar uur voor systeem stabilization gewacht.
-7. Metrische gegevens voor prestaties meer dan 12 uur, waarbij alle virtuele machines bleef een verwachte replicatiestatus voor deze 12 uur vastgelegd.
-8. De verschillen tussen de basislijn-maatstaven voor prestaties en de maatstaven voor prestaties van replicatie wordt gemeten.
+1. Vm's gemaakt met VMM-sjablonen.
+2. Gestarte Vm's en vastgelegde gegevens over de basislijn prestaties over 12 uur.
+3. Er zijn Clouds gemaakt op de primaire en herstel VMM-servers.
+4. Geconfigureerde replicatie in Site Recovery, inclusief toewijzing tussen bron-en herstel Clouds.
+5. Ingeschakelde beveiliging voor Vm's en toestemming geven om de initiële replicatie te volt ooien.
+6. Er is een aantal uur gewacht op systeem stabilisatie.
+7. Vastgelegde prestatie gegevens over 12 uur, waarbij alle Vm's in de verwachte replicatie status voor die 12 uur bleven.
+8. De Delta tussen de basislijn prestaties van de basis lijn en de metrische gegevens over de replicatie prestaties gemeten.
 
 
-## <a name="primary-server-performance"></a>Prestaties van de primaire server
+## <a name="primary-server-performance"></a>Prestaties van primaire server
 
-* Hyper-V Replica (gebruikt door Site Recovery) asynchroon houdt wijzigingen in een logboekbestand, met minimale storage overhead op de primaire server.
-* Hyper-V Replica maakt gebruik van zelf onderhouden geheugencache om te minimaliseren IOPS overhead voor het bijhouden. Opgeslagen schrijft de VHDX in het geheugen en schrijft ze in het logboekbestand voor de tijd die het logboek wordt verzonden naar de herstelsite. Een diskette leegmaken gebeurt ook als de schrijfbewerkingen een vooraf vastgestelde limiet bereikt.
-* Het onderstaande diagram ziet u de overhead van de IOPS onveranderlijke voor replicatie. U ziet dat de IOPS overhead vanwege replicatie is ongeveer 5%, dit klein is.
+* Met Hyper-V replica (gebruikt door Site Recovery) worden wijzigingen in een logboek bestand asynchroon bijgehouden, met minimale opslag overhead op de primaire server.
+* Hyper-V replica maakt gebruik van de door het systeem opgeslagen geheugen cache om de belasting van IOPS voor het bijhouden van nummers te minimaliseren. Er worden in het geheugen schrijf bewerkingen naar de VHDX opgeslagen en deze worden in het logboek bestand geplaatst voordat het logboek naar de herstel site wordt verzonden. Het leegmaken van de schijf gebeurt ook als de schrijf bewerkingen een vooraf vastgestelde limiet bereiken.
+* In de onderstaande afbeelding ziet u de overhead van de stabiele status IOPS voor replicatie. We kunnen zien dat de belasting van IOPS als gevolg van replicatie ongeveer 5% is. Dit is zeer laag.
 
   ![Primaire resultaten](./media/hyper-v-vmm-performance-results/IC744913.png)
 
-Hyper-V Replica gebruikt geheugen op de primaire server, het optimaliseren van de schijf. Zoals in het volgende diagram wordt weergegeven, is het geheugen overhead op alle servers in de primaire cluster marginale. De overhead geheugen is de hoeveelheid geheugen die wordt gebruikt door replicatie, vergeleken met het totale geïnstalleerd geheugen op de Hyper-V-server.
+Hyper-V replica gebruikt geheugen op de primaire server om de schijf prestaties te optimaliseren. Zoals in de volgende grafiek wordt weer gegeven, is de geheugen overhead op alle servers in het primaire cluster rand nummer. De weer gegeven geheugen overhead is het percentage geheugen dat wordt gebruikt door replicatie, vergeleken met het totale geïnstalleerde geheugen op de Hyper-V-Server.
 
 ![Primaire resultaten](./media/hyper-v-vmm-performance-results/IC744914.png)
 
-Hyper-V Replica heeft minimale CPU-overhead. Zoals u in de grafiek, is replicatieoverhead in het bereik van 2-3%.
+De Hyper-V-replica heeft een minimale CPU-overhead. Zoals weer gegeven in de grafiek, ligt de overhead van de replicatie binnen het bereik van 2-3%.
 
 ![Primaire resultaten](./media/hyper-v-vmm-performance-results/IC744915.png)
 
-## <a name="secondary-server-performance"></a>Prestaties van de secundaire server
+## <a name="secondary-server-performance"></a>Secundaire server prestaties
 
-Hyper-V Replica maakt gebruik van een kleine hoeveelheid geheugen op de herstelserver, het optimaliseren van het aantal opslagbewerkingen. De grafiek bevat een overzicht van het geheugengebruik op de herstelserver. De overhead geheugen is de hoeveelheid geheugen die wordt gebruikt door replicatie, vergeleken met het totale geïnstalleerd geheugen op de Hyper-V-server.
+Hyper-V replica maakt gebruik van een kleine hoeveelheid geheugen op de herstel server om het aantal opslag bewerkingen te optimaliseren. De grafiek bevat een samen vatting van het geheugen gebruik op de herstel server. De weer gegeven geheugen overhead is het percentage geheugen dat wordt gebruikt door replicatie, vergeleken met het totale geïnstalleerde geheugen op de Hyper-V-Server.
 
 ![Secundaire resultaten](./media/hyper-v-vmm-performance-results/IC744916.png)
 
-Het bedrag van i/o-bewerkingen op de site recovery is een functie van het aantal schrijfbewerkingen op de primaire site. Laten we kijken naar de totale i/o-bewerkingen op de site recovery in vergelijking met de totale i/o-bewerkingen en schrijfbewerkingen op de primaire site. De grafieken ziet u dat de totale IOP's op de site recovery is
+De hoeveelheid I/O-bewerkingen op de herstel site is een functie van het aantal schrijf bewerkingen op de primaire site. Laten we eens kijken naar de totale I/O-bewerkingen op de herstel site in vergelijking met de totale I/O-bewerkingen en schrijf bewerkingen op de primaire site. In de grafieken ziet u dat het totale aantal IOPS op de herstel site
 
-* Ongeveer 1,5 keer de IOPS voor schrijven op de primaire.
-* Ongeveer 37% van de totale IOP's op de primaire site.
+* Ongeveer 1,5 keer de schrijf-IOPS op de primaire.
+* Rond 37% van het totale aantal IOPS op de primaire site.
 
 ![Secundaire resultaten](./media/hyper-v-vmm-performance-results/IC744917.png)
 
 ![Secundaire resultaten](./media/hyper-v-vmm-performance-results/IC744918.png)
 
-## <a name="effect-on-network-utilization"></a>Effect op het netwerkgebruik
+## <a name="effect-on-network-utilization"></a>Effect op het netwerk gebruik
 
-Een gemiddelde van 275 Mb per seconde van de netwerkbandbreedte is tussen de primaire en knooppunten (met compressie ingeschakeld) wordt gebruikt op basis van een bestaande bandbreedte van 5 Gb per seconde.
+Een gemiddelde van 275 MB per seconde van de netwerk bandbreedte wordt gebruikt tussen de primaire en herstel knooppunten (waarbij compressie is ingeschakeld), tegen een bestaande band breedte van 5 GB per seconde.
 
-![Netwerkgebruik resultaten](./media/hyper-v-vmm-performance-results/IC744919.png)
+![Resultaat netwerk gebruik](./media/hyper-v-vmm-performance-results/IC744919.png)
 
-## <a name="effect-on-vm-performance"></a>Effect op de prestaties van de virtuele machine
+## <a name="effect-on-vm-performance"></a>Gevolgen voor de prestaties van de virtuele machine
 
-Een belangrijk aandachtspunt is de impact van replicatie op de virtuele machines waarop werkbelastingen voor productie. Als de primaire site naar behoren is ingericht voor replicatie, mogen er zich niet dit van invloed is op de werkbelasting. Hyper-V-Replica lightweight bijhouden mechanisme zorgt ervoor dat workloads die worden uitgevoerd in de virtuele machines worden niet beïnvloed tijdens de onveranderlijke replicatie. Dit wordt geïllustreerd in de volgende grafieken.
+Een belang rijke overweging is de impact van de replicatie van productie-workloads die worden uitgevoerd op de virtuele machines. Als de primaire site adequaat is ingericht voor replicatie, is er geen gevolgen voor de werk belastingen. Het lichte traceer mechanisme van de Hyper-V-replica zorgt ervoor dat werk belastingen die worden uitgevoerd op de virtuele machines, niet worden beïnvloed tijdens de replicatie van de stabiele status. Dit wordt geïllustreerd in de volgende grafieken.
 
-Deze grafiek toont dat IOPS uitgevoerd door virtuele machines met verschillende workloads, voordat en nadat de replicatie is ingeschakeld. U kunt zien dat er geen verschil tussen de twee is.
+In deze grafiek worden IOPS weer gegeven die worden uitgevoerd door virtuele machines die verschillende werk belastingen uitvoeren, vóór en nadat de replicatie is ingeschakeld. U kunt zien dat er geen verschil is tussen de twee.
 
-![Replica effect resultaten](./media/hyper-v-vmm-performance-results/IC744920.png)
+![Resultaten van replica-effect](./media/hyper-v-vmm-performance-results/IC744920.png)
 
-In het volgende diagram ziet u de doorvoer van virtuele machines met verschillende workloads, voordat en nadat de replicatie is ingeschakeld. U kunt zien dat de replicatie heeft geen aanzienlijke invloed.
+In de volgende grafiek ziet u de door Voer van virtuele machines met verschillende werk belastingen, vóór en na de replicatie. U kunt zien dat replicatie geen aanzienlijke gevolgen heeft.
 
-![Resultaten replica effecten](./media/hyper-v-vmm-performance-results/IC744921.png)
+![Resultaten replica-effecten](./media/hyper-v-vmm-performance-results/IC744921.png)
 
 ## <a name="conclusion"></a>Conclusie
 
-De resultaten blijkt duidelijk dat Site Recovery, in combinatie met Hyper-V Replica, kan worden geschaald en met minimale overhead voor een groot cluster. Site Recovery biedt een eenvoudige implementatie, replicatie, beheer en bewaking. Hyper-V Replica biedt de benodigde infrastructuur voor het schalen van geslaagde replicatie. 
+De resultaten laten duidelijk zien dat Site Recovery, gekoppeld aan Hyper-V replica, goed schaalbaar is met minimale overhead voor een groot cluster. Site Recovery biedt eenvoudige implementatie, replicatie, beheer en bewaking. Hyper-V replica biedt de benodigde infra structuur voor geslaagde replicatie schaling. 
 
-## <a name="test-environment-details"></a>Details van de omgeving testen
+## <a name="test-environment-details"></a>Details van test omgeving
 
 ### <a name="primary-site"></a>Primaire site
 
-* De primaire site heeft een cluster met vijf Hyper-V-servers, 470 virtuele machines worden uitgevoerd.
-* De virtuele machines uitvoeren in verschillende workloads en Site Recovery-beveiliging ingeschakeld hebben.
-* Opslag voor het clusterknooppunt wordt geleverd door een iSCSI-SAN. Model – Hitachi HUS130.
-* Elke clusterserver heeft vier netwerkkaarten (NIC's) van een Gbps.
-* Twee van de netwerkkaarten zijn verbonden met een particulier netwerk voor iSCSI- en twee zijn verbonden met een externe bedrijfsnetwerk. Een van de externe netwerken is gereserveerd voor clustercommunicatie alleen.
+* De primaire site heeft een cluster met vijf Hyper-V-servers, waarop 470 virtuele machines worden uitgevoerd.
+* De Vm's voeren verschillende werk belastingen uit en alle hebben Site Recovery beveiliging ingeschakeld.
+* Opslag voor het cluster knooppunt wordt verschaft door een iSCSI-SAN. Model – Hitachi HUS130.
+* Elke cluster server heeft vier netwerk kaarten (Nic's) van één Gbps.
+* Twee van de netwerk kaarten zijn verbonden met een particulier iSCSI-netwerk en twee zijn verbonden met een extern bedrijfs netwerk. Een van de externe netwerken is gereserveerd voor cluster communicatie.
 
 ![Primaire hardwarevereisten](./media/hyper-v-vmm-performance-results/IC744922.png)
 
 | Server | RAM | Model | Processor | Aantal processors | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Hyper-V-servers in het cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25 has 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rol |
-| VMM-Server |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
+| Hyper-V-servers in het cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 heeft 256 |Dell™ PowerEdge™ R820 |Intel (r) Xeon (r) CPU E5-4620 0 \@ 2.20 GHz |4 |I Gbps x 4 |Windows Server Data Center 2012 R2 (x64) + Hyper-V-rol |
+| VMM-Server |2 | | |2 |1 Gbps |Windows Server-Data Base 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>Secundaire site
 
-* De secundaire site heeft een failovercluster met zes knooppunten.
-* Opslag voor het clusterknooppunt wordt geleverd door een iSCSI-SAN. Model – Hitachi HUS130.
+* De secundaire site heeft een failovercluster met zes knoop punten.
+* Opslag voor het cluster knooppunt wordt verschaft door een iSCSI-SAN. Model – Hitachi HUS130.
 
-![Primaire hardwarespecificaties](./media/hyper-v-vmm-performance-results/IC744923.png)
+![Primaire hardware-specificatie](./media/hyper-v-vmm-performance-results/IC744923.png)
 
 | Server | RAM | Model | Processor | Aantal processors | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Hyper-V-servers in het cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell™ PowerEdge™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2,30 GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rol |
-| ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rol |
-| ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rol |
-| VMM-Server |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
+| Hyper-V-servers in het cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell™ PowerEdge™ R720 |Intel (r) Xeon (r) CPU E5-2630 0 \@ 2.30 GHz |2 |I Gbps x 4 |Windows Server Data Center 2012 R2 (x64) + Hyper-V-rol |
+| ESTLAB-HOST17 |128 |Dell™ PowerEdge™ R820 |Intel (r) Xeon (r) CPU E5-4620 0 \@ 2.20 GHz |4 | |Windows Server Data Center 2012 R2 (x64) + Hyper-V-rol |
+| ESTLAB-HOST24 |256 |Dell™ PowerEdge™ R820 |Intel (r) Xeon (r) CPU E5-4620 0 \@ 2.20 GHz |2 | |Windows Server Data Center 2012 R2 (x64) + Hyper-V-rol |
+| VMM-Server |2 | | |2 |1 Gbps |Windows Server-Data Base 2012 R2 (x64) + VMM 2012 R2 |
 
-### <a name="server-workloads"></a>Server-workloads
+### <a name="server-workloads"></a>Server werkbelastingen
 
-* Voor test-doeleinden we workloads die vaak worden gebruikt in zakelijke klant scenario's opgehaald.
-* We gebruiken [IOMeter](http://www.iometer.org) met de werkbelasting kenmerk samengevat in de tabel voor de simulatie.
-* Alle IOMeter profielen zijn ingesteld op het schrijven van willekeurige bytes voor het simuleren van ergste schrijven patronen voor workloads.
+* Voor test doeleinden zijn de gepickte workloads meestal in bedrijfs scenario's voor ondernemingen.
+* We gebruiken [IOMeter](http://www.iometer.org) met het werk belasting kenmerk dat in de tabel voor simulatie is samenvatten.
+* Alle IOMeter-profielen zijn ingesteld om wille keurige bytes te schrijven voor het simuleren van niet-hoofdletter schrijf patronen voor werk belastingen.
 
-| Workload | I/o-grootte (KB) | % Access | % Lezen | Openstaande i/o 's | I/o-patroon |
+| Workload | I/O-grootte (KB) | % Access | % Lezen | Openstaande I/O's | I/O-patroon |
 | --- | --- | --- | --- | --- | --- |
-| Bestandsserver |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Alle 100% willekeurige |
-| SQL Server (volume 1) van SQL Server (volume 2) |864 |100%100% |70%0% |88 |100% random100% opeenvolgende |
-| Exchange |32 |100% |67% |8 |100% willekeurige |
-| Workstation/VDI |464 |66%34% |70%95% |11 |Beide willekeurige 100% |
-| Web-bestandsserver |4864 |33%34%33% |95%95%95% |888 |Alle 75% willekeurige |
+| Bestandsserver |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5%<br />5%<br />10% |80%<br />80%<br />80%<br />80%<br />80% |8<br />8<br />8<br />8<br />8 |Alle 100% wille keurig |
+| SQL Server (volume 1)<br />SQL Server (volume 2) |8<br />64 |100%<br />100% |70%<br />0% |8<br />8 |100% wille keurig<br />100% sequentieel |
+| Exchange |32 |100% |67% |8 |100% wille keurig |
+| Workstation/VDI |4<br />64 |66%<br />34% |70%<br />95% |1<br />1 |Beide 100% wille keurig |
+| Web-Bestands server |4<br />8<br />64 |33%<br />34%<br />33% |95%<br />95%<br />95% |8<br />8<br />8 |Alle 75% wille keurig |
 
 ### <a name="vm-configuration"></a>VM-configuratie
 
-* 470 VM's op de primaire-cluster.
-* Alle virtuele machines met VHDX-schijftypen.
-* VM's het uitvoeren van workloads in de tabel wordt samengevat. Alle zijn gemaakt met de VMM-sjablonen.
+* 470 Vm's op het primaire cluster.
+* Alle Vm's met VHDX-schijf.
+* Virtuele machines waarop werk belastingen worden uitgevoerd, worden in de tabel samenvatten. Alle zijn met VMM-sjablonen gemaakt.
 
-| Workload | # VM 's | Minimaal RAM (GB) | Maximum-RAM (GB) | Grootte van logische schijf (GB) per VM | Maximale IOPS |
+| Workload | Aantal Vm's | Mini maal RAM-geheugen (GB) | Maximum-RAM (GB) | Grootte van logische schijf (GB) per VM | Maximum aantal IOPS |
 | --- | --- | --- | --- | --- | --- |
 | SQL Server |51 |1 |4 |167 |10 |
 | Exchange Server |71 |1 |4 |552 |10 |
 | Bestandsserver |50 |1 |2 |552 |22 |
 | VDI |149 |.5 |1 |80 |6 |
 | Webserver |149 |.5 |1 |80 |6 |
-| TOTAAL |470 | | |96.83 TB |4108 |
+| TOTAAL |470 | | |96,83 TB |4108 |
 
-### <a name="site-recovery-settings"></a>Site Recovery-instellingen
+### <a name="site-recovery-settings"></a>Site Recovery instellingen
 
-* Site Recovery is geconfigureerd voor on-premises naar on-premises bescherming
-* De VMM-server heeft vier clouds zijn geconfigureerd, met de servers met Hyper-V-cluster en de bijbehorende virtuele machines.
+* Site Recovery is geconfigureerd voor on-premises naar on-premises beveiliging
+* Op de VMM-server zijn vier Clouds geconfigureerd, met de Hyper-V-cluster servers en de bijbehorende Vm's.
 
-| Primaire VMM-cloud | Beveiligde virtuele machines | Frequentie van replicatie | Aanvullende herstelpunten |
+| Primaire VMM-Cloud | Beveiligde VM's | Replicatie frequentie | Aanvullende herstel punten |
 | --- | --- | --- | --- |
-| PrimaryCloudRpo15m |142 |15 mins |Geen |
+| PrimaryCloudRpo15m |142 |15 minuten |Geen |
 | PrimaryCloudRpo30s |47 |30 seconden |Geen |
 | PrimaryCloudRpo30sArp1 |47 |30 seconden |1 |
 | PrimaryCloudRpo5m |235 |5 minuten |Geen |
 
 ### <a name="performance-metrics"></a>Metrische gegevens voor prestaties
 
-De tabel bevat een overzicht van de metrische gegevens voor prestaties en de items die zijn gemeten in de implementatie.
+De tabel bevat een overzicht van de prestatie gegevens en prestatie meter items die in de implementatie zijn gemeten.
 
 | Gegevens | Teller |
 | --- | --- |
 | CPU |\Processor(_Total)\% Processor Time |
+| Available memory |\Memory\Available MBytes |
+| IOPS |\PhysicalDisk(_Total)\Disk Transfers/sec |
+| VM read (IOPS) operations/sec |\Hyper-V Virtual Storage Device(\<VHD>)\Read Operations/Sec |
+| VM write (IOPS) operations/sec |\Hyper-V Virtual Storage Device(\<VHD>)\Write Operations/S |
+| VM read throughput |\Hyper-V Virtual Storage Device(\<VHD>)\Read Bytes/sec |
+| VM write throughput |\Hyper-V Virtual Storage Device(\<VHD>)\Write Bytes/sec |
+
+## Next steps
+
+[Set up replication](hyper-v-vmm-disaster-recovery.md)\Processor(_Total)\` Processor Timeation of Hyper-V VMs in VMM clouds to a secondary site with Azure Site Recovery | Microsoft Docs
+description: This article provides information about performance testing for replication of Hyper-V VMs in VMM clouds to a secondary site using Azure Site Recovery.
+author: sujayt
+manager: rochakm
+ms.service: site-recovery
+ms.topic: conceptual
+ms.date: 12/27/2018
+ms.author: sutalasi
+
+---
+# Test results for Hyper-V replication to a secondary site
+
+
+This article provides the results of performance testing when replicating Hyper-V VMs in System Center Virtual Machine Manager (VMM) clouds, to a secondary datacenter.
+
+## Test goals
+
+The goal of testing was to examine how Site Recovery performs during steady state replication.
+
+- Steady state replication occurs when VMs have completed initial replication, and are synchronizing delta changes.
+- It’s important to measure performance using steady state, because it’s the state in which most VMs remain, unless unexpected outages occur.
+- The test deployment consisted of two on-premises sites, with a VMM server in each site. This test deployment is typical of a head office/branch office deployment, with head office acting as the primary site, and the branch office as the secondary or recovery site.
+
+## What we did
+
+Here's what we did in the test pass:
+
+1. Created VMs using VMM templates.
+2. Started VMs, and captured baseline performance metrics over 12 hours.
+3. Created clouds on the primary and recovery VMM servers.
+4. Configured replication in Site Recovery, including mapping between source and recovery clouds.
+5. Enabled protection for VMs, and allowed them to complete initial replication.
+6. Waited a couple of hours for system stabilization.
+7. Captured performance metrics over 12 hours, where all VMs remained in an expected replication state for those 12 hours.
+8. Measured the delta between the baseline performance metrics, and the replication performance metrics.
+
+
+## Primary server performance
+
+* Hyper-V Replica (used by Site Recovery) asynchronously tracks changes to a log file, with minimum storage overhead on the primary server.
+* Hyper-V Replica utilizes self-maintained memory cache to minimize IOPS overhead for tracking. It stores writes to the VHDX in memory, and flushes them into the log file before the time that the log is sent to the recovery site. A disk flush also happens if the writes hit a predetermined limit.
+* The graph below shows the steady state IOPS overhead for replication. We can see that the IOPS overhead due to replication is around 5%, which is quite low.
+
+  ![Primary results](./media/hyper-v-vmm-performance-results/IC744913.png)
+
+Hyper-V Replica uses memory on the primary server, to optimize disk performance. As shown in the following graph, memory overhead on all servers in the primary cluster is marginal. The memory overhead shown is the percentage of memory used by replication, compared to the total installed memory on the Hyper-V server.
+
+![Primary results](./media/hyper-v-vmm-performance-results/IC744914.png)
+
+Hyper-V Replica has minimum CPU overhead. As shown in the graph, replication overhead is in the range of 2-3%.
+
+![Primary results](./media/hyper-v-vmm-performance-results/IC744915.png)
+
+## Secondary server performance
+
+Hyper-V Replica uses a small amount of memory on the recovery server, to optimize the number of storage operations. The graph summarizes the memory usage on the recovery server. The memory overhead shown is the percentage of memory used by replication, compared to the total installed memory on the Hyper-V server.
+
+![Secondary results](./media/hyper-v-vmm-performance-results/IC744916.png)
+
+The amount of I/O operations on the recovery site is a function of the number of write operations on the primary site. Let’s look at the total I/O operations on the recovery site in comparison with the total I/O operations and write operations on the primary site. The graphs show that the total IOPS on the recovery site is
+
+* Around 1.5 times the write IOPS on the primary.
+* Around 37% of the total IOPS on the primary site.
+
+![Secondary results](./media/hyper-v-vmm-performance-results/IC744917.png)
+
+![Secondary results](./media/hyper-v-vmm-performance-results/IC744918.png)
+
+## Effect on network utilization
+
+An average of 275 Mb per second of network bandwidth was used between the primary and recovery nodes (with compression enabled), against an existing bandwidth of 5 Gb per second.
+
+![Results network utilization](./media/hyper-v-vmm-performance-results/IC744919.png)
+
+## Effect on VM performance
+
+An important consideration is the impact of replication on production workloads running on the virtual machines. If the primary site is adequately provisioned for replication, there shouldn’t be any impact on the workloads. Hyper-V Replica’s lightweight tracking mechanism ensures that workloads running in the virtual machines are not impacted during steady-state replication. This is illustrated in the following graphs.
+
+This graph shows IOPS performed by virtual machines running different workloads, before and after replication was enabled. You can observe that there is no difference between the two.
+
+![Replica effect results](./media/hyper-v-vmm-performance-results/IC744920.png)
+
+The following graph shows the throughput of virtual machines running different workloads, before and after replication was enabled. You can observe that replication has no significant impact.
+
+![Results replica effects](./media/hyper-v-vmm-performance-results/IC744921.png)
+
+## Conclusion
+
+The results clearly show that Site Recovery, coupled with Hyper-V Replica, scales well with minimum overhead for a large cluster. Site Recovery provides simple deployment, replication, management and monitoring. Hyper-V Replica provides the necessary infrastructure for successful replication scaling. 
+
+## Test environment details
+
+### Primary site
+
+* The primary site has a cluster containing five Hyper-V servers, running 470 virtual machines.
+* The VMs run different workloads, and all have Site Recovery protection enabled.
+* Storage for the cluster node is provided by an iSCSI SAN. Model – Hitachi HUS130.
+* Each cluster server has four network cards (NICs) of one Gbps each.
+* Two of the network cards are connected to an iSCSI private network, and two are connected to an external enterprise network. One of the external networks is reserved for cluster communications only.
+
+![Primary hardware requirements](./media/hyper-v-vmm-performance-results/IC744922.png)
+
+| Server | RAM | Model | Processor | Number of processors | NIC | Software |
+| --- | --- | --- | --- | --- | --- | --- |
+| Hyper-V servers in cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 has 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
+| VMM Server |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
+
+### Secondary site
+
+* The secondary site has a six-node failover cluster.
+* Storage for the cluster node is provided by an iSCSI SAN. Model – Hitachi HUS130.
+
+![Primary hardware specification](./media/hyper-v-vmm-performance-results/IC744923.png)
+
+| Server | RAM | Model | Processor | Number of processors | NIC | Software |
+| --- | --- | --- | --- | --- | --- | --- |
+| Hyper-V servers in cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2.30GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
+| ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
+| ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
+| VMM Server |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
+
+### Server workloads
+
+* For test purposes we picked workloads commonly used in enterprise customer scenarios.
+* We use [IOMeter](http://www.iometer.org) with the workload characteristic summarized in the table for simulation.
+* All IOMeter profiles are set to write random bytes to simulate worst-case write patterns for workloads.
+
+| Workload | I/O size (KB) | % Access | %Read | Outstanding I/Os | I/O pattern |
+| --- | --- | --- | --- | --- | --- |
+| File Server |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5%<br />5%<br />10% |80%<br />80%<br />80%<br />80%<br />80% |8<br />8<br />8<br />8<br />8 |All 100% random |
+| SQL Server (volume 1)<br />SQL Server (volume 2) |8<br />64 |100%<br />100% |70%<br />0% |8<br />8 |100% random<br />100% sequential |
+| Exchange |32 |100% |67% |8 |100% random |
+| Workstation/VDI |4<br />64 |66%<br />34% |70%<br />95% |1<br />1 |Both 100% random |
+| Web File Server |4<br />8<br />64 |33%<br />34%<br />33% |95%<br />95%<br />95% |8<br />8<br />8 |All 75% random |
+
+### VM configuration
+
+* 470 VMs on the primary cluster.
+* All VMs with VHDX disk.
+* VMs running workloads summarized in the table. All were created with VMM templates.
+
+| Workload | # VMs | Minimum RAM (GB) | Maximum RAM (GB) | Logical disk size (GB) per VM | Maximum IOPS |
+| --- | --- | --- | --- | --- | --- |
+| SQL Server |51 |1 |4 |167 |10 |
+| Exchange Server |71 |1 |4 |552 |10 |
+| File Server |50 |1 |2 |552 |22 |
+| VDI |149 |.5 |1 |80 |6 |
+| Web server |149 |.5 |1 |80 |6 |
+| TOTAL |470 | | |96.83 TB |4108 |
+
+### Site Recovery settings
+
+* Site Recovery was configured for on-premises to on-premises protection
+* The VMM server has four clouds configured, containing the Hyper-V cluster servers and their VMs.
+
+| Primary VMM cloud | Protected VMs | Replication frequency | Additional recovery points |
+| --- | --- | --- | --- |
+| PrimaryCloudRpo15m |142 |15 mins |None |
+| PrimaryCloudRpo30s |47 |30 secs |None |
+| PrimaryCloudRpo30sArp1 |47 |30 secs |1 |
+| PrimaryCloudRpo5m |235 |5 mins |None |
+
+### Performance metrics
+
+The table summarizes the performance metrics and counters that were measured in the deployment.
+
+| Metric | Counter |
+| --- | --- |
+| CPU |\Processor(_Total)\% Processor Time |
 | Beschikbaar geheugen |\Memory\Available MBytes |
 | IOPS |\PhysicalDisk(_Total)\Disk Transfers/sec |
-| Virtuele machine lezen (IOPS) per seconde |\Hyper-V virtueel opslagapparaat (\<VHD >) \Read bewerkingen/Sec |
-| Virtuele machine schrijfbewerkingen (IOPS) per seconde |\Hyper-V virtueel opslagapparaat (\<VHD >) \Write bewerkingen/sec |
-| VM-leesdoorvoer |\Hyper-V virtueel opslagapparaat (\<VHD >) \Read Bytes per seconde |
-| VM-schrijfbewerkingen |\Hyper-V virtueel opslagapparaat (\<VHD >) \Write Bytes per seconde |
+| Gelezen VM-bewerkingen (IOPS) per seconde |\Hyper-V virtuele-opslag apparaat\<(VHD >) \Read bewerkingen per seconde |
+| Bewerkingen voor het schrijven van VM'S (IOPS) per seconde |\Hyper-V virtuele-opslag apparaat\<(VHD >) \Write-bewerkingen/S |
+| Lees doorvoer van VM |\Hyper-V (\<VHD >) \Read bytes per seconde |
+| Schrijf doorvoer VM |\Hyper-V (\<VHD >) \Write bytes per seconde |
 
 ## <a name="next-steps"></a>Volgende stappen
 

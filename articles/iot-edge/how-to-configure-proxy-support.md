@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1bf66fdb18398aaf233980ee7f2fd45fe1cc543b
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 47d3018015d05d0587e841c216a5eb89f2a0ae20
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260500"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414565"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Een IoT Edge-apparaat om te communiceren via een proxyserver configureren
 
@@ -64,7 +64,7 @@ Of uw IoT Edge-apparaat wordt uitgevoerd op Windows of Linux, u hebt toegang tot
 
 ### <a name="linux"></a>Linux
 
-Als u de IoT Edge-runtime op een Linux-apparaat installeert, configureert u de package manager om te gaan via de proxyserver voor toegang tot het installatiepakket. Bijvoorbeeld, [apt-get ingesteld voor het gebruik van een http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Zodra uw pakketmanager is geconfigureerd, volg de instructies in [installeren Azure IoT Edge-runtime op Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) of [Azure IoT Edge-runtime installeren in Linux (x64)](how-to-install-iot-edge-linux.md) zoals gebruikelijk.
+Als u de IoT Edge-runtime op een Linux-apparaat installeert, configureert u de package manager om te gaan via de proxyserver voor toegang tot het installatiepakket. Bijvoorbeeld, [apt-get ingesteld voor het gebruik van een http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Als uw pakket beheer is geconfigureerd, volgt u de instructies in [Install Azure IOT Edge runtime op Linux](how-to-install-iot-edge-linux.md) zoals gebruikelijk.
 
 ### <a name="windows"></a>Windows
 

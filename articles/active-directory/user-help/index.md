@@ -11,16 +11,16 @@ ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e73e089f0753f49233c75a5e55513ebaf7bf9c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a6908a26e1d513261094be28620c3c9a2d86b48
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60861800"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383106"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Gebruikershulp voor verificatie, apps en apparaatbeheer
 
-We hebben deze inhoud gemaakt om u te helpen aan de slag te gaan en beveiligingsgegevens en verificatie in twee stappen te gebruiken, evenals om u te leren hoe u uw eigen wachtwoorden opnieuw instelt, Azure Active Directory-apparaten samenvoegt en hoe u de Microsoft Authenticator-app en de Mijn Apps-portal gebruikt.
+We hebben deze inhoud gemaakt om u te helpen aan de slag te gaan en beveiligingsgegevens en verificatie in twee stappen te gebruiken, u te leren hoe u uw eigen wachtwoorden opnieuw instelt, Azure Active Directory-apparaten samenvoegt en hoe u de Microsoft Authenticator-app en de Mijn Apps-portal gebruikt.
 
 |  |
 |--|
@@ -77,6 +77,7 @@ We hebben deze inhoud gemaakt om u te helpen aan de slag te gaan en beveiligings
                         <a href="/azure/active-directory/user-help/security-info-setup-auth-app">Een verificator-app instellen</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-text-msg">Sms-berichten instellen</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-phone-number">Telefoongesprekken instellen</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-security-key">Een beveiligingssleutel instellen</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-sign-in">Aanmelden</a>
                         </p>
                     </div>

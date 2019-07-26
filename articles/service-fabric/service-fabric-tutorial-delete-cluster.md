@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2018
+ms.date: 07/22/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 0e5137a8183f378ee5960846e281222c6ecaaa47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 660b8cc8ec142c1c0710480020f103215359987f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158074"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385065"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Zelfstudie: Een Service Fabric-cluster dat in Azure wordt uitgevoerd, verwijderen
 
-Deze zelfstudie is deel vijf van een reeks en ziet u hoe u het verwijderen van een Service Fabric-cluster in Azure uitvoert. Als u een Service Fabric-cluster volledig wilt verwijderen, moet u dus ook alle resources waar het cluster gebruik van maakt, verwijderen. U hebt twee opties: verwijder de resourcegroep waarin het cluster zich bevindt (waarmee de clusterresource en alle andere resources in de resourcegroep worden verwijderd), of verwijder de clusterresource en de bijbehorende resources specifiek (maar niet de andere resources uit de resourcegroep).
+Deze zelf studie is deel vijf van een reeks en laat zien hoe u een Service Fabric cluster verwijdert dat wordt uitgevoerd in Azure. Als u een Service Fabric-cluster volledig wilt verwijderen, moet u dus ook alle resources waar het cluster gebruik van maakt, verwijderen. U hebt twee opties: verwijder de resourcegroep waarin het cluster zich bevindt (waarmee de clusterresource en alle andere resources in de resourcegroep worden verwijderd), of verwijder de clusterresource en de bijbehorende resources specifiek (maar niet de andere resources uit de resourcegroep).
 
 In deze zelfstudie leert u het volgende:
 
@@ -48,13 +48,13 @@ In deze zelfstudiereeks leert u het volgende:
 Voor u met deze zelfstudie begint:
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installeer [Azure Powershell](https://docs.microsoft.com/powershell/azure//install-Az-ps) of [Azure CLI](/cli/azure/install-azure-cli).
+* Installeer [Azure Power shell](https://docs.microsoft.com/powershell/azure//install-Az-ps) of [Azure cli](/cli/azure/install-azure-cli).
 * Een beveiligd [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) maken in Azure
 
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>Verwijder de resourcegroep die het Service Fabric-cluster bevat
 De eenvoudigste manier om het cluster en alle resources te verwijderen, is om de resourcegroep te verwijderen.
 
-Aanmelden bij Azure en selecteer de abonnements-ID die u wilt verwijderen van het cluster.  U kunt uw abonnements-id vinden door u aan te melden bij [Azure Portal](https://portal.azure.com). Verwijder de resourcegroep en alle clusterbronnen met behulp van de [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet of [az group delete](/cli/azure/group?view=azure-cli-latest) opdracht.
+Meld u aan bij Azure en selecteer het abonnement-ID waarmee u het cluster wilt verwijderen.  U kunt uw abonnements-id vinden door u aan te melden bij [Azure Portal](https://portal.azure.com). Verwijder de resource groep en alle cluster bronnen met behulp van de cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) of de opdracht [AZ Group delete](/cli/azure/group?view=azure-cli-latest) .
 
 ```powershell
 Connect-AzAccount

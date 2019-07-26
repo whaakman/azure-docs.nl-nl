@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: b298d73620990dd8f6c6577818adaef9788122e9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 50703ede205b42032e9618c1b16b0de2bd7f3a23
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326329"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424139"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus"></a>Status Monitor v2-API: Get-ApplicationInsightsMonitoringStatus
 
@@ -39,7 +39,6 @@ Met deze cmdlet worden versie-informatie en informatie over de vereiste sleutel 
 Voer de opdracht `Get-ApplicationInsightsMonitoringStatus` uit om de bewakings status van websites weer te geven.
 
 ```
-Machine Identifier:
 PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
 Machine Identifier:
 811D43F7EC807E389FEA2E732381288ACCD70AFFF9F569559AC3A75F023FA639
@@ -135,7 +134,7 @@ ApplicationInsightsSdkPath (Exists: True)
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
-### <a name="example-runtime-status"></a>Voorbeeld: Runtime status
+### <a name="example-runtime-status"></a>Voorbeeld: Runtimestatus
 
 U kunt het proces op de geinstrumenteerde computer controleren om te controleren of alle Dll's zijn geladen. Als de bewaking werkt, moeten ten minste 12 Dll's worden geladen.
 

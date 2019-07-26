@@ -1,60 +1,59 @@
 ---
-title: Ondersteuningsmatrix voor de back-up van machines met de Microsoft Azure Recovery Services agent (MARS) met Azure Backup
-description: In dit artikel bevat een overzicht van Azure Backup-ondersteuning als u back-up van machines die de Microsoft Azure Recovery Services agent (MARS) worden uitgevoerd.
-services: backup
+title: Ondersteunings matrix voor het maken van back-ups van machines met de Microsoft Azure Recovery Services-agent (MARS) met Azure Backup
+description: Dit artikel bevat een overzicht van Azure Backup ondersteuning bij het maken van een back-up van computers waarop de Microsoft Azure Recovery Services-agent (MARS) wordt uitgevoerd.
 author: rayne-wiselman
 ms.service: backup
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9f3c9b94a093df539a6ca4660383837becf1709
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64923007"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464850"
 ---
-# <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Ondersteuningsmatrix voor de back-up met de Microsoft Azure Recovery Services agent (MARS)
+# <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Ondersteunings matrix voor back-up met de Microsoft Azure Recovery Services-agent (MARS)
 
-U kunt de [Azure Backup-service](backup-overview.md) back-up on-premises machines en apps en back-up van virtuele Azure-machines (VM's). In dit artikel bevat een overzicht van instellingen voor de ondersteuning en beperkingen wanneer u de Microsoft Azure Recovery Services agent (MARS) voor back-up van machines.
+U kunt de [Azure backup-service](backup-overview.md) gebruiken om een back-up te maken van on-premises machines en apps en om back-ups te maken van Azure virtual machines (vm's). In dit artikel vindt u een overzicht van de ondersteunings instellingen en beperkingen wanneer u de Microsoft Azure Recovery Services-agent (MARS) gebruikt voor het maken van back-ups van computers
 
 ## <a name="the-mars-agent"></a>De MARS-agent
 
-Azure Backup gebruikt de MARS-agent om back-ups van on-premises machines en virtuele Azure-machines naar een back-Recovery Services-kluis in Azure. De MARS-agent kunt doen:
-- Uitgevoerd op on-premises Windows-computers zodat ze kunnen back-up rechtstreeks naar een back-Recovery Services-kluis in Azure.
-- Uitgevoerd op Windows-VM's zodat ze kunnen back-up rechtstreeks naar een kluis.
-- Uitgevoerd op Microsoft Azure Backup-Server (MABS) of een server met System Center Data Protection Manager (DPM). In dit scenario back computers en werkbelastingen-up naar MABS of naar de DPM-server. De MARS-agent en de back-up van deze server naar een kluis in Azure.
+Azure Backup maakt gebruik van de MARS-agent om back-ups te maken van gegevens van on-premises machines en Azure-Vm's naar een back-upRecovery Services kluis in Azure. De MARS-agent kan:
+- Voer uit op on-premises Windows-computers, zodat ze rechtstreeks een back-up kunnen maken naar een back-upRecovery Services kluis in Azure.
+- Voer uit op Windows-Vm's zodat ze rechtstreeks een back-up kunnen maken naar een kluis.
+- Voer uit op Microsoft Azure Backup Server (MABS) of een System Center Data Protection Manager (DPM)-server. In dit scenario maken machines en workloads een back-up naar MABS of naar de DPM-server. De MARS-agent maakt vervolgens een back-up van deze server naar een kluis in Azure.
 
-Uw back-upopties, is afhankelijk van de waarop de agent is geïnstalleerd. Zie voor meer informatie, [Azure Backup-architectuur met behulp van de MARS-agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Zie voor meer informatie over de architectuur van MABS en DPM back-up [back-up op de DPM- of MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Zie ook [vereisten](backup-support-matrix-mabs-dpm.md) voor de back-architectuur.
+Uw back-upopties zijn afhankelijk van waar de agent is geïnstalleerd. Zie voor meer informatie [Azure backup architectuur met behulp van de Mars-agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Zie [back-up naar DPM of MABS](backup-architecture.md#architecture-back-up-to-dpmmabs)voor meer informatie over de MABS-en DPM-back-uparchitectuur. Zie ook de [vereisten](backup-support-matrix-mabs-dpm.md) voor de back-uparchitectuur.
 
 **Installatie** | **Details**
 --- | ---
-Download de nieuwste MARS-agent | U kunt de meest recente versie van de agent downloaden uit de kluis of [rechtstreeks downloaden](https://aka.ms/azurebackup_agent).
-Rechtstreeks op een computer installeren | U kunt de MARS-agent installeren rechtstreeks op een on-premises Windows server of op een Windows-VM die wordt uitgevoerd een van de [ondersteunde besturingssystemen](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
-Installeren op een back-upserver | Bij het instellen van DPM- of MABS back-up naar Azure, kunt u downloaden en installeren van de MARS-agent op de server. U kunt de agent installeren op [ondersteunde besturingssystemen](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) in de ondersteuningsmatrix voor back-upserver.
+De nieuwste MARS-agent downloaden | U kunt de nieuwste versie van de agent downloaden van de kluis of [deze rechtstreeks downloaden](https://aka.ms/azurebackup_agent).
+Rechtstreeks op een computer installeren | U kunt de MARS-agent rechtstreeks installeren op een on-premises Windows-Server of op een Windows-VM waarop een van de [ondersteunde besturings systemen](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems)wordt uitgevoerd.
+Installeren op een back-upserver | Wanneer u DPM of MABS instelt om een back-up te maken naar Azure, downloadt en installeert u de MARS-agent op de-server. U kunt de agent installeren op [ondersteunde besturings systemen](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) in de ondersteunings matrix van de back-upserver.
 
 > [!NOTE]
-> Standaard zijn Azure-VM's die zijn ingeschakeld voor back-up een installatie van de Azure Backup-extensie. Deze extensie een back-up van de hele virtuele machine. U kunt installeren en de MARS-agent op een Azure-VM samen met de extensie wordt uitgevoerd als u wilt back-up van specifieke mappen en bestanden, in plaats van de volledige virtuele machine.
-> Wanneer u de MARS-agent op een Azure-VM uitvoert, wordt een back-up van bestanden en mappen die zich in de tijdelijke opslag op de virtuele machine. Back-ups mislukken als de bestanden of mappen worden verwijderd uit de tijdelijke opslag, of als de tijdelijke opslag wordt verwijderd.
+> Virtuele Azure-machines die zijn ingeschakeld voor back-up, hebben standaard een Azure Backup extensie-installatie. Deze uitbrei ding maakt een back-up van de volledige VM. U kunt de MARS-agent op een virtuele machine van Azure installeren en uitvoeren naast de extensie als u een back-up wilt maken van specifieke mappen en bestanden, in plaats van de volledige VM.
+> Wanneer u de MARS-agent op een virtuele machine van Azure uitvoert, worden er back-ups gemaakt van bestanden of mappen die zich in de tijdelijke opslag op de virtuele machine bevinden. Back-ups mislukken als de bestanden of mappen worden verwijderd uit de tijdelijke opslag of als de tijdelijke opslag wordt verwijderd.
 
 
-## <a name="cache-folder-support"></a>Ondersteuning voor cache-map
+## <a name="cache-folder-support"></a>Ondersteuning voor cachemap
 
-Wanneer u de MARS-agent gebruikt voor back-up van gegevens, wordt de agent een momentopname van de gegevens en slaat ze op in een lokale map voordat het de gegevens naar Azure verzendt. De cachemap (volledig) heeft verschillende vereisten:
+Wanneer u de MARS-agent gebruikt voor het maken van een back-up van gegevens, neemt de agent een moment opname van de gegevens en slaat deze op in een lokale cachemap voordat de gegevens naar Azure worden verzonden. De cache (scratch)-map heeft verschillende vereisten:
 
 **Cache** | **Details**
 --- | ---
-Grootte |  Vrije ruimte in de cachemap moet ten minste 5 tot 10 procent van de totale grootte van uw back-upgegevens.
-Locatie | De cachemap moet lokaal worden opgeslagen op de computer die de back-up en moet online zijn. De cachemap mag niet op een netwerkshare bevindt, op verwisselbare media of op een offline-volume.
-Map | De cachemap moet worden versleuteld op een ontdubbeld volume of in een map die gecomprimeerd, die wordt verspreid, of waarvoor een reparsepunt.
-Locatiewijzigingen | U kunt de cachelocatie wijzigen door de engine voor het back-up stoppen (`net stop bengine`) en de cachemap kopiëren naar een nieuw station. (Zorg ervoor dat het nieuwe station voldoende ruimte heeft.) Werk vervolgens twee registervermeldingen onder **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** en **CloudBackupProvider-Config-ScratchLocation**) naar de nieuwe locatie en de engine voor het opnieuw.
+Size |  Beschik bare ruimte in de cachemap moet ten minste 5 tot 10 procent van de totale grootte van uw back-upgegevens zijn.
+Location | De cachemap moet lokaal zijn opgeslagen op de computer waarvan een back-up wordt gemaakt en moet online zijn. De cachemap mag zich niet op een netwerk share, op Verwissel bare media of op een offline volume bevinden.
+Map | De cachemap moet worden versleuteld op een ontdubbeld volume of in een map die is gecomprimeerd, een sparse of een reparsepunt heeft.
+Locatie wijzigingen | U kunt de locatie van de cache wijzigen door de back-`net stop bengine`upengine () te stoppen en de cachemap naar een nieuw station te kopiëren. (Zorg ervoor dat er voldoende ruimte beschikbaar is op het nieuwe station.) Werk vervolgens twee Register vermeldingen onder **HKLM\SOFTWARE\Microsoft\Windows Azure backup** (**config/ScratchLocation** en **config/CloudBackupProvider/ScratchLocation**) bij naar de nieuwe locatie en start de engine opnieuw.
 
-## <a name="networking-and-access-support"></a>Ondersteuning voor netwerk- en toegangsbeheer
+## <a name="networking-and-access-support"></a>Ondersteuning voor netwerken en toegang
 
 ### <a name="url-access"></a>URL-toegang
 
-De MARS-agent moet toegang hebben tot deze URL's:
+De MARS-agent moet toegang hebben tot deze Url's:
 
 - http://www.msftncsi.com/ncsi.txt
 - *.Microsoft.com
@@ -62,87 +61,87 @@ De MARS-agent moet toegang hebben tot deze URL's:
 - *.MicrosoftOnline.com
 - *.Windows.net
 
-### <a name="throttling-support"></a>Ondersteuning voor bandbreedteregeling
+### <a name="throttling-support"></a>Ondersteuning voor beperking
 
 **Functie** | **Details**
 --- | ---
-Bandbreedteregeling | Ondersteund. In de MARS-agent gebruiken **eigenschappen wijzigen** bandbreedte aanpassen.
-Netwerkbeperking | Niet beschikbaar voor een back-up-machines waarop Windows Server 2008 R2, Windows Server 2008 SP2 of Windows 7 wordt uitgevoerd.
+Bandbreedte regeling | Ondersteund. In de MARS-agent gebruikt u **Eigenschappen wijzigen** om de band breedte aan te passen.
+Netwerk beperking | Niet beschikbaar voor back-ups van computers waarop Windows Server 2008 R2, Windows Server 2008 SP2 of Windows 7 wordt uitgevoerd.
 
 ## <a name="support-for-direct-backups"></a>Ondersteuning voor directe back-ups
 
-De MARS-agent kunt u back-up rechtstreeks naar Azure op sommige besturingssystemen die worden uitgevoerd op on-premises machines en virtuele Azure-machines. Het besturingssysteem moet 64-bits en moet worden uitgevoerd van de meest recente servicepacks en updates. De volgende tabel geeft een overzicht van deze besturingssystemen:
+U kunt de MARS-agent gebruiken om rechtstreeks een back-up naar Azure te maken op bepaalde besturings systemen die worden uitgevoerd op on-premises machines en Azure-Vm's. De besturings systemen moeten 64 bits zijn en moeten de nieuwste service packs en updates uitvoeren. De volgende tabel bevat een overzicht van deze besturings systemen:
 
-**Besturingssysteem** | **Bestanden/mappen** | **Systeemstatus**
+**Besturingssysteem** | **Bestanden/mappen** | **Systeem status**
 --- | --- | ---
 Windows 10 (Enterprise, Pro, Home) | Ja | Nee
-Windows 8.1 (Enterprise, Pro)| Ja |Nee
+Windows 8,1 (Enter prise, Pro)| Ja |Nee
 Windows 8 (Enterprise, Pro) | Ja | Nee
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Ja | Nee
-WindowsServer 2016 (Standard, Datacenter, Essentials) | Ja | Ja
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Ja | Ja
-Windows Server 2012 (Standard, Datacenter, Foundation) | Ja | Ja
-Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Ja | Ja
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Ja | Nee
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Ja | Nee
+Windows 7 (Ultimate, Enter prise, Pro, Home Premium/Basic, starter) | Ja | Nee
+Windows Server 2016 (Standard, Data Center, Essentials) | Ja | Ja
+Windows Server 2012 R2 (Standard, Data Center, Foundation, Essentials) | Ja | Ja
+Windows Server 2012 (Standard, Data Center, Foundation) | Ja | Ja
+Windows Server 2008 R2 (Standard, Enter prise, Data Center, Foundation) | Ja | Ja
+Windows Server 2008 SP2 (Standard, Data Center, Foundation) | Ja | Nee
+Windows Storage Server 2016/2012 R2/2012 (standaard, werk groep) | Ja | Nee
 
-Zie voor meer informatie, [besturingssystemen ondersteund MABS en DPM](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
+Zie [supported MABS and DPM Operating Systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)(Engelstalig) voor meer informatie.
 
-## <a name="backup-limits"></a>Limieten voor back-up
+## <a name="backup-limits"></a>Back-uplimieten
 
-Azure Backup beperkt de grootte van een bestand of map gegevensbron die u kunt een back-up. De items die u op één volume back-up niet langer zijn dan de grootten die in deze tabel wordt samengevat:
+Azure Backup beperkt de grootte van een gegevens bron van een bestand of map waarvan een back-up kan worden gemaakt. De items waarvan u een back-up hebt gemaakt vanaf één volume mogen niet groter zijn dan de grootte die in deze tabel wordt weer gegeven:
 
 **Besturingssysteem** | **Maximale grootte**
 --- | ---
-Windows Server 2012 of hoger |  54\.400 GB
-Windows Server 2008 R2 SP1 |    1700 GB
-Windows Server 2008 SP2 | 1700 GB
-Windows 8 of hoger  | 54\.400 GB
-Windows 7   | 1700 GB
+Windows Server 2012 of hoger |  54.400 GB
+Windows Server 2008 R2 SP1 |    1\.700 GB
+Windows Server 2008 SP2 | 1\.700 GB
+Windows 8 of hoger  | 54.400 GB
+Windows 7   | 1\.700 GB
 
 
-## <a name="supported-file-types-for-backup"></a>Ondersteunde bestandstypen voor back-up
+## <a name="supported-file-types-for-backup"></a>Ondersteunde bestands typen voor back-up
 
 **Type** | **Ondersteuning**
 --- | ---
 Versleuteld   | Ondersteund.
 Gecomprimeerd | Ondersteund.
 Sparse | Ondersteund.
-Gecomprimeerd en sparse | Ondersteund.
-Vaste koppelingen  | Wordt niet ondersteund. Overgeslagen.
-Reparsepunt   | Wordt niet ondersteund. Overgeslagen.
-Versleuteld en sparse |  Wordt niet ondersteund. Overgeslagen.
-Gecomprimeerde stream   | Wordt niet ondersteund. Overgeslagen.
-Sparse stream   | Wordt niet ondersteund. Overgeslagen.
-OneDrive (gesynchroniseerde bestanden zijn sparse streams)  | Wordt niet ondersteund.
+Gecomprimeerd en verspreid | Ondersteund.
+Vaste koppelingen  | Wordt niet ondersteund. Genegeerd.
+Reparsepunt   | Wordt niet ondersteund. Genegeerd.
+Versleuteld en verspreid |  Wordt niet ondersteund. Genegeerd.
+Gecomprimeerde stroom   | Wordt niet ondersteund. Genegeerd.
+Sparse stream   | Wordt niet ondersteund. Genegeerd.
+OneDrive (gesynchroniseerde bestanden zijn sparse-streams)  | Wordt niet ondersteund.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Ondersteunde stations of volumes voor back-up
 
-**Station of het volume** | **Ondersteuning** | **Details**
+**Station/volume** | **Ondersteuning** | **Details**
 --- | --- | ---
-Alleen-lezen-volumes   | Niet ondersteund | Volume Copy Shadow Service (VSS) werkt alleen als het volume schrijfbaar is.
-Offlinevolumes | Niet ondersteund |   VSS werkt alleen als het volume online is.
-Netwerkshare   | Niet ondersteund |   Het volume moet lokaal op de server.
+Alleen-lezen volumes   | Niet ondersteund | Volume Copy Shadow Service (VSS) werkt alleen als het volume schrijfbaar is.
+Offline volumes | Niet ondersteund |   VSS werkt alleen als het volume online is.
+Netwerk share   | Niet ondersteund |   Het volume moet lokaal op de server zijn.
 Met BitLocker beveiligde volumes | Niet ondersteund |   Het volume moet worden ontgrendeld voordat de back-up wordt gestart.
-Bestandssysteemidentificatie  | Niet ondersteund |   Alleen NTFS wordt ondersteund.
-Verwisselbare media | Niet ondersteund |   Alle back-upitem bronnen ze beschikken over een *vaste* status.
-Ontdubbelde schijven | Ondersteund | Azure Backup converteert de ontdubbelde gegevens naar normale gegevens. Deze optimaliseert, worden versleuteld opgeslagen en verzendt die gegevens naar de kluis.
+Bestandssysteem identificatie  | Niet ondersteund |   Alleen NTFS wordt ondersteund.
+Verwissel bare media | Niet ondersteund |   Alle bronnen van back-upitems moeten een *vaste* status hebben.
+Ontdubbelde stations | Ondersteund | Azure Backup converteert ontdubbelde gegevens naar normale gegevens. De gegevens worden geoptimaliseerd, versleuteld, opgeslagen en verzonden naar de kluis.
 
-## <a name="support-for-initial-offline-backup"></a>Ondersteuning voor de eerste offline back-up
+## <a name="support-for-initial-offline-backup"></a>Ondersteuning voor eerste offline back-up
 
-Azure Backup ondersteunt *offline seeding* om over te dragen van eerste back-upgegevens naar Azure met behulp van schijven. Deze ondersteuning is handig als uw eerste back-up is waarschijnlijk in het bereik van de grootte van terabytes (TB). Offline back-up wordt ondersteund voor:
+Azure Backup ondersteunt *offline seeding* om de eerste back-upgegevens over te dragen naar Azure met behulp van schijven. Deze ondersteuning is handig als de eerste back-up waarschijnlijk in het omvang bereik van terabytes (TBs) ligt. Offline back-up wordt ondersteund voor:
 
-- Directe back-ups van bestanden en mappen op de on-premises computers waarop de MARS-agent.
-- Back-up van workloads en bestanden van een DPM-server of MABS.
+- Directe back-ups van bestanden en mappen op on-premises machines waarop de MARS-agent wordt uitgevoerd.
+- Back-ups van werk belastingen en bestanden van een DPM-server of MABS.
 
-Offline back-up kan niet worden gebruikt voor systeemstatusbestanden.
+Offline back-up kan niet worden gebruikt voor systeem status bestanden.
 
-## <a name="support-for-data-restoration"></a>Ondersteuning voor gegevens worden hersteld
+## <a name="support-for-data-restoration"></a>Ondersteuning voor het herstellen van gegevens
 
-Met behulp van de [direct herstellen](backup-instant-restore-capability.md) functie van Azure Backup, kunt u gegevens terugzetten voordat deze wordt gekopieerd naar de kluis. De computer die u een back-up moet worden uitgevoerd op .NET Framework 4.5.2 of hoger.
+Met de functie voor [direct terugzetten](backup-instant-restore-capability.md) van Azure Backup kunt u gegevens herstellen voordat deze naar de kluis worden gekopieerd. Op de machine waarvan u een back-up maakt, moet .NET Framework 4.5.2 of hoger worden uitgevoerd.
 
-Back-ups kunnen niet worden hersteld naar een doel-VM die een eerdere versie van het besturingssysteem wordt uitgevoerd. Bijvoorbeeld, kan een back-up van een computer met Windows 7 worden hersteld op Windows 8 of hoger. Maar een back-up van een computer met Windows 8 kan niet worden hersteld op een computer waarop Windows 7 wordt uitgevoerd.
+Back-ups kunnen niet worden hersteld naar een doel computer waarop een eerdere versie van het besturings systeem wordt uitgevoerd. U kunt bijvoorbeeld een back-up die is gemaakt van een computer waarop Windows 7 wordt uitgevoerd, herstellen in Windows 8 of hoger. Een back-up die is gemaakt vanaf een computer waarop Windows 8 wordt uitgevoerd, kan echter niet worden hersteld op een computer waarop Windows 7 wordt uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [back-up van de architectuur die gebruikmaakt van de MARS-agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
-- Informatie over wat er is ondersteund wanneer u [de MARS-agent worden uitgevoerd op MABS of een DPM-server](backup-support-matrix-mabs-dpm.md).
+- Meer informatie over [back-uparchitectuur die gebruikmaakt van de Mars-agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
+- Meer informatie over wat er wordt ondersteund wanneer u [de Mars-agent op MABS of een DPM-server uitvoert](backup-support-matrix-mabs-dpm.md).

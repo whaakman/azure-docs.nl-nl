@@ -1,6 +1,6 @@
 ---
-title: Fouten in apps in Azure Service Fabric simuleren | Microsoft Docs
-description: Klik hier voor meer informatie over het beveiligen van uw services tegen fouten in de correcte en geforceerde afsluiting.
+title: Fouten simuleren in azure Service Fabric-apps | Microsoft Docs
+description: Hoe u uw services kunt beveiligen tegen probleemloze en niet-uitgestelde fouten.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbb89b66231c949627c7ffbf99ebe9b5dd379ca2
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60865269"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348719"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Storingen simuleren tijdens servicewerkbelastingen
-De testbaarheidsscenario's in Azure Service Fabric kunnen ontwikkelaars over het afhandelen van de afzonderlijke fouten u geen zorgen. Er zijn scenario's, maar waarbij een expliciete interleaving van client-werkbelasting en fouten nodig zijn. De interleaving van client-werkbelasting en fouten, zorgt u ervoor dat de service daadwerkelijk een actie wordt uitgevoerd wanneer de fout doet zich voor. Gezien de mate van controle die testbaarheid biedt, kunnen deze worden op exacte momenten van de werkbelasting kan worden uitgevoerd. Dit doen ontstaan van fouten op verschillende statussen in de toepassing kunt vinden fouten en de kwaliteit te verbeteren.
+De test scenario's in azure Service Fabric ontwikkel aars in staat stellen geen zorgen te maken over afzonderlijke storingen. Er zijn echter scenario's, waarbij een expliciete interleaving van de werk belasting en storingen van de client mogelijk nodig is. De interleaving van de werk belasting en fouten van de client zorgt ervoor dat de service daad werkelijk een actie uitvoert wanneer er een fout optreedt. Op basis van het niveau van de controle die de test baarheid biedt, kunnen deze nauw keurige punten van de werk belasting worden uitgevoerd. Deze inductie van fouten in verschillende statussen in de toepassing kan fouten opsporen en de kwaliteit verbeteren.
 
-## <a name="sample-custom-scenario"></a>Aangepaste voorbeeldscenario
-Deze test toont een scenario waarin de workload business met interleaves [fouten in vensters en geforceerde afsluiting](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). De fouten moeten worden verkregen in het midden van servicebewerkingen of de rekenresource voor de beste resultaten.
+## <a name="sample-custom-scenario"></a>Voor beeld van aangepast scenario
+In deze test wordt een scenario weer gegeven dat de zakelijke workload interleaveert met gepaste en niet- [respijt fouten](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). De fouten moeten in het midden van de service bewerkingen worden veroorzaakt of worden berekend voor de beste resultaten.
 
-We nemen een voorbeeld van een service die wordt aangegeven dat vier workloads: A, B, C en D. Elke komt overeen met een set van werkstromen en kan worden compute, opslag of een combinatie. Om het eenvoudig, te zullen we de werkbelastingen uit abstracte in ons voorbeeld. De andere fouten die zijn uitgevoerd in dit voorbeeld zijn:
+Laten we een voor beeld bekijken van een service die vier workloads beschikbaar maakt: A, B, C en D. Elk komt overeen met een set werk stromen en kan reken-, opslag-of mix-bewerkingen zijn. In het geval van eenvoud zullen we de workloads in ons voor beeld samen stellen. De verschillende fouten die in dit voor beeld worden uitgevoerd, zijn:
 
-* RestartNode: Geforceerde afsluiting fout simuleren een machine opnieuw opstarten.
-* RestartDeployedCodePackage: Geforceerde afsluiting fout simuleren service hostproces vastloopt.
-* RemoveReplica: Correcte fouttolerantie voor het simuleren van replica verwijderen.
-* MovePrimary: Correcte fouttolerantie voor het simuleren van replica verplaatst geactiveerd door de Service Fabric load balancer.
+* RestartNode: Er is een fout opgetreden bij het opnieuw opstarten van een computer.
+* RestartDeployedCodePackage: Er is een niet-verwerkte fout opgetreden tijdens het simuleren van het service-hostproces
+* RemoveReplica: Fout tijdens het simuleren van het verwijderen van de replica.
+* MovePrimary Verkeerde fout bij het simuleren van replica verplaatsingen die zijn geactiveerd door de Service Fabric load balancer.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
@@ -116,7 +116,7 @@ class Test
             // Run the selected random fault.
             await RunFaultAsync(applicationName, fault, replicaSelector, fabricClient);
             // Validate the health and stability of the service.
-            await fabricClient.ServiceManager.ValidateServiceAsync(serviceName, maxServiceStabilizationTime);
+            await fabricClient.TestManager.ValidateServiceAsync(serviceName, maxServiceStabilizationTime);
 
             // Wait for the workload to finish successfully.
             await workloadTask;
@@ -128,16 +128,16 @@ class Test
         switch (fault)
         {
             case ServiceFabricFaults.RestartNode:
-                await client.ClusterManager.RestartNodeAsync(selector, CompletionMode.Verify);
+                await client.FaultManager.RestartNodeAsync(selector, CompletionMode.Verify);
                 break;
             case ServiceFabricFaults.RestartCodePackage:
-                await client.ApplicationManager.RestartDeployedCodePackageAsync(applicationName, selector, CompletionMode.Verify);
+                await client.FaultManager.RestartDeployedCodePackageAsync(applicationName, selector, CompletionMode.Verify);
                 break;
             case ServiceFabricFaults.RemoveReplica:
-                await client.ServiceManager.RemoveReplicaAsync(selector, CompletionMode.Verify, false);
+                await client.FaultManager.RemoveReplicaAsync(selector, CompletionMode.Verify, false);
                 break;
             case ServiceFabricFaults.MovePrimary:
-                await client.ServiceManager.MovePrimaryAsync(selector.PartitionSelector);
+                await client.FaultManager.MovePrimaryAsync(selector.PartitionSelector);
                 break;
         }
     }

@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Maken van een web-app waarmee de overweldigende lezer met wordt gestartC#'
+title: 'Quickstart: Een web-app maken waarmee de insluitende lezer wordt gestartC#'
 titlesuffix: Azure Cognitive Services
-description: In deze Quick Start, een volledig nieuwe WebApp bouwen en de functionaliteit boeiende Reader-API toevoegen.
+description: In deze Quick Start bouwt u een volledig nieuwe web-app en voegt u de functionaliteit van de insluitende Reader API toe.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,97 +10,150 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 3b408de6b60e7e7704ee228b52c399e5b80e3a9e
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 6386c22044483a0ac4a324397cf2f9d22e83b579
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718412"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442861"
 ---
-# <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Quickstart: Een web-App waarmee de overweldigende lezer wordt gestart (C#)
+# <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Quickstart: Een web-app maken waarmee de insluitende lezerC#wordt gestart ()
 
-De [boeiende lezer](https://www.onenote.com/learningtools) is een liggen ontworpen hulpprogramma dat wordt geïmplementeerd bewezen technieken om te lezen begrip te verbeteren.
+De [insluitende lezer](https://www.onenote.com/learningtools) is een inclusief ontworpen hulp programma waarmee bewezen technieken worden geïmplementeerd om de Lees vaardigheid te verbeteren.
 
-In deze Quick Start, een volledig nieuwe WebApp bouwen en de overweldigende lezer integreren met behulp van de overweldigende Reader-SDK. Een volledig werkend voorbeeld van deze snelstartgids is beschikbaar [hier](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/quickstart-csharp).
+In deze Snelstartgids bouwt u een volledig nieuwe web-app en integreert u de insluitende lezer met behulp van de insluitende lezer-SDK. [Hier](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/quickstart-csharp)vindt u een volledig werkend voor beeld van deze Quick Start.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads)
-* Een abonnementssleutel voor boeiende lezer. Download er eentje door [deze instructies](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+* Een insluitende lezer-resource die is geconfigureerd voor Azure Active Directory-verificatie (Azure AD). Volg [deze instructies om de](./azure-active-directory-authentication.md) instellingen op te halen. U hebt enkele van de waarden nodig die u hier hebt gemaakt bij het configureren van de voorbeeld project eigenschappen. Sla de uitvoer van uw sessie op in een tekst bestand voor toekomstig naslag doeleinden.
 
 ## <a name="create-a-web-app-project"></a>Een web-app-project maken
 
-Maak een nieuw project in Visual Studio, met behulp van de sjabloon ASP.NET Core-webtoepassing met ingebouwde Model-View-Controller.
+Maak een nieuw project in Visual Studio met behulp van de sjabloon webtoepassing ASP.NET Core met ingebouwde model-view-controller.
 
 ![Nieuw project](./media/vswebapp.png)
 
 ![Nieuwe ASP.NET Core-webtoepassing](./media/vsmvc.png)
 
-## <a name="acquire-an-access-token"></a>Een toegangstoken verkrijgen
+## <a name="acquire-an-azure-ad-authentication-token"></a>Een Azure AD-verificatie token verkrijgen
 
-U moet uw abonnementssleutel en -eindpunt voor deze stap. U kunt uw abonnementssleutel vinden in de pagina sleutels van uw resource boeiende lezer in Azure portal. U vindt het eindpunt op de pagina overzicht.
+U hebt een aantal waarden nodig van de hierboven genoemde Azure AD-verificatie configuratie voor dit onderdeel. Ga terug naar het tekst bestand dat u van deze sessie hebt opgeslagen.
 
-Met de rechtermuisknop op het project in de _Solution Explorer_ en kies **Gebruikersgeheimen beheren**. Hiermee opent u een bestand met de naam _secrets.json_. Vervang de inhoud van het bestand door het volgende op en verstrek hierbij uw abonnementssleutel en eindpunt indien van toepassing.
+````text
+TenantId     => Azure subscription TenantId
+ClientId     => Azure AD ApplicationId
+ClientSecret => Azure AD Application Service Principal password
+Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
+````
+
+Klik met de rechter muisknop op het project in de _Solution Explorer_ en kies **gebruikers geheimen beheren**. Hiermee opent u een bestand met de naam _Secrets. json_. Vervang de inhoud van het bestand door het volgende, waarbij u de waarden van de aangepaste eigenschappen hierboven opgeeft.
 
 ```json
 {
-  "SubscriptionKey": YOUR_SUBSCRIPTION_KEY,
-  "Endpoint": YOUR_ENDPOINT
+  "TenantId": YOUR_TENANT_ID,
+  "ClientId": YOUR_CLIENT_ID,
+  "ClientSecret": YOUR_CLIENT_SECRET,
+  "Subdomain": YOUR_SUBDOMAIN
 }
 ```
 
-Open _Controllers\HomeController.cs_, en vervang de `HomeController` klasse met de volgende code.
+Open _Controllers\HomeController.cs_en vervang het bestand door de volgende code.
 
 ```csharp
-public class HomeController : Controller
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+
+namespace QuickstartSampleWebApp.Controllers
 {
-    private readonly string SubscriptionKey;
-    private readonly string Endpoint;
-
-    public HomeController(Microsoft.Extensions.Configuration.IConfiguration configuration)
+    public class HomeController : Controller
     {
-        SubscriptionKey = configuration["SubscriptionKey"];
-        Endpoint = configuration["Endpoint"];
+        private readonly string TenantId;     // Azure subscription TenantId
+        private readonly string ClientId;     // Azure AD ApplicationId
+        private readonly string ClientSecret; // Azure AD Application Service Principal password
+        private readonly string Subdomain;    // Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 
-        if (string.IsNullOrEmpty(Endpoint) || string.IsNullOrEmpty(SubscriptionKey))
+        public HomeController(Microsoft.Extensions.Configuration.IConfiguration configuration)
         {
-            throw new ArgumentNullException("Endpoint or subscriptionKey is null!");
-        }
-    }
+            TenantId = configuration["TenantId"];
+            ClientId = configuration["ClientId"];
+            ClientSecret = configuration["ClientSecret"];
+            Subdomain = configuration["Subdomain"];
 
-    public IActionResult Index()
-    {
-        return View();
-    }
-
-    [Route("token")]
-    public async Task<string> Token()
-    {
-        return await GetTokenAsync();
-    }
-
-    /// <summary>
-    /// Exchange your Azure subscription key for an access token
-    /// </summary>
-    private async Task<string> GetTokenAsync()
-    {
-        using (var client = new System.Net.Http.HttpClient())
-        {
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
-            using (var response = await client.PostAsync(Endpoint, null))
+            if (string.IsNullOrWhiteSpace(TenantId))
             {
-                return await response.Content.ReadAsStringAsync();
+                throw new ArgumentNullException("TenantId is null! Did you add that info to secrets.json?");
             }
+
+            if (string.IsNullOrWhiteSpace(ClientId))
+            {
+                throw new ArgumentNullException("ClientId is null! Did you add that info to secrets.json?");
+            }
+
+            if (string.IsNullOrWhiteSpace(ClientSecret))
+            {
+                throw new ArgumentNullException("ClientSecret is null! Did you add that info to secrets.json?");
+            }
+
+            if (string.IsNullOrWhiteSpace(Subdomain))
+            {
+                throw new ArgumentNullException("Subdomain is null! Did you add that info to secrets.json?");
+            }
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [Route("subdomain")]
+        public string GetSubdomain()
+        {
+            return Subdomain;
+        }
+
+        [Route("token")]
+        public async Task<string> GetToken()
+        {
+            return await GetTokenAsync();
+        }
+
+        /// <summary>
+        /// Get an Azure AD authentication token
+        /// </summary>
+        private async Task<string> GetTokenAsync()
+        {
+            string authority = $"https://login.windows.net/{TenantId}";
+            const string resource = "https://cognitiveservices.azure.com/";
+
+            AuthenticationContext authContext = new AuthenticationContext(authority);
+            ClientCredential clientCredential = new ClientCredential(ClientId, ClientSecret);
+
+            AuthenticationResult authResult = await authContext.AcquireTokenAsync(resource, clientCredential);
+
+            return authResult.AccessToken;
         }
     }
 }
 ```
 
-## <a name="add-sample-content"></a>Voorbeeldinhoud toevoegen
+## <a name="add-the-microsoftidentitymodelclientsactivedirectory-nuget-package"></a>Het NuGet-pakket micro soft. Identity model. clients. ActiveDirectory toevoegen
 
-Nu gaan we enkele voorbeelden voor inhoud toevoegen aan deze web-app. Open _Views\Home\Index.cshtml_ en vervang de automatisch gegenereerde code door dit voorbeeld:
+De bovenstaande code maakt gebruik van objecten uit het pakket **micro soft. Identity model. clients. ActiveDirectory** NuGet, zodat u een verwijzing naar dat pakket in uw project moet toevoegen.
+
+Open de NuGet Package Manager-console vanuit **extra-> NuGet package manager-> Package Manager-console** en typ het volgende:
+
+```powershell
+    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 5.1.0
+```
+
+## <a name="add-sample-content"></a>Voorbeeld inhoud toevoegen
+
+Nu voegen we een aantal voorbeeld inhoud toe aan deze web-app. Open _Views\Home\Index.cshtml_ en vervang de automatisch gegenereerde code door dit voor beeld:
 
 ```html
 <h1 id='title'>Geography</h1>
@@ -111,9 +164,9 @@ Nu gaan we enkele voorbeelden voor inhoud toevoegen aan deze web-app. Open _View
 <div class='immersive-reader-button' data-button-style='iconAndText' onclick='launchImmersiveReader()'></div>
 
 @section scripts {
-<script type='text/javascript' src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.1.js'></script>
-<script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
-<script type='text/javascript'>
+    <script type='text/javascript' src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js'></script>
+    <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+    <script type='text/javascript'>
     function getImmersiveReaderTokenAsync() {
         return new Promise((resolve) => {
             $.ajax({
@@ -121,6 +174,18 @@ Nu gaan we enkele voorbeelden voor inhoud toevoegen aan deze web-app. Open _View
                 type: 'GET',
                 success: token => {
                     resolve(token);
+                }
+            });
+        });
+    }
+
+    function getSubdomainAsync() {
+        return new Promise((resolve) => {
+            $.ajax({
+                url: '/subdomain',
+                type: 'GET',
+                success: subdomain => {
+                    resolve(subdomain);
                 }
             });
         });
@@ -136,25 +201,27 @@ Nu gaan we enkele voorbeelden voor inhoud toevoegen aan deze web-app. Open _View
         };
 
         const token = await getImmersiveReaderTokenAsync();
-        ImmersiveReader.launchAsync(token, content, { uiZIndex: 1000000 });
+        var subdomain = await getSubdomainAsync();
+
+        ImmersiveReader.launchAsync(token, subdomain, content, { uiZIndex: 1000000 });
     }
-</script>
+    </script>
 }
 ```
 
 ## <a name="build-and-run-the-app"></a>De app bouwen en uitvoeren
 
-Selecteer in de menubalk **fouten opsporen > Foutopsporing starten**, of druk op **F5** om de toepassing te starten.
+Selecteer in de menu balk **fout opsporing > fout opsporing starten**of druk op **F5** om de toepassing te starten.
 
-In de browser weergegeven:
+In uw browser ziet u het volgende:
 
-![Voorbeeld-app](./media/quickstart-result.png)
+![Voor beeld-app](./media/quickstart-result.png)
 
-Wanneer u op de knop 'Boeiende lezer' klikt, ziet u de overweldigende lezer geopend waarin de inhoud op de pagina.
+Wanneer u op de knop ' insluitende lezer ' klikt, ziet u dat de insluitende lezer wordt gestart met de inhoud op de pagina.
 
 ![Insluitende lezer](./media/quickstart-immersive-reader.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Weergave de [zelfstudie](./tutorial.md) om te zien wat u kunt doen met de overweldigende Reader-SDK
-* Verken de [boeiende lezer SDK](https://github.com/Microsoft/immersive-reader-sdk) en de [boeiende lezer SDK-referentie](./reference.md)
+* Bekijk de [zelf studie](./tutorial.md) om te zien wat u nog meer kunt doen met de SDK voor insluitende lezers
+* Verken de insluitende [Lezer SDK](https://github.com/Microsoft/immersive-reader-sdk) en de referentie voor de insluitende [Lezer SDK](./reference.md)

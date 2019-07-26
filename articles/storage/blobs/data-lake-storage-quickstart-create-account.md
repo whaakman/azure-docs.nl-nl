@@ -1,24 +1,23 @@
 ---
 title: Een Azure Data Lake Storage Gen2-opslagaccount maken | Microsoft Docs
-description: Leer snel hoe u een nieuw opslagaccount maken met toegang tot Data Lake Storage Gen2 met behulp van de Azure portal, Azure PowerShell of Azure CLI.
+description: Leer snel hoe u een nieuw opslag account maakt met toegang tot Data Lake Storage Gen2 met behulp van de Azure Portal, Azure PowerShell of de Azure CLI.
 services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: quickstart
-ms.date: 12/06/2018
+ms.topic: article
+ms.date: 07/19/2019
 ms.author: normesta
-ms.reviewer: jamesbak
-ms.openlocfilehash: 18132ac4c218c766efdc9a9afae2cc3508c4f732
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 297ab5971fdf60ce260808cb4864621ec1188b5e
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939411"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360780"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Quickstart: Een Azure Data Lake Storage Gen2-opslagaccount maken
+# <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Een Azure Data Lake Storage Gen2-opslagaccount maken
 
-Azure Data Lake Storage Gen2 [biedt ondersteuning voor een hiërarchische naamruimte](data-lake-storage-introduction.md) waarmee u een systeemeigen op basis van een directory die is ontworpen om te werken met het Hadoop Distributed File System (HDFS)-bestandssysteem. Toegang tot Data Lake Storage Gen2-gegevens uit HDFS is beschikbaar via het [ABFS-stuurprogramma](data-lake-storage-abfs-driver.md).
+Azure Data Lake Storage Gen2 [ondersteunt een hiërarchische naam ruimte](data-lake-storage-introduction.md) die een systeem eigen bestands systeem bevat dat is afgestemd op het gebruik van de HADOOP DISTRIBUTED File System (HDFS). Toegang tot Data Lake Storage Gen2-gegevens uit HDFS is beschikbaar via het [ABFS-stuurprogramma](data-lake-storage-abfs-driver.md).
 
 In deze snelstart wordt gedemonstreerd hoe u een account maakt met [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) of [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -30,7 +29,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 |-----------|--------------|
 |Portal     | Geen         |
 |PowerShell | Voor deze snelstart is Az.Storage-versie **0.7** of later van de PowerShell-module vereist. Voer de opdracht `Get-Module -ListAvailable Az.Storage` uit om uw huidige versie te vinden. Als er geen resultaten worden weergegeven wanneer u deze opdracht uitvoert, of als een andere versie dan **0.7** wordt weergegeven, dan moet u een upgrade van uw powershell-module uitvoeren. Zie de sectie [Upgrade uitvoeren van uw powershell-module](#upgrade-your-powershell-module) van deze handleiding.
-|CLI        | U kunt zich aanmelden bij Azure en Azure CLI-opdrachten uitvoeren op twee manieren: <ul><li>U kunt CLI-opdrachten uitvoeren vanuit Azure Portal, in Azure Cloud Shell </li><li>U kunt de CLI installeren en CLI-opdrachten lokaal uitvoeren</li></ul>|
+|CLI        | U kunt zich aanmelden bij Azure en Azure CLI-opdrachten uitvoeren op een van de volgende twee manieren: <ul><li>U kunt CLI-opdrachten uitvoeren vanuit Azure Portal, in Azure Cloud Shell </li><li>U kunt de CLI installeren en CLI-opdrachten lokaal uitvoeren</li></ul>|
 
 Wanneer u werkt met de opdrachtregel, hebt u de mogelijkheid om de Azure Cloud-shell of de CLI lokaal te installeren.
 
@@ -77,7 +76,7 @@ Als u een resourcegroep wilt maken in Azure Portal, volgt u deze stappen:
 5. Kies de locatie voor de resourcegroep.
 6. Klik op de knop **Maken**.  
 
-   ![Schermafbeelding van de resource is gemaakt in Azure portal](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
+   ![Scherm opname van het maken van een resource groep in de Azure Portal](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Een v2-opslagaccount voor algemeen gebruik maken
 
@@ -97,7 +96,7 @@ Als u een v2-opslagaccount voor algemeen gebruik wilt maken in de Azure Portal, 
 9. In de sectie **Data Lake Storage Gen2** stelt u **Hiërarchische naamruimte** in op **Ingeschakeld**.
 10. Klik op **Beoordelen en maken** om het opslagaccount te maken.
 
-    ![Schermafbeelding van de opslagaccount is gemaakt in Azure portal](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
+    ![Scherm opname van het maken van een opslag account in de Azure Portal](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
 
 Uw opslagaccount is nu gemaakt via de portal.
 
@@ -106,14 +105,14 @@ Uw opslagaccount is nu gemaakt via de portal.
 Ga als volgt te werk om een resourcegroep te verwijderen in Azure Portal:
 
 1. Vouw het menu aan de linkerkant in Azure Portal uit om het menu met services te openen en kies **Resourcegroepen** om de lijst met resourcegroepen weer te geven.
-2. Zoek de resourcegroep die u wilt verwijderen, en klik met de rechtermuisknop op de knop **Meer** (**...** ) aan de rechterkant van de lijst.
+2. Zoek de resourcegroep die u wilt verwijderen, en klik met de rechtermuisknop op de knop **Meer** ( **...** ) aan de rechterkant van de lijst.
 3. Selecteer **Resourcegroep verwijderen** en bevestig dit.
 
 ## <a name="create-an-account-using-powershell"></a>Een account maken met PowerShell
 
 Installeer eerst de meest recente versie van de [ PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget)-module.
 
-Klik, upgrade van uw powershell-module, zich aanmelden bij uw Azure-abonnement een resourcegroep maken en vervolgens een opslagaccount maken.
+Vervolgens voert u een upgrade uit van uw Power shell-module, meldt u zich aan bij uw Azure-abonnement, maakt u een resource groep en maakt u vervolgens een opslag account.
 
 ### <a name="upgrade-your-powershell-module"></a>De PowerShell-module upgraden
 
@@ -129,7 +128,7 @@ De module Az.Storage installeren
 Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
 
-### <a name="sign-in-to-your-azure-subscription"></a>Aanmelden bij uw Azure-abonnement
+### <a name="sign-in-to-your-azure-subscription"></a>Meld u aan bij uw Azure-abonnement
 
 Gebruik de opdracht `Login-AzAccount` en volg de instructies op het scherm om te verifiëren.
 
@@ -177,9 +176,9 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="create-an-account-using-azure-cli"></a>Een account maken met Azure CLI
 
-Voor het starten van Azure Cloud Shell, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com).
+Meld u aan bij de [Azure Portal](https://portal.azure.com)om Azure Cloud shell te starten.
 
-Als u aanmelden bij de lokale installatie van de CLI wilt, voert u de opdracht voor aanmelden uit:
+Als u zich wilt aanmelden bij de lokale installatie van de CLI, voert u de aanmeldings opdracht uit:
 
 ```cli
 az login

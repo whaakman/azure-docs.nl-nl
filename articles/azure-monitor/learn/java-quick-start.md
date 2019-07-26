@@ -1,5 +1,5 @@
 ---
-title: Quickstart met Azure Application Insights | Microsoft Docs
+title: 'Quickstart: Bewaking van Java-Web-apps'
 description: Biedt instructies om snel een Java-Web-app in te stellen voor bewaking met Application Insights
 services: application-insights
 keywords: ''
@@ -8,15 +8,15 @@ ms.author: mbullwin
 ms.reviewer: lagayhar
 ms.date: 07/15/2019
 ms.service: application-insights
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ef3c7668f1fb462b2d6a91cc90746437e74df51d
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 160c0bd90e2e733cd2d57798c0e80f2df569cf0a
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67989893"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489758"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Beginnen met controleren van de Java-webtoepassing
 

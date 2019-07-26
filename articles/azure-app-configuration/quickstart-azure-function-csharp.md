@@ -14,52 +14,48 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a4900964fb6feeb4c7cb0f147d3681031cac6a7b
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 5eb9d0631a4d5f4221b5184198290a5109655408
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798433"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326582"
 ---
-# <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Quickstart: Een Azure-functie maken met app-configuratie
+# <a name="quickstart-create-an-azure-function-with-azure-app-configuration"></a>Quickstart: Een Azure-functie maken met Azure-app configuratie
 
-Azure-appconfiguratie is een beheerde configuratieservice in Azure. U kunt deze eenvoudig opslaan en beheren van alle instellingen van de toepassing op één plek dat gescheiden van uw code. In deze Quick Start laat zien hoe de service opnemen in een Azure-functie. 
-
-Een code-editor kunt u de stappen in deze Quick Start. [Visual Studio Code](https://code.visualstudio.com/) is een uitstekende optie beschikbaar is op Windows, macOS en Linux-platforms.
-
-![Snelstartgids voltooid lokale](./media/quickstarts/dotnet-core-function-launch-local.png)
+In deze Snelstartgids neemt u de Azure-app Configuration-service op in een Azure-functie om opslag en beheer van alle toepassings instellingen gescheiden van uw code te centraliseren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt doen in deze Quick Start, installeert u [Visual Studio 2019](https://visualstudio.microsoft.com/vs). Zorg ervoor dat de werkbelasting **Azure development** ook is geïnstalleerd. Installeer ook de [nieuwste hulpprogramma's voor Azure Functions](../azure-functions/functions-develop-vs.md#check-your-tools-version).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Azure-abonnement: [Maak er gratis een](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) met de werk belasting **Azure Development** .
+- [Azure Functions-hulpprogram ma's](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
 ## <a name="create-an-app-configuration-store"></a>Een app-configuratiearchief maken
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecteer **configuratie Explorer** >  **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
+6. Selecteer **configuratie Explorer** >  **+ maken** om de volgende sleutel-waardeparen toe te voegen:
 
     | Sleutel | Value |
     |---|---|
     | TestApp:Settings:Message | Gegevens van Azure App Configuration |
 
-    Laat **Label** en **inhoudstype** voorlopig leeg.
+    Laat het **Label** en het **inhouds type** nu leeg.
 
 ## <a name="create-a-function-app"></a>Een functie-app maken
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-## <a name="connect-to-an-app-configuration-store"></a>Verbinding maken met een app-configuratiearchief
+## <a name="connect-to-an-app-configuration-store"></a>Verbinding maken met een app-configuratie archief
 
-1. Met de rechtermuisknop op uw project en selecteer **NuGet-pakketten beheren**. Op de **Bladeren** tabblad, zoeken en de volgende NuGet-pakketten toevoegen aan uw project. Als u niet kunt vinden, selecteert u de **Include prerelease** selectievakje.
+1. Klik met de rechter muisknop op het project en selecteer **NuGet-pakketten beheren**. Zoek op het tabblad **Bladeren** de volgende NuGet-pakketten aan uw project en voeg deze toe. Als u deze niet kunt vinden, schakelt  u het selectie vakje include Prerelease in.
 
     ```
     Microsoft.Extensions.Configuration.AzureAppConfiguration 2.0.0-preview-009200001-1437 or later
     ```
 
-2. Open *Function1.cs*, en voeg een verwijzing naar de configuratie van .NET Core-App-provider.
+2. Open *Function1.cs*en voeg een verwijzing toe naar de .net core-app configuratie provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -91,25 +87,25 @@ Als u wilt doen in deze Quick Start, installeert u [Visual Studio 2019](https://
 
 ## <a name="test-the-function-locally"></a>De functie lokaal testen
 
-1. Stel een omgevingsvariabele met de naam **ConnectionString**, en stel deze in op de toegangssleutel voor het opslaan van de app-configuratie. Als u de Windows-opdrachtprompt, voer de volgende opdracht uit en start opnieuw op de opdrachtprompt om toe te staan van de wijziging door te voeren:
+1. Stel een omgevings variabele met de naam **Connections Tring**in en stel deze in op de toegangs sleutel voor uw app-configuratie archief. Als u de Windows-opdracht prompt gebruikt, voert u de volgende opdracht uit en start u de opdracht prompt zodat de wijziging kan worden doorgevoerd:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
-    Als u Windows PowerShell gebruikt, voert u de volgende opdracht uit:
+    Als u Windows Power shell gebruikt, voert u de volgende opdracht uit:
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-    Als u Mac OS of Linux gebruikt, voert u de volgende opdracht uit:
+    Als u macOS of Linux gebruikt, voert u de volgende opdracht uit:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Druk op F5 om de functie testen. Accepteer desgevraagd de aanvraag van Visual Studio om **Azure Functions Core-hulpprogramma's (CLI)** te downloaden en installeren. Mogelijk moet u ook een firewall-uitzondering inschakelen zodat de hulpprogramma's voor HTTP-aanvragen kunnen verwerken.
+2. Druk op F5 om de functie testen. Accepteer desgevraagd de aanvraag van Visual Studio om **Azure Functions Core-hulpprogramma's (CLI)** te downloaden en installeren. Mogelijk moet u ook een firewall-uitzonde ring inschakelen, zodat de hulpprogram ma's HTTP-aanvragen kunnen afhandelen.
 
 3. Kopieer de URL van uw functie vanuit de uitvoer van de Azure Functions-runtime.
 
     ![Quickstart over foutopsporing in functies in Visual Studio](./media/quickstarts/function-visual-studio-debugging.png)
 
-4. Plak de URL van de HTTP-aanvraag in de adresbalk van uw browser. De volgende afbeelding ziet het antwoord in de browser om de lokale GET-aanvraag geretourneerd door de functie.
+4. Plak de URL van de HTTP-aanvraag in de adresbalk van uw browser. In de volgende afbeelding ziet u het antwoord in de browser op de lokale GET-aanvraag die door de functie wordt geretourneerd.
 
     ![Quickstart over lokaal opstarten functies](./media/quickstarts/dotnet-core-function-launch-local.png)
 
@@ -119,7 +115,7 @@ Als u wilt doen in deze Quick Start, installeert u [Visual Studio 2019](https://
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt gemaakt van een nieuwe app-configuratiearchief en deze gebruikt met een Azure-functie. Doorgaan naar de volgende zelfstudie waarin wordt gedemonstreerd verificatie voor meer informatie over het gebruik van App-configuratie.
+In deze Snelstartgids hebt u een nieuwe app-configuratie opgeslagen gemaakt en gebruikt met een Azure-functie. Voor meer informatie over het gebruik van app-configuratie gaat u verder met de volgende zelf studie waarin verificatie wordt gedemonstreerd.
 
 > [!div class="nextstepaction"]
-> [Integratie van beheerde identiteit](./howto-integrate-azure-managed-service-identity.md)
+> [Beheerde identiteits integratie](./howto-integrate-azure-managed-service-identity.md)

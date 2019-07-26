@@ -1,6 +1,6 @@
 ---
-title: Gegevens opnemen tijd aanmelden met Azure Monitor | Microsoft Docs
-description: Legt uit de verschillende factoren die invloed hebben op latentie in het verzamelen van logboekgegevens in Azure Monitor.
+title: Opname tijd van gegevens vastleggen in Azure Monitor | Microsoft Docs
+description: Hierin worden de verschillende factoren beschreven die van invloed zijn op de latentie bij het verzamelen van logboek gegevens in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -10,122 +10,132 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2019
+ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: d508ce217e3a97b3399435cb63295eb28965359a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdd1c8348acac37acbe8ad15199f3953bfe95a8e
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65605598"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370655"
 ---
-# <a name="log-data-ingestion-time-in-azure-monitor"></a>Tijd van beveiligingslogboek gegevens opnemen in Azure Monitor
-Azure Monitor is een service voor grootschalige die duizenden klanten terabytes aan gegevens per maand verzenden in een groeiende tempo fungeert. Er zijn vaak vragen over de tijd die nodig zijn voor de logboekgegevens beschikbaar nadat deze verzameld. In dit artikel wordt uitgelegd dat de verschillende factoren die invloed hebben op deze latentie.
+# <a name="log-data-ingestion-time-in-azure-monitor"></a>Opname tijd van gegevens vastleggen in Azure Monitor
+Azure Monitor is een grootschalige gegevens service waarmee duizenden klanten elke maand terabytes aan gegevens verzenden in een groei tempo. Er zijn vaak vragen over de tijd die nodig is om te zorgen dat logboek gegevens beschikbaar worden nadat deze zijn verzameld. In dit artikel worden de verschillende factoren beschreven die van invloed zijn op deze latentie.
 
 ## <a name="typical-latency"></a>Normale latentie
-Latentie verwijst naar het tijdstip waarop gegevens worden gemaakt op het bewaakte systeem en het moment dat het afkomstig beschikbaar voor analyse in Azure Monitor is. De typische latentie voor opname van gegevens aan het logboek is tussen 2 en 5 minuten. De specifieke latentie voor een bepaalde gegevens varieert, afhankelijk van diverse factoren die hieronder wordt uitgelegd.
+De latentie verwijst naar het tijdstip waarop gegevens worden gemaakt op het bewaakte systeem en de tijd die beschikbaar is voor analyse in Azure Monitor. De gemiddelde latentie voor opname van logboek gegevens ligt tussen 2 en 5 minuten. De specifieke latentie voor bepaalde gegevens kan variëren, afhankelijk van de verschillende factoren die hieronder worden beschreven.
 
 
 ## <a name="factors-affecting-latency"></a>Factoren die invloed hebben op latentie
-De totale opname-tijd voor een bepaalde set gegevens kan worden onderverdeeld in de volgende algemene gebieden ingedeeld. 
+De totale opname tijd voor een bepaalde set gegevens kan worden onderverdeeld in de volgende gebieden op hoog niveau. 
 
-- Tijd agent - de tijd voor het detecteren van een gebeurtenis, verzamelen en deze vervolgens te verzenden naar Azure Monitor punt als een logboekrecord. Dit proces wordt in de meeste gevallen afgehandeld door een agent.
-- Pijplijntijd. Dit is de tijd die het kost om de logboekrecord te verwerken via de opnamepijplijn. Dit omvat het parseren van de eigenschappen van de gebeurtenis en mogelijk berekende gegevens toe te voegen.
-- Indexering tijd – de tijd wordt gebruikt voor het opnemen van een logboekrecord in Azure Monitor big data-archief.
+- Tijd van de agent: de tijd om een gebeurtenis te detecteren, te verzamelen en deze vervolgens te verzenden naar Azure Monitor opname punt als een logboek record. In de meeste gevallen wordt dit proces verwerkt door een agent.
+- Pijplijntijd. Dit is de tijd die het kost om de logboekrecord te verwerken via de opnamepijplijn. Dit omvat het parseren van de eigenschappen van de gebeurtenis en het mogelijk toevoegen van berekende gegevens.
+- Indexerings tijd – de tijd die is besteed aan het opnemen van een logboek record in Azure Monitor big data store.
 
-Meer informatie over de verschillende latentie die is geïntroduceerd in dit proces worden hieronder beschreven.
+Details over de verschillende latentie die in dit proces wordt geïntroduceerd, worden hieronder beschreven.
 
-### <a name="agent-collection-latency"></a>Agent verzameling latentie
-Agents en oplossingen voor gebruik van verschillende strategieën voor het verzamelen van gegevens van een virtuele machine, die mogelijk invloed hebben op de latentie. Enkele specifieke voorbeelden omvatten het volgende:
+### <a name="agent-collection-latency"></a>Latentie van agent verzameling
+Agents en beheer oplossingen gebruiken verschillende strategieën voor het verzamelen van gegevens van een virtuele machine. Dit kan van invloed zijn op de latentie. Enkele specifieke voor beelden zijn:
 
-- Windows-gebeurtenissen, syslog-gebeurtenissen en metrische gegevens voor prestaties worden onmiddellijk verzameld. Linux-prestatiemeteritems zijn gepeild intervallen van 30 seconden.
-- IIS-logboeken en aangepaste logboeken worden verzameld als hun timestamp wordt gewijzigd. Voor IIS-logboeken, dit wordt beïnvloed door de [rollover schema dat is geconfigureerd voor IIS](data-sources-iis-logs.md). 
-- Oplossing voor Active Directory-replicatie wordt de evaluatie van elke vijf dagen uitgevoerd terwijl de oplossing Active Directory-evaluatie wordt uitgevoerd voor een wekelijkse beoordeling van uw Active Directory-infrastructuur. De agent verzamelt deze logboeken alleen wanneer de evaluatie is voltooid.
+- Windows-gebeurtenissen, syslog-gebeurtenissen en metrische prestatie gegevens worden direct verzameld. Linux-prestatie meter items worden met intervallen van 30 seconden gecontroleerd.
+- IIS-logboeken en aangepaste logboeken worden verzameld zodra hun tijds tempel wordt gewijzigd. Voor IIS-logboeken wordt dit beïnvloed door het [rollover schema dat is geconfigureerd op IIS](data-sources-iis-logs.md). 
+- Active Directory-replicatie oplossing voert de evaluatie uit om de vijf dagen, terwijl de Active Directory-evaluatie oplossing een wekelijkse evaluatie van uw Active Directory infra structuur uitvoert. Deze logboeken worden alleen door de agent verzameld wanneer de evaluatie is voltooid.
 
-### <a name="agent-upload-frequency"></a>De uploadfrequentie agent
-Om ervoor te zorgen voor dat de Log Analytics-agent is lichtgewicht, de agent buffert logboeken en ze regelmatig worden geüpload naar Azure Monitor. Uploaden frequentie varieert tussen 30 seconden en 2 minuten, afhankelijk van het type gegevens. De meeste gegevens worden geüpload in onder 1 minuut. Netwerkomstandigheden mogelijk negatieve invloed hebben op de latentie van deze gegevens naar Azure Monitor punt bereikt.
+### <a name="agent-upload-frequency"></a>Upload frequentie van agent
+Om ervoor te zorgen dat de Log Analytics agent lichter is, buffert de agent de logboeken en uploadt deze regel matig naar Azure Monitor. De upload frequentie varieert van 30 seconden tot 2 minuten, afhankelijk van het type gegevens. De meeste gegevens worden binnen 1 minuut geüpload. Netwerk omstandigheden kunnen een negatieve invloed hebben op de latentie van deze gegevens om Azure Monitor opname punt te bereiken.
 
-### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Azure-activiteitenlogboeken, diagnostische logboeken en metrische gegevens
-Azure data voegt extra tijd beschikbaar is op het punt voor de verwerking van Log Analytics:
+### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Activiteiten logboeken van Azure, Diagnostische logboeken en metrische gegevens
+Azure-gegevens voegen extra tijd toe om op Log Analytics opname punt beschikbaar te komen voor verwerking:
 
-- Gegevens uit logboeken met diagnostische gegevens 2-15 minuten duren, afhankelijk van de Azure-service. Zie de [onderstaande query](#checking-ingestion-time) deze latentie in uw omgeving onderzoeken
-- Azure-platform metrische gegevens duren worden verzonden naar Log Analytics punt de 3 minuten.
-- Gegevens van een activiteitenlogboek duurt ongeveer 10-15 minuten worden verzonden naar Log Analytics punt.
+- Gegevens uit de diagnostische logboeken nemen 2-15 minuten in beslag, afhankelijk van de Azure-service. Zie de [onderstaande query](#checking-ingestion-time) om deze latentie te controleren in uw omgeving
+- De metrische gegevens van het Azure-platform duren drie minuten om te worden verzonden naar Log Analytics opname punt.
+- De gegevens van het activiteiten logboek nemen ongeveer 10-15 minuten in beslag om te worden verzonden naar Log Analytics opname punt.
 
-Zodra dit beschikbaar is op het punt, duurt het voordat gegevens extra 2-5 minuten beschikbaar moeten zijn voor het uitvoeren van query's.
+Zodra de gegevens beschikbaar zijn op het opname punt, duurt het meer dan 2-5 minuten voor het uitvoeren van query's.
 
-### <a name="management-solutions-collection"></a>Management solutions verzameling
-Sommige oplossingen geen hun gegevens worden verzameld uit een agent en een methode voor gebruikersstatusverzameling die resulteert in extra latentie kunnen gebruiken. Een aantal oplossingen voor het verzamelen van gegevens met regelmatige tussenpozen zonder dat wordt geprobeerd near-real-time-verzameling. Specifieke voorbeelden omvatten het volgende:
+### <a name="management-solutions-collection"></a>Verzameling beheer oplossingen
+Sommige oplossingen verzamelen geen gegevens van een agent en kunnen een verzamelings methode gebruiken waarmee extra latentie wordt geïntroduceerd. Sommige oplossingen verzamelen gegevens met regel matige tussen pozen zonder dat dit bijna in realtime kan worden verzameld. Specifieke voor beelden zijn:
 
-- Office 365-oplossing worden opgevraagd met behulp van de Office 365-activiteit-API, die op dit moment biedt geen garanties van eventuele latentie near-real-time-activiteitenlogboeken.
-- Windows Analytics-oplossingen (bijvoorbeeld Updatevereisten) gegevens worden verzameld door de oplossing in een dagelijkse frequentie.
+- Office 365-oplossing controleert activiteiten logboeken met behulp van de API voor beheer activiteiten van Office 365. deze biedt momenteel geen bijna realtime latentie garanties.
+- Windows Analytics-oplossingen (Updatenaleving bijvoorbeeld) gegevens worden verzameld door de oplossing op basis van een dagelijkse frequentie.
 
-Raadpleeg de documentatie voor elke oplossing om te bepalen van de verzamelingsfrequentie.
+Raadpleeg de documentatie voor elke oplossing om de verzamelings frequentie te bepalen.
 
-### <a name="pipeline-process-time"></a>Tijd van de pijplijn-proces
-Wanneer records in logboek registreren in de pijplijn met Azure Monitor zijn opgenomen, wordt deze zijn geschreven naar de tijdelijke opslag om te controleren of isolatie van tenants en om ervoor te zorgen dat gegevens niet verloren gaan. Dit proces wordt doorgaans 5 tot 15 seconden. Sommige oplossingen implementeren zwaardere algoritmen voor het samenvoegen van gegevens en inzichten worden afgeleid omdat gegevensstromen. Bijvoorbeeld, aggregeert de Netwerkprestatiemeter binnenkomende gegevens gedurende 3 minuten durende intervallen, effectief toe te voegen 3 minuten latentie. Een ander proces dat wordt toegevoegd latentie is het proces die verantwoordelijk is voor aangepaste logboeken. In sommige gevallen kan dit proces enkele minuten met een latentie van toevoegen aan de logboeken die worden verzameld van bestanden door de agent.
+### <a name="pipeline-process-time"></a>Pijp lijn-verwerkings tijd
+Zodra logboek records zijn opgenomen in de Azure Monitor-pijp lijn (zoals aangegeven in de eigenschap [_TimeReceived](log-standard-properties.md#_timereceived) ), worden ze geschreven naar tijdelijke opslag om Tenant isolatie te garanderen en ervoor te zorgen dat er geen gegevens verloren gaan. Dit proces voegt doorgaans 5-15 seconden toe. Sommige beheer oplossingen implementeren zwaarere algoritmen voor het verzamelen van gegevens en het afleiden van inzichten naarmate gegevens worden gestreamd. Zo worden met de bewaking van netwerk prestaties inkomende gegevens in intervallen van drie minuten geaggregeerd, waardoor er een latentie van drie minuten wordt toegevoegd. Een ander proces dat latentie toevoegt, is het proces waarmee aangepaste logboeken worden verwerkt. In sommige gevallen kan dit proces enkele minuten latentie toevoegen aan logboeken die worden verzameld van bestanden door de agent.
 
-### <a name="new-custom-data-types-provisioning"></a>Nieuwe aangepaste gegevenstypen inrichten
-Wanneer een nieuw type aangepaste gegevens is gemaakt op basis van een [aangepast logboek](data-sources-custom-logs.md) of de [Data Collector API](data-collector-api.md), een toegewezen opslagcontainer wordt gemaakt. Dit is een eenmalige overhead die wordt uitgevoerd alleen op de eerste weergave van dit gegevenstype.
+### <a name="new-custom-data-types-provisioning"></a>Nieuwe aangepaste gegevens typen inrichten
+Wanneer er een nieuw type aangepaste gegevens wordt gemaakt op basis van een [aangepast logboek](data-sources-custom-logs.md) of de [Data Collector-API](data-collector-api.md), maakt het systeem een speciale opslag container. Dit is een eenmalige overhead die alleen voor de eerste vormgeving van dit gegevens type optreedt.
 
-### <a name="surge-protection"></a>Piek-beveiliging
-De hoogste prioriteit van Azure Monitor is om ervoor te zorgen dat er geen gegevens van de klant verbroken is, zodat het systeem beschikt over ingebouwde beveiliging voor gegevens pieken. Dit omvat buffers om ervoor te zorgen dat zelfs bij zeer grote belasting kan het systeem blijft gewoon functioneren. Bij normale belasting kan deze besturingselementen toevoegen van minder dan een minuut, maar in extreme omstandigheden en fouten die ze kunnen veel tijd en gegevens tegelijkertijd toevoegen veilig is.
+### <a name="surge-protection"></a>Piek beveiliging
+De belangrijkste prioriteit van Azure Monitor is om ervoor te zorgen dat er geen klant gegevens verloren gaan, dus heeft het systeem ingebouwde beveiliging voor gegevens pieken. Dit omvat buffers om ervoor te zorgen dat het systeem zelfs onder een enorme belasting blijft functioneren. Onder normale belasting voegen deze besturings elementen minder dan een minuut toe, maar in extreme omstandigheden en storingen kunnen ze aanzienlijke tijd toevoegen terwijl de gegevens veilig zijn.
 
-### <a name="indexing-time"></a>Indexeren van tijd
-Er is een ingebouwde taakverdeling voor elk platform voor big data tussen analytics en geavanceerde zoekfuncties in plaats van direct toegang tot de gegevens. Azure Monitor kunt u krachtige query's uitvoeren op miljarden records en resultaten binnen een paar seconden. Dit wordt mogelijk gemaakt, omdat de infrastructuur van de gegevens tijdens de opname aanzienlijk worden getransformeerd en slaat ze op in de unieke compacte structuur. Het systeem buffert de gegevens tot voldoende is beschikbaar voor het maken van deze structuren. Dit moet worden voltooid voordat de logboekrecord wordt weergegeven in zoekresultaten.
+### <a name="indexing-time"></a>Indexerings tijd
+Er is een ingebouwd saldo voor elk big data platform tussen het bieden van analyses en geavanceerde zoek functies, in tegens telling tot onmiddellijke toegang tot de gegevens. Met Azure Monitor kunt u krachtige query's uitvoeren op miljarden records en de resultaten binnen een paar seconden ophalen. Dit is mogelijk omdat de infra structuur de gegevens ingrijpend transformeert tijdens de opname en opslaat in unieke compacte structuren. Het systeem buffert de gegevens totdat er genoeg zijn om deze structuren te maken. Dit moet worden voltooid voordat de logboek record wordt weer gegeven in de zoek resultaten.
 
-Dit proces momenteel ongeveer 5 minuten plaats wanneer er weinig volume van gegevens, maar minder tijd hogere tarief voor gegevens. Dit lijkt onlogisch, maar dit proces kan optimalisatie van de latentie voor werkbelastingen voor productie met hoog volume.
+Dit proces neemt op dit moment ongeveer 5 minuten in beslag wanneer er weinig gegevens zijn, maar minder tijd bij hogere gegevens snelheden. Dit lijkt op onlogisch, maar dit proces staat het optimaliseren van latentie toe voor productiewerk belastingen met een hoog volume.
 
 
 
-## <a name="checking-ingestion-time"></a>Opname-tijd controleren
-Opname tijd kan variëren voor andere resources onder verschillende omstandigheden. Logboeken-query's kunt u bepaald gedrag van uw omgeving identificeren.
+## <a name="checking-ingestion-time"></a>Opname tijd controleren
+De opname tijd kan variëren voor verschillende bronnen onder verschillende omstandigheden. U kunt logboek query's gebruiken om specifiek gedrag van uw omgeving te identificeren. In de volgende tabel wordt aangegeven hoe u de verschillende tijdstippen kunt bepalen voor een record die wordt gemaakt en verzonden naar Azure Monitor.
 
-### <a name="ingestion-latency-delays"></a>Opname latentie vertragingen
-U kunt de latentie van een bepaalde record meten door het vergelijken van het resultaat van de [ingestion_time()](/azure/kusto/query/ingestiontimefunction) functie de _TimeGenerated_ veld. Deze gegevens kunnen worden gebruikt met verschillende aggregaties te vinden hoe opnamelatentie zich gedraagt. Bekijk enkele percentiel van de tijd opname om inzichten te verkrijgen voor een grote hoeveelheid gegevens. 
+| Stap | Eigenschap of functie | Opmerkingen |
+|:---|:---|:---|
+| Record gemaakt in gegevens bron | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Als de gegevens bron deze waarde niet instelt, wordt deze ingesteld op dezelfde tijd als _TimeReceived. |
+| Record ontvangen door Azure Monitor opname-eind punt | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| Record opgeslagen in de werk ruimte en beschikbaar voor query's | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
-Bijvoorbeeld, ziet de volgende query u welke computers had de hoogste tijd voor opname in de huidige dag: 
+### <a name="ingestion-latency-delays"></a>Vertragingen bij opname latentie
+U kunt de latentie van een specifieke record meten door het resultaat van de functie [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) te vergelijken met de eigenschap _TimeGenerated_ . Deze gegevens kunnen met verschillende aggregaties worden gebruikt om te ontdekken hoe de latentie van opname wordt gedraagt. Bekijk een aantal percentiel van de opname tijd om inzicht te krijgen in grote hoeveel heden gegevens. 
+
+Met de volgende query ziet u bijvoorbeeld welke computers de hoogste opname tijd hebben gehad gedurende de huidige dag: 
 
 ``` Kusto
 Heartbeat
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by Computer 
-| top 20 by percentile_E2EIngestionLatency_95 desc  
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by Computer 
+| top 20 by percentile_E2EIngestionLatency_95 desc
 ```
  
-Als u inzoomen op het moment van opname voor een specifieke computer gedurende een bepaalde periode wilt, gebruikt u de volgende query ook visualisatie van de gegevens in een grafiek: 
+Als u wilt inzoomen op de opname tijd voor een specifieke computer gedurende een bepaalde periode, gebruikt u de volgende query waarmee ook de gegevens in een grafiek worden gevisualiseerd: 
 
 ``` Kusto
 Heartbeat 
-| where TimeGenerated > ago(24h) and Computer == "ContosoWeb2-Linux"  
+| where TimeGenerated > ago(24h) //and Computer == "ContosoWeb2-Linux"  
 | extend E2EIngestionLatencyMin = todouble(datetime_diff("Second",ingestion_time(),TimeGenerated))/60 
-| summarize percentiles(E2EIngestionLatencyMin,50,95) by bin(TimeGenerated,30m) 
-| render timechart  
+| extend AgentLatencyMin = todouble(datetime_diff("Second",_TimeReceived,TimeGenerated))/60 
+| summarize percentiles(E2EIngestionLatencyMin,50,95), percentiles(AgentLatencyMin,50,95) by bin(TimeGenerated,30m) 
+| render timechart
 ```
  
-Gebruik de volgende query om weer te geven van gegevensopname computertijd door het land/regio, dat ze bevinden zich op die is gebaseerd op de IP-adres: 
+Gebruik de volgende query om computer opname tijd weer te geven op het land/de regio waarin ze zich bevinden, op basis van hun IP-adres: 
 
 ``` Kusto
 Heartbeat 
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95),percentiles(AgentLatency,50,95) by RemoteIPCountry 
 ```
  
-Verschillende gegevenstypen die afkomstig zijn van de agent mogelijk verschillende opname latentie time, zodat de vorige query's kunnen worden gebruikt met andere typen. Gebruik de volgende query om te controleren van de tijd van de opname van verschillende Azure-services: 
+Verschillende gegevens typen die afkomstig zijn van de agent, hebben mogelijk een andere latentie periode voor inslikken, zodat de vorige query's kunnen worden gebruikt met andere typen. Gebruik de volgende query om de opname tijd van verschillende Azure-Services te onderzoeken: 
 
 ``` Kusto
 AzureDiagnostics 
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by ResourceProvider
 ```
 
-### <a name="resources-that-stop-responding"></a>Resources die niet meer reageert 
-In sommige gevallen kan een resource stoppen gegevens worden verzonden. Om te begrijpen als een resource is verzenden van gegevens of niet, kijken naar de meest recente record waarmee kan worden geïdentificeerd door de standaard _TimeGenerated_ veld.  
+### <a name="resources-that-stop-responding"></a>Bronnen die niet meer reageren 
+In sommige gevallen kan een resource stoppen met het verzenden van gegevens. Als u wilt weten of een resource gegevens verzendt, bekijkt u de meest recente record die kan worden geïdentificeerd met het standaard _TimeGenerated_ -veld.  
 
-Gebruik de _Heartbeat_ tabel om te controleren of de beschikbaarheid van een virtuele machine, aangezien een heartbeat eens per minuut door de agent wordt verzonden. Gebruik de volgende query om de actieve computers die heartbeat onlangs nog niet gerapporteerd weer te geven: 
+Gebruik de _heartbeat_ -tabel om de beschik baarheid van een virtuele machine te controleren, omdat een heartbeat eenmaal per minuut door de agent wordt verzonden. Gebruik de volgende query om een lijst weer te geven met de actieve computers die geen heartbeat recent hebben gerapporteerd: 
 
 ``` Kusto
 Heartbeat  
@@ -135,5 +145,5 @@ Heartbeat
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Lees de [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) voor Azure Monitor.
+* Lees de [Service Level Agreement (Sla)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) voor Azure monitor.
 

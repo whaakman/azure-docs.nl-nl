@@ -1,6 +1,6 @@
 ---
-title: Met Enterprise Security Enterprise - Azure HDInsight-clusters beheren
-description: Informatie over het beheren van HDInsight-clusters met Enterprise-beveiligingspakket.
+title: HDInsight-clusters beheren met Enter prise Security Enter prise-Azure
+description: Meer informatie over het beheren van HDInsight-clusters met Enterprise Security Package.
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -8,109 +8,109 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 951bd74c67c77c944a17e41646c4fe49ef46b33f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fa215f843fd025d26ba0f583b96f3bb7e63c9ed
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64725668"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488728"
 ---
-# <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>HDInsight-clusters met Enterprise-beveiligingspakket beheren
-Meer informatie over de gebruikers en de rollen in HDInsight Enterprise Security Package (ESP) en het beheren van ESP-clusters.
+# <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>HDInsight-clusters beheren met Enterprise Security Package
+Meer informatie over de gebruikers en de rollen in HDInsight Enterprise Security Package (ESP) en hoe u ESP-clusters beheert.
 
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Gebruik VSCode om een koppeling te maken met een cluster dat aan een domein is toegevoegd
 
-U kunt koppelen van een normale cluster met behulp van Apache Ambari beheerd gebruikersnaam, een security Apache Hadoop-cluster ook een koppeling maken met domeingebruikersnaam (bijvoorbeeld: user1@contoso.com).
-1. Open het opdrachtenpalet door te selecteren **CTRL + SHIFT + P**, en voer vervolgens **HDInsight: Koppeling van een cluster**.
+U kunt een normaal cluster koppelen met behulp van Apache Ambari Managed username, ook een beveiligings Apache Hadoop cluster koppelen met behulp van domein `user1@contoso.com`gebruikers naam (zoals:).
+1. Open het opdracht palet door **CTRL + SHIFT + P**te selecteren en vervolgens HDInsight **op te geven: Koppel een cluster**.
 
-   ![de opdracht cluster koppelen](./media/apache-domain-joined-manage/link-cluster-command.png)
+   ![koppeling cluster opdracht](./media/apache-domain-joined-manage/link-cluster-command.png)
 
-2. Geef HDInsight cluster-URL-Username -> invoer > invoer wachtwoord -> Selecteer clustertype -> deze ziet geslaagd info als verificatie doorgegeven.
+2. Geef de URL van het HDInsight-cluster op-> invoer gebruikers naam-> invoer wachtwoord-> Selecteer cluster type-> deze geeft geslaagde informatie weer als verificatie is geslaagd.
    
-   ![dialoogvenster van de cluster koppelen](./media/apache-domain-joined-manage/link-cluster-process.png)
+   ![dialoog venster cluster koppelen](./media/apache-domain-joined-manage/link-cluster-process.png)
 
    > [!NOTE]  
-   > De gekoppelde gebruikersnaam en wachtwoord worden gebruikt als het cluster zowel geregistreerd in Azure-abonnement en een cluster is gekoppeld. 
+   > De gekoppelde gebruikers naam en het bijbehorende wacht woord worden gebruikt als het cluster beide zijn aangemeld bij het Azure-abonnement en een cluster heeft gekoppeld. 
    
-3. Ziet u een gekoppelde cluster met behulp van de opdracht **lijst cluster**. U kunt nu een script voor dit cluster gekoppelde indienen.
+3. U kunt een gekoppeld cluster zien met behulp van de opdracht **lijst cluster**. U kunt nu een script verzenden naar dit gekoppelde cluster.
 
-   ![gekoppelde cluster](./media/apache-domain-joined-manage/linked-cluster.png)
+   ![gekoppeld cluster](./media/apache-domain-joined-manage/linked-cluster.png)
 
-4. U kunt een cluster ook ontkoppelen door invoeren **HDInsight: Ontkoppelen van een cluster** van opdrachtenpalet.
+4. U kunt ook de koppeling van een cluster met behulp van **HDInsight ontkoppelen: Een cluster** ontkoppelen van het opdracht palet.
 
 ## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>Gebruik IntelliJ om een koppeling te maken met een cluster dat aan een domein is toegevoegd
 
-U kunt een normale cluster koppelen met behulp van Ambari beheerd gebruikersnaam, ook een security hadoop-cluster koppelen met behulp van domeingebruikersnaam (bijvoorbeeld: user1@contoso.com). 
-1. Klik op **koppelen van een cluster** van **Azure Explorer**.
+U kunt een normaal cluster koppelen met behulp van Ambari Managed username, ook een beveiligings-Hadoop-cluster koppelen met behulp `user1@contoso.com`van domein gebruikers naam (zoals:). 
+1. Klik op **een cluster koppelen** vanuit **Azure Verkenner**.
 
-   ![koppeling cluster contextmenu](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+   ![context menu voor koppelings cluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
-2. Voer **clusternaam**, **gebruikersnaam** en **wachtwoord**. U moet controleren van de gebruikersnaam en het wachtwoord als de verificatie is mislukt. (Optioneel) Storage-Account, opslagsleutel, toevoegen en selecteer vervolgens een container uit de Opslagcontainer. Opslaginformatie is bedoeld voor Opslagverkenner in het linkerdeelvenster
+2. Voer de **cluster naam**, de **gebruikers naam** en het **wacht woord**in. U moet de gebruikers naam en het wacht woord controleren als u de verificatie fout hebt ontvangen. Optioneel kunt u een opslag account, opslag sleutel toevoegen en vervolgens een container uit de opslag container selecteren. Opslag gegevens zijn voor opslag Verkenner in de linker boom structuur
    
-   ![dialoogvenster van de cluster koppelen](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
+   ![dialoog venster cluster koppelen](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
 
    > [!NOTE]  
-   > We gebruiken de sleutel van een gekoppeld opslagaccount, gebruikersnaam en wachtwoord als het cluster zowel geregistreerd in Azure-abonnement en een cluster is gekoppeld.
-   > ![Opslagverkenner in IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
+   > We gebruiken de gekoppelde opslag sleutel, gebruikers naam en wacht woord als het cluster beide zijn aangemeld bij het Azure-abonnement en een cluster heeft gekoppeld.
+   > ![opslag Verkenner in IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
 
    
-3. Ziet u een cluster gekoppelde in **HDInsight** knooppunt als de ingevoerde gegevens correct zijn. U kunt nu een toepassing in dit cluster gekoppelde indienen.
+3. U kunt een gekoppeld cluster in het **HDInsight** -knoop punt zien als de invoer gegevens het juiste zijn. U kunt nu een toepassing verzenden naar dit gekoppelde cluster.
 
-   ![gekoppelde cluster](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![gekoppeld cluster](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
 
-4. U kunt een cluster op basis van ook ontkoppelen **Azure Explorer**.
+4. U kunt ook een cluster ontkoppelen van **Azure Explorer**.
    
-   ![niet-gekoppelde cluster](./media/apache-domain-joined-manage/unlink.png)
+   ![niet-gekoppeld cluster](./media/apache-domain-joined-manage/unlink.png)
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Gebruik Eclipse om een koppeling te maken met een cluster dat aan een domein is toegevoegd
 
-U kunt een normale cluster koppelen met behulp van Ambari beheerd gebruikersnaam, ook een security hadoop-cluster koppelen met behulp van domeingebruikersnaam (bijvoorbeeld: user1@contoso.com).
-1. Klik op **koppelen van een cluster** van **Azure Explorer**.
+U kunt een normaal cluster koppelen met behulp van Ambari Managed username, ook een beveiligings-Hadoop-cluster koppelen met behulp `user1@contoso.com`van domein gebruikers naam (zoals:).
+1. Klik op **een cluster koppelen** vanuit **Azure Verkenner**.
 
-   ![koppeling cluster contextmenu](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+   ![context menu voor koppelings cluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
-2. Voer **clusternaam**, **gebruikersnaam** en **wachtwoord**, klik vervolgens op de knop OK om te koppelen van de cluster. (Optioneel) Geef Storage-Account, opslagsleutel en selecteer vervolgens de Opslagcontainer voor de storage explorer om te werken in de structuurweergave links
+2. Voer de **cluster naam**, de **gebruikers naam** en het **wacht woord**in en klik vervolgens op de knop OK om het cluster te koppelen. Voer optioneel het opslag account en de opslag sleutel in en selecteer vervolgens opslag container voor Storage Explorer om in de linkernavigatiebalk te werken
    
-   ![dialoogvenster van de cluster koppelen](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   ![dialoog venster cluster koppelen](./media/apache-domain-joined-manage/link-cluster-dialog.png)
    
    > [!NOTE]  
-   > We gebruiken de sleutel van een gekoppeld opslagaccount, gebruikersnaam en wachtwoord als het cluster zowel geregistreerd in Azure-abonnement en een cluster is gekoppeld.
-   > ![Opslagverkenner in Eclipse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
+   > We gebruiken de gekoppelde opslag sleutel, gebruikers naam en wacht woord als het cluster beide zijn aangemeld bij het Azure-abonnement en een cluster heeft gekoppeld.
+   > ![opslag Verkenner in eclips](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
 
-3. Ziet u een cluster gekoppelde in **HDInsight** knooppunt na het klikken op de knop OK, als de ingevoerde gegevens correct zijn. U kunt nu een toepassing in dit cluster gekoppelde indienen.
+3. U kunt een gekoppeld cluster in **HDInsight** -knoop punt bekijken nadat u op de knop OK hebt geklikt, als de invoer gegevens rechts zijn. U kunt nu een toepassing verzenden naar dit gekoppelde cluster.
 
-   ![gekoppelde cluster](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![gekoppeld cluster](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
 
-4. U kunt een cluster op basis van ook ontkoppelen **Azure Explorer**.
+4. U kunt ook een cluster ontkoppelen van **Azure Explorer**.
    
-   ![niet-gekoppelde cluster](./media/apache-domain-joined-manage/unlink.png)
+   ![niet-gekoppeld cluster](./media/apache-domain-joined-manage/unlink.png)
 
-## <a name="access-the-clusters-with-enterprise-security-package"></a>Toegang tot de clusters met Enterprise-beveiligingspakket.
+## <a name="access-the-clusters-with-enterprise-security-package"></a>Toegang tot de clusters met Enterprise Security Package.
 
-Enterprise-beveiligingspakket (voorheen bekend als HDInsight Premium) biedt meerdere gebruikers toegang tot het cluster, waarbij de verificatie wordt uitgevoerd door Active Directory en autorisatie van Apache Ranger en opslag ACL's (ADLS-ACL's). Autorisatie biedt beveiligde grenzen tussen meerdere gebruikers en kan alleen bevoegde gebruikers toegang hebben tot de gegevens op basis van het autorisatiebeleid.
+Enterprise Security Package (voorheen bekend als HDInsight Premium) biedt toegang van meerdere gebruikers tot het cluster, waarbij de verificatie wordt uitgevoerd door Active Directory en autorisatie door Apache zwerver en opslag-Acl's (ADLS Acl's). Autorisatie biedt een veilige grenzen tussen meerdere gebruikers en geeft alleen bevoegde gebruikers toegang tot de gegevens op basis van het autorisatie beleid.
 
-Beveiligings- en isolatie zijn belangrijk voor een HDInsight-cluster met Enterprise-beveiligingspakket. Om te voldoen aan deze vereisten, is SSH-toegang tot het cluster met Enterprise-beveiligingspakket geblokkeerd. De volgende tabel bevat de aanbevolen methoden voor elk clustertype:
+Beveiliging en gebruikers isolatie zijn belang rijk voor een HDInsight-cluster met Enterprise Security Package. Om aan deze vereisten te voldoen, wordt SSH-toegang tot het cluster met Enterprise Security Package geblokkeerd. De volgende tabel bevat de aanbevolen toegangs methoden voor elk cluster type:
 
-|Workload|Scenario|Toegangsmethode|
+|Workload|Scenario|Toegangs methode|
 |--------|--------|-------------|
-|Apache Hadoop|Hive-interactieve taken/query 's  |<ul><li>[Beeline](#beeline)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Apache Spark|Interactieve taken/query's, interactieve PySpark|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin met Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Apache Spark|Batch-scenario's, Spark-submit, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
-|Interactive Query (LLAP)|Interactief|<ul><li>[Beeline](#beeline)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Alle|Aangepaste toepassing installeren|<ul><li>[Scriptacties](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
+|Apache Hadoop|Hive-interactieve taken/Query's  |<ul><li>[Beeline](#beeline)</li><li>[Hive-weer gave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC-Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-Hulpprogram Ma's](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Spark|Interactieve taken/Query's, PySpark Interactive|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin met livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive-weer gave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC-Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-Hulpprogram Ma's](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Spark|Batch-Scenario's – Spark-verzen ding, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Interactieve query (LLAP)|Interactief|<ul><li>[Beeline](#beeline)</li><li>[Hive-weer gave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC-Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-Hulpprogram Ma's](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Any|Aangepaste toepassing installeren|<ul><li>[Script acties](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
    > [!NOTE]  
-   > Jupyter is niet geïnstalleerd/ondersteund in Enterprise-beveiligingspakket.
+   > Jupyter is niet geïnstalleerd/ondersteund in Enterprise Security Package.
 
-Met de standaard-API's kunt u vanuit het beveiligingsperspectief van. Bovendien krijgt u de volgende voordelen:
+Het gebruik van de standaard-Api's helpt bij het beveiligen van de beveiliging. Daarnaast profiteert u van de volgende voor delen:
 
-1.  **Management** , u kunt uw code te beheren en automatiseren van taken met behulp van standaard-API's, Livy, HS2 enzovoort.
-2.  **Audit** – met SSH, is er geen manier om te controleren, welke gebruikers SSH had met het cluster. Wanneer taken via standaard-eindpunten zijn samengesteld, zoals ze worden uitgevoerd in de context van de gebruiker, zou dit het geval niet. 
+1.  **Beheer** : u kunt uw code beheren en taken automatiseren met standaard-Api's – LIVY, HS2 enzovoort.
+2.  **Audit** : met SSH is er geen manier om te controleren of de gebruikers SSHen naar het cluster. Dit is niet het geval wanneer taken zijn gemaakt via standaard-eind punten, aangezien ze worden uitgevoerd in de context van de gebruiker. 
 
 
 
 ### <a name="beeline"></a>Beeline gebruiken 
-Beeline installeren op uw computer en verbinding maken via het openbare internet, gebruikt u de volgende parameters: 
+Beeline op uw computer installeren en verbinding maken via het open bare Internet, gebruik de volgende para meters: 
 
 ```
 - Connection string: -u 'jdbc:hive2://<clustername>.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
@@ -118,13 +118,13 @@ Beeline installeren op uw computer en verbinding maken via het openbare internet
 - Cluster login password -p 'password'
 ```
 
-Als u Beeline lokaal is geïnstalleerd, en verbinding via een virtueel Azure-netwerk maken, gebruikt u de volgende parameters: 
+Als Beeline lokaal is geïnstalleerd en verbinding maakt via een Azure Virtual Network, gebruikt u de volgende para meters: 
 
 ```
 - Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
-Als u zoekt de volledig gekwalificeerde domeinnaam van een hoofdknooppunt, gebruik de informatie in de HDInsight beheren met behulp van de Ambari REST-API-document.
+Als u wilt zoeken naar de Fully Qualified Domain Name van een hoofd knooppunt, gebruikt u de informatie in het REST API-document HDInsight beheren met behulp van de gegevens in de Ambari.
 
 
 
@@ -140,86 +140,86 @@ Als u zoekt de volledig gekwalificeerde domeinnaam van een hoofdknooppunt, gebru
 
 
 ## <a name="users-of-hdinsight-clusters-with-esp"></a>Gebruikers van HDInsight-clusters met ESP
-Een ESP HDInsight-cluster bevat twee gebruikersaccounts die zijn gemaakt tijdens het maken van een cluster:
+Een niet-ESP HDInsight-cluster heeft twee gebruikers accounts die worden gemaakt tijdens het maken van het cluster:
 
-* **Ambari-beheerder**: Dit account wordt ook wel bekend als *Hadoop-gebruiker* of *HTTP-gebruiker*. Dit account kan worden gebruikt voor aanmelding bij Ambari op https://&lt;clustername >. azurehdinsight.net. Het kan ook worden gebruikt voor query's uitvoeren op de Ambari-weergaven, taken via externe hulpprogramma's (bijvoorbeeld, PowerShell, Templeton, Visual Studio) uitvoeren en verificatie met het Hive ODBC-stuurprogramma en BI-hulpprogramma's (bijvoorbeeld Excel, Power BI en Tableau).
+* **Ambari beheerder**: Dit account wordt ook een *Hadoop-gebruiker* of *http-gebruiker*genoemd. Dit account kan worden gebruikt om u aan te melden bij Ambari&lt;op https://clustername >. azurehdinsight. net. Het kan ook worden gebruikt om query's uit te voeren op Ambari-weer gaven, taken uit te voeren via externe hulpprogram ma's (bijvoorbeeld Power shell, Templeton, Visual Studio) en te verifiëren met het Hive ODBC-stuur programma en BI-hulpprogram ma's (bijvoorbeeld Excel, Power BI of tableau).
 
-Een HDInsight-cluster met ESP heeft drie nieuwe gebruikers naast Ambari Admin.
+Een HDInsight-cluster met ESP heeft naast Ambari-beheerder drie nieuwe gebruikers.
 
-* **Ranger admin**:  Dit account is het lokale beheerdersaccount van Apache Ranger. Het is niet een active directory-domeingebruiker. Dit account kan worden gebruikt voor het instellen van beleid en andere gebruikers beheerders of gedelegeerde beheerders maken (zodat deze gebruikers beleidsregels beheren kunnen). De gebruikersnaam is standaard *admin* en het wachtwoord is hetzelfde als de Ambari-beheerderswachtwoord. Het wachtwoord kan worden bijgewerkt via de pagina instellingen in Ranger.
-* **Gebruiker met beheerdersrechten domein cluster**: Dit account is een active directory-domeingebruiker aangemerkt als de beheerder van Hadoop-cluster zoals Ambari en Ranger. Tijdens het maken, moet u de referenties van deze gebruiker opgeven. Deze gebruiker heeft de volgende bevoegdheden:
+* **Zwerver-beheerder**:  Dit account is het lokale Apache zwerver-beheerders account. Het is geen Active Directory-domein gebruiker. Dit account kan worden gebruikt voor het instellen van beleid en het maken van andere gebruikers beheerders of gedelegeerde beheerders (zodat deze gebruikers beleid kunnen beheren). De gebruikers naam is standaard *beheerder* en het wacht woord is hetzelfde als het Ambari beheerders wachtwoord. Het wacht woord kan worden bijgewerkt vanaf de pagina instellingen in zwerver.
+* **Domein gebruiker cluster beheerder**: Dit account is een Active Directory-domein gebruiker die is aangewezen als Hadoop-Cluster beheer, waaronder Ambari en zwerver. U moet de referenties van deze gebruiker opgeven tijdens het maken van het cluster. Deze gebruiker heeft de volgende bevoegdheden:
 
-  * Computers toevoegen aan het domein en plaats deze in de organisatie-eenheid die u tijdens het maken van clusters opgeeft.
-  * Service-principals binnen de organisatie-eenheid die u tijdens het maken van een cluster opgeeft maken.
-  * Omgekeerde DNS-vermeldingen te maken.
+  * Voeg computers toe aan het domein en plaats deze binnen de OE die u opgeeft tijdens het maken van het cluster.
+  * Service-principals maken binnen de organisatie-eenheid die u opgeeft tijdens het maken van het cluster.
+  * Omgekeerde DNS-vermeldingen maken.
 
-    Houd er rekening mee dat de andere AD-gebruikers hebben ook deze bevoegdheden.
+    Houd er rekening mee dat de andere AD-gebruikers ook over deze bevoegdheden beschikken.
 
-    Er zijn enkele eindpunten binnen het cluster (bijvoorbeeld Templeton) die niet worden beheerd door Ranger, en daarom zijn niet beveiligd. Deze eindpunten zijn vergrendeld voor alle gebruikers, met uitzondering van het hulpprogramma voor het domein van de cluster-beheerder.
-* **Reguliere**: Tijdens het maken van een cluster, kunt u meerdere active directory-groepen opgeven. De gebruikers in deze groepen worden gesynchroniseerd met Ranger en Ambari. Deze gebruikers zijn van gebruikers van een domein en toegang hebben tot alleen Ranger-beheerde eindpunten (bijvoorbeeld Hiveserver2). Alle RBAC-beleidsregels en -controle is van toepassing zijn op deze gebruikers.
+    Er zijn een aantal eind punten in het cluster (bijvoorbeeld Templeton) die niet worden beheerd door zwerver en daarom niet zijn beveiligd. Deze eind punten zijn voor alle gebruikers vergrendeld, met uitzonde ring van de domein gebruiker cluster beheerder.
+* **Normaal**: Tijdens het maken van het cluster kunt u meerdere Active Directory-groepen opgeven. De gebruikers in deze groepen worden gesynchroniseerd met zwerver en Ambari. Deze gebruikers zijn domein gebruikers en hebben toegang tot alleen zwerver-beheerde eind punten (bijvoorbeeld Hiveserver2). Alle RBAC-beleids regels en-controles zijn van toepassing op deze gebruikers.
 
-## <a name="roles-of-hdinsight-clusters-with-esp"></a>Functies van HDInsight-clusters met ESP
-HDInsight Enterprise-beveiligingspakket heeft de volgende rollen:
+## <a name="roles-of-hdinsight-clusters-with-esp"></a>Rollen van HDInsight-clusters met ESP
+HDInsight Enterprise Security Package heeft de volgende rollen:
 
-* Clusterbeheer
-* Cluster-Operator
+* Cluster beheerder
+* Cluster operator
 * Servicebeheerder
-* Service-Operator
-* Clustergebruiker
+* Service operator
+* Cluster gebruiker
 
-**Om te zien van de machtigingen van deze rollen**
+**De machtigingen van deze rollen weer geven**
 
-1. Open de Ambari-gebruikersinterface voor beheer.  Zie [opent u de gebruikersinterface voor het beheer van de Ambari](#open-the-ambari-management-ui).
+1. Open de gebruikers interface van Ambari-beheer.  Zie [de gebruikers interface van Ambari Management openen](#open-the-ambari-management-ui).
 2. Klik in het menu links op **rollen**.
-3. Klik op de blauwe vraagteken om te zien welke machtigingen:
+3. Klik op het blauwe vraag teken om de machtigingen te bekijken:
 
-    ![Rolmachtigingen ESP HDInsight](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
+    ![Machtigingen voor ESP HDInsight-rollen](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
-## <a name="open-the-ambari-management-ui"></a>Open de Ambari-gebruikersinterface voor beheer
+## <a name="open-the-ambari-management-ui"></a>De gebruikers interface van Ambari Management openen
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Open uw HDInsight-cluster.
-3. Klik op **Dashboard** in het menu bovenaan om Ambari te openen.
-4. Aanmelden bij de Ambari met behulp van de cluster-beheerder domein-gebruikersnaam en het wachtwoord.
-5. Klik op de **Admin** in het vervolgkeuzemenu in de rechterbovenhoek hoek naar rechts en klik vervolgens op **Ambari beheren**.
+3. Klik op **dash board** in het bovenste menu om Ambari te openen.
+4. Meld u aan bij Ambari met behulp van de domein gebruikers naam en het wacht woord van de Cluster beheerder.
+5. Klik in de rechter bovenhoek op de vervolg keuzelijst **beheerder** en klik vervolgens op **Ambari beheren**.
 
-    ![ESP HDInsight beheren Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
+    ![ESP HDInsight Manage Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
 
-    De gebruikersinterface ziet eruit zoals:
+    De gebruikers interface ziet er als volgt uit:
 
-    ![Gebruikersinterface voor beheer van ESP HDInsight Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
+    ![ESP HDInsight Ambari-beheer interface](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
 
-## <a name="list-the-domain-users-synchronized-from-your-active-directory"></a>Lijst van de domeingebruikers die is gesynchroniseerd vanuit uw Active Directory
-1. Open de Ambari-gebruikersinterface voor beheer.  Zie [opent u de gebruikersinterface voor het beheer van de Ambari](#open-the-ambari-management-ui).
-2. Klik in het menu links op **gebruikers**. U ziet alle gebruikers die zijn gesynchroniseerd vanuit uw Active Directory met het HDInsight-cluster.
+## <a name="list-the-domain-users-synchronized-from-your-active-directory"></a>De domein gebruikers weer geven die zijn gesynchroniseerd vanuit uw Active Directory
+1. Open de gebruikers interface van Ambari-beheer.  Zie [de gebruikers interface van Ambari Management openen](#open-the-ambari-management-ui).
+2. Klik in het menu links op **gebruikers**. U ziet alle gebruikers die zijn gesynchroniseerd van uw Active Directory naar het HDInsight-cluster.
 
-    ![ESP HDInsight Ambari-gebruikersinterface lijst met gebruikers](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
+    ![Gebruikers interface lijst van ESP HDInsight Ambari-beheer](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
 
-## <a name="list-the-domain-groups-synchronized-from-your-active-directory"></a>De domein-groepen die zijn gesynchroniseerd vanaf Active Directory
-1. Open de Ambari-gebruikersinterface voor beheer.  Zie [opent u de gebruikersinterface voor het beheer van de Ambari](#open-the-ambari-management-ui).
-2. Klik in het menu links op **groepen**. U ziet alle groepen die zijn gesynchroniseerd vanuit uw Active Directory met het HDInsight-cluster.
+## <a name="list-the-domain-groups-synchronized-from-your-active-directory"></a>De domein groepen weer geven die zijn gesynchroniseerd vanuit uw Active Directory
+1. Open de gebruikers interface van Ambari-beheer.  Zie [de gebruikers interface van Ambari Management openen](#open-the-ambari-management-ui).
+2. Klik in het menu links op **groepen**. U ziet alle groepen die zijn gesynchroniseerd van uw Active Directory naar het HDInsight-cluster.
 
-    ![ESP HDInsight Ambari-gebruikersinterface lijst met beheergroepen](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
+    ![Lijst groepen van de gebruikers interface van ESP HDInsight Ambari Management](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
 
-## <a name="configure-hive-views-permissions"></a>Hive-weergaven machtigingen configureren
-1. Open de Ambari-gebruikersinterface voor beheer.  Zie [opent u de gebruikersinterface voor het beheer van de Ambari](#open-the-ambari-management-ui).
-2. Klik in het menu links op **weergaven**.
-3. Klik op **HIVE** om de details weer te geven.
+## <a name="configure-hive-views-permissions"></a>Machtigingen voor Hive-weer gaven configureren
+1. Open de gebruikers interface van Ambari-beheer.  Zie [de gebruikers interface van Ambari Management openen](#open-the-ambari-management-ui).
+2. Klik in het menu links op **weer gaven**.
+3. Klik op **Hive** om de details weer te geven.
 
-    ![ESP HDInsight Ambari management UI Hive-weergaven](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
-4. Klik op de **Hive-weergave** koppelen aan het Hive-weergaven configureren.
-5. Schuif omlaag naar de **machtigingen** sectie.
+    ![UI-Hive-weer gaven ESP HDInsight Ambari Management](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
+4. Klik op de koppeling van de **Hive-weer gave** om Hive-weer gaven te configureren.
+5. Schuif omlaag naar de sectie **machtigingen** .
 
-    ![ESP HDInsight Ambari management UI-Hive-weergaven configureren machtigingen](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
-6. Klik op **gebruiker toevoegen** of **groep toevoegen**, en geef vervolgens de gebruikers of groepen die Hive-weergaven kunnen gebruiken.
+    ![Gebruikers interface van ESP HDInsight Ambari Management-Hive machtigingen configureren](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
+6. Klik op **gebruiker toevoegen** of **groep toevoegen**en geef vervolgens de gebruikers of groepen op die Hive-weer gaven kunnen gebruiken.
 
-## <a name="configure-users-for-the-roles"></a>Gebruikers voor de functies configureren
- Zie voor een overzicht van functies en hun machtigingen, rollen van HDInsight-clusters met ESP.
+## <a name="configure-users-for-the-roles"></a>Gebruikers configureren voor de rollen
+ Zie rollen van HDInsight-clusters met ESP voor een overzicht van de rollen en de bijbehorende machtigingen.
 
-1. Open de Ambari-gebruikersinterface voor beheer.  Zie [opent u de gebruikersinterface voor het beheer van de Ambari](#open-the-ambari-management-ui).
+1. Open de gebruikers interface van Ambari-beheer.  Zie [de gebruikers interface van Ambari Management openen](#open-the-ambari-management-ui).
 2. Klik in het menu links op **rollen**.
-3. Klik op **gebruiker toevoegen** of **groep toevoegen** gebruikers en groepen toewijzen aan verschillende rollen.
+3. Klik op **gebruiker toevoegen** of **groep toevoegen** om gebruikers en groepen toe te wijzen aan verschillende rollen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een HDInsight-cluster configureren met Enterprise-beveiligingspakket, [configureren HDInsight-clusters met ESP](apache-domain-joined-configure.md).
-* Zie voor het configureren van Hive-beleid en Hive-query's uitvoeren, [configureren Apache Hive-beleid voor HDInsight-clusters met ESP](apache-domain-joined-run-hive.md).
+* Zie [hdinsight-clusters met ESP configureren](apache-domain-joined-configure.md)voor meer informatie over het configureren van een hdinsight-cluster met Enterprise Security Package.
+* Zie [configure Apache Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md)(Engelstalig) voor het configureren van Hive-beleid en het uitvoeren van Hive-query's.

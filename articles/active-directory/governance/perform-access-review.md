@@ -1,9 +1,9 @@
 ---
-title: Toegang met groepen of toepassingen in toegangsbeoordelingen - Azure Active Directory controleren | Microsoft Docs
-description: Meer informatie over het bekijken van de groepsleden of toepassing toegang in Azure Active Directory-toegangsbeoordelingen.
+title: Toegang tot groepen of toepassingen in toegangs beoordelingen controleren-Azure Active Directory | Microsoft Docs
+description: Meer informatie over het controleren van toegang tot groeps leden of toegang tot toepassingen in Azure Active Directory toegangs Beoordelingen.
 services: active-directory
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,104 +12,104 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 05/21/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6f73d3bf5e502a758dd46561059c15a2970d9b6
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3be5d6eb443d90d3413510576a9609fe43df7caa
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67471830"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499621"
 ---
-# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Controleer toegang tot groepen of toepassingen in Azure AD-toegangsbeoordelingen
+# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Toegang tot groepen of toepassingen in azure AD-toegangs beoordelingen controleren
 
-Azure Active Directory (Azure AD) vereenvoudigt hoe bedrijven toegang aan groepen en toepassingen beheren in Azure AD en andere Microsoft Online Services met een functie met de naam van de toegang van Azure AD-toegangsbeoordelingen.
+Azure Active Directory (Azure AD) vereenvoudigt de manier waarop bedrijven de toegang tot groepen en toepassingen in azure AD en andere online services van micro soft beheren met een functie die Azure AD-toegangs beoordelingen heet.
 
-Dit artikel wordt beschreven hoe een aangewezen revisor voert een toegangscontrole uit voor leden van een groep of gebruikers met toegang tot een toepassing.
+In dit artikel wordt beschreven hoe een aangewezen revisor een toegangs beoordeling uitvoert voor leden van een groep of gebruikers met toegang tot een toepassing.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Azure AD Premium P2
 
-Zie voor meer informatie, [welke gebruikers moeten beschikken over licenties?](access-reviews-overview.md#which-users-must-have-licenses).
+Zie [welke gebruikers licenties moeten hebben?](access-reviews-overview.md#which-users-must-have-licenses)voor meer informatie.
 
-## <a name="open-the-access-review"></a>Open de toegangsbeoordeling
+## <a name="open-the-access-review"></a>Open de toegangs beoordeling
 
-De eerste stap bij het uitvoeren van een toegangsbeoordeling is om te zoeken en openen van de toegangsbeoordeling.
+De eerste stap voor het uitvoeren van een toegangs beoordeling is het zoeken en openen van de toegangs beoordeling.
 
-1. Zoek naar een e-mailbericht van Microsoft waarmee u wordt gevraagd te toegang beoordelen. Hier volgt een voorbeeld van de e-mail om te controleren van de toegang voor een groep.
+1. Zoek naar een e-mail bericht van micro soft waarin u wordt gevraagd de toegang te controleren. Hier volgt een voor beeld van een e-mail bericht om de toegang tot een groep te controleren.
 
-    ![Voorbeeld van de e-mailbericht van Microsoft om te controleren van toegang tot een groep](./media/perform-access-review/access-review-email.png)
+    ![Voor beeld van een e-mail bericht van micro soft om de toegang tot een groep te controleren](./media/perform-access-review/access-review-email.png)
 
-1. Klik op de **revisie starten** koppeling naar het openen van de toegangsbeoordeling.
+1. Klik op de koppeling **controle starten** om de toegangs beoordeling te openen.
 
-Als u het e-mailbericht niet hebt, kunt u uw in behandeling zijnde toegangsbeoordelingen door de volgende stappen kunt vinden.
+Als u de e-mail niet hebt, kunt u uw openstaande toegangs beoordelingen vinden door de volgende stappen uit te voeren.
 
-1. Meld u aan bij de MyApps-portal op [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+1. Meld u aan bij de MyApps- [https://myapps.microsoft.com](https://myapps.microsoft.com)Portal op.
 
-    ![Apps die u machtigingen hebben voor aanbieding MyApps-portal](./media/perform-access-review/myapps-access-panel.png)
+    ![MyApps-Portal met een lijst met machtigingen voor](./media/perform-access-review/myapps-access-panel.png)
 
 1. Klik in de rechterbovenhoek van de pagina op het gebruikerssymbool, waar uw naam en standaardorganisatie worden weergegeven. Als er meerdere organisaties vermeld staan, selecteert u de organisatie waarvoor een toegangsbeoordeling is aangevraagd.
 
-1. Klik op de **Toegangsbeoordelingen** tegel voor een overzicht van de in behandeling zijnde toegangsbeoordelingen.
+1. Klik op de tegel **toegangs beoordelingen** om een lijst met de openstaande toegangs beoordelingen weer te geven.
 
     Als de tegel niet zichtbaar is, zijn er geen toegangsbeoordelingen die voor die organisatie moeten worden uitgevoerd en hoeft er momenteel geen actie te worden ondernomen.
 
-    ![Lijst met revisies in behandeling zijnde voor apps en -groepen](./media/perform-access-review/access-reviews-list.png)
+    ![Lijst met openstaande toegangs Beoordelingen voor apps en groepen](./media/perform-access-review/access-reviews-list.png)
 
-1. Klik op de **controle beginnen** koppeling voor de toegangsbeoordeling die u wilt uitvoeren.
+1. Klik op de koppeling **controle starten** voor de toegangs beoordeling die u wilt uitvoeren.
 
-## <a name="perform-the-access-review"></a>De toegangscontrole uitvoeren
+## <a name="perform-the-access-review"></a>De toegangs beoordeling uitvoeren
 
-Nadat u de toegangsbeoordeling hebt geopend, ziet u de namen van gebruikers die moeten worden gecontroleerd.
+Zodra u de toegangs beoordeling hebt geopend, ziet u de namen van de gebruikers die moeten worden gecontroleerd.
 
-Als de aanvraag is uw eigen toegang controleren, ziet de pagina er anders. Zie voor meer informatie, [toegang beoordelen zelf aan groepen of toepassingen](review-your-access.md).
+Als de aanvraag uw eigen toegang moet controleren, ziet de pagina er anders uit. Zie voor meer informatie [toegang tot groepen of toepassingen controleren](review-your-access.md).
 
-![De gebruikers die moeten worden gecontroleerd van de aanbieding van Open toegang controleren](./media/perform-access-review/perform-access-review.png)
+![Open Access-beoordeling met een overzicht van de gebruikers die moeten worden beoordeeld](./media/perform-access-review/perform-access-review.png)
 
-Er zijn twee manieren waarop u kunt goedkeuren of weigeren van toegang:
+Er zijn twee manieren waarop u toegang kunt goed keuren of weigeren:
 
-- U kunt goedkeuren of weigeren van toegang voor een of meer gebruikers, of
-- U kunt de systeemaanbevelingen, dit is de eenvoudigste en snelste manier accepteren.
+- U kunt de toegang voor een of meer gebruikers goed keuren of weigeren, of
+- U kunt de aanbevelingen van het systeem accepteren. Dit is de eenvoudigste en snelste manier.
 
-### <a name="approve-or-deny-access-for-one-or-more-users"></a>Goedkeuren of weigeren van toegang voor een of meer gebruikers
+### <a name="approve-or-deny-access-for-one-or-more-users"></a>Toegang voor een of meer gebruikers goed keuren of weigeren
 
-1. Bekijk de lijst van gebruikers om te bepalen of u wilt goedkeuren of weigeren van de blijvende toegang.
+1. Bekijk de lijst met gebruikers om te bepalen of hun voortdurende toegang moet worden goedgekeurd of geweigerd.
 
-1. Als u wilt goedkeuren of weigeren van toegang voor één gebruiker, klikt u op de rij voor open een venster om op te geven van de actie te ondernemen. Als u wilt goedkeuren of weigeren van toegang voor meerdere gebruikers, selectievakjes naast de gebruikers toevoegen en klik vervolgens op de **gebruiker (s) X revisie** knop voor het openen van een venster om op te geven van de actie te ondernemen.
+1. Als u de toegang voor één gebruiker wilt goed keuren of weigeren, klikt u op de rij om een venster te openen om de te ondernemen actie op te geven. Als u de toegang voor meerdere gebruikers wilt goed keuren of weigeren, voegt u de selectie vakjes naast de gebruikers toe en klikt u op de knop **X-gebruiker (s) controleren** om een venster te openen waarin u de te ondernemen actie kunt opgeven.
 
-1. Klik op **goedkeuren** of **weigeren**. Als u niet zeker weet, klikt u op **weet niet**. In dat geval zal leiden tot de gebruiker die het beheren van hun toegang, maar de selectie, worden weergegeven in de auditlogboeken.
+1. Klik op **goed keuren** of **weigeren**. Als u niet zeker weet, kunt u klikken op **niet bekend**. Als u dit doet, wordt de gebruiker toegang tot de toegangs beheer, maar de selectie wordt weer gegeven in de audit Logboeken.
 
-    ![Actie-venster met goedkeuren, weigeren, en niet weet opties](./media/perform-access-review/approve-deny.png)
+    ![Actie venster met opties goed keuren, weigeren en niet bekend](./media/perform-access-review/approve-deny.png)
 
-1. Voer een reden in, indien nodig de **reden** vak.
+1. Voer, indien nodig, een reden in het vak **reden** in.
 
-    De beheerder van de toegangsbeoordeling mogelijk dat u een reden voor het goedkeuren van blijvende toegang of lidmaatschap van groep opgeven.
+    De beheerder van de toegangs beoordeling vereist mogelijk dat u een reden opgeeft voor het goed keuren van voortdurende toegang of groepslid maatschap.
 
-1. Nadat u de actie te ondernemen hebt opgegeven, klikt u op **opslaan**.
+1. Wanneer u de actie hebt opgegeven die u wilt uitvoeren, klikt u op **Opslaan**.
 
-    Als u uw antwoord wijzigen wilt, selecteert u de rij en bijwerken van het antwoord. Bijvoorbeeld, kunt u een eerder geweigerde gebruiker goedkeuren of weigeren van een eerder goedgekeurde gebruiker. U kunt uw antwoord wijzigen op elk gewenst moment totdat de toegangsbeoordeling is beëindigd.
+    Als u uw antwoord wilt wijzigen, selecteert u de rij en werkt u het antwoord bij. U kunt bijvoorbeeld een eerder geweigerde gebruiker goed keuren of een eerder goedgekeurde gebruiker weigeren. U kunt uw antwoord op elk gewenst moment wijzigen totdat de toegangs beoordeling is beëindigd.
 
-    Als er meerdere recensenten, wordt de laatst ingediende antwoord wordt vastgelegd. Bekijk een voorbeeld waarin een beheerder twee revisoren – Els en Bob wijst. Els wordt de toegangsbeoordeling eerst geopend en keurt deze goed toegang. Voordat de beoordeling is beëindigd, wordt Bob opent de toegangsbeoordeling en de toegang weigert. De laatste weigeren antwoord is wat wordt vastgelegd.
+    Als er meerdere revisoren zijn, wordt de laatste verzonden reactie vastgelegd. Bekijk een voor beeld waarin een beheerder twee revisoren (Alice en Bob) toewijst. Anja opent eerst de toegangs beoordeling en keurt de toegang goed. Voordat de controle eindigt, wordt de toegangs beoordeling geopend en wordt de toegang geweigerd. De laatste weigerings reactie is wat wordt vastgelegd.
 
     > [!NOTE]
-    > Als een gebruiker toegang wordt geweigerd, worden niet ze onmiddellijk verwijderd. Ze worden verwijderd wanneer de beoordeling is voltooid of wanneer een beheerder de controle wordt gestopt.
+    > Als een gebruiker de toegang wordt geweigerd, worden ze niet onmiddellijk verwijderd. Ze worden verwijderd wanneer de controle is beëindigd of wanneer een beheerder de controle stopt.
 
-### <a name="approve-or-deny-access-based-on-recommendations"></a>Goedkeuren of weigeren van toegang op basis van aanbevelingen
+### <a name="approve-or-deny-access-based-on-recommendations"></a>Toegang goed keuren of weigeren op basis van aanbevelingen
 
-Als u wilt maken met toegangsbeoordelingen sneller en gemakkelijker voor u, bieden we ook aanbevelingen die u kunt accepteren met één klik. De aanbevelingen zijn gegenereerd op basis van de aanmeldingsactiviteiten van de gebruiker.
+Om toegangs beoordelingen gemakkelijker en sneller te laten verlopen, bieden we ook aanbevelingen die u met één klik kunt accepteren. De aanbevelingen worden gegenereerd op basis van de aanmeldings activiteit van de gebruiker.
 
-1. Klik in de blauwe balk aan de onderkant van de pagina op **aanbevelingen accepteren**.
+1. Klik in de blauwe balk onder aan de pagina op **aanbevelingen accepteren**.
 
-    ![Open toegangsbeoordeling weergeven met de knop van de aanbevelingen accepteren](./media/perform-access-review/accept-recommendations.png)
+    ![Open de toegangs beoordelings vermelding met de knop aanbevelingen accepteren](./media/perform-access-review/accept-recommendations.png)
 
-    U ziet een overzicht van de aanbevolen acties uitvoert.
+    Er wordt een samen vatting van de aanbevolen acties weer gegeven.
 
-    ![Venster een samenvatting van de aanbevolen acties geeft](./media/perform-access-review/accept-recommendations-summary.png)
+    ![Venster waarin een samen vatting van de aanbevolen acties wordt weer gegeven](./media/perform-access-review/accept-recommendations-summary.png)
 
-1. Klik op **Ok** te accepteren van de aanbevelingen.
+1. Klik op **OK** om de aanbevelingen te accepteren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een toegangscontrole van groepen of toepassingen voltooien](complete-access-review.md)
+- [Een toegangs beoordeling van groepen of toepassingen volt ooien](complete-access-review.md)

@@ -1,6 +1,6 @@
 ---
-title: Serviceoverzicht integratie met System Center Operations Manager | Microsoft Docs
-description: Serviceoverzicht is een oplossing in Azure die automatisch toepassingsonderdelen op Windows- en Linux-systemen detecteert en de communicatie tussen services toewijst. In dit artikel beschrijft het gebruik van Serviceoverzicht automatisch diagrammen van de gedistribueerde toepassing maken in Operations Manager.
+title: Azure Monitor voor VM's integratie met System Center Operations Manager | Microsoft Docs
+description: Azure Monitor voor VM's detecteert automatisch toepassings onderdelen op Windows-en Linux-systemen en wijst de communicatie tussen services toe. In dit artikel wordt beschreven hoe u met de kaart functie automatisch gedistribueerde toepassings diagrammen maakt in Operations Manager.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -11,129 +11,143 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2017
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 40e6d6ff6ea8748b525642e5507c80590b322b7a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b16505eb2c12819532b8675472cf0e6f4177f7bf
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60402534"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489724"
 ---
-# <a name="service-map-integration-with-system-center-operations-manager"></a>Serviceoverzicht integratie met System Center Operations Manager
+# <a name="system-center-operations-manager-integration-with-azure-monitor-for-vms-map-feature"></a>System Center Operations Manager integratie met Azure Monitor voor VM's kaart functie
 
-Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Serviceoverzicht kunt u om de manier waarop u deze zien als onderling verbonden systemen die kritieke services verlenen voor de servers weer te geven. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur, zonder configuratie vereist naast de installatie van een agent. Zie voor meer informatie de [Serviceoverzicht documentatie]( service-map.md).
+In Azure Monitor voor VM's kunt u gedetecteerde toepassings onderdelen weer geven op virtuele Windows-en Linux-machines (Vm's) die worden uitgevoerd in azure of in uw omgeving. Als deze integratie tussen de kaart functie en System Center Operations Manager, kunt u automatisch gedistribueerde toepassings diagrammen maken in Operations Manager die zijn gebaseerd op de dynamische afhankelijkheids toewijzingen in Azure Monitor voor VM's. 
 
-Met deze integratie tussen Service Map- en System Center Operations Manager, kunt u automatisch diagrammen van de gedistribueerde toepassing maken in Operations Manager die zijn gebaseerd op de dynamische afhankelijkheid toewijzingen in Serviceoverzicht.
+>[!NOTE]
+>Als u Servicetoewijzing al hebt geïmplementeerd, kunt u uw kaarten weer geven in Azure Monitor voor VM's, met daarin extra functies voor het controleren van de status en prestaties van de virtuele machine. De kaart functie van Azure Monitor voor VM's is bedoeld om de zelfstandige Servicetoewijzing oplossing te vervangen. Zie [Azure monitor voor VM's-overzicht](vminsights-overview.md)voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
-* Een beheergroep van Operations Manager (2012 R2 of hoger) die wordt beheerd door een set servers.
-* Een Log Analytics-werkruimte met de oplossing Serviceoverzicht is ingeschakeld.
-* Een set servers (ten minste één) die worden beheerd door Operations Manager en verzenden van gegevens naar de Service Map. Windows en Linux-servers worden ondersteund.
-* Een service-principal die toegang hebben tot de Azure-abonnement dat is gekoppeld aan de Log Analytics-werkruimte. Ga voor meer informatie naar [maken van een service-principal](#create-a-service-principal).
 
-## <a name="install-the-service-map-management-pack"></a>Installeer het managementpack voor Serviceoverzicht
-U kunt de integratie tussen Operations Manager en Service Map inschakelen door het importeren van de Microsoft.SystemCenter.ServiceMap management pack-bundel (Microsoft.SystemCenter.ServiceMap.mpb). U kunt het management pack-bundel van downloaden de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55763). De bundel bevat de volgende management packs:
-* Microsoft Service Map-toepassing-weergaven
-* Microsoft System Center Service Map interne
-* Microsoft System Center Service kaart onderdrukkingen
-* Microsoft System Center Service Map
+* Een System Center Operations Manager-beheer groep (2012 R2 of hoger).
+* Een Log Analytics-werk ruimte die is geconfigureerd voor de ondersteuning van Azure Monitor voor VM's.
+* Een of meer virtuele Windows-en Linux-machines of fysieke computers die worden bewaakt door Operations Manager en het verzenden van gegevens naar uw Log Analytics-werk ruimte. Linux-servers die rapporteren aan een Operations Manager-beheer groep moeten worden geconfigureerd om rechtstreeks verbinding te maken met Azure Monitor. Raadpleeg het overzicht in [logboek gegevens verzamelen met de log Analytics-agent](../platform/log-analytics-agent.md)voor meer informatie.
+* Een service-principal met toegang tot het Azure-abonnement dat is gekoppeld aan de Log Analytics-werk ruimte. Ga voor meer informatie naar [een service-principal maken](#create-a-service-principal).
 
-## <a name="configure-the-service-map-integration"></a>De Serviceoverzicht-integratie configureren
-Nadat u het Serviceoverzicht management pack, een nieuw knooppunt **Serviceoverzicht**, wordt weergegeven onder **Operations Management Suite** in de **beheer** deelvenster.
+## <a name="install-the-service-map-management-pack"></a>Installeer de Servicetoewijzing management pack
 
->[!NOTE]
->[Operations Management Suite is een verzameling van services](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) die opgenomen Log Analytics, die nu deel uitmaakt van [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
+U schakelt de integratie tussen Operations Manager en de kaart functie in door het importeren van micro soft. System Center. ServiceMap management pack bundel (micro soft. System Center. ServiceMap. MPB). U kunt de management pack bundel downloaden van het [micro soft Download centrum](https://www.microsoft.com/download/details.aspx?id=55763). De bundel bevat de volgende Management Packs:
 
-Serviceoverzicht om integratie te configureren, het volgende doen:
+* Micro soft Servicetoewijzing-toepassings weergaven
+* Micro soft System Center Servicetoewijzing intern
+* Micro soft System Center Servicetoewijzing onderdrukkingen
+* Micro soft System Center Servicetoewijzing
 
-1. De configuratiewizard openen in de **Service kaart overzicht** deelvenster, klikt u op **werkruimte toevoegen**.  
+## <a name="configure-integration"></a>Integratie configureren
 
-    ![Overzicht van service-kaart deelvenster](media/service-map-scom/scom-configuration.png)
-
-2. In de **verbindingsconfiguratie** venster, geef de naam van tenant of -ID, toepassings-ID (ook wel bekend als de gebruikersnaam of clientID) en het wachtwoord van de service-principal, en klik vervolgens op **volgende**. Voor meer informatie gaat u naar een service-principal maken.
-
-    ![Het venster verbindingsconfiguratie](media/service-map-scom/scom-config-spn.png)
-
-3. In de **Abonnementselectie** venster, selecteert u de Azure-abonnement, de Azure-resourcegroep (het account met de Log Analytics-werkruimte) en de Log Analytics-werkruimte en klik vervolgens op **volgende**.
-
-    ![De werkruimte van Operations Manager-configuratie](media/service-map-scom/scom-config-workspace.png)
-
-4. In de **Machine groepsselectie** venster, kiest u welke kaart computergroepen u wilt synchroniseren met Operations Manager. Klik op **computergroepen toevoegen/verwijderen**, kiest u groepen uit de lijst met **beschikbare computergroepen**, en klikt u op **toevoegen**.  Wanneer u klaar bent met groepen te selecteren, klikt u op **Ok** om te voltooien.
-
-    ![De Operations Manager-configuratie computergroepen](media/service-map-scom/scom-config-machine-groups.png)
-
-5. In de **serverselectie** venster, u de groep Service Map-Servers configureren met de servers die u wilt synchroniseren tussen Operations Manager en Service Map. Klik op **Servers toevoegen/verwijderen**.   
-
-    Voor de integratie met het bouwen van een diagram van gedistribueerde toepassing voor een server, moet de server:
-
-   * Beheerd door Operations Manager
-   * Beheerd door Service Map
-   * Vermeld in de groep Servers van Service-kaart
-
-     ![De groep Operations Manager-configuratie](media/service-map-scom/scom-config-group.png)
-
-6. Optioneel: Selecteer de resourcegroep van de beheerserver om te communiceren met Log Analytics, en klik vervolgens op **werkruimte toevoegen**.
-
-    ![De Operations Manager-configuratie-resourcegroep](media/service-map-scom/scom-config-pool.png)
-
-    Het duurt even om te configureren en registreren van de Log Analytics-werkruimte. Nadat deze is geconfigureerd, wordt de eerste synchronisatie van Serviceoverzicht in Operations Manager gestart.
-
-    ![De Operations Manager-configuratie-resourcegroep](media/service-map-scom/scom-config-success.png)
-
-
-## <a name="monitor-service-map"></a>Monitor Serviceoverzicht
-Nadat de verbinding van de Log Analytics-werkruimte is gemaakt, een nieuwe map Service Map, wordt weergegeven in de **bewaking** deelvenster van de Operations Manager-console.
-
-![Het deelvenster controle van Operations Manager](media/service-map-scom/scom-monitoring.png)
-
-De Serviceoverzicht-map bevat vier knooppunten:
-* **Actieve waarschuwingen**: Geeft een lijst van alle actieve waarschuwingen over de communicatie tussen Operations Manager en Service Map.  Houd er rekening mee dat deze waarschuwingen niet zijn van Log Analytics waarschuwingen gesynchroniseerd wordt met Operations Manager.
-
-* **Servers**: Geeft een lijst van de bewaakte servers die zijn geconfigureerd om te synchroniseren van Serviceoverzicht.
-
-    ![Het deelvenster Servers van Operations Manager-bewaking](media/service-map-scom/scom-monitoring-servers.png)
-
-* **Computergroep afhankelijkheid weergaven**: Geeft een lijst van alle computergroepen die vanuit de Service Map zijn gesynchroniseerd. U kunt klikken op een groep om een diagram van de gedistribueerde toepassing weer te geven.
-
-    ![Een diagram van de Operations Manager gedistribueerde toepassing](media/service-map-scom/scom-group-dad.png)
-
-* **Server afhankelijkheid weergaven**: Geeft een lijst van alle servers die zijn gesynchroniseerd van Serviceoverzicht. U kunt klikken op elke server om een diagram van de gedistribueerde toepassing weer te geven.
-
-    ![Een diagram van de Operations Manager gedistribueerde toepassing](media/service-map-scom/scom-dad.png)
-
-## <a name="edit-or-delete-the-workspace"></a>Bewerken of verwijderen van de werkruimte
-U kunt bewerken of verwijderen van de geconfigureerde werkruimte via de **Service kaart overzicht** deelvenster (**beheer** deelvenster > **Operations Management Suite**  >  **Service kaart**).
+Nadat u de Servicetoewijzing management pack hebt geïnstalleerd, wordt er een nieuw knoop punt **servicetoewijzing**weer gegeven onder **Operations Management Suite** in het deel venster **beheer** van uw Operations Manager Operations-console.
 
 >[!NOTE]
->[Operations Management Suite is een verzameling van services](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) die opgenomen Log Analytics, die nu deel uitmaakt van [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
+>[Operations Management Suite is een verzameling van services](../terminology.md#april-2018---retirement-of-operations-management-suite-brand) die zijn opgenomen log Analytics, maakt nu deel uit van [Azure monitor](../overview.md).
 
-Nu kunt u slechts één Log Analytics-werkruimte configureren.
+Ga als volgt te werk om Azure Monitor voor VM's kaart integratie te configureren:
 
-![De werkruimte van Operations Manager-bewerken](media/service-map-scom/scom-edit-workspace.png)
+1. Als u de configuratie wizard wilt openen, klikt u in het deel venster **servicetoewijzing overzicht** op **werk ruimte toevoegen**.  
 
-## <a name="configure-rules-and-overrides"></a>Regels en overschrijvingen configureren
-Een regel, _Microsoft.SystemCenter.ServiceMapImport.Rule_, om op te halen regelmatig gegevens van Service Map wordt gemaakt. Als u wilt synchroniseren tijdsinstellingen wijzigen, kunt u onderdrukkingen van de regel (**ontwerpen** deelvenster > **regels** > **Microsoft.SystemCenter.ServiceMapImport.Rule**) .
+    ![Servicetoewijzing deel venster Overzicht](media/service-map-scom/scom-configuration.png)
 
-![Het eigenschappenvenster van Operations Manager-onderdrukkingen](media/service-map-scom/scom-overrides.png)
+2. Voer in het venster configuratie van de **verbinding** de naam van de TENANT of id, toepassings-id (ook wel bekend als de gebruikers naam of clientID) en het wacht woord van de Service-Principal in en klik vervolgens op **volgende**. Ga voor meer informatie naar een service-principal maken.
 
-* **Ingeschakeld**: In- of uitschakelen van automatische updates.
-* **IntervalMinutes**: Opnieuw instellen van de tijd tussen de updates. Het standaardinterval is één uur. Als u synchroniseren server maps regelmatig wilt, kunt u de waarde wijzigen.
-* **TimeoutSeconds**: De hoeveelheid tijd voordat de time-out van de aanvraag opnieuw.
-* **TimeWindowMinutes**: Opnieuw instellen van het tijdvenster voor het opvragen van gegevens. Standaard is een venster 60 minuten. De toegestane maximumwaarde door Serviceoverzicht is 60 minuten.
+    ![Het venster verbindings configuratie](media/service-map-scom/scom-config-spn.png)
+
+3. Selecteer in het venster voor het selecteren van het **abonnement** het Azure-abonnement, de Azure-resource groep (de naam die de log Analytics-werk ruimte bevat) en log Analytics werk ruimte en klik vervolgens op **volgende**.
+
+    ![De werk ruimte Operations Manager configuratie](media/service-map-scom/scom-config-workspace.png)
+
+4. In het venster **computer groep selecteren** kiest u de servicetoewijzing machine groepen die u wilt synchroniseren met Operations Manager. Klik op **computer groepen toevoegen/verwijderen**, kies groepen in de lijst met beschik **bare computer groepen**en klik op **toevoegen**.  Wanneer u klaar bent met het selecteren van groepen, klikt u op **OK** om te volt ooien.
+
+    ![De Operations Manager configuratie machine groepen](media/service-map-scom/scom-config-machine-groups.png)
+
+5. In het venster **server selectie** configureert u de servicetoewijzing servers groep met de servers die u wilt synchroniseren tussen Operations Manager en de kaart functie. Klik op **servers toevoegen/verwijderen**.
+
+    Voor de integratie van het bouwen van een gedistribueerd toepassings diagram voor een-server moet de-server:
+
+   * Bewaakt door Operations Manager
+   * Geconfigureerd om te rapporteren aan de Log Analytics werk ruimte die is geconfigureerd met Azure Monitor voor VM's
+   * Vermeld in de groep Servicetoewijzing servers
+
+     ![De configuratie groep Operations Manager](media/service-map-scom/scom-config-group.png)
+
+6. Optioneel: Selecteer de resource groep alle beheerser vers om te communiceren met Log Analytics en klik vervolgens op **werk ruimte toevoegen**.
+
+    ![De resource groep voor de Operations Manager configuratie](media/service-map-scom/scom-config-pool.png)
+
+    Het kan een minuut duren voordat de Log Analytics-werk ruimte is geconfigureerd en geregistreerd. Nadat de configuratie is geconfigureerd, start Operations Manager de eerste synchronisatie van de kaart.
+
+    ![De resource groep voor de Operations Manager configuratie](media/service-map-scom/scom-config-success.png)
+
+## <a name="monitor-integration"></a>Integratie controleren
+
+Nadat de Log Analytics werk ruimte is verbonden, wordt een nieuwe map, Servicetoewijzing, weer gegeven in het deel venster **bewaking** van de Operations Manager Operations-console.
+
+![Het deel venster Operations Manager bewaking](media/service-map-scom/scom-monitoring.png)
+
+De map Servicetoewijzing heeft vier knoop punten:
+
+* **Actieve waarschuwingen**: Een lijst met alle actieve waarschuwingen over de communicatie tussen Operations Manager en Azure Monitor.  
+
+  >[!NOTE]
+  >Deze waarschuwingen worden niet Log Analytics waarschuwingen die zijn gesynchroniseerd met Operations Manager en ze worden gegenereerd in de beheer groep op basis van werk stromen die zijn gedefinieerd in de Servicetoewijzing management pack.
+
+* **Servers**: Geeft een lijst weer van de bewaakte servers die zijn geconfigureerd om te synchroniseren van Azure Monitor voor VM's kaart functie.
+
+    ![Het deel venster Operations Manager monitoring servers](media/service-map-scom/scom-monitoring-servers.png)
+
+* **Afhankelijkheids weergaven van computer groepen**: Een lijst met alle computer groepen die zijn gesynchroniseerd vanuit de kaart functie. U kunt op een wille keurige groep klikken om het gedistribueerde toepassings diagram weer te geven.
+
+    ![Het diagram voor gedistribueerde toepassingen Operations Manager](media/service-map-scom/scom-group-dad.png)
+
+* **Server afhankelijkheids weergaven**: Een lijst met alle servers die zijn gesynchroniseerd vanuit de kaart functie. U kunt klikken op een wille keurige server om het gedistribueerde toepassings diagram weer te geven.
+
+    ![Het diagram voor gedistribueerde toepassingen Operations Manager](media/service-map-scom/scom-dad.png)
+
+## <a name="edit-or-delete-the-workspace"></a>De werk ruimte bewerken of verwijderen
+
+U kunt de geconfigureerde werk ruimte bewerken of verwijderen via het servicetoewijzing deel venster **overzicht** (**beheer** Venster > **Operations Management Suite** > **servicetoewijzing**).
+
+>[!NOTE]
+>[Operations Management Suite is een verzameling services](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) die log Analytics bevat, die nu deel uitmaakt van [Azure monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
+
+U kunt slechts één Log Analytics werkruimte configureren in deze huidige versie.
+
+![Het deel venster Operations Manager werk ruimte bewerken](media/service-map-scom/scom-edit-workspace.png)
+
+## <a name="configure-rules-and-overrides"></a>Regels en onderdrukkingen configureren
+
+Met een regel, *micro soft. System Center. ServiceMapImport. rule*, wordt regel matig gegevens opgehaald van Azure monitor voor VM's kaart functie. Als u het synchronisatie-interval wilt wijzigen, kunt u de regel overschrijven en de waarde voor de para meter **IntervalMinutes**wijzigen.
+
+![Het venster Eigenschappen van Operations Manager onderdrukkingen](media/service-map-scom/scom-overrides.png)
+
+* **Ingeschakeld**: Automatische updates in-of uitschakelen.
+* **IntervalMinutes**: Hiermee geeft u de tijd tussen updates. Het standaard interval is een uur. Als u toewijzingen vaker wilt synchroniseren, kunt u de waarde wijzigen.
+* **TimeoutSeconds**: Hiermee geeft u de tijds duur voor de time-out van de aanvraag op.
+* **TimeWindowMinutes**: Hiermee geeft u het tijd venster voor het opvragen van gegevens op. De standaard waarde is 60 minuten, het Maxi maal toegestane interval.
 
 ## <a name="known-issues-and-limitations"></a>Bekende problemen en beperkingen
 
-Het huidige ontwerp biedt de volgende problemen en beperkingen:
-* U kunt alleen verbinding maken met één Log Analytics-werkruimte.
-* Hoewel u servers aan de Service Map groep Servers handmatig via toevoegen kunt de **ontwerpen** in het deelvenster de toewijzingen voor deze servers niet meteen worden gesynchroniseerd.  Ze worden gesynchroniseerd vanuit de Service Map tijdens de volgende synchronisatiecyclus.
-* Als u wijzigingen aanbrengt aan de gedistribueerde toepassing diagrammen die zijn gemaakt door het managementpack, worden deze wijzigingen op de volgende synchronisatie met Serviceoverzicht waarschijnlijk worden overschreven.
+Het huidige ontwerp bevat de volgende problemen en beperkingen:
+
+* U kunt alleen verbinding maken met een enkele Log Analytics-werk ruimte.
+* Hoewel u servers hand matig aan de groep Servicetoewijzing servers kunt toevoegen via het deel venster **ontwerpen** , worden de kaarten voor die servers niet direct gesynchroniseerd. Ze worden tijdens de volgende synchronisatie cyclus gesynchroniseerd vanaf Azure Monitor voor VM's toewijzings functie.
+* Als u wijzigingen aanbrengt in de diagrammen voor gedistribueerde toepassingen die zijn gemaakt door de management pack, worden deze wijzigingen waarschijnlijk overschreven bij de volgende synchronisatie met Azure Monitor voor VM's.
 
 ## <a name="create-a-service-principal"></a>Een service-principal maken
-Zie voor de officiële Azure-documentatie over het maken van een service principal en:
-* [Een service-principal maken met behulp van PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)
+
+Zie voor officiële Azure-documentatie over het maken van een Service-Principal:
+
+* [Een service-principal maken met behulp van Power shell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Een service-principal maken met behulp van Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
-* [Een service-principal maken met behulp van de Azure-portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Een service-principal maken met behulp van de Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 
 ### <a name="feedback"></a>Feedback
-Hebt u feedback voor ons over Serviceoverzicht of deze documentatie? Ga naar onze [Uservoice-pagina](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), waar u kunt functies voorstellen en op bestaande suggesties stemmen.
+Hebt u feedback voor ons over de integratie met Azure Monitor voor VM's kaart functie of deze documentatie? Ga naar onze [pagina met gebruikers spraak](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), waar u functies kunt suggereren of stem op bestaande suggesties.

@@ -1,65 +1,65 @@
 ---
-title: Terminologie voor Azure Data Share Preview-versie
-description: Terminologie voor Azure Data Share Preview-versie
+title: Preview-terminologie van Azure data share
+description: Preview-terminologie van Azure data share
 author: joannapea
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 4e7db84666b9d3786c3fc25e3653d24d0b95f2e4
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 01025acfa2fd939db8134a1e61c7902034a1d2c3
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67789226"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424216"
 ---
-# <a name="azure-data-share-preview-concepts"></a>Azure Data Share Preview concepten 
+# <a name="azure-data-share-preview-concepts"></a>Azure data share preview-concepten 
 
-Azure Data Share Preview introduceert nieuwe terminologie die betrekking hebben op het delen van gegevens. In dit artikel wordt uitgelegd dat enkele veelgebruikte termen die mogelijk worden weergegeven die de service worden gebruikt. 
+Azure data share preview introduceert een aantal nieuwe terminologie met betrekking tot het delen van gegevens. In dit artikel worden enkele veelgebruikte termen beschreven die in de service kunnen worden gebruikt. 
 
 ## <a name="data-provider"></a>Gegevensprovider
 
-Een gegevens-Provider is de organisatie die gegevens met hun gebruikers deelt. De gegevensprovider is doorgaans een eigenaar of een beheerder van de gegevens. Gegevensproviders wilt delen van gegevens van verschillende typen. Enkele voorbeelden van gegevens die een gegevensprovider kan wilt delen zijn onbewerkte gegevens, zoals punt van verkoop- of time series-gegevens. Gegevensprovider kunt ook vooraf verwerkt, wordt een samengestelde gegevens al met analyses en inzichten te delen. 
+Een gegevens provider is de organisatie die gegevens deelt met hun consumenten. Doorgaans kan de gegevens provider een eigenaar of een curator van de gegevens zijn. Gegevens providers willen gegevens van verschillende typen delen. Enkele voor beelden van gegevens die een gegevens provider kan delen, zijn onbewerkte gegevens, zoals een verkoop punt of een time series-gegevens. Het is ook mogelijk dat een gegevens provider vooraf verwerkte, gecuratore gegevens die al analyse en inzichten bevatten delen. 
 
 ## <a name="data-consumer"></a>Gegevensverbruiker 
 
-Een Consumer gegevens is de organisatie die gegevens van een gegevensprovider ontvangt. De gegevensverbruiker kan willen deelnemen aan de gedeelde gegevens met hun eigen gegevens om inzicht te. In sommige gevallen kan kan de gegevensverbruiker worden ontvangen van gegevens die al is verwerkt. 
+Een gegevens consument is de organisatie die gegevens van een gegevens provider ontvangt. De gegevens verbruiker kan de gedeelde gegevens ook samen voegen met hun eigen gegevens om inzichten te verkrijgen. In sommige gevallen kan de gegevens verbruiker gegevens ontvangen die al zijn verwerkt. 
 
-## <a name="data-share"></a>Het delen van gegevens
+## <a name="data-share"></a>Gegevens share
 
-Een gegevensshare is een groep van gegevenssets die worden gedeeld als één entiteit. Gegevenssets zijn uit een aantal Azure-gegevensbronnen die worden ondersteund door Azure het delen van gegevens. Op dit moment ondersteunt Azure het delen van gegevens Azure Blob Storage en Azure Data Lake Store. 
+Een gegevens share is een groep data sets die worden gedeeld als één entiteit. Gegevens sets kunnen afkomstig zijn uit een aantal Azure-gegevens bronnen die worden ondersteund door de Azure-gegevens share. Op dit moment ondersteunt Azure data share Azure Blob Storage en Azure Data Lake Store. 
 
-## <a name="share-subscription"></a>Delen van abonnement 
+## <a name="share-subscription"></a>Abonnement delen 
 
-Een abonnement delen wordt gemaakt wanneer een gegevensgebruiker de uitnodiging voor een gegevens-share van een gegevensprovider accepteert. Gegevensproviders active gedeelde abonnementen kunnen bekijken door te navigeren naar **verzonden Shares** account in hun Azure-gegevens delen en het selecteren van **abonnementen delen**.
+Er wordt een share abonnement gemaakt wanneer een gegevens verbruiker een uitnodiging voor gegevens delen van een gegevens provider accepteert. Gegevens providers kunnen actieve share-abonnementen weer geven door te navigeren naar **verzonden shares** in hun Azure-gegevens share-account en **abonnementen delen**te selecteren.
 
-Een gegevensgebruiker kunt controleren als ze door te navigeren naar een actieve share-abonnement hebben **ontvangen Shares** de status van hun ontvangen shares weer te geven. 
+Een gegevens verbruiker kan controleren of ze een actief share-abonnement hebben door te navigeren naar **ontvangen shares** en de status van hun ontvangen shares te bekijken. 
 
 ## <a name="snapshot"></a>Momentopname
 
-Een momentopname kan worden gemaakt door een consument gegevens wanneer ze een uitnodiging voor het delen van gegevens accepteren. Wanneer ze een uitnodiging accepteren, kunnen ze een volledige momentopname van de gegevens die worden gedeeld met hen activeren. De momentopname is een kopie van de gegevens op het moment dat de gegevensverbruiker de momentopname gegenereerd. 
+Een moment opname kan worden gemaakt door een gegevens verbruiker wanneer ze een uitnodiging voor een gegevens share accepteren. Wanneer ze een uitnodiging accepteren, kunnen ze een volledige moment opname activeren van de gegevens die met hen zijn gedeeld. De moment opname is een kopie van de gegevens op het moment dat de gegevens verbruiker de moment opname heeft gegenereerd. 
 
-Er zijn twee soorten momentopnamen: volledige en incrementele. Een volledige momentopname bevat alle gegevens in het delen van de gegevens. Een momentopname van een incrementele bevat alle gegevens die is bijgewerkt/toegevoegd sinds de laatste momentopname is geactiveerd. 
+Er zijn twee typen moment opnamen: volledig en incrementeel. Een volledige moment opname bevat alle gegevens in de gegevens share. Een incrementele moment opname bevat alle gegevens die zijn bijgewerkt/toegevoegd sinds de laatste moment opname is geactiveerd. 
 
-## <a name="snapshot-settings-in-azure-data-share"></a>Instellingen voor de momentopnamen in Azure het delen van gegevens
+## <a name="snapshot-settings-in-azure-data-share"></a>Momentopname instellingen in azure data share
  
-Gegevensprovider kunt een momentopname-instelling voor het delen van gegevens inschakelen. Deze instelling kunt gebruikers van de gegevens voor het ontvangen van incrementele updates wanneer deze zich voordoen. Deze instelling moet worden ingeschakeld als de gegevensprovider gebruikers van de gegevens dat wilt voor het ontvangen van updates van gegevens die is gedeeld. 
+Een gegevens provider kan een moment opname-instelling voor een gegevens share inschakelen. Met deze instelling kunnen gegevens gebruikers incrementele updates ontvangen wanneer deze zich voordoen. Deze instelling moet worden ingeschakeld als de gegevens provider wil dat de gegevens van hun gebruikers updates ontvangen van gegevens die zijn gedeeld. 
 
-Als een gegevensprovider kunt deze instelling, kan een terugkeerpatroon worden geselecteerd. De terugkeerinterval kan worden per uur of dagelijks. 
+Als een gegevens provider deze instelling inschakelt, kan een interval voor een terugkeer patroon worden geselecteerd. Het interval voor het terugkeer patroon kan elk uur of dagelijks zijn. 
 
-Een gegevensverbruiker heeft de optie voor het aanmelden voor deze momentopname planning voor het ontvangen van incrementele updates, waaronder alle gegevens die zijn gewijzigd sinds ze eerst een nieuwe momentopname gegenereerd. 
+Een gegevens verbruiker heeft de mogelijkheid om zich aan te melden bij dit momentopname schema voor het ontvangen van incrementele updates, waaronder alle gegevens die zijn gewijzigd sinds de eerste keer een nieuwe moment opname heeft gegenereerd. 
 
 ## <a name="invitation"></a>Uitnodiging
 
-Gegevensprovider kunt uitnodigen meerdere ontvangers voor het delen van hun gegevens. Ze kunnen dit doen door de ontvangers toe te voegen aan het delen van de gegevens. Uitnodigingen kunnen ook worden toegevoegd nadat een gegevensshare is gemaakt. 
+Een gegevens provider kan meerdere ontvangers uitnodigen voor hun gegevens share. Ze kunnen dit doen door ontvangers toe te voegen aan de gegevens share. Uitnodigingen kunnen ook worden toegevoegd nadat een gegevens share is gemaakt. 
 
-Gegevensprovider kan een uitnodiging niet verwijderen nadat het is verzonden. Houd er rekening mee dat als een gegevensprovider een uitnodiging verwijdert nadat deze is goedgekeurd, de gegevensverbruiker kunt nog steeds een actieve share abonnement hebt. Als de gegevensprovider Hiermee verwijdert u een uitnodiging en nog niet zijn geaccepteerd, wordt de gegevensverbruiker wordt pas weer te accepteren. 
+Een gegevens provider kan een uitnodiging verwijderen nadat deze is verzonden. Houd er rekening mee dat als een gegevens provider een uitnodiging verwijdert nadat deze is geaccepteerd, de gegevens verbruiker nog steeds een actief share-abonnement kan hebben. Als de gegevens provider een uitnodiging verwijdert en deze nog niet is geaccepteerd, kan de gebruiker de gegevens niet accepteren. 
 
-## <a name="recipient"></a>Ontvanger
+## <a name="recipient"></a>Geadresseerde
 
-Een ontvanger is iemand die een uitnodiging naar een gegevensshare ontvangt. Normaal gesproken wordt een gegevensprovider geadresseerden toevoegen aan het delen van gegevens die ze maken. Zodra de ontvanger van een uitnodiging voor de uitnodiging accepteert, worden ze een gegevensverbruiker.  
+Een ontvanger is iemand die een uitnodiging voor een gegevens share ontvangt. Normaal gesp roken voegt een gegevens provider ontvangers toe aan de gegevens share die ze maken. Zodra de ontvanger van een uitnodiging de uitnodiging heeft geaccepteerd, worden deze een gegevens consument.  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt meer informatie over het delen van gegevens, blijven de [delen van uw gegevens](share-your-data.md) zelfstudie.
+Ga door naar de zelf studie [uw gegevens delen](share-your-data.md) voor meer informatie over het delen van gegevens.
 

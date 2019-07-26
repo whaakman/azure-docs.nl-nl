@@ -1,7 +1,7 @@
 ---
-title: Verzenden van aanvragen naar de Bing Automatische suggestie-API
-titlesuffix: Azure Cognitive Services
-description: Meer informatie over het verzenden van aanvragen naar Bing Automatische suggestie-API.
+title: Aanvragen verzenden naar de Automatische suggestie-API voor Bing
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over het verzenden van aanvragen naar Automatische suggestie-API voor Bing.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,43 +10,43 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: fe35901f7d084fd96cb4c164e957391bfe2346a9
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 6ece70b78166578cd4ef391d761b0e4e478f4f04
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542629"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405361"
 ---
-# <a name="sending-requests-to-the-bing-autosuggest-api"></a>Het verzenden van aanvragen naar de Bing Automatische suggestie-API.
+# <a name="sending-requests-to-the-bing-autosuggest-api"></a>Aanvragen verzenden naar de Automatische suggestie-API voor Bing.
 
-Als uw toepassing query's verstuurt naar een van de API's van Bing Search, kunt u de Bing Automatische suggesties-API gebruiken om de ervaring van uw gebruikers te verbeteren. De Bing Automatische suggesties-API retourneert een lijst met voorgestelde query's op basis van de gedeeltelijke queryreeks in het zoekvak. Als de tekens worden ingevoerd in het zoekvak in uw toepassing, kunt u suggesties weergeven in een vervolgkeuzelijst. Gebruik dit artikel voor meer informatie over het verzenden van aanvragen naar deze API. 
+Als uw toepassing query's verstuurt naar een van de API's van Bing Search, kunt u de Bing Automatische suggesties-API gebruiken om de ervaring van uw gebruikers te verbeteren. De Bing Automatische suggesties-API retourneert een lijst met voorgestelde query's op basis van de gedeeltelijke queryreeks in het zoekvak. Als tekens worden ingevoerd in een zoekvak in uw toepassing, kunt u suggesties weer geven in een vervolg keuzelijst. Gebruik dit artikel voor meer informatie over het verzenden van aanvragen naar deze API. 
 
-## <a name="bing-autosuggest-api-endpoint"></a>Bing Automatische suggestie-API-eindpunt
+## <a name="bing-autosuggest-api-endpoint"></a>Automatische suggestie-API voor Bing-eind punt
 
-De **Bing Automatische suggestie-API** bevat één eindpunt die resulteert in een lijst met voorgestelde query's uit een gedeeltelijke zoekterm.
+Het **Automatische suggestie-API voor Bing** bevat één eind punt, waarmee een lijst met voorgestelde query's uit een gedeeltelijke zoek term wordt geretourneerd.
 
-Als u de voorgestelde query's met behulp van de API voor Bing, verzendt een `GET` aanvraag naar het volgende eindpunt. De kop- en URL-parameters gebruiken om te definiëren verder specificaties.
+Als u aanbevolen query's wilt ontvangen met behulp van de `GET` Bing API, verzendt u een aanvraag naar het volgende eind punt. Gebruik de para meters headers en URL om verdere specificaties te definiëren.
 
-**Eindpunt:** Retourneert zoeksuggesties als JSON-resultaten die relevant voor de invoer van de gebruiker gedefinieerd zijn door `?q=""`.
+**Endpoints** Retourneert Zoek suggesties als JSON-resultaten die relevant zijn voor de invoer van de gebruiker `?q=""`die is gedefinieerd door.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
 ```
 
-Voor meer informatie over kopteksten, parameters, markt codes, antwoordobjecten, fouten, enz., Zie de [Bing Automatische suggestie-API versie 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) verwijzing.
+Zie de naslag informatie over [Automatische suggestie-API voor Bing V7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) voor meer informatie over kopteksten, para meters, markt codes, reactie objecten, fouten, enzovoort.
 
-De **Bing** API's ondersteunen zoekacties die retourneren van resultaten op basis van hun type. Alle eindpunten voor zoeken worden resultaten geretourneerd als JSON-antwoord-objecten.
-Alle eindpunten ondersteuning voor query's die een specifieke taal en/of locatie door lengtegraad, breedtegraad en zoeken radius retourneren.
+De **Bing** api's ondersteunen zoek acties die resultaten retour neren op basis van hun type. Alle zoek eindpunten retour neren resultaten als JSON-antwoord objecten.
+Alle eind punten ondersteunen query's die een specifieke taal en/of locatie retour neren met de lengte graad, breedte graad en de zoek RADIUS.
 
-Zie de referentiepagina's voor elk type voor volledige informatie over de parameters die worden ondersteund door elk eindpunt.
-Zie voor meer voorbeelden van basic met behulp van de Automatische suggestie-API-aanvragen [Automatische suggestie-snelstartgidsen](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest).
+Zie de naslag pagina's voor elk type voor volledige informatie over de para meters die door elk eind punt worden ondersteund.
+Voor voor beelden van basis aanvragen die gebruikmaken van de automatische suggestie-API, raadpleegt u automatisch [suggereren Quick](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest)starts.
 
-## <a name="bing-autosuggest-api-requests"></a>Bing Automatische suggestie-API-aanvragen
+## <a name="bing-autosuggest-api-requests"></a>Automatische suggestie-API voor Bing aanvragen
 
 > [!NOTE]
-> * Aanvragen voor de Automatische suggestie-API moeten de HTTPS-protocol gebruiken.
+> * Aanvragen voor de Automatische suggestie-API voor Bing moeten gebruikmaken van het HTTPS-protocol.
 
-Het is raadzaam dat alle aanvragen afkomstig zijn van een server. De sleutel te distribueren als onderdeel van een clienttoepassing biedt meer kans kwaadwillende externe toegang. Daarnaast biedt aanroepen van een server een centraal punt voor de upgrade voor toekomstige updates.
+Het is raadzaam dat alle aanvragen afkomstig zijn van een server. Het distribueren van de sleutel als onderdeel van een client toepassing biedt meer kans op kwaad aardige toegang van derden. Daarnaast biedt het maken van aanroepen vanaf een server één upgrade punt voor toekomstige updates.
 
 De aanvraag moet de queryparameter [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) bevatten, met daarin de gedeeltelijke zoekterm van de gebruiker. Hoewel dit optioneel is, moet de aanvraag ook de queryparameter [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt) bevatten. Hiermee geeft u de markt aan waarvan de resultaten afkomstig moeten zijn. Zie [Queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters) voor een lijst met optionele queryparameters. Alle waarden van queryparameter moeten als een URL zijn gecodeerd.
 
@@ -62,15 +62,15 @@ De headers ClientIP en Location zijn belangrijk voor het retourneren van locatie
 Zie [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers) voor een lijst met alle aanvraag- en antwoordheaders.
 
 > [!NOTE]
-> Wanneer u de Automatische suggestie-API vanuit JavaScript aanroepen, kunnen u de ingebouwde beveiligingsfuncties van uw browser toegang krijgen tot de waarden van deze headers niet.
+> Wanneer u de Automatische suggestie-API voor Bing aanroept vanuit Java script, kan de ingebouwde beveiligings functies van uw browser ertoe leiden dat u de waarden van deze headers niet kunt openen.
 
-U kunt dit oplossen kunt u de Automatische suggestie-API-aanvraag via een proxy CORS. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers`-header waardoor antwoordheaders worden opgenomen in de whitelist en beschikbaar gemaakt voor JavaScript.
+U kunt dit oplossen door de Automatische suggestie-API voor Bing aanvraag via een CORS-proxy te maken. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers`-header waardoor antwoordheaders worden opgenomen in de whitelist en beschikbaar gemaakt voor JavaScript.
 
-Het is eenvoudig te installeren van een CORS-proxy om toe te staan onze [zelfstudie app](../tutorials/autosuggest.md) voor toegang tot de optionele client-headers. Als u [Node.js](https://nodejs.org/en/download/) nog niet hebt, moet u dit eerst installeren. Voer vervolgens de volgende opdracht in een opdrachtprompt in.
+Het is eenvoudig om een CORS-proxy te installeren zodat onze [zelf studie-app](../tutorials/autosuggest.md) toegang kan krijgen tot de optionele client headers. Als u [Node.js](https://nodejs.org/en/download/) nog niet hebt, moet u dit eerst installeren. Voer vervolgens de volgende opdracht in een opdrachtprompt in.
 
     npm install -g cors-proxy-server
 
-Vervolgens het Bing Automatische suggestie-API-eindpunt in het HTML-bestand te wijzigen:
+Wijzig vervolgens het Automatische suggestie-API voor Bing-eind punt in het HTML-bestand in:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
@@ -80,7 +80,7 @@ Start ten slotte de CORS-proxy met de volgende opdracht:
 
 Laat het opdrachtvenster geopend terwijl u de zelfstudie-app gebruikt. Als u het venster sluit, wordt de proxy gestopt. In de uitbreidbare sectie met HTTP-headers onder de zoekresultaten ziet u nu (onder andere) de `X-MSEdge-ClientID`-header en kunt u controleren of deze voor elke aanvraag gelijk is.
 
-Alle voorgestelde query-parameters en headers bevatten aanvragen. 
+Aanvragen moeten alle voorgestelde query parameters en kopteksten bevatten. 
 
 In het volgende voorbeeld ziet u een aanvraag die de voorgestelde queryreeksen voor *sail* retourneert.
 
@@ -95,11 +95,11 @@ In het volgende voorbeeld ziet u een aanvraag die de voorgestelde queryreeksen v
 
 Als dit de eerste keer is van u een van de Bing-API's aanroept, moet u de header met de client-id weglaten. Voeg de header met de client-id alleen toe als u eerder een Bing-API hebt aangeroepen en Bing een client-id heeft geretourneerd voor de combinatie van gebruiker en apparaat.
 
-De volgende web suggestie groep is een antwoord op de bovenstaande aanvraag. De groep bevat een lijst met query zoeksuggesties, met elke suggestie met inbegrip van een `displayText`, `query`, en `url` veld.
+De volgende groep websuggestie is een antwoord op de bovenstaande aanvraag. De groep bevat een lijst met suggesties voor zoek query's, met elke suggestie, `displayText`waaronder `query`een, `url` en en veld.
 
 Het veld `displayText` bevat de voorgestelde query die u gebruikt voor het vullen van de vervolgkeuzelijst van het zoekvak. U moet alle suggesties uit het antwoord weergeven, en in de opgegeven volgorde.  
 
-Als de gebruiker een query in de vervolgkeuzelijst selecteert, kunt u deze gebruiken voor het aanroepen van een van de [Bing zoeken-API's](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) en zelf de resultaten weergeven of de gebruiker doorsturen naar de pagina met Bing resultaten met behulp van de geretourneerde `url` veld.
+Als de gebruiker een query selecteert in de vervolg keuzelijst, kunt u deze gebruiken om een van de [Bing zoeken-API's](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) aan te roepen en de resultaten zelf weer te geven, of de gebruiker naar de pagina met zoek resultaten van de `url` Bing verzenden met behulp van het geretourneerde veld.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -171,4 +171,4 @@ BingAPIs-Market: en-US
 
 - [Wat is Bing Automatische suggesties?](../get-suggested-search-terms.md)
 - [Naslaghandleiding Bing Automatische suggesties-API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
-- [Voorgestelde zoektermen ophalen uit de Automatische suggestie-API](get-suggestions.md)
+- [Suggesties voor voorgestelde zoek termen ophalen uit de Automatische suggestie-API voor Bing](get-suggestions.md)

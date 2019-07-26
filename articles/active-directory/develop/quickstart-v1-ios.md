@@ -1,5 +1,5 @@
 ---
-title: Een iOS-app bouwen die is geïntegreerd met Azure AD voor aanmelding en die beschermde API's aanroept met behulp van OAuth 2.0 | Microsoft Docs
+title: Een iOS-app bouwen die is geïntegreerd met Azure AD voor aanmelding met OAuth 2,0 | Microsoft Docs
 description: Informatie over hoe u gebruikers aanmeldt en de Microsoft Graph API aanroept vanuit uw eigen iOS-app.
 services: active-directory
 documentationcenter: ios
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6274557ede35d7640eba37e5777cb0cb67d459a
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 8a82a7cad9b9176589824b6febb5cfdde89fce8a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497084"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380869"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Quickstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een iOS-app
 
@@ -76,13 +76,13 @@ Als u de app wilt instellen voor het ophalen van tokens, moet u de app registrer
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer uw account op de bovenste balk. Kies onder **Directory** de Active Directory-tenant waar u uw toepassing wilt registreren.
 3. Selecteer **Alle services** in het linkernavigatievenster en selecteer vervolgens **Azure Active Directory**.
-4. Selecteer **App-registraties**, en selecteer vervolgens **registratie van nieuwe**.
-5. Volg de aanwijzingen voor het maken van een nieuwe clienttoepassing.
+4. Selecteer **app-registraties**en selecteer vervolgens **nieuwe registratie**.
+5. Volg de aanwijzingen voor het maken van een nieuwe client toepassing.
     * **Naam** is de naam van de toepassing en beschrijft de toepassing voor eindgebruikers.
-    * **Omleidings-URI** is een combinatie van een schema en een tekenreeks die door Azure AD wordt gebruikt om tokenantwoorden te retourneren. Voer een waarde in die specifiek is voor uw toepassing en die is gebaseerd op bovenstaande informatie over de omleidings-URI. Selecteer ook **openbare client (mobiele en bureaubladtoepassingen)** in de vervolgkeuzelijst.
+    * **Omleidings-URI** is een combinatie van een schema en een tekenreeks die door Azure AD wordt gebruikt om tokenantwoorden te retourneren. Voer een waarde in die specifiek is voor uw toepassing en die is gebaseerd op bovenstaande informatie over de omleidings-URI. Selecteer ook **open bare client (mobiel en bureau blad)** in de vervolg keuzelijst.
 6. Wanneer de registratie is voltooid, wijst Azure AD een unieke toepassings-id toe aan uw app. U hebt deze waarde nodig in de volgende secties. Kopieer deze daarom vanaf het toepassingstabblad.
-7. Uit de **API-machtigingen** weergeeft, schakelt **toevoegen van een machtiging**. Binnen **Select an API** Selecteer ***Microsoft Graph***.
-8. Onder **overgedragen machtigingen**, selecteer de machtiging **User.Read**, drukt u op **toevoegen** om op te slaan. Hiermee machtigt u de toepassing om gegevens uit de Azure AD Graph-API op te vragen voor gebruikers.
+7. Selecteer op de pagina **API-machtigingen** de optie **een machtiging toevoegen**. Selecteer in **een API selecteren de** optie ***Microsoft Graph***.
+8. Selecteer onder **gedelegeerde machtigingen**de machtiging **gebruiker. Lees**en druk vervolgens op **toevoegen** om op te slaan. Hiermee machtigt u de toepassing om gegevens uit de Azure AD Graph-API op te vragen voor gebruikers.
 
 ## <a name="step-3-install-and-configure-adal"></a>Stap 3: ADAL installeren en configureren
 

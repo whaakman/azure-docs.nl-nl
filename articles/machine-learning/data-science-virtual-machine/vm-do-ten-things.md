@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1e59b9a34d075002e8129fe1588c95e207f8273
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60365977"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359024"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tien dingen die u dit op de Windows Data Science Virtual Machine doen kunt
 
@@ -106,7 +106,7 @@ Wanneer u een operationeel maken van uw model in Azure Machine Learning, wordt e
 Hier volgt een codefragment in een Python-Jupyter-Notebook die een eenvoudig model met behulp van de bibliotheek SciKit meer ontwikkeld.
 
 ```python
-#IRIS classification
+# IRIS classification
 from sklearn import datasets
 from sklearn import svm
 clf = svm.SVC()
@@ -120,10 +120,12 @@ De methode gebruikt om uw python-modellen implementeren in Azure Machine Learnin
 ```python
 from azureml import services
 @services.publish(workspaceid, auth_token)
-@services.types(sep_l = float, sep_w = float, pet_l=float, pet_w=float)
-@services.returns(int) #0, or 1, or 2
+@services.types(sep_l=float, sep_w=float, pet_l=float, pet_w=float)
+@services.returns(int)  # 0, or 1, or 2
 def predictIris(sep_l, sep_w, pet_l, pet_w):
     inputArray = [sep_l, sep_w, pet_l, pet_w]
+
+
 return clf.predict(inputArray)
 ```
 
@@ -265,9 +267,9 @@ Als u wilt downloaden code vanuit een GitHub-opslagplaats, gebruikt u de ```git 
 
     git clone https://github.com/Azure/DataScienceVM.git
 
-In Visual Studio, kunt u de dezelfde kloonbewerking doen. De volgende schermafbeelding ziet u hoe u Git en GitHub-hulpprogramma's in Visual Studio kunt bekijken.
+In Visual Studio, kunt u de dezelfde kloonbewerking doen. In de volgende scherm afbeelding ziet u hoe u de hulpprogram ma's Git en GitHub in Visual Studio kunt openen.
 
-![Schermopname van Visual Studio met de weergegeven GitHub-verbinding](./media/vm-do-ten-things/VSGit.PNG)
+![Scherm opname van Visual Studio waarbij de GitHub-verbinding wordt weer gegeven](./media/vm-do-ten-things/VSGit.PNG)
 
 U vindt meer informatie over het werken met uw GitHub-opslagplaats van verschillende resources beschikbaar op github.com met behulp van Git. De [overzichtskaart](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) is een nuttig verwijzing.
 
@@ -286,7 +288,7 @@ Azure-blob is een betrouwbare, betaalbare cloudopslag voor gegevens, groot en kl
 
 ![Schermafbeelding van de toegang tot een Storage-Account van Azure Storage Explorer](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
-**Gegevens verplaatsen van virtuele machine naar Azure-Blob: AzCopy**
+**Gegevens verplaatsen van VM naar Azure-Blob: AzCopy**
 
 Om gegevens te verplaatsen tussen uw lokale bestanden en blob-opslag, kunt u AzCopy gebruiken in de opdrachtregel of PowerShell:
 
@@ -311,20 +313,20 @@ Nadat u de AzCopy-opdracht om te kopiëren naar een Azure-blob hebt uitgevoerd, 
 
 ![Schermafbeelding van de Storage-Account, het geüploade CSV-bestand weergeven](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**Gegevens verplaatsen van virtuele machine naar Azure-Blob: Azure Storage Explorer**
+**Gegevens verplaatsen van VM naar Azure-Blob: Azure Storage Explorer**
 
 U kunt ook gegevens uit het lokale bestand uploaden in uw virtuele machine met behulp van Azure Storage Explorer:
 
 * Als u wilt gegevens uploaden naar een container, selecteert u de doelcontainer en klik op de **uploaden** knop.![ Schermafbeelding van de knop voor uploaden in Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
 * Klik op de **...**  aan de rechterkant van de **bestanden** Selecteer een of meerdere bestanden voor het uploaden van het bestandssysteem en klikt u op **uploaden** om te beginnen met uploaden van de bestanden.![ Schermopname van het dialoogvenster van de bestanden uploaden](./media/vm-do-ten-things/upload-files-to-blob.png)
 
-**Gegevens uit Azure Blob lezen: Leesmodule voor machine Learning**
+**Gegevens lezen uit Azure-Blob: Module Machine Learning lezer**
 
 In Azure Machine Learning Studio, kunt u een **module gegevens importeren** gegevens lezen uit uw blob.
 
 ![Schermafbeelding van de module gegevens importeren in Machine Learning Studio](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
-**Gegevens uit Azure Blob lezen: Python ODBC**
+**Gegevens lezen uit Azure-Blob: Python ODBC**
 
 U kunt **BlobService** bibliotheek lezen van gegevens rechtstreeks vanuit de blob in een Jupyter-Notebook of Python-programma.
 
@@ -389,7 +391,7 @@ Azure Data Lake Storage is een zeer grote opslagruimte voor big data analytics-w
 
 ![Schermopname van het Data Lake Tools in Visual Studio](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
-**Gegevens van virtuele machine verplaatsen naar Data Lake: Azure Data Lake Explorer**
+**Verplaats gegevens van VM naar Data Lake: Azure Data Lake Explorer**
 
 U kunt **Azure Data Lake Explorer** om gegevens uit de lokale bestanden in uw virtuele Machine naar Data Lake-opslag te uploaden.
 
@@ -397,7 +399,7 @@ U kunt **Azure Data Lake Explorer** om gegevens uit de lokale bestanden in uw vi
 
 U kunt ook een pijplijn om uw verplaatsing van gegevens naar of van het gebruik van Azure Data Lake operationeel te maken de [Azure gegevens Factory(ADF)](https://azure.microsoft.com/services/data-factory/). Verwijzen naar dit [artikel](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) pijplijnen om u te begeleiden u bij de stappen voor het bouwen van de gegevens.
 
-**Lezen van gegevens van Azure-Blob naar Data Lake: U-SQL**
+**Gegevens lezen van Azure-Blob naar Data Lake: U-SQL**
 
 Als uw gegevens zich in Azure Blob-opslag bevinden, kunt u gegevens rechtstreeks lezen van Azure storage-blob in U-SQL-query. Controleer of dat uw blob storage-account is gekoppeld aan uw Azure Data Lake voordat het samenstellen van uw U-SQL-query. Ga naar **Azure-portal**, zoeken van uw Azure Data Lake Analytics-dashboard, klikt u op **gegevensbron toevoegen**, selecteert u opslagtype u moet **Azure Storage** en sluit in uw Azure Storage-Account Naam en sleutel. U bent vervolgens kunnen verwijzen naar de gegevens die zijn opgeslagen in de storage-account.
 
@@ -453,7 +455,7 @@ Nadat de query wordt verzonden naar de server, wordt een diagram van de status v
 
 ![Schermopname van het dialoogvenster taakstatus](./media/vm-do-ten-things/USQL_Job_Status.PNG)
 
-**Gegevens in Data Lake op te vragen: U-SQL**
+**Gegevens opvragen in Data Lake: U-SQL**
 
 Nadat de gegevensset in Azure Data Lake wordt opgenomen, kunt u [U-SQL-taal](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) query's uitvoeren en de gegevens verkennen. U-SQL-taal is vergelijkbaar met T-SQL, maar sommige functies van C# worden gecombineerd, zodat gebruikers aangepaste modules, de gebruiker gedefinieerde functies en enzovoort schrijven kunnen. U kunt de scripts in de vorige stap.
 
@@ -495,7 +497,7 @@ Azure HDInsight is een beheerde Apache Hadoop, Spark, HBase en Storm-service in 
 * Uploaden van gegevens met behulp van IPython Notebook. Importeer eerst de vereiste pakketten, plug-referenties, een database maken in uw storage-account en gegevens laden in HDI-clusters.
 
 ```python
-#Import required Packages
+# Import required Packages
 import pyodbc
 import time as time
 import json
@@ -510,12 +512,12 @@ from azure.storage.blob import BlobService
 warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
 
 
-#Create the connection to Hive using ODBC
-SERVER_NAME='xxx.azurehdinsight.net'
-DATABASE_NAME='nyctaxidb'
-USERID='xxx'
-PASSWORD='xxxx'
-DB_DRIVER='Microsoft Hive ODBC Driver'
+# Create the connection to Hive using ODBC
+SERVER_NAME = 'xxx.azurehdinsight.net'
+DATABASE_NAME = 'nyctaxidb'
+USERID = 'xxx'
+PASSWORD = 'xxxx'
+DB_DRIVER = 'Microsoft Hive ODBC Driver'
 driver = 'DRIVER={' + DB_DRIVER + '}'
 server = 'Host=' + SERVER_NAME + ';Port=443'
 database = 'Schema=' + DATABASE_NAME
@@ -523,12 +525,13 @@ hiveserv = 'HiveServerType=2'
 auth = 'AuthMech=6'
 uid = 'UID=' + USERID
 pwd = 'PWD=' + PASSWORD
-CONNECTION_STRING = ';'.join([driver,server,database,hiveserv,auth,uid,pwd])
+CONNECTION_STRING = ';'.join(
+    [driver, server, database, hiveserv, auth, uid, pwd])
 connection = pyodbc.connect(CONNECTION_STRING, autocommit=True)
-cursor=connection.cursor()
+cursor = connection.cursor()
 
 
-#Create Hive database and tables
+# Create Hive database and tables
 queryString = "create database if not exists nyctaxidb;"
 cursor.execute(queryString)
 
@@ -576,11 +579,13 @@ queryString = """
 cursor.execute(queryString)
 
 
-#Upload data from blob storage to HDI cluster
-for i in range(1,13):
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);"%(i,i)
+# Upload data from blob storage to HDI cluster
+for i in range(1, 13):
+    queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);" % (
+        i, i)
     cursor.execute(queryString)
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);"%(i,i)  
+    queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);" % (
+        i, i)
     cursor.execute(queryString)
 ```
 
@@ -592,7 +597,7 @@ for i in range(1,13):
 
 Nadat de gegevens zijn geladen met HDI-cluster, kunt u uw gegevens in Azure Storage Explorer kunt controleren. En u hebt een database nyctaxidb in HDI-cluster gemaakt.
 
-**Gegevens verkennen: Hive-query's in Python**
+**Gegevens verkennen: Hive-Query's in python**
 
 Omdat de gegevens zich in de Hadoop-cluster, kunt u het pakket pyodbc verbinding maken met Hadoop-Clusters en query-database met behulp van Hive voor exploratie en functie-engineering. Hier vindt u de bestaande tabellen die in de vereiste stap is gemaakt.
 
@@ -600,7 +605,7 @@ Omdat de gegevens zich in de Hadoop-cluster, kunt u het pakket pyodbc verbinding
 queryString = """
     show tables in nyctaxidb2;
     """
-pd.read_sql(queryString,connection)
+pd.read_sql(queryString, connection)
 ```
 
 ![Bestaande tabellen weergeven](./media/vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
@@ -633,7 +638,7 @@ queryString = """
     )tc
     GROUP BY tipped;
     """
-results = pd.read_sql(queryString,connection)
+results = pd.read_sql(queryString, connection)
 
 results.columns = ['tipped', 'trip_count']
 df = results.copy()
@@ -661,7 +666,7 @@ queryString = """
                         and dropoff_longitude between -90 and -30
                         and dropoff_latitude between 30 and 90;
             """
-results = pd.read_sql(queryString,connection)
+results = pd.read_sql(queryString, connection)
 results.head(5)
 ```
 
@@ -669,9 +674,9 @@ results.head(5)
 
 ```python
 results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
-                    'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
-df = results.loc[results['trip_distance']<=100] #remove outliers
-df = df.loc[df['direct_distance']<=100] #remove outliers
+                   'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
+df = results.loc[results['trip_distance'] <= 100]  # remove outliers
+df = df.loc[df['direct_distance'] <= 100]  # remove outliers
 plt.scatter(df['direct_distance'], df['trip_distance'])
 ```
 
@@ -717,7 +722,7 @@ stored as textfile;
 cursor.execute(queryString)
 ```
 
-Inhoud van de join nu in de voorgaande interne tabel invoegen
+Inhoud van de koppeling nu invoegen in de voor gaande interne tabel
 
 ```python
 queryString = """
@@ -812,7 +817,7 @@ queryString = """
     select * from nyctaxi_downsampled_dataset limit 10;
     """
 cursor.execute(queryString)
-pd.read_sql(queryString,connection)
+pd.read_sql(queryString, connection)
 ```
 
 ![Bovenste rijen met gegevens uit de tabel](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)

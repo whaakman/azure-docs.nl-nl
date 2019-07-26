@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 07/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df12d4f7b2a06b89df1bfd7d7d904943e341ccd2
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 8f4352a1f6a065d1e9be78f01bde95c8f00593a3
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234253"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479778"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure gebruiken om SAP-werkbelasting scenario's te hosten en uit te voeren
 
@@ -34,8 +34,9 @@ De uniekheid van Azure voor SAP HANA is een aanbieding waarin Azure wordt onders
 
 Bij het hosten van SAP-werkbelasting scenario's in azure kunnen ook vereisten voor identiteits integratie en eenmalige aanmelding worden gemaakt. Deze situatie kan zich voordoen wanneer u Azure Active Directory (Azure AD) gebruikt om verschillende SAP-onderdelen en SAP-software-as-a-Service (SaaS) of PaaS-aanbiedingen (platform-as-a-Service) te verbinden. Een lijst met dergelijke scenario's voor integratie en eenmalige aanmelding met Azure AD en SAP-entiteiten wordt beschreven en beschreven in de sectie ' AAD SAP identiteits integratie en eenmalige aanmelding '.
 
-## <a name="latest-changes"></a>Laatste wijzigingen
+## <a name="change-log"></a>Wijzigingenlogboek
 
+- Wijzigingen in [cluster een SAP ASCS/SCS-exemplaar op een Windows-failovercluster met behulp van een bestands share in azure](sap-high-availability-guide-wsfc-file-share.md) om ondersteuning te geven voor opslag ruimte Direct door Azure site Recovery Services
 - Release van [Azure proximity-plaatsings groepen voor optimale netwerk latentie met SAP-toepassingen](sap-proximity-placement-scenarios.md)
 - Release van de nieuwe hand leiding voor [IBM DB2 HADR in Red Hat Enter prise server](high-availability-guide-rhel-ibm-db2-luw.md)
 - Release van [hoge Beschik baarheid voor SAP NetWeaver op Red Hat Enterprise Linux met Azure NetApp files voor SAP-toepassingen](high-availability-guide-rhel-netapp-files.md)

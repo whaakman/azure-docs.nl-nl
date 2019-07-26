@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34455cac61dd3b1f1251d4bc2003bd8b029de031
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d16699729e62953cb2369f39ecfe759aab663caf
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60474039"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382646"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Overzicht over accounts toevoegen aan de Microsoft Authenticator-app
 
@@ -25,7 +25,7 @@ Met de Microsoft Authenticator-app kunt u zich aanmelden bij uw accounts als u g
 
 > [!Important]
 > De app Microsoft Authenticator werkt met elke app die gebruikmaakt van tweeledige verificatie en met elk account dat de TOTP-normen (Time-Based One-Time Passwords) accepteert.
-> 
+>
 > Deze inhoud is bedoeld voor gebruikers. Als u een beheerder bent, kunt u meer informatie vinden over hoe u uw Azure Active Directory-omgeving (Azure AD) instelt en beheert in de [documentatie voor Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 U kunt de Microsoft Authenticator-app op meerdere manieren gebruiken, bijvoorbeeld:
@@ -35,22 +35,19 @@ U kunt de Microsoft Authenticator-app op meerdere manieren gebruiken, bijvoorbee
 - Door aanmelden zonder wachtwoord te bieden met gebruik van uw gebruikersnaam en uw mobiele apparaat met uw vingerafdruk, gezicht of pincode.
 
 ## <a name="what-account-types-can-i-add"></a>Welke typen accounts kan ik toevoegen?
+
 U kunt verificatie in twee stappen inschakelen voor veel accounts die u dagelijks gebruikt, waaronder:
 
-|Accounttype|Description|
-|------------|-----------|
-|Werk- of schoolaccounts|Het account dat u uw werk of school u hebt gegeven, bijvoorbeeld alain@contoso.com.|
-|Persoonlijke accounts|Microsoft-accounts en niet-Microsoft-accounts die u zelf hebt gemaakt, bijvoorbeeld voor Outlook.com, Xbox LIVE, Google, Facebook en meer.|
+| Accounttype | Description |
+| ------------ | ----------- |
+| Werk- of schoolaccounts | Het account dat u uw werk of school u hebt gegeven, bijvoorbeeld alain@contoso.com. |
+| Persoonlijke accounts | Microsoft-accounts en niet-Microsoft-accounts die u zelf hebt gemaakt, bijvoorbeeld voor Outlook.com, Xbox LIVE, Google, Facebook en meer. |
 
 ## <a name="in-this-section"></a>In deze sectie doet u het volgende
 
-|Artikel |Beschrijving |
-|------|------------|
-|[Uw werk- of schoolaccount toevoegen](user-help-auth-app-add-work-school-account.md)|Beschrijft hoe u uw werk- of schoolaccount toevoegt aan de Microsoft Authenticator-app voor verificatie in twee stappen.|
-|[Uw persoonlijke Microsoft-account toevoegen](user-help-auth-app-add-personal-ms-account.md)|Beschrijft hoe u uw persoonlijke Microsoft-accounts toevoegt voor verificatie in twee stappen en aanmelding via telefoon (ook bekend als aanmelding zonder wachtwoord).|
-|[Uw niet-Microsoft-account toevoegen](user-help-auth-app-add-non-ms-account.md)|Beschrijft hoe u uw account dat niet voor Microsoft is, toevoegt voor verificatie in twee stappen.|
-|[Uw account handmatig toevoegen](user-help-auth-app-add-account-manual.md)|Beschrijft hoe u handmatig uw account toevoegt aan de Microsoft Authenticator-app als uw camera geen QR-code kan scannen.|
-
-
-
-
+| Artikel |Description |
+| ------|------------|
+| [Uw werk- of schoolaccount toevoegen](user-help-auth-app-add-work-school-account.md) | Beschrijft hoe u uw werk- of schoolaccount toevoegt aan de Microsoft Authenticator-app voor verificatie in twee stappen. |
+| [Uw persoonlijke Microsoft-account toevoegen](user-help-auth-app-add-personal-ms-account.md) | Beschrijft hoe u uw persoonlijke Microsoft-accounts toevoegt voor verificatie in twee stappen en aanmelding via telefoon (ook bekend als aanmelding zonder wachtwoord). |
+| [Uw niet-Microsoft-account toevoegen](user-help-auth-app-add-non-ms-account.md) | Beschrijft hoe u uw account dat niet voor Microsoft is, toevoegt voor verificatie in twee stappen. |
+| [Uw account handmatig toevoegen](user-help-auth-app-add-account-manual.md) | Beschrijft hoe u handmatig uw account toevoegt aan de Microsoft Authenticator-app als uw camera geen QR-code kan scannen. |

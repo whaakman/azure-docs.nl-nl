@@ -1,6 +1,6 @@
 ---
-title: Beveiligingsgegevens (preview) gebruiken de SMS-berichten verzenden - Azure Active Directory instellen | Microsoft Docs
-description: Over het instellen van je beveiligingsgegevens om uw identiteit met behulp van SMS-berichten verzenden en uw mobiele apparaat te verifiëren.
+title: Beveiligings gegevens (preview) instellen om tekst berichten te gebruiken-Azure Active Directory | Microsoft Docs
+description: Je beveiligings gegevens instellen om je identiteit te verifiëren met behulp van tekst berichten en je mobiele apparaat.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,99 +12,106 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea9e4ae21ecc6538b33aed1566c10ddcd22b86c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7c1c6aadcf8fb247a7c2a53cef7d1ed0c85cf374
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482258"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382830"
 ---
-# <a name="set-up-security-info-preview-to-use-text-messaging"></a>Beveiligingsgegevens (preview) instellen voor het gebruik van SMS-berichten verzenden
-U kunt deze stappen om toe te voegen uw tweeledige verificatie en methoden voor wachtwoord opnieuw instellen. Nadat u hebt dit tijdens de eerste keer hebt ingesteld, kunt u terugkeren naar de **beveiligingsgegevens** pagina toevoegen, bijwerken of verwijderen van uw beveiligingsgegevens.
+# <a name="set-up-security-info-preview-to-use-text-messaging"></a>Beveiligings gegevens (preview) instellen om tekst berichten te gebruiken
 
-Als u wordt gevraagd om in te stellen deze onmiddellijk nadat u zich aanmeldt bij uw account voor werk of school, ziet u de gedetailleerde stappen in de [instellen van je beveiligingsgegevens vanaf de opdrachtprompt aanmeldingspagina](security-info-setup-signin.md) artikel.
+U kunt deze stappen volgen om uw twee ledige verificatie en de methoden voor het opnieuw instellen van het wacht woord toe te voegen. Nadat u dit de eerste keer hebt ingesteld, kunt u terugkeren naar de pagina met **beveiligings** gegevens om uw beveiligings gegevens toe te voegen, bij te werken of te verwijderen.
+
+Als u wordt gevraagd om dit onmiddellijk in te stellen nadat u zich hebt aangemeld bij uw werk-of school account, raadpleegt u de gedetailleerde stappen in het artikel [uw beveiligings informatie instellen vanaf het aanmeldings](security-info-setup-signin.md) venster.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Als u een optie niet ziet, is het mogelijk dat uw organisatie niet toe dat u een telefoonnummer voor verificatie gebruiken. In dit geval moet u een andere methode kiezen of neem contact op met uw beheerder voor meer informatie.
+>Als u een telefoon optie niet ziet, is het mogelijk dat uw organisatie een telefoon nummer niet mag gebruiken voor verificatie. In dit geval moet u een andere methode kiezen of contact opnemen met de beheerder voor meer informatie.
 
-## <a name="set-up-text-messages-from-the-security-info-page"></a>SMS-berichten instellen vanuit de pagina beveiligingsgegevens
-Afhankelijk van instellingen van uw organisatie, kunt u mogelijk gebruik van SMS-berichten als een van de beveiligingsmethoden voor informatie. De optie tekst bericht is een onderdeel van de optie Telefoon, zodat u alles op dezelfde manier als u dat zou doen voor uw telefoonnummer moet instellen, maar in plaats van dat Microsoft aanroep die u hebt, kiest u het gebruik van een SMS-bericht.
+## <a name="set-up-text-messages-from-the-security-info-page"></a>SMS-berichten instellen op de pagina beveiligings gegevens
+
+Afhankelijk van de instellingen van uw organisatie kunt u mogelijk tekst berichten gebruiken als een van de methoden voor beveiligings gegevens. De optie tekst bericht is een onderdeel van de optie telefoon, dus u kunt alles op dezelfde manier instellen als uw telefoon nummer, maar u kunt ook een SMS-bericht gebruiken.
 
 >[!Note]
->Als u een telefonische oproep in plaats van een SMS-bericht ontvangen wilt, volgt u de stappen in de [beveiligingsgegevens ingesteld voor het gebruik van telefoongesprekken](security-info-setup-phone-number.md) artikel.
+>Als u een telefoon gesprek wilt ontvangen in plaats van een SMS-bericht, volgt u de stappen in het artikel [beveiligings gegevens instellen om telefoon gesprekken te gebruiken](security-info-setup-phone-number.md) .
 
-### <a name="to-set-up-text-messages"></a>Voor het instellen van de SMS-berichten
+### <a name="to-set-up-text-messages"></a>Tekst berichten instellen
 
-1. Meld u aan bij uw werk- of schoolaccount en gaat u naar uw https://myprofile.microsoft.com/ pagina.
+1. Meld u aan bij uw werk-of school account en ga vervolgens https://myprofile.microsoft.com/ naar de pagina.
 
-    ![Mijn profiel-pagina, met gemarkeerde Security info koppelingen](media/security-info/securityinfo-myprofile-page.png)
+    ![Mijn profiel pagina, met gemarkeerde koppelingen voor beveiligings gegevens](media/security-info/securityinfo-myprofile-page.png)
 
-2. Selecteer **beveiligingsgegevens** vanuit het navigatiedeelvenster links in of via de koppeling in de **beveiligingsgegevens** blokkeren, en selecteer vervolgens **-methode toevoegen** uit de **beveiligingsgegevens**  pagina.
+2. Selecteer **beveiligings gegevens** in het navigatie deel venster links of op de koppeling in het blok met **beveiligings gegevens** en selecteer vervolgens **methode toevoegen** op de pagina **beveiligings gegevens** .
 
-    ![Pagina beveiligingsgegevens met optie van de methode gemarkeerde toevoegen](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Pagina met beveiligings gegevens met de gemarkeerde optie methode toevoegen](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. Op de **toevoegen van een methode** weergeeft, schakelt **Phone** uit de vervolgkeuzelijst en selecteer vervolgens **toevoegen**.
+3. Selecteer op de pagina **een methode toevoegen** de optie **telefoon** in de vervolg keuzelijst en selecteer vervolgens **toevoegen**.
 
-    ![Vak methode toevoegen met telefoon geselecteerd](media/security-info/securityinfo-myprofile-addphonetext.png)
+    ![Vak methode toevoegen, met telefoon geselecteerd](media/security-info/securityinfo-myprofile-addphonetext.png)
 
-4. Op de **Phone** pagina, typt u het telefoonnummer voor uw mobiele apparaat, kies **Stuur me een SMS een code**, en selecteer vervolgens **volgende**.
+4. Typ op de pagina **telefoon** het telefoon nummer voor uw mobiele apparaat, kies **tekst mij een code**en selecteer **volgende**.
 
-    ![Telefoonnummer toevoegen en kiest u SMS-berichten](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
+    ![Telefoon nummer toevoegen en tekst berichten kiezen](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
 
-5. Typ de code naar u verzonden via SMS-bericht naar uw mobiele apparaat en selecteer vervolgens **volgende**.
+5. Typ de code die u via SMS-bericht naar uw mobiele apparaat stuurt en selecteer **volgende**.
 
-    ![Telefoonnummer toevoegen en kiest u SMS-berichten](media/security-info/securityinfo-myprofile-phonetext-entercode.png)
+    ![Telefoon nummer toevoegen en tekst berichten kiezen](media/security-info/securityinfo-myprofile-phonetext-entercode.png)
 
-    De paginawijzigingen om uw succes weer te geven.
+    De pagina wordt gewijzigd om uw succes weer te geven.
 
-    ![Aantal geslaagde melding, verbinding te maken van de telefoon, de keuze voor het ontvangen van tekst messags en uw account](media/security-info/securityinfo-myprofile-phonetext-success.png)
+    ![Geslaagde melding, verbinding maken met het telefoon nummer, de keuze om tekst berichten te ontvangen en uw account](media/security-info/securityinfo-myprofile-phonetext-success.png)
 
-    Je beveiligingsgegevens wordt bijgewerkt en kunt u SMS-berichten om uw identiteit te verifiëren bij het gebruik van verificatie in twee stappen verificatie of het wachtwoord opnieuw instellen. Als u wilt maken van uw standaardmethode voor tekstberichten, raadpleegt u de [uw standaardmethode voor de beveiliging-informatie wijzigen](#change-your-default-security-info-method) sectie van dit artikel.
+    Uw beveiligings gegevens worden bijgewerkt en u kunt tekst berichten gebruiken om uw identiteit te verifiëren bij het gebruik van verificatie in twee stappen of het opnieuw instellen van wacht woorden. Zie de sectie [uw standaard beveiligings informatie wijzigen](#change-your-default-security-info-method) in dit artikel als u tekst berichten wilt verzenden als standaard methode.
 
-## <a name="delete-text-messaging-from-your-security-info-methods"></a>SMS-berichten van uw informatie beveiligingsmethoden verwijderen
-Als u niet meer gebruiken van SMS-berichten als een methode-info wilt, kunt u het verwijderen van de **beveiligingsgegevens** pagina.
+## <a name="delete-text-messaging-from-your-security-info-methods"></a>SMS-berichten verwijderen uit uw beveiligings info-methoden
+
+Als u geen tekst berichten meer wilt gebruiken als een beveiligings gegevens methode, kunt u deze verwijderen van de pagina met **beveiligings gegevens** .
 
 >[!Important]
->Als u de SMS-berichten per ongeluk verwijdert, is er geen manier om deze ongedaan te maken. Hebt u op opnieuw, voegt u de methode volgens de stappen in de [instellen van de SMS-berichten](#set-up-text-messages-from-the-security-info-page) sectie van dit artikel.
+>Als u SMS-berichten per ongeluk verwijdert, is het niet mogelijk om deze ongedaan te maken. U moet de-methode opnieuw toevoegen door de stappen in de sectie [SMS-berichten instellen](#set-up-text-messages-from-the-security-info-page) van dit artikel te volgen.
 
-### <a name="to-delete-text-messaging"></a>Verwijderen van de SMS-berichten verzenden
+### <a name="to-delete-text-messaging"></a>Tekst berichten verwijderen
 
-1. Op de **beveiligingsgegevens** weergeeft, schakelt de **verwijderen** koppelen naast de **Phone** optie.
+1. Selecteer op de pagina **beveiligings gegevens** de koppeling **verwijderen** naast de optie **telefoon** .
 
-    ![Koppeling naar de telefoon en de SMS-berichten van de methode van beveiligingsgegevens verwijderen](media/security-info/securityinfo-myprofile-phonetext-delete.png)
+    ![Koppeling voor het verwijderen van de methode voor telefoon-en SMS-berichten van beveiligings gegevens](media/security-info/securityinfo-myprofile-phonetext-delete.png)
 
-2. Selecteer **Ja** uit de bevestiging van verwijderen van de **Phone** getal. Nadat uw telefoonnummer wordt verwijderd, wordt deze verwijderd uit je beveiligingsgegevens en, verdwijnt het uit de **beveiligingsgegevens** pagina. Als **Phone** is uw standaardmethode, de standaardinstelling wordt gewijzigd in een andere beschikbare methode.
+2. Selecteer **Ja** in het bevestigings venster om het **telefoon** nummer te verwijderen. Nadat uw telefoon nummer is verwijderd, wordt het verwijderd uit uw beveiligings gegevens en verdwijnt dit op de pagina met **beveiligings gegevens** . Als **telefoon** de standaard methode is, wordt de standaard instelling gewijzigd in een andere beschik bare methode.
 
-## <a name="change-your-default-security-info-method"></a>De standaard security info methode wijzigen
-Als u wilt dat SMS-berichten om de standaard-methode gebruikt wanneer u zich aanmeldt en uw werk of school-account met behulp van tweeledige verificatie of voor wachtwoord opnieuw aanvragen instellen, kunt u het instellen van de **beveiligingsgegevens** pagina.
+## <a name="change-your-default-security-info-method"></a>De standaard methode voor beveiligings gegevens wijzigen
 
-### <a name="to-change-your-default-security-info-method"></a>De standaard security info methode wijzigen
+Als u wilt dat tekst berichten de standaard methode zijn die wordt gebruikt wanneer u zich aanmeldt bij uw werk-of school account met twee ledige verificatie of voor aanvragen voor het opnieuw instellen van wacht woorden, kunt u deze instellen op de pagina met **beveiligings gegevens** .
 
-1. Op de **beveiligingsgegevens** weergeeft, schakelt de **wijziging** koppelen naast de **standaard aanmeldingsmethode** informatie.
+### <a name="to-change-your-default-security-info-method"></a>De standaard methode voor beveiligings gegevens wijzigen
 
-    ![Koppeling voor de aanmeldingsmethode standaard wijzigen](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
+1. Selecteer op de pagina **beveiligings gegevens** de **wijzigings** koppeling naast de standaard gegevens van de **aanmeldings methode** .
 
-2. Selecteer **telefoon - tekst ( *_your_phone_number_* )** uit de vervolgkeuzelijst met beschikbare methoden en selecteer vervolgens **bevestigen**.
+    ![Koppeling wijzigen voor standaard aanmeldings methode](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-    ![Methode voor aanmelding bij de standaard kiezen](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
+2. Selecteer **telefoon tekst ( *_your_phone_number_* )** in de vervolg keuzelijst met beschik bare methoden en selecteer vervolgens **bevestigen**.
 
-    De standaardmethode die wordt gebruikt voor aanmelding bij wijzigingen in **telefoon - tekst ( *_your_phone_number_* )** .
+    ![Methode kiezen voor standaard aanmelding](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
 
-## <a name="additional-security-info-methods"></a>Aanvullende informatie voor beveiligingsmethoden
-Hebt u extra opties voor hoe uw organisatie contactpersonen u om te controleren of uw identiteit, afhankelijk van wat u probeert te doen. De opties zijn:
+    De standaard methode voor het aanmelden bij het aanwijzen van wijzigingen in de **telefoon tekst ( *_your_phone_number_* )** .
 
-- **Authenticator-app.** Download en gebruik van een verificator-app voor een goedkeuringsmelding of een willekeurig gegenereerde goedkeuringscode voor verificatie in twee stappen verificatie of het wachtwoord opnieuw instellen. Zie voor stapsgewijze instructies over het instellen en gebruiken van de Microsoft Authenticator-app [beveiligingsgegevens ingesteld voor het gebruik van een verificator-app](security-info-setup-auth-app.md).
+## <a name="additional-security-info-methods"></a>Aanvullende beveiligings gegevens methoden
 
-- **Mobiele apparaten of werk telefoongesprekken.** Voer het nummer van uw mobiele apparaat en ontvang een telefoonoproep voor verificatie in twee stappen verificatie of het wachtwoord opnieuw instellen. Zie voor stapsgewijze instructies over hoe u uw identiteit verifiëren met een telefoonnummer [beveiligingsgegevens ingesteld voor het gebruik van telefoongesprekken](security-info-setup-phone-number.md).
+U hebt extra opties voor het controleren van uw identiteit door uw organisatie, op basis van wat you're u probeert te doen. De opties zijn:
 
-- **E-mailadres.** Voer uw werk of school-e-mailadres voor het ophalen van een e-mailbericht voor wachtwoord opnieuw instellen. Deze optie is niet beschikbaar voor verificatie in twee stappen. Zie voor stapsgewijze instructies over het instellen van uw e-mailadres [beveiligingsgegevens ingesteld voor het gebruik van e-mailbericht](security-info-setup-email.md).
+- **Verificator-app.** Down load en gebruik een verificator-app om een goedkeurings melding of een wille keurig gegenereerde goedkeurings code te verkrijgen voor verificatie in twee stappen of het opnieuw instellen van wacht woorden. Zie [beveiligings informatie instellen voor het gebruik van een verificator-app](security-info-setup-auth-app.md)voor stapsgewijze instructies voor het instellen en gebruiken van de app Microsoft Authenticator.
 
-- **Vragen over de beveiliging.** Sommige gemaakt door uw beheerder voor uw organisatie beveiligingsvragen beantwoorden. Deze optie is alleen beschikbaar voor wachtwoord opnieuw instellen en niet voor verificatie in twee stappen. Zie voor stapsgewijze instructies over het instellen van uw vragen over de beveiliging, de [beveiligingsgegevens ingesteld voor het gebruik van beveiligingsvragen](security-info-setup-questions.md) artikel.
-    
+- **Mobiel apparaat of telefoon nummer van werk.** Voer het nummer van uw mobiele apparaat in en ontvang een telefoon oproep voor verificatie in twee stappen of het opnieuw instellen van wacht woorden. Zie [beveiligings informatie instellen voor het gebruik van telefoon gesprekken](security-info-setup-phone-number.md)voor stapsgewijze instructies over het verifiëren van uw identiteit met een telefoon nummer.
+
+- **Beveiligings sleutel.** Registreer uw door micro soft compatibele beveiligings sleutel en gebruik deze samen met een pincode voor verificatie in twee stappen of het opnieuw instellen van wacht woorden. Zie [beveiligings informatie instellen voor het gebruik van een beveiligings sleutel](security-info-setup-security-key.md)voor stapsgewijze instructies over het verifiëren van uw identiteit met een beveiligings sleutel.
+
+- **E-mail adres.** Voer het e-mail adres van uw werk of school in om een e-mail te ontvangen voor het opnieuw instellen van wacht woorden. Deze optie is niet beschikbaar voor verificatie in twee stappen. Zie [beveiligings informatie instellen voor het gebruik van e-mail](security-info-setup-email.md)voor stapsgewijze instructies voor het instellen van uw e-mail adres.
+
+- **Beveiligings vragen.** Beantwoord enkele beveiligings vragen die door uw beheerder voor uw organisatie zijn gemaakt. Deze optie is alleen beschikbaar voor het opnieuw instellen van wacht woorden en niet voor verificatie in twee stappen. Voor stapsgewijze instructies over het instellen van uw beveiligings vragen raadpleegt u het artikel [beveiligings vragen instellen voor het gebruik](security-info-setup-questions.md) van beveiligings problemen.
+
     >[!Note]
-    >Als sommige van deze opties ontbreekt, is het meest waarschijnlijk omdat uw organisatie niet toegestaan voor deze methoden. Als dit het geval is, moet u een methode voor beschikbaar of neem contact op met uw beheerder voor meer informatie.
+    >Als sommige van deze opties ontbreken, is het waarschijnlijk dat uw organisatie deze methoden niet toestaat. Als dit het geval is, moet u een beschik bare methode kiezen of contact opnemen met de beheerder voor meer hulp.
 
 ## <a name="next-steps"></a>Volgende stappen
 

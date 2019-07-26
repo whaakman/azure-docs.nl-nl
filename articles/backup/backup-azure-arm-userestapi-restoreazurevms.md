@@ -1,39 +1,38 @@
 ---
-title: 'Azure Backup: Herstellen van virtuele Azure-machines met behulp van REST-API'
-description: bewerkingen voor het herstellen van Azure VM Backup met behulp van REST-API beheren
-services: backup
+title: 'Azure Backup: Virtuele Azure-machines terugzetten met behulp van REST API'
+description: herstel bewerkingen van Azure VM-back-ups beheren met REST API
 author: pvrk
 manager: shivamg
-keywords: REST-API; Azure VM back-up. Azure VM-herstel.
+keywords: REST API; Back-ups van Azure-VM'S; Azure VM herstellen;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1b2e7994fa52e8fcbbd4fa32a6203181ad9735e5
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646642"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466753"
 ---
-# <a name="restore-azure-virtual-machines-using-rest-api"></a>Herstellen van Azure Virtual machines met behulp van REST-API
+# <a name="restore-azure-virtual-machines-using-rest-api"></a>Virtuele Azure-machines herstellen met behulp van REST API
 
-Zodra de back-up van een virtueel Azure-machine met Azure Backup is voltooid, kunt een hele Azure Virtual machines, schijven of bestanden herstellen met de dezelfde back-up. Dit artikel wordt beschreven hoe u een Azure-VM of schijven met behulp van REST-API te herstellen.
+Wanneer de back-up van een virtuele machine van Azure met Azure Backup is voltooid, kunt u de volledige virtuele machines of schijven of bestanden van Azure herstellen vanaf dezelfde back-upkopie. In dit artikel wordt beschreven hoe u een virtuele machine of schijven van Azure kunt herstellen met behulp van REST API.
 
-Voor een bewerking voor het herstellen, een voor het identificeren van de relevante herstelpunt eerst heeft.
+Bij een herstel bewerking moet eerst het relevante herstel punt worden geïdentificeerd.
 
-## <a name="select-recovery-point"></a>Herstelpunt selecteren
+## <a name="select-recovery-point"></a>Herstel punt selecteren
 
-De beschikbare herstelpunten van een back-upitem dat kunnen worden weergegeven met behulp van de [lijst herstelpunt REST-API](https://docs.microsoft.com/rest/api/backup/recoverypoints/list). Er is een eenvoudige *ophalen* bewerking opnieuw uit met de relevante waarden.
+De beschik bare herstel punten van een back-upitem kunnen worden weer gegeven met behulp van de [lijst herstel punt rest API](https://docs.microsoft.com/rest/api/backup/recoverypoints/list). Het is een eenvoudige *Get* -bewerking met alle relevante waarden.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2016-12-01
 ```
 
-De `{containerName}` en `{protectedItemName}` zijn samengesteld [hier](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` 'Azure' is.
+De `{containerName}` en`{protectedItemName}` zijn [hier](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1)gemaakt. `{fabricName}`is ' Azure '.
 
-De *ophalen* URI heeft de vereiste parameters. Er is niet nodig voor een aanvullende aanvraagtekst
+De *Get* -URI heeft alle vereiste para meters. Er is geen aanvullende aanvraag tekst nodig
 
 ### <a name="responses"></a>Responses
 
@@ -43,7 +42,7 @@ De *ophalen* URI heeft de vereiste parameters. Er is niet nodig voor een aanvull
 
 #### <a name="example-response"></a>Voorbeeld van een antwoord
 
-Zodra de *ophalen* URI wordt ingediend, een 200 (OK) antwoord wordt geretourneerd.
+Zodra de *Get* -URI is verzonden, wordt een antwoord van 200 (OK) geretourneerd.
 
 ```http
 HTTP/1.1 200 OK
@@ -119,33 +118,33 @@ X-Powered-By: ASP.NET
 ......
 ```
 
-Het herstelpunt dat wordt geïdentificeerd met de `{name}` veld in het bovenstaande antwoord.
+Het herstel punt wordt aangeduid met het `{name}` veld in het bovenstaande antwoord.
 
 ## <a name="restore-disks"></a>Schijven herstellen
 
-Als er een nodig om aan te passen van het maken van een virtuele machine van de back-upgegevens, kan een alleen schijven herstellen naar een gekozen storage-account en een virtuele machine maken van deze schijven aan de hand van hun behoeften. Het opslagaccount moet zich in dezelfde regio als de recovery services-kluis en mag geen zone-redundant. De schijven, evenals de configuratie van de back-ups van virtuele machine ("vmconfig.json") worden opgeslagen in het opgegeven opslagaccount.
+Als het maken van een virtuele machine moet worden aangepast op basis van de back-upgegevens, kan de ene schijf alleen herstellen naar een gekozen opslag account en een virtuele machine maken op basis van die schijven, conform de vereisten. Het opslag account moet zich in dezelfde regio bevinden als de Recovery Services-kluis en mag niet zone redundant zijn. De schijven en de configuratie van de back-up van de virtuele machine (' vmconfig. json ') worden opgeslagen in het opgegeven opslag account.
 
-U activeert op deze manier is een *POST* aanvraag. Raadpleeg voor meer informatie over het terugzetten van schijven, de [REST-API 'terugzetbewerking kan worden geactiveerd'](https://docs.microsoft.com/rest/api/backup/restores/trigger).
+Het activeren van herstel schijven is een *post* -aanvraag. Raadpleeg de [rest API trigger herstellen](https://docs.microsoft.com/rest/api/backup/restores/trigger)voor meer informatie over de bewerking schijven herstellen.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
 ```
 
-De `{containerName}` en `{protectedItemName}` zijn samengesteld [hier](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` 'Azure' is en de `{recoveryPointId}` is de `{name}` veld van het herstelpunt vermeld [hierboven](#example-response).
+De `{containerName}` en`{protectedItemName}` zijn [hier](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1)gemaakt. `{fabricName}`is ' Azure ' en het `{recoveryPointId}` is het `{name}` veld van het [hierboven](#example-response)vermelde herstel punt.
 
-### <a name="create-request-body"></a>Hoofdtekst van de aanvraag maken
+### <a name="create-request-body"></a>Hoofd tekst van aanvraag maken
 
-Hier volgen voor het activeren van een schijf herstellen vanaf een back-up van virtuele Azure-machine, de onderdelen van de aanvraagtekst.
+Als u een schijf herstel wilt activeren vanuit een back-up van een Azure-VM, volgt u de onderdelen van de hoofd tekst van de aanvraag.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
-Raadpleeg voor de volledige lijst met definities van de aanvraagtekst en andere details [herstellen REST API-document activeren](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
+Raadpleeg voor de volledige lijst met definities van de hoofd tekst van de aanvraag en andere details verwijzen naar [herstel rest API document activeren](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
 
 #### <a name="example-request"></a>Voorbeeldaanvraag
 
-De hoofdtekst van de volgende aanvraag definieert de eigenschappen die zijn vereist voor het activeren van een schijf herstellen.
+De volgende aanvraag hoofdtekst definieert eigenschappen die vereist zijn om een schijf herstel te activeren.
 
 ```json
 {
@@ -167,17 +166,17 @@ De hoofdtekst van de volgende aanvraag definieert de eigenschappen die zijn vere
 
 ### <a name="response"></a>Antwoord
 
-Het activeren van een schijf terugzetten is een [asynchrone bewerking](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Dit betekent dat deze bewerking wordt gemaakt van een andere bewerking waardoor moet afzonderlijk worden bijgehouden.
+Het activeren van een herstel schijf is een [asynchrone bewerking](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Dit betekent dat met deze bewerking een andere bewerking wordt gemaakt die afzonderlijk moet worden bijgehouden.
 
-Deze retourneert twee antwoorden: 202 (aanvaard) wanneer een andere bewerking wordt gemaakt en vervolgens 200 (OK) wanneer deze bewerking is voltooid.
+Er worden twee antwoorden geretourneerd: 202 (geaccepteerd) wanneer een andere bewerking wordt gemaakt en vervolgens 200 (OK) wanneer deze bewerking is voltooid.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
 |202 geaccepteerd     |         |     Geaccepteerd    |
 
-#### <a name="example-responses"></a>Van de voorbeeldantwoorden
+#### <a name="example-responses"></a>Voorbeeld reacties
 
-Zodra u de *POST* URI voor het activeren van schijven herstellen, is de eerste reactie 202 (aanvaard) met een location-header of de Azure-async-header.
+Zodra u de *post* -URI voor het activeren van herstel schijven hebt verzonden, is het eerste antwoord 202 (geaccepteerd) met een locatie header of Azure-async-header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -197,13 +196,13 @@ Location: https://management.azure.com/subscriptions//subscriptions/00000000-000
 X-Powered-By: ASP.NET
 ```
 
-De resulterende bewerking met de location-header of de Azure-AsyncOperation koptekst met een eenvoudige vervolgens bijhouden *ophalen* opdracht.
+Volg vervolgens de resulterende bewerking met behulp van de locatie header of de Azure-AsyncOperation-header met een eenvoudige *Get* -opdracht.
 
 ```http
 GET https://management.azure.com/subscriptions//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/781a0f18-e250-4d73-b059-5e9ffed4069e?api-version=2016-12-01
 ```
 
-Nadat de bewerking is voltooid, wordt 200 (OK) geretourneerd met de ID van de resulterende hersteltaak in de hoofdtekst van de reactie.
+Zodra de bewerking is voltooid, wordt 200 (OK) geretourneerd met de ID van de resulterende terugzet taak in de hoofd tekst van het antwoord.
 
 ```http
 HTTP/1.1 200 OK
@@ -233,15 +232,15 @@ X-Powered-By: ASP.NET
 }
 ```
 
-Aangezien de back-uptaak een langdurige bewerking is, deze moet worden bijgehouden, zoals wordt beschreven de [bewaken van taken met behulp van REST-API-document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Aangezien de back-uptaak een langlopende bewerking is, moet deze worden gevolgd zoals uitgelegd in de [taken bewaken met rest API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-Zodra de langlopende taak voltooid is, zijn de schijven en de configuratie van de back-ups van virtuele machine ("VMConfig.json") worden gebruikt in het opgegeven opslagaccount.
+Zodra de langlopende taak is voltooid, zijn de schijven en de configuratie van de back-up van de virtuele machine (' VMConfig. json ') aanwezig in het opgegeven opslag account.
 
-## <a name="restore-as-another-virtual-machine"></a>Als een andere virtuele machine herstellen
+## <a name="restore-as-another-virtual-machine"></a>Herstellen als een andere virtuele machine
 
-[Selecteer het herstelpunt dat](#select-recovery-point) en hoofdtekst van de aanvraag opgegeven hieronder om een andere Azure-virtuele machine maken met de gegevens van het herstelpunt te maken.
+[Selecteer het herstel punt](#select-recovery-point) en maak de hoofd tekst van de aanvraag, zoals hieronder is opgegeven, om een andere virtuele Azure-machine te maken met de gegevens van het herstel punt.
 
-De hoofdtekst van de volgende aanvraag definieert de eigenschappen die zijn vereist voor het activeren van een virtuele machine herstellen.
+De volgende aanvraag hoofdtekst definieert eigenschappen die vereist zijn om het terugzetten van een virtuele machine te activeren.
 
 ```json
 {
@@ -277,11 +276,11 @@ De hoofdtekst van de volgende aanvraag definieert de eigenschappen die zijn vere
 }
 ```
 
-Het antwoord moet worden verwerkt op dezelfde manier als [hierboven is uitgelegd voor het herstellen van schijven](#response).
+Het antwoord moet worden afgehandeld op dezelfde manier als [hierboven beschreven voor het herstellen van schijven](#response).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende documenten voor meer informatie over de REST API's van Azure back-up:
+Raadpleeg de volgende documenten voor meer informatie over de Azure Backup REST-Api's:
 
-- [Azure Recovery Services-provider REST-API](/rest/api/recoveryservices/)
-- [Aan de slag met REST API van Azure](/rest/api/azure/)
+- [REST API Azure Recovery Services provider](/rest/api/recoveryservices/)
+- [Aan de slag met Azure REST API](/rest/api/azure/)

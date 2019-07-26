@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Een webtoepassing met één pagina met behulp van de Bing nieuws zoeken-API maken'
-titlesuffix: Azure Cognitive Services
+title: 'Zelfstudie: Een web-app met één pagina maken met behulp van de Bing Nieuws zoeken-API'
+titleSuffix: Azure Cognitive Services
 description: Gebruik deze zelfstudie om een webtoepassing van één pagina te bouwen waarmee zoekquery's naar de API voor Bing News kunnen worden verzonden. De resultaten worden dan op de webpagina weergegeven.
 services: cognitive-services
 author: aahill
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 10798b471012d53b5820b078b4be7c9c648d3233
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 424fdc9fa0f31b3de664945ff49b119939488fed
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868361"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423602"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Zelfstudie: Een web-app met één pagina maken
 
@@ -397,7 +397,7 @@ Beveiligingsbeleid voor browsers (CORS) kan ervoor zorgen dat de `X-MSEdge-Clien
 > [!NOTE]
 > In een webtoepassing die bedoeld is voor productie, moet u de aanvraag aan de serverzijde uitvoeren. Anders moet de sleutel voor de Bing Search-API worden opgenomen op de webpagina, waar deze beschikbaar is voor iedereen die de bron weergeeft. Al uw gebruik van de API-abonnementssleutel wordt in rekening gebracht, zelfs aanvragen die zijn gedaan door partijen die niet zijn gemachtigd. Het is daarom van groot belang dat u uw sleutel niet algemeen beschikbaar maakt.
 
-Voor ontwikkelingsdoeleinden kunt u de aanvraag van de Bing Web Search-API via een CORS-proxy doen. Het antwoord van deze proxy heeft een `Access-Control-Expose-Headers` -header die kan antwoordheaders en maakt ze beschikbaar voor JavaScript.
+Voor ontwikkelingsdoeleinden kunt u de aanvraag van de Bing Web Search-API via een CORS-proxy doen. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers` koptekst die antwoord headers toestaat en deze beschikbaar maakt voor Java script.
 
 U kunt eenvoudig een CORS-proxy installeren zodat de zelfstudie-app toegang krijgt tot de client-id-header. Als u [Node.js](https://nodejs.org/en/download/) nog niet hebt, moet u dit eerst installeren. Voer vervolgens de volgende opdracht uit in een opdrachtvenster:
 

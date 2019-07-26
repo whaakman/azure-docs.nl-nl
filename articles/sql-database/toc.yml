@@ -19,7 +19,7 @@
       href: sql-database-managed-instance-quickstart-guide.md
     - name: Maken
       items:
-        - name: Individuele database - portal
+        - name: Individuele database
           href: sql-database-single-database-get-started.md
         - name: Individuele database - sjabloon
           displayName: 'Azure Resource Manager template, ARM'
@@ -87,14 +87,22 @@
           href: sql-database-design-first-database.md
         - name: Database ontwerpen met .NET
           href: sql-database-design-first-database-csharp.md
-    - name: Singleton-database
+    - name: Afzonderlijke database
       items:
         - name: Migreren naar een individuele of pooldatabase met DMS
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
+        - name: Aan een failovergroep toevoegen
+          href: sql-database-single-database-failover-group-tutorial.md
         - name: Een geografisch gedistribueerde database implementeren
           href: sql-database-implement-geo-distributed-database.md
+        - name: Actieve geo-replicatie configureren
+          href: sql-database-active-geo-replication-portal.md
         - name: Azure SQL Data Sync instellen
           href: sql-database-get-started-sql-data-sync.md
+    - name: Elastische pool
+      items:
+        - name: Aan een failovergroep toevoegen
+          href: sql-database-elastic-pool-failover-group-tutorial.md
     - name: Beheerd exemplaar
       items:
         - name: Online migreren met behulp van DMS
@@ -245,8 +253,6 @@
               href: sql-database-active-geo-replication.md
             - name: Automatische failover-groepen
               href: sql-database-auto-failover-group.md
-            - name: Actieve geo-replicatie configureren - Portal
-              href: sql-database-active-geo-replication-portal.md
             - name: Beveiliging voor replica's configureren
               href: sql-database-geo-replication-security-config.md
         - name: Opties voor databaseherstel
@@ -516,6 +522,8 @@
           href: sql-database-managed-instance-connect-app.md
     - name: Gegevens laden en verplaatsen
       items:
+        - name: Resource verplaatsen naar een nieuwe regio
+          href: sql-database-move-resources-across-regions.md
         - name: Een database kopiëren binnen Azure
           href: sql-database-copy.md
         - name: Database uit een BACPAC-bestand importeren

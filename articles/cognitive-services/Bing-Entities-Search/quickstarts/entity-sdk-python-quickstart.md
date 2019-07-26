@@ -1,21 +1,21 @@
 ---
-title: 'Quickstart: Bing Entiteiten zoeken SDK, Python'
-titlesuffix: Azure Cognitive Services
-description: De Bing Entiteiten zoeken-SDK-consoletoepassing instellen.
+title: 'Quickstart: Entiteiten zoeken met de Bing Entity Search SDK voor python'
+titleSuffix: Azure Cognitive Services
+description: Gebruik deze Snelstartgids om entiteiten te zoeken met de Bing Entity Search SDK voor python.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/15/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 99bf0c155a1cd211a9cdc41d4184be716244d035
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 0a4a4e3ce6f318a693b8ee760a0d892eaecb2c82
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358905"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479007"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-python"></a>Quickstart: Bing Entiteiten zoeken SDK met Python
 

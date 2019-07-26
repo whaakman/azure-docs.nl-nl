@@ -1,86 +1,88 @@
 ---
-title: 'Voorkomen dat brute-force-aanvallen met behulp van Azure AD slimme vergrendeling van het: Azure Active Directory'
-description: Azure Active Directory slimme accountvergrendeling helpt uw organisatie beschermen tegen beveiligingsaanvallen raden wachtwoorden
+title: Beveiligings aanvallen met Azure AD Smart-vergren deling voor komen Azure Active Directory
+description: Azure Active Directory slim vergren delen helpt uw organisatie te beschermen tegen aanvallen waarbij wordt geprobeerd om wacht woorden te raden
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 07/25/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 150ecbdfcc21ee7ec0bf54fd5b824bc93e0c76ce
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bd03e2b98b1fd1a2a45b5feecc963bcfc7bfe83c
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483308"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499881"
 ---
-# <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory slimme accountvergrendeling
+# <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory slim vergren delen
 
-Slimme vergrendeling van het helpt bij het vergrendelen van ongewenste actoren die toegang proberen te raden wachtwoorden van uw gebruikers of brute-force-methoden gebruiken om op te halen. Het kan worden herkend aanmeldingen die afkomstig zijn van geldige gebruikers en ze anders dan de wijzigingsaanvragen van aanvallers en andere onbekende bronnen te behandelen. Hiermee vergrendelt u slimme vergrendeling van het uit de aanvallers, terwijl waarin die uw gebruikers toegang krijgen tot hun accounts en productief blijven.
+Slimme vergren deling helpt bij het vergren delen van ongeldige Actors die de wacht woorden van uw gebruikers proberen te raden of methoden voor het afwijzen van brute kracht gebruiken om aan de slag te gaan. Het kan aanmeldingen herkennen die afkomstig zijn van geldige gebruikers en ze anders behandelen dan gebruikers van aanvallers en andere onbekende bronnen. Slimme vergren delingen blokkeert de aanvallers, terwijl uw gebruikers toegang krijgen tot hun accounts en productief kunnen zijn.
 
-Standaard, slimme accountvergrendeling Hiermee vergrendelt u het account van aanmeldpogingen voor één minuut na 10 mislukte pogingen. Het account wordt vergrendeld opnieuw na elke latere mislukte aanmeldingspoging, voor één minuut bij de eerste en meer voor in de daaropvolgende pogingen worden gedaan.
+Standaard vergrendelt Smart Lock het account van aanmeldings pogingen voor één minuut na 10 mislukte pogingen. Het account vergrendelt na elke volgende mislukte aanmeldings poging, gedurende één minuut om de eerste keer en langer bij de volgende pogingen.
 
-Slimme accountvergrendeling houdt de laatste drie onjuist wachtwoord-hashes om te voorkomen dat de teller voor accountvergrendeling voor hetzelfde wachtwoord te verhogen. Als iemand op meerdere keren de dezelfde onjuist wachtwoord invoert, wordt dit gedrag niet leiden tot het account te vergrendelen.
+Slimme vergren deling houdt de laatste drie ongeldige hashes met een onjuist wacht woord bij om te voor komen dat de vergrendelings teller voor hetzelfde wacht woord wordt verhoogd. Als iemand hetzelfde onjuiste wacht woord meermaals opgeeft, wordt het account niet vergrendeld.
 
  > [!NOTE]
- > Hash voor het bijhouden van functionaliteit is niet beschikbaar voor klanten met Pass through-verificatie ingeschakeld als de verificatie on-premises niet in de cloud vindt.
+ > De functie voor het bijhouden van hashes is niet beschikbaar voor klanten waarbij Pass-Through-verificatie is ingeschakeld omdat verificatie on-premises plaatsvindt, niet in de Cloud.
 
-Slimme accountvergrendeling is altijd ingeschakeld voor alle klanten van Azure AD met deze standaardinstellingen die worden geboden door de juiste combinatie van beveiliging en gebruiksgemak. Aanpassing van de vergrendeling van het smart-instellingen met waarden die specifiek zijn voor uw organisatie, vereist Azure AD Basic of hoger licenties voor uw gebruikers.
+Federatieve implementaties met AD FS 2016 en AF FS 2019 kunnen vergelijk bare voor delen bieden met behulp van [AD FS extranet en extranet Smart-vergren deling](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
 
-Met behulp van intelligente accountvergrendeling is geen garantie dat een legitieme gebruikers nooit vergrendeld. Wanneer de slimme accountvergrendeling Hiermee vergrendelt u een gebruikersaccount, dan proberen we ons best om de vergrendeling niet de originele gebruiker. De vergrendeling van het service probeert om ervoor te zorgen dat aanvallers geen toegang tot een legitieme gebruikersaccount.  
+Slimme vergren deling is altijd ingeschakeld voor alle klanten van Azure AD met deze standaard instellingen die de juiste combi natie van beveiliging en bruikbaarheid bieden. Aanpassing van de instellingen voor slim vergren delen, met waarden die specifiek zijn voor uw organisatie, vereist Azure AD Basic of hogere licenties voor uw gebruikers.
 
-* Elke Azure Active Directory-Datacenter houdt accountvergrendeling onafhankelijk van elkaar. Een gebruiker heeft (threshold_limit * datacenter_count) aantal pogingen, als de gebruiker komt binnen via elk Datacenter.
-* Smart Lockout maakt gebruik van vertrouwde locatie vs onbekende locatie wilt onderscheiden van een actor beschadigd en de legitieme gebruiker. Niet bekend en vertrouwd locaties hebben beide vergrendeling van het afzonderlijke items.
+Het gebruik van slimme vergren deling garandeert niet dat een authentiekte gebruiker nooit wordt vergrendeld. Wanneer Slim vergren delen een gebruikers account vergrendelt, proberen we ons het beste om de legitieme gebruiker te vergren delen. De vergrendelings service probeert ervoor te zorgen dat ongeldige actors geen toegang krijgen tot een authentiek gebruikers account.  
 
-Slimme accountvergrendelingen kan worden geïntegreerd met hybride implementaties, met behulp van de synchronisatie van wachtwoordhashes Pass through-verificatie, om te voorkomen dat ze worden geblokkeerd door aanvallers on-premises Active Directory-accounts. Door in te stellen op de juiste wijze slimme vergrendeling van het beleid in Azure AD, kunnen aanvallen worden gefilterd voordat ze on-premises Active Directory bereiken.
+* Elk Azure Active Directory Data Center volgt de vergren deling onafhankelijk. Een gebruiker heeft het aantal pogingen (threshold_limit * datacenter_count), als de gebruiker aan elk Data Center komt.
+* Slimme vergren deling maakt gebruik van de bekende locatie versus onbekende locatie om onderscheid te maken tussen een ongeldige actor en de legitieme gebruiker. Onbekende en bekende locaties hebben beide afzonderlijke vergrendelings tellers.
 
-Bij het gebruik van [Pass through-verificatie](../hybrid/how-to-connect-pta.md), moet u ervoor zorgen dat:
+Slimme vergren deling kan worden geïntegreerd met hybride implementaties, met behulp van hash-synchronisatie met wacht woord of Pass Through-verificatie om on-premises Active Directory accounts te beveiligen tegen uitsluiting door aanvallers. Door slim vergrendelings beleid in azure AD op de juiste wijze in te stellen, kunnen aanvallen worden gefilterd voordat ze on-premises Active Directory bereiken.
 
-* De drempelwaarde voor vergrendeling van Azure AD is **minder** dan de drempelwaarde voor vergrendeling van Active Directory-account. Stel de waarden, zodat de drempelwaarde voor vergrendeling van Active Directory-account ten minste twee of drie keer langer zijn dan de drempelwaarde voor vergrendeling van Azure AD is. 
-* De duur van de Azure AD-vergrendeling moet langer dan de Active Directory accountvergrendelingsteller opnieuw na duur instellen zijn ingesteld. Let erop dat de Azure AD-duur is ingesteld in seconden, terwijl de AD duur in minuten is ingesteld. 
+Wanneer [Pass-Through-verificatie](../hybrid/how-to-connect-pta.md)wordt gebruikt, moet u het volgende controleren:
 
-Bijvoorbeeld, als u uw Azure AD-item moet hoger zijn dan AD wilt, is klikt u vervolgens Azure AD 120 seconden (2 minuten) bij uw on-premises die AD is ingesteld op 1 minuut (60 seconden).
+* De drempel waarde voor vergren delingen van Azure AD is **lager** dan de drempel waarde voor het vergren delen van Active Directory Stel de waarden zo in dat de drempel waarde voor het vergren delen van Active Directory-account ten minste twee of drie keer langer duurt dan de drempel waarde voor vergren deling van Azure AD. 
+* De Azure AD-vergrendelings duur moet langer worden ingesteld dan de Active Directory account vergrendelings teller opnieuw instellen na de duur. Houd er rekening mee dat de duur van Azure AD wordt ingesteld in seconden, terwijl de duur van de advertentie binnen enkele minuten is ingesteld. 
+
+Als u bijvoorbeeld wilt dat uw Azure AD-teller hoger is dan AD, zou Azure AD 120 seconden (2 minuten) zijn, terwijl uw on-premises AD is ingesteld op 1 minuut (60 seconden).
 
 > [!IMPORTANT]
-> Een beheerder kan op dit moment niet de gebruikersaccounts cloud ontgrendelen als ze hebben uit is vergrendeld door de functie Smart Lockout. De beheerder moet wachten tot de duur van de vergrendeling verloopt binnenkort.
+> Het is momenteel niet mogelijk om de Cloud accounts van gebruikers door de beheerder te ontgrendelen als ze zijn vergrendeld door de mogelijkheden van slim vergren delen. De beheerder moet wachten tot de vergrendelings duur is verlopen.
 
-## <a name="verify-on-premises-account-lockout-policy"></a>Controleer of de on-premises account lockout beleid
+## <a name="verify-on-premises-account-lockout-policy"></a>On-premises account vergrendelings beleid controleren
 
-Gebruik de volgende instructies om te controleren of uw on-premises Active Directory-account lockout beleid:
+Gebruik de volgende instructies om uw on-premises Active Directory account vergrendelings beleid te controleren:
 
-1. Open het hulpprogramma voor Groepsbeleidsbeheer.
-2. Bewerk het groepsbeleid met vergrendelingsbeleid voor uw organisatie, bijvoorbeeld de **standaarddomeinbeleid**.
-3. Blader naar **Computerconfiguratie** > **beleid** > **Windows-instellingen** > **beveiligingsinstellingen**   >  **Accountbeleid** > **Account Lockout beleid**.
-4. Controleer of uw **drempel voor accountvergrendelingen** en **teller voor accountvergrendeling opnieuw instellen na** waarden.
+1. Open het groepsbeleid-beheer programma.
+2. Bewerk het groeps beleid dat het account vergrendelings beleid van uw organisatie bevat, bijvoorbeeld het **standaard domein beleid**.
+3. Bladeren naar **computer configuratie** > **beleid** > **Windows-instellingen** > **beveiligings instellingen** > **account**beleidaccount > **vergren delen Beleid**.
+4. Controleer de **drempel waarde voor account vergrendeling** en **Stel de teller voor account vergrendeling na waarden opnieuw** in.
 
-![De on-premises Active Directory-account lockout beleid wijzigen](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Het vergrendelings beleid voor on-premises Active Directory-account wijzigen](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
-## <a name="manage-azure-ad-smart-lockout-values"></a>Azure AD slimme accountvergrendeling waarden beheren
+## <a name="manage-azure-ad-smart-lockout-values"></a>Slimme vergrendelings waarden voor Azure AD beheren
 
-Op basis van de vereisten van uw organisatie, slimme accountvergrendeling waarden moet mogelijk worden aangepast. Aanpassing van de vergrendeling van het smart-instellingen met waarden die specifiek zijn voor uw organisatie, vereist Azure AD Basic of hoger licenties voor uw gebruikers.
+Op basis van de vereisten van uw organisatie moeten slimme vergrendelings waarden mogelijk worden aangepast. Aanpassing van de instellingen voor slim vergren delen, met waarden die specifiek zijn voor uw organisatie, vereist Azure AD Basic of hogere licenties voor uw gebruikers.
 
-Als u wilt controleren of wijzigen van de vergrendeling van het smart-waarden voor uw organisatie, gebruikt u de volgende stappen uit:
+Voer de volgende stappen uit om de slimme vergrendelings waarden voor uw organisatie te controleren of te wijzigen:
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en klik op **Azure Active Directory**, klikt u vervolgens **verificatiemethoden**.
-1. Stel de **blokkeringsdrempel**, op basis van het aantal mislukte aanmeldingen zijn toegestaan voor een account voordat u de vergrendeling van het eerste. De standaardwaarde is 10.
-1. Stel de **blokkeringsduur in seconden**, met de lengte in seconden van de vergrendeling van het. De standaardwaarde is 60 seconden (één minuut).
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com)en klik op **Azure Active Directory**en vervolgens op **verificatie methoden**.
+1. Stel de **drempel waarde voor vergren deling**in op basis van het aantal mislukte aanmeldingen dat is toegestaan voor een account voordat het voor het eerst wordt vergrendeld. De standaard waarde is 10.
+1. Stel de **vergrendelings duur in seconden in**, tot de lengte in seconden van elke vergren deling. De standaard waarde is 60 seconden (een minuut).
 
 > [!NOTE]
-> Als de eerste aanmelding nadat een vergrendeling van het is ook mislukt, de account vergrendeld opnieuw. Als een account herhaaldelijk wordt vergrendeld, wordt de vergrendelingsduur verhoogd.
+> Als de eerste aanmelding na een vergren deling ook mislukt, wordt het account opnieuw vergrendeld. Als een account herhaaldelijk wordt vergrendeld, neemt de vergrendelings duur toe.
 
-![Het Azure AD slimme vergrendeling van het beleid in de Azure-portal aanpassen](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
+![Pas het beleid voor slimme vergren deling van Azure AD aan in het Azure Portal](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
-## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>Bepalen of de functie Smart lockout of niet werkt
+## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>Bepalen of de functie voor slim vergren delen werkt
 
-Wanneer de drempel voor accountvergrendelingen slimme wordt geactiveerd, ontvangt u het volgende bericht wanneer het account is vergrendeld:
+Wanneer de drempel waarde voor slim vergren delen wordt geactiveerd, wordt het volgende bericht weer gegeven wanneer het account is vergrendeld:
 
-**Uw account is tijdelijk vergrendeld om te voorkomen dat het gebruik door onbevoegden. Probeer het later opnieuw, en als u nog steeds problemen ondervindt, neem dan contact op met uw beheerder.**
+**Uw account is tijdelijk vergrendeld om onbevoegd gebruik te voor komen. Probeer het later opnieuw. Neem contact op met de beheerder als u nog steeds problemen ondervindt.**
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Meer informatie over het blokkeren van onjuiste wachtwoorden in uw organisatie met behulp van Azure AD.](howto-password-ban-bad.md)
-* [Self-service voor wachtwoord opnieuw instellen zodat gebruikers kunnen hun eigen accounts ontgrendelen configureren.](quickstart-sspr.md)
+* [Ontdek hoe u in uw organisatie een onjuist wacht woord kunt gebruiken met Azure AD.](howto-password-ban-bad.md)
+* [Configureer selfservice voor wachtwoord herstel zodat gebruikers hun eigen accounts kunnen ontgrendelen.](quickstart-sspr.md)

@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a938f85b2047ea5cceada98df6adba2c560c1a1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: e1ea75499334f3f6eb2f5d3c15526067fcef4eb8
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278666"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442507"
 ---
 # <a name="confidential-client-assertions"></a>Verklaringen van vertrouwelijke client
 Om hun identiteit te bewijzen, wisselen vertrouwelijke client toepassingen een geheim uit met Azure AD. Het geheim kan het volgende zijn:
@@ -34,7 +34,7 @@ Dit geheim kan ook rechtstreeks een ondertekende bevestiging zijn.
 MSAL.NET heeft vier methoden om referenties of beweringen te verstrekken aan de vertrouwelijke client-app:
 - `.WithClientSecret()`
 - `.WithCertificate()`
-- `.WithSignedAssertion()`
+- `.WithClientAssertion()`
 - `.WithClientClaims()`
 
 ### <a name="signed-assertions"></a>Ondertekende verklaringen
@@ -50,7 +50,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 De claims die worden verwacht door Azure AD zijn:
 
-Claim type | Waarde | Description
+Claim type | Value | Description
 ---------- | ---------- | ----------
 aud | https://login.microsoftonline.com/{tenantId}/v2.0 | De claim ' AUD ' (doel groep) identificeert de ontvangers waarvoor de JWT is bedoeld (hier Azure AD) Zie [RFC 7519, sectie 4.1.3]
 geldig | Do jun 27 2019 15:04:17 GMT + 0200 (Romaanse zomer tijd) | De claim ' exp ' (verval tijd) identificeert de verval tijd op of waarna de JWT niet moet worden geaccepteerd voor verwerking. Zie [RFC 7519, sectie 4.1.4]

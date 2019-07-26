@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor-Servicelimieten | Microsoft Docs
+title: Limieten voor Azure Monitor-service | Microsoft Docs
 description: Een lijst met limieten in verschillende gebieden van Azure Monitor.
 author: bwren
 manager: carmonm
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: bwren
-ms.openlocfilehash: be9d3a14d5b242ba8c331cdd1f4c558e7a080af5
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 0386700c238c213fd9cde3ca1b49e5e598d05bfd
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67297338"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405662"
 ---
-# <a name="azure-monitor-service-limits"></a>Limieten voor Azure Monitor-service
+# <a name="azure-monitor-service-limits"></a>Azure Monitor-service limieten
 
-Dit artikel worden de limieten in verschillende gebieden van Azure Monitor.
+In dit artikel vindt u een overzicht van de limieten op verschillende gebieden van Azure Monitor.
 
 ## <a name="alerts"></a>Waarschuwingen
 
@@ -30,6 +30,10 @@ Dit artikel worden de limieten in verschillende gebieden van Azure Monitor.
 ## <a name="action-groups"></a>Actiegroepen
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
+
+## <a name="log-queries-and-language"></a>Query's en taal in logboek registreren
+
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]
 
 ## <a name="log-analytics-workspaces"></a>Log Analytics-werkruimten
 
@@ -41,6 +45,6 @@ Dit artikel worden de limieten in verschillende gebieden van Azure Monitor.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Azure Monitor-prijzen](https://azure.microsoft.com/pricing/details/monitor/)
+- [Azure Monitor prijzen](https://azure.microsoft.com/pricing/details/monitor/)
 - [Gebruik en geschatte kosten in Azure Monitor bewaken](platform/usage-estimated-costs.md)
-- [Gebruik en kosten voor Application Insights beheren](app/pricing.md)
+- [Het gebruik en de kosten voor Application Insights beheren](app/pricing.md)

@@ -41,6 +41,9 @@
     - name: Resourcewijzigingen ophalen
       displayName: 'resource, change, history, snapshot, details'
       href: ./how-to/get-resource-changes.md
+- name: Problemen oplossen
+  displayName: 'errors, violation'
+  href: ./troubleshoot/general.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Een zoekaanvraag verzenden naar de REST-API van Bing Entiteiten zoeken met behulp van Python'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Gebruik deze quickstart om met Python een aanvraag te verzenden naar de REST-API van Bing Entiteiten zoeken en een JSON-antwoord te ontvangen.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 43f01b39ed01e94fe21283997b5981e7fa49bde5
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: fa306ecd7690085d96f561fcf7e043064013344d
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384513"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478949"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Quickstart: Een zoekaanvraag verzenden naar de REST-API van Bing Entiteiten zoeken met behulp van Python
 

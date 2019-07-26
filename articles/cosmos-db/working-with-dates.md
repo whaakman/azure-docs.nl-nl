@@ -5,16 +5,16 @@ ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 05/21/2019
-ms.openlocfilehash: 99a807cf3918a8768231f88f846432df18fea9e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/23/2019
+ms.openlocfilehash: 5b482d00990add365a90f36bf6e8d047dc50efc0
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65977242"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467823"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Werken met datums in Azure Cosmos DB
-Azure Cosmos DB biedt schemaflexibiliteit en geavanceerde indexeermogelijkheden via een systeemeigen [JSON](https://www.json.org) gegevensmodel. Alle Azure Cosmos DB-resources, zoals databases, containers, documenten en opgeslagen procedures worden gemodelleerd en opgeslagen als JSON-documenten. Ondersteunt alleen een kleine set basistypen als een vereiste voor draagbare JSON (en Azure Cosmos DB): Tekenreeks, getal, Booleaanse waarde, matrix, Object en Null. Echter, JSON is flexibel en kunnen ontwikkelaars en frameworks voor complexere typen met behulp van deze primitieven en samenstellen van deze objecten of-matrices. 
+Azure Cosmos DB biedt schemaflexibiliteit en geavanceerde indexeermogelijkheden via een systeemeigen [JSON](https://www.json.org) gegevensmodel. Alle Azure Cosmos DB-resources, zoals databases, containers, documenten en opgeslagen procedures worden gemodelleerd en opgeslagen als JSON-documenten. Als vereiste voor een draag bare, JSON-(en Azure Cosmos DB) ondersteunt slechts een kleine set basis typen: Teken reeks, getal, Booleaanse waarde, matrix, object en null. Echter, JSON is flexibel en kunnen ontwikkelaars en frameworks voor complexere typen met behulp van deze primitieven en samenstellen van deze objecten of-matrices. 
 
 Naast de eenvoudige typen veel toepassingen moeten de [datum-/](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) type datums en een tijdstempel vertegenwoordigt. Dit artikel wordt beschreven hoe ontwikkelaars kunnen opslaan, ophalen en query uitvoeren op datums in Azure Cosmos DB met behulp van de .NET SDK.
 

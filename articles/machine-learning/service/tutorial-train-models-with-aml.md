@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 589b0e964ff5595f4b72a446aa8e0518db81844f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 97e3fcb732e85f8c190a0d6607d85a6ffc8d36a7
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360883"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370740"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Zelfstudie: Beeld classificatie modellen trainen met MNIST-gegevens en scikit-meer informatie met behulp van Azure Machine Learning
 
@@ -387,7 +387,7 @@ U kunt de voortgang van een actieve taak op verschillende manieren controleren. 
 
 ### <a name="jupyter-widget"></a>Jupyter-widget
 
-U kunt de voortgang van de rum volgen met een Jupyter-widget. Net als het indienen van de run, is de widget asynchroon en biedt deze elke 10 tot 15 seconden live updates totdat de taak is voltooid:
+Bekijk de voortgang van het uitvoeren met een [Jupyter-widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Net als het indienen van de run, is de widget asynchroon en biedt deze elke 10 tot 15 seconden live updates totdat de taak is voltooid:
 
 ```python
 from azureml.widgets import RunDetails

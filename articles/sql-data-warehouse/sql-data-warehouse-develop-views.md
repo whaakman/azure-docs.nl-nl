@@ -1,8 +1,8 @@
 ---
-title: T-SQL-weergaven gebruiken in Azure SQL Data Warehouse | Microsoft Docs
-description: Tips voor het gebruik van T-SQL-weergaven in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+title: T-SQL-weer gaven gebruiken in Azure SQL Data Warehouse | Microsoft Docs
+description: Tips voor het gebruik van T-SQL-weer gaven in Azure SQL Data Warehouse voor het ontwikkelen van oplossingen.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,34 +10,34 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e8d516cfd764f947bd2fe7fc25f6394c313c0d9a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 8a770e66120e69271744942899186ece39b2a3c3
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595503"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479524"
 ---
-# <a name="views-in-azure-sql-data-warehouse"></a>Weergaven in Azure SQL datawarehouse
-Tips voor het gebruik van T-SQL-weergaven in Azure SQL Data Warehouse om oplossingen te ontwikkelen. 
+# <a name="views-in-azure-sql-data-warehouse"></a>Weer gaven in Azure SQL Data Warehouse
+Tips voor het gebruik van T-SQL-weer gaven in Azure SQL Data Warehouse voor het ontwikkelen van oplossingen. 
 
-## <a name="why-use-views"></a>Waarom weergaven gebruiken?
-Weergaven kunnen worden gebruikt in een aantal verschillende manieren om de kwaliteit van uw oplossing te verbeteren.  In dit artikel ziet u enkele voorbeelden van hoe u uw oplossing met weergaven, evenals de beperkingen die moeten worden overwogen verrijken.
+## <a name="why-use-views"></a>Waarom weer gaven gebruiken?
+Weer gaven kunnen op verschillende manieren worden gebruikt om de kwaliteit van uw oplossing te verbeteren.  In dit artikel worden enkele voor beelden gegeven van hoe u uw oplossing kunt verrijken met weer gaven, evenals de beperkingen die moeten worden overwogen.
 
 
 > [!IMPORTANT]
-> Zie de nieuwe syntaxis van de gerealiseerde weergave op [CREATE gerealiseerde weergave AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  Zie voor meer informatie de [opmerkingen bij de release](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
+> Zie de nieuwe syntaxis voor gerealiseerde weer gave op een [gerealiseerde weer gave maken als selecteren](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  Zie de [release opmerkingen](/azure/sql-data-warehouse/release-notes-10-0-10106-0)voor meer informatie.
 >
 
 
 > [!NOTE]
-> Syntaxis voor CREATE VIEW is niet in dit artikel besproken. Zie voor meer informatie de [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql) documentatie.
+> De syntaxis voor de weer gave CREATE wordt niet beschreven in dit artikel. Zie de documentatie voor het [maken van weer gaven](/sql/t-sql/statements/create-view-transact-sql) voor meer informatie.
 > 
 
-## <a name="architectural-abstraction"></a>Architectuur abstractie
+## <a name="architectural-abstraction"></a>Samen vatting van architectuur
 
-Er is een algemeen patroon opnieuw om tabellen te maken met behulp van CREATE TABLE AS SELECT (CTAS) gevolgd door een object patroon hernoemen tijdens het laden van gegevens.
+Een algemeen toepassings patroon is het opnieuw maken van tabellen met CREATE TABLE als SELECT (CTAS), gevolgd door het wijzigen van het naam patroon van een object tijdens het laden van gegevens.
 
-Het volgende voorbeeld wordt een nieuwe datum records naar een datumdimensie. Houd er rekening mee hoe een nieuwe tabel, DimDate_New, is het eerst wordt gemaakt en vervolgens ter vervanging van de oorspronkelijke versie van de tabel is gewijzigd.
+In het volgende voor beeld worden nieuwe datum records toegevoegd aan een datum dimensie. U ziet hoe een nieuwe tabel, DimDate_New, wordt gemaakt en de naam ervan wordt gewijzigd om de oorspronkelijke versie van de tabel te vervangen.
 
 ```sql
 CREATE TABLE dbo.DimDate_New
@@ -57,19 +57,19 @@ RENAME OBJECT DimDate_New TO DimDate;
 
 ```
 
-Deze aanpak kan echter resulteren in tabellen die wordt weergegeven en in de weergave van een gebruiker als "tabel bestaat niet" foutberichten verdwijnen. Weergaven kunnen worden gebruikt om gebruikers te bieden een consistente presentatielaag terwijl de onderliggende objecten worden gewijzigd. Met toegang tot gegevens via weergaven, hoeven gebruikers geen zichtbaarheid van de onderliggende tabellen. Deze laag biedt een consistente gebruikerservaring tijdens het gegevensmodel ervoor te zorgen dat de ontwerpers van het datawarehouse kunt ontwikkelen. Kunnen betekent ontwikkelen van de onderliggende tabellen ontwerpers CTAS kunnen gebruiken om de prestaties tijdens het laden van de gegevens te maximaliseren.   
+Deze benadering kan echter leiden tot tabellen die worden weer gegeven en weer gegeven in de gebruikers weergave, evenals de fout berichten ' tabel bestaat niet '. Weer gaven kunnen worden gebruikt om gebruikers een consistente presentatielaag te bieden, terwijl de namen van de onderliggende objecten worden gewijzigd. Door toegang te bieden tot gegevens via weer gaven, hebben gebruikers geen zicht baarheid nodig voor de onderliggende tabellen. Deze laag biedt een consistente gebruikers ervaring en zorgt ervoor dat de Data Warehouse-ontwerpers het gegevens model kunnen ontwikkelen. Het is mogelijk om de onderliggende tabellen te ontwikkelen. ontwerpers kunnen CTAS gebruiken om de prestaties tijdens het proces voor het laden van gegevens te maximaliseren.   
 
 ## <a name="performance-optimization"></a>Optimalisatie van prestaties
-Weergaven kunnen ook worden gebruikt om af te dwingen joins tussen de tabellen geoptimaliseerd voor prestaties. Een weergave kunt bijvoorbeeld een redundante distributiesleutel opnemen als onderdeel van het lid te worden criteria om te beperken van gegevensverplaatsing. Een ander voordeel van een weergave kan worden om af te dwingen een bepaalde query of een geheugensteun voor het lid te worden. Weergaven gebruiken op deze manier zorgt ervoor dat joins altijd worden uitgevoerd op optimale wijze de noodzaak van gebruikers te onthouden juist om voor te bereiden voor hun joins te voorkomen.
+Weer gaven kunnen ook worden gebruikt voor het afdwingen van prestaties geoptimaliseerde samen voegingen tussen tabellen. Een weer gave kan bijvoorbeeld een redundante distributie sleutel bevatten als onderdeel van de samenvoegings criteria om de verplaatsing van gegevens te minimaliseren. Een ander voor deel van een weer gave is het afdwingen van een specifieke query of hint voor samen voegen. Als u weer gaven op deze manier gebruikt, zorgt u ervoor dat samen voegingen altijd worden uitgevoerd op een optimale manier om te voor komen dat gebruikers de juiste construct voor hun deelname kunnen onthouden.
 
 ## <a name="limitations"></a>Beperkingen
-Weergaven in SQL Data Warehouse worden opgeslagen als alleen metagegevens. De volgende opties zijn als gevolg hiervan niet beschikbaar:
+Weer gaven in SQL Data Warehouse worden alleen als meta gegevens opgeslagen. De volgende opties zijn daarom niet beschikbaar:
 
-* Er is geen schema binding-optie
-* Basistabellen kunnen niet worden bijgewerkt via de weergave
-* Weergaven kunnen niet worden gemaakt over tijdelijke tabellen
-* Er is geen ondersteuning voor UITVOUWEN / NOEXPAND-hints
-* Er zijn geen geïndexeerde weergaven in SQL Data Warehouse
+* Er is geen optie voor schema bindingen
+* Basis tabellen kunnen niet worden bijgewerkt via de weer gave
+* Er kunnen geen weer gaven worden gemaakt over tijdelijke tabellen
+* Er wordt geen ondersteuning geboden voor de instructie EXPAND/deexpand.
+* Er zijn geen geïndexeerde weer gaven in SQL Data Warehouse
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie [Overzicht van SQL Data Warehouse voor ontwikkelaars](sql-data-warehouse-overview-develop.md) voor meer tips voor ontwikkelaars.

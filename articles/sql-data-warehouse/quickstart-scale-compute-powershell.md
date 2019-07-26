@@ -2,20 +2,20 @@
 title: 'Quickstart: De schaal van rekenkracht vergroten in Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
 description: De schaal van rekenkracht vergroten in Azure SQL Data Warehouse in PowerShell. De schaal van rekenkracht vergroten voor betere prestaties of de schaal juist verkleinen om kosten te besparen.
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: Anthony.vanGemert
 ms.reviewer: igorstan
-ms.openlocfilehash: bd137b71cab4a345afce835effd2ecb0c03df312
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ddf33c927054512d1807d1c9e3429edaa5de25b9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66167014"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479258"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Quickstart: De schaal van rekenkracht vergroten in Azure SQL Data Warehouse in PowerShell
 
@@ -31,19 +31,19 @@ In deze snelstart wordt ervan uitgegaan dat u al een SQL-datawarehouse hebt waar
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u aan bij uw Azure-abonnement met de [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) opdracht en volgt u de op het scherm aanwijzingen.
+Meld u aan bij uw Azure-abonnement met de opdracht [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) en volg de aanwijzingen op het scherm.
 
 ```powershell
 Connect-AzAccount
 ```
 
-Als u wilt zien welke abonnement dat u gebruikt, [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
+Als u wilt zien welk abonnement u gebruikt, voert u [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription)uit.
 
 ```powershell
 Get-AzSubscription
 ```
 
-Als u gebruiken een ander abonnement dan de standaard wilt, voert u [Set AzContext](/powershell/module/az.accounts/set-azcontext).
+Als u een ander abonnement wilt gebruiken dan de standaard instelling, voert u [set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
@@ -68,15 +68,15 @@ Volg deze stappen om de locatiegegevens voor uw datawarehouse op te zoeken.
 
 In SQL Data Warehouse kunt u het aantal rekenresources verhogen of verlagen door de DWU's aan te passen. Met behulp van [Maken en verbinden - portal](create-data-warehouse-portal.md) is **mySampleDataWarehouse** gemaakt en vervolgens gestart met 400 DWU's. In de volgende stappen wordt het aantal DWU's voor **mySampleDataWarehouse** aangepast.
 
-Als u wilt wijzigen datawarehouse-eenheden, gebruikt u de [Set AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell-cmdlet. In het volgende voorbeeld worden de datawarehouse-eenheden ingesteld op DW300 voor de database **mySampleDataWarehouse** die wordt gehost in de resourcegroep **myResourceGroup** op server  **mynewserver 20180430**.
+Als u Data Warehouse-eenheden wilt wijzigen, gebruikt u de Power shell [-cmdlet Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) . In het volgende voor beeld worden de Data Warehouse-eenheden ingesteld op DW300c voor de Data Base- **mySampleDataWarehouse** die wordt gehost in de **MyResourceGroup** van de resource groep op de server **mynewserver-20180430**.
 
 ```Powershell
-Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
 ```
 
 ## <a name="check-data-warehouse-state"></a>Status van datawarehouse controleren
 
-Als de huidige status van het datawarehouse wilt weergeven, gebruikt de [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) PowerShell-cmdlet. Hiermee wordt de status van de **mySampleDataWarehouse**-database in resourceGroup **myResourceGroup** en server **mynewserver-20180430.database.windows.net**.
+Als u de huidige status van het Data Warehouse wilt zien, gebruikt u de Power shell [-cmdlet Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) . Hiermee wordt de status van de **mySampleDataWarehouse**-database in resourceGroup **myResourceGroup** en server **mynewserver-20180430.database.windows.net**.
 
 ```powershell
 $database = Get-AzSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
@@ -98,7 +98,7 @@ MaxSizeBytes                  : 263882790666240
 Status                        : Online
 CreationDate                  : 11/20/2017 9:18:12 PM
 CurrentServiceObjectiveId     : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
-CurrentServiceObjectiveName   : DW300
+CurrentServiceObjectiveName   : DW300c
 RequestedServiceObjectiveId   : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
 RequestedServiceObjectiveName :
 ElasticPoolName               :

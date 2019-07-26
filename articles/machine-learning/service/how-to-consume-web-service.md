@@ -1,7 +1,7 @@
 ---
-title: Client voor het gebruiken van de geïmplementeerde webservice maken
+title: Client maken om geïmplementeerde webservice te gebruiken
 titleSuffix: Azure Machine Learning service
-description: Leer hoe u een webservice die is gegenereerd wanneer een model is geïmplementeerd met Azure Machine Learning-model te gebruiken. De webservice wordt aangegeven dat een REST-API. Clients voor deze API maken met behulp van de programmeertaal van uw keuze.
+description: Meer informatie over het gebruik van een webservice die is gegenereerd bij het implementeren van een model met Azure Machine Learning model. De webservice toont een REST API. Clients voor deze API maken met behulp van de programmeer taal van uw keuze.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,31 +11,31 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 376be43a57783f537df81f0e97f005e2c46a710e
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 070dd07aa6705e97a532bdc5f53a08a9abe0f83d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797622"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361007"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Een Azure Machine Learning-model dat is geïmplementeerd als een webservice gebruiken
 
-Een Azure Machine Learning-model als een webservice implementeren, maakt u een REST-API. U kunt gegevens verzenden naar deze API en ontvangen de voorspelling geretourneerd door het model. In dit document, informatie over het maken van clients voor de webservice met behulp van C#, Go, Java en Python.
+Een Azure Machine Learning-model als een webservice implementeren, maakt u een REST-API. U kunt gegevens verzenden naar deze API en ontvangen de voorspelling geretourneerd door het model. In dit document leest u hoe u clients voor de webservice maakt met behulp C#van, go, Java en python.
 
-Wanneer u een installatiekopie op Azure Container Instances, Azure Kubernetes Service of veld-programmable gate arrays (FPGA implementeert) maakt u een webservice. U maken installatiekopieën van geregistreerde modellen en scoring-bestanden. Ophalen van de URI die wordt gebruikt voor toegang tot een webservice met behulp van de [SDK van Azure Machine Learning](https://aka.ms/aml-sdk). Als verificatie is ingeschakeld, kunt u de SDK ook gebruiken om op te halen van de verificatiesleutels.
+U maakt een webservice wanneer u een installatie kopie implementeert op Azure Container Instances, Azure Kubernetes-service of veld-Programmeer bare poort matrices (FPGA). U maakt installatie kopieën van geregistreerde modellen en Score bestanden. U haalt de URI op die wordt gebruikt om toegang te krijgen tot een webservice met behulp van de [Azure machine learning SDK](https://aka.ms/aml-sdk). Als verificatie is ingeschakeld, kunt u de SDK ook gebruiken om op te halen van de verificatiesleutels.
 
-De algemene werkstroom voor het maken van een client die gebruikmaakt van een machine learning-webservice is:
+De algemene werk stroom voor het maken van een client die gebruikmaakt van een machine learning-webservice:
 
-1. Gebruik de SDK om de verbindingsgegevens.
-1. Bepalen welk type gegevens van aanvragen die worden gebruikt door het model.
+1. Gebruik de SDK om de verbindings gegevens op te halen.
+1. Bepaal het type aanvraag gegevens dat door het model wordt gebruikt.
 1. Maak een toepassing die de webservice aanroept.
 
 ## <a name="connection-information"></a>Verbindingsgegevens
 
 > [!NOTE]
-> Gebruik de SDK van Azure Machine Learning om de gegevens van een webservice. Dit is een Python-SDK. U kunt elke taal gebruiken om een client voor de service te maken.
+> Gebruik de Azure Machine Learning SDK om informatie over de webservice op te halen. Dit is een Python-SDK. U kunt elke taal gebruiken om een-client voor de service te maken.
 
-De [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klasse bevat de informatie die u wilt maken van een client. De volgende `Webservice` eigenschappen zijn handig voor het maken van een clienttoepassing:
+De klasse [azureml. core. webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) bevat de informatie die u nodig hebt voor het maken van een-client. De volgende `Webservice` eigenschappen zijn handig voor het maken van een client toepassing:
 
 * `auth_enabled` -Als verificatie is ingeschakeld, `True`; anders `False`.
 * `scoring_uri` -De REST-API-adres.
@@ -53,14 +53,14 @@ Er zijn een drie manieren om op te halen van deze informatie voor de geïmplemen
     print(service.scoring_uri)
     ```
 
-* U kunt `Webservice.list` geïmplementeerd om op te halen een lijst van webservices voor modellen in uw werkruimte. U kunt filters toevoegen om te beperken van de lijst met geretourneerde informatie. Zie voor meer informatie over wat kan worden gefilterd op, de [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) referentiedocumentatie.
+* U kunt `Webservice.list` geïmplementeerd om op te halen een lijst van webservices voor modellen in uw werkruimte. U kunt filters toevoegen om te beperken van de lijst met geretourneerde informatie. Zie de naslag documentatie voor de [webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) voor meer informatie over wat kan worden gefilterd.
 
     ```python
     services = Webservice.list(ws)
     print(services[0].scoring_uri)
     ```
 
-* Als u de naam van de geïmplementeerde service weet, kunt u een nieuw exemplaar van `Webservice`, en geef de naam van de werkruimte en de service als parameters. Het nieuwe object bevat informatie over de geïmplementeerde service.
+* Als u de naam van de geïmplementeerde service weet, kunt u een nieuwe instantie van `Webservice`maken en de werk ruimte en de service naam als para meters opgeven. Het nieuwe object bevat informatie over de geïmplementeerde service.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -69,12 +69,12 @@ Er zijn een drie manieren om op te halen van deze informatie voor de geïmplemen
 
 ### <a name="authentication-key"></a>Verificatiesleutel
 
-Als u verificatie voor een implementatie inschakelt, maakt u automatisch verificatiesleutels.
+Wanneer u verificatie voor een implementatie inschakelt, maakt u automatisch verificatie sleutels.
 
-* Verificatie is standaard ingeschakeld wanneer u in Azure Kubernetes Service implementeert.
-* Verificatie is standaard uitgeschakeld wanneer u in Azure Container Instances implementeert.
+* Verificatie is standaard ingeschakeld wanneer u naar de Azure Kubernetes-service implementeert.
+* Verificatie is standaard uitgeschakeld wanneer u implementeert naar Azure Container Instances.
 
-Voor het beheren van verificatie, gebruikt u de `auth_enabled` parameter wanneer u het maken of bijwerken van een implementatie.
+Als u de verificatie wilt beheren `auth_enabled` , gebruikt u de para meter bij het maken of bijwerken van een implementatie.
 
 Als verificatie is ingeschakeld, kunt u de `get_keys` methode voor het ophalen van een primaire en secundaire verificatiesleutel:
 
@@ -102,7 +102,7 @@ De REST-API wordt verwacht dat de hoofdtekst van het verzoek om te worden van ee
 > [!IMPORTANT]
 > De structuur van de gegevens moet overeenkomen met wat de scoring-script en het model in de verwachte service. Het scoring-script kan de gegevens wijzigen voordat deze wordt doorgegeven aan het model.
 
-Bijvoorbeeld, het model in de [Train binnen notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) voorbeeld wordt een matrix van 10 cijfers verwacht. Het scoring-script in dit voorbeeld maakt een matrix Numpy van de aanvraag, en wordt doorgegeven aan het model. Het volgende voorbeeld ziet u de gegevens die deze service wordt verwacht dat:
+Bijvoorbeeld, het model in de [Train binnen notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) voorbeeld wordt een matrix van 10 cijfers verwacht. Met het Score script voor dit voor beeld wordt een numpy-matrix gemaakt op basis van de aanvraag en door gegeven aan het model. Het volgende voorbeeld ziet u de gegevens die deze service wordt verwacht dat:
 
 ```json
 {
@@ -128,14 +128,16 @@ De webservice kan meerdere sets met gegevens in één aanvraag accepteren. Retou
 
 ### <a name="binary-data"></a>Binaire gegevens
 
-Als uw model binaire gegevens, zoals een afbeelding accepteert, moet u wijzigen de `score.py` bestand dat wordt gebruikt voor uw implementatie om onbewerkte HTTP-aanvragen te accepteren. Hier volgt een voorbeeld van een `score.py` die binaire gegevens accepteert:
+Als uw model binaire gegevens, zoals een afbeelding accepteert, moet u wijzigen de `score.py` bestand dat wordt gebruikt voor uw implementatie om onbewerkte HTTP-aanvragen te accepteren. Hier volgt een voor beeld van `score.py` een waarmee binaire gegevens worden geaccepteerd:
 
-```python 
-from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
+
 
 def init():
     print("This is init()")
+
 
 @rawhttp
 def run(request):
@@ -147,9 +149,9 @@ def run(request):
         return AMLResponse(respBody, 200)
     elif request.method == 'POST':
         reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody 
+        # For a real world solution, you would load the data from reqBody
         # and send to the model. Then return the response.
-        
+
         # For demonstration purposes, this example just returns the posted data as the response.
         return AMLResponse(reqBody, 200)
     else:
@@ -157,9 +159,9 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> De `azureml.contrib` naamruimte vaak verandert, zoals we werken om de service te verbeteren. Als zodanig moet in deze naamruimte worden beschouwd als een Preview-versie, en niet volledig ondersteund door Microsoft.
+> De `azureml.contrib` naam ruimte wordt regel matig gewijzigd, omdat we de service kunnen verbeteren. Als zodanig moeten alle in deze naam ruimte worden beschouwd als een preview en niet volledig worden ondersteund door micro soft.
 >
-> Als u testen op uw lokale ontwikkelomgeving wilt, kunt u de onderdelen in installeren de `contrib` naamruimte met behulp van de volgende opdracht uit:
+> Als u dit in uw lokale ontwikkel omgeving moet testen, kunt u de onderdelen in de `contrib` naam ruimte installeren met behulp van de volgende opdracht:
 > 
 > ```shell
 > pip install azureml-contrib-services
@@ -440,45 +442,44 @@ scoring_uri = '<your web service URI>'
 key = '<your key>'
 
 # Two sets of data to score, so we get two results back
-data = {"data": 
+data = {"data":
+        [
             [
-                [
-                    0.0199132141783263, 
-                    0.0506801187398187, 
-                    0.104808689473925, 
-                    0.0700725447072635, 
-                    -0.0359677812752396, 
-                    -0.0266789028311707, 
-                    -0.0249926566315915, 
-                    -0.00259226199818282, 
-                    0.00371173823343597, 
-                    0.0403433716478807
-                ],
-                [
-                    -0.0127796318808497, 
-                    -0.044641636506989, 
-                    0.0606183944448076, 
-                    0.0528581912385822, 
-                    0.0479653430750293, 
-                    0.0293746718291555, 
-                    -0.0176293810234174, 
-                    0.0343088588777263, 
-                    0.0702112981933102, 
-                    0.00720651632920303]
-            ]
+                0.0199132141783263,
+                0.0506801187398187,
+                0.104808689473925,
+                0.0700725447072635,
+                -0.0359677812752396,
+                -0.0266789028311707,
+                -0.0249926566315915,
+                -0.00259226199818282,
+                0.00371173823343597,
+                0.0403433716478807
+            ],
+            [
+                -0.0127796318808497,
+                -0.044641636506989,
+                0.0606183944448076,
+                0.0528581912385822,
+                0.0479653430750293,
+                0.0293746718291555,
+                -0.0176293810234174,
+                0.0343088588777263,
+                0.0702112981933102,
+                0.00720651632920303]
+        ]
         }
 # Convert to JSON string
 input_data = json.dumps(data)
 
 # Set the content type
-headers = { 'Content-Type':'application/json' }
+headers = {'Content-Type': 'application/json'}
 # If authentication is enabled, set the authorization header
-headers['Authorization']=f'Bearer {key}'
+headers['Authorization'] = f'Bearer {key}'
 
 # Make the request and display the response
-resp = requests.post(scoring_uri, input_data, headers = headers)
+resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.text)
-
 ```
 
 De geretourneerde resultaten zijn vergelijkbaar met de volgende JSON-document:
@@ -487,10 +488,10 @@ De geretourneerde resultaten zijn vergelijkbaar met de volgende JSON-document:
 [217.67978776218715, 224.78937091757172]
 ```
 
-## <a name="consume-the-service-from-power-bi"></a>De Power BI-service gebruiken
+## <a name="consume-the-service-from-power-bi"></a>De service van Power BI gebruiken
 
-Power BI biedt ondersteuning voor gebruik van Azure Machine Learning-webservices te verrijken van de gegevens in Power BI met voorspellingen. 
+Power BI ondersteunt het gebruik van Azure Machine Learning webservices om de gegevens in Power BI te verrijken met voor spellingen. 
 
-Het schema moet de indeling die vereist voor Power BI ondersteuning voor het genereren van een webservice die wordt ondersteund voor gebruik in Power BI. [Informatie over het maken van een Power BI-ondersteund schema](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi).
+Als u een webservice wilt genereren die wordt ondersteund voor gebruik in Power BI, moet het schema ondersteuning bieden voor de indeling die wordt vereist door Power BI. [Meer informatie over het maken van een door Power bi ondersteund schema](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi).
 
-Wanneer de web-service is geïmplementeerd, is het verbruikbare van Power BI-gegevensstromen. [Meer informatie over het gebruiken van een Azure Machine Learning-webservice uit Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+Zodra de webservice is geïmplementeerd, kan deze worden verbruikt vanaf Power BI gegevens stromen. [Meer informatie over het gebruik van een Azure machine learning-webservice van Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-integration).

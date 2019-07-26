@@ -3,17 +3,17 @@ title: Overzicht van Azure IoT Hub Device Provisioning Service | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u in Azure apparaten inricht met Device Provisioning Service en IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 12/05/2017
+ms.date: 04/04/2019
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8331161cde9e7717834dabd2228848de40f7be23
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746050"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360283"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Apparaten inrichten met Azure IoT Hub Device Provisioning Service
 Microsoft Azure biedt een uitgebreide set geïntegreerde openbare cloudservices om tegemoet te komen aan al uw IoT-vragen. IoT Hub Device Provisioning Service is een Helper-service voor IoT Hub die Just-In-Time-inrichting naar de juiste IoT-hub mogelijk maakt zonder tussenkomst van de gebruiker, zodat klanten miljoenen apparaten op een veilige en schaalbare manier kunnen inrichten.
@@ -96,7 +96,7 @@ Device Provisioning Service werkt net zoals alle andere Azure IoT-services platf
 
 Device Provisioning Service ondersteunt alleen HTTPS-verbindingen voor servicebewerkingen.
 
-## <a name="regions"></a>Regio's
+## <a name="regions"></a>Regions
 Device Provisioning Service is beschikbaar in verschillende regio's. De bijgewerkte lijst met bestaande en nieuwe regio's voor alle services wordt aangekondigd op [Azure-regio's](https://azure.microsoft.com/regions/). U kunt de beschikbaarheid van Device Provisioning Service controleren op de pagina [Status van Azure](https://azure.microsoft.com/status/).
 
 > [!NOTE]
@@ -108,8 +108,9 @@ Er wordt een serviceovereenkomst met een beschikbaarheid van 99,9% gehanteerd vo
 ## <a name="quotas"></a>Quota
 Voor elk Azure-abonnement gelden standaardquotalimieten. Deze limieten kunnen invloed hebben op het bereik van uw IoT-oplossing. De huidige limiet voor een abonnementsvariant is 10 Device Provisioning Services per abonnement.
 
-Meer informatie over quotalimieten vindt u hier:
+[!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
+Meer informatie over quotalimieten vindt u hier:
 * [Azure-abonnement en servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Gerelateerde Azure-onderdelen

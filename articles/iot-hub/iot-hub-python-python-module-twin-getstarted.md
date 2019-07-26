@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure IoT Hub identiteits- en module moduledubbel (Python) | Microsoft Docs
-description: Informatie over het module-id maken en bijwerken van de moduledubbel met behulp van IoT SDK's voor Python.
+title: Aan de slag met Azure IoT Hub module Identity en module dubbele (python) | Microsoft Docs
+description: Meer informatie over het maken van module-identiteits-en update module, met behulp van IoT Sdk's voor python.
 author: chrissie926
 ms.service: iot-hub
 services: iot-hub
@@ -8,44 +8,50 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: f887fbd4f82e59c02d6a5b69d0d5b43b426a39bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 428f13c1c70171404da4cbb6f731d95056813914
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61441204"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68402361"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Aan de slag met IoT Hub identiteits- en module moduledubbel met behulp van Python-back-end en Python-apparaat
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Aan de slag met de identiteit en module van de IoT Hub module, met behulp van python back-end en python-apparaat
 
 > [!NOTE]
 > [Module-id's en moduledubbels](iot-hub-devguide-module-twins.md) zijn vergelijkbaar met Azure IoT Hub-apparaat-id's en apparaatdubbels, maar bieden een hogere granulariteit. Met een Azure IoT Hub-apparaat-id en apparaatdubbel kan een apparaat worden geconfigureerd via de back-endtoepassing en kunt u inzicht krijgen in de toestand van een apparaat. Een module-id en moduledubbel bieden deze mogelijkheden voor afzonderlijke onderdelen van een apparaat. Op apparaten met meerdere onderdelen, zoals apparaten met een besturingssysteem of firmware, kunt u afzonderlijke configuraties en voorwaarden voor elk onderdeel instellen.
 >
 
-Aan het einde van deze zelfstudie hebt u twee Python-apps:
+Aan het einde van deze zelf studie hebt u twee python-apps:
 
 * **CreateIdentities**: deze toepassing maakt een apparaat-id, een module-id en de bijbehorende beveiligingssleutel waarmee uw apparaat- en moduleclients verbonden kunnen worden.
 
 * **UpdateModuleTwinReportedProperties**: deze toepassing verzendt bijgewerkte gerapporteerde eigenschappen van de moduledubbel naar uw IoT Hub.
 
 > [!NOTE]
-> Zie voor informatie over de Azure IoT SDK's die u gebruiken kunt om beide toepassingen uit te voeren op apparaten en de back-end van uw oplossing te bouwen, [Azure IoT SDK's](iot-hub-devguide-sdks.md).
+> Voor informatie over de Azure IoT-Sdk's die u kunt gebruiken om beide toepassingen te bouwen die op apparaten kunnen worden uitgevoerd en de back-end van uw oplossing, raadpleegt u [Azure IOT sdk's](iot-hub-devguide-sdks.md).
 >
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
+* Een actief Azure-account. (Als u geen account hebt, kunt u in slechts een paar minuten een [gratis account](https://azure.microsoft.com/pricing/free-trial/) maken.)
 
-* An IoT Hub.
+* Installeer de meest recente [python-SDK](https://github.com/Azure/azure-iot-sdk-python).
 
-* Installeer de meest recente [Python SDK](https://github.com/Azure/azure-iot-sdk-python).
+## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-U hebt nu uw IoT Hub gemaakt en u hebt de hostnaam en de IoT Hub-verbindingsreeks die u nodig hebt voor de rest van deze handleiding.
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Een apparaat-id en de identiteit van een module in IoT-Hub maken
+## <a name="get-the-iot-hub-connection-string"></a>De IoT hub-connection string ophalen
 
-In deze sectie maakt u een Python-app die u een apparaat-id en de identiteit van een module in het identiteitenregister van uw IoT-hub maakt. Een apparaat of module kan alleen verbinding maken met de IoT-hub als het apparaat of de module is vermeld in het identiteitsregister. Zie voor meer informatie de sectie 'id-register van de [Ontwikkelaarshandleiding voor IoT Hub](iot-hub-devguide-identity-registry.md). Als u deze consoletoepassing uitvoert, worden er een unieke id en een unieke sleutel gemaakt voor zowel het apparaat als de module. Deze waarden worden door het apparaat en de module gebruikt om zichzelf te identificeren bij het verzenden van apparaat-naar-cloud-berichten naar IoT Hub. De id's zijn hoofdlettergevoelig.
+[!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
 
-Voeg de volgende code naar uw Python-bestand:
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+
+## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Een apparaat-id en een module-ID maken in IoT Hub
+
+In deze sectie maakt u een python-app die een apparaat-id en een module-identiteit maakt in het identiteits register van uw IoT-hub. Een apparaat of module kan alleen verbinding maken met de IoT-hub als het apparaat of de module is vermeld in het identiteitsregister. Zie de sectie identiteits register van de [IOT hub-ontwikkelaars handleiding](iot-hub-devguide-identity-registry.md)voor meer informatie. Als u deze consoletoepassing uitvoert, worden er een unieke id en een unieke sleutel gemaakt voor zowel het apparaat als de module. Deze waarden worden door het apparaat en de module gebruikt om zichzelf te identificeren bij het verzenden van apparaat-naar-cloud-berichten naar IoT Hub. De id's zijn hoofdlettergevoelig.
+
+Voeg de volgende code toe aan het python-bestand:
 
 ```python
 import sys
@@ -64,30 +70,34 @@ try:
     primary_key = ""
     secondary_key = ""
     auth_method = IoTHubRegistryManagerAuthMethod.SHARED_PRIVATE_KEY
-    new_device = iothub_registry_manager.create_device(DEVICE_ID, primary_key, secondary_key, auth_method)
-    print("new_device <" + DEVICE_ID + "> has primary key = " + new_device.primaryKey)
+    new_device = iothub_registry_manager.create_device(
+        DEVICE_ID, primary_key, secondary_key, auth_method)
+    print("new_device <" + DEVICE_ID +
+          "> has primary key = " + new_device.primaryKey)
 
     # CreateModule
-    new_module = iothub_registry_manager.create_module(DEVICE_ID, primary_key, secondary_key, MODULE_ID, auth_method)
-    print("device/new_module <" + DEVICE_ID + "/" + MODULE_ID + "> has primary key = " + new_module.primaryKey)
+    new_module = iothub_registry_manager.create_module(
+        DEVICE_ID, primary_key, secondary_key, MODULE_ID, auth_method)
+    print("device/new_module <" + DEVICE_ID + "/" + MODULE_ID +
+          "> has primary key = " + new_module.primaryKey)
 
 except IoTHubError as iothub_error:
-    print ( "Unexpected error {0}".format(iothub_error) )
+    print("Unexpected error {0}".format(iothub_error))
 except KeyboardInterrupt:
-    print ( "IoTHubRegistryManager sample stopped" )
+    print("IoTHubRegistryManager sample stopped")
 ```
 
-Deze app maakt een apparaat-id met de ID **myFirstDevice** en de identiteit van een module met de ID **myFirstModule** onder apparaat **myFirstDevice**. (Als deze module-id al in het id-register staat, haalt de code gewoon de bestaande modulegegevens op.) De app geeft vervolgens de primaire sleutel voor die identiteit weer. U gebruikt deze sleutel in de gesimuleerde module-app om verbinding te maken met uw IoT-hub.
+Met deze app maakt u een apparaat-id met de naam **myFirstDevice** en een module-ID met id **MyFirstModule** onder apparaat **myFirstDevice**. (Als deze module-id al in het id-register staat, haalt de code gewoon de bestaande modulegegevens op.) De app geeft vervolgens de primaire sleutel voor die identiteit weer. U gebruikt deze sleutel in de gesimuleerde module-app om verbinding te maken met uw IoT-hub.
 
 > [!NOTE]
-> In het identiteitsregister van IoT Hub worden alleen apparaat- en module-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. In het identiteitsregister worden apparaat-id's en -sleutels opgeslagen die als beveiligingsreferenties worden gebruikt. In het identiteitsregister wordt ook een vlag ingeschakeld/uitgeschakeld voor elk apparaat opgeslagen die u kunt gebruiken om de toegang tot dat apparaat uit te schakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Er is geen vlag voor ingeschakeld/uitgeschakeld voor module-id's. Zie voor meer informatie, [Ontwikkelaarshandleiding voor IoT Hub](iot-hub-devguide-identity-registry.md).
+> In het identiteitsregister van IoT Hub worden alleen apparaat- en module-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. In het identiteitsregister worden apparaat-id's en -sleutels opgeslagen die als beveiligingsreferenties worden gebruikt. In het identiteitsregister wordt ook een vlag ingeschakeld/uitgeschakeld voor elk apparaat opgeslagen die u kunt gebruiken om de toegang tot dat apparaat uit te schakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Er is geen vlag voor ingeschakeld/uitgeschakeld voor module-id's. Zie [IOT hub ontwikkelaars handleiding](iot-hub-devguide-identity-registry.md)voor meer informatie.
 >
 
-## <a name="update-the-module-twin-using-python-device-sdk"></a>De moduledubbel met de Python SDK bijwerken
+## <a name="update-the-module-twin-using-python-device-sdk"></a>De module bijwerken met behulp van python Device SDK
 
-In deze sectie maakt u een Python-app op uw gesimuleerde apparaat die updates van de moduledubbel gerapporteerde eigenschappen.
+In deze sectie maakt u een python-app op uw gesimuleerde apparaat die de module dubbele gerapporteerde eigenschappen bijwerkt.
 
-1. **Haal de verbindingsreeks van uw module** --als u zich aanmeldt bij de [Azure-portal](https://portal.azure.com/). Navigeer naar uw IoT Hub en klik op IoT-apparaten. Zoeken naar myFirstDevice, open deze en u ziet myFirstModule is aangemaakt. Kopieer de moduleverbindingsreeks. Deze is vereist voor de volgende stap.
+1. **Down load uw module Connection String** --nu als u zich aanmeldt bij de [Azure Portal](https://portal.azure.com/). Navigeer naar uw IoT Hub en klik op IoT-apparaten. Zoek myFirstDevice, open het en controleer of myFirstModule is gemaakt. Kopieer de moduleverbindingsreeks. Deze is vereist voor de volgende stap.
 
    ![Details van de Azure Portal-module](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
@@ -127,9 +137,9 @@ In deze sectie maakt u een Python-app op uw gesimuleerde apparaat die updates va
 
 In dit codevoorbeeld ziet u hoe u de gerapporteerde eigenschappen van de moduledubbel kunt ophalen en bijwerken met het AMQP-protocol.
 
-## <a name="get-updates-on-the-device-side"></a>Ontvang updates aan de kant van het apparaat
+## <a name="get-updates-on-the-device-side"></a>Updates aan het apparaat zijde ophalen
 
-Naast de bovenstaande code kunt u toevoegen onderstaande codeblok om de update dubbele bericht op uw apparaat.
+Naast de bovenstaande code kunt u onder code blok toevoegen om het dubbele update bericht op uw apparaat op te halen.
 
 ```python
 import random
@@ -141,26 +151,28 @@ from iothub_client import IoTHubModuleClient, IoTHubClientError, IoTHubTransport
 PROTOCOL = IoTHubTransportProvider.AMQP
 CONNECTION_STRING = ""
 
+
 def module_twin_callback(update_state, payload, user_context):
-    print ("")
-    print ("Twin callback called with:")
-    print ("updateStatus: %s" % update_state )
-    print ("context: %s" % user_context )
-    print ("payload: %s" % payload )
+    print("")
+    print("Twin callback called with:")
+    print("updateStatus: %s" % update_state)
+    print("context: %s" % user_context)
+    print("payload: %s" % payload)
+
 
 try:
     module_client = IoTHubModuleClient(CONNECTION_STRING, PROTOCOL)
     module_client.set_module_twin_callback(module_twin_callback, 1234)
 
-    print ("Waiting for incoming twin messages.  Hit Control-C to exit.")
+    print("Waiting for incoming twin messages.  Hit Control-C to exit.")
     while True:
 
         time.sleep(1000000)
 
 except IoTHubError as iothub_error:
-    print ( "Unexpected error {0}".format(iothub_error) )
+    print("Unexpected error {0}".format(iothub_error))
 except KeyboardInterrupt:
-    print ( "module client sample stopped" )
+    print("module client sample stopped")
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

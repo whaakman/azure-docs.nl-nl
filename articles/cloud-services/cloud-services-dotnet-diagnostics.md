@@ -1,45 +1,41 @@
 ---
-title: Het gebruik van Azure diagnostics (.NET) met Cloud Services | Microsoft Docs
-description: Met behulp van Azure diagnostics voor het verzamelen van gegevens uit Azure Cloudservices voor foutopsporing, meten van prestaties, bewaking, analyse van het netwerkverkeer en meer.
+title: Azure Diagnostics (.NET) gebruiken met Cloud Services | Microsoft Docs
+description: Azure Diagnostics gebruiken voor het verzamelen van gegevens uit Azure Cloud Services voor het opsporen van fouten, het meten van prestaties, bewaking, verkeers analyse en meer.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 89623a0e-4e78-4b67-a446-7d19a35a44be
+author: georgewallace
+manager: carmonm
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: jeconnoc
-ms.openlocfilehash: ba69a5aaffb39c26731ffd209587a8c8223b032a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 5f2ec77452b90d4270de043955fc0b443f045d5b
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337364"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359684"
 ---
-# <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure Diagnostics in Azure Cloudservices inschakelen
-Zie [overzicht van Azure Diagnostics](../azure-diagnostics.md) voor een achtergrond voor Azure Diagnostics.
+# <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure Diagnostics in azure inschakelen Cloud Services
+Zie [Azure Diagnostics overzicht](../azure-diagnostics.md) voor een achtergrond op Azure Diagnostics.
 
-## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Het inschakelen van diagnostische gegevens in een Werkrol
-In dit scenario wordt beschreven hoe u een Azure-medewerkerrol die telemetriegegevens met behulp van de klasse .NET EventSource verzendt implementeren. Azure Diagnostics wordt gebruikt om de telemetriegegevens verzamelen en op te slaan in een Azure storage-account. Bij het maken van een werkrol, kunnen Visual Studio automatisch de Diagnostics 1.0 als onderdeel van de oplossing in Azure-SDK's voor .NET 2.4 en eerdere versies. De volgende instructies beschrijven het proces voor het maken van de werkrol Diagnostics 1.0 van de oplossing en distribueren Diagnostics 1.2 of 1.3 uitschakelen voor uw worker-rol.
+## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Diagnostische gegevens inschakelen in een worker-rol
+In dit scenario wordt beschreven hoe u een Azure worker-rol implementeert die telemetriegegevens verzendt met behulp van de .NET Event source-klasse. Azure Diagnostics wordt gebruikt om de telemetriegegevens te verzamelen en op te slaan in een Azure-opslag account. Wanneer u een werknemersrol maakt, schakelt Visual Studio automatisch diagnostische gegevens van 1,0 in als onderdeel van de oplossing in azure Sdk's voor .NET 2,4 en eerdere versies. De volgende instructies beschrijven het proces voor het maken van de rol van werk nemers, het uitschakelen van diagnose 1,0 van de oplossing en het implementeren van diagnostische gegevens 1,2 of 1,3 voor uw werknemersrol.
 
 ### <a name="prerequisites"></a>Vereisten
-In dit artikel wordt ervan uitgegaan dat u hebt een Azure-abonnement en worden met behulp van Visual Studio met de Azure SDK. Als u een Azure-abonnement hebt, kunt u zich aanmelden voor de [gratis proefversie][Free Trial]. Zorg ervoor dat u [installeren en configureren van Azure PowerShell versie 0.8.7 of hoger][Install and configure Azure PowerShell version 0.8.7 or later].
+In dit artikel wordt ervan uitgegaan dat u een Azure-abonnement hebt en Visual Studio gebruikt met de Azure SDK. Als u geen Azure-abonnement hebt, kunt u zich aanmelden voor de [gratis proef versie][Free Trial]. Make sure to [Install and configure Azure PowerShell version 0.8.7 or later][Install and configure Azure PowerShell version 0.8.7 or later].
 
-### <a name="step-1-create-a-worker-role"></a>Stap 1: Maken van een Werkrol
+### <a name="step-1-create-a-worker-role"></a>Stap 1: Een werk rollen maken
 1. Start **Visual Studio**.
-2. Maak een **Azure Cloud Service** project vanaf de **Cloud** sjabloon die gericht is op .NET Framework 4.5.  Noem het project 'WadExample' en klik op Ok.
-3. Selecteer **Werkrol** en klik op Ok. Het project wordt gemaakt.
-4. In **Solution Explorer**, dubbelklikt u op de **WorkerRole1** bestand-eigenschappen.
-5. In de **configuratie** tabblad, schakel **diagnostische gegevens inschakelen** om uit te schakelen Diagnostics 1.0 (Azure SDK 2.4 en eerder).
-6. Maak uw oplossing om te controleren of dat er geen fouten.
+2. Maak een **Azure-Cloud service** project op basis van de **Cloud** sjabloon die gericht is op .NET Framework 4,5.  Geef het project de naam ' WadExample ' en klik op OK.
+3. Selecteer **werk rollen** en klik op OK. Het project wordt gemaakt.
+4. Dubbel klik in **Solution Explorer**op het eigenschappen bestand **WorkerRole1** .
+5. Schakel op het tabblad **configuratie** de optie **Diagnostische gegevens inschakelen** uit om diagnostische gegevens te uitschakelen 1,0 (Azure SDK 2,4 en eerder).
+6. Bouw uw oplossing om te controleren of er geen fouten zijn.
 
-### <a name="step-2-instrument-your-code"></a>Stap 2: Instrumenteer uw code
-Vervang de inhoud van WorkerRole.cs door de volgende code. De klasse SampleEventSourceWriter, overgenomen van de [EventSource klasse][EventSource Class], implementeert vier logboekregistratiemethoden: **SendEnums**, **MessageMethod**, **SetOther** en **HighFreq**. De eerste parameter voor de **WriteEvent** methode definieert u de ID voor de bijbehorende gebeurtenis. De Run-methode implementeert een oneindige lus die worden aangeroepen voor elk van de logboekregistratiemethoden geïmplementeerd in de **SampleEventSourceWriter** klasse elke 10 seconden.
+### <a name="step-2-instrument-your-code"></a>Stap 2: Uw code instrumenteren
+Vervang de inhoud van WorkerRole.cs door de volgende code. De klasse SampleEventSourceWriter, overgenomen van de [klasse Event source][EventSource Class], implementeert vier logboek registratie methoden: **SendEnums**, **MessageMethod**, **SetOther** en **HighFreq**. De eerste para meter voor de methode **etw** definieert de id voor de betreffende gebeurtenis. De methode Run implementeert een oneindige lus die elke 10 seconden een van de logboek registratie methoden aanroept die in de **SampleEventSourceWriter** -klasse zijn geïmplementeerd.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -122,30 +118,30 @@ namespace WorkerRole1
 ```
 
 
-### <a name="step-3-deploy-your-worker-role"></a>Stap 3: Implementeren van uw Werkrol
+### <a name="step-3-deploy-your-worker-role"></a>Stap 3: Uw werk rollen implementeren
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
-1. De werkrol implementeren in Azure van Visual Studio door te selecteren de **WadExample** project in Solution Explorer klikt u vervolgens **publiceren** uit de **bouwen** menu.
+1. Implementeer uw werknemersrol in azure vanuit Visual Studio door het project **WadExample** te selecteren in de Solution Explorer klik vervolgens op **publiceren** in het menu **Build** .
 2. Kies uw abonnement.
-3. In de **Microsoft Azure Publish Settings** dialoogvenster, selecteer **nieuwe maken...** .
-4. In de **Cloudservice maken en Storage-Account** dialoogvenster, Geef een **naam** (bijvoorbeeld ' WadExample') en selecteer een regio of affiniteitsgroep bevinden.
-5. Stel de **omgeving** naar **fasering**.
-6. Wijzigen van een andere **instellingen** als nodig en op **publiceren**.
-7. Nadat implementatie is voltooid, controleert u of in Azure portal waarmee u uw cloudservice is in een **met** staat.
+3. Selecteer in het dialoog venster **Microsoft Azure publicatie-instellingen** de optie **nieuwe maken...** .
+4. Voer in het dialoog venster **Cloud service en opslag account maken** een **naam** in (bijvoorbeeld ' WadExample ') en selecteer een regio of affiniteits groep.
+5. Stel de **omgeving** in op **staging**.
+6. Wijzig indien nodig de andere **instellingen** en klik op **publiceren**.
+7. Nadat de implementatie is voltooid, controleert u in het Azure Portal dat de Cloud service wordt **uitgevoerd** .
 
-### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Stap 4: Maken van het configuratiebestand van de diagnostische gegevens en de extensie installeren
-1. De schemadefinitie voor de configuratie van de openbare-bestand downloaden door het uitvoeren van de volgende PowerShell-opdracht:
+### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Stap 4: Het diagnostische configuratie bestand maken en de uitbrei ding installeren
+1. Down load de schema definitie van het open bare configuratie bestand door de volgende Power shell-opdracht uit te voeren:
 
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. Toevoegen van een XML-bestand naar uw **WorkerRole1** project met de rechtermuisknop op de **WorkerRole1** project en selecteer **toevoegen** -> **Nieuw Item...** -> **Visual C#-items** -> **gegevens** -> **XML-bestand**. Noem het bestand 'WadExample.xml'.
+2. Voeg een XML-bestand toe aan uw **WorkerRole1** -project door met de rechter muisknop op het **WorkerRole1** -project te klikken en nieuw item **toevoegen** -> te selecteren **...** -> **C#** **XML-bestand**met Visual-items. ->  ->  Noem het bestand ' WadExample. XML '.
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. De WadConfig.xsd koppelen aan het configuratiebestand. Zorg ervoor dat het WadExample.xml editor-venster het actieve venster. Druk op **F4** openen de **eigenschappen** venster. Klik op de **schema's** eigenschap in de **eigenschappen** venster. Klik op de **...** in de **schema's** eigenschap. Klik op de knop **Toevoegen...** knop en navigeer naar de locatie waar u het XSD-bestand hebt opgeslagen en selecteert u het bestand WadConfig.xsd. Klik op **OK**.
+3. Koppel de WadConfig. XSD aan het configuratie bestand. Zorg ervoor dat het venster WadExample. XML editor het actieve venster is. Druk op **F4** om het venster **Eigenschappen** te openen. Klik op  de eigenschap schemas in het venster **Eigenschappen** . Klik op de **..** . in de  eigenschap schemas. Klik op de knop **Toevoegen...** en navigeert u naar de locatie waar u het XSD-bestand hebt opgeslagen en selecteert u het bestand WadConfig. XSD. Klik op **OK**.
 
-4. Vervang de inhoud van het configuratiebestand WadExample.xml door het volgende XML-bestand en sla het bestand. Dit configuratiebestand definieert een aantal prestatiemeteritems voor het verzamelen van: één voor CPU-gebruik en één voor geheugengebruik. Vervolgens definieert de configuratie van de vier gebeurtenissen die overeenkomt met de methoden in de klasse SampleEventSourceWriter.
+4. Vervang de inhoud van het configuratie bestand WadExample. XML door de volgende XML en sla het bestand op. Dit configuratie bestand definieert een aantal prestatie meter items die moeten worden verzameld: één voor CPU-gebruik en één voor geheugen gebruik. Vervolgens definieert de configuratie de vier gebeurtenissen die overeenkomen met de methoden in de SampleEventSourceWriter-klasse.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -170,11 +166,11 @@ namespace WorkerRole1
 </PublicConfig>
 ```
 
-### <a name="step-5-install-diagnostics-on-your-worker-role"></a>Stap 5: Diagnostische gegevens installeren op uw Werkrol
-De PowerShell-cmdlets voor het beheren van diagnostische gegevens van de rol van een web- of werkrollen zijn: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension en Remove-AzureServiceDiagnosticsExtension.
+### <a name="step-5-install-diagnostics-on-your-worker-role"></a>Stap 5: Diagnostische gegevens voor uw Werknemersrol installeren
+De Power shell-cmdlets voor het beheren van diagnostische gegevens voor een web-of worker-rol zijn: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension en Remove-AzureServiceDiagnosticsExtension.
 
 1. Open Azure PowerShell.
-2. Voer het script voor het installeren van diagnostische gegevens op uw worker-rol (Vervang *StorageAccountKey* met de opslagaccountsleutel voor uw opslagaccount wadexample en *config_path* met het pad naar de  *WadExample.xml* bestand):
+2. Voer het script uit om diagnostische gegevens te installeren voor uw werknemersrol (Vervang *StorageAccountKey* door de sleutel van het opslag account voor uw wadexample-opslag account en *config_path* met het pad naar het *wadexample. XML* -bestand):
 
 ```powershell
 $storage_name = "wadexample"
@@ -185,19 +181,19 @@ $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -Sto
 Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging -Role WorkerRole1
 ```
 
-### <a name="step-6-look-at-your-telemetry-data"></a>Stap 6: Bekijk de telemetriegegevens van uw
-In de Visual Studio **Server Explorer**, gaat u naar het opslagaccount wadexample. Nadat de cloudservice ongeveer vijf (5) minuten gestart is, ziet u de tabellen **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** en **WADSetOtherTable**. Dubbelklik op een van de tabellen om weer te geven van de telemetrie die is verzameld.
+### <a name="step-6-look-at-your-telemetry-data"></a>Stap 6: Uw telemetrie-gegevens bekijken
+Ga in Visual Studio **Server Explorer**naar het opslag account wadexample. Nadat de Cloud service ongeveer vijf (5) minuten is uitgevoerd, ziet u de tabellen **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** en **WADSetOtherTable**. Dubbel klik op een van de tabellen om de telemetrie weer te geven die is verzameld.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
-## <a name="configuration-file-schema"></a>Schema van het netwerkconfiguratiebestand
-De diagnostische gegevens over configuratie-bestand definieert u waarden die worden gebruikt voor het initialiseren van diagnostische configuratie-instellingen wanneer de diagnostics-agent wordt gestart. Zie de [nieuwste schemaverwijzing](/azure/azure-monitor/platform/diagnostics-extension-schema) voor geldige waarden en voorbeelden.
+## <a name="configuration-file-schema"></a>Schema van configuratie bestand
+Het configuratie bestand voor diagnostische gegevens definieert waarden die worden gebruikt voor het initialiseren van diagnostische configuratie-instellingen wanneer de diagnostische agent wordt gestart. Zie de [meest recente schema referentie](/azure/azure-monitor/platform/diagnostics-extension-schema) voor geldige waarden en voor beelden.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-Als u problemen ondervindt, raadpleegt u [het oplossen van Azure Diagnostics](../azure-diagnostics-troubleshooting.md) voor hulp bij veelvoorkomende problemen.
+Zie [probleem oplossing Azure Diagnostics](../azure-diagnostics-troubleshooting.md) voor hulp bij veelvoorkomende problemen als u problemen ondervindt.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een overzicht van gerelateerde Azure virtuele machines diagnostische artikelen](../azure-monitor/platform/diagnostics-extension-overview.md#cloud-services-using-azure-diagnostics) wijzigen van de gegevens die u verzamelt, oplossen van problemen of meer informatie over diagnostische gegevens over het algemeen.
+[Bekijk een lijst met verwante artikelen over diagnostische gegevens van virtuele machines van Azure](../azure-monitor/platform/diagnostics-extension-overview.md#cloud-services-using-azure-diagnostics) voor het wijzigen van de door u verzamelde informatie, het oplossen van problemen of meer informatie over diagnostiek in het algemeen.
 
 [EventSource Class]: https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

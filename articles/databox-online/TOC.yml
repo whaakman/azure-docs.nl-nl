@@ -47,6 +47,8 @@
           href: data-box-gateway-monitor.md
         - name: Problemen oplossen
           href: data-box-gateway-troubleshoot.md
+        - name: Neem contact op met Microsoft Ondersteuning
+          href: data-box-edge-contact-microsoft-support.md
     - name: Releaseopmerkingen
       items:
         - name: 1905 - nu
@@ -105,9 +107,11 @@
               href: data-box-edge-connect-powershell-interface.md
         - name: Problemen oplossen
           href: data-box-edge-troubleshoot.md
+        - name: Neem contact op met Microsoft Ondersteuning
+          href: data-box-edge-contact-microsoft-support.md
         - name: Controleren
           href: data-box-edge-monitor.md
-        - name: Apparaat retourneren
+        - name: Apparaat retourneren of vervangen
           href: data-box-edge-return-device.md
     - name: Releaseopmerkingen
       items:

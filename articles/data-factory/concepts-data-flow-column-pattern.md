@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: d24988dfd5cbaf20e92c5afbbc39dc0c78e3ef6a
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 076c3318a68a50e6bd1b4f9f2a4a4b9a034533c6
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314871"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68346571"
 ---
 # <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Kolom patronen voor gegevens stromen van Azure data factory-toewijzing
 
@@ -39,4 +39,4 @@ Als u patronen wilt bouwen op basis van kolommen, kunt u overeenkomen met de kol
 ![kolom positie](media/data-flow/position.png "Kolom positie")
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over de [taal](http://aka.ms/dataflowexpressions) van de ADF-toewijzings gegevens voor gegevens transformaties
+Meer informatie over de [taal](https://aka.ms/dataflowexpressions) van de ADF-toewijzings gegevens voor gegevens transformaties

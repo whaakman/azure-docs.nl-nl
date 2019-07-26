@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 07/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 7d8fb7bc0e837ba78d86a39524d869c9bb01895d
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 96a312630c92048f36f79e3bec18f83ed5a445ff
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867569"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414132"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Azure Monitor voor containers: overzicht
 
@@ -44,12 +44,18 @@ Azure Monitor voor containers biedt een uitgebreide bewakings ervaring met behul
 >De ondersteuning voor Prometheus is op dit moment een functie in open bare preview.
 >
 
+Bekijk de volgende video over een dieper niveau waarmee u meer informatie kunt over het bewaken van uw AKS-cluster met Azure Monitor voor containers.
+
+> [!VIDEO https://www.youtube.com/embed/RjsNmapggPU]
+
 ## <a name="how-do-i-access-this-feature"></a>Hoe krijg ik toegang tot deze functie?
+
 U kunt toegang tot Azure Monitor voor twee manieren van Azure Monitor of rechtstreeks vanuit het geselecteerde AKS-cluster-containers. Vanuit Azure Monitor hebt u een wereld wijd perspectief van alle geïmplementeerde containers, die worden gecontroleerd en die niet, zodat u uw abonnementen en resource groepen kunt doorzoeken en filteren, en vervolgens inzoomen op Azure Monitor voor containers van de geselecteerde container.  Als dat niet het geval is, kunt u de functie rechtstreeks vanuit een geselecteerde AKS-container openen via de pagina AKS.  
 
 ![Overzicht van methoden voor toegang tot Azure Monitor voor containers](./media/container-insights-overview/azmon-containers-experience.png)
 
-Als u geïnteresseerd bent in controle en beheer van uw Docker- en Windows containerhosts configuratie weergeven, controle en gebruik van resources, Zie de [Container Monitoring solution](../../azure-monitor/insights/containers.md).
+Als u geïnteresseerd bent in het bewaken en beheren van uw docker-en Windows-container hosts die buiten AKS worden uitgevoerd om de configuratie, controle en het gebruik van bronnen weer te geven, raadpleegt u de [container bewakings oplossing](../../azure-monitor/insights/containers.md).
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Als u wilt beginnen met het bewaken van uw AKS-cluster, raadpleegt u [How to Enable the Azure monitor for containers](container-insights-onboard.md) voor meer informatie over de vereisten en beschik bare methoden voor het inschakelen van  

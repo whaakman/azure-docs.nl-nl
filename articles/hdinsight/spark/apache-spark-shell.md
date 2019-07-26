@@ -1,73 +1,73 @@
 ---
-title: Een interactieve Spark-Shell gebruiken in Azure HDInsight
-description: Een interactieve Spark-Shell biedt een alleen-uitvoeren-print-proces voor het uitvoeren van de Spark opdrachten één bewerking tegelijk en de resultaten.
+title: Een interactieve Spark-shell gebruiken in azure HDInsight
+description: Een interactieve Spark-shell biedt een proces voor lezen-uitvoeren-afdrukken voor het uitvoeren van Spark-opdrachten een voor een tegelijk en de resultaten te zien.
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: 9044ed3ad9cf9ffa2f54d130bb50b37df121b86f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aac2812787a7c14d99377754a4f85e699ef3f09
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696802"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441897"
 ---
-# <a name="run-apache-spark-from-the-spark-shell"></a>Apache Spark kan worden uitgevoerd vanuit de Spark-Shell
+# <a name="run-apache-spark-from-the-spark-shell"></a>Apache Spark uitvoeren vanuit de Spark-shell
 
-Een interactieve [Apache Spark](https://spark.apache.org/) Shell biedt een omgeving REPL (alleen-uitvoeren-print-loop) voor Spark opdrachten één bewerking tegelijk uitvoeren en de resultaten. Dit proces is handig voor ontwikkeling en foutopsporing. Spark biedt een shell voor elk van de ondersteunde talen: Scala, Python en R.
+Een interactieve [Apache Spark](https://spark.apache.org/) shell biedt een repl-omgeving (read-execute-print-lus) voor het uitvoeren van Spark-opdrachten een voor een tegelijk en de resultaten te bekijken. Dit proces is handig voor het ontwikkelen en opsporen van fouten. Spark biedt één shell voor elk van de ondersteunde talen: Scala, python en R.
 
-## <a name="get-to-an-apache-spark-shell-with-ssh"></a>Kennismaking met een Apache Spark-Shell met SSH
+## <a name="get-to-an-apache-spark-shell-with-ssh"></a>Een Apache Spark shell openen met SSH
 
-Toegang tot een Apache Spark-Shell op HDInsight door verbinding te maken met het primaire hoofdknooppunt van het cluster via SSH:
+Toegang tot een Apache Spark shell op HDInsight door verbinding te maken met het primaire hoofd knooppunt van het cluster met behulp van SSH:
 
      ssh <sshusername>@<clustername>-ssh.azurehdinsight.net
 
-U kunt de volledige SSH-opdracht krijgen voor uw cluster vanuit Azure portal:
+U kunt de volledige SSH-opdracht voor uw cluster ophalen uit de Azure Portal:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Ga naar het deelvenster voor uw HDInsight Spark-cluster.
+2. Navigeer naar het deel venster voor uw HDInsight Spark-cluster.
 3. Selecteer Secure Shell (SSH).
 
-    ![HDInsight-deelvenster in Azure portal](./media/apache-spark-shell/hdinsight-spark-blade.png)
+    ![Deel venster HDInsight in Azure Portal](./media/apache-spark-shell/hdinsight-spark-blade.png)
 
-4. Kopieer de weergegeven SSH-opdracht en deze in de terminal uitvoeren.
+4. Kopieer de weer gegeven SSH-opdracht en voer deze uit in uw Terminal.
 
-    ![HDInsight SSH deelvenster in Azure portal](./media/apache-spark-shell/hdinsight-spark-ssh-blade.png)
+    ![Het deel venster HDInsight SSH in Azure Portal](./media/apache-spark-shell/hdinsight-spark-ssh-blade.png)
 
-Zie voor meer informatie over het gebruik van SSH verbinding maken met HDInsight [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Zie [SSH gebruiken met hdinsight](../hdinsight-hadoop-linux-use-ssh-unix.md)voor meer informatie over het gebruik van SSH om verbinding te maken met hdinsight.
 
-## <a name="run-an-apache-spark-shell"></a>Een Apache Spark-Shell uitvoeren
+## <a name="run-an-apache-spark-shell"></a>Een Apache Spark shell uitvoeren
 
-Spark biedt houders (spark-shell) Scala, Python (pyspark) en R (sparkR). Voer in de SSH-sessie op het hoofdknooppunt van het HDInsight-cluster in een van de volgende opdrachten:
+Spark biedt shells voor scala (Spark-shell), python (pyspark) en R (sparkr). Voer in uw SSH-sessie op het hoofd knooppunt van uw HDInsight-cluster een van de volgende opdrachten in:
 
     ./bin/spark-shell
     ./bin/pyspark
     ./bin/sparkR
 
-U kunt nu Spark opdrachten invoeren in de juiste taal.
+U kunt nu Spark-opdrachten invoeren in de juiste taal.
 
-## <a name="sparksession-and-sparkcontext-instances"></a>SparkSession en SparkContext-instanties
+## <a name="sparksession-and-sparkcontext-instances"></a>SparkSession-en SparkContext-instanties
 
-Standaard tijdens het uitvoeren van de Spark-Shell worden exemplaren van SparkSession en SparkContext automatisch gemaakt voor u.
+Standaard worden instanties van SparkSession en SparkContext automatisch voor u geïnstantieerd wanneer u de Spark-shell uitvoert.
 
-Voor toegang tot het exemplaar SparkSession, voer `spark`. Voor toegang tot de SparkContext-exemplaar, voer `sc`.
+Voer `spark`in om toegang te krijgen tot het SparkSession-exemplaar. Voer `sc`in om toegang te krijgen tot het SparkContext-exemplaar.
 
-## <a name="important-shell-parameters"></a>Belangrijke shell-parameters
+## <a name="important-shell-parameters"></a>Belang rijke shell parameters
 
-De Spark-Shell-opdracht (`spark-shell`, `pyspark`, of `sparkR`) biedt ondersteuning voor veel opdrachtregelparameters. Een volledige lijst van parameters wilt bekijken, start u de Spark-Shell met de schakeloptie `--help`. Houd er rekening mee dat sommige van deze parameters kunnen alleen van toepassing op `spark-submit`, die geschikt is voor de Spark-Shell.
+De Spark shell-opdracht`spark-shell`( `pyspark`, of `sparkR`) ondersteunt veel opdracht regel parameters. Als u een volledige lijst met para meters wilt weer geven, start u `--help`de Spark-shell met de switch. Houd er rekening mee dat sommige van deze para meters alleen van toepassing zijn op `spark-submit`, die in de Spark-shell worden geplaatst.
 
-| Switch | description | Voorbeeld |
+| /tijdnotatie | description | Voorbeeld |
 | --- | --- | --- |
-| --master MASTER_URL | Hiermee geeft u de URL van de master. In HDInsight, is deze waarde altijd `yarn`. | `--master yarn`|
-| --jars JAR_LIST | Door komma's gescheiden lijst met lokale JAR-bestanden moeten worden opgenomen in de stuurprogramma- en executor klassepaden. In HDInsight, wordt deze lijst bestaat uit de paden naar het bestandssysteem standaard in Azure Storage of Data Lake-opslag. | `--jars /path/to/examples.jar` |
-| --MAVEN_COORDS-pakketten | Door komma's gescheiden lijst met maven-coördinaten van de JAR-bestanden moeten worden opgenomen in de stuurprogramma- en executor klassepaden. Zoekt naar de lokale maven-opslagplaats en klik vervolgens op maven central, en vervolgens extra externe opslagplaatsen die is opgegeven met `--repositories`. De notatie voor de coördinaten is *groeps-id*:*artifactId*:*versie*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
-| LIJST met--py-bestanden | Voor Python, een door komma's gescheiden lijst met ZIP- of .egg .py bestanden op de PYTHONPATH te plaatsen. | `--pyfiles "samples.py"` |
+| --master MASTER_URL | Hiermee geeft u de hoofd-URL op. In HDInsight is deze waarde altijd `yarn`. | `--master yarn`|
+| --potten JAR_LIST | Een door komma's gescheiden lijst met lokale potten die moeten worden toegevoegd aan het stuur programma en de namen van de uitvoerder. In HDInsight bestaat deze lijst uit paden naar het standaard bestands systeem in Azure Storage of Data Lake Storage. | `--jars /path/to/examples.jar` |
+| --pakketten MAVEN_COORDS | Een door komma's gescheiden lijst met maven-coördinaten van potten die moeten worden vermeld op het stuur programma en de uitvoerder classpath. Doorzoekt de lokale maven opslag plaats, vervolgens maven Central, en eventuele extra externe opslag plaatsen `--repositories`die zijn opgegeven bij. De notatie voor de coördinaten is *groupid*:*artifactId*:*Version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
+| --py-bestanden lijst | Alleen voor python: een door komma's gescheiden lijst met zip-, eier-of py-bestanden die op de PYTHONPATH moet worden geplaatst. | `--pyfiles "samples.py"` |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie [Inleiding tot Apache Spark in Azure HDInsight](apache-spark-overview.md) voor een overzicht.
-- Zie [een Apache Spark-cluster maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) om te werken met Spark-clusters en SparkSQL.
-- Zie [wat is Apache Spark Structured Streaming?](apache-spark-streaming-overview.md) toepassingen schrijft die met Spark-gegevensstromen verwerken.
+- Zie [Inleiding tot Apache Spark in azure HDInsight](apache-spark-overview.md) voor een overzicht.
+- Zie [een Apache Spark cluster in azure HDInsight maken](apache-spark-jupyter-spark-sql.md) voor gebruik met Spark-clusters en SparkSQL.
+- Zie [Wat is Apache Spark Structured streaming?](apache-spark-streaming-overview.md) om toepassingen te schrijven die streaminggegevens verwerken met Spark.

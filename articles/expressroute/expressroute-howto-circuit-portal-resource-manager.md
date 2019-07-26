@@ -1,19 +1,20 @@
 ---
-title: 'Maken en wijzigen van een ExpressRoute-circuit - portal: Azure | Microsoft Docs'
+title: 'Een ExpressRoute-circuit maken en wijzigen-portal: Azure | Microsoft Docs'
 description: Maken, inrichten, controleren, bijwerken, verwijderen en de inrichting van een ExpressRoute-circuit ongedaan maken.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/20/2018
-ms.author: cherylmc;ganesr
+ms.author: cherylmc
+ms.reviewer: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: ce6d64f1df7a91f68e4621189553c36b36709039
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 25821f60f47b1279e70cba2574901cd5df3d327f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657227"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846589"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Een ExpressRoute-circuit maken en wijzigen
 
@@ -54,10 +55,10 @@ Open een browser, ga naar [Azure Portal](https://portal.azure.com) en meld u aan
    ![De SKU-laag en voor gegevensmeters configureren](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
    * **Laag** bepaalt of een ExpressRoute-standard- of een premium-invoegtoepassing voor ExpressRoute is ingeschakeld. U kunt opgeven **Standard** om op te halen van de standaard-SKU of **Premium** voor de premium-invoegtoepassing.
-   * **Gegevensmeters** bepaalt het gegevenstype van de facturering. U kunt opgeven **Metered** voor een abonnement naar gebruik en **onbeperkt** voor een abonnement voor onbeperkt gebruik. Houd er rekening mee dat u kunt de facturering type uit wijzigen **Metered** naar **onbeperkt**.
+   * **Gegevensmeters** bepaalt het gegevenstype van de facturering. U kunt opgeven **Metered** voor een abonnement naar gebruik en **onbeperkt** voor een abonnement voor onbeperkt gebruik. Houd er rekening mee dat u het facturerings type kunt wijzigen van **gemeten** naar **onbeperkt**.
 
      > [!IMPORTANT]
-     > U kunt het type niet wijzigen **onbeperkt** naar **Metered**.
+     > U kunt het type niet wijzigen  van Unlimited in **Data limiet**.
 
    * **Peeringlocatie** is de fysieke locatie waar u peering met Microsoft.
 
@@ -84,20 +85,20 @@ Op deze pagina **providerstatus** bevat informatie over de huidige status van in
 
 Wanneer u een nieuwe ExpressRoute-circuit maakt, wordt het circuit is in de volgende status:
 
-De status van de provider: Niet ingericht<BR>
-Circuitstatus van het: Enabled
+Provider status: Niet ingericht<BR>
+Status van circuit: Enabled
 
 ![Inrichtingsproces initiëren](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 Het circuit gewijzigd in de volgende status hebben de connectiviteitsprovider Bezig inschakelen voor u is:
 
-De status van de provider: Inrichten<BR>
-Circuitstatus van het: Enabled
+Provider status: Inrichten<BR>
+Status van circuit: Enabled
 
 Voordat u kunt een ExpressRoute-circuit gebruiken, moet deze de status van de volgende zijn:
 
-De status van de provider: Ingericht<BR>
-Circuitstatus van het: Enabled
+Provider status: Ingericht<BR>
+Status van circuit: Enabled
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Controleer regelmatig de status en de status van de sleutel van het circuit
 

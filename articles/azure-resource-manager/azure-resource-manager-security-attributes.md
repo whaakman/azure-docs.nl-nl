@@ -1,6 +1,6 @@
 ---
-title: Algemene beveiligingskenmerken voor Azure Resource Manager
-description: Een controlelijst met algemene beveiligingskenmerken voor het evalueren van Azure Resource Manager
+title: Beveiligings kenmerken voor Azure Resource Manager
+description: Een controle lijst met beveiligings kenmerken voor het evalueren van Azure Resource Manager
 services: azure-resource-manager
 author: msmbaldwin
 manager: barbkess
@@ -8,61 +8,61 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a771d4c2ae22b7bf149c13c80fe5286ef52a4545
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3bfb79c54ff57adfa947f2dd0100f6c05c7af9f
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002259"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444156"
 ---
-# <a name="security-attributes-for-azure-resource-manager"></a>Beveiligingskenmerken voor Azure Resource Manager
+# <a name="security-attributes-for-azure-resource-manager"></a>Beveiligings kenmerken voor Azure Resource Manager
 
-In dit artikel worden de beveiligingskenmerken gebouwd in Azure Resource Manager.
+In dit artikel worden de beveiligings kenmerken gedocumenteerd die zijn ingebouwd in Azure Resource Manager.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-## <a name="preventative"></a>Preventative
+## <a name="preventative"></a>Preventie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen |
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
-| Versleuteling-at-rest:<ul><li>Versleuteling aan de serverzijde</li><li>Versleuteling op de server met de klant beheerde sleutels</li><li>Andere versleutelingsfuncties (zoals client-side altijd versleuteld, enz.)</ul>| Ja |  |
-| Versleuteling tijdens overdracht:<ul><li>Express route-versleuteling</li><li>VNet-versleuteling</li><li>VNet-VNet-versleuteling</ul>| Ja | HTTPS/TLS. |
-| Versleuteling verwerking (CMK, BYOK, enz.)| N/A | Azure Resource Manager slaat geen inhoud van de klant, alleen de gegevens van het besturingselement. |
-| Versleuteling op kolom (Azure Data Services)| Ja | |
-| API-aanroepen die zijn versleuteld| Ja | |
+| Versleuteling bij rest (zoals versleuteling aan server zijde, versleuteling aan server zijde met door de klant beheerde sleutels en andere versleutelings functies)| Ja |  |
+| Versleuteling in transit (zoals ExpressRoute-versleuteling, in VNet-versleuteling en VNet-VNet-versleuteling)| Ja | HTTPS/TLS. |
+| Verwerking van versleutelings sleutels (CMK, BYOK, enz.)| N/A | Azure Resource Manager slaat geen klant inhoud op, alleen gegevens beheren. |
+| Versleuteling op kolom niveau (Azure Data Services)| Ja | |
+| Versleutelde API-aanroepen| Ja | |
 
-## <a name="network-segmentation"></a>Segmentatie
+## <a name="network-segmentation"></a>Netwerk segmentatie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen |
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
-| Ondersteuning voor service-eindpunt| Nee | |
+| Ondersteuning voor service-eind punten| Nee | |
 | Ondersteuning voor VNet-injectie| Ja | |
-| Netwerkisolatie en ondersteuning netwerkfunctie| Nee |  |
-| Geforceerde tunneling ondersteuning| Nee |  |
+| Ondersteuning voor netwerk isolatie en firewalling| Nee |  |
+| Ondersteuning voor geforceerde tunneling| Nee |  |
 
 ## <a name="detection"></a>Detectie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Azure monitoring ondersteuning (Log analytics, Application insights, enz.)| Nee | |
+| Ondersteuning voor Azure-bewaking (log Analytics, app Insights, enz.)| Nee | |
 
 ## <a name="identity-and-access-management"></a>Identiteits- en toegangsbeheer
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Verificatie| Ja | [Azure Active Directory](/azure/active-directory) op basis van.|
-| Autorisatie| Ja | |
+| Authentication| Ja | [Azure Active Directory](/azure/active-directory) gebaseerd.|
+| Authorization| Ja | |
 
 
 ## <a name="audit-trail"></a>Audittrail
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Controle en beheer vlak logboekregistratie en controle| Ja | Activiteitenlogboeken geven alle bewerkingen (PUT, POST, DELETE) die worden uitgevoerd op uw resources; schrijven Zie [activiteitenlogboeken om te controleren van acties op resources bekijken](resource-group-audit.md). |
-| Gegevens vlak logboekregistratie en controle| N/A | |
+| Logboek registratie en controle op het vlak van controle en beheer| Ja | Met activiteiten logboeken worden alle schrijf bewerkingen (PUT, POST, DELETE) die zijn uitgevoerd op uw resources beschikbaar gesteld. Zie [activiteiten logboeken weer geven om acties op resources te controleren](resource-group-audit.md). |
+| Logboek registratie en controle van het gegevens vlak| N/A | |
 
 ## <a name="configuration-management"></a>Configuratiebeheer
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Configuration management-ondersteuning (versiebeheer van de configuratie, enz.)| Ja |  |
+| Ondersteuning voor configuratie beheer (versie van configuratie, enz.)| Ja |  |

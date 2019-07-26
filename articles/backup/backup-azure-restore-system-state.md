@@ -1,213 +1,212 @@
 ---
-title: 'Azure Backup: De systeemstatus herstellen naar een Windows-Server'
-description: Voor stap door stap uitleg voor Windows Server-systeemstatus herstellen vanuit een back-up in Azure.
-services: backup
+title: 'Azure Backup: Systeem status herstellen naar een Windows-Server'
+description: Stapsgewijze uitleg over het herstellen van de systeem status van Windows Server vanuit een back-up in Azure.
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 6619611bee96089e465feb6f50d38caeada06dd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48eb9fce7b9863c84518546270a6566bb0cec711
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65472491"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465653"
 ---
-# <a name="restore-system-state-to-windows-server"></a>De systeemstatus herstellen naar WindowsServer
+# <a name="restore-system-state-to-windows-server"></a>Systeem status herstellen naar Windows Server
 
-In dit artikel wordt uitgelegd hoe u Windows Server System State back-ups herstellen vanuit een Azure Recovery Services-kluis. Als u de systeemstatus herstellen, moet u een systeemstatusback-up (gemaakt met behulp van de instructies in [maakt u een Back-up van systeemstatus](backup-azure-system-state.md#back-up-windows-server-system-state), en zorg ervoor dat u hebt geïnstalleerd het [meest recente versie van de Microsoft Azure Recovery Services (MARS) Agent](https://aka.ms/azurebackup_agent). Systeemstatus van Windows Server-gegevens herstellen vanaf een Azure Recovery Services-kluis is een proces in twee stappen:
+In dit artikel wordt uitgelegd hoe u back-ups van Windows Server-systeem status kunt herstellen vanuit een Azure Recovery Services kluis. Als u de systeem status wilt herstellen, moet u een systeem status back-up hebben (gemaakt met behulp van de instructies in een back-up van de [systeem status](backup-azure-system-state.md#back-up-windows-server-system-state)en ervoor zorgen dat u de [meest recente versie van de Microsoft Azure Recovery Services-agent (Mars)](https://aka.ms/azurebackup_agent)hebt geïnstalleerd. Het herstellen van de Windows Server-systeem status gegevens van een Azure Recovery Services kluis is een proces dat uit twee stappen bestaat:
 
-1. Systeemstatus herstellen als bestanden vanuit Azure Backup. Bij het herstellen van de systeemstatus als bestanden vanuit Azure Backup, kunt u deze:
-   * Systeemstatus herstellen op dezelfde server waar de back-ups zijn uitgevoerd, of
-   * Bestand-systeemstatus herstellen naar een andere server.
+1. De systeem status herstellen als bestanden van Azure Backup. Bij het herstellen van de systeem status als bestanden van Azure Backup, kunt u het volgende doen:
+   * Herstel de systeem status op dezelfde server als de back-ups zijn gemaakt of
+   * Herstel het systeem status bestand naar een andere server.
 
-2. De herstelde bestanden van de systeemstatus van toepassing op een Windows-Server.
+2. Pas de herstelde systeem status bestanden toe op een Windows-Server.
 
 
-## <a name="recover-system-state-files-to-the-same-server"></a>Systeemstatusbestanden herstellen op dezelfde server
-De volgende stappen wordt uitgelegd hoe u uw Windows Server-configuratie terugdraaien naar een eerdere status. Uw server-configuratie terugdraaien naar een bekende, stabiele status, kan zeer waardevol zijn. De volgende stappen uit herstellen van de server-systeemstatus van een Recovery Services-kluis.
+## <a name="recover-system-state-files-to-the-same-server"></a>Systeem status bestanden herstellen op dezelfde server
+In de volgende stappen wordt uitgelegd hoe u de configuratie van uw Windows-Server terugdraait naar een eerdere status. Het kan erg waardevol zijn om uw server configuratie terug te brengen naar een bekende, stabiele status. Met de volgende stappen herstelt u de systeem status van de server van een Recovery Services kluis.
 
-1. Open de **Microsoft Azure Backup**-module. Als u niet waar dat de module is geïnstalleerd weet, zoekt u de computer of server voor **Microsoft Azure Backup**.
+1. Open de **Microsoft Azure Backup**-module. Als u niet weet waar de module is geïnstalleerd, zoekt u op de computer of server naar **Microsoft Azure backup**.
 
-    De desktop-app moet worden weergegeven in de lijst met zoekresultaten.
+    De bureau blad-app moet worden weer gegeven in de zoek resultaten.
 
 2. Klik op **gegevens herstellen** om de wizard te starten.
 
     ![Gegevens herstellen](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Op de **aan de slag** in het deelvenster voor het terugzetten van de gegevens op dezelfde server of computer, selecteer **deze server (`<server name>`)** en klikt u op **volgende**.
+3. Selecteer in het deel venster **aan** de slag de optie **deze server`<server name>`()** en klik op **volgende**om de gegevens op dezelfde server of computer te herstellen.
 
-    ![Kies deze serveroptie voor het terugzetten van de gegevens op de machine](./media/backup-azure-restore-system-state/samemachine.png)
+    ![Selecteer deze optie voor de server om de gegevens op dezelfde computer te herstellen](./media/backup-azure-restore-system-state/samemachine.png)
 
-4. Op de **Selecteer herstelmodus** deelvenster Kies **systeemstatus** en klik vervolgens op **volgende**.
+4. Kies in het deel venster **herstel modus selecteren** de optie **systeem status** en klik vervolgens op **volgende**.
 
     ![Door bestanden bladeren](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
-5. In de agenda van **Selecteer Volume en datum** deelvenster, selecteert u een herstel verwijzen.
+5. Selecteer een herstel punt in de agenda in het deel venster **volume en datum selecteren** .
 
-    U kunt herstellen vanaf een herstelpunt in de tijd. Datums in **vet** geven van de beschikbaarheid van ten minste één herstelpunt. Wanneer u een datum selecteert als er meerdere herstelpunten beschikbaar zijn, kiest u het specifieke herstelpunt uit de **tijd** vervolgkeuzelijst.
+    U kunt herstellen vanaf een herstel punt in de tijd. Vetgedrukte  datums geven de beschik baarheid van ten minste één herstel punt aan. Wanneer u een datum selecteert en er meerdere herstel punten beschikbaar zijn, kiest u het specifieke herstel punt in het vervolg keuzemenu **tijd** .
 
     ![Volume en datum](./media/backup-azure-restore-system-state/select-date.png)
 
-6. Nadat u ervoor het herstelpunt gekozen hebt te herstellen, klikt u op **volgende**.
+6. Wanneer u het herstel punt hebt gekozen dat u wilt herstellen, klikt u op **volgende**.
 
-    Azure Backup koppelt u het lokale herstelpunt en gebruikt deze als een herstelvolume.
+    Azure Backup koppelt het lokale herstel punt en gebruikt dit als een herstel volume.
 
-7. Geef de bestemming voor de herstelde bestanden van de systeemstatus op het volgende deelvenster en klik op **Bladeren** open Windows Verkenner en de bestanden en mappen die u wilt zoeken. De optie **kopieën maken zodat u beide versies**, kopieën gemaakt van afzonderlijke bestanden in een bestaande systeemstatus bestandsarchief in plaats van de kopie van het hele archief van de systeemstatus maken.
+7. Geef in het volgende deel venster de bestemming op voor de herstelde systeem status bestanden en klik op **Bladeren** om Windows Verkenner te openen en de gewenste bestanden en mappen te vinden. Met deze optie kunt **u kopieën maken, zodat u met beide versies**kopieën van afzonderlijke bestanden in een bestaand systeem status bestands archief maakt, in plaats van de kopie van het hele archief van de systeem status te maken.
 
-    ![Opties voor herstel](./media/backup-azure-restore-system-state/recover-as-files.png)
+    ![Herstel opties](./media/backup-azure-restore-system-state/recover-as-files.png)
 
-8. Controleer de details van het herstel op de **bevestiging** deelvenster en klik op **herstellen**.
+8. Controleer de details van herstel in het **bevestigings** venster en klik op **herstellen**.
 
-   ![Klik op herstellen om te bevestigen dat de actie herstellen](./media/backup-azure-restore-system-state/confirm-recovery.png)
+   ![Klik op herstellen om de herstel actie te bevestigen](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
-9. Kopieer de *WindowsImageBackup* Active directory in het hersteldoel met een niet-kritieke volume van de server. Het volume met de Windows-besturingssysteem is meestal het essentiële volume.
+9. Kopieer de *WindowsImageBackup* -map in de herstel bestemming naar een niet-kritiek volume van de-server. Normaal gesp roken is het volume van het Windows-besturings systeem het essentiële volume.
 
-10. Wanneer het herstel voltooid is, volg de stappen in de sectie [toepassen systeemstatusbestanden hersteld naar de Windows-Server](backup-azure-restore-system-state.md), om de systeemstatus herstellen-proces te voltooien.
+10. Nadat het herstel is voltooid, volgt u de stappen in de sectie, de herstelde [systeem status bestanden Toep assen op de Windows-Server](backup-azure-restore-system-state.md)om het systeem status herstel proces te volt ooien.
 
-## <a name="recover-system-state-files-to-an-alternate-server"></a>Systeemstatusbestanden herstellen naar een andere server
+## <a name="recover-system-state-files-to-an-alternate-server"></a>Systeem status bestanden herstellen naar een alternatieve server
 
-Als uw Windows-Server beschadigd of niet toegankelijk is en u herstellen naar een stabiele status wilt door het herstellen van de systeemstatus van Windows Server, kunt u de beschadigde server-systeemstatus herstellen vanaf een andere server. Gebruik de volgende stappen voor het terugzetten van de systeemstatus op een afzonderlijke server.  
+Als uw Windows-Server beschadigd of niet toegankelijk is en u deze wilt herstellen naar een stabiele status door de systeem status van Windows Server te herstellen, kunt u de systeem status van de beschadigde server herstellen vanaf een andere server. Gebruik de volgende stappen om de systeem status te herstellen op een afzonderlijke server.  
 
-De termen die in deze stappen bevat:
+De terminologie die in deze stappen wordt gebruikt, omvat:
 
-- *Broncomputer* : de oorspronkelijke computer waarop de back-up is gemaakt en die momenteel niet beschikbaar.
-- *Doelcomputer* – de machine waarop de gegevens worden hersteld.
-- *Voorbeeld kluis* – de Recovery Services-kluis waarnaar de *bronmachine* en *doelmachine* zijn geregistreerd. <br/>
+- *Bron machine* : de oorspronkelijke machine waarvan de back-up is gemaakt en die momenteel niet beschikbaar is.
+- *Doel computer* : de computer waarop de gegevens worden hersteld.
+- Voor beeld van de *kluis* : de Recovery Services kluis waarmee de *bron computer* en de *doel computer* zijn geregistreerd. <br/>
 
 > [!NOTE]
-> Back-ups die zijn overgenomen uit één machine kunnen niet worden hersteld naar een machine met een eerdere versie van het besturingssysteem. Bijvoorbeeld, kunnen niet back-ups die vanaf een computer met Windows Server 2016 worden hersteld naar Windows Server 2012 R2. De inverse is echter mogelijk. U kunt back-ups van Windows Server 2012 R2 gebruiken om te herstellen van Windows Server 2016.
+> Back-ups die zijn gemaakt van de ene machine kunnen niet worden hersteld naar een computer waarop een eerdere versie van het besturings systeem wordt uitgevoerd. Back-ups die zijn gemaakt van een Windows Server 2016-computer, kunnen bijvoorbeeld niet worden hersteld naar Windows Server 2012 R2. De inverse is echter mogelijk. U kunt back-ups van Windows Server 2012 R2 gebruiken om Windows Server 2016 te herstellen.
 >
 
-1. Open de **Microsoft Azure Backup** -module op de *doelmachine*.
-2. Zorg ervoor dat de *doelmachine* en de *bronmachine* zijn geregistreerd bij dezelfde Recovery Services-kluis.
-3. Klik op **gegevens herstellen** starten van de werkstroom.
-4. Selecteer **een andere server**
+1. Open de module **Microsoft Azure backup** op de *doel computer*.
+2. Zorg ervoor dat de *doel computer* en de *bron machine* zijn geregistreerd bij dezelfde Recovery Services kluis.
+3. Klik op **gegevens herstellen** om de werk stroom te initiëren.
+4. **Een andere server** selecteren
 
-    ![Een andere Server](./media/backup-azure-restore-system-state/anotherserver.png)
+    ![Andere server](./media/backup-azure-restore-system-state/anotherserver.png)
 
-5. Geef het kluisreferentiebestand dat overeenkomt met de *voorbeeld kluis*. Als het kluisreferentiebestand is ongeldig (of verlopen), downloadt u een nieuw kluisreferentiebestand van de *voorbeeld kluis* in Azure portal. Zodra het kluisreferentiebestand is opgegeven, wordt de Recovery Services-kluis die zijn gekoppeld aan het kluisreferentiebestand weergegeven.
+5. Geef het kluis referentie bestand op dat overeenkomt met de voor *beeld-kluis*. Als het kluis referentie bestand ongeldig is (of is verlopen), downloadt u een nieuw kluis referentie bestand van de voor *beeld-kluis* in de Azure Portal. Zodra het kluis referentie bestand is ingevuld, wordt de Recovery Services kluis die aan het kluis referentie bestand is gekoppeld weer gegeven.
 
-6. Selecteer in de back-up-Server selecteren de *bronmachine* uit de lijst met computers weergegeven.
-7. Kies in het deelvenster Selecteer herstelmodus **systeemstatus** en klikt u op **volgende**.
+6. Selecteer in het deel venster back-upserver selecteren de *bron machine* in de lijst met weer gegeven machines.
+7. Kies in het deel venster herstel modus selecteren de optie **systeem status** en klik op **volgende**.
 
     ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
-8. In de agenda van de **Selecteer Volume en datum** deelvenster, selecteert u een herstel verwijzen. U kunt herstellen vanaf een herstelpunt in de tijd. Datums in **vet** geven van de beschikbaarheid van ten minste één herstelpunt. Wanneer u een datum selecteert als er meerdere herstelpunten beschikbaar zijn, kiest u het specifieke herstelpunt uit de **tijd** vervolgkeuzelijst.
+8. Selecteer een herstel punt in de agenda in het deel venster **volume en datum selecteren** . U kunt herstellen vanaf een herstel punt in de tijd. Vetgedrukte  datums geven de beschik baarheid van ten minste één herstel punt aan. Wanneer u een datum selecteert en er meerdere herstel punten beschikbaar zijn, kiest u het specifieke herstel punt in het vervolg keuzemenu **tijd** .
 
-    ![Zoekitems](./media/backup-azure-restore-system-state/select-date.png)
+    ![Items zoeken](./media/backup-azure-restore-system-state/select-date.png)
 
-9. Nadat u ervoor het herstelpunt gekozen hebt te herstellen, klikt u op **volgende**.
+9. Wanneer u het herstel punt hebt gekozen dat u wilt herstellen, klikt u op **volgende**.
 
-10. Op de **System State-herstelmodus Selecteer** deelvenster geeft u de doellocatie waar u bestanden van de systeemstatus te worden hersteld, en klik vervolgens op **volgende**.
+10. Geef in het deel venster **systeem status herstel modus selecteren** het doel op waar u de systeem status bestanden wilt herstellen en klik vervolgens op **volgende**.
 
     ![Versleuteling](./media/backup-azure-restore-system-state/recover-as-files.png)
 
-    De optie **kopieën maken zodat u beide versies**, kopieën gemaakt van afzonderlijke bestanden in een bestaande systeemstatus bestandsarchief in plaats van de kopie van het hele archief van de systeemstatus maken.
+    Met deze optie kunt **u kopieën maken, zodat u met beide versies**kopieën van afzonderlijke bestanden in een bestaand systeem status bestands archief maakt, in plaats van de kopie van het hele archief van de systeem status te maken.
 
-11. Controleer de details van het herstel in het deelvenster bevestiging en klik op **herstellen**.
+11. Controleer de details van herstel in het bevestigings venster en klik op **herstellen**.
 
-    ![Klik op de knop herstellen om te bevestigen dat het herstelproces](./media/backup-azure-restore-system-state/confirm-recovery.png)
+    ![Klik op de knop herstellen om het herstel proces te bevestigen](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
-12. Kopieer de *WindowsImageBackup* map naar een niet-kritieke volume van de server (bijvoorbeeld D:\). Het volume met de Windows-besturingssysteem is meestal het essentiële volume.
+12. Kopieer de *WindowsImageBackup* -map naar een niet-kritiek volume van de server (bijvoorbeeld D:\). Normaal gesp roken is het volume van het Windows-besturings systeem het essentiële volume.
 
-13. Gebruik de volgende sectie op voor het voltooien van het herstelproces, [toepassen van de herstelde systeemstatus bestanden op een Windows-Server](#apply-restored-system-state-on-a-windows-server).
-
-
+13. Om het herstel proces te volt ooien, gebruikt u de volgende sectie om [de herstelde systeem status bestanden toe te passen op een Windows-Server](#apply-restored-system-state-on-a-windows-server).
 
 
-## <a name="apply-restored-system-state-on-a-windows-server"></a>Herstelde systeemstatus toepassen op een Windows-Server
 
-Nadat u de systeemstatus als bestanden met behulp van Azure Recovery Services-Agent hebt hersteld, gebruikt u het hulpprogramma voor Windows Server back-up de herstelde systeemstatus toepassen op Windows Server. Het hulpprogramma Windows Server back-up is al beschikbaar op de server. De volgende stappen wordt uitgelegd hoe u kunt de herstelde systeemstatus toepassen.
 
-1. De volgende opdrachten gebruiken voor het opnieuw opstarten van uw server in *Directory Services Repair Mode*. In een opdrachtprompt met verhoogde bevoegdheid:
+## <a name="apply-restored-system-state-on-a-windows-server"></a>Herstelde systeem status Toep assen op een Windows-Server
+
+Nadat u de systeem status hebt hersteld als bestanden met behulp van Azure Recovery Services agent, gebruikt u het hulp programma Windows Server Back-up om de herstelde systeem status toe te passen op Windows Server. Het hulp programma Windows Server Back-up is al beschikbaar op de server. In de volgende stappen wordt uitgelegd hoe de herstelde systeem status moet worden toegepast.
+
+1. Gebruik de volgende opdrachten om de server opnieuw op te starten in de *modus Active Directory-Services herstellen*. In een opdracht prompt met verhoogde bevoegdheid:
 
     ```
     PS C:\> Bcdedit /set safeboot dsrepair
     PS C:\> Shutdown /r /t 0
     ```
 
-2. Na het opnieuw opstarten, open de module Windows Server back-up. Als u niet waar dat de module is geïnstalleerd weet, zoekt u de computer of server voor **Windows Server back-up**.
+2. Nadat het systeem opnieuw is opgestart, opent u de module Windows Server Back-up. Als u niet weet waar de module is geïnstalleerd, zoekt u op de computer of server naar **Windows Server back-up**.
 
-    De desktop-app wordt weergegeven in de lijst met zoekresultaten.
+    De bureau blad-app wordt weer gegeven in de zoek resultaten.
 
-3. Selecteer in de module **lokale back-up**.
+3. Selecteer in de module de optie **lokale back-up**.
 
-    ![Lokale back-up te herstellen van daaruit selecteren](./media/backup-azure-restore-system-state/win-server-backup-local-backup.png)
+    ![Lokale back-up selecteren om van daaruit te herstellen](./media/backup-azure-restore-system-state/win-server-backup-local-backup.png)
 
-4. Op de lokale back-up-console in de **actiedeelvenster**, klikt u op **herstellen** om de Wizard herstel te openen.
+4. Klik op de lokale back-upconsole in het **deel venster acties**op **herstellen** om de wizard herstellen te openen.
 
-5. Selecteer de optie **een back-up die is opgeslagen in een andere locatie**, en klikt u op **volgende**.
+5. Selecteer de optie, **een back-up die is opgeslagen op een andere locatie**en klik op **volgende**.
 
-   ![ervoor kiezen om te herstellen naar een andere server](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
+   ![kiezen om naar een andere server te herstellen](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
 
-6. Wanneer u het locatietype opgeeft, selecteert u **externe gedeelde map** als uw systeemstatusback-up is hersteld naar een andere server. Als de status van het systeem lokaal is hersteld, selecteert u **lokale stations**.
+6. Wanneer u het locatie type opgeeft, selecteert u **externe gedeelde map** als uw systeem status back-up is hersteld naar een andere server. Als uw systeem status lokaal is hersteld, selecteert u **lokale stations**.
 
-    ![Selecteer of u wilt herstellen van de lokale server of een andere](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
+    ![selecteren of u wilt herstellen van de lokale server of een andere](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
 
-7. Geef het pad naar de *WindowsImageBackup* directory, of Kies het lokale station dat met deze map (bijvoorbeeld D:\WindowsImageBackup), die wordt hersteld als onderdeel van de systeemstatus bestanden herstellen met behulp van Azure Recovery Services Agent en klik op **volgende**.
+7. Voer het pad naar de *WindowsImageBackup* -map in of kies het lokale station dat deze map bevat (bijvoorbeeld D:\WindowsImageBackup), hersteld als onderdeel van het herstel van de systeem status bestanden met behulp van Azure Recovery Services agent en klik op **volgende** .
 
     ![pad naar het gedeelde bestand](./media/backup-azure-restore-system-state/ss-recovery-remote-folder.png)
 
-8. Selecteer de systeemstatus-versie die u wilt herstellen en klik op **volgende**.
+8. Selecteer de systeem status versie die u wilt herstellen en klik op **volgende**.
 
-9. Selecteer in het deelvenster Type herstelbewerking selecteren **systeemstatus** en klikt u op **volgende**.
+9. Selecteer in het deel venster herstel type selecteren de optie **systeem status** en klik op **volgende**.
 
-10. Voor de locatie van de systeemstatus te herstellen, selecteert u **oorspronkelijke locatie**, en klikt u op **volgende**.
+10. Voor de locatie van de systeem status herstel selecteert u **oorspronkelijke locatie**en klikt u op **volgende**.
 
-11. Bekijk de details bevestigen, Controleer de instellingen voor opnieuw opstarten en klikt u op **herstellen** om toe te passen van de herstelde bestanden van de systeemstatus.
+11. Controleer de details van de bevestiging, Controleer de instellingen voor opnieuw opstarten en klik op **herstellen** om de herstelde systeem status bestanden toe te passen.
 
-    ![Start het terugzetten van bestanden van de systeemstatus](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
+    ![Start de herstel systeem status bestanden](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
 
-## <a name="special-considerations-for-system-state-recovery-on-active-directory-server"></a>Speciale overwegingen voor het herstel van de systeemstatus op Active Directory-server
+## <a name="special-considerations-for-system-state-recovery-on-active-directory-server"></a>Speciale overwegingen voor herstel van de systeem status op Active Directory server
 
-De systeemstatusback-up bevat Active Directory-gegevens. Gebruik de volgende stappen uit om te herstellen van Active Directory Domain Services (AD DS) van de huidige status naar een eerdere status.
+Back-up van de systeem status bevat Active Directory gegevens. Gebruik de volgende stappen om Active Directory-domein-service (AD DS) te herstellen van de huidige status naar een eerdere status.
 
-1. Start opnieuw op de domeincontroller in de Directory Services Restore Mode (DSRM).
-2. Volg de stappen [hier](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) Windows Server Backup-cmdlets gebruikt om te herstellen van AD DS.
+1. Start de domein controller opnieuw op in de modus Active Directory terugzetten (DSRM).
+2. Volg de onderstaande [stappen om](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) Windows Server back-up-cmdlets te gebruiken om AD DS te herstellen.
 
 
-## <a name="troubleshoot-failed-system-state-restore"></a>Mislukt herstel van systeemstatus oplossen
+## <a name="troubleshoot-failed-system-state-restore"></a>Problemen met het herstellen van de systeem status oplossen
 
-Als het vorige proces van het toepassen van de systeemstatus niet wordt voltooid, gebruikt u de Windows Recovery Environment (Windows RE) om te herstellen van uw Windows-Server. De volgende stappen wordt uitgelegd hoe u kunt herstellen met behulp van Windows RE. Gebruik deze optie alleen als Windows Server niet normaal na het herstellen van de systeemstatus opgestart. Het volgende proces worden de gegevens in niet-systeem, Wees voorzichtig gewist.
+Als het vorige proces van het Toep assen van de systeem status niet is voltooid, gebruikt u de Windows herstel omgeving (Win RE) om uw Windows-Server te herstellen. In de volgende stappen wordt uitgelegd hoe u kunt herstellen met Win RE. Gebruik deze optie alleen als Windows Server niet normaal wordt opgestart na een systeem status herstel. Met het volgende proces worden niet-systeem gegevens gewist, wees voorzichtig.
 
-1. Start op uw Windows-Server in de Windows Recovery Environment (Windows RE).
+1. Start uw Windows-Server op in de Windows herstel omgeving (Win RE).
 
-2. Problemen oplossen uit de drie beschikbare opties selecteren.
+2. Selecteer problemen oplossen in de drie beschik bare opties.
 
     ![menu openen](./media/backup-azure-restore-system-state/winre-1.png)
 
-3. Uit de **geavanceerde opties** scherm, selecteer **opdrachtprompt** en geef de gebruikersnaam voor de beheerder en het wachtwoord.
+3. In het scherm **Geavanceerde opties** selecteert u **opdracht prompt** en geeft u de gebruikers naam en het wacht woord voor de server beheerder op.
 
    ![menu openen](./media/backup-azure-restore-system-state/winre-2.png)
 
-4. Geef de gebruikersnaam voor de beheerder en het wachtwoord.
+4. Geef de gebruikers naam en het wacht woord van de server beheerder op.
 
     ![menu openen](./media/backup-azure-restore-system-state/winre-3.png)
 
-5. Wanneer u de opdrachtprompt in de beheerdersmodus opent, Voer u de volgende opdracht voor het ophalen van de back-versies van de systeemstatus.
+5. Wanneer u de opdracht prompt in de beheerders modus opent, voert u de volgende opdracht uit om de back-upversie van de systeem status te verkrijgen.
 
     ```
     Wbadmin get versions -backuptarget:<Volume where WindowsImageBackup folder is copied>:
     ```
-    ![back-versies van de systeemstatus ophalen](./media/backup-azure-restore-system-state/winre-4.png)
+    ![back-upversies van systeem status ophalen](./media/backup-azure-restore-system-state/winre-4.png)
 
-6. Voer de volgende opdracht uit om op te halen van alle volumes die beschikbaar zijn in de back-up.
+6. Voer de volgende opdracht uit om alle volumes te verkrijgen die beschikbaar zijn in de back-up.
 
     ```
     Wbadmin get items -version:<copy version from above step> -backuptarget:<Backup volume>
     ```
 
-    ![back-versies van de systeemstatus ophalen](./media/backup-azure-restore-system-state/winre-5.png)
+    ![back-upversies van systeem status ophalen](./media/backup-azure-restore-system-state/winre-5.png)
 
-7. De volgende opdracht worden alle volumes die deel van de systeemstatusback-up uitmaken herstelt. Houd er rekening mee dat deze stap herstelt alleen de essentiële volumes die deel van de systeemstatus uitmaken. Alle andere gegevens worden gewist.
+7. Met de volgende opdracht worden alle volumes hersteld die deel uitmaken van de systeem status back-up. Houd er rekening mee dat met deze stap alleen de essentiële volumes die deel uitmaken van de systeem status, worden hersteld. Alle niet-systeem gegevens worden gewist.
 
     ```
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
-     ![back-versies van de systeemstatus ophalen](./media/backup-azure-restore-system-state/winre-6.png)
+     ![back-upversies van systeem status ophalen](./media/backup-azure-restore-system-state/winre-6.png)
 
 
 

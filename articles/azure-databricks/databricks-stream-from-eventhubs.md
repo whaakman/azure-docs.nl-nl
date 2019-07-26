@@ -8,21 +8,21 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 06/21/2018
+ms.date: 07/23/2019
 ms.author: alehall
-ms.openlocfilehash: 1265a97b8902d69dd260d8e9e0191180f2eb4379
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99197d0e2fb80d2774142238e9cd6b005a72699c
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60785468"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443720"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Zelfstudie: Gegevens streamen naar Azure Databricks met behulp van Event Hubs
 
 > [!IMPORTANT]
-> Maken van de Twitter-toepassing is niet langer beschikbaar is via [apps.twitter.com](https://apps.twitter.com/). In deze zelfstudie wordt momenteel wordt bijgewerkt met de nieuwe Twitter-API.
+> Deze zelf studie werkt met de versie van Azure Databricks runtime 5,2.
 
-In deze zelfstudie maakt u verbinding met een systeem voor gegevensopname met Azure Databricks om in bijna-realtime gegevens te streamen in een Apache Spark-cluster. U stelt een systeem voor gegevensopname in met Azure Event Hubs en verbindt dit vervolgens met Azure Databricks voor het verwerken van de berichten die ervan afkomstig zijn. Voor toegang tot een stroom van gegevens, kunt u Twitter-API's gebruiken om tweets op te nemen in Event Hubs. Zodra u de gegevens in Azure Databricks hebt, kunt u analytische taken uitvoeren voor het verder analyseren van de gegevens. 
+In deze zelfstudie maakt u verbinding met een systeem voor gegevensopname met Azure Databricks om in bijna-realtime gegevens te streamen in een Apache Spark-cluster. U stelt een systeem voor gegevensopname in met Azure Event Hubs en verbindt dit vervolgens met Azure Databricks voor het verwerken van de berichten die ervan afkomstig zijn. Voor toegang tot een stroom van gegevens, kunt u Twitter-API's gebruiken om tweets op te nemen in Event Hubs. Zodra u de gegevens in Azure Databricks hebt, kunt u analytische taken uitvoeren voor het verder analyseren van de gegevens.
 
 Aan het einde van deze zelfstudie hebt u gestreamde tweets van Twitter waarin de term 'Azure' is opgenomen en hebt u de tweets in Azure Databricks gelezen.
 
@@ -44,7 +44,7 @@ Deze zelfstudie bestaat uit de volgende taken:
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 > [!Note]
-> In deze zelfstudie niet kan worden uitgevoerd met behulp van **Azure gratis proefabonnement**.
+> Deze zelf studie kan niet worden uitgevoerd met een **gratis proef abonnement van Azure**.
 > Als u een gratis account wilt gebruiken om het Azure Databricks-cluster te maken, gaat u voordat het cluster is gemaakt naar uw profiel en wijzigt u uw abonnement in **betalen per gebruik**. Zie [Gratis Azure-account](https://azure.microsoft.com/free/) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -57,7 +57,7 @@ Zorg ervoor dat u aan de volgende vereisten voldoet voordat u met deze zelfstudi
 
 U kunt aan deze vereisten voldoen via de stappen in het artikel [Een Azure Event Hubs-naamruimte en een event hub maken](../event-hubs/event-hubs-create.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
@@ -104,8 +104,10 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
     Accepteer alle andere standaardwaarden, anders dan de volgende:
 
    * Voer een naam in voor het cluster.
-   * Voor dit artikel maakt u een cluster met een **4.0**-runtime.
+   * Voor dit artikel maakt u een cluster met **5,2** runtime.
    * Zorg ervoor dat u het selectievakje **Beëindigen na\_\_ minuten van inactiviteit** inschakelt. Geef een duur (in minuten) op waarna het cluster moet worden beëindigd als het niet wordt gebruikt.
+
+   Selecteer cluster-Worker en stuur programma-node grootte die geschikt is voor uw technische criteria en [budget](https://azure.microsoft.com/en-us/pricing/details/databricks/).
 
      Selecteer **Cluster maken**. Zodra het cluster wordt uitgevoerd, kunt u notitieblokken koppelen aan het cluster en Spark-taken uitvoeren.
 
@@ -113,15 +115,17 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
 Als u een stream van tweets wilt ontvangen, maakt u een toepassing in Twitter. Volg de instructies om een Twitter-toepassing te maken en leg de waarden vast die u nodig hebt om deze zelfstudie te voltooien.
 
-1. Ga in een webbrowser naar [Twitter Application Management](https://apps.twitter.com/) en selecteer **Create New App**.
+1. Ga in een webbrowser naar [Twitter voor ontwikkel aars](https://developer.twitter.com/en/apps)en selecteer **een app maken**. Mogelijk wordt er een bericht weer gegeven met de mede deling dat u moet aanvragen voor een Twitter-ontwikkelaars account. U kunt dit gewoon doen, en nadat uw toepassing is goedgekeurd, moet u een bevestigings-e-mail krijgen. Het kan enkele dagen duren voordat een ontwikkelaars account wordt goedgekeurd.
 
-    ![Twitter-toepassing maken](./media/databricks-stream-from-eventhubs/databricks-create-twitter-app.png "Twitter-toepassing maken")
+    ![Bevestiging van Twitter-ontwikkelaars account](./media/databricks-stream-from-eventhubs/databricks-twitter-dev-confirmation.png "Bevestiging van Twitter-ontwikkelaars account")
 
 2. Voer op de pagina **Create an application** de gegevens voor de nieuwe app in en selecteer **Create your Twitter application**.
 
     ![Gegevens voor Twitter-toepassing](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details.png "Gegevens voor Twitter-toepassing")
 
-3. Selecteer op de toepassingspagina het tabblad **Keys and Access Tokens** en kopieer de waarden voor **Consumer Key** en **Consumer Secret**. Selecteer ook **Create my access token** om de toegangstokens te genereren. Kopieer de waarden voor **Access Token** en **Access Token Secret**.
+    ![Gegevens voor Twitter-toepassing](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details-create.png "Gegevens voor Twitter-toepassing")
+
+3. Selecteer op de pagina toepassing het tabblad **sleutels en tokens** en kopieer de waarden voor de **CONSUMer-API-sleutel** en de **geheime sleutel**van de consument-API. Selecteer ook **maken** onder **toegangs token en geheim toegangs token** om de toegangs tokens te genereren. Kopieer de waarden voor **Access Token** en **Access Token Secret**.
 
     ![Gegevens voor Twitter-toepassing](./media/databricks-stream-from-eventhubs/twitter-app-key-secret.png "Gegevens voor Twitter-toepassing")
 
@@ -129,30 +133,30 @@ Sla de waarden op die u hebt opgehaald voor de Twitter-toepassing. U hebt deze w
 
 ## <a name="attach-libraries-to-spark-cluster"></a>Bibliotheken koppelen aan een Apache Spark-cluster
 
-In deze zelfstudie gebruikt u de Twitter-API's om tweets te verzenden naar Event Hubs. U gebruikt ook de [Apache Spark Event Hubs-connector](https://github.com/Azure/azure-event-hubs-spark) om gegevens naar Azure Event Hubs te lezen en schrijven. Als u deze API's wilt gebruiken als onderdeel van uw cluster, kunt u ze als bibliotheken toevoegen aan Azure Databricks en ze vervolgens aan uw Apache Spark-cluster koppelen. De volgende instructies laten zien hoe de bibliotheek wordt toegevoegd aan de map **Gedeeld** in uw werkruimte.
+In deze zelfstudie gebruikt u de Twitter-API's om tweets te verzenden naar Event Hubs. U gebruikt ook de [Apache Spark Event Hubs-connector](https://github.com/Azure/azure-event-hubs-spark) om gegevens naar Azure Event Hubs te lezen en schrijven. Als u deze Api's wilt gebruiken als onderdeel van uw cluster, voegt u deze toe als bibliotheken aan Azure Databricks en koppelt u deze aan uw Spark-cluster. De volgende instructies laten zien hoe u een bibliotheek kunt toevoegen.
 
-1. Selecteer **Werkruimte** in de Azure Databricks-werkruimte en klik vervolgens met de rechtermuisknop op **Gedeeld**. Selecteer **Bibliotheek** > **maken** in het contextmenu.
+1. Selecteer in de werk ruimte Azure Databricks de optie **clusters**en kies uw bestaande Spark-cluster. Kies in het menu cluster de optie **bibliotheken** en klik op **nieuwe installeren**.
 
-   ![Dialoogvenster Bibliotheek toevoegen](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "Dialoogvenster Bibliotheek toevoegen")
+   ![Het dialoog venster bibliotheek toevoegen](./media/databricks-stream-from-eventhubs/databricks-add-library-locate-cluster.png "Bibliotheek toevoegen cluster zoeken")
 
-2. Op de pagina Nieuwe bibliotheek selecteert u bij **Bron** de optie **Maven-coördinaat**. Voer bij **Coördinaat** de coördinaat in voor het pakket dat u wilt toevoegen. Dit zijn de Maven-coördinaten voor de bibliotheken die in deze zelfstudie worden gebruikt:
+   ![Het dialoog venster bibliotheek toevoegen](./media/databricks-stream-from-eventhubs/databricks-add-library-install-new.png "Nieuwe bibliotheek toevoegen installeren")
 
-   * Apache Spark Event Hubs-connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
-   * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
+2. Selecteer op de pagina nieuwe bibliotheek voor **bron** **maven**. Voor een **coördinaat**klikt u op **Pakketten zoeken** voor het pakket dat u wilt toevoegen. Dit zijn de Maven-coördinaten voor de bibliotheken die in deze zelfstudie worden gebruikt:
 
-     ![Maven-coördinaten opgeven](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Maven-coördinaten opgeven")
+   * Apache Spark Event Hubs-connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+   * Twitter API - `org.twitter4j:twitter4j-core:4.0.7`
 
-3. Selecteer **Bibliotheek maken**.
+     ![Maven-coördinaten opgeven](./media/databricks-stream-from-eventhubs/databricks-add-library-search.png "Maven-coördinaten opgeven")
 
-4. Selecteer de map waaraan u de bibliotheek hebt toegevoegd en selecteer vervolgens de naam van de bibliotheek.
+     ![Maven-coördinaten opgeven](./media/databricks-stream-from-eventhubs/databricks-add-library-search-dialogue.png "Maven-coördinaten zoeken")
 
-    ![Toe te voegen bibliotheek selecteren](./media/databricks-stream-from-eventhubs/select-library.png "Toe te voegen bibliotheek selecteren")
+3. Selecteer **Installeren**.
 
-5. Selecteer op de bibliotheekpagina het cluster waar u de bibliotheek wilt gebruiken. Nadat de bibliotheek aan het cluster is gekoppeld, verandert de status onmiddellijk in **Toegevoegd**.
+4. Zorg ervoor dat beide bibliotheken zijn geïnstalleerd en correct zijn aangesloten in het menu cluster.
 
-    ![Bibliotheek koppelen aan cluster](./media/databricks-stream-from-eventhubs/databricks-library-attached.png "Bibliotheek koppelen aan cluster")
+    ![Bibliotheken controleren](./media/databricks-stream-from-eventhubs/databricks-add-library-check.png "Bibliotheken controleren")
 
-6. Herhaal deze stappen voor het Twitter-pakket, `twitter4j-core:4.0.6`.
+6. Herhaal deze stappen voor het Twitter-pakket, `twitter4j-core:4.0.7`.
 
 ## <a name="create-notebooks-in-databricks"></a>Notitieblokken maken in Azure Databricks
 
@@ -177,11 +181,16 @@ In deze sectie kunt u twee notitieblokken in de Databricks-werkruimte maken met 
 
 Plak in het notitieblok **SendTweetsToEventHub** de volgende code en vervang de tijdelijke aanduidingen door waarden voor uw Event Hubs-naamruimte en Twitter-toepassing die u eerder hebt gemaakt. Dit notitieblok streamt tweets met het sleutelwoord 'Azure' in realtime naar Event Hubs.
 
+> [!NOTE]
+> De Twitter-API heeft bepaalde beperkingen en [quota](https://developer.twitter.com/en/docs/basics/rate-limiting.html)voor de aanvraag. Als u niet tevreden bent met de standaard frequentie beperking in Twitter API, kunt u in dit voor beeld tekst inhoud genereren zonder Twitter API te gebruiken. Hiervoor stelt u variabele **Data Source** in in `test` plaats van `twitter` en vult u de lijst **testSource** met de voorkeurs test invoer.
+
 ```scala
-    import java.util._
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
     import java.util.concurrent._
+    import scala.collection.immutable._
+    import scala.concurrent.Future
+    import scala.concurrent.ExecutionContext.Implicits.global
 
     val namespaceName = "<EVENT HUBS NAMESPACE>"
     val eventHubName = "<EVENT HUB NAME>"
@@ -193,56 +202,78 @@ Plak in het notitieblok **SendTweetsToEventHub** de volgende code en vervang de 
                 .setSasKeyName(sasKeyName)
                 .setSasKey(sasKey)
 
-    val pool = Executors.newFixedThreadPool(1)
+    val pool = Executors.newScheduledThreadPool(1)
     val eventHubClient = EventHubClient.create(connStr.toString(), pool)
 
-    def sendEvent(message: String) = {
+    def sleep(time: Long): Unit = Thread.sleep(time)
+
+    def sendEvent(message: String, delay: Long) = {
+      sleep(delay)
       val messageData = EventData.create(message.getBytes("UTF-8"))
       eventHubClient.get().send(messageData)
       System.out.println("Sent event: " + message + "\n")
     }
 
-    import twitter4j._
-    import twitter4j.TwitterFactory
-    import twitter4j.Twitter
-    import twitter4j.conf.ConfigurationBuilder
+    // Add your own values to the list
+    val testSource = List("Azure is the greatest!", "Azure isn't working :(", "Azure is okay.")
 
-    // Twitter configuration!
-    // Replace values below with yours
+    // Specify 'test' if you prefer to not use Twitter API and loop through a list of values you define in `testSource`
+    // Otherwise specify 'twitter'
+    val dataSource = "test"
 
-    val twitterConsumerKey = "<CONSUMER KEY>"
-    val twitterConsumerSecret = "<CONSUMER SECRET>"
-    val twitterOauthAccessToken = "<ACCESS TOKEN>"
-    val twitterOauthTokenSecret = "<TOKEN SECRET>"
+    if (dataSource == "twitter") {
 
-    val cb = new ConfigurationBuilder()
-      cb.setDebugEnabled(true)
-      .setOAuthConsumerKey(twitterConsumerKey)
-      .setOAuthConsumerSecret(twitterConsumerSecret)
-      .setOAuthAccessToken(twitterOauthAccessToken)
-      .setOAuthAccessTokenSecret(twitterOauthTokenSecret)
+      import twitter4j._
+      import twitter4j.TwitterFactory
+      import twitter4j.Twitter
+      import twitter4j.conf.ConfigurationBuilder
 
-    val twitterFactory = new TwitterFactory(cb.build())
-    val twitter = twitterFactory.getInstance()
+      // Twitter configuration!
+      // Replace values below with you
 
-    // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
+      val twitterConsumerKey = "<CONSUMER API KEY>"
+      val twitterConsumerSecret = "<CONSUMER API SECRET>"
+      val twitterOauthAccessToken = "<ACCESS TOKEN>"
+      val twitterOauthTokenSecret = "<TOKEN SECRET>"
 
-    val query = new Query(" #Azure ")
-    query.setCount(100)
-    query.lang("en")
-    var finished = false
-    while (!finished) {
-      val result = twitter.search(query)
-      val statuses = result.getTweets()
-      var lowestStatusId = Long.MaxValue
-      for (status <- statuses.asScala) {
-        if(!status.isRetweet()){
-          sendEvent(status.getText())
+      val cb = new ConfigurationBuilder()
+        cb.setDebugEnabled(true)
+        .setOAuthConsumerKey(twitterConsumerKey)
+        .setOAuthConsumerSecret(twitterConsumerSecret)
+        .setOAuthAccessToken(twitterOauthAccessToken)
+        .setOAuthAccessTokenSecret(twitterOauthTokenSecret)
+
+      val twitterFactory = new TwitterFactory(cb.build())
+      val twitter = twitterFactory.getInstance()
+
+      // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
+      val query = new Query(" #Azure ")
+      query.setCount(100)
+      query.lang("en")
+      var finished = false
+      while (!finished) {
+        val result = twitter.search(query)
+        val statuses = result.getTweets()
+        var lowestStatusId = Long.MaxValue
+        for (status <- statuses.asScala) {
+          if(!status.isRetweet()){
+            sendEvent(status.getText(), 5000)
+          }
+          lowestStatusId = Math.min(status.getId(), lowestStatusId)
         }
-        lowestStatusId = Math.min(status.getId(), lowestStatusId)
-        Thread.sleep(2000)
+        query.setMaxId(lowestStatusId - 1)
       }
-      query.setMaxId(lowestStatusId - 1)
+
+    } else if (dataSource == "test") {
+      // Loop through the list of test input data
+      while (true) {
+        testSource.foreach {
+          sendEvent(_,5000)
+        }
+      }
+
+    } else {
+      System.out.println("Unsupported Data Source. Set 'dataSource' to \"twitter\" or \"test\"")
     }
 
     // Closing connection to the Event Hub
@@ -271,15 +302,23 @@ Voor het uitvoeren van het notitieblok, drukt u op **SHIFT + ENTER**. U ziet uit
 Plak in het notitieblok **ReadTweetsFromEventHub**de volgende code en vervang de tijdelijke aanduiding door de waarden voor uw Azure Event Hubs die u eerder hebt gemaakt. Dit notitieblok leest de tweets die u eerder hebt gestreamd naar Event Hubs met behulp van het **SendTweetsToEventHub**-notitieblok.
 
 ```scala
+
     import org.apache.spark.eventhubs._
+    import com.microsoft.azure.eventhubs._
 
     // Build connection string with the above information
-    val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
-      .setEventHubName("<EVENT HUB NAME>")
-      .build
+    val namespaceName = "<EVENT HUBS NAMESPACE>"
+    val eventHubName = "<EVENT HUB NAME>"
+    val sasKeyName = "<POLICY NAME>"
+    val sasKey = "<POLICY KEY>"
+    val connStr = new com.microsoft.azure.eventhubs.ConnectionStringBuilder()
+                .setNamespaceName(namespaceName)
+                .setEventHubName(eventHubName)
+                .setSasKeyName(sasKeyName)
+                .setSasKey(sasKey)
 
     val customEventhubParameters =
-      EventHubsConf(connectionString)
+      EventHubsConf(connStr.toString())
       .setMaxEventsPerTrigger(5)
 
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
@@ -388,7 +427,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Tweets verzenden naar Event Hubs
 > * Tweets lezen van Event Hubs
 
-Ga verder naar de volgende zelfstudie voor meer informatie over het uitvoeren van sentimentanalyses op de gestreamde gegevens met behulp van Azure Databricks en [Microsoft Cognitive Services API](../cognitive-services/text-analytics/overview.md).
+Ga naar de volgende zelf studie voor meer informatie over het uitvoeren van sentiment-analyse op de gestreamde gegevens met behulp van Azure Databricks en [Cognitive Services-API](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
 >[Sentimentanalyse over het streamen van gegevens met behulp van Azure Databricks](databricks-sentiment-analysis-cognitive-services.md)

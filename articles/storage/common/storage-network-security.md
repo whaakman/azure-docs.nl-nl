@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 398b2236caa77e4aef5b471079407a5edeeeee2d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: cc0ba80f7aef53568e048b8285800982c818b004
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326936"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334601"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-firewalls en virtuele netwerken configureren
 
@@ -23,8 +23,6 @@ Azure Storage biedt een gelaagd beveiligingsmodel. Dit model kunt u voor het bev
 Een toepassing die toegang heeft tot een storage-account wanneer het netwerkregels zijn van kracht is juiste verificatie bij de aanvraag vereist. Autorisatie wordt ondersteund met Azure Active Directory-referenties (Azure AD) voor blobs en wacht rijen, met een geldige account toegangs sleutel of met een SAS-token.
 
 > [!IMPORTANT]
-> Azure File Sync biedt nog geen ondersteuning voor firewalls en virtuele netwerken. Als u Azure File Sync gebruikt in uw opslag account en u deze inschakelt, worden Azure File Sync niet gesynchroniseerd.
->
 > Firewall-regels voor uw storage-account inschakelen binnenkomende aanvragen voor gegevens standaard geblokkeerd, tenzij de aanvragen afkomstig zijn van een service die wordt uitgevoerd binnen een Azure Virtual Network (VNet). Aanvragen die zijn geblokkeerd omvatten die van andere Azure-services vanuit de Azure-portal van logboekregistratie en metrische gegevens over services, enzovoort.
 >
 > U kunt toegang verlenen tot Azure-services die worden uitgevoerd van binnen een VNet doordat het subnet van het service-exemplaar. Inschakelen van een beperkt aantal scenario's via de [uitzonderingen](#exceptions) mechanisme dat wordt beschreven in de volgende sectie. Voor toegang tot de Azure-portal, moet u zich op een computer in de vertrouwde grens (IP- of VNet) die u hebt ingesteld.

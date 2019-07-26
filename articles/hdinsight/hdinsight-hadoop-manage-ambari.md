@@ -1,6 +1,6 @@
 ---
-title: Controleren en beheren van Azure HDInsight met behulp van Ambari-Webinterface
-description: Leer hoe u Ambari gebruiken om te controleren en Linux gebaseerde HDInsight-clusters beheren. In dit document leert u hoe u de Ambari-Webgebruikersinterface opgenomen met HDInsight-clusters.
+title: Azure HDInsight controleren en beheren met Ambari-webgebruikersinterface
+description: Meer informatie over het gebruik van Ambari voor het bewaken en beheren van HDInsight-clusters op basis van Linux. In dit document leert u hoe u de Ambari-webgebruikersinterface gebruikt die deel uitmaakt van HDInsight-clusters.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,211 +8,211 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 49e8fbef7af16e109c1e9f1e0d8c9aab1a008e21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d0641a1c058db59acd5e9a64b10bb57b334f82bd
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258007"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442055"
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>HDInsight-clusters beheren met behulp van de Apache Ambari-Webinterface
+# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>HDInsight-clusters beheren met de Web-UI van Apache Ambari
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari vereenvoudigt het beheer en bewaking van een Apache Hadoop-cluster met een eenvoudige web-UI en de REST-API gebruiken. Ambari is opgenomen in HDInsight-clusters, en wordt gebruikt voor het bewaken van het cluster en configuratiewijzigingen aanbrengen.
+Apache Ambari vereenvoudigt het beheer en de bewaking van een Apache Hadoop cluster door een gebruiks vriendelijke webgebruikersinterface en REST API te bieden. Ambari is opgenomen in HDInsight-clusters en wordt gebruikt om het cluster te controleren en configuratie wijzigingen aan te brengen.
 
-In dit document leert u hoe u de Ambari-Webinterface gebruiken met een HDInsight-cluster.
+In dit document leert u hoe u de Ambari-webgebruikersinterface kunt gebruiken met een HDInsight-cluster.
 
 ## <a id="whatis"></a>Wat is Apache Ambari?
 
-[Apache Ambari](https://ambari.apache.org) vereenvoudigt het beheer van Hadoop door te geven van de web-UI van een eenvoudig te gebruiken. U kunt Ambari gebruiken om te beheren en bewaken van Hadoop-clusters. Ontwikkelaars kunnen deze mogelijkheden integreren in hun toepassingen met behulp van de [Ambari REST-API's](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](https://ambari.apache.org) vereenvoudigt Hadoop-beheer door een gebruiks vriendelijke webgebruikersinterface te bieden. U kunt Ambari gebruiken voor het beheren en bewaken van Hadoop-clusters. Ontwikkel aars kunnen deze mogelijkheden in hun toepassingen integreren met behulp van de [AMBARI rest-api's](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 ## <a name="connectivity"></a>Connectiviteit
 
-De Ambari-Webinterface is beschikbaar op uw HDInsight-cluster op `https://CLUSTERNAME.azurehdinsight.net`, waarbij `CLUSTERNAME` is de naam van uw cluster.
+De Ambari-webgebruikersinterface is beschikbaar op uw HDInsight- `https://CLUSTERNAME.azurehdinsight.net`cluster op `CLUSTERNAME` , waar de naam van uw cluster is.
 
 > [!IMPORTANT]  
-> Verbinding maken met Ambari op HDInsight vereist HTTPS. Wanneer u hierom wordt gevraagd voor verificatie, gebruikt u de accountnaam van beheerder en het wachtwoord die u hebt opgegeven bij het cluster is gemaakt.
+> Voor het maken van verbinding met Ambari op HDInsight is HTTPS vereist. Wanneer u om verificatie wordt gevraagd, gebruikt u de account naam en het wacht woord van de beheerder die u hebt opgegeven toen het cluster werd gemaakt.
 
 ## <a name="ssh-tunnel-proxy"></a>SSH-tunnel (proxy)
 
-Terwijl Ambari voor uw cluster rechtstreeks via Internet toegankelijk is, worden enkele koppelingen van de Ambari-Webgebruikersinterface (bijvoorbeeld bij de JobTracker) niet weergegeven op het internet. Voor toegang tot deze services, moet u een SSH-tunnel maken. Zie voor meer informatie, [SSH-Tunneling gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
+Hoewel Ambari voor uw cluster rechtstreeks via internet toegankelijk is, worden sommige koppelingen van de Ambari-webgebruikersinterface (zoals naar de JobTracker) niet weer gegeven op internet. Voor toegang tot deze services moet u een SSH-tunnel maken. Zie SSH-tunneling [gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md)voor meer informatie.
 
-## <a name="ambari-web-ui"></a>Ambari Web UI
+## <a name="ambari-web-ui"></a>Ambari-webgebruikersinterface
 
 > [!WARNING]  
-> Niet alle functies van de Ambari-Webgebruikersinterface worden ondersteund op HDInsight. Zie voor meer informatie de [niet-ondersteunde bewerkingen](#unsupported-operations) sectie van dit document.
+> Niet alle functies van de Web-UI van Ambari worden ondersteund in HDInsight. Zie de sectie [niet-ondersteunde bewerkingen](#unsupported-operations) van dit document voor meer informatie.
 
-Bij het verbinden met de Ambari-Webgebruikersinterface, wordt u gevraagd om te verifiëren naar de pagina. Gebruik de cluster de gebruiker met beheerdersrechten (standaard Admin) en het wachtwoord die u hebt gebruikt tijdens het maken van een cluster.
+Wanneer u verbinding maakt met de Ambari-webgebruikersinterface, wordt u gevraagd om u te verifiëren bij de pagina. Gebruik de Cluster beheer gebruiker (standaard beheerder) en het wacht woord dat u hebt gebruikt tijdens het maken van het cluster.
 
-Wanneer de pagina wordt geopend, houd er rekening mee de balk aan de bovenkant. Deze balk bevat de volgende informatie en besturingselementen:
+Wanneer de pagina wordt geopend, ziet u de balk aan de bovenkant. Deze balk bevat de volgende informatie en besturings elementen:
 
 ![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
 |Item |Description |
 |---|---|
-|Ambari-logo|Hiermee opent het dashboard, die kan worden gebruikt voor het bewaken van het cluster.|
-|De naam # ops-cluster|Geeft het aantal actieve Ambari-bewerkingen. De clusternaam van de selecteren of **# ops** geeft een lijst van bewerkingen op de achtergrond.|
-|# waarschuwingen|Geeft waarschuwingen of kritieke waarschuwingen, indien van toepassing, voor het cluster.|
-|Dashboard|Het dashboard weergegeven.|
+|Ambari-logo|Hiermee opent u het dash board, dat kan worden gebruikt voor het bewaken van het cluster.|
+|Cluster naam # OPS|Hiermee wordt het aantal actieve Ambari-bewerkingen weer gegeven. Als u de cluster naam of **# OPS** selecteert, wordt een lijst met achtergrond bewerkingen weer gegeven.|
+|aantal waarschuwingen|Hiermee worden waarschuwingen of kritieke waarschuwingen weer gegeven, indien van toepassing, voor het cluster.|
+|Dashboard|Hiermee wordt het dash board weer gegeven.|
 |Services|Informatie en configuratie-instellingen voor de services in het cluster.|
-|Hosts|Informatie en configuratie-instellingen voor de knooppunten in het cluster.|
-|Waarschuwingen|Een logboek van informatie, waarschuwingen en kritieke waarschuwingen.|
-|beheerder|Software stack/services die zijn geïnstalleerd op het cluster, service-accountgegevens en Kerberos-beveiliging.|
-|Beheerder-knop|Ambari-beheer, gebruikersinstellingen en meld u af.|
+|Hosts|Informatie en configuratie-instellingen voor de knoop punten in het cluster.|
+|Waarschuwingen|Een logboek met informatie, waarschuwingen en kritieke waarschuwingen.|
+|beheerder|Software stack/services die zijn geïnstalleerd op het cluster, informatie over service accounts en Kerberos-beveiliging.|
+|Knop beheer|Ambari-beheer, gebruikers instellingen en afmelden.|
 
 ## <a name="monitoring"></a>Bewaking
 
 ### <a name="alerts"></a>Waarschuwingen
 
-De volgende lijst bevat de algemene waarschuwing statussen die worden gebruikt door Ambari:
+De volgende lijst bevat de algemene statussen van waarschuwingen die worden gebruikt door Ambari:
 
 * **OK**
 * **Waarschuwing**
-* **CRITICAL**
+* **KRITIEKE**
 * **UNKNOWN**
 
-Anders dan een waarschuwing **OK** ertoe leiden dat de **# waarschuwingen** vermelding aan de bovenkant van de pagina om het aantal waarschuwingen weer te geven. Dit item selecteren, geeft de waarschuwingen en hun status weer.
+Bij andere waarschuwingen dan **OK** wordt **het aantal** waarschuwingen aan de bovenkant van de pagina weer gegeven. Als u dit item selecteert, worden de waarschuwingen en hun status weer gegeven.
 
-Waarschuwingen worden ingedeeld in verschillende standaardgroepen, dat kunnen worden weergegeven in de **waarschuwingen** pagina.
+Waarschuwingen zijn ingedeeld in verschillende standaard groepen, die kunnen worden weer gegeven op de pagina **waarschuwingen** .
 
-![Pagina met waarschuwingen](./media/hdinsight-hadoop-manage-ambari/alerts.png)
+![pagina waarschuwingen](./media/hdinsight-hadoop-manage-ambari/alerts.png)
 
-U kunt de groepen beheren met behulp van de **acties** menu en selecteer **waarschuwing groepen beheren**.
+U kunt de groepen beheren via het menu **acties** en vervolgens **waarschuwings groepen beheren**selecteren.
 
-![dialoogvenster Waarschuwing groepen beheren](./media/hdinsight-hadoop-manage-ambari/manage-alerts.png)
+![dialoog venster waarschuwings groepen beheren](./media/hdinsight-hadoop-manage-ambari/manage-alerts.png)
 
-U kunt ook waarschuwingen methoden beheren en maken van meldingen van waarschuwingen van de **acties** menu hiervoor __waarschuwing meldingen beheren__. Huidige meldingen worden weergegeven. U kunt ook meldingen hier maken. Meldingen kunnen worden verzonden via **e** of **SNMP** wanneer specifieke waarschuwing/ernst combinaties worden uitgevoerd. Bijvoorbeeld, u kunt een e-mail sturen wanneer een van de waarschuwingen in de **YARN standaard** groep is ingesteld op **kritieke**.
+U kunt ook waarschuwings methoden beheren en waarschuwings meldingen maken via het menu **acties** door __waarschuwings meldingen beheren__te selecteren. Alle huidige meldingen worden weer gegeven. U kunt hier ook meldingen maken. Meldingen kunnen worden verzonden via **e-mail** of **SNMP** wanneer specifieke combi Naties van waarschuwingen en ernst optreden. U kunt bijvoorbeeld een e-mail bericht verzenden wanneer een van de waarschuwingen in de **standaard groep garen** is ingesteld op **kritiek**.
 
-![Waarschuwing dialoogvenster maken](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
+![Dialoog venster waarschuwing maken](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
-Ten slotte selecteren __Waarschuwingsinstellingen beheren__ uit de __acties__ menu kunt u instellen hoe vaak een waarschuwing plaatsvinden moet voordat een melding wordt verzonden. Deze instelling kan worden gebruikt om te voorkomen dat meldingen voor tijdelijke fouten.
+Ten slotte kunt u met het selecteren van __instellingen voor waarschuwingen beheren__ in het menu __acties__ instellen hoe vaak een waarschuwing moet worden gegeven voordat een melding wordt verzonden. Deze instelling kan worden gebruikt om meldingen voor tijdelijke fouten te voor komen.
 
 ### <a name="cluster"></a>Cluster
 
-De **metrische gegevens** van het dashboard bevat een reeks widgets gemakkelijk de status van uw cluster in één oogopslag controleren. Diverse widgets, zoals **CPU-gebruik**, bieden aanvullende informatie wanneer geklikt.
+Het tabblad **metrische gegevens** van het dash board bevat een reeks widgets waarmee u in één oogopslag de status van uw cluster kunt bewaken. Verschillende widgets, zoals **CPU-gebruik**, bieden aanvullende informatie wanneer erop wordt geklikt.
 
-![dashboard met metrische gegevens](./media/hdinsight-hadoop-manage-ambari/metrics.png)
+![dash board met metrische gegevens](./media/hdinsight-hadoop-manage-ambari/metrics.png)
 
-De **Heatmaps** tabblad metrische gegevens als gekleurde heatmaps beschikbaar zijn, die van groen naar rood weergegeven.
+Op het tabblad **Heatmaps** worden metrische gegevens weer gegeven als gekleurde Heatmaps, van groen naar rood.
 
-![dashboard met heatmaps](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
+![dash board met Heatmaps](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
 
-Voor meer informatie over de knooppunten in het cluster, selecteert u **Hosts**. Selecteer vervolgens de specifieke knooppunt waarin u geïnteresseerd bent.
+Selecteer **hosts**voor meer informatie over de knoop punten in het cluster. Selecteer vervolgens het specifieke knoop punt waarin u bent geïnteresseerd.
 
-![details van de host](./media/hdinsight-hadoop-manage-ambari/host-details.png)
+![Details van host](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
 ### <a name="services"></a>Services
 
-De **Services** zijbalk op het dashboard biedt snel inzicht in de status van de services die worden uitgevoerd op het cluster. Verschillende pictogrammen worden gebruikt om aan te geven van de status of de acties die moeten worden uitgevoerd. Een gele Prullenbak-symbool wordt bijvoorbeeld weergegeven als een service moet worden gerecycled.
+De Sidebar **Services** in het dash board biedt een snelle inzicht in de status van de services die op het cluster worden uitgevoerd. Er worden verschillende pictogrammen gebruikt om de status of acties aan te geven die moeten worden uitgevoerd. Zo wordt bijvoorbeeld een geel recycling symbool weer gegeven als een service opnieuw moet worden gerecycled.
 
-![Services-zijbalk](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
+![Services-balk aan de zijkant](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
 
 > [!NOTE]  
-> De services die worden weergegeven verschillen van het HDInsight-clustertypen en opties versies. De services die hier wordt weergegeven, is mogelijk anders dan de services die worden weergegeven voor uw cluster.
+> De weer gegeven Services verschillen per HDInsight-cluster type en-versie. De services die hier worden weer gegeven, kunnen afwijken van de services die voor uw cluster worden weer gegeven.
 
-Selecteren van een service, geeft meer gedetailleerde informatie weer op de service.
+Als u een service selecteert, wordt gedetailleerde informatie over de service weer gegeven.
 
-![samenvattende informatie van service](./media/hdinsight-hadoop-manage-ambari/service-details.png)
+![informatie over service samenvatting](./media/hdinsight-hadoop-manage-ambari/service-details.png)
 
 #### <a name="quick-links"></a>Snelkoppelingen
 
-De weergave van sommige services een **snelkoppelingen** koppelen aan de bovenkant van de pagina. Dit kan worden gebruikt voor toegang krijgen tot specifieke services webgebruikersinterfaces, zoals:
+Voor sommige Services wordt boven aan de pagina een koppeling **naar de snelkoppeling links** weer gegeven. Dit kan worden gebruikt om toegang te krijgen tot servicespecifieke Web-UIs, zoals:
 
-* **Taakgeschiedenis** -geschiedenis van MapReduce-taak.
-* **Resource Manager** -YARN ResourceManager-interface.
-* **NameNode** -Hadoop Distributed File System (HDFS) NameNode gebruikersinterface.
-* **Oozie-Webgebruikersinterface** -Oozie-gebruikersinterface.
+* **Taak geschiedenis** -MapReduce-taak geschiedenis.
+* **Resource Manager** : de gebruikers interface voor de webbeheerset.
+* **NameNode** -HADOOP DISTRIBUTED File System (HDFS) NameNode-gebruikers interface.
+* **Oozie** -webgebruikersinterface-Oozie-gebruikers interface.
 
-Wanneer u een van de volgende koppelingen, wordt een nieuw tabblad geopend in uw browser, die de geselecteerde pagina wordt weergegeven.
+Als u een van deze koppelingen selecteert, wordt er een nieuw tabblad in de browser geopend waarin de geselecteerde pagina wordt weer gegeven.
 
 > [!NOTE]  
-> Selecteren van de **snelkoppelingen** vermelding voor een service een fout 'de server is niet gevonden' retourneert. Als u deze fout optreedt, moet u een SSH-tunnel gebruiken bij het gebruik van de **snelkoppelingen** vermelding voor deze service. Zie voor meer informatie, [SSH-Tunneling gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md)
+> Als u de vermelding voor de **snelle koppelingen** selecteert voor een service, wordt de fout ' server niet gevonden ' weer gegeven. Als deze fout optreedt, moet u een SSH-tunnel gebruiken wanneer u de vermelding **snelle koppelingen** gebruikt voor deze service. Zie [ssh-tunneling gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) voor meer informatie
 
 ## <a name="management"></a>Beheer
 
-### <a name="ambari-users-groups-and-permissions"></a>Ambari-gebruikers, groepen en machtigingen
+### <a name="ambari-users-groups-and-permissions"></a>Ambari-gebruikers,-groepen en-machtigingen
 
-Werken met gebruikers, groepen en machtigingen worden ondersteund bij het gebruik van een [toegevoegd aan een domein](./domain-joined/apache-domain-joined-introduction.md) HDInsight-cluster. Zie voor meer informatie over het gebruik van de Ambari-Webgebruikersinterface voor beheer op een domein gekoppeld cluster [aan domein gekoppelde HDInsight-clusters beheren](./domain-joined/apache-domain-joined-introduction.md).
+Werken met gebruikers, groepen en machtigingen wordt ondersteund bij het gebruik van een HDInsight-cluster dat is toegevoegd aan een [domein](./domain-joined/hdinsight-security-overview.md) . Zie [HDInsight-clusters](./domain-joined/hdinsight-security-overview.md)die zijn gekoppeld aan een domein voor meer informatie over het gebruik van de Ambari-beheer gebruikersinterface op een cluster dat aan een domein is gekoppeld.
 
 > [!WARNING]  
-> Wijzig het wachtwoord van de Ambari-watchdog (hdinsightwatchdog) op uw Linux gebaseerde HDInsight-cluster niet. Wijzigen van het wachtwoord, verbreekt de mogelijkheid om te gebruiken van scriptacties of vergroten / verkleinen met uw cluster uit te voeren.
+> Wijzig het wacht woord van de Ambari-watchdog (hdinsightwatchdog) niet in uw HDInsight-cluster op basis van Linux. Als u het wacht woord wijzigt, is het niet meer mogelijk om script acties te gebruiken of om schaal bewerkingen uit te voeren met uw cluster.
 
 ### <a name="hosts"></a>Hosts
 
-De **Hosts** pagina geeft een lijst van alle hosts in het cluster. Volg deze stappen voor het beheren van hosts.
+Op de pagina **hosts** worden alle hosts in het cluster weer gegeven. Voer de volgende stappen uit om hosts te beheren.
 
-![hosts pagina](./media/hdinsight-hadoop-manage-ambari/hosts.png)
+![pagina hosts](./media/hdinsight-hadoop-manage-ambari/hosts.png)
 
 > [!NOTE]  
-> Toe te voegen, uit bedrijf nemen en een host recommissioning mag niet worden gebruikt met HDInsight-clusters.
+> Het is niet mogelijk om een host toe te voegen, uit te stellen en opnieuw in te stellen met HDInsight-clusters.
 
 1. Selecteer de host die u wilt beheren.
 
-2. Gebruik de **acties** menu selecteert u de actie die u wilt uitvoeren:
+2. Gebruik het menu **acties** om de actie te selecteren die u wilt uitvoeren:
 
     |Item |Description |
     |---|---|
     |Alle onderdelen starten|Start alle onderdelen op de host.|
-    |Alle onderdelen stoppen|Alle onderdelen stoppen op de host.|
-    |Alle onderdelen opnieuw starten|Stoppen en starten van alle onderdelen op de host.|
-    |Onderhoudsmodus inschakelen|Onderdrukt waarschuwingen voor de host. In deze modus moet worden ingeschakeld als u bij het uitvoeren van acties die waarschuwingen genereren. Bijvoorbeeld een service starten en stoppen.|
-    |De onderhoudsmodus uitschakelen|Retourneert de host de normale waarschuwingen.|
-    |Stoppen|DataNode of NodeManagers stopt op de host.|
+    |Alle onderdelen stoppen|Stop alle onderdelen op de host.|
+    |Alle onderdelen opnieuw starten|Stop en start alle onderdelen op de host.|
+    |Onderhouds modus inschakelen|Onderdrukt waarschuwingen voor de host. Deze modus moet zijn ingeschakeld als u acties uitvoert waarmee waarschuwingen worden gegenereerd. Bijvoorbeeld, het stoppen en starten van een service.|
+    |Onderhouds modus uitschakelen|Retourneert de host naar normale waarschuwingen.|
+    |Stoppen|Stopt DataNode of NodeManagers op de host.|
     |Start|Start DataNode of NodeManagers op de host.|
-    |Opnieuw starten|Stopt en DataNode of NodeManagers op de host wordt gestart.|
-    |Uit bedrijf nemen|Hiermee verwijdert u een host uit het cluster. **Deze actie niet gebruiken op HDInsight-clusters.**|
-    |Recommission|Hiermee wordt een eerder buiten gebruik gestelde host aan het cluster toegevoegd. **Deze actie niet gebruiken op HDInsight-clusters.**|
+    |Opnieuw starten|Stopt en start DataNode of NodeManagers op de host.|
+    |Uit bedrijf nemen|Hiermee verwijdert u een host uit het cluster. **Gebruik deze actie niet op HDInsight-clusters.**|
+    |Opnieuw provisie|Voegt een eerder buiten gebruik gestelde host toe aan het cluster. **Gebruik deze actie niet op HDInsight-clusters.**|
 
 ### <a id="service"></a>Services
 
-Uit de **Dashboard** of **Services** pagina, gebruikt u de **acties** knop onder aan de lijst met services op alle services stoppen en starten.
+Gebruik op de pagina **dash board** of **Services** de knop **acties** onder aan de lijst met Services om alle services te stoppen en te starten.
 
-![Service-acties](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
+![Service acties](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
 > [!WARNING]  
-> Terwijl **Add Service** wordt vermeld in dit menu het moet niet worden gebruikt voor nieuwe services toegevoegd aan het HDInsight-cluster. Nieuwe services moeten worden toegevoegd met behulp van een scriptactie tijdens de clusterinrichting. Zie voor meer informatie over het gebruik van scriptacties [aanpassen HDInsight-clusters met scriptacties](hdinsight-hadoop-customize-cluster-linux.md).
+> Tijdens het toevoegen van een **service** wordt deze in dit menu niet gebruikt om services aan het HDInsight-cluster toe te voegen. Er moeten nieuwe services worden toegevoegd met behulp van een script actie tijdens het inrichten van het cluster. Zie [HDInsight-clusters aanpassen met behulp van script acties](hdinsight-hadoop-customize-cluster-linux.md)voor meer informatie over het gebruik van script acties.
 
-Terwijl de **acties** knop kunt alle services opnieuw starten, vaak u wilt starten, stoppen of opnieuw opstarten van een specifieke service. Gebruik de volgende stappen om acties uitvoeren op een afzonderlijke service:
+De **actie** knop kan alle services opnieuw starten, vaak wilt u een specifieke service starten, stoppen of opnieuw starten. Gebruik de volgende stappen om acties uit te voeren op een afzonderlijke service:
 
-1. Uit de **Dashboard** of **Services** pagina, selecteert u een service.
+1. Selecteer een service op de pagina **dash board** of **Services** .
 
-2. Vanaf de bovenkant van de **samenvatting** tabblad, gebruikt u de **serviceacties** en selecteer de actie te ondernemen. De service op alle knooppunten opnieuw is opgestart.
+2. Klik vanaf de bovenkant van het tabblad **samen vatting** op de knop **service acties** en selecteer de actie die u wilt uitvoeren. Hiermee wordt de service op alle knoop punten opnieuw opgestart.
 
-    ![serviceactie](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
-
-   > [!NOTE]  
-   > Sommige services opnieuw te starten terwijl de cluster wordt uitgevoerd, kan waarschuwingen genereren. Om waarschuwingen te voorkomen, kunt u de **serviceacties** knop om in te schakelen **onderhoudsmodus** voor de service voordat u het opnieuw opstarten.
-
-3. Wanneer een actie is geselecteerd, de **# op** vermelding aan de bovenkant van de stappen van de pagina om weer te geven dat een achtergrondbewerking plaatsvindt. Als geconfigureerd om weer te geven, wordt de lijst met bewerkingen op de achtergrond wordt weergegeven.
+    ![Service actie](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
    > [!NOTE]  
-   > Als u ingeschakeld **onderhoudsmodus** onthouden voor de service uitschakelen met behulp van de **serviceacties** knop nadat de bewerking is voltooid.
+   > Als er services worden gestart terwijl het cluster wordt uitgevoerd, kunnen er waarschuwingen worden gegenereerd. Als u waarschuwingen wilt voor komen, kunt u de knop **service acties** gebruiken om de onderhouds **modus** voor de service in te scha kelen voordat u de computer opnieuw opstart.
 
-Voor het configureren van een service, gebruikt u de volgende stappen uit:
+3. Zodra een actie is geselecteerd, wordt de vermelding **# op** aan de bovenkant van de pagina weer gegeven om aan te geven dat er een achtergrond bewerking plaatsvindt. Indien geconfigureerd om weer te geven, wordt de lijst met achtergrond bewerkingen weer gegeven.
 
-1. Uit de **Dashboard** of **Services** pagina, selecteert u een service.
+   > [!NOTE]  
+   > Als u de **onderhouds modus** voor de service hebt ingeschakeld, moet u deze uitschakelen met behulp van de knop **service acties** zodra de bewerking is voltooid.
 
-2. Selecteer de **Peeringconfiguraties** tabblad. De huidige configuratie wordt weergegeven. Een lijst met vorige configuraties wordt ook weergegeven.
+Als u een service wilt configureren, gebruikt u de volgende stappen:
 
-    ![Configuraties](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
+1. Selecteer een service op de pagina **dash board** of **Services** .
 
-3. Gebruik de velden weergegeven voor het wijzigen van de configuratie en selecteer vervolgens **opslaan**. Of Selecteer een vorige configuratie en selecteer vervolgens **instellen als huidige** terug moet brengen naar de vorige instellingen.
+2. Selecteer de **Peeringconfiguraties** tabblad. De huidige configuratie wordt weer gegeven. Er wordt ook een lijst met eerdere configuraties weer gegeven.
+
+    ![configuraties](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
+
+3. Gebruik de weer gegeven velden om de configuratie te wijzigen en selecteer vervolgens **Opslaan**. Of selecteer een vorige configuratie en selecteer vervolgens **huidige maken** om de vorige instellingen terug te draaien.
 
 ## <a name="ambari-views"></a>Ambari-weergaven
 
-Ambari-weergaven kunnen ontwikkelaars plug-UI-elementen in de Ambari-Webinterface met behulp van de [Apache Ambari-weergaven Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight biedt de volgende weergaven met Hadoop-clustertypen:
+Met Ambari-weer gaven kunnen ontwikkel aars UI-elementen aan de Ambari-webgebruikersinterface koppelen met behulp van het [Apache Ambari views-Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight biedt de volgende weer gaven met Hadoop-cluster typen:
 
-* Hive-weergave: De weergave Hive kunt u het uitvoeren van Hive-query's rechtstreeks vanuit uw webbrowser. U kunt query's opslaan, resultaten weergeven, de resultaten in de clusteropslag opslaan of resultaten downloaden naar uw lokale systeem. Zie voor meer informatie over het gebruik van Hive-weergaven [gebruik Apache Hive-weergaven met HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
+* Hive-weer gave: Met de Hive-weer gave kunt u Hive-query's rechtstreeks vanuit uw webbrowser uitvoeren. U kunt query's opslaan, resultaten weer geven, resultaten opslaan in de cluster opslag of resultaten downloaden naar uw lokale systeem. Zie [Apache Hive weergaven gebruiken met HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)voor meer informatie over het gebruik van Hive-weer gaven.
 
-* Tez weergeven: De Tez-weergave kunt u beter te begrijpen en optimaliseren van taken. U kunt informatie weergeven op hoe de Tez-taken worden uitgevoerd en welke resources worden gebruikt.
+* Weer gave TEZ: De weer gave TEZ biedt u de mogelijkheid om taken beter te begrijpen en te optimaliseren. U kunt informatie weer geven over hoe TEZ-taken worden uitgevoerd en welke resources er worden gebruikt.
 
 ## <a name="unsupported-operations"></a>Niet-ondersteunde bewerkingen
 
 De volgende Ambari-bewerkingen worden niet ondersteund op HDInsight:
 
-* __De metrische gegevens Collector-service verplaatsen__. Als u informatie bekijkt in de metrische gegevens Collector-service, is een van de acties die beschikbaar zijn in het menu Acties van de Service __verplaatsen metrische gegevens collector__. Dit wordt niet ondersteund met HDInsight.
+* __De metrische Collector service wordt verplaatst__. Bij het weer geven van informatie over de metrische Collector-service wordt een van de acties die beschikbaar zijn via het menu Service acties, de __Collector van metrische gegevens verplaatsen__. Dit wordt niet ondersteund met HDInsight.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het gebruik van de [Apache Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md) met HDInsight.
+Meer informatie over het gebruik van de [Apache Ambari rest API](hdinsight-hadoop-manage-ambari-rest-api.md) met HDInsight.

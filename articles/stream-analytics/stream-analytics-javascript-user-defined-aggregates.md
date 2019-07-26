@@ -1,6 +1,6 @@
 ---
 title: Door de gebruiker gedefinieerde JavaScript-verzamelingen in Azure Stream Analytics
-description: Dit artikel wordt beschreven hoe u geavanceerde querymechanismen met de gebruiker gedefinieerde JavaScript-verzamelingen in Azure Stream Analytics uitvoert.
+description: In dit artikel wordt beschreven hoe u geavanceerde query mechanismen kunt uitvoeren met door de gebruiker gedefinieerde Java script-aggregaties in Azure Stream Analytics.
 services: stream-analytics
 author: rodrigoamicrosoft
 ms.author: rodrigoa
@@ -9,24 +9,24 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: b6b61ee44d252f76cd1aa5e1790456acb3d7bae5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 6c590ae62e080a6681e49c87264089f9a5f4ce2f
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620917"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489535"
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics gebruiker gedefinieerde JavaScript-verzamelingen (Preview)
+# <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Door de gebruiker gedefinieerde Java script-functies Azure Stream Analytics
  
-Azure Stream Analytics-de gebruiker gedefinieerde verzamelingen (UDA) die zijn geschreven in JavaScript ondersteunt, kunt u om complexe stateful zakelijke logica te implementeren. U hebt volledige controle over de gegevensstructuur van status, status opeenstapeling, status feit en statistische resultaat berekening in UDA. Het artikel bevat de twee verschillende die JavaScript-UDA-interfaces, stappen voor het maken van een UDA en UDA gebruiken met bewerkingen op basis van een venster in Stream Analytics-query.
+Azure Stream Analytics ondersteunt door de gebruiker gedefinieerde aggregaties (UDA) die zijn geschreven in Java script, kunt u complexe stateful bedrijfs logica implementeren. Binnen UDA hebt u volledige controle over de status gegevens structuur, status accumulatie, status decumulatie en cumulatieve resultaat berekening. In het artikel worden de twee verschillende java script UDA-interfaces geïntroduceerd, stappen voor het maken van een UDA en het gebruik van UDA met op Windows gebaseerde bewerkingen in Stream Analytics query.
 
-## <a name="javascript-user-defined-aggregates"></a>Gebruiker gedefinieerde JavaScript-verzamelingen
+## <a name="javascript-user-defined-aggregates"></a>Door de gebruiker gedefinieerde Java script-samen stellingen
 
-Een door de gebruiker gedefinieerde aggregatie wordt gebruikt op een specificatie van het tijdstip voor samenvoegen over de gebeurtenissen in dit venster en produceren van een enkele waarde als resultaat. Er zijn twee typen van Stream Analytics ondersteunt nu AccumulateOnly en AccumulateDeaccumulate UDA-interfaces. Beide typen UDA kunnen worden gebruikt door Tumblingvenster, venster Hopping plaatsvindt en Sliding Window. AccumulateDeaccumulate UDA presteert beter dan AccumulateOnly UDA wanneer gebruikt in combinatie met Hopping plaatsvindt en schuiven venster. U kunt een van de twee typen op basis van de algoritme die u gebruikt.
+Een door de gebruiker gedefinieerde statistische functie wordt bovenop een tijd venster specificatie gebruikt om een aggregatie over de gebeurtenissen in dat venster te genereren en een enkele resultaat waarde te produceren. Er zijn twee typen UDA-interfaces die Stream Analytics ondersteunen: vandaag, AccumulateOnly en AccumulateDeaccumulate. Beide typen UDA kunnen worden gebruikt door Tumblingvenstertriggers, verspringen, schuiven en het sessie venster. AccumulateDeaccumulate UDA werkt beter dan AccumulateOnly UDA wanneer het wordt gebruikt in combi natie met het venster voor verspringen, schuiven en sessies. U kiest een van de twee typen op basis van het algoritme dat u gebruikt.
 
-### <a name="accumulateonly-aggregates"></a>AccumulateOnly statistische functies
+### <a name="accumulateonly-aggregates"></a>AccumulateOnly-aggregaties
 
-AccumulateOnly statistische functies kunnen alleen nieuwe gebeurtenissen naar de status oplopen, deaccumulation van waarden niet wordt toegestaan door de algoritme. Kies dit type aggregatie dat wanneer een gebeurtenis deaccumulate gegevens uit de statuswaarde is niet mogelijk om te implementeren. Hieronder vindt u de JavaScript-sjabloon voor AccumulatOnly statistische functies:
+AccumulateOnly-aggregaties kunnen alleen nieuwe gebeurtenissen in de staat van de status verzamelen. het algoritme staat geen deaccumulatie van waarden toe. Kies dit aggregatie type wanneer het niet mogelijk is om een gebeurtenis informatie van de status waarde uit te voeren. Hieronder volgt de Java script-sjabloon voor AccumulatOnly-aggregaties:
 
 ```JavaScript
 // Sample UDA which state can only be accumulated.
@@ -45,9 +45,9 @@ function main() {
 }
 ```
 
-### <a name="accumulatedeaccumulate-aggregates"></a>AccumulateDeaccumulate statistische functies
+### <a name="accumulatedeaccumulate-aggregates"></a>AccumulateDeaccumulate-aggregaties
 
-AccumulateDeaccumulate statistische functies toestaan deaccumulation van een vorige samengevoegde waarde van de status, bijvoorbeeld, een sleutel / waarde-paar verwijderen uit een lijst met waarden van de gebeurtenis of een waarde van een toestand van de totale som aftrekken. Hieronder vindt u de JavaScript-sjabloon voor AccumulateDeaccumulate statistische functies:
+Met AccumulateDeaccumulate aggregaties wordt de ontdubbeling van een vorige verzamelde waarde uit de status mogelijk, zoals het verwijderen van een sleutel-waardepaar uit een lijst met gebeurtenis waarden, of het aftrekken van een waarde uit een status van Sum aggregate. Hieronder volgt de Java script-sjabloon voor AccumulateDeaccumulate-aggregaties:
 
 ```JavaScript
 // Sample UDA which state can be accumulated and deaccumulated.
@@ -74,60 +74,60 @@ function main() {
 }
 ```
 
-## <a name="uda---javascript-function-declaration"></a>UDA - declaratie voor JavaScript-functie
+## <a name="uda---javascript-function-declaration"></a>UDA-java script-functie declaratie
 
-Elke JavaScript-UDA wordt gedefinieerd door de declaratie van een functie-object. Hier volgen de belangrijkste elementen in de definitie van een UDA.
+Elke Java script-UDA wordt gedefinieerd door een functie object declaratie. Hier volgen de belangrijkste elementen in een UDA-definitie.
 
 ### <a name="function-alias"></a>Functiealias
 
-De functiealias is de UDA-id. Wanneer met de naam in Stream Analytics-query, gebruik altijd UDA alias samen met een 'uda." het voorvoegsel.
+De functie alias is de UDA-id. Gebruik in Stream Analytics query altijd UDA-alias in combi natie met een ' UDA '. beleids.
 
 ### <a name="function-type"></a>Functietype
 
-Voor de UDA, het functietype moet **Javascript-UDA**.
+Voor UDA moet het functie type **Java script-UDA**zijn.
 
 ### <a name="output-type"></a>Uitvoertype
 
-Een specifieke typen die Stream Analytics-taak die wordt ondersteund of '' als u wilt verwerken van het type in de query.
+Een specifiek type dat Stream Analytics taak wordt ondersteund of ' any ' als u het type wilt afhandelen in uw query.
 
 ### <a name="function-name"></a>Functienaam
 
-De naam van deze functie-object. Naam van de functie moet letterlijk overeenkomen met de UDA-alias (preview-gedrag, we ondersteuning voor anonieme functie overweegt bij algemene beschikbaarheid).
+De naam van dit functie object. De functie naam moet overeenkomen met de UDA-alias.
 
-### <a name="method---init"></a>Methode - init()
+### <a name="method---init"></a>Methode-init ()
 
-De methode init() initialiseert de status van de statistische functie. Deze methode wordt aangeroepen wanneer het venster wordt gestart.
+De methode init () initialiseert de status van de aggregatie. Deze methode wordt aangeroepen wanneer het venster wordt gestart.
 
-### <a name="method--accumulate"></a>Methode – accumulate()
+### <a name="method--accumulate"></a>Methode – cumulatief ()
 
-De methode accumulate() berekent de UDA-status op basis van de vorige status en de huidige waarden van de gebeurtenis. Deze methode wordt aangeroepen wanneer een gebeurtenis in een bepaalde periode (TUMBLINGWINDOW, HOPPINGWINDOW of SLIDINGWINDOW).
+De methode accumule () berekent de UDA-status op basis van de vorige status en de huidige gebeurtenis waarden. Deze methode wordt aangeroepen wanneer een gebeurtenis een tijd venster binnengaat (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW of SESSIONWINDOW).
 
-### <a name="method--deaccumulate"></a>Methode – deaccumulate()
+### <a name="method--deaccumulate"></a>Methode – deaccumulatie ()
 
-De methode deaccumulate() worden opnieuw berekend op basis van de vorige status en de huidige waarden van de gebeurtenis status. Deze methode wordt aangeroepen wanneer een gebeurtenis een SLIDINGWINDOW verlaat.
+De methode decumulatie () berekent de status opnieuw op basis van de vorige status en de huidige gebeurtenis waarden. Deze methode wordt aangeroepen wanneer een gebeurtenis een SLIDINGWINDOW of SESSIONWINDOW verlaat.
 
-### <a name="method--deaccumulatestate"></a>Method – deaccumulateState()
+### <a name="method--deaccumulatestate"></a>Methode – deaccumulateState ()
 
-De methode deaccumulateState() worden opnieuw berekend op basis van de vorige status en de status van een hop staat. Deze methode wordt aangeroepen wanneer een reeks gebeurtenissen laat een HOPPINGWINDOW.
+De methode deaccumulateState () berekent de status opnieuw op basis van de vorige status en de status van een hop. Deze methode wordt aangeroepen wanneer een set gebeurtenissen een HOPPINGWINDOW verlaat.
 
-### <a name="method--computeresult"></a>Method – computeResult()
+### <a name="method--computeresult"></a>Methode – computeResult ()
 
-De methode computeResult() retourneert geaggregeerde resultaat op basis van de huidige status. Deze methode wordt aangeroepen aan het einde van een bepaalde periode (TUMBLINGWINDOW, HOPPINGWINDOW en SLIDINGWINDOW).
+De methode computeResult () retourneert een aggregatie resultaat op basis van de huidige status. Deze methode wordt aan het einde van een tijd venster aangeroepen (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW of SESSIONWINDOW).
 
-## <a name="javascript-uda-supported-input-and-output-data-types"></a>JavaScript-UDA ondersteunde invoer- en gegevenstypen
-Zie sectie voor JavaScript-UDA-gegevenstypen, **typeconversie van Stream Analytics en JavaScript** van [JavaScript-UDF's integreren](stream-analytics-javascript-user-defined-functions.md).
+## <a name="javascript-uda-supported-input-and-output-data-types"></a>Java script UDA ondersteunde invoer-en uitvoer gegevens typen
+Raadpleeg voor Java script UDA-gegevens typen sectie **Stream Analytics en Java script-type conversie** van [Java script-udf's integreren](stream-analytics-javascript-user-defined-functions.md).
 
-## <a name="adding-a-javascript-uda-from-the-azure-portal"></a>Een JavaScript-UDA toevoegen vanuit de Azure-portal
+## <a name="adding-a-javascript-uda-from-the-azure-portal"></a>Een Java script-UDA toevoegen vanuit de Azure Portal
 
-Hieronder stapsgewijs we door het proces voor het maken van een UDA vanuit de Portal. Het voorbeeld we hier gebruiken is tijdgewogen gemiddelden computing.
+Hieronder vindt u een overzicht van het proces voor het maken van een UDA vanuit de portal. Het voor beeld dat hier wordt gebruikt, is het berekenen van tijd gewogen gemiddelden.
 
-Nu gaan we een JavaScript-UDA onder een bestaande ASA-taak maken door de stappen te volgen.
+Nu gaan we een Java script-UDA maken onder een bestaande ASA-taak door de volgende stappen uit te voeren.
 
-1. Meld u aan bij Azure portal en zoek uw bestaande Stream Analytics-taak.
-1. Klik vervolgens op de koppeling onder functies **TAAKTOPOLOGIE**.
-1. Klik op de **toevoegen** pictogram voor het toevoegen van een nieuwe functie.
-1. Selecteer op de nieuwe functie-weergave, **JavaScript-UDA** als het Type functie vervolgens ziet u een standaardsjabloon UDA weergegeven in de editor.
-1. Vul "TWA' als de UDA-alias en wijzigt u de functie-implementatie als het volgende:
+1. Meld u aan bij Azure Portal en zoek de bestaande Stream Analytics taak.
+1. Klik vervolgens op de koppeling functies onder **taak topologie**.
+1. Klik op het pictogram **toevoegen** om een nieuwe functie toe te voegen.
+1. Selecteer in de nieuwe functie weergave **Java script UDA** als het functie type. vervolgens ziet u een standaard UDA-sjabloon in de editor.
+1. Vul "TWA" in als de UDA-alias en wijzig de functie-implementatie als volgt:
 
     ```JavaScript
     // Sample UDA which calculate Time-Weighted Average of incoming values.
@@ -169,13 +169,13 @@ Nu gaan we een JavaScript-UDA onder een bestaande ASA-taak maken door de stappen
     }
     ```
 
-1. Zodra u op de knop 'Opslaan' klikt, wordt de status van uw UDA wordt weergegeven in de lijst met de functie.
+1. Wanneer u op de knop ' opslaan ' klikt, wordt uw UDA weer gegeven in de lijst met functies.
 
-1. Klik op de nieuwe functie 'TWA', kunt u de functiedefinitie controleren.
+1. Klik op de nieuwe functie "TWA", u kunt de functie definitie controleren.
 
-## <a name="calling-javascript-uda-in-asa-query"></a>JavaScript-UDA aanroepen in de ASA-query
+## <a name="calling-javascript-uda-in-asa-query"></a>Java script-UDA aanroepen in ASA-query
 
-In Azure portal en open uw taak, de query bewerken en roep TWA()-functie met een voorvoegsel voor opdracht 'uda.'. Bijvoorbeeld:
+In Azure Portal en open uw taak, bewerkt u de query en roept u de functie TWA () aan met het voor voegsel Uda. Bijvoorbeeld:
 
 ```SQL
 WITH value AS
@@ -193,9 +193,9 @@ FROM value
 GROUP BY TumblingWindow(minute, 5)
 ```
 
-## <a name="testing-query-with-uda"></a>Testen van query's uitvoeren met UDA
+## <a name="testing-query-with-uda"></a>Query's testen met UDA
 
-Maken van een lokaal JSON-bestand met de onderstaande inhoud en upload het bestand naar Stream Analytics-taak testen boven de query.
+Maak een lokaal JSON-bestand met onderstaande inhoud, upload het bestand naar Stream Analytics-taak en test hierboven de query.
 
 ```JSON
 [
@@ -234,5 +234,5 @@ Meer hulp vindt u mogelijk op het [Azure Stream Analytics-forum](https://social.
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics query language-referentie](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics management REST API-naslaginformatie](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Naslag informatie voor de query taal Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Naslag informatie over Azure Stream Analytics beheer REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)

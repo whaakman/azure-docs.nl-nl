@@ -1,118 +1,118 @@
 ---
 title: Vernieuwen met Logic Apps voor Azure Analysis Services-modellen | Microsoft Docs
-description: Leer hoe u code asynchrone vernieuwing met behulp van Azure Logic Apps.
+description: Meer informatie over het asynchroon vernieuwen van code met behulp van Azure Logic Apps.
 author: chrislound
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 6ffce339fe7b1a434c8f007b417ee81a42529dfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2234a2c6cd42be45a2b2e7784c1dd5aec8839cb9
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66142546"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311744"
 ---
 # <a name="refresh-with-logic-apps"></a>Vernieuwen met Logic Apps
 
-U kunt met behulp van Logic Apps en REST-aanroepen, geautomatiseerde gegevensvernieuwingsbewerkingen op uw Azure Analysis modellen in tabelvorm, met inbegrip van synchronisatie van alleen-lezen replica's voor query's worden uitgeschaald uitvoeren.
+U kunt met behulp van Logic Apps en REST-aanroepen automatische gegevens vernieuwings bewerkingen uitvoeren op de tabellaire modellen van Azure Analysis, waaronder synchronisatie van alleen-lezen replica's voor het uitbreiden van de query.
 
-Zie voor meer informatie over het gebruik van REST-API's met Azure Analysis Services, [asynchroon vernieuwen met de REST-API](analysis-services-async-refresh.md).
+Zie voor meer informatie over het gebruik van REST-Api's met Azure Analysis Services [asynchroon vernieuwen met de rest API](analysis-services-async-refresh.md).
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
-Alle-aanroepen moeten worden geverifieerd met een geldig token voor Azure Active Directory (OAuth 2).  De voorbeelden in dit artikel wordt een SPN (Service Principal) gebruiken om te verifiëren met Azure Analysis Services. Zie voor meer informatie, [een service-principal maken met behulp van Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
+Alle aanroepen moeten worden geverifieerd met een geldig Azure Active Directory (OAuth 2)-token.  In de voor beelden in dit artikel wordt gebruikgemaakt van een service-principal (SPN) voor het verifiëren van Azure Analysis Services. Zie [een service-principal maken met behulp van Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)voor meer informatie.
 
-## <a name="design-the-logic-app"></a>De logische App ontwerpen
+## <a name="design-the-logic-app"></a>De logische app ontwerpen
 
 > [!IMPORTANT]
-> De volgende voorbeelden wordt ervan uitgegaan dat de Azure Analysis Services-firewall is uitgeschakeld.  Als de firewall is ingeschakeld, moet het openbare IP-adres van de aanvraag-initiator in de whitelist opgenomen in de Azure Analysis Services-firewall zijn. Zie voor meer informatie over logische App IP-adresbereiken per regio, [limieten en configuratie-informatie voor Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses).
+> In de volgende voor beelden wordt ervan uitgegaan dat de Azure Analysis Services firewall is uitgeschakeld.  Als de firewall is ingeschakeld, moet het open bare IP-adres van de initiator van de aanvraag worden white list in de firewall van Azure Analysis Services. Zie [limieten en configuratie-informatie voor Azure Logic apps voor](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses)meer informatie over IP-adresbereiken voor logische apps per regio.
 
 ### <a name="prerequisites"></a>Vereisten
 
-#### <a name="create-a-service-principal-spn"></a>Maken van een Service-Principal (SPN)
+#### <a name="create-a-service-principal-spn"></a>Een service-principal maken (SPN)
 
-Zie voor meer informatie over het maken van een Service-Principal, [een service-principal maken met behulp van Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
+Zie [een service-principal maken](../active-directory/develop/howto-create-service-principal-portal.md)met behulp van Azure portal voor meer informatie over het maken van een service-principal.
 
-#### <a name="configure-permissions-in-azure-analysis-services"></a>Machtigingen te configureren in Azure Analysis Services
+#### <a name="configure-permissions-in-azure-analysis-services"></a>Machtigingen configureren in Azure Analysis Services
  
-De Service-Principal die u maakt, moet machtigingen voor serverbeheerders hebben op de server. Zie voor meer informatie, [een service-principal toevoegen aan de serverbeheerdersrol](analysis-services-addservprinc-admins.md).
+De service-principal die u maakt, moet Server Administrator-machtigingen hebben op de server. Zie [een Service-Principal toevoegen aan de rol Server beheerder](analysis-services-addservprinc-admins.md)voor meer informatie.
 
-### <a name="configure-the-logic-app"></a>Configureren van de logische App
+### <a name="configure-the-logic-app"></a>De logische app configureren
 
-In dit voorbeeld worden de logische App is ontworpen om te activeren wanneer een HTTP-aanvraag wordt ontvangen. Hiermee schakelt u het gebruik van een orchestration-hulpprogramma, zoals Azure Data Factory, voor het activeren van het vernieuwen van de Azure Analysis Services-model.
+In dit voor beeld is de logische app ontworpen om te activeren wanneer een HTTP-aanvraag wordt ontvangen. Hiermee wordt het gebruik van een Orchestration-hulp programma, zoals Azure Data Factory, ingeschakeld om het Azure Analysis Services model vernieuwen te activeren.
 
-Als u een logische App hebt gemaakt:
+Nadat u een logische app hebt gemaakt:
 
-1. Kies in de ontwerpfunctie voor logische App de eerste actie als **wanneer een HTTP-aanvraag wordt ontvangen**.
+1. Kies in de ontwerp functie van de logische app de eerste actie zoals **Wanneer een HTTP-aanvraag wordt ontvangen**.
 
-   ![HTTP-ontvangen activiteit toevoegen](./media/analysis-services-async-refresh-logic-app/1.png)
+   ![HTTP-activiteit voor ontvangen toevoegen](./media/analysis-services-async-refresh-logic-app/1.png)
 
-Deze stap wordt gevuld met de URL voor HTTP POST wanneer de logische App is opgeslagen.
+Deze stap wordt gevuld met de HTTP POST-URL zodra de logische app is opgeslagen.
 
-2. Een nieuwe stap toevoegen en zoek naar de **HTTP**.  
+2. Voeg een nieuwe stap toe en zoek naar **http**.  
 
    ![HTTP-activiteit toevoegen](./media/analysis-services-async-refresh-logic-app/9.png)
 
    ![HTTP-activiteit toevoegen](./media/analysis-services-async-refresh-logic-app/10.png)
 
-3. Selecteer **HTTP** om toe te voegen met deze actie.
+3. Selecteer **http** om deze actie toe te voegen.
 
    ![HTTP-activiteit toevoegen](./media/analysis-services-async-refresh-logic-app/2.png)
 
-De HTTP-activiteit als volgt configureren:
+Configureer de HTTP-activiteit als volgt:
 
 |Eigenschap  |Value  |
 |---------|---------|
 |**Methode**     |POST         |
-|**URI**     | https://*de regio van uw server*/servers/*aas servernaam*/models/*de databasenaam van uw*/ <br /> <br /> Bijvoorbeeld: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
+|**URI**     | https://*uw server regio*/servers/*aas server name*/Models/*your data base name*/refreshes <br /> <br /> Bijvoorbeeld: https:\//westus.asazure.Windows.net/servers/MyServer/models/AdventureWorks/refreshes|
 |**Headers**     |   Content-Type, application/json <br /> <br />  ![Headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
-|**Hoofdtekst**     |   Zie voor meer informatie over de aanvraagtekst vormen, [asynchroon vernieuwen met de REST-API - POST /refreshes](analysis-services-async-refresh.md#post-refreshes). |
+|**Hoofdtekst**     |   Zie voor meer informatie over het maken van de aanvraag tekst [asynchroon vernieuwen met de rest API-post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Verificatie**     |Active Directory OAuth         |
-|**Tenant**     |Vul in uw Azure Active Directory-tenant-id         |
-|**Doelgroep**     |https://*.asazure.windows.net         |
-|**Client ID**     |Voer de ClientID van uw Service-Principal-naam         |
-|**Referentietype**     |`Secret`         |
-|**Geheim**     |Uw Service-Principal-naam van geheim invoeren         |
+|**Bouw**     |Vul uw Azure Active Directory TenantId in         |
+|**Gericht**     |https://*.asazure.windows.net         |
+|**Client ID**     |Voer uw service principal name ClientID in         |
+|**Referentie type**     |`Secret`         |
+|**Geheim**     |Voer uw service principal name Secret in         |
 
 Voorbeeld:
 
 ![Voltooide HTTP-activiteit](./media/analysis-services-async-refresh-logic-app/7.png)
 
-Test nu de logische App.  Klik in de ontwerpfunctie voor logische App op **uitvoeren**.
+Test nu de logische app.  Klik in de ontwerp functie van de logische app op **uitvoeren**.
 
-![De logische App testen](./media/analysis-services-async-refresh-logic-app/8.png)
+![De logische app testen](./media/analysis-services-async-refresh-logic-app/8.png)
 
-## <a name="consume-the-logic-app-with-azure-data-factory"></a>De logische App met Azure Data Factory gebruiken
+## <a name="consume-the-logic-app-with-azure-data-factory"></a>De logische app gebruiken met Azure Data Factory
 
-Wanneer de logische App is opgeslagen, Controleer de **wanneer een HTTP-aanvraag wordt ontvangen** activiteit en kopieer de **URL voor HTTP POST** die nu wordt gegenereerd.  Dit is de URL die kan worden gebruikt door Azure Data Factory om de asynchrone aanroep aan de logische App trigger te maken.
+Zodra de logische app is opgeslagen, controleert u de activiteit **Wanneer een HTTP-aanvraag is ontvangen** en kopieert u de **URL voor http post** die nu is gegenereerd.  Dit is de URL die kan worden gebruikt door Azure Data Factory om de asynchrone aanroep te maken om de logische app te activeren.
 
-Hier volgt een voorbeeld van Azure Data Factory webactiviteit die door deze actie worden ondersteund.
+Hier volgt een voor beeld Azure Data Factory webactiviteit die deze actie uitvoert.
 
-![Data Factory-webactiviteit](./media/analysis-services-async-refresh-logic-app/11.png)
+![Webactiviteit Data Factory](./media/analysis-services-async-refresh-logic-app/11.png)
 
-## <a name="use-a-self-contained-logic-app"></a>Een op zichzelf staand logica-App gebruiken
+## <a name="use-a-self-contained-logic-app"></a>Een op zichzelf staande logische app gebruiken
 
-Als u niet van plan bent over het gebruik van een Orchestration-hulpprogramma, zoals Data Factory voor het activeren van het vernieuwen van het model, kunt u de logische app voor het activeren van de vernieuwing op basis van een planning instellen.
+Als u geen gebruik wilt maken van een Orchestration-hulp programma zoals Data Factory om het model vernieuwen te activeren, kunt u de logische app zo instellen dat de gegevens worden vernieuwd op basis van een schema.
 
-In het bovenstaande voorbeeld verwijderen van de eerste activiteit en vervang deze door een **planning** activiteit.
+Gebruik het bovenstaande voor beeld om de eerste activiteit te verwijderen en te vervangen  door een plannings activiteit.
 
-![Activiteit planning](./media/analysis-services-async-refresh-logic-app/12.png)
+![Activiteit plannen](./media/analysis-services-async-refresh-logic-app/12.png)
 
-![Activiteit planning](./media/analysis-services-async-refresh-logic-app/13.png)
+![Activiteit plannen](./media/analysis-services-async-refresh-logic-app/13.png)
 
-Dit voorbeeld gebruiken **terugkeerpatroon**.
+In dit voor beeld wordt **terugkeer patroon**gebruikt.
 
-Nadat de activiteit is toegevoegd, het Interval en frequentie, configureren en vervolgens een nieuwe parameter en kies **deze uren**.
+Nadat de activiteit is toegevoegd, configureert u het interval en de frequentie, voegt u een nieuwe para meter toe en kiest u **deze uren**.
 
-![Activiteit planning](./media/analysis-services-async-refresh-logic-app/16.png)
+![Activiteit plannen](./media/analysis-services-async-refresh-logic-app/16.png)
 
-Selecteer de gewenste uur.
+Selecteer de gewenste uren.
 
-![Activiteit planning](./media/analysis-services-async-refresh-logic-app/15.png)
+![Activiteit plannen](./media/analysis-services-async-refresh-logic-app/15.png)
 
-Sla de logische App.
+Sla de logische app op.
 
 ## <a name="next-steps"></a>Volgende stappen
 

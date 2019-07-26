@@ -12,12 +12,12 @@ ms.date: 07/17/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3b23aa7db29390ef50a72f73fb153fef5301b92
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ddbb233bb9d0970169f040e3040b44a0b75aa1f8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304836"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477178"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Eenmalige aanmelding voor toepassingen in Azure Active Directory
 
@@ -71,9 +71,9 @@ SAML gebaseerde eenmalige aanmelding wordt ondersteund voor toepassingen die geb
 - SAML 2.0
 - Webservices-federatie
 
-Als u een SaaS-toepassing wilt configureren voor eenmalige aanmelding op basis van SAML, raadpleegt u [eenmalige aanmelding op basis van SAML configureren](configure-single-sign-on-portal.md). Daarnaast beschikken veel SaaS-toepassingen (Software as a Service) over een [toepassingsspecifieke zelf studie](../saas-apps/tutorial-list.md) die u door de configuratie voor eenmalige aanmelding op basis van SAML.
+Als u een SaaS-toepassing wilt configureren voor eenmalige aanmelding op basis van SAML, raadpleegt u [eenmalige aanmelding op basis van SAML configureren](configure-single-sign-on-non-gallery-applications.md). Daarnaast beschikken veel SaaS-toepassingen (Software as a Service) over een [toepassingsspecifieke zelf studie](../saas-apps/tutorial-list.md) die u door de configuratie voor eenmalige aanmelding op basis van SAML.
 
-Als u een toepassing voor WS-Federation wilt configureren, volgt u dezelfde richt lijnen om de toepassing te configureren voor eenmalige aanmelding op basis van SAML. Zie [op SAML gebaseerde eenmalige aanmelding configureren](configure-single-sign-on-portal.md). In de stap om de toepassing te configureren voor het gebruik van Azure AD, moet u de Azure AD-aanmeldings-URL voor het WS-Federation- `https://login.microsoftonline.com/<tenant-ID>/wsfed`eind punt vervangen.
+Als u een toepassing voor WS-Federation wilt configureren, volgt u dezelfde richt lijnen om de toepassing te configureren voor eenmalige aanmelding op basis van SAML. Zie [op SAML gebaseerde eenmalige aanmelding configureren](configure-single-sign-on-non-gallery-applications.md). In de stap om de toepassing te configureren voor het gebruik van Azure AD, moet u de Azure AD-aanmeldings-URL voor het WS-Federation- `https://login.microsoftonline.com/<tenant-ID>/wsfed`eind punt vervangen.
 
 Als u een on-premises toepassing wilt configureren voor eenmalige aanmelding op basis van SAML, raadpleegt u SSO [eenmalige aanmelding voor on-premises toepassingen met toepassings proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -100,7 +100,7 @@ Wachtwoord gebaseerde eenmalige aanmelding wordt ondersteund voor alle cloud-geb
 - Chrome op Windows 7 of hoger, en op Mac OS X of hoger
 - Firefox 26,0 in Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger
 
-Zie configureren van een cloudtoepassing voor wachtwoord gebaseerde eenmalige aanmelding [de toepassing configureren voor eenmalige aanmelding wachtwoord](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso).
+Als u een Cloud toepassing wilt configureren voor eenmalige aanmelding op basis van wacht woord, raadpleegt u [eenmalige aanmelding voor wacht woord configureren](configure-password-single-sign-on-non-gallery-applications.md).
 
 Zie configureren van een on-premises toepassing voor eenmalige aanmelding via toepassingsproxy [wachtwoord vaulting voor eenmalige aanmelding met Application Proxy](application-proxy-configure-single-sign-on-password-vaulting.md)
 
@@ -127,8 +127,7 @@ De referenties worden als beheerd in de eindgebruiker:
 - Beheerders nog kunnen steeds om in te stellen van nieuwe referenties voor de toepassing.
 
 ## <a name="linked-sign-on"></a>Gekoppelde aanmelding
-
-Gekoppelde aanmelding kan Azure AD voor eenmalige aanmelding tot een toepassing die al is geconfigureerd voor eenmalige aanmelding in een andere service. De gekoppelde toepassing kan worden weergegeven voor eindgebruikers in de Office 365-portal of Azure AD MyApps-portal. Een gebruiker kan bijvoorbeeld een toepassing die is geconfigureerd voor eenmalige aanmelding in Active Directory Federation Services 2.0 (AD FS) in de Office 365-portal starten. Extra reporting is ook beschikbaar voor de gekoppelde toepassingen die worden gestart vanuit de Office 365-portal of de Azure AD MyApps-portal.
+Gekoppelde aanmelding kan Azure AD voor eenmalige aanmelding tot een toepassing die al is geconfigureerd voor eenmalige aanmelding in een andere service. De gekoppelde toepassing kan worden weergegeven voor eindgebruikers in de Office 365-portal of Azure AD MyApps-portal. Een gebruiker kan bijvoorbeeld een toepassing die is geconfigureerd voor eenmalige aanmelding in Active Directory Federation Services 2.0 (AD FS) in de Office 365-portal starten. Extra reporting is ook beschikbaar voor de gekoppelde toepassingen die worden gestart vanuit de Office 365-portal of de Azure AD MyApps-portal. Zie [gekoppelde aanmelding configureren](configure-linked-sign-on.md)voor informatie over het configureren van een toepassing voor een gekoppelde aanmelding.
 
 ### <a name="linked-sign-on-for-application-migration"></a>Gekoppelde aanmelding voor toepassings migratie
 
@@ -189,8 +188,9 @@ Aangezien dit scenario wordt aangeboden via een partnerschap tussen Azure AD en 
 Zie [Azure Active Directory-edities](../fundamentals/active-directory-whatis.md) voor meer informatie.
 
 ## <a name="related-articles"></a>Verwante artikelen:
-
-- [Zelfstudies voor het integreren van SaaS-toepassingen met Azure Active Directory](../saas-apps/tutorial-list.md)
-- [Zelfstudie voor het configureren van eenmalige aanmelding](configure-single-sign-on-portal.md)
-- [Inleiding tot beheer van toegang tot toepassingen](what-is-access-management.md)
-- Download koppeling: [Implementatie plan voor eenmalige aanmelding](https://aka.ms/SSODeploymentPlan)
+* [Zelfstudies voor het integreren van SaaS-toepassingen met Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Eenmalige aanmelding op basis van SAML configureren](configure-single-sign-on-non-gallery-applications.md)
+* [Eenmalige aanmelding op basis van wacht woord configureren](configure-password-single-sign-on-non-gallery-applications.md)
+* [Een gekoppelde aanmelding configureren](configure-linked-sign-on.md)
+* [Inleiding tot beheer van toegang tot toepassingen](what-is-access-management.md)
+* Download koppeling: [Implementatie plan voor eenmalige aanmelding](https://aka.ms/SSODeploymentPlan).

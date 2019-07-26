@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 7/12/2019
+ms.date: 7/24/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 5a2ec72f835b720e0c760069b58ef8f092aedcb2
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: de0482f49e919d0cbb500e9ee8b27ccf8287fb99
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875837"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489571"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Release opmerkingen voor de Azure File Sync-agent
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Uw installaties van Windows Server worden getransformeerd in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als u waar ook ter wereld nodig hebt.
@@ -23,8 +23,9 @@ Dit artikel bevat de releaseopmerkingen voor de ondersteunde versies van de Azur
 ## <a name="supported-versions"></a>Ondersteunde versies
 De volgende versies worden ondersteund voor de Azure File Sync-agent:
 
-| Mijlpalen | Versienummer agent | Releasedatum | Status |
+| Mijlpalen | Versienummer agent | Uitgebracht op | Status |
 |----|----------------------|--------------|------------------|
+| Update pakket van juli 2019- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 juli 2019 | Ondersteund- [flighting](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
 | Update pakket van juli 2019- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 juli 2019 | Ondersteund- [flighting](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
 | V7-release- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 juni 2019 | Ondersteund |
 | Update pakket van juni 2019- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 juni 2019 | Ondersteund |
@@ -45,6 +46,14 @@ De volgende versies worden ondersteund voor de Azure File Sync-agent:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Updatebeleid Azure File Sync-agent
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-7200"></a>7\.2.0.0 van agent versie
+De volgende release opmerkingen zijn voor versie 7.2.0.0 van de Azure File Sync agent die is uitgebracht op 24 juli 2019. Deze opmerkingen zijn opgenomen in aanvulling op de release opmerkingen van versie 7.0.0.0.
+
+Lijst met problemen die in deze release zijn opgelost:  
+- De opslag synchronisatie agent (FileSyncSvc) loopt vast als de proxy configuratie null is.
+- Server-eind punt start BCDR (fout 0x80c80257-ECS_E_BCDR_IN_PROGRESS) als meerdere eind punten op de server dezelfde naam hebben.
+- Verbeteringen in de betrouw baarheid van Cloud lagen.
 
 ## <a name="agent-version-7100"></a>7\.1.0.0 van agent versie
 De volgende release opmerkingen zijn voor versie 7.1.0.0 van de Azure File Sync agent die is uitgebracht op 12 juli 2019. Deze opmerkingen zijn opgenomen in aanvulling op de release opmerkingen van versie 7.0.0.0.

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: f10a45c7d9d5da4d5bea535e5157d9b96164e1b0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 284c9bb1b9032d2f9caf0ce62c45ffa7cd8bf9d4
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448666"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476856"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Wat is Apache Spark in Azure HDInsight?
 
@@ -36,13 +36,13 @@ Spark-clusters in HDInsight bieden een volledig beheerde Spark-service. Dit zijn
 | REST-API’s |Apache Spark-clusters in HDInsight omvatten [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), een op REST API gebaseerde Apache Spark-taakserver om op afstand taken te verzenden en te controleren. Zie [Apache Spark REST API gebruiken voor het verzenden van externe taken naar een HDInsight Spark-cluster](apache-spark-livy-rest-interface.md).|
 | Ondersteuning voor Azure Data Lake Storage | Spark-clusters in HDInsight kunnen Azure Data Lake Storage gebruiken als de primaire opslag of als extra opslag. Zie [Overzicht van Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md) voor meer informatie over Data Lake Storage. |
 | Integratie met Azure-services |Spark-clusters in HDInsight worden geleverd met een connector voor Azure Event Hubs. Met behulp van Event Hubs kunt u ook andere streamingtoepassingen bouwen, naast [Apache Kafka](https://kafka.apache.org/), dat al beschikbaar is als onderdeel van Apache Spark. |
-| Ondersteuning voor ML Server | Ondersteuning voor ML Server in HDInsight wordt geleverd als het clustertype **ML Services**. U kunt een ML Services-cluster instellen om gedistribueerde R-berekeningen uit te voeren met de snelheden van een Spark-cluster. Zie voor meer informatie, [wat ML-Services in Azure HDInsight is](../r-server/r-server-overview.md). |
-| Integratie met IDE's van derden | HDInsight biedt verschillende IDE-invoegtoepassingen die handig zijn voor het maken en verzenden van toepassingen naar een HDInsight Spark-cluster. Raadpleeg [Azure-toolkit voor IntelliJ IDEA gebruiken](apache-spark-intellij-tool-plugin.md), [HDInsight voor VSCode gebruiken](../hdinsight-for-vscode.md) en [Azure-toolkit voor Eclipse gebruiken](apache-spark-eclipse-tool-plugin.md) voor meer informatie.|
+| Ondersteuning voor ML Server | Ondersteuning voor ML Server in HDInsight wordt geleverd als het clustertype **ML Services**. U kunt een ML Services-cluster instellen om gedistribueerde R-berekeningen uit te voeren met de snelheden van een Spark-cluster. Zie [Wat is ml-Services in azure HDInsight](../r-server/r-server-overview.md)voor meer informatie. |
+| Integratie met IDE's van derden | HDInsight biedt verschillende IDE-invoegtoepassingen die handig zijn voor het maken en verzenden van toepassingen naar een HDInsight Spark-cluster. Zie [Azure-Toolkit voor IntelliJ-idee gebruiken](apache-spark-intellij-tool-plugin.md)voor meer informatie, [gebruik Spark & Hive tools voor VSCode](../hdinsight-for-vscode.md)en [gebruik Azure-Toolkit voor eclipse](apache-spark-eclipse-tool-plugin.md).|
 | Gelijktijdige query's |Spark-clusters in HDInsight ondersteunen gelijktijdige query's. Hierdoor kunnen meerdere query's van één gebruiker of meerdere query's van verschillende gebruikers en toepassingen dezelfde clusterresources delen. |
 | Opslaan in cache in SSD's |U kunt gegevens in het geheugen of in aan de clusterknooppunten gekoppelde SSD's cachen. Cachen in het geheugen biedt de beste queryprestaties, maar kan duur zijn. Cachen op SSD's is een goed alternatief voor het verbeteren van de prestaties van query's zonder dat er een cluster hoeft te worden gemaakt dat zo groot is dat de volledige gegevensset in het geheugen past. |
 | Integratie met BI-tools |Spark-clusters in HDInsight bieden connectors voor BI-tools zoals [Power BI](https://www.powerbi.com/) voor gegevensanalyse. |
 | Vooraf geladen Anaconda-bibliotheken |Spark-clusters in HDInsight worden geleverd met Anaconda-bibliotheken die vooraf zijn geïnstalleerd. [Anaconda](https://docs.continuum.io/anaconda/) voorziet in bijna 200 bibliotheken voor machine learning, data-analyse, visualisatie, enzovoort. |
-| Schaalbaarheid | HDInsight kunt u het aantal clusterknooppunten wijzigen. Bovendien kunnen Spark-clusters zonder gegevensverlies worden verwijderd, omdat alle gegevens zijn opgeslagen in Azure Storage of Data Lake Storage. |
+| Schaalbaarheid | Met HDInsight kunt u het aantal cluster knooppunten wijzigen. Bovendien kunnen Spark-clusters zonder gegevensverlies worden verwijderd, omdat alle gegevens zijn opgeslagen in Azure Storage of Data Lake Storage. |
 | SLA |Spark-clusters in HDInsight worden geleverd met 24/7 ondersteuning en een SLA met een beschikbaarheid van 99,9%. |
 
 Apache Spark-clusters in HDInsight omvatten de volgende onderdelen die standaard beschikbaar zijn in de clusters.

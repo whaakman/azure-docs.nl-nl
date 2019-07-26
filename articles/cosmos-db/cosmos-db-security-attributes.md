@@ -1,6 +1,6 @@
 ---
-title: Beveiligingskenmerken voor Azure Cosmos DB
-description: Een controlelijst met beveiligingsinstellingen voor het evalueren van Azure Cosmos DB
+title: Beveiligings kenmerken voor Azure Cosmos DB
+description: Een controle lijst met beveiligings kenmerken voor het evalueren van Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: msmbaldwin
@@ -9,67 +9,67 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ffeb60f5476a540e3da46a82c240b0dda9aa6be2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50711f8675e1b8aca6b9f90925ea921d22020ddd
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480464"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442555"
 ---
-# <a name="security-attributes-for-azure-cosmos-db"></a>Beveiligingskenmerken voor Azure Cosmos DB
+# <a name="security-attributes-for-azure-cosmos-db"></a>Beveiligings kenmerken voor Azure Cosmos DB
 
-In dit artikel worden de algemene beveiligingskenmerken die zijn ingebouwd in Azure Cosmos DB.
+In dit artikel worden de beveiligings kenmerken gedocumenteerd die zijn ingebouwd in Azure Cosmos DB.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-## <a name="preventative"></a>Preventative
+## <a name="preventative"></a>Preventie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen |
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
-| Versleuteling-at-rest (zoals versleuteling op de server, server-side-versleuteling met de klant beheerde sleutels en andere versleutelingsfuncties) | Ja | Alle Cosmos DB-databases en de back-ups worden versleuteld standaard; Zie [versleuteling van gegevens in Azure Cosmos DB](database-encryption-at-rest.md). Versleuteling op de server met de klant beheerde sleutels wordt niet ondersteund. |
-| Versleuteling tijdens overdracht (zoals ExpressRoute-codering in Vnet-versleuteling en versleuteling van de VNet-VNet)| Ja | Alle Azure Cosmos DB-gegevens in transit versleuteld. |
-| Versleuteling sleutel verwerken (CMK, BYOK, enz.)| Nee |  |
-| Versleuteling op kolom (Azure-gegevensservices)| Ja | Alleen in de tabellen API Premium. Niet alle API's ondersteunen deze functie. Zie [Inleiding tot Azure Cosmos DB: Table-API](table-introduction.md). |
-| API-aanroepen die zijn versleuteld| Ja | Alle verbindingen met Azure Cosmos DB bieden ondersteuning voor HTTPS. Azure Cosmos DB biedt ook ondersteuning voor TLS 1.2-verbindingen, maar dit nog niet wordt afgedwongen. Als klanten lager niveau TLS op hun eindgebruikers te zorgen uitschakelen voor het verbinding maken met Cosmos DB.  |
+| Versleuteling bij rest (zoals versleuteling aan server zijde, versleuteling aan server zijde met door de klant beheerde sleutels en andere versleutelings functies) | Ja | Alle Cosmos DB data bases en back-ups worden standaard versleuteld. Zie [gegevens versleuteling in azure Cosmos DB](database-encryption-at-rest.md). Versleuteling aan de server zijde met door de klant beheerde sleutels wordt niet ondersteund. |
+| Versleuteling in transit (zoals ExpressRoute-versleuteling, in VNet-versleuteling en VNet-VNet-versleuteling)| Ja | Alle Azure Cosmos DB gegevens worden tijdens de overdracht versleuteld. |
+| Verwerking van versleutelings sleutels (CMK, BYOK, enz.)| Nee |  |
+| Versleuteling op kolom niveau (Azure Data Services)| Ja | Alleen in de Table API Premium. Niet alle Api's ondersteunen deze functie. Zie [Inleiding tot Azure Cosmos DB: Table-API](table-introduction.md). |
+| Versleutelde API-aanroepen| Ja | Alle verbindingen met Azure Cosmos DB ondersteuning voor HTTPS. Azure Cosmos DB ondersteunt ook TLS 1,2-verbindingen, maar dit is nog niet afgedwongen. Als klanten minder TLS op hun eind niveau uitschakelen, kunnen ze ervoor zorgen dat ze verbinding maken met Cosmos DB.  |
 
-## <a name="network-segmentation"></a>Segmentatie
+## <a name="network-segmentation"></a>Netwerk segmentatie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen |
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
-| Ondersteuning voor service-eindpunt| Ja |  |
-| ondersteuning voor vNET-injectie| Ja | U kunt een Azure Cosmos DB-account om toe te staan alleen toegankelijk is vanaf een specifiek subnet van een virtueel netwerk (VNet) configureren met VNet-service-eindpunt. U kunt ook VNet toegang combineren met firewall-regels.  Zie [toegang tot Azure Cosmos DB van virtuele netwerken](vnet-service-endpoint.md). |
-| Ondersteuning voor netwerkisolatie en Firewalling| Ja | Met firewallondersteuning voor de, kunt u uw Azure Cosmos-account zodat toegang alleen vanaf een goedgekeurde set IP-adressen, een bereik van IP-adressen en/of cloud services configureren. Zie [configureren IP-firewall in Azure Cosmos DB](how-to-configure-firewall.md).|
-| Ondersteuning voor geforceerde tunneling | Ja | Kan worden geconfigureerd op de client op de VNET waar de virtuele machines zich bevinden.   |
+| Ondersteuning voor service-eind punten| Ja |  |
+| Ondersteuning voor VNet-injectie| Ja | Met het VNet-service-eind punt kunt u een Azure Cosmos DB-account configureren om alleen toegang toe te staan vanuit een specifiek subnet van een virtueel netwerk (VNet). U kunt ook VNet-toegang combi neren met firewall regels.  Zie [toegang tot Azure Cosmos DB van virtuele netwerken](VNet-service-endpoint.md). |
+| Ondersteuning voor netwerk isolatie en firewalling| Ja | Met firewall ondersteuning kunt u uw Azure Cosmos-account zodanig configureren dat toegang alleen is toegestaan vanuit een goedgekeurde set van IP-adressen, een bereik van IP-adressen en/of Cloud Services. Zie [IP-Firewall configureren in azure Cosmos DB](how-to-configure-firewall.md).|
+| Ondersteuning voor geforceerde tunneling| Ja | Kan worden geconfigureerd aan de client zijde op het VNet waar de virtuele machines zich bevinden.   |
 
 ## <a name="detection"></a>Detectie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Azure monitoring ondersteuning (Log analytics, Application insights, enz.)| Ja | Alle aanvragen die worden verzonden naar Azure Cosmos DB worden geregistreerd. [Azure Monitoring](../azure-monitor/overview.md), metrische gegevens van Azure, Azure-controlelogboeken worden ondersteund.  U kunt informatie over gegevens vlak aanvragen, query-runtime-statistieken, querytekst zich, MongoDB-aanvragen. U kunt ook waarschuwingen instellen. |
+| Ondersteuning voor Azure-bewaking (log Analytics, app Insights, enz.)| Ja | Alle aanvragen die naar Azure Cosmos DB worden verzonden, worden geregistreerd. [Azure-bewaking](../azure-monitor/overview.md), metrische gegevens van Azure, Azure audit logging wordt ondersteund.  U kunt informatie vastleggen die overeenkomt met gegevens vlak aanvragen, runtime statistieken voor query's, query tekst, MongoDB aanvragen. U kunt ook waarschuwingen instellen. |
 
 ## <a name="identity-and-access-management"></a>Identiteits- en toegangsbeheer
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Verificatie| Ja | Ja op het niveau van de Database-Account; Cosmos DB gebruikt op het niveau van de gegevens vlak, brontokens en toegang tot de sleutel. |
-| Autorisatie| Ja | Ondersteund op de Azure Cosmos-account met hoofdsleutels (primaire en secundaire) en de Resource-tokens. U kunt opvragen voor lezen/schrijven of alleen-lezentoegang tot gegevens met hoofdsleutels. Resource-tokens kunnen beperkte tijd toegang tot resources, zoals documenten en containers. |
+| Authentication| Ja | Ja op het account niveau van de data base. op het niveau van het gegevensvlak Cosmos DB maakt gebruik van bron tokens en toegang tot sleutels. |
+| Authorization| Ja | Ondersteund in het Azure Cosmos-account met hoofd sleutels (primair en secundair) en bron tokens. U kunt alleen lees-en schrijf toegang krijgen tot gegevens met hoofd sleutels. Met bron tokens kunt u beperkte tijd toegang tot resources, zoals documenten en containers, toestaan. |
 
 
 ## <a name="audit-trail"></a>Audittrail
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Beheer/beheer plannen logboekregistratie en controle| Ja | Azure-activiteitenlogboek voor account niveau bewerkingen, zoals Firewalls, VNets, toegang tot sleutels en IAM. |
-| Gegevens vlak logboekregistratie en controle | Ja | Diagnostische logboekregistratie voor container niveau bewerkingen, zoals bewaking maken-container, inrichten, doorvoer, beleidsregels en CRUD-bewerkingen op documenten te indexeren. |
+| Logboek registratie en controle op het vlak van controle en beheer| Ja | Azure-activiteiten logboek voor bewerkingen op account niveau, zoals firewalls, VNets, sleutels toegang en IAM. |
+| Logboek registratie en controle van het gegevens vlak | Ja | Diagnostische gegevens voor controle van de logboek registratie voor bewerkingen op container niveau, zoals het maken van een container, het inrichten van de door Voer, het indexeren van beleid en ruwe bewerkingen op documenten. |
 
 ## <a name="configuration-management"></a>Configuratiebeheer
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Configuration management-ondersteuning (versiebeheer van de configuratie, enz.)| Nee  | | 
+| Ondersteuning voor configuratie beheer (versie van configuratie, enz.)| Nee  | | 
 
-## <a name="additional-security-attributes-for-cosmos-db"></a>Kenmerken voor extra beveiliging voor Cosmos DB
+## <a name="additional-security-attributes-for-cosmos-db"></a>Aanvullende beveiligings kenmerken voor Cosmos DB
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Cross-Origin Resource Sharing (CORS) | Ja | Zie [Cross-Origin Resource Sharing (CORS) configureren](how-to-configure-cross-origin-resource-sharing.md). |
+| Cross Origin Resource Sharing (CORS) | Ja | Zie [Configure cross-Origin Resource Sharing (CORS)](how-to-configure-cross-origin-resource-sharing.md). |

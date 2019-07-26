@@ -1,6 +1,6 @@
 ---
-title: Snelstartgids voor het toevoegen van de functie vlaggen aan ASP.NET Core | Microsoft Docs
-description: Een snelstartgids voor functie vlaggen aan ASP.NET Core-apps toe te voegen en deze beheren in Azure App-configuratie
+title: Quick start voor het toevoegen van functie vlaggen aan ASP.NET Core | Microsoft Docs
+description: Een Snelstartgids voor het toevoegen van functie vlaggen voor het ASP.NET Core van apps en het beheren ervan in Azure-app configuratie
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -14,32 +14,29 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 38b404ec10fb7b66b5e276665b0c9047d0576c15
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 41947de18ae27b41d046fd4358f0039a1b56374d
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798388"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347909"
 ---
-# <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Quickstart: Vlaggen voor functie toevoegen aan een ASP.NET Core-app
+# <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Quickstart: Functie vlaggen toevoegen aan een ASP.NET Core-app
 
-U kunt het beheer van de functie in ASP.NET Core inschakelen door verbinding te maken van uw toepassing in Azure App-configuratie. U kunt deze beheerde service kunt gebruiken voor het opslaan van alle vlaggen voor uw functie en hun status centraal beheren. In deze Quick Start laat zien hoe u App-configuratie opnemen in een ASP.NET Core web-app voor het maken van een end-to-end-implementatie van de functie voor beheer.
+In deze Snelstartgids neemt u Azure-app configuratie op in een ASP.NET Core web-app om een end-to-end-implementatie van functie beheer te maken. U kunt de app Configuration-service gebruiken om al uw functie vlaggen centraal op te slaan en hun status te bepalen. 
 
-De .NET Core functie Management-bibliotheken Breid het framework met ondersteuning van de vlag uitgebreide functies. Deze bibliotheken zijn gebaseerd op het systeem van de configuratie van .NET Core. Ze integreren naadloos met App-configuratie door de configuratieprovider voor de .NET Core.
-
-Een code-editor kunt u de stappen in deze Quick Start. [Visual Studio Code](https://code.visualstudio.com/) is een uitstekende optie beschikbaar is op Windows, macOS en Linux-platforms.
+De .NET Core-functie beheer bibliotheken breiden het Framework uit met uitgebreide ondersteuning voor functie vlaggen. Deze bibliotheken zijn gebaseerd op het .NET core-configuratie systeem. Ze kunnen naadloos worden geïntegreerd met de configuratie van de app via de .NET-kern configuratie provider.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt doen in deze Quick Start, installeert de [.NET Core SDK](https://dotnet.microsoft.com/download).
+- Azure-abonnement: [Maak er gratis een](https://azure.microsoft.com/free/)
+- [.Net core SDK](https://dotnet.microsoft.com/download).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="create-an-app-configuration-store"></a>Maken van een configuratie van de App store
+## <a name="create-an-app-configuration-store"></a>Een app-configuratie archief maken
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecteer **functie Manager** >  **+ maken** om toe te voegen van de volgende functie-vlaggen:
+6. Selecteer **feature Manager** >  **+ maken** om de volgende functie vlaggen toe te voegen:
 
     | Sleutel | Status |
     |---|---|
@@ -47,11 +44,11 @@ Als u wilt doen in deze Quick Start, installeert de [.NET Core SDK](https://dotn
 
 ## <a name="create-an-aspnet-core-web-app"></a>Een ASP.NET Core-web-app maken
 
-U gebruikt de [.NET Core-opdrachtregelinterface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) te maken van een nieuwe ASP.NET Core MVC-app-webproject. Het voordeel van het gebruik van de .NET Core-CLI in plaats van Visual Studio is dat de .NET Core-CLI beschikbaar voor de Windows, macOS en Linux-platforms is.
+U gebruikt de [.net core-opdracht regel interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) om een nieuw ASP.net core MVC-Web-app-project te maken. Het voor deel van het gebruik van de .NET Core SLI in plaats van Visual Studio is dat de .NET Core SLI beschikbaar is via de Windows-, macOS-en Linux-platformen.
 
-1. Maak een nieuwe map voor uw project. Voor deze Quick Start, geef deze de naam *TestFeatureFlags*.
+1. Maak een nieuwe map voor uw project. Geef voor deze Snelstartgids de naam *TestFeatureFlags*.
 
-1. Voer de volgende opdracht om een nieuwe ASP.NET Core MVC-app-webproject maken in de nieuwe map:
+1. Voer in de nieuwe map de volgende opdracht uit om een nieuw ASP.NET Core MVC-Web-app-project te maken:
 
    ```    
    dotnet new mvc
@@ -59,10 +56,10 @@ U gebruikt de [.NET Core-opdrachtregelinterface (CLI)](https://docs.microsoft.co
 
 ## <a name="add-secret-manager"></a>Secret Manager toevoegen
 
-Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/security/app-secrets) aan uw project. Het hulpprogramma Secret Manager slaat de gevoelige gegevens voor projecten buiten de projectstructuur van uw. Deze aanpak voorkomt dat er per ongeluk appgeheimen worden gedeeld in de broncode.
+Voeg het [hulp programma voor geheime beheer](https://docs.microsoft.com/aspnet/core/security/app-secrets) toe aan uw project. Het hulp programma voor de geheime beheerder slaat gevoelige gegevens op voor ontwikkelings werkzaamheden buiten de project structuur. Deze aanpak voorkomt dat er per ongeluk appgeheimen worden gedeeld in de broncode.
 
-1. Open de *.csproj* bestand.
-1. Voeg een `UserSecretsId` element zoals wordt weergegeven in het volgende voorbeeld en vervang de waarde door uw eigen, dit meestal een GUID is:
+1. Open het *. csproj* -bestand.
+1. Voeg een `UserSecretsId` element toe zoals wordt weer gegeven in het volgende voor beeld en vervang de waarde ervan door uw eigen waarden. Dit is meestal een GUID:
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -82,15 +79,15 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
 
 1. Sla het bestand op.
 
-## <a name="connect-to-an-app-configuration-store"></a>Verbinding maken met een configuratie van de App store
+## <a name="connect-to-an-app-configuration-store"></a>Verbinding maken met een app-configuratie archief
 
-1. Verwijzing toevoegen aan de `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet-pakket met de volgende opdracht:
+1. Voeg een verwijzing naar `Microsoft.Azure.AppConfiguration.AspNetCore` het NuGet-pakket toe door de volgende opdracht uit te voeren:
 
     ```
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
     ```
 
-1. Voer de volgende opdracht om te herstellen van pakketten voor uw project:
+1. Voer de volgende opdracht uit om de pakketten voor uw project te herstellen:
 
     ```
     dotnet restore
@@ -98,7 +95,7 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
 
 1. Voeg een geheim met de naam **ConnectionStrings:AppConfig** toe aan Secret Manager.
 
-    Dit geheim bevat de verbindingsreeks voor toegang tot de store van uw App-configuratie. Vervang de `<your_connection_string>` waarde in de volgende opdracht uit met de verbindingsreeks voor het opslaan van de App-configuratie.
+    Dit geheim bevat de connection string voor toegang tot uw app-configuratie opslag. Vervang de `<your_connection_string>` waarde in de volgende opdracht door de Connection String voor uw app-configuratie archief.
 
     Deze opdracht moet worden uitgevoerd in de map met het bestand *.csproj*.
 
@@ -106,17 +103,17 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
     dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
     ```
 
-    U Secret Manager alleen gebruiken voor de web-app lokaal testen. Wanneer u de app implementeert [Azure App Service](https://azure.microsoft.com/services/app-service), bijvoorbeeld, u een toepassing instellen met de naam **verbindingsreeksen** in App Service in plaats van met Secret Manager voor het opslaan van de verbindingsreeks.
+    U gebruikt alleen de geheime beheerder als u de web-app lokaal wilt testen. Wanneer u de app op [Azure app service](https://azure.microsoft.com/services/app-service)implementeert, gebruikt u bijvoorbeeld een toepassings instelling met de naam **verbindings reeksen** in app service in plaats van de Connection String te gebruiken.
 
-    U kunt toegang tot dit geheim met de App-configuratie-API. Een dubbele punt (:) werkt in de configuratienaam van de met de App-configuratie-API op alle ondersteunde platforms. Zie [configuratie omgeving](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
+    U kunt dit geheim openen met de API voor app-configuratie. Een dubbele punt (:) werkt in de configuratie naam met de API voor app-configuratie op alle ondersteunde platforms. Zie [configuratie per omgeving](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
 
-1. Open *Program.cs*, en voeg een verwijzing naar de configuratie van .NET Core-App-provider:
+1. Open *Program.cs*en voeg een verwijzing toe naar de .net core-app configuratie provider:
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-1. Update de `CreateWebHostBuilder` methode voor het gebruik van App-configuratie door het aanroepen van de `config.AddAzureAppConfiguration()` methode.
+1. Werk de `CreateWebHostBuilder` methode bij voor het gebruik van app- `config.AddAzureAppConfiguration()` configuratie door de methode aan te roepen.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -132,13 +129,13 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
             .UseStartup<Startup>();
     ```
 
-1. Open *Startup.cs*, en verwijzingen naar de manager van de functie .NET Core toe te voegen:
+1. Open *Startup.cs*en voeg verwijzingen toe aan .net core feature Manager:
 
     ```csharp
-    using Microsoft.FeatureManagement.AspNetCore;
+    using Microsoft.FeatureManagement;
     ```
 
-1. Update de `ConfigureServices` methode om toe te voegen functievlag ondersteuning door het aanroepen van de `services.AddFeatureManagement()` methode. Desgewenst kunt u een filter dat moet worden gebruikt met de functie vlaggen door het aanroepen van opnemen `services.AddFeatureFilter<FilterType>()`:
+1. Werk de `ConfigureServices` methode bij om ondersteuning van functie vlaggen toe te `services.AddFeatureManagement()` voegen door de methode aan te roepen. U kunt eventueel ook een filter toevoegen dat wordt gebruikt met functie vlaggen door het volgende `services.AddFeatureFilter<FilterType>()`aan te roepen:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -147,7 +144,7 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
     }
     ```
 
-1. Update de `Configure` methode om toe te voegen een middleware zodat de waarden voor de functie-vlag worden vernieuwd met een periodiek interval tijdens de ASP.NET Core web-app blijft om aanvragen te ontvangen.
+1. Werk de `Configure` methode bij om een middleware toe te voegen, zodat de waarden van de functie vlag kunnen worden vernieuwd met een terugkerend interval terwijl de ASP.net core web-app aanvragen blijft ontvangen.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -157,7 +154,7 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
     }
     ```
 
-1. Voeg een *MyFeatureFlags.cs* bestand:
+1. Een *MyFeatureFlags.cs* -bestand toevoegen:
 
     ```csharp
     namespace TestFeatureFlags
@@ -169,7 +166,7 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
     }
     ```
 
-1. Voeg *BetaController.cs* naar de *Controllers* directory:
+1. Voeg *BetaController.cs* toe aan de map *controllers* :
 
     ```csharp
     using Microsoft.AspNetCore.Mvc;
@@ -196,13 +193,13 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
     }
     ```
 
-1. Open *_ViewImports.cshtml* in de *weergaven* directory, en de functie manager tag helper toe te voegen:
+1. Open *_ViewImports. cshtml* in de map *views* en voeg de functie Manager tag helper toe:
 
     ```html
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Open *_Layout.cshtml* in de *weergaven*\\*gedeelde* directory en vervang de `<nav>` streepjescode onder `<body>`  >  `<header>` door de volgende code:
+1. Open *_Layout. cshtml* in de \\*gedeelde* `<nav>`mapviews en vervang de streepjes code `<body>` door > de volgende code: `<header>`
 
     ```html
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -231,7 +228,7 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
     </nav>
     ```
 
-1. Maak een *Bèta* map onder *weergaven* en toe te voegen *Index.cshtml* toe:
+1. Maak een *bèta* Directory onder *weer gaven* en voeg hierin *index. cshtml* toe:
 
     ```html
     @{
@@ -245,25 +242,25 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
 
 ## <a name="build-and-run-the-app-locally"></a>De app lokaal compileren en uitvoeren
 
-1. Voor het bouwen van de app met behulp van .NET Core CLI, voer de volgende opdracht in de opdrachtshell:
+1. Als u de app wilt bouwen met behulp van de .NET Core SLI, voert u de volgende opdracht uit in de opdracht shell:
 
     ```
     dotnet build
     ```
 
-1. Nadat de build is voltooid, voert u de volgende opdracht om de web-app lokaal uitvoeren:
+1. Wanneer de build is voltooid, voert u de volgende opdracht uit om de web-app lokaal uit te voeren:
 
     ```
     dotnet run
     ```
 
-1. Open een browservenster en Ga naar `https://localhost:5001`, dit is de standaard-URL voor de web-app die lokaal wordt gehost.
+1. Open een browser venster en ga naar `https://localhost:5001`. Dit is de standaard-URL voor de web-app die lokaal wordt gehost.
 
     ![Quickstart voor het lokaal starten van een app](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer **alle resources**, en selecteer de configuratie van de App store-instantie die u hebt gemaakt in de Quick Start.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer **alle resources**en selecteer de app-configuratie Store-instantie die u hebt gemaakt in de Quick Start.
 
-1. Selecteer **functie Manager**, en wijzig de status van de **Bèta** op **op**:
+1. Selecteer **functie beheer**en wijzig de status van de **bèta** sleutel **in op**:
 
     | Sleutel | Status |
     |---|---|
@@ -279,8 +276,8 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart maakt u een nieuwe App-configuratie-archief hebt gemaakt en gebruikt voor het beheren van functies in een ASP.NET Core web-app via de [functie beheerbibliotheken](https://go.microsoft.com/fwlink/?linkid=2074664).
+In deze Quick Start hebt u een nieuwe app-configuratie opgeslagen gemaakt en gebruikt om de functies in een ASP.NET Core web-app te beheren via de [beheer bibliotheken voor onderdelen](https://go.microsoft.com/fwlink/?linkid=2074664).
 
-- Meer informatie over [management functie](./concept-feature-management.md).
+- Meer informatie over [functie beheer](./concept-feature-management.md).
 - [Functie vlaggen beheren](./manage-feature-flags.md).
-- [Functie vlaggen gebruiken in een ASP.NET Core-app](./use-feature-flags-dotnet-core.md).
+- [Functie vlaggen in een ASP.net core-app gebruiken](./use-feature-flags-dotnet-core.md).

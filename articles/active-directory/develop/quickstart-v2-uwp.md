@@ -17,12 +17,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9955ea434f7a0e48f2d1f81d2a1f57cc3cd67dcb
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 0b89bd3992bd6249e0acd576fee7e1556968ad65
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277883"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334177"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Quickstart: De Microsoft Graph-API aanroepen vanuit de Universeel Windows-platformtoepasing (UWP)
 
@@ -179,3 +179,8 @@ Volg de zelfstudie voor Windows-bureaublad voor een volledige stapsgewijze handl
 
 > [!div class="nextstepaction"]
 > [UWP - Zelfstudie voor het aanroepen van Graph API](tutorial-v2-windows-uwp.md)
+
+Help ons het micro soft Identity-platform te verbeteren. Vertel ons wat u denkt door een korte enquête met twee vragen te volt ooien.
+
+> [!div class="nextstepaction"]
+> [Micro soft Identity platform-enquête](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

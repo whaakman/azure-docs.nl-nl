@@ -1,6 +1,6 @@
 ---
-title: Probleem bij het federatieve eenmalige aanmelding voor een toepassing in Azure AD-galerie configureren | Microsoft Docs
-description: Adres van een aantal veelvoorkomende problemen optreden kunnen tijdens het configureren van federatieve eenmalige aanmelding met behulp van SAML voor toepassingen die worden vermeld in de Azure AD-Toepassingsgalerie
+title: Problemen met het configureren van federatieve eenmalige aanmelding voor Azure AD Gallery-apps | Microsoft Docs
+description: Adresseer een aantal veelvoorkomende problemen die kunnen optreden bij het configureren van federatieve eenmalige aanmelding met behulp van SAML voor toepassingen die worden vermeld in de Azure AD-toepassings galerie
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,100 +15,100 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 554fb73ea7bf4f866eda3e9f3d629f871cb5e582
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f4e690b440604a312ddfa8cd320ac200c0f40cf
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65781170"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381217"
 ---
-# <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Probleem opgetreden bij het configureren van eenmalige aanmelding in voor een toepassing in Azure AD-galerie
+# <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Probleem bij het configureren van federatieve eenmalige aanmelding voor een toepassing in de Azure AD-galerie
 
-Als u een probleem ondervindt bij het configureren van een toepassing. Controleer of dat u alle stappen hebt gevolgd in de zelfstudie voor de toepassing. In de configuratie van de toepassing hebt u inlinedocumentatie over het configureren van de toepassing. U hebt ook toegang tot de [lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) voor een stapsgewijze instructies voor details.
+Als er een probleem optreedt bij het configureren van een toepassing. Controleer of u alle stappen in de zelf studie voor de toepassing hebt gevolgd. In de configuratie van de toepassing hebt u inline-documentatie over het configureren van de toepassing. U kunt ook toegang krijgen tot de [lijst met zelf studies over het integreren van SaaS-apps met Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) voor een gedetailleerde stapsgewijze uitleg.
 
-## <a name="cant-add-another-instance-of-the-application"></a>Een ander exemplaar van de toepassing toevoegen niet
+## <a name="cant-add-another-instance-of-the-application"></a>Kan geen ander exemplaar van de toepassing toevoegen
 
-Als u wilt toevoegen een tweede exemplaar van een toepassing, moet u mogelijk:
+Als u een tweede exemplaar van een toepassing wilt toevoegen, moet u het volgende kunnen doen:
 
--   Configureer een unieke id voor de tweede instantie. Kunt u zich niet dezelfde id die wordt gebruikt voor het eerste exemplaar configureren.
+-   Configureer een unieke id voor het tweede exemplaar. U kunt niet dezelfde id configureren die wordt gebruikt voor het eerste exemplaar.
 
--   Configureer een ander certificaat dan de versie die wordt gebruikt voor het eerste exemplaar.
+-   Configureer een ander certificaat dan dat voor het eerste exemplaar.
 
-Als de toepassing biedt geen ondersteuning voor een van de bovenstaande. Vervolgens kunt u zich niet aan een tweede exemplaar configureren.
+Als de toepassing geen van de bovenstaande voor keuren ondersteunt. Daarna kunt u een tweede exemplaar niet configureren.
 
-## <a name="cant-add-the-identifier-or-the-reply-url"></a>Kan de id of de antwoord-URL toevoegen
+## <a name="cant-add-the-identifier-or-the-reply-url"></a>De id of de antwoord-URL kan niet worden toegevoegd
 
-Als u niet kunt configureren voor de id of de antwoord-URL bent, controleert u of de id en antwoord-URL waarden overeenkomen met de patronen die vooraf zijn geconfigureerd voor de toepassing.
+Als u de id of de antwoord-URL niet kunt configureren, bevestigt u dat de id-en antwoord-URL-waarden overeenkomen met de patronen die vooraf zijn geconfigureerd voor de toepassing.
 
-De patronen die vooraf zijn geconfigureerd voor de toepassing weten:
+Als u wilt weten welke patronen vooraf zijn geconfigureerd voor de toepassing:
 
-1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.** Ga naar stap 7. Als u al in de blade van de configuratie van toepassing op Azure AD.
+1. Open de [**Azure Portal**](https://portal.azure.com/) en meld u aan als **globale beheerder** of **co-beheerder.** Gaat u naar stap 7. Als u zich al in de Blade toepassings configuratie op Azure AD bevindt.
 
-2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Open de **uitbrei ding Azure Active Directory** door te klikken op **alle services** boven aan het hoofd navigatie menu aan de linkerkant.
 
 3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4. Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
+4. Klik op **bedrijfs toepassingen** in het navigatie menu Azure Active Directory aan de linkerkant.
 
 5. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
    * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
 
-6. Selecteer de toepassing die u wilt configureren van eenmalige aanmelding.
+6. Selecteer de toepassing waarvoor u eenmalige aanmelding wilt configureren.
 
-7. Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
+7. Zodra de toepassing is geladen, klikt u op de **eenmalige aanmelding** in het navigatie menu aan de linkerkant van de toepassing.
 
-8. Selecteer **SAML gebaseerde aanmelding** uit de **modus** vervolgkeuzelijst.
+8. Selecteer **op SAML gebaseerde aanmelding** in de **modus** vervolg keuzelijst.
 
-9. Ga naar de **id** of **antwoord-URL** tekstvak onder de **sectie domein en URL's.**
+9. Ga naar het tekstvak **id** of **antwoord-URL** , onder de **sectie domein en url's.**
 
-10. Er zijn drie manieren om te weten de ondersteunde patronen voor de toepassing:
+10. Er zijn drie manieren om de ondersteunde patronen voor de toepassing te kennen:
 
-    * In het tekstvak, ziet u de ondersteunde patroon of patronen als tijdelijke aanduiding *voorbeeld:* <https://contoso.com>.
+    * In het tekstvak ziet u de ondersteunde patroon (en) als tijdelijke aanduiding *voor beeld:* <https://contoso.com>.
 
-    * Als het patroon wordt niet ondersteund, ziet u een rood uitroepteken wanneer u probeert in te voeren van de waarde in het tekstvak. Als u de muisaanwijzer boven het rode uitroepteken houdt, ziet u de ondersteunde patronen.
+    * Als het patroon niet wordt ondersteund, ziet u een rood uitroep teken wanneer u probeert de waarde in het tekstvak in te voeren. Als u de muis aanwijzer boven het rode uitroep teken houdt, ziet u de ondersteunde patronen.
 
-    * In de zelfstudie voor de toepassing, kunt u ook informatie over de ondersteunde patronen ophalen. Onder de **configureren Azure AD eenmalige aanmelding** sectie. Ga naar de stap voor configureren van de waarden onder de **domein en URL's** sectie.
+    * In de zelf studie voor de toepassing kunt u ook informatie over de ondersteunde patronen ophalen. Onder de sectie **eenmalige aanmelding voor Azure AD configureren** . Ga naar de stap voor het configureren van de waarden in de sectie **domein en url's** .
 
-Als de waarden komen niet met de patronen die vooraf is geconfigureerd in Azure AD overeen. U kunt:
+Als de waarden niet overeenkomen met de patronen die vooraf zijn geconfigureerd in azure AD. U kunt:
 
--   Werken met de leverancier van de toepassing om op te halen van de waarden die overeenkomen met het patroon dat vooraf is geconfigureerd in Azure AD
+-   Werk samen met de leverancier van de toepassing om waarden op te halen die overeenkomen met het patroon dat vooraf is geconfigureerd in azure AD
 
--   U kunt ook contact opnemen met Azure AD-team via <aadapprequest@microsoft.com> of een opmerking in de zelfstudie om aan te vragen van de update van de ondersteunde patronen voor de toepassing
+-   U kunt ook contact opnemen met het Azure AD <aadapprequest@microsoft.com> -team of een opmerking in de zelf studie laten staan om de update van de ondersteunde patronen voor de toepassing aan te vragen
 
-## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Waar kan ik de id van de entiteit (gebruikers-id)-indeling instellen
+## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Waar kan ik de EntityID-indeling (gebruikers-id) instellen
 
-U niet mogelijk om de id van de entiteit (gebruikers-id)-indeling die Azure AD worden verzonden naar de toepassing in de reactie na verificatie van de gebruiker te selecteren.
+U kunt de EntityID-indeling (gebruikers-id) niet selecteren die door Azure AD wordt verzonden naar de toepassing in het antwoord na de verificatie van de gebruiker.
 
-Azure AD selecteren de indeling voor het kenmerk van NameID (gebruikers-id) op basis van het geselecteerde of de indeling die is aangevraagd door de toepassing in het SAML-AuthRequest. Ga naar het artikel voor meer informatie [Single Sign-On SAML-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) onder de sectie NameIDPolicy,
+Azure AD Selecteer de indeling voor het NameID-kenmerk (gebruikers-id) op basis van de geselecteerde waarde of de indeling die door de toepassing is aangevraagd in het SAML-AuthRequest. Ga voor meer informatie naar het artikel [SAML-protocol voor eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) in de sectie NameIDPolicy,
 
-## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Kan de metagegevens van de Azure AD om uit te voeren van de configuratie met de toepassing niet vinden
+## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>De Azure AD-meta gegevens zijn niet gevonden voor het volt ooien van de configuratie met de toepassing
 
-De metagegevens van de toepassing of het certificaat downloaden van Azure AD, de volgende stappen uit:
+Voer de volgende stappen uit om de meta gegevens of het certificaat van de toepassing te downloaden uit Azure AD:
 
-1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1. Open de [**Azure Portal**](https://portal.azure.com/) en meld u aan als **globale beheerder** of **co-beheerder.**
 
-2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+2. Open de **uitbrei ding Azure Active Directory** door te klikken op **alle services** boven aan het hoofd navigatie menu aan de linkerkant.
 
 3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4. Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
+4. Klik op **bedrijfs toepassingen** in het navigatie menu Azure Active Directory aan de linkerkant.
 
 5. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
    * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
 
-6. Selecteer de toepassing die u hebt geconfigureerd eenmalige aanmelding.
+6. Selecteer de toepassing waarvoor u eenmalige aanmelding hebt geconfigureerd.
 
-7. Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
+7. Zodra de toepassing is geladen, klikt u op de **eenmalige aanmelding** in het navigatie menu aan de linkerkant van de toepassing.
 
-8. Ga naar **SAML-handtekeningcertificaat** sectie en klik vervolgens op **downloaden** waarde in de kolom. Afhankelijk van wat de toepassing configureren van eenmalige aanmelding moet, ziet u ofwel de optie voor het downloaden van de Metadata XML of het certificaat.
+8. Ga naar de sectie **SAML-handtekening certificaat** en klik vervolgens op kolom waarde **downloaden** . Afhankelijk van wat de toepassing nodig heeft om eenmalige aanmelding te configureren, ziet u de optie voor het downloaden van de meta gegevens-XML of het certificaat.
 
-Azure AD biedt geen een URL waarmee u de metagegevens ophalen. De metagegevens kan alleen worden opgehaald als een XML-bestand.
+Azure AD biedt geen URL om de meta gegevens op te halen. De meta gegevens kunnen alleen worden opgehaald als een XML-bestand.
 
-## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Weet niet hoe moet het SAML-claims verzonden naar een toepassing aanpassen
+## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Weet u niet hoe u de SAML-claims kunt aanpassen die naar een toepassing worden verzonden
 
-Zie voor meer informatie over het aanpassen van de SAML-kenmerk claims verzonden naar uw toepassing, [Claims toewijzen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) voor meer informatie.
+Zie [claim toewijzing in azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) voor meer informatie over het aanpassen van de SAML-kenmerk claims die naar uw toepassing worden verzonden.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Toepassingen beheren met Azure Active Directory](what-is-application-management.md)

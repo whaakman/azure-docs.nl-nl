@@ -1,7 +1,7 @@
 ---
-title: Zoeken naar een aangepaste weergave - Bing Custom Search
-titlesuffix: Azure Cognitive Services
-description: Hierin wordt beschreven hoe u kunt een aangepaste weergave van het web zoeken.
+title: Een aangepaste weer gave zoeken-Bing Aangepaste zoekopdrachten
+titleSuffix: Azure Cognitive Services
+description: Hierin wordt beschreven hoe u een aangepaste weer gave van het web zoekt.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,54 +10,54 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: 9c0c4fc21f6f4b23b14c8020ecd7e95c63dedcbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 814f57d4011823da80e53cce41ffcb523fc0bf1b
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388551"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405001"
 ---
-# <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Uw Bing Custom Search-instantie aanroepen vanuit de Portal
+# <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Uw Bing Aangepaste zoekopdrachten-exemplaar aanroepen vanuit de portal
 
-Nadat u uw aangepaste zoekervaring hebt geconfigureerd, kunt u deze uit testen binnen de Bing Custom Search [portal](https://customsearch.ai). 
+Nadat u uw aangepaste zoek ervaring hebt geconfigureerd, kunt u deze testen vanuit de Bing Aangepaste zoekopdrachten [Portal](https://customsearch.ai). 
 
-![een schermafbeelding van de portal van Bing aangepaste zoekopdrachten](media/portal-search-screen.png)
-## <a name="create-a-search-query"></a>Maken van een zoekquery 
+![een scherm afbeelding van de Bing Custom Search-Portal](media/portal-search-screen.png)
+## <a name="create-a-search-query"></a>Een zoek query maken 
 
-Nadat u bent aangemeld bij de Bing Custom Search [portal](https://customsearch.ai), selecteer uw exemplaar van de zoekopdracht en klikt u op de **productie** tabblad. Onder **eindpunten**, selecteert u een API-eindpunt (bijvoorbeeld Web-API). Uw abonnement bepaalt welke eindpunten worden weergegeven.
+Nadat u zich hebt aangemeld bij de Bing Aangepaste zoekopdrachten [Portal](https://customsearch.ai), selecteert u uw Zoek instantie en klikt u op het tabblad **productie** . Onder **eind punten**selecteert u een API-eind punt (bijvoorbeeld Web-API). Uw abonnement bepaalt welke eind punten worden weer gegeven.
 
-Voer de parameterwaarden voor het eindpunt voor het maken van een zoekquery. Houd er rekening mee dat de parameters weergegeven in de portal kunnen worden gewijzigd, afhankelijk van het eindpunt dat u kiest. Zie de [Custom Search-API-verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) voor meer informatie. Wijzigen van het abonnement dat maakt gebruik van uw exemplaar van de search, de sleutel van het juiste abonnement toevoegen en bijwerken van de juiste parameters voor de markt en/of taal.
+Als u een zoek query wilt maken, voert u de parameter waarden voor uw eind punt in. Houd er rekening mee dat de para meters die in de portal worden weer gegeven, kunnen veranderen, afhankelijk van het eind punt dat u kiest. Zie de [aangepaste zoekopdrachten-API referentie](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) voor meer informatie. Als u het abonnement wilt wijzigen dat door uw Zoek instantie wordt gebruikt, voegt u de juiste abonnements sleutel toe en werkt u de juiste markt-en/of taal parameters bij.
 
-Er zijn enkele belangrijke parameters hieronder:
+Hieronder vindt u enkele belang rijke para meters:
 
-
-|Parameter  |Description  |
-|---------|---------|
-|Query’s uitvoeren     | De zoekterm die moet worden gezocht. Alleen beschikbaar voor Web, installatiekopie, Video en Automatische suggesties-eindpunten |
-|Aangepaste configuratie-ID | De configuratie-ID van het geselecteerde exemplaar van de aangepaste zoekopdrachten. Dit veld is alleen-lezen. |
-|Market     | De markt die het resultaat zal zijn afkomstig uit. Alleen beschikbaar voor de eindpunten Web, installatiekopie, Video en gebruikersinterface die wordt gehost.        |
-|Abonnementssleutel | De abonnementssleutel om mee te testen. U kunt een sleutel in de vervolgkeuzelijst selecteren of een handmatig invoeren.          |
-
-Te klikken op **extra Parameters** blijkt dat de volgende parameters:  
 
 |Parameter  |Description  |
 |---------|---------|
-|Safe Search     | Een filter dat wordt gebruikt voor het filteren van webpagina's voor de inhoud voor volwassenen. Alleen beschikbaar voor de eindpunten Web, installatiekopie, Video en gebruikersinterface die wordt gehost.        |
-|Taal van de gebruikersinterface    | De taal die wordt gebruikt voor tekenreeksen voor interface. Bijvoorbeeld, als u inschakelt, afbeeldingen en video's in de gebruikersinterface die wordt gehost, de **installatiekopie** en **Video** tabbladen de opgegeven taal gebruikt.        |
-|Count     | Het aantal zoekresultaten te retourneren in de reactie. Alleen beschikbaar voor Web, afbeeldingen en Video-eindpunten.         |
-|Offset    | Het aantal zoekresultaten om over te slaan voordat het retourneren van resultaten. Alleen beschikbaar voor Web, afbeeldingen en Video-eindpunten.        |
+|Query’s uitvoeren     | De zoek term waarnaar moet worden gezocht. Alleen beschikbaar voor eind punten voor web-, afbeeldings-, video-en automatische suggesties |
+|Aangepaste configuratie-ID | De configuratie-ID van het geselecteerde exemplaar van de aangepaste zoek actie. Dit veld is alleen-lezen. |
+|Market     | De markt waarvan de resultaten afkomstig zijn. Alleen beschikbaar voor web-, afbeeldings-, video-en gehoste UI-eind punten.        |
+|Abonnementssleutel | De abonnements sleutel die moet worden getest. U kunt een sleutel selecteren in de vervolg keuzelijst of hand matig invoeren.          |
+
+Als u op **extra para meters** klikt, worden de volgende para meters zichtbaar  
+
+|Parameter  |Description  |
+|---------|---------|
+|Safe Search     | Een filter dat wordt gebruikt om webpagina's te filteren op inhoud voor volwassenen. Alleen beschikbaar voor web-, afbeeldings-, video-en gehoste UI-eind punten.        |
+|Taal van de gebruikers interface    | De taal die wordt gebruikt voor teken reeksen van de gebruikers interface. Als u bijvoorbeeld installatie kopieën en Video's in de gehoste gebruikers interface  inschakelt, wordt in de afbeeldings-en **video** tabbladen de opgegeven taal gebruikt.        |
+|Count     | Het aantal Zoek resultaten dat in het antwoord moet worden geretourneerd. Alleen beschikbaar voor web-, afbeeldings-en video-eind punten.         |
+|Offset    | Het aantal Zoek resultaten dat moet worden overgeslagen voordat resultaten worden geretourneerd. Alleen beschikbaar voor web-, afbeeldings-en video-eind punten.        |
     
-Nadat u alle vereiste opties hebt opgegeven, klikt u op **aanroepen** om de JSON-antwoord in het rechterdeelvenster weer te geven. Als u het eindpunt van de gebruikersinterface die wordt gehost selecteert, kunt u de zoekervaring testen in het onderste deelvenster.
+Nadat u alle vereiste opties hebt opgegeven, klikt u op **aanroep** om het JSON-antwoord in het rechterdeel venster weer te geven. Als u het gehoste gebruikers interface-eind punt selecteert, kunt u de zoek ervaring testen in het onderste deel venster.
 
-## <a name="change-your-bing-custom-search-subscription"></a>Uw abonnement op Bing Custom Search wijzigen
+## <a name="change-your-bing-custom-search-subscription"></a>Uw Bing Aangepaste zoekopdrachten-abonnement wijzigen
 
-U kunt het abonnement is gekoppeld aan uw Bing Custom Search-exemplaar, zonder dat er een nieuw exemplaar gemaakt. Als u wilt dat de API-aanroepen verzonden en in rekening gebracht op een nieuw abonnement, door een nieuwe Bing Custom Search-resource te maken in Azure portal. Het nieuwe abonnementssleutel gebruiken in uw API-aanvragen, samen met uw exemplaar van aangepaste configuratie-ID.
+U kunt het abonnement dat is gekoppeld aan uw Bing Aangepaste zoekopdrachten-exemplaar wijzigen zonder een nieuw exemplaar te maken. Als u wilt dat API-aanroepen worden verzonden en gefactureerd naar een nieuw abonnement, maakt u een nieuwe Bing Aangepaste zoekopdrachten resource in de Azure Portal. Gebruik de nieuwe abonnements sleutel in uw API-aanvragen, samen met de aangepaste configuratie-ID van uw exemplaar.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Aanroepen van de aangepaste weergave met C#](./call-endpoint-csharp.md)
-- [Aanroepen van de aangepaste weergave met Java](./call-endpoint-java.md)
-- [Aanroepen van de aangepaste weergave met NodeJs](./call-endpoint-nodejs.md)
-- [Aanroepen van de aangepaste weergave met Python](./call-endpoint-python.md)
+- [Uw aangepaste weer gave aanroepen metC#](./call-endpoint-csharp.md)
+- [Uw aangepaste weer gave met Java aanroepen](./call-endpoint-java.md)
+- [Uw aangepaste weer gave aanroepen met NodeJs](./call-endpoint-nodejs.md)
+- [Uw aangepaste weer gave met python aanroepen](./call-endpoint-python.md)
 
-- [Aanroepen van de aangepaste weergave met de SDK voor C#](./sdk-csharp-quick-start.md)
+- [Uw aangepaste weer gave aanroepen C# met de SDK](./sdk-csharp-quick-start.md)

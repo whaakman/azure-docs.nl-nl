@@ -1,6 +1,6 @@
 ---
-title: Het configureren van wachtwoord eenmalige aanmelding voor een applicationn buiten de galerie | Microsoft Docs
-description: Configureren van een aangepaste toepassing buiten de galerie voor beveiligd wachtwoord gebaseerde eenmalige aanmelding bij de optie niet wordt weergegeven in de Azure AD-Toepassingsgalerie
+title: Eenmalige aanmelding met een wacht woord configureren voor Azure AD-apps | Microsoft Docs
+description: Eenmalige aanmelding met een wacht woord configureren voor uw Azure AD-zakelijke toepassingen in micro soft Identity platform (Azure AD)
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -8,184 +8,91 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 07/10/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1df52e0c25ecaff451f133e3a9207fb04b11f4a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d191abafbaad123ed47f8eaae6cdd4e48478da7a
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824934"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422632"
 ---
-# <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Het configureren van wachtwoord eenmalige aanmelding voor een toepassing buiten de galerie
+# <a name="configure-password-single-sign-on"></a>Eenmalige aanmelding met een wacht woord configureren
 
-Naast de opties in de Azure AD-Toepassingsgalerie gevonden, hebt u ook de mogelijkheid om toe te voegen een **toepassing buiten de galerie** wanneer de toepassing die u wilt dat er niet wordt vermeld. Met deze mogelijkheid kunt u een toepassing die al in uw organisatie of een toepassing van derden die u mogelijk toevoegen van een leverancier die niet al deel uitmaakt van de [Azure AD-Toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Wanneer u [een galerie-app](add-gallery-app.md) of een [niet-galerij web-app](add-non-gallery-app.md) toevoegt aan uw Azure AD-toepassingen voor ondernemingen, is een van de opties voor eenmalige aanmelding op basis van een [wacht woord gebaseerd](what-is-single-sign-on.md#password-based-sso)op een eenmalige aanmelding. Deze optie is beschikbaar voor elk web met een HTML-aanmeldings pagina. Met SSO op basis van wacht woorden, ook wel wachtwoord kluizen genoemd, kunt u gebruikers toegang en-wacht woorden beheren voor webtoepassingen die geen identiteits Federatie ondersteunen. Het is ook handig voor scenario's waarbij meerdere gebruikers een enkel account moeten delen, zoals de accounts voor sociale media-apps van uw organisatie. 
 
-Als u een toepassing buiten de galerie toevoegt, kunt u configureren de methode voor eenmalige aanmelding in deze toepassing worden gebruikt door het selecteren van de **Single Sign-on** navigatie-item op een Enterprise-toepassing in de [vanAzureportal](https://portal.azure.com/).
+SSO op basis van wacht woorden is een uitstekende manier om snel toepassingen te integreren in azure AD en biedt de volgende voor delen:
 
-Een van de eenmalige aanmelding methoden beschikbaar voor u is de [wachtwoord gebaseerde Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) optie. Met de **toevoegen van een toepassing buiten de galerie** ervaring, kunt u een toepassing die Hiermee maakt u een gebruikersnaam op HTML gebaseerde integreren en wachtwoord invoeren veld, zelfs als deze zich niet in de verzameling van vooraf geïntegreerde toepassingen.
+-   **Eenmalige aanmelding inschakelen voor uw gebruikers** door gebruikers namen en wacht woorden veilig op te slaan en opnieuw af te spelen voor de toepassing die u hebt geïntegreerd met Azure AD
 
-De manier waarop die dit werkt, is door een pagina slijmen technologie die deel uitmaakt van het toegangsvenster-extensie waarmee we gebruikersnaam en wachtwoord invoervelden automatisch te detecteren, sla ze veilig op voor uw exemplaar van de specifieke toepassing. Vervolgens veilig opnieuw afspelen gebruikersnamen en wachtwoorden die velden wanneer een gebruiker bij die toepassing in het toegangsvenster toepassing navigeert.
+-   **Ondersteunings toepassingen waarvoor meerdere aanmeldings velden zijn vereist** voor toepassingen waarvoor meer dan alleen gebruikers naam en wacht woord zijn vereist om zich aan te melden
 
-Dit is een uitstekende manier om aan de slag voor het integreren van welke aard dan ook van toepassing in Azure AD is het snel en kunt u naar:
+-   **De labels aanpassen** van de invoer velden gebruikers naam en wacht woord die uw gebruikers zien op het [toegangs paneel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) van de toepassing wanneer ze hun referenties invoeren
 
--   Integreer **elke toepassing in de hele wereld** met uw Azure AD-tenant, mits ze deze de gebruikersnaam en wachtwoord invoerveld voor een HTML-code wordt weergegeven
+-   **Gebruikers** in staat stellen hun eigen gebruikers namen en wacht woorden op te geven voor bestaande toepassings accounts die ze hand matig typen in het [toegangs paneel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) van de toepassing
 
--   Schakel **eenmalige aanmelding voor uw gebruikers** door veilig op te slaan en spelen gebruikersnamen en wachtwoorden voor de toepassing die u hebt geïntegreerd met Azure AD
+-   Een **lid van de bedrijfs groep** toestaan om de gebruikers namen en wacht woorden op te geven die aan een gebruiker zijn toegewezen met behulp van de [self-service toepassings toegangs](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) functie
 
--   **Automatische detectie invoer** velden voor alle toepassingen en kunt u deze velden met behulp van de uitbreiding voor toegang tot deelvenster Browser, handmatig detecteren als automatische detectie worden niet gevonden
+-   Een **beheerder** toestaan om een gebruikers naam en wacht woord op te geven die moeten worden gebruikt door individuen of groepen bij het aanmelden bij de toepassing met behulp van de functie voor het bijwerken van referenties 
 
--   **Ondersteuning voor toepassingen waarvoor meerdere aanmeldingsvelden** voor toepassingen waarvoor meer dan alleen velden gebruikersnaam en wachtwoord aan te melden bij
+## <a name="before-you-begin"></a>Voordat u begint
 
--   **De labels aanpassen** van de gebruikersnaam en wachtwoord invoervelden uw gebruikers zien in de [Toegangsvenster](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) wanneer ze hun referenties invoeren
+Als de toepassing niet is toegevoegd aan uw Azure AD-Tenant, raadpleegt u [een galerie-app toevoegen](add-gallery-app.md) of [een niet-galerij-app toevoegen](add-non-gallery-app.md).
 
--   Toestaan dat uw **gebruikers** voor hun eigen gebruikersnamen en wachtwoorden voor de bestaande toepassingsaccounts ze typen in handmatig in op de [Toegangsvenster](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+## <a name="open-the-app-and-select-password-single-sign-on"></a>Open de app en selecteer eenmalige aanmelding met wacht woord
 
--   Toestaan dat een **lid van de groep business** om op te geven van de gebruikersnamen en wachtwoorden toewijzen aan een gebruiker met behulp van de [Self-Service toegang tot toepassingen](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) functie
+1. Meld u bij [Azure Portal](https://portal.azure.com) aan als beheerder van de cloudtoepassing of als toepassingsbeheerder voor uw Azure Active Directory-tenant.
 
--   Toestaan dat een **beheerder** om op te geven van de gebruikersnamen en wachtwoorden toewijzen aan een gebruiker met behulp van de referenties voor Update-functie wanneer een gebruiker toewijzen aan een toepassing
+2. Ga naar **Azure Active Directory** > **bedrijfs toepassingen**. Een wille keurig voor beeld van de toepassingen in uw Azure AD-Tenant wordt weer gegeven. 
 
--   Toestaan dat een **beheerder** om op te geven de gedeelde gebruikersnaam of het wachtwoord dat wordt gebruikt door een groep personen met de referenties van de Update als functie [een groep toewijzen aan een toepassing](#assign-an-application-to-a-group-directly)
+3. Selecteer in het menu **toepassings type** **alle toepassingen**en selecteer vervolgens **Toep assen**.
 
-De volgende sectie wordt beschreven hoe u kunt inschakelen [wachtwoord gebaseerde Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) voor elke toepassing die u toevoegt met behulp van de **toevoegen van een toepassing buiten de galerie** optreden.
+4. Voer de naam van de toepassing in het zoekvak in en selecteer vervolgens de toepassing in de resultaten.
 
-## <a name="overview-of-steps-required"></a>Overzicht van stappen die nodig zijn
+5. Selecteer onder de sectie **beheren** de optie **eenmalige aanmelding**. 
 
-Een toepassing uit de Azure AD-galerie die u wilt configureren:
+6. Selecteer **op wacht woord gebaseerd**.
 
--   [Een toepassing buiten de galerie toevoegen](#add-a-non-gallery-application)
+7. Voer de URL in van de webgebaseerde aanmeldings pagina van de toepassing. Deze teken reeks moet de pagina zijn die het invoergegevens veld van de gebruikers naam bevat.
 
--   [De toepassing configureren voor eenmalige aanmelding wachtwoord](#configure-the-application-for-password-single-sign-on)
+   ![Eenmalige aanmelding op basis van wachtwoord](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
--   De toepassing toewijzen aan een gebruiker of een groep
+8. Selecteer **Opslaan**. Azure AD probeert de aanmeldings pagina te parseren voor een gebruikersnaam invoer en een wachtwoord invoer. Als de poging slaagt, bent u klaar. 
+ 
+> [!NOTE]
+> De volgende stap is het [toewijzen van gebruikers of groepen aan de toepassing](methods-for-assigning-users-and-groups.md). Nadat u gebruikers en groepen hebt toegewezen, kunt u referenties opgeven die namens een gebruiker moeten worden gebruikt wanneer ze zich aanmelden bij de toepassing. Selecteer **gebruikers en groepen**, schakel het selectie vakje voor de rij van de gebruiker of groep in en klik vervolgens op **referenties bijwerken**. Voer vervolgens de gebruikers naam en het wacht woord in die namens de gebruiker of groep moeten worden gebruikt. Anders wordt gebruikers gevraagd de referenties zelf bij het starten in te voeren.
+ 
 
-    -   [Een gebruiker toewijzen aan een toepassing rechtstreeks](#assign-a-user-to-an-application-directly)
+## <a name="manual-configuration"></a>Handmatige configuratie
 
-    -   [Een toepassing toewijzen aan een groep rechtstreeks](#assign-an-application-to-a-group-directly)
+Als het parseren van de Azure AD-poging mislukt, kunt u hand matig aanmelden configureren.
 
-## <a name="add-a-non-gallery-application"></a>Een toepassing buiten de galerie toevoegen
+1. Selecteer onder  **\<toepassings naam > configuratie**de **optie \<toepassings naam > wacht woord instellingen voor eenmalige aanmelding configureren** om de **aanmeldings** pagina te openen. 
 
-Als u wilt een toepassing hebt toegevoegd vanuit de Azure AD-galerie, de volgende stappen uit:
+2. Selecteer **aanmeldings velden hand matig detecteren**. Aanvullende instructies voor het beschrijven van de hand matige detectie van aanmeldings velden worden weer gegeven.
 
-1.  Open de [Azure-portal](https://portal.azure.com) en meld u aan als een **hoofdbeheerder** of **Co-beheerder**
+   ![Hand matige configuratie van op wacht woord gebaseerde eenmalige aanmelding](./media/configure-password-single-sign-on/password-configure-sign-on.png)
+3. Selecteer **aanmeldings velden voor vastleggen**. De pagina vastleg status wordt geopend op een nieuw tabblad, waarin wordt weer gegeven **dat het vastleggen van meta gegevens op het bericht wordt uitgevoerd**.
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+4. Als het vak uitbrei ding van het **toegangs paneel vereist** wordt weer gegeven op een nieuw tabblad, selecteert u **nu installeren** om de extensie browser extensies voor **beveiligde aanmelding van mijn apps** te installeren. (Voor de browser extensie is micro soft Edge, Chrome of Firefox vereist.) Vervolgens installeert, start en activeert u de extensie en vernieuwt u de pagina vastleg status.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+   De browser uitbreiding opent vervolgens een ander tabblad met de ingevoerde URL.
+5. Ga op het tabblad met de ingevoerde URL naar het aanmeldings proces. Vul de velden gebruikers naam en wacht woord in en probeer u aan te melden. (U hoeft het juiste wacht woord niet op te geven.)
 
-4.  Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
+   U wordt gevraagd om de vastgelegde aanmeldings velden op te slaan.
+6. Selecteer **OK**. De browser uitbreiding werkt de pagina vastleg status bij met de **meta gegevens van het bericht voor de toepassing**. Het tabblad browser wordt gesloten.
 
-5.  Klik op de **toevoegen** knop in de rechterbovenhoek op het **bedrijfstoepassingen** deelvenster.
+7. Selecteer op de pagina Azure AD **-aanmelding configureren** de optie **OK, ik kan me aanmelden bij de app**.
 
-6.  Klik op **niet in de galerij toepassing**.
+8. Selecteer **OK**.
 
-7.  Voer de naam van uw toepassing in de **naam** tekstvak. Selecteer **toevoegen.**
+Nadat u de aanmeldings pagina hebt vastgelegd, kunt u gebruikers en groepen toewijzen en kunt u referentie beleidsregels instellen, net als gewone [wacht woord-SSO-toepassingen](what-is-single-sign-on.md).
 
-Na een korte periode, kunt u zich aan het deelvenster van de configuratie van de toepassing zien.
-
-## <a name="configure-the-application-for-password-single-sign-on"></a>De toepassing configureren voor eenmalige aanmelding wachtwoord
-
-Voor het configureren van eenmalige aanmelding voor een toepassing, de volgende stappen uit:
-
-1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
-
-2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
-
-3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
-
-4. Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
-
-5. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
-
-   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
-
-6. Selecteer de toepassing die u wilt configureren van eenmalige aanmelding.
-
-7. Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
-
-8. Selecteer de modus **wachtwoord gebaseerde aanmelding.**
-
-9. Voer de **aanmeldings-URL**. Dit is de URL waar gebruikers hun gebruikersnaam en wachtwoord aanmelden bij invoeren. Zorg ervoor dat de aanmelding-velden worden weergegeven op de URL.
-
-10. Gebruikers toewijzen aan de toepassing.
-
-11. Bovendien kunt u ook referenties opgeven namens de gebruiker door de rijen van de gebruikers selecteren en te klikken op **updatereferenties** en de gebruikersnaam en het wachtwoord namens de gebruikers in te voeren. Anders wordt gebruikers gevraagd om in te voeren van de referenties zich bij het starten.
-
-
-## <a name="assign-a-user-to-an-application-directly"></a>Een gebruiker toewijzen aan een toepassing rechtstreeks
-
-Als u wilt toewijzen een of meer gebruikers rechtstreeks aan een toepassing, de volgende stappen uit:
-
-1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
-
-2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
-
-3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
-
-4. Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
-
-5. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
-
-   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
-
-6. Selecteer de toepassing die u wilt toewijzen van een gebruiker in de lijst.
-
-7. Nadat de toepassing wordt geladen, klikt u op **gebruikers en groepen** in het navigatiemenu aan de van de toepassing.
-
-8. Om te openen de **toevoegen toewijzing** deelvenster, klikt u op de **toevoegen** knop boven de **gebruikers en groepen** lijst.
-
-9. Klik op de **gebruikers en groepen** selector vanaf de **toevoegen toewijzing** deelvenster.
-
-10. Typ in het **volledige naam** of **e-mailadres** van de gebruiker die u geïnteresseerd bent in toewijzen in de **zoeken op naam of e-mailadres** zoekvak.
-
-11. Beweeg de muisaanwijzer over de **gebruiker** in de lijst om weer te geven een **selectievakje**. Klik op het selectievakje naast de profielfoto van de gebruiker of het logo om toe te voegen van de gebruiker naar de **geselecteerde** lijst.
-
-12. **Optioneel:** Als u wilt **toevoegen van meer dan één gebruiker**, type in een andere **volledige naam** of **e-mailadres** in de **zoeken op naam of e-mailadres** het zoekvak en klik op het selectievakje voor deze gebruiker toevoegen aan de **geselecteerde** lijst.
-
-13. Wanneer u klaar bent met gebruikers te selecteren, klikt u op de **Selecteer** knop aan de lijst met gebruikers en groepen die moeten worden toegewezen aan de toepassing wilt toevoegen.
-
-14. **Optioneel:** klikt u op de **rol selecteren** selector in de **toevoegen toewijzing** deelvenster te selecteren van een rol toewijzen aan de gebruikers die u hebt geselecteerd.
-
-15. Klik op de **toewijzen** knop om de toepassing aan de geselecteerde gebruikers te wijzen.
-
-## <a name="assign-an-application-to-a-group-directly"></a>Een toepassing toewijzen aan een groep rechtstreeks
-
-Als u wilt toewijzen een of meer groepen rechtstreeks aan een toepassing, de volgende stappen uit:
-
-1. Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
-
-2. Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
-
-3. Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
-
-4. Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
-
-5. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
-
-   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
-
-6. Selecteer de toepassing die u wilt toewijzen van een gebruiker in de lijst.
-
-7. Nadat de toepassing wordt geladen, klikt u op **gebruikers en groepen** in het navigatiemenu aan de van de toepassing.
-
-8. Om te openen de **toevoegen toewijzing** deelvenster, klikt u op de **toevoegen** knop boven de **gebruikers en groepen** lijst.
-
-9. Klik op de **gebruikers en groepen** selector vanaf de **toevoegen toewijzing** deelvenster.
-
-10. Typ in het **volledige groepsnaam** van de groep die u geïnteresseerd bent in toewijzen in de **zoeken op naam of e-mailadres** zoekvak.
-
-11. Beweeg de muisaanwijzer over de **groep** in de lijst om weer te geven een **selectievakje**. Klik op het selectievakje naast de profielfoto van de groep of het logo om toe te voegen van de gebruiker naar de **geselecteerde** lijst.
-
-12. **Optioneel:** Als u wilt **toevoegen van meer dan één groep**, type in een andere **volledige groepsnaam** in de **zoeken op naam of e-mailadres** zoekvak en klik op het selectievakje in als u wilt toevoegen van deze groep aan de **geselecteerde** lijst.
-
-13. Wanneer u klaar bent met groepen te selecteren, klikt u op de **Selecteer** knop aan de lijst met gebruikers en groepen die moeten worden toegewezen aan de toepassing wilt toevoegen.
-
-14. **Optioneel:** klikt u op de **rol selecteren** selector in de **toevoegen toewijzing** deelvenster te selecteren van een rol toewijzen aan de groepen die u hebt geselecteerd.
-
-15. Klik op de **toewijzen** om toe te wijzen van de toepassing aan de geselecteerde groepen.
-
-Na een korte periode, de gebruikers die u hebt geselecteerd mogelijk om deze toepassingen in het toegangsvenster te starten.
+> [!NOTE]
+> U kunt een tegel logo voor de toepassing uploaden met behulp van de knop **logo uploaden** op het tabblad **configureren** voor de toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Geef single sign-on bij uw apps met Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)
+
+- [Gebruikers of groepen toewijzen aan de toepassing](methods-for-assigning-users-and-groups.md)
+- [Automatisch inrichten van gebruikers accounts configureren](configure-automatic-user-provisioning-portal.md)

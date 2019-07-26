@@ -1,7 +1,7 @@
 ---
-title: Delen van uw aangepaste zoekopdrachten - Bing Custom Search
-titlesuffix: Azure Cognitive Services
-description: Beschrijft hoe u voor het delen van een exemplaar voor aangepast zoeken.
+title: Uw aangepaste zoek opdracht delen-Bing Aangepaste zoekopdrachten
+titleSuffix: Azure Cognitive Services
+description: Hierin wordt beschreven hoe u een aangepast Zoek exemplaar deelt.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,30 +10,30 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: dc4ab9237929df3610d4dd53786bb98903fa5593
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d016fbed07fa31ac92ac804d6b4d63692834b42c
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61067355"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404967"
 ---
-# <a name="share-your-custom-search-instance"></a>Uw aangepaste zoekinstantie delen
+# <a name="share-your-custom-search-instance"></a>Uw aangepaste zoek exemplaar delen
 
-U kunt het gezamenlijk bewerken en testen van uw exemplaar eenvoudig toestaan door het te delen met leden van uw team. U kunt uw exemplaar delen met iedereen met hun e-mailadres. Voor het delen van een exemplaar:
+U kunt het gezamenlijk bewerken en testen van uw exemplaar eenvoudig toestaan door het te delen met leden van uw team. U kunt uw exemplaar delen met iedereen die alleen hun e-mail adres gebruikt. Een exemplaar delen:
 
-- Aanmelden bij [aangepast zoeken](https://customsearch.ai)
-- Selecteer een exemplaar voor aangepast zoeken voor
-- Klik op het Instellingenpictogram (wordt weergegeven als een tandwiel). 
-- Onder **delen met uw exemplaar**, voer het e-mailadres van de persoon die uw exemplaar met delen en klikt u op **delen**. 
+- Aanmelden bij [aangepaste zoek opdracht](https://customsearch.ai)
+- Een aangepast Zoek exemplaar selecteren
+- Klik op het instellingen pictogram (wordt weer gegeven als tand wiel). 
+- Onder **uw exemplaar delen**voert u het e-mail adres in van de persoon met wie u uw exemplaar wilt delen en klikt u op **delen**. 
 
-Na het toevoegen van het e-mailadres, wordt deze toegevoegd aan de **exemplaar dat wordt gedeeld met** lijst. Het proces herhalen voor elke persoon die u wilt delen met uw-exemplaar. 
+Nadat u het e-mail adres hebt toegevoegd, wordt het toegevoegd aan het exemplaar dat wordt **gedeeld met** de lijst. Herhaal dit proces voor elke persoon met wie u uw exemplaar wilt delen. 
 
-Als u wilt iemands e-mailadres toevoegen aan de lijst, is het niet nodig zijn om een Custom Search-account hebben. Ze moet zich registreren voor Custom Search voordat ze echter configuratiewijzigingen aanbrengen. Nadat u een exemplaar met iemand deelt, zien ze deze in de lijst van exemplaren voor aangepast zoeken. Slechts één persoon kunt een exemplaar op een moment wijzigen. Als u probeert te wijzigen van een exemplaar dat iemand anders wordt bewerkt, wordt een waarschuwing weergegeven. Een exemplaar kan met maximaal 10 gebruikers worden gedeeld.
+Als u een e-mail bericht wilt toevoegen aan de lijst, hoeft u geen aangepast Zoek account te hebben. Ze moeten zich registreren voor aangepaste zoek opdrachten voordat ze configuratie wijzigingen aanbrengen. Nadat u een exemplaar met iemand hebt gedeeld, worden deze in de lijst met aangepaste zoek instanties weer geven. Er kan slechts één persoon tegelijk een exemplaar wijzigen. Als u een exemplaar probeert te wijzigen dat iemand anders bewerkt, wordt er een waarschuwing weer gegeven. Een exemplaar kan worden gedeeld met Maxi maal 10 gebruikers.
 
-## <a name="stop-sharing"></a>Stoppen met delen
+## <a name="stop-sharing"></a>Delen beëindigen
 
-Als u wilt stoppen met delen van een exemplaar met iemand, gebruikt u het pictogram verwijderen hun e-mailadres verwijderen uit de lijst. Hiermee verwijdert u ook het exemplaar uit de lijst met instanties.
+Als u wilt stoppen met het delen van een exemplaar met iemand, gebruikt u het pictogram verwijderen om hun e-mail adres te verwijderen uit de lijst. Hiermee wordt ook het exemplaar verwijderd uit de lijst met exemplaren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Configureren van uw aangepaste automatische suggesties-ervaring](define-custom-suggestions.md)
+- [Uw aangepaste automatische suggesties configureren](define-custom-suggestions.md)

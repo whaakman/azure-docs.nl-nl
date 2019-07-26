@@ -1,6 +1,6 @@
 ---
-title: Verwerken en extraheren tekst uit afbeeldingen in cognitief zoeken - Azure Search
-description: Verwerken en extraheren tekst en andere informatie uit afbeeldingen in cognitive zoeken in pijplijnen in Azure Search.
+title: Tekst uit afbeeldingen verwerken en extra heren in cognitieve zoek opdracht-Azure Search
+description: Verwerken en extra heren tekst en andere informatie uit afbeeldingen in cognitieve Zoek pijplijnen in Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,42 +11,42 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8bea47467d141869b1a668668bc57451a882a54b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 589f8c8f11138b4fb5c3c3096229e28c633efb0d
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448454"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423006"
 ---
-#  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hoe worden verwerkt en extraheer informatie uit afbeeldingen in scenario's met cognitief zoeken
+#  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Informatie over het verwerken en extra heren van afbeeldingen in cognitieve Zoek scenario's
 
-Cognitieve zoekopdrachten heeft verschillende mogelijkheden voor het werken met afbeeldingen en afbeeldingsbestanden. Tijdens de documenten kraken, kunt u de *imageAction* parameter om tekst te extraheren van foto's of afbeeldingen met alfanumerieke tekst, zoals het woord "STOP" in een teken stoppen. Andere scenario's omvatten genereren van een tekstweergave van een afbeelding, zoals 'dandelion' voor een foto van een dandelion of de kleur "yellow". U kunt ook metagegevens over de installatiekopie, zoals de grootte ervan te extraheren.
+Cognitieve Zoek opdrachten hebben verschillende mogelijkheden voor het werken met afbeeldingen en afbeeldings bestanden. Tijdens het kraken van documenten kunt u de para meter *imageAction* gebruiken om tekst te extra heren uit Foto's of afbeeldingen met alfanumerieke tekst, zoals het woord ' Stop ' in een stop teken. Andere scenario's zijn onder andere het genereren van een tekst weergave van een afbeelding, zoals ' Dandelion ' voor een foto van een Dandelion of de kleur geel. U kunt ook meta gegevens over de afbeelding extra heren, zoals de grootte.
 
-In dit artikel bevat informatie over afbeeldingsverwerking in meer detail en biedt richtlijnen voor het werken met afbeeldingen in een pijplijn cognitief zoeken.
+In dit artikel vindt u meer informatie over de verwerking van afbeeldingen en richt lijnen voor het werken met afbeeldingen in een cognitieve Zoek pijplijn.
 
 <a name="get-normalized-images"></a>
 
-## <a name="get-normalized-images"></a>Genormaliseerde afbeeldingen ophalen
+## <a name="get-normalized-images"></a>Genormaliseerde installatie kopieën ophalen
 
-Als onderdeel van documenten kraken, moet u er een nieuwe set parameters voor de indexeerfunctie configuratie voor de verwerking van afbeeldingen of afbeeldingen die zijn ingesloten in bestanden zijn. Deze parameters worden gebruikt voor het normaliseren van installatiekopieën voor verdere downstream-verwerkingen. Installatiekopieën normaliseren zorgt ervoor dat ze meer uniform. Grote afbeeldingen worden uitgebreid tot een maximale hoogte en breedte zodat deze bedrijfsgegevens. Voor installatiekopieën van metagegevens op richting bieden wordt rotatie afbeelding aangepast voor verticale laden. Aanpassingen van de metagegevens worden vastgelegd in een complex type gemaakt voor elke afbeelding. 
+Als onderdeel van het kraken van documenten zijn er een nieuwe set indexer configuratie parameters voor het verwerken van afbeeldings bestanden of installatie kopieën die in bestanden zijn Inge sloten. Deze para meters worden gebruikt om installatie kopieën te normaliseren voor verdere downstream-verwerking. Door afbeeldingen te normaliseren, worden ze gelijkmatiger. Grote afbeeldingen worden aangepast aan de maximale hoogte en breedte om ze te kunnen gebruiken. Voor afbeeldingen die meta gegevens bevatten, wordt afbeeldings rotatie aangepast voor verticaal laden. Meta gegevens aanpassingen worden vastgelegd in een complex type dat voor elke afbeelding is gemaakt. 
 
-U uitschakelen normalisering van de installatiekopie niet. Genormaliseerde installatiekopieën verwacht dat de vaardigheden die installatiekopieën herhalen. Het inschakelen van normalisering van de installatiekopie op een indexeerfunctie is vereist dat een set vaardigheden worden gekoppeld aan de indexeerfunctie.
+U kunt het normaliseren van afbeeldingen niet uitschakelen. Vaardig heden die over installatie kopieën lopen, verwachten genormaliseerde installatie kopieën. Voor het inschakelen van installatie kopie normalisatie voor een Indexeer functie moet een vakkennisset aan die Indexeer functie worden gekoppeld.
 
-| Configuratieparameter | Description |
+| Configuratie parameter | Description |
 |--------------------|-------------|
-| imageAction   | Ingesteld op 'none' als er is geen actie moet worden uitgevoerd wanneer de ingesloten afbeeldingen of afbeeldingen zijn opgetreden. <br/>Ingesteld op 'generateNormalizedImages' voor het genereren van een matrix van genormaliseerde installatiekopieën als onderdeel van het document kraken.<br/>Ingesteld op 'generateNormalizedImagePerPage' voor het genereren van een matrix van genormaliseerde afbeeldingen waar elke pagina voor PDF-bestanden in uw gegevensbron en wordt gerenderd in een afbeelding van de uitvoer.  De functionaliteit is hetzelfde als 'generateNormalizedImages' voor niet-PDF-bestandstypen.<br/>Een optie die geen 'none', de afbeeldingen weergegeven de *normalized_images* veld. <br/>De standaardwaarde is 'none'. Deze configuratie is alleen relevant zijn voor blob-gegevensbronnen, als 'dataToExtract' is ingesteld op "contentAndMetadata." <br/>Maximaal 1000 afbeeldingen worden geëxtraheerd uit een bepaald document. Als er meer dan 1000 afbeeldingen in een document, wordt de eerste 1000 worden geëxtraheerd en wordt er een waarschuwing gegenereerd. |
-|  normalizedImageMaxWidth | De maximale breedte (in pixels) voor genormaliseerde installatiekopieën die worden gegenereerd. De standaardwaarde is 2000.|
-|  normalizedImageMaxHeight | De maximale hoogte (in pixels) voor genormaliseerde installatiekopieën die worden gegenereerd. De standaardwaarde is 2000.|
+| imageAction   | Stel deze waarde in op geen als er geen actie moet worden ondernomen wanneer Inge sloten afbeeldingen of afbeeldings bestanden worden aangetroffen. <br/>Ingesteld op ' generateNormalizedImages ' om een matrix van genormaliseerde installatie kopieën te genereren als onderdeel van het kraken van documenten.<br/>Ingesteld op ' generateNormalizedImagePerPage ' om een matrix van genormaliseerde installatie kopieën te genereren, waarbij voor Pdf's in uw gegevens bron elke pagina wordt weer gegeven met één uitvoer afbeelding.  De functionaliteit is hetzelfde als ' generateNormalizedImages ' voor niet-PDF-bestands typen.<br/>Voor elke optie die niet ' geen ' is, worden de afbeeldingen weer gegeven in het veld *normalized_images* . <br/>De standaard waarde is geen. Deze configuratie is alleen relevant voor BLOB-gegevens bronnen, wanneer ' dataToExtract ' is ingesteld op ' contentAndMetadata '. <br/>Er worden Maxi maal 1000 installatie kopieën geëxtraheerd uit een bepaald document. Als er meer dan 1000 installatie kopieën in een document zijn, wordt de eerste 1000 geëxtraheerd en wordt er een waarschuwing gegenereerd. |
+|  normalizedImageMaxWidth | De maximum breedte (in pixels) voor genormaliseerde afbeeldingen die worden gegenereerd. De standaard waarde is 2000.|
+|  normalizedImageMaxHeight | De maximum hoogte (in pixels) voor genormaliseerde afbeeldingen die worden gegenereerd. De standaard waarde is 2000.|
 
 > [!NOTE]
-> Als u de *imageAction* eigenschap iets anders dan 'none', u niet mogelijk om in te stellen de *parsingMode* eigenschap in op iets anders dan 'standaard'.  U mag een van deze twee eigenschappen alleen ingesteld op een niet-standaard-waarde in de configuratie van de indexeerfunctie.
+> Als u de eigenschap *imageAction* op een andere waarde dan ' geen ' instelt, kunt u de eigenschap *parsingMode* niet instellen op een andere waarde dan default.  U kunt slechts een van deze twee eigenschappen instellen op een niet-standaard waarde in de configuratie van de Indexeer functie.
 
-Stel de **parsingMode** parameter `json` (indexeren om elke blob als één document) of `jsonArray` (als uw blobs JSON-matrices bevatten en moet u elk element van een matrix moet worden behandeld als een afzonderlijke document).
+Stel de  para meter parsingMode `json` in op (om elke BLOB als één document te indexeren `jsonArray` ) of (als uw blobs JSON-matrices bevatten en u wilt dat elk element van een matrix als een afzonderlijk document wordt behandeld).
 
-De standaardwaarde van 2000 pixels voor de installatiekopieën van genormaliseerde maximale breedte en hoogte is gebaseerd op de maximale grootte wordt ondersteund door de [OCR-kwalificatie](cognitive-search-skill-ocr.md) en de [analysis vaardigheid image](cognitive-search-skill-image-analysis.md). Als u de maximale limieten verhoogt, kan op de grotere afbeeldingen verwerken mislukken.
+De standaard waarde van 2000 pixels voor de genormaliseerde afbeeldingen maximale breedte en hoogte is gebaseerd op de maximale grootte die wordt ondersteund door de [OCR-vaardigheid](cognitive-search-skill-ocr.md) en de vaardigheid van de [afbeeldings analyse](cognitive-search-skill-image-analysis.md). Als u de maximum limiet verhoogt, kan de verwerking mislukken voor de grotere installatie kopieën.
 
 
-U geeft de imageAction in uw [definitie van indexeerfunctie](https://docs.microsoft.com/rest/api/searchservice/create-indexer) als volgt:
+U geeft de imageAction op in de definitie van de [Indexeer functie](https://docs.microsoft.com/rest/api/searchservice/create-indexer) als volgt:
 
 ```json
 {
@@ -62,19 +62,19 @@ U geeft de imageAction in uw [definitie van indexeerfunctie](https://docs.micros
 }
 ```
 
-Wanneer de *imageAction* is ingesteld op een waarde andere vervolgens 'none', de nieuwe *normalized_images* veld bevat een matrix van afbeeldingen. Elke installatiekopie is een complex type met de volgende leden:
+Wanneer de *imageAction* is ingesteld op een andere waarde dan ' geen ', bevat het nieuwe *normalized_images* -veld een matrix met installatie kopieën. Elke afbeelding is een complex type met de volgende leden:
 
-| Lid van de installatiekopie       | Description                             |
+| Onderdeel van installatie kopie       | Description                             |
 |--------------------|-----------------------------------------|
-| data               | Met base64 gecodeerde tekenreeks van de genormaliseerde afbeelding in JPEG-indeling.   |
-| Breedte              | Breedte van de installatiekopie van het genormaliseerde in pixels. |
-| Hoogte             | De hoogte van de installatiekopie van het genormaliseerde in pixels. |
-| originalWidth      | De oorspronkelijke breedte van de afbeelding voordat normalisering. |
-| originalHeight      | De oorspronkelijke hoogte van de afbeelding voordat normalisering. |
-| rotationFromOriginal |  Linksom draaien in graden die heeft plaatsgevonden voor het maken van de genormaliseerde installatiekopie. Een waarde tussen 0 graden en 360 graden. Deze stap leest de metagegevens van de installatiekopie die wordt gegenereerd door een camera of de scanner. Meestal is dit een veelvoud van 90 graden. |
-| contentOffset |De offset teken in het veld inhoud waar de installatiekopie is geëxtraheerd uit. Dit veld is alleen van toepassing voor bestanden met ingesloten afbeeldingen. |
+| data               | BASE64-gecodeerde teken reeks van de genormaliseerde afbeelding in JPEG-indeling.   |
+| Breedte              | Breedte van de genormaliseerde afbeelding in pixels. |
+| hoogte             | De hoogte van de genormaliseerde afbeelding in pixels. |
+| originalWidth      | De oorspronkelijke breedte van de afbeelding vóór normalisatie. |
+| originalHeight      | De oorspronkelijke hoogte van de afbeelding vóór normalisatie. |
+| rotationFromOriginal |  Rotatie linksom in graden die is opgetreden tijdens het maken van de genormaliseerde afbeelding. Een waarde tussen 0 en 360 graden. Met deze stap worden de meta gegevens van de installatie kopie die wordt gegenereerd door een camera of scanner, gelezen. Doorgaans een veelvoud van 90 graden. |
+| contentOffset |De teken verschuiving binnen het inhouds veld waaruit de afbeelding is geëxtraheerd. Dit veld is alleen van toepassing op bestanden met Inge sloten installatie kopieën. |
 
- Voorbeeld van een waarde van *normalized_images*:
+ Voorbeeld waarde van *normalized_images*:
 ```json
 [
   {
@@ -89,33 +89,31 @@ Wanneer de *imageAction* is ingesteld op een waarde andere vervolgens 'none', de
 ]
 ```
 
-## <a name="image-related-skills"></a>Installatiekopieën gerelateerde vaardigheden
+## <a name="image-related-skills"></a>Image-gerelateerde vaardig heden
 
-Er zijn twee ingebouwde cognitieve vaardigheden die installatiekopieën als invoer: [OCR](cognitive-search-skill-ocr.md) en [Image Analysis](cognitive-search-skill-image-analysis.md). 
+Er zijn twee ingebouwde cognitieve vaardig heden die afbeeldingen als invoer maken: [OCR](cognitive-search-skill-ocr.md) en [afbeeldings analyse](cognitive-search-skill-image-analysis.md). 
 
-Deze vaardigheden werken op dit moment alleen met de installatiekopieën die zijn gegenereerd op basis van de stap voor het kraken van document. Hierdoor de enige ondersteunde invoer is `"/document/normalized_images"`.
+Momenteel werken deze vaardig heden alleen met installatie kopieën die zijn gegenereerd op basis van de stap voor het kraken van het document. Als zodanig is de enige invoer die wordt `"/document/normalized_images"`ondersteund.
 
-### <a name="image-analysis-skill"></a>Afbeelding Analysis-kwalificatie
+### <a name="image-analysis-skill"></a>Vaardigheid van afbeeldings analyse
 
-De [analyse van de afbeelding vaardigheid](cognitive-search-skill-image-analysis.md) extraheert van een grote verscheidenheid aan visuele kenmerken op basis van de inhoud van de installatiekopie. U kunt bijvoorbeeld een bijschrift genereren van een afbeelding, codes genereren of beroemdheden en oriëntatiepunten herkennen.
+De [Kwalificatie analyse van installatie kopieën](cognitive-search-skill-image-analysis.md) extraheert een uitgebreide set visuele functies op basis van de inhoud van de installatie kopie. U kunt bijvoorbeeld een bijschrift genereren op basis van een afbeelding, tags genereren of beroemdheden en bezienswaardigheden identificeren.
 
-### <a name="ocr-skill"></a>OCR-kwalificatie
+### <a name="ocr-skill"></a>OCR-vaardigheid
 
-De [OCR-kwalificatie](cognitive-search-skill-ocr.md) haalt tekst op uit bestanden zoals jpg-bestanden, PNG en bitmaps. Deze tekst kunt ophalen en lay outinformatie. De lay outinformatie biedt selectiekader vakken voor elk van de tekenreeksen die zijn geïdentificeerd.
+De [OCR-vaardigheid](cognitive-search-skill-ocr.md) extraheert tekst uit afbeeldings bestanden zoals jpgs, PNGs en bitmaps. Het kan tekst ophalen en indelings informatie. De lay-outinformatie voorziet in omsluitende vakken voor elk van de geïdentificeerde teken reeksen.
 
-De kwalificatie OCR kunt u de algoritme te gebruiken voor het detecteren van tekst in uw installatiekopie te selecteren. Op dit moment ondersteunt deze twee algoritmen, een voor gedrukte tekst en andere voor handgeschreven tekst.
+## <a name="embedded-image-scenario"></a>Scenario voor Inge sloten afbeelding
 
-## <a name="embedded-image-scenario"></a>Ingesloten afbeelding scenario
+Een veelvoorkomend scenario bestaat uit het maken van een enkele teken reeks met alle bestands inhoud, tekst-en afbeeldings oorsprong, door de volgende stappen uit te voeren:  
 
-Een veelvoorkomend scenario is het maken van één tekenreeks alle bestandsinhoud, tekst- en image-origin-tekst, die door de volgende stappen uit:  
+1. [Normalized_images extra heren](#get-normalized-images)
+1. De OCR-vaardigheid uitvoeren `"/document/normalized_images"` met als invoer
+1. De tekst weergave van deze afbeeldingen samen voegen met de onbewerkte tekst uit het bestand. U kunt de [tekst](cognitive-search-skill-textmerger.md) samenvoegings vaardigheid gebruiken om beide tekst segmenten samen te voegen tot één grote teken reeks.
 
-1. [Normalized_images ophalen](#get-normalized-images)
-1. Uitvoeren de OCR-vaardigheden met `"/document/normalized_images"` als invoer
-1. De tekstweergave van deze installatiekopieën worden samengevoegd met de onbewerkte tekst uit het bestand hebt uitgepakt. U kunt de [tekst samenvoegen](cognitive-search-skill-textmerger.md) vaardigheid beide tekstsegmenten consolideren in één grote tekenreeks.
+In het volgende voor beeld wordt een *merged_text* -veld gemaakt met daarin de tekstuele inhoud van uw document. Het bevat ook de OCRed-tekst van elk van de Inge sloten afbeeldingen. 
 
-De vaardigheden van het volgende voorbeeld maakt een *merged_text* veld met de tekstinhoud van het document. Dit omvat ook de tekst OCRed van elk van de ingesloten afbeeldingen. 
-
-#### <a name="request-body-syntax"></a>Syntaxis van de aanvraag hoofdtekst
+#### <a name="request-body-syntax"></a>Syntaxis van aanvraag tekst
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -166,15 +164,15 @@ De vaardigheden van het volgende voorbeeld maakt een *merged_text* veld met de t
 }
 ```
 
-Nu dat u een veld merged_text hebt, kan u deze toewijzen als een doorzoekbaar veld in de definitie van de indexeerfunctie. Alle van de inhoud van uw bestanden, met inbegrip van de tekst van de installatiekopieën worden doorzocht.
+Nu u een merged_text-veld hebt, kunt u dit als Zoek bare veld in uw indexerings definitie toewijzen. Alle inhoud van uw bestanden, met inbegrip van de tekst van de afbeeldingen, kan doorzoekbaar zijn.
 
-## <a name="visualize-bounding-boxes-of-extracted-text"></a>Visualiseer omsluitende kaders van geëxtraheerde tekst
+## <a name="visualize-bounding-boxes-of-extracted-text"></a>Begrenzings vakken van geëxtraheerde tekst visualiseren
 
-Een ander gebruikelijk scenario is informatie over de opmaak van de search resultaten te visualiseren. Bijvoorbeeld, als u wilt markeren waarin een stuk tekst is gevonden in een afbeelding als onderdeel van uw zoekresultaten.
+Een ander algemeen scenario is het visualiseren van informatie over de indeling van zoek resultaten. U kunt bijvoorbeeld aangeven waar een stukje tekst is gevonden in een afbeelding als onderdeel van de zoek resultaten.
 
-Omdat de OCR-stap wordt uitgevoerd op de genormaliseerde afbeeldingen, zijn de lay-out-coördinaten in de ruimte genormaliseerde installatiekopie. Bij het weergeven van de installatiekopie van het genormaliseerde, de aanwezigheid van coördinaten is meestal geen probleem, maar in sommige gevallen wilt u mogelijk de oorspronkelijke afbeelding weergeven. In dit geval wordt elk van de coördinaat punten in de lay-out converteren naar de oorspronkelijke installatiekopie van het coördinatensysteem. 
+Omdat de OCR-stap op de genormaliseerde installatie kopieën wordt uitgevoerd, bevinden de lay-outcoördinaten zich in de genormaliseerde afbeeldings ruimte. Bij het weer geven van de genormaliseerde afbeelding is de aanwezigheid van coördinaten doorgaans geen probleem, maar in sommige gevallen wilt u mogelijk de oorspronkelijke afbeelding weer geven. In dit geval moet u elke coördinaat punt in de lay-out converteren naar het oorspronkelijke afbeeldings coördinaten systeem. 
 
-Als u wilt transformeren genormaliseerde coördinaten naar de oorspronkelijke coördinatenruimte, kunt u als een hulpprogramma, de volgende algoritme gebruiken:
+Als helper moet u het volgende algoritme gebruiken als u genormaliseerde coördinaten wilt transformeren naar de oorspronkelijke coördinaten ruimte:
 
 ```csharp
         /// <summary>
@@ -218,9 +216,9 @@ Als u wilt transformeren genormaliseerde coördinaten naar de oorspronkelijke co
 ```
 
 ## <a name="see-also"></a>Zie ook
-+ [Indexeerfunctie (REST) maken](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [Afbeelding vaardigheid analyseren](cognitive-search-skill-image-analysis.md)
-+ [OCR-kwalificatie](cognitive-search-skill-ocr.md)
-+ [Tekst samenvoegen vaardigheid](cognitive-search-skill-textmerger.md)
-+ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
-+ [Verrijkt velden toewijzen](cognitive-search-output-field-mapping.md)
++ [Indexeer functie maken (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Afbeeldings vaardigheid analyseren](cognitive-search-skill-image-analysis.md)
++ [OCR-vaardigheid](cognitive-search-skill-ocr.md)
++ [Tekst samenvoegings vaardigheid](cognitive-search-skill-textmerger.md)
++ [Een vaardig heden definiëren](cognitive-search-defining-skillset.md)
++ [Verrijkte velden toewijzen](cognitive-search-output-field-mapping.md)

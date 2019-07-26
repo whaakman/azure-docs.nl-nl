@@ -17,12 +17,12 @@ ms.author: brandwe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99fb7fad3e36ecee62bee404268525d4319b4f48
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: bfb136529c606cafa235a525fcbe6e03b1d583d0
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324387"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335592"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Quickstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een iOS-app
 
@@ -256,3 +256,8 @@ Probeer de iOS-zelf studie voor een volledige stapsgewijze hand leiding voor het
 > [iOS-zelfstudie voor Graph API-aanroepen](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Help ons het micro soft Identity-platform te verbeteren. Vertel ons wat u denkt door een korte enquête met twee vragen te volt ooien.
+
+> [!div class="nextstepaction"]
+> [Micro soft Identity platform-enquête](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

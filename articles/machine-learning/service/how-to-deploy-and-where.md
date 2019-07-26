@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 796118999041b2bef2d51657901e9e399578e97c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6b9ebb2f7ef46fd2900d036f178201863ecbc8d4
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327037"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358819"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -140,7 +140,7 @@ In het onderstaande voor beeld wordt een pad geretourneerd naar één bestand `s
 
 ```python
 model_path = Model.get_model_path('sklearn_mnist')
-``` 
+```
 
 #### <a name="optional-automatic-swagger-schema-generation"></a>Beschrijving Automatische Swagger-schema's genereren
 
@@ -190,6 +190,7 @@ from azureml.core.model import Model
 from inference_schema.schema_decorators import input_schema, output_schema
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 
+
 def init():
     global model
     # note here "sklearn_regression_model.pkl" is the name of the model registered under
@@ -198,8 +199,10 @@ def init():
     # deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
-input_sample = np.array([[10,9,8,7,6,5,4,3,2,1]])
+
+input_sample = np.array([[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]])
 output_sample = np.array([3726.995])
+
 
 @input_schema('data', NumpyParameterType(input_sample))
 @output_schema(NumpyParameterType(output_sample))
@@ -230,19 +233,27 @@ from inference_schema.schema_decorators import input_schema, output_schema
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 from inference_schema.parameter_types.pandas_parameter_type import PandasParameterType
 
+
 def init():
     global model
-    model_path = Model.get_model_path('model_name')   # replace model_name with your actual model name, if needed
+    # replace model_name with your actual model name, if needed
+    model_path = Model.get_model_path('model_name')
     # deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
-input_sample = pd.DataFrame(data=[{
-              "input_name_1": 5.1,         # This is a decimal type sample. Use the data type that reflects this column in your data
-              "input_name_2": "value2",    # This is a string type sample. Use the data type that reflects this column in your data
-              "input_name_3": 3            # This is a integer type sample. Use the data type that reflects this column in your data
-            }])
 
-output_sample = np.array([0])              # This is a integer type sample. Use the data type that reflects the expected result
+input_sample = pd.DataFrame(data=[{
+    # This is a decimal type sample. Use the data type that reflects this column in your data
+    "input_name_1": 5.1,
+    # This is a string type sample. Use the data type that reflects this column in your data
+    "input_name_2": "value2",
+    # This is a integer type sample. Use the data type that reflects this column in your data
+    "input_name_3": 3
+}])
+
+# This is a integer type sample. Use the data type that reflects the expected result
+output_sample = np.array([0])
+
 
 @input_schema('data', PandasParameterType(input_sample))
 @output_schema(NumpyParameterType(output_sample))
@@ -268,7 +279,7 @@ Zie de volgende voor beelden voor meer voorbeeld scripts:
 De configuratie voor afnemen beschrijft hoe u het model configureert om voor spellingen te maken. In het volgende voor beeld ziet u hoe u een configuratie voor het afwijzen van een interferentie maakt. Deze configuratie specificeert de runtime, het vermeldings script en (optioneel) het Conda-omgevings bestand:
 
 ```python
-inference_config = InferenceConfig(runtime= "python",
+inference_config = InferenceConfig(runtime="python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
 ```
@@ -279,32 +290,9 @@ Zie [een model implementeren met behulp van een aangepaste docker-installatie ko
 
 ### <a name="cli-example-of-inferenceconfig"></a>CLI-voor beeld van InferenceConfig
 
-Het volgende JSON-document is een voor beeld van een configuratie voor het afgebruiken van een ingrijpen voor gebruik met de machine learning CLI:
+[!INCLUDE [inferenceconfig](../../../includes/machine-learning-service-inference-config.md)]
 
-```JSON
-{
-   "entryScript": "x/y/score.py",
-   "runtime": "python",
-   "condaFile": "env/myenv.yml",
-   "sourceDirectory":"C:/abc",
-}
-```
-
-De volgende entiteiten zijn geldig in dit bestand:
-
-* __entryScript__: Het pad naar het lokale bestand dat de code bevat die moet worden uitgevoerd voor de installatie kopie.
-* __runtime__: Welke runtime moet worden gebruikt voor de installatie kopie. De huidige ondersteunde Runtimes zijn ' Spark-py ' en ' python '.
-* __condaFile__ (optioneel): Het pad naar het lokale bestand met een Conda-omgevings definitie die moet worden gebruikt voor de installatie kopie.
-* __extraDockerFileSteps__ (optioneel): Pad naar lokaal bestand met extra docker-stappen die moeten worden uitgevoerd bij het instellen van de installatie kopie.
-* __Source Directory__ (optioneel): Pad naar mappen met alle bestanden om de installatie kopie te maken.
-* __enableGpu__ (optioneel): Hiermee wordt aangegeven of GPU-ondersteuning in de installatie kopie moet worden ingeschakeld. De GPU-installatie kopie moet worden gebruikt voor Microsoft Azure Services, zoals Azure Container Instances, Azure Machine Learning compute, Azure Virtual Machines en de Azure Kubernetes-service. De standaard waarde is False.
-* __baseImage__ (optioneel): Een aangepaste installatie kopie die moet worden gebruikt als basis installatie kopie. Als er geen basis installatie kopie wordt opgegeven, wordt de basis installatie kopie gebruikt op basis van de opgegeven runtime parameter.
-* __baseImageRegistry__ (optioneel): Het REGI ster van de installatie kopie met de basis installatie kopie.
-* __cudaVersion__ (optioneel): De versie van CUDA die moet worden geïnstalleerd voor installatie kopieën waarvoor GPU-ondersteuning is vereist. De GPU-installatie kopie moet worden gebruikt voor Microsoft Azure Services, zoals Azure Container Instances, Azure Machine Learning compute, Azure Virtual Machines en de Azure Kubernetes-service. Ondersteunde versies zijn 9,0, 9,1 en 10,0. Als ' enable_gpu ' is ingesteld, wordt de standaard waarde van ' 9,1 ' gebruikt.
-
-Deze entiteiten worden toegewezen aan de para meters voor de klasse [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) .
-
-Thee volgende opdracht ziet u hoe u een model implementeert met behulp van de CLI:
+De volgende opdracht laat zien hoe u een model implementeert met behulp van de CLI:
 
 ```azurecli-interactive
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
@@ -312,7 +300,6 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 In dit voor beeld bevat de configuratie de volgende items:
 
-* Een map die assets bevat die nodig zijn om te deactiveren
 * Dat dit model python vereist
 * Het [invoer script](#script), dat wordt gebruikt voor het afhandelen van webaanvragen die worden verzonden naar de geïmplementeerde service
 * Het Conda-bestand met een beschrijving van de Python-pakketten die nodig zijn om aan te doen
@@ -366,21 +353,7 @@ Als u lokaal wilt implementeren, moet docker op uw lokale computer zijn **geïns
   az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
   ```
 
-    De vermeldingen in de `deploymentconfig.json` document structuur met de para meters voor [LocalWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). De volgende tabel beschrijft de toewijzing tussen de entiteiten in het JSON-document en de para meters voor de-methode:
-
-    | JSON-entiteit | Methode parameter | Description |
-    | ----- | ----- | ----- |
-    | `computeType` | N.v.t. | Het rekendoel. Voor Local moet de waarde zijn `local`. |
-    | `port` | `port` | De lokale poort waarop het HTTP-eind punt van de service wordt weer gegeven. |
-
-    De volgende JSON is een voorbeeld implementatie configuratie voor gebruik met de CLI:
-
-    ```json
-    {
-        "computeType": "local",
-        "port": 32267
-    }
-    ```
+    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-local-deploy-config.md)]
 
 ### <a id="aci"></a>Azure Container Instances (DEVTEST)
 
@@ -407,38 +380,7 @@ Zie het artikel [quota's en regionale Beschik baarheid voor Azure container inst
     az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
     ```
 
-    De vermeldingen in de `deploymentconfig.json` document structuur met de para meters voor [AciWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). De volgende tabel beschrijft de toewijzing tussen de entiteiten in het JSON-document en de para meters voor de-methode:
-
-    | JSON-entiteit | Methode parameter | Description |
-    | ----- | ----- | ----- |
-    | `computeType` | N.v.t. | Het rekendoel. Voor ACI moet de waarde zijn `ACI`. |
-    | `containerResourceRequirements` | N.v.t. | Bevat configuratie-elementen voor de CPU en het geheugen dat voor de container is toegewezen. |
-    | &emsp;&emsp;`cpu` | `cpu_cores` | Het aantal CPU-kernen dat moet worden toegewezen voor deze webservice. Standaard`0.1` |
-    | &emsp;&emsp;`memoryInGB` | `memory_gb` | De hoeveelheid geheugen (in GB) die voor deze webservice moet worden toegewezen. Prijs`0.5` |
-    | `location` | `location` | De Azure-regio voor het implementeren van deze webservice voor. Als niet wordt opgegeven, wordt de werkruimte locatie gebruikt. Meer informatie over beschik bare regio's vindt u hier: [ACI-regio's](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
-    | `authEnabled` | `auth_enabled` | Hiermee wordt aangegeven of verificatie voor deze webservice moet worden ingeschakeld. De standaard waarde is False |
-    | `sslEnabled` | `ssl_enabled` | Hiermee wordt aangegeven of SSL moet worden ingeschakeld voor deze webservice. De standaard waarde is False. |
-    | `appInsightsEnabled` | `enable_app_insights` | Hiermee wordt aangegeven of AppInsights moet worden ingeschakeld voor deze webservice. De standaard waarde is False |
-    | `sslCertificate` | `ssl_cert_pem_file` | Het certificaat bestand dat nodig is als SSL is ingeschakeld |
-    | `sslKey` | `ssl_key_pem_file` | Het sleutel bestand dat nodig is als SSL is ingeschakeld |
-    | `cname` | `ssl_cname` | De CNAME voor als SSL is ingeschakeld |
-    | `dnsNameLabel` | `dns_name_label` | Het DNS-naam label voor het Score-eind punt. Als er geen uniek DNS-naam label wordt opgegeven, wordt het Score-eind punt gegenereerd. |
-
-    De volgende JSON is een voorbeeld implementatie configuratie voor gebruik met de CLI:
-
-    ```json
-    {
-        "computeType": "aci",
-        "containerResourceRequirements":
-        {
-            "cpu": 0.5,
-            "memoryInGB": 1.0
-        },
-        "authEnabled": true,
-        "sslEnabled": false,
-        "appInsightsEnabled": false
-    }
-    ```
+    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aci-deploy-config.md)]
 
 + **VS code gebruiken**
 
@@ -476,65 +418,7 @@ Als er al een AKS-cluster is gekoppeld, kunt u het implementeren. Als u nog geen
   az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
 
-    De vermeldingen in de `deploymentconfig.json` document structuur met de para meters voor [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). De volgende tabel beschrijft de toewijzing tussen de entiteiten in het JSON-document en de para meters voor de-methode:
-
-    | JSON-entiteit | Methode parameter | Description |
-    | ----- | ----- | ----- |
-    | `computeType` | N.v.t. | Het rekendoel. Voor AKS moet de waarde zijn `aks`. |
-    | `autoScaler` | N.v.t. | Bevat configuratie-elementen voor automatisch schalen. Zie de tabel met automatische schalen. |
-    | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Hiermee wordt aangegeven of automatisch schalen moet worden ingeschakeld voor de webservice. If `numReplicas`  =  ,anders`False`. `0` `True` |
-    | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Het minimum aantal containers dat moet worden gebruikt bij het automatisch schalen van deze webservice. Standaard, `1`. |
-    | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Het maximum aantal containers dat moet worden gebruikt bij het automatisch schalen van deze webservice. Standaard, `10`. |
-    | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Hoe vaak de automatische schaalr probeert deze webservice te schalen. Standaard, `1`. |
-    | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Het doel gebruik (in procenten 100) dat de automatische schaalr moet proberen te onderhouden voor deze webservice. Standaard, `70`. |
-    | `dataCollection` | N.v.t. | Bevat configuratie-elementen voor het verzamelen van gegevens. |
-    | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Hiermee wordt aangegeven of het verzamelen van model gegevens moet worden ingeschakeld voor de webservice. Standaard, `False`. |
-    | `authEnabled` | `auth_enabled` | Hiermee wordt aangegeven of verificatie voor de webservice moet worden ingeschakeld. Standaard, `True`. |
-    | `containerResourceRequirements` | N.v.t. | Bevat configuratie-elementen voor de CPU en het geheugen dat voor de container is toegewezen. |
-    | &emsp;&emsp;`cpu` | `cpu_cores` | Het aantal CPU-kernen dat moet worden toegewezen voor deze webservice. Standaard`0.1` |
-    | &emsp;&emsp;`memoryInGB` | `memory_gb` | De hoeveelheid geheugen (in GB) die voor deze webservice moet worden toegewezen. Prijs`0.5` |
-    | `appInsightsEnabled` | `enable_app_insights` | Hiermee wordt aangegeven of Application Insights logboek registratie moet worden ingeschakeld voor de webservice. Standaard, `False`. |
-    | `scoringTimeoutMs` | `scoring_timeout_ms` | Een time-out voor het afdwingen van het bepalen van aanroepen naar de webservice. Standaard, `60000`. |
-    | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Het maximum aantal gelijktijdige aanvragen per knoop punt voor deze webservice. Standaard, `1`. |
-    | `maxQueueWaitMs` | `max_request_wait_time` | De maximale tijd dat een aanvraag in de wachtrij van thee (in milliseconden) blijft voordat een 503-fout wordt geretourneerd. Standaard, `500`. |
-    | `numReplicas` | `num_replicas` | Het aantal containers dat moet worden toegewezen voor deze webservice. Er is geen standaardwaarde. Als deze para meter niet is ingesteld, wordt automatisch schalen standaard ingeschakeld. |
-    | `keys` | N.v.t. | Bevat configuratie-elementen voor sleutels. |
-    | &emsp;&emsp;`primaryKey` | `primary_key` | Een primaire verificatie sleutel die moet worden gebruikt voor deze webservice |
-    | &emsp;&emsp;`secondaryKey` | `secondary_key` | Een secundaire verificatie sleutel die moet worden gebruikt voor deze webservice |
-    | `gpuCores` | `gpu_cores` | Het aantal GPU-kernen dat moet worden toegewezen voor deze webservice. De standaard waarde is 1. |
-    | `livenessProbeRequirements` | N.v.t. | Bevat configuratie-elementen voor vereisten voor de test op de liveiteit. |
-    | &emsp;&emsp;`periodSeconds` | `period_seconds` | Hoe vaak (in seconden) de duur van de test bewerking moet worden uitgevoerd. De standaard waarde is 10 seconden. De minimum waarde is 1. |
-    | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Aantal seconden nadat de container is gestart voordat de tests van de live-test worden geïnitieerd. De standaard waarde is 310 |
-    | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Aantal seconden waarna een time-out optreedt voor de duur van de online test. De standaard waarde is 2 seconden. De minimum waarde is 1 |
-    | &emsp;&emsp;`successThreshold` | `success_threshold` | De minimale opeenvolgende successen voor de test op de eerste keer worden als geslaagd beschouwd als ze zijn mislukt. De standaard waarde is 1. De minimum waarde is 1. |
-    | &emsp;&emsp;`failureThreshold` | `failure_threshold` | Wanneer een pod wordt gestart en de test op de productie tijd mislukt, probeert Kubernetes failureThreshold tijden te proberen voordat deze wordt weer geven. De standaard waarde is 3. De minimum waarde is 1. |
-    | `namespace` | `namespace` | De Kubernetes-naam ruimte waarin de webservice is geïmplementeerd. Maxi maal 63 kleine letters (' a-z ', ' 0 '-' 9 ') en afbreek streepjes ('-') tekens. De eerste en laatste tekens kunnen geen afbreek streepjes zijn. |
-
-    De volgende JSON is een voorbeeld implementatie configuratie voor gebruik met de CLI:
-
-    ```json
-    {
-        "computeType": "aks",
-        "autoScaler":
-        {
-            "autoscaleEnabled": true,
-            "minReplicas": 1,
-            "maxReplicas": 3,
-            "refreshPeriodInSeconds": 1,
-            "targetUtilization": 70
-        },
-        "dataCollection":
-        {
-            "storageEnabled": true
-        },
-        "authEnabled": true,
-        "containerResourceRequirements":
-        {
-            "cpu": 0.5,
-            "memoryInGB": 1.0
-        }
-    }
-    ```
+    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aks-deploy-config.md)]
 
 + **VS code gebruiken**
 
@@ -566,12 +450,12 @@ prov_config = AksCompute.provisioning_configuration()
 
 aks_name = 'myaks'
 # Create the cluster
-aks_target = ComputeTarget.create(workspace = ws,
-                                    name = aks_name,
-                                    provisioning_configuration = prov_config)
+aks_target = ComputeTarget.create(workspace=ws,
+                                  name=aks_name,
+                                  provisioning_configuration=prov_config)
 
 # Wait for the create process to complete
-aks_target.wait_for_completion(show_output = True)
+aks_target.wait_for_completion(show_output=True)
 ```
 
 Raadpleeg de volgende artikelen voor meer informatie over het maken van een AKS-cluster buiten de Azure Machine Learning SDK:
@@ -609,8 +493,8 @@ cluster_name = 'mycluster'
 # attach_config = AksCompute.attach_configuration(resource_group = resource_group,
 #                                         cluster_name = cluster_name,
 #                                         cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
-attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-                                         cluster_name = cluster_name)
+attach_config = AksCompute.attach_configuration(resource_group=resource_group,
+                                                cluster_name=cluster_name)
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 ```
 
@@ -629,19 +513,20 @@ Hier volgt een voor beeld van het aanroepen van uw service in Python:
 import requests
 import json
 
-headers = {'Content-Type':'application/json'}
+headers = {'Content-Type': 'application/json'}
 
 if service.auth_enabled:
     headers['Authorization'] = 'Bearer '+service.get_keys()[0]
 
 print(headers)
-    
+
 test_sample = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10], 
-    [10,9,8,7,6,5,4,3,2,1]
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ]})
 
-response = requests.post(service.scoring_uri, data=test_sample, headers=headers)
+response = requests.post(
+    service.scoring_uri, data=test_sample, headers=headers)
 print(response.status_code)
 print(response.elapsed)
 print(response.json())
@@ -668,18 +553,18 @@ from azureml.core.webservice import Webservice
 from azureml.core.model import Model
 
 # register new model
-new_model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
-                       model_name = "sklearn_mnist",
-                       tags = {"key": "0.1"},
-                       description = "test",
-                       workspace = ws)
+new_model = Model.register(model_path="outputs/sklearn_mnist_model.pkl",
+                           model_name="sklearn_mnist",
+                           tags={"key": "0.1"},
+                           description="test",
+                           workspace=ws)
 
 service_name = 'myservice'
 # Retrieve existing service
-service = Webservice(name = service_name, workspace = ws)
+service = Webservice(name=service_name, workspace=ws)
 
 # Update to new model(s)
-service.update(models = [new_model])
+service.update(models=[new_model])
 print(service.state)
 print(service.get_logs())
 ```

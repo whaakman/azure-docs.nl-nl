@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b8780ae0c24ca2b037211f7cb977f0cacee0f9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3ca7e7f282d63160cd1f729fba00f6d7d7704270
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325379"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334130"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Quickstart: Gebruikers aanmelden en een toegangs token verkrijgen van een Java script-toepassing met één pagina
 
@@ -275,3 +275,8 @@ Als u wilt zoeken in de MSAL-opslag plaats op documentatie, veelgestelde vragen,
 
 > [!div class="nextstepaction"]
 > [MSAL.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+
+Help ons het micro soft Identity-platform te verbeteren. Vertel ons wat u denkt door een korte enquête met twee vragen te volt ooien.
+
+> [!div class="nextstepaction"]
+> [Micro soft Identity platform-enquête](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

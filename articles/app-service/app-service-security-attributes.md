@@ -1,6 +1,6 @@
 ---
-title: Beveiligingskenmerken voor Azure App Service
-description: Een controlelijst met beveiligingsinstellingen voor het evalueren van Azure App Service
+title: Beveiligings kenmerken voor Azure App Service
+description: Een controle lijst met beveiligings kenmerken voor het evalueren van Azure App Service
 services: app-service
 documentationcenter: ''
 author: msmbaldwin
@@ -9,62 +9,62 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e38e1479c1e094f691e8f22f0a48f9342cae5cf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 299262610c027529749840720f46d6dc97a07b21
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475079"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442258"
 ---
-# <a name="security-attributes-for-azure-app-service"></a>Beveiligingskenmerken voor Azure App Service
+# <a name="security-attributes-for-azure-app-service"></a>Beveiligings kenmerken voor Azure App Service
 
-In dit artikel worden de algemene beveiligingskenmerken die zijn ingebouwd in Azure App Service.
+In dit artikel worden de beveiligings kenmerken gedocumenteerd die zijn ingebouwd in Azure App Service.
 
 [!INCLUDE [Security attributes header](../../includes/security-attributes-header.md)]
 
-## <a name="preventative"></a>Preventative
+## <a name="preventative"></a>Preventie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen |
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
-| Versleuteling-at-rest (zoals versleuteling op de server, server-side-versleuteling met de klant beheerde sleutels en andere versleutelingsfuncties) | Ja | Website-inhoud wordt opgeslagen in Azure Storage, codeert automatisch de inhoud in rust. Zie [Azure Storage-versleuteling van data-at-rest](../storage/common/storage-service-encryption.md).<br><br>Geheimen van de klant worden verstrekt worden in rust versleuteld. De geheimen zijn versleuteld in rust terwijl ze zijn opgeslagen in App Service-configuratie-databases.<br><br>Lokaal gekoppelde schijven kunnen desgewenst worden gebruikt als tijdelijke opslag door websites (D:\local en % TMP %). Lokaal gekoppelde schijven zijn niet versleuteld in rust. |
-| Versleuteling tijdens overdracht (zoals ExpressRoute-codering in VNet-versleuteling en versleuteling van de VNet-VNet)| Ja | Klanten kunnen web sites vereisen en het gebruik van HTTPS voor binnenkomend verkeer te configureren. Zie het blogbericht [hoe u een Azure App Service enkel HTTPS](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
-| Versleuteling verwerking (CMK, BYOK, enz.)| Ja | Klanten kunnen kiezen voor de toepassingsgeheimen in Key Vault opslaan en halen ze tijdens runtime. Zie [gebruik Key Vault naslaginformatie over App Service en Azure Functions (preview)](app-service-key-vault-references.md).|
-| Versleuteling op kolom (Azure Data Services)| N/A | |
-| API-aanroepen die zijn versleuteld| Ja | Van beheeraanroepen naar App Service configureren plaatsvinden [Azure Resource Manager](../azure-resource-manager/index.yml) aanroepen via HTTPS. |
+| Versleuteling bij rest (zoals versleuteling aan server zijde, versleuteling aan server zijde met door de klant beheerde sleutels en andere versleutelings functies) | Ja | Inhoud van website bestand wordt opgeslagen in Azure Storage, die de inhoud automatisch versleutelt. Zie [Azure Storage versleuteling voor Data-at-rest](../storage/common/storage-service-encryption.md).<br><br>Door de klant verstrekte geheimen worden op rest versleuteld. De geheimen worden op rest versleuteld terwijl ze zijn opgeslagen in App Service configuratie databases.<br><br>Lokaal gekoppelde schijven kunnen eventueel worden gebruikt als tijdelijke opslag door websites (D:\Local en% TMP%). Lokaal gekoppelde schijven zijn niet versleuteld op rest. |
+| Versleuteling in transit (zoals ExpressRoute-versleuteling, in VNet-versleuteling en VNet-VNet-versleuteling)| Ja | Klanten kunnen websites zo configureren dat ze HTTPS vereisen en gebruiken voor inkomend verkeer. Zie het blog bericht [hoe u een Azure app service alleen https maakt](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
+| Verwerking van versleutelings sleutels (CMK, BYOK, enz.)| Ja | Klanten kunnen ervoor kiezen om toepassings geheimen op te slaan in Key Vault en deze op te halen tijdens runtime. Zie [Key Vault verwijzingen gebruiken voor app service en Azure functions (preview)](app-service-key-vault-references.md).|
+| Versleuteling op kolom niveau (Azure Data Services)| N/A | |
+| Versleutelde API-aanroepen| Ja | Beheer aanroepen om App Service te configureren, worden uitgevoerd via [Azure Resource Manager](../azure-resource-manager/index.yml) -aanroepen via https. |
 
-## <a name="network-segmentation"></a>Segmentatie
+## <a name="network-segmentation"></a>Netwerk segmentatie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen |
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
-| Ondersteuning voor service-eindpunt| Ja | Op dit moment beschikbaar zijn in Preview-versie voor App Service. Zie [toegangsbeperkingen voor Azure App Service](app-service-ip-restrictions.md). |
-| Ondersteuning voor VNet-injectie| Ja | App Service-omgevingen zijn persoonlijke implementaties van App Service speciaal voor één klant opgenomen in het virtuele netwerk van een klant. Zie [Inleiding tot de App Service-omgevingen](environment/intro.md). |
-| Ondersteuning voor netwerkisolatie en Firewalling| Ja | Klanten kunnen netwerk ACL's (IP-beperkingen) voor toegestaan binnenkomend verkeer configureren voor de openbare multitenant variatie van App Service.  Zie [toegangsbeperkingen voor Azure App Service](app-service-ip-restrictions.md).  App Service-omgevingen worden geïmplementeerd in virtuele netwerken en daarom kunnen worden beveiligd met nsg's. |
-| Geforceerde tunneling ondersteuning| Ja | App Service-omgevingen kunnen worden geïmplementeerd in een klant-netwerk waarin de geforceerde tunneling is geconfigureerd. Klanten moeten Volg de aanwijzingen in [uw App Service Environment configureren met geforceerde tunnels](environment/forced-tunnel-support.md). |
+| Ondersteuning voor service-eind punten| Ja | Momenteel beschikbaar als Preview voor App Service. Zie [Azure app service toegangs beperkingen](app-service-ip-restrictions.md). |
+| Ondersteuning voor VNet-injectie| Ja | App Service omgevingen zijn persoonlijke implementaties van App Service toegewezen aan één klant die is geïnjecteerd in het virtuele netwerk van een klant. Zie [Inleiding tot de app service omgevingen](environment/intro.md). |
+| Ondersteuning voor netwerk isolatie en firewalling| Ja | Voor de open bare multi tenant-variatie van App Service kunnen klanten netwerk-Acl's (IP-beperkingen) configureren om toegestaan binnenkomend verkeer te vergren delen.  Zie [Azure app service toegangs beperkingen](app-service-ip-restrictions.md).  App Service omgevingen worden rechtstreeks geïmplementeerd in virtuele netwerken en kunnen daarom worden beveiligd met Nsg's. |
+| Ondersteuning voor geforceerde tunneling| Ja | App Service omgevingen kunnen worden geïmplementeerd in het virtuele netwerk van een klant waar geforceerde tunneling is geconfigureerd. Klanten moeten de instructies volgen in [uw app service Environment configureren met geforceerde tunneling](environment/forced-tunnel-support.md). |
 
 ## <a name="detection"></a>Detectie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Azure monitoring ondersteuning (Log analytics, Application insights, enz.)| Ja | App Service kan worden geïntegreerd met Application Insights voor talen die ondersteuning bieden voor Application Insights (volledige .NET Framework, .NET Core, Java en Node.JS).  Zie [Monitor Azure App Service-prestaties](../azure-monitor/app/azure-web-apps.md). App Service verzendt ook metrische toepassingsgegevens in Azure Monitor. Zie [apps bewaken in Azure App Service](web-sites-monitor.md). |
+| Ondersteuning voor Azure-bewaking (log Analytics, app Insights, enz.)| Ja | App Service integreert met Application Insights voor talen die Application Insights ondersteunen (volledige .NET Framework, .NET core, Java en node. JS).  Zie [Azure app service prestaties bewaken](../azure-monitor/app/azure-web-apps.md). Met App Service worden metrische gegevens van toepassingen ook naar Azure Monitor verzonden. Zie [apps bewaken in azure app service](web-sites-monitor.md). |
 
 ## <a name="identity-and-access-management"></a>Identiteits- en toegangsbeheer
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Verificatie| Ja | Klanten kunnen toepassingen bouwen in App Service die automatisch zijn geïntegreerd met [Azure Active Directory (Azure AD)](../active-directory/index.yml) en andere compatibele id-providers die OAuth; Zie [verificatie en autorisatie in Azure App Service](overview-authentication-authorization.md). Voor van beheertoegang tot App Service-activa, worden alle toegang wordt beheerd door een combinatie van Azure AD geverifieerd principal en Azure Resource Manager RBAC-rollen. |
-| Autorisatie| Ja | Voor van beheertoegang tot App Service-activa, worden alle toegang wordt beheerd door een combinatie van Azure AD geverifieerd principal en Azure Resource Manager RBAC-rollen.  |
+| Authentication| Ja | Klanten kunnen toepassingen bouwen op App Service die automatisch worden geïntegreerd met [Azure Active Directory (Azure AD)](../active-directory/index.yml) , evenals andere OAuth-compatibele id-providers. Zie [verificatie en autorisatie in azure app service](overview-authentication-authorization.md). Voor beheer toegang tot App Service assets wordt alle toegang bepaald door een combi natie van door Azure AD geverifieerde Principal en Azure Resource Manager RBAC-rollen. |
+| Authorization| Ja | Voor beheer toegang tot App Service assets wordt alle toegang bepaald door een combi natie van door Azure AD geverifieerde Principal en Azure Resource Manager RBAC-rollen.  |
 
 
 ## <a name="audit-trail"></a>Audittrail
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Controle en beheer vlak logboekregistratie en controle| Ja | Alle bewerkingen uitgevoerd op App Service-objecten plaatsvinden [Azure Resource Manager](../azure-resource-manager/index.yml). Historische logboeken van deze bewerkingen zijn beschikbaar in de portal en via de CLI; Zie [Azure Resource Manager-resourceproviderbewerkingen](../role-based-access-control/resource-provider-operations.md#microsoftweb) en [az monitor-activiteitenlogboek](/cli/azure/monitor/activity-log). |
-| Gegevens vlak logboekregistratie en controle | Nee | De gegevenslaag voor App Service is een externe bestandsshare die van de klant geïmplementeerde website-inhoud bevat.  Er is geen controle van de externe bestandsshare. |
+| Logboek registratie en controle op het vlak van controle en beheer| Ja | Alle beheer bewerkingen die op App Service objecten worden uitgevoerd, vindt plaats via [Azure Resource Manager](../azure-resource-manager/index.yml). Historische logboeken van deze bewerkingen zijn beschikbaar in de portal en via de CLI. Zie [Azure Resource Manager van de resource provider bewerkingen](../role-based-access-control/resource-provider-operations.md#microsoftweb) en [AZ monitor Activity-Log](/cli/azure/monitor/activity-log). |
+| Logboek registratie en controle van het gegevens vlak | Nee | Het gegevens vlak voor App Service is een externe bestands share met de inhoud van de geïmplementeerde website van de klant.  De externe bestands share kan niet worden gecontroleerd. |
 
 ## <a name="configuration-management"></a>Configuratiebeheer
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Configuration management-ondersteuning (versiebeheer van de configuratie, enz.)| Ja | Voor management-bewerkingen, kan de status van de configuratie van een App Service worden geëxporteerd als een Azure Resource Manager-sjabloon en versies na verloop van tijd. Klanten kunnen meerdere live verschillende versies van een toepassing met behulp van de functie App Service-implementatie sleuven onderhouden voor runtime-bewerkingen. | 
+| Ondersteuning voor configuratie beheer (versie van configuratie, enz.)| Ja | Voor beheer bewerkingen kan de status van een App Service configuratie worden geëxporteerd als een Azure Resource Manager sjabloon en de versie in de loop van de tijd. Voor runtime bewerkingen kunnen klanten meerdere verschillende live versies van een toepassing onderhouden met behulp van de functie App Service implementatie sleuven. | 
 

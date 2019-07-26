@@ -3,236 +3,236 @@ title: Opmerkingen bij de release - spraakservices
 titlesuffix: Azure Cognitive Services
 description: Zie een actief logboek van de functie-versies, verbeteringen, opgeloste fouten en bekende problemen voor Azure Speech Services.
 services: cognitive-services
-author: wolfma61
+author: BrianMouncer
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 609443a4926fabd991846faee4a0a7dffe3a696b
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: e641051b75620ef5308bc81bca21b3ceda105d09
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490182"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404830"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
 
-## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0: Release van 2019 juni
+## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0: 2019-juni release
 
 **Voorbeelden**
-*   Snel starten-voorbeelden voor tekst naar spraak voor UWP- en Unity
-*   Snel aan de slag-voorbeeld voor Swift op iOS
-*   Unity-voorbeelden voor spraak & opname kunt u lezen wat en vertaling
-*   Bijgewerkte snel starten-voorbeelden voor DialogServiceConnector
+*   Quick start-voor beelden voor tekst-naar-spraak op UWP en eenheid
+*   Voor beeld van Quick start voor Swift op iOS
+*   Unit-voor beelden voor spraak & Intentieherkenning en omzetting
+*   Bijgewerkte Quick start-voor beelden voor DialogServiceConnector
 
-**Verbeteringen / gewijzigd**
-* Dialoogvenster naamruimte:
-    * SpeechBotConnector is gewijzigd in DialogServiceConnector
-    * BotConfig is gewijzigd in DialogServiceConfig
+**Verbeteringen/wijzigingen**
+* Naam ruimte dialoog venster:
+    * De naam van de SpeechBotConnector is gewijzigd in DialogServiceConnector
+    * De naam van de BotConfig is gewijzigd in DialogServiceConfig
     * BotConfig::FromChannelSecret() has been remapped to DialogServiceConfig::FromBotSecret()
-    * Alle bestaande directe regel spraak clients nog steeds ondersteund na de nieuwe naam
-* Update TTS REST-adapter voor de ondersteuning van proxy, permanente verbinding
-* Foutbericht verbeteren wanneer een ongeldig regio wordt doorgegeven.
+    * Alle bestaande clients met directe spraak blijven worden ondersteund na de naamswijziging
+* TTS REST-Adapter bijwerken ter ondersteuning van proxy, permanente verbinding
+* Fout bericht verbeteren wanneer een ongeldige regio is door gegeven
 * Swift/Objective-C:
-    * Verbeterde foutrapportage: Methoden die tot een fout leiden kunnen zijn nu aanwezig zijn in twee versies: Dat wordt aangegeven dat een `NSError` -object voor foutafhandeling en één die een uitzondering genereert. De oude worden blootgesteld aan Swift. Deze wijziging vereist aanpassingen aan de bestaande Swift-code.
-    * Verbeterde gebeurtenisverwerking
+    * Verbeterde fout rapportage: Methoden die kunnen resulteren in een fout, zijn nu beschikbaar in twee versies: Een waarmee een `NSError` object wordt weer gegeven voor het afhandelen van fouten en één waarmee een uitzonde ring wordt gegenereerd. De voormalige worden weer gegeven aan SWIFT. Deze wijziging vereist aanpassingen in bestaande SWIFT-code.
+    * Verbeterde verwerking van gebeurtenissen
 
 **Oplossingen voor problemen**
-*   Oplossing voor TTS: waar SpeakTextAsync toekomst geretourneerd zonder te wachten totdat de audio rendering is voltooid
-*   Oplossing voor tekenreeksen in een C# volledig taalpakket-ondersteuning inschakelen
-*   Oplossing voor .NET core-app probleem kernbibliotheek met net461 doelframework in de voorbeelden van laden
-*   Oplossing voor incidentele problemen systeemeigen bibliotheken implementeren in de map voor uitvoer in de voorbeelden
-*   Oplossing voor web socket op betrouwbare wijze wordt gesloten
-*   Oplossing voor mogelijke crashes tijdens het openen van een verbinding zeer zwaar belast in Linux
-*   Oplossing voor ontbrekende metagegevens in de bundel framework voor macOS
-*   Los problemen met `pip install --user` op Windows
+*   Fix voor TTS: waar SpeakTextAsync toekomst wordt geretourneerd zonder te wachten totdat de rendering van audio is voltooid
+*   Oplossing voor het Mars hallen C# van teken reeksen in om ondersteuning voor volledige taal in te scha kelen
+*   Oplossing voor een probleem met de .NET core-app voor het laden van de kern bibliotheek met net461 Target Framework in samples
+*   Problemen oplossen om systeem eigen bibliotheken in voor beelden te implementeren in de uitvoermap
+*   Oplossing voor het sluiten van de WebSocket is betrouwbaar
+*   Oplossing voor mogelijke crash tijdens het openen van een verbinding onder zeer zware belasting op Linux
+*   Oplossing voor ontbrekende meta gegevens in de Framework bundel voor macOS
+*   Oplossen voor problemen met `pip install --user` in Windows
 
 
-## <a name="speech-sdk-151"></a>Spraak SDK 1.5.1
+## <a name="speech-sdk-151"></a>Speech SDK 1.5.1
 
-Dit is een opgelost probleem release en alleen gevolgen heeft voor de SDK systeemeigen of worden beheerd. Het is niet van invloed op de JavaScript-versie van de SDK.
+Dit is een release van de oplossing voor fouten en alleen van invloed op de systeem eigen/beheerde SDK. Dit heeft geen invloed op de Java script-versie van de SDK.
 
 **Oplossingen voor problemen**
 
-* Corrigeer FromSubscription gebruikt in combinatie met de conversatie transcriptie.
-* Los de fout in sleutelwoord ontdekken voor spraak-first virtuele assistent.
+* Herstel FromSubscription wanneer het wordt gebruikt met de conversatie-transcriptie.
+* Los de fout op in het tref woord herkennen voor de virtuele assistent Voice-First.
 
 
-## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0: 2019 mei release
+## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0: 2019-mei release
 
 **Nieuwe functies**
 
-* Wake word (sleutelwoord ontdekken/KWS)-functionaliteit is nu beschikbaar voor Windows en Linux. KWS functionaliteit mogelijk in combinatie met elk type zijn microfoon, officiële KWS, maar ondersteunen is momenteel beperkt tot de microfoon matrices gevonden in de Azure Kinect DK-hardware of de SDK van de apparaten spraak.
-* Woordgroep hint functionaliteit is beschikbaar via de SDK. Zie voor meer informatie, [hier](how-to-phrase-lists.md).
-* Conversatie transcriptie functionaliteit is beschikbaar via de SDK. Zie [hier](conversation-transcription-service.md).
-* Ondersteuning voor virtuele voice-first-assistenten met behulp van het kanaal directe regel spraak toevoegen.
+* De functionaliteit van het Wake-woord (Keyword herkennen/KWS) is nu beschikbaar voor Windows en Linux. KWS-functionaliteit kan worden gebruikt met elk type microfoon, maar de officiële KWS-ondersteuning is momenteel beperkt tot de microfoon matrices die zijn gevonden in de Azure Kinect DK-hardware of de speech-apparaten SDK.
+* De functionaliteit van de woordgroepen Hint is beschikbaar via de SDK. Zie [hier](how-to-phrase-lists.md)voor meer informatie.
+* De functionaliteit van de conversatie transcriptie is beschikbaar via de SDK. [Hier](conversation-transcription-service.md)weer geven.
+* Voeg ondersteuning toe voor virtuele assistenten met spraak op het directe lijn spraak kanaal.
 
 **Voorbeelden**
 
-* Voorbeelden toegevoegd voor nieuwe functies of nieuwe services die worden ondersteund door de SDK.
+* Er zijn voor beelden toegevoegd voor nieuwe functies of nieuwe services die door de SDK worden ondersteund.
 
-**Verbeteringen / gewijzigd**
+**Verbeteringen/wijzigingen**
 
-* Verschillende eigenschappen voor herkenning om aan te passen servicegedrag of resultaten van de service (zoals maskeren grof taalgebruik en anderen) toegevoegd.
-* U kunt nu de herkenning via de standaard configuratie-eigenschappen configureren, zelfs als u de herkenning gemaakt `FromEndpoint`.
-* Objective-c `OutputFormat` eigenschap is toegevoegd aan SPXSpeechConfiguration.
-* De SDK biedt nu ondersteuning voor Debian 9 als een Linux-distributie.
+* Er zijn verschillende kenmerken van de Recognizer toegevoegd om het service gedrag of de service resultaten aan te passen (zoals het maskeren van scheld woorden en andere).
+* U kunt de herkenner nu configureren via de standaard configuratie-eigenschappen, zelfs als u de herkenner `FromEndpoint`hebt gemaakt.
+* Doel-C: `OutputFormat` de eigenschap is toegevoegd aan SPXSpeechConfiguration.
+* De SDK ondersteunt nu Debian 9 als een Linux-distributie.
 
 **Oplossingen voor problemen**
 
-* Een probleem opgelost waarbij de sprekerherkenning-resource is destructed te vroeg in tekst naar spraak.
-## <a name="speech-sdk-142"></a>Spraak SDK 1.4.2
+* Er is een probleem opgelost waarbij de resource van de spreker te vroeg is afgezet in tekst-naar-spraak.
+## <a name="speech-sdk-142"></a>Speech SDK 1.4.2
 
-Dit is een opgelost probleem release en alleen gevolgen heeft voor de SDK systeemeigen of worden beheerd. Het is niet van invloed op de JavaScript-versie van de SDK.
+Dit is een release van de oplossing voor fouten en alleen van invloed op de systeem eigen/beheerde SDK. Dit heeft geen invloed op de Java script-versie van de SDK.
 
-## <a name="speech-sdk-141"></a>Spraak SDK 1.4.1
+## <a name="speech-sdk-141"></a>Speech SDK 1.4.1
 
-Dit is een alleen-JavaScript-versie. Er zijn geen functies zijn toegevoegd. De volgende oplossingen zijn aangebracht:
+Dit is een alleen-Java script-versie. Er zijn geen functies toegevoegd. De volgende oplossingen zijn uitgevoerd:
 
-* Web pack voorkomen dat het laden van https-proxy-agent.
+* Voor komen dat het webpakket de HTTPS-proxy-agent laadt.
 
-## <a name="speech-sdk-140-2019-april-release"></a>Speech SDK 1.4.0: 2019 April release
+## <a name="speech-sdk-140-2019-april-release"></a>Speech SDK 1.4.0: 2019-release van april
 
 **Nieuwe functies** 
 
-* De SDK biedt nu ondersteuning voor de Text to Speech-service als een beta-versie. Dit wordt ondersteund in Windows en Linux-bureaublad van C++ en C#. Raadpleeg voor meer informatie de [Text to Speech overzicht](text-to-speech.md#get-started-with-text-to-speech).
-* De SDK biedt nu ondersteuning voor MP3- en Opus/OGG audiobestanden als invoerbestanden stream. Deze functie is alleen beschikbaar op Linux via C++ en C# en is momenteel in de bètafase (meer informatie [hier](how-to-use-codec-compressed-audio-input-streams.md)).
-* De spraak-SDK voor Java, .NET core, C++ en Objective-C hebben opgedaan met ondersteuning voor macOS. De Objective-C-ondersteuning voor macOS is momenteel in de bètafase bevindt.
-* iOS: De spraak-SDK voor iOS (Objective-C) is nu ook gepubliceerd als een CocoaPod.
-* JavaScript: Ondersteuning voor niet-standaard microfoon als een apparaat voor invoer.
-* JavaScript: Proxy-ondersteuning voor Node.js.
+* De SDK ondersteunt nu de tekst-naar-spraak-service als een bèta versie. Het wordt ondersteund op het bureau blad van Windows C++ en C#Linux van en. Controleer het [tekst-naar-spraak-overzicht](text-to-speech.md#get-started-with-text-to-speech)voor meer informatie.
+* De SDK ondersteunt nu MP3-en opus/OGG-audio bestanden als invoer bestanden voor streams. Deze functie is alleen beschikbaar op Linux van C++ en C# is momenteel in bèta (meer informatie hierover [).](how-to-use-codec-compressed-audio-input-streams.md)
+* De Speech-SDK voor Java, .NET core C++ en de doel-C hebben macOS-ondersteuning verkregen. De doel-C-ondersteuning voor macOS bevindt zich momenteel in een bèta versie.
+* iOS: De Speech SDK voor iOS (objectief-C) wordt nu ook gepubliceerd als een CocoaPod.
+* Ondersteunen Ondersteuning voor niet-standaard microfoon als invoer apparaat.
+* Ondersteunen Proxy ondersteuning voor node. js.
 
 **Voorbeelden**
 
-* Voorbeelden voor het gebruik van de spraak-SDK met C++ en Objective-C in macOS zijn toegevoegd.
-* Voorbeelden van het gebruik van de Text to Speech-service zijn toegevoegd.
+* Er zijn voor beelden toegevoegd voor het C++ gebruik van de Speech SDK met en met de doel-C op macOS.
+* Er zijn voor beelden toegevoegd waarmee het gebruik van de tekst-naar-spraak-service wordt gedemonstreerd.
 
-**Verbeteringen / gewijzigd**
+**Verbeteringen/wijzigingen**
 
-* Python: Aanvullende eigenschappen van de resultaten zijn nu beschikbaar via de `properties` eigenschap.
-* Voor aanvullende ontwikkel- en ondersteuning voor foutopsporing, kunt u SDK-logboekregistratie en diagnostische gegevens in een logboekbestand omleiden (meer informatie [hier](how-to-use-logging.md)).
-* JavaScript: De van audio-verwerkingsprestaties verbeteren.
+* Python: Aanvullende eigenschappen van herkennings resultaten worden nu weer gegeven `properties` via de eigenschap.
+* Voor aanvullende ontwikkel-en probleemoplossings ondersteuning kunt u informatie over de SDK-logboek registratie en diagnostische gegevens omleiden naar een logboek bestand (meer informatie [hierover).](how-to-use-logging.md)
+* Ondersteunen Verbeter de prestaties van de audio verwerking.
 
 **Oplossingen voor problemen**
 
-* Mac/iOS: Een bug die hebben geleid tot een lange wachttijd wanneer een verbinding met de Speech-Service kan niet worden gemaakt, is opgelost.
-* Python: de foutafhandeling voor argumenten in Python callbacks verbeteren.
-* JavaScript: Vaste juiste status voor spraak reporting is op RequestSession beëindigd.
+* Mac/iOS: Een fout die heeft geleid tot een lange wacht tijd wanneer een verbinding met de spraak service niet tot stand kan worden gebracht, is opgelost.
+* Python: de fout afhandeling voor argumenten in python-retour aanroepen wordt verbeterd.
+* Ondersteunen Er is een onjuiste status rapportage voor de spraak gestopt op RequestSession.
 
-## <a name="speech-sdk-131-2019-february-refresh"></a>Speech SDK 1.3.1: Februari 2019 vernieuwen
+## <a name="speech-sdk-131-2019-february-refresh"></a>Speech SDK 1.3.1: 2019-februari vernieuwen
 
-Dit is een opgelost probleem release en alleen gevolgen heeft voor de SDK systeemeigen of worden beheerd. Het is niet van invloed op de JavaScript-versie van de SDK.
+Dit is een release van de oplossing voor fouten en alleen van invloed op de systeem eigen/beheerde SDK. Dit heeft geen invloed op de Java script-versie van de SDK.
 
-**Opgelost probleem**
+**Bug oplossen**
 
-* Een geheugenlek opgelost bij het gebruik van de invoer van de microfoon. Stream op basis van of het bestand invoer wordt niet beïnvloed.
+* Er is een geheugenlek opgelost bij het gebruik van een microfoon invoer. Streamen of bestands invoer worden niet beïnvloed.
 
-## <a name="speech-sdk-130-2019-february-release"></a>Speech SDK 1.3.0: Release van februari 2019
+## <a name="speech-sdk-130-2019-february-release"></a>Speech SDK 1.3.0: 2019-release van februari
 
 **Nieuwe functies**
 
-* De spraak-SDK biedt ondersteuning voor selectie van de invoer microfoon via de klasse AudioConfig. Hiermee kunt u audio om gegevens te streamen met de spraak-Services via een microfoon niet-standaard. Zie voor meer informatie de documentatie beschrijven [audio-invoer Apparaatselectie](how-to-select-audio-input-devices.md). Deze functie is nog niet beschikbaar is via JavaScript.
-* De spraak-SDK biedt nu ondersteuning voor Unity in een bètaversie. Feedback geven via de sectie probleem in de [voorbeeldopslagplaats in GitHub](https://aka.ms/csspeech/samples). Deze release biedt ondersteuning voor Unity op Windows x86 en x64 (desktop of Universal Windows Platform-toepassingen), en Android (ARM32/64, x86). Meer informatie vindt u in onze [Unity-snelstartgids](quickstart-csharp-unity.md).
-* Het bestand `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (geleverd in eerdere versies) wordt niet meer nodig hebt. De functionaliteit is nu geïntegreerd in de core-SDK.
+* De Speech SDK ondersteunt het selecteren van de invoer microfoon via de AudioConfig-klasse. Zo kunt u audio gegevens streamen naar de spraak services van een niet-standaard microfoon. Zie de documentatie over het [selecteren van audio-invoer apparaten](how-to-select-audio-input-devices.md)voor meer informatie. Deze functie is nog niet beschikbaar via Java script.
+* De Speech SDK ondersteunt nu eenheid in een bèta versie. Feedback geven via de sectie probleem in de [github-voorbeeld opslagplaats](https://aka.ms/csspeech/samples). Deze versie ondersteunt eenheid op Windows x86-en x64-computers (desktop-of Universeel Windows-platform-toepassingen) en Android (ARM32/64, x86). Meer informatie is beschikbaar in onze [Quick](quickstart-csharp-unity.md)start van onze unit.
+* Het bestand `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (geleverd bij eerdere versies) is niet meer nodig. De functionaliteit is nu geïntegreerd in de core-SDK.
 
 
 **Voorbeelden**
 
-De volgende nieuwe inhoud is beschikbaar in onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples):
+De volgende nieuwe inhoud is beschikbaar in onze [voorbeeld opslagplaats](https://aka.ms/csspeech/samples):
 
-* Meer voorbeelden voor AudioConfig.FromMicrophoneInput.
-* Aanvullende voorbeelden van Python intentieherkenning en voor omzetting.
-* Als u meer voorbeelden voor het gebruik van het verbindingsobject in iOS.
-* Meer Java-voorbeelden voor vertaling met de audio-uitvoer.
-* Nieuwe voorbeeld voor het gebruik van de [Batch transcriptie REST-API](batch-transcription.md).
+* Aanvullende voor beelden voor AudioConfig. FromMicrophoneInput.
+* Aanvullende python-voor beelden voor intentie herkenning en-omzetting.
+* Aanvullende voor beelden voor het gebruik van het verbindings object in iOS.
+* Aanvullende Java-voor beelden voor vertaling met audio-uitvoer.
+* Nieuw voor beeld voor het gebruik van de [batch-transcriptie rest API](batch-transcription.md).
 
-**Verbeteringen / gewijzigd**
+**Verbeteringen/wijzigingen**
 
 * Python
-  * Verbeterde parameter verificatie en foutberichten in SpeechConfig.
-  * Ondersteuning toevoegen voor het verbindingsobject.
-  * Ondersteuning voor 32-bits Python (x86) op Windows.
-  * De spraak-SDK voor Python, valt buiten beta.
+  * Verbeterde verificatie van de para meter en fout berichten in SpeechConfig.
+  * Voeg ondersteuning toe voor het verbindings object.
+  * Ondersteuning voor 32-bits python (x86) in Windows.
+  * De spraak-SDK voor python valt buiten de bèta versie.
 * iOS
-  * De SDK is nu gebouwd op basis van de iOS SDK versie 12.1.
-  * De SDK biedt nu ondersteuning voor iOS versie 9.2 en hoger.
-  * Referentiedocumentatie voor verbeteren en op te lossen verschillende namen van eigenschappen.
-* Javascript
-  * Ondersteuning toevoegen voor het verbindingsobject.
-  * Type definitiebestanden voor gebundelde JavaScript toevoegen
-  * Eerste ondersteuning en de implementatie voor woordgroep hints.
-  * Eigenschappen van verzameling met JSON-service voor opname geretourneerd
-* Windows-DLL's bevat nu een versie-resource.
-* Als u een kenmerk maakt `FromEndpoint` kunt u parameters rechtstreeks aan de eindpunt-URL toevoegen. Met behulp van `FromEndpoint` kunt u de herkenning via de standaard configuratie-eigenschappen niet configureren.
+  * De SDK is nu gebouwd op basis van de iOS SDK-versie 12,1.
+  * De SDK ondersteunt nu iOS-versies 9,2 en hoger.
+  * Verbeter de referentie documentatie en los diverse eigenschapnamen op.
+* JavaScript
+  * Voeg ondersteuning toe voor het verbindings object.
+  * Type definitie bestanden voor gebundelde java script toevoegen
+  * Eerste ondersteuning en implementatie voor woordgroepen hints.
+  * Verzameling eigenschappen retour neren met Service-JSON voor herkenning
+* Windows-Dll's bevatten nu een versie bron.
+* Als u een herkenner `FromEndpoint` maakt, kunt u de para meters rechtstreeks aan de eind punt-URL toevoegen. `FromEndpoint` U kunt de herkenner niet configureren via de standaard configuratie-eigenschappen.
 
 **Oplossingen voor problemen**
 
-* Lege proxygebruikersnaam en wachtwoord voor proxy zijn niet correct verwerkt. Met deze release, als u de proxygebruikersnaam en wachtwoord voor proxy hebt ingesteld op een lege tekenreeks zullen ze niet worden verzonden bij het verbinden met de proxy.
-* De sessie-id die zijn gemaakt door de SDK zijn niet altijd volledig willekeurige voor sommige talen&nbsp;/ omgevingen. De initialisatie van de generator van willekeurige om dit probleem te verhelpen toegevoegd.
-* De verwerking van de verificatietoken verbeteren. Als u een verificatietoken gebruiken wilt, Geef in het SpeechConfig en laat u de abonnementssleutel leeg. Vervolgens maakt u de herkenning zoals gebruikelijk.
-* In sommige gevallen de verbinding is niet correct object uitgebracht. Dit probleem is opgelost.
-* De JavaScript-voorbeeld is ter ondersteuning van de audio-uitvoer voor vertaling synthese ook op Safari opgelost.
+* De lege proxy-gebruikers naam en het proxy wachtwoord zijn niet goed afgehandeld. Als u met deze versie proxy gebruikersnaam en proxy wachtwoord instelt op een lege teken reeks, worden ze niet verzonden wanneer er verbinding wordt gemaakt met de proxy.
+* SessionId die door de SDK is gemaakt, is niet altijd echt wille&nbsp;keurig voor sommige talen/omgevingen. De initialisatie van de wille keurige Generator is toegevoegd om dit probleem op te lossen.
+* De verwerking van het autorisatie token verbeteren. Als u een autorisatie token wilt gebruiken, geeft u in het SpeechConfig op en laat u de sleutel abonnement leeg. Maak vervolgens zoals gebruikelijk de herkenner.
+* In sommige gevallen is het verbindings object niet correct vrijgegeven. Dit probleem is opgelost.
+* Het Java script-voor beeld is opgelost voor de ondersteuning van audio-uitvoer voor vertaal synthese ook in Safari.
 
-## <a name="speech-sdk-121"></a>Spraak SDK 1.2.1
+## <a name="speech-sdk-121"></a>Speech SDK 1.2.1
 
-Dit is een alleen-JavaScript-versie. Er zijn geen functies zijn toegevoegd. De volgende oplossingen zijn aangebracht:
+Dit is een alleen-Java script-versie. Er zijn geen functies toegevoegd. De volgende oplossingen zijn uitgevoerd:
 
-* Einde van de stroom op turn.end, niet op de speech.end gestart.
-* Los de fout in audio pomp noodzakelijk dat geen gepland vervolgens verzonden heeft als de huidige is mislukt verzenden.
-* Herkenning van continue met-verificatietoken oplossen.
-* Opgelost probleem voor verschillende herkenning / eindpunten.
+* Fire end van de stroom op turn. End, niet op Speech. End.
+* Los de fout op in een audio pomp die de volgende verzen ding niet heeft gepland als de huidige verzen ding is mislukt.
+* Herstel doorlopende herkenning met verificatie token.
+* Fout oplossing voor andere Recognizer/eind punten.
 * Verbeteringen in de documentatie bij.
 
-## <a name="speech-sdk-120-2018-december-release"></a>Speech SDK 1.2.0: Release van December 2018
+## <a name="speech-sdk-120-2018-december-release"></a>Speech SDK 1.2.0: 2018-december release
 
 **Nieuwe functies**
 
 * Python
-  * De bètaversie van Python-ondersteuning (3.5 en hoger) is beschikbaar in deze versie. Zie voor meer informatie, here](quickstart-python.md).
-* Javascript
-  * De spraak-SDK voor JavaScript is open-source. De broncode is beschikbaar op [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
-  * We bieden nu ondersteuning voor Node.js, kunt u meer informatie vinden [hier](quickstart-js-node.md).
-  * De lengtebeperking voor audio-sessies is verwijderd, opnieuw verbinden gebeurt automatisch onder de dekking.
-* Verbindingsobject
-  * U kunt een verbindingsobject openen van het kenmerk. Dit object kunt u expliciet de serviceverbinding tot stand brengen en zich inschrijven voor het verbinding maken en gebeurtenissen te verbreken.
-    (Deze functie nog niet beschikbaar is via JavaScript en Python.)
-* Ondersteuning voor Ubuntu 18.04.
+  * De bèta versie van python-ondersteuning (3,5 en hoger) is beschikbaar in deze release. Zie hier] (Quick Start-python.md) voor meer informatie.
+* JavaScript
+  * De Speech SDK voor Java script is open source. De bron code is beschikbaar op [github](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
+  * Node. js wordt nu ondersteund. meer informatie vindt u [hier](quickstart-js-node.md).
+  * De lengte beperking voor audio sessies is verwijderd. de verbinding wordt automatisch hersteld onder de dekking.
+* Verbindings object
+  * Vanuit de herkenner kunt u toegang krijgen tot een verbindings object. Met dit object kunt u de service verbinding expliciet initiëren en zich abonneren op verbinding maken en verbreken van gebeurtenissen.
+    (Deze functie is nog niet beschikbaar vanuit Java script en python.)
+* Ondersteuning voor Ubuntu 18,04.
 * Android
-  * Ingeschakelde ProGuard ondersteuning tijdens het genereren van APK.
+  * Er is ondersteuning geboden voor proguard tijdens het genereren van APK.
 
 **Verbeteringen**
 
-* Verbeteringen in het gebruik van interne thread, het aantal threads, vergrendelingen, mutexen te verminderen.
-* Verbeterde foutrapportage / gegevens. In enkele gevallen zijn foutberichten niet is doorgegeven om helemaal uit.
-* Ontwikkeling van afhankelijkheden in JavaScript, kunnen gebruikmaken van recente modules bijgewerkt.
+* Verbeteringen in het gebruik van de interne thread, waardoor het aantal threads, vergren delingen en mutexen wordt verkleind.
+* Verbeterde fout rapportage/-informatie. In verschillende gevallen zijn fout berichten niet helemaal door gegeven.
+* Bijgewerkte ontwikkelings afhankelijkheden in Java script voor het gebruik van up-to-date-modules.
 
 **Oplossingen voor problemen**
 
-* Vaste geheugenlekken vanwege een niet-overeenkomend gegevenstype in RecognizeAsync.
-* In sommige gevallen zijn uitzonderingen worden gelekt.
-* Geheugenlek gecorrigeerd in translation gebeurtenisargumenten.
-* Vaste een vergrendelingsprobleem op herstellen in lange sessies uitgevoerd.
-* Er is een probleem die leiden kan tot het uiteindelijke resultaat voor mislukte vertalingen ontbreekt opgelost.
-* C#: Als een asynchrone bewerking is niet in de hoofdthread gestopt, is het mogelijk dat het kenmerk kan worden verwijderd voordat de asynchrone taak is voltooid.
-* Java: Een probleem opgetreden bij het leidt tot een crash van de Java-virtuele machine vast.
-* Objective-c Toewijzing van vaste enum; RecognizedIntent is geretourneerd in plaats van RecognizingIntent.
-* JavaScript: Set standaarduitvoerindeling in een eenvoudig in SpeechConfig.
-* JavaScript: Inconsistentie tussen de eigenschappen van het object config in JavaScript en andere talen wordt verwijderd.
+* Er zijn problemen met het geheugen opgelost vanwege een niet-overeenkomend type in RecognizeAsync.
+* In sommige gevallen werden uitzonde ringen gelekt.
+* Oplossen van geheugen lekkage in Vertaal gebeurtenis argumenten.
+* Er is een vergrendelings probleem opgelost bij het opnieuw verbinden van langlopende sessies.
+* Er is een probleem opgelost dat kan leiden tot een ontbrekend eind resultaat voor mislukte vertalingen.
+* C#: Als een asynchrone bewerking niet in de hoofd thread werd gewacht, zou de herkenner kunnen worden verwijderd voordat de asynchrone taak werd voltooid.
+* Java: Er is een probleem opgelost dat resulteert in het vastlopen van de Java-VM.
+* Doel-C: Vaste Enum-toewijzing; RecognizedIntent is geretourneerd in plaats van RecognizingIntent.
+* Ondersteunen Stel de standaard uitvoer indeling in op ' Simple ' in SpeechConfig.
+* Ondersteunen Inconsistenties verwijderen tussen eigenschappen van het configuratie object in Java script en andere talen.
 
 **Voorbeelden**
 
-* Bijgewerkt en vaste enkele voorbeelden van (bijvoorbeeld uitvoer stemmen voor vertaling, enz.).
-* Voorbeelden van Node.js in toegevoegd de [voorbeeldopslagplaats](https://aka.ms/csspeech/samples).
+* Er zijn verschillende voor beelden bijgewerkt en opgelost (bijvoorbeeld uitvoer stemmen voor vertaling, enz.).
+* Er zijn voor beelden van node. js toegevoegd aan de voor [beeld-opslag plaats](https://aka.ms/csspeech/samples).
 
-## <a name="speech-sdk-110"></a>Spraak SDK 1.1.0
+## <a name="speech-sdk-110"></a>Speech SDK 1.1.0
 
 **Nieuwe functies**
 
 * Ondersteuning voor Android x86/x64.
-* Proxy-ondersteuning: U kunt nu een functie voor het instellen van de proxy-informatie (hostnaam, poort, gebruikersnaam en wachtwoord) in het object SpeechConfig aanroepen. Deze functie is nog niet beschikbaar op iOS.
+* Proxy ondersteuning: In het SpeechConfig-object kunt u nu een functie aanroepen om de proxy gegevens in te stellen (hostnaam, poort, gebruikers naam en wacht woord). Deze functie is nog niet beschikbaar op iOS.
 * Verbeterde foutcode en berichten. Als een erkenning heeft een fout geretourneerd, deze al ingesteld `Reason` (in geannuleerde gebeurtenis) of `CancellationDetails` (in herkenningsresultaat) naar `Error`. De geannuleerde gebeurtenis bevat nu twee aanvullende leden, `ErrorCode` en `ErrorDetails`. Als de server heeft aanvullende foutinformatie met de gemelde fout geretourneerd, is het nu zijn beschikbaar in de nieuwe leden.
 
 **Verbeteringen**
@@ -243,7 +243,7 @@ Dit is een alleen-JavaScript-versie. Er zijn geen functies zijn toegevoegd. De v
 
 **Oplossingen voor problemen**
 
-* Verschillende uitzonderingen gevonden in de kenmerken die zijn opgelost. Bovendien zijn uitzonderingen onderschept en geconverteerd naar geannuleerde gebeurtenis.
+* Verschillende uitzonderingen gevonden in de kenmerken die zijn opgelost. Daarnaast worden uitzonde ringen onderschept en omgezet in geannuleerde gebeurtenis.
 * Een geheugenlek in de eigenschap management oplossen.
 * Probleem opgelost waarbij een audio-invoerbestand de herkenning kan vastlopen.
 * Een bug opgelost waar de gebeurtenissen na een sessie stop-gebeurtenis kunnen worden ontvangen.
@@ -265,14 +265,14 @@ Verbeteringen van de betrouwbaarheid en oplossingen voor problemen:
 * Vaste mogelijke fatale fout vanwege een racevoorwaarde in herkenning wordt verwijderd
 * Vaste mogelijke fatale fout in het geval van niet-ingestelde eigenschappen.
 * Toegevoegde extra fout en controleren van de parameter.
-* Objective-c Vaste mogelijk fatale fout veroorzaakt door de naam in NSString overschrijven.
-* Objective-c Aangepaste zichtbaarheid van de API
-* JavaScript: Vaste met betrekking tot de gebeurtenissen en de nuttige informatie.
+* Doel-C: Er is een vast mogelijke fatale fout opgetreden die is veroorzaakt door een naam die overschrijft in NSString
+* Doel-C: Aangepaste zicht baarheid van de API
+* Ondersteunen Opgelost met betrekking tot gebeurtenissen en hun nettoladingen.
 * Verbeteringen in de documentatie bij.
 
 In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe steekproef voor JavaScript is toegevoegd.
 
-## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services Speech SDK 1.0.0: Release van September 2018
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services Speech SDK 1.0.0: 2018-release van september
 
 **Nieuwe functies**
 
@@ -281,17 +281,17 @@ In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe ste
 
 **Belangrijke wijzigingen**
 
-* Met deze release zijn een aantal belangrijke wijzigingen zijn geïntroduceerd.
-  Controleer [deze pagina](https://aka.ms/csspeech/breakingchanges_1_0_0) voor meer informatie.
+* In deze versie wordt een aantal belang rijke wijzigingen geïntroduceerd.
+  Raadpleeg [Deze pagina](https://aka.ms/csspeech/breakingchanges_1_0_0) voor meer informatie.
 
-## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0: Release van augustus 2018
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0: 2018-release van augustus
 
 **Nieuwe functies**
 
 * UWP-apps die zijn gemaakt met de spraak-SDK nu kunnen de Windows App Certification Kit (WACK) doorgeven.
   Bekijk de [UWP-snelstartgids](quickstart-csharp-uwp.md).
 * Ondersteuning voor .NET Standard 2.0 op Linux (Ubuntu 16.04 x 64).
-* Experimentele: Ondersteuning voor Java 8 in Windows (64-bits) en Linux (Ubuntu 16.04 x 64).
+* Experimentele Ondersteuning voor Java 8 op Windows (64-bits) en Linux (Ubuntu 16,04 x64).
   Bekijk de [Java Runtime Environment snelstartgids](quickstart-java-jre.md).
 
 **Functionele wijzigen**
@@ -310,15 +310,15 @@ In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe ste
 * Een probleem opgelost waar een langlopende opname in het midden van de overdracht kan beëindigd.
 * Herkenning afsluiten, een zeldzame situatie vast.
 
-## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services Speech SDK 0.5.0: Release van juli 2018
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services Speech SDK 0.5.0: release van 2018-juli
 
 **Nieuwe functies**
 
-* Ondersteuning voor Android-platform (API 23: Android 6.0 Marshmallow of hoger). Bekijk de [Android snelstartgids](quickstart-java-android.md).
+* Ondersteuning voor Android-platform (API 23: Android 6,0 Marshmallow of hoger). Bekijk de [Android snelstartgids](quickstart-java-android.md).
 * Ondersteuning voor .NET Standard 2.0 op Windows. Bekijk de [.NET Core-snelstartgids](quickstart-csharp-dotnetcore-windows.md).
-* Experimentele: Ondersteuning voor UWP op Windows (versie 1709 of hoger).
+* Experimentele Ondersteuning voor UWP in Windows (versie 1709 of hoger).
   * Bekijk de [UWP-snelstartgids](quickstart-csharp-uwp.md).
-  * Opmerking: UWP-apps die zijn gebouwd met de spraak-SDK nog doorgegeven niet de Windows App Certification Kit (WACK).
+  * Opmerking: UWP-apps die zijn gebouwd met de Speech SDK, geven nog geen gebruik van de Windows app Certification Kit (WACK).
 * Ondersteuning voor langlopende met automatisch opnieuw verbinden.
 
 **Functionele wijzigingen**
@@ -329,25 +329,25 @@ In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe ste
 
 **Belangrijke wijzigingen**
 
-* Herkenning van gebeurtenissen: Gebeurtenistype NoMatch is samengevoegd met de fout-gebeurtenis.
+* Herkennings gebeurtenissen: Het gebeurtenis type NoMatch is samengevoegd in de fout gebeurtenis.
 * Uitvoerindeling om te blijven met C++ uitgelijnde is SpeechOutputFormat in C# gewijzigd.
 * Het retourtype van sommige methoden van de `AudioInputStream` interface enigszins gewijzigd:
    * In Java, de `read` methode nu retourneert `long` in plaats van `int`.
    * In C#, de `Read` methode nu retourneert `uint` in plaats van `int`.
    * In C++ kunt de `Read` en `GetFormat` methoden nu terug `size_t` in plaats van `int`.
-* C++: Exemplaren van invoer audiostreams nu kunnen worden doorgegeven als een `shared_ptr`.
+* C++: Exemplaren van audio-invoer stromen kunnen nu alleen worden door gegeven `shared_ptr`als een.
 
 **Oplossingen voor problemen**
 
 * Onjuiste retourwaarden, het resultaat vast wanneer `RecognizeAsync()` een time-out optreedt.
 * De afhankelijkheid van media foundation-bibliotheken op Windows is verwijderd. De SDK gebruikt nu Core Audio-API's.
-* Documentatie fix: Toegevoegd een [regio's](regions.md) pagina voor het beschrijven van de ondersteunde regio's.
+* Documentatie oplossing: Er is een pagina [regio's](regions.md) toegevoegd om de ondersteunde regio's te beschrijven.
 
 **Bekend probleem**
 
 * De spraak-SDK voor Android rapporteren niet spraak synthese resultaten voor vertaling. Dit probleem wordt opgelost in de volgende release.
 
-## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services Speech SDK 0.4.0: Release van juni 2018
+## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services Speech SDK 0.4.0: 2018-juni release
 
 **Functionele wijzigingen**
 

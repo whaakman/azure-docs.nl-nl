@@ -17,12 +17,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5955be5670759329e42ec24999d73df977c665e
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
-ms.translationtype: HT
+ms.openlocfilehash: fd29c24aa0da83b67f0c0d943312adc5c2558f8f
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276848"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335581"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Quickstart: Een token verkrijgen en Microsoft Graph API aanroepen vanuit een console-app met behulp van de identiteit van de app
 
@@ -110,7 +110,7 @@ Voor deze Snelstartgids is [.net Core 2,2](https://www.microsoft.com/net/downloa
     > > [!TIP]
     > > Om de waarden van **Toepassings-id (client-id)** en **Map-id (tenant-id)** te achterhalen, gaat u naar de **Overzichtspagina** van de app in de Azure-portal. Voor het genereren van een nieuwe sleutel gaat u naar de pagina **Certificaten en geheimen**.
     
-#### <a name="step-4-admin-consent"></a>Stap 4: toestemming van de beheerder
+#### <a name="step-4-admin-consent"></a>Stap 4: Toestemming van de beheerder
 
 Als u de toepassing nu probeert uit te voeren, ontvangt u *HTTP 403-verboden* fout: `Insufficient privileges to complete the operation`. Dit gebeurt omdat een *machtiging alleen* voor de beheerder vereist, wat betekent dat een globale beheerder van uw directory toestemming moet geven voor uw toepassing. Selecteer een van de onderstaande opties, afhankelijk van uw rol:
 
@@ -236,3 +236,8 @@ Zie de Oauth 2.0-clientreferentiestroom voor meer informatie over de auth-stroom
 
 > [!div class="nextstepaction"]
 > [Clientreferentiestromen met MSAL.NET](https://aka.ms/msal-net-client-credentials)
+
+Help ons het micro soft Identity-platform te verbeteren. Vertel ons wat u denkt door een korte enquête met twee vragen te volt ooien.
+
+> [!div class="nextstepaction"]
+> [Micro soft Identity platform-enquête](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

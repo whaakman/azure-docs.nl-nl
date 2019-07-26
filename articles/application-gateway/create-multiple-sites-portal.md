@@ -1,29 +1,29 @@
 ---
-title: 'Zelfstudie: een toepassingsgateway die als host fungeert voor meerdere sites met behulp van de Azure portal maken'
-description: In deze zelfstudie leert u hoe u een toepassingsgateway die als host fungeert voor meerdere sites met behulp van de Azure portal maken.
+title: 'Zelf studie: een toepassings gateway maken die als host fungeert voor meerdere websites met behulp van de Azure Portal'
+description: In deze zelf studie leert u hoe u een toepassings gateway maakt die als host fungeert voor meerdere websites met behulp van de Azure Portal.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 4/18/2019
+ms.date: 07/26/2019
 ms.author: victorh
-ms.openlocfilehash: 3e27a79c7a6e3d39679118f532dd464a32463d69
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 73a313a6244971b65ba89fb7b676610d88acabfa
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122256"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498458"
 ---
-# <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Zelfstudie: Maken en configureren van een toepassingsgateway voor het hosten van meerdere websites met behulp van de Azure-portal
+# <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Zelfstudie: Een toepassings gateway maken en configureren om meerdere websites te hosten met behulp van de Azure Portal
 
-U kunt de Azure portal gebruiken om [configureren met het hosten van meerdere websites](multiple-site-overview.md) bij het maken van een [toepassingsgateway](overview.md). In deze zelfstudie definieert u de back-end-adresgroepen met behulp van virtuele machines. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. In deze zelfstudie wordt ervan uitgegaan dat u eigenaar bent van meerdere domeinen en voorbeelden gebruikt van *www.contoso.com* en *www.fabrikam.com*.
+U kunt de Azure Portal gebruiken om [het hosten van meerdere websites te configureren](multiple-site-overview.md) wanneer u een [toepassings gateway](overview.md)maakt. In deze zelf studie definieert u back-end-adres groepen met behulp van virtuele machines. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. In deze zelfstudie wordt ervan uitgegaan dat u eigenaar bent van meerdere domeinen en voorbeelden gebruikt van *www.contoso.com* en *www.fabrikam.com*.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een toepassingsgateway maken
-> * Virtuele machines voor back-endservers maken
-> * Back-endpools maken met de back-endservers
+> * Virtuele machines maken voor back-endservers
+> * Back-endservers maken met de back-endservers
 > * Back-endlisteners maken
 > * Routeringsregels maken
 > * Een CNAME-record in uw domein maken
@@ -38,136 +38,184 @@ Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.c
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-U hebt een virtueel netwerk nodig voor communicatie tussen de resources die u maakt. In dit voorbeeld worden twee subnetten gemaakt: één voor de toepassingsgateway en de andere voor de back-endservers. U kunt een virtueel netwerk maken op hetzelfde moment dat u de toepassingsgateway maakt.
+1. Selecteer **Een resource maken** in het linkermenu van de Azure-portal. Het venster **Nieuw** wordt weergegeven.
 
-1. Klik op **nieuw** gevonden in de linkerbovenhoek van Azure portal.
-2. Selecteer **Netwerken** en vervolgens **Application Gateway** in de lijst Aanbevolen.
-3. Voer deze waarden in voor de toepassingsgateway:
+2. Selecteer **Netwerken** en vervolgens **Application Gateway** in de lijst **Aanbevolen**.
 
-   - *myAppGateway* als de naam van de toepassingsgateway.
-   - *myResourceGroupAG* als de nieuwe resourcegroep.
+### <a name="basics-tab"></a>Tabblad basis beginselen
 
-     ![Nieuwe toepassingsgateway maken](./media/create-multiple-sites-portal/application-gateway-create.png)
+1. Voer op het tabblad **basis beginselen** deze waarden in voor de volgende instellingen voor de toepassings gateway:
 
-4. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
-5. Klik op **Een virtueel netwerk kiezen**, klik op **Nieuw maken** en voer deze waarden in voor het virtuele netwerk:
+   - **Resourcegroep**: Selecteer **myResourceGroupAG** als de resourcegroep. Als deze nog niet bestaat, selecteert u **Nieuwe maken** om deze te maken.
+   - **Naam van de toepassings gateway**: Typ *myAppGateway* als naam voor de toepassingsgateway.
 
-   - *myVnet* als de naam van het virtuele netwerk.
-   - *10.0.0.0/16* als de adresruimte van het virtuele netwerk.
-   - *myAGSubnet* als de naam van het subnet.
-   - *10.0.0.0/24* als de adresruimte van het subnet.
+     ![Nieuwe toepassings gateway maken: Basics](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-     ![Virtueel netwerk maken](./media/create-multiple-sites-portal/application-gateway-vnet.png)
+2.  Er is een virtueel netwerk nodig voor communicatie tussen de resources die u maakt. U kunt een nieuw virtueel netwerk maken of een bestaande gebruiken. In dit voor beeld maakt u een nieuw virtueel netwerk op het moment dat u de toepassings gateway maakt. Application Gateway exemplaren worden in afzonderlijke subnetten gemaakt. In dit voorbeeld maakt u twee subnetten: één voor de toepassingsgateway en één voor de back-endservers.
 
-6. Klik op **OK** om het virtuele netwerk en subnet te maken.
-7. Klik op **een openbaar IP-adres kiezen**, klikt u op **nieuw**, en voer de naam van het openbare IP-adres. In dit voorbeeld is de naam van het openbare IP-adres *myAGPublicIPAddress*. Accepteer de standaardwaarden voor de overige instellingen en klik op **OK**.
-8. Accepteer de standaardwaarden voor de configuratie van de Listener, laat u de Web application firewall is uitgeschakeld en klik vervolgens op **OK**.
-9. Controleer de instellingen op de pagina Samenvatting en klik vervolgens op **OK** om de netwerkbronnen en de application gateway te maken. Het duurt enkele minuten voor de toepassingsgateway worden gemaakt, wacht totdat de implementatie is voltooid voordat u doorgaat met de volgende sectie.
+    Onder **virtueel netwerk configureren**selecteert u **nieuwe maken** om een nieuw virtueel netwerk te maken. In het venster **virtueel netwerk maken** dat wordt geopend, voert u de volgende waarden in om het virtuele netwerk en twee subnetten te maken:
 
-### <a name="add-a-subnet"></a>Een subnet toevoegen
+    - **Naam**: Typ *myVnet* als naam voor het virtuele netwerk.
 
-1. Klik in het menu links op **Alle resources** en vervolgens in de lijst met resources op **myVNet**.
-2. Klik op **subnetten**, en klik vervolgens op **Subnet**.
+    - **Subnetnaam** (Application Gateway subnet): In  het raster subnetten wordt een subnet met de naam *standaard*weer gegeven. Wijzig de naam van dit subnet in *myAGSubnet*.<br>Het subnet van de toepassingsgateway kan alleen bestaan uit toepassingsgateways. Andere resources zijn niet toegestaan.
 
-    ![Subnet maken](./media/create-multiple-sites-portal/application-gateway-subnet.png)
+    - **Subnetnaam** (subnet van back-endserver): Voer in de tweede rij van  het raster subnetten *myBackendSubnet* in de kolom **subnet name** in.
 
-3. Voer *myBackendSubnet* in als naam van het subnet en klik op **OK**.
+    - **Adres bereik** (subnet van back-endserver): Voer in de tweede rij van  het raster subnetten een adres bereik in dat niet overlapt met het adres bereik van *myAGSubnet*. Als het adres bereik van *myAGSubnet* bijvoorbeeld 10.0.0.0/24 is, voert u *10.0.1.0/24* in voor het adres bereik van *myBackendSubnet*.
 
-## <a name="create-virtual-machines"></a>Virtuele machines maken
+    Selecteer **OK** om het venster **virtueel netwerk maken** te sluiten en de instellingen voor het virtuele netwerk op te slaan.
 
-In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-endservers voor de toepassingsgateway. U kunt ook IIS installeren op de virtuele machines om te controleren dat verkeer juist wordt doorgestuurd.
+     ![Nieuwe toepassings gateway maken: virtueel netwerk](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+    
+3. Accepteer op het tabblad **basis beginselen** de standaard waarden voor de overige instellingen en selecteer **vervolgens volgende: Front-end.**
 
-1. Klik op **Nieuw**.
-2. Klik op **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** in de lijst Aanbevolen.
-3. Voer deze waarden in voor de virtuele machine:
+### <a name="frontends-tab"></a>Tabblad front-ends
 
-    - *contosoVM* : voor de naam van de virtuele machine.
-    - *azureuser* als gebruikersnaam van de beheerder.
-    - *Azure123456!* als het wachtwoord.
-    - Selecteer **Bestaande gebruiken** en selecteer *myResourceGroupAG*.
+1. Controleer op  het tabblad frontends of het **frontend-IP-adres type** is ingesteld op **openbaar**. <br>U kunt de frontend-IP zo configureren dat deze openbaar of privé is volgens uw use-case. In dit voor beeld kiest u een openbaar frontend-IP.
+   > [!NOTE]
+   > Voor de SKU van Application Gateway v2 kunt u alleen de **open bare** frontend-IP-configuratie kiezen. De persoonlijke frontend-IP-configuratie is op dit moment niet ingeschakeld voor deze v2-SKU.
 
-4. Klik op **OK**.
-5. Selecteer **DS1_V2** als grootte van de virtuele machine en klik op **Selecteren**.
-6. Zorg ervoor dat **myVNet** is geselecteerd voor het virtuele netwerk en dat het subnet **myBackendSubnet** is. 
-7. Klik op **Uitgeschakeld** om diagnostische gegevens over opstarten uit te schakelen.
-8. Klik op **OK**, controleer de instellingen op de overzichtspagina en klik op **Maken**.
+2. Kies **Nieuw maken** voor het **open bare IP-adres** en voer *myAGPublicIPAddress* in als naam voor het open bare IP-adres en selecteer vervolgens **OK**. 
 
-### <a name="install-iis"></a>IIS installeren
+     ![Nieuwe toepassings gateway maken: front-end](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+3. Selecteer **Volgende: Back-end.**
 
-1. Open de interactieve shell en zorg ervoor dat deze is ingesteld op **PowerShell**.
+### <a name="backends-tab"></a>Tabblad back-ends
 
-    ![Aangepaste extensie installeren](./media/create-multiple-sites-portal/application-gateway-extension.png)
+De back-end-groep wordt gebruikt voor het routeren van aanvragen naar de back-endservers die de aanvraag behandelen. Back-endservers kunnen Nic's zijn, virtuele-machine schaal sets, open bare Ip's, interne Ip's, FQDN-namen (Fully Qualified Domain names) en back-ends met meerdere tenants, zoals Azure App Service. In dit voor beeld maakt u een lege back-end-pool met uw toepassings gateway en voegt u vervolgens de back-endservers toe aan de back-end-groep.
+
+1. Selecteer op het tabblad **back** -end **+ een back-end-groep toevoegen**.
+
+2. In het venster **een back-Endadresgroep toevoegen** dat wordt geopend, voert u de volgende waarden in om een lege back-end-groep te maken:
+
+    - **Naam**: Voer *contosoPool* in als de naam van de back-end-groep.
+    - **Back-end-groep zonder doelen toevoegen**: Selecteer **Ja** als u een back-end-groep zonder doelen wilt maken. U voegt back-endservers toe nadat u de toepassings gateway hebt gemaakt.
+
+3. Selecteer in het venster **een back-Endadresgroep toevoegen** de optie **toevoegen** om de back-endadresgroep op te slaan en terug te keren naar het tabblad **back-end** .
+4. Voeg nu nog een back-end-groep toe met de naam *fabrikamPool*.
+
+     ![Nieuwe toepassings gateway maken: back-end](./media/create-multiple-sites-portal/backend-pools.png)
+
+4. Op het tabblad **back-end** selecteert **u volgende: Configuratie**.
+
+### <a name="configuration-tab"></a>Tabblad Configuratie
+
+Op het tabblad **configuratie** verbindt u de front-end-en back-endservers die u hebt gemaakt met behulp van een routerings regel.
+
+1. Selecteer **een regel toevoegen** in de kolom **routerings regels** .
+
+2. Voer in het venster **een regel voor de route ring toevoegen** die wordt geopend, *contosoRule* in als naam van de **regel**.
+
+3. Een routerings regel vereist een listener. Voer op het tabblad **listener** in het venster **een regel voor de route ring toevoegen** de volgende waarden in voor de listener:
+
+    - **Naam van listener**: Voer *contosoListener* in als de naam van de listener.
+    - **Frontend-IP**: Selecteer **openbaar** om het open bare IP-adres te kiezen dat u hebt gemaakt voor de front-end.
+
+   Onder **aanvullende instellingen**:
+   - **Type listener**: Meerdere sites
+   - **Hostnaam**: **www.contoso.com**
+
+   Accepteer de standaard waarden voor de overige instellingen op het tabblad **listener** en selecteer vervolgens het tabblad **backend-doelen** om de rest van de routerings regel te configureren.
+
+   ![Nieuwe toepassings gateway maken: listener](./media/create-multiple-sites-portal/routing-rule.png)
+
+4. Op het tabblad **backend-doelen** selecteert u **ContosoPool** voor het back- **end-doel**.
+
+5. Voor de **http-instelling**selecteert u **Nieuw maken** om een nieuwe http-instelling te maken. De HTTP-instelling bepaalt het gedrag van de routerings regel. In het venster **een HTTP-instelling toevoegen** dat wordt geopend, voert u *contosoHTTPSetting* in voor de naam van de **http-instelling**. Accepteer de standaard waarden voor de overige instellingen in het venster **een HTTP-instelling toevoegen** en selecteer vervolgens **toevoegen** om terug te gaan naar het venster een regel voor het routeren van **een route ring toevoegen** . 
+
+6. Selecteer in het venster **een routerings regel toevoegen** de optie **toevoegen** om de routerings regel op te slaan en terug te keren naar het tabblad **configuratie** .
+7. Selecteer **een regel toevoegen** en voeg een soort gelijke regel, listener, back-end en http-instelling voor fabrikam toe.
+
+     ![Nieuwe toepassings gateway maken: routerings regel](./media/create-multiple-sites-portal/fabrikamRule.png)
+
+7. Selecteer **Volgende: Tags** en vervolgens **volgende: Bekijk + maken**.
+
+### <a name="review--create-tab"></a>Tabblad controleren en maken
+
+Controleer de instellingen op het tabblad **beoordelen en maken** en selecteer vervolgens **maken** om het virtuele netwerk, het open bare IP-adres en de toepassings gateway te maken. Het kan enkele minuten duren om de toepassingsgateway te maken in Azure.
+
+Wacht totdat de implementatie is voltooid voordat u doorgaat met de volgende sectie.
+
+## <a name="add-backend-targets"></a>Back-end doelen toevoegen
+
+In dit voor beeld gebruikt u virtuele machines als doel-back-end. U kunt bestaande virtuele machines gebruiken of nieuwe maken. U maakt twee virtuele machines die door Azure worden gebruikt als back-endservers voor de toepassings gateway.
+
+Voor het toevoegen van back-end-doelen voert u de volgende handelingen uit:
+
+1. Maak twee nieuwe Vm's, *contosoVM* en *fabrikamVM*, die moeten worden gebruikt als back-endservers.
+2. Installeer IIS op de virtuele machines om te controleren of de toepassings gateway is gemaakt.
+3. Voeg de back-endservers toe aan de back-endservers.
+
+### <a name="create-a-virtual-machine"></a>Een virtuele machine maken
+
+1. Selecteer **Een resource maken** in de Azure-portal. Het venster **Nieuw** wordt weergegeven.
+2. Selecteer **Compute** en selecteer vervolgens **Windows Server 2016 Data Center** in de lijst **populair** . De pagina **Een virtuele machine maken** wordt weergegeven.<br>Application Gateway kunt verkeer routeren naar elk type virtuele machine dat wordt gebruikt in de back-endadresgroep. In dit voor beeld gebruikt u een Windows Server 2016 Data Center.
+3. Voer deze waarden in op het tabblad **Basisinformatie** voor de volgende instellingen voor de virtuele machine:
+
+    - **Resourcegroep**: Selecteer **myResourceGroupAG** als naam van de resourcegroep.
+    - **Naam van virtuele machine**: Voer *contosoVM* in als de naam van de virtuele machine.
+    - **Gebruikersnaam**: Typ *azureuser* als gebruikersnaam van de beheerder.
+    - **Wachtwoord**: Typ *Azure123456!* als beheerderswachtwoord.
+4. Accepteer de overige standaardwaarden en klik op **Volgende: Schijven**.  
+5. Accepteer de standaardwaarden op het tabblad **Schijven** en selecteer **Volgende: Netwerken**.
+6. Zorg ervoor dat, op het tabblad **Netwerken**, **myVNet** is geselecteerd bij **Virtueel netwerk** en dat **Subnet** is ingesteld op **myBackendSubnet**. Accepteer de overige standaardwaarden en klik op **Volgende: Beheer**.<br>Application Gateway kunt communiceren met exemplaren buiten het virtuele netwerk waarin deze zich bevindt, maar u moet ervoor zorgen dat er een IP-verbinding is.
+7. Op het tabblad **Beheer** stelt u **Diagnostische gegevens over opstarten** in op **Uit**. Accepteer de overige standaardwaarden en selecteer **Beoordelen en maken**.
+8. Controleer de instellingen op het tabblad **Beoordelen en maken**, corrigeer eventuele validatiefouten en selecteer vervolgens **Maken**.
+9. Wacht tot de virtuele machine is gemaakt voordat u verder gaat.
+
+### <a name="install-iis-for-testing"></a>IIS installeren voor testen
+
+In dit voor beeld installeert u IIS op de virtuele machines alleen om te controleren of de toepassings gateway door Azure is gemaakt.
+
+1. Open [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Hiertoe selecteert u **Cloud Shell** in de bovenste navigatiebalk van de Azure-portal en vervolgens **PowerShell** in de vervolgkeuzelijst. 
+
+    ![Aangepaste extensie installeren](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
 2. Voer de volgende opdracht uit om IIS op de virtuele machine te installeren: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
-      -Location eastus `
       -ExtensionName IIS `
       -VMName contosoVM `
       -Publisher Microsoft.Compute `
       -ExtensionType CustomScriptExtension `
       -TypeHandlerVersion 1.4 `
-      -Settings $publicSettings
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
     ```
 
-3. De tweede virtuele machine maken en IIS installeren met behulp van de stappen die u zojuist hebt voltooid. Typ de namen van *fabrikamVM* voor de naam en de waarde van VMName in Set-AzVMExtension.
+3. Maak een tweede virtuele machine en Installeer IIS met behulp van de stappen die u eerder hebt voltooid. Gebruik *fabrikamVM* voor de naam van de virtuele machine en voor de instelling **VMName** van de cmdlet **set-AzVMExtension** .
 
-## <a name="create-backend-pools-with-the-virtual-machines"></a>Back-endpools maken met de virtuele machines
+### <a name="add-backend-servers-to-backend-pools"></a>Back-endservers toevoegen aan back-end-Pools
 
-1. Klik op **alle resources** en klik vervolgens op **myAppGateway**.
-2. Klik op **back-endpools**, en klik vervolgens op **toevoegen**.
-3. Voer een naam in van *contosoPool* en toe te voegen *contosoVM* met behulp van **toevoegen doel**.
+1. Selecteer **Alle resources** en vervolgens **myAppGateway**.
 
-    ![Back-endservers toevoegen](./media/create-multiple-sites-portal/application-gateway-multisite-backendpool.png)
+2. Selecteer **Back-endpools** in het linkermenu.
 
-4. Klik op **OK**.
-5. Klik op **back-endpools** en klik vervolgens op **toevoegen**.
-6. Maak de *fabrikamPool* met de *fabrikamVM* met behulp van de stappen die u zojuist hebt voltooid.
+3. Selecteer **contosoPool**.
 
-## <a name="create-backend-listeners"></a>Back-endlisteners maken
+4. Onder **Doelen** selecteert u **Virtuele machine** in de vervolgkeuzelijst.
 
-1. Klik op **Listeners** en klik vervolgens op **multi-site**.
-2. Voer deze waarden in voor de listener:
-    
-   - *contosoListener* : voor de naam van de listener.
-   - *www.contoso.com* -in dit voorbeeld host-naam vervangen door de domeinnaam van uw.
+5. Onder **virtuele machine** en **netwerk interfaces**selecteert u de virtuele machine **contosoVM** en de netwerk interface is gekoppeld aan de vervolg keuzelijst.
 
-3. Klik op **OK**.
-4. Maak een tweede listener met de naam van *fabrikamListener* en de naam van het tweede domein gebruiken. In dit voorbeeld *www.fabrikam.com* wordt gebruikt.
+    ![Back-endservers toevoegen](./media/create-multiple-sites-portal/edit-backend-pool.png)
 
-![mult-site-listeners](media/create-multiple-sites-portal/be-listeners.png)
+6. Selecteer **Opslaan**.
+7. Herhaal dit om de *fabrikamVM* en-interface toe te voegen aan de *fabrikamPool*.
 
-## <a name="create-routing-rules"></a>Routeringsregels maken
+Wacht tot de implementatie is voltooid voordat u verdergaat met de volgende stap.
 
-Regels worden afgehandeld in de volgorde waarop ze staan vermeld. Verkeer wordt omgeleid volgens de eerste regel die overeenkomt, ongeacht de specificiteit. Als u bijvoorbeeld een regel hebt die van een basislistener gebruikmaakt en een regel die via dezelfde poort van een listener voor meerdere sites gebruikmaakt, moet de regel voor de listener voor meerdere sites vermeld worden vóór de regel met de basislistener, opdat de regel voor meerdere sites kan functioneren zoals het hoort. 
+## <a name="create-a-www-a-record-in-your-domains"></a>Een www A-record maken in uw domeinen
 
-In dit voorbeeld moet u twee nieuwe regels maken en verwijderen van de standaardregel gemaakt tijdens het maken van de toepassingsgateway.
+Nadat de toepassings gateway is gemaakt met het open bare IP-adres, kunt u het IP-adres ophalen en gebruiken om een A-record in uw domeinen te maken. 
 
-1. Klik op **regels** en klik vervolgens op **Basic**.
-2. Voer *contosoRule* voor de naam.
-3. Selecteer *contosoListener* voor de listener.
-4. Selecteer *contosoPool* voor de back-endpool.
+1. Klik op **alle resources**en klik vervolgens op **myAGPublicIPAddress**.
 
-    ![Een pad gebaseerde regel maken](./media/create-multiple-sites-portal/application-gateway-multisite-rule.png)
+    ![DNS-adres van de toepassings gateway opnemen](./media/create-multiple-sites-portal/public-ip.png)
 
-5. Klik op **OK**.
-6. Maak een tweede regel met behulp van de namen van *fabrikamRule*, *fabrikamListener*, en *fabrikamPool*.
-7. Verwijder de standaardregel met de naam *rule1* door erop te klikken en vervolgens te klikken op **verwijderen**.
-
-## <a name="create-a-cname-record-in-your-domain"></a>Een CNAME-record in uw domein maken
-
-Als de toepassingsgateway met het bijbehorende openbare IP-adres is gemaakt, kunt u het DNS-adres ophalen en dit gebruiken om een CNAME-record in uw domein te maken. Het gebruik van A-records wordt niet aanbevolen, omdat de VIP kan veranderen wanneer de toepassingsgateway opnieuw wordt gestart.
-
-1. Klik op **alle resources**, en klik vervolgens op **myAGPublicIPAddress**.
-
-    ![Record application-gateway-adres van DNS](./media/create-multiple-sites-portal/application-gateway-multisite-dns.png)
-
-2. Kopieer het DNS-adres en gebruiken als de waarde voor een nieuwe CNAME-record in uw domein.
+2. Kopieer het IP-adres en gebruik dit als de waarde voor een nieuwe *www* a-record in uw domeinen.
 
 ## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
@@ -181,7 +229,7 @@ Als de toepassingsgateway met het bijbehorende openbare IP-adres is gemaakt, kun
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u de bij de toepassingsgateway gemaakte resources niet meer nodig hebt, verwijdert u de resourcegroep. Als u de resourcegroep verwijdert, worden ook de toepassingsgateway en alle gerelateerde resources verwijderd.
+Wanneer u de bij de toepassingsgateway gemaakte resources niet meer nodig hebt, verwijdert u de resourcegroep. Wanneer u de resource groep verwijdert, verwijdert u ook de toepassings gateway en alle gerelateerde resources.
 
 Ga als volgt te werk om de resourcegroep te verwijderen:
 
@@ -193,4 +241,4 @@ Ga als volgt te werk om de resourcegroep te verwijderen:
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over wat u met Azure Application Gateway doen kunt](application-gateway-introduction.md)
+> [Meer informatie over wat u kunt doen met Azure-toepassing gateway](application-gateway-introduction.md)

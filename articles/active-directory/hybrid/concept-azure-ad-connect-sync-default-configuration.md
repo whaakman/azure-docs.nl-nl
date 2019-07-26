@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect-synchronisatie: Inzicht in de standaardconfiguratie | Microsoft Docs'
-description: Dit artikel beschrijft de standaardconfiguratie in Azure AD Connect-synchronisatie.
+title: 'Azure AD Connect synchronisatie: Informatie over de standaard configuratie | Microsoft Docs'
+description: In dit artikel wordt de standaard configuratie in Azure AD Connect Sync beschreven.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,185 +16,185 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bfaf3cc9b113ff10766f7a17bd7bf09ffa619a8e
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60246199"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227422"
 ---
-# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synchronisatie: Inzicht in de standaardconfiguratie
-Dit artikel wordt uitgelegd dat de van de out-of-box-configuratieregels. Deze documenten in de regels en hoe deze regels invloed hebben op de configuratie. Ook helpt u bij de standaardconfiguratie van Azure AD Connect-synchronisatie. Het doel is dat de lezer hoe de configuratiemodel begrijpt, met de naam declaratieve inrichting werkt in een voorbeeld van een echte. In dit artikel wordt ervan uitgegaan dat u al hebt geïnstalleerd en Azure AD Connect-synchronisatie met de installatiewizard configureren.
+# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect synchronisatie: Inzicht in de standaardconfiguratie
+In dit artikel worden de out-of-box-configuratie regels uitgelegd. De regels worden gedocumenteerd en hoe deze regels van invloed zijn op de configuratie. U wordt ook begeleid bij de standaard configuratie van Azure AD Connect Sync. Het doel is dat de lezer begrijpt hoe het configuratie model, met de naam declaratief inrichten, in een echt wereld voorbeeld werkt. In dit artikel wordt ervan uitgegaan dat u Azure AD Connect synchronisatie al hebt geïnstalleerd en geconfigureerd met behulp van de installatie wizard.
 
-Lees voor meer informatie over de details van het configuratiemodel, [Understanding declaratieve inrichting](concept-azure-ad-connect-sync-declarative-provisioning.md).
+Lees [inzicht in declaratieve inrichting](concept-azure-ad-connect-sync-declarative-provisioning.md)voor meer informatie over de details van het configuratie model.
 
-## <a name="out-of-box-rules-from-on-premises-to-azure-ad"></a>Out-of-box-regels van on-premises naar Azure AD
-De volgende expressies kunnen worden gevonden in de out-of-box-configuratie.
+## <a name="out-of-box-rules-from-on-premises-to-azure-ad"></a>Out-of-Box-regels van on-premises naar Azure AD
+De volgende expressies vindt u in de out-of-box-configuratie.
 
-### <a name="user-out-of-box-rules"></a>Gebruiker out-of-box-regels
-Deze regels zijn ook van toepassing op het type iNetOrgPerson-object.
+### <a name="user-out-of-box-rules"></a>Out-of-Box-regels voor gebruikers
+Deze regels zijn ook van toepassing op het object type iNetOrgPerson.
 
-Een gebruikersobject moet voldoen aan de volgende moeten worden gesynchroniseerd:
+Een gebruikers object moet voldoen aan het volgende om te worden gesynchroniseerd:
 
-* Beschikken over een sourceAnchor.
-* SourceAnchor wijzigen niet nadat het object is gemaakt in Azure AD. Als de waarde gewijzigd on-premises wordt, stopt het object synchroniseren totdat het sourceAnchor wordt gewijzigd naar de vorige waarde.
-* Hebben moet het kenmerk accountEnabled (userAccountControl) ingevuld. Met een on-premises Active Directory, dit kenmerk is altijd aanwezig zijn en is ingevuld.
+* Moet een source Anchor hebben.
+* Nadat het object is gemaakt in azure AD, kan source Anchor niet meer worden gewijzigd. Als de waarde voor on-premises wordt gewijzigd, wordt het object niet meer gesynchroniseerd totdat de vorige waarde van de source anchor wordt gewijzigd.
+* Het kenmerk accountEnabled (userAccountControl) moet zijn ingevuld. Met een on-premises Active Directory, is dit kenmerk altijd aanwezig en gevuld.
 
-De volgende objecten zijn **niet** gesynchroniseerd met Azure AD:
+De volgende gebruikers objecten zijn **niet** gesynchroniseerd met Azure AD:
 
-* `IsPresent([isCriticalSystemObject])`. Zorg ervoor dat veel out-of-box-objecten in Active Directory, zoals het ingebouwde administrator-account, zijn niet gesynchroniseerd.
-* `IsPresent([sAMAccountName]) = False`. Zorg ervoor dat op gebruikersobjecten met geen kenmerk sAMAccountName zijn niet gesynchroniseerd. In dit geval zou alleen nagenoeg gebeuren in een domein een upgrade uitgevoerd van NT4.
-* `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. Het serviceaccount dat wordt gebruikt door Azure AD Connect-synchronisatie en de eerdere versies niet synchroniseren.
-* Niet synchroniseren met Exchange-accounts die niet in Exchange Online werken.
+* `IsPresent([isCriticalSystemObject])`. Zorg ervoor dat veel out-of-Box-objecten in Active Directory, zoals het ingebouwde Administrator account, niet zijn gesynchroniseerd.
+* `IsPresent([sAMAccountName]) = False`. Zorg ervoor dat gebruikers objecten zonder het kenmerk sAMAccountName niet zijn gesynchroniseerd. Dit geldt alleen voor het uitvoeren van een domein dat is bijgewerkt van NT4.
+* `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. Synchroniseer niet het service account dat wordt gebruikt door Azure AD Connect Sync en de eerdere versies.
+* Synchroniseer geen Exchange-accounts die niet werken in Exchange Online.
   * `[sAMAccountName] = "SUPPORT_388945a0"`
   * `Left([mailNickname], 14) = "SystemMailbox{"`
   * `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`
   * `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
-* Objecten die niet in Exchange Online werken niet synchroniseren.
+* Synchroniseer geen objecten die niet werken in Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
-  Deze bitmasker (& H21C07000) filtert u de volgende objecten:
-  * E-mailadres openbare map (In Preview vanaf versie 1.1.524.0 en hoger)
-  * Eigen Postvak
-  * Postvak Database-postbus (systeempostvak)
-  * Universele beveiligingsgroep (wouldn't toepassen voor een gebruiker, maar aanwezig is voor verouderde redenen)
-  * Niet-universele groep (wouldn't toepassen voor een gebruiker, maar aanwezig is voor verouderde redenen)
+  Dit bitmasker (& H21C07000) zou de volgende objecten kunnen filteren:
+  * Open bare map met e-mail functionaliteit (in preview versie 1.1.524.0)
+  * System Attendant-Postvak
+  * Postvak database postvak (systeem postvak)
+  * Universele beveiligings groep (is niet van toepassing voor een gebruiker, maar is wel aanwezig voor verouderde redenen)
+  * Niet-universele groep (is niet van toepassing voor een gebruiker, maar is wel aanwezig voor verouderde redenen)
   * Plan voor Postvak
-  * Detectie-Postvak
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Replicatie slachtoffer objecten niet gesynchroniseerd.
+  * Detectie Postvak
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Synchroniseer geen objecten voor het slacht offer van de replicatie.
 
-De volgende regels voor het kenmerk zijn van toepassing:
+De volgende kenmerk regels zijn van toepassing:
 
-* `sourceAnchor <- IIF([msExchRecipientTypeDetails]=2,NULL,..)`. Het kenmerk sourceAnchor is niet van een gekoppeld postvak bijgedragen. Ervan wordt uitgegaan dat als een gekoppeld postvak is gevonden, de daadwerkelijke account deel uitmaakt van later opnieuw.
-* Exchange gerelateerde kenmerken alleen gesynchroniseerd als het kenmerk **mailNickName** heeft een waarde.
-* Wanneer er meerdere forests, worden de kenmerken in de volgende volgorde verbruikt:
-  1. Kenmerken met betrekking tot aanmelden (bijvoorbeeld userPrincipalName) worden bijgedragen van het forest met een ingeschakeld account.
-  2. Kenmerken die kunnen worden gevonden in een Exchange-GAL (globale adreslijst) worden van het forest met een Exchange-postvak bijgedragen.
-  3. Als er geen postvak kan worden gevonden, klikt u vervolgens deze kenmerken kunnen afkomstig zijn van een forest.
-  4. Exchange gerelateerde kenmerken (technische kenmerken niet zichtbaar in de GAL) worden aangeleverd vanuit de forest waar `mailNickname ISNOTNULL`.
-  5. Als er meerdere forests die u zou een van deze regels voldoen, wordt de volgorde voor het maken van (datum/tijd) van de Connectors (forests) gebruikt om te bepalen welk forest deel uitmaakt van de kenmerken.
+* `sourceAnchor <- IIF([msExchRecipientTypeDetails]=2,NULL,..)`. Het kenmerk source Anchor is niet bijgedragen vanuit een gekoppeld postvak. Er wordt van uitgegaan dat als er een gekoppeld postvak is gevonden, het daad werkelijke account later wordt toegevoegd.
+* Aan Exchange gerelateerde kenmerken worden alleen gesynchroniseerd als het  kenmerk mailnickname een waarde heeft.
+* Wanneer er meerdere forests zijn, worden de kenmerken in de volgende volg orde gebruikt:
+  1. Kenmerken met betrekking tot aanmelden (bijvoorbeeld userPrincipalName) zijn bijgedragen vanuit het forest met een ingeschakeld account.
+  2. Kenmerken die kunnen worden gevonden in een Exchange-GAL (algemene adres lijst), zijn bijgedragen vanuit het forest met een Exchange-postvak.
+  3. Als er geen postvak kan worden gevonden, kunnen deze kenmerken afkomstig zijn uit elk forest.
+  4. Aan Exchange gerelateerde kenmerken (technische kenmerken die niet zichtbaar zijn in de GAL) zijn van de `mailNickname ISNOTNULL`forest bijgebracht.
+  5. Als er meerdere forests aan een van deze regels voldoen, wordt de aanmaak volgorde (datum/tijd) van de connectors (forests) gebruikt om te bepalen welk forest de kenmerken bijdraagt. Het eerste forest dat is verbonden, is het eerste forest dat wordt gesynchroniseerd. 
 
-### <a name="contact-out-of-box-rules"></a>Neem contact op met out-of-box-regels
-Een verbindingsobject moet voldoen aan de volgende moeten worden gesynchroniseerd:
+### <a name="contact-out-of-box-rules"></a>Contact opnemen met out-of-Box-regels
+Een contact object moet voldoen aan het volgende om te worden gesynchroniseerd:
 
-* Het contact moet worden ingeschakeld voor e-mail. Het is geverifieerd met de volgende regels:
-  * `IsPresent([proxyAddresses]) = True)`. Het kenmerk proxyAddresses moet invullen.
-  * Een primaire e-mailadres kan worden gevonden in het proxyAddresses-kenmerk of het e-mailkenmerk. De aanwezigheid van een \@ wordt gebruikt om te controleren of de inhoud een e-mailadres. Een van deze twee regels moet worden geëvalueerd op waar.
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Is er een vermelding met ' SMTP: "en als er, kunt u een \@ vindt u in de tekenreeks?
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Is het e-mailkenmerk ingevuld en als dat is, kunt een \@ vindt u in de tekenreeks?
+* De contact persoon moet zijn ingeschakeld voor e-mail. Deze wordt gecontroleerd met de volgende regels:
+  * `IsPresent([proxyAddresses]) = True)`. Het kenmerk proxyAddresses moet worden ingevuld.
+  * U vindt een primair e-mail adres in het kenmerk proxyAddresses of het kenmerk mail. De aanwezigheid van een \@ wordt gebruikt om te controleren of de inhoud een e-mail adres is. Een van deze twee regels moet worden geëvalueerd als waar.
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Is er een vermelding met ' SMTP: ' en als dat het geval is, \@ kan deze in de teken reeks worden gevonden?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Is het e-mail kenmerk ingevuld en als dit zo is, \@ kan het worden gevonden in de teken reeks?
 
-De volgende contact op met objecten zijn **niet** gesynchroniseerd met Azure AD:
+De volgende contact objecten zijn **niet** gesynchroniseerd met Azure AD:
 
-* `IsPresent([isCriticalSystemObject])`. Zorg ervoor dat er geen contact op met objecten die als kritiek zijn gemarkeerd zijn gesynchroniseerd. Mag niet een met een standaardconfiguratie.
+* `IsPresent([isCriticalSystemObject])`. Zorg ervoor dat er geen contact objecten zijn die als kritiek zijn gemarkeerd, worden gesynchroniseerd. Dit is niet mogelijk met een standaard configuratie.
 * `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`.
-* `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. Deze objecten goed niet in Exchange Online.
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Replicatie slachtoffer objecten niet gesynchroniseerd.
+* `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. Deze objecten werken niet in Exchange Online.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Synchroniseer geen objecten voor het slacht offer van de replicatie.
 
-### <a name="group-out-of-box-rules"></a>Groep out-of-box-regels
-Een group-object moet voldoen aan de volgende moeten worden gesynchroniseerd:
+### <a name="group-out-of-box-rules"></a>Out-of-Box-regels groeperen
+Een groeps object moet voldoen aan het volgende om te worden gesynchroniseerd:
 
-* Moet minder dan 50.000 leden hebben. Deze waarde is het aantal leden in de on-premises-groep.
-  * Als er meer leden voordat synchronisatie de eerste keer wordt gestart, wordt de groep niet gesynchroniseerd.
-  * Als het aantal leden laten wanneer deze is in eerste instantie gemaakt groeien, klikt u vervolgens wanneer het 50.000 leden bereikt stopt totdat het aantal lidmaatschap lager dan 50.000 opnieuw is synchroniseren.
-  * Opmerking: Het aantal 50.000 lidmaatschap wordt ook afgedwongen door Azure AD. U bent niet kunnen synchroniseren van groepen met meer leden, zelfs als u wijzigen of verwijderen van deze regel.
-* Als de groep is een **distributiegroep**, en vervolgens het moet ook de e-mailtoegang. Zie [Neem contact op met out-of-box regels](#contact-out-of-box-rules) voor deze regel wordt afgedwongen.
+* Moet minder dan 50.000 leden hebben. Dit aantal is het aantal leden in de on-premises groep.
+  * Als er meer leden zijn voordat synchronisatie de eerste keer wordt gestart, wordt de groep niet gesynchroniseerd.
+  * Als het aantal leden groeit vanaf het moment dat de eerste keer werd gemaakt, wordt de synchronisatie van 50.000 leden gestopt, totdat het aantal lidmaatschapen van 50.000 opnieuw is bereikt.
+  * Opmerking: Het 50.000-lidmaatschaps aantal wordt ook afgedwongen door Azure AD. Het is niet mogelijk om groepen met meer leden te synchroniseren, zelfs niet als u deze regel wijzigt of verwijdert.
+* Als de groep een **distributie groep**is, moet het ook e-mail adres zijn ingeschakeld. Zie [out-of-Box-regels](#contact-out-of-box-rules) voor deze regel afdwingen.
 
-De volgende groepsobjecten zijn **niet** gesynchroniseerd met Azure AD:
+De volgende groeps objecten zijn **niet** gesynchroniseerd met Azure AD:
 
-* `IsPresent([isCriticalSystemObject])`. Zorg ervoor dat veel out-of-box-objecten in Active Directory, zoals de ingebouwde groep administrators, zijn niet gesynchroniseerd.
+* `IsPresent([isCriticalSystemObject])`. Zorg ervoor dat veel out-of-Box-objecten in Active Directory, zoals de ingebouwde groep Administrators, niet zijn gesynchroniseerd.
 * `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`. Verouderde groep die wordt gebruikt door DirSync.
-* `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. Rolgroepen.
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Replicatie slachtoffer objecten niet gesynchroniseerd.
+* `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. Functie groep.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Synchroniseer geen objecten voor het slacht offer van de replicatie.
 
-### <a name="foreignsecurityprincipal-out-of-box-rules"></a>ForeignSecurityPrincipal out-of-box-regels
-FSP's zijn gekoppeld aan 'een' (\*)-object in de metaverse. In werkelijkheid gebeurt deze samenvoeging alleen voor gebruikers en beveiligingsgroepen. Deze configuratie zorgt ervoor dat forest-overschrijdende lidmaatschappen zijn opgelost en correct wordt weergegeven in Azure AD.
+### <a name="foreignsecurityprincipal-out-of-box-rules"></a>ForeignSecurityPrincipal out-of-Box-regels
+FSPs worden toegevoegd aan het object any (\*) in de tekst. In werkelijkheid gebeurt deze samen voeging alleen voor gebruikers en beveiligings groepen. Deze configuratie zorgt ervoor dat meerdere forest-lidmaatschappen worden opgelost en correct worden weer gegeven in azure AD.
 
-### <a name="computer-out-of-box-rules"></a>Computer out-of-box-regels
-Een nieuw computerobject moet voldoen aan de volgende moeten worden gesynchroniseerd:
+### <a name="computer-out-of-box-rules"></a>Out-of-Box-regels voor computer
+Een computer object moet voldoen aan het volgende om te worden gesynchroniseerd:
 
-* `userCertificate ISNOTNULL`. Alleen Windows 10-computers vullen dit kenmerk. Alle computerobjecten met een waarde in dit kenmerk worden gesynchroniseerd.
+* `userCertificate ISNOTNULL`. Alleen Windows 10-computers vullen dit kenmerk in. Alle computer objecten met een waarde in dit kenmerk worden gesynchroniseerd.
 
-## <a name="understanding-the-out-of-box-rules-scenario"></a>Informatie over de regels voor out-of-box-scenario
-In dit voorbeeld gebruiken we een implementatie met één accountforest (A), een bron-forest (R) en een Azure AD-directory.
+## <a name="understanding-the-out-of-box-rules-scenario"></a>Informatie over het scenario met de out-of-Box-regels
+In dit voor beeld gebruiken we een implementatie met één account forest (A), één resource-forest (R) en één Azure AD-adres lijst.
 
-![Afbeelding met scenariobeschrijving](./media/concept-azure-ad-connect-sync-default-configuration/scenario.png)
+![Afbeelding met scenario beschrijving](./media/concept-azure-ad-connect-sync-default-configuration/scenario.png)
 
-In deze configuratie wordt ervan uitgegaan dat er is een ingeschakeld account in het forest en een uitgeschakeld account in de bron-forest met een gekoppeld postvak.
+In deze configuratie wordt ervan uitgegaan dat er een ingeschakeld account is in het account-forest en een uitgeschakeld account in de bron-forest met een gekoppeld postvak.
 
-Het is ons doel met de standaard-configuratie:
+Ons doel met de standaard configuratie is:
 
-* Kenmerken met betrekking tot aanmelden worden gesynchroniseerd vanuit het forest met de ingeschakeld account.
-* Kenmerken die kunnen worden gevonden in de GAL (globale adreslijst) worden gesynchroniseerd vanuit het forest met de postvak. Als er geen postvak kan worden gevonden, wordt een andere forest wordt gebruikt.
-* Als een gekoppeld postvak wordt gevonden, moet u de gekoppelde ingeschakeld account gevonden voor het object moet worden geëxporteerd naar Azure AD.
+* Kenmerken die betrekking hebben op aanmelden, worden gesynchroniseerd vanuit het forest met het ingeschakelde account.
+* Kenmerken die kunnen worden gevonden in de GAL (algemene adres lijst), worden gesynchroniseerd vanuit het forest met het postvak. Als er geen postvak kan worden gevonden, wordt er een ander forest gebruikt.
+* Als een gekoppeld postvak wordt gevonden, moet het gekoppelde ingeschakelde account worden gevonden voor het object dat naar Azure AD moet worden geëxporteerd.
 
-### <a name="synchronization-rule-editor"></a>Synchronization Rule Editor
-De configuratie kan worden bekeken en gewijzigd met het hulpprogramma voor synchronisatie regels Editor (SRE) en een snelkoppeling waarmee u deze kunt u vinden in het startmenu.
+### <a name="synchronization-rule-editor"></a>Editor voor synchronisatie regels
+De configuratie kan worden weer gegeven en gewijzigd met de tool Synchronization Rules editor (SRE) en een snelkoppeling naar deze map vindt u in het menu Start.
 
-![Pictogram van de Synchronization Rules Editor](./media/concept-azure-ad-connect-sync-default-configuration/sre.png)
+![Pictogram voor de editor voor synchronisatie regels](./media/concept-azure-ad-connect-sync-default-configuration/sre.png)
 
-De SRE is een resource kit-hulpprogramma en met Azure AD Connect-synchronisatie is geïnstalleerd. Om te kunnen starten, moet u lid zijn van de groep ADSyncAdmins zijn. Wanneer deze wordt gestart, ziet er ongeveer als volgt:
+De SRE is een Resource Kit en wordt geïnstalleerd met Azure AD Connect Sync. U moet lid zijn van de groep ADSyncAdmins om het te kunnen starten. Wanneer de app wordt gestart, ziet u er ongeveer als volgt uit:
 
-![Synchronisatieregels inkomend](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
+![Synchronisatie regels binnenkomend](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
 
-In dit deelvenster ziet u alle synchronisatieregels die zijn gemaakt voor uw configuratie. Elke regel in de tabel is een regel voor synchronisatie. Aan de linkerkant onder regeltypen staan de twee verschillende typen: Binnenkomend en uitgaand. Inkomend en uitgaand afkomstig is van de weergave van de metaverse. Voornamelijk gaat u zich richten op de regels voor binnenkomende verbindingen in dit overzicht. De daadwerkelijke lijst synchronisatieregels is afhankelijk van de gedetecteerde schema in AD. De accountforest (fabrikamonline.com) beschikt niet over services, zoals Exchange en Lync, en geen synchronisatieregels zijn gemaakt voor deze services in de bovenstaande afbeelding. Echter, in de bron-forest (res.fabrikamonline.com) vindt u synchronisatieregels voor deze services. De inhoud van de regels is verschillend, afhankelijk van de versie gedetecteerd. Bijvoorbeeld in een implementatie met Exchange 2013 zijn er meer kenmerkstromen geconfigureerd dan in Exchange 2010/2007.
+In dit deel venster ziet u alle synchronisatie regels die voor uw configuratie zijn gemaakt. Elke regel in de tabel is één synchronisatie regel. Aan de linkerkant onder regel typen, worden de twee verschillende typen weer gegeven: Inkomend en uitgaand. Inkomend en uitgaand is afkomstig uit de weer gave van de tekst. U gaat voornamelijk richten op de regels voor binnenkomende verbindingen in dit overzicht. De werkelijke lijst met synchronisatie regels is afhankelijk van het gedetecteerde schema in AD. In de bovenstaande afbeelding heeft het account-forest (fabrikamonline.com) geen services, zoals Exchange en Lync, en zijn er geen synchronisatie regels voor deze services gemaakt. In het resource-forest (res.fabrikamonline.com) kunt u echter synchronisatie regels voor deze services vinden. De inhoud van de regels verschilt, afhankelijk van de gedetecteerde versie. In een implementatie met Exchange 2013 zijn bijvoorbeeld meer kenmerk stromen geconfigureerd dan in Exchange 2010/2007.
 
-### <a name="synchronization-rule"></a>Regel voor synchronisatie
-Een Synchronisatieregel is een configuratieobject met een set kenmerken weergegeven als een voorwaarde wordt voldaan. Het wordt ook gebruikt om te beschrijven hoe een object in een connectorgebied is gerelateerd aan een object in de metaverse, ook wel **join** of **overeenkomen met**. De synchronisatieregels hebben een hogere prioriteitswaarde die aangeeft hoe ze aan elkaar zijn gerelateerd. Een regel voor synchronisatie met een lagere numerieke waarde heeft een hogere prioriteit en een kenmerk stroom conflict optreedt, hogere prioriteit de conflictoplossing wins.
+### <a name="synchronization-rule"></a>Synchronisatie regel
+Een synchronisatie regel is een configuratie object met een set kenmerken die stromen wanneer aan een voor waarde wordt voldaan. Het wordt ook gebruikt om te beschrijven hoe een object in een connector ruimte is gerelateerd aan een object in de omgekeerde, ook wel **samen voegen** of **overeenkomst**. De synchronisatie regels hebben een prioriteits waarde die aangeeft hoe ze aan elkaar zijn gerelateerd. Een synchronisatie regel met een lagere numerieke waarde heeft een hogere prioriteit en een conflict met een kenmerk stroom heeft een hogere prioriteit dan WINS voor het oplossen van conflicten.
 
-Bekijk een voorbeeld: de Synchronisatieregel **In uit Active Directory-gebruiker AccountEnabled**. Deze regel in de SRE en selecteer markeren **bewerken**.
+Bekijk een voor beeld van de synchronisatie regel **in vanuit AD: gebruiker AccountEnabled**. Markeer deze regel in de SRE en selecteer **bewerken**.
 
-Omdat met deze regel een regel voor out-of-box wordt, ontvangt u een waarschuwing weergegeven bij het openen van de regel. U maakt een [wijzigingen aan de regels voor out-of-box](how-to-connect-sync-best-practices-changing-default-configuration.md), zodat u wordt gevraagd wat uw intenties zijn. In dit geval wilt u alleen om de regel weer te geven. Selecteer **Nee**.
+Omdat deze regel een out-of-Box-regel is, wordt er een waarschuwing weer gegeven wanneer u de regel opent. U moet geen wijzigingen aanbrengen [in out-of-Box-regels](how-to-connect-sync-best-practices-changing-default-configuration.md), zodat u wordt gevraagd wat uw bedoelingen zijn. In dit geval wilt u alleen de regel weer geven. Selecteer **Nee**.
 
-![Synchronisatie van regels voor waarschuwing](./media/concept-azure-ad-connect-sync-default-configuration/warningeditrule.png)
+![Waarschuwing voor synchronisatie regels](./media/concept-azure-ad-connect-sync-default-configuration/warningeditrule.png)
 
-Een regel voor synchronisatie heeft vier configuratiesecties: Beschrijving, Scoping-filter, lid worden van regels en transformaties.
+Een synchronisatie regel heeft vier configuratie secties: Beschrijving, bereik filter, regels voor samen voegen en trans formaties.
 
 #### <a name="description"></a>Description
-De eerste sectie bevat algemene informatie, zoals een naam en beschrijving.
+De eerste sectie bevat basis informatie, zoals een naam en beschrijving.
 
-![Beschrijving van tabblad synchroon regeleditor](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
+![Tabblad Beschrijving in de editor voor synchronisatie regels](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
 
-Ook vindt u informatie over welke verbonden systeem met deze regel is gerelateerd aan, waarmee het verbonden systeem dat is van toepassing op type en het metaverse-objecttype-object. Het metaverse-objecttype is altijd persoon ongeacht wanneer het brontype van het object een gebruiker, iNetOrgPerson of neem contact op met is. Het metaverse-objecttype moet nooit wijzigen zodat deze als een generiek type is gemaakt. Het koppelingstype kan worden ingesteld op Join, StickyJoin of inrichten. Deze instelling werkt samen met de sectie met regels voor lid worden en wordt later behandeld.
+U vindt ook informatie over het verbonden systeem waaraan deze regel is gerelateerd, welk object type in het verbonden systeem van toepassing is en het object type van de tekst. Het object type van de tekst is altijd ongeacht of het type van het bron object een gebruiker, iNetOrgPerson of contact persoon is. Het type van het omgekeerde object mag niet worden gewijzigd, zodat het als een Gene riek type wordt gemaakt. Het type koppeling kan worden ingesteld op lid worden van, StickyJoin of inrichten. Deze instelling werkt samen met de sectie regels voor samen voegen en wordt later behandeld.
 
-U ziet ook dat deze synchronisatieregel wordt gebruikt voor Wachtwoordsynchronisatie. Als een gebruiker binnen het bereik van deze synchronisatieregel is, wordt het wachtwoord van on-premises gesynchroniseerd naar de cloud (ervan uitgaande dat u de functie van de synchronisatie van wachtwoord hebt ingeschakeld).
+U kunt ook zien dat deze synchronisatie regel wordt gebruikt voor wachtwoord synchronisatie. Als een gebruiker zich in het bereik voor deze synchronisatie regel bevindt, wordt het wacht woord van on-premises naar de Cloud gesynchroniseerd (ervan uitgaande dat u de functie voor wachtwoord synchronisatie hebt ingeschakeld).
 
-#### <a name="scoping-filter"></a>Bereikfilter
-De sectie bereikfilter voor wordt gebruikt om te configureren wanneer een regel voor synchronisatie moet worden toegepast. Omdat de naam van de Synchronisatieregel u kijkt moet alleen worden toegepast voor ingeschakelde gebruikers aangeeft, het bereik is geconfigureerd zodat de AD-kenmerk **userAccountControl** moet hebt niet de bit 2 ingesteld. Als de synchronisatie-engine wordt een gebruiker in AD gevonden, wordt deze synchronisatie toegepast wanneer regel **userAccountControl** is ingesteld op de decimale waarde 512 (ingeschakeld normale gebruiker). De regel is niet van toepassing wanneer de gebruiker heeft **userAccountControl** ingesteld op 514 (uitgeschakelde normale gebruiker).
+#### <a name="scoping-filter"></a>Bereik filter
+De sectie Filter bereik wordt gebruikt om te configureren wanneer een synchronisatie regel moet worden toegepast. Omdat de naam van de synchronisatie regel aangeeft dat deze alleen moet worden toegepast voor ingeschakelde gebruikers, wordt het bereik geconfigureerd zodat het AD-kenmerk **userAccountControl** geen bit 2-set moet hebben. Wanneer de synchronisatie-engine een gebruiker in AD vindt, wordt deze synchronisatie regel toegepast wanneer **userAccountControl** is ingesteld op de decimale waarde 512 (ingeschakelde normale gebruiker). De regel wordt niet toegepast wanneer de gebruiker **userAccountControl** heeft ingesteld op 514 (uitgeschakelde normale gebruiker).
 
-![Scoping tabblad in de editor voor synchronisatie-regel](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Het tabblad bereik in de editor voor synchronisatie regels](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
-De bereikfilter heeft groepen en -componenten die kunnen worden genest. Alle componenten binnen een groep moeten worden voldaan voor een regel voor synchronisatie om toe te passen. Wanneer er meerdere groepen zijn gedefinieerd, moet ten minste één groep worden voldaan voor de regel wilt toepassen. Dat wil zeggen, een logische of tussen groepen en een logische wordt geëvalueerd en wordt geëvalueerd binnen een groep. Een voorbeeld van deze configuratie kunt u vinden in de regel voor uitgaande synchronisatie **Out voor AAD-groep Join**. Er zijn verschillende filter groepen voor synchronisatie, bijvoorbeeld één voor beveiligingsgroepen (`securityEnabled EQUAL True`) en één voor distributiegroepen (`securityEnabled EQUAL False`).
+Het filter bereik heeft groepen en componenten die kunnen worden genest. Voor alle componenten in een groep moet worden voldaan aan een synchronisatie regel die moet worden toegepast. Wanneer er meerdere groepen zijn gedefinieerd, moet aan ten minste één groep worden voldaan om de regel toe te passen. Dat wil zeggen, een logische of wordt geëvalueerd tussen groepen en een logische en wordt geëvalueerd in een groep. Een voor beeld van deze configuratie vindt u in de regel voor uitgaande synchronisatie **naar Aad-Group-koppeling**. Er zijn verschillende synchronisatie filter groepen, bijvoorbeeld één voor beveiligings groepen (`securityEnabled EQUAL True`) en één voor distributie groepen (`securityEnabled EQUAL False`).
 
-![Scoping tabblad in de editor voor synchronisatie-regel](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
+![Het tabblad bereik in de editor voor synchronisatie regels](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
 
-Deze regel wordt gebruikt om te definiëren welke groepen moeten worden ingericht met Azure AD. Distributiegroepen moeten zijn ingeschakeld om te worden gesynchroniseerd met Azure AD e-mail, maar voor beveiligingsgroepen een e-mailbericht is niet vereist.
+Deze regel wordt gebruikt om te definiëren welke groepen moeten worden ingericht voor Azure AD. Voor distributie groepen moet e-mail zijn ingeschakeld om te worden gesynchroniseerd met Azure AD, maar voor beveiligings groepen is geen e-mail bericht vereist.
 
-#### <a name="join-rules"></a>Regels toevoegen
-De derde sectie wordt gebruikt om te configureren hoe objecten in het connectorgebied zich verhouden tot objecten in de metaverse. De regel die u eerder hebt bekeken heeft geen geen configuratie voor regels voor lid worden, dus in plaats daarvan u gaat kijken **In uit Active Directory-gebruiker toevoegen**.
+#### <a name="join-rules"></a>Regels voor samen voegen
+De derde sectie wordt gebruikt om te configureren hoe objecten in de connector ruimte verband houden met objecten in de tekst. De regel die u eerder hebt bekeken, heeft geen configuratie voor regels voor samen voegen, dus in plaats daarvan gaat u naar **van AD – gebruiker toevoegen**.
 
-![Tabblad regels in de editor voor synchronisatie-regel toevoegen](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
+![Het tabblad regels samen voegen in de editor voor synchronisatie regels](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
-De inhoud van de join-regel, is afhankelijk van de overeenkomende optie is geselecteerd in de installatiewizard. De evaluatie begint met een object in het connectorgebied bron voor een inkomende regel en elke groep in de join-regels in de reeks wordt geëvalueerd. Als een bronobject wordt vastgesteld zodat deze overeenkomt met één object in de metaverse met behulp van een van de regels voor lid worden, worden de objecten zijn gekoppeld. Als alle regels zijn geëvalueerd en er geen overeenkomst is, wordt het koppelingstype op de beschrijvingspagina gebruikt. Als deze configuratie is ingesteld op **inrichten**, en vervolgens een nieuw object wordt gemaakt in het doel, de metaverse. Voor het inrichten van een nieuw object naar de metaverse staat ook bekend als aan **project** een object naar de metaverse.
+De inhoud van de regel voor samen voeging is afhankelijk van de geselecteerde optie in de installatie wizard. Voor een regel voor binnenkomende verbindingen begint de evaluatie met een object in de bron connector ruimte en elke groep in de regels voor samen voegen wordt in de juiste volg orde geëvalueerd. Als een bron object wordt geëvalueerd om precies één object in de omgekeerde tekst te vergelijken met een van de join-regels, worden de objecten gekoppeld. Als alle regels zijn geëvalueerd en er geen overeenkomst is, wordt het koppelings type op de pagina beschrijving gebruikt. Als deze configuratie is ingesteld op **inrichten**, wordt een nieuw object gemaakt in het doel, het omgekeerde. Om een nieuw object in te richten op de tekst is ook bekend als  het projecteren van een object naar de tekst.
 
-De join-regels zijn slechts één keer geëvalueerd. Wanneer een object van connector space en metaverse-object zijn gekoppeld, blijven deze is toegevoegd aan, zolang het bereik van de regel voor synchronisatie is nog steeds voldaan aan.
+De regels voor samen voegen worden slechts eenmaal geëvalueerd. Wanneer een connector ruimte-object en een omgekeerd object worden toegevoegd, blijven ze gekoppeld zolang er nog steeds aan het bereik van de synchronisatie regel wordt voldaan.
 
-Bij het evalueren van synchronisatieregels moet slechts één regel voor synchronisatie met regels voor lid worden gedefinieerd binnen het bereik. Als meerdere synchronisatieregels met regels voor lid worden voor één object worden gevonden, wordt er een fout opgetreden. De aanbevolen procedure is om deze reden hebben slechts één regel voor synchronisatie met join gedefinieerd wanneer er meerdere synchronisatieregels zijn binnen het bereik van een object. In de out-of-box-configuratie voor Azure AD Connect-synchronisatie, deze regels kunnen vinden door te kijken naar de naam en degenen waarbij het woord **Join** aan het einde van de naam. Een regel zonder een join-regels gedefinieerd voor het synchroniseren van toepassing is de kenmerkstromen wanneer andere synchronisatieregels de objecten zijn samengevoegd of een nieuw object in de doel-ingericht.
+Bij het evalueren van synchronisatie regels moet slechts één synchronisatie regel met gedefinieerde samenvoegings regels binnen het bereik vallen. Als er meerdere synchronisatie regels met regels voor samen voegen voor één object worden gevonden, wordt er een fout gegenereerd. Daarom is het best practice slechts één synchronisatie regel met samen voeging gedefinieerd wanneer meerdere synchronisatie regels binnen het bereik van een object vallen. In de out-of-box-configuratie voor Azure AD Connect synchronisatie, kunt u deze regels vinden door de naam te bekijken en deze te vinden met het woord **samen voegen** aan het einde van de naam. Een synchronisatie regel zonder gedefinieerde regels voor samen voegen past de kenmerk stromen toe wanneer een andere synchronisatie regel de objecten samenvoegde of een nieuw object in het doel heeft ingericht.
 
-Als u de bovenstaande afbeelding bekijkt, kunt u zien dat de regel is proberen toe te voegen **objectSID** met **msExchMasterAccountSid** (Exchange) en **msRTCSIP-OriginatorSid** (Lync) Dit is wat we verwachten dat in de topologie van een account-resource forest. U vindt de dezelfde regel op alle forests. De veronderstelling is dat elk forest een account of een bron-forest kan worden. Deze configuratie werkt ook als u accounts die bevinden zich in één forest en hoeft niet te worden toegevoegd.
+Als u de bovenstaande afbeelding bekijkt, kunt u zien dat de regel probeert **objectSID** toe te voegen met **msExchMasterAccountSID** (Exchange) en **msRTCSIP-OriginatorSid** (Lync). Dit is wat er wordt verwacht in een account-resource forest-topologie. U vindt dezelfde regel op alle forests. De veronderstelling is dat elke forest een account of een resource-forest zou kunnen zijn. Deze configuratie werkt ook als u accounts hebt die zich in één forest bevinden en niet moeten worden gekoppeld.
 
 #### <a name="transformations"></a>Transformaties
-Het gedeelte transformatie definieert alle kenmerkstromen die betrekking hebben op het beoogde doelobject als lid zijn van de objecten en het filter voor zoekbereik is voldaan. Ga terug naar de **In uit Active Directory-gebruiker AccountEnabled** Synchronisatieregel, vindt u de volgende transformaties:
+De sectie trans formatie definieert alle kenmerk stromen die van toepassing zijn op het doel object wanneer de objecten zijn gekoppeld en waaraan het bereik filter is voldaan. Teruggaan naar de **in AD-** synchronisatie regel voor gebruikers AccountEnabled, vindt u de volgende trans formaties:
 
-![Transformaties tabblad synchroon regeleditor](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
+![Het tabblad trans formaties in de editor voor synchronisatie regels](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
 
-Om deze configuratie in de context in een implementatie met een Account-Resource-forests is het waarschijnlijk een ingeschakeld account in het forest en een uitgeschakeld account vinden in de bron-forest met instellingen voor Exchange en Lync. De Synchronisatieregel die u wilt de kenmerken die vereist zijn voor aanmelding bij bevat en deze kenmerken moeten stromen van het forest waarbij er een ingeschakeld account. Deze kenmerkstromen zijn in één regel voor synchronisatie samengesteld.
+Als u deze configuratie in context wilt opnemen in een account-resource forest-implementatie, wordt verwacht dat deze een ingeschakeld account in het account forest en een uitgeschakelde account in de bron-forest met de Exchange-en Lync-instellingen heeft gevonden. De synchronisatie regel die u bekijkt bevat de kenmerken die zijn vereist voor aanmelding. deze kenmerken moeten stromen van het forest met een ingeschakeld account. Al deze kenmerk stromen worden samen in één synchronisatie regel opgenomen.
 
-Een transformatie kan verschillende typen hebben: Een constante, Direct, and -expressie.
+Een trans formatie kan verschillende typen hebben: Constante, direct en expressie.
 
-* Een constante stroom stromen altijd een waarde vastgelegd. In dit geval wordt de waarde altijd ingesteld **waar** in de metaverse-kenmerk met de naam **accountEnabled**.
-* Een directe stroom altijd de waarde van het kenmerk in de bron naar het doelkenmerk als stromen-is.
-* Het derde type van de stroom is expressie en kunt voor meer geavanceerde configuraties.
+* Met een constante stroom wordt altijd een hardcoded waarde stromen. In het bovenstaande voor beeld wordt altijd de waarde **True** ingesteld in het **accountEnabled**kenmerk met de naam.
+* Met een directe stroom wordt altijd de waarde van het kenmerk in de bron naar het doel kenmerk gestroomd als-is.
+* Het derde stroom type is expressie en biedt meer geavanceerde configuraties.
 
-De expressietaal is VBA (Visual Basic for Applications), zodat mensen met de ervaring van Microsoft Office of VBScript herkent de indeling. Kenmerken zijn tussen vierkante haken, [attributeName]. Kenmerknamen van en de functie zijn hoofdlettergevoelig, maar de Synchronization Rules Editor evalueert de expressies en geef een waarschuwing als de expressie is niet geldig. Alle expressies worden uitgedrukt op één regel met geneste functies. Als u wilt weergeven van de kracht van de configuratie-taal, volgt de stroom voor pwdLastSet, maar met aanvullende opmerkingen ingevoegde:
+De expressie taal is VBA (Visual Basic for Applications), zodat gebruikers met de ervaring van Microsoft Office of VBScript de indeling kunnen herkennen. Kenmerken staan tussen vier Kante haken, [kenmerknaam]. Kenmerk namen en functie namen zijn hoofdletter gevoelig, maar in de editor voor synchronisatie regels worden de expressies geëvalueerd en wordt een waarschuwing gegeven als de expressie ongeldig is. Alle expressies worden weer gegeven op één regel met geneste functies. Om de kracht van de configuratie taal weer te geven, is dit de stroom voor pwdLastSet, maar er zijn aanvullende opmerkingen ingevoegd:
 
 ```
 // If-then-else
@@ -208,35 +208,35 @@ NULL
 )
 ```
 
-Zie [Understanding declaratieve inrichting expressies](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) voor meer informatie over de expressietaal voor kenmerkstromen.
+Zie [uitleg over declaratieve inrichtings expressies](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) voor meer informatie over de expressie taal voor kenmerk stromen.
 
 ### <a name="precedence"></a>Prioriteit
-U hebt nu een afzonderlijke synchronisatieregels bekeken, maar de regels werken samen in de configuratie. In sommige gevallen een kenmerkwaarde bijgedragen uit meerdere synchronisatieregels voor met de dezelfde target-kenmerk. In dit geval wordt Kenmerkprioriteit gebruikt om te bepalen welk kenmerk wins. Bekijk een voorbeeld: het kenmerk sourceAnchor. Dit kenmerk is een belangrijk kenmerk te kunnen aanmelden bij Azure AD. U kunt een kenmerkstroom vinden voor dit kenmerk in twee verschillende synchronisatieregels **In uit Active Directory-gebruiker AccountEnabled** en **In uit Active Directory-gebruiker algemene**. Vanwege de prioriteit van Synchronisatieregel, is het kenmerk sourceAnchor bijgedragen van het forest met een ingeschakeld account eerst wanneer er meerdere objecten samengevoegd tot het metaverse-object. Als er geen accounts ingeschakeld zijn, wordt de synchronisatie-engine maakt gebruik van de Synchronisatieregel catch-all **In uit Active Directory-gebruiker algemene**. Deze configuratie zorgt ervoor dat ook voor accounts die zijn uitgeschakeld, er nog steeds een sourceAnchor.
+U hebt nu een aantal afzonderlijke synchronisatie regels bekeken, maar de regels werken samen in de configuratie. In sommige gevallen wordt een kenmerk waarde bijgedragen van meerdere synchronisatie regels naar hetzelfde doel kenmerk. In dit geval wordt de kenmerk prioriteit gebruikt om te bepalen welk kenmerk WINS. Bekijk bijvoorbeeld het kenmerk source Anchor. Dit kenmerk is een belang rijk kenmerk waarmee u zich kunt aanmelden bij Azure AD. U kunt een kenmerk stroom voor dit kenmerk vinden in twee verschillende synchronisatie regels, **in vanuit AD: User AccountEnabled** en **in from AD: User common**. Als gevolg van de prioriteit van de synchronisatie regel, wordt het kenmerk source Anchor van de forest met een ingeschakeld account als eerste toegevoegd wanneer er meerdere objecten zijn gekoppeld aan het object van de tekst. Als er geen ingeschakelde accounts zijn, gebruikt de synchronisatie-engine de regel voor de volledige synchronisatie **in van AD: User common**. Deze configuratie zorgt ervoor dat zelfs voor accounts die zijn uitgeschakeld, nog steeds een source Anchor is.
 
-![Synchronisatieregels inkomend](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
+![Synchronisatie regels binnenkomend](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
 
-De prioriteit voor synchronisatieregels is ingesteld in groepen door de installatiewizard. Alle regels in een groep dezelfde naam hebben, maar ze zijn verbonden met verschillende verbonden mappen. De installatiewizard van de regel biedt **In uit Active Directory-gebruiker toevoegen** hoogste prioriteit en het doorloopt over alle zijn verbonden AD-mappen. Vervolgens gaat door met de volgende groepen van de regels in een vooraf gedefinieerde volgorde. Binnen een groep, worden de regels in de volgorde waarin die de Connectors zijn toegevoegd in de wizard toegevoegd. Als een andere Connector wordt toegevoegd met de wizard, de volgorde van de synchronisatieregels wordt gewijzigd en de nieuwe Connector regels laatst in elke groep worden ingevoegd.
+De prioriteit van synchronisatie regels wordt ingesteld in groepen door de installatie wizard. Alle regels in een groep hebben dezelfde naam, maar ze zijn verbonden met verschillende verbonden directory's. De-installatie wizard geeft de regel **in van AD: de gebruiker** neemt de hoogste prioriteit aan en doorloopt over alle verbonden ad-directory's. Vervolgens wordt de volgende groep regels in een vooraf gedefinieerde volg orde voortgezet. Binnen een groep worden de regels toegevoegd in de volg orde waarin de connectors zijn toegevoegd in de wizard. Als er via de wizard een andere connector wordt toegevoegd, worden de synchronisatie regels opnieuw gerangschikt en worden de regels van de nieuwe connector als laatste in elke groep ingevoegd.
 
 ### <a name="putting-it-all-together"></a>Alles samenvoegen
-Weten we nu voldoende van synchronisatieregels kunnen om te begrijpen hoe de configuratie werkt met de andere synchronisatieregels. Als u een gebruiker en de kenmerken die zijn bijgedragen aan de metaverse bekijkt, worden de regels worden toegepast in de volgende volgorde:
+We weten nu voldoende over synchronisatie regels om te begrijpen hoe de configuratie werkt met de verschillende synchronisatie regels. Als u een gebruiker bekijkt en de kenmerken die aan de tekst zijn bijgedragen, worden de regels in de volgende volg orde toegepast:
 
 | Name | Opmerking |
 |:--- |:--- |
-| In uit Active Directory: gebruikers lid worden |Regel voor het lidmaatschap van de connector space objecten met de metaverse. |
-| In uit Active Directory-gebruikersaccount is ingeschakeld |Kenmerken die vereist zijn voor aanmelden bij Azure AD en Office 365. We willen deze kenmerken van het account ingeschakeld. |
-| In uit Active Directory-gebruiker gemeenschappelijke in Exchange |Kenmerken gevonden in de globale adreslijst. We ervan uitgaan dat de kwaliteit van de gegevens wordt aanbevolen in het forest waar we hebben ontdekt dat postvak van de gebruiker. |
-| In uit Active Directory-gebruiker gemeenschappelijke |Kenmerken gevonden in de globale adreslijst. Als we een postvak niet hebt gevonden, kan een andere gekoppelde object waarde van het kenmerk bijdragen. |
-| In uit Active Directory-gebruiker Exchange |Alleen bestaat als Exchange is gedetecteerd. Hiervandaan stroomt het alle kenmerken van de infrastructuur voor Exchange. |
-| In uit Active Directory-gebruiker Lync |Alleen bestaat als Lync is gedetecteerd. Hiervandaan stroomt het alle kenmerken van de infrastructuur Lync. |
+| Vanuit AD: gebruiker toevoegen |Regel voor het koppelen van connector ruimte-objecten met een omgekeerd. |
+| In vanuit AD: User account ingeschakeld |Kenmerken die vereist zijn voor aanmelding bij Azure AD en Office 365. We willen deze kenmerken van het ingeschakelde account. |
+| In vanuit AD: gebruiker gemeen schappelijk van Exchange |Kenmerken gevonden in de globale adres lijst. We gaan ervan uit dat de kwaliteit van de gegevens het beste is in het forest waar het postvak van de gebruiker is gevonden. |
+| In van AD: gebruiker algemeen |Kenmerken gevonden in de globale adres lijst. Als er geen postvak is gevonden, kan elk ander gekoppeld object de waarde van het kenmerk bijdragen. |
+| In van AD: gebruikers uitwisseling |Bestaat alleen als Exchange is gedetecteerd. Hiermee worden alle kenmerken van infrastructuur uitwisseling stromen. |
+| In vanuit AD: gebruikers Lync |Bestaat alleen als Lync is gedetecteerd. Hiermee worden alle Lync-kenmerken van de infra structuur stromen. |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over de configuratiemodel in [Understanding declaratieve inrichting](concept-azure-ad-connect-sync-declarative-provisioning.md).
-* Meer informatie over de expressietaal in [Understanding declaratieve inrichting expressies](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
-* Lees ook de werking van de configuratie van de out-of-box in [inzicht krijgen in gebruikers en contactpersonen](concept-azure-ad-connect-sync-user-and-contacts.md)
-* Zien hoe u een praktische wijzigen met behulp van declaratieve inrichting [hoe u een wijziging in de standaardconfiguratie](how-to-connect-sync-change-the-configuration.md).
+* Meer informatie over het configuratie model vindt u in [informatie over declaratieve inrichting](concept-azure-ad-connect-sync-declarative-provisioning.md).
+* Meer informatie over de expressie taal vindt u in uitleg over declaratieve inrichtings [expressies](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
+* Door gaan met het lezen van de out-of-box-configuratie voor [gebruikers en contact personen](concept-azure-ad-connect-sync-user-and-contacts.md)
+* Zie een praktische wijziging aanbrengen met behulp van declaratieve inrichting in [hoe u een wijziging aanbrengt in de standaard configuratie](how-to-connect-sync-change-the-configuration.md).
 
-**Overzichtsonderwerpen**
+**Overzichts onderwerpen**
 
-* [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synchronisatie: Synchronisatie begrijpen en aanpassen](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
 

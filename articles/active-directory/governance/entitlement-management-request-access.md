@@ -1,10 +1,10 @@
 ---
-title: Aanvraag voor toegang tot een package toegang in Azure AD-recht beheer (Preview) - Azure Active Directory
-description: Meer informatie over het gebruik van de portal mijn toegang voor het aanvragen van toegang tot een package toegang in Azure Active Directory waar u recht op management (Preview).
+title: Toegang aanvragen tot een toegangs pakket in azure AD-rechts beheer (preview)-Azure Active Directory
+description: Informatie over het gebruik van de portal mijn toegang om toegang aan te vragen voor een toegangs pakket in Azure Active Directory rechten beheer (preview).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
@@ -13,88 +13,88 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 04/19/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39a50240b4360c5b4adcd6020c2b80b0f06315f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 578f78d1853194cad000aa2e54b40d1ac5003544
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64541553"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489051"
 ---
-# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Toegang vragen tot een package toegang in Azure AD waar u recht op beheer (Preview)
+# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Toegang aanvragen tot een toegangs pakket in azure AD-rechts beheer (preview-versie)
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) waar u recht op management is momenteel in openbare preview.
+> Azure Active Directory (Azure AD)-rechts beheer is momenteel beschikbaar als open bare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
 > Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-## <a name="sign-in-to-the-my-access-portal"></a>Aanmelden bij de portal My Access
+## <a name="sign-in-to-the-my-access-portal"></a>Meld u aan bij de portal van mijn toegang
 
-De eerste stap is het aanmelden bij de portal voor mijn toegang waar u toegang tot een package toegang kunt aanvragen.
+De eerste stap is om u aan te melden bij de portal mijn toegang, waar u toegang tot een toegangs pakket kunt aanvragen.
 
 **Vereiste rol:** Aanvrager
 
-1. Zoeken naar een e-mailbericht of een bericht uit de project- of business manager die u met werkt. Het e-mailbericht moet een koppeling naar de access-pakket u toegang tot moet bevatten. De koppeling wordt gestart met:
+1. Zoek naar een e-mail of een bericht van het project of Business Manager waarmee u werkt. Het e-mail bericht moet een koppeling bevatten naar het toegangs pakket waartoe u toegang nodig hebt. De koppeling begint met:
 
     `https://myaccess.microsoft.com`
 
 1. Open de koppeling.
 
-1. Aanmelden bij de portal mijn toegang.
+1. Meld u aan bij de portal van mijn toegang.
 
-    Zorg ervoor dat u uw organisatie-account gebruiken. Als u niet zeker weet, neem contact op met uw project- of business-beheer.
+    Zorg ervoor dat u uw organisatie-account gebruikt. Als u het niet zeker weet, kunt u contact met uw project of Business Manager controleren.
 
-## <a name="request-an-access-package"></a>Een pakket toegang aanvragen
+## <a name="request-an-access-package"></a>Een toegangs pakket aanvragen
 
-Als u het pakket toegang hebt gevonden in de portal mijn toegang, kunt u een aanvraag indienen.
+Zodra u het toegangs pakket hebt gevonden in de portal van mijn toegang, kunt u een aanvraag indienen.
 
 **Vereiste rol:** Aanvrager
 
-1. Klik op het vinkje om te selecteren van het pakket toegang.
+1. Klik op het vinkje om het toegangs pakket te selecteren.
 
-    ![Mijn toegangsportal - toegang tot pakketten](./media/entitlement-management-shared/my-access-access-packages.png)
+    ![Mijn Access-Portal-toegangs pakketten](./media/entitlement-management-shared/my-access-access-packages.png)
 
-1. Klik op **toegang aanvragen** om de aanvraag voor toegang tot deelvenster te openen.
+1. Klik op **toegang aanvragen** om het deel venster toegang aanvragen te openen.
 
-1. Als de **zakelijke reden** wordt weergegeven, typt u een reden voor hoeven toegang.
+1. Als het vak **zakelijke rechtvaardiging** wordt weer gegeven, typt u een motivering voor toegang nodig.
 
-1. Als **aanvragen voor die specifieke periode?** is ingeschakeld, selecteert **Ja** of **Nee**.
+1. Als de **aanvraag voor een specifieke periode** is ingeschakeld, selecteert u **Ja** of **Nee**.
 
-1. Indien nodig, geef de begindatum en einddatum.
+1. Geef indien nodig de begin datum en eind datum op.
 
-    ![Mijn toegangsportal - aanvraag voor toegang](./media/entitlement-management-shared/my-access-request-access.png)
+    ![Mijn Access-portal-toegang aanvragen](./media/entitlement-management-shared/my-access-request-access.png)
 
-1. Wanneer u klaar bent, klikt u op **indienen** uw aanvraag indienen.
+1. Wanneer u klaar bent, klikt u op **verzenden** om uw aanvraag in te dienen.
 
-1. Klik op **geschiedenis van de aanvraag** voor een overzicht van de aanvragen en de status.
+1. Klik op **aanvraag geschiedenis** om een lijst met uw aanvragen en de status weer te geven.
 
-    Als het pakket toegang goedkeuring vereist, is de aanvraag nu in een status in afwachting van goedkeuring.
+    Als het toegangs pakket goed keuring vereist, heeft de aanvraag nu een goedkeurings status in behandeling.
 
 ## <a name="cancel-a-request"></a>Een aanvraag annuleren
 
-Als u een aanvraag voor toegang indienen en de aanvraag is nog steeds in de **in afwachting van goedkeuring** staat, kunt u de aanvraag annuleren.
+Als u een toegangs aanvraag verzendt en de aanvraag nog steeds de goedkeurings status in **behandeling** heeft, kunt u de aanvraag annuleren.
 
 **Vereiste rol:** Aanvrager
 
-1. Klik in de portal mijn toegang aan de linkerkant op **geschiedenis van de aanvraag** voor een overzicht van de aanvragen en de status.
+1. Klik in de portal mijn toegang aan de linkerkant op **aanvraag geschiedenis** om een lijst met uw aanvragen en de status weer te geven.
 
-1. Klik op de **weergave** koppeling voor de aanvraag die u wilt annuleren.
+1. Klik op de koppeling **weer geven** voor de aanvraag die u wilt annuleren.
 
-1. Als de aanvraag nog steeds in de **in afwachting van goedkeuring** staat, kunt u klikken op **verzoek tot annuleren** annuleren van de aanvraag.
+1. Als de aanvraag de goedkeurings status in **behandeling** heeft, kunt u op **Aanvraag annuleren** klikken om de aanvraag te annuleren.
 
-    ![Mijn toegangsportal - verzoek tot annuleren](./media/entitlement-management-request-access/my-access-cancel-request.png)
+    ![Mijn toegangs Portal-aanvraag annuleren](./media/entitlement-management-request-access/my-access-cancel-request.png)
 
-1. Klik op **geschiedenis van de aanvraag** om te bevestigen van de aanvraag is geannuleerd.
+1. Klik op **aanvraag geschiedenis** om te bevestigen dat de aanvraag is geannuleerd.
 
 ## <a name="select-a-policy"></a>Beleid selecteren
 
-Als u toegang tot een access-pakket met meerdere beleidsregels die van toepassing zijn die u aanvraagt, u mogelijk gevraagd om te selecteren van een beleid. Bijvoorbeeld configureert een Pakketbeheer toegang een access-pakket met twee beleidsregels voor twee groepen interne werknemers. Het eerste beleid mogelijk toegang toestaan tot 60 dagen en goedkeuring vereisen. De tweede beleidsregel mogelijk toegang toestaan voor twee dagen en geen goedkeuring vereist. Als u dit scenario, moet u het beleid dat u wilt gebruiken.
+Als u toegang tot een toegangs pakket aanvraagt dat meerdere beleids regels bevat, wordt u mogelijk gevraagd om een beleid te selecteren. Een Access package manager kan bijvoorbeeld een toegangs pakket configureren met twee beleids regels voor twee groepen interne werk nemers. Het eerste beleid kan toegang tot 60 dagen toestaan en moet goed keuring vereisen. Met het tweede beleid is het mogelijk dat u twee dagen toegang hebt en geen goed keuring vereist. Als u dit scenario ondervindt, moet u het beleid selecteren dat u wilt gebruiken.
 
 **Vereiste rol:** Aanvrager
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Goedkeuren of weigeren van toegangsaanvragen](entitlement-management-request-approve.md)
-- [Aanvraag verwerken en e-mailmeldingen](entitlement-management-process.md)
+- [Toegangs aanvragen goed keuren of weigeren](entitlement-management-request-approve.md)
+- [Aanvraag proces en e-mail meldingen](entitlement-management-process.md)

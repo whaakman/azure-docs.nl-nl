@@ -1,181 +1,181 @@
 ---
-title: Hoge beschikbaarheid voor Hadoop - Azure HDInsight
-description: Meer informatie over hoe HDInsight-clusters betrouwbaarheid en beschikbaarheid verbeteren met behulp van een extra hoofdknooppunt. Meer informatie over hoe dit van invloed op Hadoop-services, zoals Ambari en Hive, en hoe u afzonderlijk verbinding maken met elke hoofdknooppunt met behulp van SSH.
+title: Hoge Beschik baarheid voor Hadoop-Azure HDInsight
+description: Meer informatie over hoe HDInsight-clusters de betrouw baarheid en beschik baarheid verbeteren met behulp van een extra hoofd knooppunt. Lees hoe dit van invloed is op Hadoop-services zoals Ambari en Hive, en hoe u afzonderlijk verbinding maakt met elk hoofd knooppunt met behulp van SSH.
 ms.reviewer: jasonh
 author: hrasheed-msft
-keywords: hoge beschikbaarheid voor hadoop
+keywords: Hadoop hoge Beschik baarheid
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6cb72730ef3dbef81e2b2c9bc1c5cfd3bbd88b65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1828efb410849677e859d341e4e16e4f5d4ca681
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704939"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405990"
 ---
-# <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Beschikbaarheid en betrouwbaarheid van Apache Hadoop-clusters in HDInsight
+# <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Beschik baarheid en betrouw baarheid van Apache Hadoop clusters in HDInsight
 
-HDInsight-clusters bieden twee hoofdknooppunten voor het verhogen van de beschikbaarheid en betrouwbaarheid van Apache Hadoop-services en taken die worden uitgevoerd.
+HDInsight-clusters bieden twee hoofd knooppunten voor het verg Roten van de beschik baarheid en betrouw baarheid van Apache Hadoop Services en taken die worden uitgevoerd.
 
-Hadoop realiseert hoge betrouwbaarheid en beschikbaarheid door te repliceren van services en gegevens op verschillende knooppunten in een cluster. Standard distributies van Hadoop hebben echter meestal alleen een enkel hoofdknooppunt. Een onderbreking van de één hoofdknooppunt kan leiden tot het cluster niet meer werken. HDInsight biedt twee hoofdknooppunten ter verbetering van de beschikbaarheid en betrouwbaarheid van Hadoop.
+Hadoop behaalt hoge Beschik baarheid en betrouw baarheid door services en gegevens te repliceren op meerdere knoop punten in een cluster. Standaard distributies van Hadoop hebben doorgaans slechts één hoofd knooppunt. Elke onderbreking van het hoofd knooppunt kan ertoe leiden dat het cluster niet meer werkt. HDInsight biedt twee hoofd knooppunten voor het verbeteren van de beschik baarheid en betrouw baarheid van Hadoop.
 
-## <a name="availability-and-reliability-of-nodes"></a>Beschikbaarheid en betrouwbaarheid van knooppunten
+## <a name="availability-and-reliability-of-nodes"></a>Beschik baarheid en betrouw baarheid van knoop punten
 
-Knooppunten in een HDInsight-cluster worden geïmplementeerd met behulp van Azure Virtual Machines. De volgende secties worden de afzonderlijke knooppunttypen gebruikt met HDInsight. 
+Knoop punten in een HDInsight-cluster worden geïmplementeerd met Azure Virtual Machines. In de volgende secties worden de afzonderlijke knooppunt typen besproken die worden gebruikt met HDInsight. 
 
 > [!NOTE]  
-> Niet alle knooppunttypen worden gebruikt voor een clustertype. Een type Hadoop-cluster heeft bijvoorbeeld geen eventuele Nimbus-knooppunten. Voor meer informatie over de knooppunten die worden gebruikt door HDInsight-clustertypen, Zie de sectie van de typen Cluster van de [maken Linux gebaseerde Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) document.
+> Niet alle knooppunt typen worden gebruikt voor een cluster type. Een Hadoop-cluster type heeft bijvoorbeeld geen Nimbus-knoop punten. Zie de sectie cluster typen in het document op [Linux gebaseerde Hadoop-clusters maken in hdinsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) voor meer informatie over knoop punten die worden gebruikt door HDInsight-cluster typen.
 
 ### <a name="head-nodes"></a>Hoofdknooppunten
 
-HDInsight biedt voor hoge beschikbaarheid van Hadoop-services, twee hoofdknooppunten. Beide hoofdknooppunten zijn tegelijkertijd actief en wordt uitgevoerd binnen het HDInsight-cluster. Sommige services, zoals Apache HDFS of Apache Hadoop YARN, zijn alleen 'active' op één hoofdknooppunt op een bepaald moment. Andere services zoals HiveServer2 of Hive-MetaStore zijn actief op beide hoofdknooppunten op hetzelfde moment.
+HDInsight biedt twee hoofd knooppunten om te zorgen voor hoge Beschik baarheid van Hadoop-Services. Beide hoofd knooppunten zijn actief en worden uitgevoerd binnen het HDInsight-cluster tegelijk. Sommige services, zoals Apache HDFS of Apache Hadoop GARENs, zijn op een bepaald moment alleen ' actief ' op één hoofd knooppunt. Andere services, zoals HiveServer2 of Hive-meta Store, zijn gelijktijdig actief op beide hoofd knooppunten.
 
-Hoofdknooppunten (en andere knooppunten in HDInsight) hebt een numerieke waarde als onderdeel van de hostnaam van het knooppunt. Bijvoorbeeld, `hn0-CLUSTERNAME` of `hn4-CLUSTERNAME`.
+Hoofd knooppunten (en andere knoop punten in HDInsight) hebben een numerieke waarde als onderdeel van de hostnaam van het knoop punt. Bijvoorbeeld, `hn0-CLUSTERNAME` of `hn4-CLUSTERNAME`.
 
 > [!IMPORTANT]  
-> Koppelt de numerieke waarde aan of een knooppunt is een primaire of secundaire. De numerieke waarde is alleen aanwezig is een unieke naam voor elk knooppunt op te geven.
+> Koppel de numerieke waarde niet aan de vraag of een knoop punt primair of secundair is. De numerieke waarde is alleen aanwezig om een unieke naam op te geven voor elk knoop punt.
 
 ### <a name="nimbus-nodes"></a>Nimbus-knooppunten
 
-Nimbus-knooppunten zijn beschikbaar met Apache Storm-clusters. Het Nimbus-knooppunten bieden vergelijkbare functionaliteit aan de Hadoop JobTracker door te distribueren en bewaking van de verwerking van over de worker-knooppunten. HDInsight biedt twee Nimbus-knooppunten voor Storm-clusters
+Nimbus-knoop punten zijn beschikbaar met Apache Storm clusters. De Nimbus-knoop punten bieden vergelijk bare functionaliteit aan de Hadoop-JobTracker door verwerking te distribueren en te bewaken op werk knooppunten. HDInsight biedt twee Nimbus-knoop punten voor Storm-clusters
 
-### <a name="apache-zookeeper-nodes"></a>Apache Zookeeper-knooppunten
+### <a name="apache-zookeeper-nodes"></a>Apache Zookeeper-knoop punten
 
-[ZooKeeper](https://zookeeper.apache.org/) knooppunten worden gebruikt voor de selectie van leider van master services op de hoofdknooppunten. Ze worden ook gebruikt om ervoor te zorgen dat services, gegevensknooppunten (worker) en gateways weet welke hoofdknooppunt een hoofd-service is actief op. HDInsight biedt standaard drie ZooKeeper-knooppunten.
+[ZooKeeper](https://zookeeper.apache.org/) -knoop punten worden gebruikt voor de Leader verkiezing van Master Services op hoofd knooppunten. Ze worden ook gebruikt om ervoor te zorgen dat services, gegevens (worker) knoop punten en gateways weten op welke hoofd knooppunt een Master-service actief is. HDInsight biedt standaard drie ZooKeeper-knoop punten.
 
 ### <a name="worker-nodes"></a>Worker-knooppunten
 
-Worker-knooppunten worden de werkelijke gegevensanalyses uitvoeren wanneer een job wordt verzonden naar het cluster. Als een worker-knooppunt mislukt, wordt de taak uitgevoerde verzonden naar een andere worker-knooppunt. HDInsight maakt standaard vier worker-knooppunten. U kunt deze waarde aan uw behoeften, zowel tijdens als na het maken van een cluster wijzigen.
+Worker-knoop punten voeren de werkelijke gegevens analyse uit wanneer een taak wordt verzonden naar het cluster. Als een werk knooppunt mislukt, wordt de taak die het heeft uitgevoerd, verzonden naar een ander worker-knoop punt. Standaard maakt HDInsight vier worker-knoop punten. U kunt dit nummer tijdens en na het maken van het cluster aanpassen aan uw behoeften.
 
 ### <a name="edge-node"></a>Edge-knooppunt
 
-Een edge-knooppunt deelneemt actief niet in gegevensanalyse binnen het cluster. Deze wordt gebruikt door ontwikkelaars of gegevenswetenschappers bij het werken met Hadoop. Het edge-knooppunt zich bevinden in de dezelfde Azure-netwerk als de andere knooppunten in het cluster en rechtstreeks toegang tot alle andere knooppunten. Het edge-knooppunt kan worden gebruikt zonder te zetten resources van analysetaken of kritieke Hadoop-services.
+Een Edge-knoop punt neemt niet actief deel aan de gegevens analyse binnen het cluster. Het wordt gebruikt door ontwikkel aars of gegevens wetenschappers bij het werken met Hadoop. Het Edge-knoop punt bevindt zich in dezelfde Azure-Virtual Network als de andere knoop punten in het cluster en heeft rechtstreeks toegang tot alle andere knoop punten. Het Edge-knoop punt kan worden gebruikt zonder resources te hoeven weghalen uit kritieke Hadoop-Services of analyse taken.
 
-ML-Services op HDInsight is momenteel de enige clustertype dat een edge-knooppunt standaard biedt. Voor ML-Services op HDInsight, het edge-knooppunt wordt gebruikt test R-code lokaal op het knooppunt voordat u deze indient aan het cluster voor gedistribueerde verwerking.
+Momenteel is ML van de services op HDInsight het enige cluster type dat standaard een Edge-knoop punt biedt. Voor ML-Services op HDInsight wordt het Edge-knoop punt gebruikt om de R-code lokaal op het knoop punt te testen voordat deze naar het cluster wordt verzonden voor gedistribueerde verwerking.
 
-Zie voor meer informatie over het gebruik van een edge-knooppunt met andere clustertypen de [edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md) document.
+Zie het document [Edge-knoop punten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md) voor meer informatie over het gebruik van een Edge-knoop punt met andere cluster typen.
 
-## <a name="accessing-the-nodes"></a>Toegang tot de knooppunten
+## <a name="accessing-the-nodes"></a>Toegang tot de knoop punten
 
-Toegang tot het cluster via internet wordt geleverd via een openbare gateway. De toegang is beperkt tot de verbinding met de hoofdknooppunten en (als een bestaat) het edge-knooppunt. Toegang tot services die worden uitgevoerd op de hoofdknooppunten wordt getroffen door meerdere hoofdknooppunten. De openbare gateway worden aanvragen gerouteerd naar het hoofdknooppunt die als host fungeert voor de aangevraagde service. Bijvoorbeeld, als Apache Ambari is momenteel wordt gehost op het secundaire hoofdknooppunt, de gateway routeert binnenkomende aanvragen voor Ambari naar dat knooppunt.
+Toegang tot het cluster via internet wordt via een open bare gateway gegeven. De toegang is beperkt tot het maken van verbinding met de hoofd knooppunten en (als er een bestaat) het Edge-knoop punt. Toegang tot services die worden uitgevoerd op de hoofd knooppunten heeft geen invloed op meerdere hoofd knooppunten. De open bare gateway routeert aanvragen naar het hoofd knooppunt dat als host fungeert voor de aangevraagde service. Als Apache Ambari momenteel wordt gehost op het secundaire hoofd knooppunt, routeert de gateway inkomende aanvragen voor Ambari naar dat knoop punt.
 
-Toegang via de openbare gateway is beperkt tot poort 443 (HTTPS), 22 en 23.
+Toegang via de open bare gateway is beperkt tot poort 443 (HTTPS), 22 en 23.
 
-* Poort __443__ wordt gebruikt voor toegang tot de Ambari en andere web-UI of de REST-API's die worden gehost op de hoofdknooppunten.
+* Poort __443__ wordt gebruikt voor toegang tot Ambari en andere web-UI of rest-api's die worden gehost op de hoofd knooppunten.
 
-* Poort __22__ wordt gebruikt voor toegang tot het primaire hoofdknooppunt of edge-knooppunt met SSH.
+* Poort __22__ wordt gebruikt om toegang te krijgen tot het primaire knoop punt of Edge-knoop punt met SSH.
 
-* Poort __23__ wordt gebruikt voor toegang tot het secundaire hoofdknooppunt met SSH. Bijvoorbeeld, `ssh username@mycluster-ssh.azurehdinsight.net` maakt verbinding met het primaire hoofdknooppunt van het cluster met de naam **mijncluster**.
+* Poort __23__ wordt gebruikt voor toegang tot het secundaire hoofd knooppunt met SSH. `ssh username@mycluster-ssh.azurehdinsight.net` Maakt bijvoorbeeld verbinding met het primaire hoofd knooppunt van het cluster met de naam **mycluster**.
 
-Zie voor meer informatie over het gebruik van SSH de [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
+Zie het document [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie over het gebruik van SSH.
 
-### <a name="internal-fully-qualified-domain-names-fqdn"></a>Interne volledig gekwalificeerde domeinnamen (FQDN)
+### <a name="internal-fully-qualified-domain-names-fqdn"></a>Interne volledig gekwalificeerde domein namen (FQDN)
 
-Knooppunten in een HDInsight-cluster hebben een interne IP-adres en FQDN-naam die alleen uit het cluster kan worden geopend. Bij het openen van services op het cluster met behulp van de interne FQDN-naam of IP-adres, moet u Ambari gebruiken om te controleren of het IP- of FQDN-naam moet worden gebruikt bij het openen van de service.
+Knoop punten in een HDInsight-cluster hebben een intern IP-adres en een FQDN-naam die alleen toegankelijk is vanuit het cluster. Bij het openen van services op het cluster met behulp van de interne FQDN of het IP-adres, moet u Ambari gebruiken om te controleren of de IP of FQDN voor gebruik bij het openen van de service.
 
-Bijvoorbeeld, de Apache Oozie service kan alleen worden uitgevoerd op één hoofdknooppunt en het gebruik van de `oozie` opdracht vanaf een SSH-sessie moet de URL naar de service. Deze URL kan worden verkregen van Ambari met behulp van de volgende opdracht uit:
+De Apache Oozie-service kan bijvoorbeeld alleen worden uitgevoerd op één hoofd knooppunt en met behulp `oozie` van de opdracht vanuit een SSH-sessie moet de URL voor de service worden gebruikt. Deze URL kan worden opgehaald van Ambari met behulp van de volgende opdracht:
 
     curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 
-Met deze opdracht retourneert een waarde die vergelijkbaar is met de volgende opdracht, waarin de interne URL voor gebruik met de `oozie` opdracht:
+Met deze opdracht wordt een waarde geretourneerd die vergelijkbaar is met de volgende opdracht, die de interne URL bevat `oozie` die moet worden gebruikt met de opdracht:
 
     "oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
-Zie voor meer informatie over het werken met de Ambari REST-API, [bewaken en beheren van HDInsight met behulp van de Apache Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md).
+Zie [HDInsight controleren en beheren met behulp van de Apache Ambari rest API](hdinsight-hadoop-manage-ambari-rest-api.md)voor meer informatie over het werken met de Ambari-rest API.
 
-### <a name="accessing-other-node-types"></a>Toegang tot andere knooppunttypen
+### <a name="accessing-other-node-types"></a>Toegang tot andere knooppunt typen
 
-U kunt verbinding maken met knooppunten die niet rechtstreeks toegankelijk zijn via internet met behulp van de volgende methoden:
+U kunt verbinding maken met knoop punten die niet rechtstreeks toegankelijk zijn via internet met behulp van de volgende methoden:
 
-* **SSH**: Eenmaal verbinding hebben met een hoofdknooppunt met behulp van SSH, kunt u vervolgens SSH gebruiken van het hoofdknooppunt verbinding maken met andere knooppunten in het cluster. Zie het document [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+* **SSH**: Wanneer u met SSH verbinding hebt gemaakt met een hoofd knooppunt, kunt u vervolgens SSH van het hoofd knooppunt gebruiken om verbinding te maken met andere knoop punten in het cluster. Zie het document [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-* **SSH Tunnel**: Als u nodig hebt voor toegang tot een webservice die wordt gehost op een van de knooppunten die geen toegang heeft tot internet, moet u een SSH-tunnel. Zie voor meer informatie de [een SSH-tunnel gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) document.
+* **SSH-tunnel**: Als u toegang wilt krijgen tot een webservice die wordt gehost op een van de knoop punten die niet toegankelijk zijn via internet, moet u een SSH-tunnel gebruiken. Zie het document [een SSH-tunnel gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) voor meer informatie.
 
-* **Azure Virtual Network**: Als uw HDInsight-cluster deel uit van een Azure-netwerk maakt, kan een resource in hetzelfde Virtueelnetwerk rechtstreeks toegang tot alle knooppunten in het cluster. Zie voor meer informatie de [uitbreiden HDInsight met behulp van Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) document.
+* **Azure Virtual Network**: Als uw HDInsight-cluster deel uitmaakt van een Azure-Virtual Network, heeft elke resource op dezelfde Virtual Network rechtstreeks toegang tot alle knoop punten in het cluster. Zie het document [een virtueel netwerk voor HDInsight plannen](hdinsight-plan-virtual-network-deployment.md) voor meer informatie.
 
-## <a name="how-to-check-on-a-service-status"></a>Hoe u een servicestatus controleren
+## <a name="how-to-check-on-a-service-status"></a>De status van een service controleren
 
-Om te controleren of de status van services die worden uitgevoerd op de hoofdknooppunten, moet u de Ambari-Webinterface of de Ambari REST-API gebruiken.
+Als u de status wilt controleren van services die worden uitgevoerd op de hoofd knooppunten, gebruikt u de Ambari-webgebruikersinterface of de Ambari-REST API.
 
-### <a name="ambari-web-ui"></a>Ambari Web UI
+### <a name="ambari-web-ui"></a>Ambari-webgebruikersinterface
 
-De Ambari-Webinterface is zichtbaar op `https://CLUSTERNAME.azurehdinsight.net`. Vervang **CLUSTERNAME** door de naam van uw cluster. Als u hierom wordt gevraagd, voert u de referenties van de HTTP-gebruiker voor uw cluster. De standaardnaam van de HTTP-gebruiker is **admin** en het wachtwoord is het wachtwoord die u hebt ingevoerd bij het maken van het cluster.
+De Ambari-webgebruikersinterface is zichtbaar `https://CLUSTERNAME.azurehdinsight.net`op. Vervang **CLUSTERNAME** door de naam van uw cluster. Als u hierom wordt gevraagd, voert u de HTTP-gebruikers referenties voor uw cluster in. De standaard-HTTP-gebruikers naam is **beheerder** en het wacht woord is het wacht woord dat u hebt ingevoerd bij het maken van het cluster.
 
-Wanneer u op de pagina Ambari binnenkomen, worden de geïnstalleerde services aan de linkerkant van de pagina weergegeven.
+Wanneer u op de pagina Ambari, worden de geïnstalleerde services weer gegeven aan de linkerkant van de pagina.
 
 ![Geïnstalleerde services](./media/hdinsight-high-availability-linux/services.png)
 
-Er zijn een reeks pictogrammen die worden weergegeven naast een service om status te geven. Waarschuwingen met betrekking tot een service kunnen worden weergegeven met behulp van de **waarschuwingen** koppelen aan de bovenkant van de pagina.  Ambari biedt verschillende vooraf gedefinieerde waarschuwingen.
+Er kan een reeks pictogrammen naast een service worden weer gegeven om de status aan te geven. U kunt waarschuwingen met betrekking tot een service weer geven met behulp van de koppeling **waarschuwingen** boven aan de pagina.  Ambari biedt verschillende vooraf gedefinieerde waarschuwingen.
 
-De volgende waarschuwingen helpen bij het beheren van de beschikbaarheid van een cluster:
+De volgende waarschuwingen helpen bij het bewaken van de beschik baarheid van een cluster:
 
 | Naam van waarschuwing                               | Description                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Status van metrische gegevens controleren                    | Deze waarschuwing geeft aan dat de status van het proces van de metrische gegevens bewaken zoals wordt bepaald door het script van de status monitor.                                                                                   |
-| Ambari Agent Heartbeat                   | Deze waarschuwing wordt geactiveerd als de server contact met een agent is verbroken.                                                                                                                        |
-| ZooKeeper Server-proces                 | Deze waarschuwing hostniveau wordt geactiveerd als het ZooKeeper server-proces niet kan worden bepaald om te worden van is en luistert op het netwerk.                                                               |
-| Status van de Server IOCache metagegevens           | Deze waarschuwing hostniveau wordt geactiveerd als de Server van de metagegevens IOCache niet kan worden bepaald om te worden van en reageren op clientaanvragen                                                            |
-| JournalNode Web-UI                       | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface JournalNode onbereikbaar is.                                                                                                                 |
-| Spark2 Thrift-Server                     | Deze waarschuwing hostniveau wordt geactiveerd als de Spark2 Thrift-Server kan niet worden bepaald uit.                                                                                                |
-| Geschiedenis van Server-proces                   | Deze waarschuwing hostniveau wordt geactiveerd als de geschiedenis van Server-proces kan niet tot stand gebrachte zodat u is en luistert op het netwerk.                                                                |
-| Geschiedenis van Server-Webgebruikersinterface                    | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface van de geschiedenis-Server onbereikbaar is.                                                                                                              |
-| ResourceManager-Webgebruikersinterface                   | Deze waarschuwing hostniveau wordt geactiveerd als de ResourceManager-Webgebruikersinterface onbereikbaar is.                                                                                                             |
-| Samenvatting van status NodeManager               | Deze service level-waarschuwing wordt geactiveerd als er niet in orde NodeManagers                                                                                                                    |
-| App Timeline Web UI                      | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface App tijdlijn Server onbereikbaar is.                                                                                                         |
-| Samenvatting van status DataNode                  | Deze service level-waarschuwing wordt geactiveerd als er niet in orde DataNodes                                                                                                                       |
-| NameNode Web-UI                          | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface NameNode onbereikbaar is.                                                                                                                    |
-| ZooKeeper-Failover-Controller-proces    | Deze waarschuwing hostniveau wordt geactiveerd als het proces ZooKeeper Failover-Controller kan niet worden bevestigd zodat u is en luistert op het netwerk.                                                   |
-| Oozie Server Web-UI                      | Deze waarschuwing hostniveau wordt geactiveerd als de server Oozie-Webgebruikersinterface onbereikbaar is.                                                                                                                |
-| Oozie-serverstatus                      | Deze waarschuwing hostniveau wordt geactiveerd als de Oozie-server niet kan worden bepaald om te worden van en reageren op clientaanvragen.                                                                      |
-| Hive-Metastore proces                   | Deze waarschuwing hostniveau wordt geactiveerd als het proces van de Hive-Metastore kan niet worden bepaald om te worden van is en luistert op het netwerk.                                                                 |
-| Proces van HiveServer2                      | Deze waarschuwing hostniveau wordt geactiveerd als de HiveServer niet kan worden bepaald om te worden van en reageren op clientaanvragen.                                                                        |
-| WebHCat Server Status                    | Deze waarschuwing hostniveau wordt geactiveerd als de status van de templeton-server niet in orde is.                                                                                                            |
-| Percentage ZooKeeper-Servers die beschikbaar zijn      | Deze waarschuwing wordt geactiveerd als het aantal ZooKeeper-servers in het cluster groter dan de kritieke drempelwaarde is. Het combineert de resultaten van de controles van ZooKeeper-proces.     |
-| Spark2 Livy Server                       | Deze waarschuwing hostniveau wordt geactiveerd als de Server Livy2 kan niet worden bepaald uit.                                                                                                        |
-| Spark2 geschiedenis-Server                    | Deze waarschuwing hostniveau wordt geactiveerd als de Server van de geschiedenis Spark2 kan niet worden bepaald uit.                                                                                               |
-| Metrische gegevens Collector proces                | Deze waarschuwing wordt geactiveerd als de Collector metrische gegevens niet kan worden bevestigd uit en luistert op de geconfigureerde poort voor het aantal seconden gelijk zijn aan de drempelwaarde.                                 |
-| Metrische gegevens Collector - HBase Master proces | Deze waarschuwing wordt geactiveerd als van de metrische gegevens Collector HBase master processen niet kunnen worden bevestigd zodat u is en luistert op het netwerk voor de kritieke drempelwaarde, uitgedrukt in seconden. |
-| Percentage metrische gegevens over Monitors beschikbaar       | Deze waarschuwing wordt geactiveerd als een percentage van metrische gegevens controleren processen niet van zijn en luisteren op het netwerk naar de geconfigureerde waarschuwingen en kritieke drempelwaarden.                             |
-| Percentage NodeManagers beschikbaar           | Deze waarschuwing wordt geactiveerd als het aantal omlaag NodeManagers in het cluster groter dan de kritieke drempelwaarde is. Het combineert de resultaten van NodeManager proces controles.        |
-| De gezondheid van NodeManager                       | Deze waarschuwing hostniveau controleert de status knooppunteigenschap beschikbaar is via het onderdeel NodeManager.                                                                                              |
-| NodeManager Web-UI                       | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface NodeManager onbereikbaar is.                                                                                                                 |
-| Status van de NameNode hoge beschikbaarheid        | Deze service level-waarschuwing wordt geactiveerd als de actieve NameNode of de stand-by NameNode niet worden uitgevoerd.                                                                                     |
-| DataNode proces                         | Deze waarschuwing hostniveau wordt geactiveerd als de afzonderlijke DataNode processen kunnen niet tot stand gebrachte zodat u is en luistert op het netwerk.                                                         |
-| DataNode Web-UI                          | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface DataNode onbereikbaar is.                                                                                                                    |
-| Percentage JournalNodes beschikbaar           | Deze waarschuwing wordt geactiveerd als het aantal omlaag JournalNodes in het cluster groter dan de kritieke drempelwaarde is. Het combineert de resultaten van JournalNode proces controles.        |
-| Percentage DataNodes beschikbaar              | Deze waarschuwing wordt geactiveerd als het aantal omlaag DataNodes in het cluster groter dan de kritieke drempelwaarde is. Het combineert de resultaten van DataNode proces controles.              |
-| Zeppelin-serverstatus                   | Deze waarschuwing hostniveau wordt geactiveerd als de Zeppelin-server niet kan worden bepaald om te worden van en reageren op clientaanvragen.                                                                   |
-| Interactief proces HiveServer2          | Deze waarschuwing hostniveau wordt geactiveerd als de HiveServerInteractive niet kan worden bepaald om te worden van en reageren op clientaanvragen.                                                             |
-| LLAP toepassing                         | Deze waarschuwing wordt geactiveerd als de toepassing LLAP niet kan worden bepaald om te worden van en reageren op aanvragen.                                                                                    |
+| Status van metrische monitor                    | Deze waarschuwing geeft de status van het bewakings proces voor metrische gegevens aan, zoals bepaald door het controle status script.                                                                                   |
+| Heartbeat van de Ambari-agent                   | Deze waarschuwing wordt geactiveerd als de server contact met een agent heeft verloren.                                                                                                                        |
+| ZooKeeper-Server proces                 | Deze waarschuwing op hostniveau wordt geactiveerd als het ZooKeeper-Server proces niet kan worden vastgesteld om op het netwerk te worden geluisterd.                                                               |
+| IOCache-status van meta gegevens server           | Deze waarschuwing op hostniveau wordt geactiveerd als de IOCache-meta gegevens server niet kan worden vastgesteld om te reageren op client aanvragen                                                            |
+| JournalNode-webgebruikersinterface                       | Deze waarschuwing op hostniveau wordt geactiveerd als de JournalNode-webgebruikersinterface niet bereikbaar is.                                                                                                                 |
+| Spark2 Thrift-server                     | Deze waarschuwing op hostniveau wordt geactiveerd als de Spark2 Thrift-server niet kan worden vastgesteld.                                                                                                |
+| Proces van geschiedenis server                   | Deze waarschuwing op hostniveau wordt geactiveerd als het geschiedenis Server proces niet kan worden ingesteld om te worden geluisterd naar het netwerk.                                                                |
+| Web-UI van geschiedenis server                    | Deze waarschuwing op hostniveau wordt geactiveerd als de Web-UI van de geschiedenis server niet bereikbaar is.                                                                                                              |
+| Webgebruikersinterface van Resource Manager                   | Deze waarschuwing op hostniveau wordt geactiveerd als de webgebruikersinterface van de webbeheerder niet bereikbaar is.                                                                                                             |
+| NodeManager status overzicht               | Deze waarschuwing op service niveau wordt geactiveerd als er sprake is van een slechte NodeManagers                                                                                                                    |
+| Web-UI voor app-tijd lijn                      | Deze waarschuwing op hostniveau wordt geactiveerd als de Web-UI van de app-tijdlijn server niet bereikbaar is.                                                                                                         |
+| DataNode status overzicht                  | Deze waarschuwing op service niveau wordt geactiveerd als er sprake is van een slechte DataNodes                                                                                                                       |
+| NameNode-webgebruikersinterface                          | Deze waarschuwing op hostniveau wordt geactiveerd als de NameNode-webgebruikersinterface niet bereikbaar is.                                                                                                                    |
+| ZooKeeper failover-controller proces    | Deze waarschuwing op hostniveau wordt geactiveerd als het failover-controller proces van de ZooKeeper niet kan worden bevestigd om op het netwerk te worden geluisterd.                                                   |
+| Oozie server-webinterface                      | Deze waarschuwing op hostniveau wordt geactiveerd als de Web-UI van de Oozie-server niet bereikbaar is.                                                                                                                |
+| Oozie-server status                      | Deze waarschuwing op hostniveau wordt geactiveerd als de Oozie-server niet kan worden vastgesteld om te reageren op client aanvragen.                                                                      |
+| Hive-meta Store-proces                   | Deze waarschuwing op hostniveau wordt geactiveerd als het proces van het Hive-meta archief niet kan worden vastgesteld om op het netwerk te worden geluisterd.                                                                 |
+| HiveServer2-proces                      | Deze waarschuwing op hostniveau wordt geactiveerd als de HiveServer niet kan worden vastgesteld om te reageren op client aanvragen.                                                                        |
+| WebHCat-server status                    | Deze waarschuwing op hostniveau wordt geactiveerd als de Templeton-server status niet in orde is.                                                                                                            |
+| Percentage beschik bare ZooKeeper-servers      | Deze waarschuwing wordt geactiveerd als het aantal ZooKeeper-servers in het cluster hoger is dan de geconfigureerde kritieke drempel waarde. Hiermee worden de resultaten van ZooKeeper-proces controles geaggregeerd.     |
+| Spark2 livy-server                       | Deze waarschuwing op hostniveau wordt geactiveerd als de Livy2-server niet kan worden vastgesteld.                                                                                                        |
+| Spark2-geschiedenis server                    | Deze waarschuwing op hostniveau wordt geactiveerd als de Spark2-geschiedenis server niet kan worden vastgesteld.                                                                                               |
+| Verzamelaar proces voor metrische gegevens                | Deze waarschuwing wordt geactiveerd als de metrische Collector niet kan worden bevestigd om de geconfigureerde poort te laten Luis teren voor een aantal seconden dat gelijk is aan de drempel waarde.                                 |
+| Collector van metrische gegevens-HBase Master proces | Deze waarschuwing wordt geactiveerd als de HBase-Master processen van de metrische Collector niet kunnen worden bevestigd om de geconfigureerde kritieke drempel waarde in het netwerk te bekijken, uitgedrukt in een paar seconden. |
+| Beschik bare monitors voor percentage metrische gegevens       | Deze waarschuwing wordt geactiveerd als een percentage van de metrische monitor processen niet actief is en op het netwerk luistert naar de geconfigureerde waarschuwings-en kritieke drempel waarden.                             |
+| Percentage NodeManagers beschikbaar           | Deze waarschuwing wordt geactiveerd als het aantal NodeManagers in het cluster hoger is dan de geconfigureerde kritieke drempel waarde. Hiermee worden de resultaten van NodeManager-proces controles geaggregeerd.        |
+| NodeManager-status                       | Deze waarschuwing op hostniveau controleert de knooppunt status eigenschap die beschikbaar is via het onderdeel NodeManager.                                                                                              |
+| NodeManager-webgebruikersinterface                       | Deze waarschuwing op hostniveau wordt geactiveerd als de NodeManager-webgebruikersinterface niet bereikbaar is.                                                                                                                 |
+| Status van hoge Beschik baarheid van NameNode        | Deze waarschuwing op service niveau wordt geactiveerd als de actieve NameNode of stand-NameNode niet actief zijn.                                                                                     |
+| DataNode-proces                         | Deze waarschuwing op hostniveau wordt geactiveerd als de afzonderlijke DataNode-processen niet kunnen worden ingesteld om te worden geluisterd naar het netwerk.                                                         |
+| DataNode-webgebruikersinterface                          | Deze waarschuwing op hostniveau wordt geactiveerd als de DataNode-webgebruikersinterface niet bereikbaar is.                                                                                                                    |
+| Percentage beschik journalnodes beschikbaar           | Deze waarschuwing wordt geactiveerd als het aantal beschik journalnodes in het cluster hoger is dan de geconfigureerde kritieke drempel waarde. Hiermee worden de resultaten van JournalNode-proces controles geaggregeerd.        |
+| Percentage DataNodes beschikbaar              | Deze waarschuwing wordt geactiveerd als het aantal DataNodes in het cluster hoger is dan de geconfigureerde kritieke drempel waarde. Hiermee worden de resultaten van DataNode-proces controles geaggregeerd.              |
+| Zeppelin-server status                   | Deze waarschuwing op hostniveau wordt geactiveerd als de Zeppelin-server niet kan worden vastgesteld om te reageren op client aanvragen.                                                                   |
+| HiveServer2 interactief proces          | Deze waarschuwing op hostniveau wordt geactiveerd als de HiveServerInteractive niet kan worden vastgesteld om te reageren op client aanvragen.                                                             |
+| LLAP-toepassing                         | Deze waarschuwing wordt geactiveerd als de LLAP-toepassing niet kan worden bepaald om aanvragen te ontvangen en erop te reageren.                                                                                    |
 
-U kunt elke service voor meer informatie over het selecteren.
+U kunt elke service selecteren om meer informatie weer te geven.
 
-Terwijl de servicepagina informatie over de status en de configuratie van elke service bevat, biedt het geen informatie over welke hoofdknooppunt van de service wordt uitgevoerd op. Als u deze informatie, gebruikt u de **Hosts** koppelen aan de bovenkant van de pagina. Deze pagina bevat hosts in het cluster, inclusief de hoofdknooppunten.
+De service pagina bevat informatie over de status en configuratie van elke service, maar biedt geen informatie over het hoofd knooppunt waarop de service wordt uitgevoerd. Als u deze informatie wilt weer geven, gebruikt u de koppeling **hosts** boven aan de pagina. Op deze pagina worden de hosts in het cluster weer gegeven, met inbegrip van de hoofd knooppunten.
 
-![lijst met hosts](./media/hdinsight-high-availability-linux/hosts.png)
+![lijst hosts](./media/hdinsight-high-availability-linux/hosts.png)
 
-Selecteren van de koppeling voor een van de hoofdknooppunten, geeft de services en onderdelen die op dat knooppunt worden uitgevoerd.
+Als u de koppeling selecteert voor een van de hoofd knooppunten, worden de services en onderdelen weer gegeven die op dat knoop punt worden uitgevoerd.
 
-![Onderdeelstatus](./media/hdinsight-high-availability-linux/nodeservices.png)
+![Onderdeel status](./media/hdinsight-high-availability-linux/nodeservices.png)
 
-Zie voor meer informatie over het gebruik van Ambari [bewaken en beheren van HDInsight met behulp van de Apache Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md).
+Zie [HDInsight bewaken en beheren met behulp van de Apache Ambari](hdinsight-hadoop-manage-ambari.md)-webgebruikersinterface voor meer informatie over het gebruik van Ambari.
 
 ### <a name="ambari-rest-api"></a>Ambari REST API
 
-De Ambari REST-API is beschikbaar via internet. De openbare gateway HDInsight verwerkt routeren van aanvragen met het hoofdknooppunt waarop de REST-API wordt gehost.
+De Ambari-REST API is beschikbaar via internet. De open bare HDInsight-gateway verwerkt routerings aanvragen naar het hoofd knooppunt dat momenteel de REST API host.
 
-U kunt de volgende opdracht gebruiken om te controleren of de status van een service met de Ambari REST-API:
+U kunt de volgende opdracht gebruiken om de status van een service te controleren via de Ambari-REST API:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 
-* Vervang **wachtwoord** met wachtwoord voor het HTTP-gebruikersaccount (beheerder).
+* Vervang het **wacht woord** door het wacht woord van de http-gebruiker (Administrator).
 * Vervang **CLUSTERNAME** door de naam van uw cluster.
-* Vervang **SERVICENAME** met de naam van de service die u wilt controleren van de status van.
+* Vervang **ServiceName** door de naam van de service waarvan u de status wilt controleren.
 
-Bijvoorbeeld, om te controleren of de status van de **HDFS** service op een cluster met de naam **mijncluster**, met een wachtwoord van **wachtwoord**, gebruikt u de volgende opdracht uit:
+Als u bijvoorbeeld de status van de service **HDFS** wilt controleren op een cluster met de naam **mycluster**, met een wacht woord van het **wacht woord**, gebruikt u de volgende opdracht:
 
     curl -u admin:password https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state
 
@@ -190,82 +190,82 @@ Het antwoord is vergelijkbaar met de volgende JSON:
       }
     }
 
-De URL kan worden achterhaald dat de service die momenteel wordt uitgevoerd op een hoofdknooppunt met de naam **hn0 CLUSTERNAME**.
+De URL geeft aan dat de service momenteel wordt uitgevoerd op een hoofd knooppunt met de naam **hn0-clustername**.
 
-De status kan worden achterhaald of de service die momenteel wordt uitgevoerd, of **gestart**.
+De status geeft aan dat de service momenteel wordt uitgevoerd of is **gestart**.
 
-Als u niet welke services zijn geïnstalleerd op het cluster weet, kunt u de volgende opdracht uit om een lijst te halen:
+Als u niet weet welke services zijn geïnstalleerd op het cluster, kunt u de volgende opdracht gebruiken om een lijst op te halen:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services
 
-Zie voor meer informatie over het werken met de Ambari REST-API, [bewaken en beheren van HDInsight met behulp van de Apache Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md).
+Zie [HDInsight controleren en beheren met behulp van de Apache Ambari rest API](hdinsight-hadoop-manage-ambari-rest-api.md)voor meer informatie over het werken met de Ambari-rest API.
 
-#### <a name="service-components"></a>Serviceonderdelen
+#### <a name="service-components"></a>Service onderdelen
 
-Services kunnen de onderdelen die u wilt controleren van de status van afzonderlijke bevatten. HDFS bevat bijvoorbeeld de NameNode-component. Als u informatie op een onderdeel, zou de opdracht:
-
-    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
-
-Als u niet welke onderdelen worden geleverd door een service weet, kunt u de volgende opdracht uit om een lijst te halen:
+Services kunnen onderdelen bevatten waarvan u de status afzonderlijk wilt controleren. Bijvoorbeeld, HDFS bevat het onderdeel NameNode. Als u informatie wilt weer geven over een onderdeel, zou de opdracht er als volgt uitzien:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 
-## <a name="how-to-access-log-files-on-the-head-nodes"></a>Toegang tot de logboekbestanden op de hoofdknooppunten
+Als u niet weet welke onderdelen door een service worden aangeboden, kunt u de volgende opdracht gebruiken om een lijst op te halen:
+
+    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
+
+## <a name="how-to-access-log-files-on-the-head-nodes"></a>Toegang tot logboek bestanden op de hoofd knooppunten
 
 ### <a name="ssh"></a>SSH
 
-Terwijl u bent verbonden met een hoofdknooppunt via SSH, logboekbestanden kunnen u vinden onder **/var/log**. Bijvoorbeeld, **/var/log/hadoop-yarn/yarn** bevatten de logboeken van YARN.
+Terwijl u via SSH verbinding hebt met een hoofd knooppunt, kunt u logboek bestanden vinden onder **/var/log**. **/Var/log/Hadoop-Yarn/yarn** bevatten bijvoorbeeld Logboeken voor garens.
 
-Elke hoofdknooppunt hebben unieke logboekvermeldingen, zodat u de logboeken op beide moet controleren.
+Elk hoofd knooppunt kan unieke logboek vermeldingen hebben, dus controleer de logboeken op beide.
 
 ### <a name="sftp"></a>SFTP
 
-U kunt ook verbinding maken met het hoofdknooppunt met de SSH File Transfer Protocol of Secure File Transfer Protocol (SFTP) en de logboekbestanden rechtstreeks downloaden.
+U kunt ook verbinding maken met het hoofd knooppunt met behulp van de SSH-File Transfer Protocol of beveiligde File Transfer Protocol (SFTP) en de logboek bestanden rechtstreeks downloaden.
 
-Net als bij met behulp van een SSH-client, wanneer verbinding met het cluster die u moet opgeven de naam van het SSH-gebruikersaccount en het SSH-adres van het cluster. Bijvoorbeeld `sftp username@mycluster-ssh.azurehdinsight.net`. Geef het wachtwoord voor het account wanneer u hierom wordt gevraagd of het bieden van een openbare sleutel met de `-i` parameter.
+Net als bij het gebruik van een SSH-client, moet u bij het maken van verbinding met het cluster de naam van het SSH-gebruikers account en het SSH-adres van het cluster opgeven. Bijvoorbeeld `sftp username@mycluster-ssh.azurehdinsight.net`. Geef het wacht woord voor het account op wanneer u daarom wordt gevraagd of geef een `-i` open bare sleutel op met behulp van de para meter.
 
-Eenmaal verbinding hebben, krijgt u een `sftp>` prompt. Vanaf deze prompt, kunt u mappen, uploaden en downloaden van bestanden. Bijvoorbeeld, de volgende opdrachten Wijzig de mappen op de **/var/log/hadoop/hdfs** directory en download alle bestanden in de map.
+Zodra de verbinding is gemaakt, krijgt u `sftp>` een prompt. Vanuit deze prompt kunt u mappen wijzigen, bestanden uploaden en downloaden. Met de volgende opdrachten worden bijvoorbeeld directory's gewijzigd in de **/var/log/Hadoop/hdfs** -map en worden alle bestanden in de map gedownload.
 
     cd /var/log/hadoop/hdfs
     get *
 
-Voer voor een lijst van beschikbare opdrachten, `help` op de `sftp>` prompt.
+Voer `help` bij de `sftp>` prompt een lijst met beschik bare opdrachten in.
 
 > [!NOTE]  
-> Er zijn ook grafische interfaces waarmee u kunt voor het visualiseren van het bestandssysteem als die zijn verbonden via SFTP. Bijvoorbeeld, [MobaXTerm](https://mobaxterm.mobatek.net/) kunt u bladeren naar het bestandssysteem via een interface die vergelijkbaar is met Windows Verkenner.
+> Er zijn ook grafische interfaces waarmee u het bestands systeem kunt visualiseren wanneer u verbinding maakt via SFTP. Met [MobaXTerm](https://mobaxterm.mobatek.net/) kunt u bijvoorbeeld bladeren in het bestands systeem met behulp van een interface die lijkt op Windows Verkenner.
 
 ### <a name="ambari"></a>Ambari
 
 > [!NOTE]  
-> Voor toegang tot de logboekbestanden met behulp van Ambari, moet u een SSH-tunnel. De webinterfaces voor de afzonderlijke services zijn niet openbaar weergegeven op het Internet. Zie voor meer informatie over het gebruik van een SSH-tunnel de [SSH-Tunneling gebruiken](hdinsight-linux-ambari-ssh-tunnel.md) document.
+> Als u toegang wilt tot logboek bestanden met behulp van Ambari, moet u een SSH-tunnel gebruiken. De webinterfaces voor de afzonderlijke services worden niet openbaar op internet weer gegeven. Zie het document [ssh-tunneling gebruiken](hdinsight-linux-ambari-ssh-tunnel.md) voor meer informatie over het gebruik van een SSH-tunnel.
 
-Selecteer de service die u wilt weergeven van Logboeken voor (bijvoorbeeld, YARN) in de Ambari-Webgebruikersinterface. Gebruik vervolgens **snelkoppelingen** om te selecteren welke hoofdknooppunt om de logboeken voor weer te geven.
+Selecteer in de Ambari-webgebruikersinterface de service waarvoor u logboeken wilt weer geven (bijvoorbeeld GARENs). Gebruik vervolgens **snelle koppelingen** om te selecteren welk hoofd knooppunt voor de logboeken moet worden weer gegeven.
 
-![Met behulp van snelle koppelingen om logboeken weer te geven](./media/hdinsight-high-availability-linux/viewlogs.png)
+![Snelle koppelingen gebruiken om logboeken weer te geven](./media/hdinsight-high-availability-linux/viewlogs.png)
 
-## <a name="how-to-configure-the-node-size"></a>Grootte van het knooppunt configureren
+## <a name="how-to-configure-the-node-size"></a>De knooppunt grootte configureren
 
-De grootte van een knooppunt kan alleen worden geselecteerd tijdens het maken van clusters. U vindt een lijst van de verschillende VM-grootten beschikbaar voor HDInsight op de [HDInsight pagina met prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
+De grootte van een knoop punt kan alleen worden geselecteerd tijdens het maken van het cluster. Op de [pagina met hdinsight-prijzen](https://azure.microsoft.com/pricing/details/hdinsight/)vindt u een overzicht van de verschillende VM-grootten die beschikbaar zijn voor hdinsight.
 
-Wanneer u een cluster maakt, kunt u de grootte van de knooppunten opgeven. De volgende informatie bevat richtlijnen voor het opgeven van de grootte met behulp van de [Azure-portal][preview-portal], [Azure PowerShell-module Az][azure-powershell], en de [Azure CLI][azure-cli]:
+Wanneer u een cluster maakt, kunt u de grootte van de knoop punten opgeven. De volgende informatie bevat richt lijnen voor het opgeven van de grootte met behulp van de [Azure Portal][preview-portal], [Azure PowerShell module Az][azure-powershell]en de [Azure cli][Azure-cli]:
 
-* **Azure-portal**: Bij het maken van een cluster, kunt u de grootte van de knooppunten die worden gebruikt door het cluster kunt instellen:
+* **Azure Portal**: Wanneer u een cluster maakt, kunt u de grootte van de knoop punten instellen die door het cluster worden gebruikt:
 
-    ![Afbeelding van de wizard cluster maken met de selectie van clusterknooppunt grootte](./media/hdinsight-high-availability-linux/headnodesize.png)
+    ![Afbeelding van de wizard voor het maken van een cluster met een knooppunt grootte selectie](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure CLI**: Wanneer u de [az hdinsight maken](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) opdracht, kunt u de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten instellen met behulp van de `--headnode-size`, `--workernode-size`, en `--zookeepernode-size` parameters.
+* **Azure CLI**: Wanneer u de [opdracht AZ hdinsight Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) gebruikt, kunt u de grootte van de hoofd-, werk-en ZooKeeper-knoop punten `--headnode-size`instellen met behulp van de para meters, `--workernode-size`en `--zookeepernode-size` .
 
-* **Azure PowerShell**: Wanneer u de [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet, u kunt de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten kunt instellen met behulp van de `-HeadNodeSize`, `-WorkerNodeSize`, en `-ZookeeperNodeSize` parameters.
+* **Azure PowerShell**: Wanneer u de cmdlet [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) gebruikt, kunt u de grootte van de knoop punten Head, Worker en ZooKeeper instellen met `-HeadNodeSize`behulp van `-ZookeeperNodeSize` de para meters, `-WorkerNodeSize`en.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Gebruik de volgende koppelingen voor meer informatie over zaken die worden vermeld in dit document.
+Gebruik de volgende koppelingen voor meer informatie over de dingen die in dit document worden beschreven.
 
-* [Naslaginformatie over de REST van de Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
+* [Naslag informatie voor Apache Ambari-REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [De Azure CLI installeren en configureren](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Azure PowerShell-module Az installeren en configureren](/powershell/azure/overview)
-* [HDInsight met Apache Ambari beheren](hdinsight-hadoop-manage-ambari.md)
-* [HDInsight op basis van Linux-clusters inrichten](hdinsight-hadoop-provision-linux-clusters.md)
+* [Azure PowerShell-module AZ installeren en configureren](/powershell/azure/overview)
+* [HDInsight beheren met Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+* [HDInsight-clusters op basis van Linux inrichten](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: /powershell/azureps-cmdlets-docs

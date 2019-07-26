@@ -3,26 +3,26 @@ title: 'Snelstartgids: Spraak herkennen, C# (UWP) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: In dit artikel maakt u in C# een UWP-app (Universal Windows Platform) met behulp van de Speech-SDK van Cognitive Services. U gaat in realtime spraak naar tekst transcriberen via de microfoon van uw apparaat. De toepassing is gemaakt met het Speech-SDK NuGet-pakket en Microsoft Visual Studio 2017.
 services: cognitive-services
-author: wolfma61
+author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: lisaweixu
 ms.custom: seodec18
-ms.openlocfilehash: 30a12c504071cd178ed3e7563f9d7d967d8ba36d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 25b3474e33351d6365af37d78f442768aba88625
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606395"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405928"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in een UWP-app met behulp van de Speech-SDK
 
-Snelstartgidsen zijn ook beschikbaar voor [tekst naar spraak](quickstart-text-to-speech-csharp-uwp.md), [spraakomzetting](quickstart-translate-speech-uwp.md) en [stem op de eerste virtuele assistent](quickstart-virtual-assistant-csharp-uwp.md).
+Quick starts zijn ook beschikbaar voor [tekst-naar-spraak](quickstart-text-to-speech-csharp-uwp.md)-, [spraak-Vertaal](quickstart-translate-speech-uwp.md) -en [spraak-eerste virtuele assistent](quickstart-virtual-assistant-csharp-uwp.md).
 
-Indien gewenst, kies een andere programmeertaal en/of de omgeving:<br/>
+Kies indien gewenst een andere programmeer taal en/of-omgeving:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In dit artikel ontwikkelt u in C# een UWP-app (Universal Windows Platform, Windows-versie 1709 of hoger) met behulp van de [Speech-SDK](speech-sdk.md) van Cognitive Services. Het programma gaat in realtime spraak naar tekst transcriberen via de microfoon van uw apparaat. De toepassing is gemaakt met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
@@ -71,7 +71,7 @@ Voor deze snelstart zijn de volgende zaken vereist:
 
     ![Schermafbeelding van verzoek om toegang](media/sdk/qs-csharp-uwp-10-access-prompt.png "Start foutopsporing van de app")
 
-1. Selecteer **Speech recognition with microphone input** en zeg een Engelse woordgroep of zin in de microfoon van uw apparaat. Uw stem is verzonden naar de Services voor spraak en getranscribeerde tekst, die in het venster wordt weergegeven.
+1. Selecteer **Speech recognition with microphone input** en zeg een Engelse woordgroep of zin in de microfoon van uw apparaat. Uw spraak wordt verzonden naar de spraak Services en getranscribeerd naar tekst, die wordt weer gegeven in het venster.
 
     ![Schermafbeelding van gebruikersinterface voor spraakherkenning](media/sdk/qs-csharp-uwp-11-ui-result.png)
 

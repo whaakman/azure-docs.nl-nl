@@ -1,6 +1,6 @@
 ---
 title: Adaptieve netwerk beveiliging in Azure Security Center | Microsoft Docs
-description: " Informatie over het inschakelen van adaptieve netwerk beperken in Azure Security Center. "
+description: " Meer informatie over het inschakelen van adaptieve netwerk beveiliging in Azure Security Center. "
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,132 +13,132 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
-ms.author: monhaber
-ms.openlocfilehash: f35f410ddc039ee264fa1de317e152cb03f391b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: 2f82f3fe6f5cb6808ba606125ee0869475a60274
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241569"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295891"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Adaptieve netwerk beveiliging in Azure Security Center
-Informatie over het configureren van adaptieve netwerk beperken in Azure Security Center.
+Meer informatie over het configureren van adaptieve netwerk beveiliging in Azure Security Center.
 
-## <a name="what-is-adaptive-network-hardening"></a>Wat is adaptieve netwerk beperken?
-Toepassen van [netwerkbeveiligingsgroepen (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) voor het filteren van verkeer van en naar resources, verbetert u de beveiligingsstatus van uw netwerk. Er kan echter nog steeds zijn sommige gevallen waarin de werkelijke verkeersstroom naar de NSG een subset van de NSG-regels gedefinieerd is. In dergelijke gevallen kan verder verbeteren van de beveiligingsstatus worden bereikt door het beperken van de NSG-regels op basis van de werkelijke verkeerspatronen.
+## <a name="what-is-adaptive-network-hardening"></a>Wat is adaptieve netwerk beveiliging?
+Het Toep assen van [netwerk beveiligings groepen (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) voor het filteren van verkeer naar en van resources verbetert uw netwerk beveiligings postuur. Er kunnen echter wel enkele gevallen zijn waarin het daad werkelijke verkeer dat via de NSG stroomt, een subset is van de gedefinieerde NSG-regels. In dergelijke gevallen kunt u de beveiligings postuur verder verbeteren door de NSG-regels te verfijnen op basis van de werkelijke verkeers patronen.
 
-Adaptieve netwerk beperken bevat aanbevelingen voor het verder beperken van de NSG-regels. Het maakt gebruik van een machine learning-algoritme waarin rekening wordt gehouden in het werkelijke verkeer, vertrouwde configuratie, bedreigingsinformatie en andere indicatoren van inbreuk, bekend en vervolgens biedt aanbevelingen om toe te staan alleen verkeer van specifieke IP/poort tuples.
+Adaptieve netwerk beveiliging biedt aanbevelingen voor verdere beveiliging van de NSG-regels. Er wordt gebruikgemaakt van een machine learning algoritme dat betrekking heeft op het werkelijke verkeer, bekende vertrouwde configuratie, bedreigings informatie en andere indica toren van inbreuk, en geeft aanbevelingen om alleen verkeer van specifieke IP-poort-Tuples toe te staan.
 
-Bijvoorbeeld: Stel dat de bestaande NSG-regel waarmee verkeer van 140.20.30.10/24 op poort 22. De adaptieve netwerk beperken van de aanbeveling, op basis van de analyse zou zijn om te beperken van het bereik en het toestaan van verkeer van 140.23.30.10/29: dit een smaller IP-adresbereik is, en al het andere verkeer naar die poort weigeren.
+Stel bijvoorbeeld dat de bestaande NSG-regel verkeer van 140.20.30.10/24 op poort 22 toestaat. De aanbeveling voor adaptieve netwerk beveiliging, op basis van de analyse, zou het bereik moeten beperken en verkeer van 140.23.30.10/29 kunnen toestaan. Dit is een smallere IP-bereik en weigert al het andere verkeer naar die poort.
 
-![netwerk hardening weergeven](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+![weer gave netwerk beveiliging](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
 > [!NOTE]
-> Adaptieve aanbevelingen voor beperking van het netwerk worden ondersteund op de volgende poorten: 22, 3389, 21, 23, 445, 4333, 3306, 1433, 1434, 53, 20, 5985, 5986, 5432, 139, 66, 1128
+> Aanbevelingen voor adaptieve netwerk beveiliging worden ondersteund op de volgende poorten: 22, 3389, 21, 23, 445, 4333, 3306, 1433, 1434, 53, 20, 5985, 5986, 5432, 139, 66, 1128
 
-## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Waarschuwingen adaptieve netwerk beperken en regels weergeven
+## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Waarschuwingen en regels voor adaptieve netwerk beveiliging weer geven
 
-1. Selecteer in Security Center, **netwerken** -> **adaptieve netwerk beperken**. De netwerk-VM's worden vermeld in drie afzonderlijke tabbladen:
-   * **Resources niet in orde**: Virtuele machines die momenteel zijn aanbevelingen en waarschuwingen die zijn geactiveerd door het uitvoeren van het algoritme adaptieve netwerk beperken. 
-   * **In orde resources**: Virtuele machines zonder waarschuwingen en aanbevelingen.
-   * **Niet-gescande resources**: Virtuele machines die het algoritme adaptieve Hardening van netwerk kan niet worden uitgevoerd op een van de volgende redenen:
-      * **Virtuele machines zijn VM's met klassieke**: Alleen Azure Resource Manager-VM's worden ondersteund.
-      * **Er is onvoldoende gegevens beschikbaar**: Security Center vereist om te kunnen genereren nauwkeurige verkeer beperken van aanbevelingen, ten minste 30 dagen van de verkeersgegevens.
-      * **Virtuele machine niet wordt beveiligd door ASC (Standard)** : Alleen virtuele machines die zijn ingesteld op de Standard-prijscategorie van Security Center, komen in aanmerking voor deze functie.
+1. Selecteer in Security Center **netwerk** -> **adaptief netwerk beveiliging**. De netwerk-Vm's worden weer gegeven onder drie afzonderlijke tabbladen:
+   * **Beschadigde resources**: Vm's die momenteel aanbevelingen en waarschuwingen hebben geactiveerd door het uitvoeren van het adaptieve netwerk beveiligings algoritme. 
+   * **Goede resources**: Vm's zonder waarschuwingen en aanbevelingen.
+   * Niet-gescande **resources**: Vm's waarvoor het adaptieve netwerk beveiligings algoritme niet kan worden uitgevoerd om een van de volgende redenen:
+      * **Virtuele machines zijn klassieke vm's**: Alleen Azure Resource Manager Vm's worden ondersteund.
+      * **Er zijn onvoldoende gegevens beschikbaar**: Om nauw keurige aanbevelingen voor het beveiligen van verkeer te kunnen genereren, is Security Center ten minste 30 dagen aan verkeers gegevens nodig.
+      * **VM wordt niet beveiligd door ASC-standaard**: Alleen Vm's die zijn ingesteld op de prijs categorie Standard van Security Center, komen in aanmerking voor deze functie.
 
-     ![resources niet in orde](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
+     ![beschadigde resources](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
-2. Uit de **resources niet in orde** tabblad, selecteert u een virtuele machine voor het weergeven van waarschuwingen en de aanbevolen beveiligingsregels om toe te passen.
+2. Selecteer een virtuele machine op het tabblad **beschadigde resources** om de waarschuwingen te bekijken en de aanbevolen beveiligings regels te gebruiken.
 
-    ![Hardening waarschuwingen](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+    ![beveiligings waarschuwingen](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
 
-## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Bekijken en adaptieve Hardening van netwerk aanbevolen regels toepassen
+## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Aanbevolen regels voor adaptieve netwerk beveiliging controleren en Toep assen
 
-1. Uit de **resources niet in orde** tabblad, selecteert u een virtuele machine. De waarschuwingen en aanbevolen hardening regels worden weergegeven.
+1. Selecteer een virtuele machine op het tabblad **beschadigde resources** . De waarschuwingen en aanbevolen regels voor de beveiliging worden weer gegeven.
 
-     ![Beveiligingsregels](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+     ![beveiligings regels](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
    > [!NOTE]
-   > De **regels** tabblad bevat de regels die adaptieve netwerk beperken raadt u toevoegen. De **waarschuwingen** tabblad geeft een lijst van de waarschuwingen die zijn gegenereerd door verkeer naar de resource, niet binnen het IP-adresbereik dat is toegestaan in de aanbevolen regels valt.
+   > Het tabblad **regels** bevat een lijst met de regels die adaptieve netwerk beveiliging aanbeveelt. Op het tabblad **waarschuwingen** worden de waarschuwingen weer gegeven die zijn gegenereerd als gevolg van verkeer, stromen naar de resource, die niet binnen het IP-bereik vallen dat is toegestaan in de aanbevolen regels.
 
-2. Als u wijzigen van de parameters van een regel wilt, u kunt deze wijzigen, zoals uitgelegd in [wijzigen van een regel](#modify-rule).
+2. Als u een aantal para meters van een regel wilt wijzigen, kunt u deze wijzigen, zoals wordt uitgelegd in [een regel wijzigen](#modify-rule).
    > [!NOTE]
-   > U kunt ook [verwijderen](#delete-rule) of [toevoegen](#add-rule) een regel.
+   > U kunt ook een regel [verwijderen](#delete-rule) of [toevoegen](#add-rule) .
 
-3. Selecteer de regels die u wilt toepassen op de NSG en op **afdwingen**.
+3. Selecteer de regels die u wilt Toep assen op de NSG en klik op **afdwingen**.
 
       > [!NOTE]
-      > De regels afgedwongen worden toegevoegd aan de nsg('s) beveiligen van de virtuele machine. (Een virtuele machine kan worden beveiligd door een NSG die is gekoppeld aan de NIC, of het subnet waarin de virtuele machine zich bevindt, of beide)
+      > De afgedwongen regels worden toegevoegd aan de NSG (s) die de virtuele machine beveiligen. (Een virtuele machine kan worden beveiligd door een NSG die is gekoppeld aan de NIC of het subnet waarin de virtuele machine zich bevindt, of beide)
 
     ![regels afdwingen](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
 
 
-### Een regel wijzigen  <a name ="modify-rule"> </a>
+### Een regel <a name ="modify-rule"></a> wijzigen
 
-U wilt wijzigen van de parameters van een regel die is aanbevolen. U wilt bijvoorbeeld wijzigen van de aanbevolen IP-adresbereiken.
+Mogelijk wilt u de para meters van een regel die is aanbevolen wijzigen. Het is bijvoorbeeld mogelijk dat u de aanbevolen IP-bereiken wilt wijzigen.
 
-Enkele belangrijke richtlijnen voor het wijzigen van een regel voor het beperken van adaptieve netwerk:
+Enkele belang rijke richt lijnen voor het wijzigen van een adaptieve netwerk beperkings regel:
 
-* U kunt de parameters van de regels alleen 'toestaan' wijzigen. 
-* U kunt regels om te worden 'toestaan' regels ' toestaan' niet wijzigen. 
+* U kunt de para meters van alleen regels wijzigen. 
+* U kunt regels voor ' toestaan ' niet wijzigen zodat regels worden ' deny '. 
 
   > [!NOTE]
-  > Het maken en wijzigen 'toestaan' regels is uitgevoerd rechtstreeks op de NSG voor meer informatie, Zie [maken, wijzigen of verwijderen van een netwerkbeveiligingsgroep](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > Het maken en wijzigen van regels voor weigeren wordt rechtstreeks uitgevoerd op de NSG Zie [een netwerk beveiligings groep maken, wijzigen of verwijderen](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)voor meer informatie.
 
-* Een **al het verkeer weigeren** regel is het enige type regel 'toestaan' die hier worden vermeld, en kan niet worden gewijzigd. U kunt deze echter verwijderen (Zie [verwijderen van een regel](#delete-rule)).
+* Een regel voor het **weigeren van alle verkeer** is het enige type ' deny ' dat hier wordt vermeld en kan niet worden gewijzigd. U kunt het echter wel verwijderen (Zie [een regel verwijderen](#delete-rule)).
   > [!NOTE]
-  > Een **al het verkeer weigeren** regel wanneer wordt aanbevolen, als gevolg hiervan van het uitvoeren van het algoritme, Security Center identificeert niet het verkeer dat moet worden toegestaan, op basis van de bestaande configuratie van de NSG. Daarom is het aanbevolen regel voor het weigeren van al het verkeer naar de opgegeven poort. De naam van dit type regel wordt weergegeven als '*door het systeemgegenereerde*'. Na het afdwingen van deze regel worden de werkelijke naam van de NSG in een tekenreeks die bestaat uit het protocol, de richting van verkeer, "DENY" en een willekeurig getal.
+  > Een regel voor het weigeren van een **netwerk** wordt aanbevolen wanneer als gevolg van het uitvoeren van het Security Center algoritme geen verkeer wordt geïdentificeerd dat moet worden toegestaan op basis van de bestaande NSG-configuratie. Daarom is de aanbevolen regel het weigeren van al het verkeer naar de opgegeven poort. De naam van dit type regel wordt weer gegeven als '*systeem gegenereerd*'. Na het afdwingen van deze regel is de daad werkelijke naam in de NSG een teken reeks die bestaat uit het Protocol, de richting van het verkeer, de "weigeren" en een wille keurig getal.
 
-*Een regel voor het beperken van adaptieve netwerk wijzigen:*
+*Een regel voor adaptieve netwerk beveiliging wijzigen:*
 
-1. Sommige van de parameters van een regel te wijzigen de **regels** tabblad, klik op de drie puntjes (...) aan het einde van rij van de regel en klikt u op **bewerken**.
+1. Als u een aantal para meters van een regel wilt wijzigen, klikt u op het tabblad **regels** op de drie puntjes (...) aan het einde van de rij van de regel en klikt u op **bewerken**.
 
    ![regel bewerken](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
-1. In de **regel bewerken** venster, de details die u wilt wijzigen en klik op bijwerken **opslaan**.
+1. In het venster **regel bewerken** werkt u de details bij die u wilt wijzigen en klikt u op **Opslaan**.
 
    > [!NOTE]
-   > Nadat u hebt geklikt **opslaan**, u hebt de regel is gewijzigd. *Echter, u hebt niet toegepast op de NSG.* Als u wilt toepassen, moet u de regel in de lijst selecteren en op **afdwingen** (zoals uitgelegd in de volgende stap).
+   > Nadat u op **Opslaan**hebt geklikt, is de regel gewijzigd. *U hebt deze echter niet toegepast op de NSG.* Als u deze wilt Toep assen, moet u de regel in de lijst selecteren  en op afdwingen klikken (zoals in de volgende stap wordt uitgelegd).
 
    ![regel bewerken](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
-3. Om toe te passen de bijgewerkte regel in de lijst, selecteert u de bijgewerkte regel en klikt u op **afdwingen**.
+3. Als u de bijgewerkte regel wilt Toep assen, selecteert u in de lijst de bijgewerkte regel en klikt u op afdwingen.
 
-    ![afdwingen van regel](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
+    ![regel afdwingen](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
-### Een nieuwe regel toevoegen <a name ="add-rule"> </a>
+### Een nieuwe regel <a name ="add-rule"></a> toevoegen
 
-U kunt een regel voor 'toestaan' die niet door Security Center aanbevolen is kunt toevoegen.
+U kunt een regel ' toestaan ' toevoegen die niet wordt aanbevolen door Security Center.
 
 > [!NOTE]
-> Alleen 'toestaan' regels kunnen hier worden toegevoegd. Als u toevoegen wilt 'toestaan' regels, kunt u doen dus rechtstreeks op de NSG. Zie voor meer informatie, [maken, wijzigen of verwijderen van een netwerkbeveiligingsgroep](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+> U kunt hier alleen regels voor ' toestaan ' toevoegen. Als u regels voor weigeren wilt toevoegen, kunt u dit rechtstreeks doen op het NSG. Zie [een netwerk beveiligings groep maken, wijzigen of verwijderen](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)voor meer informatie.
 
-*Een regel voor het beperken van adaptieve netwerk toevoegen:*
+*Een regel voor adaptieve netwerk beveiliging toevoegen:*
 
-1. Klik op **regel toevoegen** (te vinden in de linkerbovenhoek).
+1. Klik op **regel toevoegen** (bevindt zich in de linkerbovenhoek).
 
    ![regel toevoegen](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
 
-1. In de **nieuwe regel** venster, geef de details en klik op **toevoegen**.
+1. Voer in het venster **nieuwe regel** de details in en klik op **toevoegen**.
 
    > [!NOTE]
-   > Nadat u hebt geklikt **toevoegen**, hebt u de regel toegevoegd en wordt deze weergegeven met de aanbevolen regels. Echter, u hebt niet toegepast op de NSG. Om deze te activeren, moet u de regel in de lijst selecteren en op **afdwingen** (zoals uitgelegd in de volgende stap).
+   > Nadat u op **toevoegen**hebt geklikt, is de regel toegevoegd en wordt deze weer gegeven met de andere aanbevolen regels. U hebt deze echter niet toegepast op de NSG. Als u deze wilt activeren, moet u de regel in de lijst selecteren en  op afdwingen klikken (zoals in de volgende stap wordt uitgelegd).
 
-3. Om toe te passen de nieuwe regel in de lijst, selecteert u de nieuwe regel en klikt u op **afdwingen**.
+3. Als u de nieuwe regel wilt Toep assen, selecteert u de nieuwe regel in de lijst en klikt u op afdwingen.
 
-    ![afdwingen van regel](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
+    ![regel afdwingen](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
-### Een regel verwijderen <a name ="delete-rule"> </a>
+### Een regel <a name ="delete-rule"></a> verwijderen
 
-Indien nodig, kunt u een aanbevolen regel verwijderen. U kunt bijvoorbeeld besluiten dat het toepassen van een voorgestelde regel legitieme verkeer mogelijk blokkeert.
+Als dat nodig is, kunt u een aanbevolen regel verwijderen. U kunt bijvoorbeeld bepalen dat het Toep assen van een voorgestelde regel legitiem verkeer kan blok keren.
 
-*Een regel voor het beperken van adaptieve netwerk verwijderen:*
+*Een regel voor adaptieve netwerk beveiliging verwijderen:*
 
-1. In de **regels** tabblad, klik op de drie puntjes (...) aan het einde van rij van de regel en klikt u op **verwijderen**.  
+1. Klik op het tabblad **regels** op de drie puntjes (...) aan het einde van de rij van de regel en klik op **verwijderen**.  
 
-    ![Beveiligingsregels](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+    ![beveiligings regels](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
 
 
 

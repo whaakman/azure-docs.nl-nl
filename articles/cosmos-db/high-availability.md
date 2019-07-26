@@ -4,15 +4,15 @@ description: In dit artikel wordt beschreven hoe Azure Cosmos DB hoge Beschik ba
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 07/23/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 38629ed2246f4eb67e4183354fe4feaaaee16805
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 4dde41479c05151fa4e14c9fe4b534b9f7edf9b4
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305448"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467743"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hoge Beschik baarheid met Azure Cosmos DB
 
@@ -49,9 +49,9 @@ Regionale storingen zijn niet ongewoon. Met Azure Cosmos DB is uw database altij
 - Multi-regio-accounts die zijn geconfigureerd met meerdere-schrijf regio's, zijn Maxi maal beschikbaar voor schrijf bewerkingen en lees bewerkingen. Regionale failovers zijn onmiddellijk en vereisen geen wijzigingen van de toepassing.
 
 - **Accounts met meerdere regio's met een regio voor één schrijf bewerking (schrijf regio-uitval):** 
-  * Tijdens een onderbreking van de schrijf regio blijven deze accounts Maxi maal beschikbaar voor lees bewerkingen. Voor schrijf bewerkingen moet u echter **automatische failover inschakelen** voor uw Cosmos-account om het betrokken gebied naar een andere regio te failoveren. De failover wordt uitgevoerd in de volg orde van de regio prioriteit die u hebt opgegeven. 
-  * Wanneer de betrokken regio weer online is, worden de niet-gerepliceerde gegevens die tijdens de storing zijn gevonden, beschikbaar gesteld via de [feed conflicten](how-to-manage-conflicts.md#read-from-conflict-feed). Toepassingen kunnen de feed voor conflicten lezen, de conflicten oplossen op basis van de toepassingsspecifieke logica en de bijgewerkte gegevens naar de Cosmos-container schrijven, indien van toepassing. 
-  * Zodra de eerder beïnvloede schrijf regio herstelt, wordt deze automatisch beschikbaar als een lees regio. U kunt teruggaan naar de herstelde regio als de schrijf regio. U kunt scha kelen tussen de regio's met behulp van [Azure CLI of Azure Portal](how-to-manage-database-account.md#manual-failover). Er zijn **geen gegevens of beschik baarheids verlies** vóór, tijdens of na de hand matige failover. Uw toepassing blijft Maxi maal beschikbaar. 
+  * Tijdens een onderbreking van de schrijf regio blijven deze accounts Maxi maal beschikbaar voor lees bewerkingen. Voor het slagen van de schrijf aanvragen moet u de optie **automatische failover inschakelen** inschakelen voor uw Azure Cosmos-account. Als u deze optie inschakelt, wordt de betrokken regio door gegeven aan een andere regio in de volg orde van de regio prioriteit die u hebt opgegeven. 
+  * Wanneer de eerder beïnvloede regio weer online is, worden alle Schrijf gegevens die niet zijn gerepliceerd toen de regio is mislukt, beschikbaar gesteld via de [feed conflicten](how-to-manage-conflicts.md#read-from-conflict-feed). Toepassingen kunnen de feed voor conflicten lezen, de conflicten oplossen op basis van de toepassingsspecifieke logica en de bijgewerkte gegevens naar de Azure Cosmos-container schrijven, indien van toepassing. 
+  * Zodra de eerder beïnvloede schrijf regio herstelt, wordt deze automatisch beschikbaar als een lees regio. U kunt teruggaan naar de herstelde regio als de schrijf regio. U kunt scha kelen tussen de regio's met behulp van [Azure CLI of Azure Portal](how-to-manage-database-account.md#manual-failover). Er zijn **geen gegevens of beschik baarheids verlies** vóór, tijdens of nadat u de schrijf regio hebt overgeschakeld en uw toepassing Maxi maal beschikbaar is. 
 
 - **Accounts met meerdere regio's met een regio voor één schrijf bewerking (Lees regio lezen):** 
   * Tijdens een onderbreking van de Lees regio blijven deze accounts Maxi maal beschikbaar voor lees-en schrijf bewerkingen. 

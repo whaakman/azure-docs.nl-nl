@@ -1,6 +1,6 @@
 ---
-title: Gegevens transformeren met Databricks Notebook - Azure | Microsoft Docs
-description: Meer informatie over verwerken of transformeren door het uitvoeren van een Databricks-notebook.
+title: Gegevens transformeren met Databricks notebook-Azure | Microsoft Docs
+description: Meer informatie over het verwerken of transformeren van gegevens door een Databricks-notebook uit te voeren.
 services: data-factory
 documentationcenter: ''
 ms.assetid: ''
@@ -12,20 +12,20 @@ ms.date: 03/15/2018
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 8036a8694bb8c8d0db236eba831f13dc2bf47d0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2bc8b84d4b98036acc93788dee88444786df139e
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311662"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335857"
 ---
-# <a name="transform-data-by-running-a-databricks-notebook"></a>Gegevens transformeren door het uitvoeren van een Databricks-notebook
+# <a name="transform-data-by-running-a-databricks-notebook"></a>Gegevens transformeren door een Databricks-notebook uit te voeren
 
-De Azure Databricks Notebook-activiteit in een [Data Factory-pijplijn](concepts-pipelines-activities.md) een Databricks-notebook in uw Azure Databricks-werkruimte wordt uitgevoerd. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](transform-data.md) artikel een algemeen overzicht van de gegevenstransformatie van en de ondersteunde transformatieactiviteiten geeft. Azure Databricks is een beheerd platform voor het uitvoeren van Apache Spark.
+Met de activiteit Azure Databricks notebook in een [Data Factory pijp lijn](concepts-pipelines-activities.md) wordt een Databricks-notebook in uw Azure Databricks-werk ruimte uitgevoerd. In dit artikel vindt u een overzicht van het artikel over de [activiteiten](transform-data.md) voor gegevens transformatie, dat een algemene informatie bevat over de gegevens transformatie en de ondersteunde transformatie activiteiten. Azure Databricks is een beheerd platform voor het uitvoeren van Apache Spark.
 
-## <a name="databricks-notebook-activity-definition"></a>De definitie van de Databricks Notebook-activiteit
+## <a name="databricks-notebook-activity-definition"></a>Definitie van Databricks-notebook-activiteit
 
-Hier volgt de voorbeeld-JSON-definitie van een Databricks Notebook-activiteit:
+Hier volgt een voor beeld van de JSON-definitie van een Databricks-notebook activiteit:
 
 ```json
 {
@@ -53,24 +53,24 @@ Hier volgt de voorbeeld-JSON-definitie van een Databricks Notebook-activiteit:
 }
 ```
 
-## <a name="databricks-notebook-activity-properties"></a>Eigenschappen van de Databricks Notebook-activiteit
+## <a name="databricks-notebook-activity-properties"></a>Eigenschappen van Databricks notebook-activiteit
 
-De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie gebruikt:
+In de volgende tabel worden de JSON-eigenschappen beschreven die in de JSON-definitie worden gebruikt:
 
 |Eigenschap|Description|Vereist|
 |---|---|---|
-|name|Naam van de activiteit in de pijplijn.|Ja|
+|name|De naam van de activiteit in de pijp lijn.|Ja|
 |description|Tekst die beschrijft wat de activiteit doet.|Nee|
-|type|Voor Databricks Notebook-activiteit is het activiteitstype DatabricksNotebook.|Ja|
-|linkedServiceName|De naam van de Databricks gekoppelde Service waarop het Databricks-notebook wordt uitgevoerd. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel.|Ja|
-|notebookPath|Het absolute pad van het notitieblok om te worden uitgevoerd in de Databricks-werkruimte. Dit pad moet beginnen met een slash.|Ja|
-|baseParameters|Een matrix met sleutel-waardeparen. Algemene parameters kunnen worden gebruikt voor elke activiteit die wordt uitgevoerd. Als de notebook heeft een parameter die niet is opgegeven, wordt de standaardwaarde van de notebook worden gebruikt. Meer informatie over parameters in vinden [Databricks-Notebooks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Nee|
-|Bibliotheken|Een lijst met bibliotheken die u moet worden geïnstalleerd op het cluster dat de taak wordt uitgevoerd. Kan het zijn een reeks \<string, object >.|Nee|
+|type|Voor Databricks notebook-activiteit is het type activiteit DatabricksNotebook.|Ja|
+|linkedServiceName|De naam van de gekoppelde Databricks-service waarop de Databricks-notebook wordt uitgevoerd. Zie het artikel [Compute linked Services](compute-linked-services.md) (Engelstalig) voor meer informatie over deze gekoppelde service.|Ja|
+|notebookPath|Het absolute pad van de notebook dat moet worden uitgevoerd in de Databricks-werk ruimte. Dit pad moet beginnen met een slash.|Ja|
+|baseParameters|Een matrix met sleutel-waardeparen. Basis parameters kunnen worden gebruikt voor elke uitvoering van de activiteit. Als het notitie blok een para meter accepteert die niet is opgegeven, wordt de standaard waarde van het notitie blok gebruikt. Meer informatie over para meters in [Databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair)-notebooks.|Nee|
+|Library|Een lijst met bibliotheken die op het cluster moeten worden geïnstalleerd waarmee de taak wordt uitgevoerd. Dit kan een matrix van \<teken reeks, object > zijn.|Nee|
 
 
-## <a name="supported-libraries-for-databricks-activities"></a>Ondersteunde-bibliotheken voor Databricks-activiteiten
+## <a name="supported-libraries-for-databricks-activities"></a>Ondersteunde bibliotheken voor Databricks-activiteiten
 
-In de bovenstaande definitie van de activiteit Databricks, geeft u deze typen bibliotheek: *jar*, *ei*, *maven*, *pypi*,  *cran*.
+In de bovenstaande definitie van de Databricks-activiteit geeft u deze typen tape wisselaars op: *jar*, *ei*, *WHL*, *maven*, *pypi*, *krans*.
 
 ```json
 {
@@ -80,6 +80,12 @@ In de bovenstaande definitie van de activiteit Databricks, geeft u deze typen bi
         },
         {
             "egg": "dbfs:/mnt/libraries/library.egg"
+        },
+    {
+            "whl": "dbfs:/mnt/libraries/mlflow-0.0.1.dev0-py2-none-any.whl"
+        },
+        {
+            "whl": "dbfs:/mnt/libraries/wheel-libraries.wheelhouse.zip"
         },
         {
             "maven": {
@@ -104,18 +110,18 @@ In de bovenstaande definitie van de activiteit Databricks, geeft u deze typen bi
 
 ```
 
-Zie voor meer informatie de [documentatie voor Databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) voor bibliotheek typen.
+Zie de [Databricks-documentatie](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) voor bibliotheek typen voor meer informatie.
 
-## <a name="how-to-upload-a-library-in-databricks"></a>Over het uploaden van een bibliotheek in Databricks
+## <a name="how-to-upload-a-library-in-databricks"></a>Een bibliotheek uploaden in Databricks
 
-#### <a name="using-databricks-workspace-uihttpsdocsazuredatabricksnetuser-guidelibrarieshtmlcreate-a-library"></a>[Met behulp van de gebruikersinterface van de Databricks-werkruimte](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
+#### <a name="using-databricks-workspace-uihttpsdocsazuredatabricksnetuser-guidelibrarieshtmlcreate-a-library"></a>[De gebruikers interface van Databricks werk ruimte gebruiken](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
 
-Als u het pad dbfs van de bibliotheek toegevoegd met behulp van de gebruikersinterface, kunt u de [Databricks CLI (installatie)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
+U kunt de [DATABRICKS cli (installatie)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli)gebruiken om het dbfs-pad op te halen van de bibliotheek die wordt toegevoegd met behulp van de gebruikers interface. 
 
-Normaal gesproken de Jar-bibliotheken worden opgeslagen onder dbfs: / FileStore/jars tijdens het gebruik van de gebruikersinterface. U kunt een lijst alle via de CLI: *databricks fs ls dbfs: / FileStore/JAR-bestanden*.
+De jar-bibliotheken worden normaal gesp roken opgeslagen onder dbfs:/File Store/potten tijdens het gebruik van de gebruikers interface. U kunt alle weer geven via de CLI: *databricks FS ls dbfs:/File Store/potten*.
 
 
 
-#### <a name="copy-library-using-databricks-clihttpsdocsazuredatabricksnetuser-guidedev-toolsdatabricks-clihtmlcopy-a-file-to-dbfs"></a>[Tapewisselaar voor kopiëren met behulp van Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
+#### <a name="copy-library-using-databricks-clihttpsdocsazuredatabricksnetuser-guidedev-toolsdatabricks-clihtmlcopy-a-file-to-dbfs"></a>[Bibliotheek kopiëren met behulp van Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
 
-Voorbeeld: *databricks fs cp SparkPi-assembly-0.1.jar dbfs: / FileStore/JAR-bestanden*
+Voor beeld: *databricks FS CP sparkpi-assembly-0.1. jar dbfs:/File Store/potten*

@@ -1,6 +1,6 @@
 ---
-title: naslaginformatie over host.JSON voor Azure Functions 2.x
-description: Referentiedocumentatie voor de Azure Functions host.json-bestand met de v2-runtime.
+title: host. json-verwijzing voor Azure Functions 2. x
+description: Referentie documentatie voor het Azure Functions host. JSON-bestand met v2 runtime.
 services: functions
 author: ggailey777
 manager: jeconnoc
@@ -10,31 +10,31 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 89c4723e83979f89721677146810abdf99fb5d11
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: ecb2059e529347b7eff72bf6af74b82558a4c251
+ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310468"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371692"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x"></a>naslaginformatie over host.JSON voor Azure Functions 2.x  
+# <a name="hostjson-reference-for-azure-functions-2x"></a>host. json-verwijzing voor Azure Functions 2. x  
 
-> [!div class="op_single_selector" title1="Selecteer de versie van de Azure Functions-runtime die u gebruikt: "]
+> [!div class="op_single_selector" title1="Selecteer de versie van de Azure Functions runtime die u gebruikt: "]
 > * [Versie 1:](functions-host-json-v1.md)
 > * [Versie 2](functions-host-json.md)
 
-De *host.json* metagegevensbestand globale configuratie-opties die invloed hebben op alle functies die voor een functie-app bevat. In dit artikel bevat de instellingen die beschikbaar voor de v2-runtime zijn.  
+Het meta gegevensbestand van de *host. json* bevat globale configuratie opties die van invloed zijn op alle functies voor een functie-app. In dit artikel vindt u de instellingen die beschikbaar zijn voor de v2-runtime.  
 
 > [!NOTE]
-> In dit artikel is bedoeld voor Azure Functions 2.x.  Voor een verwijzing van host.json in functies 1.x, Zie [naslaginformatie over host.json voor Azure Functions 1.x](functions-host-json-v1.md).
+> Dit artikel is voor Azure Functions 2. x.  Voor een verwijzing van host.json in functies 1.x, Zie [naslaginformatie over host.json voor Azure Functions 1.x](functions-host-json-v1.md).
 
-Andere configuratieopties van de functie-app worden beheerd in uw [app-instellingen](functions-app-settings.md).
+Andere opties voor de configuratie van de functie-app worden beheerd in de [app-instellingen](functions-app-settings.md).
 
-Sommige instellingen host.json worden alleen gebruikt bij het uitvoeren van lokaal in de [local.settings.json](functions-run-local.md#local-settings-file) bestand.
+Sommige host. json-instellingen worden alleen gebruikt wanneer lokaal wordt uitgevoerd in het bestand [Local. settings. json](functions-run-local.md#local-settings-file) .
 
-## <a name="sample-hostjson-file"></a>Voorbeeldbestand voor host.json
+## <a name="sample-hostjson-file"></a>Voor beeld van host. JSON-bestand
 
-Het volgende voorbeeld *host.json* bestanden hebben alle mogelijke opties opgegeven.
+Voor de volgende voor beeld- *JSON* -bestanden zijn alle mogelijke opties opgegeven.
 
 ```json
 {
@@ -88,7 +88,7 @@ Het volgende voorbeeld *host.json* bestanden hebben alle mogelijke opties opgege
 }
 ```
 
-De volgende secties van dit artikel wordt uitgelegd dat elke eigenschap op het hoogste niveau. Alle zijn optioneel tenzij anders aangegeven.
+In de volgende secties van dit artikel wordt elke eigenschap op het hoogste niveau uitgelegd. Alle zijn optioneel, tenzij anders aangegeven.
 
 ## <a name="aggregator"></a>aggregator
 
@@ -96,9 +96,9 @@ De volgende secties van dit artikel wordt uitgelegd dat elke eigenschap op het h
 
 ## <a name="applicationinsights"></a>applicationInsights
 
-Deze instelling is een onderliggend element van [logboekregistratie](#logging).
+Deze instelling is een onderliggend item van [logboek registratie](#logging).
 
-Besturingselementen voor de [functie steekproeven in Application Insights](./functions-monitoring.md#configure-sampling).
+Hiermee bepaalt u de [sampling functie in Application Insights](./functions-monitoring.md#configure-sampling).
 
 ```json
 {
@@ -112,32 +112,32 @@ Besturingselementen voor de [functie steekproeven in Application Insights](./fun
 ```
 
 > [!NOTE]
-> Logboek steekproeven kan ertoe leiden dat sommige uitvoeringen niet weergegeven in de Application Insights-blade monitor.
+> Het vastleggen van logboeken kan ertoe leiden dat sommige uitvoeringen niet worden weer gegeven op de Blade Application Insights monitor.
 
 |Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
-|isEnabled|true|Hiermee schakelt lijnen of.| 
-|maxTelemetryItemsPerSecond|5|De drempelwaarde op welke steekproeven wordt gestart.| 
+|isEnabled|true|Hiermee worden steek proeven in-of uitgeschakeld.| 
+|maxTelemetryItemsPerSecond|5|De drempel waarde waarmee steek proeven worden gestart.| 
 
-## <a name="cosmosdb"></a>cosmos DB
+## <a name="cosmosdb"></a>cosmosDb
 
-Configuratie-instelling kunt u vinden in [Cosmos DB-triggers en bindingen](functions-bindings-cosmosdb-v2.md#host-json).
+De configuratie-instelling vindt u in [Cosmos DB triggers en bindingen](functions-bindings-cosmosdb-v2.md#host-json).
 
 ## <a name="durabletask"></a>durableTask
 
-Configuratie-instelling kunt u vinden in [bindingen voor duurzame functies](durable/durable-functions-bindings.md#host-json).
+De configuratie-instelling kan worden gevonden in [bindingen voor Durable functions](durable/durable-functions-bindings.md#host-json).
 
 ## <a name="eventhub"></a>eventHub
 
-Configuratie-instellingen kunnen u vinden in [Event Hub-triggers en bindingen](functions-bindings-event-hubs.md#host-json). 
+U kunt configuratie-instellingen vinden in [Event hub-triggers en](functions-bindings-event-hubs.md#host-json)-bindingen. 
 
-## <a name="extensions"></a>Extensies
+## <a name="extensions"></a>Extensions
 
-Eigenschap retourneert een object dat alle van de binding-specifieke instellingen, zoals bevat [http](#http) en [eventHub](#eventhub).
+Eigenschap die een object retourneert dat alle binding-specifieke instellingen bevat, zoals [http](#http) en [eventHub](#eventhub).
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>functies
 
-Een lijst met functies die de host van de taak wordt uitgevoerd. Een lege matrix betekent dat alle functies uitvoeren. Bedoeld voor gebruik alleen wanneer [lokaal uitgevoerde](functions-run-local.md). In de functie-apps in Azure, moet u in plaats daarvan de stappen in volgen [het uitschakelen van de functies in Azure Functions](disable-function.md) specifieke functies in plaats van met deze instelling uitschakelen.
+Een lijst met functies die de taak host uitvoert. Een lege matrix houdt in dat alle functies worden uitgevoerd. Alleen bedoeld voor gebruik bij [lokaal uitvoeren](functions-run-local.md). In functie-apps in azure moet u in plaats daarvan de stappen volgen in [het uitschakelen van functies in azure functions](disable-function.md) om specifieke functies uit te scha kelen in plaats van deze instelling te gebruiken.
 
 ```json
 {
@@ -147,7 +147,7 @@ Een lijst met functies die de host van de taak wordt uitgevoerd. Een lege matrix
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Geeft aan dat de duur van de time-out voor alle functies. Het geldige bereik is 1 seconde tot 10 minuten in een verbruiksabonnement zonder server en de standaardwaarde is 5 minuten. Er is geen algemene limiet in een toegewezen App Service-plan en de standaardwaarde is 30 minuten. Een waarde van `-1` geeft aan dat de uitvoering van niet-gebonden.
+Hiermee wordt de duur van de time-out voor alle functies aangegeven. In een serverloze verbruiks abonnement is het geldige bereik van 1 seconde tot 10 minuten en de standaard waarde is 5 minuten. In een App Service plan geldt geen algemene limiet en de standaard waarde is afhankelijk van de runtime versie. In versie 2. x is de standaard waarde voor een App Service plan 30 minuten. In versie 1. x is het *Null*, wat geen time-out aangeeft. Deze kan niet worden ingesteld als oneindig. Als deze waarde niet expliciet worden ingesteld, wordt de standaard waarde van 30 minuten genoteerd.
 
 ```json
 {
@@ -157,7 +157,7 @@ Geeft aan dat de duur van de time-out voor alle functies. Het geldige bereik is 
 
 ## <a name="healthmonitor"></a>healthMonitor
 
-Configuratie-instellingen voor [health monitor voor de Host](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+Configuratie-instellingen voor de [host Health Monitor](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
 
 ```
 {
@@ -173,21 +173,21 @@ Configuratie-instellingen voor [health monitor voor de Host](https://github.com/
 
 |Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
-|enabled|true|Hiermee geeft u op of de functie is ingeschakeld. | 
-|healthCheckInterval|10 seconden|Het tijdsinterval tussen de periodieke achtergrond-status wordt gecontroleerd. | 
-|healthCheckWindow|2 minuten|Een verschuivend tijdvenster gebruikt in combinatie met de `healthCheckThreshold` instelling.| 
-|healthCheckThreshold|6|Maximum aantal keren dat de statuscontrole kan mislukken voordat het recyclen van een host wordt gestart.| 
-|counterThreshold|0.80|De drempelwaarde waarmee een prestatiemeteritem wordt beschouwd als niet in orde.| 
+|enabled|true|Hiermee wordt aangegeven of de functie is ingeschakeld. | 
+|healthCheckInterval|10 seconden|Het tijds interval tussen de periodieke status controles voor de achtergrond. | 
+|healthCheckWindow|2 minuten|Een schuif tijd venster dat wordt gebruikt in combi natie `healthCheckThreshold` met de instelling.| 
+|healthCheckThreshold|6|Maximum aantal keer dat de status controle kan mislukken voordat een host recyclen wordt gestart.| 
+|counterThreshold|0,80|De drempel waarde waarbij een prestatie meter item wordt beschouwd als een slechte status.| 
 
 ## <a name="http"></a>http
 
-Configuratie-instellingen kunnen u vinden in [http-triggers en bindingen](functions-bindings-http-webhook.md).
+Configuratie-instellingen vindt u in [http-triggers en-bindingen](functions-bindings-http-webhook.md).
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
-## <a name="logging"></a>Logboekregistratie
+## <a name="logging"></a>Userenv
 
-Hiermee bepaalt u het gedrag van de registratie van de functie-app, met inbegrip van Application Insights.
+Hiermee bepaalt u het gedrag van logboek registratie van de functie-app, met inbegrip van Application Insights.
 
 ```json
 "logging": {
@@ -207,14 +207,14 @@ Hiermee bepaalt u het gedrag van de registratie van de functie-app, met inbegrip
 
 |Eigenschap  |Standaard | Description |
 |---------|---------|---------|
-|fileLoggingMode|debugOnly|Hiermee definieert u welk niveau van logboekregistratie is ingeschakeld.  Opties zijn `never`, `always`, `debugOnly`. |
-|logLevel|N.v.t.|Object dat definieert de logboekcategorie filteren voor functies in de app. Versie 2.x volgt de ASP.NET Core-indeling voor het filteren van logboek-categorie. Hiermee kunt u filteren van logboekregistratie voor specifieke functies. Zie voor meer informatie, [logboek filteren](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in de documentatie van ASP.NET Core. |
-|console|N.v.t.| De [console](#console) instelling voor logboekregistratie. |
-|applicationInsights|N.v.t.| De [applicationInsights](#applicationinsights) instelling. |
+|fileLoggingMode|debugOnly|Hiermee wordt gedefinieerd welk niveau van bestands logboek registratie is ingeschakeld.  Opties zijn `never`, `always`, `debugOnly`. |
+|logLevel|N.v.t.|Object dat de logboek categorie filtering definieert voor functies in de app. Versie 2. x volgt de ASP.NET Core indeling voor het filteren van de logboek categorie. Hiermee kunt u logboek registratie voor specifieke functies filteren. Zie [logboek filtering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in de ASP.net core-documentatie voor meer informatie. |
+|console|N.v.t.| De instelling voor de logboek registratie van de [console](#console) . |
+|applicationInsights|N.v.t.| De instelling [applicationInsights](#applicationinsights) . |
 
 ## <a name="console"></a>console
 
-Deze instelling is een onderliggend element van [logboekregistratie](#logging). Hiermee bepaalt u de logboekregistratie als deze niet in foutopsporingsmodus-console.
+Deze instelling is een onderliggend item van [logboek registratie](#logging). Het beheert de logboek registratie van de console als dit niet in de foutopsporingsmodus is.
 
 ```json
 {
@@ -230,23 +230,23 @@ Deze instelling is een onderliggend element van [logboekregistratie](#logging). 
 
 |Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
-|isEnabled|false|Hiermee of console logboekregistratie uitgeschakeld.| 
+|isEnabled|false|Hiermee wordt de logboek registratie van de console in-of uitgeschakeld.| 
 
-## <a name="queues"></a>queues
+## <a name="queues"></a>Bestel
 
-Configuratie-instellingen kunnen u vinden in [Storage queue-triggers en bindingen](functions-bindings-storage-queue.md#host-json).  
+Configuratie-instellingen vindt u in de [opslag wachtrij Triggers en bindingen](functions-bindings-storage-queue.md#host-json).  
 
 ## <a name="sendgrid"></a>sendGrid
 
-Configuratie-instelling kunt u vinden in [SendGrid triggers en bindingen](functions-bindings-sendgrid.md#host-json).
+Configuratie-instelling vindt u in [SendGrid-triggers en](functions-bindings-sendgrid.md#host-json)-bindingen.
 
 ## <a name="servicebus"></a>serviceBus
 
-Configuratie-instelling kunt u vinden in [Service Bus-triggers en bindingen](functions-bindings-service-bus.md#host-json).
+De configuratie-instelling vindt u in [Service Bus triggers en bindingen](functions-bindings-service-bus.md#host-json).
 
-## <a name="singleton"></a>singleton
+## <a name="singleton"></a>Singleton
 
-Configuratie-instellingen voor het gedrag van Singleton vergrendelen. Zie voor meer informatie, [GitHub-probleem over de ondersteuning van singleton](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
+Configuratie-instellingen voor het gedrag van Singleton-vergren deling. Zie [github-probleem over Singleton-ondersteuning](https://github.com/Azure/azure-webjobs-sdk-script/issues/912)voor meer informatie.
 
 ```json
 {
@@ -262,19 +262,19 @@ Configuratie-instellingen voor het gedrag van Singleton vergrendelen. Zie voor m
 
 |Eigenschap  |Standaard | Description |
 |---------|---------|---------| 
-|lockPeriod|00:00:15|De periode die functie niveau vergrendelingen voor worden uitgevoerd. De vergrendelingen voor automatisch verlengen.| 
-|listenerLockPeriod|00:01:00|De periode die listener vergrendelingen voor worden uitgevoerd.| 
-|listenerLockRecoveryPollingInterval|00:01:00|Het tijdsinterval voor listener-lock herstel moet worden gebruikt als een listener-vergrendeling kan niet worden verkregen bij het opstarten.| 
-|lockAcquisitionTimeout|00:01:00|De maximale hoeveelheid tijd die de runtime wordt geprobeerd om een vergrendeling te verkrijgen.| 
-|lockAcquisitionPollingInterval|N.v.t.|Het interval tussen pogingen van vergrendeling ophalen.| 
+|lockPeriod|00:00:15|De periode waarin vergrendelingen op functie niveau worden uitgevoerd. De vergren delingen automatisch verlengen.| 
+|listenerLockPeriod|00:01:00|De periode waarin de luister vergrendelingen worden uitgevoerd.| 
+|listenerLockRecoveryPollingInterval|00:01:00|Het tijds interval dat wordt gebruikt voor het herstel van de listener-vergren deling als tijdens het opstarten geen listener-vergrendeling kan worden verkregen.| 
+|lockAcquisitionTimeout|00:01:00|De maximale hoeveelheid tijd die de runtime probeert een vergren deling te verkrijgen.| 
+|lockAcquisitionPollingInterval|N.v.t.|Het interval tussen overname pogingen voor vergren delen.| 
 
-## <a name="version"></a>versie
+## <a name="version"></a>version
 
-De tekenreeks voor de `"version": "2.0"` is vereist voor een functie-app die gericht is op de v2-runtime.
+De versie teken `"version": "2.0"` reeks is vereist voor een functie-app die de v2-runtime bedoelt.
 
 ## <a name="watchdirectories"></a>watchDirectories
 
-Een set [gedeelde code mappen](functions-reference-csharp.md#watched-directories) die moet worden gecontroleerd op wijzigingen.  Zorgt ervoor dat wanneer de code in deze mappen wordt gewijzigd, de wijzigingen worden doorgevoerd door uw functies.
+Een set [gedeelde code mappen](functions-reference-csharp.md#watched-directories) die moeten worden gecontroleerd op wijzigingen.  Zorgt ervoor dat wanneer de code in deze directory's wordt gewijzigd, de wijzigingen worden opgehaald door uw functies.
 
 ```json
 {
@@ -284,7 +284,7 @@ Een set [gedeelde code mappen](functions-reference-csharp.md#watched-directories
 
 ## <a name="manageddependency"></a>managedDependency
 
-Beheerde afhankelijkheid is een preview-functie is momenteel alleen ondersteund met PowerShell op basis van functies. Hiermee kunt afhankelijkheden worden automatisch beheerd door de service. Wanneer de eigenschap enabled is ingesteld op true, wordt de [requirements.psd1](functions-reference-powershell.md#dependency-management) bestand wordt verwerkt. Afhankelijkheden wordt bijgewerkt wanneer een secundaire versies worden vrijgegeven.
+Managed dependency is een preview-functie die momenteel alleen wordt ondersteund met Power shell-functies. Hierdoor kunnen afhankelijkheden automatisch worden beheerd door de service. Wanneer de ingeschakelde eigenschap is ingesteld op True, wordt het bestand [Requirements. psd1](functions-reference-powershell.md#dependency-management) verwerkt. Afhankelijkheden worden bijgewerkt wanneer er secundaire versies worden vrijgegeven.
 
 ```json
 {
@@ -297,7 +297,7 @@ Beheerde afhankelijkheid is een preview-functie is momenteel alleen ondersteund 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over het bijwerken van het bestand host.json](functions-reference.md#fileupdate)
+> [Meer informatie over het bijwerken van het bestand host. json](functions-reference.md#fileupdate)
 
 > [!div class="nextstepaction"]
-> [Zie de globale instellingen in omgevingsvariabelen](functions-app-settings.md)
+> [Algemene instellingen in omgevings variabelen weer geven](functions-app-settings.md)

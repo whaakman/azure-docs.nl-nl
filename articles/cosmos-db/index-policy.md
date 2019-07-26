@@ -1,44 +1,44 @@
 ---
-title: Azure Cosmos DB indexeringsbeleid
-description: Informatie over het configureren en wijzigen van de standaardbeleidsregels voor indexering van beleid voor automatisch indexeren en betere prestaties in Azure Cosmos DB.
+title: Azure Cosmos DB indexerings beleid
+description: Meer informatie over het configureren en wijzigen van het standaard indexerings beleid voor automatische indexering en betere prestaties in Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 07/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 791779bfc2262bb13dc2c3a192d9c74ae69cb30e
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 01e3e1f1c9bffee0604de1260e8e466f5b1d229d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722549"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467880"
 ---
-# <a name="indexing-policies-in-azure-cosmos-db"></a>Indexering in Azure Cosmos DB
+# <a name="indexing-policies-in-azure-cosmos-db"></a>Indexerings beleid in Azure Cosmos DB
 
-Elke container heeft in Azure Cosmos DB, een indexeringsbeleid die bepaalt hoe de items van de container moeten worden geïndexeerd. De standaardbeleidsregels voor indexering van beleid voor nieuwe gemaakt containers indexen elke eigenschap van elk item, bereik indexen voor een tekenreeks of getal en ruimtelijke indexen voor een GeoJSON-object van type punt. Hiermee kunt u hoge queryprestaties zonder te denken over het indexeren en indexbeheer vooraf ophalen.
+In Azure Cosmos DB heeft elke container een indexerings beleid dat bepaalt hoe de items van de container moeten worden geïndexeerd. Het standaard indexerings beleid voor nieuw gemaakte containers indexeert elke eigenschap van elk item, waarbij bereik indexen worden afgedwongen voor wille keurige teken reeksen of getallen en ruimtelijke indexen voor een geojson-object van het type punt. Zo kunt u hoge query prestaties krijgen zonder dat u op de hoogte hoeft te zijn van indexering en index beheer vooraf.
 
-In sommige gevallen kunt u dit automatisch gedrag beter aan uw vereisten negeren. U kunt het indexeringsbeleid van een container aanpassen door in te stellen de *indexering modus*, en opnemen of uitsluiten *eigenschappaden*.
+In sommige gevallen is het mogelijk dat u dit automatische gedrag wilt overschrijven zodat het beter aansluit bij uw vereisten. U kunt het indexerings beleid van een container aanpassen door de *indexerings modus*in te stellen en *eigenschaps paden*op te nemen of uit te sluiten.
 
 > [!NOTE]
-> De methode voor het bijwerken van de indexing beleidsregels die worden beschreven in dit artikel is alleen van toepassing op Azure Cosmos DB SQL (Core) API.
+> De methode voor het bijwerken van het indexerings beleid dat in dit artikel wordt beschreven, is alleen van toepassing op de SQL-API (core) van Azure Cosmos DB.
 
-## <a name="indexing-mode"></a>Indexering modus
+## <a name="indexing-mode"></a>Indexerings modus
 
-Azure Cosmos DB ondersteunt twee modi voor indexering:
+Azure Cosmos DB ondersteunt twee indexerings modi:
 
-- **Consistente**: Als het indexeringsbeleid van de container is ingesteld op een consistente, wordt de index synchroon bijgewerkt wanneer u maken, bijwerken of verwijderen van items. Dit betekent dat de consistentie van uw lezen query's worden de [consistentie geconfigureerd voor het account](consistency-levels.md).
+- **Consistent**: Als het indexerings beleid van een container is ingesteld op consistent, wordt de index synchroon bijgewerkt wanneer u items maakt, bijwerkt of verwijdert. Dit betekent dat de consistentie van uw Lees query's de consistentie is die [voor het account is geconfigureerd](consistency-levels.md).
 
-- **Geen**: Als het indexeringsbeleid van de container is ingesteld op None, is indexeren effectief uitgeschakeld op die container. Dit wordt vaak gebruikt als een container wordt gebruikt als een zuivere sleutel-waardearchief zonder de noodzaak voor secundaire indexen. Het kan ook helpen versnellen bulksgewijs bewerkingen invoegen.
+- **Geen**: Als het indexerings beleid van een container is ingesteld op geen, wordt indexeren effectief uitgeschakeld voor die container. Dit wordt meestal gebruikt wanneer een container wordt gebruikt als een pure sleutel waarde Store zonder dat hiervoor secundaire indexen nodig zijn. Het kan ook helpen bij het versnellen van Bulk Insert-bewerkingen.
 
-## <a name="including-and-excluding-property-paths"></a>Opnemen en uitsluiten van eigenschappaden
+## <a name="including-and-excluding-property-paths"></a>Eigenschaps paden opnemen en uitsluiten
 
-Een aangepast indexeringsbeleid kunt eigenschappaden die expliciet zijn opgenomen of uitgesloten van het indexeren opgeven. U kunt door het aantal paden die zijn geïndexeerd optimaliseert, verlaag de hoeveelheid opslag die wordt gebruikt door de container en verbeteren van de latentie van schrijfbewerkingen. Deze paden zijn gedefinieerd met het volgende [de methode die wordt beschreven in de sectie met indexering overzicht](index-overview.md#from-trees-to-property-paths) met de volgende toevoegingen:
+Een aangepast indexerings beleid kan eigenschaps paden opgeven die expliciet worden opgenomen of uitgesloten van indexeren. Door het aantal geïndexeerde paden te optimaliseren, kunt u de hoeveelheid opslag die wordt gebruikt door uw container verlagen en de latentie van schrijf bewerkingen verbeteren. Deze paden worden gedefinieerd volgens [de methode die wordt beschreven in de sectie Overzicht indexering](index-overview.md#from-trees-to-property-paths) met de volgende toevoegingen:
 
-- eindigt op een pad naar een scalaire waarde (tekenreeks of getal) `/?`
-- elementen van een matrix samen worden opgelost door middel van de `/[]` notatie (in plaats van `/0`, `/1` enz.)
-- de `/*` jokertekens kan worden gebruikt zodat deze overeenkomt met alle elementen onder het knooppunt
+- een pad dat leidt naar een scalaire waarde (teken reeks of getal) eindigt op`/?`
+- elementen uit een matrix worden samen met de `/[]` notatie (in plaats van `/0`, `/1` enzovoort) beschreven.
+- het `/*` Joker teken kan worden gebruikt om alle elementen onder het knoop punt te vergelijken
 
-Het voorbeeld nemen opnieuw:
+Hetzelfde voor beeld opnieuw uitvoeren:
 
     {
         "locations": [
@@ -52,52 +52,52 @@ Het voorbeeld nemen opnieuw:
         ]
     }
 
-- de `headquarters`van `employees` pad is `/headquarters/employees/?`
-- de `locations`' `country` pad is `/locations/[]/country/?`
-- het pad op naar iets onder `headquarters` is `/headquarters/*`
+- het `headquarters`padis `employees``/headquarters/employees/?`
+- het `locations`padis `country``/locations/[]/country/?`
+- het pad naar iets onder `headquarters` is`/headquarters/*`
 
-Wanneer een pad expliciet is opgenomen in het indexeringsbeleid, heeft deze ook om te definiëren welke typen index moeten worden toegepast op het opgegeven pad en voor elk indextype, het gegevenstype deze index is van toepassing op:
+Wanneer een pad expliciet is opgenomen in het indexerings beleid, moet het ook bepalen welke index typen moeten worden toegepast op dat pad en voor elk index type, het gegevens type van deze index is van toepassing op:
 
-| Indextype | Doel-gegevenstypen toegestaan |
+| Indextype | Toegestane doel gegevens typen |
 | --- | --- |
-| Bereik | Tekenreeks of getal |
-| Ruimtelijk | Point, LineString of veelhoek |
+| Bereik | Teken reeks of getal |
+| Ruimtelijk | Punt, Lines Tring of veelhoek |
 
-We kunnen bijvoorbeeld de `/headquarters/employees/?` pad en opgeven dat een `Range` index moet worden toegepast op het opgegeven pad voor zowel `String` en `Number` waarden.
+`/headquarters/employees/?` We kunnen bijvoorbeeld het pad toevoegen en opgeven dat een `Range` index moet worden toegepast op dat pad voor zowel `String` en `Number` -waarden.
 
 ### <a name="includeexclude-strategy"></a>Strategie voor opnemen/uitsluiten
 
-Alle indexeringsbeleid heeft om op te nemen van pad naar de hoofdmap `/*` als een opgenomen of als een uitgesloten-pad.
+Elk indexerings beleid moet het `/*` basispad bevatten als een opgenomen of uitgesloten pad.
 
-- Het pad naar de hoofdmap als u wilt uitsluiten selectief paden die niet hoeven te worden geïndexeerd bevatten. Dit is de aanbevolen aanpak omdat het Azure Cosmos DB is een nieuwe eigenschap die kan worden toegevoegd aan uw model proactief index kunt.
-- Sluit het hoofdpad selectief om paden te nemen die moeten worden geïndexeerd.
+- Neem het hoofdpad op om selectieve paden uit te sluiten die niet hoeven te worden geïndexeerd. Dit is de aanbevolen benadering, omdat hiermee Azure Cosmos DB proactief een nieuwe eigenschap kan indexeren die aan uw model kan worden toegevoegd.
+- Sluit het hoofdpad uit om selectieve paden op te nemen die moeten worden geïndexeerd.
 
-- Voor paden met gewone tekens bevatten: alfanumerieke tekens en _ (onderstrepingstekens), moet u geen escape-tekenreeks voor het pad om dubbele aanhalingstekens (bijvoorbeeld: "/ path /?"). Voor paden met andere speciale tekens bevat, moet u escape-tekenreeks voor het pad om dubbele aanhalingstekens (bijvoorbeeld: "/\"pad abc\"/?"). Als u speciale tekens in het pad verwacht, kunt u elk pad voor de veiligheid druk op ESC. Functioneel niet dat u enig verschil merkt als escape voor elk pad Vs alleen de resources die speciale tekens bevatten.
+- Voor paden met gewone tekens die bevatten: alfanumerieke tekens en _ (onderstrepings teken), hoeft u de padtekenreeks niet te escapepen rond dubbele aanhalings tekens (bijvoorbeeld '/Path/? '). Voor paden met andere speciale tekens moet u de teken reeks voor het pad Escape rond dubbele aanhalings tekens (bijvoorbeeld "\"/Path-\"ABC/?"). Als u speciale tekens in uw pad verwacht, kunt u elk pad voor de beveiliging op te zeggen. Dit is functioneel geen verschil als u elk pad en alleen de bestanden met speciale tekens weglaat.
 
-- Systeemeigenschap "etag" is uitgesloten van het indexeren standaard, tenzij de etag is toegevoegd aan de opgenomen pad voor indexering.
+- De systeem eigenschap "ETAG" wordt standaard uitgesloten van indexeren, tenzij de ETAG wordt toegevoegd aan het opgenomen pad voor indexering.
 
-Zie [in deze sectie](how-to-manage-indexing-policy.md#indexing-policy-examples) voor indexering beleid voorbeelden.
+Zie [deze sectie](how-to-manage-indexing-policy.md#indexing-policy-examples) voor voor beelden van Indexing-beleid.
 
 ## <a name="composite-indexes"></a>Samengestelde indexen
 
-Query's die `ORDER BY` twee of meer eigenschappen vereist een samengestelde index. Op dit moment alleen samengestelde indexen worden gebruikt door meerdere `ORDER BY` query's. Standaard geen samengestelde indexen zijn gedefinieerd, moet u [samengestelde indexen toevoegen](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) indien nodig.
+Query's waarvoor `ORDER BY` twee of meer eigenschappen een samengestelde index vereisen. Op dit moment worden samengestelde indexen alleen gebruikt door meerdere `ORDER BY` query's. Standaard zijn er geen samengestelde indexen gedefinieerd, dus u moet zo nodig [samengestelde indexen toevoegen](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) .
 
-Bij het definiëren van een samengestelde index, moet u het volgende opgeven:
+Wanneer u een samengestelde index definieert, geeft u het volgende op:
 
-- Twee of meer eigenschappaden. De volgorde op waarin eigenschap paden zijn belangrijk is gedefinieerd.
-- De volgorde (oplopend of aflopend).
+- Twee of meer eigenschaps paden. De volg orde waarin eigenschaps paden worden gedefinieerd.
+- De volg orde (oplopend of aflopend).
 
-De volgende overwegingen zijn gebruikt bij het gebruik van samengestelde indexen:
+De volgende overwegingen worden gebruikt bij het gebruik van samengestelde indexen:
 
-- Als de paden samengestelde index komen niet overeen met de volgorde van de eigenschappen in de component ORDER BY, kan niet klikt u vervolgens de samengestelde index ondersteund door de query
+- Als de samengestelde index paden niet overeenkomen met de volg orde van de eigenschappen in de ORDER BY-component, kan de samengestelde index de query niet ondersteunen
 
-- De volgorde van samengestelde index paden (oplopend of aflopend) moet ook overeenkomen met de volgorde in de component ORDER BY.
+- De volg orde van samengestelde index paden (oplopend of aflopend) moet ook overeenkomen met de volg orde in de ORDER BY-component.
 
-- De samengestelde index biedt ook ondersteuning voor een component ORDER BY met de omgekeerde volgorde op alle paden.
+- De samengestelde index ondersteunt ook een component ORDER BY met de tegenovergestelde volg orde op alle paden.
 
-Houd rekening met het volgende voorbeeld, waarbij een samengestelde index wordt gedefinieerd op eigenschappen a, b en c
+Bekijk het volgende voor beeld waarbij een samengestelde index is gedefinieerd voor de eigenschappen a, b en c:
 
-| **Samengestelde Index**     | **Voorbeeld `ORDER BY` Query**      | **Ondersteund door de Index?** |
+| **Samengestelde index**     | **Voorbeeld `ORDER BY` query**      | **Ondersteund door index?** |
 | ----------------------- | -------------------------------- | -------------- |
 | ```(a asc, b asc)```         | ```ORDER BY  a asc, b asc```        | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
@@ -106,41 +106,41 @@ Houd rekening met het volgende voorbeeld, waarbij een samengestelde index wordt 
 | ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
 | ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
 
-U moet uw indexeringsbeleid aanpassen zodat u alle nodige kan dienen `ORDER BY` query's.
+U moet het indexerings beleid aanpassen zodat u alle benodigde `ORDER BY` query's kunt uitvoeren.
 
-## <a name="modifying-the-indexing-policy"></a>Wijzigen van het indexeringsbeleid
+## <a name="modifying-the-indexing-policy"></a>Het indexerings beleid wijzigen
 
-Indexeringsbeleid van de container kan worden bijgewerkt op elk gewenst moment [met behulp van de Azure-portal of een van de ondersteunde SDK's](how-to-manage-indexing-policy.md). Een update aan voor het indexeringsbeleid activeert een transformatie van de oude index naar de nieuwe versie, die wordt uitgevoerd op het online en op locatie (zodat er geen extra opslagruimte wordt gebruikt tijdens de bewerking). Index van het oude beleid is efficiënt omgezet naar het nieuwe beleid zonder gevolgen voor de beschikbaarheid voor schrijven of de doorvoer die is ingericht voor de container. Index transformatie is een asynchrone bewerking en de tijd die nodig zijn om te voltooien is afhankelijk van de ingerichte doorvoer, het aantal items en de omvang ervan. 
+Het indexerings beleid van een container kan op elk gewenst moment worden bijgewerkt [met behulp van de Azure portal of een van de ondersteunde sdk's](how-to-manage-indexing-policy.md). Een update voor het indexerings beleid activeert een trans formatie van de oude index naar de nieuwe, die online en op locatie wordt uitgevoerd (zodat er geen extra opslag ruimte wordt verbruikt tijdens de bewerking). De oude beleids index is efficiënt getransformeerd naar het nieuwe beleid zonder dat dit van invloed is op de schrijf Beschik baarheid of de door Voer ingericht op de container. Index transformatie is een asynchrone bewerking en de tijd die nodig is om te volt ooien, is afhankelijk van de ingerichte door Voer, het aantal items en de grootte ervan. 
 
 > [!NOTE]
-> Terwijl opnieuw indexeren uitgevoerd wordt, worden query's mogelijk niet de overeenkomende resultaten retourneren, en zal dit doen zonder eventuele fouten retourneren. Dit betekent dat de resultaten van query zijn mogelijk inconsistent totdat de index-transformatie is voltooid. Het is mogelijk om bij te houden van de voortgang van de index transformatie [met behulp van een van de SDK's](how-to-manage-indexing-policy.md).
+> Tijdens het opnieuw indexeren van wordt uitgevoerd, retour neren query's mogelijk niet alle overeenkomende resultaten en worden deze zonder fouten geretourneerd. Dit betekent dat query resultaten mogelijk niet consistent zijn totdat de index transformatie is voltooid. Het is mogelijk om de voortgang van de index transformatie [te volgen met behulp van een van de sdk's](how-to-manage-indexing-policy.md).
 
-Als het nieuwe indexeringsbeleid-modus is ingesteld op een consistente, kan er geen andere indexering beleidswijziging worden toegepast, terwijl de transformatie van de index uitgevoerd wordt. Een actieve transformatie van de index kan worden geannuleerd door het indexeringsbeleid-modus is ingesteld op None (die de index wordt onmiddellijk worden verwijderd).
+Als de modus nieuw indexerings beleid is ingesteld op consistent, kan er geen andere wijziging van het indexerings beleid worden toegepast terwijl de index transformatie wordt uitgevoerd. Een actieve index transformatie kan worden geannuleerd door de modus van het indexerings beleid in te stellen op geen (waardoor de index onmiddellijk wordt verwijderd).
 
-## <a name="indexing-policies-and-ttl"></a>Beleid voor indexering en TTL
+## <a name="indexing-policies-and-ttl"></a>Indexerings beleid en TTL
 
-De [Time-to-Live (TTL) functie](time-to-live.md) vereist indexering actief zijn op de container is ingeschakeld. Dit betekent dat:
+Voor de [functie time-to-Live (TTL)](time-to-live.md) moet indexering actief zijn op de container waarop deze is ingeschakeld. Dit betekent dat:
 
-- het is niet mogelijk om te activeren TTL voor een container waarin de indexing-modus is ingesteld op None,
-- het is niet mogelijk om in te stellen de indexing-modus op None voor een container waarin de TTL is geactiveerd.
+- het is niet mogelijk om TTL te activeren voor een container waarbij de indexerings modus is ingesteld op geen,
+- het is niet mogelijk om de indexerings modus in te stellen op geen in een container waarin TTL wordt geactiveerd.
 
-Voor scenario's waarbij er geen eigenschapspad moet worden geïndexeerd, maar TTL-waarde is vereist, kunt u een indexeringsbeleid met:
+Voor scenario's waarin geen eigenschapspad moet worden geïndexeerd, maar TTL vereist is, kunt u een indexerings beleid gebruiken met:
 
-- een indexering modus ingesteld op consistente, en
-- Er zijn geen opgenomen pad, en
-- `/*` Als het enige uitgesloten-pad.
+- een indexerings modus is ingesteld op consistent en
+- geen opgenomen pad en
+- `/*`alleen als het uitgesloten pad.
 
-## <a name="obsolete-attributes"></a>Verouderd kenmerken
+## <a name="obsolete-attributes"></a>Verouderde kenmerken
 
-Als u werkt met de indexing-beleid, kunnen de volgende kenmerken die nu verouderd zijn optreden:
+Wanneer u werkt met indexerings beleid, kunt u de volgende kenmerken ondervinden die nu verouderd zijn:
 
-- `automatic` een Booleaanse waarde gedefinieerd in de hoofdmap van een beleid voor indexering. Het is nu genegeerd en kan worden ingesteld op `true`, wanneer het hulpprogramma dat u gebruikt dit vereist.
-- `precision` is een getal dat is gedefinieerd op het indexniveau van de voor opgenomen paden. Het is nu genegeerd en kan worden ingesteld op `-1`, wanneer het hulpprogramma dat u gebruikt dit vereist.
-- `hash` een index-type dat nu door het type bereik vervangen is is.
+- `automatic`is een Booleaanse waarde die is gedefinieerd in de hoofdmap van een indexerings beleid. Het wordt nu genegeerd en kan worden ingesteld op `true`, wanneer het hulp programma dat u gebruikt vereist.
+- `precision`is een getal dat is gedefinieerd op index niveau voor opgenomen paden. Het wordt nu genegeerd en kan worden ingesteld op `-1`, wanneer het hulp programma dat u gebruikt vereist.
+- `hash`is een index soort die nu wordt vervangen door de bereik soort.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Lees meer over indexeren in de volgende artikelen:
 
-- [Indexering-overzicht](index-overview.md)
-- [Indexeringsbeleid beheren](how-to-manage-indexing-policy.md)
+- [Overzicht van indexeren](index-overview.md)
+- [Indexerings beleid beheren](how-to-manage-indexing-policy.md)

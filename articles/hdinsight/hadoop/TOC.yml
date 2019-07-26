@@ -74,7 +74,7 @@
         - name: Apache Hive gebruiken met Apache Hadoop
           href: hdinsight-use-hive.md
           items:
-            - name: HDInsight-hulpprogramma's voor VSCode gebruiken
+            - name: Spark- en Hive-hulpprogramma's voor VSCode gebruiken
               href: ../hdinsight-for-vscode.md
               maintainContext: true
             - name: HDInsight-hulpprogramma’s voor Visual Studio gebruiken
@@ -397,7 +397,7 @@
     - name: Beveiliging voor bedrijven
       items:
         - name: Overzicht
-          href: ../domain-joined/apache-domain-joined-introduction.md
+          href: ../domain-joined/hdinsight-security-overview.md
           maintainContext: true
         - name: Plan voor bedrijfsbeveiliging
           href: ../domain-joined/apache-domain-joined-architecture.md
@@ -421,11 +421,14 @@
       items:
         - name: HDInsight-architectuur voor virtueel netwerk
           href: ../hdinsight-virtual-network-architecture.md
+        - name: VNETs plannen voor HDInsight
+          href: ../hdinsight-plan-virtual-network-deployment.md
+        - name: VNETs maken voor HDInsight
+          href: ../hdinsight-create-virtual-network.md
+        - name: Vereiste IP-adressen voor NSG's en UDR's
+          href: ../hdinsight-management-ip-addresses.md
         - name: Firewall gebruiken om uitgaand verkeer te beperken
           href: ../hdinsight-restrict-outbound-traffic.md
-        - name: HDInsight in Azure VNet
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: HDInsight verbinden met een on-premises netwerk
           href: ../connect-on-premises-network.md
           maintainContext: true

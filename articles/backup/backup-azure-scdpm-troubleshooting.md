@@ -1,92 +1,91 @@
 ---
-title: Oplossen van System Center Data Protection Manager met Azure Backup
-description: Oplossen van problemen in System Center Data Protection Manager.
-services: backup
+title: Problemen met de System Center-Data Protection Manager oplossen met Azure Backup
+description: Problemen oplossen in System Center Data Protection Manager.
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 4108616e3ae41e2c88b74bb08d5f846c0035101f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5e4aa113eda6ea53c520e6de52e4fa17d75f4095
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236200"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465379"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Problemen oplossen met System Center Data Protection Manager
 
-Dit artikel wordt beschreven oplossingen voor problemen die u tegenkomen kunt tijdens het gebruik van Data Protection Manager.
+In dit artikel worden oplossingen beschreven voor problemen die kunnen optreden tijdens het gebruik van Data Protection Manager.
 
-Zie voor de meest recente releaseopmerkingen voor System Center Data Protection Manager de [documentatie voor System Center](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). U kunt meer informatie over ondersteuning voor Data Protection Manager in [deze matrix](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
+Raadpleeg de [documentatie van System](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016)Center voor de nieuwste opmerkingen bij de release voor system Center Data Protection Manager. In [deze matrix](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016)vindt u meer informatie over ondersteuning voor Data Protection Manager.
 
 
-## <a name="error-replica-is-inconsistent"></a>Fout: De replica is inconsistent
+## <a name="error-replica-is-inconsistent"></a>Fout: Replica is inconsistent
 
-Een replica is inconsistent voor de volgende redenen:
-- De taak voor het maken van replica is mislukt.
-- Er zijn problemen met het wijzigingslogboek.
-- Het filter op paginaniveau volumebitmap bevat fouten.
-- De bron-VM onverwacht wordt afgesloten.
-- Het synchronisatielogboek overschrijdt.
-- De replica is echt niet consistent.
+Een replica kan om de volgende redenen inconsistent zijn:
+- De taak voor het maken van de replica is mislukt.
+- Er zijn problemen met het wijzigings logboek.
+- De bitmap voor filter op volume niveau bevat fouten.
+- De bron machine wordt onverwacht afgesloten.
+- Het synchronisatie logboek overschrijdt.
+- De replica is echt inconsistent.
 
-U lost dit probleem, moet u de volgende acties uitvoeren:
-- Als u wilt verwijderen van de inconsistent status, de consistentiecontrole handmatig uitvoeren of een dagelijkse consistentiecontrole plannen.
-- Zorg ervoor dat u de nieuwste versie van Microsoft Azure Backup Server en Data Protection Manager.
-- Zorg ervoor dat de **automatische consistentiecontrole** instelling is ingeschakeld.
-- Probeer het opnieuw opstarten van de services vanaf de opdrachtprompt. Gebruik de `net stop dpmra` opdracht, gevolgd door `net start dpmra`.
-- Zorg ervoor dat u aan de netwerkvereisten voor connectiviteit en bandbreedte voldoet.
-- Controleer als de bron-VM onverwacht werd afgesloten.
-- Zorg ervoor dat de schijf in orde is en of er voldoende ruimte voor de replica.
-- Zorg ervoor dat er geen dubbele back-uptaken die gelijktijdig worden uitgevoerd.
+U kunt dit probleem oplossen door de volgende acties uit te voeren:
+- Als u de inconsistente status wilt verwijderen, voert u de consistentie controle hand matig uit of plant u een dagelijkse consistentie controle.
+- Zorg ervoor dat u de nieuwste versie van Microsoft Azure Backup Server en Data Protection Manager gebruikt.
+- Zorg ervoor dat de instelling **automatische consistentie** is ingeschakeld.
+- Probeer de services opnieuw te starten vanaf de opdracht prompt. Gebruik de `net stop dpmra` opdracht gevolgd door `net start dpmra`.
+- Zorg ervoor dat u voldoet aan de vereisten voor de netwerk verbinding en de band breedte.
+- Controleer of de bron machine onverwacht is afgesloten.
+- Zorg ervoor dat de schijf in orde is en dat er voldoende ruimte is voor de replica.
+- Zorg ervoor dat er geen dubbele back-uptaken zijn die gelijktijdig worden uitgevoerd.
 
-## <a name="error-online-recovery-point-creation-failed"></a>Fout: Online herstelpunt is mislukt
+## <a name="error-online-recovery-point-creation-failed"></a>Fout: Een of meer online herstelpunten zijn niet gemaakt
 
-U lost dit probleem, moet u de volgende acties uitvoeren:
-- Zorg ervoor dat u de nieuwste versie van de Azure backup-agent.
-- Probeer handmatig een herstelpunt maken in het taakgebied beveiliging.
-- Zorg ervoor dat u een consistentiecontrole uit op de gegevensbron worden uitgevoerd.
-- Zorg ervoor dat u aan de netwerkvereisten voor connectiviteit en bandbreedte voldoet.
-- Als de replicagegevens in een inconsistente status, maak een schijfherstelpunt van deze gegevensbron.
-- Zorg ervoor dat de replica aanwezig zijn en niet ontbreekt.
-- Zorg ervoor dat de replica voldoende ruimte voor het maken van het logboek update sequence USN (number).
+U kunt dit probleem oplossen door de volgende acties uit te voeren:
+- Zorg ervoor dat u de nieuwste versie van de Azure Backup-agent gebruikt.
+- Probeer hand matig een herstel punt in het taak gebied beveiliging te maken.
+- Zorg ervoor dat u een consistentie controle op de gegevens bron uitvoert.
+- Zorg ervoor dat u voldoet aan de vereisten voor de netwerk verbinding en de band breedte.
+- Wanneer de replica gegevens een inconsistente status hebben, maakt u een schijf herstel punt voor deze gegevens bron.
+- Zorg ervoor dat de replica aanwezig is en niet ontbreekt.
+- Zorg ervoor dat de replica voldoende ruimte heeft om het USN-logboek (Update Sequence Number) te maken.
 
-## <a name="error-unable-to-configure-protection"></a>Fout: Kan geen beveiliging configureren
+## <a name="error-unable-to-configure-protection"></a>Fout: Beveiliging kan niet worden geconfigureerd
 
-Deze fout treedt op wanneer de Data Protection Manager-server kan geen contact op met de beveiligde server. 
+Deze fout treedt op wanneer de Data Protection Manager server geen verbinding kan maken met de beveiligde server. 
 
-U lost dit probleem, moet u de volgende acties uitvoeren:
-- Zorg ervoor dat u de nieuwste versie van de Azure backup-agent.
-- Zorg ervoor dat er verbinding (netwerk/firewallproxy) tussen de Data Protection Manager-server en de beveiligde server.
-- Als u een SQL-server beveiligt, zorg ervoor dat de **Aanmeldingseigenschappen** > **NT AUTHORITY\SYSTEM** eigenschap bevat de **sysadmin** instelling is ingeschakeld.
+U kunt dit probleem oplossen door de volgende acties uit te voeren:
+- Zorg ervoor dat u de nieuwste versie van de Azure Backup-agent gebruikt.
+- Zorg ervoor dat er verbinding is (netwerk/firewall/proxy) tussen uw Data Protection Manager-server en de beveiligde server.
+- Als u een SQL server beveiligt, moet u ervoor zorgen dat de eigenschap voor **aanmeldings eigenschappen** > **NT AUTHORITY\SYSTEM** de instelling **sysadmin** bevat ingeschakeld.
 
-## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Fout: Server niet is geregistreerd zoals opgegeven in het kluisreferentiebestand
+## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Fout: De server is niet geregistreerd zoals opgegeven in het kluis referentie bestand
 
-Deze fout treedt op tijdens het herstelproces voor Data Protection Manager/Azure Backup server-gegevens. Het kluisreferentiebestand dat wordt gebruikt bij het herstelproces behoort niet tot de Recovery Services-kluis voor de Data Protection Manager/Azure Backup-server.
+Deze fout treedt op tijdens het herstel proces voor Data Protection Manager-Azure Backup-Server gegevens. Het kluis referentie bestand dat wordt gebruikt in het herstel proces hoort niet bij de Recovery Services kluis voor de Data Protection Manager/Azure Backup Server.
 
-U lost dit probleem, moet u deze stappen uitvoeren:
-1. Download het kluisreferentiebestand van de Recovery Services-kluis waarbij de Data Protection Manager/Azure Backup-server is geregistreerd.
-2. Probeer de server met de kluis registreren met behulp van het meest recent gedownloade kluisreferentiebestand.
+Voer de volgende stappen uit om dit probleem op te lossen:
+1. Down load het kluis referentie bestand van de Recovery Services kluis waarop de Data Protection Manager/Azure Backup Server is geregistreerd.
+2. Probeer de server bij de kluis te registreren met het laatst gedownloade kluis referentie bestand.
 
-## <a name="error-no-recoverable-data-or-selected-server-not-a-data-protection-manager-server"></a>Fout: Er is geen herstelbare gegevens of de geselecteerde server niet in een Data Protection Manager-server
+## <a name="error-no-recoverable-data-or-selected-server-not-a-data-protection-manager-server"></a>Fout: Geen herstel bare gegevens of geselecteerde server is geen Data Protection Manager server
 
-Deze fout treedt op voor de volgende redenen:
-- Er zijn geen andere back-up van Data Protection Manager/Azure-servers zijn geregistreerd bij de Recovery Services-kluis.
-- De metagegevens van de nog niet hebt nog geüpload door de servers.
-- De geselecteerde server is niet een back-up van Data Protection Manager/Azure-server.
+Deze fout treedt op om de volgende redenen:
+- Er zijn geen andere Data Protection Manager-of Azure Backup-servers geregistreerd bij de Recovery Services kluis.
+- De-servers hebben de meta gegevens nog niet geüpload.
+- De geselecteerde server is geen Data Protection Manager/Azure Backup-Server.
 
-Wanneer andere Data Protection Manager/Azure back-up-servers zijn geregistreerd bij de Recovery Services-kluis, moet u deze stappen om het probleem te verhelpen uitvoeren:
-1. Zorg ervoor dat de meest recente Azure Backup-agent is geïnstalleerd.
-2. Nadat u ervoor zorgen dat de meest recente agent is geïnstalleerd, wacht u een dag voordat u het herstelproces te starten. De back-up elke nacht een taak wordt de metagegevens voor alle van de beveiligde back-ups geüpload naar de cloud. De back-upgegevens is vervolgens beschikbaar voor herstel.
+Voer de volgende stappen uit om het probleem op te lossen wanneer er andere Data Protection Manager-of Azure Backup-servers zijn geregistreerd bij de Recovery Services kluis:
+1. Zorg ervoor dat de nieuwste Azure Backup-Agent is geïnstalleerd.
+2. Nadat u hebt gezorgd dat de nieuwste agent is geïnstalleerd, wacht u één dag voordat u het herstel proces start. De taak 's nachts backup uploadt de meta gegevens voor alle beveiligde back-ups naar de Cloud. De back-upgegevens zijn vervolgens beschikbaar voor herstel.
 
-## <a name="error-provided-encryption-passphrase-doesnt-match-passphrase-for-server"></a>Fout: De opgegeven wachtwoordzin voor versleuteling komt niet overeen met de wachtwoordzin voor server
+## <a name="error-provided-encryption-passphrase-doesnt-match-passphrase-for-server"></a>Fout: Opgegeven versleutelings wachtwoordzin komt niet overeen met wachtwoordzin voor Server
 
-Deze fout treedt op tijdens het versleutelingsproces tijdens het herstellen van Data Protection Manager/Azure Backup server-gegevens. De wachtwoordzin voor versleuteling die wordt gebruikt in het herstelproces komt niet overeen met de wachtwoordzin voor versleuteling van de server. Als gevolg hiervan de agent kan de gegevens niet ontsleutelen en het herstel is mislukt.
+Deze fout treedt op tijdens het versleutelen van Data Protection Manager/Azure Backup Server-gegevens. De wachtwoordzin voor versleuteling die wordt gebruikt in het herstel proces komt niet overeen met de wachtwoordzin voor versleuteling van de server. Als gevolg hiervan kan de agent de gegevens niet ontsleutelen en mislukt de herstel bewerking.
 
 > [!IMPORTANT]
-> Als u vergeet of verliest de wachtwoordzin voor versleuteling, zijn er geen andere methoden om de gegevens te herstellen. De enige optie is om opnieuw te genereren van de wachtwoordzin. Gebruik de nieuwe wachtwoordzin voor het versleutelen van toekomstige back-upgegevens.
+> Als u de wachtwoordzin voor versleuteling vergeet of kwijtraakt, zijn er geen andere methoden voor het herstellen van de gegevens. De enige optie is het opnieuw genereren van de wachtwoordzin. Gebruik de nieuwe wachtwoordzin voor het versleutelen van toekomstige back-upgegevens.
 >
-> Wanneer u gegevens herstelt, moet u altijd de dezelfde wachtwoordzin voor versleuteling die is gekoppeld aan de Data Protection Manager/Azure Backup-server opgeven. 
+> Wanneer u gegevens herstelt, moet u altijd dezelfde versleutelings wachtwoord opgeven die is gekoppeld aan de Data Protection Manager-Azure Backup Server. 
 >

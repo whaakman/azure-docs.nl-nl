@@ -1,115 +1,145 @@
 ---
-title: Controleer op fouten van toepassingen en knooppunt - Azure Batch
-description: Fouten om te controleren en hoe u deze kunt vermijden bij het maken van pools en knooppunten
+title: Controleren op groeps-en knooppunt fouten-Azure Batch
+description: Fouten om te controleren of ze worden voor komen bij het maken van Pools en knoop punten
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 05/28/2019
+ms.date: 07/16/2019
 ms.topic: conceptual
-ms.openlocfilehash: b0a9d04fccce7ccbacb700f7af5126c6ae05140a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9481263773cc919fecacce80191cf209ec2a1282
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357764"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359242"
 ---
-# <a name="check-for-pool-and-node-errors"></a>Groep van toepassingen en node op fouten controleren
+# <a name="check-for-pool-and-node-errors"></a>Controleren op groeps-en knooppunt fouten
 
-Bepaalde bewerkingen vinden direct plaats bij het maken en beheren van Azure Batch-pools. Sommige bewerkingen zijn echter asynchrone en uitvoeren op de achtergrond. Ze kunnen enkele minuten duren.
+Wanneer u Azure Batch groepen maakt en beheert, vinden sommige bewerkingen onmiddellijk plaats. Sommige bewerkingen zijn echter asynchroon en worden uitgevoerd op de achtergrond. het duurt enkele minuten voordat de bewerking is voltooid.
 
-Detecteren van fouten voor bewerkingen die direct van kracht is vrij eenvoudig, omdat er fouten worden onmiddellijk geretourneerd door de API, CLI of de gebruikersinterface.
+Het detecteren van fouten voor bewerkingen die direct worden uitgevoerd, is eenvoudig, omdat eventuele fouten direct door de API, CLI of de gebruikers interface worden geretourneerd.
 
-In dit artikel bevat informatie over de bewerkingen op de achtergrond die kunnen optreden voor groepen en de pool. Geeft aan hoe u kunt detecteren en voorkoming van fouten.
+In dit artikel worden de achtergrond bewerkingen besproken die kunnen optreden voor Pools en groeps knooppunten. Hiermee wordt aangegeven hoe u fouten kunt detecteren en voor komen.
 
-## <a name="pool-errors"></a>Groep van toepassingen fouten
+## <a name="pool-errors"></a>Groeps fouten
 
-### <a name="resize-timeout-or-failure"></a>Time-out voor formaat wijzigen of fout
+### <a name="resize-timeout-or-failure"></a>Grootte van time-out of fout wijzigen
 
-Wanneer u een nieuwe groep maakt vergroten of verkleinen van een bestaande pool, geeft u het doelaantal knooppunten.  Direct door de bewerking is voltooid, maar de werkelijke toewijzing van nieuwe knooppunten die of het verwijderen van de bestaande knooppunten kan enkele minuten duren.  Geeft u de time-out voor formaat wijzigen in de [maken](https://docs.microsoft.com/rest/api/batchservice/pool/add) of [vergroten of verkleinen](https://docs.microsoft.com/rest/api/batchservice/pool/resize) API. Als Batch het doelaantal knooppunten niet tijdens de time-outperiode voor formaat wijzigen verkrijgen kan, stopt de bewerking. De groep verplaatst naar een stabiele status en rapporten vergroten of verkleinen van fouten.
+Bij het maken van een nieuwe groep of het wijzigen van de grootte van een bestaande groep, geeft u het doel aantal knoop punten op.  De bewerking maken of formaat wijzigen wordt onmiddellijk voltooid, maar de daad werkelijke toewijzing van nieuwe knoop punten of het verwijderen van bestaande knoop punten kan enkele minuten duren.  U geeft de time-out voor de grootte op in de API [Create](https://docs.microsoft.com/rest/api/batchservice/pool/add) of [Resize](https://docs.microsoft.com/rest/api/batchservice/pool/resize) . Als batch het doel aantal knoop punten niet kan verkrijgen tijdens de time-outperiode voor het wijzigen van de grootte, wordt de groep omgezet in een stabiele status en worden er fouten gerapporteerd.
 
-De [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) eigenschap voor de meest recente beoordeling rapporten is een time-out voor formaat wijzigen en een lijst met alle fouten die zijn opgetreden.
+De eigenschap [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) voor de meest recente evaluatie lijst bevat de fouten die zijn opgetreden.
 
-Algemene oorzaken voor formaat wijzigen-outs zijn onder andere:
+Veelvoorkomende oorzaken voor het wijzigen van de grootte zijn:
 
-- Time-out voor formaat wijzigen is te kort
-  - In de meeste gevallen is de standaardtime-out van 15 minuten lang genoeg is voor knooppunten in de pool worden toegewezen aan of verwijderd.
-  - Als u een groot aantal knooppunten toewijzen wilt, wordt u aangeraden de time-out voor formaat instellen op 30 minuten. Bijvoorbeeld, wanneer u bent vergroten of verkleinen op meer dan 1000 knooppunten uit een Azure Marketplace-installatiekopie, of op meer dan 300 knooppunten van een aangepaste VM-installatiekopie.
-- Er is onvoldoende kerngeheugenquotum
-  - Een Batch-account wordt beperkt het aantal kernen dat u deze aan alle groepen toewijzen kunt. Batch wordt gestopt bij het toewijzen van knooppunten wanneer het quotum is bereikt. U [kunt verhogen](https://docs.microsoft.com/azure/batch/batch-quota-limit) het quotum voor kerngeheugens, zodat die partij meer knooppunten kunt toewijzen.
-- Er is onvoldoende subnet IP-adressen wanneer een [groep is in een virtueel netwerk](https://docs.microsoft.com/azure/batch/batch-virtual-network)
-  - Een virtueel netwerksubnet moet er voldoende vrije IP-adressen toewijzen aan elk knooppunt in de aangevraagde pool. Anders kan de knooppunten kunnen niet worden gemaakt.
-- Onvoldoende bronnen wanneer een [groep is in een virtueel netwerk](https://docs.microsoft.com/azure/batch/batch-virtual-network)
-  - U kunt resources zoals load balancers, openbare IP-adressen en netwerk-beveiligingsgroepen maken in hetzelfde abonnement bevinden als het Batch-account. Controleer of de abonnementquota voldoende voor deze resources zijn.
-- Grote groepen met aangepaste VM-installatiekopieën
-  - Grote toepassingen die gebruikmaken van aangepaste VM-installatiekopieën kunnen langer duren om te wijzen en time-outs kunnen optreden.  Zie [een aangepaste installatiekopie gebruiken om een pool van virtuele machines te maken](https://docs.microsoft.com/azure/batch/batch-custom-images) voor aanbevelingen over limieten en configuratie.
+- Grootte van time-out is te kort
+  - In de meeste gevallen is de standaard time-out van 15 minuten lang genoeg voor het toewijzen of verwijderen van pool knooppunten.
+  - Als u een groot aantal knoop punten toewijst, is het raadzaam om de time-outwaarde in te stellen op 30 minuten. Bijvoorbeeld wanneer u het formaat van een installatie kopie van een Azure Marketplace of van meer dan 300 knooppunten wijzigt in meer dan 1.000 knoop punten.
+- Onvoldoende kern quotum
+  - Een batch-account is beperkt in het aantal kernen dat kan worden toegewezen in alle groepen. Batch stopt met het toewijzen van knoop punten nadat het quotum is bereikt. U [kunt](https://docs.microsoft.com/azure/batch/batch-quota-limit) het kern quotum verhogen zodat batch meer knoop punten kan toewijzen.
+- Onvoldoende subnet-IP-adressen wanneer een [groep zich in een virtueel netwerk](https://docs.microsoft.com/azure/batch/batch-virtual-network) bevindt
+  - Een subnet van een virtueel netwerk moet voldoende niet-toegewezen IP-adressen hebben om aan elk aangevraagde groeps knooppunt toe te wijzen. Anders kunnen de knoop punten niet worden gemaakt.
+- Onvoldoende resources wanneer een [groep zich in een virtueel netwerk](https://docs.microsoft.com/azure/batch/batch-virtual-network) bevindt
+  - U kunt resources zoals load-balancers, open bare Ip's en netwerk beveiligings groepen maken in hetzelfde abonnement als het batch-account. Controleer of de abonnements quota's voldoende zijn voor deze resources.
+- Grote Pools met aangepaste VM-installatie kopieën
+  - Grote Pools die gebruikmaken van aangepaste VM-installatie kopieën, kunnen langer duren en kunnen worden gewijzigd.  Zie [een aangepaste installatie kopie gebruiken om een pool van virtuele machines te maken](https://docs.microsoft.com/azure/batch/batch-custom-images) voor aanbevelingen over limieten en configuratie.
 
-### <a name="automatic-scaling-failures"></a>Automatisch vergroten/verkleinen fouten
+### <a name="automatic-scaling-failures"></a>Fouten bij automatisch schalen
 
-U kunt ook Azure Batch voor het automatisch schalen van het aantal knooppunten in een pool instellen. Definieert u de parameters voor de [automatisch vergroten/verkleinen formule voor een groep](https://docs.microsoft.com/azure/batch/batch-automatic-scaling). De Batch-service maakt gebruik van de formule periodiek evalueren van het aantal knooppunten in de groep en stelt u een nieuw doel. De volgende typen problemen kunnen optreden:
+U kunt ook Azure Batch zo instellen dat het aantal knoop punten in een pool automatisch wordt geschaald. U definieert de para meters voor de [formule voor automatisch schalen van een groep](https://docs.microsoft.com/azure/batch/batch-automatic-scaling). De batch-service gebruikt de formule om periodiek het aantal knoop punten in de pool te evalueren en een nieuw doel nummer in te stellen. De volgende typen problemen kunnen zich voordoen:
 
-- De evaluatie van automatisch schalen is mislukt.
-- De resulterende-/ verkleinbewerking mislukt en er een time-out.
-- Een probleem met de formule voor automatisch vergroten/verkleinen leidt tot een onjuiste knooppunt doelwaarden. De grootte is gewijzigd werkt of een time-out optreedt.
+- De evaluatie van automatisch schalen mislukt.
+- De resulterende grootte kan niet worden gewijzigd en er wordt een time-out opgetreden.
+- Er is een probleem met de automatische schaal formule die leidt tot onjuiste knooppunt doel waarden. Het formaat kan worden gewijzigd of een time-out optreedt.
 
-U krijgt informatie over de laatste evaluatie voor automatisch schalen met behulp van de [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) eigenschap. Deze eigenschap rapporteert de evaluatietijd, de waarden en resultaat en eventuele prestatiefouten.
+U kunt informatie over de laatste automatische schaal aanpassing ophalen met behulp van de eigenschap [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) . Deze eigenschap rapporteert de evaluatie tijd, de waarden en het resultaat en prestatie fouten.
 
-De [pool vergroten of verkleinen van de gebeurtenis](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) gegevens over alle evaluaties worden vastgelegd.
+Met de gebeurtenis voor het [volt ooien van de groeps grootte](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) worden gegevens over alle evaluaties vastgelegd.
 
 ### <a name="delete"></a>Verwijderen
 
-Wanneer u een pool met knooppunten verwijdert, verwijdert de eerste Batch de knooppunten. Vervolgens wordt de pool-object zelf verwijderd. Het kan duren voordat een paar minuten voor de pool-knooppunten moeten worden verwijderd.
+Wanneer u een pool verwijdert die knoop punten bevat, worden de knoop punten door de eerste batch verwijderd. Vervolgens wordt het groeps object zelf verwijderd. Het kan enkele minuten duren voordat de groeps knooppunten zijn verwijderd.
 
-Batch-stelt de [status van toepassingen](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) naar **verwijderen** tijdens het verwijderen. De aanroepende toepassing kan worden gedetecteerd als het verwijderen van toepassingen te lang duurt met behulp van de **status** en **stateTransitionTime** eigenschappen.
+Batch stelt de [groeps status](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) in die tijdens het verwijderings proces moet worden **verwijderd** . De aanroepende toepassing kan detecteren of het verwijderen van de groep te lang duurt door de eigenschappen **status** en **stateTransitionTime** te gebruiken.
 
-## <a name="pool-compute-node-errors"></a>Pool-compute knooppuntfouten
+## <a name="pool-compute-node-errors"></a>Fouten bij het berekenen van het groeps knooppunt
 
-Zelfs als Batch kan worden knooppunten in een groep is toegewezen, kunnen enkele van de knooppunten die moeten worden beschadigd en onbruikbaar door verschillende problemen veroorzaken. Deze knooppunten worden kosten in rekening gebracht. Het is belangrijk voor het detecteren van problemen, zodat u onbruikbaar knooppunten worden niet betaalt.
+Zelfs wanneer de batch knoop punten in een groep heeft toegewezen, kunnen verschillende problemen ertoe leiden dat sommige van de knoop punten niet meer in orde zijn en taken niet kunnen uitvoeren. Voor deze knoop punten zijn nog steeds kosten in rekening gebracht. het is dus belang rijk om problemen op te sporen om te voor komen dat er geen knoop punten kunnen worden gebruikt.
 
-### <a name="start-task-failure"></a>Fout bij starten van taak
+### <a name="start-task-failures"></a>Fouten bij starten van taken
 
-U misschien wilt opgeven van een optionele [begintaak](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) voor een groep. U kunt net als bij elke taak een opdrachtregel en bronbestanden gebruiken om te downloaden uit storage. De begintaak wordt uitgevoerd voor elk knooppunt nadat deze is gestart. De **waitForSuccess** eigenschap geeft aan of batchverwerking wordt er gewacht tot de begintaak voltooid is voordat het plant taken aan een knooppunt.
+U kunt desgewenst een optionele [begin taak](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) voor een groep opgeven. Net als bij elke taak kunt u een opdracht regel en bron bestanden gebruiken om te downloaden uit de opslag. De begin taak wordt uitgevoerd voor elk knoop punt nadat dit is gestart. De eigenschap **waitForSuccess** geeft aan of batch wacht totdat de begin taak is voltooid voordat taken worden gepland in een knoop punt.
 
-Wat gebeurt er als u hebt geconfigureerd op het knooppunt moet worden gewacht op voltooiing van taken voor succes gestart, maar de taak start mislukt? In dat geval het knooppunt is niet bruikbaar maar worden nog steeds kosten in rekening gebracht.
+Wat gebeurt er als u het knoop punt hebt geconfigureerd om te wachten op voltooiing van de voltooide begin taak, maar de begin taak mislukt? In dat geval kan het knoop punt niet worden gebruikt, maar worden er nog steeds kosten in rekening gebracht.
 
-U kunt de mislukte taken start detecteren met behulp van de [resultaat](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) en [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) eigenschappen van het hoogste niveau [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) eigenschap van het knooppunt.
+U kunt problemen met de begin taak detecteren met behulp van de eigenschappen [Result](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) en [FailureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) van de [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) node-eigenschap op het hoogste niveau.
 
-Een mislukte begintaak veroorzaakt ook Batch om het knooppunt [status](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) naar **starttaskfailed** als u stelt **waitForSuccess** naar **waar**.
+Een mislukte begin taak zorgt er ook voor dat de [status](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) van het knoop punt door batch wordt ingesteld op **starttaskfailed** als **waitForSuccess** is ingesteld op **True**.
 
-Net als bij elke taak, kunnen er veel oorzaken voor het mislukken van de taak start.  Om op te lossen, controleert u de stdout, stderr en alle verdere taakspecifieke logboekbestanden.
+Net als bij elke taak kunnen er veel oorzaken zijn voor het mislukken van de begin taak.  Als u problemen wilt oplossen, controleert u de stdout, stderr en eventuele verdere taak-specifieke logboek bestanden.
 
-### <a name="application-package-download-failure"></a>Fout bij het downloaden van het Application-pakket
+Start taken moeten worden herhaald, omdat het mogelijk is dat de begin taak meerdere keren op hetzelfde knoop punt wordt uitgevoerd. de begin taak wordt uitgevoerd wanneer een knoop punt wordt geimageeerd of opnieuw wordt opgestart. In zeldzame gevallen wordt een begin taak uitgevoerd nadat een gebeurtenis heeft geleid tot het opnieuw opstarten van een knoop punt, waarbij een van de besturings systemen of tijdelijke schijven werd geimageeerd terwijl het andere niet was. Omdat batch-Start taken (zoals alle batch taken) vanaf de tijdelijke schijf worden uitgevoerd, is dit doorgaans geen probleem, maar in sommige gevallen waarbij de start taak een toepassing installeert op de besturingssysteem schijf en andere gegevens op de tijdelijke schijf bewaart, kan dit ertoe leiden dat problemen omdat er geen dingen zijn gesynchroniseerd. Bescherm uw toepassing dienovereenkomstig als u beide schijven gebruikt.
 
-U kunt een of meer toepassingspakketten voor een pool opgeven. Batch-bestanden opgegeven pakket aan elk knooppunt worden gedownload en decomprimeert de bestanden nadat het knooppunt is gestart, maar voordat taken worden gepland. Het is gebruikelijk voor het gebruik van de opdrachtregel van een start-taak in combinatie met toepassingspakketten. Bijvoorbeeld, om te kopiëren van bestanden naar een andere locatie of setup uit te voeren.
+### <a name="application-package-download-failure"></a>Fout bij het downloaden van het toepassings pakket
 
-Het knooppunt [fouten](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) eigenschap meldt een fout opgetreden bij het downloaden en een toepassingspakket decomprimeren. Batch wordt de status ingesteld op **onbruikbaar**.
+U kunt een of meer toepassings pakketten voor een groep opgeven. Batch downloadt de opgegeven pakket bestanden naar elk knoop punt en decomprimeert de bestanden nadat het knoop punt is gestart, maar voordat taken worden gepland. Het is gebruikelijk om een opdracht regel voor starten van de taak te gebruiken in combi natie met toepassings pakketten. Bijvoorbeeld om bestanden te kopiëren naar een andere locatie of om Setup uit te voeren.
 
-### <a name="container-download-failure"></a>Fout bij het downloaden van de container
+De eigenschap knooppunt [fouten](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) rapporteert een fout bij het downloaden en het ongedaan maken van de compressie van een toepassings pakket; de status van het knoop punt is ingesteld op onbruikbaar.
 
-Op een groep kunt u een of meer verwijzingen van de container. Batch wordt gedownload van de opgegeven containers voor elk knooppunt. Het knooppunt [fouten](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) eigenschap meldt een fout opgetreden bij het downloaden van een container en wordt de status ingesteld op **onbruikbaar**.
+### <a name="container-download-failure"></a>Fout bij downloaden van container
 
-### <a name="node-in-unusable-state"></a>Knooppunt in een onbruikbare status
+U kunt een of meer container verwijzingen opgeven voor een groep. Batch downloadt de opgegeven containers naar elk knoop punt. De eigenschap knooppunt [fouten](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) rapporteert een fout bij het downloaden van een container en stelt de status van het knoop punt in op onbruikbaar.
 
-Azure Batch kan instellen de [status clusterknooppunt](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) naar **onbruikbaar** om verschillende redenen. Met de status ingesteld op **onbruikbaar**, taken kunnen niet worden gepland op het knooppunt, maar nog steeds leidt tot kosten.
+### <a name="node-in-unusable-state"></a>Het knoop punt kan niet worden gebruikt
 
-Knooppunten in een **unsuable**, maar zonder [fouten](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) status betekent dat de Batch kan niet communiceren met de virtuele machine is. In dit geval Batch wordt altijd probeert te herstellen van de virtuele machine. Batch zal niet automatisch proberen te herstellen van virtuele machines die niet kunnen worden toepassingspakketten of containers installeren, zelfs als de status is **onbruikbaar**.
+Azure Batch kan de status van het [knoop punt](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) om een groot aantal redenen worden ingesteld op onbruikbaar. Als de status van het knoop punt is ingesteld op onbruikbaar, kunnen taken niet worden gepland voor het knoop punt, maar worden er nog steeds kosten in rekening gebracht.
 
-Als Batch kan de oorzaak, het knooppunt [fouten](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) eigenschap gerapporteerd.
+Knoop punten in een niet- **bruikbare** status, maar zonder [fouten](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) betekent dat de batch niet kan communiceren met de virtuele machine. In dit geval probeert batch altijd de virtuele machine te herstellen. Er wordt niet automatisch geprobeerd om Vm's te herstellen waarvoor geen toepassings pakketten of containers konden worden geïnstalleerd, ook al is de status onbruikbaar.
 
-Meer voorbeelden van oorzaken van **onbruikbaar** knooppunten bevatten:
+Als batch de oorzaak kan bepalen, wordt deze door de eigenschap voor knooppunt [fouten](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) gerapporteerd.
 
-- Een aangepaste VM-installatiekopie is ongeldig. Bijvoorbeeld, een afbeelding die niet goed voorbereid.
+Aanvullende voor beelden van oorzaken voor niet- **bruikbare** knoop punten zijn:
 
-- Een virtuele machine is verplaatst vanwege een fout infrastructuur of een upgrade van een laag niveau. Batch Hiermee herstelt u het knooppunt.
+- Een aangepaste VM-installatie kopie is ongeldig. Bijvoorbeeld een installatie kopie die niet goed is voor bereid.
 
-- Een VM-installatiekopie is geïmplementeerd op de hardware waarop deze wordt niet ondersteund. Bijvoorbeeld een "HPC" VM-installatiekopie die wordt uitgevoerd op niet-HPC-hardware. Bijvoorbeeld, het uitvoeren van een CentOS HPC-installatiekopie op een [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM.
+- Een virtuele machine wordt verplaatst vanwege een infrastructuur fout of een upgrade op laag niveau. Batch herstelt het knoop punt.
 
-- De virtuele machines zich een [virtueel Azure-netwerk](batch-virtual-network.md), en het verkeer op belangrijke poorten is geblokkeerd.
+- Er is een VM-installatie kopie geïmplementeerd op hardware die deze niet ondersteunt. U kunt bijvoorbeeld proberen om een CentOS HPC-installatie kopie uit te voeren op een [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) -VM.
 
-### <a name="node-agent-log-files"></a>Knooppunt-agent-logboekbestanden
+- De virtuele machines bevinden zich in een [virtueel Azure-netwerk](batch-virtual-network.md)en het verkeer is geblokkeerd voor de sleutel poorten.
 
-Het agentproces van Batch die wordt uitgevoerd op elk knooppunt in de pool kan logboekbestanden, wat nuttig zijn kunnen als u contact opnemen met ondersteuning over een probleem met het knooppunt toepassingen moet bieden. Logboekbestanden voor een knooppunt kan worden geüpload via de Azure portal, Batch Explorer, of een [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). Dit is handig om te uploaden en opslaan van de logboekbestanden. Daarna kunt u het knooppunt of de groep van toepassingen om op te slaan van de kosten van de actieve knooppunten verwijderen.
+- De virtuele machines bevinden zich in een virtueel netwerk, maar uitgaand verkeer naar Azure Storage wordt geblokkeerd.
+
+- De virtuele machines bevinden zich in een virtueel netwerk met een DNS-configuratie van de klant en de DNS-server kan Azure Storage niet omzetten.
+
+### <a name="node-agent-log-files"></a>Logboek bestanden van de knooppunt agent
+
+Het batch agent-proces dat wordt uitgevoerd op elk pool knooppunt, kan logboek bestanden bieden die handig kunnen zijn als u contact moet opnemen met de ondersteuning van een probleem met een groeps knooppunt. Logboek bestanden voor een knoop punt kunnen worden geüpload via de Azure Portal, Batch Explorer of een [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). Het is handig om de logboek bestanden te uploaden en op te slaan. Daarna kunt u het knoop punt of de groep verwijderen om de kosten van de actieve knoop punten op te slaan.
+
+### <a name="node-disk-full"></a>De schijf van het knoop punt is vol
+
+Het tijdelijke station voor een groeps knooppunt-VM wordt gebruikt door batch voor taak bestanden, taak bestanden en gedeelde bestanden. 
+
+- Bestanden van toepassings pakketten
+- Resourcebestanden voor taak
+- Toepassingsspecifieke bestanden die worden gedownload naar een van de batch-mappen
+- Stdout-en stderr-bestanden voor elke uitvoering van een taak toepassing
+- Toepassingsspecifieke uitvoer bestanden
+
+Sommige van deze bestanden worden slechts eenmaal geschreven wanneer groeps knooppunten worden gemaakt, zoals groeps toepassings pakketten of resource bestanden voor het starten van de groep. Zelfs als er één keer wordt geschreven wanneer het knoop punt wordt gemaakt, kan het tijdelijke station worden gevuld als deze bestanden te groot zijn.
+
+Andere bestanden worden geschreven voor elke taak die wordt uitgevoerd op een knoop punt, zoals stdout en stderr. Als een groot aantal taken wordt uitgevoerd op hetzelfde knoop punt en/of de taak bestanden te groot zijn, kunnen ze het tijdelijke station vullen.
+
+De grootte van het tijdelijke station is afhankelijk van de grootte van de virtuele machine. Een overweging bij het kiezen van een VM-grootte is om ervoor te zorgen dat de tijdelijke schijf voldoende ruimte heeft.
+
+- In de Azure Portal wanneer u een groep toevoegt, kan de volledige lijst met VM-grootten worden weer gegeven en de kolom ' bron schijf grootte '.
+- De artikelen waarin alle VM-grootten worden beschreven, hebben tabellen met de kolom Temp Storage. voor beeld van [geoptimaliseerde VM](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute) -grootten
+
+Voor bestanden die door elke taak zijn geschreven, kan een Bewaar periode worden opgegeven voor elke taak die bepaalt hoe lang de taak bestanden worden bewaard voordat ze automatisch worden opgeruimd. De retentie tijd kan worden gereduceerd om de opslag vereisten te verlagen.
+
+Als er geen tijdelijke schijf ruimte is, wordt het uitvoeren van taken op het knoop punt gestopt. In de toekomst wordt een [knooppunt fout](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) gerapporteerd.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Controleer dat u uw toepassing voor het implementeren van uitgebreide fout controleren, met name voor asynchrone bewerkingen hebt ingesteld. Kan het zijn essentieel voor het snel problemen detecteren en onderzoeken.
+Controleer of u uw toepassing hebt ingesteld voor het implementeren van uitgebreide fout controle, met name voor asynchrone bewerkingen. Het kan van cruciaal belang zijn om problemen op te sporen en op te sporen.

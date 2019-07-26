@@ -1,132 +1,126 @@
 ---
-title: Veelvoorkomende cloudservicebeheertaken | Microsoft Docs
-description: Leer hoe u Cloud Services beheren in Azure portal. Deze voorbeelden gebruiken de Azure-portal.
+title: Algemene beheer taken voor Cloud Services | Microsoft Docs
+description: Meer informatie over het beheren van Cloud Services in de Azure Portal. In deze voor beelden wordt gebruikgemaakt van de Azure Portal.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: d3d1ae759f0f3fa5edd417da61f1fa50b5d9cde7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 8ec7784fb51d0fa4de2563f76444b0b5e5f34902
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61433897"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359611"
 ---
-# <a name="manage-cloud-services-in-the-azure-portal"></a>Cloud Services beheren in Azure portal
-In de **Cloudservices** gebied van Azure portal, kunt u:
+# <a name="manage-cloud-services-in-the-azure-portal"></a>Cloud Services beheren in de Azure Portal
+In het gedeelte **Cloud Services** van de Azure Portal kunt u het volgende doen:
 
-* Een rol- of een implementatie bijwerken.
-* Een gefaseerde implementatie naar productie promoten.
-* Resources koppelen aan uw cloudservice zodat u kunt zien van de resourceafhankelijkheden en de resources die samen worden geschaald.
-* Een cloudservice of een implementatie verwijderen.
+* Een service functie of implementatie bijwerken.
+* Bevorder een gefaseerde implementatie naar productie.
+* Koppel resources aan uw Cloud service, zodat u de resource afhankelijkheden kunt zien en de resources in een geheel wilt schalen.
+* Een Cloud service of een implementatie verwijderen.
 
-Zie voor meer informatie over hoe u uw cloudservice schalen [automatische schaling voor een cloudservice in de portal configureren](cloud-services-how-to-scale-portal.md).
+Zie voor meer informatie over het schalen van uw Cloud service [automatisch schalen configureren voor een Cloud service in de portal](cloud-services-how-to-scale-portal.md).
 
-## <a name="update-a-cloud-service-role-or-deployment"></a>Een cloud service-rol of de implementatie bijwerken
-Als u de code van de toepassing voor je cloudservice bijwerken moet, gebruikt u **bijwerken** op de cloud service-blade. U kunt één functie of alle rollen bijwerken. Als u wilt bijwerken, kunt u een nieuwe service-pakket of configuratiebestand uploaden.
+## <a name="update-a-cloud-service-role-or-deployment"></a>Een Cloud service-rol of-implementatie bijwerken
+Als u de toepassings code voor uw Cloud service moet bijwerken, gebruikt u **Update** op de Blade Cloud service. U kunt één rol of alle rollen bijwerken. Als u wilt bijwerken, kunt u een nieuw service pakket of service configuratie bestand uploaden.
 
-1. In de [Azure-portal][Azure portal], selecteert u de cloudservice die u wilt bijwerken. Deze stap opent u de blade van cloud service-exemplaar.
+1. Selecteer in de [Azure Portal][Azure portal]de Cloud service die u wilt bijwerken. Met deze stap wordt de Blade Cloud service-exemplaar geopend.
 
-2. Selecteer op de blade **Update**.
+2. Selecteer **bijwerken**op de Blade.
 
-    ![Bijwerkknop](./media/cloud-services-how-to-manage-portal/update-button.png)
+    ![Knop bijwerken](./media/cloud-services-how-to-manage-portal/update-button.png)
 
-3. Werk de implementatie met een nieuwe service-pakketbestand (.cspkg) en het serviceconfiguratiebestand (.cscfg).
+3. Werk de implementatie bij met een nieuw service pakket bestand (. cspkg) en een service configuratie bestand (. cscfg).
 
     ![UpdateDeployment](./media/cloud-services-how-to-manage-portal/update-blade.png)
 
-4. (Optioneel) het opslagaccount en het implementatielabel bijwerken.
+4. U kunt desgewenst het opslag account en het implementatie label bijwerken.
 
-5. Als alle rollen slechts één rolexemplaar hebben, selecteert u de **toch implementeren als een of meer rollen met één exemplaar** selectievakje in om in te schakelen van de upgrade om door te gaan.
+5. Als rollen slechts één rolinstantie hebben, schakelt u het selectie vakje **implementeren zelfs als een of meer rollen één exemplaar bevatten** in om de upgrade te kunnen door gaan.
 
-    Azure biedt alleen de beschikbaarheid van 99,95 procent-service tijdens een cloud service-update als elke rol minimaal twee rolinstanties (virtuele machines heeft). Een virtuele machine verwerkt aanvragen van clients met twee rolexemplaren, terwijl de andere is bijgewerkt.
+    Azure kan slechts 99,95 procent Beschik baarheid garanderen tijdens een update van de Cloud service als elke rol ten minste twee rolinstanties (virtuele machines) heeft. Met twee rolinstanties verwerkt één virtuele machine client aanvragen terwijl de andere wordt bijgewerkt.
 
-6. Selecteer de **implementatie starten** selectievakje in om toe te passen van de update nadat het uploaden van het pakket is voltooid.
+6. Schakel het selectie vakje **implementatie starten** in om de update toe te passen nadat het uploaden van het pakket is voltooid.
 
 7. Selecteer **OK** om te beginnen met het bijwerken van de service.
 
-## <a name="swap-deployments-to-promote-a-staged-deployment-to-production"></a>Wisselen van implementaties voor een gefaseerde implementatie naar productie promoten
-Als u beslist naar een nieuwe versie van een cloudservice, fase implementeren en testen van uw nieuwe versie in de faseringsomgeving van cloud-service. Gebruik **wisselen** om over te schakelen van de URL's waarmee de twee implementaties worden behandeld en een nieuwe release naar productie promoten.
+## <a name="swap-deployments-to-promote-a-staged-deployment-to-production"></a>Implementaties wisselen voor het promo veren van een gefaseerde implementatie naar productie
+Wanneer u besluit een nieuwe release van een Cloud service te implementeren, faseren en test u uw nieuwe release in uw Cloud service-faserings omgeving. Gebruik **swap** om de url's te wijzigen waarmee de twee implementaties worden geadresseerd en promoot een nieuwe release naar productie.
 
-U kunt wisselen-implementaties van de **Cloudservices** pagina of het dashboard.
+U kunt implementaties van de **Cloud Services** pagina of het dash board wisselen.
 
-1. In de [Azure-portal][Azure portal], selecteert u de cloudservice die u wilt bijwerken. Deze stap opent u de blade van cloud service-exemplaar.
+1. Selecteer in de [Azure Portal][Azure portal]de Cloud service die u wilt bijwerken. Met deze stap wordt de Blade Cloud service-exemplaar geopend.
 
-2. Selecteer op de blade **wisselen**.
+2. Selecteer **wisselen**op de Blade.
 
-    ![Knop voor cloud Services wisselen](./media/cloud-services-how-to-manage-portal/swap-button.png)
+    ![Knop Cloud Services wisselen](./media/cloud-services-how-to-manage-portal/swap-button.png)
 
-3. Hiermee opent u de volgende bevestiging wordt gevraagd:
+3. De volgende bevestigings prompt wordt geopend:
 
-    ![Cloud Services Swap](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
+    ![Cloud Services wisselen](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
 
-4. Nadat u de informatie over de implementatie controleren, selecteert u **OK** wisselen van de implementaties.
+4. Nadat u de implementatie gegevens hebt gecontroleerd, selecteert u **OK** om de implementaties te wisselen.
 
-    De implementatie-swap gebeurt snel omdat het enige wat wijzigingen het virtuele IP-adressen (VIP's is) voor de implementaties.
+    De implementatie swap vindt snel plaats omdat het enige wat het enige is dat wijzigingen zijn de virtuele IP-adressen (Vip's) voor de implementaties.
 
-    Om computerkosten te besparen, kunt u de staging-implementatie verwijderen nadat u hebt gecontroleerd of uw productie-implementatie werkt zoals verwacht.
+    Als u de reken kosten wilt besparen, kunt u de faserings implementatie verwijderen nadat u hebt gecontroleerd of uw productie-implementatie werkt zoals verwacht.
 
 ### <a name="common-questions-about-swapping-deployments"></a>Veelgestelde vragen over het wisselen van implementaties
 
 **Wat zijn de vereisten voor het wisselen van implementaties?**
 
-Er zijn twee belangrijke vereisten voor een geslaagde implementatie wisselen:
+Er zijn twee belang rijke vereisten voor een geslaagde implementatie swap:
 
-- Als u een statisch IP-adres voor uw productiesite gebruiken wilt, moet u één voor de staging-site ook reserveren. Anders mislukt de wisseling.
+- Als u een statisch IP-adres voor uw productie sleuf wilt gebruiken, moet u deze ook reserveren voor uw staging-sleuf. Anders mislukt de wissel.
 
-- Alle exemplaren van de rollen moeten worden uitgevoerd voordat u de wisseling kunt uitvoeren. U kunt de status van uw instanties controleren op de **overzicht** blade van de Azure-portal. U kunt ook kunt u de [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole?view=azuresmps-3.7.0) opdracht in Windows PowerShell.
+- Alle exemplaren van uw rollen moeten worden uitgevoerd voordat u de swap kunt uitvoeren. U kunt de status van uw instanties controleren op de Blade **overzicht** van de Azure Portal. U kunt ook de opdracht [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole?view=azuresmps-3.7.0) gebruiken in Windows Power shell.
 
-Houd er rekening mee dat Gast-OS-updates en service healing bewerkingen ook leiden implementatie swaps tot kunnen mislukken. Zie voor meer informatie, [problemen met cloud service-implementatie oplossen](cloud-services-troubleshoot-deployment-problems.md).
+Houd er rekening mee dat de bewerkingen voor het bijwerken van gast besturingssystemen en service retouchies ook kunnen leiden tot het mislukken van implementaties. Zie [problemen met Cloud service-implementatie oplossen](cloud-services-troubleshoot-deployment-problems.md)voor meer informatie.
 
-**Heeft een wisseling gevolgen voor de downtime voor mijn toepassing? Hoe moet ik verwerken?**
+**Maakt een wissel uitval tijd voor mijn toepassing plaats? Hoe kan ik dit afhandelen?**
 
-Zoals wordt beschreven in de vorige sectie, is een implementatie wisselen doorgaans snelle omdat het een configuratiewijziging in de Azure load balancer. Het kan in sommige gevallen, 10 of meer seconden en resultaat duren in tijdelijke verbindingsfouten. Als u wilt beperken de gevolgen voor uw klanten, Overweeg de implementatie van [client Pogingslogica](../best-practices-retry-general.md).
+Zoals beschreven in de vorige sectie, is een implementatie swap doorgaans snel omdat het een configuratie wijziging in de Azure-load balancer is. In sommige gevallen kan het 10 of meer seconden duren en leiden tot tijdelijke verbindings fouten. Als u de gevolgen voor uw klanten wilt beperken, kunt u overwegen de implementatie van de [client opnieuw](../best-practices-retry-general.md)te implementeren.
 
-## <a name="delete-deployments-and-a-cloud-service"></a>Implementaties en een service in de cloud verwijderen
-Voordat u een cloudservice verwijderen kunt, moet u elke bestaande implementatie verwijderen.
+## <a name="delete-deployments-and-a-cloud-service"></a>Implementaties en een Cloud service verwijderen
+Voordat u een Cloud service kunt verwijderen, moet u elke bestaande implementatie verwijderen.
 
-Om computerkosten te besparen, kunt u de staging-implementatie verwijderen nadat u hebt gecontroleerd of uw productie-implementatie werkt zoals verwacht. U wordt gefactureerd voor de kosten voor rekenuren voor geïmplementeerde rolinstanties die zijn gestopt.
+Als u de reken kosten wilt besparen, kunt u de faserings implementatie verwijderen nadat u hebt gecontroleerd of uw productie-implementatie werkt zoals verwacht. U wordt gefactureerd voor de reken kosten voor geïmplementeerde rolinstanties die zijn gestopt.
 
-Gebruik de volgende procedure om een implementatie of uw service in de cloud te verwijderen.
+Gebruik de volgende procedure om een implementatie of uw Cloud service te verwijderen.
 
-1. In de [Azure-portal][Azure portal], selecteert u de cloudservice die u wilt verwijderen. Deze stap opent u de blade van cloud service-exemplaar.
+1. Selecteer in de [Azure Portal][Azure portal]de Cloud service die u wilt verwijderen. Met deze stap wordt de Blade Cloud service-exemplaar geopend.
 
-2. Selecteer op de blade **verwijderen**.
+2. Selecteer **verwijderen**op de Blade.
 
-    ![Knop voor cloud Services verwijderen](./media/cloud-services-how-to-manage-portal/delete-button.png)
+    ![Knop Cloud Services verwijderen](./media/cloud-services-how-to-manage-portal/delete-button.png)
 
-3. Selecteer wilt verwijderen van de volledige in de cloud-service de **Cloud-service en de implementaties** selectievakje. Of u kunt ofwel de **productie-implementatie** of de **Staging-implementatie** selectievakje.
+3. Als u de volledige Cloud service wilt verwijderen, schakelt u het selectie vakje **Cloud service en de implementaties** in. U kunt ook het selectie vakje **productie-implementatie** of **faserings implementatie** kiezen.
 
     ![Cloud Services verwijderen](./media/cloud-services-how-to-manage-portal/delete-blade.png)
 
-4. Selecteer **verwijderen** aan de onderkant.
+4. Selecteer onder **verwijderen** .
 
-5. Selecteer wilt verwijderen van de cloudservice **cloudservice verwijderen**. Selecteer vervolgens op de bevestiging wordt gevraagd, **Ja**.
+5. Als u de Cloud service wilt verwijderen, selecteert u **Cloud service verwijderen**. Selecteer vervolgens bij de bevestigings prompt **Ja**.
 
 > [!NOTE]
-> Als een cloudservice is verwijderd en uitgebreide bewaking is geconfigureerd, moet u de gegevens handmatig verwijderen van uw opslagaccount. Zie voor meer informatie over het zoeken van de tabellen voor metrische gegevens naar [Inleiding in de cloud servicecontrole](cloud-services-how-to-monitor.md).
+> Wanneer een Cloud service wordt verwijderd en uitgebreide bewaking is geconfigureerd, moet u de gegevens hand matig verwijderen uit uw opslag account. Zie [Inleiding tot Cloud service monitoring](cloud-services-how-to-monitor.md)voor meer informatie over waar u de tabellen met metrische gegevens kunt vinden.
 
 
 ## <a name="find-more-information-about-failed-deployments"></a>Meer informatie over mislukte implementaties
-De **overzicht** blade bevat een statusbalk weergegeven aan de bovenkant. Wanneer u de balk selecteert, wordt een nieuwe blade wordt geopend en wordt foutinformatie wordt weergegeven. Als de implementatie geen fouten bevat, wordt de blade informatie is leeg.
+De Blade **overzicht** bevat bovenaan een status balk. Wanneer u de balk selecteert, wordt er een nieuwe blade geopend en wordt er informatie over de fout weer gegeven. Als de implementatie geen fouten bevat, is de Blade informatie leeg.
 
-![Overzicht van cloud Services](./media/cloud-services-how-to-manage-portal/status-info.png)
+![Overzicht van Cloud Services](./media/cloud-services-how-to-manage-portal/status-info.png)
 
 
 
 [Azure portal]: https://portal.azure.com
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Algemene configuratie van uw cloudservice](cloud-services-how-to-configure-portal.md).
-* Meer informatie over het [implementeren van een cloudservice](cloud-services-how-to-create-deploy-portal.md).
-* Configureer een [aangepaste domeinnaam](cloud-services-custom-domain-name-portal.md).
-* Configureer [SSL-certificaten](cloud-services-configure-ssl-certificate-portal.md).
+* [Algemene configuratie van uw Cloud service](cloud-services-how-to-configure-portal.md).
+* Meer informatie over het [implementeren van een Cloud service](cloud-services-how-to-create-deploy-portal.md).
+* Een [aangepaste domein naam](cloud-services-custom-domain-name-portal.md)configureren.
+* [SSL-certificaten](cloud-services-configure-ssl-certificate-portal.md)configureren.

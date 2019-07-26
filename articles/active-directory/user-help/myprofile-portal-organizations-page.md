@@ -1,6 +1,6 @@
 ---
-title: Uw organisatie beheren via de portal Mijn profiel (preview) - Azure Active Directory | Microsoft Docs
-description: Een overzicht op hoog niveau over de organisaties-pagina van de portal Mijn profiel.
+title: Uw organisaties beheren via de portal mijn profiel (preview)-Azure Active Directory | Microsoft Docs
+description: Een overzicht op hoog niveau over de pagina organisaties van de portal mijn profiel.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,49 +12,52 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6a0ff4190a1712b91bf58fafd80a03fc2737e7a4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475520"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383000"
 ---
-# <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Uw organisatie beheren via de portal Mijn profiel (preview)
-U kunt uw organisaties van beheren de **organisaties** pagina van de **Mijn profiel** portal.
+# <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Uw organisaties beheren via de portal mijn profiel (preview-versie)
 
-Er zijn twee soorten organisaties weergegeven op de **organisaties** pagina:
+U kunt uw organisaties beheren op de pagina **organisaties** van de portal **Mijn profiel** .
 
-- **Thuisorganisatie.** Startpagina van uw organisatie is de organisatie die eigenaar is van uw werk of school-account. U kunt uw startpagina organisatie niet verlaten.
+Er zijn twee soorten organisaties die worden weer gegeven op de pagina **organisaties** :
 
-- **Andere organisaties.** De andere organisaties zijn een groep die u hebt aangemeld bij de eerder met uw werk of school-account. U kunt op elk gewenst moment laat u een van deze organisaties.
+- **Thuis organisatie.** Uw thuis organisatie is de organisatie die eigenaar is van uw werk-of school account. U kunt uw thuis organisatie niet verlaten.
+
+- **Andere organisaties.** De andere organisaties zijn een groep waarbij u zich eerder hebt aangemeld met uw werk-of school account. U kunt deze organisaties op elk gewenst moment verlaten.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
-## <a name="view-your-organizations"></a>Uw organisatie weergeven
-1. Meld u aan bij uw werk- of schoolaccount en gaat u naar uw https://myprofile.microsoft.com/ pagina.
+## <a name="view-your-organizations"></a>Uw organisaties weer geven
 
-2. Selecteer **organisaties** van het navigatiedeelvenster links in of Selecteer de **organisaties beheren** koppelen vanuit de **organisaties** blokkeren.
+1. Meld u aan bij uw werk-of school account en ga vervolgens https://myprofile.microsoft.com/ naar de pagina.
 
-    ![Mijn profiel-pagina, met koppelingen voor organisaties gemarkeerd](media/myprofile-portal/myprofile-portal-organizations.png)
+2. Selecteer **organisaties** in het navigatie deel venster links of selecteer de koppeling **organisaties beheren** in het blok **organisaties** .
 
-3. Controleer de gegevens voor uw **Home-organisatie**. 
+    ![Mijn profiel pagina, koppelingen met gemarkeerde organisaties weer geven](media/myprofile-portal/myprofile-portal-organizations.png)
 
-    ![Organisaties pagina](media/myprofile-portal/myprofile-portal-organization-page.png)
+3. Bekijk de informatie voor uw **thuis organisatie**. 
 
-3. Controleer uw gekoppelde organisaties te zorgen dat u te herkennen, alle organisaties die zijn verbonden met uw account.
+    ![Pagina organisaties](media/myprofile-portal/myprofile-portal-organization-page.png)
+
+4. Controleer uw andere gekoppelde organisaties en zorg ervoor dat u alle organisaties herkent die zijn verbonden met uw account.
 
 ## <a name="leave-an-organization"></a>Een organisatie verlaten
-U kunt elke organisatie die uw organisatie startpagina niet laten.
+
+U kunt elke organisatie die niet uw thuis organisatie is, verlaten.
 
 >[!Important]
->Als u per ongeluk een organisatie verlaat, is er geen manier om deze ongedaan te maken. Hebt u de organisatie opnieuw toevoegen.
+>Als u een organisatie per ongeluk verlaat, is het niet mogelijk om deze ongedaan te maken. U moet de organisatie opnieuw toevoegen.
 
-1. Aanmelden bij uw account uit de **andere organisaties die ik werk met** gebied.
+1. Meld u aan bij uw account vanuit de **andere organisaties die ik met** het gebied werk.
 
-2. Selecteer **organisatie verlaten**, en selecteer vervolgens **Ja** om te bevestigen dat u wilt de organisatie verlaten.
+2. Selecteer **organisatie behouden**en selecteer vervolgens **Ja** om te bevestigen dat u de organisatie wilt verlaten.
 
-    ![Pagina voor organisaties met gemarkeerde laat organisatie koppeling](media/myprofile-portal/myprofile-portal-organizations-leave.png)
+    ![Pagina organisaties met gemarkeerde organisatie koppeling verlaten](media/myprofile-portal/myprofile-portal-organizations-leave.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Na het weergeven van uw organisatie, kunt u selecteren om te bekijken of beheren van uw [beveiligingsgegevens](user-help-security-info-overview.md), verbonden [apparaten](myprofile-portal-devices-page.md), of de weergave hoe uw organisatie [maakt gebruik van uw gegevens](myprofile-portal-privacy-page.md).
+- Nadat u uw organisaties hebt bekeken, kunt u selecteren om uw [beveiligings gegevens](user-help-security-info-overview.md), verbonden [apparaten](myprofile-portal-devices-page.md)weer te geven of te beheren, of om te zien hoe uw organisatie [uw gegevens gebruikt](myprofile-portal-privacy-page.md).

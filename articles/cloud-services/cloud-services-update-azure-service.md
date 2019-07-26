@@ -1,192 +1,185 @@
 ---
-title: Het bijwerken van een service in de cloud | Microsoft Docs
-description: Informatie over het bijwerken van cloudservices in Azure. Meer informatie over hoe een update voor een cloudservice wordt voortgezet om beschikbaarheid te garanderen.
+title: Een Cloud service bijwerken | Microsoft Docs
+description: Meer informatie over het bijwerken van Cloud Services in Azure. Meer informatie over hoe een update in een Cloud service wordt uitgevoerd om de beschik baarheid te garanderen.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: jeconnoc
-ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 10d919b21e05195e8a7b6b351a742a4f9a57ee2b
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653886"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360704"
 ---
-# <a name="how-to-update-a-cloud-service"></a>Het bijwerken van een service in de cloud
+# <a name="how-to-update-a-cloud-service"></a>Een Cloud service bijwerken
 
-Bijwerken van een cloudservice, met inbegrip van de functies en de Gast-besturingssysteem hebt, is drie stappen vereist. Eerst moeten de binaire bestanden en de configuratiebestanden voor de nieuwe service in de cloud of de versie van het besturingssysteem worden geüpload. Azure reserveert vervolgens reken- en resources voor de cloudservice op basis van de vereisten van de nieuwe versie van de cloud-service. Ten slotte voert Azure uit een rolling upgrade voor het bijwerken van de tenant incrementeel naar de nieuwe versie of de Gast-OS, behoud van de beschikbaarheid van uw. Dit artikel worden de details van deze laatste stap: de rolling upgrade.
+Het bijwerken van een Cloud service, met inbegrip van de rollen en het gast besturingssysteem, is een drie stappen procedure. Ten eerste moet u de binaire bestanden en configuratie voor de nieuwe Cloud service of versie van het besturings systeem uploaden. Vervolgens reserveert Azure computer-en netwerk bronnen voor de Cloud service op basis van de vereisten van de nieuwe versie van de Cloud service. Ten slotte voert Azure een rolling upgrade uit om de Tenant incrementeel bij te werken naar de nieuwe versie of het gast besturingssysteem, terwijl uw Beschik baarheid behouden blijft. In dit artikel worden de details van deze laatste stap beschreven: de rolling upgrade.
 
-## <a name="update-an-azure-service"></a>Een Azure-Service bijwerken
-Azure organiseert uw rolinstanties in logische groeperingen upgrade-domeinen (UD) genoemd. Upgrade-domeinen (UD) zijn logische verzamelingen rolinstanties die als een groep worden bijgewerkt.  Azure-updates een cloud service één UD op een tijdstip, waardoor de instanties in andere ud's om door te gaan met het verkeer.
+## <a name="update-an-azure-service"></a>Een Azure-service bijwerken
+Met Azure worden uw rolinstanties ingedeeld in logische groepen met de naam upgrade domeinen (UD). Upgrade domeinen (UD) zijn logische sets van rolinstanties die als groep worden bijgewerkt.  Azure werkt een Cloud service één UD tegelijk bij, waardoor instanties in andere UDs geen verkeer meer kunnen verwerken.
 
-Het aantal upgradedomeinen is 5. U kunt een ander aantal upgradedomeinen opgeven door het kenmerk upgradeDomainCount te nemen in het definitiebestand van de service (.csdef). Zie voor meer informatie over het kenmerk upgradeDomainCount [WebRole Schema](/previous-versions/azure/reference/gg557553(v=azure.100)) of [WorkerRole Schema](/previous-versions/azure/reference/gg557552(v=azure.100)).
+Het standaard aantal upgrade domeinen is 5. U kunt een ander aantal upgrade domeinen opgeven door het kenmerk upgradeDomainCount in het definitie bestand (. csdef) van de service op te nemen. Zie [Webrole schema](/previous-versions/azure/reference/gg557553(v=azure.100)) of [WorkerRole-schema](/previous-versions/azure/reference/gg557552(v=azure.100))voor meer informatie over het kenmerk upgradeDomainCount.
 
-Als u een update in plaats van een of meer rollen in uw service uitvoert, Azure-updates sets rolinstanties op basis van het upgradedomein waartoe ze behoren. Alle exemplaren van in een bepaalde upgradedomein – stoppen, bijwerken, worden gezet online: back-Azure-updates gaat vervolgens naar het volgende domein. Door alleen de exemplaren die worden uitgevoerd in het huidige upgradedomein stoppen, ervoor Azure zorgt dat een update zich met de geringst mogelijke gevolgen voor de uitgevoerde service voordoet. Zie voor meer informatie, [hoe de update wordt voortgezet](#howanupgradeproceeds) verderop in dit artikel.
+Wanneer u een in-place update van een of meer functies in uw service uitvoert, worden door Azure de sets rolinstanties bijgewerkt op basis van het upgrade domein waartoe ze behoren. Alle exemplaren in een opgegeven upgrade domein worden door Azure bijgewerkt. deze worden vervolgens gestopt, bijgewerkt, teruggezet, waarna ze weer online worden gezet. vervolgens gaat u naar het volgende domein. Als u alleen de exemplaren stopt die worden uitgevoerd in het huidige upgrade domein, zorgt Azure ervoor dat er een update wordt uitgevoerd met de minste mogelijke gevolgen voor de actieve service. Zie [hoe de update verloopt](#howanupgradeproceeds) verderop in dit artikel voor meer informatie.
 
 > [!NOTE]
-> Terwijl de voorwaarden **bijwerken** en **upgrade** iets andere betekenis hebben in de context van Azure, ze kunnen worden door elkaar worden gebruikt voor de processen en beschrijvingen van de functies in dit document.
+> Hoewel de termen **Update** en **upgrade** iets anders betekenis hebben in de context Azure, kunnen ze door elkaar worden gebruikt voor de processen en beschrijvingen van de functies in dit document.
 >
 >
 
-Uw service moet ten minste twee exemplaren van een rol voor die rol worden bijgewerkt definiëren in-place zonder uitvaltijd. Als de service uit slechts één exemplaar van een rol bestaat, is uw service niet beschikbaar totdat de InPlace-update is voltooid.
+In uw service moeten ten minste twee exemplaren van een rol worden gedefinieerd, zodat deze rol zonder downtime kan worden bijgewerkt. Als de service slechts één exemplaar van één rol omvat, is uw service niet beschikbaar totdat de in-place update is voltooid.
 
-In dit onderwerp bevat informatie over de volgende informatie over Azure-updates:
+In dit onderwerp worden de volgende informatie over Azure-updates beschreven:
 
-* [Wijzigingen in de service toegestaan tijdens het bijwerken](#AllowedChanges)
+* [Toegestane service wijzigingen tijdens een update](#AllowedChanges)
 * [Hoe een upgrade wordt uitgevoerd](#howanupgradeproceeds)
-* [Terugdraaien van een update](#RollbackofanUpdate)
-* [Meerdere mutating bewerkingen op een actieve implementatie starten](#multiplemutatingoperations)
-* [Distributie van functies in meerdere domeinen upgraden](#distributiondfroles)
+* [Het terugdraaien van een update](#RollbackofanUpdate)
+* [Meerdere muteren-bewerkingen initiëren voor een doorlopende implementatie](#multiplemutatingoperations)
+* [Distributie van rollen tussen upgrade domeinen](#distributiondfroles)
 
 <a name="AllowedChanges"></a>
 
-## <a name="allowed-service-changes-during-an-update"></a>Wijzigingen in de service toegestaan tijdens het bijwerken
-De volgende tabel toont de toegestane wijzigingen in een service tijdens het bijwerken:
+## <a name="allowed-service-changes-during-an-update"></a>Toegestane service wijzigingen tijdens een update
+In de volgende tabel ziet u de wijzigingen die zijn toegestaan voor een service tijdens een update:
 
-| Wijzigingen die zijn toegestaan op die als host fungeert, services en functies | InPlace-update | Gefaseerde (wisselen van VIP) | Verwijderen en opnieuw implementeren |
+| Wijzigingen die zijn toegestaan voor hosting, services en rollen | In-place update | Gefaseerd (VIP swap) | Verwijderen en opnieuw implementeren |
 | --- | --- | --- | --- |
-| Besturingssysteem |Ja |Ja |Ja |
-| .NET-vertrouwensniveau |Ja |Ja |Ja |
+| Versie besturingssysteem |Ja |Ja |Ja |
+| .NET-vertrouwens niveau |Ja |Ja |Ja |
 | Grootte van virtuele machine<sup>1</sup> |Ja<sup>2</sup> |Ja |Ja |
-| Instellingen voor de lokale opslag |Alleen verhogen<sup>2</sup> |Ja |Ja |
-| Toevoegen of verwijderen van rollen in een service |Ja |Ja |Ja |
+| Instellingen voor lokale opslag |Meer dan<sup>2</sup> |Ja |Ja |
+| Rollen toevoegen aan of verwijderen uit een service |Ja |Ja |Ja |
 | Aantal exemplaren van een bepaalde rol |Ja |Ja |Ja |
-| Type van eindpunten voor een service of nummer |Ja<sup>2</sup> |Nee |Ja |
+| Aantal of type eind punten voor een service |Ja<sup>2</sup> |Nee |Ja |
 | Namen en waarden van configuratie-instellingen |Ja |Ja |Ja |
-| De waarden (maar niet de naam) van configuratie-instellingen |Ja |Ja |Ja |
+| Waarden (maar geen namen) van configuratie-instellingen |Ja |Ja |Ja |
 | Nieuwe certificaten toevoegen |Ja |Ja |Ja |
-| Wijzigen van bestaande certificaten |Ja |Ja |Ja |
-| Implementeer nieuwe code |Ja |Ja |Ja |
+| Bestaande certificaten wijzigen |Ja |Ja |Ja |
+| Nieuwe code implementeren |Ja |Ja |Ja |
 
-<sup>1</sup> formaat wijzigen beperkt tot de subset met grootten die beschikbaar zijn voor de cloudservice.
+<sup>1</sup> grootte wijziging is beperkt tot de subset van de beschik bare grootten voor de Cloud service.
 
-<sup>2</sup> vereist Azure SDK 1.5 of hoger.
+<sup>2</sup> Azure SDK 1,5 of hoger is vereist.
 
 > [!WARNING]
-> De grootte van de virtuele machine te wijzigen, lokale gegevens gaan verloren.
+> Als u de grootte van de virtuele machine wijzigt, worden lokale gegevens vernietigd.
 >
 >
 
-De volgende items worden niet ondersteund tijdens het bijwerken:
+De volgende items worden niet ondersteund tijdens een update:
 
-* De naam van een rol wijzigen. Verwijdert en vervolgens voegt de rol met de nieuwe naam.
-* Wijzigen van het aantal upgraden.
-* Het verkleinen van de lokale bronnen.
+* De naam van een rol wijzigen. Verwijder de rol en voeg deze vervolgens toe met de nieuwe naam.
+* Wijzigen van het aantal upgrade domeinen.
+* De grootte van de lokale resources verlagen.
 
-Als u andere updates aan de definitie van uw service, zoals het verkleinen van de lokale bron, moet u in plaats daarvan een update voor het wisselen van VIP uitvoeren. Zie voor meer informatie, [implementatie wisselen](/previous-versions/azure/reference/ee460814(v=azure.100)).
+Als u andere updates wilt maken voor de definitie van uw service, zoals het verminderen van de grootte van de lokale resource, moet u in plaats daarvan een update voor VIP swap uitvoeren. Zie voor meer informatie [implementatie van swap](/previous-versions/azure/reference/ee460814(v=azure.100)).
 
 <a name="howanupgradeproceeds"></a>
 
 ## <a name="how-an-upgrade-proceeds"></a>Hoe een upgrade wordt uitgevoerd
-U kunt beslissen of u wilt alle van de rollen in uw service of een enkele rol in de service bijwerken. In beide gevallen worden alle exemplaren van elke rol die wordt bijgewerkt en die deel uitmaken van het eerste upgradedomein is gestopt, bijgewerkt en weer online. Zodra deze weer online zijn, worden de exemplaren in de tweede upgradedomein is gestopt, bijgewerkt en weer online. Een service in de cloud kan maximaal één upgrade actieve bewerking tegelijk hebben. De upgrade wordt altijd uitgevoerd tegen de nieuwste versie van de cloudservice.
+U kunt beslissen of u alle functies in uw service of één rol in de service wilt bijwerken. In beide gevallen worden alle exemplaren van elke rol die wordt bijgewerkt en behoren tot het eerste upgrade domein, gestopt, bijgewerkt en weer online gezet. Zodra deze weer online zijn, worden de exemplaren in het tweede upgrade domein gestopt, bijgewerkt en weer online gezet. Een Cloud service kan Maxi maal één upgrade tegelijk actief zijn. De upgrade wordt altijd uitgevoerd op basis van de nieuwste versie van de Cloud service.
 
-Het volgende diagram illustreert hoe de upgrade wordt uitgevoerd als u een upgrade alle van de rollen in de service uitvoert:
+In het volgende diagram ziet u hoe de upgrade wordt uitgevoerd als u alle functies in de service bijwerkt:
 
-![Upgrade van service](media/cloud-services-update-azure-service/IC345879.png "-service upgraden")
+![Service upgraden](media/cloud-services-update-azure-service/IC345879.png "Service upgraden")
 
-Deze volgende diagram ziet u hoe de update wordt uitgevoerd als u slechts één functie bijwerkt:
+In dit volgende diagram ziet u hoe de update wordt voortgezet als u slechts één rol bijwerkt:
 
-![Upgrade rol](media/cloud-services-update-azure-service/IC345880.png "Upgrade rol")  
+![Upgrade-rol](media/cloud-services-update-azure-service/IC345880.png "Upgrade-rol")  
 
-Tijdens het automatisch bijwerken evalueert de Azure-Infrastructuurcontroller periodiek de status van de cloudservice om te bepalen wanneer het is veilig om u te helpen de volgende UD. Deze status evaluatie wordt uitgevoerd op basis van per rol en rekening gehouden met alleen-exemplaren in de meest recente versie (dat wil zeggen de instanties van ud's die al zijn gelopen). Er wordt gecontroleerd of een minimum aantal rolexemplaren, voor elke rol, hebben een goede definitieve status bereikt.
+Tijdens een automatische update evalueert de Azure Fabric-controller periodiek de status van de Cloud service om te bepalen wanneer het veilig is om de volgende UD te laten lopen. Deze status evaluatie wordt uitgevoerd per rol en beschouwt alleen instanties in de nieuwste versie (d.w.z. instanties van UDs die al werd uitgelegd hoe zijn). Er wordt gecontroleerd of een minimum aantal rolinstanties voor elke rol een bevredigende Terminal status heeft bereikt.
 
-### <a name="role-instance-start-timeout"></a>Time-out voor de Start van de rol-exemplaar
-De Infrastructuurcontroller wacht 30 minuten voor elk rolexemplaar te bereiken een status gestart. Als de duur van de time-out is verstreken, blijft de Infrastructuurcontroller walking met het volgende exemplaar van de rol.
+### <a name="role-instance-start-timeout"></a>Time-out voor starten van rolinstantie
+De infrastructuur controller wacht 30 minuten voor elke rolinstantie om de status gestart te bereiken. Als de time-outperiode is verstreken, wordt de infrastructuur controller doorgegaan naar de volgende rolinstantie.
 
-### <a name="impact-to-drive-data-during-cloud-service-upgrades"></a>Impact op het station gegevens tijdens de Service in de Cloud wordt bijgewerkt
+### <a name="impact-to-drive-data-during-cloud-service-upgrades"></a>Gevolgen voor de stationsgegevens tijdens de Cloud service-upgrades
 
-Bij het upgraden van een service van één exemplaar naar meerdere exemplaren wordt uw service worden verbroken tijdens de upgrade wordt uitgevoerd vanwege de manier waarop Azure upgrades-services. Service level agreement aansprakelijke beschikbaarheid van de service is alleen van toepassing op services die zijn geïmplementeerd met meer dan één exemplaar. De volgende lijst wordt beschreven hoe de gegevens op elke schijf wordt beïnvloed door een upgradescenario voor elke Azure-service:
+Wanneer u een service van één exemplaar bijwerkt naar meerdere instanties, wordt uw service uitgeschakeld terwijl de upgrade wordt uitgevoerd vanwege de manier waarop Azure Services upgradet. De service level agreement gegarandeerde service beschikbaarheid geldt alleen voor services die zijn geïmplementeerd met meer dan één exemplaar. In de volgende lijst wordt beschreven hoe de gegevens op elke schijf worden beïnvloed door elk Azure service-upgrade scenario:
 
-|Scenario|C-schijf|D-station|E Drive|
+|Scenario|Station C|D-station|E-station|
 |--------|-------|-------|-------|
-|Virtuele machine opnieuw opstarten|Behouden|Behouden|Behouden|
-|Portal opnieuw opstarten|Behouden|Behouden|Vernietigd|
-|Portal terugzetten|Behouden|Vernietigd|Vernietigd|
-|In-Place Upgrade|Behouden|Behouden|Vernietigd|
-|Migratie van knooppunt|Vernietigd|Vernietigd|Vernietigd|
+|VM opnieuw opstarten|Behouden|Behouden|Behouden|
+|Portal opnieuw opstarten|Behouden|Behouden|Verbroken|
+|Herinstallatie kopie van portal|Behouden|Verbroken|Verbroken|
+|In-place upgrade|Behouden|Behouden|Verbroken|
+|Knooppunt migratie|Verbroken|Verbroken|Verbroken|
 
-Houd er rekening mee dat in de bovenstaande lijst, het e-station het basisstation van de rol vertegenwoordigt, en niet vastgelegd worden moet. Gebruik in plaats daarvan de **RoleRoot %** omgevingsvariabele om weer te geven van het station.
+Houd er rekening mee dat in de bovenstaande lijst het station E: staat voor het hoofd station van de rol en niet moet worden vastgelegd. In plaats daarvan gebruikt u de omgevings variabele **% RoleRoot%** om het station aan te duiden.
 
-Een nieuwe service met meerdere exemplaren implementeren naar de staging-server om te beperken de downtime bij het upgraden van een service met één instantie, en geen VIP's wisselen.
+Als u de uitval tijd wilt minimaliseren bij het upgraden van een service met één exemplaar, implementeert u een nieuwe service met meerdere exemplaren naar de staging-server en voert u een VIP-swap uit.
 
 <a name="RollbackofanUpdate"></a>
 
-## <a name="rollback-of-an-update"></a>Terugdraaien van een update
-Azure biedt flexibiliteit voor het beheren van services doordat u aanvullende bewerkingen van een service starten nadat de initiële update-aanvraag is geaccepteerd door de Azure-Infrastructuurcontroller tijdens het bijwerken. Terugdraaien kan alleen worden uitgevoerd wanneer een update (configuratiewijziging) of de upgrade wordt het **Bezig** staat op de implementatie. Een update of upgrade wordt beschouwd als te worden uitgevoerd, zolang er is ten minste één exemplaar van de service nog niet naar de nieuwe versie bijgewerkt is. Als u wilt testen of een terugdraaien is toegestaan, Controleer de waarde van de vlag RollbackAllowed, die wordt geretourneerd door [ophalen implementatie](/previous-versions/azure/reference/ee460804(v=azure.100)) en [Cloud Service-eigenschappen ophalen](/previous-versions/azure/reference/ee460806(v=azure.100)) bewerkingen, is ingesteld op true.
+## <a name="rollback-of-an-update"></a>Het terugdraaien van een update
+Azure biedt flexibiliteit bij het beheer van services tijdens een update door u toe te staan extra bewerkingen op een service te initiëren, nadat de eerste update aanvraag is geaccepteerd door de Azure Fabric-controller. Een terugdraai actie kan alleen worden uitgevoerd wanneer de status van een update (configuratie wijziging) of een upgrade wordt **uitgevoerd** voor de implementatie. Een update of upgrade wordt beschouwd als een onderhouds bewerking zolang er ten minste één exemplaar van de service is die nog niet is bijgewerkt naar de nieuwe versie. Als u wilt testen of een terugdraai bewerking is toegestaan, controleert u de waarde van de vlag RollbackAllowed, die wordt geretourneerd door [implementatie ophalen](/previous-versions/azure/reference/ee460804(v=azure.100)) en [Eigenschappen van Cloud service ophalen](/previous-versions/azure/reference/ee460806(v=azure.100)) , ingesteld op True.
 
 > [!NOTE]
-> Alleen is het handig om aan te roepen terugdraaien op een **ter plekke** bijwerken of bijwerken omdat het VIP wisselen upgrades betrekking hebben op een hele actief exemplaar van uw service met een andere vervangen.
+> Het is alleen zinvol om terugdraai actie aan te roepen voor een **in-place** update of upgrade, omdat bij het wisselen van de VIP een volledig actief exemplaar van uw service moet worden vervangen door een andere.
 >
 >
 
-Terugdraaien van een update wordt uitgevoerd, heeft de volgende gevolgen voor de implementatie:
+Het terugdraaien van een update die in voortgang is, heeft de volgende gevolgen voor de implementatie:
 
-* Alle rolinstanties die nog niet zijn bijgewerkt of een upgrade uitgevoerd naar de nieuwe versie zijn niet bijgewerkt of upgrade hebt uitgevoerd, omdat de doelversie van de service al op deze instanties worden uitgevoerd.
-* Alle rolinstanties die al waren zijn bijgewerkt of een upgrade uitgevoerd naar de nieuwe versie van het servicepakket (\*.cspkg) bestand of de configuratie van de service (\*cscfg-bestand)-bestand (of beide bestanden) worden hersteld naar de versie van vóór de upgrade van deze bestanden.
+* Alle rolinstanties die nog niet zijn bijgewerkt of bijgewerkt naar de nieuwe versie, worden niet bijgewerkt of bijgewerkt, omdat deze instanties al de doel versie van de service uitvoeren.
+* Alle rolinstanties die al zijn bijgewerkt of bijgewerkt naar de nieuwe versie van het bestand met het service pakket\*(. cspkg) of het service configuratie bestand\*(. cscfg) (of beide bestanden), worden teruggezet naar de pre-upgrade versie van deze bestanden.
 
-Dit is functioneel bepaald door de volgende functies:
+Deze functie wordt uitgevoerd met de volgende functies:
 
-* De [terugdraaien van de Update of Upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)) bewerking, die kan worden aangeroepen in een configuratie-update (geactiveerd door het aanroepen van [implementatieconfiguratie wijzigen](/previous-versions/azure/reference/ee460809(v=azure.100))) of een upgrade (geactiveerd door het aanroepen van [ Upgrade-implementatie](/previous-versions/azure/reference/ee460793(v=azure.100))), zolang er is ten minste één exemplaar in de service die nog niet naar de nieuwe versie bijgewerkt is.
-* Het element vergrendeld en het element RollbackAllowed die worden geretourneerd als onderdeel van de hoofdtekst van het antwoord van de [ophalen implementatie](/previous-versions/azure/reference/ee460804(v=azure.100)) en [Cloud Service-eigenschappen ophalen](/previous-versions/azure/reference/ee460806(v=azure.100)) bewerkingen:
+* De [terugdraai update-of upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)) bewerking, die kan worden aangeroepen in een configuratie-update (geactiveerd door het aanroepen van de [implementatie configuratie](/previous-versions/azure/reference/ee460809(v=azure.100))van de wijziging) of een upgrade (geactiveerd door het aanroepen van de [upgrade-implementatie](/previous-versions/azure/reference/ee460793(v=azure.100))), zolang er ten minste één exemplaar in de service die nog niet is bijgewerkt naar de nieuwe versie.
+* Het vergrendelde element en het RollbackAllowed-element, dat wordt geretourneerd als onderdeel van de antwoord tekst van de bewerking [implementatie ophalen](/previous-versions/azure/reference/ee460804(v=azure.100)) en [Eigenschappen van Cloud service ophalen](/previous-versions/azure/reference/ee460806(v=azure.100)) :
 
-  1. Het element vergrendeld, kunt u om te detecteren wanneer een mutating bewerking kan worden aangeroepen op een bepaalde implementatie.
-  2. Het element RollbackAllowed kunt u om te detecteren wanneer de [terugdraaien van de Update of Upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)) bewerking kan worden aangeroepen voor een bepaalde implementatie.
+  1. Met het vergrendelde element kunt u detecteren wanneer een muteren-bewerking kan worden aangeroepen voor een bepaalde implementatie.
+  2. Met het RollbackAllowed-element kunt u detecteren wanneer de [terugdraai update-of upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)) bewerking kan worden aangeroepen voor een bepaalde implementatie.
 
-  Om uit te voeren een terugdraaiactie, hoeft u niet om zowel de vergrendeld en de elementen RollbackAllowed te controleren. Deze achtervoegsels om te bevestigen dat RollbackAllowed is ingesteld op true. Deze elementen zijn alleen geretourneerd als deze methoden zijn aangeroepen met behulp van de aanvraagheader ingesteld op ' x-ms-version: 2011-10-01 ' of een latere versie. Zie voor meer informatie over versiebeheer kopteksten [Service Management versiebeheer](/previous-versions/azure/gg592580(v=azure.100)).
+  Als u een terugdraai actie wilt uitvoeren, hoeft u niet zowel de vergrendelde als de RollbackAllowed-elementen te controleren. Het is voldoende om te bevestigen dat RollbackAllowed is ingesteld op True. Deze elementen worden alleen geretourneerd als deze methoden worden aangeroepen met behulp van de aanvraag header ingesteld op x-MS-version: 2011-10-01 ' of een latere versie. Zie [Service Management versie beheer](/previous-versions/azure/gg592580(v=azure.100))voor meer informatie over het versie gebruik van headers.
 
-Er zijn bepaalde situaties waarbij een ongedaan maken van een update of upgrade wordt niet ondersteund, dit als volgt zijn:
+Er zijn situaties waarin het terugdraaien van een update of upgrade niet wordt ondersteund. Dit zijn de volgende:
 
-* Vermindering van de lokale bronnen - als de update de lokale bronnen voor een functie van het Azure-platform verhoogt is niet toegestaan voor het terugdraaien.
-* Quotumbeperkingen - zijn als de update is een bewerking die u mogelijk niet meer omlaag schalen voldoende rekenquota om het van de terugdraaibewerking te voltooien. Elk Azure-abonnement heeft een quotum dat is gekoppeld aan deze die Hiermee geeft u het maximum aantal kernen dat kan worden gebruikt door alle gehoste services die deel uitmaken van dat abonnement. Als uw abonnement uitvoeren van een terugdraaien van een bepaalde update via quotum en die plaatst wordt een terugdraaiactie niet ingeschakeld.
-* Racevoorwaarde - als de eerste update is voltooid, terugdraaien is niet mogelijk.
+* Reductie van lokale resources: als de update de lokale resources voor een rol verhoogt, staat het Azure-platform niet toe dat wordt teruggedraaid.
+* Quotum beperkingen: als de update een bewerking voor het omlaag schalen was, hebt u mogelijk niet langer voldoende reken quotum om de terugdraai bewerking te volt ooien. Aan elk Azure-abonnement is een quotum gekoppeld waarmee het maximum aantal kernen wordt opgegeven dat kan worden gebruikt door alle gehoste services die deel uitmaken van het abonnement. Als bij het terugdraaien van een bepaalde update het quotum wordt overschreden, wordt het terugdraaien niet ingeschakeld.
+* Race condition: als de eerste update is voltooid, is een terugdraai bewerking niet mogelijk.
 
-Een voorbeeld van wanneer het terugdraaien van een update mogelijk nuttig is als u gebruikt de [Upgrade-implementatie](/previous-versions/azure/reference/ee460793(v=azure.100)) bewerking in de handmatige modus voor het beheren van de snelheid waarmee een grote in-place upgrade naar uw Azure service gehoste wordt uitgerold.
+Een voor beeld van wanneer het terugdraaien van een update handig is, is als u de [upgrade-implementatie](/previous-versions/azure/reference/ee460793(v=azure.100)) bewerking in hand matige modus gebruikt om de snelheid te bepalen waarmee een primaire in-place upgrade naar uw door Azure gehoste service wordt uitgevoerd.
 
-Tijdens de implementatie van de upgrade die u aanroept [Upgrade-implementatie](/previous-versions/azure/reference/ee460793(v=azure.100)) in de modus voor handmatige en begint te lopen upgradedomeinen. Als op een bepaald moment tijdens het controleren van de upgrade moet u Houd er rekening mee sommige rolinstanties in de eerste upgrade-domeinen die u onderzoekt hebt reageert, roept u de [terugdraaien van de Update of Upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)) bewerking op de implementatie, laat gewoon de exemplaren van die was nog niet zijn bijgewerkt en de rollback-exemplaren die is bijgewerkt naar de vorige servicepakket en configuratie.
+Tijdens de implementatie van de upgrade roept u de [upgrade-implementatie](/previous-versions/azure/reference/ee460793(v=azure.100)) aan in de hand matige modus en begint u met het uitvoeren van upgrade domeinen. Als u op een bepaald moment de upgrade bewaakt, noteert u sommige rolinstanties in de eerste upgrade-domeinen die u onderzoekt niet meer reageert, kunt u de [terugdraai update of upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)) -bewerking aanroepen voor de implementatie, waardoor het ongewijzigd blijft. exemplaren die nog niet zijn bijgewerkt en terugdraaiden instanties die zijn bijgewerkt naar het vorige service pakket en de configuratie.
 
 <a name="multiplemutatingoperations"></a>
 
-## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>Meerdere mutating bewerkingen op een actieve implementatie starten
-In sommige gevallen kunt u meerdere gelijktijdige mutating bewerkingen voor de implementatie van een doorlopende initiëren. Bijvoorbeeld, u kunt een service-update uitvoeren en, terwijl deze update is gemaakt voor uw service, die u wilt bijvoorbeeld een wijziging aanbrengen om te draaien terug in de update, een andere update van toepassing, of zelfs verwijderen van de implementatie. Een aanvraag waarin dit kan het nodig zijn, is als een service-upgrade bevat buggy code die ervoor zorgt dat een bijgewerkte rolinstantie herhaaldelijk vastloopt. In dit geval wordt de Azure-Infrastructuurcontroller pas weer voortgang bij het toepassen van die worden bijgewerkt omdat een onvoldoende aantal exemplaren in de bijgewerkte domein in orde zijn. Deze status wordt aangeduid als een *vastgelopen implementatie*. U kunt de implementatie van de update terugdraaien of het toepassen van een nieuwe update via de bovenkant van het mislukken van de Registreer een.
+## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>Meerdere muteren-bewerkingen initiëren voor een doorlopende implementatie
+In sommige gevallen wilt u mogelijk meerdere gelijktijdige muteren-bewerkingen initiëren op een doorlopende implementatie. U kunt bijvoorbeeld een service-update uitvoeren en, terwijl deze update wordt doorgevoerd in uw service, u een bepaalde wijziging wilt aanbrengen, bijvoorbeeld om de update terug te draaien, een andere update toe te passen of zelfs de implementatie te verwijderen. Een geval waarin dit nodig kan zijn, is als een service-upgrade een code voor de fout opsporing bevat die ervoor zorgt dat een bijgewerkte rolinstantie herhaaldelijk vastloopt. In dit geval kan de Azure Fabric-controller geen voortgang maken bij het Toep assen van deze upgrade omdat een ontoereikend aantal exemplaren in het bijgewerkte domein in orde is. Deze status wordt een *vastgelopen implementatie*genoemd. U kunt de implementatie ontsteken door de update terug te draaien of door een nieuwe update toe te passen boven op een failover.
 
-Nadat de eerste aanvraag naar de update of upgrade van de service is ontvangen door de Azure-Infrastructuurcontroller, kun u verdere mutating bewerkingen. Dat wil zeggen, hoeft u niet te wachten op de eerste bewerking is voltooid voordat u kunt een andere mutating bewerking.
+Zodra de eerste aanvraag voor het bijwerken of upgraden van de service is ontvangen door de Azure Fabric-controller, kunt u de volgende muteren-bewerkingen starten. Dat wil zeggen dat u niet hoeft te wachten tot de eerste bewerking is voltooid voordat u een andere muteren-bewerking kunt starten.
 
-Een tweede updatebewerking starten terwijl de eerste update wordt momenteel is wordt vergelijkbaar met de terugdraaibewerking uitgevoerd. Als de tweede update in de automatische modus is het eerste upgradedomein wordt een upgrade uitgevoerd onmiddellijk mogelijk leiden tot instanties van meerdere upgradedomeinen offline op een bepaald moment in-time.
+Het starten van een tweede update bewerking tijdens het uitvoeren van de eerste update zal hetzelfde doen als de terugdraai bewerking. Als de tweede update zich in de automatische modus bevindt, wordt het eerste upgrade domein onmiddellijk bijgewerkt, waardoor het mogelijk is dat meerdere upgrade domeinen offline zijn op hetzelfde moment.
 
-De mutating bewerkingen zijn als volgt: [Implementatieconfiguratie wijzigen](/previous-versions/azure/reference/ee460809(v=azure.100)), [implementatie upgraden](/previous-versions/azure/reference/ee460793(v=azure.100)), [implementatiestatus van de Update](/previous-versions/azure/reference/ee460808(v=azure.100)), [implementatie verwijderen](/previous-versions/azure/reference/ee460815(v=azure.100)), en [terugdraaien Update- of Upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)).
+De muteren bewerkingen zijn als volgt: [Implementatie configuratie wijzigen](/previous-versions/azure/reference/ee460809(v=azure.100)), [implementatie upgraden](/previous-versions/azure/reference/ee460793(v=azure.100)), [Implementatie status bijwerken](/previous-versions/azure/reference/ee460808(v=azure.100)), [implementatie verwijderen](/previous-versions/azure/reference/ee460815(v=azure.100))en [Update of upgrade terugdraaien](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
-Twee bewerkingen [ophalen implementatie](/previous-versions/azure/reference/ee460804(v=azure.100)) en [Cloud Service-eigenschappen ophalen](/previous-versions/azure/reference/ee460806(v=azure.100)), retourneren de vergrendeld-vlag waarmee kan worden onderzocht om te bepalen of een mutating bewerking kan worden aangeroepen op een bepaalde implementatie.
+Twee bewerkingen, de [implementatie ophalen](/previous-versions/azure/reference/ee460804(v=azure.100)) en eigenschappen van de [Cloud service ophalen](/previous-versions/azure/reference/ee460806(v=azure.100)), retour neren de vergrendelde vlag die kan worden onderzocht om te bepalen of een muteren-bewerking kan worden aangeroepen voor een bepaalde implementatie.
 
-Als u wilt de versie van deze methoden die als de vlag geblokkeerde resultaat aanroepen, moet u de aanvraagheader instellen op ' x-ms-version: 2011-10-01 ' of een hoger. Zie voor meer informatie over versiebeheer kopteksten [Service Management versiebeheer](/previous-versions/azure/gg592580(v=azure.100)).
+Als u de versie van deze methoden die de vergrendelde vlag retourneert, wilt aanroepen, moet u de aanvraag header instellen op x-MS-version: 2011-10-01 ' of hoger. Zie [Service Management versie beheer](/previous-versions/azure/gg592580(v=azure.100))voor meer informatie over het versie gebruik van headers.
 
 <a name="distributiondfroles"></a>
 
-## <a name="distribution-of-roles-across-upgrade-domains"></a>Distributie van functies in meerdere domeinen upgraden
-Azure wordt exemplaren van een rol gelijkmatig verspreid over een bepaald aantal upgradedomeinen, die kan worden geconfigureerd als onderdeel van het servicedefinitiebestand (.csdef). Het maximum aantal upgradedomeinen is 20 en de standaardwaarde is 5. Zie voor meer informatie over het wijzigen van het servicedefinitiebestand [Definitieschema voor Azure-Service (.csdef-bestand)](cloud-services-model-and-package.md#csdef).
+## <a name="distribution-of-roles-across-upgrade-domains"></a>Distributie van rollen tussen upgrade domeinen
+Azure distribueert exemplaren van een rol gelijkmatig over een set aantal upgrade domeinen, die kunnen worden geconfigureerd als onderdeel van het bestand met de service definitie (. csdef). Het maximum aantal upgrade domeinen is 20 en de standaard waarde is 5. Zie voor meer informatie over het wijzigen van het service definitie bestand [Azure service definition schema (csdef-bestand)](cloud-services-model-and-package.md#csdef).
 
-Bijvoorbeeld, als uw rol tien exemplaren heeft, bevat elk upgradedomein standaard twee exemplaren. Als uw rol 14-exemplaren heeft, bevat vier van de upgradedomeinen drie exemplaren en een vijfde domein bevat twee.
+Als uw rol bijvoorbeeld tien instanties heeft, bevat elk upgrade domein standaard twee exemplaren. Als uw rol 14 exemplaren heeft, bevatten vier van de upgrade domeinen drie instanties en bevat een vijfde domein twee.
 
-Upgradedomeinen worden aangeduid met een op nul gebaseerde index: het eerste upgradedomein heeft een 0-ID en het tweede upgradedomein ID 1, enzovoort.
+Upgrade domeinen worden aangeduid met een op nul gebaseerde index: het eerste upgrade domein heeft een ID van 0 en het tweede upgrade domein heeft een ID van 1, enzovoort.
 
-Het volgende diagram illustreert hoe een service bevat twee rollen worden gedistribueerd wanneer de service definieert twee upgradedomeinen. De service wordt uitgevoerd acht instanties van de Webrol en negen instanties van de werkrol.
+In het volgende diagram ziet u hoe een service dan twee rollen bevat, wanneer de service twee upgrade domeinen definieert. Voor de service worden acht exemplaren van de webrole en negen exemplaren van de rol Worker uitgevoerd.
 
-![Distributie van Upgradedomeinen](media/cloud-services-update-azure-service/IC345533.png "distributie van Upgradedomeinen")
+![Distributie van upgrade domeinen](media/cloud-services-update-azure-service/IC345533.png "Distributie van upgrade domeinen")
 
 > [!NOTE]
-> Houd er rekening mee dat Azure bepaalt hoe de exemplaren worden toegewezen via upgradedomeinen. Het is niet mogelijk om op te geven welke instanties worden toegewezen aan een domein.
+> Houd er rekening mee dat Azure bepaalt hoe instanties worden toegewezen in upgrade domeinen. Het is niet mogelijk om op te geven welke exemplaren aan welk domein worden toegewezen.
 >
 >
 
 ## <a name="next-steps"></a>Volgende stappen
 [Cloud Services beheren](cloud-services-how-to-manage-portal.md)  
-[Cloudservices controleren](cloud-services-how-to-monitor.md)  
+[Cloud Services bewaken](cloud-services-how-to-monitor.md)  
 [Cloud Services configureren](cloud-services-how-to-configure-portal.md)  

@@ -1,21 +1,22 @@
 ---
-title: 'Quickstart: Java gebruiken om de Text Analytics-API aan te roepen'
+title: 'Quickstart: Java gebruiken om de Text Analytics aan te roepen REST API'
 titleSuffix: Azure Cognitive Services
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Tekstanalyse-API in Azure Cognitive Services.
+description: Informatie en code voorbeelden ophalen zodat u snel aan de slag kunt met de Text Analytics-API in azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 07/22/2019
 ms.author: aahi
-ms.openlocfilehash: fc848feb3f9a0e1160a8e36014ca4a469f792c96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.custom: seo-java-july2019
+ms.openlocfilehash: c5e47918cb31d127842cb7a45883cf4c47fb56e0
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829341"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489224"
 ---
 # <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Java gebruiken om de Text Analytics Cognitive Service aan te roepen
 <a name="HOLTop"></a>
@@ -36,12 +37,12 @@ U moet ook de [eindpunt- en toegangssleutel](../How-tos/text-analytics-how-to-ac
 
 Met de Taaldetectie-API wordt de taal van een tekstdocument gedetecteerd met behulp van de  [methode Taal detecteren](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-1. Maak een nieuwe Java-project in uw favoriete IDE (of een nieuwe map op uw bureaublad). Maak een klasse met de naam `DetectLanguage.java`.
-1. Voeg de code hieronder vindt u aan de klasse.
-1. Vervang de `accessKey` waarde met de sleutel van uw Text Analytics-abonnement in [Azure](https://ms.portal.azure.com).
+1. Maak een nieuw Java-project in uw favoriete IDE (of een nieuwe map op uw bureau blad). Maak een klasse met `DetectLanguage.java`de naam.
+1. Voeg de hieronder vermelde code toe aan uw klasse.
+1. Vervang de `accessKey` waarde door de sleutel van uw Text Analytics-abonnement in [Azure](https://ms.portal.azure.com).
 1. Vervang de locatie `host` (momenteel `westus`) door de regio waarvoor u zich hebt geregistreerd.
-1. Zorg ervoor dat u hebt de [Gson](https://github.com/google/gson) bibliotheek geïnstalleerd.
-1. Het programma uitvoert in uw IDE of de opdrachtregel gebruiken om uit te voeren (de instructies in de codeopmerkingen).
+1. Zorg ervoor dat de [Gson](https://github.com/google/gson) -bibliotheek is geïnstalleerd.
+1. Voer het programma uit in uw IDE of gebruik de opdracht regel om uit te voeren (instructies in de opmerkingen bij code).
 
 ```java
 import java.io.*;
@@ -162,7 +163,7 @@ public class DetectLanguage {
 }
 ```
 
-### <a name="language-detection-response"></a>Taal detecteren-antwoord
+### <a name="language-detection-response"></a>Antwoord op taal detectie
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -212,12 +213,12 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 Met de Sentiment Analysis-API wordt een set tekstrecords gedetecteerd met behulp van de [methode Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). In het volgende voorbeeld worden twee documenten beoordeeld, één in het Engels en één in het Spaans.
 
-1. Maak een nieuwe Java-project in uw favoriete IDE (of een nieuwe map op uw bureaublad). Maak een klasse in toe met de naam `GetSentiment.java`.
-1. Voeg de code hieronder vindt u aan de klasse.
-1. Vervang de `accessKey` waarde met de sleutel van uw Text Analytics-abonnement in [Azure](https://ms.portal.azure.com).
+1. Maak een nieuw Java-project in uw favoriete IDE (of een nieuwe map op uw bureau blad). Maak een klasse met de naam `GetSentiment.java`.
+1. Voeg de hieronder vermelde code toe aan uw klasse.
+1. Vervang de `accessKey` waarde door de sleutel van uw Text Analytics-abonnement in [Azure](https://ms.portal.azure.com).
 1. Vervang de locatie `host` (momenteel `westus`) door de regio waarvoor u zich hebt geregistreerd.
-1. Zorg ervoor dat u hebt de [Gson](https://github.com/google/gson) bibliotheek geïnstalleerd.
-1. Het programma uitvoert in uw IDE of de opdrachtregel gebruiken om uit te voeren (de instructies in de codeopmerkingen).
+1. Zorg ervoor dat de [Gson](https://github.com/google/gson) -bibliotheek is geïnstalleerd.
+1. Voer het programma uit in uw IDE of gebruik de opdracht regel om uit te voeren (instructies in de opmerkingen bij code).
 
 ```java
 import java.io.*;
@@ -340,7 +341,7 @@ public class GetSentiment {
 
 ### <a name="sentiment-analysis-response"></a>Sentiment-analyse antwoord
 
-Het resultaat wordt gemeten als positief als deze dichter bij 1.0 en negatieve wordt berekend als het dichter beoordeeld op 0.0.
+Het resultaat wordt gemeten als positief als het dichter bij 1,0 en negatief is als de Score dichter bij 0,0 ligt.
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld:
 
 ```json
@@ -361,16 +362,16 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Belangrijke woordgroepen herkennen
+## <a name="extract-key-phrases"></a>Sleuteltermen ophalen
 
 Met de Key Phrase Extraction-API worden sleuteltermen opgehaald uit een tekstdocument met behulp van de [methode Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). In het volgende voorbeeld worden sleuteltermen opgehaald voor zowel de Engelse als Spaanse documenten.
 
-1. Maak een nieuwe Java-project in uw favoriete IDE (of een nieuwe map op uw bureaublad). Maak een klasse in het met de naam `GetKeyPhrases.java`.
-1. Voeg de code hieronder vindt u aan de klasse.
-1. Vervang de `accessKey` waarde met de sleutel van uw Text Analytics-abonnement in [Azure](https://ms.portal.azure.com).
+1. Maak een nieuw Java-project in uw favoriete IDE (of een nieuwe map op uw bureau blad). Maak een klasse in de naam `GetKeyPhrases.java`.
+1. Voeg de hieronder vermelde code toe aan uw klasse.
+1. Vervang de `accessKey` waarde door de sleutel van uw Text Analytics-abonnement in [Azure](https://ms.portal.azure.com).
 1. Vervang de locatie `host` (momenteel `westus`) door de regio waarvoor u zich hebt geregistreerd.
-1. Zorg ervoor dat u hebt de [Gson](https://github.com/google/gson) bibliotheek geïnstalleerd.
-1. Het programma uitvoert in uw IDE of de opdrachtregel gebruiken om uit te voeren (de instructies in de codeopmerkingen).
+1. Zorg ervoor dat de [Gson](https://github.com/google/gson) -bibliotheek is geïnstalleerd.
+1. Voer het programma uit in uw IDE of gebruik de opdracht regel om uit te voeren (instructies in de opmerkingen bij code).
 
 ```java
 import java.io.*;
@@ -492,7 +493,7 @@ public class GetKeyPhrases {
 }
 ```
 
-### <a name="key-phrase-extraction-response"></a>Sleuteluitdrukkingen extraheren antwoord
+### <a name="key-phrase-extraction-response"></a>Reactie van sleutel woord extractie
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld:
 
@@ -535,14 +536,14 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="identify-entities"></a>Entiteiten identificeren
 
-De Entities-API identificeert bekende entiteiten in een tekstdocument, met behulp van de [methode Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteiten](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) woorden extraheren uit tekst, zoals 'VS', en vervolgens geeft u het type en/of de Wikipedia-koppeling voor deze woorden. Het type voor "Verenigde Staten" `location`, terwijl de koppeling naar Wikipedia `https://en.wikipedia.org/wiki/United_States`.  In het volgende voorbeeld worden entiteiten geïdentificeerd voor Engelse documenten.
+De Entities-API identificeert bekende entiteiten in een tekstdocument, met behulp van de [methode Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteiten](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) halen woorden op uit tekst, zoals ' Verenigde Staten ', en geven vervolgens het type en/of de Wikipedia-koppeling voor dit woord (en). Het type voor ' Verenigde Staten ' is `location`, terwijl de koppeling naar Wikipedia is `https://en.wikipedia.org/wiki/United_States`.  In het volgende voorbeeld worden entiteiten geïdentificeerd voor Engelse documenten.
 
-1. Maak een nieuwe Java-project in uw favoriete IDE (of een nieuwe map op uw bureaublad). Maak een klasse in toe met de naam `GetEntities.java`.
-1. Voeg de code hieronder vindt u aan de klasse.
-1. Vervang de `accessKey` waarde met de sleutel van uw Text Analytics-abonnement in [Azure](https://ms.portal.azure.com).
+1. Maak een nieuw Java-project in uw favoriete IDE (of een nieuwe map op uw bureau blad). Maak een klasse met de naam `GetEntities.java`.
+1. Voeg de hieronder vermelde code toe aan uw klasse.
+1. Vervang de `accessKey` waarde door de sleutel van uw Text Analytics-abonnement in [Azure](https://ms.portal.azure.com).
 1. Vervang de locatie `host` (momenteel `westus`) door de regio waarvoor u zich hebt geregistreerd.
-1. Zorg ervoor dat u hebt de [Gson](https://github.com/google/gson) bibliotheek geïnstalleerd.
-1. Het programma uitvoert in uw IDE of de opdrachtregel gebruiken om uit te voeren (de instructies in de codeopmerkingen).
+1. Zorg ervoor dat de [Gson](https://github.com/google/gson) -bibliotheek is geïnstalleerd.
+1. Voer het programma uit in uw IDE of gebruik de opdracht regel om uit te voeren (instructies in de opmerkingen bij code).
 
 ```java
 import java.io.*;

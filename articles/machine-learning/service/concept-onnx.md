@@ -1,7 +1,7 @@
 ---
-title: Hoge prestaties, cross-platform Deductie met ONNX
+title: Hoge prestaties, cross-interferentie van platform met ONNX
 titleSuffix: Azure Machine Learning service
-description: Meer informatie over ONNX en de ONNX-Runtime voor het versnellen van modellen
+description: Meer informatie over ONNX en de ONNX-runtime voor het versnellen van modellen
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,69 +11,70 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1eca5bdd81a384efe04f769ebd12be9d91fc78a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 10c47c5dbae0ffb204a78ff510e457cce9a25ff0
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65849729"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361099"
 ---
-# <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>U kunt ONNX en Azure Machine Learning: Maken en ML-modellen te versnellen
+# <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX en Azure Machine Learning: ML-modellen maken en versnellen
 
-Informatie over hoe met de [Open Neural Network-Exchange](https://onnx.ai) (ONNX) de Deductie van uw machine learning-model kunt optimaliseren. Deductie of het model scoren, is de fase waarin het gedistribueerde model wordt gebruikt voor voorspellingen, meestal op productiegegevens. 
+Meer informatie over het gebruik van de [Open Neural Network Exchange](https://onnx.ai) (ONNX) kan u helpen de deinterferentie van uw machine learning model te optimaliseren. Defactorion of model Score is de fase waarin het geïmplementeerde model wordt gebruikt voor de voor spelling, meestal op productie gegevens. 
 
-Optimaliseren machine learning-modellen voor Deductie (of het model scoren) is moeilijk, omdat u het model en de Deductie-bibliotheek moet om optimaal te benutten de hardwaremogelijkheden af te stemmen. Het probleem wordt zeer moeilijk is als u wilt om de optimale prestaties op verschillende soorten platforms (cloud/edge, CPU/GPU, enzovoort), aangezien elk een heeft verschillende mogelijkheden en -kenmerken. Als u modellen van tal van frameworks die nodig zijn om uit te voeren op diverse platformen, wordt de complexiteit verhoogd. Het is zeer veel tijd in beslag om te optimaliseren van de verschillende combinaties van frameworks en hardware. Er is een oplossing voor het trainen één keer in uw favoriete framework en overal worden uitgevoerd op de cloud of edge nodig. Dit is waar u kunt ONNX is beschikbaar in.
+Het optimaliseren van machine learning modellen voor deverzekering (of model scores) is lastig omdat u het model en de tape wisselaar voor het afnemen van problemen moet afstemmen om optimaal van de hardware-mogelijkheden te zorgen. Het probleem wordt zeer hard als u optimale prestaties wilt krijgen op verschillende platformen (Cloud/Edge, CPU/GPU, enzovoort), omdat elk van beide verschillende mogelijkheden en kenmerken heeft. De complexiteit neemt toe als u modellen hebt van verschillende frameworks die op verschillende platforms moeten worden uitgevoerd. Het is zeer tijdrovend om alle verschillende combi Naties van frameworks en hardware te optimaliseren. Een oplossing die eenmaal kan worden getraind in uw voorkeurs raamwerk en overal in de Cloud of Edge moet worden uitgevoerd. Hier wordt ONNX geleverd.
 
-Microsoft en een community van partners die zijn ONNX gemaakt als een open standaard voor de vertegenwoordiging van machine learning-modellen. Modellen vanuit [veel frameworks](https://onnx.ai/supported-tools) waaronder TensorFlow, PyTorch SciKit-informatie, Keras, Chainer, MXNet en MATLAB kan worden geëxporteerd of geconverteerd naar de standard ONNX-indeling. Zodra de modellen in de ONNX-indeling, kunnen ze worden uitgevoerd op verschillende platforms en apparaten.
+Micro soft en een community van partners hebben ONNX als Open Standard gemaakt voor het vertegenwoordigen van machine learning modellen. Modellen van [talloze Frameworks](https://onnx.ai/supported-tools) , waaronder tensor flow, PyTorch, SciKit-learn, Keras, Chainer, MXNET en MATLAB, kunnen worden geëxporteerd of geconverteerd naar de standaard-ONNX-indeling. Zodra de modellen de ONNX-indeling hebben, kunnen ze op verschillende platforms en apparaten worden uitgevoerd.
 
-[U kunt ONNX-Runtime](https://github.com/Microsoft/onnxruntime) is een krachtige Deductie-engine voor het implementeren van ONNX-modellen voor productie. Het geoptimaliseerd voor zowel de cloud en edge en werkt op Linux, Windows en Mac. Die zijn geschreven in C++, heeft ook C, Python, en C# API's. U kunt ONNX Runtime biedt ondersteuning voor alle van de ONNX-ML-specificatie en kan ook worden geïntegreerd met accelerators op andere hardware zoals TensorRT op NVidia GPU's.
+[ONNX runtime](https://github.com/Microsoft/onnxruntime) is een krachtige engine voor het afnemen van prestaties voor het implementeren van ONNX-modellen voor productie. Het is geoptimaliseerd voor zowel Cloud als Edge en werkt op Linux, Windows en Mac. In C++wordt geschreven, heeft het ook C, python en C# api's. ONNX runtime biedt ondersteuning voor alle ONNX-ML-specificatie en kan ook worden geïntegreerd met accelerators op verschillende hardware, zoals TensorRT op NVidia-Gpu's.
 
-De ONNX-Runtime wordt gebruikt op grote schaal Microsoft-services zoals Bing, Office en Cognitive Services. Prestaties zijn afhankelijk van een aantal factoren, maar deze Microsoft-services hebben gezien een __2 x prestatieverbetering te bereiken op CPU gemiddeld__. U kunt ONNX-Runtime wordt ook gebruikt als onderdeel van Windows-ML op honderden miljoenen apparaten. Met Azure Machine Learning-services kunt u de runtime. Met behulp van ONNX-Runtime, kunt u profiteren van de uitgebreide productiekwaliteit optimalisaties, testen en de voortdurende verbeteringen.
+De ONNX-runtime wordt gebruikt bij het hoog schalen van micro soft-Services, zoals Bing, Office en Cognitive Services. Prestatie verbeteringen zijn afhankelijk van een aantal factoren, maar deze micro soft-Services hebben een __gemiddelde 2x-prestatie verbetering gezien op de CPU__. ONNX runtime wordt ook gebruikt als onderdeel van Windows ML op honderden miljoenen apparaten. U kunt de runtime gebruiken met Azure Machine Learning Services. Met behulp van ONNX runtime kunt u profiteren van de uitgebreide optimalisaties, testen en voortdurende verbeteringen van productie kwaliteit.
 
-[![U kunt ONNX flow diagram van training, conversieprogramma's en -implementatie](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
+[![ONNX-stroom diagram met trainingen, conversie Programma's en implementatie](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>U kunt ONNX-modellen
 
 U kunt ONNX-modellen op verschillende manieren verkrijgen:
-+ Traint u een nieuwe ONNX-model in Azure Machine Learning-service (Zie voorbeelden aan de onderkant van dit artikel)
-+ Bestaande model vanuit een andere indeling converteren naar ONNX (Zie de [zelfstudies](https://github.com/onnx/tutorials)) 
-+ Ophalen van een vooraf getrainde ONNX-model van de [ONNX Model Zoo](https://github.com/onnx/models) (Zie voorbeelden aan de onderkant van dit artikel)
++ Train een nieuw ONNX-model in Azure Machine Learning service (Zie de voor beelden onder aan dit artikel)
++ Bestaand model converteren van een andere indeling naar ONNX (Raadpleeg de [zelf studies](https://github.com/onnx/tutorials)) 
++ Een vooraf getraind ONNX-model ophalen uit het [ONNX-model Zoo](https://github.com/onnx/models) (Zie voor beelden onder aan dit artikel)
 + Genereren van een aangepaste ONNX-model van [Azure Custom Vision service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 
 
-Veel modellen, met inbegrip van de classificatie van afbeeldingen, objectdetectie van het en verwerking van de tekst kunnen worden weergegeven als ONNX-modellen. Evenwel sommige modellen mogelijk niet kunnen worden geconverteerd. Als u deze situatie, vul u een probleem in de GitHub van de respectieve conversieprogramma's die u hebt gebruikt. U kunt met behulp van uw bestaande indeling model totdat het probleem is verholpen.
+Veel modellen, waaronder afbeeldings classificatie, object detectie en tekst verwerking, kunnen worden weer gegeven als ONNX modellen. Sommige modellen kunnen echter niet worden geconverteerd. Als u deze situatie uitvoert, dient u een probleem op te lossen in het GitHub van het respectieve conversie programma dat u hebt gebruikt. U kunt door gaan met het gebruik van uw bestaande indelings model totdat het probleem is opgelost.
 
 ## <a name="deploy-onnx-models-in-azure"></a>U kunt ONNX-modellen in Azure implementeren
 
-Met Azure Machine Learning-service, kunt u implementeren, beheren en controleren van uw ONNX-modellen. Met behulp van de standaard [implementatiewerkstroom](concept-model-management-and-deployment.md) en u kunt ONNX-Runtime, kunt u een REST-eindpunt gehost in de cloud maken. Zie voorbeeld Jupyter notebooks onder aan het einde van dit artikel om te proberen voor uzelf. 
+Met Azure Machine Learning-service, kunt u implementeren, beheren en controleren van uw ONNX-modellen. Met behulp van de standaard [implementatiewerkstroom](concept-model-management-and-deployment.md) en u kunt ONNX-Runtime, kunt u een REST-eindpunt gehost in de cloud maken. Zie voor beelden van Jupyter-notebooks aan het einde van dit artikel om het zelf te proberen. 
 
-### <a name="install-and-use-onnx-runtime-with-python"></a>Installeren en u kunt ONNX-Runtime gebruiken met Python
+### <a name="install-and-use-onnx-runtime-with-python"></a>ONNX-runtime installeren en gebruiken met python
 
-Python-pakketten voor ONNX-Runtime zijn beschikbaar op [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)). Lees [systeemvereisten](https://github.com/Microsoft/onnxruntime#system-requirements) voordat de installatie. 
+Python-pakketten voor ONNX runtime zijn beschikbaar op [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)). Lees de [systeem vereisten](https://github.com/Microsoft/onnxruntime#system-requirements) voor de installatie. 
 
- U kunt ONNX-Runtime voor Python wilt installeren, gebruikt u een van de volgende opdrachten: 
+ Als u ONNX runtime voor python wilt installeren, gebruikt u een van de volgende opdrachten: 
 ```python   
 pip install onnxruntime       # CPU build
 pip install onnxruntime-gpu   # GPU build
-``` 
+```
 
 Om aan te roepen ONNX-Runtime in uw Python-script, gebruikt u:    
-```python   
-import onnxruntime  
-session = onnxruntime.InferenceSession("path to model") 
-``` 
+```python
+import onnxruntime
+session = onnxruntime.InferenceSession("path to model")
+```
 
 De documentatie bij het model meestal ziet u de invoer en uitvoer voor het gebruik van het model. U kunt ook een hulpprogramma voor gegevensvisualisatie zoals gebruiken [Netron](https://github.com/lutzroeder/Netron) om het model weer te geven. U kunt ONNX-Runtime kunt u ook query metagegevens van het model, invoer en uitvoer:    
-```python   
-session.get_modelmeta() 
-first_input_name = session.get_inputs()[0].name 
-first_output_name = session.get_outputs()[0].name   
-``` 
+```python
+session.get_modelmeta()
+first_input_name = session.get_inputs()[0].name
+first_output_name = session.get_outputs()[0].name
+```
 
 Naar Deductie uw model, gebruik `run` en door te geven in de lijst van de uitvoer geretourneerd (laat leeg als u wilt dat ze allemaal) en een overzicht van de invoerwaarden. Het resultaat is een lijst van de uitvoer.  
-```python   
-results = session.run(["output1", "output2"], {"input1": indata1, "input2": indata2})   
-results = session.run([], {"input1": indata1, "input2": indata2})   
-``` 
+```python
+results = session.run(["output1", "output2"], {
+                      "input1": indata1, "input2": indata2})
+results = session.run([], {"input1": indata1, "input2": indata2})
+```
 
 Zie voor de volledige Python API-verwijzing de [ONNX-Runtime-referentiedocumenten](https://aka.ms/onnxruntime-python).    
 
@@ -90,6 +91,6 @@ Meer informatie over ONNX of bij te dragen aan het project:
 + [U kunt ONNX-code op GitHub](https://github.com/onnx/onnx)
 
 Meer informatie over ONNX-Runtime of bij te dragen aan het project:
-+ [U kunt ONNX Runtime GitHub-opslagplaats](https://github.com/Microsoft/onnxruntime)
++ [ONNX runtime GitHub opslag plaats](https://github.com/Microsoft/onnxruntime)
 
 

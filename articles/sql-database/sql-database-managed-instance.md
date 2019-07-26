@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: 028b3b2287e9d37a87ae2caf828c8855be331a1f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f4dc00623694fa1fd218f43e7bbd19edef48dec4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327030"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348126"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Wat is Azure SQL Database beheerde instantie?
 
@@ -28,7 +28,7 @@ Managed instance is een nieuwe implementatie optie van Azure SQL Database, die b
 
 Het volgende diagram geeft een overzicht van de belangrijkste functies van beheerde instanties:
 
-![Belangrijkste functies](./media/sql-database-managed-instance/key-features.png)
+![belangrijkste functies](./media/sql-database-managed-instance/key-features.png)
 
 Het implementatie model voor Managed instances is ontworpen voor klanten die een groot aantal apps willen migreren van on-premises of IaaS, zelfgebouwde of ISV geleverde omgeving tot volledig beheerde PaaS-cloud omgeving, met zo weinig mogelijk migratie inspanningen. Met behulp van de volledig geautomatiseerde [gegevens migratie service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) in azure kunnen klanten hun on-premises SQL Server optillen en naar een beheerd exemplaar verplaatsen dat compatibiliteit biedt met SQL Server on-premises en volledige isolatie van klant instanties met systeem eigen VNet-ondersteuning.  Met Software Assurance kunt u hun bestaande licenties uitwisselen voor kortings tarieven voor een beheerd exemplaar met behulp [van de Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Een beheerd exemplaar is de beste migratie bestemming in de Cloud voor SQL Server instanties waarvoor een hoge beveiliging en een uitgebreid programmeerbaar Opper vlak zijn vereist.
 
@@ -159,7 +159,7 @@ De volgende tabel bevat een overzicht van de bewerkingen en typische totale duur
 |Update |Opslag van exemplaren omhoog/omlaag schalen (Bedrijfskritiek servicelaag)|-Verg Roten/verkleinen van virtueel cluster<br>-Always on-beschikbaarheids groep seeding|90% van de bewerkingen zijn voltooid in 2,5 uur + tijd voor het seeden van alle data bases (220 GB/uur)|
 |Update |VCores (instance Compute) omhoog en omlaag schalen (Algemeen)|-Verg Roten/verkleinen van virtueel cluster<br>-Database bestanden koppelen|90% van de bewerkingen zijn voltooid in 2,5 uur|
 |Update |VCores (instance Compute) omhoog en omlaag schalen (Bedrijfskritiek)|-Verg Roten/verkleinen van virtueel cluster<br>-Always on-beschikbaarheids groep seeding|90% van de bewerkingen zijn voltooid in 2,5 uur + tijd voor het seeden van alle data bases (220 GB/uur)|
-|Update |Exemplaar wordt omlaag geschaald naar 4 vCores (Algemeen)|-Het wijzigen van het formaat van het virtuele cluster (als dit voor de eerste keer wordt uitgevoerd, kan het maken van een virtueel cluster vereist zijn * *)<br>-Database bestanden koppelen|90% van de bewerkingen zijn voltooid in in 4 uur 5 min * *|
+|Update |Exemplaar wordt omlaag geschaald naar 4 vCores (Algemeen)|-Het wijzigen van het formaat van het virtuele cluster (als dit voor de eerste keer wordt uitgevoerd, kan het maken van een virtueel cluster vereist zijn * *)<br>-Database bestanden koppelen|90% van de bewerkingen zijn voltooid in 4 uur 5 min * *|
 |Update |Exemplaar wordt omlaag geschaald naar 4 vCores (Algemeen)|-Het wijzigen van het formaat van het virtuele cluster (als dit voor de eerste keer wordt uitgevoerd, kan het maken van een virtueel cluster vereist zijn * *)<br>-Always on-beschikbaarheids groep seeding|90% van de bewerkingen zijn voltooid in 4 uur + tijd voor het seeden van alle data bases (220 GB/uur)|
 |Update |Wijziging van de instantie-servicelaag (Algemeen Bedrijfskritiek en omgekeerd)|-Verg Roten/verkleinen van virtueel cluster<br>-Always on-beschikbaarheids groep seeding|90% van de bewerkingen zijn voltooid in 2,5 uur + tijd voor het seeden van alle data bases (220 GB/uur)|
 |**Bedoeld**|Exemplaar verwijderen|Back-ups van staart vastleggen voor alle data bases|90% bewerkingen zijn Maxi maal 1 minuut voltooid.<br>Opmerking: als het laatste exemplaar van het subnet wordt verwijderd, wordt het verwijderen van het virtuele cluster na 12 uur door deze bewerking gepland.|
@@ -198,7 +198,7 @@ Een beheerd exemplaar biedt extra beveiligings isolatie van andere tenants in de
 
 Het volgende diagram geeft een overzicht van de verschillende connectiviteits opties voor uw toepassingen:
 
-![Hoge Beschik baarheid](./media/sql-database-managed-instance/application-deployment-topologies.png)  
+![hoge Beschik baarheid](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
 Zie voor meer informatie over VNet-integratie en het afdwingen van het netwerk beleid op subnetniveau [vnet-architectuur voor beheerde instanties](sql-database-managed-instance-connectivity-architecture.md) en verbind [uw toepassing met een beheerd exemplaar](sql-database-managed-instance-connect-app.md).
 
@@ -269,7 +269,7 @@ De implementatie optie Managed instance ondersteunt achterwaartse compatibilitei
   
 Het volgende diagram geeft een overzicht van surface area compatibiliteit in het beheerde exemplaar:  
 
-![Virtuelemachinemigratie](./media/sql-database-managed-instance/migration.png)
+![virtuelemachinemigratie](./media/sql-database-managed-instance/migration.png)
 
 ### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>De belangrijkste verschillen tussen SQL Server on-premises en in een beheerd exemplaar
 

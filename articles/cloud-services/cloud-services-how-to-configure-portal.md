@@ -1,112 +1,106 @@
 ---
-title: Het configureren van een cloudservice (portal) | Microsoft Docs
-description: Leer hoe u cloudservices configureren in Azure. Leer hoe u externe toegang tot de rolinstanties, configureren en bijwerken van de configuratie van de cloud-service. Deze voorbeelden gebruiken de Azure-portal.
+title: Een Cloud service (Portal) configureren | Microsoft Docs
+description: Meer informatie over het configureren van Cloud Services in Azure. Meer informatie over het bijwerken van de configuratie van de Cloud service en het configureren van externe toegang tot rolinstanties. In deze voor beelden wordt gebruikgemaakt van de Azure Portal.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 7308f3c0-825e-499d-bfa5-c60f86371921
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: jeconnoc
-ms.openlocfilehash: 4d8d3b93ef2a6347076fada53932b5fc56838d20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 8b60a81e06b95c69a02f88ff3275743b056c191d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61435730"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359653"
 ---
-# <a name="how-to-configure-cloud-services"></a>Cloudservices configureren
+# <a name="how-to-configure-cloud-services"></a>Cloud Services configureren
 
-U kunt de meestgebruikte instellingen voor een cloudservice configureren in Azure portal. Het is ook mogelijk uw configuratiebestand rechtstreeks bij te werken. Download in dat geval een serviceconfiguratiebestand om bij te werken, upload vervolgens het bijgewerkte bestand en werk de cloudservice bij met de configuratiewijzigingen. Welke methode u ook gebruikt, de configuratie-updates worden doorgegeven aan alle rolinstanties.
+U kunt de meestgebruikte instellingen voor een Cloud service configureren in de Azure Portal. Het is ook mogelijk uw configuratiebestand rechtstreeks bij te werken. Download in dat geval een serviceconfiguratiebestand om bij te werken, upload vervolgens het bijgewerkte bestand en werk de cloudservice bij met de configuratiewijzigingen. Welke methode u ook gebruikt, de configuratie-updates worden doorgegeven aan alle rolinstanties.
 
-U kunt ook de exemplaren van uw cloud service-rollen, of extern bureaublad in deze beheren.
+U kunt ook de exemplaren van uw Cloud service rollen, of extern bureau blad, beheren.
 
-Azure kan alleen beschikbaarheid van 99,95 procent service dat tijdens de configuratie-updates hebt u minimaal twee rolinstanties voor elke rol. Waarmee een virtuele machine voor het verwerken van aanvragen van clients, terwijl de andere wordt bijgewerkt. Zie voor meer informatie, [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+Azure kan alleen de service beschikbaarheid van 99,95% garanderen tijdens de configuratie-updates als u ten minste twee rolinstanties voor elke rol hebt. Hiermee kan één virtuele machine client aanvragen verwerken terwijl de andere wordt bijgewerkt. Zie [Service overeenkomst](https://azure.microsoft.com/support/legal/sla/)voor meer informatie.
 
-## <a name="change-a-cloud-service"></a>Wijzigen van een service in de cloud
+## <a name="change-a-cloud-service"></a>Een Cloud service wijzigen
 
-Na opening de [Azure-portal](https://portal.azure.com/), gaat u naar uw service in de cloud. Hier kunt beheren u veel aspecten van deze.
+Ga na het openen van de [Azure Portal](https://portal.azure.com/)naar uw Cloud service. Hier beheert u veel aspecten hiervan.
 
-![Instellingenpagina](./media/cloud-services-how-to-configure-portal/cloud-service.png)
+![Pagina instellingen](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
-De **instellingen** of **alle instellingen** koppelingen geopend **instellingen** waar u kunt wijzigen de **eigenschappen**, wijzigt de  **Configuratie**, beheren van de **certificaten**Stel **waarschuwingsregels**, en beheren van de **gebruikers** die toegang hebben tot deze cloudservice.
+Met de koppelingen **instellingen** of **alle instellingen** worden **instellingen** geopend waarbij u de **Eigenschappen**kunt wijzigen, de **configuratie**wijzigen, de **certificaten**beheert, **waarschuwings regels**instelt en de **gebruikers beheert** wie heeft toegang tot deze Cloud service.
 
-![Azure-cloud service-instellingen](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
+![Instellingen van de Azure-Cloud service](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
-### <a name="manage-guest-os-version"></a>Versie van het Gast-besturingssysteem beheren
+### <a name="manage-guest-os-version"></a>De versie van het gast besturingssysteem beheren
 
-Standaard werkt Azure periodiek de Gast-OS naar de nieuwste ondersteunde installatiekopie binnen het type besturingssysteem dat u hebt opgegeven in de serviceconfiguratie (.cscfg), zoals Windows Server 2016.
+Standaard werkt Azure uw gast besturingssysteem regel matig bij naar de meest recente ondersteunde installatie kopie in de besturingssysteem familie die u hebt opgegeven in uw service configuratie (. cscfg), zoals Windows Server 2016.
 
-Als u richten op een specifieke versie van het besturingssysteem wilt, kunt u dit instellen **configuratie**.
+Als u een specifieke versie van het besturings systeem nodig hebt, kunt u deze instellen in de **configuratie**.
 
-![Versie van het besturingssysteem instellen](./media/cloud-services-how-to-configure-portal/cs-settings-config-guestosversion.png)
+![Versie van besturings systeem instellen](./media/cloud-services-how-to-configure-portal/cs-settings-config-guestosversion.png)
 
 >[!IMPORTANT]
-> Kiezen van dat een specifieke versie van het besturingssysteem schakelt automatische besturingssysteem-updates en kunt u uw eigen verantwoordelijkheid patches. U moet ervoor zorgen dat uw rolinstanties zijn ontvangen van updates of u uw toepassing om beveiligingsproblemen te kan weergeven.
+> Als u een specifieke versie van het besturings systeem kiest, worden automatisch updates van het besturings systeem uitgeschakeld en wordt er patch voor uw verantwoordelijkheid gemaakt. U moet ervoor zorgen dat uw rolinstanties updates ontvangen of u kunt uw toepassing bloot stellen aan beveiligings problemen.
 
 ## <a name="monitoring"></a>Bewaking
 
-U kunt waarschuwingen toevoegen aan uw cloudservice. Klik op **instellingen** > **waarschuwingsregels** > **waarschuwing toevoegen**.
+U kunt waarschuwingen toevoegen aan uw Cloud service. Klik op **instellingen** > **waarschuwings regels** > **waarschuwing toevoegen**.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
-Hier kunt u een waarschuwing instellen. Met de **Metric** vervolgkeuzelijst, kunt u instellen een waarschuwing voor de volgende typen gegevens.
+Hier kunt u een waarschuwing instellen. In de vervolg keuzelijst **metriek** kunt u een waarschuwing instellen voor de volgende typen gegevens.
 
 * Schijf lezen
 * Schijf schrijven
-* Het netwerk
-* Netwerk-uitgaand
-* CPU-percentage
+* Netwerk - inkomend
+* Netwerk - uitgaand
+* Processorpercentage
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
-### <a name="configure-monitoring-from-a-metric-tile"></a>Bewaking van een metrische tegel configureren
+### <a name="configure-monitoring-from-a-metric-tile"></a>Bewaking configureren op basis van een metrische tegel
 
-In plaats van **instellingen** > **waarschuwingsregels**, kunt u klikken op een van de metrische gegevens tegels in de **bewaking** sectie van de cloudservice.
+In plaats van **instellingen** > voor**waarschuwings regels**te gebruiken, kunt u klikken op een van de metrische tegels in de sectie **bewaking** van de Cloud service.
 
-![Cloudservice controleren](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
+![Cloud service bewaken](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
-Hier kunt u de grafiek gebruikt in combinatie met de tegel aanpassen of een waarschuwingsregel toevoegen.
+Hier kunt u de grafiek die wordt gebruikt met de tegel aanpassen of een waarschuwings regel toevoegen.
 
-## <a name="reboot-reimage-or-remote-desktop"></a>Opnieuw opstarten, installatiekopie terugzetten, of extern bureaublad
+## <a name="reboot-reimage-or-remote-desktop"></a>Opnieuw opstarten, installatie kopie terugzetten of extern bureau blad
 
-U kunt instellen met extern bureaublad via de [Azure-portal (ingesteld met extern bureaublad)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), of via [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
+U kunt extern bureau blad instellen via de [Azure Portal (extern bureau blad instellen)](cloud-services-role-enable-remote-desktop-new-portal.md), [Power shell](cloud-services-role-enable-remote-desktop-powershell.md)of via [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
 
-Selecteer het cloud service-exemplaar opnieuw opstarten, terugzetten, of extern verbinding maken met een Cloudservice.
+Als u opnieuw wilt opstarten, een installatie kopie of een externe server wilt omzetten in een Cloud service, selecteert u het Cloud service-exemplaar.
 
-![Cloud Service-exemplaar](./media/cloud-services-how-to-configure-portal/cs-instance.png)
+![Cloud service-exemplaar](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 
-U kunt vervolgens initiëren een verbinding met extern bureaublad, op afstand opnieuw opstarten van het exemplaar of op afstand herstellen met een installatiekopie (beginnen met een nieuwe installatiekopie) het exemplaar.
+U kunt vervolgens een verbinding met een extern bureau blad initiëren, het exemplaar extern opnieuw opstarten of een installatie kopie op afstand (beginnen met een nieuwe installatie kopie) van het exemplaar.
 
-![Cloud Service-exemplaar knoppen](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
+![Knoppen voor het Cloud service-exemplaar](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
-## <a name="reconfigure-your-cscfg"></a>Configureren van uw cscfg-bestand
+## <a name="reconfigure-your-cscfg"></a>Uw. cscfg opnieuw configureren
 
-U moet mogelijk opnieuw configureren van uw cloudservice via de [service config (cscfg)](cloud-services-model-and-package.md#cscfg) bestand. U moet eerst uw cscfg-bestand downloaden, wijzigen en vervolgens uploaden.
+Mogelijk moet u de Cloud service opnieuw configureren via het [cscfg-bestand (service config)](cloud-services-model-and-package.md#cscfg) . Eerst moet u uw cscfg-bestand downloaden, wijzigen en vervolgens uploaden.
 
-1. Klik op de **instellingen** pictogram of de **alle instellingen** koppeling openen **instellingen**.
+1. Klik op het **instellingen** pictogram of de koppeling **alle instellingen** om **instellingen**te openen.
 
-    ![Instellingenpagina](./media/cloud-services-how-to-configure-portal/cloud-service.png)
-2. Klik op de **configuratie** item.
+    ![Pagina instellingen](./media/cloud-services-how-to-configure-portal/cloud-service.png)
+2. Klik op het **configuratie** -item.
 
-    ![Configuratieblade](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
+    ![Blade configuratie](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
 3. Klik op de knop **Downloaden**.
 
     ![Downloaden](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
-4. Na het bijwerken van het serviceconfiguratiebestand, uploaden en de configuratie-updates toepassen:
+4. Nadat u het service configuratie bestand hebt bijgewerkt, uploadt u de configuratie-updates en past u deze toe:
 
     ![Uploaden](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
-5. Selecteer het cscfg-bestand en klik op **OK**.
+5. Selecteer het. cscfg-bestand en klik op **OK**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het [implementeren van een cloudservice](cloud-services-how-to-create-deploy-portal.md).
-* Configureer een [aangepaste domeinnaam](cloud-services-custom-domain-name-portal.md).
-* [Uw cloudservice beheren](cloud-services-how-to-manage-portal.md).
-* Configureer [ssl-certificaten](cloud-services-configure-ssl-certificate-portal.md).
+* Meer informatie over het [implementeren van een Cloud service](cloud-services-how-to-create-deploy-portal.md).
+* Een [aangepaste domein naam](cloud-services-custom-domain-name-portal.md)configureren.
+* [Uw Cloud service beheren](cloud-services-how-to-manage-portal.md).
+* [SSL-certificaten](cloud-services-configure-ssl-certificate-portal.md)configureren.

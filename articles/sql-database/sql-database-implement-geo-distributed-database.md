@@ -1,6 +1,6 @@
 ---
 title: Een geografisch gedistribueerde Azure SQL database-oplossing implementeren | Microsoft Docs
-description: Informatie over het configureren van uw Azure SQL-database en de toepassing voor failover naar een gerepliceerde database, en failover testen.
+description: Meer informatie over het configureren van uw Azure SQL database en-toepassing voor failover naar een gerepliceerde data base en de testfailover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,21 +12,21 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 6022c016b83ffe1362db4d826a5ee4397afd4128
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5be3efa5544e47f40ab9f0a31f6658b134977e2
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60338962"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444530"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Zelfstudie: Een geografisch gedistribueerde database implementeren
 
-Een Azure SQL-database en -toepassing voor failover naar een externe regio configureren en testen van een failover-plan. In deze zelfstudie leert u procedures om het volgende te doen:
+Configureer een Azure-SQL database en-toepassing voor failover naar een externe regio en test een failover-plan. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> - Maak een [failovergroep](sql-database-auto-failover-group.md)
-> - Een Java-toepassing in een Azure SQL database query uitvoeren
-> - Testfailover
+> - Een [failovergroep](sql-database-auto-failover-group.md) maken
+> - Een Java-toepassing uitvoeren om een query uit te voeren op een Azure-SQL database
+> - Failover testen
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -34,34 +34,34 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
+> De Power shell-Azure Resource Manager module wordt nog steeds ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module AZ. SQL. Zie [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)voor deze cmdlets. De argumenten voor de opdrachten in de module AZ en in de AzureRm-modules zijn aanzienlijk identiek.
 
-Als u wilt de zelfstudie hebt voltooid, moet dat u de volgende items hebt geïnstalleerd:
+Als u de zelf studie wilt volt ooien, moet u ervoor zorgen dat u de volgende items hebt geïnstalleerd:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- Een Azure SQL-database. Voor het maken een gebruiken
+- Een enkele data base in Azure SQL Database. Als u één gebruik wilt maken,
   - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
   > [!NOTE]
-  > De zelfstudie wordt gebruikgemaakt van de *AdventureWorksLT* voorbeelddatabase.
+  > In deze zelf studie wordt gebruikgemaakt van de voorbeeld database *AdventureWorksLT* .
 
-- Java en Maven, Zie [een app bouwen met SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), markeer **Java** , selecteer uw omgeving en vervolgens de volgende stappen.
+- Java en Maven, Zie [een app bouwen met SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), **Java** markeren en uw omgeving selecteren en de stappen volgen.
 
 > [!IMPORTANT]
-> Zorg ervoor dat firewall-regels ingesteld voor het gebruik van het openbare IP-adres van de computer waarop het uitvoeren van de stappen in deze zelfstudie. Database-level firewall-regels worden automatisch gerepliceerd naar de secundaire server.
+> Zorg ervoor dat u firewall regels instelt voor het gebruik van het open bare IP-adres van de computer waarop u de stappen in deze zelf studie uitvoert. Firewall regels op database niveau worden automatisch gerepliceerd naar de secundaire server.
 >
-> Zie voor meer informatie [een firewallregel op databaseniveau maken](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) of om te bepalen het IP-adres dat is gebruikt voor de firewallregel op serverniveau voor uw computer naar [maken van een firewall op serverniveau](sql-database-server-level-firewall-rule.md).  
+> Zie voor meer informatie [een firewall regel op database niveau maken](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) of om het IP-adres te bepalen dat wordt gebruikt voor de firewall regel op server niveau voor uw computer Zie [een firewall op server niveau maken](sql-database-server-level-firewall-rule.md).  
 
-## <a name="create-a-failover-group"></a>Maak een failovergroep
+## <a name="create-a-failover-group"></a>Een failovergroep maken
 
-Met behulp van Azure PowerShell, [failovergroepen](sql-database-auto-failover-group.md) tussen een bestaande Azure SQL-server en een nieuwe Azure SQL-server in een andere regio. De database vervolgens toevoegen aan de failovergroep.
+Gebruik Azure PowerShell om [failover-groepen](sql-database-auto-failover-group.md) te maken tussen een bestaande Azure SQL-Server en een nieuwe Azure SQL-Server in een andere regio. Voeg vervolgens de voorbeeld database toe aan de failovergroep.
 
 > [!IMPORTANT]
 > [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 
-Voer het volgende script voor het maken van een failovergroep:
+Voer het volgende script uit om een failovergroep te maken:
 
    ```powershell
     # Set variables for your server and database
@@ -102,19 +102,19 @@ Voer het volgende script voor het maken van een failovergroep:
        -FailoverGroupName $myfailovergroupname
    ```
 
-Geo-replicatie-instellingen ook in de Azure-portal kunnen worden gewijzigd door het selecteren van de database, en vervolgens **instellingen** > **Geo-replicatie**.
+Geo-replicatie-instellingen kunnen ook worden gewijzigd in de Azure portal door uw data base te selecteren en vervolgens **instellingen** > **geo-replicatie**te kiezen.
 
 ![Geo-replicatie-instellingen](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
 
-## <a name="run-the-sample-project"></a>Het voorbeeldproject uitvoeren
+## <a name="run-the-sample-project"></a>Het voorbeeld project uitvoeren
 
-1. Maak een Maven-project met de volgende opdracht in de console:
+1. Maak in de-console een Maven-project met de volgende opdracht:
 
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. Type **Y** en druk op **Enter**.
+1. Typ **Y** en druk op **Enter**.
 
 1. Wijzig de mappen in het nieuwe project.
 
@@ -122,9 +122,9 @@ Geo-replicatie-instellingen ook in de Azure-portal kunnen worden gewijzigd door 
    cd SqlDbSample
    ```
 
-1. Open uw favoriete editor met de *pom.xml* bestand in de projectmap.
+1. Open met uw favoriete editor het bestand *pom. XML* in de projectmap.
 
-1. De Microsoft JDBC-stuurprogramma voor SQL Server-afhankelijkheid toevoegen door toe te voegen van de volgende `dependency` sectie. De afhankelijkheid moet worden geplakt in de grotere `dependencies` sectie.
+1. Voeg het micro soft JDBC-stuur programma voor SQL Server afhankelijkheid `dependency` toe door de volgende sectie toe te voegen. De afhankelijkheid moet in de grotere `dependencies` sectie worden geplakt.
 
    ```xml
    <dependency>
@@ -134,7 +134,7 @@ Geo-replicatie-instellingen ook in de Azure-portal kunnen worden gewijzigd door 
    </dependency>
    ```
 
-1. De Java-versie opgeven door toe te voegen de `properties` sectie na de `dependencies` sectie:
+1. Geef de Java-versie op door `properties` de sectie toe `dependencies` te voegen na de sectie:
 
    ```xml
    <properties>
@@ -143,7 +143,7 @@ Geo-replicatie-instellingen ook in de Azure-portal kunnen worden gewijzigd door 
    </properties>
    ```
 
-1. Ondersteuning van manifestbestanden door toe te voegen de `build` sectie na de `properties` sectie:
+1. Ondersteuning voor manifest bestanden door de `build` sectie toe te `properties` voegen na de sectie:
 
    ```xml
    <build>
@@ -164,9 +164,9 @@ Geo-replicatie-instellingen ook in de Azure-portal kunnen worden gewijzigd door 
    </build>
    ```
 
-1. Opslaan en sluiten de *pom.xml* bestand.
+1. Sla het bestand *pom. XML* op en sluit het.
 
-1. Open de *App.java* bestand zich bevindt in... \SqlDbSample\src\main\java\com\sqldbsamples en vervang de inhoud door de volgende code:
+1. Open het bestand *app. java* dat zich bevindt in.. \SqlDbSample\src\main\java\com\sqldbsamples en vervang de inhoud door de volgende code:
 
    ```java
    package com.sqldbsamples;
@@ -272,15 +272,15 @@ Geo-replicatie-instellingen ook in de Azure-portal kunnen worden gewijzigd door 
    }
    ```
 
-1. Opslaan en sluiten de *App.java* bestand.
+1. Sla het bestand *app. java* op en sluit het.
 
-1. Voer in de opdrachtconsole de volgende opdracht:
+1. Voer in de opdracht console de volgende opdracht uit:
 
    ```bash
    mvn package
    ```
 
-1. Start de toepassing die wordt uitgevoerd bij ongeveer 1 uur totdat deze handmatig wordt gestopt, zodat u tijd de failovertest wilt uitvoeren.
+1. Start de toepassing die ongeveer 1 uur wordt uitgevoerd totdat deze hand matig wordt gestopt, waardoor u tijd hebt om de testfailover uit te voeren.
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
@@ -297,11 +297,11 @@ Geo-replicatie-instellingen ook in de Azure-portal kunnen worden gewijzigd door 
    ...
    ```
 
-## <a name="test-failover"></a>Testfailover
+## <a name="test-failover"></a>Failover testen
 
-Voer de volgende scripts voor het simuleren van een failover en bekijk de toepassingsresultaten. U ziet hoe sommige ingevoegd en selecteert u mislukken tijdens de migratie van de database.
+Voer de volgende scripts uit om een failover te simuleren en Bekijk de resultaten van de toepassing. U ziet dat sommige invoegen en selecteren mislukken tijdens de database migratie.
 
-U kunt ook de rol van de server voor noodherstelanalyse controleren tijdens de test met de volgende opdracht:
+U kunt ook de rol van de server voor herstel na nood gevallen tijdens de test controleren met de volgende opdracht:
 
    ```powershell
    (Get-AzSqlDatabaseFailoverGroup `
@@ -312,7 +312,7 @@ U kunt ook de rol van de server voor noodherstelanalyse controleren tijdens de t
 
 Een failover testen:
 
-1. Start een handmatige failover van de failovergroep:
+1. Een hand matige failover van de failovergroep starten:
 
    ```powershell
    Switch-AzSqlDatabaseFailoverGroup `
@@ -321,7 +321,7 @@ Een failover testen:
       -FailoverGroupName $myfailovergroupname
    ```
 
-1. Failovergroep naar de primaire server herstellen:
+1. Herstel de failovergroep terug naar de primaire server:
 
    ```powershell
    Switch-AzSqlDatabaseFailoverGroup `
@@ -332,14 +332,14 @@ Een failover testen:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie die u kunt een Azure SQL-database en -toepassing voor failover naar een externe regio geconfigureerd en getest een failover-plan. U hebt geleerd hoe u:
+In deze zelf studie hebt u een Azure-SQL database en-toepassing geconfigureerd voor failover naar een externe regio en een failover-plan getest. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
 > - Een failover-groep met geo-replicatie maken
-> - Een Java-toepassing in een Azure SQL database query uitvoeren
-> - Testfailover
+> - Een Java-toepassing uitvoeren om een query uit te voeren op een Azure-SQL database
+> - Failover testen
 
-Ga naar de volgende zelfstudie voor het migreren met behulp van DMS.
+Ga verder met de volgende zelf studie over het migreren met behulp van DMS.
 
 > [!div class="nextstepaction"]
-> [SQL Server migreren naar Azure SQL-database beheerd exemplaar met behulp van DMS](../dms/tutorial-sql-server-to-managed-instance.md)
+> [SQL Server migreren naar een beheerd exemplaar van Azure SQL database met behulp van DMS](../dms/tutorial-sql-server-to-managed-instance.md)

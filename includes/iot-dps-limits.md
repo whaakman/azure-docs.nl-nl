@@ -4,34 +4,36 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 610f5fcf80db8ffa0c7207d459b98087cbb4773b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e427a7b80b28f1cc70a02890152f9f2247a8bcd2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455141"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360276"
 ---
-De volgende tabel bevat de limieten die voor Azure IoT Hub Device Provisioning Service-resources gelden.
+De volgende tabel bevat de limieten die van toepassing zijn op Azure IoT Hub Device Provisioning Service-resources.
 
 | Resource | Limiet |
 | --- | --- |
-| Maximum aantal apparaat inrichten van services per Azure-abonnement | 10 |
+| Maximum aantal services voor het inrichten van apparaten per Azure-abonnement | 10 |
 | Maximum aantal inschrijvingen | 1\.000.000 |
 | Maximum aantal registraties | 1\.000.000 |
-| Maximum aantal Registratiegroepen | 100 |
-| Maximum aantal CA 's | 25 |
-| Maximale grootte van bericht | 96 KB|
+| Maximum aantal registratie groepen | 100 |
+| Maximum aantal Ca's | 25 |
+| Maximum aantal gekoppelde IoT-hubs | 10 |
+| Maximale bericht grootte | 96 KB|
+
 
 > [!NOTE]
-> Als u wilt het aantal exemplaren in uw abonnement verhogen, neem contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Als u het aantal exemplaren in uw abonnement wilt verhogen, neemt u contact op met [Microsoft ondersteuning](https://azure.microsoft.com/support/options/).
 
 > [!NOTE]
-> Als u wilt vergroten het aantal registraties en registraties voor uw provisioning-service, neem contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Neem contact op met [Microsoft ondersteuning](https://azure.microsoft.com/support/options/)als u het aantal inschrijvingen en registraties voor uw inrichtings service wilt verhogen.
 
-De Device Provisioning Service vertraagt aanvragen wanneer de volgende quota worden overschreden.
+De Device Provisioning Service beperkt aanvragen wanneer de volgende quota worden overschreden.
 
 | Vertragen | Waarde per eenheid |
 | --- | --- |
 | Bewerkingen | 200/min/service |
 | Apparaatregistraties | 200/min/service |
-| Pollingbewerking van apparaat | 5/10 sec/apparaat |
+| Polling bewerking voor apparaten | 5/10 sec/apparaat |

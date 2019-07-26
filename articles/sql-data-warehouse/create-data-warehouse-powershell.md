@@ -1,8 +1,8 @@
 ---
-title: 'Quickstart: Maken van een Azure SQL datawarehouse - Azure Powershell | Microsoft Docs'
-description: Maak snel een logische SQL Database-server, firewallregel op serverniveau en datawarehouse met Azure PowerShell.
+title: 'Quickstart: Een Azure SQL Data Warehouse maken-Azure Power shell | Microsoft Docs'
+description: Maak snel een SQL Database logische server, een firewall regel op server niveau en een Data Warehouse met Azure PowerShell.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
@@ -10,16 +10,16 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: cdaa932a4996d559b5974e39e20cf75acd6571c5
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 1f800ade5c5122f0891c9122f6698b6550048c67
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873772"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479329"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Quickstart: Maken en het opvragen van een Azure SQL datawarehouse met Azure PowerShell
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Quickstart: Een Azure SQL-Data Warehouse maken en er een query op uitvoeren met Azure PowerShell
 
-Maak snel een Azure SQL datawarehouse met behulp van Azure PowerShell.
+Maak snel een Azure SQL data warehouse met behulp van Azure PowerShell.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -30,19 +30,19 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Aanmelden bij uw Azure-abonnement met de [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) opdracht en volgt u de op het scherm aanwijzingen.
+Meld u aan bij uw Azure-abonnement met de opdracht [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) en volg de instructies op het scherm.
 
 ```powershell
 Connect-AzAccount
 ```
 
-Als u wilt zien welk abonnement u gebruikt, [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
+Als u wilt zien welk abonnement u gebruikt, voert u [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription)uit.
 
 ```powershell
 Get-AzSubscription
 ```
 
-Als u gebruiken een ander abonnement dan de standaard wilt, voert u [Set AzContext](/powershell/module/az.accounts/set-azcontext).
+Als u een ander abonnement wilt gebruiken dan de standaard instelling, voert u [set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
@@ -72,14 +72,14 @@ $databasename = "mySampleDataWarehosue"
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met behulp van de [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) opdracht. Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westeurope`.
+Maak een [Azure-resource groep](../azure-resource-manager/resource-group-overview.md) met de opdracht [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) . Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westeurope`.
 
 ```powershell
 New-AzResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Een logische server maken
 
-Maak een [logische Azure SQL-server](../sql-database/sql-database-logical-servers.md) met behulp van de [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) opdracht. Een logische server bevat een groep met databases die worden beheerd als groep. Het volgende voorbeeld wordt een willekeurige naam server in de resourcegroep met een gebruiker met de naam `ServerAdmin` en het wachtwoord `ChangeYourAdminPassword1`. U kunt deze vooraf gedefinieerde waarden vervangen.
+Maak een [logische Azure SQL-Server](../sql-database/sql-database-logical-servers.md) met de opdracht [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) . Een logische server bevat een groep met databases die worden beheerd als groep. In het volgende voor beeld wordt een wille keurig benoemde server in de resource groep gemaakt met `ServerAdmin` een beheerder met de `ChangeYourAdminPassword1`naam en een wacht woord van. U kunt deze vooraf gedefinieerde waarden vervangen.
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $resourcegroupname `
@@ -90,7 +90,7 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Een serverfirewallregel configureren
 
-Maak een [Azure SQL-firewallregel op serverniveau](../sql-database/sql-database-firewall-configure.md) met behulp van de [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) opdracht. Een firewallregel op serverniveau kan een externe toepassing, zoals SQL Server Management Studio of het hulpprogramma SQLCMD verbinding maken met een SQL datawarehouse via de firewall van de service SQL Data Warehouse. In het volgende voorbeeld wordt de firewall alleen geopend voor andere Azure-resources. Voor externe connectiviteit wijzigt u het IP-adres in een correct adres voor uw omgeving. Als u alle IP-adressen wilt openen, gebruikt u 0.0.0.0 als beginadres en 255.255.255.255 als eindadres.
+Maak een [firewall regel op Azure SQL server-niveau](../sql-database/sql-database-firewall-configure.md) met de opdracht [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) . Met een firewall regel op server niveau kan een externe toepassing, zoals SQL Server Management Studio, of het hulp programma SQLCMD om verbinding te maken met een SQL Data Warehouse via de SQL Data Warehouse service Firewall. In het volgende voorbeeld wordt de firewall alleen geopend voor andere Azure-resources. Voor externe connectiviteit wijzigt u het IP-adres in een correct adres voor uw omgeving. Als u alle IP-adressen wilt openen, gebruikt u 0.0.0.0 als beginadres en 255.255.255.255 als eindadres.
 
 ```powershell
 New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
@@ -99,12 +99,12 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL-Database en SQL Data Warehouse communiceren via poort 1433. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. Als dit het geval is, kunt u zich niet verbinden met uw Azure SQL-server als uw IT-afdeling poort 1433 openstelt.
+> SQL Database en SQL Data Warehouse communiceren via poort 1433. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. Als dat het geval is, kunt u geen verbinding maken met uw Azure SQL-Server tenzij uw IT-afdeling poort 1433 opent.
 >
 
 
 ## <a name="create-a-data-warehouse"></a>Een datawarehouse maken
-Dit voorbeeld maakt u een datawarehouse met behulp van de eerder gedefinieerde variabelen.  Het geeft de servicedoelstelling als DW100c, dit een startpunt voor de lagere kosten voor uw datawarehouse is. 
+In dit voor beeld wordt een Data Warehouse gemaakt met de eerder gedefinieerde variabelen.  Hiermee wordt de service doelstelling als DW100c opgegeven. Dit is een goedkope start punt voor uw data warehouse. 
 
 ```Powershell
 New-AzSqlDatabase `
@@ -119,18 +119,18 @@ New-AzSqlDatabase `
 
 De vereiste parameters zijn:
 
-* **RequestedServiceObjectiveName**: De hoeveelheid [datawarehouse-eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md) u aanvragen. Dit bedrag verhoogt, kosten. Zie voor een lijst van ondersteunde waarden, [limieten voor geheugen en gelijktijdigheid](memory-and-concurrency-limits.md).
+* **RequestedServiceObjectiveName**: De hoeveelheid [Data Warehouse-eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md) die u aanvraagt. Het verhogen van deze waarde verhoogt de reken kosten. Zie [geheugen-en gelijktijdigheids limieten](memory-and-concurrency-limits.md)voor een lijst met ondersteunde waarden.
 * **DatabaseName**: De naam van de SQL Data Warehouse die u maakt.
-* **ServerName**: De naam van de server die u voor het maken van gebruikt.
-* **ResourceGroupName**: De resourcegroep die u gebruikt. Gebruik Get-AzureResource om beschikbare resourcegroepen in uw abonnement te zoeken.
-* **Editie**: 'DataWarehouse' moet zijn om te maken van een SQL Data Warehouse.
+* **ServerName**: De naam van de server die u gebruikt voor het maken van.
+* **ResourceGroupName**: De resource groep die u gebruikt. Gebruik Get-AzureResource om beschikbare resourcegroepen in uw abonnement te zoeken.
+* **Editie**: Moet data warehouse zijn om een SQL Data Warehouse te maken.
 
 De optionele parameters zijn:
 
-- **Sorteringnaam**: De standaardsortering, indien niet opgegeven is SQL_Latin1_General_CP1_CI_AS. Sortering kan niet worden gewijzigd voor een database.
-- **MaxSizeBytes**: De standaard maximale grootte van een database is 240TB. De maximale grootte beperkt rowstore-gegevens. Er is onbeperkte opslag voor kolomgegevens.
+- **CollationName**: De standaard sortering als niet is opgegeven, is SQL_Latin1_General_CP1_CI_AS. Sortering kan niet worden gewijzigd voor een Data Base.
+- **MaxSizeBytes**: De standaard maximale grootte van een Data Base is 240TB. De maximale grootte beperkt de rowstore-gegevens. Er is een onbeperkte opslag voor kolom gegevens.
 
-Zie voor meer informatie over de parameteropties [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
+Zie [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)voor meer informatie over de parameter opties.
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
@@ -138,7 +138,7 @@ Zie voor meer informatie over de parameteropties [New-AzSqlDatabase](/powershell
 Andere zelfstudies in deze verzameling zijn gebaseerd op deze snelstart. 
 
 > [!TIP]
-> Als u van plan bent om door te gaan werken met latere zelfstudies, niet schoon dan de resources die zijn gemaakt in deze Quick Start. Als u niet van plan bent om door te gaan, gebruikt u de volgende stappen uit om alle resources die zijn gemaakt door deze Quick Start in de Azure-portal te verwijderen.
+> Als u van plan bent om door te gaan met de latere zelf studies, kunt u de resources die u in deze Quick Start hebt gemaakt, niet opschonen. Als u niet wilt door gaan, gebruikt u de volgende stappen om alle resources te verwijderen die door deze Quick Start in de Azure Portal zijn gemaakt.
 >
 
 ```powershell
@@ -147,6 +147,6 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt nu een datawarehouse, een firewallregel, verbonden met uw datawarehouse gemaakt gemaakt en enkele query's uitvoeren. Voor meer informatie over Azure SQL Data Warehouse gaat u verder met de zelfstudie voor het laden van gegevens.
+U hebt nu een Data Warehouse gemaakt, een firewall regel gemaakt die is verbonden met uw data warehouse en enkele query's uitgevoerd. Voor meer informatie over Azure SQL Data Warehouse gaat u verder met de zelfstudie voor het laden van gegevens.
 > [!div class="nextstepaction"]
 >[Gegevens laden in een SQL-datawarehouse](load-data-from-azure-blob-storage-using-polybase.md)

@@ -1,6 +1,6 @@
 ---
-title: Met de naam entiteit erkenning cognitief zoeken vaardigheid - Azure Search
-description: Benoemde entiteiten voor persoon, locatie en organisatie extraheren uit tekst in een Azure Search cognitief zoeken-pijplijn.
+title: Benoemde entiteit herkenning cognitieve Zoek vaardigheid-Azure Search
+description: Haalt benoemde entiteiten voor persoon, locatie en organisatie uit tekst op in een Azure Search cognitieve Zoek pijplijn.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,59 +11,59 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b7af4d0a48f002f7523def971a306d1fa2077c70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4049f76fdbe4745f3c75c74bc49d8fecc43fb2cf
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952033"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347685"
 ---
-#    <a name="named-entity-recognition-cognitive-skill"></a>Met de naam entiteit erkenning cognitieve vaardigheden
+#    <a name="named-entity-recognition-cognitive-skill"></a>Herkennings vaardigheid van benoemde entiteiten
 
-De **herkenning van entiteit met de naam** vaardigheid extraheert benoemde entiteiten uit tekst. Beschikbare entiteiten bevatten de typen `person`, `location` en `organization`.
+De **benoemde entiteit herkennings** kwalificatie haalt benoemde entiteiten uit tekst op. Beschik bare entiteiten zijn `person`onder `location` andere `organization`typen en.
 
 > [!IMPORTANT]
-> Herkenning van benoemde entiteiten kwalificatie is nu niet vervangen door [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Ondersteuning op 15 februari 2019 gestopt en de API is verwijderd uit het product 2 mei 2019. Volg de aanbevelingen in [cognitief zoeken vaardigheden afgeschaft](cognitive-search-skill-deprecated.md) om te migreren naar een ondersteunde kwalificatie.
+> Kwalificatie voor erkenning van benoemde entiteiten wordt nu door [micro soft. skills. Text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)vervangen. Ondersteuning gestopt op 15 februari 2019 en de API is verwijderd uit het product op 2 mei 2019. Volg de aanbevelingen in [afgeschafte vaardig heden voor cognitieve zoek acties](cognitive-search-skill-deprecated.md) om naar een ondersteunde vaardigheid te migreren.
 
 > [!NOTE]
-> Als u bereik uitbreiden door het verhogen van de frequentie van de verwerking, meer documenten toe te voegen of toe te voegen meer AI-algoritmen, u moet [een factureerbare Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md). Kosten toenemen bij het aanroepen van API's in Cognitive Services en voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken in Azure Search. Er zijn geen kosten voor het ophalen van de tekst van documenten.
+> Als u het bereik uitbreidt door de verwerkings frequentie te verhogen, meer documenten toe te voegen of meer AI-algoritmen toe te voegen, moet u [een factureer bare Cognitive Services resource koppelen](cognitive-search-attach-cognitive-services.md). Er worden kosten in rekening gebracht bij het aanroepen van Api's in Cognitive Services en voor het ophalen van afbeeldingen als onderdeel van de fase voor het kraken van documenten in Azure Search. Er worden geen kosten in rekening gebracht voor het ophalen van tekst uit documenten.
 >
-> Uitvoering van de ingebouwde vaardigheden wordt in rekening gebracht op de bestaande [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services/). Afbeelding extractie prijzen wordt beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
+> De uitvoering van ingebouwde vaardig heden wordt in rekening gebracht op basis van de bestaande [Cognitive Services betalen naar](https://azure.microsoft.com/pricing/details/cognitive-services/)gebruik-prijs. Prijzen voor Image extractie worden beschreven op de [pagina met Azure Search prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="data-limits"></a>Gegevenslimieten
-De maximale grootte van een record moet tussen de 50.000 tekens wordt gemeten door `String.Length`. Als u moet het opsplitsen van uw gegevens voordat deze naar de extractor sleuteluitdrukkingen verzonden, kunt u overwegen de [tekst splitsen vaardigheid](cognitive-search-skill-textsplit.md).
+De maximale grootte van een record moet 50.000 tekens zijn, zoals gemeten [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)door. Als u uw gegevens moet opsplitsen voordat u deze naar de sleutel woord groep verstuurt, kunt u overwegen de [Kwalificatie tekst splitsen](cognitive-search-skill-textsplit.md)te gebruiken.
 
-## <a name="skill-parameters"></a>Kwalificatie parameters
+## <a name="skill-parameters"></a>Vaardigheids parameters
 
-Parameters zijn hoofdlettergevoelig.
+Para meters zijn hoofdletter gevoelig.
 
 | Parameternaam     | Description |
 |--------------------|-------------|
-| categorieën    | Matrix van categorieën die moeten worden geëxtraheerd.  Mogelijke categorietypen: `"Person"`, `"Location"`, `"Organization"`. Als er geen categorie is opgegeven, worden alle typen worden geretourneerd.|
-|defaultLanguageCode |  De taalcode van de invoertekst. De volgende talen worden ondersteund: `de, en, es, fr, it`|
-| minimumPrecision  | Een getal tussen 0 en 1. Als de precisie lager is dan deze waarde is, wordt de entiteit wordt niet geretourneerd. De standaardwaarde is 0.|
+| categories    | Matrix van categorieën die moeten worden geëxtraheerd.  Mogelijke categorie typen: `"Person"`, `"Location"`, `"Organization"`. Als er geen categorie wordt opgegeven, worden alle typen geretourneerd.|
+|defaultLanguageCode |  De taal code van de invoer tekst. De volgende talen worden ondersteund:`de, en, es, fr, it`|
+| minimumPrecision  | Een getal tussen 0 en 1. Als de precisie lager is dan deze waarde, wordt de entiteit niet geretourneerd. De standaard waarde is 0.|
 
-## <a name="skill-inputs"></a>Kwalificatie invoer
+## <a name="skill-inputs"></a>Vaardigheids invoer
 
-| Voer een naam in      | Description                   |
+| Naam invoeren      | Description                   |
 |---------------|-------------------------------|
 | languageCode  | Optioneel. De standaardwaarde is `"en"`.  |
-| text          | De tekst te analyseren.          |
+| text          | De tekst die moet worden geanalyseerd.          |
 
-## <a name="skill-outputs"></a>Kwalificatie uitvoer
+## <a name="skill-outputs"></a>Vaardigheids uitvoer
 
-| Naam van de uitvoer     | Description                   |
+| Uitvoer naam     | Description                   |
 |---------------|-------------------------------|
-| personen      | Een matrix met tekenreeksen waarbij elke tekenreeks de naam van een persoon vertegenwoordigt. |
-| locations  | Een matrix met tekenreeksen waarbij elke tekenreeks een locatie vertegenwoordigt. |
-| organizations  | Een matrix met tekenreeksen waarbij elke tekenreeks een organisatie vertegenwoordigt. |
-| Entiteiten | Een matrix met complexe typen. Elk complexe type bevat de volgende velden: <ul><li>categorie (`"person"`, `"organization"`, of `"location"`)</li> <li>waarde (de naam van de werkelijke entiteit)</li><li>offset (de locatie waar deze is gevonden in de tekst)</li><li>vertrouwen (een waarde tussen 0 en 1 die aangeeft dat vertrouwen dat de waarde een feitelijke entiteit is)</li></ul> |
+| personen      | Een matrix met teken reeksen waarbij elke teken reeks de naam van een persoon vertegenwoordigt. |
+| locations  | Een matrix met teken reeksen waarbij elke teken reeks een locatie vertegenwoordigt. |
+| organizations  | Een matrix met teken reeksen waarbij elke teken reeks een organisatie vertegenwoordigt. |
+| entiteiten | Een matrix met complexe typen. Elk complex type bevat de volgende velden: <ul><li>categorie (`"person"`, `"organization"`, of `"location"`)</li> <li>waarde (de werkelijke naam van de entiteit)</li><li>offset (de locatie waar deze zich bevindt in de tekst)</li><li>betrouw baarheid (een waarde tussen 0 en 1 die aangeeft dat het vertrouwen van de waarde een werkelijke entiteit is)</li></ul> |
 
-##  <a name="sample-definition"></a>Van voorbeelddefinitie
+##  <a name="sample-definition"></a>Voorbeeld definitie
 
 ```json
   {
@@ -84,7 +84,7 @@ Parameters zijn hoofdlettergevoelig.
     ]
   }
 ```
-##  <a name="sample-input"></a>Van Voorbeeldinvoer
+##  <a name="sample-input"></a>Voorbeeld invoer
 
 ```json
 {
@@ -153,11 +153,11 @@ Parameters zijn hoofdlettergevoelig.
 ```
 
 
-## <a name="error-cases"></a>Foutgevallen
-Als de taal van het document niet ondersteund wordt, wordt een fout geretourneerd en er zijn geen entiteiten worden opgehaald.
+## <a name="error-cases"></a>Fout cases
+Als de taal code voor het document niet wordt ondersteund, wordt een fout geretourneerd en worden er geen entiteiten geëxtraheerd.
 
 ## <a name="see-also"></a>Zie ook
 
-+ [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md)
-+ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
-+ [Entiteit erkenning vaardigheid](cognitive-search-skill-entity-recognition.md)
++ [Vooraf gedefinieerde vaardig heden](cognitive-search-predefined-skills.md)
++ [Een vaardig heden definiëren](cognitive-search-defining-skillset.md)
++ [Vaardigheid van entiteits herkenning](cognitive-search-skill-entity-recognition.md)

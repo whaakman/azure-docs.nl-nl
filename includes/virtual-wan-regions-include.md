@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 03/30/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8ec5c39342f0477bd2b529da38fd4d1292476c93
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e8ae2fd99ee57062a0bf99f0550e58a5bb4857a3
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175941"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68426873"
 ---
-De volgende tabel geeft een lijst van beschikbare ondersteunde regio's voor functies die algemene beschikbaarheid zijn.
+De volgende tabel bevat een lijst met beschik bare ondersteunde regio's voor functies die GA.
 
 |Geopolitieke regio | Azure-regio's|
 |---|---|
@@ -25,10 +25,9 @@ De volgende tabel geeft een lijst van beschikbare ondersteunde regio's voor func
 | Azië | Azië - oost, Azië - zuidoost |
 | Japan  | Japan - west, Japan - oost |
 | Australië | Australië - zuidoost, Australië - oost | 
-| Australië Government | Australië Centraal, Australië Centraal 2 |
+| Australia overheid | Australië Centraal, Australië Centraal 2 |
 | India | India - west, India - centraal, India - zuid |
 | Zuid-Korea | Korea Centraal, Korea Zuid |
-| Zuid-Afrika | Zuid-Afrika (Noord), Zuid-Afrika (West) |
+| Zuid-Afrika | Zuid-Afrika-noord, Zuid-Afrika-west |
 
-* Zie voor meer informatie over de preview ExpressRoute [virtuele WAN- en ExpressRoute - preview](../articles/virtual-wan/virtual-wan-expressroute-portal.md#register).
-* Zie voor meer informatie over de Preview-versie voor de punt-naar-site [virtuele WAN en punt-naar-site - preview](../articles/virtual-wan/virtual-wan-point-to-site-portal.md#register).
+* Zie voor meer informatie over de preview-versie van ExpressRoute [Virtual WAN en ExpressRoute-preview](../articles/virtual-wan/virtual-wan-expressroute-portal.md#register).

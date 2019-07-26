@@ -1,19 +1,18 @@
 ---
 title: Een back-up maken van Azure-bestandsshares
 description: In dit artikel wordt uitgelegd hoe u een back-up maakt van uw Azure-bestandsshares en deze herstelt. Ook wordt er uitleg gegeven over beheertaken.
-services: backup
 author: rayne-wiselman
 ms.author: raynew
 ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 252dc48fd35318f9cd8407007187b81a8674fab0
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 7233db1e685c3edcdbd6a97bc2ae23706ad6f767
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296921"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466551"
 ---
 # <a name="back-up-azure-file-shares"></a>Een back-up maken van Azure-bestandsshares
 In dit artikel wordt uitgelegd hoe u met Azure Portal back-ups kunt maken van [Azure-bestandsshares](../storage/files/storage-files-introduction.md) en deze kunt herstellen.

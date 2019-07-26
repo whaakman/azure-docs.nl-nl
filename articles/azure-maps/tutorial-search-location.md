@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e787366694b55d3dcd61eec2c5a5b42dd187ec55
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a75f3f606129d370457816507537f2cb4491adf8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226840"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478831"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Zoeken naar nuttige plaatsen in de buurt met behulp van Azure Maps
 
@@ -45,7 +45,7 @@ Voer de volgende stappen uit om een nieuw Maps-account te maken:
     * Het *Abonnement* dat u wilt gebruiken voor dit account.
     * De naam van de *Resourcegroep* voor dit account. U kunt kiezen om een *Nieuwe* of *Bestaande* resourcegroep te gebruiken.
     * De *Naam* van uw nieuwe account.
-    * De *prijscategorie* voor dit account.
+    * De *prijs categorie* voor dit account.
     * Lees de *licentie* en de *privacyverklaring*, en schakel het selectievakje in om de voorwaarden te accepteren.
     * Klik op de knop **Maken**.
 
@@ -58,7 +58,7 @@ Voer de volgende stappen uit om een nieuw Maps-account te maken:
 Als het Azure Kaarten-account is gemaakt, haalt u de sleutel op waarmee u query's kunt uitvoeren op de API's van kaarten.
 
 1. Open uw Maps-account in de portal.
-2. Selecteer in de sectie instellingen **verificatie**.
+2. Selecteer in de sectie instellingen de optie **verificatie**.
 3. Kopieer de **Primaire Sleutel** naar het Klembord. Sla de sleutel lokaal op voor gebruik verderop in deze zelfstudie.
 
 ![Primaire sleutel in de portal ophalen](./media/tutorial-search-location/get-key.png)
@@ -85,7 +85,7 @@ De Map Control-API is een handige clientbibliotheek waarmee u Maps eenvoudig kun
         <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
 
         <script>
         function GetMap(){
@@ -114,9 +114,9 @@ De Map Control-API is een handige clientbibliotheek waarmee u Maps eenvoudig kun
     </html>
     ```
 
-   U ziet dat de HTML-header de CSS- en JavaScript-bronbestanden bevat, gehost door de Azure Map Control-bibliotheek. Let op de gebeurtenis `onload` in het hoofdtekstgedeelte van de pagina. Deze zorgt ervoor dat de functie `GetMap` wordt aangeroepen nadat het hoofdtekstgedeelte van de pagina is geladen. De `GetMap` functie bevat de inline JavaScript-code voor toegang tot de Azure kaarten-API's.
+   U ziet dat de HTML-header de CSS- en JavaScript-bronbestanden bevat, gehost door de Azure Map Control-bibliotheek. Let op de gebeurtenis `onload` in het hoofdtekstgedeelte van de pagina. Deze zorgt ervoor dat de functie `GetMap` wordt aangeroepen nadat het hoofdtekstgedeelte van de pagina is geladen. De `GetMap` functie bevat de inline java script-code voor toegang tot de Azure Maps-api's.
 
-3. Voeg de volgende JavaScript-code toe aan de functie `GetMap` van het HTML-bestand. Vervang de tekenreeks `<Your Azure Maps Key>` met de primaire sleutel die u hebt gekopieerd uit uw kaarten-account.
+3. Voeg de volgende JavaScript-code toe aan de functie `GetMap` van het HTML-bestand. Vervang de teken `<Your Azure Maps Key>` reeks door de primaire sleutel die u hebt gekopieerd uit uw Maps-account.
 
     ```JavaScript
     //Instantiate a map object
@@ -129,9 +129,9 @@ De Map Control-API is een handige clientbibliotheek waarmee u Maps eenvoudig kun
     });
     ```
 
-   Dit segment initialiseert de Map Control-API voor de sleutel van uw Azure Maps-account. `atlas` is de naamruimte die de API en gerelateerde visuele onderdelen bevat. `atlas.Map` biedt het besturingselement voor een visuele en interactieve webkaart.
+   Dit segment initialiseert de Map Control-API voor de sleutel van uw Azure Maps-account. `atlas`is de naam ruimte die de API en gerelateerde visuele onderdelen bevat. `atlas.Map`biedt het besturings element voor een visuele en interactieve Webkaart.
 
-4. Sla de wijzigingen op in het bestand en open de HTML-pagina in een browser. Dit is de meest eenvoudige toewijzing die u maken door het aanroepen van kunt `atlas.Map` met behulp van de accountsleutel van uw.
+4. Sla de wijzigingen op in het bestand en open de HTML-pagina in een browser. Dit is de meest eenvoudige kaart die u kunt aanroepen `atlas.Map` met behulp van uw account sleutel.
 
    ![De kaart weergeven](./media/tutorial-search-location/basic-map.png)
 
@@ -161,17 +161,17 @@ De Map Control-API is een handige clientbibliotheek waarmee u Maps eenvoudig kun
     });
     ```
 
-   In deze codesegment een `ready` gebeurtenis wordt toegevoegd aan de kaart die wordt geactiveerd wanneer het toewijzen van resources zijn geladen en de kaart is gereed om te worden geopend. Op de kaart `ready` gebeurtenis-handler een gegevensbron wordt gemaakt voor het opslaan van gegevens. Er wordt een symboollaag gemaakt en aan de gegevensbron gekoppeld. Deze laag geeft aan hoe de resultaatgegevens in de gegevensbron moeten worden weergegeven, in dit geval met een donkerblauw speldpictogram dat is gecentreerd over de resultatencoördinaat en dat andere pictogrammen de mogelijkheid biedt te overlappen. De resultaat-laag wordt toegevoegd aan de kaartlagen.
+   In dit code segment wordt `ready` een gebeurtenis toegevoegd aan de kaart, die wordt geactiveerd wanneer de kaart resources zijn geladen en de kaart gereed is om te worden geopend. In de gebeurtenis `ready` -handler van de map wordt een gegevens bron gemaakt om resultaat gegevens op te slaan. Er wordt een symboollaag gemaakt en aan de gegevensbron gekoppeld. Deze laag geeft aan hoe de resultaatgegevens in de gegevensbron moeten worden weergegeven, in dit geval met een donkerblauw speldpictogram dat is gecentreerd over de resultatencoördinaat en dat andere pictogrammen de mogelijkheid biedt te overlappen. De laag van het resultaat wordt toegevoegd aan de kaart lagen.
 
 <a id="usesearch"></a>
 
 ## <a name="add-search-capabilities"></a>Zoekmogelijkheden toevoegen
 
-In deze sectie ziet u hoe u de toewijzingen [zoeken-API](https://docs.microsoft.com/rest/api/maps/search) bezienswaardigheden vinden op de kaart. Het is een RESTful-API die is bedoeld voor ontwikkelaars om te zoeken naar adressen, nuttige plaatsen en andere geografische informatie. De Search-service wijst een breedtegraad en lengtegraad toe aan een opgegeven adres. Met de **servicemodule** die hieronder wordt beschreven, kunt u zoeken naar een locatie met de Kaarten zoeken-API.
+In deze sectie wordt uitgelegd hoe u de Maps- [API](https://docs.microsoft.com/rest/api/maps/search) voor kaarten kunt gebruiken om een belang rijke plaats op de kaart te vinden. Het is een RESTful-API die is bedoeld voor ontwikkelaars om te zoeken naar adressen, nuttige plaatsen en andere geografische informatie. De Search-service wijst een breedtegraad en lengtegraad toe aan een opgegeven adres. Met de **servicemodule** die hieronder wordt beschreven, kunt u zoeken naar een locatie met de Kaarten zoeken-API.
 
 ### <a name="service-module"></a>Servicemodule
 
-1. Op de kaart `ready` gebeurtenis-handler het samenstellen van de search service-URL door de volgende Javascript-code toe te voegen.
+1. In de gebeurtenis `ready` -handler voor de map moet u de URL van de zoek service maken door de volgende Java script-code toe te voegen.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key
@@ -184,9 +184,9 @@ In deze sectie ziet u hoe u de toewijzingen [zoeken-API](https://docs.microsoft.
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   De `SubscriptionKeyCredential` maakt een `SubscriptionKeyCredentialPolicy` om HTTP-aanvragen naar Azure kaarten met de abonnementssleutel te verifiëren. De `atlas.service.MapsURL.newPipeline()` wordt in de `SubscriptionKeyCredential` beleid en maakt een [pijplijn](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) exemplaar. De `searchURL` vertegenwoordigt een URL naar Azure Maps [zoeken](https://docs.microsoft.com/rest/api/maps/search) bewerkingen.
+   Hiermee maakt u `SubscriptionKeyCredentialPolicy` een voor de verificatie van HTTP-aanvragen voor Azure Maps met de abonnements sleutel. `SubscriptionKeyCredential` De `atlas.service.MapsURL.newPipeline()` neemt in het `SubscriptionKeyCredential` beleid en maakt een [pijplijn](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) instantie. De `searchURL` vertegenwoordigt een URL voor het Azure Maps van [Zoek](https://docs.microsoft.com/rest/api/maps/search) bewerkingen.
 
-2. Voeg vervolgens het volgende scriptblok toe om de zoekquery te maken. Hierin wordt de service Fuzzy zoeken gebruikt, een basiszoek-API van de Search Service. Via de service Fuzzy zoeken wordt de meeste fuzzy invoer verwerkt, zoals adressen, plaatsen en nuttige plaatsen. Deze code zoekt u in de buurt benzinestations binnen de opgegeven radius van de opgegeven lengtegraad en breedtegraad. Een verzameling van de functie GeoJSON uit het antwoord wordt vervolgens opgehaald met behulp van de `geojson.getFeatures()` methode en toegevoegd aan de gegevensbron, worden automatisch de gegevens die wordt weergegeven op de kaart via het symbool-laag. In het laatste deel van het script wordt de cameraweergave van de kaarten weergegeven met behulp van het selectiekader van de resultaten met behulp van de eigenschap [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) van Maps.
+2. Voeg vervolgens het volgende scriptblok toe om de zoekquery te maken. Hierin wordt de service Fuzzy zoeken gebruikt, een basiszoek-API van de Search Service. Via de service Fuzzy zoeken wordt de meeste fuzzy invoer verwerkt, zoals adressen, plaatsen en nuttige plaatsen. Met deze code wordt gezocht naar benzine stations in de buurt binnen de opgegeven straal van de opgegeven breedte graad en lengte graad. Een verzameling geojson-functies uit het antwoord wordt vervolgens geëxtraheerd met behulp van de `geojson.getFeatures()` -methode en toegevoegd aan de gegevens bron, die automatisch resulteert in de gegevens die worden weer gegeven op de kaart via de laag van het symbool. In het laatste deel van het script wordt de cameraweergave van de kaarten weergegeven met behulp van het selectiekader van de resultaten met behulp van de eigenschap [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) van Maps.
 
     ```JavaScript
     var query =  'gasoline-station';
@@ -213,7 +213,7 @@ In deze sectie ziet u hoe u de toewijzingen [zoeken-API](https://docs.microsoft.
     });
     ```
 
-3. Sla het bestand **MapSearch.html** op en vernieuw de browser. U ziet nu dat de kaart wordt gecentreerd op Seattle met round-blauw pincodes markering van de locaties van benzinestations in het gebied.
+3. Sla het bestand **MapSearch.html** op en vernieuw de browser. U ziet nu dat de kaart is gecentreerd op Seattle met een ronde-blauwe pincode waarmee de locaties van benzine stations in het gebied worden gemarkeerd.
 
    ![De kaart met zoekresultaten weergeven](./media/tutorial-search-location/pins-map.png)
 
@@ -229,7 +229,7 @@ Op dit moment kunnen op de pagina MapSearch de locaties worden weergegeven van n
 
 De kaart die we tot nu toe hebben gemaakt, is uitsluitend gebaseerd op de gegevens voor lengtegraad/breedtegraad voor de zoekresultaten. Als u kijkt naar de onbewerkte JSON die door de service Maps Search wordt geretourneerd, ziet u echter dat deze aanvullende informatie over elk tankstation bevat, inclusief de naam en het adres. U kunt die gegevens opnemen in de kaart met behulp van interactieve pop-upvakken.
 
-1. Voeg de volgende regels code op de kaart `ready` gebeurtenis-handler na de code om op te vragen van de service fuzzy zoeken. Hiermee wordt een exemplaar van een pop-upvenster gemaakt en een mouse-overgebeurtenis toegevoegd aan de symboollaag.
+1. Voeg de volgende regels code in de gebeurtenis- `ready` handler van de kaart toe na de code om een query uit te zoeken naar de fuzzy Search-service. Hiermee wordt een exemplaar van een pop-upvenster gemaakt en een mouse-overgebeurtenis toegevoegd aan de symboollaag.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.
@@ -239,9 +239,9 @@ De kaart die we tot nu toe hebben gemaakt, is uitsluitend gebaseerd op de gegeve
     map.events.add('mouseover', resultLayer, showPopup);
     ```
 
-    De API `*atlas.Popup` voorziet in een venster verankerd op de juiste positie op de kaart. 
+    De API `*atlas.Popup` biedt een verankerd informatie venster op de vereiste positie op de kaart. 
 
-2. Voeg de volgende code binnen de `GetMap` functie om weer te geven de moused boven resultaatgegevens in het pop-upvenster.
+2. Voeg de volgende code in de `GetMap` functie toe om de muis aanwijzer op resultaat informatie in de pop-up weer te geven.
 
     ```JavaScript
     function showPopup(e) {
@@ -281,10 +281,10 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Search Service gebruiken om nuttige plaatsen in de buurt te vinden
 
 > [!div class="nextstepaction"]
-> [De volledige broncode weergeven](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
+> [Volledige bron code weer geven](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
 
 > [!div class="nextstepaction"]
-> [Live voorbeeld weergeven](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+> [Live voor beeld weer geven](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 De volgende zelfstudie laat zien hoe u een route tussen twee locaties weergeeft.
 

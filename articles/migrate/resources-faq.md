@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: snehaa
-ms.openlocfilehash: e5b4777adfcbb5babbf5db792a10d025c79b1a8b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 0708502087ae6880d9559cf17f0ba9982b2ba040
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302370"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372484"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate-Veelgestelde vragen (FAQ)
 
@@ -20,20 +20,8 @@ In dit artikel vindt u veelgestelde vragen over Azure Migrate. Als u na het leze
 ## <a name="general"></a>Algemeen
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Welke Azure-geografies worden ondersteund door Azure Migrate?
-Azure Migrate ondersteunt momenteel een aantal geografi waarin een Azure Migrate-project kan worden gemaakt. Hoewel u alleen projecten in deze geografische gebieden kunt maken, kunt u uw machines nog steeds evalueren of migreren voor andere doel locaties. De Geografie van het project wordt alleen gebruikt om de gedetecteerde meta gegevens op te slaan.
 
-
-**Geografie** | **Opslag locatie van meta gegevens**
---- | ---
-Azure Government | VS (overheid) - Virginia
-Azië | Zuidoost-Azië of Azië-oost
-Europa | Zuid-Europa of Europa-west
-Verenigd Koninkrijk | UK-zuid of UK-west
-Verenigde Staten | VS-midden, VS-West 2
-
-
-> [!NOTE]
-> Ondersteuning voor Azure Government is momenteel alleen beschikbaar voor de [oudere versie](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) van Azure Migrate.
+U vindt hier de lijst voor [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) en voor [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Wat is het verschil tussen Azure Migrate en Azure Site Recovery?
 
@@ -51,7 +39,7 @@ Raadpleeg de [VMware](migrate-support-matrix-vmware.md) -en [Hyper-V-](migrate-s
 
 ### <a name="can-i-harden-the-appliance-vm-i-set-up-with-the-template"></a>Kan ik de apparaat-VM die ik heb ingesteld met de sjabloon, een harder maken?
 
-Aanvullende onderdelen (bijvoorbeeld anti-virus) kunnen worden toegevoegd aan de sjabloon, zolang de communicatie-en firewall regels die nodig zijn voor het Azure Migrate apparaat nog steeds opnieuw worden uitgevoerd.   
+Aanvullende onderdelen (bijvoorbeeld anti-virus) kunnen worden toegevoegd aan de sjabloon, zolang de communicatie-en firewall regels die vereist zijn voor het Azure Migrate apparaat blijven staan.   
 
 ### <a name="what-data-is-collected-by-azure-migrate-appliance"></a>Welke gegevens worden door Azure Migrate apparaat verzameld?
 

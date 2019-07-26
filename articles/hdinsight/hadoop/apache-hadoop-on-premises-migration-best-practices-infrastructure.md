@@ -1,6 +1,6 @@
 ---
-title: On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - best practices voor infrastructuur
-description: Informatie over aanbevolen procedures van de infrastructuur voor de migratie on-premises Hadoop-clusters op Azure HDInsight.
+title: On-premises Apache Hadoop clusters migreren naar de aanbevolen procedures voor Azure HDInsight-infra structuur
+description: Ontdek de aanbevolen procedures voor de infra structuur voor het migreren van on-premises Hadoop-clusters naar Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonwhowell
 ms.service: hdinsight
@@ -8,78 +8,78 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5bdd5049b7ddeaac4425734aa6f4d633b08cd3b4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0707f08d7c1447ff9aaae919cabfe1a668b25e3d
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057474"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404369"
 ---
-# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - best practices voor infrastructuur
+# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>On-premises Apache Hadoop clusters migreren naar de aanbevolen procedures voor Azure HDInsight-infra structuur
 
-In dit artikel biedt aanbevelingen voor het beheren van de infrastructuur van Azure HDInsight-clusters. Het onderdeel van een serie die biedt best practices om u te helpen migreren on-premises Apache Hadoop-systemen tot Azure HDInsight.
+Dit artikel bevat aanbevelingen voor het beheren van de infra structuur van Azure HDInsight-clusters. Het is onderdeel van een serie die aanbevolen procedures biedt voor het migreren van on-premises Apache Hadoop systemen naar Azure HDInsight.
 
-## <a name="plan-for-hdinsight-cluster-capacity"></a>Plan voor de capaciteit van de HDInsight-cluster
+## <a name="plan-for-hdinsight-cluster-capacity"></a>Capaciteit van HDInsight-cluster plannen
 
-De belangrijkste opties om u te maken voor de capaciteitsplanning voor HDInsight-cluster zijn als volgt:
+De belangrijkste keuzes voor het maken van de capaciteits planning voor HDInsight-clusters zijn als volgt:
 
-- **Kies de regio** -de Azure-regio bepaalt waar het cluster fysiek is ingericht. Om te beperken de latentie van lees- en schrijfbewerkingen, moet het cluster zich in dezelfde regio als de gegevens.
-- **Kies opslaglocatie en grootte** -standaardopslag moet zich in dezelfde regio bevinden als het cluster. Voor een cluster 48-knooppunt, is het aanbevolen dat 4 tot en met 8 storage-accounts. Hoewel er mogelijk al voldoende totale opslag, biedt elk opslagaccount aanvullende netwerken bandbreedte voor de compute-knooppunten. Wanneer er meerdere opslagaccounts, gebruikt u een willekeurige naam voor de storage-account zonder een voorvoegsel. Het doel van een willekeurige naam geven, is de kans op opslag knelpunten (beperking) of gemeenschappelijke-modus fouten verminderen voor alle accounts. Voor betere prestaties, gebruik slechts één container per opslagaccount.
-- **Kies de VM-grootte en hetzelfde type (ondersteunt nu de G-serie)** : elk clustertype bevat een set knooppunttypen en elk knooppunttype heeft specifieke opties voor de VM-grootte en hetzelfde type. De VM-grootte en het type wordt bepaald door de CPU-verwerking van kracht, RAM-geheugen en de netwerklatentie. Een gesimuleerde werkbelasting kan worden gebruikt om te bepalen van de optimale VM-grootte en het type voor elk knooppunt.
-- **Het aantal worker-knooppunten kiezen** -het oorspronkelijke aantal worker-knooppunten kan worden bepaald met behulp van de gesimuleerde werkbelasting. Het cluster kan later worden geschaald door meer worker-knooppunten om te voldoen aan de piekvraag load toe te voegen. Het cluster kan later worden geschaald wanneer de extra worker-knooppunten niet vereist zijn.
+- **De regio kiezen** : de Azure-regio bepaalt waar het cluster fysiek wordt ingericht. Het cluster moet zich in dezelfde regio bevinden als de gegevens om de latentie van lees-en schrijf bewerkingen te minimaliseren.
+- **Opslag locatie en-grootte kiezen** : de standaard opslag moet zich in dezelfde regio bevinden als het cluster. Voor een cluster met een 48-knoop punt wordt aanbevolen 4 tot 8 opslag accounts te hebben. Hoewel er mogelijk al voldoende totale opslag ruimte beschikbaar is, biedt elk opslag account extra netwerk bandbreedte voor de reken knooppunten. Als er meerdere opslag accounts zijn, gebruikt u een wille keurige naam voor elk opslag account, zonder voor voegsel. Het doel van een wille keurige naam is het verminderen van de kans op opslag knelpunten (beperking) of fouten in de algemene modus voor alle accounts. Gebruik slechts één container per opslag account voor betere prestaties.
+- **De grootte en het type van de virtuele machine kiezen (ondersteunt nu de G-serie)** : elk cluster type heeft een set knooppunt typen en elk type knoop punt heeft specifieke opties voor de VM-grootte en het type. De grootte en het type van de virtuele machine worden bepaald door CPU-verwerkings kracht, RAM-grootte en netwerk latentie. Een gesimuleerde werk belasting kan worden gebruikt om de optimale grootte en het type van de virtuele machine voor elke knooppunt typen te bepalen.
+- **Kies het aantal worker-knoop punten** -het initiële aantal worker-knoop punten kan worden bepaald met behulp van de gesimuleerde werk belastingen. Het cluster kan later worden geschaald door meer worker-knoop punten toe te voegen om te voldoen aan de maximale belasting vereisten. Het cluster kan later weer worden geschaald wanneer de extra worker-knoop punten niet vereist zijn.
 
-Zie voor meer informatie het artikel [plannen van capaciteit voor HDInsight-clusters](../hdinsight-capacity-planning.md).
+Zie het artikel [capaciteits planning voor HDInsight-clusters](../hdinsight-capacity-planning.md)voor meer informatie.
 
-## <a name="use-recommended-virtual-machine-type-for-cluster"></a>Aanbevolen VM-type gebruiken voor cluster
+## <a name="use-recommended-virtual-machine-type-for-cluster"></a>Aanbevolen type virtuele machine voor cluster gebruiken
 
-Zie [standaard configuratie en de virtuele machine knooppuntgrootten voor clusters](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) aanbevolen voor de typen virtuele machines voor elk type van HDInsight-cluster.
+Zie [standaard knooppunt configuratie en grootte van virtuele machines voor clusters](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) voor aanbevolen typen virtuele machines voor elk type HDInsight-cluster.
 
-## <a name="check-hadoop-components-availability-in-hdinsight"></a>Beschikbaarheid van de Hadoop-onderdelen in HDInsight controleren
+## <a name="check-hadoop-components-availability-in-hdinsight"></a>Beschik baarheid van Hadoop-onderdelen in HDInsight controleren
 
-Elke versie van HDInsight is een cloud-distributie van een set van onderdelen van Hadoop-ecosysteem. Zie [versiebeheer van HDInsight-onderdeel](../hdinsight-component-versioning.md) voor meer informatie over alle HDInsight-onderdelen en hun huidige versies.
+Elke HDInsight-versie is een Cloud distributie van een set Hadoop-eco-systeem onderdelen. Zie [versie beheer van hdinsight-onderdelen](../hdinsight-component-versioning.md) voor meer informatie over alle HDInsight-onderdelen en de huidige versies.
 
-U kunt ook Apache Ambari-gebruikersinterface of de Ambari REST-API gebruiken om te controleren of de Hadoop-onderdelen en versies in HDInsight.
+U kunt ook Apache Ambari UI of Ambari REST API gebruiken om de Hadoop-onderdelen en versies in HDInsight te controleren.
 
-Toepassingen of onderdelen die beschikbaar waren in clusters on-premises, maar geen deel uitmaken van de HDInsight-clusters kunnen worden toegevoegd op een edge-knooppunt of op een virtuele machine in hetzelfde VNet als de HDInsight-cluster. Een derde partij Hadoop-toepassing die is niet beschikbaar in Azure HDInsight kan worden geïnstalleerd met de optie 'Application' in HDInsight-cluster. Aangepaste Hadoop-toepassingen kunnen worden geïnstalleerd op HDInsight-cluster met behulp van 'scriptacties'. De volgende tabel bevat enkele van de algemene toepassingen en hun HDInsight-integratie-opties:
+Toepassingen of onderdelen die beschikbaar waren in on-premises clusters, maar die geen deel uitmaken van de HDInsight-clusters kunnen worden toegevoegd aan een Edge-knoop punt of op een virtuele machine in hetzelfde VNet als het HDInsight-cluster. Een Hadoop-toepassing van derden die niet beschikbaar is in azure HDInsight, kan worden geïnstalleerd met behulp van de optie ' toepassingen ' in het HDInsight-cluster. Aangepaste Hadoop-toepassingen kunnen worden geïnstalleerd op HDInsight-cluster met behulp van ' script acties '. De volgende tabel bevat enkele van de algemene toepassingen en de opties voor HDInsight-integratie:
 
-|**Toepassing**|**Integratie**
+|**Toepassing**|**Opneming**
 |---|---|
-|Luchtstroom|IaaS of HDInsight edge-knooppunt
+|Lucht stroom|IaaS of HDInsight Edge-knoop punt
 |Alluxio|IaaS  
 |Arcadia|IaaS 
 |Atlas|Geen (alleen HDP)
-|Datameer|HDInsight-edge-knooppunt
-|Datastax (Cassandra)|IaaS (CosmosDB een alternatief in Azure)
+|Datameer|HDInsight Edge-knoop punt
+|Datastax (Cassandra)|IaaS (CosmosDB een alternatief op Azure)
 |DataTorrent|IaaS 
 |Drill|IaaS 
 |Ignite|IaaS
 |Jethro|IaaS 
 |Mapador|IaaS 
-|Mongo|IaaS (CosmosDB een alternatief in Azure)
+|Mongo|IaaS (CosmosDB een alternatief op Azure)
 |NiFi|IaaS 
-|Presto|IaaS of HDInsight edge-knooppunt
+|Presto|IaaS of HDInsight Edge-knoop punt
 |Python 2|PaaS 
 |Python 3|PaaS 
 |R|PaaS 
-|SAS|IaaS 
-|Vertica|IaaS (RESOURCEKLASSE alternatief op Azure)
+|GEBASEERD|IaaS 
+|Vertica|IaaS (SQLDW een alternatief op Azure)
 |Tableau|IaaS 
-|Waterlijn|HDInsight-edge-knooppunt
-|StreamSets|HDInsight-edge 
+|Toestand|HDInsight Edge-knoop punt
+|StreamSets|HDInsight-rand 
 |Palantir|IaaS 
-|Sailpoint|Iaas 
+|Sailpoint|IaaS 
 
-Zie voor meer informatie het artikel [Apache Hadoop-onderdelen die beschikbaar zijn met verschillende versies van HDInsight](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)
+Zie het artikel [Apache Hadoop onderdelen die beschikbaar zijn in verschillende versies van HDInsight](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions) voor meer informatie
 
-## <a name="customize-hdinsight-clusters-using-script-actions"></a>HDInsight clusters aanpassen met scriptacties
+## <a name="customize-hdinsight-clusters-using-script-actions"></a>HDInsight-clusters aanpassen met behulp van script acties
 
-HDInsight biedt een methode voor configuratie van het cluster met de naam van een **script actie**. Een scriptactie is Bash-script dat wordt uitgevoerd op de knooppunten in een HDInsight-cluster en kan worden gebruikt om extra onderdelen installeren en configuratie-instellingen wijzigen.
+HDInsight biedt een methode van cluster configuratie die een **script actie**wordt genoemd. Een script actie is een bash script dat wordt uitgevoerd op de knoop punten in een HDInsight-cluster en kan worden gebruikt voor het installeren van extra onderdelen en het wijzigen van configuratie-instellingen.
 
-Scriptacties moeten worden opgeslagen op een URI die toegankelijk is vanaf het HDInsight-cluster. Ze kunnen worden gebruikt tijdens of na het maken van clusters en kunnen ook worden beperkt tot alleen op bepaalde knooppunttypen worden uitgevoerd.
+Script acties moeten worden opgeslagen op een URI die toegankelijk is vanuit het HDInsight-cluster. Ze kunnen worden gebruikt tijdens of na het maken van het cluster en kunnen ook worden beperkt om alleen te worden uitgevoerd op bepaalde knooppunt typen.
 
-Het script kan worden opgeslagen of één keer uitgevoerd. De persistente scripts worden gebruikt voor het aanpassen van de nieuwe werkrolknooppunten toegevoegd aan het cluster via het schalen herverdelen. Een persistent script kan ook wijzigingen toepassen op een ander knooppunttype, zoals een hoofdknooppunt, wanneer vergroten / verkleinen optreden.
+Het script kan worden vastgehouden of één keer worden uitgevoerd. De persistente scripts worden gebruikt om nieuwe worker-knoop punten die aan het cluster worden toegevoegd, aan te passen via schaal bewerkingen. Een persistent script kan ook wijzigingen Toep assen op een ander type knoop punt, zoals een hoofd knooppunt, wanneer er schaal bewerkingen optreden.
 
-HDInsight biedt vooraf geschreven scripts voor het installeren van de volgende onderdelen in HDInsight-clusters:
+HDInsight biedt vooraf geschreven scripts voor het installeren van de volgende onderdelen op HDInsight-clusters:
 
 - Een Azure Storage-account toevoegen
 - Hue installeren
@@ -90,19 +90,19 @@ HDInsight biedt vooraf geschreven scripts voor het installeren van de volgende o
 - Mono installeren of bijwerken
 
 > [!Note]  
-> HDInsight biedt geen rechtstreekse ondersteuning voor aangepaste hadoop-onderdelen of onderdelen worden geïnstalleerd met behulp van scriptacties.
+> HDInsight biedt geen rechtstreekse ondersteuning voor aangepaste Hadoop-onderdelen of onderdelen die zijn geïnstalleerd met behulp van script acties.
 
-Scriptacties kunnen ook in de Azure Marketplace worden gepubliceerd als een HDInsight-toepassing.
+Script acties kunnen ook worden gepubliceerd naar Azure Marketplace als een HDInsight-toepassing.
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
-- [Apache Hadoop-toepassingen van derden installeren op HDInsight](../hdinsight-apps-install-applications.md)
-- [HDInsight clusters aanpassen met scriptacties](../hdinsight-hadoop-customize-cluster-linux.md)
-- [Een HDInsight-toepassing publiceren in de Azure Marketplace](../hdinsight-apps-publish-applications.md)
+- [Apache Hadoop toepassingen van derden installeren in HDInsight](../hdinsight-apps-install-applications.md)
+- [HDInsight-clusters aanpassen met behulp van script acties](../hdinsight-hadoop-customize-cluster-linux.md)
+- [Een HDInsight-toepassing publiceren in azure Marketplace](../hdinsight-apps-publish-applications.md)
 
-## <a name="customize-hdinsight-configs-using-bootstrap"></a>Aanpassen met Bootstrap HDInsight-configuraties
+## <a name="customize-hdinsight-configs-using-bootstrap"></a>HDInsight-configuratie aanpassen met Boots trap
 
-Wijzigingen in configuraties in de configuratiebestanden, zoals `core-site.xml`, `hive-site.xml` en `oozie-env.xml` kunnen worden gemaakt met Bootstrap. Het volgende script is een voorbeeld met behulp van Powershell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
+Wijzigingen in configuratie `core-site.xml`-instellingen in de configuratie bestanden, `hive-site.xml` zoals en `oozie-env.xml` kunnen worden gemaakt met Boots trap. Het volgende script is een voor beeld van het gebruik van de Power shell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) [-cmdlet New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
 
 ```powershell
 # hive-site.xml configuration
@@ -127,70 +127,70 @@ New—AzHDInsightCluster `
     —Config $config
 ```
 
-Zie voor meer informatie het artikel [aanpassen HDInsight-clusters met Bootstrap](../hdinsight-hadoop-customize-cluster-bootstrap.md).  Zie ook [beheren HDInsight-clusters met behulp van de Apache Ambari REST-API](../hdinsight-hadoop-manage-ambari-rest-api.md).
+Zie voor meer informatie het artikel [HDInsight-clusters aanpassen met Boots trap](../hdinsight-hadoop-customize-cluster-bootstrap.md).  Zie ook [HDInsight-clusters beheren met behulp van de Apache Ambari rest API](../hdinsight-hadoop-manage-ambari-rest-api.md).
 
-## <a name="access-client-tools-from-hdinsight-hadoop-cluster-edge-nodes"></a>Toegang client-hulpprogramma's van HDInsight Hadoop cluster edge-knooppunten
+## <a name="access-client-tools-from-hdinsight-hadoop-cluster-edge-nodes"></a>Toegang tot client hulpprogramma's van HDInsight Hadoop-cluster Edge-knoop punten
 
-Een lege edge-knooppunt is een Linux-machine met de dezelfde clienthulpprogramma's geïnstalleerd en geconfigureerd als op de hoofdknooppunten, maar met geen Hadoop-services die worden uitgevoerd. Het edge-knooppunt kan worden gebruikt voor de volgende doeleinden:
+Een lege Edge-knoop punt is een virtuele Linux-machine waarop dezelfde client hulpprogramma's zijn geïnstalleerd en geconfigureerd als op de hoofd knooppunten, maar waarvoor geen Hadoop-services worden uitgevoerd. Het Edge-knoop punt kan worden gebruikt voor de volgende doel einden:
 
 - toegang tot het cluster
-- clienttoepassingen testen
-- clienttoepassingen die als host fungeert
+- client toepassingen testen
+- client toepassingen hosten
 
-Edge-knooppunten kunnen worden gemaakt en verwijderd via de Azure-portal en kunnen worden gebruikt tijdens of na het cluster maken. Nadat het edge-knooppunt is gemaakt, kunt u verbinding maken met het edge-knooppunt met behulp van SSH en clienthulpprogramma's voor toegang tot het Hadoop-cluster in HDInsight worden uitgevoerd. Het edge-knooppunt ssh-eindpunt is `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`.
-
-
-Zie voor meer informatie het artikel [lege edge-knooppunten op Apache Hadoop-clusters in HDInsight gebruiken](../hdinsight-apps-use-edge-node.md).
+Edge-knoop punten kunnen worden gemaakt en verwijderd via de Azure Portal en kunnen worden gebruikt tijdens of na het maken van het cluster. Nadat u het Edge-knoop punt hebt gemaakt, kunt u via SSH verbinding maken met het Edge-knoop punt en client hulpprogramma's uitvoeren om toegang te krijgen tot het Hadoop-cluster in HDInsight. Het SSH-eind punt van `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`het Edge-knoop punt is.
 
 
-## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>Gebruik de functie omhoog en omlaag schalen van clusters
+Zie het artikel [lege Edge-knoop punten op Apache Hadoop clusters in HDInsight gebruiken](../hdinsight-apps-use-edge-node.md)voor meer informatie.
 
-HDInsight biedt flexibiliteit doordat u de optie voor omhoog en omlaag het aantal worker-knooppunten in uw clusters schalen. Deze functie kunt u een cluster verkleinen na uur of in het weekend en vouw dit uit tijdens piek bedrijfsbehoeften te voldoen. Zie voor meer informatie:
+
+## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>De functie voor het omhoog en omlaag schalen van clusters gebruiken
+
+HDInsight biedt elasticiteit door u de mogelijkheid te geven het aantal worker-knoop punten in uw clusters omhoog en omlaag te schalen. Met deze functie kunt u een cluster na uren of in het weekend verkleinen en uitpakken tijdens de piek behoeften van uw bedrijf. Zie voor meer informatie:
 
 * [HDInsight-clusters schalen](../hdinsight-scaling-best-practices.md).
-* [Schalen van clusters](../hdinsight-administer-use-portal-linux.md#scale-clusters).
+* [Clusters schalen](../hdinsight-administer-use-portal-linux.md#scale-clusters).
 
-## <a name="use-hdinsight-with-azure-virtual-network"></a>Gebruik HDInsight met Azure Virtual Network
+## <a name="use-hdinsight-with-azure-virtual-network"></a>HDInsight gebruiken met Azure Virtual Network
 
-Virtuele netwerken van Azure inschakelen Azure-resources, zoals Azure Virtual Machines, veilig kunt communiceren met elkaar, internet, en on-premises netwerken, door te filteren en routering van netwerkverkeer.
+Met virtuele Azure-netwerken kunnen Azure-resources, zoals Azure Virtual Machines, veilig communiceren met elkaar, het internet en on-premises netwerken door netwerk verkeer te filteren en te routeren.
 
-Met behulp van Azure Virtual Network met HDInsight kunt de volgende scenario's:
+Met Azure Virtual Network met HDInsight kunnen de volgende scenario's worden gebruikt:
 
-- Verbinding maken met HDInsight rechtstreeks vanuit een on-premises netwerk.
-- Verbinding maken met HDInsight gegevens opslaat in een Azure-netwerk.
-- Rechtstreeks toegang hebben tot Hadoop-services die niet openbaar beschikbaar zijn via internet. Bijvoorbeeld, Kafka-API's of de HBase-Java-API.
+- Rechtstreeks verbinding maken met HDInsight vanuit een on-premises netwerk.
+- Verbinding maken tussen HDInsight en gegevens archieven in een virtueel Azure-netwerk.
+- U hebt rechtstreeks toegang tot Hadoop-services die niet openbaar beschikbaar zijn via internet. Bijvoorbeeld Kafka-Api's of de HBase Java-API.
 
-HDInsight kan ofwel worden toegevoegd aan een nieuwe of bestaande Azure Virtual Network. Als HDInsight wordt toegevoegd aan een bestaand Virtueelnetwerk, de bestaande netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes moeten worden bijgewerkt voor onbeperkte toegang tot [verschillende IP-adressen](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) in de Azure-Datacenter. Zorg er ook niet op het blokkeren van verkeer naar de [poorten](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports), die worden gebruikt door HDInsight-services.
+HDInsight kan worden toegevoegd aan een nieuwe of bestaande Azure-Virtual Network. Als HDInsight wordt toegevoegd aan een bestaand Virtual Network, moeten de bestaande netwerk beveiligings groepen en door de gebruiker gedefinieerde routes worden bijgewerkt om onbeperkte toegang tot [meerdere IP-adressen](../hdinsight-management-ip-addresses.md) in het Azure-Data Center mogelijk te maken. Zorg er ook voor dat het verkeer naar de [poorten](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ports)die worden gebruikt door HDInsight-Services niet wordt geblokkeerd.
 
 > [!Note]  
-> HDInsight ondersteunt momenteel geen geforceerde tunneling. Geforceerde tunneling is een subnetinstelling die ervoor zorgt het uitgaande internetverkeer met een apparaat voor controle dat en logboekregistratie. Verwijder geforceerde tunnels zijn voordat het installeren van HDInsight in een subnet of een nieuw subnet maken voor HDInsight. HDInsight ook ondersteunt geen uitgaande netwerkconnectiviteit te beperken.
+> HDInsight ondersteunt momenteel geen geforceerde tunneling. Geforceerde tunneling is een instelling van het subnet dat uitgaand Internet verkeer naar een apparaat afdwingt voor inspectie en logboek registratie. Verwijder geforceerde tunneling voordat u HDInsight in een subnet installeert of maak een nieuw subnet voor HDInsight. HDInsight biedt ook geen ondersteuning voor het beperken van uitgaande netwerk verbindingen.
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
-- [Virtuele-netwerken-overzicht van Azure](../../virtual-network/virtual-networks-overview.md)
-- [Azure HDInsight met behulp van een Azure-netwerk uitbreiden](../hdinsight-extend-hadoop-virtual-network.md)
+- [Virtuele netwerken van Azure-overzicht](../../virtual-network/virtual-networks-overview.md)
+- [Azure HDInsight met behulp van een Azure-netwerk uitbreiden](../hdinsight-plan-virtual-network-deployment.md)
 
-## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Veilig verbinding maken met Azure-services met Azure Virtual Network service-eindpunten
+## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Veilig verbinding maken met Azure-Services met Azure Virtual Network Service-eind punten
 
-HDInsight ondersteunt [virtual network-service-eindpunten](../../virtual-network/virtual-network-service-endpoints-overview.md), waarmee u veilig verbinding maken met Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB en SQL-databases. Als u een Service-eindpunt inschakelt voor Azure HDInsight, wordt verkeer stroomt via een beveiligde route van binnen het Azure-datacentrum. U kunt met deze uitgebreide niveau van beveiliging op de netwerklaag, big data storage-accounts aan de opgegeven virtuele netwerken (VNETs) vergrendelen en HDInsight-clusters nog steeds naadloos toegang tot gegevens en verwerkt die gebruiken.
+HDInsight ondersteunt [service-eind punten voor virtuele netwerken](../../virtual-network/virtual-network-service-endpoints-overview.md), waarmee u veilig verbinding kunt maken met Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB en SQL-data bases. Door een service-eind punt in te scha kelen voor Azure HDInsight, loopt verkeer via een beveiligde route vanuit het Azure-Data Center. Met dit verbeterde beveiligings niveau op de netwerklaag kunt u big data opslag accounts vergren delen op hun opgegeven virtuele netwerken (VNETs) en toch gebruikmaken van HDInsight-clusters om die gegevens te openen en te verwerken.
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
 - [Service-eindpunten voor virtueel netwerk](../../virtual-network/virtual-network-service-endpoints-overview.md)
-- [Verbeter de beveiliging van HDInsight met service-eindpunten](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
+- [HDInsight-beveiliging verbeteren met Service-eind punten](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
 
-## <a name="connect-hdinsight-to-the-on-premises-network"></a>HDInsight verbinden met de on-premises netwerk
+## <a name="connect-hdinsight-to-the-on-premises-network"></a>HDInsight verbinden met het on-premises netwerk
 
-HDInsight kan worden verbonden met de on-premises netwerk met behulp van Azure Virtual Networks en een VPN-gateway. De volgende stappen kunnen worden gebruikt om verbinding te maken:
+HDInsight kan worden verbonden met het on-premises netwerk met behulp van Azure Virtual Networks en een VPN-gateway. De volgende stappen kunnen worden gebruikt om verbinding te maken:
 
-- Gebruik HDInsight in een Azure Virtual Network die verbonden met de on-premises netwerk is.
-- Configureer DNS-naamomzetting tussen het virtuele netwerk en de on-premises netwerk.
-- Netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes (UDR) voor het beheren van netwerkverkeer configureren.
+- Gebruik HDInsight in een Azure-Virtual Network die verbinding heeft met het on-premises netwerk.
+- Configureer de DNS-naam omzetting tussen het virtuele netwerk en het on-premises netwerk.
+- Configureer netwerk beveiligings groepen of door de gebruiker gedefinieerde routes (UDR) om netwerk verkeer te beheren.
 
-Zie voor meer informatie het artikel [verbinding maken met HDInsight op uw on-premises netwerk](../connect-on-premises-network.md)
+Zie het artikel [verbinding maken tussen HDInsight en uw on-premises netwerk](../connect-on-premises-network.md) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees het volgende artikel in deze reeks:
+Lees het volgende artikel in deze serie:
 
-- [Aanbevolen procedures van de opslag voor on-premises naar Azure HDInsight Hadoop-migratie](apache-hadoop-on-premises-migration-best-practices-storage.md)
+- [Aanbevolen procedures voor opslag van on-premises naar Azure HDInsight Hadoop migratie](apache-hadoop-on-premises-migration-best-practices-storage.md)

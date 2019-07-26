@@ -1,6 +1,6 @@
 ---
-title: API's voor het automatiseren van Azure-reservering | Microsoft Docs
-description: Meer informatie over de Azure API's die u gebruiken kunt via een programma om reserveringsinformatie te verkrijgen.
+title: Api's voor Azure reserverings Automation | Microsoft Docs
+description: Meer informatie over de Azure-Api's die u kunt gebruiken om via een programma reserve ring gegevens te verkrijgen.
 author: yashesvi
 manager: yashesvi
 tags: billing
@@ -11,28 +11,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2019
 ms.author: banders
-ms.openlocfilehash: 6d63f9a393dbb40c3b0952eba9ab9449fd7b558d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20ed2bcf793ab5c3913ccf66d338e71c1a99a003
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702621"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478922"
 ---
-# <a name="apis-for-azure-reservation-automation"></a>API's voor het automatiseren van Azure-reservering
+# <a name="apis-for-azure-reservation-automation"></a>Api's voor automatisering van Azure-reserve ring
 
-Gebruik Azure API's via een programma om informatie te verkrijgen voor uw organisatie over Azure-service of software-reserveringen.
+Gebruik Azure Api's om via programma code informatie te verkrijgen over uw organisatie over Azure-service of-software-reserve ringen.
 
-## <a name="find-reservation-plans-to-buy"></a>Vinden van de reservering wil kopen
+## <a name="find-reservation-plans-to-buy"></a>Te kopen reserverings plannen zoeken
 
-Gebruik de reservering aanbeveling API aanbevelingen waarop reserveringen wilt kopen ophalen op basis van gebruik van uw organisatie. Zie voor meer informatie, [reservering aanbevelingen krijgen](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
+Gebruik de API reserverings aanbeveling om aanbevelingen te krijgen over welk reserve ring plan moet worden gekocht op basis van het gebruik van uw organisatie. Zie aanbevelingen voor reserverings [aanvragen](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)voor meer informatie.
 
-U kunt ook uw Resourcegebruik analyseren met behulp van de Gebruiksdetails van het verbruik-API. Zie voor meer informatie, [gebruiksgegevens - lijst voor facturering periode door factureringsaccount](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod). De Azure-resources die u consistent gebruikt zijn meestal de beste kandidaat voor een reservering.
+U kunt ook het gebruik van resources analyseren met behulp van het gebruik van de gebruiks gegevens van het verbruiks-API. Zie [gebruiks Details: lijst voor facturerings periode per facturerings account](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod)voor meer informatie. De Azure-resources die u consistent gebruikt, zijn doorgaans de beste kandidaat voor een reserve ring.
 
 ## <a name="buy-a-reservation"></a>Een reservering kopen
 
-U kunt Azure-reserveringen en software-abonnement via een programma aanschaffen met behulp van REST-API's. Zie voor meer informatie, [Reserveringsorder - aankoop API](/rest/api/reserved-vm-instances/reservationorder/purchase).
+U kunt met behulp van REST Api's Azure-reserve ringen en software plannen aanschaffen via een programma. Zie reserverings [order-Purchase API (](/rest/api/reserved-vm-instances/reservationorder/purchase)Engelstalig) voor meer informatie.
 
-Hier volgt een voorbeeld van een aanvraag om aan te schaffen met behulp van de REST-API:
+Hier volgt een voor beeld van een aanvraag voor aankoop met behulp van de REST API:
 
 ```
 PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
@@ -61,60 +61,60 @@ Aanvraagtekst:
 }
 ```
 
-U kunt ook een reservering in de portal voor Azure kopen. Raadpleeg voor meer informatie de volgende artikelen:
+U kunt ook een reserve ring kopen in de Azure Portal. Raadpleeg voor meer informatie de volgende artikelen:
 
-Service-plannen:
+Service plannen:
 - [Virtuele machine](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)
 -  [Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json)
 - [SQL Database](../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json)
 
-Software-abonnement:
+Software plannen:
 - [SUSE Linux-software](../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json)
 
-## <a name="get-reservations"></a>Reserveringen ophalen
+## <a name="get-reservations"></a>Reserve ringen ophalen
 
-Als u een Azure-klant bent met een Enterprise Agreement (EA-klant), krijgt u de reserveringen uw organisatie hebt gekocht via het [gereserveerde instantie ophalen transactie in rekening gebracht API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges). Voor andere abonnementen, lijst van alle reserveringen die u hebt gekocht en over machtigingen beschikt om weer te geven met behulp van de API [Reserveringsorder - lijst](/rest/api/reserved-vm-instances/reservationorder/list). De eigenaar van account of de persoon die de reservering hebt gekocht heeft standaard machtigingen voor het weergeven van de reservering.
+Als u een Azure-klant bent met een Enterprise Agreement (EA-klant), kunt u de reserve ringen ophalen die uw organisatie heeft gekocht met behulp van de API voor het verkrijgen van een [trans actie voor gereserveerde exemplaar transacties](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges). Voor andere abonnementen krijgt u de lijst met reserve ringen die u hebt gekocht en beschikt u over de benodigde machtigingen voor het weer geven van de lijst met API [-reserverings orders](/rest/api/reserved-vm-instances/reservationorder/list). De eigenaar van het account of de persoon die de reserve ring heeft gekocht, heeft standaard machtigingen voor het weer geven van de reserve ring.
 
-## <a name="see-reservation-usage"></a>Zie reservering gebruik
+## <a name="see-reservation-usage"></a>Reserverings gebruik weer geven
 
-Als u een EA-klant bent, kunt u programmatisch bekijken hoe de reserveringen in uw organisatie worden gebruikt. Zie voor meer informatie, [gebruik van de gereserveerde instanties ophalen voor zakelijke klanten](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage). Gebruik de API voor andere abonnementen, [reserveringen samenvattingen - lijst door reservering volgorde en reservering](/rest/api/consumption/reservationssummaries/listbyreservationorderandreservation).
+Als u een EA-klant bent, kunt u programmatisch bekijken hoe de reserve ringen in uw organisatie worden gebruikt. Zie voor meer informatie het [gebruik van gereserveerde instanties voor zakelijke klanten ophalen](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage). Gebruik voor andere abonnementen de API [-reserve ringen samen vattingen: lijst per reserverings order en reserve ring](/rest/api/consumption/reservationssummaries/listbyreservationorderandreservation).
 
-Als u vindt dat van uw organisatie reserveringen onder gebruikt worden:
+Als u merkt dat de reserve ringen van uw organisatie onder-worden gebruikt:
 
-- Zorg ervoor dat de virtuele machines die uw organisatie maakt overeenkomen met de VM-grootte die in de reservering.
-- Controleer of grootte-instantieflexibiliteit op. Zie voor meer informatie, [reserveringen beheren - wijziging optimaliseren voor gereserveerde VM-instanties](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
-- Het bereik van de reservering gedeeld zodat deze van toepassing is grotere schaal wijzigen. Zie voor meer informatie, [reserveringen beheren - wijzigen van het bereik voor een reservering](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
-- De niet-gebruikte hoeveelheid uitwisselen. Zie voor meer informatie, [reserveringen - annuleringen en uitwisselingen beheren](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges).
+- Zorg ervoor dat de virtuele machines die uw organisatie maakt, overeenkomen met de VM-grootte die op de reserve ring is.
+- Zorg ervoor dat de flexibiliteit van de instantie grootte is ingeschakeld. Zie voor meer informatie [Manage Reservations-instelling Optimize wijzigen voor gereserveerde VM-instanties](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
+- Wijzig de reik wijdte van de reserve ring naar gedeeld zodat deze breder wordt toegepast. Zie [reserve ringen beheren-het bereik voor een reserve ring wijzigen](billing-manage-reserved-vm-instance.md#change-the-reservation-scope)voor meer informatie.
+- Het niet-gebruikte aantal uitwisselen. Zie [reserve ringen beheren-annuleringen en uitwisseling](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges)voor meer informatie.
 
-## <a name="give-access-to-reservations"></a>Toegang verlenen tot reserveringen
+## <a name="give-access-to-reservations"></a>Toegang geven tot reserve ringen
 
-De lijst met alle reserveringen ophalen dat een gebruiker toegang tot met behulp van heeft de [reservering - bewerking - lijst API](/rest/api/reserved-vm-instances/reservationorder/list). Om toegang te verlenen aan een reservering via een programma, ziet u een van de volgende artikelen:
+De lijst met alle reserve ringen die een gebruiker heeft geopend, ophalen met behulp van de [API voor reserve ring-bewerking-List](/rest/api/reserved-vm-instances/reservationorder/list). Zie een van de volgende artikelen voor meer informatie over het programmatisch toekennen van een reserve ring:
 
-- [Beheren van toegang met RBAC en de REST-API](../role-based-access-control/role-assignments-rest.md)
-- [Toegang met RBAC en Azure PowerShell beheren](../role-based-access-control/role-assignments-powershell.md)
-- [Beheren van toegang via RBAC en Azure CLI](../role-based-access-control/role-assignments-cli.md)
+- [Toegang beheren met RBAC en de REST API](../role-based-access-control/role-assignments-rest.md)
+- [Toegang beheren met RBAC en Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+- [Toegang beheren met RBAC en Azure CLI](../role-based-access-control/role-assignments-cli.md)
 
-## <a name="split-or-merge-reservation"></a>Reservering van splitsen of samenvoegen
+## <a name="split-or-merge-reservation"></a>Reserve ring splitsen of samen voegen
 
-Nadat u meer dan één exemplaar van de resource binnen een reservering koopt, kunt u exemplaren binnen deze reservering toewijzen aan verschillende abonnementen. U kunt het reserveringsbereik wijzigen zodat deze van toepassing op alle abonnementen binnen de context van de dezelfde facturering. Maar voor cost management of budgettering doeleinden, kunt u de scope als 'enkel abonnement' behouden en exemplaren van de reservering toewijzen aan een specifiek abonnement.
+Nadat u meer dan één resource-exemplaar binnen een reserve ring hebt gekocht, wilt u mogelijk instanties binnen die reserve ring toewijzen aan verschillende abonnementen. U kunt het reserverings bereik wijzigen zodat dit van toepassing is op alle abonnementen binnen dezelfde facturerings context. Maar voor kosten beheer of budget tering wilt u het bereik mogelijk als ' één abonnement ' laten en reserverings instanties toewijzen aan een specifiek abonnement.
 
-Als u wilt splitsen een reservering, gebruikt u de API [reservering - gesplitst](/rest/api/reserved-vm-instances/reservation/split). U kunt ook een reservering splitsen met behulp van PowerShell. Zie voor meer informatie, [reserveringen - reservering splitsen in twee reserveringen beheren](billing-manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations).
+Als u een reserve ring wilt splitsen, gebruikt u de API [-reserve ring-splitsen](/rest/api/reserved-vm-instances/reservation/split). U kunt ook een reserve ring splitsen met behulp van Power shell. Zie reserve [ringen beheren-reserve ring splitsen in twee reserve ringen](billing-manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations)voor meer informatie.
 
-Als u wilt samenvoegen twee reserveringen in één reservering, gebruiken de API [reservering - Merge](/rest/api/reserved-vm-instances/reservation/merge).
+Gebruik de API [-reserve ring-samen voegen](/rest/api/reserved-vm-instances/reservation/merge)om twee reserve ringen samen te voegen in één reserve ring.
 
-## <a name="change-scope-for-a-reservation"></a>Bereik wijzigen voor een reservering
+## <a name="change-scope-for-a-reservation"></a>Bereik wijzigen voor een reserve ring
 
-Het bereik van een reservering kan worden voor één abonnement of voor alle abonnementen in de context van de facturering. Als u het bereik aan één abonnement hebt ingesteld, wordt de reservering wordt vergeleken met het uitvoeren van resources in het geselecteerde abonnement. Als u het bereik op gedeelde, Azure komt overeen met de reservering naar resources die worden uitgevoerd in alle abonnementen binnen de context van de facturering instellen. De context van de facturering is afhankelijk van het abonnement dat u hebt gebruikt om de reservering kopen. Zie voor meer informatie, [-reserveringen beheren - het bereik wijzigen](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+Het bereik van een reserve ring kan één abonnement, één resource groep of alle abonnementen in uw facturerings context zijn. Als u het bereik instelt op één abonnement of één resource groep, wordt de reserve ring vergeleken met het uitvoeren van resources in het geselecteerde abonnement. Als u het abonnement of de resource groep verwijdert of verplaatst, wordt de reserve ring niet gebruikt.  Als u het bereik instelt op gedeeld, komt Azure overeen met de reserve ring voor resources die worden uitgevoerd in alle abonnementen binnen de facturerings context. De facturerings context is afhankelijk van het abonnement dat u hebt gebruikt om de reserve ring te kopen. U kunt het bereik bij aankoop selecteren of het tijdstip na de aankoop wijzigen. Zie [reserve ringen beheren-het bereik wijzigen](billing-manage-reserved-vm-instance.md#change-the-reservation-scope)voor meer informatie.
 
-U kunt het bereik via een programma wijzigen met de API [reservering - Update](/rest/api/reserved-vm-instances/reservation/update).
+Als u de scope programmatisch wilt wijzigen, gebruikt u de API [-reserve ring-update](/rest/api/reserved-vm-instances/reservation/update).
 
 ## <a name="learn-more"></a>Meer informatie
 
-- [Wat zijn de reserveringen voor Azure](billing-save-compute-costs-reservations.md)
-- [Begrijpen hoe de VM-reserveringskorting wordt toegepast](billing-understand-vm-reservation-charges.md)
-- [Begrijpen hoe de korting voor SUSE Linux Enterprise software plan wordt toegepast](billing-understand-suse-reservation-charges.md)
-- [Begrijpen hoe andere reservering kortingen zijn toegepast](billing-understand-reservation-charges.md)
-- [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
-- [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
-- [Kosten van de Windows-software is niet opgenomen in de reserveringen](billing-reserved-instance-windows-software-costs.md)
-- [Azure-reserveringen in programma Partner Center Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Wat zijn reserve ringen voor Azure?](billing-save-compute-costs-reservations.md)
+- [Begrijpen hoe de korting voor VM-reservering wordt toegepast](billing-understand-vm-reservation-charges.md)
+- [Inzicht krijgen in de manier waarop de SUSE Linux Enter prise software plan korting wordt toegepast](billing-understand-suse-reservation-charges.md)
+- [Begrijpen hoe andere reserverings kortingen worden toegepast](billing-understand-reservation-charges.md)
+- [Het gebruik van de reserve ring begrijpen voor uw abonnement voor betalen naar gebruik](billing-understand-reserved-instance-usage.md)
+- [Het gebruik van de reserve ring begrijpen voor uw Enter prise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
+- [Windows-software kosten niet inbegrepen bij reserve ringen](billing-reserved-instance-windows-software-costs.md)
+- [Azure Reservations in het Partner Center-programma van de Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)

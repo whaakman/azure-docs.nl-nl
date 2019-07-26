@@ -1,7 +1,7 @@
 ---
-title: 'Functies: Actie en de context - Personalizer'
+title: 'Functies: Actie en context-persoonlijker'
 titleSuffix: Azure Cognitive Services
-description: Personalizer gebruikt functies, informatie over acties en context, om betere ranking-suggesties maken. Functies kunnen worden zeer algemene of specifiek voor een item.
+description: Personaler maakt gebruik van functies, informatie over acties en context, om betere suggesties te stellen. Functies kunnen zeer algemeen of specifiek voor een item zijn.
 services: cognitive-services
 author: edjez
 manager: nitinme
@@ -10,50 +10,50 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: c317cbec02b82743c233bf36f743cea808c30c69
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 2dab7447e6051d4559f7f3985579cac9376ac7be
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253585"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423285"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Functies zijn informatie over acties en context
 
-De service Personalizer werkt door te leren wat uw toepassing moet worden weergegeven voor gebruikers in een bepaalde context.
+De Personaler service werkt door te leren wat uw toepassing moet weer geven aan gebruikers in een bepaalde context.
 
-Maakt gebruik van personalizer **functies**, dit is informatie over de **huidige context** het beste kiezen **actie**. De functies vertegenwoordigen alle gegevens die nuttig kan zijn voor het bereiken van hogere beloningen aanpassen. Functies kunnen worden zeer algemene of specifiek voor een item. 
+Personaler maakt gebruik van **functies**. Dit is informatie over de **huidige context** om de beste **actie**te kiezen. De functies vertegenwoordigen alle informatie die u kunt gebruiken om persoonlijke voor delen te krijgen. Functies kunnen zeer algemeen of specifiek voor een item zijn. 
 
-Bijvoorbeeld, u mogelijk een **functie** over:
+U hebt bijvoorbeeld een **functie** over:
 
 * De _gebruiker_ , zoals een `UserID`. 
-* De _inhoud_ bijvoorbeeld als een video is een `Documentary`, een `Movie`, of een `TV Series`, of of een handelsversie-item is beschikbaar in de store.
-* De _huidige_ periode van de tijd, zoals welke dag van de week is.
+* De _inhoud_ , bijvoorbeeld als een video een `Documentary`, een `Movie`of een `TV Series`is, of een retail-item beschikbaar is in de Store.
+* De _huidige_ tijds periode, zoals de dag van de week.
 
-Personalizer niet schrijven, beperken, of welke functies u voor acties en context verzenden kunt oplossen:
+Personaler schrijft, beperkt of corrigeert de functies die u kunt verzenden voor acties en context:
 
-* Als u deze niet hebt, kunt u sommige functies voor sommige acties en niet voor andere verzenden. Tv-serie kan bijvoorbeeld kenmerken films geen hebt.
-* Mogelijk hebt u enkele functies die beschikbaar zijn slechts enkele voorbeelden van momenten. Een mobiele toepassing kan bijvoorbeeld informatie dan een webpagina te bieden. 
-* Na verloop van tijd kunt u toevoegen en verwijderen van functies over context en acties. Personalizer blijft Leer van de beschikbare informatie.
-* Er moet ten minste één functie voor de context. Personalizer biedt geen ondersteuning voor de context van een leeg zijn. Als u alleen een vaste context telkens verzendt, kies Personalizer de actie voor classificaties alleen met betrekking tot de functies in de acties. 
-* Personalizer wordt geprobeerd om te kiezen acties die het meest voor iedereen op elk gewenst moment geschikt.
+* U kunt sommige functies voor sommige acties en niet voor anderen verzenden als u deze niet hebt. TV-reeksen kunnen bijvoorbeeld kenmerken van films hebben.
+* Mogelijk zijn sommige functies slechts enkele keren beschikbaar. Een mobiele toepassing kan bijvoorbeeld meer informatie geven dan een webpagina. 
+* Na verloop van tijd kunt u functies over context en acties toevoegen en verwijderen. Personaler gaat verder met de beschik bare informatie.
+* Er moet ten minste één functie zijn voor de context. Personaler biedt geen ondersteuning voor een lege context. Als u elke keer een vaste context verzendt, kiest Personaler dan de actie voor de classificaties alleen met betrekking tot de functies in de acties.
+* Voor categorische-functies hoeft u de mogelijke waarden niet te definiëren en hoeft u geen bereik vooraf in te stellen voor numerieke waarden.
 
 ## <a name="supported-feature-types"></a>Ondersteunde functie typen
 
-Personalizer biedt ondersteuning voor functies van de reeks, numerieke en Booleaanse typen.
+Personaler ondersteunt functies van het type teken reeks, numeriek en Booleaanse waarde.
 
-### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Hoe de keuze van het functietype is van invloed op Machine Learning in Personalizer
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Hoe de keuze van het functie type is van invloed op Machine Learning in Personaler
 
-* **Tekenreeksen**: Voor tekenreekstypen maakt elke combinatie van sleutel en waarde nieuwe gewicht in de Personalizer machine learning-model. 
-* **Numerieke**: Als het getal moet proportioneel invloed hebben op het resultaat van persoonlijke instellingen, moet u numerieke waarden gebruiken. Dit is zeer afhankelijk scenario. In het voorbeeld van een vereenvoudigde bijvoorbeeld wanneer een handelsversie personaliseren ondervindt, NumberOfPetsOwned kan een functie die numeriek is, kunt u mensen met 2 of 3 huisdieren invloed op het persoonlijke instellingen resultaat die twee of drie keer zoveel met 1 huisdier zijn. Functies die zijn gebaseerd op numerieke eenheden, maar waarbij de betekenis niet lineaire - zoals leeftijd, temperatuur of hoogte van de persoon - zijn beste gecodeerd als tekenreeksen en de kwaliteit van de functie kan doorgaans worden verbeterd door het gebruik van bereiken. Bijvoorbeeld, leeftijd kan worden gecodeerd als "Ouder": "0-5", "Leeftijd": "6-10", enzovoort.
-* **Booleaanse** waarden die worden verzonden met de waarde 'false' act alsof ze op alle hadn't is verzonden.
+* **Teken reeksen**: Voor teken reeks typen maakt elke combi natie van sleutel en waarde nieuwe gewichten in het model Personaler machine learning. 
+* **Numeriek**: U moet numerieke waarden gebruiken wanneer het getal proportioneel van invloed moet zijn op het personalisatie resultaat. Dit is een zeer afhankelijk scenario. In een vereenvoudigd voor beeld bijvoorbeeld: bij het personaliseren van een retail-ervaring kan NumberOfPetsOwned een functie zijn die numeriek is als u wilt dat mensen met 2 of 3 huis dieren twee keer zo veel mogelijk van invloed op het persoonlijke resultaat hebben of drie keer per. Functies die zijn gebaseerd op numerieke eenheden, maar waarbij de betekenis niet lineair is, zoals leeftijd, Tempe ratuur of persoons hoogte, worden het beste gecodeerd als teken reeksen en de functie kwaliteit kan meestal worden verbeterd door gebruik te maken van bereiken. Leeftijd kan bijvoorbeeld worden gecodeerd als ' leeftijd ': ' 0-5 ', ' leeftijd ': ' 6-10 ', enzovoort.
+* **Booleaanse** waarden die zijn verzonden met de waarde ' false ' fungeren alsof ze niet had zijn verzonden.
 
-Functies die niet aanwezig zijn, moeten worden weggelaten uit de aanvraag. Vermijd het verzenden van functies met een null-waarde, omdat deze wordt verwerkt als bestaande en met de waarde 'null' als het model te trainen.
+Functies die niet aanwezig zijn, moeten worden wegge laten uit de aanvraag. Vermijd het verzenden van functies met een null-waarde, omdat deze wordt verwerkt als bestaande en met de waarde ' null ' bij het trainen van het model.
 
-## <a name="categorize-features-with-namespaces"></a>Functies met naamruimten categoriseren
+## <a name="categorize-features-with-namespaces"></a>Functies categoriseren met naam ruimten
 
-Personalizer wordt in de functies die zijn ingedeeld in naamruimten. U hebt vastgesteld, in uw toepassing, als de naamruimten worden gebruikt en wat ze moeten worden. Naamruimten worden gebruikt voor het groeperen van functies over een vergelijkbaar onderwerp of functies die afkomstig zijn van een bepaalde bron.
+Personaler neemt functies die zijn ingedeeld in naam ruimten. U kunt in uw toepassing bepalen of naam ruimten worden gebruikt en wat ze moeten zijn. Naam ruimten worden gebruikt om functies te groeperen over een vergelijkbaar onderwerp of functies die afkomstig zijn van een bepaalde bron.
 
-Hier volgen enkele voorbeelden van functie naamruimten die worden gebruikt door toepassingen:
+Hier volgen enkele voor beelden van onderdeel naam ruimten die worden gebruikt door toepassingen:
 
 * User_Profile_from_CRM
 * Time
@@ -66,12 +66,12 @@ Hier volgen enkele voorbeelden van functie naamruimten die worden gebruikt door 
 * current_time
 * NewsArticle_TextAnalytics
 
-U kunt de functie naamruimten volgen van uw eigen conventies, zolang ze geldige JSON-sleutels zijn naam. Naamruimten worden gebruikt om te organiseren van functies in verschillende sets en te onderscheiden van functies met vergelijkbare namen. U kunt zien van naamruimten als 'voorvoegsel' die is toegevoegd aan de onderdeelnamen. Naamruimten kan niet worden genest.
+U kunt functie naam ruimten volgen volgens uw eigen conventies, zolang ze geldige JSON-sleutels zijn. Naam ruimten worden gebruikt om functies in verschillende sets te organiseren en om dubbel zinnigheid te maken met vergelijk bare namen. U kunt naam ruimten beschouwen als een voor voegsel die wordt toegevoegd aan functie namen. Naam ruimten kunnen niet worden genest.
 
 
-In de volgende JSON `user`, `state`, en `device` functie naamruimten. Opmerking van de openbare preview-versie: Op dit moment wordt ten zeerste aangeraden namen voor functie-naamruimten die UTF-8 op basis van zijn en beginnen met verschillende letters. Bijvoorbeeld, `user`, `state`, en `device` beginnen met `u`, `s`, en `d`. Op dit moment met naamruimten met dezelfde tekens als eerste kan leiden tot conflicten in indexen die wordt gebruikt voor machine learning.
+In de volgende JSON, `user` `state`, en `device` zijn functie naam ruimten. Opmerking voor open bare Preview: We raden u op dit moment ten zeerste aan om namen te gebruiken voor functie naam ruimten die zijn gebaseerd op UTF-8 en beginnen met andere letters. `user`Bijvoorbeeld ,`s`, en`device` begin met`u`,, en .`d` `state` Momenteel hebben naam ruimten met dezelfde eerste tekens kunnen leiden tot conflicten in indexen die worden gebruikt voor machine learning.
 
-JSON-objecten kunnen geneste JSON-objecten en eenvoudige eigenschapswaarden bevatten. Een matrix kan worden opgenomen alleen als de matrixitems getallen zijn. 
+JSON-objecten kunnen geneste JSON-objecten en eenvoudige eigenschappen/waarden bevatten. Een matrix kan alleen worden opgenomen als de matrix items getallen zijn. 
 
 ```JSON
 {
@@ -98,109 +98,109 @@ JSON-objecten kunnen geneste JSON-objecten en eenvoudige eigenschapswaarden beva
 }
 ```
 
-## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Hoe u de functie stelt effectiever voor Personalizer
+## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Functie sets effectiever maken voor persoonlijker
 
-Een goede functieset helpt Personalizer meer informatie over het voorspellen van de actie die de basis van de hoogste prijs. 
+Een goede functieset helpt persoonlijker te leren hoe u de actie kunt voors pellen waarmee de hoogste beloning wordt gestimuleerd. 
 
-Houd rekening met functies te verzenden naar de Personalizer positie-API die volgt u deze aanbevelingen:
+Overweeg het verzenden van functies naar de Personaler Rank-API die deze aanbevelingen volgen:
 
-* Er zijn onvoldoende functies tot persoonlijke instellingen voor station. Hoe meer precies de inhoud moet worden toegepast, meer functies nodig zijn.
+* Er zijn voldoende functies om persoonlijke instellingen te verzorgen. Hoe preciezer de inhoud moet zijn, hoe meer functies nodig zijn.
 
-* Er zijn onvoldoende kenmerken van diverse *dichtheden*. Een functie is *compacte* als veel items worden gegroepeerd in een paar buckets. Duizenden video's kunnen bijvoorbeeld worden geclassificeerd als "Long" (meer dan 5 minuten lang) en 'Korte' (onder 5 minuten lang). Dit is een *zeer compacte* functie. De dezelfde duizenden items hebben daarentegen, een kenmerk met de naam "Title", waarvoor bijna nooit dezelfde waarde van het ene item naar een andere. Dit is een zeer niet-dense of *sparse* functie.  
+* Er zijn voldoende functies voor verschillende *densiteit*. Een functie is zeer *dicht* als veel items zijn gegroepeerd in een paar buckets. Duizenden Video's kunnen bijvoorbeeld worden geclassificeerd als ' lang ' (meer dan 5 minuten lang) en ' korte ' (minder dan 5 minuten lang zijn). Dit is een *zeer compacte* functie. Aan de andere kant kunnen dezelfde duizenden items een kenmerk met de naam "title" hebben, wat bijna nooit van het ene naar het andere item is. Dit is een zeer niet-compacte of *sparse* functie.  
 
-Met functies van high-densitysampling helpt bij het leren van het ene item naar een andere extrapoleren Personalizer. Maar als er slechts een paar functies en ze te compacte zijn, de Personalizer probeert te nauwkeurig doel inhoud met slechts een paar buckets om uit te kiezen.
+Met de functies van hoge dichtheid kan de persoonlijker leren van het ene naar het andere item. Maar als er maar een paar functies zijn en deze te dicht zijn, probeert de Personaler de inhoud nauw keurig te richten met slechts enkele buckets waaruit kan worden gekozen.
 
-### <a name="improve-feature-sets"></a>Functiesets verbeteren 
+### <a name="improve-feature-sets"></a>Functie sets verbeteren 
 
-Analyseer het gedrag van gebruikers aan de hand van een Offline-evaluatie. Hiermee kunt u om te kijken naar oude gegevens om te zien welke functies intensief een bijdrage levert aan positieve voordelen ten opzichte van die minder bijdrage levert. U kunt zien welke functies, helpen en deze worden maximaal u en uw toepassing betere functies vinden om te verzenden naar Personalizer resultaten nog verder verbeteren.
+Analyseer het gebruikers gedrag door een offline-evaluatie uit te voeren. Op die manier kunt u eerdere gegevens bekijken om te zien welke functies sterk bijdragen aan positieve beloningen en die minder bijdragen. U kunt zien welke functies u helpen, en uw toepassing helpt u bij het vinden van betere functies om de resultaten nog verder te verbeteren.
 
-Deze volgende secties bevatten algemene procedures voor het verbeteren van functies die worden verzonden naar Personalizer.
+De volgende secties bevatten algemene procedures voor het verbeteren van functies die naar persoonlijke voor keuren worden verzonden.
 
-#### <a name="make-features-more-dense"></a>Functies meer compacte maken
+#### <a name="make-features-more-dense"></a>Functies een compacter maken
 
-Het is mogelijk voor het verbeteren van uw functiesets door te bewerken om deze grotere en meer of minder compacte maken.
+Het is mogelijk om uw functie sets te verbeteren door ze te bewerken zodat deze groter en meer of minder compacte zijn.
 
-Een tijdstempel omlaag naar de tweede is bijvoorbeeld een zeer sparse functie. Kan dat het meer compacte (effectief) worden gemaakt door te classificeren tijden in "ochtend", "twaalf uur 's middags", "middag", enzovoort.
+Een time stamp voor het tweede is bijvoorbeeld een zeer verspreide functie. Dit kan een meer compacte (effectief) zijn door tijden te classificeren naar 's ochtends, rond middaguur, 's middags enzovoort.
 
 
-#### <a name="expand-feature-sets-with-extrapolated-information"></a>Vouw de functiesets geëxtrapoleerde informatie
+#### <a name="expand-feature-sets-with-extrapolated-information"></a>Functie sets met extrapolatie gegevens uitvouwen
 
-U kunt ook meer functies ophalen door na te denken van vakjes kenmerken die kunnen worden afgeleid van informatie die u al hebt. Bijvoorbeeld in een lijst met fictieve film personalisatie, is het mogelijk dat een weekend vs weekdag elicits verschillend gedrag van gebruikers? Tijd kan worden uitgebreid naar een kenmerk 'weekend' of 'dag'. Culturele feestdagen station aandacht wordt besteed aan bepaalde filmtypen? Een kenmerk 'Halloween' is bijvoorbeeld handig in de locaties waar deze relevant is. Is het mogelijk dat en weer Regenachtig aanzienlijke invloed op de keuze van een film voor veel mensen heeft? Met de datum en tijd, kan een weerservice bieden dat gegevens en u deze als een extra functie toevoegen kunt. 
+U kunt ook meer functies verkrijgen door te denken aan niet-Verken kenmerken die kunnen worden afgeleid van de gegevens die u al hebt. Bijvoorbeeld: in een fictieve persoonlijke weer geven van een film lijst is het mogelijk dat een weekend VS-weekdag een ander gedrag van gebruikers veroorzaakt? De tijd kan worden uitgevouwen om een ' weekend ' of ' weekdag-kenmerk ' te hebben. Zorgen de nationale vakantie dagen voor de aandacht voor bepaalde film typen? Een "Halloween"-kenmerk is bijvoorbeeld nuttig op plaatsen waar het relevant is. Is het mogelijk dat regen achtige weer een grote invloed heeft op de keuze van een film voor veel mensen? Met tijd en plaats kan een weer service die informatie leveren en kunt u deze toevoegen als een extra functie. 
 
-#### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>Vouw de functiesets met kunstmatige intelligentie en cognitive services
+#### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>Vouw functie sets uit met kunst matige intelligentie en cognitieve Services
 
-Kunstmatige intelligentie en kant-en-klaar-Cognitive Services is een zeer krachtige toevoeging aan de Personalizer. 
+Kunst matige intelligentie en kant-en-klare Cognitive Services kunnen een zeer krachtige aanvulling zijn op de Personaler. 
 
-U kunt informatie die relevant zijn voor persoonlijke instellingen zijn automatisch ophalen door voorverwerking van de items die met behulp van kunstmatige intelligentie-services.
+Door de items voor te verwerken met kunst matige intelligentie Services, kunt u gegevens die waarschijnlijk relevant zijn voor persoonlijke instellingen, automatisch extra heren.
 
 Bijvoorbeeld:
 
-* U kunt een filmbestand via uitvoeren [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) om op te halen scène-elementen, tekst, sentiment en veel andere kenmerken. Deze kenmerken kunnen vervolgens meer compacte in overeenstemming met kenmerken die de itemmetagegevens van de oorspronkelijke niet worden gemaakt. 
-* Installatiekopieën kunnen worden uitgevoerd via de objectdetectie, gezichten via sentiment, enzovoort.
-* Gegevens in de tekst kan worden uitgebreid door te extraheren van entiteiten, sentiment, het uitbreiden van entiteiten met Bing knowledge graph, enzovoort.
+* U kunt een film bestand uitvoeren via [video indexer](https://azure.microsoft.com/services/media-services/video-indexer/) om scène-elementen, tekst, sentiment en vele andere kenmerken uit te pakken. Deze kenmerken kunnen vervolgens groter worden gemaakt om de kenmerken te zien die de meta gegevens van het oorspronkelijke item niet hebben. 
+* Installatie kopieën kunnen worden uitgevoerd via object detectie, gezichten via sentiment, enzovoort.
+* Informatie in de tekst kan worden uitgebreid door entiteiten uit te pakken, sentiment, entiteiten uit te breiden met Bing kennis Graph, enzovoort.
 
-U kunt verschillende andere [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), bijvoorbeeld
+U kunt verschillende andere [Azure-Cognitive Services](https://www.microsoft.com/cognitive-services)gebruiken, zoals
 
-* [Entiteiten koppelen](../entitylinking/home.md)
+* [Entiteit koppelen](../entitylinking/home.md)
 * [Tekstanalyse](../text-analytics/overview.md)
-* [Emoties](../emotion/home.md)
+* [Emotion](../emotion/home.md)
 * [Computer Vision](../computer-vision/home.md)
 
 ## <a name="actions-represent-a-list-of-options"></a>Acties vertegenwoordigen een lijst met opties
 
 Elke actie:
 
-* Een id heeft.
+* Heeft een ID.
 * Bevat een lijst met functies.
-* De lijst van kenmerken kan grote (honderdtallen) maar raden wij aan evaluatie van de effectiviteit van de functie als u wilt verwijderen van functies die niet zijn een bijdrage levert aan beloningen ophalen. 
-* De functies in de **acties** mogelijk of beschikt niet over een correlatie met functies in de **context** door Personalizer gebruikt.
-* Functies voor acties kunnen worden gebruikt in bepaalde acties en andere niet. 
-* Functies voor een bepaalde actie-ID kunnen één dag beschikbaar zijn, maar later niet meer beschikbaar. 
+* De lijst met functies kan groot (honderden) zijn, maar we raden u aan de effectiviteit van de functie te evalueren om functies te verwijderen die niet bijdragen aan het verkrijgen van beloningen. 
+* De functies in de **acties** kunnen of mogelijk geen correlatie hebben met functies in de **context** die wordt gebruikt door personaler.
+* Functies voor acties zijn mogelijk aanwezig in sommige acties en niet op andere. 
+* Functies voor een bepaalde actie-ID zijn mogelijk één dag beschikbaar, maar later is niet meer beschikbaar. 
 
-Personalizer van machine learning-algoritmen functioneren beter wanneer er stabiel functiesets zijn, maar positie aanroepen niet mislukken als de functie wijzigingen na verloop van tijd ingesteld.
+De machine learning-algoritmen van personalers worden beter wanneer er stabiele functie sets zijn, maar rang gesprekken mislukken niet als de functie is gewijzigd in de loop van de tijd.
 
-Zenden geen in meer dan 50 acties wanneer Trefwoordenrangschikking acties. Dit is mogelijk dezelfde 50 acties telkens of die kunnen worden gewijzigd. Bijvoorbeeld, als u een productcatalogus van 10.000 items voor een e-commerce-toepassing hebt, kunt u een aanbeveling of filtering engine om te bepalen van de bovenkant 40 een klant kan wilt en Personalizer gebruiken om het te vinden die de meeste derden (bijvoorbeeld genereren de gebruiker wordt toegevoegd aan het mandje) voor de huidige context.
+Geen meer dan 50 acties verzenden bij het classificeren van acties. Dit kunnen dezelfde 50-acties zijn telkens, of ze kunnen veranderen. Als u bijvoorbeeld een product catalogus van 10.000 items voor een e-commerce-toepassing hebt, kunt u een aanbevelings-of filter engine gebruiken om te bepalen wat de top 40 van een klant is, en kunt u Personaler gebruiken om de app te vinden waarmee de meeste beloning wordt gegenereerd (bijvoorbeeld , wordt de gebruiker toegevoegd aan het mandje) voor de huidige context.
 
 
-### <a name="examples-of-actions"></a>Voorbeelden van acties
+### <a name="examples-of-actions"></a>Voor beelden van acties
 
-De acties die u naar de API positie verzendt afhankelijk van wat u probeert om aan te passen.
+De acties die u naar de positie-API verzendt, zijn afhankelijk van wat u probeert te personaliseren.
 
 Hier volgen enkele voorbeelden:
 
 |Doel|Action|
 |--|--|
-|Aan persoonlijke voorkeuren aanpassen waarop artikel op een nieuwswebsite is gemarkeerd.|Elke actie is een mogelijke nieuwsartikel.|
-|Optimaliseer ad plaatsing op een website.|Elke actie is een lay-out- of regels voor het maken van een lay-out voor de advertenties (bijvoorbeeld: op de bovenkant op de juiste, kleine afbeeldingen, grote afbeeldingen).|
-|Persoonlijke rangorde van de aanbevolen items op een winkelwagen website weergegeven.|Elke actie wordt een specifiek product.|
-|Gebruikersinterface-elementen, zoals filters toe te passen op een specifieke foto voorstellen.|Elke actie mogelijk een ander filter.|
-|Kies een chatbot antwoord om te verduidelijken bedoeling van gebruikers of een actie voorstellen.|Elke actie kan worden gebruikt bij het interpreteren van de reactie.|
-|Kies wat u wilt weergeven boven aan een lijst met zoekresultaten|Elke actie is een van de hoogste aantal zoekresultaten.|
+|Personaliseer welk artikel op een nieuws website is gemarkeerd.|Elke actie is een mogelijk nieuws artikel.|
+|Optimaliseer de plaatsing van advertenties op een website.|Elke actie is een indeling of regels voor het maken van een indeling voor de advertenties (bijvoorbeeld bovenaan, kleine afbeeldingen, grote afbeeldingen).|
+|Geef een persoonlijke volg orde van de aanbevolen items op een winkel website weer.|Elke actie is een specifiek product.|
+|Stel gebruikers interface-elementen, zoals filters, voor op een specifieke foto.|Elke actie kan een ander filter zijn.|
+|Kies een reactie op een chat-bot om de gebruikers intentie te verduidelijken of om een actie te suggereren.|Elke actie is een optie voor het interpreteren van het antwoord.|
+|Kies wat u wilt weer geven boven aan een lijst met zoek resultaten|Elke actie is een van de meeste Zoek resultaten.|
 
 
-### <a name="examples-of-features-for-actions"></a>Voorbeelden van functies voor acties
+### <a name="examples-of-features-for-actions"></a>Voor beelden van functies voor acties
 
-De volgende zijn goede voorbeelden van functies voor acties. Deze afhankelijk van veel elke toepassing.
+Hier volgen enkele voor beelden van functies voor acties. Deze zijn afhankelijk van elke toepassing.
 
-* Functies met kenmerken van de acties. Bijvoorbeeld, is het een film of een reeks tv-programma?
-* Functies over hoe gebruikers zijn aan de slag met deze actie in het verleden kunt kunnen. Bijvoorbeeld, deze film voornamelijk is gezien door mensen in demografische gegevens A of B, meestal wordt afgespeeld niet meer dan één keer.
-* Functies over de kenmerken van hoe u de gebruiker *ziet* de acties. Bijvoorbeeld, wordt de poster voor de film wordt weergegeven in de miniaturen opnemen gezichten, auto's of landschappen?
+* Functies met kenmerken van de acties. Is het bijvoorbeeld een film of een tv-serie?
+* Functies over hoe gebruikers in het verleden met deze actie kunnen werken. Deze film wordt meestal gezien door personen in demografische gegevens A of B, die meestal niet meer dan één keer worden afgespeeld.
+* Functies over de kenmerken van de manier waarop de gebruiker de acties *ziet* . Bevat de poster voor de film die in de miniatuur wordt weer gegeven bijvoorbeeld gezichten, auto's of landschappen?
 
-### <a name="load-actions-from-the-client-application"></a>Acties van de clienttoepassing laden
+### <a name="load-actions-from-the-client-application"></a>Acties laden vanuit de client toepassing
 
-Functies van de acties kunnen meestal afkomstig zijn van content management systems, catalogi en recommender systemen. Uw toepassing is verantwoordelijk voor het laden van de informatie over de acties van de relevante databases en systemen die u hebt. Als uw acties niet te wijzigen of hun aandacht geladen telkens onnodige invloed op de prestaties heeft, kunt u de logica in uw toepassing om deze gegevens in cache toevoegen.
+Functies van acties kunnen doorgaans afkomstig zijn van Content Management Systems, catalogs en aanbevolen systemen. Uw toepassing is verantwoordelijk voor het laden van de informatie over de acties van de relevante data bases en systemen die u hebt. Als uw acties niet worden gewijzigd of als ze niet worden geladen elke keer dat er sprake is van een onnodige impact op de prestaties, kunt u logica in uw toepassing toevoegen om deze informatie in de cache op te slaan.
 
-### <a name="prevent-actions-from-being-ranked"></a>Voorkomen dat de acties op basis van wordt gerangschikt
+### <a name="prevent-actions-from-being-ranked"></a>Voor komen dat acties worden gerangschikt
 
-In sommige gevallen zijn er acties die u niet wilt weergeven voor gebruikers. De beste manier om te voorkomen dat een actie uit die worden beoordeeld als bovenste is niet wilt opnemen in de lijst met de API positie in de eerste plaats.
+In sommige gevallen zijn er acties die u niet wilt weer geven voor gebruikers. De beste manier om te voor komen dat een actie wordt geclassificeerd als een bovenste, is deze niet in de actie lijst opnemen in de positie-API in de eerste plaats.
 
-In sommige gevallen deze kan alleen worden bepaald later in uw bedrijfslogica als een resultaat _actie_ van een API positie aanroep moet worden weergegeven aan een gebruiker. Voor deze gevallen moet u _inactieve gebeurtenissen_.
+In sommige gevallen kan het alleen later in uw bedrijfs logica worden bepaald als een resulterende _actie_ van een absolute API-aanroep moet worden weer gegeven aan een gebruiker. In deze gevallen moet u inactieve _gebeurtenissen_gebruiken.
 
 ## <a name="json-format-for-actions"></a>JSON-indeling voor acties
 
-Bij het aanroepen van positie, ontvangt u meerdere acties kiezen uit:
+Wanneer u positie aanroept, verzendt u meerdere acties waaruit u kunt kiezen:
 
-JSON-objecten kunnen geneste JSON-objecten en eenvoudige eigenschapswaarden bevatten. Een matrix kan worden opgenomen alleen als de matrixitems getallen zijn. 
+JSON-objecten kunnen geneste JSON-objecten en eenvoudige eigenschappen/waarden bevatten. Een matrix kan alleen worden opgenomen als de matrix items getallen zijn. 
 
 ```json
 {
@@ -265,23 +265,23 @@ JSON-objecten kunnen geneste JSON-objecten en eenvoudige eigenschapswaarden beva
 }
 ```
 
-## <a name="examples-of-context-information"></a>Voorbeelden van contextinformatie
+## <a name="examples-of-context-information"></a>Voor beelden van context informatie
 
-Informatie over de _context_ is afhankelijk van elk geval de toepassing en het gebruik, maar deze kan omvatten informatie zoals:
+Informatie over de _context_ is afhankelijk van elke toepassing en use-case, maar kan meestal informatie bevatten zoals:
 
-* Informatie over uw gebruiker demografische en profiel.
-* De informatie opgehaald uit de HTTP-headers, zoals de gebruikersagent, of is afgeleid van HTTP-informatie, zoals omgekeerde geografische lookups op basis van IP-adressen.
-* Informatie over de huidige tijd, zoals de dag van de week, weekend of niet, ochtend of bijkomen, feestdagen of niet, enzovoort.
-* Informatie van mobiele toepassingen, zoals locatie, verplaatsing of accuniveau hebt uitgepakt.
-* Historische statistische functies van het gedrag van gebruikers -, zoals wat de film genres die u gebruikt zijn deze gebruiker heeft de meest bekeken.
+* Demografische en profiel gegevens over uw gebruiker.
+* Gegevens die worden geëxtraheerd uit HTTP-headers, zoals gebruikers agent, of die zijn afgeleid van HTTP-informatie, zoals reverse-geografische zoek acties op basis van IP-adressen.
+* Informatie over de huidige tijd, zoals de dag van de week, weekend of niet, morgen of middag, kerst seizoen, enzovoort.
+* Gegevens die worden geëxtraheerd uit mobiele toepassingen, zoals locatie, verplaatsing of accu niveau.
+* Historische aggregaties van het gedrag van gebruikers, zoals wat zijn de film genres die deze gebruiker het meest heeft bekeken.
 
-Uw toepassing is verantwoordelijk voor het laden van de informatie over de context van de relevante databases, sensoren en systemen die u hebt. Als uw contextinformatie niet wijzigen, kunt u bedrijfslogica toevoegen in uw toepassing om deze informatie, voordat deze worden verzonden naar de API van de positie in cache.
+Uw toepassing is verantwoordelijk voor het laden van de informatie over de context van de relevante data bases, Sens oren en systemen die u mogelijk hebt. Als uw context informatie niet verandert, kunt u logica in uw toepassing toevoegen om deze informatie in de cache op te slaan voordat u deze naar de positie-API verzendt.
 
 ## <a name="json-format-for-context"></a>JSON-indeling voor context 
 
-Context wordt uitgedrukt als een JSON-object dat wordt verzonden naar de API positie:
+De context wordt uitgedrukt als een JSON-object dat wordt verzonden naar de positie-API:
 
-JSON-objecten kunnen geneste JSON-objecten en eenvoudige eigenschapswaarden bevatten. Een matrix kan worden opgenomen alleen als de matrixitems getallen zijn. 
+JSON-objecten kunnen geneste JSON-objecten en eenvoudige eigenschappen/waarden bevatten. Een matrix kan alleen worden opgenomen als de matrix items getallen zijn. 
 
 ```JSON
 {
@@ -311,4 +311,4 @@ JSON-objecten kunnen geneste JSON-objecten en eenvoudige eigenschapswaarden beva
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Bekrachtigingen](concepts-reinforcement-learning.md) 
+[Leer versterking](concepts-reinforcement-learning.md) 

@@ -1,8 +1,8 @@
 ---
-title: Definieert gegevenstypen - Azure SQL Data Warehouse | Microsoft Docs
-description: Aanbevelingen voor het definiëren van gegevenstypes tabel in Azure SQL Data Warehouse.
+title: Gegevens typen definiëren-Azure SQL Data Warehouse | Microsoft Docs
+description: Aanbevelingen voor het definiëren van tabel gegevens typen in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,31 +10,31 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 06a273d3bfd5d416039a992e36bd4b0f72a85f78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61bb977271186699b0a72389e1538573f978c56b
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851549"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479372"
 ---
-# <a name="table-data-types-in-azure-sql-data-warehouse"></a>Gegevenstypes tabel in Azure SQL Data Warehouse
-Aanbevelingen voor het definiëren van gegevenstypes tabel in Azure SQL Data Warehouse. 
+# <a name="table-data-types-in-azure-sql-data-warehouse"></a>Tabel gegevens typen in Azure SQL Data Warehouse
+Aanbevelingen voor het definiëren van tabel gegevens typen in Azure SQL Data Warehouse. 
 
-## <a name="what-are-the-data-types"></a>Wat zijn de gegevenstypen?
+## <a name="what-are-the-data-types"></a>Wat zijn de gegevens typen?
 
-SQL Data Warehouse ondersteunt de meest gebruikte gegevenstypen. Zie voor een lijst van de ondersteunde gegevenstypen, [gegevenstypen](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in de instructie CREATE TABLE. 
+SQL Data Warehouse ondersteunt de meest gebruikte gegevens typen. Zie [gegevens typen](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in de CREATE TABLE-instructie voor een lijst met ondersteunde gegevens typen. 
 
-## <a name="minimize-row-length"></a>Rijlengte minimaliseren
-Minimaliseren van de grootte van gegevenstypen verkort de rijlengte, die tot betere prestaties van query's leiden. Gebruik het kleinste gegevenstype die geschikt is voor uw gegevens. 
+## <a name="minimize-row-length"></a>Lengte van rij minimaliseren
+Het minimaliseren van de grootte van gegevens typen verkort de lengte van de rij, wat leidt tot betere query prestaties. Gebruik het kleinste gegevens type dat voor uw gegevens werkt. 
 
-- Vermijd tekenkolommen met een grote standaardlengte definiëren. Bijvoorbeeld, als de langste waarde 25 tekens is, definieert u uw kolom als VARCHAR(25). 
-- Vermijd het gebruik van [NVARCHAR] [NVARCHAR] als u VARCHAR maar nodig hebt.
-- Gebruik zo mogelijk NVARCHAR(4000) of VARCHAR(8000) in plaats van NVARCHAR(MAX) of VARCHAR(MAX).
+- Vermijd het definiëren van teken kolommen met een grote standaard lengte. Als de langste waarde bijvoorbeeld 25 tekens is, definieert u uw kolom als VARCHAR (25). 
+- Vermijd het gebruik van [NVARCHAR] [NVARCHAR] wanneer u alleen VARCHAR nodig hebt.
+- Gebruik, indien mogelijk, NVARCHAR (4000) of VARCHAR (8000) in plaats van NVARCHAR (MAX) of VARCHAR (MAX).
 
-Als u van PolyBase externe tabellen gebruikmaakt laden van de tabellen, kan de opgegeven lengte van een rij in de tabel kan niet groter zijn dan 1 MB. Wanneer een rij met gegevens met variabele lengte is groter dan 1 MB, kunt u de rij met BCP, maar niet met PolyBase te laden.
+Als u poly base externe tabellen gebruikt om tabellen te laden, mag de gedefinieerde lengte van de tabelrij niet meer zijn dan 1 MB. Wanneer een rij met gegevens van variabele lengte meer dan 1 MB overschrijdt, kunt u de rij laden met BCP, maar niet met poly base.
 
-## <a name="identify-unsupported-data-types"></a>Niet-ondersteunde gegevenstypen identificeren
-Als u uw database vanaf een andere SQL-database migreert, kunt u de gegevenstypen die worden niet ondersteund in SQL Data Warehouse kunt tegenkomen. Gebruik deze query voor het detecteren van niet-ondersteunde gegevenstypen in uw bestaande SQL-schema.
+## <a name="identify-unsupported-data-types"></a>Niet-ondersteunde gegevens typen identificeren
+Als u uw data base migreert vanuit een andere SQL database, kunt u gegevens typen tegen komen die niet worden ondersteund in SQL Data Warehouse. Gebruik deze query om niet-ondersteunde gegevens typen in uw bestaande SQL-schema te detecteren.
 
 ```sql
 SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
@@ -46,25 +46,25 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 ```
 
 
-## <a name="unsupported-data-types"></a>Tijdelijke oplossingen voor niet-ondersteunde gegevenstypen
+## <a name="unsupported-data-types"></a>Tijdelijke oplossingen voor niet-ondersteunde gegevens typen
 
-De volgende lijst bevat de gegevenstypen die in SQL Data Warehouse biedt geen ondersteuning voor en biedt alternatieven die u in plaats van de niet-ondersteunde gegevenstypen gebruiken kunt.
+In de volgende lijst worden de gegevens typen weer gegeven die SQL Data Warehouse geen ondersteuning biedt voor alternatieven en die u kunt gebruiken in plaats van de niet-ondersteunde gegevens typen.
 
-| Niet-ondersteund gegevenstype | Tijdelijke oplossing |
+| Niet-ondersteund gegevens type | Tijdelijke oplossing |
 | --- | --- |
 | [geometrie](/sql/t-sql/spatial-geometry/spatial-types-geometry-transact-sql) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
 | [Geografie](/sql/t-sql/spatial-geography/spatial-types-geography) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
-| [hierarchyid](/sql/t-sql/data-types/hierarchyid-data-type-method-reference) |[nvarchar](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql)(4000) |
+| [hierarchyid](/sql/t-sql/data-types/hierarchyid-data-type-method-reference) |[nvarchar](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql) (4000) |
 | [image](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
-| [text](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
+| [SMS](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
 | [ntext](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[nvarchar](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql) |
 | [sql_variant](/sql/t-sql/data-types/sql-variant-transact-sql) |Kolom splitsen in meerdere sterk getypeerde kolommen. |
 | [table](/sql/t-sql/data-types/table-transact-sql) |Converteren naar tijdelijke tabellen. |
-| [Tijdstempel](/sql/t-sql/data-types/date-and-time-types) |Bijwerken van de code voor het gebruik van [datetime2](/sql/t-sql/data-types/datetime2-transact-sql) en de [CURRENT_TIMESTAMP](/sql/t-sql/functions/current-timestamp-transact-sql) functie. Alleen constanten worden ondersteund als standaardwaarden, daarom current_timestamp kan niet worden gedefinieerd als een default-beperking. Als u nodig hebt voor het migreren van versie rijwaarden uit een getypeerde timestamp-kolom, gebruikt u [binaire](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) of [VARBINARY](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) rij Versiewaarden voor het niet leeg of null zijn. |
+| [Neem](/sql/t-sql/data-types/date-and-time-types) |Herwerkings code voor het gebruik van [DATETIME2](/sql/t-sql/data-types/datetime2-transact-sql) en de functie [CURRENT_TIMESTAMP](/sql/t-sql/functions/current-timestamp-transact-sql) . Alleen constanten worden ondersteund als standaard waarden, daarom kan CURRENT_TIMESTAMP niet worden gedefinieerd als een default-beperking. Als u de waarden van de rij-versie wilt migreren uit een opgegeven time stamp-kolom, gebruikt u [binary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) of [varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) voor versie waarden van null of null. |
 | [xml](/sql/t-sql/xml/xml-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
-| [de gebruiker gedefinieerd type](/sql/relational-databases/native-client/features/using-user-defined-types) |Converteren naar het oorspronkelijke gegevenstype indien mogelijk. |
-| standaardwaarden | Standaardwaarden ondersteunen letterlijke tekenreeksen zijn en alleen constanten. |
+| [door de gebruiker gedefinieerd type](/sql/relational-databases/native-client/features/using-user-defined-types) |Converteer indien mogelijk terug naar het systeem eigen gegevens type. |
+| standaard waarden | Standaard waarden ondersteunen alleen literals en constanten. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het ontwikkelen van tabellen [tabeloverzicht](sql-data-warehouse-tables-overview.md).
+Zie [tabel Overzicht](sql-data-warehouse-tables-overview.md)voor meer informatie over het ontwikkelen van tabellen.

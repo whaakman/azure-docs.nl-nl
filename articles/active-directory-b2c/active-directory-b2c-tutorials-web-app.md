@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 041bcf32035ab6cdc3ee4df06050f75186759f5e
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: bcfd1ef02c68de7709cb8642b94f23a6884ea156
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835651"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464768"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Zelfstudie: Verificatie inschakelen in een webtoepassing met behulp van Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ In deze zelfstudie leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 
 - [Maak gebruikersstromen](tutorial-create-user-flows.md) om gebruikerservaringen in uw toepassing in te schakelen.
-- Installeer [Visual Studio 2019](https://www.visualstudio.com/downloads/) met de **ASP.NET en webontwikkeling** werkbelasting.
+- Installeer [Visual Studio 2019](https://www.visualstudio.com/downloads/) met de **ASP.net-en Web Development** -werk belasting.
 
 ## <a name="update-the-application"></a>De toepassing bijwerken
 
@@ -64,8 +64,9 @@ Deze twee projecten bevinden zich in de voorbeeldoplossing:
 U moet het voorbeeld wijzigen om de toepassing te gebruiken die geregistreerd staat in uw tenant, met inbegrip van de toepassings-ID en de sleutel die u eerder hebt genoteerd. U moet de gebruikersstromen die u hebt gemaakt ook configureren. Het voorbeeld definieert de configuratiewaarden als app-instellingen in het bestand Web.config. De instellingen wijzigen:
 
 1. Open de oplossing **B2C-WebAPI-DotNet** in Visual Studio.
-2. Open in het project **TaskWebApp** het bestand **Web.config**. Vervang de waarde voor `ida:Tenant` door de naam van de tenant die u hebt gemaakt. Vervang de waarde voor `ida:ClientId` door de toepassings-id die u hebt geregistreerd. Vervang de waarde voor `ida:ClientSecret` door de sleutel die u hebt geregistreerd.
+2. Open in het project **TaskWebApp** het bestand **Web.config**. Vervang de waarde voor `ida:Tenant` door de naam van de tenant die u hebt gemaakt. Vervang de waarde voor `ida:ClientId` door de toepassings-id die u hebt geregistreerd. Vervang de waarde voor `ida:ClientSecret` door de sleutel die u hebt geregistreerd. U moet het client geheim coderen voordat u het toevoegt aan web. config.
 3. Vervang in het bestand **Web.config** de waarde voor `ida:SignUpSignInPolicyId` door `b2c_1_signupsignin1`. Vervang de waarde voor `ida:EditProfilePolicyId` door `b2c_1_profileediting1`. Vervang de waarde voor `ida:ResetPasswordPolicyId` door `b2c_1_passwordreset1`.
+
 
 ## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
 
@@ -78,7 +79,7 @@ U moet het voorbeeld wijzigen om de toepassing te gebruiken die geregistreerd st
 2. Azure AD B2C toont een aanmeldingspagina met een koppeling voor registratie. Aangezien u nog geen account hebt, klikt u op **Nu registreren**. Tijdens de aanmeldingswerkstroom wordt een pagina weergegeven waarmee de identiteit wordt opgehaald en gecontroleerd van de gebruiker die een e-mailadres heeft gebruikt. Tijdens de aanmeldingswerkstroom worden ook het wachtwoord van de gebruiker en de aangevraagde kenmerken opgehaald die in de gebruikersstroom zijn gedefinieerd.
 3. Gebruik een geldig e-mailadres en voer de verificatie uit met de verificatiecode. Stel een wachtwoord in. Geef waarden voor de aangevraagde kenmerken op.
 
-    ![Pagina voor het registreren als onderdeel van sign-in/aanmelden-van werkstroom weergegeven](media/active-directory-b2c-tutorials-web-app/sign-up-workflow.PNG)
+    ![De registratie pagina die wordt weer gegeven als onderdeel van de werk stroom voor aanmelden/registreren](media/active-directory-b2c-tutorials-web-app/sign-up-workflow.PNG)
 
 4. Klik op **Maken** als u een lokaal account wilt maken in de Azure AD B2C-tenant.
 

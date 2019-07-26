@@ -1,6 +1,6 @@
 ---
-title: Routebeschrijving met Azure Maps | Microsoft Docs
-description: Hoe richtingen tussen twee locaties op een Javascript-kaart weergeven
+title: Richtingen met Azure Maps weer geven | Microsoft Docs
+description: Instructies weer geven tussen twee locaties op een Java script-kaart
 author: jingjing-z
 ms.author: jinzh
 ms.date: 3/7/2019
@@ -9,74 +9,74 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 31403a11e8989cee6a1c166879a0b2f594892704
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e9469e012f2e6b54d9bb84858a9dfc970873b4c
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357633"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476794"
 ---
 # <a name="show-directions-from-a-to-b"></a>Routebeschrijving van A naar B
 
-Dit artikel ziet u hoe u een route indienen en de route weergeven op de kaart.
+In dit artikel leest u hoe u een route aanvraag maakt en hoe de route op de kaart wordt weer gegeven.
 
-Er zijn twee manieren om dit te doen. De eerste manier is het query de [Azure kaarten-Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) via een servicemodule. De tweede manier is met de [API ophalen](https://fetch.spec.whatwg.org/) om een zoekactie die naar de [Azure kaarten-Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Beide methoden worden hieronder besproken.
+Er zijn twee manieren om dit te doen. De eerste manier is om de [Azure Maps route-API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) via een service module op te vragen. De tweede manier is de [Fetch API](https://fetch.spec.whatwg.org/) te gebruiken om een zoek opdracht naar de [Azure Maps route-API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)te maken. Beide manieren worden hieronder besproken.
 
-## <a name="query-the-route-via-service-module"></a>Query uitvoeren op de route via service-module
+## <a name="query-the-route-via-service-module"></a>Een query uitvoeren op de route via service module
 
-<iframe height='500' scrolling='no' title='Routebeschrijving van A naar B op een kaart (Service-Module)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/RBZbep/'>routebeschrijving van A naar B op een kaart (Service-Module)</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Route beschrijving van A naar B weer geven op een kaart (Service module)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de <a href='https://codepen.io/azuremaps/pen/RBZbep/'>route beschrijving van a naar B op een kaart (Service module)</a> door Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In de bovenstaande code wordt het eerste vereiste blok van code vormt een kaartobject en het verificatiemechanisme voor het gebruik van de sleutel voor het abonnement wordt ingesteld. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
+In de bovenstaande code maakt het eerste code blok een kaart object en stelt het verificatie mechanisme in voor het gebruik van de abonnements sleutel. U kunt [een overzicht maken](./map-create.md) voor instructies.
 
-Het tweede blok van code maakt een `SubscriptionKeyCredentialPolicy` om HTTP-aanvragen naar Azure kaarten met de abonnementssleutel te verifiëren. De `atlas.service.MapsURL.newPipeline()` wordt in de `SubscriptionKeyCredential` beleid en maakt een [pijplijn](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) exemplaar. De `routeURL` vertegenwoordigt een URL naar Azure Maps [Route](https://docs.microsoft.com/rest/api/maps/route) bewerkingen.
+Met het tweede code blok wordt een `SubscriptionKeyCredentialPolicy` voor het verifiëren van HTTP-aanvragen voor Azure Maps met de abonnements sleutel gemaakt. De `atlas.service.MapsURL.newPipeline()` neemt in het `SubscriptionKeyCredential` beleid en maakt een [pijplijn](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) instantie. De `routeURL` vertegenwoordigt een URL om [route](https://docs.microsoft.com/rest/api/maps/route) bewerkingen te Azure Maps.
 
-Het derde codeblok maakt en voegt een [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) object aan de kaart.
+Met het derde code blok wordt een [gegevens bron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) object gemaakt en toegevoegd aan de kaart.
 
-De vierde blok van code maakt begin- en [punten](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) objecten en voegt deze toe aan het dataSource-object.
+Het vierde code blok maakt objecten van het begin-en eind [punt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) en voegt deze toe aan het data source-object.
 
-Een regel is een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) van LineString. Een [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renders regel objecten die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als regels op de kaart. Het vierde codeblok wordt gemaakt en wordt de laag van een regel toegevoegd aan de kaart. Controleer de eigenschappen van de laag van een regel op [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
+Een regel is een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) van Lines Tring. Met een [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) worden regel objecten die zijn ingepakt in de [gegevens bron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) , weer gegeven als lijnen op de kaart. Het vierde code blok maakt een laag en voegt deze toe aan de kaart. Zie Eigenschappen van een laag op [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
 
-Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen weergegeven op basis van een punt-gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als symbolen op de kaart. Het vijfde codeblok wordt gemaakt en wordt een symbool-laag toegevoegd aan de kaart.
+Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen voor het weer geven van op punten gebaseerde gegevens die in de [gegevens bron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) zijn verpakt als symbolen op de kaart. Met het vijfde code blok wordt een symbool laag gemaakt en toegevoegd aan de kaart.
 
-Het zesde codeblok query naar de service voor gebeurtenisroutering op Azure-kaarten, die deel uitmaakt van de [servicemodule](https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js). De [calculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) -methode van de RouteURL wordt gebruikt om op te halen van een route tussen de begin- en eindpunten. Een verzameling van de functie GeoJSON uit het antwoord wordt vervolgens opgehaald met behulp van de `geojson.getFeatures()` methode en is toegevoegd aan de gegevensbron. Deze wordt vervolgens het antwoord weergegeven als een route op de kaart. Zie voor meer informatie over het toevoegen van een regel op de kaart [toevoegen van een regel op de kaart](./map-add-shape.md#addALine).
+Het zesde code blok voert een query uit op de Azure Maps Routing-service, die deel uitmaakt van de [service module](how-to-use-services-module.md). De methode [calculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) van de RouteURL wordt gebruikt om een route tussen de begin-en eind punten op te halen. Een verzameling geojson-functies uit het antwoord wordt vervolgens geëxtraheerd met de `geojson.getFeatures()` methode en aan de gegevens bron toegevoegd. Vervolgens wordt het antwoord weer gegeven als een route op de kaart. Zie [een regel toevoegen op de kaart](./map-add-shape.md#addALine)voor meer informatie over het toevoegen van een regel aan de kaart.
 
-Het laatste blok van code stelt de grenzen van de kaart met behulp van de kaart [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) eigenschap.
+Met het laatste code blok worden de grenzen van de kaart ingesteld met behulp van de eigenschap [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) van de kaart.
 
-De route-query, gegevensbron, symbool en lagen van de regel en de camera-grenzen worden gemaakt en het instellen van de kaart [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) om ervoor te zorgen dat de resultaten worden weergegeven nadat de kaart volledig is geladen.
+De route query, de gegevens bron, het symbool en de lijn lagen en de grenzen van de camera worden gemaakt en in de gebeurtenislistener van de kaart [ingesteld om ervoor](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) te zorgen dat de resultaten worden weer gegeven nadat de kaart volledig is geladen.
 
-## <a name="query-the-route-via-fetch-api"></a>Query uitvoeren op de route via API ophalen
+## <a name="query-the-route-via-fetch-api"></a>De route opvragen via de API voor ophalen
 
-<iframe height='500' scrolling='no' title='Routebeschrijving van A naar B op een kaart' src='//codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/zRyNmP/'>routebeschrijving van A naar B op een kaart</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Route beschrijving van A naar B op een kaart weer geven' src='//codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de <a href='https://codepen.io/azuremaps/pen/zRyNmP/'>richting van de pen weer geven van a naar B op een kaart</a> door Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In de bovenstaande code wordt het eerste vereiste blok van code vormt een kaartobject en het verificatiemechanisme voor het gebruik van de sleutel voor het abonnement wordt ingesteld. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
+In de bovenstaande code maakt het eerste code blok een kaart object en stelt het verificatie mechanisme in voor het gebruik van de abonnements sleutel. U kunt [een overzicht maken](./map-create.md) voor instructies.
 
-Het tweede codeblok maakt en voegt een [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) object aan de kaart.
+Met het tweede code blok wordt een [gegevens bron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) object gemaakt en toegevoegd aan de kaart.
 
-Het derde codeblok wordt gemaakt van de begin- en de herstelpunten voor de route en voegt deze toe aan de gegevensbron. U kunt zien [toevoegen van een pincode op de kaart](map-add-pin.md) voor instructies over het gebruik van [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
+Het derde code blok maakt de begin-en doel punten voor de route en voegt deze toe aan de gegevens bron. U kunt [een pincode toevoegen op de kaart](map-add-pin.md) zien voor instructies over het gebruik van [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
 
-Een [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renders regel objecten die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als regels op de kaart. Het vierde codeblok wordt gemaakt en wordt de laag van een regel toegevoegd aan de kaart. Controleer de eigenschappen van de laag van een regel op [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
+Met een [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) worden regel objecten die zijn ingepakt in de [gegevens bron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) , weer gegeven als lijnen op de kaart. Het vierde code blok maakt een laag en voegt deze toe aan de kaart. Zie Eigenschappen van een laag op [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
 
-Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen weergegeven op basis van een punt-gegevens die zijn ingepakt in de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) als symbolen op de kaart. Het vijfde codeblok wordt gemaakt en wordt een symbool-laag toegevoegd aan de kaart. Controleer de eigenschappen van een laag symbool op [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest).
+Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen voor het weer geven van op punten gebaseerde gegevens die in de [gegevens bron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) zijn verpakt als symbolen op de kaart. Met het vijfde code blok wordt een symbool laag gemaakt en toegevoegd aan de kaart. Zie Eigenschappen van een Symbol-laag op [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest).
 
-Hiermee maakt u het volgende codeblok `SouthWest` en `NorthEast` punten van de begin- en doel-punten en stelt de grenzen van de kaart met behulp van de kaart [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) eigenschap.
+In het volgende code blok `SouthWest` worden `NorthEast` de begin-en doel punten gemaakt en worden de grenzen van de kaart ingesteld met behulp van de eigenschap [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) van de kaart.
 
-Maakt gebruik van het laatste blok van code de [API ophalen](https://fetch.spec.whatwg.org/) om een zoekactie die naar de [Azure kaarten-Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Het antwoord wordt vervolgens geparseerd. Als het antwoord voltooid is, wordt de informatie over breedtegraad en lengtegraad gebruikt om een matrix een regel maken door verbinding te maken die punten. De regelgegevens wordt vervolgens toegevoegd aan de gegevensbron om de route op de kaart weer te geven. U kunt zien [toevoegen van een regel op de kaart](./map-add-shape.md#addALine) voor instructies.
+In het laatste code blok wordt de [API voor ophalen](https://fetch.spec.whatwg.org/) gebruikt om een zoek opdracht naar de [Azure Maps route-API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)te maken. Het antwoord wordt vervolgens geparseerd. Als het antwoord is geslaagd, worden de gegevens over de breedte graad en lengte graad gebruikt voor het maken van een lijn door deze punten te verbinden. De regel gegevens worden vervolgens toegevoegd aan de gegevens bron om de route op de kaart weer te geven. Zie [een regel toevoegen op de kaart](./map-add-shape.md#addALine) voor instructies.
 
-De route-query, gegevensbron, symbool en lagen van de regel en de camera-grenzen worden gemaakt en het instellen van de kaart [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) om ervoor te zorgen dat de resultaten worden weergegeven nadat de kaart volledig is geladen.
+De route query, de gegevens bron, het symbool en de lijn lagen en de grenzen van de camera worden gemaakt en in de gebeurtenislistener van de kaart [ingesteld om ervoor](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) te zorgen dat de resultaten worden weer gegeven nadat de kaart volledig is geladen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
 
 > [!div class="nextstepaction"]
-> [Kaart](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Diagram](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Zie de volgende artikelen voor volledige codevoorbeelden:
-
-> [!div class="nextstepaction"]
-> [Verkeer op de kaart weergeven](./map-show-traffic.md)
+Raadpleeg de volgende artikelen voor voor beelden van volledige code:
 
 > [!div class="nextstepaction"]
-> [Interactie met de kaart - muisgebeurtenissen](./map-events.md)
+> [Verkeer op de kaart weer geven](./map-show-traffic.md)
+
+> [!div class="nextstepaction"]
+> [Interactie met de gebeurtenissen van de kaart muis](./map-events.md)

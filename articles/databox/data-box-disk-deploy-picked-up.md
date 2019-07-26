@@ -1,21 +1,23 @@
 ---
-title: Zelfstudie voor Azure Data Box-schijf terugsturen | Microsoft Docs
+title: Zelf studie voor het verzenden van Azure Data Box Disk | Microsoft Docs
 description: In deze zelfstudie leest u hoe u uw Azure Data Box Disk terugstuurt naar Microsoft
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7e7a1f119a2f2b0e60645cb776b26c124910cacb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ca42532fe6ba954180ce06ed0e3561e42f1fb447
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448213"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424230"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Zelfstudie: Azure Data Box Disk terugsturen en de gegevensupload naar Azure controleren
 
 Dit is de laatste zelfstudie van de serie Azure Data Box Disk implementeren. In deze zelfstudie leert u het volgende:
@@ -29,21 +31,22 @@ Dit is de laatste zelfstudie van de serie Azure Data Box Disk implementeren. In 
 
 Voltooi voordat u begint de [Zelfstudie: Gegevens kopiëren naar de Azure Data Box-schijf en deze gegevens controleren](data-box-disk-deploy-copy-data.md).
 
+
 ## <a name="ship-data-box-disk-back"></a>Een Data Box Disk terugsturen
 
 1. Koppel de schijven los, nadat de gegevensvalidatie is voltooid. Verwijder de verbindingskabels.
-2. Verpak alle schijven en de verbindingskabels in bubbelplastic en plaats deze in de verzenddoos. Kan in rekening gebracht als de accessoires ontbreekt.
-    - Het inpakken van de eerste verzending opnieuw.  
-    - Het is raadzaam dat u schijven met een goed beveiligde bubbled wrap pack.
-    - Zorg ervoor dat het geschikt snug eventuele bewegingen in het vak te verkleinen.
+2. Verpak alle schijven en de verbindingskabels in bubbelplastic en plaats deze in de verzenddoos. Er kunnen kosten in rekening worden gebracht als de accessoires ontbreken.
+    - De verpakking van de eerste verzen ding opnieuw gebruiken.  
+    - U wordt aangeraden schijven te verpakken met een goed beveiligde ballon.
+    - Zorg ervoor dat het passend is Snug om de bewegingen in het vak te verminderen.
 
-De volgende stappen worden bepaald door waar het retourneren van het apparaat.
+De volgende stappen worden bepaald door de locatie waar u het apparaat retourneert.
 
-### <a name="pick-up-in-us-canada"></a>In de VS, Canada ophalen
+### <a name="pick-up-in-us-canada"></a>Orderverzamelen in Nederland, Canada
 
-De volgende stappen uitvoeren als het apparaat in de Verenigde Staten of Canada worden geretourneerd.
+Voer de volgende stappen uit als u het apparaat in VS of Canada retourneert.
 
-1. Gebruik het retourlabel in de doorzichtige plastic hoes op de doos. Als het label is beschadigd of verloren:
+1. Gebruik het retourlabel in de doorzichtige plastic hoes op de doos. Als het label is beschadigd of verloren is gegaan:
     - Ga naar **Overzicht > Verzendlabel downloaden**.
 
         ![Verzendlabel downloaden](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
@@ -51,22 +54,22 @@ De volgende stappen uitvoeren als het apparaat in de Verenigde Staten of Canada 
         Hiermee downloadt u een retourzendingslabel, zoals hieronder wordt weergegeven.
 
         ![Voorbeeld van verzendlabel](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
-    - Brengt het label op het apparaat.
+    - Breng het label op het apparaat.
 
 2. Verzegel de verpakking en zorg ervoor dat het retourlabel zichtbaar is.
-3. Een ophalen met UPS plannen. Ophalen van objecten plannen:
+3. Een ophaling plannen met UPS. Een ophaling plannen:
 
-    - Aanroepen van de lokale Noodvoeding (land/regio-specifieke gratis telefoonnummer).
-    - In uw aanroep citeren de omgekeerde verzending traceringsnummer zoals wordt weergegeven in het afgedrukte label.
-    - Als het volgnummer niet wordt vermeld, moet UPS u een extra kosten betalen tijdens het ophalen.
-    - In plaats van de planning van het ophalen, kunt u ook de Data Box-schijf op de dichtstbijzijnde afgiftelocatie teruglopen.
+    - Roep de lokale nood voeding (land/regio-specifiek gratis nummer) aan.
+    - Neem in uw gesprek het tracerings nummer van omgekeerde verzen ding op zoals weer gegeven in het afgedrukte label.
+    - Als het tracking nummer niet wordt vermeld, moet u tijdens het ophalen een extra kosten betalen.
+    - In plaats van het ophalen te plannen, kunt u ook de Data Box Disk op de dichtstbijzijnde uitval locatie afhalen.
 
 
-### <a name="pick-up-in-europe"></a>In Europa ophalen
+### <a name="pick-up-in-europe"></a>Ophalen in Europa
 
-De volgende stappen uitvoeren als het apparaat in Europa worden geretourneerd.
+Voer de volgende stappen uit als u het apparaat in Europa wilt retour neren.
 
-1. Gebruik het retourlabel in de doorzichtige plastic hoes op de doos. Als het label is beschadigd of verloren:
+1. Gebruik het retourlabel in de doorzichtige plastic hoes op de doos. Als het label is beschadigd of verloren is gegaan:
     - Ga naar **Overzicht > Verzendlabel downloaden**.
 
         ![Verzendlabel downloaden](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
@@ -74,40 +77,40 @@ De volgende stappen uitvoeren als het apparaat in Europa worden geretourneerd.
         Hiermee downloadt u een retourzendingslabel, zoals hieronder wordt weergegeven.
 
         ![Voorbeeld van verzendlabel](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
-    - Brengt het label op het apparaat.
+    - Breng het label op het apparaat.
 
 2. Verzegel de verpakking en zorg ervoor dat het retourlabel zichtbaar is.
 3. Als u het apparaat in Europa met DHL retourneert, dient u een ophaalverzoek in door op de website van DHL het verzendnummer op te geven.
-4. Ga naar de land/regio DHL Express-website en kies **boek van een verzameling Courier > eReturn verzending**.
+4. Ga naar de pagina land/regio DHL Express en kies **een courier-verzameling boeken > eReturn-verzen ding**.
 
-    ![DHL retourverzending](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
+    ![DHL retour zending](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
 3. Geef het nummer van de luchtvrachtbrief op en klik op **Boek een koerier** om een ophaalmoment te plannen.
 
       ![Ophalen plannen](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
 
-### <a name="pick-up-in-asia-pacific-region"></a>In de regio Azië en Stille Oceaan ophalen
+### <a name="pick-up-in-asia-pacific-region"></a>Ophalen in Azië-Pacific-regio
 
-Deze regio bevat instructies voor het ophalen van objecten in Japan, Korea, Australië en Singapore.
+Deze regio bevat instructies voor het ophalen in Japan, Korea, Australië en Singapore.
 
-#### <a name="pick-up-in-australia"></a>Pikken in Australië
+#### <a name="pick-up-in-australia"></a>Orderverzamelen in Australië
 
-Azure-datacenters in Australië hebben een melding voor extra beveiliging. De binnenkomende verzendingen moeten een van tevoren hebben. De volgende stappen voor ophalen in Australië.
+Azure-data centers in Australië hebben een extra beveiligings melding. Alle inkomende verzen dingen moeten een geavanceerde melding hebben. Voer de volgende stappen uit voor het ophalen in Australië.
 
-1. E-mailbericht `adbops@microsoft.com` aanvraag verzending label met de unieke ID van binnenkomend of de code TAU. Plaats de aanvraag ten minste 3 dagen vóór de geplande verzenddatum om op te halen van het label in de tijd.
-2. Het e-mailonderwerp moet - *aanvraag voor omgekeerde verzendlabel met TAU code*. Zorg ervoor dat u de volgende gegevens in het e-mailbericht: 
+1. E-mail `adbops@microsoft.com` om het verzend label met een unieke inkomende id of de letterlijke code te vragen. Plaats de aanvraag ten minste drie dagen vóór de geplande verzend datum om het label in de tijd op te halen.
+2. Het onderwerp van de e-mail moet zijn: *aanvraag voor reverse-verzend label met de letter tau-code*. Zorg ervoor dat u de volgende gegevens opneemt in het e-mail bericht: 
 
     - Ordernaam
     - Adres
     - Naam van contactpersoon
 
-#### <a name="pick-up-in-japan"></a>In Japan ophalen
+#### <a name="pick-up-in-japan"></a>Ophalen in Japan
 
-1. Schrijven van uw bedrijf naam en adres informatie over het begeleidende als uw gegevens van de afzender.
-2. E-Quantium-oplossing met behulp van de volgende e-mailsjabloon.
+1. Schrijf uw bedrijfs naam en adres gegevens in de begeleide notitie als gegevens van de afzender.
+2. Quantium-oplossing voor e-mail met de volgende e-mail sjabloon.
 
-    - Als begeleidende Japan Post Chakubarai niet opgenomen is of ontbreekt, houd er rekening mee dat in dit e-mailbericht. Quantium oplossingen Japan vraagt Japan Post om het begeleidende bij ophalen.
-    - Als u meerdere orders, e-mailadres om te controleren of afzonderlijke ophalen.
+    - Als er geen Chakubarai-zending van Japan post is opgenomen of ontbreekt, noteert u deze in dit e-mail bericht. Quantium Solutions Japan vraagt een Japanse post aan om de zending op te halen wanneer deze wordt opgehaald.
+    - Als u meerdere orders hebt, moet u een e-mail verzenden om afzonderlijke op te halen.
 
     ```
     To: Customerservice.JP@quantiumsolutions.com
@@ -121,30 +124,30 @@ Azure-datacenters in Australië hebben een melding voor extra beveiliging. De bi
         d. 17：00-19：00 
     ```
 
-3. Een e-mailbevestiging ontvangen van Quantium oplossingen, nadat u traceren die opgehaald zijn hebt. De e-mailbevestiging bevat ook informatie over het begeleidende Chakubarai.
+3. Ontvang een e-mail bevestiging van Quantium-oplossingen nadat u een ophaling hebt vastgelegd. De e-mail bevestiging bevat ook informatie over het Chakubarai-begeleidings document.
 
-Indien nodig, kunt u contact op met ondersteuning van de oplossing Quantium (Japans) op de volgende informatie: 
+Als dat nodig is, kunt u contact opnemen met de ondersteuning van de Quantium-oplossing (Japanse taal) met de volgende informatie: 
 
 - E-mail:Customerservice.JP@quantiumsolutions.com 
-- Telefoonnummer: 03-5755-0150 
+- Telefoon: 03-5755-0150 
 
-#### <a name="pick-up-in-korea"></a>Pikken in Korea
+#### <a name="pick-up-in-korea"></a>Ophalen in Korea
 
-1. Zorg ervoor dat het geretourneerde begeleidende.
-2. Om aan te vragen ophalen als begeleidende aanwezig is:
-    1. Bel *Quantium oplossingen internationale* hotline op 070-8231-1418 tijdens kantooruren (10 naar 5: 00, maandag tot vrijdag). Citeren *ophalen van de Microsoft Azure* en het nummer van het service-aanvraag voor een verzameling rangschikken.  
-    2. Als de hotline bezet is, stuurt u e-mail `microsoft@rocketparcel.com`, met het e-mailonderwerp *ophalen van Microsoft Azure* en het nummer van het service-aanvraag als verwijzing.
-    3. Als de koerier niet heeft bereikt voor de verzameling, belt u *Quantium oplossingen internationale* hotline voor alternatieve regelingen. 
-    4. U ontvangt een e-mailbevestiging voor het schema voor ophalen.
-3. Voert deze stap alleen uit als het begeleidende niet aanwezig is. Om aan te vragen ophalen:
-    1. Bel *Quantium oplossingen internationale* hotline op 070-8231-1418 tijdens kantooruren (10 naar 5: 00, maandag tot vrijdag). Citeren *ophalen van de Microsoft Azure* en het nummer van het service-aanvraag voor een verzameling rangschikken. Geef op dat u een nieuwe notitie die partij moet moet ervoor zorgen dat een verzameling. Geef afzender (klant), ontvanger informatie (Azure datacenter) en referentienummer (service-aanvraag). 
-    2. Als de hotline bezet is, stuurt u e-mail `microsoft@rocketparcel.com`, met het e-mailonderwerp *ophalen van Microsoft Azure* en het nummer van het service-aanvraag als verwijzing.
-    3. Als de koerier niet heeft bereikt voor de verzameling, belt u *Quantium oplossingen internationale* hotline voor alternatieve regelingen. 
-    4. U ontvangt een mondelinge bevestiging als de aanvraag wordt gedaan via de telefoon.
+1. Zorg ervoor dat u de retour consigning-Opmerking opneemt.
+2. Ophalen aanvragen wanneer een begeleidende partij aanwezig is:
+    1. Roep *Quantium Solutions International* hotline op 070-8231-1418 tijdens kantoor uren (10 tot 5 uur, maandag t/m vrijdag). Offerte *Microsoft Azure ophalen* en het aanvraag nummer van de service om een verzameling te rangschikken.  
+    2. Als de Hotline bezet is, e-mail `microsoft@rocketparcel.com`, met het onderwerp van de e-mail *Microsoft Azure ophalen* en het nummer van de service aanvraag als referentie.
+    3. Roep *Quantium Solutions International* Hotline aan voor alternatieve regelingen als de courier niet arriveert voor verzameling. 
+    4. U ontvangt een e-mail bevestiging voor het ophaal schema.
+3. Voer deze stap alleen uit als de begeleidende notitie niet aanwezig is. Ophalen aanvragen:
+    1. Roep *Quantium Solutions International* hotline op 070-8231-1418 tijdens kantoor uren (10 tot 5 uur, maandag t/m vrijdag). Offerte *Microsoft Azure ophalen* en het aanvraag nummer van de service om een verzameling te rangschikken. Geef op dat u een nieuw begeleidings bericht nodig hebt om een verzameling te rangschikken. Geef Sender (klant), receiver Information (Azure Data Center) en referentie nummer (service aanvraag nummer) op. 
+    2. Als de Hotline bezet is, e-mail `microsoft@rocketparcel.com`, met het onderwerp van de e-mail *Microsoft Azure ophalen* en het nummer van de service aanvraag als referentie.
+    3. Roep *Quantium Solutions International* Hotline aan voor alternatieve regelingen als de courier niet arriveert voor verzameling. 
+    4. U ontvangt een mondelinge bevestiging als de aanvraag via de telefoon wordt gedaan.
 
-### <a name="pick-up-in-singapore"></a>Pikken in Singapore
+### <a name="pick-up-in-singapore"></a>Ophalen in Singapore
 
-1. Het verzendlabel afdrukken en koppelen in box. Als het label is beschadigd of verloren:
+1. Druk het verzend label af en voeg het toe aan het vak. Als het label is beschadigd of verloren is gegaan:
     - Ga naar **Overzicht > Verzendlabel downloaden**.
 
         ![Verzendlabel downloaden](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
@@ -152,14 +155,14 @@ Indien nodig, kunt u contact op met ondersteuning van de oplossing Quantium (Jap
         Hiermee downloadt u een retourzendingslabel, zoals hieronder wordt weergegeven.
 
         ![Voorbeeld van verzendlabel](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
-    - Brengt het label op het apparaat. Zorg ervoor dat het label weergegeven wordt.
+    - Breng het label op het apparaat. Zorg ervoor dat het label zichtbaar is.
 
-2. Om aan te vragen ophalen:
-    - Bel **SingPost** hotline op **6845 6485** tijdens kantooruren (9: 00 op 17: 00, maandag tot vrijdag).  
-    - Citeren *ophalen van de Microsoft Azure* en de service-nummer (bijhouden op het retourlabel) wil ervoor zorgen dat een verzameling. 
-    - U krijgt een mondelinge bevestiging voor het schema voor ophalen. 
-    - Als de koerier niet heeft bereikt voor de verzameling, belt u **SingPost** op **6845 6485** voor alternatieve regelingen. 
-3. Met de courier via de hand. 
+2. Ophalen aanvragen:
+    - Roep **SingPost** hotline op **6845 6485** tijdens kantoor uren (9:00 tot tot 17:00 uur, maandag t/m vrijdag).  
+    - Prijs opgave *Microsoft Azure ophalen* en het nummer van de service aanvraag (tracking nummer op het retour verzendings label) om een verzameling te rangschikken. 
+    - U krijgt een mondelinge bevestiging voor het ophaal schema. 
+    - Als de courier niet arriveert voor verzameling, roept u **SingPost** op **6845 6485** aan voor alternatieve regelingen. 
+3. Hand aan de Courier. 
 
 
 ## <a name="verify-data-upload-to-azure"></a>De gegevensupload naar Azure controleren
@@ -178,28 +181,28 @@ Nadat de kopie is voltooid, wordt de orderstatus bijgewerkt naar **Voltooid**.
 
 ![Gegevens kopiëren voltooid](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 
-Als de kopie is voltooid met fouten, Zie [uploadfouten oplossen](data-box-disk-troubleshoot-upload.md).
+Zie [problemen met upload fouten oplossen](data-box-disk-troubleshoot-upload.md)als de Kopieer bewerking is voltooid.
 
-Controleer of uw gegevens zich in de opslagaccount(s) bevinden voordat u deze uit de bron verwijdert. Uw gegevens, kunnen zich in:
+Controleer of uw gegevens zich in de opslagaccounts bevinden voordat u deze uit de bron verwijdert. Uw gegevens kunnen de volgende zijn:
 
-- Uw Azure-Opslagaccount (s). Als u de gegevens naar Data Box kopieert, worden de gegevens naar een van de volgende paden in uw Azure Storage-account geüpload, afhankelijk van het gegevenstype.
+- Uw Azure Storage-account (s). Als u de gegevens naar Data Box kopieert, worden de gegevens naar een van de volgende paden in uw Azure Storage-account geüpload, afhankelijk van het gegevenstype.
 
   - Voor blok-blobs en pagina-blobs: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - Voor Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
     U kunt ook naar uw Azure-opslagaccount in de Azure-portal gaan en van daaruit navigeren.
 
-- Uw beheerde schijf resourcegroepen bevinden. Bij het maken van beheerde schijven, wordt de VHD's worden geüpload als pagina-blobs, en vervolgens geconverteerd naar beheerde schijven. De beheerde schijven zijn gekoppeld aan de opgegeven op het moment van het maken van resourcegroepen.
+- De resource groep (en) van de beheerde schijf. Bij het maken van beheerde schijven worden de Vhd's geüpload als pagina-blobs en vervolgens geconverteerd naar Managed disks. De beheerde schijven worden gekoppeld aan de resource groepen die zijn opgegeven op het moment dat de order wordt gemaakt.
 
-  - Als uw kopiëren naar beheerde schijven in Azure voltooid is, gaat u naar de **detailgegevens Order** in Azure portal en maak een notitie van de resourcegroep die is opgegeven voor beheerde schijven.
+  - Als uw kopie naar beheerde schijven in Azure is geslaagd, gaat u naar de details van de **order** in het Azure Portal en noteert u de resource groep die is opgegeven voor beheerde schijven.
 
-      ![Details van de volgorde weergeven](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
+      ![Bestellingsgegevens bekijken](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
 
-    Ga naar de resourcegroep hebt genoteerd en zoek uw beheerde schijven.
+    Ga naar de genoteerde resource groep en zoek uw beheerde schijven.
 
-      ![Resourcegroep voor beheerde schijven](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
+      ![Resource groep voor beheerde schijven](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
-  - Als u een VHDX- of een dynamische/differentiërende VHD hebt gekopieerd, is klikt u vervolgens de VHDX/VHD geüpload naar het tijdelijke opslagaccount dat als een blok-blob. Ga naar uw fasering **Storage-account > Blobs** en selecteer vervolgens de juiste container - StandardSSD, StandardHDD of PremiumSSD. De VHDX/VHD's weergegeven als blok-blobs in uw faseringsopslagaccount.
+  - Als u een VHDX of een dynamische/differentiërende VHD hebt gekopieerd, wordt de VHDX/VHD geüpload naar het opslag account voor staging als een blok-blob. Ga naar uw staging- **opslag account > blobs** en selecteer vervolgens de juiste container-StandardSSD, StandardHDD of PremiumSSD. De VHDX/Vhd's moeten worden weer gegeven als blok-blobs in uw staging Storage-account.
 
 Om te controleren of de gegevens naar Azure zijn geüpload, dient u de volgende stappen uit te voeren:
 
@@ -229,5 +232,41 @@ Ga verder met de volgende handleiding voor meer informatie over het beheren van 
 
 > [!div class="nextstepaction"]
 > [Azure Portal gebruiken om Azure Data Box Disk te beheren](./data-box-portal-ui-admin.md)
+
+::: zone-end
+
+
+::: zone target="chromeless"
+
+# <a name="return-the-disk-and-verify-upload-to-azure"></a>De schijf retour neren en het uploaden naar Azure controleren
+
+## <a name="ship-to-azure"></a>Verzenden naar Azure
+
+1. Wanneer de gegevens validatie is voltooid, koppelt u de schijven los. Verwijder de verbindingskabels.
+2. Verpak alle schijven en de verbindingskabels in bubbelplastic en plaats deze in de verzenddoos. Er kunnen kosten in rekening worden gebracht als de accessoires ontbreken.
+    - De verpakking van de eerste verzen ding opnieuw gebruiken.  
+    - U wordt aangeraden schijven te verpakken met een goed beveiligde ballon.
+    - Zorg ervoor dat het passend is Snug om de bewegingen in het vak te verminderen.
+3. De volgende stappen worden bepaald door de locatie waar u het apparaat retourneert.
+    - [Plan een ophaling met ups bij het retour neren van het apparaat in VS en Canada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
+    - [Plan een ophaling met DHL voor Europa](data-box-disk-deploy-picked-up.md#pick-up-in-europe) door de website ervan te bezoeken en het Airway-factuur nummer op te geven.
+    - [Plan een ophaling voor landen in Australië-Pacific-regio](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific-region) , zoals Australië, Japan, Korea en Singapore.
+4. Zodra de schijven door uw provider worden opgehaald, wordt de status van de bestelling in de portal-updates en een tracerings-ID weer gegeven.
+
+## <a name="verify-upload-to-azure"></a>Upload naar Azure controleren
+
+Nadat de gegevens zijn geüpload naar Azure, controleert u of de gegevens zich in de opslag account (s) bevindt voordat u deze verwijdert uit de bron. Uw gegevens kunnen de volgende zijn:
+
+- Uw Azure Storage-account (s). Als u de gegevens naar Data Box kopieert, worden de gegevens naar een van de volgende paden in uw Azure Storage-account geüpload, afhankelijk van het gegevenstype.
+
+    - **Voor blok-blobs en pagina**-blobs: https://< storage_account_name >. blob. core. Windows.<containername>net//files/a.txt
+
+    - **Voor Azure files**: https://< storage_account_name >. file. core. Windows. net/<sharename>/files/a.txt
+
+    U kunt ook naar uw Azure-opslagaccount in de Azure-portal gaan en van daaruit navigeren.
+
+- De resource groep (en) van de beheerde schijf. Bij het maken van beheerde schijven worden de Vhd's geüpload als pagina-blobs en vervolgens geconverteerd naar Managed disks. De beheerde schijven worden gekoppeld aan de resource groepen die zijn opgegeven op het moment dat de order wordt gemaakt.
+
+::: zone-end
 
 

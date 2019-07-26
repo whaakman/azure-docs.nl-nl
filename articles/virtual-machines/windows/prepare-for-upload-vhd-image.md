@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: a0cd2952633293bfa1d29bf3a399c67bf092d288
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: ad30bd4f77c5f4314956e39f26a30b72d72a208a
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318326"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361171"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Een VHD of VHDX van Windows voorbereiden om te uploaden naar Azure
 
@@ -248,7 +248,7 @@ Controleer of de volgende instellingen juist zijn geconfigureerd voor externe to
    ``` 
 5. Als de virtuele machine deel uitmaakt van een domein, controleert u het volgende Azure AD-beleid om er zeker van te zijn dat de oorspronkelijke instellingen niet worden teruggedraaid. 
 
-    | Doel                                 | Beleid                                                                                                                                                  | Waarde                                   |
+    | Doel                                 | Beleid                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | De Windows Firewall profielen inschakelen | Computer Ga Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows firewall   | Alle netwerk verbindingen beveiligen         |
     | RDP inschakelen                           | Computer Ga Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows firewall   | Uitzonde ringen voor binnenkomende Extern bureaublad toestaan |

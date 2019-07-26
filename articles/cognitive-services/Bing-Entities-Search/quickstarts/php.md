@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Een zoekaanvraag verzenden naar de Bing Entity Search REST-API met PHP'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Gebruik deze quickstart om een aanvraag naar de Bing Entity Search REST-API te verzenden via PHP en een JSON-antwoord te ontvangen.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 69624f7383b37b9d23f3fb8879f804e7169c1c29
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 5d57924a22ee097cfe7f492d18b8f84e7e658f41
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384558"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478963"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Quickstart: Een zoekaanvraag verzenden naar de Bing Entity Search REST-API met PHP
 

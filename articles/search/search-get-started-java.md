@@ -1,6 +1,6 @@
 ---
-title: "Java-Quickstart: Maken en query's uitvoeren met behulp van Azure Search REST API's - Azure Search indexen laden"
-description: Wordt uitgelegd hoe u een index maken, gegevens laden en query's uitvoeren met Java en de Azure Search REST-API's.
+title: 'Quickstart: Een Azure Search-index maken in Java'
+description: Hierin wordt uitgelegd hoe u een index maakt, gegevens laadt en query's uitvoert met behulp van Java en de Azure Search REST-Api's.
 services: search
 author: jj09
 manager: jlembicz
@@ -8,13 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.custom: seodec2018
-ms.openlocfilehash: 83f41f248d99ce55daef40e168e5f7b175e08107
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.custom: seodec2018, seo-java-july2019
+ms.openlocfilehash: 7172cd01ca881ec3027854444107b0744b65feb3
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450106"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489793"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-java"></a>Quickstart: Een Azure Search-index maken in Java
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ De volgende software is gebruik om deze sample te maken en te testen:
 ## <a name="about-the-data"></a>Over de gegevens
 In deze voorbeeldtoepassing wordt gebruikgemaakt van gegevens van [United States Geological Services (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), gefilterd op de staat Rhode Island om de grootte van de gegevensset te reduceren. We gebruiken deze gegevens om een zoektoepassing te bouwen die kenmerkende gebouwen, zoals ziekenhuizen of scholen, gebouwen zoals ziekenhuizen en scholen, maar ook geologische kenmerken, zoals stromen, meren en toppen, retourneert.
 
-In deze toepassing, de **SearchServlet.java** wordt gebouwd en geladen en de index met behulp van een [indexeerfunctie](https://msdn.microsoft.com/library/azure/dn798918.aspx) om voor te bereiden, het ophalen van de gefilterde USGS-gegevensset uit een Azure SQL Database. De programmacode bevat de vooraf gedefinieerde referenties en gegevens voor verbinding met de onlinegegevensbron. Voor de toegang tot de gegevens hoeft u verder niets te configureren.
+In deze toepassing bouwt en laadt het programma **SearchServlet. java** de index met behulp van een [Indexeer functie](https://msdn.microsoft.com/library/azure/dn798918.aspx) constructie, waarbij de gefilterde USGS-gegevensset wordt opgehaald uit een Azure SQL database. De programmacode bevat de vooraf gedefinieerde referenties en gegevens voor verbinding met de onlinegegevensbron. Voor de toegang tot de gegevens hoeft u verder niets te configureren.
 
 > [!NOTE]
 > Er is een filter op de gegevensset toegepast om onder de limiet van 10.000 documenten voor de gratis prijscategorie te blijven. Als u de standaardcategorie gebruikt, is de limiet niet van toepassing en kunt u deze code aanpassen om een grotere gegevensset te gebruiken. Zie [Limieten en beperkingen](search-limits-quotas-capacity.md) voor meer informatie over de capaciteit voor elke prijscategorie.
@@ -46,25 +46,25 @@ In deze toepassing, de **SearchServlet.java** wordt gebouwd en geladen en de ind
 ## <a name="about-the-program-files"></a>Over de programmabestanden
 In de volgende lijst worden de bestanden beschreven die relevant zijn voor dit voorbeeld.
 
-* Search.jsp: Levert de gebruikersinterface
+* Search.jsp: Biedt de gebruikers interface
 * SearchServlet.java: Biedt methoden (vergelijkbaar met een controller in MVC)
-* SearchServiceClient.java: HTTP-aanvragen worden verwerkt
+* SearchServiceClient.java: Verwerkt HTTP-aanvragen
 * SearchServiceHelper.java: Een helperklasse die statische methoden biedt
-* Document.java: Levert het gegevensmodel
-* config.properties: Hiermee stelt u de Search service-URL en `api-key`
-* pom.xml: Een Maven-afhankelijkheid
+* Document.java: Biedt het gegevens model
+* config. Properties: Hiermee stelt u de URL van de zoek service en`api-key`
+* Pom. XML: Een Maven-afhankelijkheid
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Naam van de service vinden en `api-key` van uw Azure Search-service
-Alle REST API-aanroepen in Azure Search vereisen dat u de service-URL opgeven en een `api-key`. 
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>De service naam en `api-key` van uw Azure Search-service zoeken
+Voor alle REST API-aanroepen in Azure Search is vereist dat u de service `api-key`-URL en een. 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik in de snelbalk op de **Search-service** om alle Azure Search-services weer te geven die zijn ingericht voor uw abonnement.
 3. Selecteer de service die u wilt gebruiken.
 4. Op het servicedashboard worden tegels weergegeven voor essentiële informatie. Daarnaast wordt het sleutelpictogram voor toegang tot de beheersleutels weergegeven.
    
-      ![][3]
+      ![Scherm afbeelding die laat zien hoe u toegang krijgt tot de beheer sleutels vanuit het service dashboard][3]
 5. Kopieer de service-URL en een beheersleutel. Deze hebt u later weer nodig wanneer u ze toevoegt aan het bestand **config.properties**.
 
 ## <a name="download-the-sample-files"></a>De voorbeeldbestanden downloaden
@@ -77,50 +77,50 @@ Alle volgende bestandswijzigingen en uitvoerinstructies worden uitgevoerd voor d
 ## <a name="import-project"></a>Project importeren
 1. Klik in Eclipse achtereenvolgens op **File** >  (Bestand)**Import** (Importeren) > **General** (Algemeen) > **Existing Projects into Workspace** (Bestaand project naar werkruimte).
    
-    ![][4]
+    ![Scherm afbeelding die laat zien hoe u een bestaand project importeert][4]
 2. Blader in **Select root directory** (Hoofddirectory selecteren) naar de map met de voorbeeldbestanden. Selecteer de map die de map .project bevat. Het project moet worden weergegeven in de lijst **Projects** (Projecten) als een geselecteerd item.
    
-    ![][12]
+    ![Scherm opname van de lijst met projecten in het venster projecten importeren][12]
 3. Klik op **Voltooien**.
 4. Gebruik **Projectverkenner** om de bestanden weer te geven en te bewerken. Als Projectverkenner nog niet is geopend, klikt u op **Window** (Venster) > **Show View** (Weergaven tonen) > **Projectverkenner** of gebruik de snelkoppeling om Projectverkenner te openen.
 
-## <a name="configure-the-service-url-and-api-key"></a>Configureren van de service-URL en `api-key`
-1. In **Projectverkenner**, dubbelklikt u op **config.properties** bewerken van de configuratie-instellingen met de servernaam en `api-key`.
-2. Raadpleeg de stappen eerder in dit artikel, waar u de service-URL gevonden en `api-key` in de [Azure-portal](https://portal.azure.com), om op te halen van de waarden die u nu moet opgeven in **config.properties**.
-3. In **config.properties**, vervangt u 'API Key' door de `api-key` voor uw service. Vervolgens worden de naam van service (het eerste onderdeel van de URL https://servicename.search.windows.net) vervangt de "service de naam" in hetzelfde bestand.
+## <a name="configure-the-service-url-and-api-key"></a>Configureer de service-URL en`api-key`
+1. Dubbel klik in **project Verkenner**op **config. Properties** om de configuratie-instellingen te bewerken die de server naam `api-key`en bevatten.
+2. Raadpleeg de stappen eerder in dit artikel, waar u de URL van de service en `api-key` in de [Azure Portal](https://portal.azure.com)hebt gevonden, om de waarden op te halen die u nu kunt invoeren in **config. Properties**.
+3. Vervang "API-sleutel" in **config. Properties**door de `api-key` voor uw service. Vervolgens vervangt de service naam (het eerste onderdeel van de https://servicename.search.windows.net) URL ' service naam ' in hetzelfde bestand.
    
-    ![][5]
+    ![Scherm afbeelding die laat zien hoe de API-sleutel moet worden vervangen][5]
 
 ## <a name="configure-the-project-build-and-runtime-environments"></a>Configureer de project-, build en runtime-omgeving
 1. Ga in Eclipse naar de Projectverkenner en klik met de rechtermuisknop op het project > **Eigenschappen** > **Project-facetten**.
 2. Selecteer **Dynamic Web Module** (Dynamische webmodule), **Java** en **JavaScript**.
    
-    ![][6]
-3. Klik op **Apply** (Toepassen).
+    ![Scherm afbeelding die laat zien hoe u de project facetten voor uw project selecteert][6]
+3. Klik op **Toepassen**.
 4. Selecteer **Window** (Venster) > **Preferences** (Voorkeuren) > **Server** > **Runtime Environments** (Runtime-omgevingen) > **Add..** (Toevoegen).
 5. Vouw Apache uit en selecteer de versie van de Apache Tomcat-server die u eerder hebt geïnstalleerd. Op ons systeem hebben we versie 8 geïnstalleerd.
    
-    ![][7]
+    ![Scherm opname die laat zien waar u in het venster van de runtime omgeving uw versie van Apache Tomcat kunt selecteren][7]
 6. Geef op de volgende pagina de Tomcat-installatiedirectory op. Op een Windows-computer is dit waarschijnlijk C:\Program Files\Apache Software Foundation\Tomcat *versie*.
 7. Klik op **Voltooien**.
 8. Selecteer **Window** (Venster) > **Preferences** (Voorkeuren) > **Java** > **Installed JREs**(Geïnstalleerde JRE's) > **Add** (Toevoegen).
 9. Selecteer in het venster **Add JRE** (JRE toevoegen) de optie **Standard VM** (Standaard-VM).
-10. Klik op **volgende**.
+10. Klik op **Volgende**.
 11. Klik in JRE Definition (JRE-definitie), in JRE home (JRE-startpagina), op **Directory**.
 12. Navigeer naar **Program Files** > **Java** en selecteer de JDK die u eerder hebt geïnstalleerd. Het is belangrijk dat JDK als de JRE wordt geselecteerd.
 13. Kies bij Installed JREs (Geïnstalleerd JRE's) de optie **JDK**. Uw instellingen zijn vergelijkbaar met de volgende schermopname.
     
-    ![][9]
+    ![Scherm afbeelding die laat zien hoe u JDK selecteert als geïnstalleerde JRE][9]
 14. Selecteer eventueel **Window** (Venster) > **Web Browser** (Webbrowser) > **Internet Explorer** om de toepassing te openen in een extern browservenster. Het gebruik van de externe browser biedt een betere gebruikservaring voor de webtoepassing.
     
-    ![][8]
+    ![Scherm afbeelding die laat zien hoe u Internet Explorer kunt selecteren als extern browser venster][8]
 
 U hebt de configuratie nu voltooid. Vervolgens kunt u het project bouwen en uitvoeren.
 
 ## <a name="build-the-project"></a>Het project bouwen
 1. Klik in Projectverkenner met de rechtermuisknop op de projectnaam en kies **Uitvoeren als** > **Maven build...** (Maven-build) om het project te configureren.
    
-    ![][10]
+    ![Scherm afbeelding die laat zien hoe u maven build kiest in het venster Project Verkenner][10]
 2. Ga naar Edit Configuration (Configuratie bewerken), typ bij Goals (Doelen) 'clean install' en klik vervolgens op **Run** (Uitvoeren).
 
 Statusberichten worden uitgevoerd naar het consolevensters. Als het goed is wordt de tekst BUILD SUCCESS weergegeven. Hiermee wordt aangegeven dat het project zonder fouten is gebouwd.
@@ -147,7 +147,7 @@ De USGS-gegevensset bevat records die relevant zijn voor de staat Rhode Island. 
 
 Als u een zoekterm invoert, geeft u de zoekmachine iets om mee te werken. Voer een regionale naam in. 'Roger Williams' was de eerste gouverneur van Rhode Island. Er zijn verschillende parken, gebouwen en scholen naar hem vernoemd.
 
-![][11]
+![Scherm afbeelding die laat zien hoe u naar USGS-gegevens zoekt][11]
 
 U kunt ook de volgende termen proberen:
 

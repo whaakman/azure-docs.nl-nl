@@ -1,6 +1,6 @@
 ---
-title: Een toegangscontrole uitvoeren vanuit de portal mijn Apps - Azure Active Directory | Microsoft Docs
-description: Informatie over het weergeven en beheren van toegang voor apps en -groepen van uw organisatie.
+title: Een toegangs beoordeling uitvoeren vanuit de portal mijn apps-Azure Active Directory | Microsoft Docs
+description: Meer informatie over het weer geven en beheren van de beveiligings toegang voor de apps en groepen van uw organisatie.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,67 +13,69 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 551bbe4e994e15688c59fd395ab762e14927dfda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6681720fc7c0fe04c99bf7957be14865c663dd67
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482847"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383162"
 ---
-# <a name="perform-an-access-review-from-the-my-apps-portal"></a>Een toegangscontrole uitvoeren vanuit de portal mijn Apps
-U kunt uw werk of school-account gebruiken met de webconsole **mijn Apps** portal weergeven en starten van veel van uw organisatie cloud-gebaseerde apps, om bij te werken sommige van uw profiel en account-informatie om te zien uw **groepen** informatie en om uit te voeren **toegangsbeoordelingen** voor uw apps en -groepen. Als u geen toegang tot de **mijn Apps** portal, u moet contact opnemen met uw Helpdesk om toestemming.
+# <a name="perform-an-access-review-from-the-my-apps-portal"></a>Een toegangs beoordeling uitvoeren vanuit de portal mijn apps
+
+U kunt uw werk-of school account gebruiken met de portal van **mijn apps** op het web, om een aantal Cloud-apps in uw organisatie weer te geven en te starten, om een aantal van uw profiel-en account  gegevens bij te werken, om uw groeps gegevens te bekijken en uit te voeren  **toegangs beoordelingen** voor uw apps en groepen. Als u geen toegang hebt tot de portal **mijn apps** , moet u contact opnemen met de Help Desk voor toestemming.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Deze inhoud is bedoeld voor gebruikers. Als u een beheerder bent, vindt u meer informatie over het instellen en beheren van uw cloud-gebaseerde apps in de [documentatie voor Application Management](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Deze inhoud is bedoeld voor gebruikers. Als u een beheerder bent, kunt u meer informatie vinden over het instellen en beheren van uw Cloud-apps in de documentatie van [toepassings beheer](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
-## <a name="manage-access-reviews"></a>Toegangsbeoordelingen beheren
-Als uw beheerder is gemachtigd om uit te voeren van uw eigen toegangsbeoordelingen, kunt u uw groepen of apps toegang vanaf beheren de **Toegangsbeoordelingen** tegel op de **mijn Apps** portal-pagina.
+## <a name="manage-access-reviews"></a>Toegangs beoordelingen beheren
+
+Als uw beheerder u toestemming heeft gegeven om uw eigen toegangs beoordelingen uit te voeren, kunt u uw groepen of apps toegang beheren via de tegel **toegangs beoordelingen** op de portal-pagina **mijn apps** .
 
 >[!Note]
->Als er geen de **Toegangsbeoordelingen** tegel deze beide betekent dat u bent niet gemachtigd om uit te voeren met toegangsbeoordelingen, of dat u hebt geen alle in afwachting van beoordelingen van uw goedkeuring gewacht. Als u denkt dat u hebt toegang tot de tegel dat, neem dan contact op met de helpdesk voor hulp.
+>Als u de tegel **toegangs beoordelingen** niet ziet, betekent dit dat u niet gemachtigd bent om toegangs beoordelingen uit te voeren, of dat er nog geen beoordelingen zijn die wachten op goed keuring. Als u denkt dat u toegang moet hebben tot de tegel, neemt u contact op met de Help Desk voor ondersteuning.
 
-### <a name="to-perform-your-access-reviews"></a>Om uit te voeren van uw toegangsbeoordelingen
+### <a name="to-perform-your-access-reviews"></a>Uw toegangs beoordelingen uitvoeren
 
-1.  Meld u aan bij uw werk- of schoolaccount.
+1. Meld u aan bij uw werk-of school account.
 
-2.  Open uw webbrowser en Ga naar https://myapps.microsoft.com, of gebruik de koppeling die is geleverd door uw organisatie. Bijvoorbeeld, u mogelijk omgeleid naar een aangepaste pagina voor uw organisatie, zoals https://myapps.microsoft.com/contoso.com.
+2. Open uw webbrowser en ga naar https://myapps.microsoft.com of gebruik de koppeling die door uw organisatie wordt weer gegeven. U kunt bijvoorbeeld worden omgeleid naar een aangepaste pagina voor uw organisatie, zoals https://myapps.microsoft.com/contoso.com.
 
-    De **Apps** pagina wordt weergegeven, waarin alle cloud-gebaseerde apps die eigendom zijn van uw organisatie en die u kunt gebruiken.
+    De pagina **apps** wordt weer gegeven, met alle Cloud-apps die eigendom zijn van uw organisatie en die u kunt gebruiken.
 
-    ![Pagina met apps in de portal mijn Apps](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
+    ![Pagina apps in de portal mijn apps](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
 
-3. Selecteer de **Toegangsbeoordelingen** tegel voor een overzicht van de toegang beoordeelt wachten op goedkeuring.
+3. Selecteer de tegel **toegangs beoordelingen** om een lijst weer te geven met toegangs beoordelingen die wachten op uw goed keuring.
 
-    ![Pagina met revisies in behandeling zijnde toegangsbeoordelingen voor de organisatie toegang](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
+    ![Pagina toegangs beoordelingen met openstaande toegangs Beoordelingen voor de organisatie](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
 
-4. Selecteer **controle beginnen** uw toegangsbeoordeling starten.
+4. Selecteer **begin beoordeling** om uw toegangs beoordeling te starten.
 
-5. Uw toegang controleren en bepalen of het nog steeds nodig.
+5. Controleer uw toegang en bepaal of het nog steeds nodig is.
 
-    ![Pagina voor toegang controleren, de details van toegangsbeoordeling weergeven](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
-
-    >[!Note]
-    >Als u beheerder bent en toegestaan om te controleren van uw organisatie toegang tot groepen en apps, ziet u een andere pagina. Zie voor meer informatie over het controleren van groepen of apps voor uw organisatie [toegang met groepen of toepassingen in Azure AD-Toegangsbeoordelingen beoordelen](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review).
-
-6. Selecteer **Ja** te houden van uw toegang of **Nee** om de toegang te verwijderen.
-
-    Als u selecteert **Ja**, moet u mogelijk Geef een reden in de **reden** vak.
-
-    ![Toegang controleren-pagina, met de reden vak met voorbeeldtekst](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
-
-7. Selecteer **Indienen**.
-
-    De toegangsbeoordeling is voltooid en u terugkeren naar de **mijn Apps** portal.
+    ![Pagina toegangs controle, met de details van de beoordeling](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
 
     >[!Note]
-    >U kunt uw toegang wijzigen op elk gewenst moment totdat uw toegang controleren afloopt. Als u de toegang tot een app of een groep verwijdert, wordt deze niet verwijderd onmiddellijk. Het verwijderen gebeurt wanneer de toegang tot de periode eindigt bekijken of wanneer een beheerder de controle wordt gesloten. 
+    >Als u een beheerder bent en toestemming wilt geven om de toegang van uw organisatie tot groepen en apps te controleren, ziet u een andere pagina. Zie [toegang tot groepen of toepassingen in azure AD-toegangs beoordelingen controleren](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review)voor meer informatie over het controleren van groepen of apps voor uw organisatie.
+
+6. Selecteer **Ja** om uw toegang te beperken of **Nee** om uw toegang te verwijderen.
+
+    Als u **Ja**selecteert, moet u mogelijk een motivering opgeven in het vak **reden** .
+
+    ![Pagina toegangs controle, met daarin het vak reden met voorbeeld tekst](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
+
+7. Selecteer **indienen**.
+
+    De toegangs beoordeling is voltooid en u keert terug naar de portal **mijn apps** .
+
+    >[!Note]
+    >U kunt uw toegang op elk gewenst moment wijzigen tot de toegangs beoordelings periode afloopt. Als u de toegang tot een app of groep verwijdert, wordt deze niet onmiddellijk verwijderd. Het verwijderen treedt op wanneer de toegangs beoordelings periode eindigt of wanneer een beheerder de beoordeling sluit.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Toegang tot en gebruik apps op de portal mijn Apps](my-apps-portal-end-user-access.md).
+- [Apps openen en gebruiken in de portal voor mijn apps](my-apps-portal-end-user-access.md).
 
-- [Wijzig uw profielgegevens](my-apps-portal-end-user-update-profile.md).
+- [Wijzig de profiel gegevens](my-apps-portal-end-user-update-profile.md).
 
-- [Weergeven en bijwerken van uw gegevens met betrekking tot groepen](my-apps-portal-end-user-groups.md).
+- [Gegevens over groepen weer geven en bijwerken](my-apps-portal-end-user-groups.md).

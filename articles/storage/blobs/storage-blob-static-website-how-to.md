@@ -1,58 +1,58 @@
 ---
-title: Host een statische website in Azure Storage
-description: Informatie over het leveren van statische inhoud (HTML, CSS, JavaScript en afbeeldingsbestanden) rechtstreeks uit een container in een Azure Storage GPv2-account.
+title: Een statische website hosten in Azure Storage
+description: Meer informatie over hoe u statische inhoud (HTML-, CSS-, java script-en afbeeldings bestanden) rechtstreeks vanuit een container in een Azure Storage GPv2-account kunt verwerken.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 5ab24a99b22fae172b5308ba7477953f27ecfd44
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e53f8dd832b7f19692b9095e913330848e5b0330
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435954"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385760"
 ---
-# <a name="host-a-static-website-in-azure-storage"></a>Host een statische website in Azure Storage
+# <a name="host-a-static-website-in-azure-storage"></a>Een statische website hosten in Azure Storage
 
-U kunt leveren van statische inhoud (HTML, CSS, JavaScript en afbeeldingsbestanden) rechtstreeks uit een container in een Azure Storage GPv2-account. Zie voor meer informatie, [statische website hosting in Azure Storage](storage-blob-static-website.md).
+U kunt statische inhoud (HTML-, CSS-, java script-en afbeeldings bestanden) rechtstreeks vanuit een container in een Azure Storage GPv2-account verwerken. Zie voor meer informatie [statische website-hosting in azure Storage](storage-blob-static-website.md).
 
-Dit artikel laat u het inschakelen van statische website hosting met behulp van de Azure-portal, Azure CLI of PowerShell.
+Dit artikel laat u zien hoe u statische website-hosting kunt inschakelen met behulp van de Azure Portal, de Azure CLI of Power shell.
 
 <a id="portal" />
 
 ## <a name="use-the-azure-portal"></a>Azure Portal gebruiken
 
-Zie voor een stapsgewijze zelfstudie [zelfstudie: Een statische website hosten op Blob-opslag](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+Voor een stapsgewijze zelf studie raadpleegt [u zelf studie: Een statische website hosten op Blob-opslag](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
-Nadat u de statische website hosting inschakelt, kunt u de pagina's van uw site via een browser weergeven met behulp van de openbare URL van de website.
+Nadat u de functie voor het hosten van statische websites hebt ingeschakeld, kunt u de pagina's van uw site vanuit een browser weer geven met behulp van de open bare URL van de website.
 
 <a id="portal-find-url" />
 
-### <a name="find-the-website-url-by-using-the-azure-portal"></a>De website-URL zoeken met behulp van de Azure-portal
+### <a name="find-the-website-url-by-using-the-azure-portal"></a>De URL van de website zoeken met behulp van de Azure Portal
 
-Selecteer in het deelvenster dat naast de overzichtspagina voor de account van uw opslagaccount verschijnt, **statische Website**. De URL van uw site wordt weergegeven in de **primaire eindpunt** veld.
+In het deel venster dat wordt weer gegeven naast de pagina account overzicht van uw opslag account, selecteert u **statische website**. De URL van uw site wordt weer gegeven in het veld voor het **primaire eind punt** .
 
-![Azure Storage statische websites metrische gegevens over metrische gegevens](./media/storage-blob-static-website/storage-blob-static-website-url.png)
+![Metrische gegevens voor metrische gegevens van statische websites Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
 <a id="cli" />
 
 ## <a name="use-the-azure-cli"></a>Azure CLI gebruiken
 
-U kunt statische website hosting met behulp van de [Azure-opdrachtregelinterface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+U kunt statisch website hosting inschakelen met behulp van de [Azure-opdracht regel interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
-1. Open eerst de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), of als u hebt [geïnstalleerd](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) de Azure CLI lokaal, opent u een opdracht-consoletoepassing, zoals Windows PowerShell.
+1. Open eerst de [Azure Cloud shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)of als u de Azure cli lokaal hebt [geïnstalleerd](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , opent u een opdracht console toepassing zoals Windows Power shell.
 
-2. Als uw identiteit gekoppeld aan meer dan één abonnement is, stel uw actieve abonnement-abonnement van het opslagaccount die als voor uw statische website host.
+2. Als uw identiteit is gekoppeld aan meer dan één abonnement, stelt u uw actieve abonnement in op het abonnement van het opslag account dat als host voor uw statische website gaat.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
    ```
 
-   Vervang de `<subscription-id>` aanduidingswaarde met de ID van uw abonnement.
+   Vervang de `<subscription-id>` waarde van de tijdelijke aanduiding door de id van uw abonnement.
 
-3. Statische website hosting inschakelen.
+3. Schakel statisch website hosting in.
 
    ```azurecli-interactive
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
@@ -60,16 +60,16 @@ U kunt statische website hosting met behulp van de [Azure-opdrachtregelinterface
 
    * Vervang de waarde van de tijdelijke plaatsaanduiding `<storage-account-name>` door de naam van uw opslagaccount.
 
-   * Vervang de `<error-document-name>` tijdelijke aanduiding door de naam van het document fout die wordt weergegeven aan gebruikers wanneer een browser vraagt om een pagina op de site die niet bestaat.
+   * Vervang de `<error-document-name>` tijdelijke aanduiding door de naam van het fout document dat voor gebruikers wordt weer gegeven wanneer een browser een pagina op uw site aanvraagt die niet bestaat.
 
-   * Vervang de `<index-document-name>` tijdelijke aanduiding door de naam van de Indexdocument. Dit document wordt vaak 'index.html'.
+   * Vervang de `<index-document-name>` tijdelijke aanduiding door de naam van het index document. Dit document is vaak "index. html".
 
-4. Uploaden van objecten die u wilt de *$web* container uit een bronmap.
+4. Objecten uploaden naar de *$Web* container vanuit een bronmap.
 
    > [!NOTE]
-   > Als u Azure Cloud Shell gebruikt, controleert u of toe te voegen een `\` escape-teken met betrekking tot de `$web` container (bijvoorbeeld: `\$web`). Als u een lokale installatie van de Azure CLI gebruikt, hebt u wordt niet gebruikt u het escape-teken.
+   > Als u Azure Cloud shell gebruikt, zorg er dan voor dat u `\` een escape-teken toevoegt bij `$web` het verwijzen naar de container `\$web`(bijvoorbeeld:). Als u een lokale installatie van Azure CLI gebruikt, hoeft u het escape teken niet te gebruiken.
 
-   In dit voorbeeld wordt ervan uitgegaan dat u opdrachten vanuit Azure Cloud Shell-sessie uitvoert.
+   In dit voor beeld wordt ervan uitgegaan dat u opdrachten uit Azure Cloud Shell sessie uitvoert.
 
    ```azurecli-interactive
    az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
@@ -77,20 +77,20 @@ U kunt statische website hosting met behulp van de [Azure-opdrachtregelinterface
 
    * Vervang de waarde van de tijdelijke plaatsaanduiding `<storage-account-name>` door de naam van uw opslagaccount.
 
-   * Vervang de `<source-path>` tijdelijke aanduiding met een pad naar de locatie van de bestanden die u wilt uploaden.
+   * Vervang de `<source-path>` tijdelijke aanduiding door een pad naar de locatie van de bestanden die u wilt uploaden.
 
    > [!NOTE]
-   > Als u een installatie van de locatie van Azure CLI gebruikt, dan kunt u het pad naar een locatie op uw lokale computer (bijvoorbeeld: `C:\myFolder`.
+   > Als u een locatie-installatie van Azure CLI gebruikt, kunt u het pad naar een wille keurige locatie op de lokale computer gebruiken ( `C:\myFolder`bijvoorbeeld:.
    >
-   > Als u Azure Cloud Shell gebruikt, hebt u om te verwijzen naar een bestandsshare die zichtbaar is voor de Cloud Shell. Deze locatie kan worden de bestandsshare van de Cloud zelf of een bestaande bestandsshare die u vanuit de Cloud Shell koppelen delen. Zie voor meer informatie hoe u dit doet, [behouden bestanden in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
+   > Als u Azure Cloud Shell gebruikt, moet u verwijzen naar een bestands share die zichtbaar is voor de Cloud Shell. Deze locatie kan de bestands share zijn van de Cloud share zelf of een bestaande bestands share die u koppelt van de Cloud Shell. Zie [bestanden in azure Cloud shell persistent](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage)maken voor meer informatie over hoe u dit doet.
 
 <a id="cli-find-url" />
 
-### <a name="find-the-website-url-by-using-the-azure-cli"></a>De website-URL zoeken met behulp van de Azure CLI
+### <a name="find-the-website-url-by-using-the-azure-cli"></a>De URL van de website zoeken met behulp van de Azure CLI
 
-U kunt inhoud vanuit een browser weergeven met behulp van de openbare URL van de website.
+U kunt inhoud vanuit een browser weer geven met behulp van de open bare URL van de website.
 
-De URL zoeken met behulp van de volgende opdracht uit:
+Zoek de URL met behulp van de volgende opdracht:
 
 ```azurecli-interactive
 az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
@@ -98,17 +98,17 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 * Vervang de waarde van de tijdelijke plaatsaanduiding `<storage-account-name>` door de naam van uw opslagaccount.
 
-* Vervang de `<resource-group-name>` aanduidingswaarde met de naam van de resourcegroep.
+* Vervang de `<resource-group-name>` waarde van de tijdelijke aanduiding door de naam van uw resource groep.
 
 <a id="powershell" />
 
 ## <a name="use-powershell"></a>PowerShell gebruiken
 
-U kunt statische website hosting met behulp van de Azure PowerShell-module.
+U kunt statisch website hosting inschakelen met behulp van de module Azure PowerShell.
 
-1. Open een Windows PowerShell-opdrachtvenster.
+1. Open een Windows Power shell-opdracht venster.
 
-2. Controleer of u Azure PowerShell-module Az versie 0,7 of hoger.
+2. Controleer of u Azure PowerShell module AZ versie 0,7 of hoger hebt.
 
    ```powershell
    Get-InstalledModule -Name Az -AllVersions | select Name,Version
@@ -122,37 +122,37 @@ U kunt statische website hosting met behulp van de Azure PowerShell-module.
    Connect-AzAccount
    ```
 
-4. Als uw identiteit gekoppeld aan meer dan één abonnement is, stel uw actieve abonnement-abonnement van het opslagaccount die als voor uw statische website host.
+4. Als uw identiteit is gekoppeld aan meer dan één abonnement, stelt u uw actieve abonnement in op het abonnement van het opslag account dat als host voor uw statische website gaat.
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
    Set-AzContext $context
    ```
 
-   Vervang de `<subscription-id>` aanduidingswaarde met de ID van uw abonnement.
+   Vervang de `<subscription-id>` waarde van de tijdelijke aanduiding door de id van uw abonnement.
 
-5. Krijg de opslagaccountcontext op waarin het opslagaccount dat u wilt gebruiken.
+5. Haal de context van het opslag account op waarmee het opslag account wordt gedefinieerd dat u wilt gebruiken.
 
    ```powershell
    $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
    $ctx = $storageAccount.Context
    ```
 
-   * Vervang de `<resource-group-name>` aanduidingswaarde met de naam van de resourcegroep.
+   * Vervang de `<resource-group-name>` waarde van de tijdelijke aanduiding door de naam van uw resource groep.
 
    * Vervang de waarde van de tijdelijke plaatsaanduiding `<storage-account-name>` door de naam van uw opslagaccount.
 
-6. Statische website hosting inschakelen.
+6. Schakel statisch website hosting in.
 
    ```powershell
    Enable-AzStorageStaticWebsite -Context $ctx -IndexDocument <index-document-name> -ErrorDocument404Path <error-document-name>
    ```
 
-   * Vervang de `<error-document-name>` tijdelijke aanduiding door de naam van het document fout die wordt weergegeven aan gebruikers wanneer een browser vraagt om een pagina op de site die niet bestaat.
+   * Vervang de `<error-document-name>` tijdelijke aanduiding door de naam van het fout document dat voor gebruikers wordt weer gegeven wanneer een browser een pagina op uw site aanvraagt die niet bestaat.
 
-   * Vervang de `<index-document-name>` tijdelijke aanduiding door de naam van de Indexdocument. Dit document wordt vaak 'index.html'.
+   * Vervang de `<index-document-name>` tijdelijke aanduiding door de naam van het index document. Dit document is vaak "index. html".
 
-7. Uploaden van objecten die u wilt de *$web* container uit een bronmap.
+7. Objecten uploaden naar de *$Web* container vanuit een bronmap.
 
     ```powershell
     # upload a file
@@ -162,67 +162,67 @@ U kunt statische website hosting met behulp van de Azure PowerShell-module.
     -Context $ctx
      ```
 
-   * Vervang de `<path-to-file>` aanduidingswaarde met de volledig gekwalificeerde pad naar het bestand dat u wilt uploaden (bijvoorbeeld: `C:\temp\index.html`).
+   * Vervang de `<path-to-file>` waarde van de tijdelijke aanduiding door het volledig gekwalificeerde pad naar het bestand dat u wilt uploaden (bijvoorbeeld `C:\temp\index.html`:).
 
-   * Vervang de `<blob-name>` aanduidingswaarde met de naam die u wilt de resulterende blob geven (bijvoorbeeld: `index.html`).
+   * Vervang de `<blob-name>` waarde van de tijdelijke aanduiding door de naam die u de resulterende BLOB wilt geven (bijvoorbeeld `index.html`:).
 
 <a id="powershell-find-url" />
 
-### <a name="find-the-website-url-by-using-powershell"></a>De website-URL zoeken met behulp van PowerShell
+### <a name="find-the-website-url-by-using-powershell"></a>De URL van de website zoeken met behulp van Power shell
 
-U kunt inhoud vanuit een browser weergeven met behulp van de openbare URL van de website.
+U kunt inhoud vanuit een browser weer geven met behulp van de open bare URL van de website.
 
-De URL zoeken met behulp van de volgende opdracht uit:
+Zoek de URL met behulp van de volgende opdracht:
 
 ```powershell
  $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
 Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-* Vervang de `<resource-group-name>` aanduidingswaarde met de naam van de resourcegroep.
+* Vervang de `<resource-group-name>` waarde van de tijdelijke aanduiding door de naam van uw resource groep.
 
 * Vervang de waarde van de tijdelijke plaatsaanduiding `<storage-account-name>` door de naam van uw opslagaccount.
 
 <a id="metrics" />
 
-## <a name="enable-metrics-on-static-website-pages"></a>Metrische gegevens op pagina's met statische website inschakelen
+## <a name="enable-metrics-on-static-website-pages"></a>Metrische gegevens inschakelen op de vaste website pagina's
 
-Nadat u de metrische gegevens hebt ingeschakeld, verkeer statistieken voor bestanden in de **$web** container worden gerapporteerd in het dashboard.
+Wanneer u metrische gegevens hebt ingeschakeld, worden verkeers statistieken voor bestanden in de **$Web** container gerapporteerd in het dash board metrische gegevens.
 
-1. Klik op **instellingen** > **bewaking** > **metrische gegevens**.
+1. Klik op **instellingen** > **meet waarden** **controleren** > .
 
-   Metrische gegevens worden gegenereerd door het Inhaken op verschillende metrische gegevens over API's. API-leden die wordt gebruikt binnen een bepaalde periode om te kunnen alleen richten op de leden die als resultaat de gegevens alleen worden weergegeven in de portal. Om ervoor te zorgen dat om te selecteren die nodig zijn lid van de API kunt u, is de eerste stap om uit te breiden het tijdsbestek.
+   Metrische gegevens worden gegenereerd door te hooken in verschillende metrische Api's. In de portal worden alleen de API-leden weer gegeven die binnen een bepaalde periode zijn gebruikt, zodat ze alleen kunnen worden gericht op leden die gegevens retour neren. Om ervoor te zorgen dat u het benodigde API-lid kunt selecteren, is de eerste stap om het tijds bestek uit te breiden.
 
-2. Klik op de knop tijdsbestek en selecteer **afgelopen 24 uur** en klik vervolgens op **toepassen**.
+2. Klik op de knop tijds bestek en selecteer **laatste 24 uur** en klik vervolgens op **Toep assen**.
 
-   ![Metrische gegevens van Azure Storage statische websites tijdsbereik](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
+   ![Tijds bereik voor metrische gegevens van statische websites Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 
-3. Selecteer **Blob** uit de *Namespace* vervolgkeuzelijst.
+3. Selecteer **BLOB** in de vervolg keuzelijst *naam ruimte* .
 
-   ![Azure Storage statische websites metrische gegevens naamruimte](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
+   ![Naam ruimte voor metrische gegevens van statische websites Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
 
-4. Selecteer vervolgens de **uitgaande** metrische gegevens.
+4. Selecteer **vervolgens de waarde** voor uitgaand verkeer.
 
-   ![Azure Storage statische websites metrische gegevens over metrische gegevens](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![Metrische gegevens voor metrische gegevens van statische websites Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
-5. Selecteer **som** uit de *aggregatie* selector.
+5. Selecteer **som** uit de *aggregatie* kiezer.
 
-   ![Azure aggregatie van opslag statische websites metrische gegevens](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
+   ![Aggregatie van metrische gegevens van statische websites Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
 
-6. Klik op de **filter toevoegen** knop en kies **API-naam** uit de *eigenschap* selector.
+6. Klik op de knop **filter toevoegen** en kies de naam van de **API** in de *Eigenschappen* kiezer.
 
-   ![Statische websites metrische API voor de naam van Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
+   ![API-naam van metrische gegevens voor de Azure Storage van statische websites](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
 
-7. Selecteer het vak naast **GetWebContent** in de *waarden* selector voor het vullen van het rapport metrische gegevens.
+7. Schakel het selectie vakje naast **GetWebContent** in de *waarde* selector in om het meet rapport in te vullen.
 
-   ![Azure Storage statische websites metrics GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
+   ![Azure Storage metrische gegevens van statische websites GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Een statische website hosten in Azure Storage](storage-blob-static-website.md)
-* [Het Azure CDN gebruiken voor toegang tot blobs met aangepaste domeinen via HTTPS](storage-https-custom-domain-cdn.md)
-* [Een aangepaste domeinnaam voor uw blob- en web-eindpunten configureren](storage-custom-domain-name.md)
+* [De Azure CDN gebruiken om toegang te krijgen tot blobs met aangepaste domeinen via HTTPS](storage-https-custom-domain-cdn.md)
+* [Een aangepaste domein naam configureren voor uw BLOB of Web-eind punt](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
 * [Uw eerste serverloze web-app bouwen](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Zelfstudie: Host uw domein in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)
+* [Zelfstudie: Uw domein hosten in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

@@ -3,20 +3,20 @@ title: Apps ontwikkelen met de spraak-SDK - spraakservices
 titleSuffix: Azure Cognitive Services
 description: Informatie over het maken van apps met behulp van de spraak-SDK.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 7c698abb133c14f32b60b22acbbccc37a191a02e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8fc27002af4ebef0825b23c806cfedbe7adf9642
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604845"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404822"
 ---
 # <a name="ship-an-application"></a>Verzenden van een toepassing
 
@@ -28,7 +28,7 @@ Afhankelijk van het platform, er verschillende afhankelijkheden bestaan voor het
 
 De Cognitive Services Speech SDK is getest op Windows 10 en Windows Server 2016.
 
-De Cognitive Services Speech SDK vereist de [Microsoft Visual C++ Redistributable voor Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) op het systeem. U kunt downloaden installatieprogramma's voor de nieuwste versie van de `Microsoft Visual C++ Redistributable for Visual Studio 2019` hier:
+De Cognitive Services Speech SDK vereist [micro soft Visual C++ Redistributable voor Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) op het systeem. U kunt downloaden installatieprogramma's voor de nieuwste versie van de `Microsoft Visual C++ Redistributable for Visual Studio 2019` hier:
 
 - [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
@@ -45,29 +45,29 @@ De vereiste spraak SDK-bestanden kunnen worden geïmplementeerd in dezelfde map 
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | vereist voor de beheerde implementatie
 
 >[!NOTE]
-> Vanaf de release 1.3.0 het bestand `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (geleverd in eerdere versies) wordt niet meer nodig hebt. De functionaliteit is nu geïntegreerd in de core-SDK.
+> Vanaf de release-1.3.0 het bestand `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (geleverd in eerdere releases) is niet meer nodig. De functionaliteit is nu geïntegreerd in de core-SDK.
 
 >[!NOTE]
-> Voor het Windows Forms-App (.NET Framework) C# project, zorg ervoor dat de bibliotheken zijn opgenomen in de implementatie-instellingen van uw project. U kunt dit onder controleren `Properties -> Publish Section`. Klik op de `Application Files` knop en de bijbehorende bibliotheken van de schuif omlaag in lijst vinden. Zorg ervoor dat de waarde is ingesteld op `Included`. Visual Studio bevat het bestand wanneer het project wordt gepubliceerd/geïmplementeerd.
+> Controleer voor het project van de Windows Forms C# -App (.NET Framework) of de bibliotheken zijn opgenomen in de implementatie-instellingen van uw project. U kunt dit controleren onder `Properties -> Publish Section`. Klik op `Application Files` de knop en zoek de bijbehorende bibliotheken in de schuif lijst omlaag. Zorg ervoor dat de waarde is ingesteld `Included`op. Visual Studio neemt het bestand op wanneer het project wordt gepubliceerd/geïmplementeerd.
 
 ## <a name="linux"></a>Linux
 
-De spraak-SDK ondersteunt momenteel de Ubuntu 16.04, Ubuntu 18.04 en 9 van Debian-distributies.
+De Speech SDK ondersteunt momenteel de distributies Ubuntu 16,04, Ubuntu 18,04 en Debian 9.
 Voor een systeemeigen toepassing, moet u voor het verzenden van de spraak-SDK-bibliotheek, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Zorg ervoor dat u selecteert u de versie (x86, x64) die overeenkomt met uw toepassing. Afhankelijk van de Linux-versie moet u ook mogelijk om op te nemen van de volgende afhankelijkheden:
 
 * De gedeelde bibliotheken van de GNU C-bibliotheek (met inbegrip van de bibliotheek POSIX Threads Programming `libpthreads`)
-* De OpenSSL-bibliotheek (`libssl.so.1.0.0` of `libssl.so.1.0.2`)
+* De OpenSSL-bibliotheek`libssl.so.1.0.0` ( `libssl.so.1.0.2`of)
 * De gedeelde bibliotheek voor ALSA toepassingen (`libasound.so.2`)
 
-Op Ubuntu, moeten de bibliotheken GNU C al standaard worden geïnstalleerd. De laatste drie kan worden geïnstalleerd met behulp van deze opdrachten:
+Op Ubuntu moeten de GNU C-bibliotheken standaard al zijn geïnstalleerd. De laatste drie kan worden geïnstalleerd met behulp van deze opdrachten:
 
 ```sh
 sudo apt-get update
 sudo apt-get install libssl1.0.0 libasound2
 ```
 
-Op Debian 9 deze pakketten te installeren:
+Op Debian 9 installeert u deze pakketten:
 
 ```sh
 sudo apt-get update

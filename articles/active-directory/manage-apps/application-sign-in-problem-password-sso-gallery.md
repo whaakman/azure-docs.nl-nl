@@ -1,6 +1,6 @@
 ---
-title: Probleem opgetreden bij het aanmelden bij een Azure AD-galerie app geconfigureerd voor SSO-wachtwoord | Microsoft Docs
-description: Klik hier voor meer informatie over het oplossen van problemen met een toepassing met Azure AD-galerie die geconfigureerd voor eenmalige aanmelding wachtwoord.
+title: Probleem bij het aanmelden bij de Azure AD Gallery-app die is geconfigureerd voor SSO | Microsoft Docs
+description: Problemen oplossen met een Azure AD Gallery-toepassing die is geconfigureerd voor eenmalige aanmelding met een wacht woord.
 documentationcenter: ''
 author: msmimart
 manager: CelesteDG
@@ -15,182 +15,182 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 742df882fb64e09ff63ef2eceb5514ca070dc227
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: e9fd17d9e066be6a1abff5165436a09b8921184e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190326"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381310"
 ---
-# <a name="sign-in-problems-with-an-azure-ad-gallery-app-configured-for-sso"></a>Problemen met aanmelden met een Azure AD-galerie app geconfigureerd voor eenmalige aanmelding
+# <a name="sign-in-problems-with-an-azure-ad-gallery-app-configured-for-sso"></a>Problemen met aanmelden met een Azure AD Gallery-app die is geconfigureerd voor SSO
 
-Toegangsvenster is een portal op Internet. Hiermee kunnen gebruikers die Azure Active Directory (Azure AD) werk of school-accounts voor toegang tot cloud-gebaseerde apps die ze machtigingen hebben. Gebruikers met Azure AD-edities kunnen u ook groepsbeheer met Self-service en mogelijkheden van app-beheer via het toegangsvenster gebruiken.
+Het toegangs venster is een portal op het web. Hiermee kunnen gebruikers met Azure Active Directory (Azure AD) werk-of school accounts toegang krijgen tot Cloud-apps waarvoor ze machtigingen hebben. Gebruikers met Azure AD-edities kunnen ook gebruikmaken van selfservice groep en mogelijkheden voor app-beheer via het toegangs venster.
 
-Toegangsvenster staat los van de Azure-portal. Gebruikers hoeven niet een Azure-abonnement Toegangsvenster gebruiken.
+Het toegangs venster is gescheiden van de Azure Portal. Gebruikers hebben geen Azure-abonnement nodig voor het gebruik van het toegangs venster.
 
-Als u wilt gebruiken op basis van wachtwoorden eenmalige aanmelding (SSO) in het toegangsvenster, moet de extensie Toegangsvenster worden geïnstalleerd in uw browser. De extensie wordt automatisch gedownload wanneer u een app die geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden.
+Als u eenmalige aanmelding (SSO) op basis van wacht woorden in het toegangs venster wilt gebruiken, moet de uitbrei ding van het toegangs paneel in uw browser zijn geïnstalleerd. De extensie wordt automatisch gedownload wanneer u een app selecteert die is geconfigureerd voor SSO op basis van een wacht woord.
 
-## <a name="browser-requirements-for-access-panel"></a>Browservereisten voor het toegangsvenster
+## <a name="browser-requirements-for-access-panel"></a>Browser vereisten voor het toegangs venster
 
-Toegangsvenster vereist een browser die ondersteuning biedt voor JavaScript en CSS is ingeschakeld.
+Voor het toegangs venster is een browser vereist die Java script ondersteunt en waarvoor CSS is ingeschakeld.
 
-De volgende browsers bieden ondersteuning voor eenmalige aanmelding op basis van wachtwoorden:
+De volgende browsers ondersteunen SSO op basis van een wacht woord:
 
 - Internet Explorer 8, 9, 10 en 11 op Windows 7 of hoger
 
-- Chrome op Windows 7 of hoger of op Mac OS X of hoger
+- Chrome op Windows 7 of hoger of op MacOS X of hoger
 
-- Firefox 26,0 of hoger op Windows XP SP2 of hoger of op Mac OS X 10.6 of hoger
+- Firefox 26,0 of hoger op Windows XP SP2 of hoger of op Mac OS X 10,6 of hoger
 
 >[!NOTE]
->De eenmalige aanmelding op basis van wachtwoorden extensie beschikbaar voor Microsoft Edge in Windows 10 wanneer ondersteuning voor browser-extensies is toegevoegd aan de Microsoft Edge.
+>De SSO-uitbrei ding op basis van wacht woorden is beschikbaar voor micro soft Edge in Windows 10 wanneer ondersteuning voor browser uitbreidingen is toegevoegd aan micro soft Edge.
 
-## <a name="install-the-access-panel-browser-extension"></a>Installeer de extensie toegang deelvenster Browser
+## <a name="install-the-access-panel-browser-extension"></a>De browser uitbreiding van het toegangs venster installeren
 
 Volg deze stappen:
 
-1. Open [Toegangsvenster](https://myapps.microsoft.com) in een ondersteunde browser en meld u als een gebruiker in Azure AD.
+1. Open het [toegangs venster](https://myapps.microsoft.com) in een ondersteunde browser en meld u aan als een gebruiker in azure AD.
 
-2. Selecteer een app wachtwoord SSO is ingeschakeld in Toegangsvenster.
+2. Selecteer een app waarvoor een wacht woord is ingeschakeld in het toegangs venster.
 
-3. Wanneer u wordt gevraagd, selecteert u **nu installeren**.
+3. Selecteer **nu installeren**wanneer u hierom wordt gevraagd.
 
-4. U wordt omgeleid naar een downloadkoppeling op basis van uw browser. Selecteer **toevoegen** voor het installeren van de uitbreiding van de browser.
+4. U wordt omgeleid naar een download koppeling op basis van uw browser. Selecteer **toevoegen** om de browser uitbreiding te installeren.
 
-5. Als u wordt gevraagd, selecteert u **inschakelen** of **toestaan**.
+5. Als u hierom wordt gevraagd, selecteert u **inschakelen** of **toestaan**.
 
-6. Na de installatie opnieuw opstarten van uw browser.
+6. Nadat de installatie is gestart, start u de browser opnieuw.
 
-7.  Meld u aan bij het toegangsvenster voor en zien als u uw wachtwoord-SSO-functionaliteit geschikte apps kunt starten.
+7.  Meld u aan bij het toegangs venster en controleer of u uw apps met een wacht woord-SSO-functionaliteit kunt starten.
 
-U kunt ook rechtstreeks de extensies voor Chrome en Firefox downloaden via deze koppelingen:
+U kunt de uitbrei dingen voor Chrome en Firefox ook rechtstreeks downloaden via de volgende koppelingen:
 
--   [Chrome Toegangsvenster-extensie](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+-   [Uitbrei ding Chrome toegangs paneel](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Toegangsvenster Firefox-extensie](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Extensie voor het toegangs paneel van Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="set-up-a-group-policy-for-internet-explorer"></a>Instellen van een groepsbeleid voor Internet Explorer
+## <a name="set-up-a-group-policy-for-internet-explorer"></a>Een groeps beleid instellen voor Internet Explorer
 
-U kunt een groepsbeleid waarmee u de extensie van het toegangsvenster voor Internet Explorer op afstand installeren op uw gebruikers virtuele machines kunt instellen.
+U kunt een groeps beleid instellen waarmee u de uitbrei ding van het toegangs paneel voor Internet Explorer op afstand kunt installeren op de computers van uw gebruikers.
 
 Dit zijn de vereisten:
 
--   [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx) moet worden ingesteld, en uw gebruikers machines moeten worden toegevoegd aan uw domein.
+-   [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx) moet worden ingesteld en de computers van uw gebruikers moeten lid zijn van uw domein.
 
--   U hebt 'Instellingen bewerken'-machtigingen voor het bewerken van het groepsbeleidsobject (GPO). Standaard hebben leden van de volgende beveiligingsgroepen deze machtiging: Domeinadministrators, Ondernemingsadministrators en beveiligingsgroep Maker Eigenaar Groepsbeleid. [Meer informatie](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   U hebt de machtiging instellingen bewerken om het groepsbeleid object (GPO) te bewerken. Standaard hebben leden van de volgende beveiligings groepen deze machtiging: Domein Administrators, ondernemings Administrators en groepsbeleid Maker eigen aren. [Meer informatie](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
-Zie voor het configureren van het Groepsbeleid en implementeren voor gebruikers, [over het implementeren van de extensie van het toegangsvenster voor Internet Explorer met behulp van Groepsbeleid](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy).
+Zie [de uitbrei ding van het toegangs paneel voor Internet Explorer implementeren met behulp van groeps beleid](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy)om het groeps beleid te configureren en te implementeren voor gebruikers.
 
-## <a name="troubleshoot-access-panel-in-internet-explorer"></a>Toegangsvenster in Internet Explorer oplossen
+## <a name="troubleshoot-access-panel-in-internet-explorer"></a>Problemen met het toegangs venster in Internet Explorer oplossen
 
-Voor toegang tot een hulpprogramma voor diagnostische gegevens en instructies voor het configureren van de extensie, Zie [oplossen met de extensie van het toegangsvenster voor Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
+Zie [problemen met de uitbrei ding van het toegangs paneel voor Internet Explorer oplossen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting)voor een diagnostisch hulp programma en instructies voor het configureren van de uitbrei ding.
 
-## <a name="configure-password-sso-for-an-azure-ad-gallery-app"></a>Configureren van SSO-wachtwoord voor een app van Azure AD-galerie
+## <a name="configure-password-sso-for-an-azure-ad-gallery-app"></a>Wachtwoord-SSO configureren voor een Azure AD Gallery-app
 
-Voor het configureren van een app uit de galerie van Azure AD, moet u deze dingen doen:
+Als u een app wilt configureren vanuit de Azure AD-galerie, moet u de volgende handelingen uitvoeren:
 
--   De app uit de galerie van Azure AD toevoegen
--   [De app configureren voor eenmalige aanmelding wachtwoord](#configure-the-app-for-password-sso)
--   [Gebruikers toewijzen aan de app.](#assign-users-to-the-app)
+-   De app toevoegen vanuit de Azure AD-galerie
+-   [De app configureren voor eenmalige aanmelding met een wacht woord](#configure-the-app-for-password-sso)
+-   [Gebruikers toewijzen aan de app](#assign-users-to-the-app)
 
-### <a name="add-the-app-from-the-azure-ad-gallery"></a>De app uit de galerie van Azure AD toevoegen
+### <a name="add-the-app-from-the-azure-ad-gallery"></a>De app toevoegen vanuit de Azure AD-galerie
 
 Volg deze stappen:
 
-1. Open de [Azure-portal](https://portal.azure.com) en meld u aan als een globale beheerder of co-beheerder.
+1. Open de [Azure Portal](https://portal.azure.com) en meld u aan als globale beheerder of co-beheerder.
 
-2. Selecteer **alle services** aan de bovenkant van het navigatiedeelvenster aan de linkerkant om te openen van de Azure AD-extensie.
+2. Selecteer **alle services** boven aan het navigatie deel venster aan de linkerkant om de Azure AD-extensie te openen.
 
-3. Type **Azure Active Directory** in het zoekvak van filter en selecteer vervolgens **Azure Active Directory**.
+3. Typ **Azure Active Directory** in het vak Zoek opdracht filteren en selecteer vervolgens **Azure Active Directory**.
 
-4. Selecteer **bedrijfstoepassingen** in het navigatiedeelvenster van de Azure AD.
+4. Selecteer **bedrijfs toepassingen** in het navigatie deel venster van Azure AD.
 
-5. Selecteer **toevoegen** in de rechterbovenhoek van de **bedrijfstoepassingen** deelvenster.
+5. Selecteer **toevoegen** in de rechter bovenhoek van het deel venster **ondernemings toepassingen** .
 
-6. In de **toevoegen vanuit de galerie** sectie, typt u de naam van de app in de **Voer een naam** vak.
+6. Typ in de sectie **toevoegen vanuit de galerie** de naam van de app in het vak **Geef een naam** op.
 
 7. Selecteer de app die u wilt configureren voor eenmalige aanmelding.
 
-8. *Optioneel:* Voordat u de app toevoegt, kunt u de naam ervan in de **naam** vak.
+8. *Optioneel:* Voordat u de app toevoegt, kunt u de naam wijzigen in het vak **naam** .
 
-9. Klik op **toevoegen** om toe te voegen van de app.
+9. Klik op **toevoegen** om de app toe te voegen.
 
-   Na een korte vertraging zult u kunnen zien van deelvenster van de configuratie van de app.
+   Na een korte vertraging kunt u het configuratie deel venster van de app bekijken.
 
-### <a name="configure-the-app-for-password-sso"></a>Configureren van de app voor SSO-wachtwoord
+### <a name="configure-the-app-for-password-sso"></a>De app configureren voor wacht woord-SSO
 
 Volg deze stappen:
 
-1. Open de [Azure-portal](https://portal.azure.com/) en meld u aan als een globale beheerder of co-beheerder.
+1. Open de [Azure Portal](https://portal.azure.com/) en meld u aan als globale beheerder of co-beheerder.
 
-2. Selecteer **alle services** aan de bovenkant van het navigatiedeelvenster aan de linkerkant om te openen van de Azure AD-extensie.
+2. Selecteer **alle services** boven aan het navigatie deel venster aan de linkerkant om de Azure AD-extensie te openen.
 
-3. Type **Azure Active Directory** in het zoekvak van filter en selecteer vervolgens **Azure Active Directory**.
+3. Typ **Azure Active Directory** in het vak Zoek opdracht filteren en selecteer vervolgens **Azure Active Directory**.
 
-4. Selecteer **bedrijfstoepassingen** in het navigatievenster van de Azure AD.
+4. Selecteer **bedrijfs toepassingen** in het navigatie deel venster van Azure AD.
 
-5. Selecteer **alle toepassingen** om een lijst van uw apps weer te geven.
+5. Selecteer **alle toepassingen** om een lijst met uw apps weer te geven.
 
    > [!NOTE]
-   > Als u de app die u wilt niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen**. Stel de **weergeven** optie "Alle toepassingen."
+   > Als u de gewenste app niet ziet, gebruikt u het **filter** besturings element boven aan de **lijst alle toepassingen**. Stel de optie **weer geven** in op alle toepassingen.
 
 6. Selecteer de app die u wilt configureren voor eenmalige aanmelding.
 
-7. Nadat de app wordt geladen, selecteert u **eenmalige aanmelding** in het deelvenster aan de linkerkant van de app.
+7. Nadat de app is geladen, selecteert u **eenmalige aanmelding** in het deel venster aan de linkerkant van de app.
 
-8. Selecteer **wachtwoord gebaseerde aanmelding** modus.
+8. Selecteer **aanmeldings modus op basis van wacht woorden** .
 
 9. Gebruikers toewijzen aan de app.
 
-10. U kunt ook referenties opgeven voor gebruikers. (Anders gebruikers wordt gevraagd referenties bij het opstarten van de app in te voeren.) U doet dit door de rijen van de gebruikers te selecteren. Selecteer vervolgens **updatereferenties** en voer de gebruikersnamen en wachtwoorden.
+10. U kunt ook referenties voor gebruikers opgeven. (Anders wordt gebruikers gevraagd om referenties in te voeren bij het starten van de app.) Als u dit wilt doen, selecteert u de rijen van de gebruikers. Selecteer vervolgens **referenties bijwerken** en voer de gebruikers namen en wacht woorden in.
 
 ### <a name="assign-users-to-the-app"></a>Gebruikers aan de app toewijzen
 
-Als u wilt toewijzen gebruikers rechtstreeks aan een app, de volgende stappen uit:
+Voer de volgende stappen uit om gebruikers rechtstreeks toe te wijzen aan een app:
 
-1. Open de [Azure-portal](https://portal.azure.com/) en meld u aan als een globale beheerder.
+1. Open de [Azure Portal](https://portal.azure.com/) en meld u aan als globale beheerder.
 
-2. Selecteer **alle services** in de pijn navigatie aan de linkerkant om te openen van de Azure AD-extensie.
+2. Selecteer **alle services** in het navigatie scherm aan de linkerkant om de Azure AD-extensie te openen.
 
-3. Type **Azure Active Directory** in het zoekvak van filter en selecteer vervolgens **Azure Active Directory**.
+3. Typ **Azure Active Directory** in het vak Zoek opdracht filteren en selecteer vervolgens **Azure Active Directory**.
 
-4. Selecteer **bedrijfstoepassingen** in het navigatievenster van de Azure AD.
+4. Selecteer **bedrijfs toepassingen** in het navigatie deel venster van Azure AD.
 
-5. Selecteer **alle toepassingen** om een lijst van uw toepassingen weer te geven.
+5. Selecteer **alle toepassingen** om een lijst met uw toepassingen weer te geven.
 
    > [!NOTE]
-   > Als u de app die u wilt niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen**. Stel de **weergeven** optie "Alle toepassingen."
+   > Als u de gewenste app niet ziet, gebruikt u het **filter** besturings element boven aan de **lijst alle toepassingen**. Stel de optie **weer geven** in op alle toepassingen.
 
-6. Selecteer de app die u wilt toewijzen van een gebruiker in de lijst.
+6. Selecteer in de lijst de app waaraan u een gebruiker wilt toewijzen.
 
-7. Nadat de toepassing wordt geladen, selecteert u **gebruikers en groepen** in het navigatievenster van de app aan de linkerkant.
+7. Nadat de toepassing is geladen, selecteert u **gebruikers en groepen** in het navigatie deel venster van de app aan de linkerkant.
 
-8. Selecteer **toevoegen** aan de bovenkant van de **gebruikers en groepen** lijst om de **toevoegen toewijzing** deelvenster.
+8. Selecteer **toevoegen** boven aan de lijst **gebruikers en groepen** om het deel venster **toewijzing toevoegen** te openen.
 
-9. Selecteer **gebruikers en groepen** in de **toevoegen toewijzing** deelvenster.
+9. Selecteer **gebruikers en groepen** in het deel venster **toewijzing toevoegen** .
 
-10. In de **zoeken op naam of e-mailadres** vak, typ de volledige naam of e-mailadres van de gebruiker die u wilt toewijzen.
+10. Typ in het vak **zoeken op naam of e-mail adres** de volledige naam of het e-mail adres van de gebruiker die u wilt toewijzen.
 
-11. Beweeg de muisaanwijzer over de gebruiker in de lijst. Schakel het selectievakje in naast de profielfoto van de gebruiker of het logo om toe te voegen die gebruiker de **geselecteerde** lijst.
+11. Beweeg de muis aanwijzer over de gebruiker in de lijst. Schakel het selectie vakje in naast de foto of het logo van het profiel van de gebruiker om die gebruiker toe te voegen aan de **geselecteerde** lijst.
 
-12. *Optioneel:* Typ een andere naam of e-mailadres in om toe te voegen een andere gebruiker, de **zoeken op naam of e-mailadres** vak en selecteer vervolgens het selectievakje in om toe te voegen die gebruiker de **geselecteerde** lijst.
+12. *Optioneel:* Als u nog een gebruiker wilt toevoegen, typt u een andere naam of een e-mail adres in het vak **zoeken op naam of e-mail adres** en schakelt u het selectie vakje in om die gebruiker toe te voegen aan de **geselecteerde** lijst.
 
-13. Wanneer u klaar bent met gebruikers te selecteren, klikt u op **Selecteer** aan de lijst met gebruikers en groepen die zijn toegewezen aan de app.
+13. Wanneer u klaar bent met het selecteren van gebruikers, klikt u op **selecteren** om ze toe te voegen aan de lijst met gebruikers en groepen die zijn toegewezen aan de app.
 
-14. *Optioneel:* Klik op **rol selecteren** in de **toevoegen toewijzing** deelvenster te selecteren van een rol toewijzen aan de gebruikers die u hebt geselecteerd.
+14. *Optioneel:* Klik op **rol selecteren** in het deel venster **toewijzing toevoegen** om een rol te selecteren die u wilt toewijzen aan de gebruikers die u hebt geselecteerd.
 
-15. Selecteer **toewijzen** naar de app toewijzen aan de geselecteerde gebruikers.
+15. Selecteer **toewijzen** om de app toe te wijzen aan de geselecteerde gebruikers.
 
-    Na een korte vertraging worden de gebruikers die apps openen in Toegangsvenster.
+    Na een korte vertraging kunnen gebruikers toegang krijgen tot deze apps vanuit het toegangs venster.
 
 ## <a name="request-support"></a>Ondersteuning aanvragen 
-Als er een foutbericht weergegeven wanneer u een SSO instellen en gebruikers toewijst, moet u een ondersteuningsticket openen. Als veel van de volgende informatie mogelijk opnemen:
+Als er een fout bericht wordt weer gegeven wanneer u SSO instelt en gebruikers toewijst, opent u een ondersteunings ticket. Voeg zo veel mogelijk van de volgende gegevens toe:
 
--   Correlatie-ID van fout
--   UPN (e-mailadres van gebruiker)
+-   ID correlatie fout
+-   UPN (e-mail adres van gebruiker)
 -   TenantID
--   Browsertype
--   Tijdzone en de tijd/tijdsbestek als de fout is opgetreden
+-   Browser type
+-   Tijd zone en tijd/tijd-frame wanneer de fout is opgetreden
 -   Fiddler traceringen
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -1,41 +1,41 @@
 ---
-title: Werken met databases, containers en objecten in Azure Cosmos DB
-description: In dit artikel wordt beschreven hoe u maken en gebruiken van databases, containers en objecten in Azure Cosmos DB.
+title: Werken met data bases, containers en items in Azure Cosmos DB
+description: In dit artikel wordt beschreven hoe u data bases, containers en items in Azure Cosmos DB maakt en gebruikt.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 574dd9fd6189b6d0f1e5d455146d6d083ad7ff77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 277564208a5e4a209aecf8f976aca6b35ab17781
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389473"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467754"
 ---
-# <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Werken met databases, containers en objecten in Azure Cosmos DB
+# <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Werken met data bases, containers en items in Azure Cosmos DB
 
-Nadat u hebt gemaakt een [Azure Cosmos DB-account](account-overview.md) onder uw Azure-abonnement, kunt u gegevens beheren in uw account met het maken van databases, containers en objecten. Dit artikel wordt beschreven elk van deze entiteiten. 
+Nadat u hebt gemaakt een [Azure Cosmos DB-account](account-overview.md) onder uw Azure-abonnement, kunt u gegevens beheren in uw account met het maken van databases, containers en objecten. In dit artikel worden deze entiteiten beschreven. 
 
-De volgende afbeelding ziet u de hiërarchie van verschillende entiteiten in een Azure Cosmos DB-account:
+In de volgende afbeelding ziet u de hiërarchie van verschillende entiteiten in een Azure Cosmos DB-account:
 
 ![Azure Cosmos-account-entiteiten](./media/databases-containers-items/cosmos-entities.png)
 
 ## <a name="azure-cosmos-databases"></a>Azure Cosmos-databases
 
-U kunt een of meerdere Azure-Cosmos-databases maken onder uw account. Een database is vergelijkbaar met een naamruimte. Een database is de eenheid van het beheer voor een set met Azure Cosmos-containers. De volgende tabel ziet u hoe een Azure Cosmos-database is toegewezen aan verschillende API-specifieke entiteiten:
+U kunt een of meer Azure Cosmos-data bases maken onder uw account. Een data base komt overeen met een naam ruimte. Een Data Base is de beheer eenheid voor een set Azure Cosmos-containers. De volgende tabel ziet u hoe een Azure Cosmos-database is toegewezen aan verschillende API-specifieke entiteiten:
 
 | Azure Cosmos-entiteit | SQL-API | Cassandra-API | Azure Cosmos DB-API voor MongoDB | Gremlin-API | Tabel-API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-database | Database | Keyspace | Database | Database | N.V.T. |
+|Azure Cosmos-database | Database | Keyspace | Database | Database | N.v.t. |
 
 > [!NOTE]
-> Met Table-API-accounts kunt bij het maken van de eerste tabel, wordt een standaard-database automatisch gemaakt in uw Azure Cosmos-account.
+> Wanneer u uw eerste tabel maakt met Table-API accounts, wordt er automatisch een standaard database gemaakt in uw Azure Cosmos-account.
 
 ### <a name="operations-on-an-azure-cosmos-database"></a>Bewerkingen op een Azure Cosmos-database
 
-U kunt met een Azure Cosmos-database met Azure Cosmos-API's werken zoals beschreven in de volgende tabel:
+U kunt communiceren met een Azure Cosmos-data base met Azure Cosmos-Api's, zoals beschreven in de volgende tabel:
 
 | Bewerking | Azure-CLI | SQL-API | Cassandra-API | Azure Cosmos DB-API voor MongoDB | Gremlin-API | Tabel-API |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -47,87 +47,87 @@ U kunt met een Azure Cosmos-database met Azure Cosmos-API's werken zoals beschre
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos-containers
 
-Een Azure Cosmos-container is de schaalbaarheid voor ingerichte doorvoer en opslag. Een container is horizontaal gepartitioneerd en vervolgens gerepliceerd in meerdere regio's. De items die u toevoegt aan de container en de doorvoer die u in te op het richten worden automatisch verdeeld over een set met logische partities op basis van de partitiesleutel. Zie voor meer informatie over partitionering en partitiesleutels [partitiegegevens](partition-data.md). 
+Een Azure Cosmos-container is de eenheid van schaal baarheid voor ingerichte door Voer en opslag. Een container is horizontaal gepartitioneerd en vervolgens gerepliceerd in meerdere regio's. De items die u toevoegt aan de container en de door Voer die u hebt ingericht, worden automatisch gedistribueerd over een set logische partities op basis van de partitie sleutel. Zie [partitie gegevens](partition-data.md)voor meer informatie over partitioneren en partitie sleutels. 
 
-Wanneer u een Azure Cosmos-container maakt, kunt u de doorvoer configureren in een van de volgende modi:
+Wanneer u een Azure Cosmos-container maakt, configureert u door Voer in een van de volgende modi:
 
-* **Toegewezen ingerichte doorvoermodus**: De doorvoer die is ingericht in een container is exclusief zijn gereserveerd voor die container en wordt ondersteund door de SLA's. Zie voor meer informatie, [over het inrichten van doorvoer voor een Azure Cosmos-container](how-to-provision-container-throughput.md).
+* **Toegewezen doorvoer modus voor ingerichte**: De door Voer die is ingericht voor een container is uitsluitend gereserveerd voor die container en wordt ondersteund door de Sla's. Zie voor meer informatie [over het inrichten van de door Voer voor een Azure Cosmos-container](how-to-provision-container-throughput.md).
 
-* **De modus gedeelde ingerichte doorvoer**: Deze containers delen de ingerichte doorvoer met de andere containers in dezelfde database (met uitzondering van containers die zijn geconfigureerd met een toegewezen ingerichte doorvoer). Met andere woorden, wordt de ingerichte doorvoer voor de database gedeeld tussen alle 'gedeelde doorvoer'-containers. Zie voor meer informatie, [hoe u de doorvoer voor een Azure Cosmos-database inrichten](how-to-provision-database-throughput.md).
+* **Gedeelde doorvoer modus voor inrichting**: Deze containers delen de ingerichte door Voer met de andere containers in dezelfde data base (met uitzonde ring van containers die zijn geconfigureerd met een toegewezen ingerichte door Voer). Met andere woorden, de ingerichte door Voer voor de data base wordt gedeeld door alle "gedeelde door Voer"-containers. Zie [het inrichten van de door Voer voor een Azure Cosmos-data base](how-to-provision-database-throughput.md)voor meer informatie.
 
 > [!NOTE]
-> U kunt gedeelde en toegewijde doorvoer alleen bij het maken van de database en de container. Als u wilt overschakelen van toegewezen doorvoermodus naar de doorvoermodus gedeelde (en omgekeerd) nadat de container is gemaakt, hebt u een nieuwe container maken en de gegevens migreren naar de nieuwe container. U kunt de gegevens migreren met behulp van de Azure Cosmos DB-functie voor wijzigingenfeed.
+> U kunt gedeelde en toegewezen door Voer alleen configureren bij het maken van de data base en container. Als u wilt overschakelen van de toegewezen doorvoer modus naar de gedeelde doorvoer modus (en omgekeerd) nadat de container is gemaakt, moet u een nieuwe container maken en de gegevens naar de nieuwe container migreren. U kunt de gegevens migreren met behulp van de Azure Cosmos DB functie voor het wijzigen van de feed.
 
-Een Azure Cosmos-container kunt flexibel, schalen of u containers maken met behulp van toegewezen of gedeelde ingerichte doorvoer modi.
+Een Azure Cosmos-container kan flexibel worden geschaald, ongeacht of u containers maakt met behulp van toegewezen of gedeelde ingerichte doorvoer modi.
 
-Een Azure Cosmos-container is een container schema-agnostische van items. Items in een container kunnen willekeurige schema's hebben. Bijvoorbeeld, een item dat staat voor een persoon en een item dat staat voor een auto kunnen worden geplaatst de *dezelfde container*. Standaard worden alle items die u aan een container toevoegt automatisch geïndexeerd zonder expliciete index of Schemabeheer. U kunt de indexering gedrag aanpassen door het configureren van de [indexeringsbeleid](index-overview.md) voor een container. 
+Een Azure Cosmos-container is een container schema-agnostische van items. Items in een container kunnen wille keurige schema's hebben. Een item dat een persoon vertegenwoordigt en een item dat een auto vertegenwoordigt, kan bijvoorbeeld in *dezelfde container*worden geplaatst. Standaard worden alle items die u toevoegt aan een container automatisch geïndexeerd zonder dat hiervoor expliciete index of schema beheer nodig is. U kunt het indexerings gedrag aanpassen door het [indexerings beleid](index-overview.md) op een container te configureren. 
 
-U kunt instellen [Time to Live (TTL)](time-to-live.md) op geselecteerde items in een Azure Cosmos-container of voor de volledige container verwijderen zonder problemen de items uit het systeem. Azure Cosmos DB worden de items automatisch verwijderd wanneer ze zijn verlopen. Daarnaast garandeert u dat een query uitgevoerd op de container verlopen items in een vaste gebonden niet retourneren. Zie voor meer informatie, [TTL configureren voor uw container](how-to-time-to-live.md).
+U kunt [time to Live (TTL)](time-to-live.md) instellen voor geselecteerde items in een Azure Cosmos-container of voor de hele container om deze items op een correcte manier van het systeem te verwijderen. Azure Cosmos DB worden automatisch de items verwijderd wanneer deze verlopen. Het zorgt er ook voor dat een query die in de container wordt uitgevoerd, niet de verlopen items binnen een vaste grens retourneert. Zie [Configure TTL in your container](how-to-time-to-live.md)voor meer informatie.
 
-U kunt [wijzigingenfeed](change-feed.md) abonneren op het bewerkingenlogboek die voor elke logische partitie van de container wordt beheerd. Wijzigingenfeed bevat het logboek van alle updates die worden uitgevoerd op de container, samen met de vóór en na de installatiekopieën van de items. Zie voor meer informatie, [reactieve toepassingen bouwen met behulp van de wijzigingenfeed](serverless-computing-database.md). U kunt ook de bewaartermijn voor de change feed met behulp van het beleid voor de container-wijzigingenfeed configureren. 
+U kunt [Change feed](change-feed.md) gebruiken om u te abonneren op het operations-logboek dat wordt beheerd voor elke logische partitie van de container. De wijzigings feed biedt het logboek van alle updates die in de container worden uitgevoerd, samen met de voor-en na-installatie kopieën van de items. Zie [reactieve toepassingen bouwen met behulp van Change feed](serverless-computing-database.md)voor meer informatie. U kunt ook de Bewaar periode voor de wijzigings feed configureren met behulp van het beleid voor wijzigings invoer in de container. 
 
-U kunt registreren [opgeslagen procedures, triggers, de gebruiker gedefinieerde functies (UDF's)](stored-procedures-triggers-udfs.md), en [samenvoegen procedures](how-to-manage-conflicts.md) voor uw Azure Cosmos-container. 
+U kunt [opgeslagen procedures, triggers, door de gebruiker gedefinieerde functies (udf's)](stored-procedures-triggers-udfs.md)en [samenvoeg procedures](how-to-manage-conflicts.md) voor uw Azure Cosmos-container registreren. 
 
-Kunt u een [unique key-beperking](unique-keys.md) voor uw Azure Cosmos-container. Zorg ervoor dat een of meer waarden per partitiesleutel logische met een unieke sleutel beleid. Als u een container met behulp van een unieke sleutel beleid maakt, kunnen geen nieuwe of bijgewerkte items met waarden die de waarden die zijn opgegeven door de unieke key-beperking dubbele worden gemaakt. Zie voor meer informatie, [Unique key-beperkingen](unique-keys.md).
+U kunt een [Unique key-beperking](unique-keys.md) opgeven in de Azure Cosmos-container. Zorg ervoor dat een of meer waarden per partitiesleutel logische met een unieke sleutel beleid. Als u een container maakt met behulp van een beleid met unieke sleutels, kunnen er geen nieuwe of bijgewerkte items worden gemaakt met waarden die de waarden dupliceren die zijn opgegeven door de beperking voor unieke sleutels. Zie voor meer informatie, [Unique key-beperkingen](unique-keys.md).
 
-Een Azure Cosmos-container is gespecialiseerd in API-specifieke entiteiten zoals wordt weergegeven in de volgende tabel:
+Een Azure Cosmos-container is gespecialiseerd in API-specifieke entiteiten, zoals wordt weer gegeven in de volgende tabel:
 
 | Azure Cosmos-entiteit | SQL-API | Cassandra-API | Azure Cosmos DB-API voor MongoDB | Gremlin-API | Tabel-API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-container | Verzameling | Tabel | Verzameling | Graph | Tabel |
+|Azure Cosmos-container | Collection | Tabel | Verzameling | Graph | Tabel |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Eigenschappen van een Azure Cosmos-container
 
-Een Azure Cosmos-container is een set van het systeem gedefinieerde eigenschappen. Afhankelijk van welke API die u gebruikt, enkele eigenschappen kunnen niet rechtstreeks worden blootgesteld. De volgende tabel beschrijft de lijst met eigenschappen van het systeem gedefinieerde:
+Een Azure Cosmos-container heeft een reeks door het systeem gedefinieerde eigenschappen. Afhankelijk van welke API u gebruikt, zijn sommige eigenschappen mogelijk niet rechtstreeks zichtbaar. In de volgende tabel wordt de lijst met door het systeem gedefinieerde eigenschappen beschreven:
 
-| Het systeem gedefinieerde eigenschap | Het systeem gegenereerde of de gebruiker configureerbare | Doel | SQL-API | Cassandra-API | Azure Cosmos DB-API voor MongoDB | Gremlin-API | Tabel-API |
+| Door het systeem gedefinieerde eigenschap | Door het systeem gegenereerd of door de gebruiker te configureren | Doel | SQL-API | Cassandra-API | Azure Cosmos DB-API voor MongoDB | Gremlin-API | Tabel-API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Het systeem gegenereerde | De unieke id van de container | Ja | Nee | Nee | Nee | Nee |
-|\_etag | Het systeem gegenereerde | Entity-tag voor Optimistisch gelijktijdigheidbeheer gebruikt | Ja | Nee | Nee | Nee | Nee |
-|\_TS | Het systeem gegenereerde | De laatst bijgewerkte timestamp van de container | Ja | Nee | Nee | Nee | Nee |
-|\_Selfservice | Het systeem gegenereerde | Adresseerbare URI van de container | Ja | Nee | Nee | Nee | Nee |
-|id | Gebruiker configureerbare | Gebruiker gedefinieerde unieke naam van de container | Ja | Ja | Ja | Ja | Ja |
-|indexingPolicy | Gebruiker configureerbare | Biedt de mogelijkheid om te wijzigen van het pad van de index, het indextype en de index-modus | Ja | Nee | Nee | Nee | Ja |
-|timeToLive | Gebruiker configureerbare | Biedt de mogelijkheid items om automatisch te verwijderen uit een container na een bepaalde tijd instellen. Zie voor meer informatie, [Time to Live](time-to-live.md). | Ja | Nee | Nee | Nee | Ja |
-|changeFeedPolicy | Gebruiker configureerbare | Gebruikt om te lezen van wijzigingen in de items in een container. Zie voor meer informatie, [Wijzigingenfeed](change-feed.md). | Ja | Nee | Nee | Nee | Ja |
-|uniqueKeyPolicy | Gebruiker configureerbare | Gebruikt om ervoor te zorgen dat een of meer waarden in een logische partitie. Zie voor meer informatie, [Unique key-beperkingen](unique-keys.md). | Ja | Nee | Nee | Nee | Ja |
+|\_id | Door het systeem gegenereerd | De unieke id van de container | Ja | Nee | Nee | Nee | Nee |
+|\_ETAG | Door het systeem gegenereerd | Entity-tag voor Optimistisch gelijktijdigheidbeheer gebruikt | Ja | Nee | Nee | Nee | Nee |
+|\_Terminal | Door het systeem gegenereerd | De laatst bijgewerkte timestamp van de container | Ja | Nee | Nee | Nee | Nee |
+|\_Online | Door het systeem gegenereerd | Adresseerbare URI van de container | Ja | Nee | Nee | Nee | Nee |
+|id | Door de gebruiker te configureren | Gebruiker gedefinieerde unieke naam van de container | Ja | Ja | Ja | Ja | Ja |
+|indexingPolicy | Door de gebruiker te configureren | Biedt de mogelijkheid om het pad naar de index, het index type en de index modus te wijzigen | Ja | Nee | Nee | Nee | Ja |
+|timeToLive | Door de gebruiker te configureren | Biedt de mogelijkheid om items automatisch uit een container te verwijderen na een bepaalde periode. Zie [time to Live](time-to-live.md)voor meer informatie. | Ja | Nee | Nee | Nee | Ja |
+|changeFeedPolicy | Door de gebruiker te configureren | Gebruikt om te lezen van wijzigingen in de items in een container. Zie [Change feed](change-feed.md)voor meer informatie. | Ja | Nee | Nee | Nee | Ja |
+|uniqueKeyPolicy | Door de gebruiker te configureren | Hiermee wordt de uniekheid van een of meer waarden in een logische partitie gegarandeerd. Zie [beperkingen voor unieke sleutels](unique-keys.md)voor meer informatie. | Ja | Nee | Nee | Nee | Ja |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Bewerkingen op een Azure Cosmos-container
 
-Een Azure Cosmos-container ondersteunt de volgende bewerkingen uit als u een van de Azure Cosmos-API's gebruiken:
+Een Azure Cosmos-container ondersteunt de volgende bewerkingen wanneer u een van de Azure Cosmos-Api's gebruikt:
 
 | Bewerking | Azure-CLI | SQL-API | Cassandra-API | Azure Cosmos DB-API voor MongoDB | Gremlin-API | Tabel-API |
 | --- | --- | --- | --- | --- | --- | --- |
 | Het inventariseren van containers in een database | Ja | Ja | Ja | Ja | N.v.t. | N.v.t. |
-| Lezen van een container | Ja | Ja | Ja | Ja | N.v.t. | N.V.T. |
-| Een nieuwe container maken | Ja | Ja | Ja | Ja | N.v.t. | N.V.T. |
-| Bijwerken van een container | Ja | Ja | Ja | Ja | N.v.t. | N.V.T. |
+| Lezen van een container | Ja | Ja | Ja | Ja | N.v.t. | N.v.t. |
+| Een nieuwe container maken | Ja | Ja | Ja | Ja | N.v.t. | N.v.t. |
+| Een container bijwerken | Ja | Ja | Ja | Ja | N.v.t. | N.v.t. |
 | Een container verwijderen | Ja | Ja | Ja | Ja | N.v.t. | N.v.t. |
 
 ## <a name="azure-cosmos-items"></a>Azure Cosmos-items
 
-Afhankelijk van welke API die u gebruikt, kan een Azure Cosmos-item op een document in een verzameling, een rij in een tabel of een knooppunt of randtabel in een grafiek vertegenwoordigen. De volgende tabel ziet u de toewijzing van de API-specifieke entiteiten aan een Azure Cosmos-item:
+Afhankelijk van de API die u gebruikt, kan een Azure Cosmos-item een document in een verzameling, een rij in een tabel of een knoop punt of rand in een grafiek vertegenwoordigen. De volgende tabel toont de toewijzing van API-specifieke entiteiten aan een Azure Cosmos-item:
 
-| Cosmos-entiteit | SQL-API | Cassandra-API | Azure Cosmos DB-API voor MongoDB | Gremlin-API | Tabel-API |
+| Cosmos entiteit | SQL-API | Cassandra-API | Azure Cosmos DB-API voor MongoDB | Gremlin-API | Tabel-API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-item | Document | Rij | Document | Knooppunt of randtabel | Item |
+|Azure Cosmos-item | Document | Rij | Document | Knoop punt of rand | Item |
 
 ### <a name="properties-of-an-item"></a>Eigenschappen van een item
 
-Elke Azure Cosmos-item heeft de volgende eigenschappen voor het systeem gedefinieerde. Afhankelijk van welke API die u gebruikt, sommige fouten mogelijk niet rechtstreeks worden blootgesteld.
+Elk Azure Cosmos-item heeft de volgende door het systeem gedefinieerde eigenschappen. Afhankelijk van welke API u gebruikt, zijn sommige daarvan mogelijk niet rechtstreeks zichtbaar.
 
-| Het systeem gedefinieerde eigenschap | Het systeem gegenereerde of de gebruiker configureerbare| Doel | SQL-API | Cassandra-API | Azure Cosmos DB-API voor MongoDB | Gremlin-API | Tabel-API |
+| Door het systeem gedefinieerde eigenschap | Door het systeem gegenereerd of door de gebruiker te configureren| Doel | SQL-API | Cassandra-API | Azure Cosmos DB-API voor MongoDB | Gremlin-API | Tabel-API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Het systeem gegenereerde | De unieke id van het item | Ja | Nee | Nee | Nee | Nee |
-|\_etag | Het systeem gegenereerde | Entity-tag voor Optimistisch gelijktijdigheidbeheer gebruikt | Ja | Nee | Nee | Nee | Nee |
-|\_TS | Het systeem gegenereerde | Tijdstempel van de laatste update van het item | Ja | Nee | Nee | Nee | Nee |
-|\_Selfservice | Het systeem gegenereerde | Adresseerbare URI van het item | Ja | Nee | Nee | Nee | Nee |
-|id | Een van beide | Gebruiker gedefinieerde unieke naam in een logische partitie. Als de gebruiker niet de ID opgeeft, genereert het systeem automatisch een. | Ja | Ja | Ja | Ja | Ja |
-|Willekeurige, door de gebruiker gedefinieerde eigenschappen | Door de gebruiker gedefinieerde routes | Gebruiker gedefinieerde eigenschappen die worden weergegeven in de API-eigen weergave (met inbegrip van JSON en BSON CQL) | Ja | Ja | Ja | Ja | Ja |
+|\_id | Door het systeem gegenereerd | De unieke id van het item | Ja | Nee | Nee | Nee | Nee |
+|\_ETAG | Door het systeem gegenereerd | Entity-tag voor Optimistisch gelijktijdigheidbeheer gebruikt | Ja | Nee | Nee | Nee | Nee |
+|\_Terminal | Door het systeem gegenereerd | Tijds tempel van de laatste update van het item | Ja | Nee | Nee | Nee | Nee |
+|\_Online | Door het systeem gegenereerd | Adresseerbare URI van het item | Ja | Nee | Nee | Nee | Nee |
+|id | Een van beide | Door de gebruiker gedefinieerde unieke naam in een logische partitie. Als de gebruiker de ID niet opgeeft, wordt er automatisch een door het systeem gegenereerd. | Ja | Ja | Ja | Ja | Ja |
+|Willekeurige, door de gebruiker gedefinieerde eigenschappen | Door de gebruiker gedefinieerde routes | Door de gebruiker gedefinieerde eigenschappen die worden weer gegeven in API-native representatie (waaronder JSON, BSON en CQL) | Ja | Ja | Ja | Ja | Ja |
 
 ### <a name="operations-on-items"></a>Bewerkingen op items
 
-Azure Cosmos-items ondersteunen de volgende bewerkingen. U kunt een van de Azure Cosmos-API's gebruiken de bewerkingen uit te voeren.
+Azure Cosmos-items ondersteunen de volgende bewerkingen. U kunt een van de Azure Cosmos-Api's gebruiken om de bewerkingen uit te voeren.
 
 | Bewerking | Azure-CLI | SQL-API | Cassandra-API | Azure Cosmos DB-API voor MongoDB | Gremlin-API | Tabel-API |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -137,9 +137,9 @@ Azure Cosmos-items ondersteunen de volgende bewerkingen. U kunt een van de Azure
 
 Meer informatie over deze taken en concepten:
 
-* [Doorvoer van een Azure Cosmos-database inrichten](how-to-provision-database-throughput.md)
-* [Inrichten doorvoer voor een Azure Cosmos-container](how-to-provision-container-throughput.md)
+* [Door Voer in te richten op een Azure Cosmos-data base](how-to-provision-database-throughput.md)
+* [Door Voer in te richten op een Azure Cosmos-container](how-to-provision-container-throughput.md)
 * [Werken met logische partities](partition-data.md)
-* [TTL-waarde op een Azure Cosmos-container configureren](how-to-time-to-live.md)
-* [Reactieve toepassingen bouwen met behulp van de feed wijzigen](change-feed.md)
-* [Een unieke key-beperking voor uw Azure Cosmos-container configureren](unique-keys.md)
+* [TTL configureren in een Azure Cosmos-container](how-to-time-to-live.md)
+* [Reactieve toepassingen bouwen met behulp van Change feed](change-feed.md)
+* [Een Unique key-beperking configureren in uw Azure Cosmos-container](unique-keys.md)

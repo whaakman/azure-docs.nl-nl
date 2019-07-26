@@ -1,6 +1,6 @@
 ---
-title: Beveiligingskenmerken voor Azure Virtual Machines voor Windows
-description: Een controlelijst met algemene beveiligingskenmerken voor het evalueren van Azure Windows Virtual Machines
+title: Beveiligings kenmerken voor Azure Windows Virtual Machines
+description: Een controle lijst met beveiligings kenmerken voor het evalueren van Azure Windows Virtual Machines
 services: virtual-machines
 ms.service: virtual-machines
 documentationcenter: ''
@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0c13ca0f383db53d14847f72f1ea63166f763d94
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 1aabdbf24725ae0986feb1f9652e13e806df8fdf
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800261"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444325"
 ---
-# <a name="security-attributes-for-windows-virtual-machines"></a>Beveiligingskenmerken voor Windows Virtual Machines
+# <a name="security-attributes-for-windows-virtual-machines"></a>Beveiligings kenmerken voor Windows Virtual Machines
 
-In dit artikel worden de beveiligingskenmerken ingebouwd in Windows virtuele Machines.
+In dit artikel worden de beveiligings kenmerken gedocumenteerd die zijn ingebouwd in Windows Virtual Machines.
 
 [!INCLUDE [Security attributes header](../../../includes/security-attributes-header.md)]
 

@@ -1,75 +1,75 @@
 ---
-title: Categorieën voor de Bing API voor zoeken van lokale bedrijven zoeken | Microsoft Docs
+title: Zoek naar categorieën voor de Bing lokale zakelijke zoek-API
 titleSuffix: Azure Cognitive Services
-description: Gebruik dit artikel voor informatie over het opgeven van de zoekcategorieën voor de lokale bedrijven Bing zoeken-API-eindpunt.
+description: In dit artikel leest u hoe u zoek categorieën kunt opgeven voor het eind punt van de Bing Local Business Search-API.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 7e5515aeee319464a65088653ad5e2bfe5b0b1f8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: e7088ac11556d8810c744ab4b56d2639865fb2f5
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592815"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423415"
 ---
-# <a name="search-categories-for-the-bing-local-business-search-api"></a>Zoekcategorieën voor de Bing API voor zoeken van lokale bedrijven
+# <a name="search-categories-for-the-bing-local-business-search-api"></a>Zoek naar categorieën voor de Bing lokale zakelijke zoek-API
 
-De Bing lokale bedrijven zoeken-API kunt u zoeken naar lokale zakelijke entiteiten in verschillende categorieën met prioriteit gegeven aan sluit resultaten van de locatie van een gebruiker. U kunt deze zoekbewerkingen opnemen in zoekopdrachten samen met de `localCircularView` en `localMapView` [parameters](specify-geographic-search.md).
+Met de Bing Local Business Search-API kunt u zoeken naar lokale bedrijfs entiteiten in verschillende categorieën, met prioriteit aan de hand van resultaten die de locatie van een gebruiker sluiten. U kunt deze Zoek opdrachten gebruiken in Zoek opdrachten samen `localCircularView` met `localMapView` de [para meters](specify-geographic-search.md)en.
 
 
-## <a name="toplevel-categories"></a>TopLevel categorieën 
+## <a name="toplevel-categories"></a>TopLevel Categorieën 
 
-De volgende typen definiëren categorieën met zoeken.  Meer dan één categorie kan worden opgegeven met behulp van een door komma's gescheiden lijst die wordt toegewezen aan de `localCategories` parameter.  
+Met de volgende typen wordt de belangrijkste Zoek categorie gedefinieerd.  Er kan meer dan één categorie worden opgegeven met een door komma's gescheiden lijst die is toegewezen `localCategories` aan de para meter.  
 - EatDrink 
 - SeeDo 
-- Kiezen 
+- Winkelen 
 - HotelsAndMotels 
 - BanksAndCreditUnions 
-- De vervangende domeinpagina 
-- Ziekenhuizen 
+- Parkeer 
+- Zieken huizen 
 
 ## <a name="sub-categories"></a>Subcategorieën
-Subcategorieën worden doorgegeven dezelfde manier als `localCategories`. Subcategorieën zijn specifiekere categorieën. Ze zijn onderliggende in de zin dat als u een categorie C en een van de subcategorieën S in de dezelfde lijst met door komma's gescheiden opgeeft, u dezelfde resultaten ontvangt als u alleen C hebt opgegeven.
+Subcategorieën worden op dezelfde manier door gegeven `localCategories`als. Subcategorieën zijn meer specifieke categorieën. Ze zijn ondergeschikt in de zin dat als u een categorie C en een van de subcategorieën in dezelfde door komma's gescheiden lijst opgeeft, dezelfde resultaten krijgt als wanneer u C alleen hebt opgegeven.
 
-### <a name="eat-drink"></a>Eten drank 
+### <a name="eat-drink"></a>Eten drinken 
 |  |  |  |  |
 | - | - | - | - |
 | BreweriesAndBrewPubs | CocktailLounges | AfricanRestaurants |
 | AmericanRestaurants | Bagels | BarbecueRestaurants |
-| Taverns | SportsBars | Bars |
+| Taverns | SportsBars | Regelaar |
 | BarsGrillsAndPubs | BuffetRestaurants| BelgianRestaurants | 
 | BritishRestaurants | CafeRestaurants | CaribbeanRestaurants |
 | ChineseRestaurants | CoffeeAndTea | Delicatessens | 
 | DeliveryService | Diners | DiscountStores | 
 | Donuts | FastFood | FrenchRestaurants | 
-| FrozenYogurt | GermanRestaurants | Supermarkten | 
-| GreekRestaurants | Grocers | HawaiianRestaurants | 
+| FrozenYogurt | GermanRestaurants | Super markten | 
+| GreekRestaurants | Boodschappen | HawaiianRestaurants | 
 | HungarianRestaurants | IceCreamAndFrozenDesserts | IndianRestaurants | 
-| ItalianRestaurants | JapaneseRestaurants | SAP | 
+| ItalianRestaurants | JapaneseRestaurants | SAPS | 
 | KoreanRestaurants | LiquorStores | MexicanRestaurants |
 | MiddleEasternRestaurants | Pizza | PolishRestaurants | 
-| PortugueseRestaurants | Pretzels | Restaurants | 
+| PortugueseRestaurants | Pretzels | Horeca | 
 | RussianAndUkrainianRestaurants | Broodjes | SeafoodRestaurants | 
 | SpanishRestaurants | SteakHouseRestaurants | SushiRestaurants | 
 | TakeAway | ThaiRestaurants | TurkishRestaurants | 
 | VegetarianAndVeganRestaurants | VietnameseRestaurants|  |
  
-### <a name="see-do"></a>Zie doen 
+### <a name="see-do"></a>Zie do 
 |  |  |  |
 | -- | -- | -- |
-| AmusementParks | Bezienswaardigheden | Carnivals |
-| Casino 's | LandmarksAndHistoricalSites | MiniatureGolfCourses |
-| MovieTheaters | Museums | Parken |
-| SightseeingTours | TouristInformation | Dierentuinen |
+| AmusementParks | Attractions | Carnivals |
+| Casinos | LandmarksAndHistoricalSites | MiniatureGolfCourses |
+| MovieTheaters | Musea | Parkeer |
+| SightseeingTours | TouristInformation | Zoos |
  
-### <a name="shop"></a>Kiezen 
+### <a name="shop"></a>Winkelen 
 |  |  |  |
 | -- | -- | -- |
-| AntiqueStores | Uw boekwinkel | CDAndRecordStores |
+| AntiqueStores | Bookstores | CDAndRecordStores |
 | ChildrensClothingStores | CigarAndTobaccoShops | ComicBookStores |
 | DepartmentStores | DiscountStores | FleaMarketsAndBazaars |
 | FurnitureStores | HomeImprovementStores | JewelryAndWatchesStores |
@@ -80,9 +80,9 @@ Subcategorieën worden doorgegeven dezelfde manier als `localCategories`. Subcat
 | VitaminAndSupplementStores | WomensClothingStores |  |
 
 
-## <a name="examples-of-local-categories-search"></a>Voorbeelden van lokale categorieën zoeken
+## <a name="examples-of-local-categories-search"></a>Voor beelden van lokale categorieën zoeken
 
-De volgende voorbeelden GET resulteert volgens de `localCategories` parameter:
+In de volgende voor beelden worden resultaten opgehaald `localCategories` volgens de para meter:
 
 `https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=HotelsAndMotels`
 
@@ -92,11 +92,11 @@ De volgende voorbeelden GET resulteert volgens de `localCategories` parameter:
 
 `https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=Hospitals`
 
-Het aantal 'ziekenhuis' resultaten in de eerste drie geretourneerd van de Bing API voor zoeken van lokale bedrijven wordt beperkt door de volgende query uit:
+Met de volgende query wordt het aantal ziekenhuis resultaten beperkt tot de eerste drie keer dat wordt geretourneerd door de Bing lokale Business Search-API:
 
 `https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localCategories=Hospitals&count=3&offset=0`
 
-Het volgende voorbeeld-JSON-antwoord bevat drie ziekenhuizen in het gebied met groter Seattle:
+Het volgende voor beeld van een JSON-antwoord omvat drie zieken huizen in het grotere gebied van Seattle:
 
 ```json
 BingAPIs-TraceId: 68AFB51807C6485CAB8AAF20E232EFFF
@@ -216,6 +216,6 @@ X-MSEdge-Ref: Ref A: 68AFB51807C6485CAB8AAF20E232EFFF Ref B: CO1EDGE0108 Ref C: 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Zoeken in geografische grenzen](specify-geographic-search.md)
-- [Query's en antwoorden](local-search-query-response.md)
+- [Geografische Zoek grenzen](specify-geographic-search.md)
+- [Query en antwoord](local-search-query-response.md)
 - [Quick Start inC#](quickstarts/local-quickstart.md)

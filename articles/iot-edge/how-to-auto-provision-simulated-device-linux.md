@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1a13c130c45c746a42c0acf1ec2646f3c8f9bc51
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b48455b6ea9c1cd74e94c10d8f9f938c20512c02
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227518"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414571"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Een IoT Edge apparaat maken en inrichten met een virtuele TPM op een virtuele Linux-machine
 
@@ -162,8 +162,7 @@ De IoT Edge-runtime wordt op alle IoT Edge-apparaten geïmplementeerd. De onderd
 
 Kent uw DPS **ID-bereik** en apparaat **registratie-ID** voordat u begint met het artikel die overeenkomt met uw apparaattype. Als u het voorbeeld van de Ubuntu-server hebt geïnstalleerd, gebruikt u de **x64** instructies. Zorg ervoor dat u de IoT Edge-runtime voor het inrichten van automatische, niet handmatig configureren. 
 
-* [Installeer de Azure IoT Edge runtime op Linux (x64)](how-to-install-iot-edge-linux.md)
-* [Installeer de Azure IoT Edge runtime op Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+[Installeer de Azure IoT Edge runtime op Linux](how-to-install-iot-edge-linux.md)
 
 ## <a name="give-iot-edge-access-to-the-tpm"></a>IoT Edge toegang geven tot de TPM
 

@@ -1,7 +1,7 @@
 ---
-title: Automatisch-trein een prognose time series-model
+title: Automatisch een time-series-prognose model trainen
 titleSuffix: Azure Machine Learning service
-description: Informatie over het gebruik van Azure Machine Learning-service met het trainen van een tijdreeks prognoses regressie model met behulp van automatische leerprocessen.
+description: Meer informatie over het gebruik van Azure Machine Learning service om een regressie model voor time-series te trainen met geautomatiseerde machine learning.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -10,39 +10,39 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 4a3ab9094080ab257a885bb7a745fc83948327c2
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 34902aa23339b62920f918ae19b410a99e226a0e
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331687"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358809"
 ---
-# <a name="auto-train-a-time-series-forecast-model"></a>Automatisch-trein een prognose time series-model
+# <a name="auto-train-a-time-series-forecast-model"></a>Automatisch een time-series-prognose model trainen
 
-In dit artikel leert u hoe u met het trainen van een time series regressie prognosemodel met geautomatiseerde machine learning in Azure Machine Learning-service. Configureren van een Voorspellend model is vergelijkbaar met het instellen van een standard regressiemodel met behulp van geautomatiseerde machine learning, maar bepaalde configuratie-opties en de voorverwerking stappen bestaan voor het werken met time series-gegevens. De volgende voorbeelden ziet u hoe aan:
+In dit artikel leert u hoe u een time-series voorspeld regressie model kunt trainen met behulp van geautomatiseerde machine learning in Azure Machine Learning-service. Het configureren van een prognose model is vergelijkbaar met het instellen van een standaard regressie model met behulp van geautomatiseerde machine learning, maar bepaalde configuratie opties en vooraf verwerkings stappen bestaan voor het werken met gegevens van de tijd reeks. In de volgende voor beelden ziet u hoe u:
 
-* Gegevens voorbereiden voor de time series modelleren
-* Configureren van specifieke time series-parameters in een [ `AutoMLConfig` ](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) object
-* Uitvoeren van voorspellingen met time series-gegevens
+* Gegevens voorbereiden voor time series-model lering
+* Specifieke time series-para meters in [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) een object configureren
+* Voor spellingen uitvoeren met gegevens van de tijd reeks
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
-Geautomatiseerde ML kunt u technieken en benaderingen combineren en ontvang een aanbevolen, hoogwaardige time series prognose. Een geautomatiseerde time series-experiment wordt beschouwd als een multidimensionale regressie-probleem. Afgelopen time series-waarden zijn "draaien" om extra dimensies voor de regressor zijn samen met andere voorspellingsfactoren geworden. 
+U kunt automatische ML gebruiken om technieken en benaderingen te combi neren en een aanbevolen prognose voor de time-series van hoge kwaliteit te krijgen. Een geautomatiseerd experiment in de tijd reeks wordt behandeld als een multidimensionale regressie probleem. De waarden voor de laatste tijd reeksen zijn ' gedraaid ' om aanvullende dimensies te krijgen voor de regressor hierop samen met andere voor spellingen. 
 
-Deze benadering, in tegenstelling tot klassieke time series-methoden, heeft een voordeel van het opnemen van op een natuurlijke manier meerdere contextuele variabelen en hun relatie tot elkaar tijdens de training. In de praktijk prognoses toepassingen, meerdere factoren kunnen invloed hebben op een prognose. Bijvoorbeeld bij het voorspellen van de verkoop, stimuleren interacties van historische trends, wisselkoers en prijs alle gezamenlijk de verkoop uitkomst. Een ander voordeel is dat alle recente innovaties in regressiemodellen direct op het maken van prognoses toegepast.
+Deze methode, in tegens telling tot de methoden van de klassieke tijd reeks, heeft een voor deel van het gebruik van natuurlijk meerdere contextuele variabelen en hun relatie met elkaar tijdens de training. In Real-World-prognose toepassingen kunnen meerdere factoren van invloed zijn op een prognose. Wanneer u bijvoorbeeld de verkoop, de interacties van historische trends, de wissel koers en de prijs van de omzet verlangt, wordt het resultaat van de omzet gezamenlijk gebrand. Een ander voor deel is dat alle recente innovaties in regressie modellen onmiddellijk van toepassing zijn op prognoses.
 
-U kunt [configureren](#config) hoe ver in de toekomst de prognose (de prognose horizon), uitbreiden en lag en nog veel meer. Geautomatiseerde ML leert een enkele, maar vaak intern vertakkingen model voor alle items in de gegevensset en voorspelling horizon. Meer gegevens is beschikbaar om te schatten Modelparameters en generalisatie op van de reeks niet waren herkend mogelijk wordt. 
+U kunt [configureren](#config) hoe ver in de toekomst de prognose moet worden uitgebreid (de prognose horizon), evenals lags en meer. Automatische ML leert een enkelvoudig, maar vaak intern vertakkings model voor alle items in de gegevensset en de voor spellingen Horizons. Er zijn meer gegevens beschikbaar voor het schatten van model parameters en generalisatie naar onzichtbaar serie. 
 
-Functies die zijn geëxtraheerd uit de trainingsgegevens spelen een essentiële rol. En geautomatiseerde ML standard vooraf verwerken stappen worden uitgevoerd en genereert extra time series-functies voor het vastleggen van seizoensgebonden effecten en voorspellende nauwkeurigheid te maximaliseren. 
+Functies die zijn geëxtraheerd uit de trainings gegevens spelen een kritieke rol. En, automatische MILLILITERs voert standaard stappen voor voor verwerking uit en genereert extra functies voor de tijdreeks om seizoensgebonden effecten vast te leggen en de voorspellende nauw keurigheid te maximaliseren. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een werkruimte van Azure Machine Learning-service. Zie voor het maken van de werkruimte, [maken van een werkruimte van Azure Machine Learning-service](setup-create-workspace.md).
-* In dit artikel wordt ervan uitgegaan dat het zou mooi bij het instellen van een geautomatiseerde machine learning-experiment. Ga als volgt de [zelfstudie](tutorial-auto-train-models.md) of [procedures](how-to-configure-auto-train.md) om te zien van de eenvoudige, geautomatiseerde machine learning-experiment ontwerppatronen.
+* Een werkruimte van Azure Machine Learning-service. Zie [een Azure machine learning service werkruimte maken](setup-create-workspace.md)om de werk ruimte te maken.
+* In dit artikel wordt ervan uitgegaan dat u bekend bent met het instellen van een geautomatiseerd machine learning experiment. Volg de [zelf studie](tutorial-auto-train-models.md) of Lees [hoe](how-to-configure-auto-train.md) u de ontwerp patronen voor automatische machine learning experimenten kunt zien.
 
-## <a name="preparing-data"></a>Voorbereiden van gegevens
+## <a name="preparing-data"></a>Gegevens voorbereiden
 
-Het belangrijkste verschil tussen een prognoses taaktype regressie en regressie taaktype binnen geautomatiseerde machine learning is met inbegrip van een functie in uw gegevens met een geldige tijdreeks. Een regelmatige tijds-serie is een goed gedefinieerde en consistente frequentie en heeft een waarde op elk punt van het voorbeeld in een continue tijdspanne. Houd rekening met de volgende momentopname van een bestand `sample.csv`.
+Het belangrijkste verschil tussen een prognose taak type en een regressie taak type in automatische machine learning, bevat een functie in uw gegevens die een geldige tijd reeks voor stelt. Een reguliere tijd reeks heeft een duidelijk gedefinieerde en consistente frequentie en heeft op elk steekproef punt een waarde in een doorlopende periode. Bekijk de volgende moment opname van een `sample.csv`bestand.
 
     day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
@@ -56,7 +56,7 @@ Het belangrijkste verschil tussen een prognoses taaktype regressie en regressie 
     9/7/2018,A,2450,36
     9/7/2018,B,650,36
 
-Deze gegevensset is een eenvoudig voorbeeld van dagelijkse verkoopgegevens voor een bedrijf dat twee verschillende winkels, A en B. Bovendien heeft, wordt er een functie voor `week_of_year` waarmee het model voor het detecteren van wekelijkse seizoensgebondenheid. Het veld `day_datetime` vertegenwoordigt een schone tijdreeks met dagelijkse frequentie en het veld `sales_quantity` is de doelkolom voor het uitvoeren van voorspellingen. De gegevens in een Pandas dataframe lezen en gebruik vervolgens de `to_datetime` functie om te controleren of de time-serie is een `datetime` type.
+Deze gegevensset is een eenvoudig voor beeld van dagelijkse verkoop gegevens voor een bedrijf met twee verschillende winkels, a en B. Daarnaast is er een functie `week_of_year` waarmee het model wekelijks kan worden gedetecteerd. Het veld `day_datetime` vertegenwoordigt een schone tijd reeks met een dagelijkse frequentie en het veld `sales_quantity` is de doel kolom voor het uitvoeren van voor spellingen. Lees de gegevens in een Panda data frame en gebruik vervolgens de `to_datetime` functie om ervoor te zorgen dat de tijd reeks een `datetime` type is.
 
 ```python
 import pandas as pd
@@ -64,7 +64,7 @@ data = pd.read_csv("sample.csv")
 data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-In dit geval de gegevens is al oplopend gesorteerd door het tijdveld `day_datetime`. Echter, bij het instellen van een experiment, zorg ervoor dat de gewenste tijd-kolom is gesorteerd in oplopende volgorde voor het bouwen van een geldige tijdreeks. Wordt ervan uitgegaan dat de gegevens 1000 records bevat en een deterministische splitsing in de gegevens kunt maken van training en testen van gegevenssets. Scheidt het doelveld `sales_quantity` stelt de voorspelling trainen en testen te maken.
+In dit geval worden de gegevens al oplopend gesorteerd op basis van `day_datetime`het veld tijd. Wanneer u echter een experiment instelt, moet u ervoor zorgen dat de gewenste tijd kolom in oplopende volg orde wordt gesorteerd om een geldige tijd reeks te maken. Ga ervan uit dat de gegevens 1.000 records bevatten en maak een deterministische splitsing in de gegevens voor het maken van trainings-en test gegevens sets. Scheid vervolgens het doel veld `sales_quantity` om de voorspellings-en test sets te maken.
 
 ```python
 X_train = data.iloc[:950]
@@ -75,30 +75,30 @@ y_test = X_test.pop("sales_quantity").values
 ```
 
 > [!NOTE]
-> Bij het trainen van een model voor het voorspellen van toekomstige waarden, zorg ervoor dat alle de onderdelen van training kunnen worden gebruikt bij het uitvoeren van voorspellingen voor uw gewenste periode. Bijvoorbeeld bij het maken van een prognose van vraag, met inbegrip van een functie voor de huidige aandelenkoersen kan zeer training nauwkeurigheid vergroten. Als u van plan bent om te voorspellen met een lange periode, kunt u mogelijk niet nauwkeurig voorspellen van toekomstige aandelen waarden die overeenkomen met toekomstige time series-punten, en de nauwkeurigheid van model kan ten koste gaan.
+> Wanneer u een model wilt trainen voor het voors pellen van toekomstige waarden, kunt u ervoor zorgen dat alle functies die in de training worden gebruikt, kunnen worden gebruikt bij het uitvoeren van voor spellingen voor uw beoogde horizon. Wanneer u bijvoorbeeld een vraag prognose maakt, met inbegrip van een functie voor de huidige aandelen koers, kan de nauw keurigheid van de training enorm toenemen. Als u echter van plan bent om te forecasten met een lange horizon, is het wellicht niet mogelijk om toekomstige voorraad waarden te voors pellen die overeenkomen met toekomstige periode punten en de nauw keurigheid van het model kan lijden.
 
 <a name="config"></a>
-## <a name="configure-and-run-experiment"></a>Configureren en het experiment uit te voeren
+## <a name="configure-and-run-experiment"></a>Experiment configureren en uitvoeren
 
-Geautomatiseerde machine learning gebruikt voor het voorspellen van taken, het vooraf verwerken en een schatting van de stappen die specifiek voor time series-gegevens zijn. De volgende stappen voor het vooraf verwerken wordt uitgevoerd:
+Voor prognose taken maakt automatische machine learning gebruik van vooraf verwerkings-en schattings stappen die specifiek zijn voor tijdreeks gegevens. De volgende stappen voorafgaand aan verwerking worden uitgevoerd:
 
-* Time series voorbeeld frequentie (bijvoorbeeld per uur, dagelijks, wekelijks) en maken van nieuwe records voor ontbrekende tijdpunten waarmee de reeks continue detecteren.
-* Rekenen ontbrekende waarden in het doel (via doorsturen-Vul) en de functie kolommen (met behulp van de mediaan kolomwaarden)
-* Tijdsinterval gebaseerde functies om in te schakelen van vaste effecten in verschillende series maken
-* Functies op basis van tijd om te helpen bij het leren van seizoensgebonden patronen maken
-* Variabelen voor de categorische numerieke hoeveelheden coderen
+* Detectie frequentie van tijds reeksen detecteren (bijvoorbeeld elk uur, dagelijks, wekelijks) en nieuwe records maken voor ontbrekende tijd punten om de reeks continu te maken.
+* Ontbrekende waarden in het doel (via voorwaartse opvulling) en functie kolommen toegerekend (met behulp van mediaan kolom waarden)
+* Op korrels gebaseerde functies maken om vaste effecten in verschillende reeksen in te scha kelen
+* Op tijd gebaseerde functies maken voor het leren van seizoensgebonden patronen
+* Categorische variabelen coderen naar numerieke aantallen
 
-De `AutoMLConfig` object definieert de instellingen en gegevens die nodig zijn voor een geautomatiseerde machine learning-taak. Net als bij een regressieprobleem met, definieert u standard training-parameters, zoals het taaktype, het aantal iteraties, gegevens, training en aantal cross-bevestigingen. Voor het voorspellen van taken, zijn er extra parameters die moeten worden ingesteld die invloed hebben op het experiment. De volgende tabel beschrijft elke parameter en het gebruik ervan.
+Het `AutoMLConfig` object definieert de instellingen en gegevens die nodig zijn voor een geautomatiseerde machine learning taak. Net als bij een regressie probleem definieert u de standaard opleidings parameters, zoals het taak type, het aantal iteraties, de trainings gegevens en het aantal Kruis validaties. Voor prognose taken zijn er aanvullende para meters die moeten worden ingesteld die van invloed zijn op het experiment. In de volgende tabel worden de para meters en het gebruik ervan toegelicht.
 
 | Param | Description | Vereist |
 |-------|-------|-------|
-|`time_column_name`|Hiermee geeft de datum/tijd-kolom in de ingevoerde gegevens gebruikt voor het bouwen van de tijdreeks en afleiden van de frequentie ervan.|✓|
-|`grain_column_names`|Namen om afzonderlijke Reeksgroepen te definiëren in de ingevoerde gegevens. Als het tijdsinterval is niet gedefinieerd, wordt aangenomen dat de gegevensset een time series zijn.||
-|`max_horizon`|Hiermee definieert de maximale gewenste prognose horizon in eenheden van time series-frequentie. Eenheden zijn gebaseerd op het tijdsinterval van uw trainingsgegevens, bijvoorbeeld maandelijks, per week dat de forecaster af te voorspellen.|✓|
-|`target_lags`|*n* perioden aan zone voor forward lag doelwaarden vóór modeltraining.||
-|`target_rolling_window_size`|*n* historische perioden moet worden gebruikt voor het genereren van de voorspelde waarden < = grootte training. Als u dit weglaat, *n* is de volledige training grootte instellen.||
+|`time_column_name`|Wordt gebruikt om de kolom datetime op te geven in de invoer gegevens die worden gebruikt voor het bouwen van de tijd reeks en het uitstellen van de frequentie.|✓|
+|`grain_column_names`|Naam (en) die afzonderlijke reeks groepen in de invoer gegevens definiëren. Als korrel niet is gedefinieerd, wordt ervan uitgegaan dat de gegevensset één keer wordt gebruikt.||
+|`max_horizon`|Definieert de maximale gewenste prognose horizon in eenheden van de time-series. Eenheden zijn gebaseerd op het tijds interval van uw trainings gegevens, bijvoorbeeld maandelijks, wekelijks dat de Forecaster moet voors pellen.|✓|
+|`target_lags`|*n* Peri Oden voor het door sturen van doel waarden voordat de training wordt gemodelleerd.||
+|`target_rolling_window_size`|*n* historische Peri Oden die moeten worden gebruikt voor het genereren van prognose waarden, < = grootte van de Trainingsset. Als u dit weglaat, is *n* de volledige grootte van de Trainingsset.||
 
-De time series-instellingen als een dictionary-object maken. Stel de `time_column_name` naar de `day_datetime` veld in de gegevensset. Definieer de `grain_column_names` parameter om ervoor te zorgen dat **twee afzonderlijke groepen van time series** worden gemaakt voor de gegevens, een voor store A en B. ten slotte, stel de `max_horizon` ingesteld op 50 om te voorspellen voor de hele test. Een prognose venster ingesteld op 10 perioden met `target_rolling_window_size`, en een vertraging van het doel 2 perioden verder met waarden de `target_lags` parameter.
+Maak de instellingen voor de tijd reeks als een woordenlijst object. Stel de `time_column_name` in op `day_datetime` het veld in de gegevensset. Definieer de `grain_column_names` para meter om ervoor te zorgen dat er **twee afzonderlijke tijdreeks groepen** worden gemaakt voor de gegevens. een voor Store A en B. Tenslotte `max_horizon` stelt u de 50 in op om te voors pellen op de hele testset. Stel een venster voor een prognose in op `target_rolling_window_size`10 Peri Oden met en vertraging van de doel waarden 2 `target_lags` Peri Oden met de para meter.
 
 ```python
 time_series_settings = {
@@ -110,7 +110,7 @@ time_series_settings = {
 }
 ```
 
-Maak nu een standaard `AutoMLConfig` object op te geven de `forecasting` type taak en het verzenden van het experiment. Nadat het model is voltooid, de beste uitvoeren iteratie worden opgehaald.
+Maak nu een standaard `AutoMLConfig` object, geef het `forecasting` taak type op en verzend het experiment. Wanneer het model is voltooid, haalt u de best mogelijke run-iteratie op.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -135,42 +135,43 @@ best_run, fitted_model = local_run.get_output()
 ```
 
 > [!NOTE]
-> Voor de procedure kruisvalidatie (CV), time series-gegevens kunt strijdig zijn met de elementaire statistische veronderstellingen van de canonieke K-Vouw kruisvalidatie strategie, zodat de geautomatiseerde machine learning implementeert een rolling oorsprong validatie-procedure voor het maken kruisvalidatie vouwen voor time series-gegevens. U kunt deze procedure gebruiken de `n_cross_validations` parameter in de `AutoMLConfig` object. U kunt overslaan validatie en gebruik uw eigen validatie wordt ingesteld met de `X_valid` en `y_valid` parameters.
+> Voor de procedure voor kruis validatie (AVK) kunnen gegevens in de tijd reeks de basis statistieken van de validatie van de canonieke samen stelling schenden, zodat geautomatiseerde machine learning een validatie procedure voor de eerste oorsprong implementeert die moet worden gemaakt Kruis validatie vouwen voor gegevens van tijd reeksen. Als u deze procedure wilt gebruiken, `n_cross_validations` geeft u de `AutoMLConfig` para meter in het object op. U kunt de validatie overs Laan en uw eigen validatie sets `X_valid` gebruiken `y_valid` met de para meters en.
 
-### <a name="view-feature-engineering-summary"></a>Technisch overzicht van de functies weergeven
+### <a name="view-feature-engineering-summary"></a>Samen vatting van feature engineering weer geven
 
-Voor time series taaktypen in geautomatiseerde machine learning, kunt u de details van de functie engineering-proces weergeven. De volgende code toont elke onbewerkte functie samen met de volgende kenmerken:
+Voor de taak typen van de tijds reeks in automatische machine learning, kunt u de details van het onderdeel technisch proces bekijken. De volgende code toont elke onbewerkte functie samen met de volgende kenmerken:
 
-* Onbewerkte functienaam
-* Aantal Social engineering functies gevormd buiten deze onbewerkte functie
-* Gedetecteerd type
+* Onbewerkte functie naam
+* Aantal functies van de functie die zijn gevormd door deze onbewerkte functionaliteit
+* Type gedetecteerd
 * Of de functie is verwijderd
-* Lijst met functie transformaties voor de raw-functie
+* Lijst met functie transformaties voor de onbewerkte functie
 
 ```python
 fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
 ```
 
-## <a name="forecasting-with-best-model"></a>Prognose maken met het beste model
+## <a name="forecasting-with-best-model"></a>Prognose met het beste model
 
-Gebruik het beste model iteratie prognose van de waarden voor de testgegevensset.
+Gebruik de beste model iteratie om waarden voor de test gegevensset te prognoseen.
 
 ```python
 y_predict = fitted_model.predict(X_test)
 y_actual = y_test.flatten()
 ```
 
-U kunt ook kunt u de `forecast()` werken in plaats van `predict()`, zodat de specificaties van wanneer voorspellingen moeten starten. In het volgende voorbeeld vervangt u eerst alle waarden in `y_pred` met `NaN`. De prognose oorsprong wordt worden aan het einde van het trainen van gegevens in dit geval, omdat het normaal zijn zou bij het gebruik van `predict()`. Echter, als u alleen de tweede helft van de vervangen `y_pred` met `NaN`, de functie ervoor zorgt dat de numerieke waarden in de eerste helft ongewijzigd, maar prognose de `NaN` waarden in de tweede helft. De functie retourneert zowel de voorspelde waarden als de uitgelijnde functies.
+U kunt ook de functie gebruiken in `forecast()` plaats van `predict()`, waarmee de specificaties van wanneer voor spellingen moeten worden gestart. In het volgende voor beeld vervangt u eerst alle waarden in `y_pred` met `NaN`. In dit geval wordt de oorsprong van de prognose aan het einde van de trainings gegevens weer gegeven, omdat deze normaal `predict()`gesp roken zou zijn bij het gebruik van. Als u echter alleen de tweede helft van `y_pred` met `NaN`hebt vervangen, zou de functie de numerieke waarden in de eerste helft ongewijzigd laten, maar de `NaN` waarden in de tweede helft worden geforecastd. De functie retourneert zowel de voorspelde waarden als de uitgelijnde functies.
 
-U kunt ook de `forecast_destination` parameter in de `forecast()` functie om te voorspellen waarden tot een opgegeven datum.
+U kunt ook de `forecast_destination` para meter in de `forecast()` functie gebruiken om waarden te ramen tot een opgegeven datum.
 
 ```python
 y_query = y_test.copy().astype(np.float)
 y_query.fill(np.nan)
-y_fcst, X_trans = fitted_pipeline.forecast(X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
+y_fcst, X_trans = fitted_pipeline.forecast(
+    X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
-RMSE berekenen (root mean squared fout) tussen de `y_test` werkelijke waarden en de voorspelde waarden in `y_pred`.
+Bereken RMSE (root mean Error) tussen de `y_test` werkelijke waarden en de geraamde waarden in. `y_pred`
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -180,18 +181,18 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-Nu dat de algehele de nauwkeurigheid van model is bepaald, de meest realistische volgende stap is het gebruik van het model onbekende toekomstige waarden te voorspellen. Een gegevensset in dezelfde indeling als de testset zijn simpelweg `X_test` maar met toekomstige datum/tijd en de resulterende voorspelling is ingesteld, is de voorspelde waarden voor elke stap van de time series. Wordt ervan uitgegaan dat de laatste time series-records in de gegevensset zijn voor 31-12 januari 2018. Prognose van vraag naar de volgende dag (of zo veel punten als u nodig hebt om te voorspellen, < = `max_horizon`), maken van een enkel record van de reeks tijd voor elke winkel voor 01/01/2019.
+Nu de algehele model nauwkeurigheid is vastgesteld, is de volgende stap het model te gebruiken voor het voors pellen van onbekende toekomstige waarden. Geef een gegevensset op in dezelfde indeling als de testset `X_test` , maar met toekomstige datetimes en de resulterende Voorspellings is de voorspelde waarden voor elke stap van de tijds reeks. Stel dat de laatste tijdreeks records in de gegevensset 12/31/2018 zijn. Voor een prognose van de vraag voor de volgende dag (of zoveel Peri Oden als u nodig hebt om `max_horizon`een prognose te maken, < =), maakt u een eenmalige reeks record voor elke Store voor 01/01/2019.
 
     day_datetime,store,week_of_year
     01/01/2019,A,1
     01/01/2019,A,1
 
-Herhaal de stappen die nodig zijn om deze gegevens uit de toekomst om een dataframe te laden en voer `best_run.predict(X_test)` om toekomstige waarden te voorspellen.
+Herhaal de stappen die nodig zijn om deze toekomstige gegevens naar een data frame te laden `best_run.predict(X_test)` en voer vervolgens uit om toekomstige waarden te voors pellen.
 
 > [!NOTE]
-> Waarden kunnen niet worden voorspeld voor het aantal perioden van meer dan de `max_horizon`. Het model moet opnieuw worden getraind met een grotere horizon om te voorspellen van toekomstige waarden dan de huidige periode.
+> Waarden kunnen niet worden voor speld voor het aantal Peri Oden dat `max_horizon`groter is dan de. Het model moet opnieuw worden getraind met een grotere horizon om toekomstige waarden buiten de huidige horizon te voors pellen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Ga als volgt de [zelfstudie](tutorial-auto-train-models.md) voor informatie over het maken van experimenten met automatische leerprocessen.
-* Weergave de [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) verwijzen naar documentatie.
+* Volg de [zelf studie](tutorial-auto-train-models.md) voor meer informatie over het maken van experimenten met automatische machine learning.
+* Bekijk de referentie documentatie [voor de Azure machine learning SDK voor python](https://aka.ms/aml-sdk) .

@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Reflektive | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Reflektive.
+title: 'Zelfstudie: Integratie met Reflektive Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Reflektive.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,43 +15,43 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: ca2a7edff4b8c06b2838474449360b4b14b3e393
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d26e8a21865304b2065a28da5e241f58cb5ab34c
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092969"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383217"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Zelfstudie: Azure Active Directory-integratie met Reflektive
+# <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Zelfstudie: Integratie met Reflektive Azure Active Directory
 
-In deze zelfstudie leert u hoe u Reflektive integreren met Azure Active Directory (Azure AD).
-Reflektive integreren met Azure AD biedt u de volgende voordelen:
+In deze zelf studie leert u hoe u Reflektive integreert met Azure Active Directory (Azure AD).
+Het integreren van Reflektive met Azure AD biedt de volgende voor delen:
 
-* U kunt beheren in Azure AD die toegang tot Reflektive heeft.
-* U kunt uw gebruikers worden automatisch aangemeld Reflektive (Single Sign-On) met hun Azure AD-accounts inschakelen.
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* U kunt beheren in azure AD die toegang heeft tot Reflektive.
+* U kunt ervoor zorgen dat uw gebruikers automatisch worden aangemeld bij Reflektive (eenmalige aanmelding) met hun Azure AD-accounts.
+* U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Reflektive, moet u de volgende items:
+Als u Azure AD-integratie met Reflektive wilt configureren, hebt u de volgende items nodig:
 
 * Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
-* Eenmalige aanmelding Reflektive ingeschakeld abonnement
+* Abonnement voor eenmalige aanmelding Reflektive ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
 In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-* Biedt ondersteuning voor Reflektive **SP** en **IDP** gestart door SSO
+* Reflektive ondersteunt SSO die door **SP** en **IDP** is geïnitieerd
 
-## <a name="adding-reflektive-from-the-gallery"></a>Reflektive uit de galerie toe te voegen
+## <a name="adding-reflektive-from-the-gallery"></a>Reflektive toevoegen uit de galerie
 
-Voor het configureren van de integratie van Reflektive in Azure AD, moet u Reflektive uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Als u de integratie van Reflektive in azure AD wilt configureren, moet u Reflektive uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Reflektive uit de galerie, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om Reflektive toe te voegen uit de galerie:**
 
 1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -61,37 +61,37 @@ Voor het configureren van de integratie van Reflektive in Azure AD, moet u Refle
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![De knop nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **Reflektive**, selecteer **Reflektive** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ **Reflektive**in het zoekvak, selecteer **Reflektive** in het resultaten paneel en klik vervolgens op de knop **toevoegen** om de toepassing toe te voegen.
 
      ![Reflektive in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Reflektive op basis van een testgebruiker met de naam **Britta Simon**.
-Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Reflektive tot stand worden gebracht.
+In deze sectie kunt u eenmalige aanmelding voor Azure AD configureren en testen met Reflektive op basis van een test gebruiker met de naam **Julia Simon**.
+Voor een goede werking van eenmalige aanmelding moet er een koppelings relatie tussen een Azure AD-gebruiker en de bijbehorende gebruiker in Reflektive tot stand worden gebracht.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Reflektive, moet u de volgende bouwstenen voltooien:
+Als u eenmalige aanmelding voor Azure AD wilt configureren en testen met Reflektive, moet u de volgende bouw stenen volt ooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Configureren van eenmalige aanmelding Reflektive](#configure-reflektive-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Maken van de testgebruiker Reflektive](#create-reflektive-test-user)**  : als u wilt een equivalent van Britta Simon in Reflektive die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Reflektive eenmalige aanmelding configureren](#configure-reflektive-single-sign-on)** : Hiermee configureert u de instellingen voor eenmalige aanmelding aan de kant van de toepassing.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Maak een Reflektive-test gebruiker](#create-reflektive-test-user)** -om een equivalent van Julia Simon in Reflektive te hebben dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Voor het configureren van Azure AD eenmalige aanmelding met Reflektive, moet u de volgende stappen uitvoeren:
+Voer de volgende stappen uit om eenmalige aanmelding voor Azure AD te configureren met Reflektive:
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **Reflektive** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+1. Selecteer in de [Azure Portal](https://portal.azure.com/)op de pagina **Reflektive** Application Integration de optie **eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
+    ![Koppeling voor eenmalige aanmelding configureren](common/select-sso.png)
 
 2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
@@ -101,11 +101,11 @@ Voor het configureren van Azure AD eenmalige aanmelding met Reflektive, moet u d
 
     ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. Op de **SAML-basisconfiguratie** sectie, als u wilt configureren van de toepassing in **IDP** gestart modus, de volgende stap uitvoeren:
+4. Als u de toepassing in de gestarte modus **IDP** wilt configureren, voert u de volgende stap uit in de sectie **basis configuratie van SAML** :
 
-    ![Reflektive domein en URL's, eenmalige aanmelding informatie](common/idp-identifier.png)
+    ![Informatie over eenmalige aanmelding voor Reflektive domein en Url's](common/idp-identifier.png)
 
-    In de **id** in het tekstvak, gebruik een van de onderstaande URL aan de hand van bevestiging van het ondersteuningsteam bij reflectieve:
+    In het tekstvak **id** gebruikt u een van de onderstaande url's volgens de bevestiging van het reflecterende ondersteunings team:
 
     | |
     |--|
@@ -120,13 +120,13 @@ Voor het configureren van Azure AD eenmalige aanmelding met Reflektive, moet u d
     In het tekstvak **Aanmeldings-URL** typt u een URL: `https://www.reflektive.com/app`
 
     > [!NOTE]
-    > Voor SP modus moet u de e-mail-id die is geregistreerd bij [Reflektive ondersteuningsteam](https://support@reflektive.com). Wanneer u uw ID in de **e** tekstvak en vervolgens de optie voor eenmalige aanmelding wordt ingeschakeld. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Voor de SP-modus moet u de e-mail-id ophalen die is geregistreerd bij het Reflektive-ondersteunings [team](https://support@reflektive.com). Wanneer u uw ID in het tekstvak **e-mail** invoert, wordt de optie eenmalige aanmelding ingeschakeld. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 6. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![De link om het certificaat te downloaden](common/metadataxml.png)
+    ![De downloadkoppeling certificaat](common/metadataxml.png)
 
-7. Op de **Reflektive instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
+7. Kopieer op de sectie **Reflektive instellen** de gewenste URL ('s) volgens uw vereiste.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
@@ -134,13 +134,13 @@ Voor het configureren van Azure AD eenmalige aanmelding met Reflektive, moet u d
 
     b. Azure AD-id
 
-    c. Afmeldings-URL
+    c. URL voor afmelden
 
-### <a name="configure-reflektive-single-sign-on"></a>Reflektive voor eenmalige aanmelding configureren
+### <a name="configure-reflektive-single-sign-on"></a>Eenmalige aanmelding voor Reflektive configureren
 
-Het configureren van eenmalige aanmelding op **Reflektive** zijde, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** en toepassing van de gekopieerde URL's van Azure portal om te [Reflektive ondersteuningsteam](mailto: https://support@reflektive.com/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Het configureren van eenmalige aanmelding op **Reflektive** zijde, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** en toepassing van de gekopieerde URL's van Azure portal om te [Reflektive ondersteuningsteam](mailto:support@reflektive.com/). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD 
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -158,7 +158,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** veldtype brittasimon@yourcompanydomain.extension. Bijvoorbeeld: BrittaSimon@contoso.com
+    b. Typbrittasimon@yourcompanydomain.extensionin het veld **gebruikers naam** . Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
@@ -166,13 +166,13 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Reflektive.
+In deze sectie schakelt u Julia Simon in om eenmalige aanmelding van Azure te gebruiken door toegang te verlenen aan Reflektive.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Reflektive**.
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Reflektive**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Reflektive**.
+2. Selecteer in de lijst toepassingen de optie **Reflektive**.
 
     ![De koppeling Reflektive in de lijst met toepassingen](common/all-applications.png)
 
@@ -190,15 +190,15 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-### <a name="create-reflektive-test-user"></a>Reflektive testgebruiker maken
+### <a name="create-reflektive-test-user"></a>Reflektive-test gebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Reflektive. Werken met [Reflektive ondersteuningsteam](mailto: https://support@reflektive.com/) om toe te voegen de gebruikers in het Reflektive-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie maakt u een gebruiker met de naam Julia Simon in Reflektive. Werk samen met Reflektive-ondersteunings [team](mailto:support@reflektive.com/) om de gebruikers toe te voegen in het Reflektive-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel Reflektive in het toegangsvenster, moet u worden automatisch aangemeld bij de Reflektive waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u op de tegel Reflektive in het toegangs venster klikt, moet u automatisch worden aangemeld bij de Reflektive waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

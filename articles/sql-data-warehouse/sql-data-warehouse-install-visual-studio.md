@@ -1,10 +1,10 @@
 ---
-title: Visual Studio en SSDT voor SQL datawarehouse installeren | Microsoft Docs
+title: Visual Studio en SSDT voor SQL Data Warehouse installeren | Microsoft Docs
 description: Visual Studio en SQL Server Development Tools (SSDT) voor Azure SQL Data Warehouse installeren
 services: sql-data-warehouse
 ms.custom: vs-azure
 ms.workload: azure-vs
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -12,39 +12,39 @@ ms.subservice: development
 ms.date: 04/05/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: b2e34f1f72b1b0aa76d4a3031102d052118dae5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa904ac62ce41cc89945ddfdef2e426143e42bb4
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304117"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479480"
 ---
-# <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>Visual Studio en SSDT voor SQL datawarehouse installeren
-Gebruik Visual Studio 2019 het ontwikkelen van toepassingen voor SQL Data Warehouse. Op dit moment wordt niet SSDT voor Visual Studio 2019 ondersteund voor SQL Data Warehouse. 
+# <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>Visual Studio en SSDT voor SQL Data Warehouse installeren
+Gebruik Visual Studio 2019 om toepassingen te ontwikkelen voor SQL Data Warehouse. Momenteel wordt Visual Studio 2019 SSDT niet ondersteund voor SQL Data Warehouse. 
 
-Met behulp van Visual Studio met SSDT, kunt u tabellen, weergaven, opgeslagen procedures en nog veel meer objecten in uw SQL Data Warehouse visueel verkennen met behulp van de SQL Server-Objectverkenner. Ook kunt u query's uitvoeren.
+Met Visual Studio met SSDT kunt u de SQL Server-objectverkenner gebruiken om tabellen, weer gaven, opgeslagen procedures en nog veel meer objecten visueel in uw SQL Data Warehouse te verkennen. Ook kunt u query's uitvoeren.
 
 > [!NOTE]
-> SQL Data Warehouse biedt nog geen ondersteuning voor Visual Studio-Database-projecten. Voor het ontvangen van periodieke updates op deze functie, stemmen Neem op [UserVoice].
+> SQL Data Warehouse biedt nog geen ondersteuning voor Visual Studio-Database-projecten. Als u periodieke updates voor deze functie wilt ontvangen, kunt u stemmen op [UserVoice].
 > 
 > 
 
 ## <a name="step-1-install-visual-studio"></a>Stap 1: Visual Studio installeren
-Volg deze koppelingen om te downloaden en installeren van Visual Studio. Als u al Visual Studio 2013 of hoger is geïnstalleerd, kunt u doorgaan met stap 2, SSDT installeren.
+Volg deze koppelingen om Visual Studio te downloaden en te installeren. Als u Visual Studio 2013 of hoger al hebt geïnstalleerd, kunt u door gaan naar stap 2 en SSDT installeren.
 
-1. [Download Visual Studio][].
-2. Ga als volgt de [Visual Studio installeren] [ Installing Visual Studio] begeleiden op MSDN en kies de standaardconfiguraties.
+1. [Visual Studio downloaden][].
+2. Volg de instructies in [Installing Visual Studio][Installing Visual Studio] (Visual Studio installeren) op MSDN en kies de standaardconfiguraties.
 
 ## <a name="step-2-install-ssdt"></a>Stap 2: SSDT installeren
-Voor het installeren van SSDT voor Visual Studio, eerst controleren op een SSDT-update van Visual Studio door de volgende stappen.
+Als u SSDT voor Visual Studio wilt installeren, controleert u eerst op een SSDT-update in Visual Studio door de volgende stappen uit te voeren.
 
-1. Klik in Visual Studio op **extra** / **extensies en Updates...** / **Updates**
+1. Klik in Visual Studio op **extra** / **extensies en updates...** / **Updates**
 2. Selecteer **Product Updates** (Productupdates) en zoek naar **Microsoft SQL Server Update for database tooling** (Microsoft SQL Server Update voor databasehulpprogramma's)
 
-U hebt de meest recente versie is geïnstalleerd als een update is niet gevonden. Als u wilt controleren of SSDT is geïnstalleerd, klikt u op **Help** / **About Microsoft Visual Studio** (Help > Info) en zoekt u in de lijst naar SQL Server Data Tools. Als de optie om te installeren niet beschikbaar is via Visual Studio, kunt u via de [SSDT downloaden] [ SSDT Download] pagina om te downloaden en SSDT handmatig installeren.
+Als een update niet wordt gevonden, moet de nieuwste versie zijn geïnstalleerd. Als u wilt controleren of SSDT is geïnstalleerd, klikt u op **Help** / **About Microsoft Visual Studio** (Help > Info) en zoekt u in de lijst naar SQL Server Data Tools. Als de optie voor het installeren van Visual Studio niet beschikbaar is, kunt u de [SSDT-Download][SSDT Download] pagina bezoeken om SSDT hand matig te downloaden en te installeren.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u de nieuwste versie van SSDT hebt, kunt u [verbinding] [ connect] met uw SQL Data Warehouse.
+Nu u de nieuwste versie van SSDT hebt, bent u klaar om [verbinding te maken][connect] met uw SQL Data Warehouse.
 
 <!--Anchors-->
 
@@ -54,7 +54,7 @@ Nu dat u de nieuwste versie van SSDT hebt, kunt u [verbinding] [ connect] met uw
 [connect]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
-[Download Visual Studio]: https://www.visualstudio.com/downloads/
+[Visual Studio downloaden]: https://www.visualstudio.com/downloads/
 [Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu

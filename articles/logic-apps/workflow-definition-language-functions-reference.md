@@ -1,6 +1,6 @@
 ---
-title: Naslaginformatie voor functions in Werkstroomdefinitietaal - Azure Logic Apps en Microsoft Flow
-description: Naslaggids voor functies in expressies die zijn gemaakt met Werkstroomdefinitietaal voor Azure Logic Apps en Microsoft Flow
+title: Naslag informatie voor functies in de werk stroom definitie taal-Azure Logic Apps en Microsoft Flow
+description: Naslag Gids voor functies in expressies die zijn gemaakt met de werk stroom definitie taal voor Azure Logic Apps en Microsoft Flow
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,305 +9,310 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.openlocfilehash: f5e2af7a7118eaa95e43049b3594ffd584aad4cc
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8ad7d7497a0fbe6fcf20ad5b50ef4e6cac9ed51f
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203082"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868905"
 ---
-# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Functiereferentie voor Definitietaal van werkstroom in Azure Logic Apps en Microsoft Flow
+# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>In Azure Logic Apps vindt u een overzicht van functies voor de taal van de werk stroom definitie in Microsoft Flow
 
-Definities van de werkstroom in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Microsoft Flow](https://docs.microsoft.com/flow/getting-started), sommige [expressies](../logic-apps/logic-apps-workflow-definition-language.md#expressions) worden de waarden van de runtime-acties die mogelijk nog niet bestaan wanneer de werkstroom wordt uitgevoerd. Als u wilt verwijzen naar deze waarden of de waarden in deze expressies worden verwerkt, kunt u *functies* geleverd door de [Werkstroomdefinitietaal](../logic-apps/logic-apps-workflow-definition-language.md). 
+Voor werk stroom definities in [Azure Logic apps](../logic-apps/logic-apps-overview.md) en [Microsoft flow](https://docs.microsoft.com/flow/getting-started)krijgen sommige [expressies](../logic-apps/logic-apps-workflow-definition-language.md#expressions) hun waarden van runtime-acties die mogelijk nog niet bestaan wanneer de werk stroom wordt gestart. Als u wilt verwijzen naar deze waarden of de waarden in deze expressies wilt verwerken, kunt u *functies* van de [werk stroom definitie taal](../logic-apps/logic-apps-workflow-definition-language.md)gebruiken. 
 
 > [!NOTE]
-> Deze pagina is van toepassing op zowel Azure Logic Apps en Microsoft Flow, maar wordt weergegeven in de documentatie van Azure Logic Apps. Hoewel deze pagina naar logische apps verwijst, worden deze functies werken voor zowel stromen en logic apps. Zie voor meer informatie over functies en expressies in Microsoft Flow, [expressies gebruiken in voorwaarden](https://docs.microsoft.com/flow/use-expressions-in-conditions).
+> Deze referentie pagina is van toepassing op zowel Azure Logic Apps als Microsoft Flow, maar wordt weer gegeven in de Azure Logic Apps documentatie. Hoewel deze pagina specifiek verwijst naar Logic apps, werken deze functies voor zowel stromen als logische apps. Zie [expressies in voor waarden gebruiken](https://docs.microsoft.com/flow/use-expressions-in-conditions)voor meer informatie over functies en expressies in Microsoft flow.
 
-U kunt bijvoorbeeld waarden berekenen met behulp van wiskundige functies, zoals de [add() functie](../logic-apps/workflow-definition-language-functions-reference.md#add), als u wilt dat de som van gehele getallen of tekst. Hier volgen enkele andere voorbeelden van taken die u met functions uitvoeren kunt:
+U kunt bijvoorbeeld waarden berekenen met behulp van wiskundige functies, zoals de [functie add ()](../logic-apps/workflow-definition-language-functions-reference.md#add), wanneer u de som van gehele getallen of zwevende tekens wilt gebruiken. Hier volgen enkele andere voorbeeld taken die u met functies kunt uitvoeren:
 
-| Taak | Syntaxis van de functie | Resultaat |
+| Taak | Syntaxis van functie | Resultaat |
 | ---- | --------------- | ------ |
-| Retourneert een tekenreeks in kleine letters indeling. | toLower ('<*tekst*>') <p>Bijvoorbeeld: toLower('Hello') | "Hallo" |
-| Retourneert een globally unique identifier (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
+| Retourneert een teken reeks met de indeling kleine letters. | toLower (' <*text*> ') <p>Bijvoorbeeld: toLower (' Hallo ') | Hello |
+| Een Globally Unique Identifier (GUID) retour neren. | GUID () |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
-Functies moeten worden gezocht [op basis van hun algemene](#ordered-by-purpose), Controleer de volgende tabellen. Of Zie voor gedetailleerde informatie over elke functie, de [alfabetische lijst](#alphabetical-list).
+Als u functies wilt vinden [op basis van hun algemene doel](#ordered-by-purpose), raadpleegt u de volgende tabellen. Of Zie de [Alfabetische lijst](#alphabetical-list)voor gedetailleerde informatie over elke functie.
 
 > [!NOTE]
-> De syntaxis voor parameterdefinities, zijn een vraagteken (?) die wordt weergegeven nadat een parameter betekent de parameter dat is optioneel.
-> Zie bijvoorbeeld [getFutureTime()](#getFutureTime).
+> In de syntaxis voor parameter definities is een vraag teken (?) die wordt weer gegeven na een para meter, de para meter optioneel.
+> Zie bijvoorbeeld [getFutureTime ()](#getFutureTime).
 
 ## <a name="functions-in-expressions"></a>Functies in expressies
 
-Als u wilt weergeven over het gebruik van een functie in een expressie, in dit voorbeeld toont hoe krijgt u de waarde van de `customerName` parameter en wijs die waarde die moet worden de `accountName` eigenschap met behulp van de [parameters()](#parameters) functie in een expressie:
+Dit voor beeld laat zien hoe u de waarde van de `customerName` para meter kunt ophalen en deze waarde aan de `accountName` eigenschap moet toewijzen met behulp van de functie [para meters ()](#parameters) in een expressie om te laten zien hoe u een functie in een expressie gebruikt:
 
 ```json
 "accountName": "@parameters('customerName')"
 ```
 
-Hier volgen enkele andere algemene manieren dat u functies kunt gebruiken in expressies voor:
+Hier volgen enkele andere algemene manieren waarop u functies in expressies kunt gebruiken:
 
 | Taak | Syntaxis van de functie in een expressie |
 | ---- | -------------------------------- |
-| Werken met een item door door te geven dat item aan een functie uitvoeren. | "\@<*functienaam*> (<*item*>)" |
-| 1. Krijgen de *parameterName*van waarde met behulp van de geneste `parameters()` functie. </br>2. Werken met het resultaat uitvoeren door door te geven die waarde aan *functienaam*. | "\@<*functienaam*> (parameters ('<*parameterName*>")) " |
-| 1. Het resultaat ophalen uit de geneste binnenste functie *functienaam*. </br>2. Het resultaat doorgeven aan de buitenste functie *functionName2*. | "\@<*functionName2*> (<*functienaam*> (<*item*>))" |
-| 1. Het resultaat van *functienaam*. </br>2. Gezien het feit dat het resultaat een object met de eigenschap is *propertyName*, de waarde van die eigenschap ophalen. | "\@<*functienaam*>(<*item*>). <*propertyName*>" |
+| Werk met een item uitvoeren door dit item door te geven aan een functie. | "\@functie naam > (< item >)"< |
+| 1. Haal de waarde van de *para meter*op met behulp van de geneste `parameters()` functie. </br>2. Werk uitvoeren met het resultaat door deze waarde door te geven aan *functie naam*. | "\@functie naam > (para meters (' < parameter naam > '))"< |
+| 1. Het resultaat ophalen uit de geneste Inner Function- *functie naam*. </br>2. Het resultaat wordt door gegeven aan de buitenste functie *functionName2*. | "\@functionName2 > (< functie naam > (< item >))"< |
+| 1. Het resultaat van de *functie naam*ophalen. </br>2. Gezien het resultaat is een object met eigenschaps *eigenschapnaam*, de waarde van die eigenschap ophalen. | "\@functie naam > (< item >). < PropertyName >"< |
 |||
 
-Bijvoorbeeld, de `concat()` functie kunnen twee of meer tekenreekswaarden als parameters. Deze functie combineert deze tekenreeksen in één tekenreeks.
-U kunt doorgeven in de letterlijke tekenreeks, bijvoorbeeld "Sophia" en "Owen" zodat u een gecombineerde tekenreeks, 'SophiaOwen' niet ophalen:
+De `concat()` functie kan bijvoorbeeld twee of meer teken reeks waarden als para meters hebben. Deze functie combineert deze teken reeksen in één teken reeks.
+U kunt letterlijke teken reeksen door geven, bijvoorbeeld ' Sophia ' en ' Owen ', zodat u een gecombineerde teken reeks, ' SophiaOwen ' krijgt:
 
 ```json
 "customerName": "@concat('Sophia', 'Owen')"
 ```
 
-Of u kunt tekenreekswaarden krijgen van parameters. In dit voorbeeld wordt de `parameters()` functie in elk `concat()` parameter en de `firstName` en `lastName` parameters. U geeft u de resulterende tekenreeksen die moeten worden de `concat()` functie zodat u een gecombineerde tekenreeks, bijvoorbeeld 'SophiaOwen' niet ophalen:
+U kunt ook teken reeks waarden van para meters ophalen. In dit voor beeld `parameters()` wordt de functie `concat()` gebruikt in elke `firstName` para `lastName` meter en de para meters en. U geeft de resulterende teken reeksen vervolgens door `concat()` aan de functie zodat u een gecombineerde teken reeks krijgt, bijvoorbeeld ' SophiaOwen ':
 
 ```json
 "customerName": "@concat(parameters('firstName'), parameters('lastName'))"
 ```
 
-In beide gevallen beide voorbeelden toewijzen het resultaat dat de `customerName` eigenschap.
+In beide gevallen wordt het resultaat door beide voor beelden `customerName` aan de eigenschap toegewezen.
 
-Hier zijn de beschikbare functies gesorteerd op hun algemeen gebruik, of kunt u de functies op basis van [alfabetische volgorde](#alphabetical-list).
+Dit zijn de beschik bare functies die worden besteld door hun algemene doel of u kunt door de functies bladeren op basis van [alfabetische volg orde](#alphabetical-list).
 
 <a name="ordered-by-purpose"></a>
 <a name="string-functions"></a>
 
 ## <a name="string-functions"></a>Tekenreeksfuncties
 
-Als u wilt werken met tekenreeksen, kunt u deze tekenreeksfuncties en ook enkele [verzameling functies](#collection-functions).
-Tekenreeks-functies werken alleen op tekenreeksen.
+Als u met teken reeksen wilt werken, kunt u deze teken reeks functies en ook bepaalde [verzamelings functies](#collection-functions)gebruiken.
+Teken reeks functies werken alleen voor teken reeksen.
 
-| Tekenreeksfunctie | Taak |
+| Teken reeks functie | Taak |
 | --------------- | ---- |
-| [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Twee of meer tekenreeksen combineren en retourneert de gecombineerde tekenreeks. |
-| [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Controleer of een tekenreeks met de opgegeven subtekenreeks eindigt. |
-| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Genereer een globally unique identifier (GUID) als een tekenreeks. |
-| [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Retourneert de beginpositie voor een subtekenreeks. |
-| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Retourneert de beginpositie voor het laatste exemplaar van een subtekenreeks. |
-| [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Vervangen door de opgegeven tekenreeks een subtekenreeks en retourneert de bijgewerkte tekenreeks. |
-| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Retourneert een matrix met subtekenreeksen, gescheiden door komma's, uit een grotere tekenreeks op basis van een opgegeven scheidingsteken in de oorspronkelijke reeks. |
-| [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Controleren of een tekenreeks met een specifieke subtekenreeks begint. |
-| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Tekens retourneren uit een tekenreeks, beginnend vanaf de opgegeven positie. |
-| [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Retourneert een tekenreeks in kleine letters indeling. |
-| [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Retourneert een tekenreeks in hoofdletters. |
-| [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Voorloop-en volgspaties verwijderen uit een tekenreeks en retourneert de bijgewerkte tekenreeks. |
+| [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Combi neer twee of meer teken reeksen en retour neer de gecombineerde teken reeks. |
+| [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Controleren of een teken reeks eindigt met de opgegeven subtekenreeks. |
+| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Genereer een Globally Unique Identifier (GUID) als een teken reeks. |
+| [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Retourneert de begin positie van een subtekenreeks. |
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Retourneert de begin positie voor het laatste exemplaar van een subtekenreeks. |
+| [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Vervang een subtekenreeks door de opgegeven teken reeks en retour neer de bijgewerkte teken reeks. |
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Retourneert een matrix die subtekenreeksen bevat, gescheiden door komma's, van een grotere teken reeks op basis van een opgegeven scheidings teken in de oorspronkelijke teken reeks. |
+| [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Controleren of een teken reeks begint met een specifieke subtekenreeks. |
+| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Retourneert tekens uit een teken reeks, te beginnen met de opgegeven positie. |
+| [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Retourneert een teken reeks met de indeling kleine letters. |
+| [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Retourneert een teken reeks met een hoofd letter. |
+| [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Verwijder voor loop-en volg spaties uit een teken reeks en retour neer de bijgewerkte teken reeks. |
 |||
 
 <a name="collection-functions"></a>
 
-## <a name="collection-functions"></a>Verzameling functies
+## <a name="collection-functions"></a>Verzamelings functies
 
-Als u wilt werken met verzamelingen, in het algemeen matrices, tekenreeksen en soms woordenboeken, kunt u de functies van deze verzameling.
+Als u wilt werken met verzamelingen, meestal matrices, teken reeksen en soms, woorden lijsten, kunt u deze verzamelings functies gebruiken.
 
-| Verzameling-functie | Taak |
+| Functie verzameling | Taak |
 | ------------------- | ---- |
-| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Controleer of een verzameling een specifiek item heeft. |
-| [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Controleer of een verzameling leeg is. |
-| [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Retourneert het eerste item van een verzameling. |
-| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Retourneert een verzameling met *alleen* de algemene items in de gespecificeerde verzamelingen. |
-| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Wanneer u zich binnen een herhalingsactie via een matrix, het huidige item in de matrix te retourneren tijdens de huidige herhaling van de actie. |
-| [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Retourneert een tekenreeks is die is *alle* de items uit een array, gescheiden door het opgegeven teken. |
-| [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Retourneert het laatste item uit een verzameling. |
-| [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Retourneert het aantal items in een tekenreeks of een matrix. |
-| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Items verwijderen uit het voorste deel van een verzameling en retourneren *alle andere* items. |
-| [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Items retourneren vanaf het begin van een verzameling. |
-| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Retourneert een verzameling met *alle* de items van de gespecificeerde verzamelingen. |
+| [daarin](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Controleer of een verzameling een specifiek item heeft. |
+| [gelaten](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Controleer of een verzameling leeg is. |
+| [instantie](../logic-apps/workflow-definition-language-functions-reference.md#first) | Het eerste item van een verzameling retour neren. |
+| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Een verzameling retour neren die *alleen* de gemeen schappelijke items in de opgegeven verzamelingen heeft. |
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Wanneer een herhalende actie een matrix heeft, wordt het huidige item in de matrix geretourneerd tijdens de huidige iteratie van de actie. |
+| [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Retourneert een teken reeks met *alle* items uit een matrix, gescheiden door het opgegeven teken. |
+| [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Het laatste item van een verzameling retour neren. |
+| [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Retourneert het aantal items in een teken reeks of matrix. |
+| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Verwijder items van de voor kant van een verzameling en retour neer *alle andere* items. |
+| [Houd](../logic-apps/workflow-definition-language-functions-reference.md#take) | Items van de voor grond van een verzameling retour neren. |
+| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Een verzameling retour neren die *alle* items uit de opgegeven verzamelingen bevat. |
 |||
 
 <a name="comparison-functions"></a>
 
-## <a name="logical-comparison-functions"></a>Van de logische vergelijkingsfuncties
+## <a name="logical-comparison-functions"></a>Logische vergelijkings functies
 
-Als u wilt werken met voorwaarden, waarden en de expressieresultaten vergelijken of verschillende soorten logische evalueren, kunt u deze vergelijkingsfuncties logische.
-Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+Als u met voor waarden wilt werken, vergelijkt u waarden en expressie resultaten of evalueert u verschillende soorten logica, kunt u deze logische vergelijkings functies gebruiken.
+Zie de [Alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)voor de volledige naslag informatie over elke functie.
 
-| Logische vergelijkingsfunctie. | Taak |
+| Logische vergelijkings functie | Taak |
 | --------------------------- | ---- |
-| [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Controleer of alle expressies ' True ' zijn. |
+| [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Controleer of alle expressies waar zijn. |
 | [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Controleer of beide waarden gelijk zijn. |
-| [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Controleer of de eerste waarde groter dan de tweede waarde is. |
-| [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Controleer of de eerste waarde groter dan of gelijk zijn aan de tweede waarde is. |
-| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Controleer of een expressie waar of ONWAAR is. Op basis van het resultaat, een opgegeven waarde retourneren. |
-| [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | Controleer of de eerste waarde kleiner is dan de tweede waarde. |
-| [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Controleer of de eerste waarde kleiner zijn dan of gelijk zijn aan de tweede waarde is. |
+| [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Controleer of de eerste waarde groter is dan de tweede waarde. |
+| [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Controleer of de eerste waarde groter is dan of gelijk is aan de tweede waarde. |
+| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Controleer of een expressie True of False is. Retour neer een opgegeven waarde op basis van het resultaat. |
+| [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | Controleer of de eerste waarde lager is dan de tweede waarde. |
+| [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Controleer of de eerste waarde kleiner is dan of gelijk is aan de tweede waarde. |
 | [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Controleer of een expressie onwaar is. |
 | [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | Controleer of ten minste één expressie waar is. |
 |||
 
 <a name="conversion-functions"></a>
 
-## <a name="conversion-functions"></a>Conversiefuncties
+## <a name="conversion-functions"></a>Conversie functies
 
-Het type of de indeling van een waarde wilt wijzigen, kunt u deze conversiefuncties.
-U kunt bijvoorbeeld een waarde van een Booleaanse waarde wijzigen naar een geheel getal.
-Zie voor meer informatie over hoe logische Apps inhoudstypen tijdens de conversie verwerken, [inhoudstypen verwerken](../logic-apps/logic-apps-content-type.md).
-Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+Als u het type of de indeling van een waarde wilt wijzigen, kunt u deze conversie functies gebruiken.
+U kunt bijvoorbeeld een waarde wijzigen van een Boolean in een geheel getal.
+Zie voor meer informatie over Logic Apps het afhandelen van inhouds typen tijdens de conversie [inhouds typen verwerken](../logic-apps/logic-apps-content-type.md).
+Zie de [Alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)voor de volledige naslag informatie over elke functie.
 
-| Conversiefunctie | Taak |
+| Conversie functie | Taak |
 | ------------------- | ---- |
-| [Matrix](../logic-apps/workflow-definition-language-functions-reference.md#array) | Retourneert een matrix van één opgegeven invoer. Zie voor meerdere invoergegevens [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). |
-| [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Retourneert de met base64 gecodeerde versie voor een tekenreeks. |
-| [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Retourneert de binaire versie voor een base64-gecodeerde tekenreeks. |
-| [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Retourneert de tekenreeksversie voor een base64-gecodeerde tekenreeks. |
-| [binary](../logic-apps/workflow-definition-language-functions-reference.md#binary) | De binaire versie voor een invoerwaarde retourneren. |
-| [bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Retourneert de Booleaanse versie voor een invoerwaarde. |
-| [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Retourneert een matrix van meerdere invoergegevens. |
-| [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | Retourneert de gegevens-URI voor een invoerwaarde. |
+| [array](../logic-apps/workflow-definition-language-functions-reference.md#array) | Een matrix retour neren van een enkele opgegeven invoer. Zie [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray)voor meerdere invoer. |
+| [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Retourneert de met base64 gecodeerde versie voor een teken reeks. |
+| [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Retourneert de binaire versie voor een base64-gecodeerde teken reeks. |
+| [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Retourneert de versie van de teken reeks voor een base64-gecodeerde teken reeks. |
+| [waarde](../logic-apps/workflow-definition-language-functions-reference.md#binary) | Retourneert de binaire versie voor een invoer waarde. |
+| [bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Retourneert de Booleaanse versie van een invoer waarde. |
+| [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Een matrix van meerdere invoer waarden retour neren. |
+| [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | De gegevens-URI voor een invoer waarde Retour neren. |
 | [dataUriToBinary](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | Retourneert de binaire versie voor een gegevens-URI. |
-| [dataUriToString](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToString) | De tekenreeksversie voor een gegevens-URI geretourneerd. |
-| [decodeBase64](../logic-apps/workflow-definition-language-functions-reference.md#decodeBase64) | Retourneert de tekenreeksversie voor een base64-gecodeerde tekenreeks. |
+| [dataUriToString](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToString) | Retourneert de versie van de teken reeks voor een gegevens-URI. |
+| [decodeBase64](../logic-apps/workflow-definition-language-functions-reference.md#decodeBase64) | Retourneert de versie van de teken reeks voor een base64-gecodeerde teken reeks. |
 | [decodeDataUri](../logic-apps/workflow-definition-language-functions-reference.md#decodeDataUri) | Retourneert de binaire versie voor een gegevens-URI. |
-| [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | Een tekenreeks die wordt vervangen escape-tekens met gedecodeerde versies retourneren. |
-| [encodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#encodeUriComponent) | Retourneert een tekenreeks is die wordt vervangen door de URL-onveilige tekens met escape-tekens. |
-| [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | Retourneert een drijvende-kommagetal zijn voor een invoerwaarde. |
-| [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Retourneert de integer-versie voor een tekenreeks. |
-| [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Retourneert de waarde van het JavaScript Object Notation (JSON) of het object voor een tekenreeks of XML. |
-| [Tekenreeks](../logic-apps/workflow-definition-language-functions-reference.md#string) | De tekenreeksversie voor een invoerwaarde retourneren. |
-| [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Retourneert de versie URI-codering voor een invoerwaarde URL onveilige tekens te vervangen door een escape-tekens. |
-| [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Retourneert de binaire versie van een URI-gecodeerde tekenreeks. |
-| [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Retourneert de tekenreeksversie voor een URI-gecodeerde tekenreeks. |
-| [xml](../logic-apps/workflow-definition-language-functions-reference.md#xml) | Retourneert de XML-versie voor een tekenreeks. |
+| [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | Retourneert een teken reeks waarmee escape tekens worden vervangen door gedecodeerde versies. |
+| [encodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#encodeUriComponent) | Retourneert een teken reeks waarmee URL-onveilige tekens worden vervangen door Escape-tekens. |
+| [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | Retourneert een drijvende-komma waarde voor een invoer waarde. |
+| [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Retourneert de versie met gehele getallen voor een teken reeks. |
+| [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | De waarde of het object van het type JavaScript Object Notation (JSON) retour neren voor een teken reeks of XML. |
+| [Tekenreeks](../logic-apps/workflow-definition-language-functions-reference.md#string) | Retourneert de teken reeks versie voor een invoer waarde. |
+| [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | De versie van de URI-code ring retour neren voor een invoer waarde door onveilige URL-tekens te vervangen door Escape tekens. |
+| [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Retourneert de binaire versie voor een teken reeks met URI-code ring. |
+| [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Retourneert de versie van de teken reeks voor een teken reeks met URI-code ring. |
+| [xml](../logic-apps/workflow-definition-language-functions-reference.md#xml) | De XML-versie voor een teken reeks retour neren. |
 |||
 
 <a name="math-functions"></a>
 
 ## <a name="math-functions"></a>Wiskundige functies
 
-Als u wilt werken met gehele getallen en landen, kunt u deze wiskundige functies.
-Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+Als u met gehele getallen en zwevende tekens wilt werken, kunt u deze wiskundige functies gebruiken.
+Zie de [Alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)voor de volledige naslag informatie over elke functie.
 
-| Math functie | Taak |
+| Wiskundige functie | Taak |
 | ------------- | ---- |
-| [add](../logic-apps/workflow-definition-language-functions-reference.md#add) | Retourneert het resultaat van het toevoegen van twee getallen. |
+| [add](../logic-apps/workflow-definition-language-functions-reference.md#add) | Het resultaat van het toevoegen van twee getallen retour neren. |
 | [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Retourneert het resultaat van het delen van twee getallen. |
-| [max](../logic-apps/workflow-definition-language-functions-reference.md#max) | Retourneert de hoogste waarde van een reeks cijfers of een matrix. |
-| [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Retourneert de laagste waarde van een reeks cijfers of een matrix. |
-| [Mod](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Retourneert de rest van het delen van twee getallen. |
-| [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Retourneert het product van twee getallen vermenigvuldigen. |
-| [rand](../logic-apps/workflow-definition-language-functions-reference.md#rand) | Retourneert een willekeurig geheel getal van een opgegeven bereik. |
-| [range](../logic-apps/workflow-definition-language-functions-reference.md#range) | Retourneert een matrix met gehele getallen die met een opgegeven geheel getal zijn begint. |
-| [sub](../logic-apps/workflow-definition-language-functions-reference.md#sub) | Retourneert het resultaat van af te trekken van het tweede nummer van het eerste getal. |
+| [max](../logic-apps/workflow-definition-language-functions-reference.md#max) | Retourneert de hoogste waarde van een reeks getallen of een matrix. |
+| [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Retourneert de laagste waarde van een reeks getallen of een matrix. |
+| [mod](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Retourneert de rest van het delen van twee getallen. |
+| [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Retourneert het product van het vermenigvuldigen van twee getallen. |
+| [ASELECT](../logic-apps/workflow-definition-language-functions-reference.md#rand) | Retourneert een wille keurig geheel getal uit een opgegeven bereik. |
+| [range](../logic-apps/workflow-definition-language-functions-reference.md#range) | Retourneert een matrix met gehele getallen die begint met een opgegeven geheel getal. |
+| [sub](../logic-apps/workflow-definition-language-functions-reference.md#sub) | Retourneert het resultaat van het aftrekken van het tweede getal uit het eerste getal. |
 |||
 
 <a name="date-time-functions"></a>
 
-## <a name="date-and-time-functions"></a>Datum- en tijdfuncties
+## <a name="date-and-time-functions"></a>Datum-en tijd functies
 
-Als u wilt werken met datums en tijden, kunt u deze functies date en time.
-Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+Als u met datums en tijden wilt werken, kunt u deze datum-en tijd functies gebruiken.
+Zie de [Alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)voor de volledige naslag informatie over elke functie.
 
-| Datum of tijd functie | Taak |
+| De functie datum of tijd | Taak |
 | --------------------- | ---- |
-| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Een aantal dagen toevoegen aan een tijdstempel. |
-| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Een aantal uren toevoegen aan een tijdstempel. |
-| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Een aantal minuten toevoegen aan een tijdstempel. |
-| [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Voeg een aantal seconden een tijdstempel. |
-| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | Een aantal tijdseenheden toevoegen aan een tijdstempel. Zie ook [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime). |
-| [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | Een tijdstempel van Coordinated van Universal Time (UTC) naar de doeltijdzone converteren. |
-| [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | Een tijdstempel van de brontijdzone converteren naar de doeltijdzone. |
-| [convertToUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertToUtc) | Een tijdstempel van de brontijdzone Coordinated van Universal Time (UTC) converteren. |
-| [dayOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#dayOfMonth) | Retourneert de dag van het maandonderdeel van een tijdstempel. |
-| [dayOfWeek](../logic-apps/workflow-definition-language-functions-reference.md#dayOfWeek) | Retourneert de dag van het onderdeel van de week van een tijdstempel. |
-| [dayOfYear](../logic-apps/workflow-definition-language-functions-reference.md#dayOfYear) | Retourneert de dag van het jaargedeelte van een tijdstempel. |
-| [formatDateTime](../logic-apps/workflow-definition-language-functions-reference.md#formatDateTime) | Retourneert de datum van een tijdstempel. |
-| [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | Retourneert de huidige tijdstempel plus de opgegeven periode-eenheden. Zie ook [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime). |
-| [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | Retourneert de huidige tijdstempel minus de opgegeven periode-eenheden. Zie ook [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime). |
-| [startOfDay](../logic-apps/workflow-definition-language-functions-reference.md#startOfDay) | Retourneert het begin van de dag van een tijdstempel. |
-| [startOfHour](../logic-apps/workflow-definition-language-functions-reference.md#startOfHour) | Retourneert het begin van het uur voor een tijdstempel. |
-| [startOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#startOfMonth) | Retourneert het begin van de maand voor een tijdstempel. |
-| [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime) | Een aantal eenheden van een tijdstempel aftrekken. Zie ook [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime). |
-| [maatstreepjes](../logic-apps/workflow-definition-language-functions-reference.md#ticks) | Retourneert de `ticks` eigenschapwaarde voor een opgegeven timestamp. |
-| [utcNow](../logic-apps/workflow-definition-language-functions-reference.md#utcNow) | Retourneert de huidige tijdstempel als een tekenreeks. |
+| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Voeg een aantal dagen toe aan een tijds tempel. |
+| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Voeg een aantal uren toe aan een tijds tempel. |
+| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Voeg een aantal minuten toe aan een tijds tempel. |
+| [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Voeg een aantal seconden toe aan een tijds tempel. |
+| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | Voeg een aantal tijds eenheden toe aan een tijds tempel. Zie ook [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime). |
+| [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | Converteer een tijds tempel van Universal Time Coordinated (UTC) naar de doel tijdzone. |
+| [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | Converteer een tijds tempel van de bron tijdzone naar de doel tijdzone. |
+| [convertToUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertToUtc) | Een tijds tempel van de bron tijdzone converteren naar Universal Time Coordinated (UTC). |
+| [dayOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#dayOfMonth) | Retourneert de dag van het onderdeel month van een tijds tempel. |
+| [dayOfWeek](../logic-apps/workflow-definition-language-functions-reference.md#dayOfWeek) | Retourneert de dag van de week component van een tijds tempel. |
+| [dayOfYear](../logic-apps/workflow-definition-language-functions-reference.md#dayOfYear) | Retourneert de dag van het jaar component van een tijds tempel. |
+| [formatDateTime](../logic-apps/workflow-definition-language-functions-reference.md#formatDateTime) | De datum van een tijds tempel retour neren. |
+| [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | De huidige tijds tempel en de opgegeven tijds eenheden retour neren. Zie ook [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime). |
+| [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | Retourneert de huidige tijds tempel min de opgegeven tijds eenheden. Zie ook [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime). |
+| [startOfDay](../logic-apps/workflow-definition-language-functions-reference.md#startOfDay) | Retourneert het begin van de dag voor een tijds tempel. |
+| [startOfHour](../logic-apps/workflow-definition-language-functions-reference.md#startOfHour) | Het begin van het uur retour neren voor een tijds tempel. |
+| [startOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#startOfMonth) | Retourneert het begin van de maand voor een tijds tempel. |
+| [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime) | Een aantal tijds eenheden aftrekken van een tijds tempel. Zie ook [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime). |
+| [Ticks](../logic-apps/workflow-definition-language-functions-reference.md#ticks) | De `ticks` eigenschaps waarde voor een opgegeven tijds tempel retour neren. |
+| [utcNow](../logic-apps/workflow-definition-language-functions-reference.md#utcNow) | De huidige tijds tempel retour neren als een teken reeks. |
 |||
 
 <a name="workflow-functions"></a>
 
-## <a name="workflow-functions"></a>Werkstroomfuncties
+## <a name="workflow-functions"></a>Werk stroom functies
 
-Deze werkstroomfuncties kunnen u helpen:
+Deze werk stroom functies helpen u bij het volgende:
 
-* Informatie ophalen over een werkstroomexemplaar dat tijdens de uitvoering.
-* Werken met de invoer die is gebruikt voor het instantiëren van logic apps of stromen.
-* Verwijzen naar de uitvoer van triggers en acties.
+* Details over een werk stroom exemplaar tijdens runtime ophalen.
+* Werk samen met de invoer die wordt gebruikt voor het instantiëren van logische apps of stromen.
+* Raadpleeg de uitvoer van triggers en acties.
 
-U kunt bijvoorbeeld verwijzen naar de uitvoer van een actie en die gegevens gebruiken in een latere actie.
-Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+U kunt bijvoorbeeld naar de uitvoer van de ene actie verwijzen en die gegevens gebruiken in een latere actie.
+Zie de [Alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)voor de volledige naslag informatie over elke functie.
 
-| Werkstroomfunctie | Taak |
+| Werk stroom functie | Taak |
 | ----------------- | ---- |
-| [Actie](../logic-apps/workflow-definition-language-functions-reference.md#action) | Retourneert de huidige actie-uitvoer in runtime, of waarden die van andere naam en waarde-paren van JSON. Zie ook [acties](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
-| [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Resultaat van een actie `body` uitvoer tijdens runtime. Zie ook [hoofdtekst](../logic-apps/workflow-definition-language-functions-reference.md#body). |
-| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Retourneert de uitvoer van een actie tijdens runtime. Zie [acties](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
-| [Acties](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Retourneert de uitvoer van een actie in runtime, of waarden van andere naam en waarde-paren van JSON. Zie ook [actie](../logic-apps/workflow-definition-language-functions-reference.md#action).  |
-| [body](#body) | Resultaat van een actie `body` uitvoer tijdens runtime. Zie ook [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). |
-| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Maken van een matrix met de waarden die overeenkomen met de naam van een sleutel in *formuliergegevens* of *formuliercodes* actie-uitvoer. |
-| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Retourneert één waarde die overeenkomt met een naam in van een actie *formuliergegevens* of *formuliercodes uitvoer*. |
-| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Wanneer u zich binnen een herhalingsactie via een matrix, het huidige item in de matrix te retourneren tijdens de huidige herhaling van de actie. |
-| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | Wanneer in een Foreach of totdat-lus retourneert het huidige item uit de opgegeven lus.|
-| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | Retourneert de indexwaarde voor de huidige iteratie wanneer binnen een lus Until. U kunt deze functie in geneste tot lussen gebruiken. |
-| [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Retourneert de "callback-URL' die een actie of trigger aanroept. |
-| [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Retourneert de instantie voor een bepaald deel in de uitvoer van een actie die bestaat uit meerdere delen. |
-| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Retourneert de waarde voor een parameter die wordt beschreven in de werkstroomdefinitie van de. |
-| [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Retourneert de uitvoer van een trigger tijdens runtime, of vanuit een andere naam en waarde-paren van JSON. Zie ook [triggerOutputs](#triggerOutputs) en [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
-| [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Resultaat van een trigger `body` uitvoer tijdens runtime. Zie [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
-| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Die overeenkomen met de naam van een sleutel in één waarde retourneren *formuliergegevens* of *formuliercodes* uitvoer activeren. |
-| [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | De instantie voor een bepaald deel in een meerdelige triggeruitvoer retourneren. |
-| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | Maken van een matrix waarvan de waarden overeenkomen met de naam van een sleutel in *formuliergegevens* of *formuliercodes* uitvoer activeren. |
-| [triggerOutputs](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs) | Retourneert de uitvoer van een trigger in runtime, of waarden van andere naam en waarde-paren van JSON. Zie [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
-| [Variabelen](../logic-apps/workflow-definition-language-functions-reference.md#variables) | Retourneert de waarde voor een opgegeven variabele. |
-| [Werkstroom](../logic-apps/workflow-definition-language-functions-reference.md#workflow) | Als resultaat de details over de werkstroom zelf tijdens runtime. |
+| [optreden](../logic-apps/workflow-definition-language-functions-reference.md#action) | De uitvoer van de huidige actie tijdens runtime retour neren of waarden van andere JSON-naam-en-waardeparen. Zie ook [acties](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
+| [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | De uitvoer van `body` een actie tijdens runtime retour neren. Zie ook [hoofd tekst](../logic-apps/workflow-definition-language-functions-reference.md#body). |
+| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | De uitvoer van een actie tijdens runtime retour neren. Zie [acties](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
+| [regelen](../logic-apps/workflow-definition-language-functions-reference.md#actions) | De uitvoer van een actie tijdens runtime retour neren of waarden van andere JSON-naam-en-waardeparen. Zie ook [actie](../logic-apps/workflow-definition-language-functions-reference.md#action).  |
+| [body](#body) | De uitvoer van `body` een actie tijdens runtime retour neren. Zie ook [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). |
+| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Maak een matrix met de waarden die overeenkomen met een sleutel naam in uitvoer van *formulier gegevens* of *formulier-gecodeerde* acties. |
+| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Eén waarde Retour neren die overeenkomt met een sleutel naam in een actie *formulier gegevens* of *formulier-gecodeerde uitvoer*. |
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Wanneer een herhalende actie een matrix heeft, wordt het huidige item in de matrix geretourneerd tijdens de huidige iteratie van de actie. |
+| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | In een foreach-of until-lus retourneert het huidige item van de opgegeven lus.|
+| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | Als de lus until is, retourneert u de index waarde voor de huidige iteratie. U kunt deze functie binnen nesten tot lussen gebruiken. |
+| [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | De call back-URL retour neren die een trigger of actie aanroept. |
+| [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | De hoofd tekst van een specifiek deel in de uitvoer van een actie met meerdere delen retour neren. |
+| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Retourneert de waarde voor een para meter die wordt beschreven in uw werk stroom definitie. |
+| [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | De uitvoer van een trigger retour neren tijdens runtime of vanuit andere JSON-naam-en-waardeparen. Zie ook [triggerOutputs](#triggerOutputs) en [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
+| [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Retour neer de uitvoer `body` van een trigger tijdens runtime. Zie [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
+| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Een enkele waarde Retour neren die overeenkomt met een sleutel naam in trigger uitvoer van *formulier gegevens* of *formulier codering* . |
+| [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | De hoofd tekst voor een specifiek deel in de meerdelige uitvoer van een trigger retour neren. |
+| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | Maak een matrix waarvan de waarden overeenkomen met de naam van een sleutel in de trigger uitvoer van *formulier gegevens* of *formulier-gecodeerd* . |
+| [triggerOutputs](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs) | Retourneert de uitvoer van een trigger tijdens runtime of waarden van andere JSON-naam-en-waardeparen. Zie [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
+| [variabelen](../logic-apps/workflow-definition-language-functions-reference.md#variables) | De waarde voor een opgegeven variabele retour neren. |
+| [workflowconfiguraties](../logic-apps/workflow-definition-language-functions-reference.md#workflow) | Alle gegevens over de werk stroom zelf retour neren tijdens de uitvoerings tijd. |
 |||
 
 <a name="uri-parsing-functions"></a>
 
-## <a name="uri-parsing-functions"></a>Functies voor URI parseren
+## <a name="uri-parsing-functions"></a>Functies voor het parseren van URI'S
 
-Als u wilt werken met uniform resource-id's (URI) en waarden van verschillende eigenschappen voor deze URI's te halen, kunt u deze functies voor URI parseren.
-Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+Als u wilt werken met URI (Uniform Resource Identifiers) en verschillende eigenschaps waarden voor deze Uri's wilt ophalen, kunt u deze functies voor het parseren van uri's gebruiken.
+Zie de [Alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)voor de volledige naslag informatie over elke functie.
 
-| URI parseren van de functie | Taak |
+| URI-parserings functie | Taak |
 | -------------------- | ---- |
-| [uriHost](../logic-apps/workflow-definition-language-functions-reference.md#uriHost) | Retourneert de `host` waarde voor een uniform resource identifier (URI). |
-| [uriPath](../logic-apps/workflow-definition-language-functions-reference.md#uriPath) | Retourneert de `path` waarde voor een uniform resource identifier (URI). |
-| [uriPathAndQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriPathAndQuery) | Retourneert de `path` en `query` waarden voor een uniform resource identifier (URI). |
-| [uriPort](../logic-apps/workflow-definition-language-functions-reference.md#uriPort) | Retourneert de `port` waarde voor een uniform resource identifier (URI). |
-| [uriQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriQuery) | Retourneert de `query` waarde voor een uniform resource identifier (URI). |
-| [uriScheme](../logic-apps/workflow-definition-language-functions-reference.md#uriScheme) | Retourneert de `scheme` waarde voor een uniform resource identifier (URI). |
+| [uriHost](../logic-apps/workflow-definition-language-functions-reference.md#uriHost) | De `host` waarde voor een Uniform Resource Identifier (URI) retour neren. |
+| [uriPath](../logic-apps/workflow-definition-language-functions-reference.md#uriPath) | De `path` waarde voor een Uniform Resource Identifier (URI) retour neren. |
+| [uriPathAndQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriPathAndQuery) | De `path` waarden en `query` voor een Uniform Resource Identifier (URI) retour neren. |
+| [uriPort](../logic-apps/workflow-definition-language-functions-reference.md#uriPort) | De `port` waarde voor een Uniform Resource Identifier (URI) retour neren. |
+| [uriQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriQuery) | De `query` waarde voor een Uniform Resource Identifier (URI) retour neren. |
+| [uriScheme](../logic-apps/workflow-definition-language-functions-reference.md#uriScheme) | De `scheme` waarde voor een Uniform Resource Identifier (URI) retour neren. |
 |||
 
 <a name="manipulation-functions"></a>
 
-## <a name="manipulation-functions-json--xml"></a>Functies voor het bewerken: JSON EN XML
+## <a name="manipulation-functions-json--xml"></a>Manipulatie-functies: JSON-& XML
 
-Als u wilt werken met JSON-objecten en XML-knooppunt, kunt u deze functies voor het bewerken.
-Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+Als u wilt werken met JSON-objecten en XML-knoop punten, kunt u deze manipulatie functies gebruiken.
+Zie de [Alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)voor de volledige naslag informatie over elke functie.
 
-| Functie voor het bewerken | Taak |
+| Functie manipulatie | Taak |
 | --------------------- | ---- |
-| [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Een eigenschap en de waarde of de naam / waarde-paar, toevoegen aan een JSON-object en het bijgewerkte object retourneren. |
-| [samenvoegen](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Retourneert de eerste niet-null-waarde van een of meer parameters. |
-| [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Verwijderen van een eigenschap van een JSON-object en het bijgewerkte object retourneren. |
-| [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | Stel de waarde voor eigenschap van een JSON-object en het bijgewerkte object geretourneerd. |
-| [XPath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Controleren of XML knooppunten of waarden die overeenkomen met een (XML Path-taal) XPath-expressie en retourneert de overeenkomende waarden of knooppunten. |
+| [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Voeg een eigenschap en bijbehorende waarde, of naam/waarde-paar, toe aan een JSON-object en retour neer het bijgewerkte object. |
+| [Voeg](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Retourneert de eerste waarde die niet null is van een of meer para meters. |
+| [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Een eigenschap verwijderen uit een JSON-object en het bijgewerkte object retour neren. |
+| [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | Stel de waarde voor de eigenschap van een JSON-object in en retour neer het bijgewerkte object. |
+| [XPath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Controleer XML voor knoop punten of waarden die overeenkomen met een XPath-expressie (XML-pad) en retour neer de overeenkomende knoop punten of waarden. |
 |||
 
 <a name="alphabetical-list"></a>
+
+## <a name="all-functions---alphabetical-list"></a>Alle functies-alfabetische lijst
+
+In deze sectie worden alle beschik bare functies in alfabetische volg orde weer gegeven.
+
 <a name="action"></a>
 
-### <a name="action"></a>action
+### <a name="action"></a>Actie
 
-Retourneert de *huidige* actie-uitvoer in runtime, of waarden uit een andere naam en waarde-paren van JSON, die u aan een expressie toewijzen kunt.
-Deze functie verwijst naar de volledige actie-object, maar u kunt optioneel een eigenschap waarvoor u waarde wilt opgeven.
-Zie ook [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions).
+De uitvoer van de *huidige* actie tijdens runtime retour neren of waarden van andere JSON-naam-en-waardeparen, die u kunt toewijzen aan een expressie.
+Deze functie verwijst standaard naar het hele actie object, maar u kunt desgewenst een eigenschap opgeven waarvan u de waarde wilt bepalen.
+Zie ook [acties ()](../logic-apps/workflow-definition-language-functions-reference.md#actions).
 
-U kunt de `action()` functie alleen op de volgende locaties:
+U kunt de functie `action()` alleen op de volgende locaties gebruiken:
 
-* De `unsubscribe` eigenschap voor een webhookactie zodat u toegang hebt tot het resultaat van de oorspronkelijke `subscribe` aanvraag
+* De `unsubscribe` eigenschap voor een webhook-actie, zodat u het resultaat van de oorspronkelijke `subscribe` aanvraag kunt openen
 * De `trackedProperties` eigenschap voor een actie
-* De `do-until` voorwaarde voor een actie in een lus
+* De `do-until` lus-voor waarde voor een actie
 
 ```
 action()
@@ -316,21 +321,21 @@ action().outputs.body.<property>
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*De eigenschap*> | Nee | String | De naam op voor het actie-object eigenschap waarvan u wilt dat de waarde: **naam**, **startTime**, **endTime**, **invoer**,  **uitvoer**, **status**, **code**, **trackingId**, en **clientTrackingId**. U kunt deze eigenschappen aan de hand van een specifieke uitvoeringsgeschiedenis details vinden in de Azure-portal. Zie voor meer informatie, [REST-API - uitvoeren werkstroomacties](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
+| <*eigenschap*> | Nee | Reeks | De naam van de eigenschap van het actie object waarvan u de waarde wilt: **naam**, **StartTime**, **EndTime**, **invoer**, **uitvoer**, **status**, **code**, **trackingId**en **clientTrackingId**. In de Azure Portal kunt u deze eigenschappen vinden door de details van een specifieke uitvoerings geschiedenis te bekijken. Zie [rest API-werk stroom acties uitvoeren](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get)voor meer informatie. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | -----| ----------- |
-| <*action-output*> | String | De uitvoer van de huidige actie of de eigenschap |
+| <*actie-uitvoer*> | Reeks | De uitvoer van de huidige actie of eigenschap |
 ||||
 
 <a name="actionBody"></a>
 
 ### <a name="actionbody"></a>actionBody
 
-Resultaat van een actie `body` uitvoer tijdens runtime.
-De korte benaming voor `actions('<actionName>').outputs.body`.
-Zie [body()](#body) en [actions()](#actions).
+De uitvoer van `body` een actie tijdens runtime retour neren.
+Steno voor `actions('<actionName>').outputs.body`.
+Zie [hoofd tekst ()](#body) en [acties ()](#actions).
 
 ```
 actionBody('<actionName>')
@@ -338,23 +343,23 @@ actionBody('<actionName>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Ja | String | De naam van de actie `body` uitvoer die u wilt |
+| <*actionName*> | Ja | Reeks | De naam voor de uitvoer van `body` de actie die u wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | -----| ----------- |
-| <*action-body-output*> | String | De `body` uitvoer van de opgegeven actie |
+| <*action-body-output*> | Tekenreeks | De `body` uitvoer van de opgegeven actie |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt de `body` uitvoer van de Twitter-actie `Get user`:
+In dit voor beeld `body` wordt de uitvoer van de `Get user`Twitter-actie opgehaald:
 
 ```
 actionBody('Get_user')
 ```
 
-En dit resultaat wordt weergegeven:
+En retourneert dit resultaat:
 
 ```json
 "body": {
@@ -375,9 +380,9 @@ En dit resultaat wordt weergegeven:
 
 ### <a name="actionoutputs"></a>actionOutputs
 
-Retourneert de uitvoer van een actie tijdens runtime.
-De korte benaming voor `actions('<actionName>').outputs`.
-Zie [actions()](#actions).
+De uitvoer van een actie tijdens runtime retour neren.
+Steno voor `actions('<actionName>').outputs`.
+Zie [acties ()](#actions).
 
 ```
 actionOutputs('<actionName>')
@@ -385,23 +390,23 @@ actionOutputs('<actionName>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Ja | String | De naam voor de actie-uitvoer die u wilt |
+| <*actionName*> | Ja | Tekenreeks | De naam voor de uitvoer van de actie die u wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | -----| ----------- |
-| <*output*> | String | De uitvoer van de opgegeven actie |
+| <*uitvoer*> | Reeks | De uitvoer van de opgegeven actie |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt de uitvoer van de Twitter-actie `Get user`:
+In dit voor beeld wordt de uitvoer van de `Get user`Twitter-actie opgehaald:
 
 ```
 actionOutputs('Get_user')
 ```
 
-En dit resultaat wordt weergegeven:
+En retourneert dit resultaat:
 
 ```json
 {
@@ -436,19 +441,17 @@ En dit resultaat wordt weergegeven:
 }
 ```
 
-## <a name="all-functions---alphabaetical-list"></a>Alle functies - alphabaetical lijst
-
 <a name="actions"></a>
 
-### <a name="actions"></a>Acties
+### <a name="actions"></a>Regelen
 
-Retourneert de uitvoer van een actie in runtime, of waarden van andere naam en waarde-paren van JSON, die u aan een expressie toewijzen kunt. Standaard de functie verwijst naar het hele action-object, maar u kunt optioneel een eigenschap opgeven waarvan de waarde die u wilt.
-Zie voor steno versies [actionBody()](#actionBody), [actionOutputs()](#actionOutputs), en [body()](#body).
-Zie voor de huidige actie [action()](#action).
+De uitvoer van een actie tijdens runtime retour neren of waarden van andere JSON-naam-en-waardeparen, die u kunt toewijzen aan een expressie. De functie verwijst standaard naar het hele actie object, maar u kunt desgewenst een eigenschap opgeven waarvan u de waarde wilt bepalen.
+Zie [actionBody ()](#actionBody), [actionOutputs ()](#actionOutputs)en [Body ()](#body)voor steno versies.
+Zie [actie ()](#action)voor de huidige actie.
 
 > [!NOTE]
-> Eerder, kunt u de `actions()` functie of het `conditions` element als op te geven of een actie wordt uitgevoerd op basis van de uitvoer van een andere actie. Echter, om te declareren expliciet afhankelijkheden tussen acties, moet u nu gebruiken van de afhankelijke actie `runAfter` eigenschap.
-> Voor meer informatie over de `runAfter` eigenschap, Zie [onderscheppen en afhandelen van fouten met de eigenschap runAfter](../logic-apps/logic-apps-workflow-definition-language.md).
+> U kunt voorheen de `actions()` functie of het `conditions` element gebruiken wanneer u opgeeft dat een actie is uitgevoerd op basis van de uitvoer van een andere actie. Als u echter expliciete afhankelijkheden wilt declareren tussen acties, moet u nu de `runAfter` eigenschap van de afhankelijke actie gebruiken.
+> Zie voor meer informatie over `runAfter` de eigenschap [fouten met betrekking tot Catch en handle met de eigenschap runAfter](../logic-apps/logic-apps-workflow-definition-language.md).
 
 ```
 actions('<actionName>')
@@ -457,30 +460,30 @@ actions('<actionName>').outputs.body.<property>
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Ja | String | De naam voor de actie voor het object waarvan de gewenste uitvoer  |
-| <*De eigenschap*> | Nee | String | De naam op voor het actie-object eigenschap waarvan u wilt dat de waarde: **naam**, **startTime**, **endTime**, **invoer**,  **uitvoer**, **status**, **code**, **trackingId**, en **clientTrackingId**. U kunt deze eigenschappen aan de hand van een specifieke uitvoeringsgeschiedenis details vinden in de Azure-portal. Zie voor meer informatie, [REST-API - uitvoeren werkstroomacties](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
+| <*actionName*> | Ja | Reeks | De naam voor het actie object waarvan u de uitvoer wilt  |
+| <*eigenschap*> | Nee | Tekenreeks | De naam van de eigenschap van het actie object waarvan u de waarde wilt: **naam**, **StartTime**, **EndTime**, **invoer**, **uitvoer**, **status**, **code**, **trackingId**en **clientTrackingId**. In de Azure Portal kunt u deze eigenschappen vinden door de details van een specifieke uitvoerings geschiedenis te bekijken. Zie [rest API-werk stroom acties uitvoeren](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get)voor meer informatie. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | -----| ----------- |
-| <*action-output*> | String | De uitvoer van de opgegeven actie of de eigenschap |
+| <*actie-uitvoer*> | Tekenreeks | De uitvoer van de opgegeven actie of eigenschap |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt de `status` eigenschapswaarde van de Twitter-actie `Get user` tijdens runtime:
+In dit voor beeld `status` wordt de eigenschaps waarde van `Get user` de actie Twitter tijdens runtime opgehaald:
 
 ```
 actions('Get_user').outputs.body.status
 ```
 
-En dit resultaat wordt weergegeven: `"Succeeded"`
+En retourneert dit resultaat:`"Succeeded"`
 
 <a name="add"></a>
 
 ### <a name="add"></a>add
 
-Retourneert het resultaat van het toevoegen van twee getallen.
+Het resultaat van het toevoegen van twee getallen retour neren.
 
 ```
 add(<summand_1>, <summand_2>)
@@ -488,29 +491,29 @@ add(<summand_1>, <summand_2>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*summand_1*>, <*summand_2*> | Ja | Geheel getal, drijvende komma, of | De getallen om toe te voegen |
+| <*summand_1*>, <*summand_2*> | Ja | Geheel getal, vlotter of gemengd | De toe te voegen getallen |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | -----| ----------- |
-| <*resultaat som*> | Geheel getal of een gegevenstype met drijvende komma | Het resultaat van het toevoegen van de opgegeven getallen |
+| <*resultaat-Sum*> | Geheel getal of zwevend | Het resultaat van het toevoegen van de opgegeven getallen |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt de opgegeven getallen toegevoegd:
+In dit voor beeld worden de opgegeven getallen toegevoegd:
 
 ```
 add(1, 1.5)
 ```
 
-En dit resultaat wordt weergegeven: `2.5`
+En retourneert dit resultaat:`2.5`
 
 <a name="addDays"></a>
 
 ### <a name="adddays"></a>addDays
 
-Een aantal dagen toevoegen aan een tijdstempel.
+Voeg een aantal dagen toe aan een tijds tempel.
 
 ```
 addDays('<timestamp>', <days>, '<format>'?)
@@ -518,41 +521,41 @@ addDays('<timestamp>', <days>, '<format>'?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*dagen*> | Ja | Geheel getal | Het positieve of negatieve aantal dagen om toe te voegen |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Neem*> | Ja | Reeks | De teken reeks die de tijds tempel bevat |
+| <*resterende*> | Ja | Geheel getal | Het positieve of negatieve aantal dagen dat moet worden toegevoegd |
+| <*Formatteer*> | Nee | Tekenreeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*bijgewerkt timestamp*> | String | De tijdstempel plus het opgegeven aantal dagen  |
+| <*bijgewerkt-tijds tempel*> | Tekenreeks | De tijds tempel plus het opgegeven aantal dagen  |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld wordt 10 dagen aan de opgegeven timestamp toegevoegd:
+In dit voor beeld worden 10 dagen toegevoegd aan de opgegeven tijds tempel:
 
 ```
 addDays('2018-03-15T13:00:00Z', 10)
 ```
 
-En dit resultaat wordt weergegeven: `"2018-03-25T00:00:0000000Z"`
+En retourneert dit resultaat:`"2018-03-25T00:00:0000000Z"`
 
 *Voorbeeld 2*
 
-In dit voorbeeld wordt afgetrokken van vijf dagen van de opgegeven tijdstempel:
+In dit voor beeld worden vijf dagen afgetrokken van de opgegeven tijds tempel:
 
 ```
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-En dit resultaat wordt weergegeven: `"2018-03-10T00:00:0000000Z"`
+En retourneert dit resultaat:`"2018-03-10T00:00:0000000Z"`
 
 <a name="addHours"></a>
 
 ### <a name="addhours"></a>addHours
 
-Een aantal uren toevoegen aan een tijdstempel.
+Voeg een aantal uren toe aan een tijds tempel.
 
 ```
 addHours('<timestamp>', <hours>, '<format>'?)
@@ -560,41 +563,41 @@ addHours('<timestamp>', <hours>, '<format>'?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*Uur*> | Ja | Geheel getal | Het positieve of negatieve aantal uren om toe te voegen |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Neem*> | Ja | Tekenreeks | De teken reeks die de tijds tempel bevat |
+| <*loopt*> | Ja | Geheel getal | Het positieve of negatieve aantal uur dat moet worden toegevoegd |
+| <*Formatteer*> | Nee | Tekenreeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*bijgewerkt timestamp*> | String | De tijdstempel plus het opgegeven aantal uren  |
+| <*bijgewerkt-tijds tempel*> | Tekenreeks | De tijds tempel plus het opgegeven aantal uren  |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld wordt 10 uur aan de opgegeven timestamp toegevoegd:
+In dit voor beeld worden 10 uur toegevoegd aan de opgegeven tijds tempel:
 
 ```
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-En dit resultaat wordt weergegeven: `"2018-03-15T10:00:0000000Z"`
+En retourneert dit resultaat:`"2018-03-15T10:00:0000000Z"`
 
 *Voorbeeld 2*
 
-In dit voorbeeld trekt vijf uur van de opgegeven tijdstempel:
+In dit voor beeld worden vijf uur afgetrokken van de opgegeven tijds tempel:
 
 ```
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-En dit resultaat wordt weergegeven: `"2018-03-15T10:00:0000000Z"`
+En retourneert dit resultaat:`"2018-03-15T10:00:0000000Z"`
 
 <a name="addMinutes"></a>
 
 ### <a name="addminutes"></a>addMinutes
 
-Een aantal minuten toevoegen aan een tijdstempel.
+Voeg een aantal minuten toe aan een tijds tempel.
 
 ```
 addMinutes('<timestamp>', <minutes>, '<format>'?)
@@ -602,41 +605,41 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*minuten*> | Ja | Geheel getal | Het positieve of negatieve aantal minuten om toe te voegen |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Neem*> | Ja | Tekenreeks | De teken reeks die de tijds tempel bevat |
+| <*wachten*> | Ja | Geheel getal | Het positieve of negatieve aantal minuten dat moet worden toegevoegd |
+| <*Formatteer*> | Nee | Tekenreeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*bijgewerkt timestamp*> | String | De tijdstempel plus het opgegeven aantal minuten |
+| <*bijgewerkt-tijds tempel*> | Reeks | De tijds tempel plus het opgegeven aantal minuten |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld wordt 10 minuten aan de opgegeven timestamp toegevoegd:
+In dit voor beeld wordt 10 minuten aan de opgegeven tijds tempel toegevoegd:
 
 ```
 addMinutes('2018-03-15T00:10:00Z', 10)
 ```
 
-En dit resultaat wordt weergegeven: `"2018-03-15T00:20:00.0000000Z"`
+En retourneert dit resultaat:`"2018-03-15T00:20:00.0000000Z"`
 
 *Voorbeeld 2*
 
-In dit voorbeeld wordt afgetrokken van vijf minuten van de opgegeven tijdstempel:
+In dit voor beeld worden vijf minuten afgetrokken van de opgegeven tijds tempel:
 
 ```
 addMinutes('2018-03-15T00:20:00Z', -5)
 ```
 
-En dit resultaat wordt weergegeven: `"2018-03-15T00:15:00.0000000Z"`
+En retourneert dit resultaat:`"2018-03-15T00:15:00.0000000Z"`
 
 <a name="addProperty"></a>
 
 ### <a name="addproperty"></a>addProperty
 
-Een eigenschap en de waarde of de naam / waarde-paar, toevoegen aan een JSON-object en het bijgewerkte object retourneren. Als het object al tijdens runtime bestaat, is de functie genereert een fout.
+Voeg een eigenschap en bijbehorende waarde, of naam/waarde-paar, toe aan een JSON-object en retour neer het bijgewerkte object. Als het object al bestaat tijdens runtime, genereert de functie een fout.
 
 ```
 addProperty(<object>, '<property>', <value>)
@@ -644,20 +647,20 @@ addProperty(<object>, '<property>', <value>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object*> | Ja | Object | Het JSON-object waar u een eigenschap toevoegen |
-| <*De eigenschap*> | Ja | String | De naam op voor de eigenschap toe te voegen |
-| <*Waarde*> | Ja | Alle | De waarde voor de eigenschap |
+| <*object*> | Ja | Object | Het JSON-object waaraan u een eigenschap wilt toevoegen |
+| <*eigenschap*> | Ja | Reeks | De naam van de toe te voegen eigenschap |
+| <*Value*> | Ja | Any | De waarde voor de eigenschap |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*updated-object*> | Object | Het bijgewerkte JSON-object met de opgegeven eigenschap |
+| <*bijgewerkt-object*> | Object | Het bijgewerkte JSON-object met de opgegeven eigenschap |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt de `accountNumber` eigenschap in op de `customerProfile` object, dat wordt geconverteerd naar JSON met de [JSON()](#json) functie.
-De functie wijst een waarde die wordt gegenereerd door de [guid()](#guid) functioneren en retourneert het bijgewerkte object:
+In dit voor beeld `accountNumber` wordt de eigenschap `customerProfile` toegevoegd aan het object, dat wordt geconverteerd naar JSON met de functie [JSON ()](#json) .
+De functie wijst een waarde toe die wordt gegenereerd door de functie [GUID ()](#guid) en retourneert het bijgewerkte object:
 
 ```
 addProperty(json('customerProfile'), 'accountNumber', guid())
@@ -667,7 +670,7 @@ addProperty(json('customerProfile'), 'accountNumber', guid())
 
 ### <a name="addseconds"></a>addSeconds
 
-Voeg een aantal seconden een tijdstempel.
+Voeg een aantal seconden toe aan een tijds tempel.
 
 ```
 addSeconds('<timestamp>', <seconds>, '<format>'?)
@@ -675,42 +678,42 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*seconds*> | Ja | Geheel getal | Het positieve of negatieve aantal seconden dat wordt toegevoegd |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Neem*> | Ja | Reeks | De teken reeks die de tijds tempel bevat |
+| <*waarna*> | Ja | Geheel getal | Het positieve of negatieve aantal seconden dat moet worden toegevoegd |
+| <*Formatteer*> | Nee | Reeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*bijgewerkt timestamp*> | String | De tijdstempel plus het opgegeven aantal seconden  |
+| <*bijgewerkt-tijds tempel*> | Reeks | De tijds tempel plus het opgegeven aantal seconden  |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld wordt 10 seconden aan de opgegeven timestamp toegevoegd:
+In dit voor beeld wordt 10 seconden toegevoegd aan de opgegeven tijds tempel:
 
 ```
 addSeconds('2018-03-15T00:00:00Z', 10)
 ```
 
-En dit resultaat wordt weergegeven: `"2018-03-15T00:00:10.0000000Z"`
+En retourneert dit resultaat:`"2018-03-15T00:00:10.0000000Z"`
 
 *Voorbeeld 2*
 
-In dit voorbeeld wordt afgetrokken van vijf seconden tot de opgegeven tijdstempel:
+In dit voor beeld worden vijf seconden afgetrokken van de opgegeven tijds tempel:
 
 ```
 addSeconds('2018-03-15T00:00:30Z', -5)
 ```
 
-En dit resultaat wordt weergegeven: `"2018-03-15T00:00:25.0000000Z"`
+En retourneert dit resultaat:`"2018-03-15T00:00:25.0000000Z"`
 
 <a name="addToTime"></a>
 
 ### <a name="addtotime"></a>addToTime
 
-Een aantal tijdseenheden toevoegen aan een tijdstempel.
-See also [getFutureTime()](#getFutureTime).
+Voeg een aantal tijds eenheden toe aan een tijds tempel.
+Zie ook [getFutureTime ()](#getFutureTime).
 
 ```
 addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
@@ -718,43 +721,43 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*interval*> | Ja | Geheel getal | Het aantal eenheden van de opgegeven tijd toe te voegen |
-| <*timeUnit*> | Ja | String | De tijdseenheid voor gebruik met *interval*: 'Tweede', 'Minute', 'Uur', 'Dag', 'Week', 'Month', 'Year' |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Neem*> | Ja | Tekenreeks | De teken reeks die de tijds tempel bevat |
+| <*interval*> | Ja | Geheel getal | Het aantal opgegeven tijds eenheden dat moet worden toegevoegd |
+| <*timeUnit*> | Ja | Tekenreeks | De tijds eenheid die moet worden gebruikt met het *interval*: "Seconde", "minuut", "uur", "dag", "week", "maand", "jaar" |
+| <*Formatteer*> | Nee | Tekenreeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*bijgewerkt timestamp*> | String | De tijdstempel plus het opgegeven aantal tijdseenheden  |
+| <*bijgewerkt-tijds tempel*> | Reeks | De tijds tempel plus het opgegeven aantal tijds eenheden  |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld wordt één dag aan de opgegeven timestamp toegevoegd:
+In dit voor beeld wordt één dag toegevoegd aan de opgegeven tijds tempel:
 
 ```
 addToTime('2018-01-01T00:00:00Z', 1, 'Day')
 ```
 
-En dit resultaat wordt weergegeven: `"2018-01-02T00:00:00.0000000Z"`
+En retourneert dit resultaat:`"2018-01-02T00:00:00.0000000Z"`
 
 *Voorbeeld 2*
 
-In dit voorbeeld wordt één dag aan de opgegeven timestamp toegevoegd:
+In dit voor beeld wordt één dag toegevoegd aan de opgegeven tijds tempel:
 
 ```
 addToTime('2018-01-01T00:00:00Z', 1, 'Day', 'D')
 ```
 
-En retourneert het resultaat met behulp van de optionele "D"-indeling: `"Tuesday, January 2, 2018"`
+En retourneert het resultaat met de optionele D-indeling:`"Tuesday, January 2, 2018"`
 
 <a name="and"></a>
 
 ### <a name="and"></a>and
 
-Controleer of alle expressies ' True ' zijn.
-Retourneert waar wanneer alle expressies waar zijn of onwaar retourneren wanneer ten minste één expressie onwaar is.
+Controleer of alle expressies waar zijn.
+Retourneert waar als alle expressies waar zijn, of retourneert onwaar als ten minste één expressie onwaar is.
 
 ```
 and(<expression1>, <expression2>, ...)
@@ -762,17 +765,17 @@ and(<expression1>, <expression2>, ...)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | Ja | Boolean | De expressies om te controleren |
+| <*expressie1*>, <*Expressie2*>,... | Ja | Boolean-waarde | De te controleren expressies |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | -----| ----------- |
-| waar of ONWAAR | Boolean | Retourneert ' True ' wanneer alle expressies ' True ' zijn. Retourneert de waarde false wanneer ten minste één expressie onwaar is. |
+| waar of onwaar | Boolean-waarde | Retourneert waar als alle expressies waar zijn. Retourneert onwaar wanneer ten minste één expressie onwaar is. |
 ||||
 
 *Voorbeeld 1*
 
-Deze voorbeelden te controleren of de opgegeven Booleaanse waarden alle waar zijn:
+In deze voor beelden wordt gecontroleerd of de opgegeven Booleaanse waarden allemaal waar zijn:
 
 ```
 and(true, true)
@@ -780,15 +783,15 @@ and(false, true)
 and(false, false)
 ```
 
-En deze resultaten retourneert:
+En retourneert deze resultaten:
 
-* Eerste voorbeeld: Beide expressies ' True ' zijn, dus als resultaat `true`.
-* Tweede voorbeeld: Één expressie is ONWAAR, dus als resultaat `false`.
-* Derde voorbeeld: Beide expressies zijn ingesteld op false, dus als resultaat `false`.
+* Eerste voor beeld: Beide expressies zijn waar, dus retourneert `true`.
+* Tweede voor beeld: Een expressie is onwaar, dus `false`retourneert.
+* Derde voor beeld: Beide expressies zijn onwaar, dus `false`retourneert.
 
 *Voorbeeld 2*
 
-Deze voorbeelden te controleren of de opgegeven expressies alle waar zijn:
+In deze voor beelden wordt gecontroleerd of de opgegeven expressies allemaal waar zijn:
 
 ```
 and(equals(1, 1), equals(2, 2))
@@ -796,18 +799,18 @@ and(equals(1, 1), equals(1, 2))
 and(equals(1, 2), equals(1, 3))
 ```
 
-En deze resultaten retourneert:
+En retourneert deze resultaten:
 
-* Eerste voorbeeld: Beide expressies ' True ' zijn, dus als resultaat `true`.
-* Tweede voorbeeld: Één expressie is ONWAAR, dus als resultaat `false`.
-* Derde voorbeeld: Beide expressies zijn ingesteld op false, dus als resultaat `false`.
+* Eerste voor beeld: Beide expressies zijn waar, dus retourneert `true`.
+* Tweede voor beeld: Een expressie is onwaar, dus `false`retourneert.
+* Derde voor beeld: Beide expressies zijn onwaar, dus `false`retourneert.
 
 <a name="array"></a>
 
 ### <a name="array"></a>array
 
-Retourneert een matrix van één opgegeven invoer.
-Zie voor meerdere invoergegevens [createArray()](#createArray).
+Een matrix retour neren van een enkele opgegeven invoer.
+Zie [createArray ()](#createArray)voor meerdere invoer.
 
 ```
 array('<value>')
@@ -815,29 +818,29 @@ array('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De tekenreeks voor het maken van een matrix |
+| <*Value*> | Ja | Tekenreeks | De teken reeks voor het maken van een matrix |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| [<*waarde*>] | Matrix | Een matrix met de opgegeven invoer van één |
+| [<*waarde*>] | Array | Een matrix die de enkele opgegeven invoer bevat |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u een matrix van de tekenreeks "Hallo":
+In dit voor beeld wordt een matrix gemaakt op basis van de teken reeks ' Hallo ':
 
 ```
 array('hello')
 ```
 
-En dit resultaat wordt weergegeven: `["hello"]`
+En retourneert dit resultaat:`["hello"]`
 
 <a name="base64"></a>
 
 ### <a name="base64"></a>base64
 
-Retourneert de met base64 gecodeerde versie voor een tekenreeks.
+Retourneert de met base64 gecodeerde versie voor een teken reeks.
 
 ```
 base64('<value>')
@@ -845,29 +848,29 @@ base64('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De ingevoerde tekenreeks |
+| <*Value*> | Ja | Tekenreeks | De invoer teken reeks |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*base64-string*> | String | De met base64 gecodeerde versie voor de ingevoerde tekenreeks |
+| <*Base64-teken reeks*> | Tekenreeks | De met base64 gecodeerde versie voor de invoer teken reeks |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt de tekenreeks "Hallo" geconverteerd naar een met base64 gecodeerde tekenreeks:
+In dit voor beeld wordt de teken reeks "Hallo" geconverteerd naar een base64-gecodeerde teken reeks:
 
 ```
 base64('hello')
 ```
 
-En dit resultaat wordt weergegeven: `"aGVsbG8="`
+En retourneert dit resultaat:`"aGVsbG8="`
 
 <a name="base64ToBinary"></a>
 
 ### <a name="base64tobinary"></a>base64ToBinary
 
-Retourneert de binaire versie voor een base64-gecodeerde tekenreeks.
+Retourneert de binaire versie voor een base64-gecodeerde teken reeks.
 
 ```
 base64ToBinary('<value>')
@@ -875,23 +878,23 @@ base64ToBinary('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De met base64 gecodeerde tekenreeks converteren |
+| <*Value*> | Ja | Reeks | De base64-gecodeerde teken reeks die moet worden geconverteerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*binary-for-base64-string*> | String | De binaire versie van de base64-gecodeerde tekenreeks |
+| <*binary-for-base64-String*> | Tekenreeks | De binaire versie voor de met base64 gecodeerde teken reeks |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt de ' aGVsbG8 = "base64-gecodeerde tekenreeks naar een binaire tekenreeks:
+In dit voor beeld wordt de met base64 gecodeerde teken reeks "aGVsbG8 =" geconverteerd naar een binaire teken reeks:
 
 ```
 base64ToBinary('aGVsbG8=')
 ```
 
-En dit resultaat wordt weergegeven:
+En retourneert dit resultaat:
 
 `"0110000101000111010101100111001101100010010001110011100000111101"`
 
@@ -899,9 +902,9 @@ En dit resultaat wordt weergegeven:
 
 ### <a name="base64tostring"></a>base64ToString
 
-De tekenreeksversie voor een base64-gecodeerde tekenreeks, effectief decoderen van base64-tekenreeks geretourneerd.
-Deze functie wilt gebruiken in plaats van [decodeBase64()](#decodeBase64).
-Hoewel beide functies werken op dezelfde manier, `base64ToString()` verdient de voorkeur.
+Retourneert de teken reeks versie voor een base64-gecodeerde teken reeks, waardoor de base64-teken reeks effectief wordt gedecodeerd.
+Gebruik deze functie in plaats van [decodeBase64 ()](#decodeBase64).
+Hoewel beide functies op dezelfde manier werken, `base64ToString()` verdient de voor keur.
 
 ```
 base64ToString('<value>')
@@ -909,29 +912,29 @@ base64ToString('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De met base64 gecodeerde tekenreeks die moet worden gedecodeerd |
+| <*Value*> | Ja | Tekenreeks | De met base64 gecodeerde teken reeks die moet worden gedecodeerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*decoded-base64-string*> | String | De tekenreeksversie voor een base64-gecodeerde tekenreeks |
+| <*gedecodeerd-base64-teken reeks*> | Tekenreeks | De teken reeks versie voor een base64-gecodeerde teken reeks |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt de ' aGVsbG8 = "base64-gecodeerde tekenreeks naar alleen een tekenreeks:
+In dit voor beeld wordt de met base64 gecodeerde teken reeks "aGVsbG8 =" geconverteerd naar alleen een teken reeks:
 
 ```
 base64ToString('aGVsbG8=')
 ```
 
-En dit resultaat wordt weergegeven: `"hello"`
+En retourneert dit resultaat:`"hello"`
 
 <a name="binary"></a>
 
 ### <a name="binary"></a>binary
 
-Retourneert de binaire versie van een tekenreeks.
+Retourneert de binaire versie voor een teken reeks.
 
 ```
 binary('<value>')
@@ -939,33 +942,33 @@ binary('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De tekenreeks die moet worden geconverteerd |
+| <*Value*> | Ja | Tekenreeks | De teken reeks die moet worden geconverteerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*binary-for-input-value*> | String | De binaire versie voor de opgegeven tekenreeks |
+| <*binary-for-input-value*> | Reeks | De binaire versie voor de opgegeven teken reeks |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt de tekenreeks "Hallo" geconverteerd naar een binaire tekenreeks:
+In dit voor beeld wordt de teken reeks "Hallo" geconverteerd naar een binaire teken reeks:
 
 ```
 binary('hello')
 ```
 
-En dit resultaat wordt weergegeven:
+En retourneert dit resultaat:
 
 `"0110100001100101011011000110110001101111"`
 
 <a name="body"></a>
 
-### <a name="body"></a>De hoofdtekst
+### <a name="body"></a>Organen
 
-Resultaat van een actie `body` uitvoer tijdens runtime.
-De korte benaming voor `actions('<actionName>').outputs.body`.
-Zie [actionBody()](#actionBody) en [actions()](#actions).
+De uitvoer van `body` een actie tijdens runtime retour neren.
+Steno voor `actions('<actionName>').outputs.body`.
+Zie [actionBody ()](#actionBody) en [Actions ()](#actions).
 
 ```
 body('<actionName>')
@@ -973,23 +976,23 @@ body('<actionName>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Ja | String | De naam van de actie `body` uitvoer die u wilt |
+| <*actionName*> | Ja | Reeks | De naam voor de uitvoer van `body` de actie die u wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | -----| ----------- |
-| <*action-body-output*> | String | De `body` uitvoer van de opgegeven actie |
+| <*action-body-output*> | Tekenreeks | De `body` uitvoer van de opgegeven actie |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt de `body` uitvoer van de `Get user` Twitter-actie:
+In dit voor beeld `body` wordt de uitvoer `Get user` van de Twitter-actie opgehaald:
 
 ```
 body('Get_user')
 ```
 
-En dit resultaat wordt weergegeven:
+En retourneert dit resultaat:
 
 ```json
 "body": {
@@ -1018,34 +1021,34 @@ bool(<value>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | Alle | De waarde te converteren |
+| <*Value*> | Ja | Any | De waarde die moet worden geconverteerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| waar of ONWAAR | Boolean | De Booleaanse versie voor de opgegeven waarde |
+| waar of onwaar | Boolean-waarde | De Booleaanse versie voor de opgegeven waarde |
 ||||
 
 *Voorbeeld*
 
-De opgegeven waarden converteren in deze voorbeelden naar Boole-waarden:
+In deze voor beelden worden de opgegeven waarden geconverteerd naar Boole-waarden:
 
 ```
 bool(1)
 bool(0)
 ```
 
-En deze resultaten retourneert:
+En retourneert deze resultaten:
 
-* Eerste voorbeeld: `true`
-* Tweede voorbeeld: `false`
+* Eerste voor beeld:`true`
+* Tweede voor beeld:`false`
 
 <a name="coalesce"></a>
 
-### <a name="coalesce"></a>samenvoegen
+### <a name="coalesce"></a>Voeg
 
-Retourneert de eerste niet-null-waarde van een of meer parameters.
-Lege tekenreeksen, lege matrices en lege objecten zijn niet null zijn.
+Retourneert de eerste waarde die niet null is van een of meer para meters.
+Lege teken reeksen, lege matrices en lege objecten zijn niet null.
 
 ```
 coalesce(<object_1>, <object_2>, ...)
@@ -1053,17 +1056,17 @@ coalesce(<object_1>, <object_2>, ...)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object_1*>, <*object_2*>, ... | Ja | Eventuele kunt typen combineren | Een of meer items om te controleren op null-waarden |
+| <*object_1*>, <*object_2*>, ... | Ja | Any, kan typen combi neren | Een of meer items die moeten worden gecontroleerd op null |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*first-non-null-item*> | Alle | Het eerste item of -waarde die niet null is. Als alle parameters null zijn, is deze functie retourneert null zijn. |
+| <*first-non-null-item*> | Any | Het eerste item of de waarde die niet null is. Als alle para meters null zijn, retourneert deze functie null. |
 ||||
 
 *Voorbeeld*
 
-Deze voorbeelden retourneren de eerste niet-null-waarde van de opgegeven waarden, of null zijn wanneer alle waarden null zijn:
+In deze voor beelden wordt de eerste niet-null-waarde uit de opgegeven waarden geretourneerd, of NULL wanneer alle waarden null zijn:
 
 ```
 coalesce(null, true, false)
@@ -1071,17 +1074,17 @@ coalesce(null, 'hello', 'world')
 coalesce(null, null, null)
 ```
 
-En deze resultaten retourneert:
+En retourneert deze resultaten:
 
-* Eerste voorbeeld: `true`
-* Tweede voorbeeld: `"hello"`
-* Derde voorbeeld: `null`
+* Eerste voor beeld:`true`
+* Tweede voor beeld:`"hello"`
+* Derde voor beeld:`null`
 
 <a name="concat"></a>
 
 ### <a name="concat"></a>concat
 
-Twee of meer tekenreeksen combineren en retourneert de gecombineerde tekenreeks.
+Combi neer twee of meer teken reeksen en retour neer de gecombineerde teken reeks.
 
 ```
 concat('<text1>', '<text2>', ...)
@@ -1089,57 +1092,57 @@ concat('<text1>', '<text2>', ...)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text1*>, <*text2*>, ... | Ja | String | Ten minste twee tekenreeksen combineren |
+| <*text1*>, <*Tekst2*>,... | Ja | Reeks | Ten minste twee teken reeksen om te combi neren |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*text1text2...* > | String | De tekenreeks die is gemaakt op basis van de gecombineerde invoer tekenreeksen |
+| <*text1text2...* > | Tekenreeks | De teken reeks die is gemaakt op basis van de gecombineerde invoer teken reeksen |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld worden de tekenreeksen "Hello" en "World" gecombineerd:
+In dit voor beeld worden de teken reeksen "Hallo" en "wereld" gecombineerd:
 
 ```
 concat('Hello', 'World')
 ```
 
-En dit resultaat wordt weergegeven: `"HelloWorld"`
+En retourneert dit resultaat:`"HelloWorld"`
 
 <a name="contains"></a>
 
 ### <a name="contains"></a>bevat
 
 Controleer of een verzameling een specifiek item heeft.
-Retourneert waar wanneer het item is gevonden, of onwaar retourneren wanneer niet gevonden.
-Deze functie is hoofdlettergevoelig.
+Retourneert waar wanneer het item is gevonden, of retourneert onwaar als het niet is gevonden.
+Deze functie is hoofdletter gevoelig.
 
 ```
 contains('<collection>', '<value>')
 contains([<collection>], '<value>')
 ```
 
-Deze functie werkt met name op dergelijke verzameling:
+Deze functie werkt met name voor deze typen verzamelingen:
 
-* Een *tekenreeks* vinden een *subtekenreeks*
-* Een *matrix* vinden een *waarde*
-* Een *woordenlijst* vinden een *sleutel*
+* Een *teken reeks* om een *subtekenreeks* te vinden
+* Een *matrix* om een *waarde* te zoeken
+* Een *woorden lijst* om een *sleutel* te vinden
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Verzameling*> | Ja | Tekenreeks of matrix woordenlijst | De verzameling om te controleren |
-| <*Waarde*> | Ja | Tekenreeks of matrix woordenlijst, respectievelijk | Het item om te zoeken |
+| <*innings*> | Ja | Teken reeks, matrix of woorden lijst | De verzameling die moet worden gecontroleerd |
+| <*Value*> | Ja | Respectievelijk een teken reeks, matrix of woorden lijst | Het item dat u wilt zoeken |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| waar of ONWAAR | Boolean | Retourneert waar wanneer het item is gevonden. Retourneert de waarde false wanneer niet gevonden. |
+| waar of onwaar | Boolean-waarde | Retourneert waar wanneer het item is gevonden. Retourneert onwaar wanneer deze niet is gevonden. |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld controleert de tekenreeks "Hallo wereld" voor de subtekenreeks "wereld" en retourneert ' True ':
+In dit voor beeld wordt de teken reeks "Hallo wereld" voor de subtekenreeks "wereld" gecontroleerd en wordt waar geretourneerd:
 
 ```
 contains('hello world', 'world')
@@ -1147,7 +1150,7 @@ contains('hello world', 'world')
 
 *Voorbeeld 2*
 
-In dit voorbeeld controleert de tekenreeks "Hallo wereld" voor de subtekenreeks 'universe' en retourneert ' false ':
+In dit voor beeld wordt de teken reeks "Hallo wereld" voor de subtekenreeks "universum" gecontroleerd en wordt false geretourneerd:
 
 ```
 contains('hello world', 'universe')
@@ -1157,7 +1160,7 @@ contains('hello world', 'universe')
 
 ### <a name="convertfromutc"></a>convertFromUtc
 
-Een tijdstempel van Coordinated van Universal Time (UTC) naar de doeltijdzone converteren.
+Converteer een tijds tempel van Universal Time Coordinated (UTC) naar de doel tijdzone.
 
 ```
 convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
@@ -1165,41 +1168,41 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*destinationTimeZone*> | Ja | String | De naam voor de doel-tijdzone. Zie voor meer informatie, [tijdzone-id's](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Neem*> | Ja | Reeks | De teken reeks die de tijds tempel bevat |
+| <*destinationTimeZone*> | Ja | Tekenreeks | De naam voor de tijd zone van het doel. Zie [tijd zone-id's](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80))voor meer informatie. |
+| <*Formatteer*> | Nee | Tekenreeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*geconverteerd timestamp*> | String | De tijdstempel geconverteerd naar de doeltijdzone |
+| <*geconverteerd: tijds tempel*> | Reeks | De tijds tempel die is geconverteerd naar de doel tijdzone |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld wordt een tijdstempel op de opgegeven tijdzone geconverteerd:
+In dit voor beeld wordt een tijds tempel geconverteerd naar de opgegeven tijd zone:
 
 ```
 convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time')
 ```
 
-En dit resultaat wordt weergegeven: `"2018-01-01T00:00:00.0000000"`
+En retourneert dit resultaat:`"2018-01-01T00:00:00.0000000"`
 
 *Voorbeeld 2*
 
-In dit voorbeeld wordt een tijdstempel aan de opgegeven tijdzone en indeling geconverteerd:
+In dit voor beeld wordt een tijds tempel geconverteerd naar de opgegeven tijd zone en notatie:
 
 ```
 convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time', 'D')
 ```
 
-En dit resultaat wordt weergegeven: `"Monday, January 1, 2018"`
+En retourneert dit resultaat:`"Monday, January 1, 2018"`
 
 <a name="convertTimeZone"></a>
 
 ### <a name="converttimezone"></a>convertTimeZone
 
-Een tijdstempel van de brontijdzone converteren naar de doeltijdzone.
+Converteer een tijds tempel van de bron tijdzone naar de doel tijdzone.
 
 ```
 convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<format>'?)
@@ -1207,42 +1210,42 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*sourceTimeZone*> | Ja | String | De naam voor de tijdzone van de bron. Zie voor meer informatie, [tijdzone-id's](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
-| <*destinationTimeZone*> | Ja | String | De naam voor de doel-tijdzone. Zie voor meer informatie, [tijdzone-id's](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Neem*> | Ja | Tekenreeks | De teken reeks die de tijds tempel bevat |
+| <*sourceTimeZone*> | Ja | Reeks | De naam voor de bron tijdzone. Zie [tijd zone-id's](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80))voor meer informatie. |
+| <*destinationTimeZone*> | Ja | Tekenreeks | De naam voor de tijd zone van het doel. Zie [tijd zone-id's](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80))voor meer informatie. |
+| <*Formatteer*> | Nee | Reeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*geconverteerd timestamp*> | String | De tijdstempel geconverteerd naar de doeltijdzone |
+| <*geconverteerd: tijds tempel*> | Reeks | De tijds tempel die is geconverteerd naar de doel tijdzone |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld wordt de brontijdzone geconverteerd naar de doeltijdzone:
+In dit voor beeld wordt de bron tijdzone geconverteerd naar de doel tijdzone:
 
 ```
 convertTimeZone('2018-01-01T08:00:00.0000000Z', 'UTC', 'Pacific Standard Time')
 ```
 
-En dit resultaat wordt weergegeven: `"2018-01-01T00:00:00.0000000"`
+En retourneert dit resultaat:`"2018-01-01T00:00:00.0000000"`
 
 *Voorbeeld 2*
 
-In dit voorbeeld wordt een tijdzone geconverteerd naar de opgegeven tijdzone en indeling:
+In dit voor beeld wordt een tijd zone geconverteerd naar de opgegeven tijd zone en notatie:
 
 ```
 convertTimeZone('2018-01-01T80:00:00.0000000Z', 'UTC', 'Pacific Standard Time', 'D')
 ```
 
-En dit resultaat wordt weergegeven: `"Monday, January 1, 2018"`
+En retourneert dit resultaat:`"Monday, January 1, 2018"`
 
 <a name="convertToUtc"></a>
 
 ### <a name="converttoutc"></a>convertToUtc
 
-Een tijdstempel van de brontijdzone Coordinated van Universal Time (UTC) converteren.
+Een tijds tempel van de bron tijdzone converteren naar Universal Time Coordinated (UTC).
 
 ```
 convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
@@ -1250,42 +1253,42 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*sourceTimeZone*> | Ja | String | De naam voor de tijdzone van de bron. Zie voor meer informatie, [tijdzone-id's](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Neem*> | Ja | Reeks | De teken reeks die de tijds tempel bevat |
+| <*sourceTimeZone*> | Ja | Tekenreeks | De naam voor de bron tijdzone. Zie [tijd zone-id's](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80))voor meer informatie. |
+| <*Formatteer*> | Nee | Tekenreeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*geconverteerd timestamp*> | String | De tijdstempel die wordt geconverteerd naar UTC |
+| <*geconverteerd: tijds tempel*> | Tekenreeks | De tijds tempel die is geconverteerd naar UTC |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld wordt een tijdstempel wordt geconverteerd naar UTC:
+In dit voor beeld wordt een tijds tempel geconverteerd naar UTC:
 
 ```
 convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time')
 ```
 
-En dit resultaat wordt weergegeven: `"2018-01-01T08:00:00.0000000Z"`
+En retourneert dit resultaat:`"2018-01-01T08:00:00.0000000Z"`
 
 *Voorbeeld 2*
 
-In dit voorbeeld wordt een tijdstempel wordt geconverteerd naar UTC:
+In dit voor beeld wordt een tijds tempel geconverteerd naar UTC:
 
 ```
 convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time', 'D')
 ```
 
-En dit resultaat wordt weergegeven: `"Monday, January 1, 2018"`
+En retourneert dit resultaat:`"Monday, January 1, 2018"`
 
 <a name="createArray"></a>
 
 ### <a name="createarray"></a>createArray
 
-Retourneert een matrix van meerdere invoergegevens.
-Zie voor één invoer matrices [array](#array).
+Een matrix van meerdere invoer waarden retour neren.
+Zie [matrix ()](#array)voor één invoer matrix.
 
 ```
 createArray('<object1>', '<object2>', ...)
@@ -1293,29 +1296,29 @@ createArray('<object1>', '<object2>', ...)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Object1*>, <*object2*>,... | Ja | , Maar niet in de gemengde modus | Ten minste twee items voor het maken van de matrix |
+| <*object1*>, <*object2*>,... | Ja | Any, maar niet gemengd | Ten minste twee items om de matrix te maken |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| [<*object1*>, <*object2*>, ...] | Matrix | De matrix gemaakt op basis van de invoer items |
+| [<*object1*>, <*object2*>,...] | Array | De matrix die is gemaakt op basis van alle invoer items |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u een matrix van deze invoer:
+In dit voor beeld wordt een matrix gemaakt op basis van deze invoer:
 
 ```
 createArray('h', 'e', 'l', 'l', 'o')
 ```
 
-En dit resultaat wordt weergegeven: `["h", "e", "l", "l", "o"]`
+En retourneert dit resultaat:`["h", "e", "l", "l", "o"]`
 
 <a name="dataUri"></a>
 
 ### <a name="datauri"></a>dataUri
 
-Retourneert een gegevens uniform resource identifier (URI) voor een tekenreeks.
+Een gegevens-URI (Uniform Resource Identifier) retour neren voor een teken reeks.
 
 ```
 dataUri('<value>')
@@ -1323,31 +1326,31 @@ dataUri('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De tekenreeks die moet worden geconverteerd |
+| <*Value*> | Ja | Tekenreeks | De teken reeks die moet worden geconverteerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*data-uri*> | String | De gegevens-URI voor de ingevoerde tekenreeks |
+| <*gegevens-URI*> | Reeks | De gegevens-URI voor de invoer teken reeks |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u een gegevens-URI voor de tekenreeks "Hallo":
+In dit voor beeld wordt een gegevens-URI gemaakt voor de teken reeks "Hallo":
 
 ```
 dataUri('hello')
 ```
 
-En dit resultaat wordt weergegeven: `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
+En retourneert dit resultaat:`"data:text/plain;charset=utf-8;base64,aGVsbG8="`
 
 <a name="dataUriToBinary"></a>
 
 ### <a name="datauritobinary"></a>dataUriToBinary
 
-Retourneert de binaire versie voor een data uniform resource identifier (URI).
-Deze functie wilt gebruiken in plaats van [decodeDataUri()](#decodeDataUri).
-Hoewel beide functies werken op dezelfde manier, `dataUriBinary()` verdient de voorkeur.
+Retourneert de binaire versie voor een gegevens-URI (Uniform Resource Identifier).
+Gebruik deze functie in plaats van [decodeDataUri ()](#decodeDataUri).
+Hoewel beide functies op dezelfde manier werken, `dataUriBinary()` verdient de voor keur.
 
 ```
 dataUriToBinary('<value>')
@@ -1355,23 +1358,23 @@ dataUriToBinary('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De gegevens-URI moet worden geconverteerd |
+| <*Value*> | Ja | Tekenreeks | De gegevens-URI die moet worden geconverteerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*binary-for-data-uri*> | String | De binaire versie van de gegevens-URI |
+| <*binary-for-data-URI*> | Tekenreeks | De binaire versie voor de gegevens-URI |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u een binaire versie voor deze gegevens-URI:
+In dit voor beeld wordt een binaire versie gemaakt voor deze gegevens-URI:
 
 ```
 dataUriToBinary('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
 
-En dit resultaat wordt weergegeven:
+En retourneert dit resultaat:
 
 `"01100100011000010111010001100001001110100111010001100101011110000111010000101111011100000
 1101100011000010110100101101110001110110110001101101000011000010111001001110011011001010111
@@ -1382,7 +1385,7 @@ En dit resultaat wordt weergegeven:
 
 ### <a name="datauritostring"></a>dataUriToString
 
-De tekenreeksversie voor een data uniform resource identifier (URI) retourneren.
+Retourneert de versie van de teken reeks voor een gegevens-URI (Uniform Resource Identifier).
 
 ```
 dataUriToString('<value>')
@@ -1390,29 +1393,29 @@ dataUriToString('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De gegevens-URI moet worden geconverteerd |
+| <*Value*> | Ja | Reeks | De gegevens-URI die moet worden geconverteerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*string-for-data-uri*> | String | De tekenreeksversie voor de gegevens-URI |
+| <*string-for-data-URI*> | Tekenreeks | De teken reeks versie voor de gegevens-URI |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u een tekenreeks op voor deze gegevens-URI:
+In dit voor beeld wordt een teken reeks gemaakt voor deze gegevens-URI:
 
 ```
 dataUriToString('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
 
-En dit resultaat wordt weergegeven: `"hello"`
+En retourneert dit resultaat:`"hello"`
 
 <a name="dayOfMonth"></a>
 
 ### <a name="dayofmonth"></a>dayOfMonth
 
-Retourneert de dag van de maand van een tijdstempel.
+Retourneert de dag van de maand van een tijds tempel.
 
 ```
 dayOfMonth('<timestamp>')
@@ -1420,29 +1423,29 @@ dayOfMonth('<timestamp>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
+| <*Neem*> | Ja | Reeks | De teken reeks die de tijds tempel bevat |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*day-of-month*> | Geheel getal | De dag van de maand van de opgegeven timestamp |
+| <*dag van de maand*> | Geheel getal | De dag van de maand van de opgegeven tijds tempel |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld retourneert het getal voor de dag van de maand van dit tijdstempel:
+In dit voor beeld wordt het getal voor de dag van de maand uit deze tijds tempel geretourneerd:
 
 ```
 dayOfMonth('2018-03-15T13:27:36Z')
 ```
 
-En dit resultaat wordt weergegeven: `15`
+En retourneert dit resultaat:`15`
 
 <a name="dayOfWeek"></a>
 
 ### <a name="dayofweek"></a>dayOfWeek
 
-Retourneert de dag van de week van een tijdstempel.
+Retourneert de dag van de week van een tijds tempel.
 
 ```
 dayOfWeek('<timestamp>')
@@ -1450,29 +1453,29 @@ dayOfWeek('<timestamp>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
+| <*Neem*> | Ja | Reeks | De teken reeks die de tijds tempel bevat |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*day-of-week*> | Geheel getal | De dag van de week van de opgegeven timestamp waar zondag is ingesteld op 0 maandag is 1, enzovoort |
+| <*day-of-week*> | Geheel getal | De dag van de week vanaf de opgegeven tijds tempel waarbij zondag 0 is, maandag 1, enzovoort |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld retourneert het getal voor de dag van de week van dit tijdstempel:
+In dit voor beeld wordt het getal voor de dag van de week uit deze tijds tempel geretourneerd:
 
 ```
 dayOfWeek('2018-03-15T13:27:36Z')
 ```
 
-En dit resultaat wordt weergegeven: `3`
+En retourneert dit resultaat:`3`
 
 <a name="dayOfYear"></a>
 
 ### <a name="dayofyear"></a>dayOfYear
 
-Retourneert de dag van het jaar van een tijdstempel.
+Retourneert de dag van het jaar van een tijds tempel.
 
 ```
 dayOfYear('<timestamp>')
@@ -1480,31 +1483,31 @@ dayOfYear('<timestamp>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
+| <*Neem*> | Ja | Tekenreeks | De teken reeks die de tijds tempel bevat |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*dag van jaar*> | Geheel getal | De dag van het jaar van de opgegeven timestamp |
+| <*dag van jaar*> | Geheel getal | De dag van het jaar van de opgegeven tijds tempel |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld retourneert de waarde van de dag van het jaar van dit tijdstempel:
+In dit voor beeld wordt het nummer van de dag van het jaar uit deze tijds tempel geretourneerd:
 
 ```
 dayOfYear('2018-03-15T13:27:36Z')
 ```
 
-En dit resultaat wordt weergegeven: `74`
+En retourneert dit resultaat:`74`
 
 <a name="decodeBase64"></a>
 
 ### <a name="decodebase64"></a>decodeBase64
 
-De tekenreeksversie voor een base64-gecodeerde tekenreeks, effectief decoderen van base64-tekenreeks geretourneerd.
-Overweeg het gebruik van [base64ToString()](#base64ToString) in plaats van `decodeBase64()`.
-Hoewel beide functies werken op dezelfde manier, `base64ToString()` verdient de voorkeur.
+Retourneert de teken reeks versie voor een base64-gecodeerde teken reeks, waardoor de base64-teken reeks effectief wordt gedecodeerd.
+Overweeg het gebruik van [base64ToString ()](#base64ToString) in plaats van `decodeBase64()`.
+Hoewel beide functies op dezelfde manier werken, `base64ToString()` verdient de voor keur.
 
 ```
 decodeBase64('<value>')
@@ -1512,31 +1515,31 @@ decodeBase64('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De met base64 gecodeerde tekenreeks die moet worden gedecodeerd |
+| <*Value*> | Ja | Reeks | De met base64 gecodeerde teken reeks die moet worden gedecodeerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*decoded-base64-string*> | String | De tekenreeksversie voor een base64-gecodeerde tekenreeks |
+| <*gedecodeerd-base64-teken reeks*> | Tekenreeks | De teken reeks versie voor een base64-gecodeerde teken reeks |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u een tekenreeks op voor een base64-gecodeerde tekenreeks:
+In dit voor beeld wordt een teken reeks gemaakt voor een teken reeks met base64-code ring:
 
 ```
 decodeBase64('aGVsbG8=')
 ```
 
-En dit resultaat wordt weergegeven: `"hello"`
+En retourneert dit resultaat:`"hello"`
 
 <a name="decodeDataUri"></a>
 
 ### <a name="decodedatauri"></a>decodeDataUri
 
-Retourneert de binaire versie voor een data uniform resource identifier (URI).
-Overweeg het gebruik van [dataUriToBinary()](#dataUriToBinary), in plaats van `decodeDataUri()`.
-Hoewel beide functies werken op dezelfde manier, `dataUriToBinary()` verdient de voorkeur.
+Retourneert de binaire versie voor een gegevens-URI (Uniform Resource Identifier).
+Overweeg het gebruik van [dataUriToBinary ()](#dataUriToBinary)in `decodeDataUri()`plaats van.
+Hoewel beide functies op dezelfde manier werken, `dataUriToBinary()` verdient de voor keur.
 
 ```
 decodeDataUri('<value>')
@@ -1544,23 +1547,23 @@ decodeDataUri('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De gegevens-URI-tekenreeks moet worden gedecodeerd |
+| <*Value*> | Ja | Reeks | De gegevens-URI-teken reeks die moet worden gedecodeerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*binary-for-data-uri*> | String | De binaire versie van een gegevens-URI-tekenreeks |
+| <*binary-for-data-URI*> | Reeks | De binaire versie voor een gegevens-URI-teken reeks |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld retourneert de binaire versie voor deze gegevens-URI:
+In dit voor beeld wordt de binaire versie van deze gegevens-URI geretourneerd:
 
 ```
 decodeDataUri('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
 
-En dit resultaat wordt weergegeven:
+En retourneert dit resultaat:
 
 `"01100100011000010111010001100001001110100111010001100101011110000111010000101111011100000
 1101100011000010110100101101110001110110110001101101000011000010111001001110011011001010111
@@ -1571,7 +1574,7 @@ En dit resultaat wordt weergegeven:
 
 ### <a name="decodeuricomponent"></a>decodeUriComponent
 
-Een tekenreeks die wordt vervangen escape-tekens met gedecodeerde versies retourneren.
+Retourneert een teken reeks waarmee escape tekens worden vervangen door gedecodeerde versies.
 
 ```
 decodeUriComponent('<value>')
@@ -1579,30 +1582,30 @@ decodeUriComponent('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De tekenreeks met de escape-tekens moet worden gedecodeerd |
+| <*Value*> | Ja | Tekenreeks | De teken reeks met de escape-tekens die moeten worden gedecodeerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*decoded-uri*> | String | De bijgewerkte tekenreeks met de gedecodeerde escape-tekens |
+| <*decoded-uri*> | Tekenreeks | De bijgewerkte teken reeks met de gecodeerde escape tekens |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld worden de escapetekens in deze tekenreeks vervangen door gedecodeerde versies:
+In dit voor beeld worden de escape-tekens in deze teken reeks vervangen door gedecodeerde versies:
 
 ```
 decodeUriComponent('http%3A%2F%2Fcontoso.com')
 ```
 
-En dit resultaat wordt weergegeven: `"https://contoso.com"`
+En retourneert dit resultaat:`"https://contoso.com"`
 
 <a name="div"></a>
 
 ### <a name="div"></a>div
 
-Retourneert het resultaat geheel getal van twee getallen delen.
-Als u de rest-resultaat, Zie [mod()](#mod).
+Retourneert het gehele getal als resultaat van het delen van twee getallen.
+Zie [mod ()](#mod)om het rest resultaat op te halen.
 
 ```
 div(<dividend>, <divisor>)
@@ -1610,33 +1613,33 @@ div(<dividend>, <divisor>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*dividend*> | Ja | Geheel getal of een gegevenstype met drijvende komma | Het getal waardoor moet worden de *deler* |
-| <*divisor*> | Ja | Geheel getal of een gegevenstype met drijvende komma | Het getal dat wordt gedeeld de *deeltal*, maar mag niet 0 |
+| <*dividend*> | Ja | Geheel getal of zwevend | Het getal dat moet worden gedeeld door de *deler* |
+| <*divisor*> | Ja | Geheel getal of zwevend | Het getal dat het *deelt*deel, maar mag niet 0 zijn |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Geheel getal | De integer als resultaat van het delen van het eerste getal door het tweede getal |
+| <*quotiënt-resultaat*> | Geheel getal | Het gehele getal als resultaat van het delen van het eerste getal met het tweede getal |
 ||||
 
 *Voorbeeld*
 
-Beide voorbeelden delen het eerste getal door het tweede getal:
+Beide voor beelden delen het eerste getal door het tweede getal:
 
 ```
 div(10, 5)
 div(11, 5)
 ```
 
-En dit resultaat te retourneren: `2`
+En retour neren dit resultaat:`2`
 
 <a name="encodeUriComponent"></a>
 
 ### <a name="encodeuricomponent"></a>encodeUriComponent
 
-Retourneert een uniform resource identifier (URI) gecodeerde versie voor een tekenreeks-URL-onveilige tekens te vervangen door een escape-tekens.
-Overweeg het gebruik van [uriComponent()](#uriComponent), in plaats van `encodeUriComponent()`.
-Hoewel beide functies werken op dezelfde manier, `uriComponent()` verdient de voorkeur.
+Een gecodeerde URI-versie (Uniform Resource Identifier) retour neren voor een teken reeks door onveilige URL-tekens te vervangen door Escape tekens.
+Overweeg het gebruik van [uriComponent ()](#uriComponent)in `encodeUriComponent()`plaats van.
+Hoewel beide functies op dezelfde manier werken, `uriComponent()` verdient de voor keur.
 
 ```
 encodeUriComponent('<value>')
@@ -1644,30 +1647,30 @@ encodeUriComponent('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De tekenreeks die moet worden geconverteerd naar de URI-notatie |
+| <*Value*> | Ja | Tekenreeks | De teken reeks die moet worden geconverteerd naar een URI-gecodeerde indeling |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*encoded-uri*> | String | De URI-gecodeerde tekenreeks met escape-tekens |
+| <*encoded-uri*> | Tekenreeks | De teken reeks met URI-code ring met escape tekens |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u een URI-gecodeerde versie voor deze tekenreeks:
+In dit voor beeld wordt een met URI gecodeerde versie gemaakt voor deze teken reeks:
 
 ```
 encodeUriComponent('https://contoso.com')
 ```
 
-En dit resultaat wordt weergegeven: `"http%3A%2F%2Fcontoso.com"`
+En retourneert dit resultaat:`"http%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
-### <a name="empty"></a>leeg zijn
+### <a name="empty"></a>gelaten
 
 Controleer of een verzameling leeg is.
-Retourneert waar wanneer de verzameling leeg is of retourneren ONWAAR wanneer deze niet leeg zijn.
+Retourneert waar als de verzameling leeg is of retourneert onwaar als deze niet leeg is.
 
 ```
 empty('<collection>')
@@ -1676,35 +1679,35 @@ empty([<collection>])
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Verzameling*> | Ja | Tekenreeks, matrix of Object | De verzameling om te controleren |
+| <*innings*> | Ja | Teken reeks, matrix of object | De verzameling die moet worden gecontroleerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| waar of ONWAAR | Boolean | Retourneert waar als de verzameling leeg is. Retourneert de waarde false als deze niet leeg zijn. |
+| waar of onwaar | Boolean-waarde | Retourneert waar als de verzameling leeg is. Retourneert onwaar wanneer niet leeg is. |
 ||||
 
 *Voorbeeld*
 
-Deze voorbeelden te controleren of de gespecificeerde verzamelingen leeg zijn:
+In deze voor beelden wordt gecontroleerd of de opgegeven verzamelingen leeg zijn:
 
 ```
 empty('')
 empty('abc')
 ```
 
-En deze resultaten retourneert:
+En retourneert deze resultaten:
 
-* Eerste voorbeeld: Een lege tekenreeks doorgegeven, zodat de functie geeft als resultaat `true`.
-* Tweede voorbeeld: Geeft de tekenreeks "abc", maken, zodat de functie geeft als resultaat `false`.
+* Eerste voor beeld: Hiermee wordt een lege teken reeks door gegeven, `true`waardoor de functie wordt geretourneerd.
+* Tweede voor beeld: Hiermee wordt de teken reeks ' ABC ' door gegeven, `false`waardoor de functie wordt geretourneerd.
 
 <a name="endswith"></a>
 
-### <a name="endswith"></a>endsWith
+### <a name="endswith"></a>EndsWith
 
-Controleer of een tekenreeks met een specifieke subtekenreeks eindigt.
-Retourneert waar wanneer de subtekenreeks wordt gevonden, of onwaar retourneren wanneer niet gevonden.
-Deze functie is niet hoofdlettergevoelig.
+Controleren of een teken reeks eindigt met een specifieke subtekenreeks.
+Retourneert waar als de subtekenreeks wordt gevonden, of retourneert False als het niet is gevonden.
+Deze functie is niet hoofdletter gevoelig.
 
 ```
 endsWith('<text>', '<searchText>')
@@ -1712,41 +1715,41 @@ endsWith('<text>', '<searchText>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Ja | String | De tekenreeks om te controleren |
-| <*searchText*> | Ja | String | De einddatum subtekenreeks om te zoeken |
+| <*SMS*> | Ja | Tekenreeks | De teken reeks die moet worden gecontroleerd |
+| <*searchText*> | Ja | Tekenreeks | De laatste subtekenreeks die moet worden gezocht |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| waar of ONWAAR  | Boolean | Retourneert waar wanneer de einddatum subtekenreeks wordt gevonden. Retourneert de waarde false wanneer niet gevonden. |
+| waar of onwaar  | Boolean-waarde | Retourneert waar als de laatste subtekenreeks wordt gevonden. Retourneert onwaar wanneer deze niet is gevonden. |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld controleert of de tekenreeks "Hallo wereld" met de tekenreeks "wereld eindigt":
+In dit voor beeld wordt gecontroleerd of de teken reeks "Hallo wereld" eindigt op de "wereld"-teken reeks:
 
 ```
 endsWith('hello world', 'world')
 ```
 
-En dit resultaat wordt weergegeven: `true`
+En retourneert dit resultaat:`true`
 
 *Voorbeeld 2*
 
-In dit voorbeeld controleert of de tekenreeks "Hallo wereld" met de tekenreeks "universe eindigt":
+In dit voor beeld wordt gecontroleerd of de teken reeks ' Hallo wereld ' eindigt met de teken reeks ' universum ':
 
 ```
 endsWith('hello world', 'universe')
 ```
 
-En dit resultaat wordt weergegeven: `false`
+En retourneert dit resultaat:`false`
 
 <a name="equals"></a>
 
 ### <a name="equals"></a>equals
 
-Controleer of zowel waarden, expressies of objecten equivalent zijn.
-Retourneert ' True ' wanneer beide gelijk zijn, of onwaar retourneren wanneer ze niet gelijk zijn.
+Controleer of beide waarden, expressies of objecten gelijkwaardig zijn.
+Retourneert waar als beide gelijkwaardig zijn, of retourneert onwaar als deze niet overeenkomen.
 
 ```
 equals('<object1>', '<object2>')
@@ -1754,33 +1757,33 @@ equals('<object1>', '<object2>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Object1*>, <*object2*> | Ja | Verschillende | De waarden, de expressies, of de objecten die u wilt vergelijken |
+| <*object1*>, <*object2*> | Ja | Sommige | De waarden, expressies of objecten die u wilt vergelijken |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| waar of ONWAAR | Boolean | Retourneert ' True ' wanneer beide gelijk zijn. Retourneert de waarde false wanneer geen equivalent. |
+| waar of onwaar | Boolean-waarde | Retourneert waar als beide gelijkwaardig zijn. Retourneert onwaar als dat niet het equivalent is. |
 ||||
 
 *Voorbeeld*
 
-Deze voorbeelden kunt u controleren of de opgegeven invoer gelijk zijn.
+In deze voor beelden wordt gecontroleerd of de opgegeven invoer gelijkwaardig zijn.
 
 ```
 equals(true, 1)
 equals('abc', 'abcd')
 ```
 
-En deze resultaten retourneert:
+En retourneert deze resultaten:
 
-* Eerste voorbeeld: Beide waarden zijn equivalent, zodat de functie retourneert `true`.
-* Tweede voorbeeld: Beide waarden niet het geval is, zodat de functie retourneert `false`.
+* Eerste voor beeld: Beide waarden zijn gelijkwaardig, waardoor de functie wordt `true`geretourneerd.
+* Tweede voor beeld: Beide waarden zijn niet gelijk, dus de functie `false`retourneert.
 
 <a name="first"></a>
 
-### <a name="first"></a>eerste
+### <a name="first"></a>instantie
 
-Retourneert het eerste item van een tekenreeks of een matrix.
+Het eerste item van een teken reeks of matrix retour neren.
 
 ```
 first('<collection>')
@@ -1789,34 +1792,34 @@ first([<collection>])
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Verzameling*> | Ja | Tekenreeks of matrix | De verzameling waar vind ik het eerste item |
+| <*innings*> | Ja | Teken reeks of matrix | De verzameling waar het eerste item moet worden gevonden |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*first-collection-item*> | Alle | Het eerste item in de verzameling |
+| <*first-collection-item*> | Any | Het eerste item in de verzameling |
 ||||
 
 *Voorbeeld*
 
-Deze voorbeelden wordt het eerste item vindt in deze verzamelingen:
+In deze voor beelden vindt u het eerste item in deze verzamelingen:
 
 ```
 first('hello')
 first(createArray(0, 1, 2))
 ```
 
-En deze resultaten worden geretourneerd:
+En retour neren deze resultaten:
 
-* Eerste voorbeeld: `"h"`
-* Tweede voorbeeld: `0`
+* Eerste voor beeld:`"h"`
+* Tweede voor beeld:`0`
 
 <a name="float"></a>
 
 ### <a name="float"></a>float
 
-De tekenreeksversie van een voor een drijvend-kommagetal converteren naar een werkelijke getal met drijvende komma.
-U kunt deze functie alleen als aangepaste parameters wordt doorgegeven aan een app, bijvoorbeeld een logische app of stroom.
+Een teken reeks versie voor een drijvende-komma getal converteren naar een werkelijk drijvende-komma getal.
+U kunt deze functie alleen gebruiken bij het door geven van aangepaste para meters aan een app, bijvoorbeeld een logische app of stroom.
 
 ```
 float('<value>')
@@ -1824,29 +1827,29 @@ float('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De tekenreeks met een geldige drijvend-kommagetal converteren |
+| <*Value*> | Ja | Tekenreeks | De teken reeks met een geldig drijvende-komma getal dat moet worden geconverteerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*float-value*> | Float | Het getal met drijvende komma voor de opgegeven tekenreeks |
+| <*float-value*> | Float | Het drijvende-komma getal voor de opgegeven teken reeks |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u een tekenreeksversie van dit getal met drijvende komma:
+In dit voor beeld wordt een teken reeks versie gemaakt voor dit getal met drijvende komma:
 
 ```
 float('10.333')
 ```
 
-En dit resultaat wordt weergegeven: `10.333`
+En retourneert dit resultaat:`10.333`
 
 <a name="formatDateTime"></a>
 
 ### <a name="formatdatetime"></a>formatDateTime
 
-Retourneert een timestamp worden opgegeven in de indeling die is opgegeven.
+Een tijds tempel retour neren in de opgegeven notatie.
 
 ```
 formatDateTime('<timestamp>', '<format>'?)
@@ -1854,30 +1857,30 @@ formatDateTime('<timestamp>', '<format>'?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Neem*> | Ja | Tekenreeks | De teken reeks die de tijds tempel bevat |
+| <*Formatteer*> | Nee | Tekenreeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*reformatted-timestamp*> | String | De bijgewerkte tijdstempel in de opgegeven indeling |
+| <*opnieuw geformatteerd-tijds tempel*> | Tekenreeks | De bijgewerkte tijds tempel in de opgegeven indeling |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt een tijdstempel geconverteerd naar de opgegeven indeling:
+In dit voor beeld wordt een tijds tempel geconverteerd naar de opgegeven notatie:
 
 ```
 formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss')
 ```
 
-En dit resultaat wordt weergegeven: `"2018-03-15T12:00:00"`
+En retourneert dit resultaat:`"2018-03-15T12:00:00"`
 
 <a name="formDataMultiValues"></a>
 
 ### <a name="formdatamultivalues"></a>formDataMultiValues
 
-Retourneert een matrix met waarden die overeenkomen met een naam in van een actie *formuliergegevens* of *formuliercodes* uitvoer.
+Retour neer een matrix met waarden die overeenkomen met een sleutel naam in een actie *formulier gegevens* of *formulier-gecodeerde* uitvoer.
 
 ```
 formDataMultiValues('<actionName>', '<key>')
@@ -1885,31 +1888,31 @@ formDataMultiValues('<actionName>', '<key>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Ja | String | De actie waarvan de uitvoer heeft de waarde van de sleutel die u wilt |
-| <*Sleutel*> | Ja | String | De naam voor de sleutel waarvan u wilt dat de waarde |
+| <*actionName*> | Ja | Reeks | De actie waarvan de uitvoer de gewenste sleutel waarde bevat |
+| <*prestatie*> | Ja | Tekenreeks | De naam van de sleutel waarvan u de waarde wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| [<*matrix met sleutel waarden*>] | Matrix | Een matrix met de waarden die overeenkomen met de opgegeven sleutel |
+| [<*matrix-met-sleutel waarden*>] | Array | Een matrix met alle waarden die overeenkomen met de opgegeven sleutel |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt een matrix gemaakt van de waarde van de sleutel van de 'Onderwerp' in de opgegeven actie formuliergegevens of formuliercodes uitvoer:
+In dit voor beeld wordt een matrix gemaakt op basis van de waarde van de sleutel subject in de opgegeven actie formulier gegevens of door formulieren gecodeerde uitvoer:
 
 ```
 formDataMultiValues('Send_an_email', 'Subject')
 ```
 
-En resulteert in de tekst van het onderwerp in een matrix, bijvoorbeeld: `["Hello world"]`
+En retourneert de onderwerps tekst in een matrix, bijvoorbeeld:`["Hello world"]`
 
 <a name="formDataValue"></a>
 
 ### <a name="formdatavalue"></a>formDataValue
 
-Retourneert één waarde die overeenkomt met een naam in van een actie *formuliergegevens* of *formuliercodes* uitvoer.
-Als de functie vindt meer dan één overeenkomst, is de functie genereert een fout.
+Eén waarde Retour neren die overeenkomt met een sleutel naam in een actie *formulier gegevens* of *formulier-gecodeerde* uitvoer.
+Als de functie meer dan één overeenkomst vindt, genereert de functie een fout.
 
 ```
 formDataValue('<actionName>', '<key>')
@@ -1917,30 +1920,30 @@ formDataValue('<actionName>', '<key>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Ja | String | De actie waarvan de uitvoer heeft de waarde van de sleutel die u wilt |
-| <*Sleutel*> | Ja | String | De naam voor de sleutel waarvan u wilt dat de waarde |
+| <*actionName*> | Ja | Tekenreeks | De actie waarvan de uitvoer de gewenste sleutel waarde bevat |
+| <*prestatie*> | Ja | Tekenreeks | De naam van de sleutel waarvan u de waarde wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*key-value*> | String | De waarde in de opgegeven sleutel  |
+| <*key-value*> | Tekenreeks | De waarde in de opgegeven sleutel  |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u een tekenreeks van de 'Onderwerp' sleutel-waarde in de opgegeven actie formuliergegevens of formuliercodes uitvoer:
+In dit voor beeld wordt een teken reeks gemaakt op basis van de waarde van de sleutel subject in de opgegeven actie formulier gegevens of door formulieren gecodeerde uitvoer:
 
 ```
 formDataValue('Send_an_email', 'Subject')
 ```
 
-En retourneert de tekst van het onderwerp een tekenreeks, bijvoorbeeld: `"Hello world"`
+En retourneert de onderwerpnaam als een teken reeks, bijvoorbeeld:`"Hello world"`
 
 <a name="getFutureTime"></a>
 
 ### <a name="getfuturetime"></a>getFutureTime
 
-Retourneert de huidige tijdstempel plus de opgegeven periode-eenheden.
+De huidige tijds tempel en de opgegeven tijds eenheden retour neren.
 
 ```
 getFutureTime(<interval>, <timeUnit>, <format>?)
@@ -1948,43 +1951,43 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | Ja | Geheel getal | Het aantal eenheden van de opgegeven tijd om af te trekken |
-| <*timeUnit*> | Ja | String | De tijdseenheid voor gebruik met *interval*: 'Tweede', 'Minute', 'Uur', 'Dag', 'Week', 'Month', 'Year' |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*interval*> | Ja | Geheel getal | Het aantal opgegeven tijds eenheden dat moet worden afgetrokken |
+| <*timeUnit*> | Ja | Tekenreeks | De tijds eenheid die moet worden gebruikt met het *interval*: "Seconde", "minuut", "uur", "dag", "week", "maand", "jaar" |
+| <*Formatteer*> | Nee | Reeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*bijgewerkt timestamp*> | String | De huidige tijdstempel plus het opgegeven aantal tijdseenheden |
+| <*bijgewerkt-tijds tempel*> | Reeks | De huidige tijds tempel plus het opgegeven aantal tijds eenheden |
 ||||
 
 *Voorbeeld 1*
 
-Stel dat de huidige tijdstempel is ' 2018-03-01T00:00:00.0000000Z '.
-In dit voorbeeld worden vijf dagen opgeteld bij tijdstempel:
+Stel dat het huidige tijds tempel ' 2018-03-01T00:00:00.0000000 Z ' is.
+In dit voor beeld worden vijf dagen toegevoegd aan die tijds tempel:
 
 ```
 getFutureTime(5, 'Day')
 ```
 
-En dit resultaat wordt weergegeven: `"2018-03-06T00:00:00.0000000Z"`
+En retourneert dit resultaat:`"2018-03-06T00:00:00.0000000Z"`
 
 *Voorbeeld 2*
 
-Stel dat de huidige tijdstempel is ' 2018-03-01T00:00:00.0000000Z '.
-In dit voorbeeld worden vijf dagen opgeteld en het resultaat wordt omgezet in de indeling "D":
+Stel dat het huidige tijds tempel ' 2018-03-01T00:00:00.0000000 Z ' is.
+In dit voor beeld worden vijf dagen toegevoegd en wordt het resultaat geconverteerd naar D-indeling:
 
 ```
 getFutureTime(5, 'Day', 'D')
 ```
 
-En dit resultaat wordt weergegeven: `"Tuesday, March 6, 2018"`
+En retourneert dit resultaat:`"Tuesday, March 6, 2018"`
 
 <a name="getPastTime"></a>
 
 ### <a name="getpasttime"></a>getPastTime
 
-Retourneert de huidige tijdstempel minus de opgegeven periode-eenheden.
+Retourneert de huidige tijds tempel min de opgegeven tijds eenheden.
 
 ```
 getPastTime(<interval>, <timeUnit>, <format>?)
@@ -1992,44 +1995,44 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | Ja | Geheel getal | Het aantal eenheden van de opgegeven tijd om af te trekken |
-| <*timeUnit*> | Ja | String | De tijdseenheid voor gebruik met *interval*: 'Tweede', 'Minute', 'Uur', 'Dag', 'Week', 'Month', 'Year' |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*interval*> | Ja | Geheel getal | Het aantal opgegeven tijds eenheden dat moet worden afgetrokken |
+| <*timeUnit*> | Ja | Reeks | De tijds eenheid die moet worden gebruikt met het *interval*: "Seconde", "minuut", "uur", "dag", "week", "maand", "jaar" |
+| <*Formatteer*> | Nee | Tekenreeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*bijgewerkt timestamp*> | String | De huidige tijdstempel minus het opgegeven aantal tijdseenheden |
+| <*bijgewerkt-tijds tempel*> | Tekenreeks | De huidige tijds tempel min het opgegeven aantal tijds eenheden |
 ||||
 
 *Voorbeeld 1*
 
-Stel dat de huidige tijdstempel is ' 2018-02-01T00:00:00.0000000Z '.
-In dit voorbeeld wordt afgetrokken van vijf dagen van tijdstempel:
+Stel dat het huidige tijds tempel ' 2018-02-01T00:00:00.0000000 Z ' is.
+In dit voor beeld worden vijf dagen afgetrokken van die tijds tempel:
 
 ```
 getPastTime(5, 'Day')
 ```
 
-En dit resultaat wordt weergegeven: `"2018-01-27T00:00:00.0000000Z"`
+En retourneert dit resultaat:`"2018-01-27T00:00:00.0000000Z"`
 
 *Voorbeeld 2*
 
-Stel dat de huidige tijdstempel is ' 2018-02-01T00:00:00.0000000Z '.
-In dit voorbeeld wordt afgetrokken van vijf dagen en wordt het resultaat geconverteerd naar "D"-indeling:
+Stel dat het huidige tijds tempel ' 2018-02-01T00:00:00.0000000 Z ' is.
+In dit voor beeld worden vijf dagen afgetrokken en wordt het resultaat geconverteerd naar D-indeling:
 
 ```
 getPastTime(5, 'Day', 'D')
 ```
 
-En dit resultaat wordt weergegeven: `"Saturday, January 27, 2018"`
+En retourneert dit resultaat:`"Saturday, January 27, 2018"`
 
 <a name="greater"></a>
 
 ### <a name="greater"></a>greater
 
-Controleer of de eerste waarde groter dan de tweede waarde is.
-Retourneert waar wanneer de eerste waarde meer is en retourneert false als minder.
+Controleer of de eerste waarde groter is dan de tweede waarde.
+Retourneert waar als de eerste waarde meer is of retourneert onwaar wanneer er minder wordt geretourneerd.
 
 ```
 greater(<value>, <compareTo>)
@@ -2038,35 +2041,35 @@ greater('<value>', '<compareTo>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | Geheel getal, drijvende komma of tekenreeks | De eerste waarde om te controleren of groter zijn dan de tweede waarde |
-| <*compareTo*> | Ja | Geheel getal, drijvende komma of tekenreeks, respectievelijk | De vergelijkingswaarde |
+| <*Value*> | Ja | Geheel getal, float of teken reeks | De eerste waarde die moet worden gecontroleerd of deze hoger is dan de tweede waarde |
+| <*compareTo*> | Ja | Respectievelijk geheel getal, float of teken reeks | De vergelijkings waarde |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| waar of ONWAAR | Boolean | Retourneert waar als de eerste waarde hoger is dan de tweede waarde. Retourneert onwaar als de eerste waarde gelijk aan of kleiner is dan de tweede waarde is. |
+| waar of onwaar | Boolean-waarde | Retourneert waar als de eerste waarde groter is dan de tweede waarde. Retourneert onwaar als de eerste waarde gelijk is aan of kleiner is dan de tweede waarde. |
 ||||
 
 *Voorbeeld*
 
-Deze voorbeelden gecontroleerd of de eerste waarde groter is dan de tweede waarde:
+Deze voor beelden controleren of de eerste waarde groter is dan de tweede waarde:
 
 ```
 greater(10, 5)
 greater('apple', 'banana')
 ```
 
-En deze resultaten worden geretourneerd:
+En retour neren deze resultaten:
 
-* Eerste voorbeeld: `true`
-* Tweede voorbeeld: `false`
+* Eerste voor beeld:`true`
+* Tweede voor beeld:`false`
 
 <a name="greaterOrEquals"></a>
 
 ### <a name="greaterorequals"></a>greaterOrEquals
 
-Controleer of de eerste waarde groter dan of gelijk zijn aan de tweede waarde is.
-Retourneert waar wanneer de eerste waarde groter of gelijk zijn is, of onwaar retourneren als de eerste waarde kleiner is.
+Controleer of de eerste waarde groter is dan of gelijk is aan de tweede waarde.
+Retourneert waar als de eerste waarde groter of gelijk is, of retourneert onwaar als de eerste waarde kleiner is.
 
 ```
 greaterOrEquals(<value>, <compareTo>)
@@ -2075,40 +2078,40 @@ greaterOrEquals('<value>', '<compareTo>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | Geheel getal, drijvende komma of tekenreeks | De eerste waarde om te controleren of groter zijn dan of gelijk zijn aan de tweede waarde |
-| <*compareTo*> | Ja | Geheel getal, drijvende komma of tekenreeks, respectievelijk | De vergelijkingswaarde |
+| <*Value*> | Ja | Geheel getal, float of teken reeks | De eerste waarde om te controleren of deze groter dan of gelijk is aan de tweede waarde |
+| <*compareTo*> | Ja | Respectievelijk geheel getal, float of teken reeks | De vergelijkings waarde |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| waar of ONWAAR | Boolean | Retourneert waar als de eerste waarde groter dan of gelijk zijn aan de tweede waarde is. Retourneert onwaar als de eerste waarde kleiner is dan de tweede waarde. |
+| waar of onwaar | Boolean-waarde | Retourneert waar als de eerste waarde groter is dan of gelijk is aan de tweede waarde. Retourneert onwaar als de eerste waarde lager is dan de tweede waarde. |
 ||||
 
 *Voorbeeld*
 
-Deze voorbeelden kunt u controleren of de eerste waarde groter of gelijk dan de tweede waarde is:
+In deze voor beelden wordt gecontroleerd of de eerste waarde groter is dan of gelijk is aan de tweede waarde:
 
 ```
 greaterOrEquals(5, 5)
 greaterOrEquals('apple', 'banana')
 ```
 
-En deze resultaten worden geretourneerd:
+En retour neren deze resultaten:
 
-* Eerste voorbeeld: `true`
-* Tweede voorbeeld: `false`
+* Eerste voor beeld:`true`
+* Tweede voor beeld:`false`
 
 <a name="guid"></a>
 
 ### <a name="guid"></a>guid
 
-Een globally unique identifier (GUID) genereren als een tekenreeks, bijvoorbeeld 'c2ecc88d-88c8-4096-912c-d6f2e2b138ce':
+Genereer een Globally Unique Identifier (GUID) als een teken reeks, bijvoorbeeld ' c2ecc88d-88c8-4096-912c-d6f2e2b138ce ':
 
 ```
 guid()
 ```
 
-U kunt ook een andere indeling opgeven voor de GUID dan de standaardindeling, "D", 32 cijfers gescheiden door afbreekstreepjes bevatten is.
+U kunt ook een andere notatie voor de GUID opgeven dan de standaard indeling, D, die bestaat uit 32 cijfers, gescheiden door afbreek streepjes.
 
 ```
 guid('<format>')
@@ -2116,30 +2119,30 @@ guid('<format>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Indeling*> | Nee | String | Een enkel [aanduiding opmaken](https://msdn.microsoft.com/library/97af8hh4) voor de geretourneerde GUID. De indeling "D" is, maar u kunt "N", "D", "B", "P" of "X". |
+| <*Formatteer*> | Nee | Reeks | Een enkele [indelings aanduiding](https://msdn.microsoft.com/library/97af8hh4) voor de geretourneerde GUID. De notatie is standaard ingesteld op D, maar u kunt N, D, B, P of X gebruiken ("nb"). |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*GUID-waarde*> | String | Een willekeurig gegenereerde GUID |
+| <*GUID-waarde*> | Tekenreeks | Een wille keurig gegenereerde GUID |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld genereert dezelfde GUID, maar als 32 cijfers, gescheiden door afbreekstreepjes en tussen haakjes:
+In dit voor beeld wordt dezelfde GUID gegenereerd, maar als 32 cijfers, gescheiden door afbreek streepjes en tussen haakjes:
 
 ```
 guid('P')
 ```
 
-En dit resultaat wordt weergegeven: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
+En retourneert dit resultaat:`"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 <a name="if"></a>
 
 ### <a name="if"></a>if
 
-Controleer of een expressie waar of ONWAAR is.
-Op basis van het resultaat, een opgegeven waarde retourneren.
+Controleer of een expressie True of False is.
+Retour neer een opgegeven waarde op basis van het resultaat.
 
 ```
 if(<expression>, <valueIfTrue>, <valueIfFalse>)
@@ -2147,20 +2150,20 @@ if(<expression>, <valueIfTrue>, <valueIfFalse>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression*> | Ja | Boolean | De expressie om te controleren |
-| <*valueIfTrue*> | Ja | Alle | De waarde moet worden geretourneerd wanneer de expressie waar is |
-| <*valueIfFalse*> | Ja | Alle | De waarde moet worden geretourneerd wanneer de expressie onwaar is |
+| <*expressie*> | Ja | Boolean-waarde | De expressie die moet worden gecontroleerd |
+| <*valueIfTrue*> | Ja | Any | De waarde die moet worden geretourneerd wanneer de expressie waar is |
+| <*valueIfFalse*> | Ja | Any | De waarde die moet worden geretourneerd wanneer de expressie onwaar is |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*specified-return-value*> | Alle | De opgegeven waarde die wordt geretourneerd op basis van of u de expressie is waar of ONWAAR |
+| <*opgegeven-retourneert-waarde*> | Any | De opgegeven waarde die wordt geretourneerd op basis van het feit of de expressie waar of onwaar is |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld retourneert `"yes"` omdat de opgegeven expressie ' True retourneert '.
-Anders wordt het voorbeeld retourneert `"no"`:
+In dit voor `"yes"` beeld wordt geretourneerd omdat de opgegeven expressie True retourneert.
+Anders wordt het volgende geretourneerd `"no"`:
 
 ```
 if(equals(1, 1), 'yes', 'no')
@@ -2170,8 +2173,8 @@ if(equals(1, 1), 'yes', 'no')
 
 ### <a name="indexof"></a>indexOf
 
-Retourneert de beginpositie of de indexwaarde voor een subtekenreeks.
-Deze functie is niet hoofdlettergevoelig en indexen beginnen met de waarde 0.
+Retourneert de start positie of index waarde voor een subtekenreeks.
+Deze functie is niet hoofdletter gevoelig en indexen beginnen met het cijfer 0.
 
 ```
 indexOf('<text>', '<searchText>')
@@ -2179,30 +2182,30 @@ indexOf('<text>', '<searchText>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Ja | String | De tekenreeks die de subtekenreeks om te zoeken |
-| <*searchText*> | Ja | String | De subtekenreeks om te zoeken |
+| <*SMS*> | Ja | Reeks | De teken reeks die de subtekenreeks bevat die moet worden gezocht |
+| <*searchText*> | Ja | Tekenreeks | De subtekenreeks die u wilt zoeken |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*index-value*>| Geheel getal | De positie of index beginwaarde voor de opgegeven subtekenreeks. <p>Als de tekenreeks wordt gevonden, retourneert het getal -1. |
+| <*index-value*>| Geheel getal | De start positie of index waarde voor de opgegeven subtekenreeks. <p>Als de teken reeks niet wordt gevonden, retourneert u het getal-1. |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt de beginwaarde van de index voor de subtekenreeks "wereld" in de tekenreeks "Hallo wereld":
+In dit voor beeld wordt gezocht naar de start index-waarde voor de subtekenreeks ' World ' in de teken reeks ' Hallo wereld ':
 
 ```
 indexOf('hello world', 'world')
 ```
 
-En dit resultaat wordt weergegeven: `6`
+En retourneert dit resultaat:`6`
 
 <a name="int"></a>
 
 ### <a name="int"></a>int
 
-Retourneert de integer-versie voor een tekenreeks.
+Retourneert de versie met gehele getallen voor een teken reeks.
 
 ```
 int('<value>')
@@ -2210,43 +2213,43 @@ int('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De tekenreeks die moet worden geconverteerd |
+| <*Value*> | Ja | Reeks | De teken reeks die moet worden geconverteerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*integer-result*> | Geheel getal | De versie van het geheel getal voor de opgegeven tekenreeks |
+| <*integer-result*> | Geheel getal | De versie van het gehele getal voor de opgegeven teken reeks |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u een geheel getal-versie voor de tekenreeks "10":
+In dit voor beeld wordt een versie met gehele getallen gemaakt voor de teken reeks "10":
 
 ```
 int('10')
 ```
 
-En dit resultaat wordt weergegeven: `10`
+En retourneert dit resultaat:`10`
 
 <a name="item"></a>
 
 ### <a name="item"></a>item
 
-Wanneer gebruikt binnen een herhalingsactie via een matrix, retourneert u het huidige item in de matrix tijdens de huidige herhaling van de actie.
-U kunt ook de waarden ophalen uit de eigenschappen van dat item.
+Wanneer u een matrix gebruikt binnen een herhalende actie, retourneert u het huidige item in de matrix tijdens de huidige iteratie van de actie.
+U kunt ook de waarden van de eigenschappen van dat item ophalen.
 
 ```
 item()
 ```
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*current-array-item*> | Alle | Het huidige item in de matrix voor de huidige herhaling van de actie |
+| <*current-array-item*> | Any | Het huidige item in de matrix voor de huidige herhaling van de actie |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt de `body` -element van het huidige bericht voor de actie 'Send_an_email' in de huidige iteratie van een voor elke lus:
+In dit voor beeld `body` wordt het element van het huidige bericht opgehaald voor de actie ' Send_an_email ' binnen een for-each van elke lus:
 
 ```
 item().body
@@ -2256,8 +2259,8 @@ item().body
 
 ### <a name="items"></a>items
 
-Retourneert het huidige item van elke cyclus in een voor elke lus.
-Deze functie binnen de voor-each-lus gebruiken.
+Het huidige item van elke cyclus in een for-each-lus retour neren.
+Gebruik deze functie binnen de for-each-lus.
 
 ```
 items('<loopName>')
@@ -2265,17 +2268,17 @@ items('<loopName>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*loopName*> | Ja | String | De naam van de voor-each-lus |
+| <*lusinstructie*> | Ja | Tekenreeks | De naam voor de for-each-lus |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*item*> | Alle | Het item uit de huidige cyclus in de opgegeven voor elke lus |
+| <*item*> | Any | Het item uit de huidige cyclus in de opgegeven for-each-lus |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt het huidige item opgehaald uit de opgegeven voor elke lus:
+In dit voor beeld wordt het huidige item opgehaald van de opgegeven for-each-lus:
 
 ```
 items('myForEachLoopName')
@@ -2285,7 +2288,7 @@ items('myForEachLoopName')
 
 ### <a name="iterationindexes"></a>iterationIndexes
 
-Retourneert de indexwaarde voor de huidige iteratie binnen een Until-lus. U kunt deze functie in geneste tot lussen gebruiken. 
+Retourneert de index waarde voor de huidige iteratie binnen een lus until. U kunt deze functie binnen nesten tot lussen gebruiken. 
 
 ```
 iterationIndexes('<loopName>')
@@ -2293,17 +2296,17 @@ iterationIndexes('<loopName>')
 
 | Parameter | Vereist | Type | Description | 
 | --------- | -------- | ---- | ----------- | 
-| <*loopName*> | Ja | String | De naam voor de Until-lus | 
+| <*lusinstructie*> | Ja | Reeks | De naam voor de lus until | 
 ||||| 
 
-| Retourwaarde | Type | Description | 
+| Retourwaarde | type | Description | 
 | ------------ | ---- | ----------- | 
-| <*index*> | Geheel getal | De indexwaarde voor de huidige iteratie binnen de opgegeven totdat-lus | 
+| <*index*> | Geheel getal | De index waarde voor de huidige iteratie binnen de opgegeven lus until | 
 |||| 
 
 *Voorbeeld* 
 
-In dit voorbeeld maakt een tellervariabele en de stappen die variabele door een tijdens elke herhaling in een Until-lus totdat de waarde van het prestatiemeteritem vijf is bereikt. Het voorbeeld maakt ook een variabele die de huidige index voor elke herhaling wordt bijgehouden. In de Until-lus, tijdens elke herhaling in het voorbeeld wordt de teller verhoogd en de waarde van het prestatiemeteritem vervolgens toe te wijzen aan de huidige indexwaarde en vervolgens de teller verhoogd. U kunt op elk gewenst moment het huidige aantal herhalingen bepalen door bij het ophalen van de huidige indexwaarde.
+In dit voor beeld wordt een item variabele gemaakt en deze variabele wordt tijdens elke iteratie in een lus until verhoogd tot de waarde van de teller vijf heeft bereikt. In het voor beeld wordt ook een variabele gemaakt die de huidige index voor elke herhaling bijhoudt. In de lus until, tijdens elke iteratie, wordt het prestatie meter item verhoogd en wordt vervolgens de item waarde toegewezen aan de huidige index waarde en wordt de teller vervolgens verhoogd. U kunt op elk gewenst moment het huidige iteratie nummer bepalen door de huidige index waarde op te halen.
 
 ```
 {
@@ -2375,7 +2378,7 @@ In dit voorbeeld maakt een tellervariabele en de stappen die variabele door een 
 
 ### <a name="json"></a>json
 
-Retourneert de waarde van het JavaScript Object Notation (JSON) of het object voor een tekenreeks of XML.
+De waarde of het object van het type JavaScript Object Notation (JSON) retour neren voor een teken reeks of XML.
 
 ```
 json('<value>')
@@ -2383,33 +2386,33 @@ json('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | Tekenreeks of XML | De tekenreeks of XML converteren |
+| <*Value*> | Ja | Teken reeks of XML | De teken reeks of XML die moet worden geconverteerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*JSON-result*> | Systeemeigen JSON-type of het object | De systeemeigen waardetype JSON of het object voor de opgegeven tekenreeks of XML. Als de tekenreeks leeg is, retourneert de functie een leeg object. |
+| <*JSON-result*> | Systeem eigen JSON-type of-object | De waarde of het object van het type JSON voor de opgegeven teken reeks of XML. Als de teken reeks null is, retourneert de functie een leeg object. |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld converteert deze tekenreeks naar de JSON-waarde:
+In dit voor beeld wordt deze teken reeks geconverteerd naar de JSON-waarde:
 
 ```
 json('[1, 2, 3]')
 ```
 
-En dit resultaat wordt weergegeven: `[1, 2, 3]`
+En retourneert dit resultaat:`[1, 2, 3]`
 
 *Voorbeeld 2*
 
-In dit voorbeeld wordt deze tekenreeks geconverteerd naar JSON:
+In dit voor beeld wordt deze teken reeks geconverteerd naar JSON:
 
 ```
 json('{"fullName": "Sophia Owen"}')
 ```
 
-En dit resultaat wordt weergegeven:
+En retourneert dit resultaat:
 
 ```
 {
@@ -2419,13 +2422,13 @@ En dit resultaat wordt weergegeven:
 
 *Voorbeeld 3*
 
-In dit voorbeeld wordt deze XML geconverteerd naar JSON:
+In dit voor beeld wordt deze XML geconverteerd naar JSON:
 
 ```
 json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))
 ```
 
-En dit resultaat wordt weergegeven:
+En retourneert dit resultaat:
 
 ```json
 {
@@ -2442,11 +2445,11 @@ En dit resultaat wordt weergegeven:
 
 <a name="intersection"></a>
 
-### <a name="intersection"></a>snijpunt
+### <a name="intersection"></a>Snij punt
 
-Retourneert een verzameling met *alleen* de algemene items in de gespecificeerde verzamelingen.
-Een item moet worden weergegeven in het resultaat, worden weergegeven in de verzamelingen die zijn doorgegeven aan deze functie.
-Als een of meer items dezelfde naam hebben, wordt het laatste item met die naam in het resultaat weergegeven.
+Een verzameling retour neren die *alleen* de gemeen schappelijke items in de opgegeven verzamelingen heeft.
+Om weer te geven in het resultaat moet een item worden weer gegeven in alle verzamelingen die aan deze functie worden door gegeven.
+Als een of meer items dezelfde naam hebben, wordt het laatste item met die naam weer gegeven in het resultaat.
 
 ```
 intersection([<collection1>], [<collection2>], ...)
@@ -2455,29 +2458,29 @@ intersection('<collection1>', '<collection2>', ...)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection1*>, <*collection2*>, ... | Ja | Matrix of Object, maar niet beide | De verzamelingen van waar u *alleen* de algemene items |
+| <*verzameling1*>, <*Collection2*>,... | Ja | Matrix of object, maar niet beide | De verzamelingen van waaruit u *alleen* de algemene items wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*common-items*> | Matrix of één Object, respectievelijk | Een verzameling met alleen de algemene items in de gespecificeerde verzamelingen |
+| <*common-items*> | Respectievelijk matrix of object | Een verzameling met alleen de gemeen schappelijke items in de opgegeven verzamelingen |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt gezocht naar de algemene items via deze matrices:
+In dit voor beeld vindt u de algemene items voor deze matrices:
 
 ```
 intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8, 1, 2))
 ```
 
-En retourneert een matrix met *alleen* deze items: `[1, 2]`
+En retourneert alleen een matrix met *alleen* deze items:`[1, 2]`
 
 <a name="join"></a>
 
 ### <a name="join"></a>join
 
-Geretourneerd die een tekenreeks is die alle items uit een matrix heeft en elk teken gescheiden door een *scheidingsteken*.
+Retourneert een teken reeks die alle items uit een matrix bevat en die elk teken gescheiden door een *scheidings*teken.
 
 ```
 join([<collection>], '<delimiter>')
@@ -2485,30 +2488,30 @@ join([<collection>], '<delimiter>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Verzameling*> | Ja | Matrix | De matrix met de items om toe te voegen |
-| <*delimiter*> | Ja | String | Het scheidingsteken dat wordt weergegeven tussen elk teken in de resulterende tekenreeks |
+| <*innings*> | Ja | Array | De matrix waarvan de items moeten worden toegevoegd |
+| <*delimiter*> | Ja | Reeks | Het scheidings teken dat wordt weer gegeven tussen elk teken in de resulterende teken reeks |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*Tekens1 voor*><*scheidingsteken*><*char2*><*scheidingsteken*>... | String | De resulterende tekenreeks die is gemaakt op basis van de items in de opgegeven matrix |
+| <*char1* *scheidings* *teken char2*scheidings teken >...><><>< | Tekenreeks | De resulterende teken reeks die is gemaakt op basis van alle items in de opgegeven matrix |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u een tekenreeks van alle items in deze matrix met het opgegeven teken als scheidingsteken:
+In dit voor beeld wordt een teken reeks gemaakt van alle items in deze matrix met het opgegeven teken als scheidings teken:
 
 ```
 join(createArray('a', 'b', 'c'), '.')
 ```
 
-En dit resultaat wordt weergegeven: `"a.b.c"`
+En retourneert dit resultaat:`"a.b.c"`
 
 <a name="last"></a>
 
-### <a name="last"></a>laatste
+### <a name="last"></a>duren
 
-Retourneert het laatste item uit een verzameling.
+Het laatste item van een verzameling retour neren.
 
 ```
 last('<collection>')
@@ -2517,34 +2520,34 @@ last([<collection>])
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Verzameling*> | Ja | Tekenreeks of matrix | De verzameling waar vind ik het laatste item |
+| <*innings*> | Ja | Teken reeks of matrix | De verzameling waar het laatste item moet worden gevonden |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*last-collection-item*> | Tekenreeks of matrix, respectievelijk | Het laatste item in de verzameling |
+| <*last-collection-item*> | Respectievelijk een teken reeks of matrix | Het laatste item in de verzameling |
 ||||
 
 *Voorbeeld*
 
-Deze voorbeelden vinden het laatste item in deze verzamelingen:
+In deze voor beelden vindt u het laatste item in deze verzamelingen:
 
 ```
 last('abcd')
 last(createArray(0, 1, 2, 3))
 ```
 
-En deze resultaten retourneert:
+En retourneert deze resultaten:
 
-* Eerste voorbeeld: `"d"`
-* Tweede voorbeeld: `3`
+* Eerste voor beeld:`"d"`
+* Tweede voor beeld:`3`
 
 <a name="lastindexof"></a>
 
 ### <a name="lastindexof"></a>lastIndexOf
 
-Retourneert de beginpositie of de indexwaarde voor het laatste exemplaar van een subtekenreeks.
-Deze functie is niet hoofdlettergevoelig en indexen beginnen met de waarde 0.
+De start positie of index waarde Retour neren voor het laatste exemplaar van een subtekenreeks.
+Deze functie is niet hoofdletter gevoelig en indexen beginnen met het cijfer 0.
 
 ```
 lastIndexOf('<text>', '<searchText>')
@@ -2552,24 +2555,24 @@ lastIndexOf('<text>', '<searchText>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Ja | String | De tekenreeks die de subtekenreeks om te zoeken |
-| <*searchText*> | Ja | String | De subtekenreeks om te zoeken |
+| <*SMS*> | Ja | Reeks | De teken reeks die de subtekenreeks bevat die moet worden gezocht |
+| <*searchText*> | Ja | Tekenreeks | De subtekenreeks die u wilt zoeken |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*ending-index-value*> | Geheel getal | De positie of index beginwaarde van het laatste exemplaar van de opgegeven subtekenreeks. <p>Als de tekenreeks wordt gevonden, retourneert het getal -1. |
+| <*ending-index-value*> | Geheel getal | De start positie of index waarde voor het laatste exemplaar van de opgegeven subtekenreeks. <p>Als de teken reeks niet wordt gevonden, retourneert u het getal-1. |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt de beginwaarde van de index voor het laatste exemplaar van de subtekenreeks "wereld" in de tekenreeks "Hallo wereld":
+In dit voor beeld wordt gezocht naar de begin index waarde voor het laatste exemplaar van de subtekenreeks ' World ' in de teken reeks ' Hallo wereld ':
 
 ```
 lastIndexOf('hello world', 'world')
 ```
 
-En dit resultaat wordt weergegeven: `6`
+En retourneert dit resultaat:`6`
 
 <a name="length"></a>
 
@@ -2584,31 +2587,31 @@ length([<collection>])
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Verzameling*> | Ja | Tekenreeks of matrix | De verzameling met de items die moeten worden geteld |
+| <*innings*> | Ja | Teken reeks of matrix | De verzameling met de items die moeten worden geteld |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*de lengte of aantal*> | Geheel getal | Het aantal items in de verzameling |
+| <*lengte-of-aantal*> | Geheel getal | Het aantal items in de verzameling |
 ||||
 
 *Voorbeeld*
 
-Deze voorbeelden tellen het aantal items in deze verzamelingen:
+In deze voor beelden wordt het aantal items in deze verzamelingen geteld:
 
 ```
 length('abcd')
 length(createArray(0, 1, 2, 3))
 ```
 
-En dit resultaat te retourneren: `4`
+En retour neren dit resultaat:`4`
 
 <a name="less"></a>
 
-### <a name="less"></a>minder
+### <a name="less"></a>jonge
 
-Controleer of de eerste waarde kleiner is dan de tweede waarde.
-Retourneert waar wanneer de eerste waarde lager is, of onwaar geretourneerd wanneer de eerste waarde meer is.
+Controleer of de eerste waarde lager is dan de tweede waarde.
+Retourneert waar wanneer de eerste waarde kleiner is, of retourneert False als de eerste waarde meer is.
 
 ```
 less(<value>, <compareTo>)
@@ -2617,35 +2620,35 @@ less('<value>', '<compareTo>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | Geheel getal, drijvende komma of tekenreeks | De eerste waarde om te controleren of minder dan de tweede waarde |
-| <*compareTo*> | Ja | Geheel getal, drijvende komma of tekenreeks, respectievelijk | Het item vergelijking |
+| <*Value*> | Ja | Geheel getal, float of teken reeks | De eerste waarde die moet worden gecontroleerd of minder dan de tweede waarde |
+| <*compareTo*> | Ja | Respectievelijk geheel getal, float of teken reeks | Het vergelijkings item |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| waar of ONWAAR | Boolean | Retourneert waar als de eerste waarde kleiner is dan de tweede waarde. Retourneert onwaar als de eerste waarde gelijk aan of groter is dan de tweede waarde is. |
+| waar of onwaar | Boolean-waarde | Retourneert waar als de eerste waarde lager is dan de tweede waarde. Retourneert onwaar als de eerste waarde gelijk is aan of groter is dan de tweede waarde. |
 ||||
 
 *Voorbeeld*
 
-Deze voorbeelden controleren of de eerste waarde kleiner is dan de tweede waarde.
+In deze voor beelden wordt gecontroleerd of de eerste waarde lager is dan de tweede waarde.
 
 ```
 less(5, 10)
 less('banana', 'apple')
 ```
 
-En deze resultaten worden geretourneerd:
+En retour neren deze resultaten:
 
-* Eerste voorbeeld: `true`
-* Tweede voorbeeld: `false`
+* Eerste voor beeld:`true`
+* Tweede voor beeld:`false`
 
 <a name="lessOrEquals"></a>
 
 ### <a name="lessorequals"></a>lessOrEquals
 
-Controleer of de eerste waarde kleiner zijn dan of gelijk zijn aan de tweede waarde is.
-Retourneert waar wanneer de eerste waarde kleiner dan of gelijk zijn is, of onwaar geretourneerd wanneer de eerste waarde meer is.
+Controleer of de eerste waarde kleiner is dan of gelijk is aan de tweede waarde.
+Retourneert waar als de eerste waarde kleiner is dan of gelijk is aan of retourneert onwaar als de eerste waarde meer is.
 
 ```
 lessOrEquals(<value>, <compareTo>)
@@ -2654,56 +2657,56 @@ lessOrEquals('<value>', '<compareTo>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | Geheel getal, drijvende komma of tekenreeks | De eerste waarde om te controleren of minder dan of gelijk zijn aan de tweede waarde |
-| <*compareTo*> | Ja | Geheel getal, drijvende komma of tekenreeks, respectievelijk | Het item vergelijking |
+| <*Value*> | Ja | Geheel getal, float of teken reeks | De eerste waarde om te controleren of deze kleiner dan of gelijk is aan de tweede waarde |
+| <*compareTo*> | Ja | Respectievelijk geheel getal, float of teken reeks | Het vergelijkings item |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| waar of ONWAAR  | Boolean | Retourneert waar wanneer de eerste waarde kleiner is dan of gelijk zijn aan de tweede waarde. Retourneert onwaar als de eerste waarde hoger is dan de tweede waarde. |
+| waar of onwaar  | Boolean-waarde | Retourneert waar als de eerste waarde kleiner is dan of gelijk is aan de tweede waarde. Retourneert onwaar als de eerste waarde groter is dan de tweede waarde. |
 ||||
 
 *Voorbeeld*
 
-Deze voorbeelden kunt u controleren of de eerste waarde kleiner dan of gelijk dan de tweede waarde is.
+In deze voor beelden wordt gecontroleerd of de eerste waarde kleiner of gelijk is aan de tweede waarde.
 
 ```
 lessOrEquals(10, 10)
 lessOrEquals('apply', 'apple')
 ```
 
-En deze resultaten worden geretourneerd:
+En retour neren deze resultaten:
 
-* Eerste voorbeeld: `true`
-* Tweede voorbeeld: `false`
+* Eerste voor beeld:`true`
+* Tweede voor beeld:`false`
 
 <a name="listCallbackUrl"></a>
 
 ### <a name="listcallbackurl"></a>listCallbackUrl
 
-Retourneert de "callback-URL' die een actie of trigger aanroept.
-Deze functie werkt alleen met triggers en acties voor de **HttpWebhook** en **ApiConnectionWebhook** connector typen, maar niet de **handmatig**,  **Terugkeerpatroon**, **HTTP**, en **APIConnection** typen.
+De call back-URL retour neren die een trigger of actie aanroept.
+Deze functie werkt alleen met triggers en acties voor de **HttpWebhook** -en **ApiConnectionWebhook** -connector typen, maar niet de typen **hand matig**, **terugkeer patroon**, **http**en **APIConnection** .
 
 ```
 listCallbackUrl()
 ```
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*callback-URL*> | String | De callback-URL voor een trigger of actie |
+| <*callback-URL*> | Tekenreeks | De call back-URL voor een trigger of actie |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld toont een voorbeeld-URL voor terugbellen dat deze functie kan retourneren:
+In dit voor beeld ziet u een voor beeld van een call back-URL die door deze functie kan worden geretourneerd:
 
 `"https://prod-01.westus.logic.azure.com:443/workflows/<*workflow-ID*>/triggers/manual/run?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<*signature-ID*>"`
 
 <a name="max"></a>
 
-### <a name="max"></a>max
+### <a name="max"></a>Aantal
 
-Retourneert de hoogste waarde van een lijst of een matrix met getallen die wordt ook meegerekend aan beide uiteinden.
+Retourneert de hoogste waarde van een lijst of matrix met getallen die aan beide uiteinden zijn gekoppeld.
 
 ```
 max(<number1>, <number2>, ...)
@@ -2712,31 +2715,31 @@ max([<number1>, <number2>, ...])
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Getal1*>, <*getal2*>,... | Ja | Geheel getal, drijvende komma of beide | Het instellen van de getallen waarvan u wilt dat de hoogste waarde |
-| [<*number1*>, <*number2*>, ...] | Ja | Matrix - geheel getal, drijvende komma of beide | De matrix met getallen van waaruit u wilt dat de hoogste waarde |
+| <*getal1*>, <*getal2*>,... | Ja | Geheel getal, float of beide | De verzameling getallen waarvan u de hoogste waarde wilt |
+| [<*getal1*>, <*getal2*>,...] | Ja | Matrix: geheel getal, float of beide | De matrix van getallen waarvan u de hoogste waarde wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*max-value*> | Geheel getal of een gegevenstype met drijvende komma | De hoogste waarde in de opgegeven matrix of een groep getallen |
+| <*max-value*> | Geheel getal of zwevend | De hoogste waarde in de opgegeven matrix of set getallen |
 ||||
 
 *Voorbeeld*
 
-Deze voorbeelden de hoogste waarde niet ophalen uit de reeks cijfers en de matrix:
+In deze voor beelden wordt de hoogste waarde uit de set getallen en de matrix opgehaald:
 
 ```
 max(1, 2, 3)
 max(createArray(1, 2, 3))
 ```
 
-En dit resultaat te retourneren: `3`
+En retour neren dit resultaat:`3`
 
 <a name="min"></a>
 
 ### <a name="min"></a>min.
 
-Retourneert de laagste waarde van een reeks cijfers of een matrix.
+Retourneert de laagste waarde van een reeks getallen of een matrix.
 
 ```
 min(<number1>, <number2>, ...)
@@ -2745,32 +2748,32 @@ min([<number1>, <number2>, ...])
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Getal1*>, <*getal2*>,... | Ja | Geheel getal, drijvende komma of beide | Het instellen van de getallen waarvan u wilt dat de laagste waarde |
-| [<*number1*>, <*number2*>, ...] | Ja | Matrix - geheel getal, drijvende komma of beide | De matrix met getallen van waaruit u wilt dat de laagste waarde |
+| <*getal1*>, <*getal2*>,... | Ja | Geheel getal, float of beide | De verzameling getallen waarvan u de laagste waarde wilt |
+| [<*getal1*>, <*getal2*>,...] | Ja | Matrix: geheel getal, float of beide | De matrix met getallen waarvan u de laagste waarde wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*min-value*> | Geheel getal of een gegevenstype met drijvende komma | De laagste waarde in de opgegeven set met getallen of de opgegeven matrix |
+| <*min-waarde*> | Geheel getal of zwevend | De laagste waarde in de opgegeven reeks getallen of de opgegeven matrix |
 ||||
 
 *Voorbeeld*
 
-Deze voorbeelden krijgen de laagste waarde in de reeks cijfers en de matrix:
+In deze voor beelden wordt de laagste waarde in de set met getallen en de matrix opgehaald:
 
 ```
 min(1, 2, 3)
 min(createArray(1, 2, 3))
 ```
 
-En dit resultaat te retourneren: `1`
+En retour neren dit resultaat:`1`
 
 <a name="mod"></a>
 
-### <a name="mod"></a>Mod
+### <a name="mod"></a>mod
 
 Retourneert de rest van het delen van twee getallen.
-Als u het resultaat geheel getal zijn, raadpleegt u [div()](#div).
+Zie [div ()](#div)om het resultaat van het gehele getal op te halen.
 
 ```
 mod(<dividend>, <divisor>)
@@ -2778,30 +2781,30 @@ mod(<dividend>, <divisor>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*dividend*> | Ja | Geheel getal of een gegevenstype met drijvende komma | Het getal waardoor moet worden de *deler* |
-| <*divisor*> | Ja | Geheel getal of een gegevenstype met drijvende komma | Het getal dat wordt gedeeld de *deeltal*, maar mag niet 0 zijn. |
+| <*dividend*> | Ja | Geheel getal of zwevend | Het getal dat moet worden gedeeld door de *deler* |
+| <*divisor*> | Ja | Geheel getal of zwevend | Het getal dat het *deelt*deel, maar mag niet 0 zijn. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*modulo-result*> | Geheel getal of een gegevenstype met drijvende komma | De rest van het delen van het eerste getal door het tweede getal |
+| <*modulo-result*> | Geheel getal of zwevend | De rest van het delen van het eerste getal met het tweede getal |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt het eerste getal door het tweede getal gedeeld:
+In het volgende voor beeld wordt het eerste getal in het tweede getal gedeeld:
 
 ```
 mod(3, 2)
 ```
 
-En dit resultaat te retourneren: `1`
+En retour neren dit resultaat:`1`
 
 <a name="mul"></a>
 
 ### <a name="mul"></a>mul
 
-Retourneert het product van twee getallen vermenigvuldigen.
+Retourneert het product van het vermenigvuldigen van twee getallen.
 
 ```
 mul(<multiplicand1>, <multiplicand2>)
@@ -2809,34 +2812,34 @@ mul(<multiplicand1>, <multiplicand2>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*multiplicand1*> | Ja | Geheel getal of een gegevenstype met drijvende komma | Het aantal om te vermenigvuldigen met *multiplicand2* |
-| <*multiplicand2*> | Ja | Geheel getal of een gegevenstype met drijvende komma | Het getal dat veelvouden *multiplicand1* |
+| <*multiplicand1*> | Ja | Geheel getal of zwevend | Het getal waarmee u wilt vermenigvuldigen met *multiplicand2* |
+| <*multiplicand2*> | Ja | Geheel getal of zwevend | Het getal dat meerdere *multiplicand1* |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*product-result*> | Geheel getal of een gegevenstype met drijvende komma | Het product van het vermenigvuldigen van het eerste getal door het tweede getal |
+| <*product-result*> | Geheel getal of zwevend | Het product van het eerste getal vermenigvuldigen met het tweede getal |
 ||||
 
 *Voorbeeld*
 
-Deze voorbeelden meerdere het eerste getal door het tweede getal:
+In deze voor beelden wordt het eerste getal vermenigvuldigd met het tweede getal:
 
 ```
 mul(1, 2)
 mul(1.5, 2)
 ```
 
-En deze resultaten worden geretourneerd:
+En retour neren deze resultaten:
 
-* Eerste voorbeeld: `2`
-* Tweede voorbeeld `3`
+* Eerste voor beeld:`2`
+* Tweede voor beeld`3`
 
 <a name="multipartBody"></a>
 
 ### <a name="multipartbody"></a>multipartBody
 
-Retourneert de instantie voor een bepaald deel in de uitvoer van een actie die bestaat uit meerdere delen.
+De hoofd tekst van een specifiek deel in de uitvoer van een actie met meerdere delen retour neren.
 
 ```
 multipartBody('<actionName>', <index>)
@@ -2844,13 +2847,13 @@ multipartBody('<actionName>', <index>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Ja | String | De naam voor de actie die is uitgevoerd met meerdere onderdelen |
-| <*index*> | Ja | Geheel getal | De indexwaarde voor het onderdeel dat u wilt |
+| <*actionName*> | Ja | Tekenreeks | De naam voor de actie met een uitvoer met meerdere delen |
+| <*index*> | Ja | Geheel getal | De index waarde voor het onderdeel dat u wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*body*> | String | De instantie voor het opgegeven onderdeel |
+| <*body*> | Tekenreeks | De hoofd tekst voor het opgegeven deel |
 ||||
 
 <a name="not"></a>
@@ -2858,7 +2861,7 @@ multipartBody('<actionName>', <index>)
 ### <a name="not"></a>not
 
 Controleer of een expressie onwaar is.
-Retourneert waar wanneer de expressie onwaar is, of ONWAAR wanneer de waarde true geretourneerd.
+Retourneert waar als de expressie onwaar is, of retourneert False als ' True '.
 
 ```json
 not(<expression>)
@@ -2866,48 +2869,48 @@ not(<expression>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression*> | Ja | Boolean | De expressie om te controleren |
+| <*expressie*> | Ja | Boolean-waarde | De expressie die moet worden gecontroleerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| waar of ONWAAR | Boolean | Retourneert waar als de expressie onwaar is. Retourneert onwaar als de expressie waar is. |
+| waar of onwaar | Boolean-waarde | Retourneert waar als de expressie onwaar is. Retourneert onwaar als de expressie waar is. |
 ||||
 
 *Voorbeeld 1*
 
-Deze voorbeelden kunt u controleren of de opgegeven expressies ingesteld op false zijn:
+In deze voor beelden wordt gecontroleerd of de opgegeven expressies onwaar zijn:
 
 ```json
 not(false)
 not(true)
 ```
 
-En deze resultaten worden geretourneerd:
+En retour neren deze resultaten:
 
-* Eerste voorbeeld: De expressie is ONWAAR, zodat de functie retourneert `true`.
-* Tweede voorbeeld: De expressie is waar, zodat de functie retourneert `false`.
+* Eerste voor beeld: De expressie is onwaar, waardoor de functie `true`wordt geretourneerd.
+* Tweede voor beeld: De expressie is waar, dus retourneert `false`de functie.
 
 *Voorbeeld 2*
 
-Deze voorbeelden kunt u controleren of de opgegeven expressies ingesteld op false zijn:
+In deze voor beelden wordt gecontroleerd of de opgegeven expressies onwaar zijn:
 
 ```json
 not(equals(1, 2))
 not(equals(1, 1))
 ```
 
-En deze resultaten worden geretourneerd:
+En retour neren deze resultaten:
 
-* Eerste voorbeeld: De expressie is ONWAAR, zodat de functie retourneert `true`.
-* Tweede voorbeeld: De expressie is waar, zodat de functie retourneert `false`.
+* Eerste voor beeld: De expressie is onwaar, waardoor de functie `true`wordt geretourneerd.
+* Tweede voor beeld: De expressie is waar, dus retourneert `false`de functie.
 
 <a name="or"></a>
 
 ### <a name="or"></a>of
 
 Controleer of ten minste één expressie waar is.
-Retourneert waar wanneer ten minste één expressie waar is of onwaar retourneren wanneer alle ingesteld op false zijn.
+Retourneert waar als ten minste één expressie waar is, of retourneert onwaar als alle zijn ingesteld op ONWAAR.
 
 ```
 or(<expression1>, <expression2>, ...)
@@ -2915,47 +2918,47 @@ or(<expression1>, <expression2>, ...)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | Ja | Boolean | De expressies om te controleren |
+| <*expressie1*>, <*Expressie2*>,... | Ja | Boolean-waarde | De te controleren expressies |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| waar of ONWAAR | Boolean | Retourneert waar wanneer ten minste één expressie waar is. Retourneert onwaar als alle expressies ingesteld op false zijn. |
+| waar of onwaar | Boolean-waarde | Retourneert waar als ten minste één expressie waar is. Retourneert onwaar als alle expressies onwaar zijn. |
 ||||
 
 *Voorbeeld 1*
 
-Deze voorbeelden kunt u controleren of er ten minste één expressie waar is:
+Deze voor beelden controleren of ten minste één expressie waar is:
 
 ```json
 or(true, false)
 or(false, false)
 ```
 
-En deze resultaten worden geretourneerd:
+En retour neren deze resultaten:
 
-* Eerste voorbeeld: Ten minste één expressie is waar, zodat de functie retourneert `true`.
-* Tweede voorbeeld: Beide expressies zijn ingesteld op false, zodat de functie retourneert `false`.
+* Eerste voor beeld: Ten minste één expressie is waar, dus retourneert `true`de functie.
+* Tweede voor beeld: Beide expressies zijn onwaar, waardoor de functie `false`wordt geretourneerd.
 
 *Voorbeeld 2*
 
-Deze voorbeelden kunt u controleren of er ten minste één expressie waar is:
+Deze voor beelden controleren of ten minste één expressie waar is:
 
 ```json
 or(equals(1, 1), equals(1, 2))
 or(equals(1, 2), equals(1, 3))
 ```
 
-En deze resultaten worden geretourneerd:
+En retour neren deze resultaten:
 
-* Eerste voorbeeld: Ten minste één expressie is waar, zodat de functie retourneert `true`.
-* Tweede voorbeeld: Beide expressies zijn ingesteld op false, zodat de functie retourneert `false`.
+* Eerste voor beeld: Ten minste één expressie is waar, dus retourneert `true`de functie.
+* Tweede voor beeld: Beide expressies zijn onwaar, waardoor de functie `false`wordt geretourneerd.
 
 <a name="parameters"></a>
 
 ### <a name="parameters"></a>parameters
 
-Retourneert de waarde voor een parameter die wordt beschreven in de werkstroomdefinitie van de.
+Retourneert de waarde voor een para meter die wordt beschreven in uw werk stroom definitie.
 
 ```
 parameters('<parameterName>')
@@ -2963,12 +2966,12 @@ parameters('<parameterName>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*parameterName*> | Ja | String | De naam voor de parameter waarvan u wilt dat de waarde |
+| <*parameterName*> | Ja | Tekenreeks | De naam voor de para meter waarvan u de waarde wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*waarde van parameter*> | Alle | De waarde voor de opgegeven parameter |
+| <*para meter-waarde*> | Any | De waarde voor de opgegeven para meter |
 ||||
 
 *Voorbeeld*
@@ -2981,19 +2984,19 @@ Stel dat u deze JSON-waarde hebt:
 }
 ```
 
-In dit voorbeeld wordt de waarde voor de opgegeven parameter:
+In dit voor beeld wordt de waarde voor de opgegeven para meter opgehaald:
 
 ```
 parameters('fullName')
 ```
 
-En dit resultaat wordt weergegeven: `"Sophia Owen"`
+En retourneert dit resultaat:`"Sophia Owen"`
 
 <a name="rand"></a>
 
-### <a name="rand"></a>rand
+### <a name="rand"></a>ASELECT
 
-Retourneert een willekeurig geheel getal van een opgegeven bereik, ook meegerekend alleen aan het begin-eind wordt.
+Retourneert een wille keurig geheel getal uit een opgegeven bereik, dat alleen aan het begin einde is inbegrepen.
 
 ```
 rand(<minValue>, <maxValue>)
@@ -3001,30 +3004,30 @@ rand(<minValue>, <maxValue>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*minValue*> | Ja | Geheel getal | Het laagste gehele getal in het bereik |
-| <*maxValue*> | Ja | Geheel getal | Het gehele getal dat volgt op het hoogste gehele getal in het bereik dat de functie kan retourneren |
+| <*minValue*> | Ja | Geheel getal | Het kleinste gehele getal in het bereik |
+| <*maxValue*> | Ja | Geheel getal | Het gehele getal dat volgt op het hoogste gehele getal in het bereik dat de functie kan retour neren |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*random-result*> | Geheel getal | De willekeurig geheel getal geretourneerd uit het opgegeven bereik |
+| <*random-result*> | Geheel getal | Het wille keurig geheel getal dat is geretourneerd uit het opgegeven bereik |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt een willekeurig geheel getal zijn opgehaald uit het opgegeven bereik, met uitzondering van de maximale waarde:
+In dit voor beeld wordt een wille keurig geheel getal opgehaald uit het opgegeven bereik, met uitzonde ring van de maximum waarde:
 
 ```
 rand(1, 5)
 ```
 
-En een van deze getallen wordt geretourneerd als het resultaat: `1`, `2`, `3`, of `4`
+En retourneert een van deze getallen als resultaat: `1`, `2`, `3`, of`4`
 
 <a name="range"></a>
 
-### <a name="range"></a>Bereik
+### <a name="range"></a>bereik
 
-Retourneert een matrix met gehele getallen die met een opgegeven geheel getal zijn begint.
+Retourneert een matrix met gehele getallen die begint met een opgegeven geheel getal.
 
 ```
 range(<startIndex>, <count>)
@@ -3032,30 +3035,30 @@ range(<startIndex>, <count>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*startIndex*> | Ja | Geheel getal | Een geheel getal dat de matrix als het eerste item begint |
-| <*count*> | Ja | Geheel getal | Het aantal gehele getallen in de matrix |
+| <*startIndex*> | Ja | Geheel getal | Een geheel getal dat de matrix als het eerste item start |
+| <*aantal*> | Ja | Geheel getal | Het aantal gehele getallen in de matrix |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| [<*range-result*>] | Matrix | De matrix met gehele getallen vanaf de opgegeven index |
+| [<*bereik-resultaat*>] | Array | De matrix met gehele getallen vanaf de opgegeven index |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt een matrix met gehele getallen die begint met de opgegeven index en het opgegeven aantal gehele getallen is gemaakt:
+In dit voor beeld wordt een matrix met gehele getallen gemaakt die begint met de opgegeven index en het opgegeven aantal gehele getallen bevat:
 
 ```
 range(1, 4)
 ```
 
-En dit resultaat wordt weergegeven: `[1, 2, 3, 4]`
+En retourneert dit resultaat:`[1, 2, 3, 4]`
 
 <a name="replace"></a>
 
 ### <a name="replace"></a>replace
 
-Vervangen door de opgegeven tekenreeks een subtekenreeks en de resultaattekenreeks retourneren. Deze functie is hoofdlettergevoelig.
+Vervang een subtekenreeks door de opgegeven teken reeks en retourneert de resultaat teken reeks. Deze functie is hoofdletter gevoelig.
 
 ```
 replace('<text>', '<oldText>', '<newText>')
@@ -3063,31 +3066,31 @@ replace('<text>', '<oldText>', '<newText>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Ja | String | De tekenreeks die de subtekenreeks weer die moet worden vervangen |
-| <*oldText*> | Ja | String | De subtekenreeks weer die moet worden vervangen |
-| <*newText*> | Ja | String | De vervangende tekenreeks |
+| <*SMS*> | Ja | Tekenreeks | De teken reeks met de subtekenreeks die moet worden vervangen |
+| <*oldText*> | Ja | Reeks | De subtekenreeks die moet worden vervangen |
+| <*newText*> | Ja | Tekenreeks | De vervangende teken reeks |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*updated-text*> | String | De bijgewerkte tekenreeks nadat de subtekenreeks vervangen <p>Als de subtekenreeks niet wordt gevonden, retourneert u de oorspronkelijke reeks. |
+| <*bijgewerkt-tekst*> | Tekenreeks | De bijgewerkte teken reeks na het vervangen van de subtekenreeks <p>Als de subtekenreeks niet wordt gevonden, retourneert u de oorspronkelijke teken reeks. |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld zoekt de subtekenreeks 'oude' in 'de oude tekenreeks' en 'oude' met 'Nieuw' vervangt:
+In dit voor beeld wordt de subtekenreeks ' old ' in ' Old string ' gezocht en vervangen door ' nieuw ':
 
 ```
 replace('the old string', 'old', 'new')
 ```
 
-En dit resultaat wordt weergegeven: `"the new string"`
+En retourneert dit resultaat:`"the new string"`
 
 <a name="removeProperty"></a>
 
 ### <a name="removeproperty"></a>removeProperty
 
-Een eigenschap van een object verwijderen en het bijgewerkte object geretourneerd.
+Een eigenschap van een object verwijderen en het bijgewerkte object retour neren.
 
 ```
 removeProperty(<object>, '<property>')
@@ -3095,18 +3098,18 @@ removeProperty(<object>, '<property>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object*> | Ja | Object | Het JSON-object waaruit u wilt verwijderen van een eigenschap |
-| <*De eigenschap*> | Ja | String | De naam op voor de eigenschap te verwijderen |
+| <*object*> | Ja | Object | Het JSON-object waarvan u een eigenschap wilt verwijderen |
+| <*eigenschap*> | Ja | Tekenreeks | De naam van de eigenschap die u wilt verwijderen |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*updated-object*> | Object | Het bijgewerkte JSON-object zonder dat de opgegeven eigenschap |
+| <*bijgewerkt-object*> | Object | Het bijgewerkte JSON-object zonder de opgegeven eigenschap |
 ||||
 
 *Voorbeeld*
 
-In het volgende voorbeeld verwijdert u de `"accountLocation"` eigenschap van een `"customerProfile"` object, dat wordt geconverteerd naar JSON met de [JSON()](#json) functioneren en retourneert het bijgewerkte object:
+In dit voor beeld `"accountLocation"` wordt de eigenschap `"customerProfile"` verwijderd van een object, dat wordt geconverteerd naar JSON met de functie [JSON ()](#json) en het bijgewerkte object retourneert:
 
 ```
 removeProperty(json('customerProfile'), 'accountLocation')
@@ -3116,8 +3119,8 @@ removeProperty(json('customerProfile'), 'accountLocation')
 
 ### <a name="setproperty"></a>setProperty
 
-Stel de waarde voor eigenschap van een object en het bijgewerkte object geretourneerd.
-U kunt deze functie gebruiken om toe te voegen een nieuwe eigenschap, of de [addProperty()](#addProperty) functie.
+Stel de waarde voor de eigenschap van een object in en retour neer het bijgewerkte object.
+U kunt deze functie of de functie [addProperty ()](#addProperty) gebruiken om een nieuwe eigenschap toe te voegen.
 
 ```
 setProperty(<object>, '<property>', <value>)
@@ -3125,20 +3128,20 @@ setProperty(<object>, '<property>', <value>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object*> | Ja | Object | Het JSON-object waarvan de eigenschap u wilt instellen |
-| <*De eigenschap*> | Ja | String | De naam op voor de bestaande of nieuwe eigenschap instellen |
-| <*Waarde*> | Ja | Alle | De waarde die moet worden ingesteld voor de opgegeven eigenschap |
+| <*object*> | Ja | Object | Het JSON-object waarvan u de eigenschap wilt instellen |
+| <*eigenschap*> | Ja | Reeks | De naam van de bestaande of nieuwe eigenschap die moet worden ingesteld |
+| <*Value*> | Ja | Any | De waarde die moet worden ingesteld voor de opgegeven eigenschap |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*updated-object*> | Object | Het bijgewerkte JSON-object waarvan de eigenschap instellen |
+| <*bijgewerkt-object*> | Object | Het bijgewerkte JSON-object waarvan u de eigenschap hebt ingesteld |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt de `"accountNumber"` eigenschap op een `"customerProfile"` object, dat wordt geconverteerd naar JSON met de [JSON()](#json) functie.
-De functie wordt een waarde die is gegenereerd door toegewezen [guid()](#guid) functioneren en retourneert het bijgewerkte JSON-object:
+In dit voor beeld `"accountNumber"` wordt de eigenschap `"customerProfile"` van een object ingesteld, dat wordt geconverteerd naar JSON met de functie [JSON ()](#json) .
+De functie wijst een waarde toe die is gegenereerd door de functie [GUID ()](#guid) en retourneert het bijgewerkte JSON-object:
 
 ```
 setProperty(json('customerProfile'), 'accountNumber', guid())
@@ -3146,9 +3149,9 @@ setProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="skip"></a>
 
-### <a name="skip"></a>Overslaan
+### <a name="skip"></a>verdergaan
 
-Items verwijderen uit het voorste deel van een verzameling en retourneren *alle andere* items.
+Verwijder items van de voor kant van een verzameling en retour neer *alle andere* items.
 
 ```
 skip([<collection>], <count>)
@@ -3156,30 +3159,30 @@ skip([<collection>], <count>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Verzameling*> | Ja | Matrix | De verzameling met items die u wilt verwijderen |
-| <*count*> | Ja | Geheel getal | Een positief geheel getal voor het aantal items te verwijderen op de voorgrond |
+| <*innings*> | Ja | Array | De verzameling waarvan u de items wilt verwijderen |
+| <*aantal*> | Ja | Geheel getal | Een positief geheel getal voor het aantal items dat aan de voor grond moet worden verwijderd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| [<*bijgewerkt verzameling*>] | Matrix | De bijgewerkte verzameling na het verwijderen van de opgegeven items |
+| [<*bijgewerkt-verzameling*>] | Array | De bijgewerkte verzameling na het verwijderen van de opgegeven items |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt één item, de waarde 0, van het begin van de opgegeven matrix verwijderd:
+In dit voor beeld wordt één item, het cijfer 0, van de voor kant van de opgegeven matrix verwijderd:
 
 ```
 skip(createArray(0, 1, 2, 3), 1)
 ```
 
-En retourneert deze matrix met de resterende items: `[1,2,3]`
+En retourneert deze matrix met de resterende items:`[1,2,3]`
 
 <a name="split"></a>
 
 ### <a name="split"></a>split
 
-Retourneert een matrix met subtekenreeksen, gescheiden door komma's, op basis van het opgegeven scheidingsteken in de oorspronkelijke reeks.
+Retourneert een matrix die subtekenreeksen bevat, gescheiden door komma's, op basis van het opgegeven scheidings teken in de oorspronkelijke teken reeks.
 
 ```
 split('<text>', '<delimiter>')
@@ -3187,30 +3190,30 @@ split('<text>', '<delimiter>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Ja | String | De tekenreeks te splitsen in subtekenreeksen op basis van het opgegeven scheidingsteken in de oorspronkelijke reeks |
-| <*delimiter*> | Ja | String | Het teken in de oorspronkelijke tekenreeks die moet worden gebruikt als het scheidingsteken |
+| <*SMS*> | Ja | Reeks | De teken reeks die moet worden gescheiden in subtekenreeksen op basis van het opgegeven scheidings teken in de oorspronkelijke teken reeks |
+| <*delimiter*> | Ja | Tekenreeks | Het teken in de oorspronkelijke teken reeks dat moet worden gebruikt als scheidings teken |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| [<*substring1*>,<*substring2*>,...] | Matrix | Een matrix met subtekenreeksen uit de oorspronkelijke reeks, gescheiden door komma 's |
+| [<*substring1*>,<*substring2*>,...] | Array | Een matrix die subtekenreeksen uit de oorspronkelijke teken reeks bevat, gescheiden door komma's |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt een matrix gemaakt met subtekenreeksen uit de opgegeven tekenreeks op basis van het opgegeven teken als scheidingsteken:
+In dit voor beeld wordt een matrix gemaakt met subtekenreeksen uit de opgegeven teken reeks op basis van het opgegeven teken als scheidings tekens:
 
 ```
 split('a_b_c', '_')
 ```
 
-En worden deze matrix geretourneerd als het resultaat: `["a","b","c"]`
+En retourneert deze matrix als het resultaat:`["a","b","c"]`
 
 <a name="startOfDay"></a>
 
 ### <a name="startofday"></a>startOfDay
 
-Retourneert het begin van de dag van een tijdstempel.
+Retourneert het begin van de dag voor een tijds tempel.
 
 ```
 startOfDay('<timestamp>', '<format>'?)
@@ -3218,30 +3221,30 @@ startOfDay('<timestamp>', '<format>'?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Neem*> | Ja | Tekenreeks | De teken reeks die de tijds tempel bevat |
+| <*Formatteer*> | Nee | Tekenreeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*bijgewerkt timestamp*> | String | De opgegeven timestamp, maar vanaf het hele uur uitgevoerd voor de dag |
+| <*bijgewerkt-tijds tempel*> | Tekenreeks | Het opgegeven tijds tempel, maar beginnend bij het lege uur voor de dag |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt gezocht naar het begin van de dag voor dit tijdstempel:
+In dit voor beeld wordt gezocht naar het begin van de dag voor deze tijds tempel:
 
 ```
 startOfDay('2018-03-15T13:30:30Z')
 ```
 
-En dit resultaat wordt weergegeven: `"2018-03-15T00:00:00.0000000Z"`
+En retourneert dit resultaat:`"2018-03-15T00:00:00.0000000Z"`
 
 <a name="startOfHour"></a>
 
 ### <a name="startofhour"></a>startOfHour
 
-Retourneert het begin van het uur voor een tijdstempel.
+Het begin van het uur retour neren voor een tijds tempel.
 
 ```
 startOfHour('<timestamp>', '<format>'?)
@@ -3249,30 +3252,30 @@ startOfHour('<timestamp>', '<format>'?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Neem*> | Ja | Tekenreeks | De teken reeks die de tijds tempel bevat |
+| <*Formatteer*> | Nee | Tekenreeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*bijgewerkt timestamp*> | String | De opgegeven timestamp, maar vanaf de nul minuten durende is ingeschakeld voor het uur |
+| <*bijgewerkt-tijds tempel*> | Reeks | Het opgegeven tijds tempel, maar beginnend bij het nul-minuten teken voor het uur |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt gezocht naar het begin van het uur voor dit tijdstempel:
+In dit voor beeld vindt u het begin van het uur voor deze tijds tempel:
 
 ```
 startOfHour('2018-03-15T13:30:30Z')
 ```
 
-En dit resultaat wordt weergegeven: `"2018-03-15T13:00:00.0000000Z"`
+En retourneert dit resultaat:`"2018-03-15T13:00:00.0000000Z"`
 
 <a name="startOfMonth"></a>
 
 ### <a name="startofmonth"></a>startOfMonth
 
-Retourneert het begin van de maand voor een tijdstempel.
+Retourneert het begin van de maand voor een tijds tempel.
 
 ```
 startOfMonth('<timestamp>', '<format>'?)
@@ -3280,32 +3283,32 @@ startOfMonth('<timestamp>', '<format>'?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Neem*> | Ja | Tekenreeks | De teken reeks die de tijds tempel bevat |
+| <*Formatteer*> | Nee | Tekenreeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*bijgewerkt timestamp*> | String | Vanaf de eerste dag van de maand op het hele uur uitgevoerd, maar de opgegeven timestamp |
+| <*bijgewerkt-tijds tempel*> | Tekenreeks | Het opgegeven tijds tempel dat begint op de eerste dag van de maand met het nul-uur |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld retourneert het begin van de maand voor dit tijdstempel:
+In dit voor beeld wordt het begin van de maand voor deze tijds tempel geretourneerd:
 
 ```
 startOfMonth('2018-03-15T13:30:30Z')
 ```
 
-En dit resultaat wordt weergegeven: `"2018-03-01T00:00:00.0000000Z"`
+En retourneert dit resultaat:`"2018-03-01T00:00:00.0000000Z"`
 
 <a name="startswith"></a>
 
 ### <a name="startswith"></a>startsWith
 
-Controleren of een tekenreeks met een specifieke subtekenreeks begint.
-Retourneert waar wanneer de subtekenreeks wordt gevonden, of onwaar retourneren wanneer niet gevonden.
-Deze functie is niet hoofdlettergevoelig.
+Controleren of een teken reeks begint met een specifieke subtekenreeks.
+Retourneert waar als de subtekenreeks wordt gevonden, of retourneert False als het niet is gevonden.
+Deze functie is niet hoofdletter gevoelig.
 
 ```
 startsWith('<text>', '<searchText>')
@@ -3313,40 +3316,40 @@ startsWith('<text>', '<searchText>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Ja | String | De tekenreeks om te controleren |
-| <*searchText*> | Ja | String | De eerste tekenreeks om te zoeken |
+| <*SMS*> | Ja | Tekenreeks | De teken reeks die moet worden gecontroleerd |
+| <*searchText*> | Ja | Tekenreeks | De begin teken reeks die moet worden gezocht |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| waar of ONWAAR  | Boolean | Retourneert waar wanneer de eerste subtekenreeks wordt gevonden. Retourneert de waarde false wanneer niet gevonden. |
+| waar of onwaar  | Boolean-waarde | Retourneert waar als de eerste subtekenreeks wordt gevonden. Retourneert onwaar wanneer deze niet is gevonden. |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld controleert of de tekenreeks "Hallo wereld" met de subtekenreeks "Hallo begint":
+In dit voor beeld wordt gecontroleerd of de teken reeks "Hallo wereld" begint met de subtekenreeks "Hallo":
 
 ```
 startsWith('hello world', 'hello')
 ```
 
-En dit resultaat wordt weergegeven: `true`
+En retourneert dit resultaat:`true`
 
 *Voorbeeld 2*
 
-In dit voorbeeld controleert of de tekenreeks "Hallo wereld" met de subtekenreeks 'groeten begint':
+In dit voor beeld wordt gecontroleerd of de teken reeks "Hallo wereld" begint met de subtekenreeks "Greetings":
 
 ```
 startsWith('hello world', 'greetings')
 ```
 
-En dit resultaat wordt weergegeven: `false`
+En retourneert dit resultaat:`false`
 
 <a name="string"></a>
 
 ### <a name="string"></a>string
 
-De tekenreeksversie voor een waarde retourneren.
+Retourneert de teken reeks versie voor een waarde.
 
 ```
 string(<value>)
@@ -3354,39 +3357,39 @@ string(<value>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | Alle | De waarde te converteren |
+| <*Value*> | Ja | Any | De waarde die moet worden geconverteerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*string-value*> | String | De tekenreeksversie voor de opgegeven waarde |
+| <*teken reeks-waarde*> | Tekenreeks | De teken reeks versie voor de opgegeven waarde |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld maakt u de tekenreeksversie voor dit nummer:
+In dit voor beeld wordt de teken reeks versie gemaakt voor dit nummer:
 
 ```
 string(10)
 ```
 
-En dit resultaat wordt weergegeven: `"10"`
+En retourneert dit resultaat:`"10"`
 
 *Voorbeeld 2*
 
-In dit voorbeeld maakt u een tekenreeks op voor het opgegeven JSON-object en maakt gebruik van de backslash-teken (\\) als een escape-teken voor het aanhalingsteken (").
+In dit voor beeld wordt een teken reeks gemaakt voor het opgegeven JSON-object en\\wordt de back slash () gebruikt als escape teken voor het dubbele aanhalings tekens (").
 
 ```
 string( { "name": "Sophie Owen" } )
 ```
 
-En dit resultaat wordt weergegeven: `"{ \\"name\\": \\"Sophie Owen\\" }"`
+En retourneert dit resultaat:`"{ \\"name\\": \\"Sophie Owen\\" }"`
 
 <a name="sub"></a>
 
 ### <a name="sub"></a>sub
 
-Retourneert het resultaat van af te trekken van het tweede nummer van het eerste getal.
+Retourneert het resultaat van het aftrekken van het tweede getal uit het eerste getal.
 
 ```
 sub(<minuend>, <subtrahend>)
@@ -3394,31 +3397,31 @@ sub(<minuend>, <subtrahend>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*aftrektal*> | Ja | Geheel getal of een gegevenstype met drijvende komma | Het getal waarvan u wilt de *aftrekker* |
-| <*aftrekker*> | Ja | Geheel getal of een gegevenstype met drijvende komma | Het getal moet worden afgetrokken van de *aftrektal* |
+| <*aftrek getal*> | Ja | Geheel getal of zwevend | Het getal waaruit de *aftrekker* moet worden afgetrokken |
+| <*aftrekker*> | Ja | Geheel getal of zwevend | Het getal dat moet worden afgetrokken van de *aftrek getal* |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*Resultaat*> | Geheel getal of een gegevenstype met drijvende komma | Het resultaat van het tweede nummer van het eerste getal af te trekken |
+| <*Daardoor*> | Geheel getal of zwevend | Het resultaat van het aftrekken van het tweede getal uit het eerste getal |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld trekt het tweede nummer van het eerste getal:
+In dit voor beeld wordt het tweede getal afgetrokken van het eerste getal:
 
 ```
 sub(10.3, .3)
 ```
 
-En dit resultaat wordt weergegeven: `10`
+En retourneert dit resultaat:`10`
 
 <a name="substring"></a>
 
-### <a name="substring"></a>de subtekenreeks
+### <a name="substring"></a>subtekenreeks
 
-Tekens retourneren uit een tekenreeks, beginnend vanaf de opgegeven positie, of de index.
-Index waarden beginnen met de waarde 0.
+Retourneert tekens uit een teken reeks, beginnend bij de opgegeven positie of index.
+Index waarden beginnen met het cijfer 0.
 
 ```
 substring('<text>', <startIndex>, <length>)
@@ -3426,31 +3429,31 @@ substring('<text>', <startIndex>, <length>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Ja | String | De tekenreeks waarvan de gewenste tekens |
-| <*startIndex*> | Ja | Geheel getal | Een positief getal gelijk is aan of groter dan 0 die u wilt gebruiken als de beginwaarde voor de positie of index |
-| <*Lengte*> | Ja | Geheel getal | Een positief aantal tekens dat u wilt dat in de subtekenreeks |
+| <*SMS*> | Ja | Reeks | De teken reeks waarvan u de tekens wilt |
+| <*startIndex*> | Ja | Geheel getal | Een positief getal gelijk aan of groter dan 0 dat u wilt gebruiken als de begin positie of index waarde |
+| <*lange*> | Ja | Geheel getal | Een positief aantal tekens dat u wilt in de subtekenreeks |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*substring-result*> | String | Een subtekenreeks met het opgegeven aantal tekens, vanaf de positie van de opgegeven index in de brontekenreeks |
+| <*substring-result*> | Reeks | Een subtekenreeks met het opgegeven aantal tekens, beginnend bij de opgegeven index positie in de bron teken reeks |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u een subtekenreeks vijf tekens van de opgegeven tekenreeks, beginnend met de indexwaarde 6:
+In dit voor beeld wordt een subtekenreeks van vijf tekens gemaakt op basis van de opgegeven teken reeks, beginnend bij de index waarde 6:
 
 ```
 substring('hello world', 6, 5)
 ```
 
-En dit resultaat wordt weergegeven: `"world"`
+En retourneert dit resultaat:`"world"`
 
 <a name="subtractFromTime"></a>
 
 ### <a name="subtractfromtime"></a>subtractFromTime
 
-Een aantal eenheden van een tijdstempel aftrekken.
+Een aantal tijds eenheden aftrekken van een tijds tempel.
 Zie ook [getPastTime](#getPastTime).
 
 ```
@@ -3459,42 +3462,42 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*interval*> | Ja | Geheel getal | Het aantal eenheden van de opgegeven tijd om af te trekken |
-| <*timeUnit*> | Ja | String | De tijdseenheid voor gebruik met *interval*: 'Tweede', 'Minute', 'Uur', 'Dag', 'Week', 'Month', 'Year' |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Neem*> | Ja | Reeks | De teken reeks die de tijds tempel bevat |
+| <*interval*> | Ja | Geheel getal | Het aantal opgegeven tijds eenheden dat moet worden afgetrokken |
+| <*timeUnit*> | Ja | Tekenreeks | De tijds eenheid die moet worden gebruikt met het *interval*: "Seconde", "minuut", "uur", "dag", "week", "maand", "jaar" |
+| <*Formatteer*> | Nee | Tekenreeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*bijgewerkt timestamp*> | String | De tijdstempel minus het opgegeven aantal tijdseenheden |
+| <*bijgewerkt-tijds tempel*> | Tekenreeks | De tijds tempel min het opgegeven aantal tijds eenheden |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld wordt één dag van deze timestamp afgetrokken:
+In dit voor beeld wordt één dag afgetrokken van deze tijds tempel:
 
 ```
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
 ```
 
-En dit resultaat wordt weergegeven: `"2018-01-01T00:00:00:0000000Z"`
+En retourneert dit resultaat:`"2018-01-01T00:00:00:0000000Z"`
 
 *Voorbeeld 2*
 
-In dit voorbeeld wordt één dag van deze timestamp afgetrokken:
+In dit voor beeld wordt één dag afgetrokken van deze tijds tempel:
 
 ```
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day', 'D')
 ```
 
-En dit resultaat wordt met behulp van de optionele "D"-indeling: `"Monday, January, 1, 2018"`
+En retourneert dit resultaat met de optionele D-indeling:`"Monday, January, 1, 2018"`
 
 <a name="take"></a>
 
-### <a name="take"></a>toets maken
+### <a name="take"></a>Houd
 
-Items retourneren vanaf het begin van een verzameling.
+Items van de voor grond van een verzameling retour neren.
 
 ```
 take('<collection>', <count>)
@@ -3503,35 +3506,35 @@ take([<collection>], <count>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Verzameling*> | Ja | Tekenreeks of matrix | De verzameling met items die u wilt |
-| <*count*> | Ja | Geheel getal | Een positief geheel getal voor het aantal items die u wilt dat uit het voorste deel |
+| <*innings*> | Ja | Teken reeks of matrix | De verzameling waarvan u de items wilt |
+| <*aantal*> | Ja | Geheel getal | Een positief geheel getal voor het aantal items dat u wilt van de voor grond |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*subset*> of [<*subset*>] | Tekenreeks of matrix, respectievelijk | Een tekenreeks of een matrix met het opgegeven aantal items die zijn overgenomen uit het begin van de oorspronkelijke verzameling |
+| <*subset*> of [<*subset*>] | Respectievelijk een teken reeks of matrix | Een teken reeks of matrix met het opgegeven aantal items van de voor grond van de oorspronkelijke verzameling |
 ||||
 
 *Voorbeeld*
 
-Het opgegeven aantal items ophalen in deze voorbeelden uit het voorste deel van deze verzamelingen:
+In deze voor beelden wordt het opgegeven aantal items van de voor grond van deze verzamelingen opgehaald:
 
 ```
 take('abcde', 3)
 take(createArray(0, 1, 2, 3, 4), 3)
 ```
 
-En deze resultaten worden geretourneerd:
+En retour neren deze resultaten:
 
-* Eerste voorbeeld: `"abc"`
-* Tweede voorbeeld: `[0, 1, 2]`
+* Eerste voor beeld:`"abc"`
+* Tweede voor beeld:`[0, 1, 2]`
 
 <a name="ticks"></a>
 
-### <a name="ticks"></a>maatstreepjes
+### <a name="ticks"></a>Ticks
 
-Retourneert de `ticks` eigenschapwaarde voor een opgegeven timestamp.
-Een *maatstreepjes* is een interval van 100 nanoseconden.
+De `ticks` eigenschaps waarde voor een opgegeven tijds tempel retour neren.
+Een *Tick* is een nano seconden-interval van 100.
 
 ```
 ticks('<timestamp>')
@@ -3539,19 +3542,19 @@ ticks('<timestamp>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Tijdstempel*> | Ja | String | De tekenreeks voor een tijdstempel |
+| <*Neem*> | Ja | Reeks | De teken reeks voor een tijds tempel |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*ticks-number*> | Geheel getal | Het aantal tikken sinds de opgegeven timestamp |
+| <*maten-nummer*> | Geheel getal | Het aantal maat streepjes sinds de opgegeven tijds tempel |
 ||||
 
 <a name="toLower"></a>
 
 ### <a name="tolower"></a>toLower
 
-Retourneert een tekenreeks in kleine letters indeling. Als een teken in de tekenreeks geen in kleine letters, blijft het teken ongewijzigd in de geretourneerde tekenreeks.
+Retourneert een teken reeks met de indeling kleine letters. Als een teken in de teken reeks geen kleine versie heeft, blijft dat teken ongewijzigd in de geretourneerde teken reeks.
 
 ```
 toLower('<text>')
@@ -3559,29 +3562,29 @@ toLower('<text>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Ja | String | De tekenreeks die moet worden geretourneerd in kleine letters-indeling |
+| <*SMS*> | Ja | Tekenreeks | De teken reeks die moet worden geretourneerd met een kleine letter notatie |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*lowercase-text*> | String | De oorspronkelijke reeks in kleine letters-indeling |
+| <*kleine letters*> | Tekenreeks | De oorspronkelijke teken reeks in kleine letters |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt deze tekenreeks geconverteerd naar kleine letters:
+In dit voor beeld wordt deze teken reeks geconverteerd naar kleine letters:
 
 ```
 toLower('Hello World')
 ```
 
-En dit resultaat wordt weergegeven: `"hello world"`
+En retourneert dit resultaat:`"hello world"`
 
 <a name="toUpper"></a>
 
 ### <a name="toupper"></a>toUpper
 
-Retourneert een tekenreeks in hoofdletters. Als een teken in de tekenreeks geen hoofdletters, blijft het teken ongewijzigd in de geretourneerde tekenreeks.
+Retourneert een teken reeks met een hoofd letter. Als een teken in de teken reeks geen hoofd versie heeft, blijft dat teken ongewijzigd in de geretourneerde teken reeks.
 
 ```
 toUpper('<text>')
@@ -3589,68 +3592,68 @@ toUpper('<text>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Ja | String | De tekenreeks die moet worden geretourneerd in hoofdletters |
+| <*SMS*> | Ja | Tekenreeks | De teken reeks die moet worden geretourneerd met een hoofd letter |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*tekst met hoofdletters*> | String | De oorspronkelijke reeks in hoofdletters |
+| <*hoofd letters: tekst*> | Tekenreeks | De oorspronkelijke teken reeks in hoofd letters |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld converteert deze tekenreeks naar hoofdletters:
+In dit voor beeld wordt deze teken reeks geconverteerd naar hoofd letters:
 
 ```
 toUpper('Hello World')
 ```
 
-En dit resultaat wordt weergegeven: `"HELLO WORLD"`
+En retourneert dit resultaat:`"HELLO WORLD"`
 
 <a name="trigger"></a>
 
-### <a name="trigger"></a>trigger
+### <a name="trigger"></a>Trigger
 
-Retourneert de uitvoer van een trigger in runtime, of waarden van andere naam en waarde-paren van JSON, die u aan een expressie toewijzen kunt.
+Retourneert de uitvoer van een trigger tijdens runtime, of waarden van andere JSON-naam-en-waardeparen, die u kunt toewijzen aan een expressie.
 
 * In de invoer van een trigger retourneert deze functie de uitvoer van de vorige uitvoering.
 
-* In de voorwaarde van een trigger retourneert deze functie de uitvoer van de huidige uitvoering.
+* Binnen de voor waarde van een trigger retourneert deze functie de uitvoer van de huidige uitvoering.
 
-Standaard de functie verwijst naar de volledige triggerobject, maar u kunt optioneel een eigenschap opgeven waarvan de waarde die u wilt.
-Bovendien is deze functie is een verkorte versie van versies die beschikbaar zijn, raadpleegt u [triggerOutputs()](#triggerOutputs) en [triggerBody()](#triggerBody).
+De functie verwijst standaard naar het volledige trigger object, maar u kunt desgewenst een eigenschap opgeven waarvan u de waarde wilt bepalen.
+Deze functie heeft ook steno versies beschikbaar, Zie [triggerOutputs ()](#triggerOutputs) en [triggerBody ()](#triggerBody).
 
 ```
 trigger()
 ```
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*trigger-output*> | String | De uitvoer van een trigger tijdens runtime |
+| <*trigger-output*> | Reeks | De uitvoer van een trigger tijdens runtime |
 ||||
 
 <a name="triggerBody"></a>
 
 ### <a name="triggerbody"></a>triggerBody
 
-Resultaat van een trigger `body` uitvoer tijdens runtime.
-De korte benaming voor `trigger().outputs.body`.
-See [trigger()](#trigger).
+Retour neer de uitvoer `body` van een trigger tijdens runtime.
+Steno voor `trigger().outputs.body`.
+Zie [trigger ()](#trigger).
 
 ```
 triggerBody()
 ```
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*trigger-body-output*> | String | De `body` uitvoer van de trigger |
+| <*trigger-body-output*> | Reeks | De `body` uitvoer van de trigger |
 ||||
 
 <a name="triggerFormDataMultiValues"></a>
 
 ### <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
 
-Retourneert een matrix met waarden die overeenkomen met een naam in van een trigger *formuliergegevens* of *formuliercodes* uitvoer.
+Retour neer een matrix met waarden die overeenkomen met een sleutel naam in een trigger van de *formulier gegevens* of *formulier-gecodeerde* uitvoer.
 
 ```
 triggerFormDataMultiValues('<key>')
@@ -3658,30 +3661,30 @@ triggerFormDataMultiValues('<key>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Sleutel*> | Ja | String | De naam voor de sleutel waarvan u wilt dat de waarde |
+| <*prestatie*> | Ja | Tekenreeks | De naam van de sleutel waarvan u de waarde wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| [<*matrix met sleutel waarden*>] | Matrix | Een matrix met de waarden die overeenkomen met de opgegeven sleutel |
+| [<*matrix-met-sleutel waarden*>] | Array | Een matrix met alle waarden die overeenkomen met de opgegeven sleutel |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt een matrix gemaakt van de sleutel 'feedUrl'-waarde in een RSS-trigger formuliergegevens of formuliercodes uitvoer:
+In dit voor beeld wordt een matrix gemaakt op basis van de sleutel waarde ' feedUrl ' in een RSS-trigger de formulier gegevens of de formulier-gecodeerde uitvoer:
 
 ```
 triggerFormDataMultiValues('feedUrl')
 ```
 
-En worden deze matrix geretourneerd als een voorbeeld van resultaat: `["http://feeds.reuters.com/reuters/topNews"]`
+En retourneert deze matrix als een voor beeld van een resultaat:`["http://feeds.reuters.com/reuters/topNews"]`
 
 <a name="triggerFormDataValue"></a>
 
 ### <a name="triggerformdatavalue"></a>triggerFormDataValue
 
-Retourneert een tekenreeks zijn met één waarde die overeenkomt met een naam in van een trigger *formuliergegevens* of *formuliercodes* uitvoer.
-Als de functie vindt meer dan één overeenkomst, is de functie genereert een fout.
+Retourneert een teken reeks met één waarde die overeenkomt met een sleutel naam in een trigger van de *formulier gegevens* of *formulier-gecodeerde* uitvoer.
+Als de functie meer dan één overeenkomst vindt, genereert de functie een fout.
 
 ```
 triggerFormDataValue('<key>')
@@ -3689,29 +3692,29 @@ triggerFormDataValue('<key>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Sleutel*> | Ja | String | De naam voor de sleutel waarvan u wilt dat de waarde |
+| <*prestatie*> | Ja | Tekenreeks | De naam van de sleutel waarvan u de waarde wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*key-value*> | String | De waarde in de opgegeven sleutel |
+| <*key-value*> | Tekenreeks | De waarde in de opgegeven sleutel |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u een tekenreeks van de sleutelwaarde 'feedUrl' in een RSS-trigger formuliergegevens of formuliercodes uitvoer:
+In dit voor beeld wordt een teken reeks gemaakt op basis van de sleutel waarde ' feedUrl ' in een RSS-trigger de formulier gegevens of de formulier-gecodeerde uitvoer:
 
 ```
 triggerFormDataValue('feedUrl')
 ```
 
-En worden deze tekenreeks geretourneerd als een voorbeeld van resultaat: `"http://feeds.reuters.com/reuters/topNews"`
+En retourneert deze teken reeks als voorbeeld resultaat:`"http://feeds.reuters.com/reuters/topNews"`
 
 <a name="triggerMultipartBody"></a>
 
 ### <a name="triggermultipartbody"></a>triggerMultipartBody
 
-Retourneert de instantie voor een bepaald deel in de uitvoer van een trigger die bestaat uit meerdere delen.
+De hoofd tekst retour neren voor een specifiek deel in de uitvoer van een trigger met meerdere onderdelen.
 
 ```
 triggerMultipartBody(<index>)
@@ -3719,36 +3722,36 @@ triggerMultipartBody(<index>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*index*> | Ja | Geheel getal | De indexwaarde voor het onderdeel dat u wilt |
+| <*index*> | Ja | Geheel getal | De index waarde voor het onderdeel dat u wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*body*> | String | De instantie voor het opgegeven onderdeel van een trigger meerdelige uitvoer |
+| <*body*> | Reeks | De hoofd tekst voor het opgegeven deel in de meerdelige uitvoer van een trigger |
 ||||
 
 <a name="triggerOutputs"></a>
 
 ### <a name="triggeroutputs"></a>triggerOutputs
 
-Retourneert de uitvoer van een trigger in runtime, of waarden van andere naam en waarde-paren van JSON.
-De korte benaming voor `trigger().outputs`.
-See [trigger()](#trigger).
+Retourneert de uitvoer van een trigger tijdens runtime of waarden van andere JSON-naam-en-waardeparen.
+Steno voor `trigger().outputs`.
+Zie [trigger ()](#trigger).
 
 ```
 triggerOutputs()
 ```
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*trigger-output*> | String | De uitvoer van een trigger tijdens runtime  |
+| <*trigger-output*> | Tekenreeks | De uitvoer van een trigger tijdens runtime  |
 ||||
 
 <a name="trim"></a>
 
-### <a name="trim"></a>trim
+### <a name="trim"></a>interne
 
-Voorloop-en volgspaties verwijderen uit een tekenreeks en retourneert de bijgewerkte tekenreeks.
+Verwijder voor loop-en volg spaties uit een teken reeks en retour neer de bijgewerkte teken reeks.
 
 ```
 trim('<text>')
@@ -3756,30 +3759,30 @@ trim('<text>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Ja | String | De tekenreeks die de voorloopspaties en afsluitende spaties verwijderen |
+| <*SMS*> | Ja | Reeks | De teken reeks met de voor loop-en volg spaties die moeten worden verwijderd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*updatedText*> | String | Een bijgewerkte versie van de oorspronkelijke reeks zonder voorloopspatie of afsluitende spatie |
+| <*updatedText*> | Tekenreeks | Een bijgewerkte versie van de oorspronkelijke teken reeks zonder voor loop-of volg spaties |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt de witruimte voorloop- en volgspaties uit de tekenreeks "Hallo wereld" verwijderd.
+In dit voor beeld worden de voor loop-en volg spaties uit de teken reeks "Hallo wereld" verwijderd:
 
 ```
 trim(' Hello World  ')
 ```
 
-En dit resultaat wordt weergegeven: `"Hello World"`
+En retourneert dit resultaat:`"Hello World"`
 
 <a name="union"></a>
 
 ### <a name="union"></a>union
 
-Retourneert een verzameling met *alle* de items van de gespecificeerde verzamelingen.
-Een item kan worden weergegeven in het resultaat, worden weergegeven in een verzameling die is doorgegeven aan deze functie. Als een of meer items dezelfde naam hebben, wordt het laatste item met die naam in het resultaat weergegeven.
+Een verzameling retour neren die *alle* items uit de opgegeven verzamelingen bevat.
+Om weer te geven in het resultaat, kan een item worden weer gegeven in een verzameling die aan deze functie wordt door gegeven. Als een of meer items dezelfde naam hebben, wordt het laatste item met die naam weer gegeven in het resultaat.
 
 ```
 union('<collection1>', '<collection2>', ...)
@@ -3788,31 +3791,31 @@ union([<collection1>], [<collection2>], ...)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection1*>, <*collection2*>, ...  | Ja | Matrix of Object, maar niet beide | De verzamelingen van waar u *alle* de items |
+| <*verzameling1*>, <*Collection2*>,...  | Ja | Matrix of object, maar niet beide | De verzamelingen van waaruit u wilt dat *alle* items |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*updatedCollection*> | Matrix of één Object, respectievelijk | Een verzameling met alle items uit de gespecificeerde verzamelingen - geen dubbele waarden |
+| <*updatedCollection*> | Respectievelijk matrix of object | Een verzameling met alle items uit de opgegeven verzamelingen-geen duplicaten |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt *alle* de items van deze verzamelingen:
+In dit voor beeld worden *alle* items van deze verzamelingen opgehaald:
 
 ```
 union(createArray(1, 2, 3), createArray(1, 2, 10, 101))
 ```
 
-En dit resultaat wordt weergegeven: `[1, 2, 3, 10, 101]`
+En retourneert dit resultaat:`[1, 2, 3, 10, 101]`
 
 <a name="uriComponent"></a>
 
 ### <a name="uricomponent"></a>uriComponent
 
-Retourneert een uniform resource identifier (URI) gecodeerde versie voor een tekenreeks-URL-onveilige tekens te vervangen door een escape-tekens.
-Deze functie wilt gebruiken in plaats van [encodeUriComponent()](#encodeUriComponent).
-Hoewel beide functies werken op dezelfde manier, `uriComponent()` verdient de voorkeur.
+Een gecodeerde URI-versie (Uniform Resource Identifier) retour neren voor een teken reeks door onveilige URL-tekens te vervangen door Escape tekens.
+Gebruik deze functie in plaats van [encodeUriComponent ()](#encodeUriComponent).
+Hoewel beide functies op dezelfde manier werken, `uriComponent()` verdient de voor keur.
 
 ```
 uriComponent('<value>')
@@ -3820,29 +3823,29 @@ uriComponent('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De tekenreeks die moet worden geconverteerd naar de URI-notatie |
+| <*Value*> | Ja | Reeks | De teken reeks die moet worden geconverteerd naar een URI-gecodeerde indeling |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*encoded-uri*> | String | De URI-gecodeerde tekenreeks met escape-tekens |
+| <*encoded-uri*> | Tekenreeks | De teken reeks met URI-code ring met escape tekens |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u een URI-gecodeerde versie voor deze tekenreeks:
+In dit voor beeld wordt een met URI gecodeerde versie gemaakt voor deze teken reeks:
 
 ```
 uriComponent('https://contoso.com')
 ```
 
-En dit resultaat wordt weergegeven: `"http%3A%2F%2Fcontoso.com"`
+En retourneert dit resultaat:`"http%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
 ### <a name="uricomponenttobinary"></a>uriComponentToBinary
 
-Retourneert de binaire versie voor een uniform resource identifier (URI)-component.
+Retourneert de binaire versie voor een onderdeel van een Uniform Resource Identifier (URI).
 
 ```
 uriComponentToBinary('<value>')
@@ -3850,23 +3853,23 @@ uriComponentToBinary('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De URI-gecodeerde tekenreeks converteren |
+| <*Value*> | Ja | Tekenreeks | De URI-gecodeerde teken reeks die moet worden geconverteerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*binary-for-encoded-uri*> | String | De binaire versie voor de URI-gecodeerde tekenreeks. De binaire inhoud wordt base64-gecodeerd en wordt vertegenwoordigd door `$content`. |
+| <*binary-for-encoded-uri*> | Tekenreeks | De binaire versie voor de teken reeks met URI-code ring. De binaire inhoud is base64-gecodeerd en vertegenwoordigd door `$content`. |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u de binaire versie voor deze URI-gecodeerde tekenreeks:
+In dit voor beeld wordt de binaire versie gemaakt voor deze teken reeks met URI-code ring:
 
 ```
 uriComponentToBinary('http%3A%2F%2Fcontoso.com')
 ```
 
-En dit resultaat wordt weergegeven:
+En retourneert dit resultaat:
 
 `"001000100110100001110100011101000111000000100101001100
 11010000010010010100110010010001100010010100110010010001
@@ -3877,7 +3880,7 @@ En dit resultaat wordt weergegeven:
 
 ### <a name="uricomponenttostring"></a>uriComponentToString
 
-Retourneert dat de tekenreeksversie voor een uniform resource identifier (URI) gecodeerde tekenreeks, effectief decoderen van de URI-gecodeerde tekenreeks.
+Retourneert de teken reeks versie voor een gecodeerde URI-teken reeks (Uniform Resource Identifier), waardoor de gecodeerde URI-teken reeks effectief wordt gedecodeerd.
 
 ```
 uriComponentToString('<value>')
@@ -3885,29 +3888,29 @@ uriComponentToString('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De URI-gecodeerde tekenreeks moet worden gedecodeerd |
+| <*Value*> | Ja | Tekenreeks | De met URI gecodeerde teken reeks die moet worden gedecodeerd |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*decoded-uri*> | String | De gedecodeerde versie voor de URI-gecodeerde tekenreeks |
+| <*decoded-uri*> | Reeks | De gedecodeerde versie voor de teken reeks met URI-code ring |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld maakt u de gedecodeerde tekenreeksversie voor deze URI-gecodeerde tekenreeks:
+In dit voor beeld wordt de gedecodeerde teken reeks versie gemaakt voor deze teken reeks met URI-code ring:
 
 ```
 uriComponentToString('http%3A%2F%2Fcontoso.com')
 ```
 
-En dit resultaat wordt weergegeven: `"https://contoso.com"`
+En retourneert dit resultaat:`"https://contoso.com"`
 
 <a name="uriHost"></a>
 
 ### <a name="urihost"></a>uriHost
 
-Retourneert de `host` waarde voor een uniform resource identifier (URI).
+De `host` waarde voor een Uniform Resource Identifier (URI) retour neren.
 
 ```
 uriHost('<uri>')
@@ -3915,29 +3918,29 @@ uriHost('<uri>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Ja | String | De URI waarvan `host` waarde die u wilt |
+| <*uri*> | Ja | Tekenreeks | De URI waarvan `host` u de waarde wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*host-value*> | String | De `host` waarde voor de opgegeven URI |
+| <*host-value*> | Reeks | De `host` waarde voor de opgegeven URI |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt gezocht naar de `host` waarde voor deze URI:
+In dit voor beeld `host` wordt de waarde voor deze URI gezocht:
 
 ```
 uriHost('https://www.localhost.com:8080')
 ```
 
-En dit resultaat wordt weergegeven: `"www.localhost.com"`
+En retourneert dit resultaat:`"www.localhost.com"`
 
 <a name="uriPath"></a>
 
 ### <a name="uripath"></a>uriPath
 
-Retourneert de `path` waarde voor een uniform resource identifier (URI).
+De `path` waarde voor een Uniform Resource Identifier (URI) retour neren.
 
 ```
 uriPath('<uri>')
@@ -3945,29 +3948,29 @@ uriPath('<uri>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Ja | String | De URI waarvan `path` waarde die u wilt |
+| <*uri*> | Ja | Tekenreeks | De URI waarvan `path` u de waarde wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*pad-waarde*> | String | De `path` waarde voor de opgegeven URI. Als `path` niet een waarde hebben, kunt u het teken '/' retourneren. |
+| <*pad-waarde*> | Tekenreeks | De `path` waarde voor de opgegeven URI. Als `path` er geen waarde is, retourneert het teken '/'. |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt gezocht naar de `path` waarde voor deze URI:
+In dit voor beeld `path` wordt de waarde voor deze URI gezocht:
 
 ```
 uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-En dit resultaat wordt weergegeven: `"/catalog/shownew.htm"`
+En retourneert dit resultaat:`"/catalog/shownew.htm"`
 
 <a name="uriPathAndQuery"></a>
 
 ### <a name="uripathandquery"></a>uriPathAndQuery
 
-Retourneert de `path` en `query` waarden voor een uniform resource identifier (URI).
+De `path` waarden en `query` voor een Uniform Resource Identifier (URI) retour neren.
 
 ```
 uriPathAndQuery('<uri>')
@@ -3975,29 +3978,29 @@ uriPathAndQuery('<uri>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Ja | String | De URI waarvan `path` en `query` waarden die u wilt |
+| <*uri*> | Ja | Tekenreeks | De URI waarvan `path` `query` u de waarden wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*path-query-value*> | String | De `path` en `query` waarden voor de opgegeven URI. Als `path` niet een waarde opgeeft, retourneert het teken '/'. |
+| <*path-query-value*> | Reeks | De `path` waarden `query` en voor de opgegeven URI. Als `path` er geen waarde wordt opgegeven, retourneert het teken/. |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld wordt gezocht naar de `path` en `query` waarden voor deze URI:
+In dit voor beeld `path` worden `query` de en-waarden voor deze URI gezocht:
 
 ```
 uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-En dit resultaat wordt weergegeven: `"/catalog/shownew.htm?date=today"`
+En retourneert dit resultaat:`"/catalog/shownew.htm?date=today"`
 
 <a name="uriPort"></a>
 
 ### <a name="uriport"></a>uriPort
 
-Retourneert de `port` waarde voor een uniform resource identifier (URI).
+De `port` waarde voor een Uniform Resource Identifier (URI) retour neren.
 
 ```
 uriPort('<uri>')
@@ -4005,29 +4008,29 @@ uriPort('<uri>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Ja | String | De URI waarvan `port` waarde die u wilt |
+| <*uri*> | Ja | Reeks | De URI waarvan `port` u de waarde wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*port-value*> | Geheel getal | De `port` waarde voor de opgegeven URI. Als `port` niet een waarde opgeeft, kunt u de standaardpoort voor het protocol retourneren. |
+| <*poort-waarde*> | Geheel getal | De `port` waarde voor de opgegeven URI. Als `port` er geen waarde wordt opgegeven, retourneert u de standaard poort voor het protocol. |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld retourneert de `port` waarde voor deze URI:
+In dit voor beeld `port` wordt de waarde voor deze URI geretourneerd:
 
 ```
 uriPort('http://www.localhost:8080')
 ```
 
-En dit resultaat wordt weergegeven: `8080`
+En retourneert dit resultaat:`8080`
 
 <a name="uriQuery"></a>
 
 ### <a name="uriquery"></a>uriQuery
 
-Retourneert de `query` waarde voor een uniform resource identifier (URI).
+De `query` waarde voor een Uniform Resource Identifier (URI) retour neren.
 
 ```
 uriQuery('<uri>')
@@ -4035,29 +4038,29 @@ uriQuery('<uri>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Ja | String | De URI waarvan `query` waarde die u wilt |
+| <*uri*> | Ja | Tekenreeks | De URI waarvan `query` u de waarde wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*query-value*> | String | De `query` waarde voor de opgegeven URI |
+| <*query-value*> | Tekenreeks | De `query` waarde voor de opgegeven URI |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld retourneert de `query` waarde voor deze URI:
+In dit voor beeld `query` wordt de waarde voor deze URI geretourneerd:
 
 ```
 uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-En dit resultaat wordt weergegeven: `"?date=today"`
+En retourneert dit resultaat:`"?date=today"`
 
 <a name="uriScheme"></a>
 
 ### <a name="urischeme"></a>uriScheme
 
-Retourneert de `scheme` waarde voor een uniform resource identifier (URI).
+De `scheme` waarde voor een Uniform Resource Identifier (URI) retour neren.
 
 ```
 uriScheme('<uri>')
@@ -4065,74 +4068,74 @@ uriScheme('<uri>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Ja | String | De URI waarvan `scheme` waarde die u wilt |
+| <*uri*> | Ja | Reeks | De URI waarvan `scheme` u de waarde wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*scheme-value*> | String | De `scheme` waarde voor de opgegeven URI |
+| <*schema-waarde*> | Tekenreeks | De `scheme` waarde voor de opgegeven URI |
 ||||
 
 *Voorbeeld*
 
-In dit voorbeeld retourneert de `scheme` waarde voor deze URI:
+In dit voor beeld `scheme` wordt de waarde voor deze URI geretourneerd:
 
 ```
 uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-En dit resultaat wordt weergegeven: `"http"`
+En retourneert dit resultaat:`"http"`
 
 <a name="utcNow"></a>
 
 ### <a name="utcnow"></a>utcNow
 
-Retourneert de huidige tijdstempel.
+De huidige tijds tempel retour neren.
 
 ```
 utcNow('<format>')
 ```
 
-Desgewenst kunt u een andere indeling met de <*indeling*> parameter.
+U kunt desgewenst een andere indeling opgeven met de <*notatie*> para meter.
 
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
+| <*Formatteer*> | Nee | Reeks | Een [enkele indelings aanduiding](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast opmaak patroon](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaard notatie voor de tijds tempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-mm-ddTuu: mm: SS: fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en tijd zone gegevens behoudt. |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*current-timestamp*> | String | De huidige datum en tijd |
+| <*huidige-tijds tempel*> | Reeks | De huidige datum en tijd |
 ||||
 
 *Voorbeeld 1*
 
-Stel vandaag is 15 April 2018 om 1:00:00 uur.
-In dit voorbeeld wordt de huidige tijdstempel:
+Stel dat vandaag 15 april 2018 om 1:00:00 uur.
+In dit voor beeld wordt het huidige tijds tempel opgehaald:
 
 ```
 utcNow()
 ```
 
-En dit resultaat wordt weergegeven: `"2018-04-15T13:00:00.0000000Z"`
+En retourneert dit resultaat:`"2018-04-15T13:00:00.0000000Z"`
 
 *Voorbeeld 2*
 
-Stel vandaag is 15 April 2018 om 1:00:00 uur.
-In dit voorbeeld wordt de huidige tijdstempel met behulp van de optionele "D"-indeling:
+Stel dat vandaag 15 april 2018 om 1:00:00 uur.
+In dit voor beeld wordt de huidige tijds tempel opgehaald met de optionele D-indeling:
 
 ```
 utcNow('D')
 ```
 
-En dit resultaat wordt weergegeven: `"Sunday, April 15, 2018"`
+En retourneert dit resultaat:`"Sunday, April 15, 2018"`
 
 <a name="variables"></a>
 
 ### <a name="variables"></a>Variabelen
 
-Retourneert de waarde voor een opgegeven variabele.
+De waarde voor een opgegeven variabele retour neren.
 
 ```
 variables('<variableName>')
@@ -4140,30 +4143,30 @@ variables('<variableName>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*variableName*> | Ja | String | De naam van de variabele waarvan u wilt dat de waarde |
+| <*variableName*> | Ja | Tekenreeks | De naam voor de variabele waarvan u de waarde wilt |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*waarde van variabele*> | Alle | De waarde voor de opgegeven variabele |
+| <*variabele-waarde*> | Any | De waarde voor de opgegeven variabele |
 ||||
 
 *Voorbeeld*
 
-Stel dat de huidige waarde voor een variabele "numItems" is 20.
-In dit voorbeeld wordt de integerwaarde voor deze variabele:
+Stel dat de huidige waarde voor een variabele numItems is 20.
+In dit voor beeld wordt de gehele waarde voor deze variabele opgehaald:
 
 ```
 variables('numItems')
 ```
 
-En dit resultaat wordt weergegeven: `20`
+En retourneert dit resultaat:`20`
 
 <a name="workflow"></a>
 
 ### <a name="workflow"></a>werkstroom
 
-Als resultaat de details over de werkstroom zelf tijdens runtime.
+Alle gegevens over de werk stroom zelf retour neren tijdens de uitvoerings tijd.
 
 ```
 workflow().<property>
@@ -4171,12 +4174,12 @@ workflow().<property>
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*De eigenschap*> | Nee | String | De naam op voor de eigenschap van de werkstroom waarvan u wilt dat de waarde <p>Een werkstroomobject heeft deze eigenschappen: **naam**, **type**, **id**, **locatie**, en **uitvoeren**. De **uitvoeren** eigenschapswaarde is ook een object met deze eigenschappen: **naam**, **type**, en **id**. |
+| <*eigenschap*> | Nee | Tekenreeks | De naam van de werk stroom eigenschap waarvan u de waarde wilt <p>Een werk stroom object heeft de volgende eigenschappen: **naam**, **type**, **id**, **locatie**en **uitvoeren**. De waarde van de **uitvoerings** eigenschap is ook een object met de volgende eigenschappen: **naam**, **type**en **id**. |
 |||||
 
 *Voorbeeld*
 
-In dit voorbeeld retourneert de naam voor de huidige uitvoering van een werkstroom:
+In dit voor beeld wordt de naam van de huidige uitvoering van een werk stroom geretourneerd:
 
 ```
 workflow().run.name
@@ -4186,7 +4189,7 @@ workflow().run.name
 
 ### <a name="xml"></a>xml
 
-De XML-versie voor een tekenreeks met een JSON-object retourneren.
+De XML-versie retour neren voor een teken reeks die een JSON-object bevat.
 
 ```
 xml('<value>')
@@ -4194,21 +4197,21 @@ xml('<value>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*Waarde*> | Ja | String | De tekenreeks met de JSON-object converteren <p>Het JSON-object moet slechts één root-eigenschap, die een matrix kan niet worden hebben. <br>Gebruik de backslashteken (\\) als een escape-teken voor de dubbele aanhalingstekens ("). |
+| <*Value*> | Ja | Reeks | De teken reeks met het JSON-object dat moet worden geconverteerd <p>Het JSON-object mag slechts één hoofd eigenschap hebben, die geen matrix kan zijn. <br>Gebruik de back slash (\\) als escape-teken voor het dubbele aanhalings teken ("). |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*xml-version*> | Object | Het gecodeerde XML-bestand voor de opgegeven tekenreeks of JSON-object |
+| <*xml-version*> | Object | De gecodeerde XML voor de opgegeven teken reeks of het JSON-object |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld maakt u de XML-versie voor deze tekenreeks, die een JSON-object bevat:
+In dit voor beeld wordt de XML-versie gemaakt voor deze teken reeks, die een JSON-object bevat:
 
 `xml(json('{ \"name\": \"Sophia Owen\" }'))`
 
-En dit resultaat XML retourneert:
+En retourneert deze XML-resultaten:
 
 ```xml
 <name>Sophia Owen</name>
@@ -4216,7 +4219,7 @@ En dit resultaat XML retourneert:
 
 *Voorbeeld 2*
 
-Stel dat u hebt dit JSON-object:
+Stel dat u dit JSON-object hebt:
 
 ```json
 {
@@ -4227,11 +4230,11 @@ Stel dat u hebt dit JSON-object:
 }
 ```
 
-Dit voorbeeld wordt de XML voor een tekenreeks zijn met dit JSON-object gemaakt:
+In dit voor beeld wordt XML gemaakt voor een teken reeks die dit JSON-object bevat:
 
 `xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
 
-En dit resultaat XML retourneert:
+En retourneert deze XML-resultaten:
 
 ```xml
 <person>
@@ -4244,7 +4247,7 @@ En dit resultaat XML retourneert:
 
 ### <a name="xpath"></a>XPath
 
-Controleren of XML knooppunten of waarden die overeenkomen met een (XML Path-taal) XPath-expressie en retourneert de overeenkomende waarden of knooppunten. Een XPath-expressie, of alleen 'XPath', kunt u een XML-documentstructuur navigeren, zodat u knooppunten of compute waarden in de XML-inhoud selecteren kunt.
+Controleer XML voor knoop punten of waarden die overeenkomen met een XPath-expressie (XML-pad) en retour neer de overeenkomende knoop punten of waarden. Een XPath-expressie of alleen XPath, helpt u bij het navigeren door een XML-document structuur, zodat u knoop punten of reken waarden kunt selecteren in de XML-inhoud.
 
 ```
 xpath('<xml>', '<xpath>')
@@ -4252,50 +4255,50 @@ xpath('<xml>', '<xpath>')
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*xml*> | Ja | Alle | De XML-tekenreeks te zoeken naar knooppunten of waarden die overeenkomen met de waarde van een XPath-expressie |
-| <*xpath*> | Ja | Alle | De XPath-expressie gebruikt om te zoeken naar overeenkomende XML-knooppunt of waarden |
+| <*xml*> | Ja | Any | De XML-teken reeks die moet worden gezocht naar knoop punten of waarden die overeenkomen met een XPath-expressie waarde |
+| <*XPath*> | Ja | Any | De XPath-expressie die wordt gebruikt voor het zoeken van overeenkomende XML-knoop punten of-waarden |
 |||||
 
-| Retourwaarde | Type | Description |
+| Retourwaarde | type | Description |
 | ------------ | ---- | ----------- |
-| <*xml-node*> | XML | Een XML-knooppunt wanneer slechts één knooppunt overeenkomt met de opgegeven XPath-expressie |
-| <*Waarde*> | Alle | De waarde van een XML-knooppunt wanneer slechts één waarde overeenkomt met de opgegeven XPath-expressie |
-| [<*xml-node1*>, <*xml-node2*>, ...] </br>-of- </br>[<*value1*>, <*value2*>, ...] | Matrix | Een matrix met waarden die overeenkomen met de opgegeven XPath-expressie of XML-knooppunt |
+| <*xml-node*> | XML | Een XML-knoop punt wanneer slechts één knoop punt overeenkomt met de opgegeven XPath-expressie |
+| <*Value*> | Any | De waarde van een XML-knoop punt wanneer er slechts één waarde overeenkomt met de opgegeven XPath-expressie |
+| [<*xml-node1*>, <*xml-node2*>, ...] </br>-of- </br>[<*waarde1*>, <*Value2*>,...] | Array | Een matrix met XML-knoop punten of-waarden die overeenkomen met de opgegeven XPath-expressie |
 ||||
 
 *Voorbeeld 1*
 
-In dit voorbeeld wordt gezocht naar knooppunten die overeenkomen met de `<name></name>` knooppunt in de opgegeven argumenten en retourneert een matrix met de waarden van het knooppunt:
+In dit voor beeld worden knoop punten `<name></name>` gevonden die overeenkomen met het knoop punt in de opgegeven argumenten, en wordt een matrix met die knooppunt waarden geretourneerd:
 
 `xpath(xml(parameters('items')), '/produce/item/name')`
 
-Hier volgen de argumenten:
+Dit zijn de argumenten:
 
-* De tekenreeks 'items', die deze XML-code bevat:
+* De teken reeks ' items ', die deze XML bevat:
 
   `"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
 
-  Het voorbeeld wordt de [parameters()](#parameters) werken voor de XML-tekenreeks van het argument 'items', maar moet ook de tekenreeks converteren naar XML-indeling met behulp van de [xml()](#xml) functie.
+  In het voor beeld wordt de functie [para meters ()](#parameters) gebruikt om de XML-teken reeks op te halen uit het argument ' items ', maar moet de teken reeks ook converteren naar XML-indeling met behulp van de functie [XML ()](#xml) .
 
-* Deze XPath-expressie die wordt doorgegeven als een tekenreeks:
+* Deze XPath-expressie die wordt door gegeven als een teken reeks:
 
   `"/produce/item/name"`
 
-Hier volgt de resultaat-matrix met knooppunten die overeenkomen met `<name></name`:
+Hier volgt de resultaat matrix met de knoop punten die `<name></name`overeenkomen:
 
 `[ <name>Gala</name>, <name>Honeycrisp</name> ]`
 
 *Voorbeeld 2*
 
-In dit voorbeeld van de te volgen in voorbeeld 1, wordt gezocht naar de knooppunten die overeenkomen met de `<count></count>` knooppunt en voegt deze knooppuntwaarden met de `sum()` functie:
+In voor beeld 1: in dit voor beeld worden knoop punten `<count></count>` gevonden die overeenkomen met het knoop punt `sum()` en worden deze knooppunt waarden toegevoegd aan de functie.
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
-En dit resultaat wordt weergegeven: `30`
+En retourneert dit resultaat:`30`
 
 *Voorbeeld 3*
 
-In dit voorbeeld vindt beide expressies knooppunten die overeenkomen met de `<location></location>` knooppunt in de opgegeven argumenten, waaronder XML met een naamruimte. De expressies gebruiken de backslash-teken (\\) als een escape-teken voor de dubbele aanhalingstekens (").
+Voor dit voor beeld zoeken beide expressies knoop punten die overeenkomen met het `<location></location>` knoop punt, in de opgegeven argumenten, die XML met een naam ruimte bevatten. De expressies gebruiken de back slash (\\) als escape-teken voor het dubbele aanhalings teken (").
 
 * *Expressie 1*
 
@@ -4305,34 +4308,34 @@ In dit voorbeeld vindt beide expressies knooppunten die overeenkomen met de `<lo
 
   `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
 
-Hier volgen de argumenten:
+Dit zijn de argumenten:
 
-* Deze XML, waaronder de XML-document-naamruimte, `xmlns="http://contoso.com"`:
+* Dit XML-bestand, dat de XML-document `xmlns="http://contoso.com"`naam ruimte bevat,:
 
   ```xml
   <?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>
   ```
 
-* De XPath-expressie hier:
+* Een van beide XPath-expressies:
 
   * `/*[name()=\"file\"]/*[name()=\"location\"]`
 
   * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
 
-Hier is het resultaat-knooppunt dat overeenkomt met de `<location></location>` knooppunt:
+Dit is het knoop punt resultaat dat overeenkomt met het `<location></location>` knoop punt:
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>
 ```
 
-*Voorbeeld 4*
+*Voor beeld 4*
 
-In voorbeeld 3 te volgen, in dit voorbeeld wordt de waarde in de `<location></location>` knooppunt:
+In het volgende voor beeld 3 wordt in dit voor beeld de `<location></location>` waarde in het knoop punt gezocht:
 
 `xpath(xml(body('Http')), 'string(/*[name()=\"file\"]/*[name()=\"location\"])')`
 
-En dit resultaat wordt weergegeven: `"Paris"`
+En retourneert dit resultaat:`"Paris"`
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de [Definitietaal van werkstroom](../logic-apps/logic-apps-workflow-definition-language.md)
+Meer informatie over de [werk stroom definitie taal](../logic-apps/logic-apps-workflow-definition-language.md)

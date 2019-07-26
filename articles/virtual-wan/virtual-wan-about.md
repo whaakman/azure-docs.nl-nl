@@ -1,89 +1,84 @@
 ---
 title: Overzicht van Azure Virtual WAN | Microsoft Docs
-description: Meer informatie over virtuele WAN geautomatiseerde schaalbare vertakking op vertakking-connectiviteit, beschikbare regio's en partners.
+description: Meer informatie over de geautomatiseerde schaal bare vertakking-to-Branch connectiviteit van Virtual WAN, beschik bare regio's en partners.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 07/22/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 46f3f87fac5b65229e03ee91d8f2b93b1a1590e8
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: f1576e963f9c25821b5e3f57907662e3d86df4e0
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795286"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406347"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Wat is Azure Virtual WAN?
 
-Azure virtuele WAN is een netwerkservice, dat geoptimaliseerde en geautomatiseerde vertakking connectiviteit voor, en via Azure biedt. Azure-regio's fungeren als hubs die u kunt verbinding maken met uw vertakkingen. U kunt gebruikmaken van de Azure-backbone voor ook verbinding maken met vertakkingen en profiteer van branch-naar-VNet-connectiviteit. Er is een lijst met partners die ondersteuning bieden voor automatisering van connectiviteit met Azure virtuele WAN-VPN. Zie voor meer informatie de [virtuele WAN-partners en locaties](virtual-wan-locations-partners.md) artikel.
+Azure Virtual WAN is een netwerk service die zorgt voor geoptimaliseerde en geautomatiseerde vertakkings connectiviteit met, en via Azure. Azure-regio's fungeren als hubs die u kunt gebruiken om uw filialen te koppelen aan. U kunt de Azure-backbone gebruiken om ook vertakkingen te verbinden en te profiteren van de connectiviteit van Branch-to-VNet. Er is een lijst met partners die connectiviteits automatisering ondersteunen met Azure Virtual WAN VPN. Zie het artikel [virtuele WAN-partners en locaties](virtual-wan-locations-partners.md) voor meer informatie.
 
-Azure virtuele WAN combineert veel Azure-cloud-connectiviteit-services zoals site-naar-site VPN en ExpressRoute gebruiker punt-naar-site VPN in één operationele interface. Verbinding met Azure vnet's met behulp van virtueel netwerkverbindingen tot stand is gebracht.
+Met Azure Virtual WAN worden veel Azure-Cloud verbindings Services, zoals site-naar-site-VPN en ExpressRoute, in één operationele interface gecombineerd. Connectiviteit met Azure VNets wordt tot stand gebracht met behulp van virtuele netwerk verbindingen.
 
-ExpressRoute- en gebruiker van de punt-naar-site VPN voor virtuele WAN zijn momenteel in Preview.
+ExpressRoute voor Virtual WAN is momenteel beschikbaar als preview-versie.
 
 ![Virtual WAN-diagram](./media/virtual-wan-about/virtualwan1.png)
 
-In dit artikel biedt een snel inzicht krijgt in de verbinding met het netwerk in Azure virtuele WAN. Virtual WAN biedt de volgende voordelen:
+In dit artikel vindt u een kort overzicht van de netwerk verbinding in azure Virtual WAN. Virtual WAN biedt de volgende voordelen:
 
-* **Geïntegreerde connectiviteitsoplossingen in de hub en spoke:** Site-naar-site-configuratie en connectiviteit tussen on-premises sites en een Azure-hub automatiseren.
-* **Geautomatiseerde spoke-installatie en configuratie:** Verbinding maken met uw virtuele netwerken en werkbelastingen naar de Azure-hub naadloos.
-* **Intuïtieve voor probleemoplossing:** U kunt de end-to-end-stroom binnen Azure weergeven en vervolgens deze informatie gebruiken om de vereiste actie ondernemen.
+* **Geïntegreerde connectiviteits oplossingen in hub en spoke:** Automatiseer site-naar-site-configuratie en connectiviteit tussen on-premises sites en een Azure-hub.
+* **Automatische spoke-installatie en-configuratie:** Verbind uw virtuele netwerken en werk belastingen naadloos met de Azure-hub.
+* **Intuïtieve problemen oplossen:** U kunt de end-to-end-stroom in azure bekijken en vervolgens deze informatie gebruiken om de vereiste acties uit te voeren.
 
 ## <a name="resources"></a>Virtual WAN-resources
 
-Voor het configureren van een end-to-end virtuele WAN, maakt u de volgende bronnen:
+Als u een end-to-end virtuele WAN wilt configureren, maakt u de volgende resources:
 
-* **virtualWAN:** De resource virtualWAN vertegenwoordigt een virtuele-overlay van uw Azure-netwerk en is een verzameling van meerdere resources. Het bevat koppelingen naar al uw virtuele hubs die u wilt opnemen in het virtuele WAN. Virtual WAN-resources zijn van elkaar geïsoleerd en kunnen geen gemeenschappelijke hub bevatten. Virtuele hubs in Virtual WAN communiceren niet met elkaar. De eigenschap 'Vertakking-vertakking verkeer toestaan' kunt Sites verkeer tussen VPN-sites, evenals VPN met ExpressRoute (momenteel in Preview) ingeschakeld.
+* **virtualWAN:** De virtualWAN-resource vertegenwoordigt een virtuele overlay van uw Azure-netwerk en is een verzameling van meerdere resources. Het bevat koppelingen naar al uw virtuele hubs die u wilt opnemen in het virtuele WAN. Virtual WAN-resources zijn van elkaar geïsoleerd en kunnen geen gemeenschappelijke hub bevatten. Virtuele hubs in Virtual WAN communiceren niet met elkaar. Met de eigenschap ' vertakking naar vertakkings verkeer toestaan ' kunnen verkeer tussen VPN-sites en VPN naar ExpressRoute (momenteel in Preview) ingeschakelde sites worden.
 
-* **Hub:** Een virtuele hub is een Microsoft-beheerde virtueel netwerk. De hub bevat verschillende service-eindpunten die verbindingen vanaf uw on-premises netwerk (vpnsite) mogelijk maken. De hub is de kern van uw netwerk in een regio. Een Azure-regio mag maar één hub bevatten. Als u met de Azure-portal een hub maakt, wordt een VNet en een vpngateway voor de virtuele hub gemaakt.
+* **Hub:** Een virtuele hub is een virtueel netwerk dat door micro soft wordt beheerd. De hub bevat verschillende service-eindpunten die verbindingen vanaf uw on-premises netwerk (vpnsite) mogelijk maken. De hub is de kern van uw netwerk in een regio. Een Azure-regio mag maar één hub bevatten. Als u met de Azure-portal een hub maakt, wordt een VNet en een vpngateway voor de virtuele hub gemaakt.
 
-  Een hubgateway is niet hetzelfde als een gateway voor het virtuele netwerk die u voor ExpressRoute en VPN Gateway gebruikt. Bijvoorbeeld, wanneer u virtuele WAN, maakt u geen een site-naar-site-verbinding van uw on-premises site rechtstreeks naar uw VNet. In plaats daarvan maakt u een site-naar-site-verbinding naar de hub. Het verkeer verloopt altijd via de hubgateway. Dit houdt in dat uw VNet's hun eigen gateway voor het virtuele netwerk niet nodig hebben. In Virtual WAN kunnen uw VNet's eenvoudig schalen via de virtuele hub en de gateway van de virtuele hub.
+  Een hubgateway is niet hetzelfde als een gateway voor het virtuele netwerk die u voor ExpressRoute en VPN Gateway gebruikt. Wanneer u bijvoorbeeld virtueel WAN gebruikt, maakt u geen site-naar-site-verbinding vanaf uw on-premises site rechtstreeks naar uw VNet. In plaats daarvan maakt u een site-naar-site-verbinding met de hub. Het verkeer verloopt altijd via de hubgateway. Dit houdt in dat uw VNet's hun eigen gateway voor het virtuele netwerk niet nodig hebben. In Virtual WAN kunnen uw VNet's eenvoudig schalen via de virtuele hub en de gateway van de virtuele hub.
 
-* **Hub virtuele netwerkverbinding:** De verbindingsbron van de Hub virtueel netwerk wordt gebruikt om de hub naadloos verbinding maken met het virtuele netwerk. Op dit moment kunt u alleen verbinding maken met virtuele netwerken die zich in dezelfde hubregio bevinden.
+* **Virtuele hub-netwerk verbinding:** De netwerk verbindings bron van de hub wordt gebruikt om de hub naadloos met uw virtuele netwerk te verbinden. Op dit moment kunt u alleen verbinding maken met virtuele netwerken die zich in dezelfde hubregio bevinden.
 
-* **Routetabel hub:**  U kunt maken van een virtuele hub-route en de route van toepassing op de virtuele hub-routetabel. U kunt meerdere routes toepassen op de routetabel van de virtuele hub.
+* **Route tabel van de hub:**  U kunt een virtuele hub-route maken en de route Toep assen op de route tabel van de virtuele hub. U kunt meerdere routes toepassen op de routetabel van de virtuele hub.
 
-**Aanvullende virtuele WAN-bronnen**
+**Aanvullende virtuele WAN-resources**
 
-  * **Site:** Deze bron wordt gebruikt voor alleen-site-naar-site-verbindingen. De sitebron is **vpnsite**. Staat uw on-premises VPN-apparaat en de bijbehorende instellingen. Wanneer u met een Virtual WAN-partner werkt, beschikt u over een geïntegreerde oplossing die deze gegevens automatisch naar Azure exporteert.
+  * **Site** Deze bron wordt alleen gebruikt voor site-naar-site-verbindingen. De site resource is **vpnsite**. Het staat voor uw on-premises VPN-apparaat en de bijbehorende instellingen. Wanneer u met een Virtual WAN-partner werkt, beschikt u over een geïntegreerde oplossing die deze gegevens automatisch naar Azure exporteert.
 
-## <a name="connectivity"></a>Connectiviteit
+## <a name="connectivity"></a>Mogelijkheden
 
-Virtuele WAN kunt drie soorten connectiviteit: site-naar-site, punt-naar-site (Preview) en ExpressRoute (Preview).
+Met Virtual WAN kunt u twee typen verbindingen toestaan: Site-naar-site-en ExpressRoute (preview-versie).
 
-### <a name="s2s"></a>Site-naar-site VPN-verbindingen
+### <a name="s2s"></a>Site-naar-site-VPN-verbindingen
 
 ![Virtual WAN-diagram](./media/virtual-wan-about/virtualwan.png)
 
-Wanneer u een virtuele WAN-site-naar-site-verbinding maakt, kunt u werken met een partner beschikbaar. Als u niet wilt gebruiken van een partner, kunt u de verbinding handmatig configureren. Zie voor meer informatie, [maken van een site-naar-site-verbinding met virtuele WAN](virtual-wan-site-to-site-portal.md).
+Wanneer u een virtuele WAN-site-naar-site-verbinding maakt, kunt u werken met een beschik bare partner. Als u geen partner wilt gebruiken, kunt u de verbinding hand matig configureren. Zie [een site-naar-site-verbinding maken met behulp van Virtual WAN](virtual-wan-site-to-site-portal.md)voor meer informatie.
 
-#### <a name="s2spartner"></a>Virtuele WAN-partner-werkstroom
+#### <a name="s2spartner"></a>Virtuele WAN-partner werk stroom
 
-Wanneer u met een virtueel WAN-partner werkt, wordt de werkstroom is:
+Wanneer u met een virtuele WAN-partner werkt, is de werk stroom:
 
 1. De controller (VPN/SD-WAN) voor filiaalapparaten wordt geverifieerd voor het exporteren van locatiegegevens naar Azure met behulp van een [Azure-service-principal](../active-directory/develop/howto-create-service-principal-portal.md).
 2. De controller (VPN/SD-WAN) voor filiaalapparaten ontvangt de Azure-verbindingsconfiguratie en werkt het lokale apparaat bij. Op deze manier wordt het downloaden van de configuratie, het bewerken en het bijwerken van het on-premises VPN-apparaat geautomatiseerd.
 3. Wanneer het apparaat eenmaal de juiste Azure-configuratie heeft, wordt een verbinding tussen de locaties (twee actieve tunnels) en Azure WAN tot stand gebracht. Azure ondersteunt zowel IKEv1 als IKEv2. BGP is optioneel.
 
-#### <a name="partners"></a>Partners voor site-naar-site virtueel WAN-verbindingen
+#### <a name="partners"></a>Partners voor site-naar-site virtuele WAN-verbindingen
 
-Zie voor een lijst van de beschikbare partners en locaties, de [virtuele WAN-partners en locaties](virtual-wan-locations-partners.md) artikel.
+Zie het artikel [virtuele WAN-partners en locaties](virtual-wan-locations-partners.md) voor een lijst met de beschik bare partners en locaties.
 
-### <a name="p2s"></a>Punt-naar-site VPN-verbindingen (Preview)
-
-Een punt-naar-site-verbinding (P2S) kunt u een beveiligde verbinding maken met uw virtuele hub uit een afzonderlijke clientcomputer. Een P2S-verbinding wordt tot stand gebracht door deze te starten vanaf de clientcomputer. Deze oplossing is handig voor telewerkers die verbinding willen maken vanaf een externe locatie, zoals thuis of een conferentie. P2S-VPN is ook een uitstekende oplossing in plaats van een S2S-VPN wanneer u maar een paar clients hebt die verbinding moeten maken.
-
-De verbinding wilt maken, Zie [maken van een punt-naar-site-verbinding met virtuele WAN](virtual-wan-point-to-site-portal.md).
 
 ### <a name="er"></a>ExpressRoute-verbindingen (preview)
 
-Met ExpressRoute kunt u verbinding maken met on-premises netwerk naar Azure via een persoonlijke verbinding. De verbinding wilt maken, Zie [maken van een ExpressRoute-verbinding met virtuele WAN](virtual-wan-expressroute-portal.md).
+Met ExpressRoute kunt u een on-premises netwerk verbinden met Azure via een particuliere verbinding. Zie [een ExpressRoute-verbinding maken met behulp van Virtual WAN](virtual-wan-expressroute-portal.md)als u de verbinding wilt maken.
 
-## <a name="locations"></a>locaties
+## <a name="locations"></a>Maplocaties
 
-Locatie-informatie, Zie de [virtuele WAN-partners en locaties](virtual-wan-locations-partners.md) artikel.
+Zie het artikel [virtuele WAN-partners en locaties](virtual-wan-locations-partners.md) voor informatie over de locatie.
 
 ## <a name="faq"></a>Veelgestelde vragen
 
@@ -91,4 +86,4 @@ Locatie-informatie, Zie de [virtuele WAN-partners en locaties](virtual-wan-locat
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Maken van een site-naar-site-verbinding met virtuele WAN](virtual-wan-site-to-site-portal.md)
+[Een site-naar-site-verbinding maken met behulp van Virtual WAN](virtual-wan-site-to-site-portal.md)

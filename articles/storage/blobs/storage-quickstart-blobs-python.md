@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 0ae47a7898e380a25618a8d6ae6a1e0251fe466c
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 5fe011d740b1c08ae3b9cf4e3ea67d2cdd4fee66
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514586"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360093"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Quickstart: Blobs downloaden, uploaden en vermelden met behulp van Python
 
-In deze snelstartgids ziet u hoe u Python gebruiken om te uploaden, downloaden en weergeven van blok-blobs in een container in Azure Blob-opslag. BLOBs zijn alleen de objecten die elke hoeveelheid tekst of binaire gegevens (zoals afbeeldingen, documenten, streaming media, gegevens archiveren, enzovoort) kunnen bevatten, en zijn hetzelfde als in Azure Storage-bestandsshares, schemaloos tabellen en wachtrijen. (Zie voor meer informatie, [Inleiding tot Azure Storage](/azure/storage/common/storage-introduction).)
+In deze Snelstartgids ziet u hoe u python kunt gebruiken om blok-blobs te uploaden, te downloaden en weer te geven in een container in Azure Blob Storage. Blobs zijn simpelweg objecten die een wille keurige hoeveelheid tekst of binaire gegevens kunnen bevatten (zoals afbeeldingen, documenten, streaming media, Archief gegevens enzovoort) en die verschillen in Azure Storage van bestands shares, schema's zonder tabellen en berichten wachtrijen. (Zie [Inleiding tot Azure Storage](/azure/storage/common/storage-introduction)voor meer informatie.)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -45,8 +45,9 @@ Met deze opdracht wordt de opslagplaats *Azure-Samples/storage-blobs-python-quic
 ## <a name="configure-your-storage-connection-string"></a>De opslagverbindingsreeks configureren
 Geef in de toepassing de naam en accountsleutel van uw opslagaccount op om een `BlockBlobService`-object te maken. Open het bestand *example.py* vanuit de Solution Explorer in uw IDE. Vervang de waarden van `accountname` en `accountkey` door uw accountnaam en -sleutel. 
 
-```python 
-block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
+```python
+block_blob_service = BlockBlobService(
+    account_name='accountname', account_key='accountkey')
 ```
 
 ## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
@@ -94,16 +95,18 @@ Wanneer u de Cloud Blob-container hebt, instantieert u het **CloudBlockBlob**-ob
 
 In deze sectie gaat u exemplaren maken van de objecten, een nieuwe container maken en vervolgens machtigingen instellen voor de container, zodat de blobs openbaar zijn. De container heeft de naam **quickstartblobs**. 
 
-```python 
+```python
 # Create the BlockBlockService that is used to call the Blob service for the storage account.
-block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
- 
+block_blob_service = BlockBlobService(
+    account_name='accountname', account_key='accountkey')
+
 # Create a container called 'quickstartblobs'.
 container_name = 'quickstartblobs'
-block_blob_service.create_container(container_name) 
+block_blob_service.create_container(container_name)
 
 # Set the permission so the blobs are public.
-block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
+block_blob_service.set_container_acl(
+    container_name, public_access=PublicAccess.Container)
 ```
 ### <a name="upload-blobs-to-the-container"></a>Blobs uploaden naar de container
 
@@ -111,7 +114,7 @@ Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. Blok-blobs wo
 
 Als u een bestand naar een blob wilt uploaden, hebt u het volledige bestandspad nodig. U verkrijgt dit door de naam van de map en de bestandsnaam op uw lokale schijf samen te voegen. Daarna kunt u het bestand met de methode `create_blob_from_path` uploaden naar het opgegeven pad. 
 
-De voorbeeldcode wordt een lokaal bestand moet worden gebruikt voor het uploaden en downloaden, waarmee het bestand dat moet worden geüpload als *full_path_to_file* en de naam van de blob als *local_file_name*. In het volgende voorbeeld wordt het bestand geüpload naar de container met de naam **quickstartblobs**.
+Met de voorbeeld code wordt een lokaal bestand gemaakt dat moet worden gebruikt voor het uploaden en downloaden. Sla het bestand op dat moet worden geüpload als *full_path_to_file* en de naam van de BLOB als *local_file_name*. In het volgende voorbeeld wordt het bestand geüpload naar de container met de naam **quickstartblobs**.
 
 ```python
 # Create a file in Documents to test the upload and download.
@@ -128,7 +131,8 @@ print("Temp file = " + full_path_to_file)
 print("\nUploading to Blob storage as blob" + local_file_name)
 
 # Upload the created file, use local_file_name for the blob name.
-block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
+block_blob_service.create_blob_from_path(
+    container_name, local_file_name, full_path_to_file)
 ```
 
 Er zijn meerdere uploadmethoden die u kunt gebruiken met Blob-opslag. Als u bijvoorbeeld een geheugenstroom hebt, kunt u de methode `create_blob_from_stream` gebruiken in plaats van `create_blob_from_path`. 
@@ -149,14 +153,16 @@ for blob in generator:
 
 ### <a name="download-the-blobs"></a>De blobs downloaden
 
-Download blobs naar uw lokale schijf met de `get_blob_to_path` methode. Met de volgende code wordt een blob gedownload die in een vorige sectie is geüpload. *_DOWNLOADED* wordt toegevoegd als achtervoegsel aan de naam van de blob, zodat u beide bestanden op de lokale schijf kunt zien. 
+Down load blobs naar uw lokale schijf met `get_blob_to_path` behulp van de methode. Met de volgende code wordt een blob gedownload die in een vorige sectie is geüpload. *_DOWNLOADED* wordt toegevoegd als achtervoegsel aan de naam van de blob, zodat u beide bestanden op de lokale schijf kunt zien. 
 
 ```python
 # Download the blob(s).
 # Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = os.path.join(local_path, string.replace(local_file_name, '.txt', '_DOWNLOADED.txt'))
+full_path_to_file2 = os.path.join(local_path, string.replace(
+    local_file_name, '.txt', '_DOWNLOADED.txt'))
 print("\nDownloading blob to " + full_path_to_file2)
-block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
+block_blob_service.get_blob_to_path(
+    container_name, local_file_name, full_path_to_file2)
 ```
 
 ### <a name="clean-up-resources"></a>Resources opschonen

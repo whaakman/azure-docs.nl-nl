@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9c05f3cf9a4c6fc916f1c9578de7aee6d0190ee5
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6a41830dcb7f681713db7a7802ab430581dc844f
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327142"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371137"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Files SYNC implementeren
 Gebruik Azure File Sync om de bestands shares van uw organisatie in Azure Files te centraliseren, terwijl u de flexibiliteit, prestaties en compatibiliteit van een on-premises Bestands server bijhoudt. Azure File Sync transformeert Windows Server in een snelle cache van uw Azure-bestands share. U kunt elk protocol dat beschikbaar is op Windows Server gebruiken voor toegang tot uw gegevens lokaal, zoals SMB, NFS en FTPS. U kunt zoveel caches hebben als u nodig hebt in de hele wereld.
@@ -357,18 +357,19 @@ if ($cloudTieringDesired) {
 
 ---
 
-## <a name="configure-firewall-and-vnet-settings"></a>Firewall-en VNet-instellingen configureren
+## <a name="configure-firewall-and-virtual-network-settings"></a>Instellingen voor de firewall en het virtuele netwerk configureren
 
 ### <a name="portal"></a>Portal
 Als u uw Azure-bestands synchronisatie wilt configureren voor gebruik met de instellingen voor de firewall en het virtuele netwerk, doet u het volgende:
 
 1. Ga vanuit het Azure Portal naar het opslag account dat u wilt beveiligen.
-1. Selecteer de knop **firewalls en virtuele netwerken** in het menu lefthand.
+1. Selecteer de knop **firewalls en virtuele netwerken** in het menu links.
 1. Selecteer **geselecteerde netwerken** onder **toegang toestaan vanuit**.
 1. Zorg ervoor dat het IP-adres of het virtuele netwerk van uw servers wordt vermeld in de betreffende sectie.
 1. Zorg ervoor dat **vertrouwde micro soft-Services toegang tot dit opslag account toestaan** is ingeschakeld.
 1. Selecteer **Opslaan** om uw instellingen op te slaan.
 
+![Instellingen voor de firewall en het virtuele netwerk configureren om te werken met Azure-bestands synchronisatie](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
 
 ## <a name="onboarding-with-azure-file-sync"></a>Onboarding met Azure File Sync
 De aanbevolen stappen voor het onboarden van Azure File Sync voor het eerst met een downtime van nul en het behoud van de volledige bestands kwaliteit en toegangs beheer lijst (ACL) zijn als volgt:

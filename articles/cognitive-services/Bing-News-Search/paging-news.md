@@ -1,7 +1,7 @@
 ---
-title: Pagina met resultaten voor zoeken in Bing nieuws
-titlesuffix: Azure Cognitive Services
-description: Leer hoe u door de nieuwsartikelen die de Bing nieuws zoeken-API retourneert.
+title: Bladeren door Bing News Search resultaten
+titleSuffix: Azure Cognitive Services
+description: Lees hoe u door de nieuws artikelen bladeert die de Bing Nieuws zoeken-API retourneert.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1eab92dcc9c1890e82f9999e26e54378a3687c6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5f8dce1a03e44758eea737ad2da419fa67c36a2
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390484"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423745"
 ---
-# <a name="how-to-page-through-news-search-results"></a>Pagina met zoekresultaten voor nieuws
+# <a name="how-to-page-through-news-search-results"></a>Pagina met zoek resultaten voor nieuws
 
-Wanneer u de nieuws zoeken-API aanroept, retourneert Bing een lijst met resultaten die relevant voor uw query zijn. Als u de geschatte totale aantal beschikbare resultaten, toegang krijgen tot de antwoord-object [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-totalmatches) veld.  
+Wanneer u de Nieuws zoeken-API aanroept, retourneert Bing een lijst met resultaten die relevant zijn voor uw query. Als u het geschatte totale aantal beschik bare resultaten wilt ophalen, opent u het veld [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-totalmatches) van het antwoord object.  
   
-Het volgende voorbeeld wordt de `totalEstimatedMatches` veld dat een nieuwsantwoord bevat.  
+In het volgende voor beeld `totalEstimatedMatches` wordt het veld weer gegeven dat een nieuws antwoord bevat.  
 
 ```json
 {  
@@ -32,17 +32,17 @@ Het volgende voorbeeld wordt de `totalEstimatedMatches` veld dat een nieuwsantwo
 }  
 ```  
   
-Als u wilt de beschikbare artikelen doorlopen, gebruikt u de [aantal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#count) en [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#offset) queryparameters.  
+Als u door de beschik bare artikelen wilt bladeren, gebruikt u de para meters voor [aantal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#count) en [Offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#offset) query.  
  
 
 |Parameter  |Description  |
 |---------|---------|
-|`count`     | Hiermee geeft u het aantal resultaten dat moet worden geretourneerd in het antwoord. Het maximum aantal resultaten die u in het antwoord aanvragen kunt is 100. De standaardwaarde is 10. Het werkelijke getal geleverd mogelijk lager dan aangevraagd.        |
-|`offset`     | Hiermee geeft u het aantal resultaten dat moet worden overgeslagen. De `offset` is gebaseerd op nul en moet kleiner dan (`totalEstimatedMatches` - `count`).          |
+|`count`     | Hiermee geeft u het aantal resultaten op dat moet worden geretourneerd in het antwoord. Het maximum aantal resultaten dat u in het antwoord kunt aanvragen is 100. De standaard waarde is 10. Het daad werkelijke aantal dat kan worden geleverd, kan kleiner zijn dan het aangevraagde nummer.        |
+|`offset`     | Hiermee geeft u het aantal resultaten dat moet worden overgeslagen. De `offset` is op nul gebaseerd en moet kleiner zijn dan (`totalEstimatedMatches` - `count`).          |
 
-Bijvoorbeeld, als u weergeven van 20 artikelen per pagina wilt, stelt u `count` tot en met 20 en `offset` op 0 om de eerste pagina van de resultaten. Voor elke volgende pagina opgehoogd `offset` door 20 (bijvoorbeeld 20, 40).  
+Als u bijvoorbeeld 20 artikelen per pagina wilt weer geven, stelt `count` u in op 20 en `offset` 0 om de eerste pagina met resultaten op te halen. Voor elke volgende pagina verhoogt `offset` u de 20 (bijvoorbeeld 20, 40).  
   
-Het volgende voorbeeld vraagt om 20 nieuwsartikelen beginnen bij verschuiving 40.  
+In het volgende voor beeld wordt aan 20 nieuws artikelen gevraagd, te beginnen bij offset 40.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&count=20&offset=40&mkt=en-us HTTP/1.1  
@@ -50,7 +50,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```  
   
-Als de standaard `count` waarde werkt voor uw implementatie, geeft u alleen de `offset` parameter opvragen, zoals weergegeven in het volgende voorbeeld:  
+Als de standaard `count` waarde voor uw implementatie werkt, geeft u alleen `offset` de query parameter op, zoals weer gegeven in het volgende voor beeld:  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
@@ -59,7 +59,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Wisselgeheugengebruik geldt alleen voor nieuws zoeken (/ nieuws/search), en niet voor actuele onderwerpen op (/ nieuws/trendingtopics) of nieuwscategorieën (/ nieuws).
+> Paging is alleen van toepassing op zoek opdrachten (/News/Search) en niet op/News/trendingtopics (trending topics) of News Categories (/News).
 
 > [!NOTE]
-> De `TotalEstimatedAnswers` veld is een schatting van het totale aantal zoekresultaten kunt u voor de huidige query ophalen.  Als u instelt `count` en `offset` parameters, de `TotalEstimatedAnswers` getal kan worden gewijzigd. 
+> Het `TotalEstimatedAnswers` veld is een schatting van het totale aantal Zoek resultaten dat u voor de huidige query kunt ophalen.  Wanneer u en `count` `offset` para meters instelt `TotalEstimatedAnswers` , kan het aantal worden gewijzigd. 

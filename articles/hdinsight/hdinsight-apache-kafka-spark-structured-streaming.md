@@ -8,30 +8,30 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: hrasheed
-ms.openlocfilehash: 51f84234ac35be5f60d1aaa5dac661ad9ce5e0c2
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: da31b6a880344de918a3b3e0f89f60d985db2ce7
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257904"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406024"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Zelfstudie: Apache Spark Structured Streaming gebruiken met Apache Kafka op HDInsight
 
 Deze zelfstudie laat zien hoe u [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide) gebruikt om gegevens te lezen en te schrijven met [Apache Kafka](https://kafka.apache.org/) in Azure HDInsight.
 
-Spark Structured Streaming is een streamverwerkingsengine gebaseerd op Spark SQL. Hiermee kunt u streamingberekeningen op dezelfde manier weergeven als batchberekeningen van statische gegevens.  
+Spark Structured streaming is een stroom verwerkings engine die is gebouwd op Spark SQL. Hiermee kunt u streamingberekeningen op dezelfde manier weergeven als batchberekeningen van statische gegevens.  
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een Azure Resource Manager-sjabloon gebruiken om clusters te maken
-> * Gebruik Spark Structured Streaming met Kafka
+> * Een Azure Resource Manager sjabloon gebruiken om clusters te maken
+> * Gebruik van Spark Structured streaming met Kafka
 
 Nadat u de stappen in dit document hebt doorlopen, moet u niet vergeten de clusters te verwijderen om overtollige kosten te voorkomen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* jq, een opdrachtregelprogramma JSON-processor.  Zie [ https://stedolan.github.io/jq/ ](https://stedolan.github.io/jq/).
+* JQ, een JSON-processor op de opdracht regel.  Zie [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 * Weten hoe u [Jupyter Notebooks](https://jupyter.org/) gebruikt met Apache Spark on HDInsight. Zie het document [Zelfstudie: Gegevens laden en query's uitvoeren in een Apache Spark-cluster in Azure HDInsight](spark/apache-spark-load-data-run-query.md) voor meer informatie.
 
@@ -44,7 +44,7 @@ Nadat u de stappen in dit document hebt doorlopen, moet u niet vergeten de clust
 > 
 > Voor uw gemak is dit document gekoppeld aan een sjabloon waarmee u alle vereiste Azure-resources kunt maken. 
 >
-> Zie het document [Azure HDInsight met behulp van een Azure-netwerk uitbreiden](hdinsight-extend-hadoop-virtual-network.md) voor meer informatie over het gebruik van HDInsight in een virtueel netwerk.
+> Zie het document [een virtueel netwerk plannen voor hdinsight](hdinsight-plan-virtual-network-deployment.md) voor meer informatie over het gebruik van HDInsight in een virtueel netwerk.
 
 ## <a name="structured-streaming-with-apache-kafka"></a>Gestructureerd streamen met Apache Kafka
 
@@ -94,11 +94,11 @@ In beide codefragmenten worden gegevens gelezen uit Kafka en weggeschreven naar 
 | `write` | `writeStream` |
 | `save` | `start` |
 
-De streaming bewerking eveneens `awaitTermination(30000)`, die de stroom niet meer nadat 30.000 ms. 
+De streaming-bewerking gebruikt `awaitTermination(30000)`ook, waarmee de stroom wordt gestopt na 30.000 MS. 
 
 Als u Structured Streaming wilt gebruiken met Kafka, moet het project afhankelijk zijn van het pakket `org.apache.spark : spark-sql-kafka-0-10_2.11`. De versie van dit pakket moet overeenkomen met de versie van Spark in HDInsight. Voor Spark 2.2.0 (beschikbaar in HDInsight 3.6) kunt u de afhankelijkheidsgegevens voor verschillende projecttypen vinden in [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar).
 
-Voor de Jupyter-Notebook gebruikt in combinatie met deze zelfstudie, wordt deze pakketafhankelijkheid geladen met de volgende cel:
+Voor de Jupyter Notebook die in deze zelf studie wordt gebruikt, laadt de volgende cel deze pakket afhankelijkheid:
 
 ```
 %%configure -f
@@ -142,9 +142,9 @@ Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en verv
 
     | Instelling | Value |
     | --- | --- |
-    | Abonnement | Uw Azure-abonnement |
-    | Resourcegroep | De resourcegroep die de resources bevat. |
-    | Locatie | De Azure-regio waarin de bronnen worden gemaakt. |
+    | Subscription | Uw Azure-abonnement |
+    | Resource group | De resourcegroep die de resources bevat. |
+    | Location | De Azure-regio waarin de bronnen worden gemaakt. |
     | Naam Spark-cluster | De naam van het Spark-cluster. De eerste zes tekens moeten verschillen van de naam van het Kafka-cluster. |
     | Naam Kafka-cluster | De naam van het Kafka-cluster. De eerste zes tekens moeten verschillen van de naam van het Spark-cluster. |
     | Gebruikersnaam voor clusteraanmelding | De beheerdersnaam voor de clusters. |
@@ -161,11 +161,11 @@ Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en verv
 > [!NOTE]  
 > Het kan 20 minuten duren voordat het cluster is gemaakt.
 
-## <a name="use-spark-structured-streaming"></a>Spark Structured Streaming gebruiken
+## <a name="use-spark-structured-streaming"></a>Gebruik van Spark Structured streaming
 
-In dit voorbeeld laat zien hoe u Spark Structured Streaming met Kafka in HDInsight. Het maakt gebruik van gegevens op de gegevens over taxi's, die wordt geleverd door de New York City.  De gegevensset die worden gebruikt door dit notitieblok afkomstig is van [2016 groen Taxi reisgegevens](https://data.cityofnewyork.us/Transportation/2016-Green-Taxi-Trip-Data/hvrh-b6nb).
+In dit voor beeld ziet u hoe u met Spark Structured streaming kunt gebruiken met Kafka in HDInsight. Er wordt gebruikgemaakt van gegevens over steden reizen, die worden verschaft door New York.  De gegevensset die wordt gebruikt door dit notitie blok, is van [2016 groene taxi reis gegevens](https://data.cityofnewyork.us/Transportation/2016-Green-Taxi-Trip-Data/hvrh-b6nb).
 
-1. Verzamel informatie over de host. Gebruik de curl en [jq](https://stedolan.github.io/jq/) verkrijgen van uw Kafka-ZooKeeper en hosts informatie broker onderstaande opdrachten. De opdrachten zijn ontworpen voor een Windows-opdrachtprompt, kleine variaties er nodig zijn voor andere omgevingen. Vervang `KafkaCluster` met de naam van uw Kafka-cluster en `KafkaPassword` met het wachtwoord voor clusteraanmelding. Vervang ook `C:\HDI\jq-win64.exe` met het werkelijke pad naar de jq-installatie. Voer de opdrachten in een Windows-opdrachtprompt en sla de uitvoer voor gebruik in latere stappen.
+1. Informatie over de host verzamelen. Gebruik de krul-en [JQ](https://stedolan.github.io/jq/) -opdrachten hieronder om uw Kafka ZooKeeper en Broker-hosts-gegevens op te halen. De opdrachten zijn ontworpen voor een Windows-opdracht prompt. er zijn kleine variaties nodig voor andere omgevingen. Vervang `KafkaCluster` door de naam van uw Kafka-cluster en `KafkaPassword` met het aanmeldings wachtwoord voor het cluster. Vervang `C:\HDI\jq-win64.exe` ook door het werkelijke pad naar uw JQ-installatie. Voer de opdrachten in een Windows-opdracht prompt in en sla de uitvoer op voor gebruik in latere stappen.
 
     ```cmd
     set CLUSTERNAME=KafkaCluster
@@ -182,9 +182,9 @@ In dit voorbeeld laat zien hoe u Spark Structured Streaming met Kafka in HDInsig
 
     Typ desgevraagd de cluster-aanmelding (beheerder) en het cluster-wachtwoord die u hebt gebruikt bij het maken van het cluster.
 
-3. Selecteer **New > Spark** om een notitieblok te maken.
+3. Selecteer **nieuw > Spark** om een notitie blok te maken.
 
-4. Pakketten die worden gebruikt door de Notebook door te voeren van de volgende informatie in een cel Notebook worden geladen. Voer de opdracht uit met behulp van **CTRL + ENTER**.
+4. Laad pakketten die worden gebruikt door het notitie blok door de volgende informatie in een notebook-cel in te voeren. Voer de opdracht uit met behulp van **CTRL + ENTER**.
 
     ```
     %%configure -f
@@ -196,7 +196,7 @@ In dit voorbeeld laat zien hoe u Spark Structured Streaming met Kafka in HDInsig
     }
     ```
 
-5. De Kafka-onderwerp maken. De onderstaande opdracht bewerken door te vervangen `YOUR_ZOOKEEPER_HOSTS` hosten met de Zookeeper informatie in de eerste stap hebt uitgepakt. Voer de opdracht in de bewerkte in uw Jupyter-Notebook maken de `tripdata` onderwerp.
+5. Maak het onderwerp Kafka. Bewerk de onderstaande opdracht door de `YOUR_ZOOKEEPER_HOSTS` Zookeeper-hostgegevens die in de eerste stap zijn geëxtraheerd, te vervangen. Voer de bewerkte opdracht in uw Jupyter notebook in `tripdata` om het onderwerp te maken.
 
     ```scala
     %%bash
@@ -205,7 +205,7 @@ In dit voorbeeld laat zien hoe u Spark Structured Streaming met Kafka in HDInsig
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic tripdata --zookeeper $KafkaZookeepers
     ```
 
-6. Gegevens over taxi trips ophalen. Voer de opdracht in de volgende cel om gegevens op de gegevens over taxi's in New York City te laden. De gegevens zijn geladen in een dataframe en vervolgens het gegevensframe wordt weergegeven als de uitvoer van de cel.
+6. Gegevens ophalen over de taxi-reizen. Voer de opdracht in de volgende cel in om gegevens te laden over de taxi trips in New York City. De gegevens worden in een data frame geladen en vervolgens wordt de data frame weer gegeven als de uitvoer van de cel.
 
     ```scala
     import spark.implicits._
@@ -221,7 +221,7 @@ In dit voorbeeld laat zien hoe u Spark Structured Streaming met Kafka in HDInsig
     taxiDF.show()
     ```
 
-7. De gegevens van Kafka broker hosts ingesteld. Vervang `YOUR_KAFKA_BROKER_HOSTS` met de broker hosts informatie die u in stap 1 hebt uitgepakt.  Voer de opdracht in bewerkt in de volgende Jupyter-Notebook cel.
+7. Stel de Kafka Broker-gegevens in. Vervang `YOUR_KAFKA_BROKER_HOSTS` door de Broker host-informatie die u in stap 1 hebt geëxtraheerd.  Voer de bewerkte opdracht in de volgende Jupyter Notebook-cel in.
 
     ```scala
     // The Kafka broker hosts and topic used to write to Kafka
@@ -231,7 +231,7 @@ In dit voorbeeld laat zien hoe u Spark Structured Streaming met Kafka in HDInsig
     println("Finished setting Kafka broker and topic configuration.")
     ```
 
-8. De gegevens verzenden naar Kafka. In de volgende opdracht de `vendorid` veld wordt gebruikt als de waarde van de sleutel voor het Kafka-bericht. De sleutel wordt gebruikt door Kafka worden gebruikt bij het partitioneren van gegevens. Alle velden zijn opgeslagen in het Kafka-bericht als een JSON-tekenreekswaarde. Voer de volgende opdracht in Jupyter om op te slaan van de gegevens met Kafka met behulp van een batchquery.
+8. De gegevens verzenden naar Kafka. In de volgende opdracht wordt het `vendorid` veld als de sleutel waarde voor het Kafka-bericht gebruikt. De sleutel wordt door Kafka gebruikt bij het partitioneren van gegevens. Alle velden worden opgeslagen in het Kafka-bericht als een JSON-teken reeks waarde. Voer de volgende opdracht in Jupyter in om de gegevens op te slaan in Kafka met behulp van een batch-query.
 
     ```scala
     // Select the vendorid as the key and save the JSON string as the value.
@@ -240,7 +240,7 @@ In dit voorbeeld laat zien hoe u Spark Structured Streaming met Kafka in HDInsig
     println("Data sent to Kafka")
     ```
 
-9. Declareer een schema. De volgende opdracht laat zien hoe u een schema gebruikt bij het lezen van JSON-gegevens van kafka. Voer de opdracht in de volgende Jupyter cel.
+9. Een schema declareren. De volgende opdracht laat zien hoe u een schema kunt gebruiken bij het lezen van JSON-gegevens vanuit Kafka. Voer de opdracht in de volgende Jupyter-cel in.
 
     ```scala
     // Import bits useed for declaring schemas and working with JSON data
@@ -276,7 +276,7 @@ In dit voorbeeld laat zien hoe u Spark Structured Streaming met Kafka in HDInsig
     println("Schema declared")
     ```
 
-10. Selecteer gegevens en de stroom start. De volgende opdracht laat zien hoe u voor het ophalen van gegevens van kafka met behulp van een batchquery en klikt u vervolgens de resultaten uit naar schrijven HDFS op het Spark-cluster. In dit voorbeeld wordt de `select` haalt het bericht (in het waardeveld) van Kafka en wordt het schema op toegepast. De gegevens worden vervolgens naar HDFS (WASB of ADL) in parquet-indeling geschreven. Voer de opdracht in de volgende Jupyter cel.
+10. Selecteer gegevens en start de stroom. De volgende opdracht laat zien hoe u gegevens ophaalt uit Kafka met behulp van een batch-query en vervolgens de resultaten schrijft naar HDFS op het Spark-cluster. In dit voor beeld `select` wordt het bericht (waardeveld) opgehaald uit Kafka en wordt het schema toegepast op het veld. De gegevens worden vervolgens naar HDFS (WASB of ADL) in Parquet-indeling geschreven. Voer de opdracht in de volgende Jupyter-cel in.
 
     ```scala
     // Read a batch from Kafka
@@ -288,14 +288,14 @@ In dit voorbeeld laat zien hoe u Spark Structured Streaming met Kafka in HDInsig
     println("Wrote data to file")
     ```
 
-11. U kunt controleren dat de bestanden zijn gemaakt met de opdracht in de volgende Jupyter cel. Geeft een lijst van de bestanden in de `/example/batchtripdata` directory.
+11. U kunt controleren of de bestanden zijn gemaakt door de opdracht in de volgende Jupyter-cel in te voeren. Hierin worden de bestanden in de `/example/batchtripdata` map weer gegeven.
 
     ```scala
     %%bash
     hdfs dfs -ls /example/batchtripdata
     ```
 
-12. Hoewel het vorige voorbeeld gebruikt een batchquery, geeft de volgende opdracht laat zien hoe u hetzelfde doen met behulp van een streaming-query. Voer de opdracht in de volgende Jupyter cel.
+12. Hoewel in het vorige voor beeld een batch-query wordt gebruikt, wordt in de volgende opdracht gedemonstreerd hoe u hetzelfde kunt doen met behulp van een streaming-query. Voer de opdracht in de volgende Jupyter-cel in.
 
     ```scala
     // Stream from Kafka
@@ -306,7 +306,7 @@ In dit voorbeeld laat zien hoe u Spark Structured Streaming met Kafka in HDInsig
     println("Wrote data to file")
     ```
 
-13. Voer de volgende cel om te controleren of de bestanden zijn geschreven door de streaming-query.
+13. Voer de volgende cel uit om te controleren of de bestanden zijn geschreven door de streaming-query.
 
     ```scala
     %%bash

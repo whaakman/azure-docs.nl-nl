@@ -1,27 +1,26 @@
 ---
-title: 'Azure Backup: Recovery Services-kluizen met behulp van REST-API maken'
-description: beheren van back-up en het terugzetten van Azure VM Backup met behulp van REST-API
-services: backup
+title: 'Azure Backup: Recovery Services kluizen maken met behulp van REST API'
+description: back-up-en herstel bewerkingen van Azure VM-back-ups beheren met REST API
 author: pvrk
 manager: shivamg
-keywords: REST-API; Azure VM back-up. Azure VM-herstel.
+keywords: REST API; Back-ups van Azure-VM'S; Azure VM herstellen;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0373098dd344df79be79871227f20c8a995958fa
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646704"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466942"
 ---
-# <a name="create-azure-recovery-services-vault-using-rest-api"></a>Met behulp van REST-API van Azure Recovery Services-kluis maken
+# <a name="create-azure-recovery-services-vault-using-rest-api"></a>Azure Recovery Services-kluis maken met behulp van REST API
 
-De stappen voor het maken van een Azure Recovery Services-kluis met behulp van REST-API worden beschreven in [REST-API-kluis maken](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate) documentatie. Laat het ons dit document als uitgangspunt gebruiken om te maken van een sleutelkluis met de naam 'testVault' in 'VS-West'.
+De stappen voor het maken van een Azure Recovery Services kluis met behulp van REST API worden beschreven in de documentatie voor het [maken van kluis rest API](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate) . Laat ons dit document gebruiken als referentie voor het maken van een kluis met de naam ' testVault ' in ' vs-West '.
 
-Als u wilt maken of bijwerken van een Azure Recovery Services-kluis, gebruikt u de volgende *plaatsen* bewerking.
+Als u een Azure Recovery Services kluis wilt maken of bijwerken, gebruikt u de volgende *put* -bewerking.
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}?api-version=2016-06-01
@@ -29,34 +28,34 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>Een aanvraag maken
 
-Maakt de *plaatsen* aanvraag, de `{subscription-id}` parameter is vereist. Als u meerdere abonnementen hebt, raadpleegt u [werken met meerdere abonnementen](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). U definieert een `{resourceGroupName}` en `{vaultName}` voor uw resources samen met de `api-version` parameter. In dit artikel wordt gebruikgemaakt van `api-version=2016-06-01`.
+Voor het maken van de *put* - `{subscription-id}` aanvraag is de para meter vereist. Als u meerdere abonnementen hebt, raadpleegt u [werken met meerdere abonnementen](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). U definieert een `{resourceGroupName}` en `{vaultName}` voor uw resources, samen met de `api-version` para meter. In dit artikel `api-version=2016-06-01`wordt gebruikgemaakt van.
 
 De volgende headers zijn vereist:
 
-| Aanvraagheader   | Description |
+| Aanvraag header   | Description |
 |------------------|-----------------|
-| *Content-Type:*  | Vereist. Ingesteld op `application/json`. |
-| *Authorization:* | Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Inhouds type:*  | Vereist. Ingesteld op `application/json`. |
+| *Authorization:* | Vereist. Ingesteld op een geldig `Bearer` [toegangs token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
-Zie voor meer informatie over het maken van de aanvraag [onderdelen van een REST-API-aanvraag/antwoord](/rest/api/azure/#components-of-a-rest-api-requestresponse).
+Zie [onderdelen van een rest API aanvraag/antwoord](/rest/api/azure/#components-of-a-rest-api-requestresponse)voor meer informatie over het maken van de aanvraag.
 
-## <a name="create-the-request-body"></a>Hoofdtekst van de aanvraag maken
+## <a name="create-the-request-body"></a>De aanvraag tekst maken
 
-De volgende algemene definities worden gebruikt voor het bouwen van een aanvraagtekst:
+De volgende algemene definities worden gebruikt voor het bouwen van een aanvraag tekst:
 
 |Name  |Vereist  |Type  |Description  |
 |---------|---------|---------|---------|
-|eTag     |         |   String      |  Optionele eTag       |
-|location     |  true       |String         |   Resourcelocatie      |
+|eTag     |         |   Reeks      |  Optionele eTag       |
+|location     |  true       |Tekenreeks         |   Resourcelocatie      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Eigenschappen van de kluis       |
-|sku     |         |  [SKU](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    De unieke systeem-id voor elke Azure-resource     |
+|sku     |         |  [SKU](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identificeert de unieke systeem-id voor elke Azure-resource     |
 |codes     |         | Object        |     Resourcetags    |
 
-Houd er rekening mee dat de kluisnaam van de en de naam van resourcegroep u in de URI plaatsen vindt. De aanvraagtekst definieert de locatie.
+Houd er rekening mee dat de naam van de kluis en de resource groep is opgenomen in de PUT-URI. De hoofd tekst van de aanvraag definieert de locatie.
 
-## <a name="example-request-body"></a>Voorbeeld van de aanvraag hoofdtekst
+## <a name="example-request-body"></a>Voorbeeld aanvraag tekst
 
-De hoofdtekst van het volgende voorbeeld wordt gebruikt voor het maken van een kluis in 'VS-West'. Geef de locatie. De SKU is altijd 'Standaard'.
+De volgende voorbeeld tekst wordt gebruikt voor het maken van een kluis in ' vs-West '. Geef de locatie op. De SKU is altijd ' standaard '.
 
 ```json
 {
@@ -70,18 +69,18 @@ De hoofdtekst van het volgende voorbeeld wordt gebruikt voor het maken van een k
 
 ## <a name="responses"></a>Responses
 
-Er zijn twee gelukt-antwoorden voor de bewerking voor het maken of bijwerken van een Recovery Services-kluis:
+Er zijn twee geslaagde reacties voor de bewerking om een Recovery Services kluis te maken of bij te werken:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     |   [Vault](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
-|201-gemaakt     | [Vault](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Gemaakt      |
+|201 gemaakt     | [Vault](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Gemaakt      |
 
-Zie voor meer informatie over de REST-API-reacties [verwerken van het antwoordbericht](/rest/api/azure/#process-the-response-message).
+Zie voor meer informatie over REST API reacties [het antwoord bericht verwerken](/rest/api/azure/#process-the-response-message).
 
 ### <a name="example-response"></a>Voorbeeld van een antwoord
 
-Een verkorte *201-gemaakt* reactie van het vorige van de voorbeeldaanvraag hoofdtekst bevat een *id* is toegewezen en de *provisioningState* is *geslaagd* :
+Een versmalded *201* -antwoord dat is gemaakt op basis van de aanvraag tekst van het vorige voor beeld toont een *id* die is toegewezen en de *provisioningState* is *voltooid*:
 
 ```json
 {
@@ -100,9 +99,9 @@ Een verkorte *201-gemaakt* reactie van het vorige van de voorbeeldaanvraag hoofd
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Maak een back-upbeleid voor de back-ups van een Azure-VM in deze kluis](backup-azure-arm-userestapi-createorupdatepolicy.md).
+[Maak een back-upbeleid voor het maken van een back-up van een virtuele Azure-machine in deze kluis](backup-azure-arm-userestapi-createorupdatepolicy.md).
 
-Zie de volgende documenten voor meer informatie over de Azure REST API's:
+Raadpleeg de volgende documenten voor meer informatie over de REST-Api's van Azure:
 
-- [Azure Recovery Services-provider REST-API](/rest/api/recoveryservices/)
-- [Aan de slag met REST API van Azure](/rest/api/azure/)
+- [REST API Azure Recovery Services provider](/rest/api/recoveryservices/)
+- [Aan de slag met Azure REST API](/rest/api/azure/)

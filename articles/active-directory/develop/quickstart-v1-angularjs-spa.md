@@ -1,5 +1,5 @@
 ---
-title: Een AngularJS- app met één pagina compileren voor aanmelden en afmelden met Azure Active Directory | Microsoft Docs
+title: AngularJS-app met één pagina bouwen om u aan te melden en af te melden bij Azure AD | Microsoft Docs
 description: Meer informatie over het compileren van een AngularJS-app met één pagina die kan worden geïntegreerd met Azure AD voor aanmelden en Azure AD-beveiligde API-aanroepen met behulp van OAuth.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a1fdbcd04504181a20f5245b6f2378be5b9d405
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 20c62d379006382d4208e4b111202581bc75454f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001210"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380767"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Quickstart: Een AngularJS-app met één pagina compileren voor aanmelden en afmelden met Azure Active Directory
 
@@ -47,7 +47,7 @@ Om de volledige, werkende toepassing te compileren, moet u het volgende doen:
 3. Gebruik ADAL voor beveiligde pagina's in de app met één pagina.
 
 > [!NOTE]
-> Als u nodig hebt om in te schakelen aanmeldingen voor persoonlijke accounts naast het werk en schoolaccounts, kunt u de  *[Microsoft identity platform endpoint](azure-ad-endpoint-comparison.md)*. Zie voor meer informatie [in deze zelfstudie JavaScript beveiligd-WACHTWOORDVERIFICATIE](tutorial-v2-javascript-spa.md) , evenals [in dit artikel](active-directory-v2-limitations.md) uitleg over de *Microsoft identity platform endpoint*. 
+> Als u aanmeldingen voor persoonlijke accounts naast werk-en school accounts wilt inschakelen, kunt u het *[micro soft Identity platform-eind punt](azure-ad-endpoint-comparison.md)* gebruiken. Raadpleeg voor meer informatie [deze Java script Spa-zelf studie](tutorial-v2-javascript-spa.md) en in [dit artikel](active-directory-v2-limitations.md) wordt het *micro soft Identity platform-eind punt*uitgelegd. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -63,15 +63,15 @@ Als u wilt inschakelen voor de app om gebruikers te verifiëren en tokens te ver
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 1. Als u bent aangemeld bij meerdere mappen, moet u mogelijk controleren of dat u de juiste map bekijkt. Klik op uw account op de bovenste balk om dit te doen. Kies de Azure AD-tenant waar u uw toepassing wilt registreren onder de lijst **Directory**.
 1. Selecteer **Alle services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
-1. Klik op **App-registraties**, en selecteer vervolgens **registratie van nieuwe**.
+1. Klik op **app-registraties**en selecteer vervolgens **nieuwe registratie**.
 1. Wanneer de pagina **Een toepassing registreren** wordt weergegeven, voert u een naam in voor de toepassing.
 1. Selecteer onder **Ondersteunde accounttypen** de optie **Accounts in een organisatieadreslijst en persoonlijke Microsoft-account**.
-1. Selecteer de **Web** platform onder de **omleidings-URI** sectie en stel de waarde voor `https://localhost:44326/` (de locatie waarop Azure AD tokens retourneert).
+1. Selecteer het **webplatform onder** de sectie omleidings- **URI** en stel `https://localhost:44326/` de waarde in op (de locatie waarnaar Azure AD tokens retourneert).
 1. Selecteer **Registreren** wanneer u klaar bent. Noteer de waarde **Toepassings-id (client)** op de app-pagina **Overzicht**.
-1. Adal.js gebruikt de impliciete flow OAuth om te communiceren met Azure AD. U moet de impliciete stroom inschakelen voor uw toepassing. Selecteer in het deelvenster aan de linkerkant van de geregistreerde toepassing de optie **Verificatie**.
+1. Adal.js gebruikt de impliciete flow OAuth om te communiceren met Azure AD. U moet de impliciete stroom voor uw toepassing inschakelen. Selecteer in het deelvenster aan de linkerkant van de geregistreerde toepassing de optie **Verificatie**.
 1. Schakel in **Geavanceerde instellingen**, onder **Impliciete toekenning**, de selectievakjes **Id-tokens** en **toegangstoken** in. Id-tokens en toegangstokens zijn vereist, omdat via de app gebruikers moeten worden aangemeld en een API moet worden aangeroepen.
 1. Selecteer **Opslaan**.
-1. Machtigingen verlenen binnen uw tenant voor uw toepassing. Ga naar **API-machtigingen**, en selecteer de **verlenen beheerderstoestemming** knop onder **toestemming verlenen**.
+1. Machtigingen verlenen binnen uw tenant voor uw toepassing. Ga naar **API-machtigingen**en selecteer de knop **toestemming geven voor beheerders** onder **toestemming verlenen**.
 1. Selecteer **Ja** om te bevestigen.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Stap 2: ADAL installeren en de app met één pagina configureren

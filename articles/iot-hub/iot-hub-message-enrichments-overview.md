@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Azure IoT Hub bericht enrichments
-description: Overzicht van bericht enrichments voor Azure IoT Hub-berichten
+title: Overzicht van verrijkingen van Azure IoT Hub-berichten
+description: Overzicht van verrijkingen van berichten voor Azure IoT Hub berichten
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,81 +8,84 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 13e35ab93fc37541548785c6355489eaf3a3efc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: b815ba80ac0860a4248b27e4013da4a8a9d12e18
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754560"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321302"
 ---
-# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Bericht enrichments voor IoT Hub apparaat-naar-cloud-berichten (preview)
+# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Verrijkingen van berichten voor IoT Hub berichten van apparaat-naar-Cloud (preview-versie)
 
-*Bericht enrichments* is het vermogen van de IoT-Hub kunt u *stempel* berichten met aanvullende informatie voordat de berichten worden verzonden naar het opgegeven eindpunt. Eén reden voor het gebruik van bericht enrichments is om op te nemen van gegevens die kunnen worden gebruikt voor het vereenvoudigen van de downstream-verwerkingen. Bijvoorbeeld, het verrijkende telemetrieberichten van apparaten met een dubbele apparaattag belasting van klanten om te maken van de apparaatdubbel die API-voor deze informatie aanroepen verminderen.
+Verrijkingen van berichten is de mogelijkheid van de IOT hub om berichten met aanvullende informatie af te *stem pelen* voordat de berichten naar het aangewezen eind punt worden verzonden. Een reden voor het gebruik van verrijkingen van berichten is het insluiten van gegevens die kunnen worden gebruikt voor het vereenvoudigen van de downstream-verwerking. Het verrijken van telemetriegegevens van een apparaat met een dubbele tag van een apparaat kan bijvoorbeeld de belasting van klanten verminderen om deze informatie te laten opleveren voor Device-dubbele API-aanroepen.
 
-![Bericht enrichments stroom](./media/iot-hub-message-enrichments-overview/message-enrichments-flow.png)
+![Stroom voor het verrijkings bericht van berichten](./media/iot-hub-message-enrichments-overview/message-enrichments-flow.png)
 
-Een bericht verrijking heeft drie belangrijke elementen:
+Een bericht verrijking heeft drie belang rijke elementen:
 
-* De naam van verrijking of sleutel
+* Verrijkings naam of-sleutel
 
 * Een waarde
 
-* Een of meer [eindpunten](iot-hub-devguide-endpoints.md) voor verrijking moet worden toegepast.
+* Een of meer [eind punten](iot-hub-devguide-endpoints.md) waarvoor de verrijking moet worden toegepast.
 
-De sleutel kan een willekeurige tekenreeks zijn.
+De sleutel kan een wille keurige teken reeks zijn.
 
-De waarde kan een van de volgende voorbeelden zijn:
+De waarde kan een van de volgende voor beelden zijn:
 
-* Een statische tekenreeks. Dynamische waarden zoals voorwaarden, logische, bewerkingen en -functies zijn niet toegestaan. Bijvoorbeeld, als u een SaaS-toepassing die wordt gebruikt door meerdere klanten ontwikkelt, kunt u wijst een id toe aan elke klant en deze id in de toepassing beschikbaar te maken. Wanneer de toepassing wordt uitgevoerd, wordt IoT Hub tijdstempel het apparaat berichten over telemetrie van de klant-id, waardoor het mogelijk voor het verwerken van de berichten anders voor elke klant.
+* Een statische teken reeks. Dynamische waarden zoals voor waarden, logica, bewerkingen en functies zijn niet toegestaan. Als u bijvoorbeeld een SaaS-toepassing ontwikkelt die wordt gebruikt door verschillende klanten, kunt u een id toewijzen aan elke klant en die id beschikbaar maken in de toepassing. Wanneer de toepassing wordt uitgevoerd, stemt IoT Hub de telemetrie-berichten van het apparaat in met de id van de klant, waardoor het mogelijk is om de berichten anders voor elke klant te verwerken.
 
-* Gegevens van de dubbele apparaten, zoals het pad ervan. Voorbeelden zijn *$twin.tags.field* en *$twin.tags.latitude*.
+* De naam van de IoT-hub die het bericht verzendt. Deze waarde is *$iothubname*.
 
-* De naam van de IoT-hub te verzenden. Deze waarde is *$iothubname*.
+* Informatie van het apparaat dubbele, zoals het pad. Voor beelden hiervan zijn *$Twin. Tags. Field* en *$Twin. Tags. Latitude*.
 
-## <a name="applying-enrichments"></a>Enrichments toepassen
+   > [!NOTE]
+   > Op dit moment worden alleen $iothubname, $twin. Tags, $twin. Properties. desired en $twin. Properties. gerapporteerd worden ondersteunde variabelen voor het verrijken van het bericht.
 
-De berichten kunnen afkomstig zijn van een gegevensbron wordt ondersteund door [IoT Hub-berichtroutering](iot-hub-devguide-messages-d2c.md), met inbegrip van de volgende voorbeelden:
+## <a name="applying-enrichments"></a>Verrijkingen Toep assen
 
-* Telemetrie van apparaten, zoals temperatuur of druk te verlichten
-* Device twin wijzigingsmeldingen--wijzigingen in de apparaatdubbel
-* apparaat-levenscyclus van gebeurtenissen, zoals wanneer het apparaat is gemaakt of verwijderd
+De berichten kunnen afkomstig zijn van elke gegevens bron die wordt ondersteund door [IOT hub bericht routering](iot-hub-devguide-messages-d2c.md), met inbegrip van de volgende voor beelden:
 
-U kunt enrichments toevoegen aan de berichten die naar het ingebouwde eindpunt van een IoT-Hub of berichten die worden doorgestuurd naar aangepaste eindpunten, zoals Azure Blob storage, een Service Bus-wachtrij of een Service Bus-onderwerp.
+* telemetrie van apparaten, zoals de Tempe ratuur of druk
+* dubbele wijzigings meldingen van het apparaat--wijzigingen in het apparaat dubbele
+* levenscyclus gebeurtenissen van het apparaat, zoals wanneer het apparaat wordt gemaakt of verwijderd
 
-U kunt ook enrichments toevoegen op berichten die worden gepubliceerd naar Event Grid door te selecteren van het eindpunt als Event Grid. Zie voor meer informatie, [Iot-Hub en Event Grid](iot-hub-event-grid.md).
+U kunt verrijkingen toevoegen aan berichten die worden verzonden naar het ingebouwde eind punt van een IoT Hub, of berichten die worden doorgestuurd naar aangepaste eind punten, zoals Azure Blob Storage, een Service Bus wachtrij of een Service Bus onderwerp.
 
-Enrichments worden toegepast per eindpunt. Als u vijf enrichments om te worden geautoriseerd voor een bepaald eindpunt opgeeft, worden alle berichten die naar dit eindpunt met de dezelfde vijf enrichments stempel.
+U kunt ook verrijkingen toevoegen aan berichten die worden gepubliceerd naar Event Grid door het eind punt te selecteren als Event Grid. Zie [IOT hub en Event grid](iot-hub-event-grid.md)voor meer informatie.
 
-Zie voor meer informatie over voor het uitproberen van bericht enrichments, de [bericht enrichments zelfstudie](tutorial-message-enrichments.md)
+Verrijkingen worden toegepast per eind punt. Als u vijf verrijkingen voor een bepaald eind punt opgeeft, worden alle berichten die naar dat eind punt gaan, voorzien van dezelfde vijf verrijkingen.
+
+Zie de [zelf studie](tutorial-message-enrichments.md) over het gebruik van berichten voor meer informatie over hoe u verrijkingen van berichten kunt uitproberen
 
 ## <a name="limitations"></a>Beperkingen
 
-* U kunt maximaal 10 enrichments per IoT Hub voor deze hubs toevoegen in de standard- of basic-laag. Voor IoT-Hubs in de gratis laag, kunt u maximaal 2 enrichments toevoegen.
+* U kunt Maxi maal 10 verrijkingen per IoT Hub voor deze hubs toevoegen aan de laag Standard of Basic. Voor IoT-hubs in de gratis laag kunt u Maxi maal 2 verrijkingen toevoegen.
 
-* In sommige gevallen, als u bij het toepassen van een verrijking met een waarde ingesteld op een label of de eigenschap op het dubbele apparaat zal de waarde worden geautoriseerd als een string-waarde. Bijvoorbeeld, als een verrijking-waarde is ingesteld op $twin.tags.field, worden de berichten worden factureringslabel voor de tekenreeks "$twin.tags.field" in plaats van de waarde van dat veld van het dubbele. Dit gebeurt in de volgende gevallen:
+* Als u in sommige gevallen een verrijking toepast met een waarde die is ingesteld op een tag of eigenschap in het dubbele apparaat, wordt de waarde als een teken reeks waarde stempel. Als een verrijkings waarde bijvoorbeeld is ingesteld op $twin. Tags. Field, worden de berichten gestempeld met de teken reeks "$twin. Tags. Field" in plaats van de waarde van het veld van de dubbele. Dit gebeurt in de volgende gevallen:
 
-   * Uw IoT-Hub is in de laag basis. Basic-laag IoT-hubs bieden geen ondersteuning voor dubbele apparaten.
+   * Uw IoT Hub bevindt zich in de laag Basic. IoT-hubs van de Basic-laag bieden geen ondersteuning voor apparaatdubbels.
 
-   * Uw IoT-Hub is in de laag standaard, maar is geen dubbele apparaat op het apparaat dat het bericht te verzenden.
+   * Uw IoT Hub bevindt zich in de Standard-laag, maar het apparaat dat het bericht verzendt, heeft geen dubbele apparaat.
 
-   * Uw IoT-Hub is in de laag standaard, maar het apparaatdubbel pad gebruikt voor de waarde van de verrijking bestaat niet. Bijvoorbeeld, als de waarde verrijking is ingesteld op $twin.tags.location en het dubbele apparaat heeft geen een locatie-eigenschap onder tags, het bericht is een factureringslabel voor de tekenreeks "$twin.tags.location". 
+   * Uw IoT Hub bevindt zich in de Standard-laag, maar het dubbele pad van het apparaat dat wordt gebruikt voor de waarde van de verrijking bestaat niet. Als de verrijkings waarde bijvoorbeeld is ingesteld op $twin. Tags. Location en het apparaat dubbele heeft geen locatie-eigenschap onder Tags, wordt het bericht voorzien van de teken reeks "$twin. Tags. Location". 
 
-* Updates voor een apparaatdubbel kunnen worden weergegeven in de overeenkomstige waarde voor verrijking tot vijf minuten duren.
+* Het kan tot vijf minuten duren voordat updates op een apparaat worden weer gegeven in de bijbehorende verrijkings waarde.
 
-* De totale berichtgrootte, inclusief de enrichments kan niet groter zijn dan 256 KB. Als een grootte van het bericht groter is dan 256 KB, wordt het bericht verwijderen in de IoT-Hub. U kunt [metrische gegevens van IoT-Hub](iot-hub-metrics.md) om te bepalen en fouten opsporen wanneer berichten worden verwijderd. U kunt bijvoorbeeld d2c.telemetry.egress.invalid bewaken.
+* De totale bericht grootte, inclusief de verrijkingen, mag niet groter zijn dan 256 KB. Als de grootte van een bericht groter is dan 256 KB, wordt het bericht door de IoT Hub verwijderd. U kunt [IOT hub metrische gegevens](iot-hub-metrics.md) gebruiken om fouten op te sporen en op te sporen wanneer berichten worden verwijderd. U kunt bijvoorbeeld D2C. telemetrie. bewaken. ongeldig.
 
 ## <a name="pricing"></a>Prijzen
 
-Bericht enrichments zijn beschikbaar voor zonder extra kosten. Op dit moment in rekening gebracht wanneer u een bericht naar een IoT-Hub verzendt. U betaalt alleen één keer voor dit bericht, zelfs als het bericht naar meerdere eindpunten gaat.
+Verrijkingen van berichten zijn beschikbaar voor geen extra kosten. Op dit moment worden er kosten in rekening gebracht wanneer u een bericht naar een IoT Hub verzendt. Er wordt slechts één keer per bericht in rekening gebracht, zelfs als het bericht naar meerdere eind punten gaat.
 
 ## <a name="availability"></a>Beschikbaarheid
 
-Deze mogelijkheid is beschikbaar in preview en is beschikbaar in alle regio's behalve VS-Oost, VS-West, West-Europa, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china), en [Azure Duitsland](https://azure.microsoft.com/global-infrastructure/germany/).
+Deze functie is beschikbaar als preview-versie en is beschikbaar in alle regio's behalve VS-Oost, VS-West, Europa-west, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china)en [Azure Duitsland](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees deze artikelen voor meer informatie over het routeren van berichten naar een IoT-Hub:
+Bekijk deze artikelen voor meer informatie over het routeren van berichten naar een IoT Hub:
 
-* [Gebruik IoT Hub-berichtroutering apparaat-naar-cloud-berichten te verzenden naar verschillende eindpunten](iot-hub-devguide-messages-d2c.md)
+* [IoT Hub bericht routering gebruiken om apparaat-naar-Cloud-berichten te verzenden naar verschillende eind punten](iot-hub-devguide-messages-d2c.md)
 
-* [Zelfstudie: IoT Hub-routering](tutorial-routing.md)
+* [Zelfstudie: IoT Hub route ring](tutorial-routing.md)

@@ -8,387 +8,387 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6cbda7d9be1617617e173c68c3d2a4a95c255ae0
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d3d4679703f6d98cb2062144cfde7d11fe44130c
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673302"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68386852"
 ---
-## <a name="application-performance-indicators"></a>Toepassing prestatie-indicatoren
+## <a name="application-performance-indicators"></a>Prestatie-indica toren voor toepassingen
 
-We beoordelen of een toepassing wordt uitgevoerd met behulp van prestatie-indicatoren, zoals goed of niet, hoe snel een toepassing een gebruikersaanvraag, hoeveel gegevens een aanvraag wordt verwerkt per aanvraag wordt verwerkt, het aantal aanvragen is een toepassing met de verwerking van een specifieke periode, hoe lang die een gebruiker moet worden gewacht voordat een antwoord krijgt nadat u hebt de aanvraag heeft. De voorwaarden van de technische voor deze prestatie-indicatoren zijn, IOPS, doorvoer of bandbreedte en latentie.
+We bepalen of een toepassing goed werkt of niet met behulp van prestatie-indica toren, zoals, hoe snel een toepassing een gebruikers aanvraag verwerkt, hoeveel gegevens een toepassing verwerkt per aanvraag, hoeveel aanvragen een toepassings verwerking is in een specifieke Tijds periode, hoelang een gebruiker moet wachten om een antwoord te krijgen nadat de aanvraag is ingediend. De technische voor waarden voor deze prestatie-indica toren zijn, IOPS, door Voer of band breedte en latentie.
 
-In deze sectie bespreken we de algemene prestatie-indicatoren in de context van Premium Storage. In de sectie vereisten van webtoepassingen verzameld leert u hoe u voor het meten van deze prestatie-indicatoren voor uw toepassing. Verderop in het optimaliseren van prestaties van toepassingen leert u over de factoren die invloed hebben op deze prestatie-indicatoren en aanbevelingen om ze te optimaliseren.
+In deze sectie bespreken we de algemene prestatie-indica toren in de context van Premium Storage. In de volgende sectie worden toepassings vereisten verzameld. u leert hoe u deze prestatie-indica toren voor uw toepassing meet. Later in het optimaliseren van de prestaties van de toepassing leert u meer over de factoren die van invloed zijn op deze prestatie-indica toren en aanbevelingen om ze te optimaliseren.
 
 ## <a name="iops"></a>IOPS
 
-IOP's of i/o-bewerkingen Per seconde, is het aantal aanvragen dat uw toepassing naar de storage-schijven in één seconde verzendt. Een i/o-bewerking kan worden gelezen of opeenvolgende of willekeurig schrijven. Online Transaction verwerking (OLTP)-toepassingen, zoals een detailhandel online-website moeten veel gelijktijdige gebruikersaanvragen onmiddellijk verwerkt. De aanvragen van gebruikers zijn invoegen en bijwerken van intensieve databasetransacties, die de toepassing moet snel worden verwerkt. OLTP-toepassingen moeten daarom zeer hoge IOPS. Dergelijke toepassingen verwerken miljoenen kleine en willekeurige i/o-aanvragen. Als u een dergelijke toepassing hebt, moet u de infrastructuur van de toepassing om te optimaliseren voor IOPS ontwerpen. In de volgende sectie *optimaliseert de prestaties van toepassingen*, we in detail bespreken met de factoren waarmee u rekening houden moet om op te halen van hoge IOPS.
+IOPS of invoer/uitvoer-bewerkingen per seconde is het aantal aanvragen dat uw toepassing in één seconde naar de opslag schijven verzendt. Een invoer-en uitvoer bewerking kan worden gelezen of geschreven, opeenvolgend of wille keurig. Toepassingen voor online Trans Action processing (OLTP), zoals een online retail website, moeten direct veel gelijktijdige gebruikers aanvragen verwerken. De gebruikers aanvragen worden intensieve database transacties ingevoegd en bijgewerkt, die de toepassing snel moet verwerken. Daarom vereisen OLTP-toepassingen zeer hoge IOPS. Dergelijke toepassingen verwerken miljoenen kleine en wille keurige i/o-aanvragen. Als u een dergelijke toepassing hebt, moet u de toepassings infrastructuur ontwerpen om te optimaliseren voor IOPS. In de volgende sectie worden de prestaties van de *toepassing geoptimaliseerd*, worden alle factoren beschreven waarmee u rekening moet houden om hoge IOPS te verkrijgen.
 
-Wanneer u een premium opslagschijf koppelen aan uw grote schaal VM, Azure-bepalingen voor u een gegarandeerd aantal IOP's aan de hand van de schijf-specificatie. Bijvoorbeeld: richt een P50 schijf 7500 IOPS. Elke grootschalige VM-grootte heeft ook een specifieke IOPS-limiet voor dat het bestand is tegen. Een standaard GS5-VM heeft bijvoorbeeld 80.000 IOP's beperken.
+Wanneer u een Premium-opslag schijf aan uw grootschalige VM koppelt, hebben Azure-voorzieningen voor u een gegarandeerd aantal IOPS volgens de schijf specificatie. Een voor beeld: een P50 schijf 7500 IOPS. Elke VM-grootte van hoog schalen heeft ook een specifieke IOPS-limiet die kan worden bereikt. Een standaard GS5 VM heeft bijvoorbeeld 80.000 IOPS-limiet.
 
 ## <a name="throughput"></a>Doorvoer
 
-Doorvoer of bandbreedte is de hoeveelheid gegevens die uw toepassing worden verzonden naar het storage-schijven in een opgegeven interval. Als uw toepassing invoer/uitvoer-bewerkingen met grote i/o-eenheid grootten presteert, is er een hoge doorvoer vereist. Datawarehouse-toepassingen vaak om uit te geven van de scan bewerkingsintensieve bewerkingen die toegang tot grote delen van gegevens op een tijdstip en vaak bulksgewijs bewerkingen uit te voeren. Met andere woorden, hogere doorvoer nodig hebben voor deze toepassingen. Als u een dergelijke toepassing hebt, moet u de infrastructuur te optimaliseren voor doorvoer ontwerpen. In de volgende sectie wordt besproken hoe in detail de factoren die u moet afstemmen om dit te bereiken.
+Door Voer of band breedte is de hoeveelheid gegevens die uw toepassing naar de opslag schijven in een opgegeven interval verzendt. Als uw toepassing invoer/uitvoer-bewerkingen uitvoert met grote i/o-eenheids grootten, is een hoge door Voer vereist. Data Warehouse-toepassingen geven vaak scan intensieve bewerkingen uit die toegang hebben tot grote delen van gegevens tegelijk en voeren vaak bulk bewerkingen uit. Met andere woorden, deze toepassingen vereisen een hogere door voer. Als u een dergelijke toepassing hebt, moet u de infra structuur zodanig ontwerpen dat deze kan worden geoptimaliseerd voor door voer. In de volgende sectie worden de factoren besproken die u moet afstemmen om dit te verfijnen.
 
-Wanneer u een premium-opslagschijf koppelen aan een grote schaal VM, Azure-bepalingen doorvoer volgens de specificatie van die schijf. Bijvoorbeeld, een P50 schijf 250 MB per seconde schijfdoorvoer wordt ingericht. Elke grootschalige VM-grootte heeft ook als specifieke doorvoerlimiet die het bestand is tegen. Standard GS5-VM heeft bijvoorbeeld een maximale doorvoer van 2000 MB per seconde.
+Wanneer u een Premium-opslag schijf koppelt aan een grootschalige virtuele machine, wordt de door Voer van Azure ingericht volgens die schijf specificatie. Een voor beeld: een P50 schijf 250 MB per seconde schijf doorvoer. Elke VM-grootte van hoog schalen heeft ook een specifieke doorvoer limiet die kan worden bereikt. Standaard GS5 VM heeft bijvoorbeeld een maximale door Voer van 2.000 MB per seconde.
 
-Er is een relatie tussen de doorvoer en IOPS, zoals wordt weergegeven in de onderstaande formule.
+Er is een relatie tussen door Voer en IOPS, zoals wordt weer gegeven in de onderstaande formule.
 
-![Relatie van IOPS en doorvoer](../articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
+![Relatie van IOPS en door Voer](../articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
 
-Daarom is het belangrijk om te bepalen van de optimale doorvoer en IOPS-waarden die uw toepassing vereist. Als u een optimaliseren probeert, wordt de andere ook beïnvloed. In een volgende sectie *optimaliseert de prestaties van toepassingen*, bespreken we met meer details over het optimaliseren van IOPS en doorvoer.
+Daarom is het belang rijk om de optimale door Voer en IOPS waarden te bepalen die uw toepassing nodig heeft. Als u probeert een optimalisatie uit te proberen, wordt dit ook beïnvloed. In een latere sectie worden de prestaties van de *toepassing geoptimaliseerd*. we bespreken nu meer informatie over het optimaliseren van IOPS en door voer.
 
 ## <a name="latency"></a>Latentie
 
-Latentie is de tijd die nodig is een aanvraag ontvangen van een enkele aanvraag verzenden naar de opslagschijven en het antwoord naar de client te verzenden. Dit is een kritieke meting van de prestaties van een toepassing naast IOPS en doorvoer. De latentie van de schijf voor een premium-opslag is de tijd die nodig zijn voor het ophalen van de gegevens voor een aanvraag en communiceren terug naar uw toepassing. Premium Storage biedt een consistente lage latenties. Premium-schijven zijn ontworpen voor slechts enkele milliseconden latentie voor de meeste i/o-bewerkingen. Als u alleen-lezentoegang hostcache in op premium-opslagschijven inschakelt, kunt u veel lagere latentie voor het lezen. We in schijfcache wordt besproken in de volgende sectie in meer detail op *optimaliseert de prestaties van toepassingen*.
+Latentie is de tijd die een toepassing nodig heeft om één aanvraag te ontvangen, deze te verzenden naar de opslag schijven en het antwoord naar de client te verzenden. Dit is een kritieke maat regel voor de prestaties van een toepassing naast IOPS en door voer. De latentie van een Premium-opslag schijf is de tijd die nodig is om de gegevens voor een aanvraag op te halen en deze terug te sturen naar uw toepassing. Premium Storage biedt consistente lage latenties. Premium-schijven zijn ontworpen om latentie in milliseconden voor de meeste i/o-bewerkingen te bieden. Als u opslaan in cache opslag op Premium Storage-schijven inschakelt, kunt u veel minder lees latentie krijgen. In de volgende sectie wordt beschreven hoe u de prestaties van de *toepassing kunt optimaliseren*.
 
-Wanneer u uw toepassing om op te halen van hogere IOPS en doorvoer optimaliseert, heeft dit invloed op de latentie van uw toepassing. Na het afstemmen van de prestaties van toepassingen, moet u altijd de latentie van de toepassing om te voorkomen van onverwachte hoge latentie gedrag evalueren.
+Wanneer u uw toepassing optimaliseert om meer IOPS en door voer te krijgen, is dit van invloed op de latentie van uw toepassing. Na het afstemmen van de prestaties van de toepassing evalueert u altijd de latentie van de toepassing om onverwacht gedrag van hoge latentie te voor komen.
 
-De volgende bewerkingen voor de controlelaag op beheerde schijven kunnen verkeer van de schijf van de ene opslaglocatie naar de andere omvatten. Dit is georganiseerd via achtergrond kopiëren van gegevens die enkele uren, afhankelijk van de hoeveelheid gegevens in de schijven meestal minder dan 24 uur kan duren. Gedurende die tijd kunt uw toepassing ervaringen hoger dan normaal leeslatentie bij het aantal leesbewerkingen kunnen ophalen omgeleid naar de oorspronkelijke locatie en kunnen het langer duren om. Er zijn geen gevolgen voor schrijven latentie tijdens deze periode.
+De volgende besturings vlak bewerkingen op Managed Disks kunnen een verplaatsing van de schijf van de ene opslag locatie naar de andere omvatten. Dit wordt ingedeeld via achtergrond kopieën van gegevens die enkele uren kunnen duren, meestal minder dan 24 uur, afhankelijk van de hoeveelheid gegevens op de schijven. Gedurende die tijd kan uw toepassing hoger zijn dan de gebruikelijke lees latentie, omdat sommige Lees bewerkingen worden omgeleid naar de oorspronkelijke locatie en langer kunnen duren. Er is geen invloed op de schrijf latentie tijdens deze periode.
 
-- Bijwerken van het opslagtype.
-- Loskoppelen en een schijf koppelen van een virtuele machine naar een andere.
+- Werk het opslag type bij.
+- Ontkoppel en koppel een schijf van de ene VM naar een andere.
 - Een beheerde schijf maken op basis van een VHD.
-- Een beheerde schijf maken op basis van een momentopname.
-- Niet-beheerde schijven converteren naar managed disks.
+- Een beheerde schijf maken op basis van een moment opname.
+- Niet-beheerde schijven converteren naar Managed disks.
 
-# <a name="performance-application-checklist-for-disks"></a>Controlelijst voor prestaties-toepassing voor schijven
+# <a name="performance-application-checklist-for-disks"></a>Controle lijst voor prestatie toepassingen voor schijven
 
-De eerste stap bij het ontwerpen van krachtige toepassingen die worden uitgevoerd op Azure Premium Storage is het registreren van de prestatievereisten van uw toepassing. Nadat u de prestatie-eisen hebt verzameld, kunt u uw toepassing in de meest optimale prestaties kunt optimaliseren.
+Bij de eerste stap bij het ontwerpen van toepassingen met hoge prestaties die worden uitgevoerd op Azure Premium Storage worden de prestatie vereisten van uw toepassing beter beschreven. Nadat u de prestatie vereisten hebt verzameld, kunt u uw toepassing optimaliseren om optimaal te kunnen profiteren van de prestaties.
 
-In de vorige sectie beschreven we de algemene prestatie-indicatoren, IOPS, doorvoer en latentie. U moet bepalen welke van deze prestatie-indicatoren zijn essentieel voor uw toepassing om de gewenste gebruiker-ervaring te leveren. Bijvoorbeeld, belangrijkst hoge IOPS is voor de verwerking van miljoenen transacties in een tweede OLTP-toepassingen. Terwijl hoge doorvoer essentieel voor het verwerken van grote hoeveelheden gegevens in een tweede Data Warehouse-toepassingen is. Extreem lage latentie is van cruciaal belang voor realtime-toepassingen, zoals live videostreaming van websites.
+In de vorige sectie hebben we de algemene prestatie-indica toren, IOPS, door Voer en latentie uitgelegd. U moet bepalen welke van deze prestatie-indica toren essentieel zijn voor uw toepassing om de gewenste gebruikers ervaring te bieden. Hoge IOPS is bijvoorbeeld belang rijk voor OLTP-toepassingen die miljoenen trans acties in een seconde verwerken. Overwegende dat hoge door voer essentieel is voor Data Warehouse-toepassingen die grote hoeveel heden gegevens in een seconde verwerken. Extreem lage latentie is essentieel voor realtime toepassingen zoals live video streaming websites.
 
-Meet vervolgens de maximale prestatie-eisen van uw toepassing gedurende hun levensduur. Gebruik de voorbeeld-controlelijst hieronder als een begin. Noteer de vereisten voor maximale prestaties tijdens normaal, piek en buiten kantooruren werkbelasting punten. Door het identificeren van de vereisten voor alle workloads niveaus, kunt u zich om te bepalen van de algehele prestaties behoefte van uw toepassing. De normale werkbelasting van een e-commerce-website worden bijvoorbeeld de transacties die het resultaat wordt gebruikt in de meeste dagen in een jaar. De piekworkload van de website worden de transacties die het resultaat wordt gebruikt tijdens de feestdagen of speciale verkoop gebeurtenissen. De piekworkload is doorgaans ervaren gedurende een beperkte periode, maar kan vereisen om de schaal van twee of meer keer de normale werking van uw toepassingen. Ontdek de 50 percentiel, 90 percentiel en 99 percentiel vereisten. Dit kunt uitfilteren uitbijters in de prestatie-eisen en u uw inspanningen zich kunt richten op het optimaliseren van voor de juiste waarden.
+Meet vervolgens de maximale prestatie vereisten van uw toepassing gedurende de levens duur. Gebruik de voorbeeld controlelijst hieronder als begin. De maximale prestatie vereisten vastleggen tijdens de peri Oden normaal, piek en buiten kantoor uren. Door vereisten voor alle werkbelasting niveaus te identificeren, kunt u de algehele prestatie vereisten van uw toepassing bepalen. De normale werk belasting van een e-commerce website is bijvoorbeeld de trans acties die worden uitgevoerd gedurende de meeste dagen in een jaar. De piek belasting van de website is de trans acties die worden uitgevoerd tijdens vakantie dagen of speciale verkoop gebeurtenissen. De piek werk belasting is doorgaans voor een beperkte periode van kracht, maar kan uw toepassing wel twee of meer keer de normale werking laten schalen. Ontdek de vereisten voor 50 percentiel, 90 percentiel en 99 percentiel. Dit helpt bij het filteren van uitschieters in de prestatie vereisten en u kunt zich richten op het optimaliseren van de juiste waarden.
 
-## <a name="application-performance-requirements-checklist"></a>Controlelijst voor de vereisten van de toepassing prestaties
+## <a name="application-performance-requirements-checklist"></a>Controle lijst voor toepassings prestaties
 
-| **Prestatie-eisen** | **50 Percentile** | **90 percentiel** | **99 percentiel** |
+| **Prestatie vereisten** | **50 percentiel** | **90 percentiel** | **99 percentiel** |
 | --- | --- | --- | --- |
 | Met maximaal Transacties per seconde | | | |
-| % Leesbewerkingen | | | |
-| % Schrijfbewerkingen | | | |
-| Willekeurige %-bewerkingen | | | |
-| % Sequentiële activiteiten | | | |
-| Grootte van i/o-aanvraag | | | |
-| Gemiddelde doorvoer | | | |
+| % Lees bewerkingen | | | |
+| % Schrijf bewerkingen | | | |
+| % Wille keurige bewerkingen | | | |
+| % Sequentiële bewerkingen | | | |
+| Grootte van IO-aanvraag | | | |
+| Gemiddelde door Voer | | | |
 | Met maximaal Doorvoer | | | |
-| Min. Latentie | | | |
+| Haal. Latentie | | | |
 | Gemiddelde latentie | | | |
 | Met maximaal CPU | | | |
-| Gemiddeld CPU | | | |
+| Gemiddeld CPU-gebruik | | | |
 | Met maximaal Geheugen | | | |
 | Gemiddeld geheugen | | | |
-| Wachtrijdiepte | | | |
+| Wachtrij diepte | | | |
 
 > [!NOTE]
-> U moet rekening houden met deze getallen op basis van de verwachte toekomstige groei van uw toepassing schalen. Het is een goed idee om te plannen voor groei van tevoren, omdat deze mogelijk moeilijker te wijzigen van de infrastructuur voor het verbeteren van de prestaties later opnieuw.
+> U kunt overwegen deze nummers te schalen op basis van de verwachte toekomstige groei van uw toepassing. Het is een goed idee om de groei vooraf te plannen, omdat het lastig is om de infra structuur voor het verbeteren van de prestaties later te wijzigen.
 
-Als u een bestaande toepassing hebt en wilt overstappen op Premium Storage, moet u eerst de controlelijst hierboven voor de bestaande toepassing bouwen. Vervolgens een prototype van uw toepassing op Premium Storage maken en ontwerpen van de toepassing op basis van de richtlijnen die worden beschreven in *optimaliseert de prestaties van toepassingen* in een volgende sectie van dit document. Het volgende artikel beschrijft de hulpmiddelen die u gebruiken kunt voor het verzamelen van de metingen van de prestaties.
+Als u een bestaande toepassing hebt en wilt overstappen op Premium Storage, moet u eerst de controle lijst voor de bestaande toepassing bouwen. Vervolgens bouwt u een prototype van uw toepassing op Premium Storage en ontwerpt u de toepassing op basis van de richt lijnen die worden beschreven bij het optimaliseren van de *prestaties van toepassingen* in een latere sectie van dit document. In het volgende artikel worden de hulpprogram ma's beschreven die u kunt gebruiken voor het verzamelen van de prestatie metingen.
 
-### <a name="counters-to-measure-application-performance-requirements"></a>Tellers voor het meten van prestaties toepassingsvereisten
+### <a name="counters-to-measure-application-performance-requirements"></a>Tellers voor het meten van de prestatie vereisten voor toepassingen
 
-De beste manier om te meten van de prestatievereisten van uw toepassing, is met bewaking van toepassingsprestaties hulpprogramma's voor door het besturingssysteem van de server. U kunt PerfMon voor Windows en iostat voor Linux. Deze hulpprogramma's vastleggen tellers overeenkomt met elke meting wordt uitgelegd in de bovenstaande sectie. U moet de waarden van deze prestatiemeteritems vastleggen wanneer uw toepassing wordt uitgevoerd de normale piek- en buiten kantooruren werkbelastingen.
+De beste manier om prestatie vereisten van uw toepassing te meten, is het gebruik van hulpprogram ma's voor prestatie controle die worden meegeleverd met het besturings systeem van de server. U kunt PerfMon voor Windows en iostat gebruiken voor Linux gebruiken. Deze hulpprogram ma's vastleggen tellers die overeenkomen met elke meting die wordt uitgelegd in de bovenstaande sectie. U moet de waarden van deze prestatie meter items vastleggen wanneer uw toepassing de werk belasting van de normale, piek en buiten kantoor uren uitvoert.
 
-De prestatiemeteritems zijn beschikbaar voor processor, geheugen, en elke logische schijf en de fysieke schijf van uw server. Als u premium storage-schijven met een virtuele machine, de fysieke schijf-prestatiemeteritems maken voor elke premium-opslagschijf en prestatiemeteritems voor logische schijf zijn voor elk volume dat is gemaakt op de premium-opslagschijven. U kunt de waarden voor de schijven die als host de workload van uw toepassing fungeren moet vastleggen. Als er een één-op-een-toewijzing tussen logische en fysieke schijven, kunt u verwijzen naar prestatiemeteritems voor fysieke schijf; Raadpleeg anders de prestatiemeteritems voor logische schijf. Op Linux genereert de opdracht iostat een CPU en het disk utilization-rapport. Het disk utilization-rapport voorziet in statistieken per fysieke apparaat of de partitie. Als u een database-server met de gegevens en logboekbestanden op afzonderlijke schijven hebt, verzamelen van deze gegevens voor beide schijven. Onderstaande tabel worden beschreven tellers voor schijven, processors en geheugen:
+De prestatie meter items zijn beschikbaar voor processor, geheugen en, elke logische schijf en fysieke schijf van uw server. Wanneer u Premium Storage-schijven met een virtuele machine gebruikt, zijn de fysieke-schijf tellers voor elke Premium-opslag schijf en worden voor elk volume dat op de Premium Storage-schijven wordt gemaakt, items voor logische schijven opgenomen. U moet de waarden vastleggen voor de schijven waarop de workload van uw toepassing wordt gehost. Als er een toewijzing is tussen logische en fysieke schijven, kunt u verwijzen naar fysieke-schijf items; Raadpleeg anders de items van de logische schijf. In Linux genereert de iostat gebruiken-opdracht een rapport voor CPU-en schijf gebruik. Het rapport schijf gebruik bevat statistieken per fysiek apparaat of partitie. Als u een database server hebt met gegevens en logboeken op afzonderlijke schijven, verzamelt u deze gegevens voor beide schijven. In de onderstaande tabel worden de items voor schijven, processors en geheugen beschreven:
 
-| Teller | Description | PerfMon | Iostat |
+| Teller | Description | Controle | Iostat gebruiken |
 | --- | --- | --- | --- |
-| **IOP's of transacties per seconde** |Het aantal i/o-aanvragen die zijn verleend aan de schijf voor opslag per seconde. |Schijf lezen per seconde <br> Schijf schrijven per seconde |tps <br> r/s <br> w/s |
-| **Schijf lees- en schrijfbewerkingen** |% van leesbewerkingen en bewerkingen die worden uitgevoerd op de schijf te schrijven. |Percentage schijftijd voor lezen <br> Percentage schijftijd voor schrijven |r/s <br> w/s |
-| **Doorvoer** |Hoeveelheid gegevens lezen uit of schrijven naar de schijf per seconde. |Bytes gelezen op schijf/sec <br> Bytes geschreven naar schijf/sec |kB_read/s <br> kB_wrtn/s |
-| **Latentie** |Totale tijd om een schijf-i/o-aanvraag te voltooien. |Gemiddelde leestijd voor schijf <br> Gemiddelde aantal schrijfbewerkingen per seconde |await <br> svctm |
-| **I/o-grootte** |De grootte van i/o-aanvragen problemen aan de storage-schijven. |Gemiddeld aantal gelezen Bytes <br> Gemiddelde aantal Bytes/schrijven |avgrq-sz |
-| **Wachtrijdiepte** |Aantal openstaande i/o-aanvragen wachten om te lezen uit of geschreven naar de schijf voor opslag. |Huidige wachtrijlengte voor schijf |avgqu-sz |
-| **Max. Geheugen** |Hoeveelheid geheugen die nodig is voor het uitvoeren van toepassing probleemloos |% Toegewezen Bytes in gebruik |Vmstat gebruiken |
-| **Max. CPU** |Hoeveelheid CPU vereist voor het uitvoeren van toepassing probleemloos |% Processortijd |% gebr. |
+| **IOPS of trans acties per seconde** |Het aantal I/O-aanvragen dat per seconde aan de opslag schijf is uitgegeven. |Schijf lezen per seconde <br> Schijf schrijven per seconde |TPS <br> r/s <br> w/s |
+| **Lees-en schrijf bewerkingen op schijf** |% van lees-en schrijf bewerkingen die op de schijf worden uitgevoerd. |Percentage schijf leestijd <br> Percentage schrijf tijd schijf |r/s <br> w/s |
+| **Doorvoer** |Hoeveelheid gegevens die per seconde moet worden gelezen van of wegge schreven naar de schijf. |Bytes gelezen op schijf/sec <br> Bytes geschreven naar schijf/sec |kB_read/s <br> kB_wrtn/s |
+| **Latentie** |Totale tijd voor het volt ooien van een schijf-i/o-aanvraag. |Gemiddeld aantal seconden/Lees bewerkingen schijf <br> Gemiddeld aantal seconden per schrijf bewerking schijf |koper <br> svctm |
+| **I/o-grootte** |De grootte van I/O-aanvragen van problemen met de opslag schijven. |Gemiddeld aantal gelezen bytes per schijf <br> Gemiddeld aantal geschreven bytes per schijf |avgrq-sz |
+| **Wachtrij diepte** |Aantal openstaande I/O-aanvragen dat wacht op het lezen van of schrijven naar de opslag schijf. |Huidige wachtrij lengte voor de schijf |avgqu-sz |
+| **Max. Geheugenmetabase** |Hoeveelheid geheugen die nodig is om de toepassing probleemloos uit te voeren |% Toegewezen bytes in gebruik |Vmstat gebruiken |
+| **Max. CPU** |Hoeveelheid CPU vereist om toepassing probleemloos uit te voeren |Percentage processor tijd |% util |
 
-Meer informatie over [iostat](https://linux.die.net/man/1/iostat) en [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
+Meer informatie over [iostat gebruiken](https://linux.die.net/man/1/iostat) en [perfmon](https://msdn.microsoft.com/library/aa645516.aspx).
 
 
 
-## <a name="optimize-application-performance"></a>Optimaliseer de prestaties van toepassingen
+## <a name="optimize-application-performance"></a>Prestaties van de toepassing optimaliseren
 
-De belangrijkste factoren die invloed hebben op prestaties van een toepassing die wordt uitgevoerd op de Premium-opslag zijn de aard van i/o-aanvragen, VM-grootte, schijfgrootte, het aantal schijven, schijfcaching, multithreading, en wachtrijdiepte. Sommige van deze factoren kunt u bepalen met knoppen geleverd door het systeem. De meeste toepassingen kunnen u niet een optie voor het wijzigen van de i/o-grootte en de wachtrijdiepte rechtstreeks geven. Bijvoorbeeld, als u SQL Server gebruikt, kiezen u niet de diepte van de i/o-grootte en wachtrij. SQL Server kiest de optimale i/o-grootte en wachtrij diepte waarden om de meeste prestaties te verkrijgen. Het is belangrijk om te begrijpen van de gevolgen van beide typen factoren voor de prestaties van uw toepassing, zodat u de juiste resources om te voldoen aan prestatiebehoeften kunt inrichten.
+De belangrijkste factoren die van invloed zijn op de prestaties van een toepassing die wordt uitgevoerd op Premium Storage, zijn aard van de i/o-aanvragen, de VM-grootte, de schijf grootte, het aantal schijven, het opslaan van schijven, meerdere threads en de wachtrij diepte. U kunt enkele van deze factoren beheren met knoppen van het systeem. De meeste toepassingen bieden u mogelijk geen optie om de i/o-grootte en de wachtrij diepte rechtstreeks te wijzigen. Als u bijvoorbeeld SQL Server gebruikt, kunt u niet de i/o-grootte en de wachtrij diepte kiezen. SQL Server kiest de optimale IO-grootte en wachtrij diepte waarden om de meeste prestaties te verkrijgen. Het is belang rijk om inzicht te krijgen in de gevolgen van beide typen factoren voor de prestaties van uw toepassing, zodat u de juiste resources kunt inrichten om te voldoen aan de prestatie behoeften.
 
-Raadpleeg de controlelijst voor de vereisten van toepassing die u hebt gemaakt, om te bepalen hoeveel moet u het optimaliseren van prestaties van uw toepassing in deze sectie. Op basis van die, kunt u zich om te bepalen welke factoren van deze sectie moet u om af te stemmen. Te wonen de effecten van elke factor op de prestaties van uw toepassing, hulpprogramma's voor benchmarking worden uitgevoerd op de toepassingsinstellingen van uw. Raadpleeg de sectie Benchmarking aan het einde van dit artikel voor stappen voor het uitvoeren van algemene hulpprogramma's voor benchmarking op Windows en Linux-machines.
+In deze sectie raadpleegt u de controle lijst voor toepassings vereisten die u hebt gemaakt om te bepalen hoeveel u nodig hebt om de prestaties van uw toepassingen te optimaliseren. Op basis hiervan kunt u bepalen welke factoren uit deze sectie u wilt afstemmen. Als u de effecten van elke factor van de prestaties van uw toepassing wilt Witness, voert u hulpprogram ma's voor benchmarking uit in de installatie van uw toepassing. Raadpleeg het gedeelte benchmarking aan het einde van dit artikel voor stappen voor het uitvoeren van algemene benchmarking-hulpprogram ma's op Windows-en Linux-Vm's.
 
-### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>IOPS, doorvoer en latentie in een oogopslag optimaliseren
+### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>IOPS, door Voer en latentie in één oogopslag optimaliseren
 
-De onderstaande tabel bevat een overzicht van de prestatiefactoren en de benodigde stappen voor het optimaliseren van IOPS, doorvoer en latentie. In de secties na dit overzicht wordt beschrijven elk van meerdere factoren is veel meer diepgang.
+De volgende tabel bevat een overzicht van de prestatie factoren en de stappen die nodig zijn om IOPS, door Voer en latentie te optimaliseren. De secties die volgen op deze samen vatting geven een beschrijving van elke factor is veel meer.
 
-Zie voor meer informatie over VM-grootten en op de IOPS, doorvoer en latentie beschikbaar voor elk type virtuele machine, [Linux VM-grootten](../articles/virtual-machines/linux/sizes.md) of [Windows VM-grootten](../articles/virtual-machines/windows/sizes.md).
+Zie [Linux VM](../articles/virtual-machines/linux/sizes.md) -grootten of [Windows VM](../articles/virtual-machines/windows/sizes.md)-grootten voor meer informatie over VM-grootten en over de IOPS, door Voer en latentie die beschikbaar zijn voor elk type virtuele machine.
 
 | &nbsp; | **IOPS** | **Doorvoer** | **Latentie** |
 | --- | --- | --- | --- |
-| **Voorbeeldscenario 's** |Enterprise OLTP-toepassing vereisen zeer hoog transacties per seconde tarief. |Enterprise Data warehousing toepassing verwerking van grote hoeveelheden gegevens. |In de buurt van real-time toepassingen die een directe antwoorden op aanvragen van gebruikers, zoals onlinegames vereisen. |
-| Prestatiefactoren | &nbsp; | &nbsp; | &nbsp; |
-| **I/o-grootte** |Kleinere i/o-grootte leidt tot hogere IOPS. |Grotere i/o-grootte leidt tot hogere doorvoer. | &nbsp;|
-| **VM-grootte** |Gebruik een VM-grootte die groter is dan de vereisten van uw toepassing IOP's biedt. |Een VM-grootte met doorvoerlimiet groter is dan de vereisten van uw toepassing gebruiken. |Gebruik een VM-grootte dat aanbiedingen limieten groter is dan de vereisten van uw toepassing schalen. |
-| **Schijfgrootte** |Gebruik een schijfgrootte, IOPS is groter dan de vereisten van uw toepassing biedt. |Gebruik een grootte van de schijf met doorvoerlimiet groter is dan de vereisten van uw toepassing. |Gebruik een grootte van de schijf dat aanbiedingen limieten groter is dan de vereisten van uw toepassing schalen. |
-| **Virtuele machine en Schaallimieten voor schijf** |IOPS-limiet van de VM-grootte gekozen moet groter zijn dan totaal aantal IOPS aangestuurd door premium storage-schijven die zijn gekoppeld aan deze. |Doorvoerlimiet van de VM-grootte gekozen moet groter zijn dan de totale doorvoer aangestuurd door premium storage-schijven die zijn gekoppeld aan deze zijn. |Schaallimieten van de VM-grootte gekozen moet groter zijn dan totaal aantal schaallimieten van gekoppelde premium storage-schijven. |
-| **Schijfcache** |Alleen-lezen Cache inschakelen op premium storage-schijven met zware leesbewerkingen om op te halen van hogere IOPS voor lezen. | &nbsp; |Alleen-lezen Cache inschakelen op premium storage-schijven met gereed zware bewerkingen om op te halen lezen zeer lage latentie. |
-| **Striping van de schijf** |Meerdere schijven gebruiken en deze samen als u een gecombineerde hogere limiet voor IOPS en doorvoer stripe. De gecombineerde limiet per virtuele machine moet hoger zijn dan de gecombineerde limieten van gekoppelde premium-schijven. | &nbsp; | &nbsp; |
-| **Streepgrootte** |Kleinere streep voor willekeurige kleine i/o-patroon gezien in OLTP-toepassingen. Gebruik bijvoorbeeld stripe-grootte van 64 KB voor SQL Server OLTP-toepassing. |Grotere stripe voor opeenvolgende grote i/o-patroon bekijken in Data Warehouse-toepassingen. Gebruik bijvoorbeeld Streepgrootte van 256 KB voor SQL Server Data warehouse-toepassing. | &nbsp; |
-| **Multithreading** |Gebruik multithreading pushen hoe hoger de waarde van aanvragen naar de Premium-opslag die tot hogere IOPS en doorvoer leiden. Stel bijvoorbeeld een hoge waarde van MAXDOP meer CPU's worden toegewezen aan SQL Server op SQL Server. | &nbsp; | &nbsp; |
-| **Wachtrijdiepte** |Grotere wachtrijdiepte leidt tot hogere IOPS. |Grotere wachtrijdiepte leidt tot hogere doorvoer. |Kleinere wachtrijdiepte leidt tot kortere wachttijden. |
+| **Voorbeeld scenario** |De OLTP-toepassing voor ondernemingen vereist zeer hoge trans acties per seconde. |Bedrijfs gegevens magazijn toepassing verwerkt grote hoeveel heden gegevens. |Bijna realtime toepassingen die directe reacties op aanvragen van gebruikers vereisen, zoals online gaming. |
+| Prestatie factoren | &nbsp; | &nbsp; | &nbsp; |
+| **I/o-grootte** |Bij een kleinere IO-grootte wordt een hogere IOPS als resultaat verkregen. |Grotere IO-grootte om een hogere door voer te leveren. | &nbsp;|
+| **VM-grootte** |Gebruik een VM-grootte die IOPS groter is dan de vereiste van uw toepassing. |Gebruik een VM-grootte met een doorvoer limiet van meer dan uw toepassings vereiste. |Gebruik een VM-grootte die groter is dan de vereiste schaal limieten. |
+| **Schijf grootte** |Gebruik een schijf grootte met IOPS die groter is dan de vereiste van uw toepassing. |Gebruik een schijf grootte met een doorvoer limiet van meer dan uw toepassings vereiste. |Gebruik een schijf grootte die hoger is dan de vereiste voor uw toepassing. |
+| **Schaal limieten voor VM'S en schijven** |De limiet voor IOPS van de gekozen VM-grootte moet groter zijn dan het totale aantal IOPS dat is gekoppeld aan de Premium Storage-schijven. |De doorvoer limiet van de gekozen VM-grootte moet groter zijn dan de totale door Voer die wordt aangestuurd door de Premium-opslag schijven die eraan zijn gekoppeld. |De schaal limieten van de gekozen VM-grootte moeten groter zijn dan de totale schaal limieten van gekoppelde Premium Storage-schijven. |
+| **Schijf cache** |Schakel alleen-lezen cache op Premium-opslag schijven in met zware bewerkingen om meer Lees-IOPS te krijgen. | &nbsp; |Schakel alleen-lezen cache op Premium-opslag schijven met kant-en-klare bewerkingen uit om zeer weinig lees latentie te verkrijgen. |
+| **Schijf striping** |Gebruik meerdere schijven en strip deze samen om een gecombineerde hogere IOPS en doorvoer limiet te verkrijgen. De gecombineerde limiet per VM moet hoger zijn dan de gecombineerde limieten van gekoppelde Premium-schijven. | &nbsp; | &nbsp; |
+| **Stripe-grootte** |Kleinere Stripe-grootte voor wille keurig klein i/o-patroon dat wordt weer gegeven in OLTP-toepassingen. Gebruik bijvoorbeeld Stripe-grootte van 64 KB voor SQL Server OLTP-toepassing. |Grotere Stripe-grootte voor het sequentiële grote i/o-patroon dat wordt weer gegeven in Data Warehouse-toepassingen. Gebruik bijvoorbeeld 256 KB-Stripe-grootte voor SQL Server Data Warehouse-toepassing. | &nbsp; |
+| **Multithreading** |Gebruik multi-threading om een hoger aantal aanvragen te pushen naar Premium Storage dat leidt tot hogere IOPS en door voer. U kunt bijvoorbeeld op SQL Server een hoge MAXDOP-waarde instellen om meer Cpu's toe te wijzen aan SQL Server. | &nbsp; | &nbsp; |
+| **Wachtrij diepte** |Grotere wachtrij diepte levert hogere IOPS op. |Grotere wachtrij diepte levert een hogere door voer. |Een kleinere wachtrij diepte levert lagere latenties. |
 
-## <a name="nature-of-io-requests"></a>De aard van de i/o-aanvragen
+## <a name="nature-of-io-requests"></a>Aard van i/o-aanvragen
 
-Een i/o-aanvraag is een eenheid van i/o-bewerking dat door uw toepassing wordt uitgevoerd. Identificeren van de aard van i/o-aanvragen, willekeurige of opeenvolgende, kunt lezen of schrijven, klein of groot is, u bepalen van de prestatievereisten van uw toepassing. Het is belangrijk om te begrijpen van de aard van i/o-aanvragen, de juiste beslissingen bij het ontwerpen van de infrastructuur van uw toepassing.
+Een i/o-aanvraag is een eenheid voor invoer/uitvoer die door uw toepassing wordt uitgevoerd. Het identificeren van de aard van de i/o-aanvragen, wille keurige of sequentiële, lees-of schrijf bewerkingen, kleine of grote, helpt u bij het bepalen van de prestatie vereisten van uw toepassing. Het is belang rijk om inzicht te krijgen in de aard van IO-aanvragen om de juiste beslissingen te nemen bij het ontwerpen van de infra structuur van uw toepassing.
 
-I/o-grootte is een van de belangrijkste factoren. De i/o-grootte is de grootte van de bewerkingsaanvraag van de i/o-door uw toepassing wordt gegenereerd. De i/o-grootte heeft een aanzienlijke invloed op de prestaties met name op de IOPS en bandbreedte die de toepassing kan bereiken. De volgende formule wordt de relatie tussen IOP's, i/o-grootte, en bandbreedte/doorvoer.  
+I/o-grootte is een van de belang rijke factoren. De i/o-grootte is de grootte van de invoer-en uitvoer bewerkings aanvraag die wordt gegenereerd door uw toepassing. De i/o-grootte heeft een grote invloed op de prestaties, met name op de IOPS en band breedte die de toepassing kan krijgen. In de volgende formule ziet u de relatie tussen IOPS, i/o-grootte en band breedte/door voer.  
     ![](media/premium-storage-performance/image1.png)
 
-Sommige toepassingen kunnen u de i/o-grootte, alter, maar sommige toepassingen niet. Bijvoorbeeld, SQL Server bepaalt de optimale grootte voor i/o-zelf en biedt gebruikers met alle knoppen om deze te wijzigen. Aan de andere kant Oracle biedt een parameter met de naam [DB\_blokkeren\_grootte](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) die u kunt configureren met de grootte van de i/o-aanvraag van de database.
+Sommige toepassingen bieden u de mogelijkheid om hun IO-grootte te wijzigen, terwijl sommige toepassingen dat niet doen. SQL Server bepaalt bijvoorbeeld de optimale IO-grootte zelf, en biedt gebruikers geen knoppen om deze te wijzigen. Anderzijds biedt Oracle een para meter met de naam [\_DB-blok\_grootte](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) , waarmee u de I/O-aanvraag grootte van de Data Base kunt configureren.
 
-Gebruik de richtlijnen in dit artikel als u een toepassing die u wilt wijzigen van de i/o-grootte niet toestaat, het optimaliseren van de KPI's die het meest relevant is voor uw toepassing. Bijvoorbeeld:
+Als u een toepassing gebruikt die u niet toestaat de i/o-grootte te wijzigen, gebruikt u de richt lijnen in dit artikel om de prestatie-KPI te optimaliseren die het meest relevant is voor uw toepassing. Bijvoorbeeld:
 
-* Een OLTP-toepassing genereert miljoenen kleine en willekeurige i/o-aanvragen. Voor het afhandelen van deze typen i/o-aanvragen, moet u de infrastructuur van uw toepassingen om op te halen van hogere IOPS ontwerpen.  
-* Een datawarehouse-aanvraag genereert grote en opeenvolgende i/o-aanvragen. Voor het afhandelen van deze typen i/o-aanvragen, moet u de infrastructuur van uw toepassingen om op te halen van de hogere bandbreedte of doorvoer ontwerpen.
+* Een OLTP-toepassing genereert miljoenen kleine en wille keurige i/o-aanvragen. Als u deze typen i/o-aanvragen wilt verwerken, moet u uw toepassings infrastructuur ontwerpen om hogere IOPS te verkrijgen.  
+* Een toepassing voor gegevens opslag genereert grote en sequentiële IO-aanvragen. Als u deze typen i/o-aanvragen wilt verwerken, moet u uw toepassings infrastructuur ontwerpen om een hogere band breedte of door voer te krijgen.
 
-Als u een toepassing, waarmee u de i/o-grootte te wijzigen, gebruikt u deze vuistregel voor de i/o-grootte naast andere prestatierichtlijnen
+Als u een toepassing gebruikt, waarmee u de i/o-grootte kunt wijzigen, gebruikt u deze vuist regel voor de i/o-grootte naast andere richt lijnen voor prestaties.
 
-* Kleinere i/o-grootte aan hogere IOPS. Bijvoorbeeld: 8 KB voor een OLTP-toepassing.  
-* Grotere i/o-grootte om hogere bandbreedte/doorvoer te krijgen. Bijvoorbeeld 1024 KB voor een datawarehouse-toepassing.
+* Kleinere IO-grootte om meer IOPS te verkrijgen. Bijvoorbeeld 8 KB voor een OLTP-toepassing.  
+* Grotere IO-grootte voor een hogere band breedte/door voer. Bijvoorbeeld 1024 KB voor een Data Warehouse-toepassing.
 
-Hier volgt een voorbeeld van hoe u de IOPS en doorvoer/bandbreedte voor uw toepassing kunt berekenen. Houd rekening met een toepassing met behulp van een P30-schijf. De maximale IOPS en doorvoer/bandbreedte een P30-schijf kunnen maar liefst is 5000 IOP's en 200 MB per seconde respectievelijk. Nu, als uw toepassing vereist dat de maximale IOPS van de P30-schijf en u een kleinere i/o-grootte, zoals van 8 KB gebruikt, is de resulterende bandbreedte kunt u zich aan 40 MB per seconde. Als uw toepassing vereist dat de maximale doorvoer/bandbreedte van P30-schijf en u een grotere i/o-grootte, zoals 1024 KB, de IOPS-waarde wordt wel minder, 200 IOPS. Stem de i/o-grootte daarom zo dat deze voldoet aan de vereiste IOPS en doorvoer/bandbreedte van zowel uw toepassing. De volgende tabel geeft een overzicht van de i/o-grootte en hun bijbehorende IOPS en doorvoer voor een P30-schijf.
+Hier volgt een voor beeld van hoe u de IOPS en de door Voer/band breedte kunt berekenen voor uw toepassing. Overweeg een toepassing met behulp van een P30-schijf. Het maximale aantal IOPS en de door Voer/band breedte van een P30-schijf kan worden gerealiseerd op respectievelijk 5000 IOPS en 200 MB per seconde. Als uw toepassing nu het maximale aantal IOPS van de P30-schijf vereist en u een kleinere IO-grootte gebruikt, zoals 8 KB, kan de resulterende band breedte Maxi maal 40 MB per seconde zijn. Als voor uw toepassing echter de maximale door Voer/band breedte van P30 schijf is vereist en u een grotere IO-grootte gebruikt, zoals 1024 KB, is de resulterende IOPS minder, 200 IOPS. Stel daarom de i/o-grootte zodanig in dat deze voldoet aan de limiet voor IOPS en door Voer/band breedte van uw toepassing. Onderstaande tabel bevat een overzicht van de verschillende i/o-grootten en de bijbehorende IOPS en door Voer voor een P30-schijf.
 
-| Vereisten voor toepassingsimplementatie | I/o-grootte | IOPS | Doorvoer/bandbreedte |
+| Toepassings vereiste | I/O-grootte | IOPS | Door Voer/band breedte |
 | --- | --- | --- | --- |
-| Max. aantal IOP 's |8 kB |5,000 |40 MB per seconde |
-| Max. doorvoer |1024 KB |200 |200 MB per seconde |
-| Maximale Throughput + hoge IOPS |64 kB |3,200 |200 MB per seconde |
-| Maximale IOPS en hoge doorvoer |32 KB |5,000 |160 MB per seconde |
+| Max. IOP's |8 kB |5,000 |40 MB per seconde |
+| Maximale door Voer |1024 kB |200 |200 MB per seconde |
+| Maximale door Voer + hoge IOPS |64 kB |3,200 |200 MB per seconde |
+| Maximale IOPS + hoge door Voer |32 KB |5,000 |160 MB per seconde |
 
-Voor IOPS en bandbreedte die hoger is dan de maximale waarde van een enkele premium-opslagschijf, gebruikt u meerdere premium-schijven striped samen. Bijvoorbeeld, stripe twee P30 schijven voor het verkrijgen van een gecombineerde IOPS van 10.000 IOP's of een gecombineerde doorvoer van 400 MB per seconde. Zoals uitgelegd in de volgende sectie, moet u een VM-grootte die ondersteuning biedt voor de gecombineerde schijf-IOPS en doorvoer.
+Als u IOPS en band breedte wilt ophalen die hoger is dan de maximum waarde van één Premium-opslag schijf, gebruikt u meerdere Premium-schijven die met elkaar zijn gesegmenteerd. U kunt bijvoorbeeld twee P30-schijven opstrepen om een gecombineerde IOPS van 10.000 IOPS te verkrijgen of een gecombineerde door Voer van 400 MB per seconde. Zoals uitgelegd in de volgende sectie, moet u een VM-grootte gebruiken die ondersteuning biedt voor de gecombineerde schijf-IOPS en-door voer.
 
 > [!NOTE]
-> Als u IOPS of de andere verhoogt ook de doorvoer verhoogt, zorg er dan voor dat u doorvoer of IOPS-limieten van de schijf of virtuele machine niet tegenkomen wanneer u een verhogen.
+> Wanneer u meerdere IOPS of door Voer verhoogt, neemt de andere ook toe, moet u ervoor zorgen dat u de limieten voor door Voer of IOPS van de schijf of de virtuele machine niet bereikt wanneer een van beide wordt verhoogd.
 
-U kunt te wonen de gevolgen van i/o-grootte voor de prestaties van toepassingen, hulpprogramma's voor benchmarking uitvoeren op de virtuele machine en schijven. Maak meerdere testuitvoeringen en andere i/o-grootte voor elke uitvoering gebruiken om te zien van de impact. Raadpleeg de sectie Benchmarking aan het einde van dit artikel voor meer informatie.
+Als u de gevolgen van de i/o-grootte voor de prestaties van de toepassing wilt Witness, kunt u benchmarking-hulpprogram ma's uitvoeren op uw VM en schijven. Maak meerdere test uitvoeringen en gebruik een andere i/o-grootte voor elke uitvoering om de impact te bekijken. Raadpleeg het gedeelte benchmarking aan het einde van dit artikel voor meer informatie.
 
-## <a name="high-scale-vm-sizes"></a>Grote schaal VM-grootten
+## <a name="high-scale-vm-sizes"></a>VM-grootten hoog schalen
 
-Wanneer u het ontwerpen van een toepassing start, is een van de eerste dingen te doen, kiest u een virtuele machine voor het hosten van uw toepassing. Premium Storage wordt geleverd met hoge schaal VM-grootten die toepassingen die meer rekenkracht en een hoge lokale schijf i/o-prestaties nodig hebben kunnen worden uitgevoerd. Deze virtuele machines hebben snellere processors, een hogere geheugen-kernverhouding en een Solid-State Drive (SSD) voor de lokale schijf. Voorbeelden van hoge schaal VM's die Premium-opslag zijn de DS, DSv2 en GS-serie VM's.
+Wanneer u begint met het ontwerpen van een toepassing, selecteert u een virtuele machine om uw toepassing te hosten. Premium Storage wordt geleverd met grootschalige VM-grootten die toepassingen kunnen uitvoeren die een hogere reken kracht vereisen en een hoge I/O-prestaties van de lokale schijf. Deze Vm's bieden snellere processors, een hogere geheugen-naar-kern-verhouding en een SSD (Solid-State Drive) voor de lokale schijf. Voor beelden van virtuele machines met een hoge schaal ondersteuning die Premium Storage zijn de virtuele machines uit de DS-, DSv2-en GS-serie.
 
-Hoge schaal VM's zijn beschikbaar in verschillende grootten met een verschillend aantal CPU-kernen, geheugen, besturingssysteem en grootte van de tijdelijke schijf. Elke VM-grootte heeft ook het maximum aantal gegevensschijven die u aan de virtuele machine koppelen kunt. Daarom de gekozen VM-grootte is van invloed op hoeveelheid verwerking, geheugen en opslagcapaciteit is beschikbaar voor uw toepassing. Dit geldt ook voor de Compute en Storage-kosten. Hieronder vindt u bijvoorbeeld de specificaties van de grootste VM-grootte in een DS-serie, DSv2-serie en GS-serie:
+Virtuele machines met een hoge schaal zijn beschikbaar in verschillende groottes met een verschillend aantal CPU-kernen, geheugen, besturings systeem en tijdelijke schijf grootte. Elke VM-grootte heeft ook een maximum aantal gegevens schijven dat u kunt koppelen aan de virtuele machine. Daarom is de gekozen VM-grootte van invloed op de hoeveelheid verwerking, het geheugen en de opslag capaciteit die beschikbaar is voor uw toepassing. Dit is ook van invloed op de reken-en opslag kosten. Hieronder ziet u bijvoorbeeld de specificaties van de grootste VM-grootte in een DS-serie, DSv2-serie en een GS-serie:
 
-| VM-grootte | CPU-kernen | Geheugen | Schijf-VM-grootten | Met maximaal Gegevensschijven | Cachegrootte | IOPS | Bandbreedte Cache i/o-limieten |
+| VM-grootte | CPU-kernen | Geheugen | VM-schijf grootten | Met maximaal gegevens schijven | Cachegrootte | IOPS | I/o-limieten van bandbreedte cache |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Lokale SSD 224 GB = |32 |576 GB |MAAR LIEFST 50.000 IOPS <br> 512 MB per seconde |4000 IOPS en 33 MB per seconde |
-| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Lokale SSD 896 GB = |64 |4224 GB |80.000 IOP 'S <br> 2\.000 MB per seconde |5000 IOP's en 50 MB per seconde |
+| Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Lokale SSD = 224 GB |32 |576 GB |50.000 IOPS <br> 512 MB per seconde |4\.000 IOPS en 33 MB per seconde |
+| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Lokale SSD = 896 GB |64 |4224 GB |80.000 IOPS <br> 2\.000 MB per seconde |5\.000 IOPS en 50 MB per seconde |
 
-Als u wilt weergeven van een volledige lijst van alle beschikbare Azure-VM-grootten, verwijzen naar [Windows VM-grootten](../articles/virtual-machines/windows/sizes.md) of [Linux VM-grootten](../articles/virtual-machines/linux/sizes.md). Kies een VM-grootte die kan voldoen en aanpassen aan uw prestatievereisten van de gewenste toepassing. Daarnaast rekening mee dat volgende belangrijke overwegingen bij het kiezen van VM-grootten.
+Als u een volledige lijst met alle beschik bare Azure VM-grootten wilt weer geven, raadpleegt u [Windows VM](../articles/virtual-machines/windows/sizes.md) -grootten of grootten voor [Linux VM](../articles/virtual-machines/linux/sizes.md). Kies een VM-grootte die kan voldoen aan de gewenste prestatie vereisten voor de toepassing en deze kan worden geschaald. Daarnaast moet u rekening houden met de volgende belang rijke overwegingen bij het kiezen van VM-grootten.
 
-*Schaallimieten*  
-De maximale IOPS-limieten per VM en per schijf zijn verschillende en onafhankelijk van elkaar. Zorg ervoor dat de toepassing IOP's binnen de grenzen van de virtuele machine, evenals de premium-schijven zijn gekoppeld aan deze wordt bestuurd. De prestaties van toepassingen maken anders beperking.
+*Schaal limieten*  
+De maximale IOPS-limieten per VM en per schijf zijn verschillend en zijn onafhankelijk van elkaar. Zorg ervoor dat de toepassing IOPS behaalt binnen de limieten van de virtuele machine en de Premium-schijven die eraan zijn gekoppeld. Anders werkt de prestaties van de toepassing met vertraging.
 
-Stel bijvoorbeeld dat een vereiste toepassing is maximaal 4000 IOPS. Om dit te doen, moet u een P30-schijf op een VM DS1 inrichten. De P30-schijf kan maximaal 5000 IOP's leveren. De VM DS1 is echter beperkt tot 3200 IOPS. Als gevolg daarvan kunnen de toepassingsprestaties zal worden beperkt door de limiet van de virtuele machine op een 3200 IOPS en zullen er verminderde prestaties. Om te voorkomen dat deze situatie, kiest u een schijf en VM-grootte die beide voldoen aan de vereisten van webtoepassingen.
+Stel dat een toepassings vereiste een maximum van 4.000 IOPS is. U kunt dit doen door een P30-schijf in te richten op een DS1-VM. De P30-schijf kan Maxi maal 5.000 IOPS leveren. De DS1-VM is echter beperkt tot 3.200 IOPS. De prestaties van de toepassing worden hierdoor beperkt door de VM-limiet van 3.200 IOPS en de prestaties verslechteren. U kunt dit voor komen door een virtuele machine en schijf grootte te kiezen die voldoen aan de vereisten van de toepassing.
 
 *Kosten van bewerking*  
-In veel gevallen is het mogelijk dat uw totale kosten van het opnieuw met Premium Storage lager is dan het gebruik van Standard-opslag.
+In veel gevallen is het mogelijk dat uw totale kosten voor bewerking met behulp van Premium Storage lager zijn dan het gebruik van standaard opslag.
 
-Neem bijvoorbeeld een toepassing 16.000 IOPS vereisen. Deze om prestaties te behalen, moet u een standaard\_D14 Azure IaaS VM, zodat een maximale IOPS van 16.000 met behulp van 32 standard storage-schijven voor 1 TB. Elke schijf 1 TB standard-opslag kunt maximaal 500 IOPS bereiken. De geschatte kosten van deze virtuele machine per maand is $1,570. De maandelijkse kosten van 32 standard storage-schijven is $1,638. De geschatte totale maandelijkse kosten worden $3,208.
+Denk bijvoorbeeld aan een toepassing die 16.000 IOPS vereist. Als u deze prestaties wilt verzorgen, hebt u\_een Standard D14 Azure IaaS VM nodig, die een maximale IOPS van 16.000 kan bieden met behulp van 32 Standard Storage 1 TB-schijven. Elke standaard opslag schijf van 1 TB kan Maxi maal 500 IOPS beslaan. De geschatte kosten van deze virtuele machine per maand zijn $1.570. De maandelijkse kosten van 32 standaard opslag schijven zijn $1.638. De geschatte totale maandelijkse kosten worden $3.208.
 
-Echter, als u dezelfde toepassing op Premium-opslag die wordt gehost, moet u een kleinere virtuele machine en minder premium storage-schijven, waardoor de totale kosten. Een standaard\_DS13-VM kan voldoen aan de 16.000 IOPS vereiste met behulp van vier P30-schijven. De DS13-virtuele machine heeft een maximale IOPS van 25,600 en elke P30-schijf heeft een maximale IOPS van 5000. Algemene, deze configuratie 5.000 x 4 = 20.000 kan maar liefst IOPS. De geschatte kosten van deze virtuele machine per maand is $1,003. De maandelijkse kosten van vier P30 premium storage-schijven is $544.34. De geschatte totale maandelijkse kosten worden $1,544.
+Als u echter dezelfde toepassing op Premium Storage hebt gehost, hebt u een kleinere VM-grootte en minder Premium-opslag schijven nodig, waardoor de totale kosten worden verminderd. Een standaard\_DS13-VM kan voldoen aan de 16.000-IOPS-vereiste met behulp van vier P30-schijven. De DS13-VM heeft een maximale IOPS van 25.600 en elke P30-schijf heeft een maximale IOPS van 5.000. Over het algemeen kan deze configuratie 5.000 x 4 = 20.000 IOPS behaalt. De geschatte kosten van deze virtuele machine per maand zijn $1.003. De maandelijkse kosten van vier P30 Premium-opslag schijven worden $544,34. De geschatte totale maandelijkse kosten worden $1.544.
 
-De volgende tabel geeft een overzicht van de verdeling van de kosten van dit scenario voor Standard en Premium-opslag.
+Onderstaande tabel bevat een overzicht van de kosten analyse van dit scenario voor Standard en Premium Storage.
 
 | &nbsp; | **Standard** | **Premium** |
 | --- | --- | --- |
-| **Kosten van virtuele machine per maand** |$1,570.58 (standard\_D14) |$1,003.66 (standard\_DS13) |
-| **Kosten van de schijven per maand** |$1,638.40 (32 x 1 TB schijven) |$544.34 (4 x P30 schijven) |
+| **Kosten van VM per maand** |$1.570,58 (standaard\_D14) |$1.003,66 (standaard\_DS13) |
+| **Kosten van schijven per maand** |$1.638,40 (32 x 1 TB schijven) |$544,34 (4 x P30 schijven) |
 | **Totale kosten per maand** |$3,208.98 |$1,544.34 |
 
-*Linux Distros*  
+*Linux-distributies*  
 
-Met Azure Premium Storage krijgt u hetzelfde niveau van de prestaties voor virtuele machines met Windows en Linux. We bieden ondersteuning voor vele versies van Linux-distributies en ziet u de volledige lijst [hier](../articles/virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Het is belangrijk te weten dat verschillende distributies beter voor verschillende soorten workloads geschikt zijn. Hier ziet u verschillende prestatieniveaus, afhankelijk van de distro die uw workload wordt uitgevoerd op. De Linux-distributies met uw toepassing testen en kiest de optie die het beste werkt.
+Met Azure Premium Storage beschikt u over hetzelfde prestatie niveau voor Vm's met Windows en Linux. We ondersteunen veel soorten Linux-distributies en u kunt [hier](../articles/virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)de volledige lijst zien. Het is belang rijk te weten dat verschillende distributies beter geschikt zijn voor verschillende soorten workloads. U ziet verschillende prestatie niveaus, afhankelijk van de distributie waarop uw werk belasting wordt uitgevoerd. Test de Linux-distributies met uw toepassing en kies de versie die het beste werkt.
 
-Wanneer waarop Linux wordt uitgevoerd met Premium Storage, controleert u de meest recente updates over de vereiste stuurprogramma's om te controleren of hoge prestaties.
+Wanneer u Linux met Premium Storage uitvoert, controleert u de meest recente updates over de vereiste Stuur Programma's om hoge prestaties te garanderen.
 
-## <a name="premium-storage-disk-sizes"></a>Premium storage-schijfgrootten
+## <a name="premium-storage-disk-sizes"></a>Grootte van Premium-opslag schijven
 
-Azure Premium Storage biedt acht schijfgrootten voor algemene beschikbaarheid en drie schijfgrootten die momenteel in Preview-versie. De grootte van elke schijf heeft de limiet van een andere schaal voor IOPS, bandbreedte en opslag. Kies het recht voor Premium Storage-schijfgrootte, afhankelijk van de toepassingsvereisten voor de en de hoge schaal VM-grootte. De onderstaande tabel ziet u de grootten 11 schijven en de bijbehorende mogelijkheden. P4, P6, P15, P60, P70 en P80 grootten zijn momenteel alleen ondersteund voor Managed Disks.
+Azure Premium Storage biedt acht GA naar schijf groottes en drie schijf grootten die in Preview zijn, op dit moment. Elke schijf grootte heeft een andere schaal limiet voor IOPS, band breedte en opslag. Kies de juiste Premium Storage schijf grootte, afhankelijk van de toepassings vereisten en de grootte van de VM met hoge schaal. In de volgende tabel ziet u de 11 grootte van de schijven en de mogelijkheden ervan. P4-, P6-, P15-, P60-, P70-en P80-grootten worden momenteel alleen ondersteund voor Managed Disks.
 
-| Schijftype voor Premium-schijven  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
+| Type Premium-schijven  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Schijfgrootte           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1\.024 GiB (1 TiB)    | 2\.048 GiB (2 TiB)    | 4\.095 GiB (4 TiB)    | 8\.192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 TiB)    |
+| Schijfgrootte           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1\.024 GiB (1 TiB)    | 2\.048 GiB (2 TiB)    | 4\.095 GiB (4 TiB)    | 8\.192 GiB (8 TiB)    | 16.384 GiB (16 TiB)    | 32.767 GiB (32 TiB)    |
 | IOP's per schijf       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15,000              | 20,000              |
-| Doorvoer per schijf | 25 MiB per seconde  | 50 MiB per seconde  | 100 MiB per seconde |125 MiB per seconde | 150 MiB per seconde | 200 MiB per seconde | 250 MiB per seconde | 250 MiB per seconde | 480 MiB per seconde | 750 MiB per seconde | 750 MiB per seconde |
+| Doorvoer per schijf | 25 MiB per seconde  | 50-MiB per seconde  | 100-MiB per seconde |125-MiB per seconde | 150-MiB per seconde | 200-MiB per seconde | 250-MiB per seconde | 250-MiB per seconde | 480-MiB per seconde | 750-MiB per seconde | 750-MiB per seconde |
 
-Het aantal schijven die u kiest is afhankelijk van de schijf het formaat van de gekozen. U kunt één P50 schijf of meerdere P10-schijven gebruiken om te voldoen aan de vereisten van uw toepassing. Aandachtspunten voor gebruikersaccounts die hieronder worden vermeld bij het maken van de keuze rekening.
+Hoeveel schijven u kiest, is afhankelijk van de gekozen schijf grootte. U kunt één P50-schijf of meerdere P10-schijven gebruiken om te voldoen aan de vereisten van uw toepassing. Houd rekening met onderstaande aandachtspunten wanneer u de keuze maakt.
 
-*De Schaallimieten (IOPS en doorvoer)*  
-De limieten voor IOPS en doorvoer van elke Premium-schijfgrootte is anders en onafhankelijk van de schaallimieten voor virtuele machine. Zorg ervoor dat het totale aantal IOPS en doorvoer van de schijven zich binnen de grenzen van de schaal van de gekozen VM-grootte.
+*Schaal limieten (IOPS en door Voer)*  
+De limieten voor IOPS en door Voer van elke Premium-schijf variëren en zijn onafhankelijk van de schaal limieten van de virtuele machine. Zorg ervoor dat het totale aantal IOPS en door Voer van de schijven binnen de schaal limieten ligt van de gekozen VM-grootte.
 
-Bijvoorbeeld, als een vereiste van toepassing is een maximum van 250 MB per seconde doorvoer en u gebruikt een DS4-VM met een enkele P30-schijf. De DS4-VM kunt geven tot 256 MB per seconde doorvoer. Een enkele P30-schijf heeft echter doorvoerlimiet van 200 MB per seconde. Als gevolg hiervan wordt de toepassing worden beperkt op 200 MB per seconde door de limiet van de schijf. Om te strijden tegen deze limiet, meer dan één gegevensschijven aan de virtuele machine inrichten of het formaat wijzigen van de schijven P40 of P50.
+Als een toepassings vereiste bijvoorbeeld Maxi maal 250 MB/sec. door Voer is en u een DS4-VM met één P30-schijf gebruikt. De DS4-VM kan Maxi maal 256 MB/sec. door voer geven. Eén P30-schijf heeft echter een doorvoer limiet van 200 MB/sec. De toepassing wordt hierdoor beperkt tot 200 MB/sec als gevolg van de schijf limiet. U kunt deze limiet verheffen door meer dan één gegevens schijf aan de virtuele machine in te richten of de grootte van de schijven aan te P40 of P50.
 
 > [!NOTE]
-> Leesbewerkingen geleverd door de cache zijn niet opgenomen in de schijf-IOPS en doorvoer en kan daarom niet onderworpen is aan de schijflimieten. Cache heeft de afzonderlijke limiet voor IOPS en doorvoer per virtuele machine.
+> Lees bewerkingen die door de cache worden geleverd, zijn niet opgenomen in de schijf-IOPS en door Voer, en zijn daarom niet van toepassing op schijf limieten. Cache heeft afzonderlijke IOPS-en doorvoer limieten per VM.
 >
-> Bijvoorbeeld, zijn in eerste instantie de lees- en schrijfbewerkingen 60MB per seconde en 40MB per seconde. Na verloop van tijd, de cache van warms en meer en meer van de gelezen uit de cache fungeert. Vervolgens krijgt u hogere schrijven doorvoer van de schijf.
+> Aanvankelijk zijn uw lees-en schrijf bewerkingen bijvoorbeeld respectievelijk 60MB per seconde en 40MB per seconde. Na verloop van tijd wordt de cache opwarmd en worden meer en meer Lees bewerkingen van de cache gebruikt. Daarna kunt u een hogere schrijf doorvoer verkrijgen van de schijf.
 
 *Aantal schijven*  
-Bepaalt het aantal schijven, u gaat door de beoordeling van de vereisten van webtoepassingen. Elke VM-grootte heeft ook een limiet voor het aantal schijven die u aan de virtuele machine koppelen kunt. Dit is meestal twee keer het aantal kernen. Zorg ervoor dat de VM-grootte die u kunt ondersteuning voor het aantal schijven die nodig zijn.
+Bepaal het aantal schijven dat u nodig hebt door de toepassings vereisten te beoordelen. Elke VM-grootte heeft ook een limiet voor het aantal schijven dat u kunt koppelen aan de virtuele machine. Doorgaans is dit het aantal kernen. Zorg ervoor dat de grootte van de virtuele machine die u kiest, het benodigde aantal schijven kan ondersteunen.
 
-Vergeet niet dat de Premium Storage-schijven hebben hogere prestaties levert vergeleken met de Standard-opslagschijven. Dus als u uw toepassing vanuit Azure IaaS-VM met behulp van standaardopslag naar Premium Storage migreert, moet u waarschijnlijk minder premium-schijven de dezelfde of een hogere prestaties voor uw toepassing bereiken.
+Houd er rekening mee dat de Premium Storage schijven betere prestaties hebben ten opzichte van standaard opslag schijven. Als u uw toepassing migreert vanuit een Azure IaaS-VM met standaard opslag naar Premium Storage, hebt u waarschijnlijk minder Premium-schijven nodig om dezelfde of hogere prestaties voor uw toepassing te krijgen.
 
-## <a name="disk-caching"></a>Schijfcache
+## <a name="disk-caching"></a>Schijf cache
 
-Hoge schaal-virtuele machines die gebruikmaken van Azure Premium Storage hebben een meerlagige cachetechnologie BlobCache genoemd. Een combinatie van de virtuele Machine RAM-geheugen en lokale SSD BlobCache gebruikt voor de cache. Deze cache is beschikbaar voor de permanente schijven voor Premium-opslag en de lokale VM-schijven. Standaard is deze cache-instelling ingesteld op lezen/schrijven van besturingssysteemschijven en alleen-lezen voor gegevensschijven die worden gehost op Premium Storage. Met opslaan in schijfcache ingeschakeld op de Premium-opslagschijven, kunt de grote schaal VM's zeer hoge prestatieniveau die groter zijn dan de onderliggende schijfprestaties bereiken.
+High Scale-Vm's die gebruikmaken van Azure Premium Storage, hebben een cache technologie met meerdere lagen met de naam BlobCache. BlobCache maakt gebruik van een combi natie van het RAM-geheugen van de virtuele machine en de lokale SSD voor caching. Deze cache is beschikbaar voor de Premium Storage permanente schijven en de lokale VM-schijven. Deze cache-instelling is standaard ingesteld op lezen/schrijven voor besturingssysteem schijven en alleen-lezen voor gegevens schijven die worden gehost op Premium Storage. Als schijf cache is ingeschakeld op de Premium Storage schijven, kunnen de virtuele machines met een hoge schaal extreem hoge prestatie niveaus hebben die de onderliggende schijf prestaties overschrijden.
 
 > [!WARNING]
-> Schijf opslaan in cache wordt niet ondersteund voor schijven groter is dan 4 TiB. Als meerdere schijven zijn gekoppeld aan uw virtuele machine, elke schijf die is 4 TiB of kleiner wordt ondersteund in cache opslaan.
+> Schijf cache gebruik wordt niet ondersteund voor schijven van 4 TiB en groter. Als er meerdere schijven aan uw virtuele machine zijn gekoppeld, ondersteunt elke schijf die kleiner is dan 4 TiB de cache.
 >
-> Als u de cache-instelling van een Azure-schijf losgekoppeld en opnieuw wordt de doelschijf. Als de besturingssysteemschijf is, kan de virtuele machine opnieuw wordt opgestart. Stop alle toepassingen en services die kunnen worden beïnvloed door deze wordt onderbroken voordat u de schijf-cache-instelling wijzigt.
+> Wanneer u de cache-instelling van een Azure-schijf wijzigt, wordt de doel schijf losgekoppeld en opnieuw gekoppeld. Als de schijf van het besturings systeem is, wordt de VM opnieuw opgestart. Stop alle toepassingen/services die mogelijk van invloed zijn op deze onderbreking voordat u de instelling van de schijf cache wijzigt.
 
-Raadpleeg voor meer informatie over de werking van BlobCache binnen [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) blogbericht.
+Raadpleeg het blog bericht over [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) voor meer informatie over de werking van BlobCache.
 
-Het is belangrijk om in te schakelen van de cache op de juiste set met schijven. Of u moet inschakelen op een premium-schijf opslaan in schijfcache of niet zal afhankelijk zijn van het workloadpatroon die schijf verwerkt. De onderstaande tabel ziet u de cache-instellingen voor het besturingssysteem en gegevensschijven.
+Het is belang rijk om cache in te scha kelen op de juiste set schijven. Of u schijf cache gebruik moet inschakelen op een Premium-schijf of niet afhankelijk is van het werkbelasting patroon dat wordt verwerkt door de schijf. De volgende tabel bevat de standaard cache-instellingen voor besturings systeem-en gegevens schijven.
 
-| **Schijftype** | **Standaardinstelling voor cache** |
+| **Schijf type** | **Standaard cache-instelling** |
 | --- | --- |
 | Besturingssysteemschijf |ReadWrite |
 | Gegevensschijf |ReadOnly |
 
-Hieronder vindt u de aanbevolen schijf cache-instellingen voor gegevensschijven,
+Hieronder vindt u de aanbevolen schijf cache-instellingen voor gegevens schijven,
 
-| **Schijf-cache-instelling** | **Aanbeveling van het moment waarop u deze instelling wilt gebruiken** |
+| **Cache-instelling voor schijf** | **aanbeveling voor het gebruik van deze instelling** |
 | --- | --- |
-| Geen |Host-cache configureren als geen voor de alleen-schrijven en schrijfintensief schijven. |
-| ReadOnly |Host-cache configureren als alleen-lezen voor alleen-lezen en lezen / schrijven-schijven. |
-| ReadWrite |Host-cache configureren als ReadWrite alleen als uw toepassing correct worden verwerkt in de cache opgeslagen gegevens schrijven naar een permanente schijven wanneer dat nodig is. |
+| Geen |Configureer host-cache als geen voor schijven met alleen-schrijven en write-zware. |
+| ReadOnly |Configureer de host-cache als alleen-lezen voor de schijven met het kenmerk alleen-schrijven en lees-en schrijf bewerkingen. |
+| ReadWrite |Configureer de host-cache als ReadWrite alleen als uw toepassing het schrijven van gegevens in de cache op de juiste wijze afhandelt naar permanente schijven als dat nodig is. |
 
 *ReadOnly*  
-Door het configureren van alleen-lezentoegang opslaan in cache op Premium Storage-gegevens op schijven, kunt u bereiken met lage latentie voor lezen en ophalen van zeer hoge IOPS voor lezen en doorvoer voor uw toepassing. Dit is vanwege twee redenen
+Door het configureren van alleen-lezen cache op Premium Storage gegevens schijven, kunt u een lage lees latentie bereiken en zeer grote Lees-IOPS en door Voer voor uw toepassing verkrijgen. Dit kan twee oorzaken hebben:
 
-1. Leesbewerkingen uitgevoerd vanuit de cache, dit op de virtuele machine geheugen en lokale SSD is, zijn veel sneller dan leesbewerkingen van de gegevensschijf die zich in de Azure blob-opslag.  
-1. Premium-opslag telt niet mee voor de leesbewerkingen worden aangeleverd vanuit de cache op de schijf-IOPS en doorvoer. Daarom is uw toepassing kunnen hogere totale IOPS en doorvoer te realiseren.
+1. Lees bewerkingen van de cache, die zich op het geheugen van de virtuele machine en lokale SSD bevindt, zijn veel sneller dan lees bewerkingen van de gegevens schijf, die zich in de Azure Blob-opslag bevindt.  
+1. Premium Storage telt niet de Lees bewerkingen van de cache, naar de schijf-IOPS en door voer. Uw toepassing kan daarom een groter aantal IOPS en door Voer bezorgen.
 
 *ReadWrite*  
-De OS-schijven hebben standaard de caching van ingeschakeld. We hebben onlangs ondersteuning voor ReadWrite in cache opslaan van gegevens ook schijven toegevoegd. Als u van ReadWrite in cache opslaan gebruikmaakt, moet u een goede manier om de gegevens uit de cache schrijven naar de permanente schijven hebben. Bijvoorbeeld, SQL Server verwerkt het schrijven van gegevens in de cache naar de permanente opslag-schijven op een eigen. ReadWrite cache gebruiken met een toepassing die niet behouden van de vereiste gegevens verwerkt, kan leiden tot verlies van gegevens, als de virtuele machine vastloopt.
+Op de besturingssysteem schijven is ReadWrite-caching standaard ingeschakeld. We hebben onlangs ondersteuning toegevoegd voor ReadWrite-caching op gegevens schijven. Als u gebruik wilt maken van ReadWrite cache, moet u de juiste manier hebben om de gegevens van de cache naar permanente schijven te schrijven. SQL Server bijvoorbeeld het schrijven van gegevens in de cache naar de permanente opslag schijven. Het gebruik van de ReadWrite-cache met een toepassing die het persistent maken van de vereiste gegevens niet verwerkt, kan leiden tot verlies van gegevens, als de virtuele machine vastloopt.
 
-U kunt bijvoorbeeld deze richtlijnen toepassen op SQL Server op Premium Storage wordt uitgevoerd door het volgende te doen
+Als voor beeld kunt u deze richt lijnen Toep assen op SQL Server die worden uitgevoerd op Premium Storage door het volgende te doen:
 
-1. 'Alleen-lezen' cache configureren op premium storage-schijven die als host fungeert gegevensbestanden.  
-   a.  Het snelle wordt gelezen uit cache lager de Querytijd SQL Server omdat gegevenspagina's veel sneller worden opgehaald uit de cache in vergelijking met rechtstreeks vanuit de gegevens schijven.  
-   b.  Lezen uit cache levert, betekent dat er extra doorvoer van premium-gegevensschijven beschikbaar. SQL Server kan deze extra doorvoer voor het ophalen van meer gegevenspagina's en andere bewerkingen zoals back-up/herstel gebruiken, batch-belastingen en index opnieuw opgebouwd.  
-1. Configureren 'None' in de cache op premium storage-schijven die als host fungeert voor de logboekbestanden.  
-   a.  Logboekbestanden hebben voornamelijk schrijfintensief bewerkingen. Ze kunnen daarom niet gebruikmaken van de alleen-lezen-cache.
+1. Alleen-lezen cache configureren op Premium-opslag schijven die fungeren als host voor gegevens bestanden.  
+   a.  De snelle lees bewerkingen uit de cache verlaagt de SQL Server query tijd omdat gegevens pagina's veel sneller worden opgehaald uit de cache, vergeleken met rechtstreeks van de gegevens schijven.  
+   b.  Als er Lees bewerkingen van de cache worden door gegeven, betekent dit dat er extra door Voer beschikbaar is van Premium-gegevens schijven. SQL Server kunt deze extra door Voer voor het ophalen van meer gegevens pagina's en andere bewerkingen, zoals back-up maken/herstellen, batch belastingen en indexen opnieuw samen stellen.  
+1. Geen cache configureren op Premium-opslag schijven die de logboek bestanden hosten.  
+   a.  Logboek bestanden hebben voornamelijk schrijf-zware bewerkingen. Daarom profiteren ze niet van de alleen-lezen cache.
 
-## <a name="optimize-performance-on-linux-vms"></a>Prestaties op virtuele Linux-machines te optimaliseren
+## <a name="optimize-performance-on-linux-vms"></a>Prestaties op Linux Vm's optimaliseren
 
-Voor alle premium SSD's of ultra schijven met cache ingesteld op **ReadOnly** of **geen**, moet u "barrières" uitschakelen wanneer u het bestandssysteem koppelen. U hoeft geen barrières in dit scenario omdat de schrijfbewerkingen naar premium storage-schijven duurzame voor deze cache-instellingen zijn. Wanneer de schrijfaanvraag met succes is voltooid, heeft de gegevens zijn geschreven voor het permanente archief. Als wilt uitschakelen 'barrières', een van de volgende methoden te gebruiken. Kies de koppeling voor het bestandssysteem:
+Voor alle Premium-Ssd's of Ultra disks met cache is ingesteld op **ReadOnly** of **geen**, moet u ' obstakels ' uitschakelen wanneer u het bestands systeem koppelt. U hebt geen obstakels nodig in dit scenario omdat de schrijf bewerkingen naar Premium Storage-schijven duurzaam zijn voor deze cache-instellingen. Wanneer de schrijf aanvraag is voltooid, zijn de gegevens naar het permanente archief geschreven. Gebruik een van de volgende methoden om belemmeringen uit te scha kelen. Kies de naam van het bestands systeem:
   
-* Voor **reiserFS**, zodat barrières uitschakelen, gebruikt de `barrier=none` optie koppelen. (Gebruiken om in te schakelen barrières, `barrier=flush`.)
-* Voor **ext3/ext4**, zodat barrières uitschakelen, gebruikt de `barrier=0` optie koppelen. (Gebruiken om in te schakelen barrières, `barrier=1`.)
-* Voor **XFS**, zodat barrières uitschakelen, gebruikt de `nobarrier` optie koppelen. (Gebruiken om in te schakelen barrières, `barrier`.)
-* Voor premium storage-schijven met cache ingesteld op **ReadWrite**, barrières voor schrijven duurzaamheid inschakelen.
-* Voor de volumelabels van het om vast te leggen nadat de virtuele machine opnieuw is opgestart, moet u/etc/fstab bijwerken met de universele, unieke id (UUID) verwijzingen naar de schijven. Zie voor meer informatie, [een beheerde schijf toevoegen aan een Linux-VM](../articles/virtual-machines/linux/add-disk.md).
+* Voor **reiserFS**kunt u de `barrier=none` optie koppelen gebruiken om belemmeringen uit te scha kelen. (Als u belemmeringen wilt inschakelen `barrier=flush`, gebruikt u.)
+* Gebruik de optie voor het `barrier=0` koppelen van **ext3/ext4**om belemmeringen uit te scha kelen. (Als u belemmeringen wilt inschakelen `barrier=1`, gebruikt u.)
+* Voor **xfs**kunt u de `nobarrier` optie koppelen gebruiken om belemmeringen uit te scha kelen. (Als u belemmeringen wilt inschakelen `barrier`, gebruikt u.)
+* Voor Premium Storage-schijven waarbij cache is ingesteld op **readwrite**, schakelt u belemmeringen voor schrijf duurzaamheid in.
+* Als u wilt dat volume namen behouden blijven nadat u de virtuele machine opnieuw hebt opgestart, moet u bestand/etc/fstab bijwerken met de UUID-verwijzingen (Universally Unique Identifier) naar de schijven. Zie [een beheerde schijf toevoegen aan een virtuele Linux-machine](../articles/virtual-machines/linux/add-disk.md)voor meer informatie.
 
-De volgende Linux-distributies zijn gevalideerd voor premium SSD's. Voor betere prestaties en stabiliteit met premium SSD's, wordt u aangeraden dat u uw VM's naar een van deze versies of hoger upgraden. 
+De volgende Linux-distributies zijn gevalideerd voor Premium-Ssd's. Voor betere prestaties en stabiliteit met Premium Ssd's wordt u aangeraden uw Vm's te upgraden naar een van deze versies of hoger. 
 
-Voor sommige van de versies van moet de meest recente Linux Integration Services (LIS), v4.0, voor Azure. Als u wilt downloaden en installeren van een distributiepunt, volgt u de koppeling in de volgende tabel weergegeven. We toevoegen afbeeldingen aan de lijst als we klaar zijn met validatie. Onze validaties laten zien dat de prestaties wisselend voor elke afbeelding. Prestaties zijn afhankelijk van uw installatiekopie-instellingen en kenmerken van de werkbelasting. Verschillende afbeeldingen zijn afgesteld voor verschillende soorten workloads.
+Voor sommige versies is de meest recente LIS (Linux Integration Services), v 4.0, voor Azure vereist. Als u een distributie wilt downloaden en installeren, volgt u de koppeling die wordt weer gegeven in de volgende tabel. We voegen afbeeldingen toe aan de lijst wanneer de validatie is voltooid. In onze validaties ziet u dat de prestaties voor elke installatie kopie verschillen. De prestaties zijn afhankelijk van de kenmerken van de werk belasting en de instellingen van uw installatie kopie. Verschillende installatie kopieën zijn afgestemd op verschillende soorten workloads.
 
 | Distributie | Version | Ondersteunde kernel | Details |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
-| Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| Debian | 7. x, 8. x | 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12| 3.12.36-38.1+| SuSE-SLES-12-Priority-v20150213 <br> SuSE-SLES-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 vereist](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Zie de opmerking in de volgende sectie* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [Aanbevolen LIS4](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Zie de opmerking in de volgende sectie* |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 vereist](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Zie de opmerking in het volgende gedeelte* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 aanbevolen](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Zie de opmerking in het volgende gedeelte* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 of RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 of RHCK met[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 of RHCK met[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 of RHCK w/[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 of RHCK w/[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
-### <a name="lis-drivers-for-openlogic-centos"></a>LIS-stuurprogramma's voor OpenLogic CentOS
+### <a name="lis-drivers-for-openlogic-centos"></a>LIS-Stuur Programma's voor open Logic CentOS
 
-Als u nu OpenLogic CentOS-VM's worden uitgevoerd, voert u de volgende opdracht om de meest recente stuurprogramma's installeren:
+Als u open Logic CentOS Vm's uitvoert, voert u de volgende opdracht uit om de meest recente Stuur Programma's te installeren:
 
 ```
 sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
 sudo yum install microsoft-hyper-v
 ```
 
-Voor het activeren van de nieuwe stuurprogramma's, start u de VM opnieuw.
+Start de VM opnieuw op om de nieuwe Stuur Programma's te activeren.
 
-## <a name="disk-striping"></a>Striping van de schijf
+## <a name="disk-striping"></a>Schijf striping
 
-Wanneer een grootschalige die virtuele machine is gekoppeld met verschillende premium storage-permanente schijven, kunnen u de schijven samen striped voor het samenvoegen van hun IOPs, bandbreedte en opslagcapaciteit.
+Wanneer een grootschalige virtuele machine is gekoppeld aan verschillende permanente schijven van Premium Storage, kunnen de schijven samen worden gestripd om hun IOPs, band breedte en opslag capaciteit samen te voegen.
 
-Op Windows, kunt u Storage Spaces stripe schijven samen. U moet een kolom voor elke schijf in een pool configureren. Anders kan de algehele prestaties van striped volumes lager dan verwacht vanwege een ongelijke distributie van verkeer op de schijven zijn.
+In Windows kunt u opslag ruimten gebruiken om schijven samen te strepen. U moet één kolom configureren voor elke schijf in een groep. Anders kan de algehele prestaties van het striped volume lager zijn dan verwacht, vanwege een ongelijke distributie van verkeer op de schijven.
 
-Belangrijk: Met behulp van Serverbeheer-UI, kunt u het totale aantal kolommen maximaal 8 voor een striped volume instellen. Bij het toevoegen van meer dan acht schijven, kunt u PowerShell gebruiken om het volume te maken. Met behulp van PowerShell, kunt u instellen het aantal kolommen gelijk zijn aan het aantal schijven. Bijvoorbeeld, als er 16 schijven in een stripeset één; Geef 16 kolommen in de *NumberOfColumns* parameter van de *New-VirtualDisk* PowerShell-cmdlet.
+Belangrijk: Met Serverbeheer gebruikers interface kunt u het totale aantal kolommen instellen op 8 voor een striped volume. Wanneer u meer dan acht schijven koppelt, gebruikt u Power shell om het volume te maken. Met behulp van Power shell kunt u het aantal kolommen instellen dat gelijk is aan het aantal schijven. Als er bijvoorbeeld 16 schijven in één stripeset zijn ingesteld; Geef 16 kolommen op in de para meter *NumberOfColumns* van de Power shell-cmdlet *New-VirtualDisk* .
 
-Gebruik het hulpprogramma MDADM stripe-schijven samen op Linux. Voor gedetailleerde stappen voor het striping schijven op Linux naar verwijzen [Software-RAID configureren onder Linux](../articles/virtual-machines/linux/configure-raid.md).
+Gebruik in Linux het MDADM-hulp programma om schijven samen te strippen. Zie [Software RAID op Linux configureren](../articles/virtual-machines/linux/configure-raid.md)voor gedetailleerde stappen voor het verwijderen van schijven in Linux.
 
-*Streepgrootte*  
-Een belangrijke configuratie in schijfsegmentering wordt de stripe-grootte. De Streepgrootte van of de blokgrootte is de kleinste hoeveelheid gegevens die de toepassing op een striped volumes oplossen kunt. De stripe-grootte die u configureert, is afhankelijk van het type van de toepassing en het gebruikspatroon van de aanvraag. Als u de verkeerde stripe-grootte kiest, kan dit leiden tot i/o-uitlijning, die tot verminderde prestaties van uw toepassing leiden.
+*Stripe-grootte*  
+Een belang rijke configuratie van schijf striping is de Stripe-grootte. De Stripe-grootte of blok grootte is het kleinste deel van de gegevens dat een toepassing op een striped volume kan adresseren. De Stripe-grootte die u configureert, is afhankelijk van het type toepassing en het bijbehorende aanvraag patroon. Als u de verkeerde Stripe-grootte kiest, kan dit leiden tot een onjuiste uitlijning van IO, wat leidt tot verminderde prestaties van uw toepassing.
 
-Bijvoorbeeld, als een i/o-aanvraag die is gegenereerd door uw toepassing groter dan de Streepgrootte van de schijf is, schrijft het opslagsysteem deze grenzen stripe-eenheid op meer dan één schijf. Wanneer is het tijd om de toegang tot de gegevens, is er om te zoeken voor meer dan één stripe-eenheden om de aanvraag te voltooien. Het cumulatieve effect van dergelijk gedrag kan leiden tot aanzienlijke prestatievermindering. Anderzijds, kunnen als de grootte van de i/o-aanvraag is kleiner dan Streepgrootte, en als het willekeurig is, de i/o-aanvragen oplopen op dezelfde schijf als een knelpunt veroorzaakt en uiteindelijk vernederen de i/o-prestaties.
+Als een i/o-aanvraag die door uw toepassing is gegenereerd, groter is dan de schijf Stripe-grootte, wordt deze door het opslag systeem naar de grenzen van Stripe-eenheden op meer dan één schijf geschreven. Wanneer het tijd is om toegang te krijgen tot deze gegevens, moet er meer dan één Stripe-eenheid worden verzameld om de aanvraag te volt ooien. Het cumulatieve effect van dit gedrag kan leiden tot aanzienlijke prestatie vermindering. Aan de andere kant, als de IO-aanvraag grootte kleiner is dan de Stripe-grootte en als deze wille keurige aard is, kunnen de i/o-aanvragen op dezelfde schijf worden toegevoegd die een knel punt veroorzaken en uiteindelijk de i/o-prestaties verlagen.
 
-Afhankelijk van het type werkbelasting van uw toepassing wordt uitgevoerd, kiest u een juiste stripe-grootte. Gebruik een kleinere streep voor willekeurige kleine i/o-aanvragen. Dat aanvragen voor grote opeenvolgende i/o een groter stripe gebruiken. Ontdek de stripe aanbevelingen voor de grootte voor de toepassing dat u zal worden uitgevoerd op Premium Storage. Configureren voor SQL Server, stripe-grootte van 64 KB voor OLTP-workloads en 256 KB voor magazijnbeheer data-workloads. Zie [aanbevolen procedures voor prestaties voor SQL Server op Azure Virtual machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) voor meer informatie.
+Afhankelijk van het type werk belasting dat door uw toepassing wordt uitgevoerd, kiest u de juiste Stripe-grootte. Gebruik voor wille keurige kleine i/o-aanvragen een kleinere Stripe-grootte. Dat voor grote sequentiële IO-aanvragen een grotere Stripe-grootte gebruiken. Bekijk de aanbevelingen voor de Stripe-grootte voor de toepassing die u wilt uitvoeren op Premium Storage. Configureer voor SQL Server de Stripe-grootte van 64 KB voor OLTP-workloads en 256 KB voor werk belastingen voor gegevens opslag. Zie [Aanbevolen procedures voor de prestaties van SQL Server op virtuele machines van Azure voor](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) meer informatie.
 
 > [!NOTE]
-> U kunt stripe samen een maximum van 32 premium storage-schijven op een virtuele machine uit de DS-serie en 64 premium storage-schijven op een virtuele machine uit de GS-serie.
+> U kunt Maxi maal 32 Premium-opslag schijven samen voegen op een DS-serie VM en 64 Premium-opslag schijven op een GS-serie VM.
 
-## <a name="multi-threading"></a>Multithreading
+## <a name="multi-threading"></a>Meerdere threads
 
-Azure is zodanig ontworpen Premium Storage-platform, worden uitgebreide parallelle verwerkingsarchitectuur. Een toepassing met meerdere threads realiseert daarom veel betere prestaties dan een toepassing met één thread. Een toepassing met meerdere threads zijn taken splitst in meerdere threads en verhoogt de efficiëntie van de uitvoering ervan door het gebruik van de schijf en VM-resources naar het maximum.
+Azure heeft Premium Storage platform ontworpen om enorm parallel te zijn. Daarom behaalt een toepassing met meerdere threads veel hogere prestaties dan een toepassing met één thread. Een toepassing met meerdere threads splitst de taken over meerdere threads en verhoogt de efficiëntie van de uitvoering door gebruik te maken van de virtuele machine en schijf bronnen tot het maximum.
 
-Als uw toepassing wordt uitgevoerd op een enkele kern VM met twee threads, kunt u voor de CPU, kunt schakelen tussen de twee threads efficiëntie. Terwijl een thread op een schijf-i/o om te voltooien wacht, wordt de CPU kunt overschakelen naar de andere thread. Op deze manier kunnen uitvoeren twee threads meer dan één thread wilt. Als de virtuele machine meer dan één kern heeft, vermindert het verder uitvoeringstijd omdat elke core taken parallel kunt uitvoeren.
+Als uw toepassing bijvoorbeeld wordt uitgevoerd op een virtuele machine met één kern met twee threads, kan de CPU scha kelen tussen de twee threads om efficiency te maken. Terwijl één thread wacht op een schijf-IO om te volt ooien, kan de CPU overschakelen naar de andere thread. Op deze manier kunnen twee threads meer dan één thread uitvoeren. Als de virtuele machine meer dan één kern heeft, wordt de uitvoerings tijd verder verlaagd, omdat elke kern gelijktijdig taken kan uitvoeren.
 
-Kunt u mogelijk niet de manier waarop een gebruiksklare toepassing wordt geïmplementeerd op een enkele thread of multithreading. Bijvoorbeeld, is SQL Server kan verwerken van meerdere CPU en meerdere kernen. SQL Server besluit echter onder welke voorwaarden het gebruik van een of meer threads voor het verwerken van een query. Het kan query's uitvoeren en opbouwen van indexen met multithreading. SQL Server gebruikt voor een query die omvat het samenvoegen van grote tabellen en het sorteren van gegevens voordat u terugkeert naar de gebruiker, waarschijnlijk meerdere threads. Een gebruiker kan echter niet instellen of SQL Server wordt uitgevoerd een query met een enkele thread of meerdere threads.
+U kunt de manier waarop een externe toepassing gebruikmaakt van één threading of meerdere threads mogelijk niet wijzigen. SQL Server kan bijvoorbeeld multi-CPU en meerdere kernen verwerken. SQL Server beslist echter onder welke voor waarden een of meer threads worden gebruikt voor het verwerken van een query. Het kan query's uitvoeren en indexen bouwen met behulp van meerdere threads. Voor een query waarbij wordt samengevoegd bij het samen voegen van grote tabellen en het sorteren van gegevens voordat deze naar de gebruiker worden geretourneerd, gebruikt SQL Server waarschijnlijk meerdere threads. Een gebruiker kan echter niet bepalen of SQL Server een query uitvoert met behulp van een enkele thread of meerdere threads.
 
-Er zijn configuratie-instellingen die u wijzigen kunt als u wilt dit van invloed zijn op multithreading of parallelle verwerking van een toepassing. In het geval van SQL Server is het bijvoorbeeld de configuratie van de maximale graad van parallelle uitvoering. Deze instelling met de naam MAXDOP, kunt u configureren van het maximum aantal processors dat SQL Server kunt gebruiken bij het parallel verwerken. U kunt MAXDOP configureren voor afzonderlijke query's of indexen. Dit is nuttig wanneer u resources van uw systeem voor een essentiële toepassing prestaties in balans brengen.
+Er zijn configuratie-instellingen die u kunt wijzigen om deze multi-threading of parallelle verwerking van een toepassing te beïnvloeden. In het geval van SQL Server is het bijvoorbeeld de maximale mate van parallelle configuratie. Met deze instelling MAXDOP kunt u het maximum aantal processors configureren dat SQL Server kunnen gebruiken bij parallelle verwerking. U kunt MAXDOP configureren voor afzonderlijke query's of index bewerkingen. Dit is handig als u resources van uw systeem wilt verdelen over een prestatie kritieke toepassing.
 
-Stel bijvoorbeeld dat uw toepassing met behulp van SQL Server wordt uitgevoerd een grote query's en een indexbewerking op hetzelfde moment. Laat het ons wordt ervan uitgegaan dat u wilt dat de indexbewerking naar meer prestaties in vergelijking met de grote query. In dat geval kunt u de MAXDOP-waarde van de bewerking van de index moet hoger zijn dan de waarde van MAXDOP voor de query instellen. Op deze manier heeft SQL Server meer aantal processors dat u deze kunt gebruiken voor de indexbewerking in vergelijking met het aantal processors dat deze aan de grote query toewijzen kunt. Denk eraan dat u niet bepalen dat het aantal threads dat SQL Server wordt gebruikt voor elke bewerking. U kunt bepalen het maximum aantal processors dat wordt toegewezen voor multithreading.
+Stel bijvoorbeeld dat uw toepassing gebruikmaakt van SQL Server een grote query en een index bewerking tegelijk uitvoert. We gaan ervan uit dat u wilt dat de index bewerking meer presteert vergeleken met de grote query. In een dergelijk geval kunt u de MAXDOP-waarde van de index bewerking hoger instellen dan de waarde voor MAXDOP voor de query. Op deze manier heeft SQL Server een groter aantal processors dat het kan gebruiken voor de index bewerking vergeleken met het aantal processors dat kan worden gebruikt voor de grote query. Houd er rekening mee dat u het aantal threads dat SQL Server gebruikt voor elke bewerking, niet beheert. U kunt het maximum aantal processors bepalen dat specifiek is voor meerdere threads.
 
-Meer informatie over [graden van parallelle uitvoering](https://technet.microsoft.com/library/ms188611.aspx) in SQL Server. Ontdek dergelijke instellingen die van invloed zijn op multithreading in uw toepassing en de bijbehorende configuraties om prestaties te optimaliseren.
+Meer informatie over de [mate van parallelle](https://technet.microsoft.com/library/ms188611.aspx) uitvoering in SQL Server. Lees deze instellingen die van invloed zijn op meerdere threads in uw toepassing en de bijbehorende configuraties om de prestaties te optimaliseren.
 
-## <a name="queue-depth"></a>Wachtrijdiepte
+## <a name="queue-depth"></a>Wachtrij diepte
 
-De wachtrijdiepte of de lengte van wachtrij of de grootte van de wachtrij is het aantal openstaande i/o-aanvragen in het systeem. De waarde van wachtrijdiepte bepaalt hoeveel i/o-bewerkingen die uw toepassing uitlijnen kunt, die de opslagschijven wordt verwerkt. Het is van invloed op alle de drie toepassing prestatie-indicatoren die is besproken in dit artikel zoals, IOPS, doorvoer en latentie.
+De wachtrij diepte of wachtrij lengte of wachtrij grootte is het aantal i/o-aanvragen in behandeling in het systeem. De waarde van de wachtrij diepte bepaalt het aantal i/o-bewerkingen dat uw toepassing kan uitlijnen, waardoor de opslag schijven zullen worden verwerkt. Dit is van invloed op alle drie de prestatie-indica toren van toepassingen die in dit artikel worden besproken, namelijk IOPS, door Voer en latentie.
 
-In de wachtrij diepte en multithreading zijn nauw verwante. De waarde van de wachtrijdiepte geeft aan hoeveel multithreading kan worden bereikt door de toepassing. Als de wachtrijdiepte groot is, toepassingen kunt uitvoeren meer bewerkingen gelijktijdig, met andere woorden, meer multithreading. Als de diepte van de wachtrij klein, is zelfs als de toepassing meerdere threads is, wordt er niet voldoende uitgelijnd voor de uitvoering van gelijktijdige aanvragen.
+De lengte van de wachtrij en meerdere threads zijn nauw verwant. De waarde van de wachtrij diepte geeft aan hoeveel multi-threading kan worden bereikt door de toepassing. Als de wachtrij diepte groot is, kan de toepassing meer bewerkingen gelijktijdig uitvoeren, met andere woorden, meer multi threading. Als de wachtrij diepte klein is, zelfs als de toepassing meerdere threads heeft, heeft deze niet genoeg aanvragen voor gelijktijdige uitvoering.
 
-Normaal gesproken overal verkrijgbare toepassingen kunt u niet te wijzigen van de wachtrijdiepte omdat als onjuist doet meer beschadigd dan goed is ingesteld. Toepassingen worden de juiste waarde van wachtrijdiepte om de optimale prestaties te verkrijgen. Het is echter belangrijk te begrijpen dit concept, zodat u prestatieproblemen met uw toepassing kunt oplossen. U kunt ook de gevolgen van de wachtrijdiepte zien door het uitvoeren van hulpprogramma's voor benchmarking op uw systeem.
+Normaal gesp roken is het niet toegestaan om de wachtrij diepte te wijzigen, omdat als dat niet het geval is, het meer schade zal opleveren dan goed. Toepassingen stellen de juiste waarde voor de wachtrij diepte in om de optimale prestaties te verkrijgen. Het is echter belang rijk dat u dit concept begrijpt, zodat u prestatie problemen met uw toepassing kunt oplossen. U kunt ook de effecten van de wachtrij diepte observeren door Bench Mark-hulpprogram ma's uit te voeren op uw systeem.
 
-Sommige toepassingen Geef de instellingen voor de wachtrijdiepte van invloed zijn op. Bijvoorbeeld, wordt de instelling MAXDOP (maximale graad van parallelle uitvoering) in SQL Server in de vorige sectie beschreven. MAXDOP is een manier om te beïnvloeden wachtrijdiepte en multithreading, hoewel deze de waarde wachtrijdiepte van SQL Server niet rechtstreeks wijzigen.
+Sommige toepassingen bieden instellingen die van invloed zijn op de wachtrij diepte. Bijvoorbeeld, de instelling MAXDOP (maximale mate van parallellisme) in SQL Server beschreven in de vorige sectie. MAXDOP is een manier om de diepte van de wachtrij en meerdere threads te beïnvloeden, hoewel de waarde voor de wachtrij diepte van SQL Server niet rechtstreeks wordt gewijzigd.
 
-*Hoge wachtrijdiepte*  
-Een hoge wachtrijdiepte regels u meer bewerkingen op de schijf. De schijf kent de volgende aanvraag in de wachtrij tevoren. Als gevolg daarvan kan de schijf bewerkingen tevoren plannen en ze in een reeks voor een optimale verwerken. Omdat de toepassing meer aanvragen naar de schijf verzonden wordt, kan de schijf meer parallelle IOs verwerken. De toepassing worden uiteindelijk kunnen hogere IOP's realiseren. Sinds de toepassing wordt meer aanvragen verwerkt, verhoogt ook de totale doorvoer van de toepassing.
+*Hoge wachtrij diepte*  
+Een hoge wachtrij diepte regelt meer bewerkingen op de schijf. De schijf kent de volgende aanvraag in de wachtrij van tevoren. Daarom kan de schijf bewerkingen vooraf plannen en ze in een optimale volg orde verwerken. Omdat de toepassing meer aanvragen naar de schijf verzendt, kan de schijf meer parallelle IOs-apparaten verwerken. Uiteindelijk kan de toepassing hogere IOPS behaalt. Omdat de toepassing meer aanvragen verwerkt, neemt de totale door Voer van de toepassing ook toe.
 
-Normaal gesproken een toepassing kunt bereiken met maximale doorvoer met 8-16 + openstaande IO's per gekoppelde schijf. Als een wachtrijdiepte een is toepassing is niet voldoende IOs pushen naar het systeem en minder hoeveelheid worden verwerkt in een bepaalde periode. Met andere woorden, minder doorvoer.
+Normaal gesp roken kan een toepassing maximale door Voer bieden met 8-16 + uitmuntende IOs per gekoppelde schijf. Als er een wachtrij diepte is, pusht de toepassing niet genoeg IOs naar het systeem en wordt minder hoeveelheid in een bepaalde periode verwerkt. Met andere woorden, minder door voer.
 
-Bijvoorbeeld, in SQL Server informeert de MAXDOP-waarde voor een query naar "4" SQL Server maximaal vier kernen voor het uitvoeren van de query te gebruiken. SQL Server, bepaalt wat de beste wachtrijdiepte waarde en het aantal cores voor de uitvoering van de query is.
+Als u bijvoorbeeld in SQL Server de MAXDOP-waarde voor een query op ' 4 ' informeert SQL Server dat deze Maxi maal vier kernen kan gebruiken om de query uit te voeren. SQL Server bepaalt wat de beste waarde is voor de wachtrij diepte en het aantal kernen voor het uitvoeren van query's.
 
-*Optimale wachtrijdiepte*  
-Zeer hoog wachtrijdiepte waarde heeft ook de nadelen. Als de wachtrijdiepte waarde is te hoog, probeert de toepassing om zeer hoge IOPS te stimuleren. Tenzij de toepassing heeft permanente schijven met voldoende ingerichte IOPS, kan deze toepassing latenties negatief beïnvloeden. Formule te volgen, wordt de relatie tussen IOPS, latentie en wachtrijdiepte.  
+*Optimale wachtrij diepte*  
+Een zeer hoge wachtrij diepte waarde heeft ook de nadelen. Als de waarde voor de wachtrij diepte te hoog is, probeert de toepassing zeer hoge IOPS te bezorgen. Tenzij de toepassing permanente schijven met voldoende ingerichte IOPS heeft, kan dit een negatieve invloed hebben op de latentie van de toepassing. In de volgende formule ziet u de relatie tussen IOPS, latentie en wachtrij diepte.  
     ![](media/premium-storage-performance/image6.png)
 
-U moet wachtrijdiepte niet configureren voor een hoge waarde, maar voor een optimale waarde, die voldoende IOP's voor de toepassing zonder latenties kan bieden. Bijvoorbeeld, als de wachttijd van de toepassing moet zijn van 1 milliseconde, de wachtrijdiepte 5000 IOP's realiseren vereist is, Wachtrijdiepte = 5000 x 0,001 = 5.
+U moet de wachtrij diepte niet configureren voor een hoge waarde, maar voor een optimale waarde, waardoor voldoende IOPS voor de toepassing kan worden geleverd zonder dat dit gevolgen heeft voor de latentie. Als de latentie van de toepassing bijvoorbeeld 1 milliseconde moet zijn, is de wachtrij diepte vereist voor het maken van 5.000 IOPS, wachtrij diepte = 5000 x 0,001 = 5.
 
-*Wachtrijdiepte voor Striped volumes*  
-Voor een striped volume wachtrijdiepte een hoog genoeg zijn zodat elke schijf een piek wachtrijdiepte afzonderlijk heeft. Neem bijvoorbeeld een toepassing die een wachtrijdiepte van 2 pushes en er zijn vier schijven in de stripe. De twee i/o-aanvragen wordt omgeleid naar twee schijven en resterende twee schijven niet actief is. Daarom de wachtrijdiepte configureren zodat alle schijven bezet is. Formule hieronder laat zien hoe om te bepalen van de wachtrijdiepte van striped volumes.  
+*Wachtrij diepte voor striped volume*  
+Voor een striped volume moet u een hoge wachtrij diepte hebben, zodat elke schijf afzonderlijk een piek wachtrij heeft. Denk bijvoorbeeld aan een toepassing die een wachtrij diepte van 2 duwt en er vier schijven in de Stripe zijn. De twee i/o-aanvragen gaan naar twee schijven en de resterende twee schijven worden niet-actief. Configureer daarom de wachtrij diepte zodanig dat alle schijven bezet kunnen zijn. Onderstaande formule laat zien hoe u de wachtrij diepte van striped volumes kunt bepalen.  
     ![](media/premium-storage-performance/image7.png)
 
-## <a name="throttling"></a>Beperking
+## <a name="throttling"></a>Beperken
 
-Azure Premium Storage-bepalingen opgegeven aantal IOPS en doorvoer, afhankelijk van de VM-grootten en schijfgrootten die u kiest. Telkens wanneer uw toepassing probeert om het stimuleren van IOP's of doorvoer boven deze limieten van wat de virtuele machine of de schijf kan worden verwerkt, wordt het Premium Storage beperken. Dit zich voordoet in de vorm van slechtere prestaties in uw toepassing. Dit kan betekenen hogere latentie, lagere doorvoer of IOPS lager. Als Premium-opslag niet beperken biedt, wordt uw toepassing kan volledig mislukken door meer dan wat de daarbij behorende bronnen zijn geschikt voor het bereiken. Dus om prestatieproblemen te voorkomen vanwege een beperking, altijd voldoende bronnen zijn voor uw toepassing te creëren. Rekening mee te houden wat we in de VM-grootten en schijf-grootten hierboven besproken. Benchmarking is de beste manier om te achterhalen welke resources u moet uw toepassing wordt gehost.
+Azure Premium Storage voorziet in een opgegeven aantal IOPS en door Voer, afhankelijk van de grootte van de virtuele machine en de schijf groottes die u kiest. Telkens wanneer uw toepassing probeert te gaan van IOPS of door Voer boven deze limieten van wat de virtuele machine of schijf kan verwerken, Premium Storage deze beperking. Dit manifesteert in de vorm van verminderde prestaties in uw toepassing. Dit kan betekenen hogere latentie, lagere door Voer of lagere IOPS. Als Premium Storage niet wordt beperkt, kan uw toepassing volledig mislukken door te overschrijden wat de bronnen kunnen bereiken. Om prestatie problemen te voor komen vanwege beperking, moet u altijd voldoende resources inrichten voor uw toepassing. Houd rekening met wat we hebben besproken in de secties VM-grootten en schijf grootten hierboven. Benchmarking is de beste manier om erachter te komen welke resources u nodig hebt om uw toepassing te hosten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de typen beschikbare schijfruimte:
+Meer informatie over de beschik bare schijf typen:
 
-* [Een diskette selecteren](../articles/virtual-machines/windows/disks-types.md)  
+* [Selecteer een schijf type](../articles/virtual-machines/windows/disks-types.md)  
 
-Lees de artikelen over aanbevolen procedures voor prestaties voor SQL Server voor SQL Server-gebruikers:
+Lees voor SQL Server gebruikers artikelen over best practices voor prestaties voor SQL Server:
 
-* [Aanbevolen procedures voor prestaties voor SQL Server in Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure Premium Storage biedt de beste prestaties voor SQL Server in virtuele Azure-machine](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+* [Aanbevolen procedures voor de prestaties van SQL Server in azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
+* [Azure Premium Storage biedt de beste prestaties voor SQL Server in azure VM](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

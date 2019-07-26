@@ -1,6 +1,6 @@
 ---
-title: Veelgestelde vragen over Azure NetApp-bestanden | Microsoft Docs
-description: Antwoorden op veelgestelde vragen over Azure NetApp bestanden.
+title: Veelgestelde vragen over Azure NetApp Files | Microsoft Docs
+description: Antwoorden op veelgestelde vragen over Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,185 +14,185 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: b-juche
-ms.openlocfilehash: 6f1ca3398678b59a81e5c22b51b36a1f5505d4c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f97bb4842d9e24d879dd47757fda75b16bca48cf
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65806384"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494810"
 ---
-# <a name="faqs-about-azure-netapp-files"></a>Veelgestelde vragen over Azure NetApp bestanden
+# <a name="faqs-about-azure-netapp-files"></a>Veelgestelde vragen over Azure NetApp Files
 
 In dit artikel vindt u antwoorden op veelgestelde vragen over Azure NetApp Files. 
 
 ## <a name="networking-faqs"></a>Veelgestelde vragen over netwerken
 
-### <a name="does-the-nfs-data-path-go-over-the-internet"></a>Gaat het gegevenspad NFS via Internet?  
+### <a name="does-the-nfs-data-path-go-over-the-internet"></a>Gaat het NFS-gegevenspad over via Internet?  
 
-Nee. Het pad van de gegevens NFS loopt niet via Internet. Azure NetApp bestanden is een Azure-eigen service die wordt geïmplementeerd in de Azure Virtual Network (VNet) waar de service beschikbaar is. Azure NetApp bestanden maakt gebruik van een gedelegeerde subnet en een netwerkinterface rechtstreeks op het VNet wordt ingericht. 
+Nee. Het pad van de NFS-gegevens gaat niet via internet. Azure NetApp Files is een systeem eigen Azure-service die is geïmplementeerd in de Azure-Virtual Network (VNet) waar de service beschikbaar is. Azure NetApp Files maakt gebruik van een overgedragen subnet en richt een netwerk interface rechtstreeks in op het VNet. 
 
-Zie [richtlijnen voor Azure NetApp Files netwerk planning](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) voor meer informatie.  
+Zie de [richt lijnen voor het plannen van Azure NetApp files-netwerken](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) voor meer informatie.  
 
-### <a name="can-i-connect-a-vnet-that-i-already-created-to-the-azure-netapp-files-service"></a>Kan ik een VNet dat ik heb al gemaakt verbinden met de Azure NetApp Files-service?
+### <a name="can-i-connect-a-vnet-that-i-already-created-to-the-azure-netapp-files-service"></a>Kan ik verbinding maken met een VNet dat ik al in de Azure NetApp Files-service heb gemaakt?
 
-Ja, u kunt VNets verbinden die u hebt gemaakt naar de service. 
+Ja, u kunt VNets verbinding maken die u hebt gemaakt met de service. 
 
-Zie [richtlijnen voor Azure NetApp Files netwerk planning](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) voor meer informatie.  
+Zie de [richt lijnen voor het plannen van Azure NetApp files-netwerken](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) voor meer informatie.  
 
-### <a name="can-i-mount-an-nfs-volume-of-azure-netapp-files-using-dns-fqdn-name"></a>Kan ik een NFS-volume van Azure met behulp van DNS FQDN-naam NetApp-bestanden koppelen?
+### <a name="can-i-mount-an-nfs-volume-of-azure-netapp-files-using-dns-fqdn-name"></a>Kan ik een NFS-volume van Azure NetApp Files koppelen met behulp van DNS FQDN-naam?
 
-Ja, u kunt, als u de vereiste DNS-vermeldingen te maken. Azure Files met NetApp levert het service-IP-adres voor het ingerichte volume. 
+Ja, u kunt, als u de vereiste DNS-vermeldingen maakt. Azure NetApp Files levert het service-IP-adres voor het ingerichte volume. 
 
 > [!NOTE] 
-> Azure NetApp bestanden kunnen extra IP-adressen voor de service implementeren, indien nodig.  DNS-vermeldingen moet mogelijk worden regelmatig bijgewerkt.
+> Azure NetApp Files kunt indien nodig extra IP-adressen voor de service implementeren.  DNS-vermeldingen moeten mogelijk periodiek worden bijgewerkt.
 
-## <a name="security-faqs"></a>Veelgestelde vragen over Security
+## <a name="security-faqs"></a>Veelgestelde vragen over beveiliging
 
-### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>Kan het netwerkverkeer tussen de Azure-VM en de opslag worden versleuteld?
+### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>Kan het netwerk verkeer tussen de virtuele machine van Azure en de opslag worden versleuteld?
 
-Gegevensverkeer (verkeer van de NFSv3 of SMBv3-client naar Azure NetApp Files volumes) is niet versleuteld. Het verkeer van een virtuele machine van Azure (een NFS- of SMB-client) naar Azure NetApp bestanden is echter zo veilig als andere Azure-VM-VM-verkeer. Dit verkeer is lokaal op het netwerk van Azure Datacenter. 
+Gegevens verkeer (verkeer van de NFSv3-of SMBv3-client naar Azure NetApp Files volumes) is niet versleuteld. Het verkeer van een Azure-VM (waarop een NFS-of SMB-client wordt uitgevoerd) moet echter worden Azure NetApp Files net zo veilig zijn als andere verkeer van Azure-VM-naar-VM. Dit verkeer is lokaal voor het Azure Data Center-netwerk. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>Kan de opslag in rust worden versleuteld?
 
-Alle Azure NetApp Files volumes zijn versleuteld met behulp van de FIPS 140-2-standaard. Alle sleutels worden beheerd door de service Azure NetApp bestanden. 
+Alle Azure NetApp Files volumes worden versleuteld met behulp van de FIPS 140-2-standaard. Alle sleutels worden beheerd door de Azure NetApp Files-service. 
 
-### <a name="how-are-encryption-keys-managed"></a>Hoe worden de versleutelingssleutels beheerd? 
+### <a name="how-are-encryption-keys-managed"></a>Hoe worden versleutelings sleutels beheerd? 
 
-Sleutelbeheer voor Azure NetApp bestanden is verwerkt door de service.  Gebruikers beheerde sleutels (uw eigen sleutels Bring) worden momenteel niet ondersteund.
+Sleutel beheer voor Azure NetApp Files wordt verwerkt door de service.  Op dit moment worden door de gebruiker beheerde sleutels (uw eigen sleutels meenemen) niet ondersteund.
 
-### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Kan ik de regels van het NFS exporteren voor het beheren van toegang tot het koppeldoel Azure NetApp Files-service configureren?
+### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Kan ik de NFS-export beleids regels configureren om de toegang tot het Azure NetApp Files service-koppelings doel te beheren?
 
 
-Ja, kunt u maximaal vijf regels configureren in een enkele beleidsregel van de NFS-uitvoer.
+Ja, u kunt Maxi maal vijf regels in één NFS-export beleid configureren.
 
-### <a name="does-azure-netapp-files-support-network-security-groups"></a>Biedt ondersteuning voor Azure NetApp Files Netwerkbeveiligingsgroepen?
+### <a name="does-azure-netapp-files-support-network-security-groups"></a>Ondersteunt Azure NetApp Files netwerk beveiligings groepen?
 
-Nee, momenteel u kan niet van toepassing Netwerkbeveiligingsgroepen op de gedelegeerde subnet van Azure NetApp bestanden of de netwerkinterfaces die zijn gemaakt door de service.
+Nee, op dit moment kunt u geen netwerk beveiligings groepen Toep assen op het gedelegeerde subnet van Azure NetApp Files of de netwerk interfaces die zijn gemaakt door de service.
 
 ### <a name="can-i-use-azure-iam-with-azure-netapp-files"></a>Kan ik Azure IAM gebruiken met Azure NetApp Files?
 
-Ja, ondersteunt Azure NetApp Files RBAC-functies met Azure IAM.
+Ja, Azure NetApp Files ondersteunt RBAC-functies met Azure IAM.
 
-## <a name="performance-faqs"></a>Veelgestelde vragen over de prestaties
+## <a name="performance-faqs"></a>Veelgestelde vragen over prestaties
 
-### <a name="what-should-i-do-to-optimize-or-tune-azure-netapp-files-performance"></a>Wat moet ik doen als u wilt optimaliseren of Azure NetApp Files prestaties afstemmen
+### <a name="what-should-i-do-to-optimize-or-tune-azure-netapp-files-performance"></a>Wat moet ik doen om Azure NetApp Files prestaties te optimaliseren of af te stemmen?
 
-U kunt de volgende acties per de prestatie-eisen uitvoeren: 
-- Zorg ervoor dat de virtuele Machine op de juiste wijze is aangepast.
-- Versneld netwerken voor de virtuele machine inschakelen.
-- Selecteer het niveau van de gewenste service en de grootte voor de capaciteit van toepassingen.
-- Maak een volume met de quotumgrootte van de gewenste voor de capaciteit en prestaties.
+U kunt de volgende acties uitvoeren op basis van de prestatie vereisten: 
+- Controleer of de grootte van de virtuele machine juist is.
+- Versneld netwerken inschakelen voor de virtuele machine.
+- Selecteer het gewenste service niveau en de grootte voor de capaciteits groep.
+- Maak een volume met de gewenste quotum grootte voor de capaciteit en prestaties.
 
-### <a name="how-do-i-convert-throughput-based-service-levels-of-azure-netapp-files-to-iops"></a>Hoe kan ik serviceniveaus op basis van de doorvoer van Azure NetApp-bestanden converteren naar IOPS?
+### <a name="how-do-i-convert-throughput-based-service-levels-of-azure-netapp-files-to-iops"></a>Hoe kan ik op doorvoer gebaseerde service niveaus van Azure NetApp Files naar IOPS converteren?
 
-U kunt omzetten in MB/s IOP's met behulp van de volgende formule:  
+U kunt MB/s converteren naar IOPS met behulp van de volgende formule:  
 
 `IOPS = (MBps Throughput / KB per IO) * 1024`
 
-### <a name="how-do-i-change-the-service-level-of-a-volume"></a>Hoe kan ik het serviceniveau van een volume wijzigen?
+### <a name="how-do-i-change-the-service-level-of-a-volume"></a>Hoe kan ik het service niveau van een volume wijzigen?
 
-Wijzigen van de service van een volume is momenteel niet ondersteund.
+Het wijzigen van het service niveau van een volume wordt momenteel niet ondersteund.
 
-### <a name="how-do-i-monitor-azure-netapp-files-performance"></a>Hoe controleer ik Azure NetApp Files prestaties?
+### <a name="how-do-i-monitor-azure-netapp-files-performance"></a>Azure NetApp Files prestaties Hoe kan ik controleren?
 
-Azure Files met NetApp biedt maatstaven voor prestaties van volume. U kunt ook Azure Monitor gebruiken voor de bewaking van metrische gegevens over gebruik van Azure NetApp bestanden.  Zie [metrische gegevens voor Azure NetApp Files](azure-netapp-files-metrics.md) voor een overzicht van metrische gegevens voor prestaties voor Azure NetApp-bestanden.
+Azure NetApp Files biedt meet waarden voor de volume prestaties. U kunt Azure Monitor ook gebruiken voor het bewaken van metrische gegevens over gebruik voor Azure NetApp Files.  Zie de [metrische gegevens voor Azure NetApp files](azure-netapp-files-metrics.md) voor de lijst met metrische gegevens over prestaties voor Azure NetApp files.
 
 ## <a name="nfs-faqs"></a>Veelgestelde vragen over NFS
 
-### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Ik wil een volume automatisch gekoppeld als een virtuele Azure-machine wordt gestart of opnieuw opgestart.  Hoe configureer ik mijn host voor permanente NFS-volumes?
+### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Ik wil een volume automatisch koppelen wanneer een virtuele machine van Azure wordt gestart of opnieuw wordt opgestart.  Hoe kan ik mijn host configureren voor permanente NFS-volumes?
 
-Voor een NFS-volume automatisch koppelen op de virtuele machine starten of opnieuw opstarten, Voeg een vermelding aan de `/etc/fstab` bestand op de host. 
+Als een NFS-volume automatisch moet worden gekoppeld bij het starten of opnieuw opstarten van de VM `/etc/fstab` , voegt u een vermelding toe aan het bestand op de host. 
 
 Bijvoorbeeld: `$ANFIP:/$FILEPATH      /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
 
 - $ANFIP  
-    Het IP-adres van het Azure NetApp Files-volume aangetroffen in de eigenschappenblade volume
+    Het IP-adres van het Azure NetApp Files volume dat is gevonden op de Blade volume eigenschappen
 - $FILEPATH  
-    Het pad voor exporteren van het Azure NetApp Files-volume
+    Het exportpad van het Azure NetApp Files volume
 - $MOUNTPOINT  
-    De map die is gemaakt op de Linux-host gebruikt voor het koppelen van de NFS-export
+    De map die is gemaakt op de Linux-host die wordt gebruikt om de NFS-export te koppelen
 
-### <a name="why-does-the-df-command-on-nfs-client-not-show-the-provisioned-volume-size"></a>Waarom wordt de opdracht DF op NFS-client de ingerichte volumegrootte niet weergegeven?
+### <a name="why-does-the-df-command-on-nfs-client-not-show-the-provisioned-volume-size"></a>Waarom wordt de ingerichte grootte van het volume niet weer gegeven met de DF-opdracht op de NFS-client?
 
-De grootte van het volume in DF gerapporteerd is de maximale grootte van die het volume Azure NetApp bestanden kan groeien. De grootte van het volume Azure NetApp Files in DF-opdracht is niet bij reflectieve van het quotum of de grootte van het volume.  U kunt de volumegrootte Azure NetApp bestanden of quotum ophalen via de Azure portal of de API.
+De grootte van het volume dat in VG wordt gerapporteerd, is de maximale grootte van het Azure NetApp Files volume kan toenemen. De grootte van het Azure NetApp Files volume in de DF-opdracht komt niet overeen met het quotum of de grootte van het volume.  U kunt de Azure NetApp Files volume grootte of-quota verkrijgen via de Azure Portal of de API.
 
-### <a name="what-nfs-version-does-azure-netapp-files-support"></a>Welke NFS versie biedt ondersteuning voor Azure NetApp Files?
+### <a name="what-nfs-version-does-azure-netapp-files-support"></a>Wat is de NFS-versie Azure NetApp Files ondersteunen?
 
-Azure NetApp Files ondersteunt momenteel NFSv3.
+Azure NetApp Files biedt momenteel ondersteuning voor NFSv3.
 
-### <a name="how-do-i-enable-root-squashing"></a>Hoe schakel ik hoofdmap vervorming.?
+### <a name="how-do-i-enable-root-squashing"></a>Hoe kan ik root Squashing inschakelen?
 
-Hoofdmap vervorming wordt momenteel niet ondersteund.
+De hoofdmap Squashing wordt momenteel niet ondersteund.
 
 ## <a name="smb-faqs"></a>Veelgestelde vragen over SMB
 
-### <a name="does-azure-netapp-files-support-azure-active-directory"></a>NetApp-bestanden van Azure biedt ondersteuning voor Azure Active Directory?
+### <a name="is-an-active-directory-connection-required-for-smb-access"></a>Is een Active Directory verbinding vereist voor SMB-toegang? 
 
-Nee, deze wordt momenteel niet ondersteund.  Azure Files met NetApp ondersteuning voor Active Directory Domain Services (Breng uw eigen AD), dat bestaande Active Directory-domeincontrollers met Azure NetApp-bestanden gebruiken kunt. Domeincontrollers kunnen zich bevinden in Azure als virtuele machines of on-premises via ExpressRoute.
+Ja, u moet een Active Directory verbinding maken voordat u een SMB-volume implementeert. De opgegeven domein controllers moeten toegankelijk zijn voor het gedelegeerde subnet van Azure NetApp Files voor een geslaagde verbinding.  Zie [een SMB-volume maken](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) voor meer informatie. 
 
-### <a name="is-an-active-directory-connection-required-for-smb-access"></a>Is een Active Directory-verbinding vereist is voor SMB-toegang? 
+### <a name="how-many-active-directory-connections-are-supported"></a>Hoeveel Active Directory verbindingen worden ondersteund?
 
-Ja, moet u een verbinding met Active Directory voordat u implementeert een SMB-volume maken. De opgegeven domeincontrollers moet toegankelijk zijn via de gedelegeerde subnet van Azure NetApp bestanden voor de verbinding is geslaagd.  Zie [maken van een SMB-volume](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes#create-an-smb-volume) voor meer informatie. 
+Azure NetApp Files ondersteunt momenteel één Active Directory-verbinding per abonnement. De Active Directory-verbinding is ook specifiek voor één NetApp-account. het wordt niet gedeeld tussen accounts. 
 
-### <a name="how-many-active-directory-connections-are-supported"></a>Het aantal Active Directory-verbindingen worden ondersteund?
+### <a name="does-azure-netapp-files-support-azure-active-directory"></a>Ondersteunt Azure NetApp Files Azure Active Directory? 
 
-Azure NetApp Files ondersteunt momenteel één Active Directory-verbinding per abonnement. Ook is de verbinding met Active Directory specifiek voor één account NetApp; het wordt niet gedeeld in accounts. 
+Zowel [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview) en [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) worden ondersteund. U kunt bestaande Active Directory domein controllers gebruiken met Azure NetApp Files. Domein controllers kunnen zich in azure bevinden als virtuele machines, of on-premises via ExpressRoute of S2S VPN. Azure NetApp Files biedt op dit moment geen ondersteuning voor AD-deelname voor [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) .
 
-### <a name="what-versions-of-windows-ad-are-supported"></a>Welke versies van Windows AD worden ondersteund?
+### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>Welke versies van Windows Server Active Directory worden ondersteund?
 
-Versie van Windows Server 2008r2SP1 2016 van Active Directory Domain Services biedt ondersteuning voor Azure NetApp-bestanden.
+Azure NetApp Files ondersteunt Windows Server 2008r2SP1-2019-versies van Active Directory Domain Services.
 
-## <a name="capacity-management-faqs"></a>Veelgestelde vragen over de capaciteitsbeheer
+## <a name="capacity-management-faqs"></a>Veelgestelde vragen over capaciteits beheer
 
-### <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>Hoe controleer ik gebruik voor de capaciteit van toepassingen en het volume van Azure NetApp bestanden? 
+### <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>Hoe kan ik het gebruik van de capaciteits groep en het volume van Azure NetApp Files controleren? 
 
-Azure Files met NetApp biedt capaciteit van toepassingen en het volume metrische gegevens over gebruik. U kunt ook Azure Monitor gebruiken om het gebruik van Azure NetApp bestanden bewaken. Zie [metrische gegevens voor Azure NetApp Files](azure-netapp-files-metrics.md) voor meer informatie. 
+Azure NetApp Files biedt gegevens over de capaciteits pool en het volume gebruik. U kunt Azure Monitor ook gebruiken om het gebruik van Azure NetApp Files te bewaken. Zie de [metrische gegevens voor Azure NetApp files](azure-netapp-files-metrics.md) voor meer informatie. 
 
-### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>Kan ik Azure NetApp bestanden via Azure Storage Explorer beheren?
+### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>Kan ik Azure NetApp Files beheren via Azure Storage Explorer?
 
-Nee. Azure NetApp-bestanden wordt niet ondersteund door Azure Storage Explorer.
+Nee. Azure NetApp Files wordt niet ondersteund door Azure Storage Explorer.
 
-## <a name="data-migration-and-protection-faqs"></a>Veelgestelde vragen migratie en de bescherming van gegevens
+## <a name="data-migration-and-protection-faqs"></a>Veelgestelde vragen over gegevens migratie en-beveiliging
 
-### <a name="how-do-i-migrate-data-to-azure-netapp-files"></a>Hoe Migreer ik gegevens naar Azure NetApp Files?
-Azure Files met NetApp biedt NFS en de SMB-volumes.  U kunt een hulpprogramma voor kopiëren op basis van bestanden gebruiken om gegevens te migreren naar de service. 
+### <a name="how-do-i-migrate-data-to-azure-netapp-files"></a>Hoe kan ik gegevens naar Azure NetApp Files migreren?
+Azure NetApp Files biedt NFS-en SMB-volumes.  U kunt elk op bestanden gebaseerd Kopieer programma gebruiken om gegevens te migreren naar de service. 
 
-NetApp biedt een oplossing op basis van SaaS [NetApp Cloudsynchronisatie](https://cloud.netapp.com/cloud-sync-service).  De oplossing kunt u NFS repliceren of SMB-gegevens met de uitvoer van Azure NetApp bestanden NFS- of SMB-shares. 
+NetApp biedt een op SaaS gebaseerde oplossing, [NetApp Cloud Sync](https://cloud.netapp.com/cloud-sync-service).  Met deze oplossing kunt u NFS-of SMB-gegevens repliceren naar Azure NetApp Files NFS-export of SMB-shares. 
 
-U kunt ook een groot aantal gratis hulpprogramma's gebruiken om gegevens te kopiëren. Voor NFS, kunt u workloads hulpprogramma's zoals [rsync](https://rsync.samba.org/examples.html) om te kopiëren en synchroniseren van gegevens in een Azure NetApp Files-volume. Voor SMB, kunt u workloads [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) op dezelfde manier.  Deze hulpprogramma's kunnen ook machtigingen voor bestanden of map repliceren. 
+U kunt ook een breed scala aan gratis hulpprogram ma's gebruiken om gegevens te kopiëren. Voor NFS kunt u hulpprogram ma's voor werk belastingen, zoals [rsync](https://rsync.samba.org/examples.html) , gebruiken om bron gegevens te kopiëren en te synchroniseren naar een Azure NetApp files volume. Voor SMB kunt u gebruikmaken van werk belastingen [op dezelfde](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) manier.  Deze hulpprogram ma's kunnen ook machtigingen voor bestanden of mappen repliceren. 
 
-De vereisten voor migratie van gegevens van on-premises naar Azure NetApp bestanden zijn als volgt: 
+De vereisten voor gegevens migratie van on-premises naar Azure NetApp Files zijn als volgt: 
 
-- Zorg ervoor dat Azure NetApp bestanden is beschikbaar in de doel-Azure-regio.
-- Valideer de netwerkverbinding tussen de bron en het IP-adres van Azure NetApp Files doel volume. Gegevensoverdracht tussen locatie en de Azure NetApp Files-service wordt ondersteund via ExpressRoute.
-- Maak de doel-Azure NetApp Files-volume.
-- De brongegevens naar het doelvolume overbrengen met behulp van uw programma voor het gewenste bestand kopiëren.
+- Zorg ervoor dat Azure NetApp Files beschikbaar is in de Azure-doel regio.
+- Valideer de netwerk verbinding tussen de bron en het IP-adres van het Azure NetApp Files doel volume. Gegevens overdracht tussen on-premises en de Azure NetApp Files-service wordt ondersteund via ExpressRoute.
+- Maak het doel Azure NetApp Files volume.
+- Zet de bron gegevens over naar het doel volume met behulp van het hulp programma voor het kopiëren van bestanden.
 
-### <a name="how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region"></a>Hoe maak ik een kopie van een Azure NetApp Files-volume in een andere Azure-regio?
+### <a name="how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region"></a>Hoe kan ik een kopie maken van een Azure NetApp Files-volume in een andere Azure-regio?
     
-Azure Files met NetApp biedt NFS en de SMB-volumes.  Elk bestand op basis van kopie hulpprogramma kan worden gebruikt om gegevens te repliceren tussen Azure-regio's. 
+Azure NetApp Files biedt NFS-en SMB-volumes.  Elk hulp programma voor het kopiëren van bestanden kan worden gebruikt om gegevens tussen Azure-regio's te repliceren. 
 
-NetApp biedt een oplossing op basis van SaaS [NetApp Cloudsynchronisatie](https://cloud.netapp.com/cloud-sync-service).  De oplossing kunt u NFS repliceren of SMB-gegevens met de uitvoer van Azure NetApp bestanden NFS- of SMB-shares. 
+NetApp biedt een op SaaS gebaseerde oplossing, [NetApp Cloud Sync](https://cloud.netapp.com/cloud-sync-service).  Met deze oplossing kunt u NFS-of SMB-gegevens repliceren naar Azure NetApp Files NFS-export of SMB-shares. 
 
-U kunt ook een groot aantal gratis hulpprogramma's gebruiken om gegevens te kopiëren. Voor NFS, kunt u workloads hulpprogramma's zoals [rsync](https://rsync.samba.org/examples.html) om te kopiëren en synchroniseren van gegevens in een Azure NetApp Files-volume. Voor SMB, kunt u workloads [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) op dezelfde manier.  Deze hulpprogramma's kunnen ook machtigingen voor bestanden of map repliceren. 
+U kunt ook een breed scala aan gratis hulpprogram ma's gebruiken om gegevens te kopiëren. Voor NFS kunt u hulpprogram ma's voor werk belastingen, zoals [rsync](https://rsync.samba.org/examples.html) , gebruiken om bron gegevens te kopiëren en te synchroniseren naar een Azure NetApp files volume. Voor SMB kunt u gebruikmaken van werk belastingen [op dezelfde](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) manier.  Deze hulpprogram ma's kunnen ook machtigingen voor bestanden of mappen repliceren. 
 
 De vereisten voor het repliceren van een Azure NetApp Files-volume naar een andere Azure-regio zijn als volgt: 
-- Zorg ervoor dat Azure NetApp bestanden is beschikbaar in de doel-Azure-regio.
-- Valideer de netwerkverbinding tussen de VNets in elke regio. Wereldwijde peering tussen VNets wordt momenteel niet ondersteund.  U kunt de verbinding tussen VNets te koppelen met een ExpressRoute-circuit of met behulp van een S2S-VPN-verbinding maken. 
-- Maak de doel-Azure NetApp Files-volume.
-- De brongegevens naar het doelvolume overbrengen met behulp van uw programma voor het gewenste bestand kopiëren.
+- Zorg ervoor dat Azure NetApp Files beschikbaar is in de Azure-doel regio.
+- Valideer de netwerk verbinding tussen VNets in elke regio. Globale peering tussen VNets wordt momenteel niet ondersteund.  U kunt verbinding maken tussen VNets door te koppelen met een ExpressRoute-circuit of een S2S-VPN-verbinding te gebruiken. 
+- Maak het doel Azure NetApp Files volume.
+- Zet de bron gegevens over naar het doel volume met behulp van het hulp programma voor het kopiëren van bestanden.
 
-### <a name="is-migration-with-azure-data-box-supported"></a>Migratie met Azure Data Box wordt ondersteund is?
+### <a name="is-migration-with-azure-data-box-supported"></a>Wordt de migratie met Azure Data Box ondersteund?
 
-Nee. Azure Data Box wordt Azure NetApp bestanden niet op dit moment ondersteund. 
+Nee. Azure Data Box biedt momenteel geen ondersteuning voor Azure NetApp Files. 
 
-### <a name="is-migration-with-azure-importexport-service-supported"></a>Is de migratie met Azure Import/Export-service ondersteund?
+### <a name="is-migration-with-azure-importexport-service-supported"></a>Wordt migratie met Azure import/export-service ondersteund?
 
-Nee. Azure Import/Export-service ondersteunt geen Azure NetApp bestanden op dat moment.
+Nee. De Azure import/export-service biedt momenteel geen ondersteuning voor Azure NetApp Files.
 
 ## <a name="next-steps"></a>Volgende stappen  
 
-- [Veelgestelde vragen over de Microsoft Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
+- [Veelgestelde vragen over Microsoft Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Veelgestelde vragen over Microsoft Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [Een ondersteuningsaanvraag maken voor Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)
 - [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)

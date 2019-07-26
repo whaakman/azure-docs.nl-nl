@@ -10,14 +10,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 9c9b892f7d1f992210a18f2290bb199d12aeaf49
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: fe0c16962eef38ac26490eb7928d1705ef63a217
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330510"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68355019"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Quickstart: Een apparaat dat is verbonden met een IoT-hub (Python) beheren
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Quickstart: Een apparaat beheren dat is verbonden met een IoT-hub (python)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -35,23 +35,23 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="prerequisites"></a>Vereisten
 
-De twee voorbeeldtoepassingen die u uitvoert in deze snelstartgids zijn geschreven in Python. De Microsoft Azure IoT SDK's voor Python momenteel alleen specifieke versies van Python voor elk platform. Zie voor meer informatie, de [Python SDK Leesmij](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
+De twee voorbeeldtoepassingen die u uitvoert in deze snelstartgids zijn geschreven in Python. Op dit moment ondersteunen de Microsoft Azure IoT Sdk's voor python alleen specifieke versies van python voor elk platform. Raadpleeg het Leesmij-bestand voor [PYTHON SDK](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)voor meer informatie.
 
-In deze snelstartgids wordt ervan uitgegaan dat u een Windows-ontwikkelcomputer. Voor Windows-systemen, alleen [Python 3.6.x](https://www.python.org/downloads/release/python-368/) wordt ondersteund. Welk Python-installatieprogramma u moet kiezen, hangt af van de architectuur van het systeem waarmee u werkt. Als uw systeem-CPU-architectuur 32-bits en download de x86 installatieprogramma is; voor de 64-bits architectuur, het x86-64-installatieprogramma te downloaden. Controleer ook of de [Microsoft Visual C++ Redistributable voor Visual Studio 2015, 2017 en 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) voor uw architectuur (x86 of x64) is geïnstalleerd.
+In deze Quick Start wordt ervan uitgegaan dat u een Windows-ontwikkel computer gebruikt. Alleen voor Windows-systemen [python 3.6. x](https://www.python.org/downloads/release/python-368/) wordt ondersteund. Welk Python-installatieprogramma u moet kiezen, hangt af van de architectuur van het systeem waarmee u werkt. Als uw CPU-architectuur van het systeem 32 bits is, downloadt u het installatie programma x86. voor de 64-bits architectuur downloadt u het installatie programma x86-64. Bovendien moet u ervoor zorgen dat de [micro soft Visual C++ Redistributable for Visual Studio 2015, 2017 en 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) is geïnstalleerd voor uw architectuur (x86 of x64).
 
-U kunt Python downloaden voor andere platforms van [Python.org](https://www.python.org/downloads/).
+U kunt python downloaden voor andere platforms vanuit [python.org](https://www.python.org/downloads/).
 
 Gebruik een van de volgende opdrachten om te controleren wat de huidige versie van Python op uw ontwikkelcomputer is:
 
 ```python
-python --version
+python - -version
 ```
 
 ```python
-python3 --version
+python3 - -version
 ```
 
-Voer de volgende opdracht om toe te voegen van de Microsoft Azure IoT-extensie voor Azure CLI met de Cloud Shell-sessie. De IOT-extensie worden IoT Hub, IoT Edge en IoT Device Provisioning Service (DPS) specifieke opdrachten toegevoegd aan Azure CLI.
+Voer de volgende opdracht uit om de Microsoft Azure IoT-extensie voor Azure CLI toe te voegen aan uw Cloud Shell-exemplaar. De IOT-extensie voegt IoT Hub, IoT Edge en IoT Device Provisioning Service (DPS)-specifieke opdrachten toe aan Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -71,7 +71,7 @@ Als u [Snelstart: Als u telemetrie vanaf een apparaat wilt verzenden naar een Io
 
 Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze snelstart gebruikt u Azure Cloud Shell om een gesimuleerd apparaat te registreren.
 
-1. Voer de volgende opdracht in Azure Cloud Shell te maken van de apparaat-id.
+1. Voer de volgende opdracht uit in Azure Cloud Shell om de apparaat-id te maken.
 
     **YourIoTHubName** : vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 

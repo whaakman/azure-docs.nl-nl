@@ -1,38 +1,31 @@
 ---
-title: Azure Active Directory Identity Protection playbook | Microsoft Docs
-description: Meer informatie over hoe Azure AD Identity Protection kunt u de mogelijkheid van een aanvaller misbruik te maken van een apparaat of aangetaste identiteit en beveiliging van een identiteit of een apparaat dat eerder is verdacht of bekend is dat inbreuk worden gepleegd beperken.
+title: Azure Active Directory Identity Protection Playbook | Microsoft Docs
+description: Meer informatie over hoe u met Azure AD Identity Protection kunt u de mogelijkheid van een aanvaller om misbruik te maken van een identiteit of apparaat te beperken en om een identiteit of een apparaat te beveiligen dat eerder is vermoed of waarvan bekend is dat deze zijn aangetast.
 services: active-directory
-keywords: Azure active directory identity protection cloud discovery, toepassingen, beveiliging, risico's, risiconiveau, beveiligingsproblemen, beveiligingsbeleid beheren
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c3af12d35d07796db9255f0ac76dd1389bd013
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 273a6aca2050676650b955ec078b47b2ffcfe319
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108830"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333925"
 ---
-# <a name="azure-active-directory-identity-protection-playbook"></a>Playbook voor Azure Active Directory Identity Protection
+# <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection Playbook
 
-Dit playbook helpt u bij:
+Met deze Playbook kunt u het volgende doen:
 
 * Gegevens in de omgeving Identity Protection te vullen door risicogebeurtenissen en beveiligingsproblemen te simuleren
-* Instellen van beleid voor voorwaardelijke toegang op basis van risico en de gevolgen van het beleid testen
+* Beleid voor voorwaardelijke toegang op basis van een risico instellen en de impact van dit beleid testen
 
-
-## <a name="simulating-risk-events"></a>Risicogebeurtenissen simuleren
+## <a name="simulating-risk-events"></a>Risico gebeurtenissen simuleren
 
 Deze sectie bevat stappen voor het simuleren van de volgende typen risico-gebeurtenissen:
 
@@ -40,139 +33,116 @@ Deze sectie bevat stappen voor het simuleren van de volgende typen risico-gebeur
 * Aanmeldingen vanaf onbekende locaties (gemiddeld)
 * Onmogelijke reis naar ongewone locaties (moeilijk)
 
-Andere risicogebeurtenissen kunnen niet op een veilige manier worden gesimuleerd.
+Andere risico gebeurtenissen kunnen niet op een veilige manier worden gesimuleerd.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Aanmeldingen vanaf anonieme IP-adressen
 
-Zie voor meer informatie over deze risicogebeurtenis [aanmeldingen vanaf anonieme IP-adressen](../reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses). 
+Zie aanmeldingen [vanaf anonieme IP-adressen](../reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses)voor meer informatie over deze risico gebeurtenis. 
 
-De volgende procedure te voltooien, moet u gebruiken:
+Als u de volgende procedure wilt uitvoeren, moet u gebruikmaken van:
 
 - De [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) om anonieme IP-adressen te simuleren. Mogelijk moet u een virtuele machine gebruiken als uw organisatie het gebruik van de Tor-browser beperkt.
-- Een testaccount die nog niet is geregistreerd voor meervoudige verificatie.
+- Een test account dat nog niet is geregistreerd voor multi-factor Authentication.
 
-**De volgende stappen uitvoeren om te simuleren een aanmelding vanaf een anoniem IP-adres,** :
+**Als u een aanmelding vanaf een anoniem IP-adres wilt simuleren, voert u de volgende stappen**uit:
 
-1. Met behulp van de [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), gaat u naar [ https://myapps.microsoft.com ](https://myapps.microsoft.com).   
+1. Navigeer met behulp van de Tor [https://myapps.microsoft.com](https://myapps.microsoft.com)- [browser](https://www.torproject.org/projects/torbrowser.html.en)naar.   
 2. Gebruik de referenties van het account dat moet worden weergegeven in het rapport **aanmeldingen vanaf anonieme IP-adressen**.
 
 De aanmeldingspagina wordt binnen 10-15 minuten weergegeven op het Identity Protection-dashboard. 
 
 ### <a name="sign-ins-from-unfamiliar-locations"></a>Aanmeldingen vanaf onbekende locaties
 
-Zie voor meer informatie over deze risicogebeurtenis [aanmeldingen vanaf onbekende locaties](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations). 
+Zie aanmeldingen [vanaf onbekende locaties](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations)voor meer informatie over deze risico gebeurtenis. 
 
 Om aanmeldingen vanaf onbekende locaties te simuleren, dient zich u aan te melden vanaf een locatie en een apparaat waar u zich nog niet eerder hebt aangemeld met uw testaccount.
 
-De volgende procedure maakt gebruik van een nieuw gemaakte:
+In de volgende procedure wordt een nieuw gemaakt:
 
-- VPN-verbinding voor het simuleren van de nieuwe locatie.
-
-- De virtuele machine voor het simuleren van een nieuw apparaat.
+- VPN-verbinding voor het simuleren van een nieuwe locatie.
+- Virtuele machine, om een nieuw apparaat te simuleren.
 
 Om de volgende procedure te voltooien, moet u een gebruikersaccount gebruiken dat voldoet aan de volgende voorwaarden:
 
-- Ten minste een 30-daagse aanmelden geschiedenis.
-- Multi-factor authentication is ingeschakeld.
-
+- Minstens een aanmeldings geschiedenis van 30 dagen.
+- Multi-factor Authentication is ingeschakeld.
 
 **Voer de volgende stappen uit om een aanmelding vanaf een onbekende locatie te simuleren**:
 
 1. Laat bij het aanmelden met uw testaccount de MFA-controle mislukken.
-2. Met behulp van de nieuwe VPN-, gaat u naar [ https://myapps.microsoft.com ](https://myapps.microsoft.com) en voer de referenties van uw testaccount.
-   
+2. Ga met uw nieuwe VPN naar en [https://myapps.microsoft.com](https://myapps.microsoft.com) Voer de referenties van uw test account in.
 
 De aanmeldingspagina wordt binnen 10-15 minuten weergegeven op het Identity Protection-dashboard.
 
 ### <a name="impossible-travel-to-atypical-location"></a>Onmogelijke reis naar ongewone locatie
 
-Zie voor meer informatie over deze risicogebeurtenis [onmogelijk reis naar ongewone locatie](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations). 
+Zie voor meer informatie over deze risico gebeurtenis [onmogelijk reizen naar ongewoone locatie](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations). 
 
-De voorwaarde onmogelijk traject simuleren is moeilijk, omdat het algoritme maakt gebruik van machine learning om te selecteren om fout-positieven zoals onmogelijk traject van vertrouwde apparaten of aanmeldingen van VPN's die worden gebruikt door andere gebruikers in de map. Bovendien vereist het algoritme een geschiedenis aanmelden van 14 dagen en 10 aanmeldingen van de gebruiker voordat deze wordt gestart met het genereren van risico's. Vanwege de complexe machine learning-modellen en hoger regels, is er een kans is dat de volgende stappen niet tot een risicogebeurtenis leiden zal. Het is raadzaam om te repliceren van deze stappen voor meerdere Azure AD-accounts voor het publiceren van deze risicogebeurtenis.
+Het simuleren van de niet-bewaarde reis voorwaarde is lastig, omdat de algoritme gebruikmaakt van machine learning om onbedoelde positieve waarden te vervalsen, zoals niet-verplaatsingen van bekende apparaten, of aanmeldingen vanuit Vpn's die worden gebruikt door andere gebruikers in de Directory. Daarnaast is voor de algoritme een aanmeldings geschiedenis van 14 dagen en 10 aanmeldingen van de gebruiker vereist voordat de risico gebeurtenissen worden gegenereerd. Vanwege de complexe machine learning modellen en de bovenstaande regels is er een kans dat de volgende stappen niet leiden tot een risico gebeurtenis. Mogelijk wilt u deze stappen voor meerdere Azure AD-accounts repliceren om deze risico gebeurtenis te publiceren.
 
+**Voer de volgende stappen uit om een onmogelijke reis naar een ongewone locatie te simuleren**:
 
-**De volgende stappen uitvoeren om te simuleren een onmogelijke reis naar ongewone locatie,** :
-
-1. Gebruik uw standaardbrowser, Ga naar [ https://myapps.microsoft.com ](https://myapps.microsoft.com).  
+1. Ga in uw standaard browser naar [https://myapps.microsoft.com](https://myapps.microsoft.com).  
 2. Voer de referenties in van het account dat u wilt gebruiken om een risicogebeurtenis voor een onmogelijke reis te genereren.
 3. Wijzig uw gebruikersagent. U kunt uw gebruikersagent in Internet Explorer wijzigen vanuit Ontwikkelhulpprogramma's of in Firefox of Chrome door een invoegtoepassing voor het wisselen van de gebruikersagent te gebruiken.
-4. Uw IP-adres wijzigen. U kunt uw IP-adres wijzigen met behulp van een VPN, een Tor-invoegtoepassing, of instellen een nieuwe virtuele machine in Azure in een ander datacenter.
-5. Aanmelden bij [ https://myapps.microsoft.com ](https://myapps.microsoft.com) met dezelfde referenties als voorheen en binnen een paar minuten na de vorige aanmelding.
+4. Wijzig uw IP-adres. U kunt uw IP-adres wijzigen door een VPN-of een Tor-invoeg toepassing te gebruiken of door een nieuwe machine in azure te draaien in een ander Data Center.
+5. Meld u aan [https://myapps.microsoft.com](https://myapps.microsoft.com) met dezelfde referenties als voor en binnen een paar minuten na de vorige aanmelding.
 
-De aanmelding wordt weergegeven in het dashboard Identity Protection binnen 2-4 uur.
+De aanmelding wordt binnen 2-4 uur weer gegeven in het dash board voor identiteits beveiliging.
 
-## <a name="simulating-vulnerabilities"></a>Beveiligingsproblemen simuleren
+## <a name="simulating-vulnerabilities"></a>Beveiligings problemen simuleren
 Zwakke plekken zijn zwakke punten in een Azure AD-omgeving die door een kwaadwillend persoon kunnen worden misbruikt. Momenteel zijn er 3 typen zwakke plekken in Azure AD Identity Protection bekend die gebruikmaken van andere functies van Azure AD. Deze beveiligingslekken worden automatisch weergegeven op het Identity Protection-dashboard zodra deze functies zijn ingesteld.
 
-* Azure AD [multi-factor Authentication](../authentication/multi-factor-authentication.md)
-* Azure AD [Cloud Discovery](https://docs.microsoft.com/cloud-app-security/).
-* Azure AD [Privileged Identity Management](../privileged-identity-management/pim-configure.md). 
+* [Multi-factor Authentication](../authentication/multi-factor-authentication.md) voor Azure AD
+* Azure AD- [Cloud Discovery](https://docs.microsoft.com/cloud-app-security/).
+* Azure AD- [privileged Identity Management](../privileged-identity-management/pim-configure.md). 
 
+## <a name="testing-security-policies"></a>Beveiligings beleid testen
 
-## <a name="testing-security-policies"></a>Testen van beveiligingsbeleid
+In deze sectie wordt beschreven hoe u het gebruikers risico en het beveiligings beleid voor aanmeldings Risico's kunt testen.
 
-Deze sectie bevat stappen voor het testen van het gebruikersrisico en het beveiligingsbeleid van het aanmeldingsrisico.
-
-
-### <a name="user-risk-security-policy"></a>Beleid voor gebruikersrisico's security
+### <a name="user-risk-security-policy"></a>Beveiligings beleid voor gebruikers Risico's
 
 Zie [Het risicobeleid voor gebruikers configureren](howto-user-risk-policy.md) voor meer informatie.
 
-![Gebruikersrisico](./media/playbook/02.png "Playbook")
+![Gebruikers risico](./media/playbook/02.png "Playbook")
 
+**Als u een beveiligings beleid voor gebruikers Risico's wilt testen, voert u de volgende stappen uit**:
 
-**De volgende stappen uitvoeren om te testen in een beleid voor gebruikersrisico's security,** :
+1. Meld u aan [https://portal.azure.com](https://portal.azure.com) met de referenties van de globale beheerder voor uw Tenant.
+2. Navigeer naar **identiteits beveiliging**. 
+3. Klik op de pagina **Azure AD Identity Protection** op **beleid voor gebruikers Risico's**.
+4. Selecteer in de sectie **toewijzingen** de gewenste gebruikers (en groepen) en het risico niveau van de gebruiker.
 
-1. Aanmelden bij [ https://portal.azure.com ](https://portal.azure.com) met referenties van de globale beheerder voor uw tenant.
-2. Navigeer naar **Identity Protection**. 
-3. Op de **Azure AD Identity Protection** pagina, klikt u op **beleid voor gebruikersrisico's**.
-4. In de **toewijzingen** sectie, selecteer de gewenste gebruikers (en groepen) en risiconiveau van de gebruiker.
+    ![Gebruikers risico](./media/playbook/03.png "Playbook")
 
-    ![Gebruikersrisico](./media/playbook/03.png "Playbook")
+5. Selecteer in de sectie besturings elementen het gewenste toegangs beheer (bijvoorbeeld vereisen dat het wacht woord is gewijzigd).
+5. Selecteer **uit**als **beleid afdwingen**.
+6. Het gebruikers risico van een test account verhogen door bijvoorbeeld een van de risico gebeurtenissen een paar keer te simuleren.
+7. Wacht een paar minuten en controleer vervolgens of het gebruikers niveau voor uw gebruiker gemiddeld is. Als dat niet het geval is, Simuleer dan meer risico gebeurtenissen voor de gebruiker.
+8. Selecteer **aan**als **beleid afdwingen**.
+9. U kunt nu voorwaardelijke toegang op basis van gebruikers risico testen door zich aan te melden met een gebruiker met een verhoogd risico niveau.
 
-5. Selecteer de gewenste toegangsbeheer in de sectie besturingselementen (bijvoorbeeld wachtwoordwijziging vereisen).
-5. Als **beleid afdwingen**, selecteer **uit**.
-6. Verhoogde bevoegdheden het gebruikersrisico van een testaccount, bijvoorbeeld, een van de risicogebeurtenissen simuleren van een paar keer.
-7. Wacht een paar minuten en controleer vervolgens of het gebruikersniveau van de voor de gebruiker normaal. Als dat niet het geval is, moet u meer risicogebeurtenissen voor de gebruiker simuleren.
-8. Als **beleid afdwingen**, selecteer **op**.
-9. U kunt nu gebruiker testen risico's gebaseerde voorwaardelijke toegang als u zich aanmeldt bij het gebruik van een gebruiker met een niveau verhoogd risico.
-    
-    
-
-### <a name="sign-in-risk-security-policy"></a>Beveiligingsbeleid voor aanmeldingsrisico
+### <a name="sign-in-risk-security-policy"></a>Beveiligings beleid voor aanmeldings Risico's
 
 Zie [Het risicobeleid voor aanmelden configureren](howto-sign-in-risk-policy.md) voor meer informatie.
 
-![Aanmeldingsrisico](./media/playbook/01.png "Playbook")
+![Aanmeldings risico](./media/playbook/01.png "Playbook")
 
+**Voer de volgende stappen uit om een beleid voor aanmeldings Risico's te testen:**
 
-**Als u wilt testen een teken in het beleid voor gebruikersrisico's, moet u de volgende stappen uitvoeren:**
-
-1. Aanmelden bij [ https://portal.azure.com ](https://portal.azure.com) met referenties van de globale beheerder voor uw tenant.
-
+1. Meld u aan [https://portal.azure.com](https://portal.azure.com) met de referenties van de globale beheerder voor uw Tenant.
 2. Navigeer naar **Azure AD Identity Protection**.
+3. Klik op de pagina hoofd **Azure AD Identity Protection** op **aanmeldings risico beleid**. 
+4. Selecteer in de sectie **toewijzingen** de gewenste gebruikers (en groepen) en het risico niveau voor aanmelden.
 
-3. Op de hoofdpagina **Azure AD Identity Protection** pagina, klikt u op **aanmelden beleid voor gebruikersrisico's**. 
+    ![Aanmeldings risico](./media/playbook/04.png "Playbook")
 
-4. In de **toewijzingen** sectie, selecteer de gewenste gebruikers (en groepen) en meld u risiconiveau.
-
-    ![Aanmeldingsrisico](./media/playbook/04.png "Playbook")
-
-
-5. In de **besturingselementen** sectie, selecteer de gewenste Access control (bijvoorbeeld **meervoudige verificatie vereisen**). 
-
-6. Als **beleid afdwingen**, selecteer **op**.
-
+5. Selecteer in de sectie **besturings elementen** het gewenste toegangs beheer (bijvoorbeeld **multi-factor Authentication vereisen**). 
+6. Selecteer **aan**als **beleid afdwingen**.
 7. Klik op **Opslaan**.
-
-8. U kunt nu voorwaardelijke toegang op basis van risico's van de aanmelding testen als u zich aanmeldt bij het gebruik van een riskante sessie (bijvoorbeeld via de browser Tor). 
-
- 
-
-
-
+8. U kunt nu de op Risico's gebaseerde voorwaardelijke toegang testen door u aan te melden met behulp van een Risk ante sessie (bijvoorbeeld met behulp van de Tor-browser). 
 
 ## <a name="see-also"></a>Zie ook
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-

@@ -1,110 +1,126 @@
 ---
-title: Retourneren van uw Azure Data Box-Edge-apparaat | Microsoft Docs
-description: Beschrijft hoe u het Azure Data Box-Edge-apparaat en de volgorde voor het apparaat verwijderen.
+title: Uw Azure Data Box Edge apparaat retour neren of vervangen | Microsoft Docs
+description: Hierin wordt beschreven hoe u het Azure Data Box Edge apparaat retourneert of vervangt.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 07/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 9aeae0ab68d809b36a3316054f12a5a9657721f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5fee604a529e9ca6153f6c189f199577ae65426
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65468602"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356157"
 ---
-# <a name="return-your-azure-data-box-edge-device"></a>Retourneren van uw Azure Data Box-Edge-apparaat
+# <a name="return-or-replace-your-azure-data-box-edge-device"></a>Uw Azure Data Box Edge apparaat retour neren of vervangen
 
-In dit artikel wordt beschreven hoe u de gegevens wissen en ga vervolgens terug uw Azure Data Box-Edge-apparaat. Nadat u het apparaat hebt opgevraagd, kunt u ook de resource die is gekoppeld aan het apparaat verwijderen.
+In dit artikel wordt beschreven hoe u de gegevens wist en vervolgens uw Azure Data Box Edge apparaat retourneert. Nadat u het apparaat hebt geretourneerd, kunt u ook de resource die aan het apparaat is gekoppeld, verwijderen of een vervangend apparaat best Ellen.
 
 In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
-> * De gegevens uit de gegevensschijven op het apparaat wissen
-> * Een ondersteuningsticket openen om te retourneren van uw apparaat
-> * Het apparaat in en ophalen van objecten plannen
-> * Verwijderen van de resource in Azure portal
+> * De gegevens van de gegevens schijven op het apparaat wissen
+> * Een ondersteunings ticket openen om uw apparaat te retour neren
+> * Het apparaat inpakken en een ophaling plannen
+> * De resource in Azure Portal verwijderen
+> * Een vervangend apparaat ophalen
 
-## <a name="erase-data-from-the-device"></a>Gegevens van het apparaat wissen
+## <a name="erase-data-from-the-device"></a>Gegevens wissen van het apparaat
 
-Voor het wissen van de gegevens uit de gegevensschijven van uw apparaat, moet u uw apparaat opnieuw instelt. U kunt uw apparaat met behulp van de lokale web-UI of de PowerShell-interface opnieuw instellen.
+Als u de gegevens van de gegevens schijven van uw apparaat wilt wissen, moet u uw apparaat opnieuw instellen. U kunt uw apparaat opnieuw instellen met behulp van de lokale webgebruikersinterface of de Power shell-interface.
 
-Voordat u opnieuw instelt, moet u een kopie van de lokale gegevens op het apparaat maken indien nodig. U kunt de gegevens van het apparaat kopiëren naar een Azure Storage-container.
+Voordat u opnieuw instelt, maakt u indien nodig een kopie van de lokale gegevens op het apparaat. U kunt de gegevens van het apparaat naar een Azure Storage-container kopiëren.
 
-Als u wilt met behulp van de lokale web-UI-apparaat opnieuw instelt, moet u de volgende stappen uitvoeren.
+Voer de volgende stappen uit om uw apparaat opnieuw in te stellen met behulp van de lokale web-UI.
 
-1. Ga in de lokale webgebruikersinterface naar **onderhoud > apparaat opnieuw ingesteld**.
-2. Selecteer **apparaat opnieuw instellen van**.
+1. Ga in de lokale web-UI naar **onderhoud > apparaat opnieuw instellen**.
+2. Selecteer **apparaat opnieuw instellen**.
 
     ![Apparaat opnieuw instellen](media/data-box-edge-return-device/device-reset-1.png)
 
-3. Wanneer u hierom wordt gevraagd om bevestiging, bekijk de waarschuwing en selecteer **Ja** om door te gaan.
+3. Als u om bevestiging wordt gevraagd, controleert u de waarschuwing en selecteert u **Ja** om door te gaan.
 
-    ![Bevestig het opnieuw instellen](media/data-box-edge-return-device/device-reset-2.png)  
+    ![Opnieuw instellen bevestigen](media/data-box-edge-return-device/device-reset-2.png)  
 
-Opnieuw instellen van het worden de gegevens uit de gegevensschijven van het apparaat gewist. Afhankelijk van de hoeveelheid gegevens op uw apparaat duurt dit proces ongeveer 30-40 minuten.
+Met de reset worden de gegevens van de gegevens schijven van apparaten gewist. Afhankelijk van de hoeveelheid gegevens op uw apparaat, neemt dit proces ongeveer 30-40 minuten in beslag.
 
-U kunt ook verbinding maken met de PowerShell-interface van het apparaat en gebruik de `Reset-HcsAppliance` cmdlet om de gegevens uit de gegevensschijven te wissen. Zie voor meer informatie, [uw apparaat opnieuw instelt](data-box-edge-connect-powershell-interface.md#reset-your-device).
+U kunt ook verbinding maken met de Power shell-interface van het apparaat `Reset-HcsAppliance` en de cmdlet gebruiken om de gegevens van de gegevens schijven te wissen. Zie [uw apparaat opnieuw instellen](data-box-edge-connect-powershell-interface.md#reset-your-device)voor meer informatie.
 
 > [!NOTE]
-> - Als u uitwisselen of een upgrade naar een nieuw apparaat, wordt u aangeraden dat u uw apparaat opnieuw instelt nadat u het nieuwe apparaat hebt ontvangen.
-> - Het apparaat alleen opnieuw worden alle lokale gegevens uit het apparaat verwijderd. De gegevens die zich in de cloud is niet verwijderd en verzamelt [kosten](https://azure.microsoft.com/pricing/details/storage/). Deze gegevens moeten worden verwijderd afzonderlijk met een cloud storage management-hulpprogramma zoals [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+> - Als u uitwisselt of een upgrade naar een nieuw apparaat uitvoert, raden wij u aan uw apparaat opnieuw in te stellen nadat u het nieuwe apparaat hebt ontvangen.
+> - Bij het opnieuw instellen van het apparaat worden alleen alle lokale gegevens van het apparaat verwijderd. De gegevens die zich in de Cloud bevindt, worden niet verwijderd en er worden [kosten](https://azure.microsoft.com/pricing/details/storage/)in rekening gebracht. Deze gegevens moeten afzonderlijk worden verwijderd met behulp van een beheer programma voor Cloud opslag, zoals [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-## <a name="open-a-support-ticket"></a>Open een ondersteuningsticket
+## <a name="open-a-support-ticket"></a>Een ondersteunings ticket openen
 
-Als u wilt beginnen met de geretourneerde, moet u de volgende stappen uitvoeren.
+Voer de volgende stappen uit om het retour proces te starten.
 
-1. Open een ondersteuningsticket met Microsoft Support waarmee wordt aangegeven dat u wilt terugkeren van het apparaat. Selecteer het probleemtype als **Data Box Edge Hardware**.
+1. Open een ondersteunings ticket met Microsoft Ondersteuning dat aangeeft dat u het apparaat wilt retour neren. Selecteer het probleem type als **Data Box edge hardware**.
 
-    ![Ondersteuningsticket maken](media/data-box-edge-return-device/open-support-ticket-1.png)  
+    ![Ondersteunings ticket openen](media/data-box-edge-return-device/open-support-ticket-1.png)  
 
-2. Een Microsoft Support engineer neemt contact met u. Geef de verzendgegevens.
-3. Als u nodig hebt voor een retour verpakking, kunt u deze aanvragen. Antwoord **Ja** op de vraag **moet een leeg vak om terug te keren**.
+2. Een Microsoft Ondersteuning-Engineer neemt contact met u op. Geef de verzend gegevens op.
+3. Als u een verzend doos nodig hebt, kunt u deze aanvragen. Antwoord **Ja** op de vraag **moet een leeg vak zijn om te retour neren**.
 
 
-## <a name="schedule-a-pickup"></a>Ophalen van objecten plannen
+## <a name="schedule-a-pickup"></a>Een ophaling plannen
 
-1. Schakel het apparaat uit. Ga in de lokale webgebruikersinterface naar **onderhoud > energie-instellingen**.
-2. Selecteer **afsluiten**. Wanneer u hierom wordt gevraagd om bevestiging, klikt u op **Ja** om door te gaan. Zie voor meer informatie, [energiebeheer](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
-3. De power-kabels los te koppelen en de netwerkkabels van het apparaat verwijderd.
-4. Bereid de verzending-pakket met behulp van uw eigen box of het lege vak die u hebt ontvangen van Azure. Plaats het apparaat en de stroomkabels die zijn verzonden met het apparaat in het vak.
-5. Brengt het verzendlabel die u hebt ontvangen van Azure op het pakket.
-6. Een ophalen met de regionale provider plannen. Als het apparaat in de Verenigde Staten worden geretourneerd, is de provider Getotaliseerd. Ophalen van objecten plannen:
+1. Schakel het apparaat uit. Ga in de lokale web-UI naar **onderhoud > energie-instellingen**.
+2. Selecteer **Afsluiten**. Wanneer u om bevestiging wordt gevraagd, klikt u op **Ja** om door te gaan. Zie [energie beheren](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power)voor meer informatie.
+3. Koppel de stroom kabels los en verwijder alle netwerk kabels van het apparaat.
+4. Bereid het verzend pakket voor met behulp van uw eigen box of het lege vak dat u van Azure hebt ontvangen. Plaats het apparaat en de stroom snoeren die met het apparaat in het vak zijn geleverd.
+5. Breng het verzend label op dat u hebt ontvangen van Azure op het pakket.
+6. Een ophaling plannen met uw regionale luchtvaart maatschappij. Als u het apparaat in ons retourneert, is uw provider UPS. Een ophaling plannen:
 
-    1. Aanroepen van de lokale Noodvoeding (landspecifieke gratis telefoonnummer).
-    2. Citeren de omgekeerde verzending traceringsnummer zoals in het afgedrukte label wordt weergegeven in uw aanroep.
-    3. Als het volgnummer is niet tussen aanhalingstekens, moet UPS u een extra kosten betalen tijdens het ophalen.
+    1. Neem contact op met de lokale nood voeding (land-specifiek gratis nummer).
+    2. Neem in uw gesprek het tracerings nummer van omgekeerde verzen ding op zoals op het afgedrukte label wordt weer gegeven.
+    3. Als het tracking nummer niet wordt vermeld, moet u een extra kosten betalen tijdens het ophalen.
 
-    In plaats van de planning van het ophalen, kunt u ook de rand van de gegevens in op de dichtstbijzijnde afgiftelocatie teruglopen.
+    In plaats van het ophalen te plannen, kunt u ook de Data Box Edge op de dichtstbijzijnde uitval locatie afhalen.
 
 ## <a name="delete-the-resource"></a>De resource verwijderen
 
-Nadat het apparaat is ontvangen op het Azure-datacenter, wordt het apparaat gecontroleerd op beschadiging of tekenen van knoeien.
+Nadat het apparaat is ontvangen in het Azure-Data Center, wordt het apparaat geïnspecteerd op beschadiging of op een geknoeid tijdstip.
 
-- Als het apparaat intact en in orde ontvangt, stopt de factureringsmeter voor die bron. Microsoft Support neemt contact met u om te bevestigen dat het apparaat is geretourneerd. Vervolgens kunt u de resource die is gekoppeld aan het apparaat in Azure portal verwijderen.
-- Als het apparaat aanzienlijk beschadigd ontvangt, kunnen boetes toepassen. Zie voor meer informatie, de [Veelgestelde vragen over verloren of beschadigd apparaat](https://azure.microsoft.com/pricing/details/databox/edge/) en [servicevoorwaarden Product](https://www.microsoft.com/licensing/product-licensing/products).  
-
-
-U kunt het apparaat in Azure portal verwijderen:
--   Nadat u hebt de bestelling heeft geplaatst en voordat het apparaat wordt voorbereid door Microsoft.
--   Nadat u hebt het apparaat terug naar Microsoft, de fysieke inspectie wordt doorgegeven in de Azure-datacenter en Microsoft Support-aanroepen om te bevestigen dat het apparaat is geretourneerd.
-
-Als u het apparaat op basis van een ander abonnement of een andere locatie hebt geactiveerd, zal Microsoft uw order verplaatsen naar het nieuwe abonnement of de locatie binnen één werkdag. Nadat de order wordt verplaatst, kunt u deze resource verwijderen.
+- Als het apparaat intact en goed inkomt, wordt de facturerings meter voor die resource gestopt. Microsoft Ondersteuning neemt dan contact met u op om te bevestigen dat het apparaat is geretourneerd. U kunt vervolgens de resource die aan het apparaat is gekoppeld, verwijderen in de Azure Portal.
+- Als het apparaat aanzienlijk is aangekomen, kunnen de verfijningen van toepassing zijn. Raadpleeg de [Veelgestelde vragen op verloren of beschadigd apparaat](https://azure.microsoft.com/pricing/details/databox/edge/) en [product service voorwaarden](https://www.microsoft.com/licensing/product-licensing/products)voor meer informatie.  
 
 
-De volgende stappen om het apparaat en de resource in Azure portal te verwijderen.
+U kunt het apparaat verwijderen in de Azure Portal:
+-   Nadat u de order hebt geplaatst en voordat het apparaat door micro soft wordt voor bereid.
+-   Nadat u het apparaat hebt geretourneerd naar micro soft, wordt de fysieke inspectie op het Azure-Data Center door gegeven en worden Microsoft Ondersteuning-aanroepen om te bevestigen dat het apparaat is geretourneerd.
 
-1. In de Azure-portal, gaat u naar uw resource en van daaruit naar **overzicht**. Selecteer in de opdrachtbalk **verwijderen**.
+Als u het apparaat hebt geactiveerd op basis van een ander abonnement of een andere locatie, zal micro soft uw bestelling binnen één werkdag naar het nieuwe abonnement of deze locatie verplaatsen. Nadat de order is verplaatst, kunt u deze resource verwijderen.
+
+
+Voer de volgende stappen uit om het apparaat en de resource in Azure Portal te verwijderen.
+
+1. Ga in het Azure Portal naar uw resource en klik vervolgens op **overzicht**. Selecteer **verwijderen**op de opdracht balk.
 
     ![Selecteer verwijderen](media/data-box-edge-return-device/delete-resource-1.png)
 
-2. In de **apparaat verwijderen** blade, typ de naam van het apparaat dat u wilt verwijderen en selecteer **verwijderen**.
+2. Typ op de Blade **apparaat verwijderen** de naam van het apparaat dat u wilt verwijderen en selecteer **verwijderen**.
 
-    ![De verwijdering bevestigen](media/data-box-edge-return-device/delete-resource-2.png)
+    ![Verwijderen bevestigen](media/data-box-edge-return-device/delete-resource-2.png)
 
-Krijgt u een melding nadat het apparaat en de gekoppelde resource wordt verwijderd.
+U wordt gewaarschuwd wanneer het apparaat en de bijbehorende resource zijn verwijderd.
+
+## <a name="get-a-replacement-device"></a>Een vervangend apparaat ophalen
+
+Er is een vervangend apparaat nodig wanneer het bestaande apparaat een hardwarestoring heeft of een upgrade nodig heeft. Voer de volgende stappen uit wanneer het apparaat een hardwareprobleem heeft:
+
+1. [Open een ondersteunings ticket voor hardware-probleem](#open-a-support-ticket). Microsoft Ondersteuning stelt vast dat een vervangende eenheid voor een veld (FRU) niet beschikbaar is voor dit exemplaar of dat het apparaat een hardware-upgrade nodig heeft. In beide gevallen zal ondersteuning een vervangend apparaat best Ellen.
+2. [Maak een nieuwe resource](data-box-edge-deploy-prep.md#create-a-new-resource) voor het vervangende apparaat. Zorg ervoor dat u het selectie vakje voor **een Data Box edge apparaat hebt**geselecteerd. 
+3. Nadat u een vervangend apparaat hebt ontvangen, [installeert](data-box-edge-deploy-install.md) en [activeert](data-box-edge-deploy-connect-setup-activate.md) u het vervangende apparaat op basis van de nieuwe bron.
+4. Volg alle stappen om het oorspronkelijke apparaat te retour neren:
+    1. Open een ander ticket om het oorspronkelijke apparaat te retour neren.
+    2. [De gegevens op het apparaat wissen](#erase-data-from-the-device).
+    3. [Een ophaling plannen](#schedule-a-pickup).
+    5. [Verwijder de resource](#delete-the-resource) die aan het geretourneerde apparaat is gekoppeld.
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

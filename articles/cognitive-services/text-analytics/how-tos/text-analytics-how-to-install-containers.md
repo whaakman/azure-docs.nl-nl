@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: 7f178152fb5b6d540c2cecdfa42687469dfe3881
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 39f15cf8d1374ca95b10ccbddb8a59ec3e98f4f8
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356991"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488743"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics containers installeren en uitvoeren
 
@@ -32,11 +32,13 @@ Als u een van de Text Analytics containers wilt uitvoeren, moet u beschikken ove
 
 U moet voldoen aan de volgende vereisten voordat u met behulp van Text Analytics-containers:
 
-|Verplicht|Doel|
+|Vereist|Doel|
 |--|--|
 |Docker-engine| De docker-engine moet zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten voor het configureren van de docker-omgeving op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **In Windows**moet docker ook worden geconfigureerd voor de ondersteuning van Linux-containers.<br><br>|
 |Vertrouwd met docker | U moet een basis kennis hebben van docker-concepten, zoals registers, opslag plaatsen, containers en container installatie kopieën, en kennis van basis `docker` opdrachten.| 
 |Text Analytics resource |Als u de container wilt gebruiken, hebt u het volgende nodig:<br><br>Een Azure [Text Analytics](text-analytics-how-to-access-key.md) -resource om de bijbehorende API-sleutel en eind punt-URI op te halen. Beide waarden zijn beschikbaar op het Text Analytics overzicht van de Azure Portal en de pagina sleutels en zijn vereist om de container te starten.<br><br>**{API_KEY}** : Een van de twee beschik bare bron sleutels op de pagina **sleutels**<br><br>**{ENDPOINT_URI}** : Het eind punt op de pagina **overzicht**|
+
+[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
 ### <a name="the-host-computer"></a>De hostcomputer
 
@@ -107,14 +109,7 @@ Wanneer de container zich op de [hostcomputer](#the-host-computer)bevindt, gebru
 
 ## <a name="run-the-container-with-docker-run"></a>Voer de container uit met`docker run`
 
-Gebruik de opdracht [docker run](https://docs.docker.com/engine/reference/commandline/run/) om een van de drie containers uit te voeren. De opdracht maakt gebruik van de volgende para meters:
-
-| Tijdelijke aanduiding | Waarde |
-|-------------|-------|
-|{API_KEY} | Deze sleutel wordt gebruikt om de container te starten en is beschikbaar op de pagina sleutels `Text Analytics` van de Azure Portal. |
-|{ENDPOINT_URI} | De waarde voor de URL van het facturerings eindpunt `Text Analytics` is beschikbaar op de pagina overzicht van Azure. |
-
-Vervang deze para meters door uw eigen waarden in de `docker run` volgende voorbeeld opdracht.
+Gebruik de opdracht [docker run](https://docs.docker.com/engine/reference/commandline/run/) om een van de drie containers uit te voeren. Raadpleeg de [vereiste para meters verzamelen](#gathering-required-parameters) voor meer informatie over het `{Endpoint_URI}` ophalen `{API_Key}` van de waarden en.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

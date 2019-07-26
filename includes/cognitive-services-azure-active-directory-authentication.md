@@ -1,0 +1,100 @@
+---
+author: erhopf
+ms.author: erhopf
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 07/23/2019
+ms.openlocfilehash: f8d6e5de7f907ae78958b8c239649f55257bf7f2
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467527"
+---
+## <a name="authenticate-with-azure-active-directory"></a>Verifiëren bij Azure Active Directory
+
+> [!IMPORTANT]
+> Momenteel ondersteunen **alleen** de Computer Vision-API, Face-API, Text Analytics-API en insluitende lezer verificatie met behulp van Azure Active Directory (Aad).
+
+In de vorige secties laten we u zien hoe u met Azure Cognitive Services kunt verifiëren met behulp van een single-service of een sleutel van een abonnement op meerdere services. Hoewel deze sleutels een snel en eenvoudig pad bieden om de ontwikkeling te starten, vallen ze op korter complexe scenario's waarvoor op rollen gebaseerd toegangs beheer is vereist. Laten we eens kijken wat u nodig hebt om te verifiëren met behulp van Azure Active Directory (AAD).
+
+In de volgende secties gebruikt u de Azure Cloud Shell-omgeving of de Azure CLI voor het maken van een subdomein, het toewijzen van rollen en het verkrijgen van een Bearer-token om de Azure Cognitive Services aan te roepen. Als u vastloopt, worden er links in elke sectie weer gegeven met alle beschik bare opties voor elke opdracht in Azure Cloud Shell/Azure CLI.
+
+### <a name="create-a-resource-with-a-custom-subdomain"></a>Een resource maken met een aangepast subdomein
+
+De eerste stap is het maken van een aangepast subdomein.
+
+1. Begin met het openen van de Azure Cloud Shell. [Selecteer vervolgens een abonnement](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description):
+
+   ```azurecli-interactive
+   Select-AzureSubscription -SubscriptionName <YOUR_SUBCRIPTION>
+   ```
+
+2. Maak vervolgens [een Cognitive Services resource](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) met een aangepast subdomein. De naam van het subdomein moet globaal uniek zijn en mag geen speciale tekens bevatten, zoals: ".", "!", ",".
+
+   ```azurecli-interactive
+   New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
+   ```
+
+3. Als dit lukt, moet het **eind punt** de subdomeinnaam weer geven die uniek is voor uw resource.
+
+
+### <a name="assign-a-role-to-a-service-principal"></a>Een rol toewijzen aan een Service-Principal
+
+Nu u een aangepast subdomein hebt dat aan uw resource is gekoppeld, moet u een rol aan een Service-Principal toewijzen.
+
+> [!NOTE]
+> Houd er rekening mee dat AAD-roltoewijzingen tot vijf minuten kunnen duren.
+
+1. Eerst gaan we een Aad- [toepassing](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0)registreren.
+
+   ```azurecli-interactive
+   $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
+
+   New-AzADApplication -DisplayName <APP_DISPLAY_NAME> -IdentifierUris <APP_URIS> -Password $SecureStringPassword
+   ```
+
+   U hebt de **ApplicationId** nodig in de volgende stap.
+
+2. Vervolgens moet u [een service-principal maken](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) voor de Aad-toepassing.
+
+   ```azurecli-interactive
+   New-AzADServicePrincipal -ApplicationId <APPLICATION_ID>
+   ```
+
+   >[!NOTE]
+   > Als u een toepassing registreert in de Azure Portal, wordt deze stap voor u voltooid.
+
+3. De laatste stap is het [toewijzen van de rol ' Cognitive Services gebruiker '](https://docs.microsoft.com/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) aan de Service-Principal (bereik van de resource). Door een rol toe te wijzen, verleent u Service-Principal-toegang tot deze resource. U kunt dezelfde service-principal toegang verlenen tot meerdere resources in uw abonnement.
+   >[!NOTE]
+   > De ObjectId van de service-principal wordt gebruikt, niet de ObjectId voor de toepassing.
+
+   ```azurecli-interactive
+   New-AzRoleAssignment -ObjectId <SERVICE_PRINCIPAL_OBJECTID> -Scope <ACCOUNT_ID> -RoleDefinitionName "Cognitive Services User"
+   ```
+
+### <a name="sample-request"></a>Voorbeeld van een aanvraag
+
+In dit voor beeld wordt een wacht woord gebruikt voor het verifiëren van de Service-Principal. Het gegeven token wordt vervolgens gebruikt om de Computer Vision-API aan te roepen.
+
+1. Down load uw **TenantId**:
+   ```azurecli-interactive
+   $context=Get-AzContext
+   $context.Tenant.Id
+   ```
+
+2. Een Token ophalen:
+   ```azurecli-interactive
+   $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList "https://login.windows.net/<TENANT_ID>"
+   $clientCredential = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential" -ArgumentList $app.ApplicationId, $password
+   $token=$authContext.AcquireTokenAsync("https://cognitiveservices.azure.com/", $clientCredential).Result
+   $token
+   ```
+3. Roep de Computer Vision-API aan:
+   ```azurecli-interactive
+   $url = $account.Endpoint+"vision/v1.0/models"
+   $result = Invoke-RestMethod -Uri $url  -Method Get -Headers @{"Authorization"=$token.CreateAuthorizationHeader()} -Verbose
+   $result | ConvertTo-Json
+   ```
+
+U kunt de Service-Principal ook verifiëren met een certificaat. Naast de service-principal wordt ook User Principal ondersteund door de machtigingen te delegeren via een andere AAD-toepassing. In dit geval, in plaats van wacht woorden of certificaten, wordt gebruikers gevraagd om twee ledige verificatie bij het ophalen van token.

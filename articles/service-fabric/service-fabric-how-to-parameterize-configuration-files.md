@@ -1,6 +1,6 @@
 ---
-title: Parameteriseren configuratiebestanden in Azure Service Fabric | Microsoft Docs
-description: Leer hoe u om te voorzien van de configuratiebestanden in Service Fabric.
+title: Para meters-configuratie bestanden in azure Service Fabric | Microsoft Docs
+description: Meer informatie over het para meters van configuratie bestanden in Service Fabric.
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
@@ -12,23 +12,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: 6ed626dddddb8f2b434d6a7acebc5381607b7d3d
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: dad497978de7187177998524db3b2f2ee448c717
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304241"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464786"
 ---
-# <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Hoe om te voorzien van de configuratiebestanden in Service Fabric
+# <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Configuratie bestanden in Service Fabric para meters
 
-In dit artikel laat u zien hoe om te voorzien van een configuratiebestand in Service Fabric.  Als u nog niet bekend bent met de belangrijkste concepten van het beheer van toepassingen voor meerdere omgevingen lezen [toepassingen voor meerdere omgevingen beheren](service-fabric-manage-multiple-environment-app-configuration.md).
+In dit artikel leest u hoe u een configuratie bestand in Service Fabric kunt para meters.  Als u nog niet bekend bent met de basis concepten van het beheren van toepassingen voor meerdere omgevingen, lees dan [toepassingen beheren voor meerdere omgevingen](service-fabric-manage-multiple-environment-app-configuration.md).
 
-## <a name="procedure-for-parameterizing-configuration-files"></a>Procedure voor het parametriseren-configuratiebestanden
+## <a name="procedure-for-parameterizing-configuration-files"></a>Procedure voor parameterizing-configuratie bestanden
 
-In dit voorbeeld moet u de configuratiewaarde van een met behulp van parameters in de implementatie van uw toepassing overschrijven.
+In dit voor beeld overschrijft u een configuratie waarde met behulp van para meters in de implementatie van uw toepassing.
 
-1. Open de  *\<MijnService > \PackageRoot\Config\Settings.xml* bestand in uw serviceproject.
-1. Stel een naam van de configuratie en de waarde, bijvoorbeeld cachegrootte gelijk is aan 25, door het volgende XML-bestand toe te voegen:
+1. Open het  *\<bestand MyService > \PackageRoot\Config\Settings.XML* in uw service project.
+1. Stel een naam en waarde voor de configuratie parameter in, bijvoorbeeld cache grootte gelijk aan 25, door het volgende XML-bestand toe te voegen:
 
    ```xml
     <Section Name="MyConfigSection">
@@ -37,15 +37,15 @@ In dit voorbeeld moet u de configuratiewaarde van een met behulp van parameters 
    ```
 
 1. Sla het bestand op en sluit het.
-1. Open de  *\<Mijntoepassing > \ApplicationPackageRoot\ApplicationManifest.xml* bestand.
-1. In het bestand ApplicationManifest.xml declareert u een waarde voor parameter en standaard in de `Parameters` element.  Het wordt aanbevolen dat de parameternaam de naam van de service (bijvoorbeeld ' MyService') bevat.
+1. Open het  *\<bestand mijn toepassing > \ApplicationPackageRoot\ApplicationManifest.XML* .
+1. In het bestand ApplicationManifest. XML declareert u een para meter en standaard waarde `Parameters` in het-element.  Het is aan te bevelen de naam van de service (bijvoorbeeld "MyService") in de parameter naam te vinden.
 
    ```xml
     <Parameters>
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
-  ```
-1. In de `ServiceManifestImport` sectie van het bestand ApplicationManifest.xml toevoegen een `ConfigOverrides` en `ConfigOverride` -element verwijst naar het configuratiepakket voor de sectie en de parameter.
+   ```
+1. Voeg in `ServiceManifestImport` de sectie van het ApplicationManifest. XML-bestand `ConfigOverride` een `ConfigOverrides` -element toe, dat verwijst naar het configuratie pakket, de sectie en de para meter.
 
    ```xml
     <ConfigOverrides>
@@ -60,9 +60,9 @@ In dit voorbeeld moet u de configuratiewaarde van een met behulp van parameters 
    ```
 
 > [!NOTE]
-> In het geval waarin u een ConfigOverride toevoegen, kiest Service Fabric altijd de parameters voor de toepassing of de standaardwaarde die is opgegeven in het toepassingsmanifest.
+> Als u een ConfigOverride toevoegt, kiest Service Fabric altijd de para meters van de toepassing of de standaard waarde die is opgegeven in het toepassings manifest.
 >
 >
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over de mogelijkheden van andere app-beheer die beschikbaar in Visual Studio zijn [beheren van uw Service Fabric-toepassingen in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+Zie [uw service Fabric-toepassingen beheren in Visual Studio](service-fabric-manage-application-in-visual-studio.md)voor informatie over andere mogelijkheden voor het beheren van apps die beschikbaar zijn in Visual Studio.

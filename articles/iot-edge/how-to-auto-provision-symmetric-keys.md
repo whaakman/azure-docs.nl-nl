@@ -1,5 +1,5 @@
 ---
-title: Apparaten automatisch inrichten met DPS met behulp van symmetrische sleutel Attestation-Azure IoT Edge | Microsoft Docs
+title: Apparaten autoinrichten met DPS met behulp van symmetrische sleutel Attestation-Azure IoT Edge | Microsoft Docs
 description: Symmetrische-sleutel attest gebruiken om het automatisch inrichten van apparaten te testen voor Azure IoT Edge met Device Provisioning Service
 author: kgremban
 manager: philmea
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a91162271bf36e1d68e087a60723497e7fc261ec
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3c21c0bdce6f6a5cd3c8f634bf400600b30a8ead
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275742"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414590"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Een IoT Edge apparaat maken en inrichten met behulp van symmetrische sleutel attest
 
-Azure IoT Edge-apparaten kunnen worden automatisch kan worden ingericht met behulp van de [Device Provisioning Service](../iot-dps/index.yml) net als bij apparaten die niet Microsoft edge-functionaliteit. Als u niet bekend met het proces van automatische inrichting bent, raadpleegt u de [concepten voor automatische inrichting](../iot-dps/concepts-auto-provisioning.md) voordat u doorgaat.
+Azure IoT Edge-apparaten kunnen autoprovisioned worden met behulp van de [Device Provisioning Service](../iot-dps/index.yml) net als bij apparaten die niet Microsoft edge-functionaliteit. Als u niet bekend met het proces van het autoprovisioning bent, raadpleegt u de [autoprovisioning concepten](../iot-dps/concepts-auto-provisioning.md) voordat u doorgaat.
 
 In dit artikel wordt beschreven hoe u een individuele inschrijving voor een Device Provisioning Service kunt maken met behulp van symmetrische sleutel attest op een IoT Edge apparaat, met de volgende stappen:
 
@@ -165,8 +165,7 @@ U hebt de volgende informatie nodig bij het inrichten van uw apparaat:
 
 Volg de instructies voor de architectuur van uw apparaat. Zorg ervoor dat u de IoT Edge-runtime voor het inrichten van automatische, niet handmatig configureren.
 
-* [Installeer de Azure IoT Edge runtime op Linux (x64)](how-to-install-iot-edge-linux.md)
-* [Installeer de Azure IoT Edge runtime op Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+[Installeer de Azure IoT Edge runtime op Linux](how-to-install-iot-edge-linux.md)
 
 De sectie in het configuratie bestand voor het inrichten van symmetrische sleutels ziet er als volgt uit:
 
@@ -188,7 +187,7 @@ Vervang de waarden van de `{scope_id}`tijdelijke `{registration_id}`aanduidingen
 
 Volg de instructies voor het installeren van de IoT Edge runtime op het apparaat waarvoor u een afgeleide-apparaatwachtwoord hebt gegenereerd. Zorg ervoor dat u de IoT Edge-runtime voor het inrichten van automatische, niet handmatig configureren.
 
-[IoT Edge installeren en automatisch inrichten](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+[IoT Edge installeren en automatisch inrichten in Windows](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>Controleer of geslaagde installatie
 

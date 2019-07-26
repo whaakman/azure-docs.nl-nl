@@ -1,10 +1,10 @@
 ---
-title: Gebruikerstoegang beheren met toegangsbeoordelingen - Azure Active Directory | Microsoft Docs
+title: Gebruikers toegang beheren met toegangs beoordelingen-Azure Active Directory | Microsoft Docs
 description: Informatie over hoe u Azure Active Directory-toegangsbeoordelingen gebruikt om gebruikerstoegang te beheren als lidmaatschap van een groep of toewijzing aan een toepassing
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 06/21/2018
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d873f1dace3e3be6a8767e77d57db5ac554afd7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70b6d925772548e6703b57c265ebacf6b7f3f4c9
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473804"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499641"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gebruikerstoegang beheren met Azure AD-toegangsbeoordelingen
 
@@ -34,7 +34,7 @@ Met Azure Active Directory (Azure AD) kunt u eenvoudig zorgen dat gebruikers de 
 
 - Azure AD Premium P2
 
-Zie voor meer informatie, [welke gebruikers moeten beschikken over licenties?](access-reviews-overview.md#which-users-must-have-licenses).
+Zie [welke gebruikers licenties moeten hebben?](access-reviews-overview.md#which-users-must-have-licenses)voor meer informatie.
 
 ## <a name="create-and-perform-an-access-review"></a>Een toegangscontrole uitvoeren
 
@@ -44,20 +44,20 @@ Een toegangsbeoordeling kan een of meer gebruikers als beoordelaar hebben.
 
 2. Bepaal of elke gebruikersbeoordeling een eigen toegang moet hebben, of dat een of meer gebruikers de toegang van iedereen kunnen beoordelen.
 
-3. Als een globale beheerder of Gebruikerbeheerder, gaat u naar de [Identiteitsbestuur pagina](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. Als globale beheerder of gebruikers beheerder gaat u naar de [pagina Identity governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-4. De toegangsbeoordeling maken. Zie voor meer informatie, [maken van een toegangscontrole van groepen of toepassingen](create-access-review.md).
+4. Maak de toegangs beoordeling. Zie [een toegangs beoordeling van groepen of toepassingen maken](create-access-review.md)voor meer informatie.
 
-5. Wanneer de toegangsbeoordeling wordt gestart, vraag de beoordelaars feedback te geven. Standaard ontvangen ze allemaal een e-mail van Azure AD met een koppeling naar het toegangsdeelvenster waar ze [toegang met groepen of toepassingen beoordelen](perform-access-review.md).
+5. Wanneer de toegangs beoordeling wordt gestart, vraagt u de revisoren om invoer te geven. Standaard ontvangen ze allemaal een e-mail van Azure AD met een koppeling naar het toegangs venster, waar ze de [toegang tot groepen of toepassingen controleren](perform-access-review.md).
 
 6. Als de beoordelaars geen feedback hebben gegeven, kunt u Azure AD vragen hen een herinnering te sturen. Standaard ontvangen de beoordelaars die nog niet hebben gereageerd halverwege de einddatum automatisch een herinnering van Azure AD.
 
-7. Wanneer alle beoordelaars feedback hebben gegeven, kunt u de toegangsbeoordeling stoppen en de wijzigingen toepassen. Zie voor meer informatie, [een toegangscontrole van groepen of toepassingen voltooien](complete-access-review.md).
+7. Wanneer alle beoordelaars feedback hebben gegeven, kunt u de toegangsbeoordeling stoppen en de wijzigingen toepassen. Zie [een toegangs beoordeling van groepen of toepassingen volt ooien](complete-access-review.md)voor meer informatie.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Een toegangsbeoordeling van groepen of toepassingen maken](create-access-review.md)
+[Een toegangs beoordeling van groepen of toepassingen maken](create-access-review.md)
 
 
 

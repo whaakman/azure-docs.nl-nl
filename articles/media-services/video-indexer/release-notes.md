@@ -1,6 +1,6 @@
 ---
-title: Releaseopmerkingen voor Azure Media Services Video Indexer | Microsoft Docs
-description: Als u wilt bijhouden met de meest recente ontwikkelingen, biedt in dit artikel u de meest recente updates voor Azure Media Services Video Indexer.
+title: Release opmerkingen bij Azure Media Services Video Indexer | Microsoft Docs
+description: Om up-to-date te blijven met de meest recente ontwikkelingen, biedt dit artikel u de meest recente updates op Azure Media Services Video Indexer.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,16 +10,16 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 07/22/2019
 ms.author: juliako
-ms.openlocfilehash: f1c5f43316292f17547b84d970a0f03a1a2c366f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fd67e867b5eac58838551ac29e1fca5e860b15ff
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454020"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414213"
 ---
-# <a name="azure-media-services-video-indexer-release-notes"></a>Releaseopmerkingen voor Azure Media Services Video Indexer
+# <a name="azure-media-services-video-indexer-release-notes"></a>Release opmerkingen bij Azure Media Services Video Indexer
 
 Als u wilt bijhouden met de meest recente ontwikkelingen, vindt in dit artikel u informatie over:
 
@@ -32,35 +32,35 @@ Als u wilt bijhouden met de meest recente ontwikkelingen, vindt in dit artikel u
 
 ### <a name="video-indexer-deployed-to-japan-east"></a>Video Indexer geïmplementeerd in Japan-Oost
 
-U kunt nu een Video Indexer-account in de regio Japan-Oost betaalde maken.
+U kunt nu een Video Indexer betaalde account maken in de regio Japan Oost.
 
-### <a name="create-and-repair-account-api-preview"></a>Maken en herstellen van de account-API (Preview)
+### <a name="create-and-repair-account-api-preview"></a>Account-API maken en herstellen (preview-versie)
 
-Een nieuwe API waarmee u toegevoegd [bijwerken van het verbindingseindpunt van Azure Media Service of de sleutel](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&groupBy=tag).
+Er is een nieuwe API toegevoegd waarmee u [het eind punt of de sleutel van de Azure media service-verbinding kunt bijwerken](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&groupBy=tag).
 
-### <a name="improve-error-handling-on-upload"></a>Fout bij het afhandelen van uploaden verbeteren 
+### <a name="improve-error-handling-on-upload"></a>Fout afhandeling bij uploaden verbeteren 
 
-Een beschrijving weergegeven wordt in het geval van onjuiste configuratie van de onderliggende Azure Media Services-account geretourneerd.
+Er wordt een beschrijvende bericht weer gegeven in geval van een onjuiste configuratie van het onderliggende Azure Media Services-account.
 
-### <a name="player-timeline-keyframes-preview"></a>Player tijdlijn hoofdframes preview 
+### <a name="player-timeline-keyframes-preview"></a>Voor beeld van tijdlijn hoofdframes in de speler 
 
-U ziet nu een voorbeeld van afbeelding voor elk tijdstip op de tijdlijn van de speler.
+U kunt nu een voor beeld van een afbeelding zien voor elke keer op de tijd lijn van de speler.
 
-### <a name="editor-semi-select"></a>Editor semi select
+### <a name="editor-semi-select"></a>De editor semi-Select
 
-U ziet nu een Preview-versie van de inzichten die zijn geselecteerd als gevolg van het kiezen van een tijdskader specifieke inzicht in de editor.
+U kunt nu een voor beeld zien van alle inzichten die zijn geselecteerd als gevolg van het kiezen van een specifieke inzichten periode in de editor.
 
 ## <a name="may-2019"></a>Mei 2019
 
-### <a name="update-custom-language-model-from-closed-caption-file"></a>Aangepaste taalmodel van ondertitelingsbestand bijwerken
+### <a name="update-custom-language-model-from-closed-caption-file"></a>Aangepast taal model bijwerken vanuit ondertitelings bestand
 
-[Maken van aangepaste taalmodel](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?&groupBy=tag) en [aangepaste taalmodellen bijwerken](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Language-Model?&groupBy=tag) API's bieden nu ondersteuning voor VTT, SRT, en TTML-bestandsindelingen als invoer voor de taalmodellen.
+[Aangepaste taal model maken](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?&groupBy=tag) en [aangepaste taal modellen bijwerken](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Language-Model?&groupBy=tag) api's bieden nu ondersteuning voor VTT-, SRT-en TTML-bestands indelingen als invoer voor taal modellen.
 
-Bij het aanroepen van de [Update Video transcript API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript), het transcript wordt automatisch toegevoegd. De training-model dat is gekoppeld aan de video wordt ook automatisch bijgewerkt. Zie voor meer informatie over het aanpassen en uw taalmodellen trainen [aanpassen van een taalmodel met Video Indexer](customize-language-model-overview.md).
+Bij het aanroepen van de [Update video transcriptie-API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript)wordt de transcripten automatisch toegevoegd. Het trainings model dat is gekoppeld aan de video wordt automatisch bijgewerkt. Zie [een taal model aanpassen met video indexer](customize-language-model-overview.md)voor meer informatie over het aanpassen en trainen van uw taal modellen.
 
-### <a name="new-download-transcript-formats--txt-and-csv"></a>Nieuwe downloaden transcript indelingen: TXT en CSV
+### <a name="new-download-transcript-formats--txt-and-csv"></a>Nieuwe indelingen voor het downloaden van transcripten – TXT en CSV
 
-Naast de gesloten closed captioning indeling al ondersteund (SRT, VTT en TTML), Video Indexer biedt nu ondersteuning voor het downloaden van het transcript in een TXT- en CSV-indeling.
+Naast de indeling voor ondertiteling die al wordt ondersteund (SRT, VTT en TTML), ondersteunt Video Indexer nu het downloaden van transcripten in TXT-en CSV-indelingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

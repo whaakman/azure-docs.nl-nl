@@ -1,310 +1,230 @@
 ---
-title: Over het onderzoeken van riskante gebruikers en aanmeldingen in Azure Active Directory identity protection (vernieuwd) | Microsoft Docs
-description: Informatie over het onderzoeken van riskante gebruikers en aanmeldingen in Azure Active Directory identity protection (vernieuwd).
+title: Risk ante gebruikers en aanmeldingen in Azure Active Directory identiteits beveiliging (vernieuwd) onderzoeken | Microsoft Docs
+description: Meer informatie over het onderzoeken van Risk ante gebruikers en aanmeldingen in Azure Active Directory identiteits beveiliging (vernieuwd).
 services: active-directory
-keywords: Azure active directory identity protection cloud app discovery, toepassingen, beveiliging, risico's, risiconiveau, beveiligingsproblemen, beveiligingsbeleid beheren
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.author: joflore
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
+ms.topic: conceptual
 ms.date: 01/25/2019
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a90195a2d0899b0a157cc67badd2f9873164987
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c89658e962654f005eaee5ceff220d5fb343e86e
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108954"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370321"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Procedure: Riskante gebruikers en aanmeldingen onderzoeken 
 
+Door gebruik te maken van rapporten met Risk ante aanmeldingen en Risk ante gebruikers kunt u het risico van uw omgeving onderzoeken en er inzicht in krijgen. Met de mogelijkheid om de Risk ante aanmeldingen en gebruikers te filteren en te sorteren, kunt u beter inzicht krijgen in mogelijke inbreuken in uw organisatie. 
 
-Met behulp van de rapporten over riskante aanmeldingen en riskante gebruikers kunt u onderzoek en krijg inzicht in de risico's in uw omgeving. Met de mogelijkheid om te filteren en sorteren van de riskante aanmeldingen en gebruikers, kunt u beter te begrijpen mogelijke indringers in uw organisatie. 
+## <a name="risky-users-report"></a>Rapport over riskante gebruikers
 
+Met de informatie van het rapport Risk ante gebruikers kunt u antwoorden vinden op vragen zoals:
 
-## <a name="risky-users-report"></a>Rapport riskante gebruikers
+- Welke gebruikers zijn een hoog risico?
+- Welke gebruikers hebben een risico status opgelost?
 
-Met de informatie die wordt geleverd door het rapport riskante gebruikers, vindt u antwoorden op vragen zoals:
+Uw eerste ingangs punt voor dit rapport is de sectie **onderzoek** op de pagina beveiliging.
 
-- Welke gebruikers zijn hoog risico?
-- Welke gebruikers hebben de status van een risico van hersteld?
+![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/01.png)
 
-
-
-Uw eerste beginpunt voor dit rapport is de **onderzoeken** sectie op de pagina.
-
-![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/01.png)
-
-
-Het rapport riskante gebruikers heeft een standaard-weergave waarin wordt weergegeven:
+Het rapport Risk ante gebruikers heeft een standaard weergave waarin het volgende wordt weer gegeven:
 
 - Name
-
-- Status gebruikersrisico
-
+- Status van risico
 - Risiconiveau
-
-- Details van de risico 's
-
-- Laatst bijgewerkt risico
-
-- Type
-
+- Details van risico
+- Risico voor het laatst bijgewerkt
+- type
 - Status
- 
 
-![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/03.png)
-
+![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/03.png)
 
 U kunt de lijstweergave aanpassen door te klikken op **Kolommen** op de werkbalk.
 
-![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/04.png)
+![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/04.png)
 
-Het dialoogvenster kolommen kunt u extra velden weergeven of velden verwijderen die al worden weergegeven.
+In het dialoog venster kolommen kunt u extra velden weer geven of velden verwijderen die al worden weer gegeven.
 
 Wanneer u op een item in de lijstweergave klikt, worden in een horizontale weergave alle beschikbare gegevens voor het item vermeld.
 
-![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/05.png)
+![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/05.png)
 
-
-De details weer wordt weergegeven:
+In de detail weergave ziet u het volgende:
 
 - Basisgegevens
-
 - Recente riskante aanmeldingen
+- Riskante gebeurtenissen die niet zijn gekoppeld aan een aanmelding
+- Risicogeschiedenis
 
-- Risicogebeurtenissen niet is gekoppeld aan een aanmelding
+Daarnaast kunt u het volgende doen:
 
-- Geschiedenis van risico
+![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/08.png)
 
+- De snelkoppeling alle aanmeldingen weer geven om het rapport met aanmeldingen voor die gebruiker weer te geven.
+- Bekijk alle Risk ante aanmeldingen om alle aanmeldingen voor die gebruiker weer te geven die als riskant zijn gemarkeerd.
+- Stel het wacht woord van een gebruiker opnieuw in als u denkt dat de identiteit van de gebruiker is aangetast.
+- Sluit gebruikers risico af als u denkt dat de actieve risico gebeurtenissen van een gebruiker vals-positief zijn. Zie het artikel [feedback geven over risico gebeurtenissen in azure AD Identity Protection](howto-provide-risk-event-feedback.md)voor meer informatie.
 
+### <a name="filter-risky-users"></a>Risk ante gebruikers filteren
 
-U kunt ook het volgende doen:
-
-![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/08.png)
-
-- Bekijk alle aanmeldingen snelkoppeling om het rapport aanmeldingen voor die gebruiker weer te geven.
-
-- Alle riskante aanmeldingen bekijken als u wilt weergeven van alle aanmeldingen voor die gebruiker die zijn gemarkeerd als riskant.
-
-- Wachtwoord van een gebruiker opnieuw instellen als u van mening bent dat de identiteit van de gebruiker is aangetast.
-
-- Gebruikersrisico negeren als u denkt dat de actieve risicogebeurtenissen van een gebruiker fout-positieven. Zie voor meer informatie, [over het verbeteren van de nauwkeurigheid van de detectie](howto-improve-detection-accuracy.md).
-
-
-
-### <a name="filter-risky-users"></a>Riskante gebruikers filteren
-
-Als u wilt beperken de gerapporteerde gegevens naar een niveau die bij u past, kunt u de gegevens van de riskante gebruiker met behulp van de volgende standaardvelden filteren:
+Als u de gerapporteerde gegevens wilt beperken tot een niveau dat geschikt is voor u, kunt u de Risk ante gebruikers gegevens filteren met behulp van de volgende standaard velden:
 
 - Name
-
 - Gebruikersnaam
-
-- Status gebruikersrisico
-
+- Status van risico
 - Risiconiveau
-
-- Type
-
+- type
 - Status
 
-![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/06.png)
+![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/06.png)
 
+Met het filter **naam** kunt u de naam of de User Principal Name (UPN) opgeven van de gebruiker die u bezorgt.
 
+Met het filter **risico status** kunt u het volgende selecteren:
 
-De **naam** filter kunt u de naam of de user principal name (UPN) van de gewenste gebruiker opgeven.
-
-
-De **risico status** filter kunt u selecteren:
-
-- Risico lopen
+- Loopt risico
 - Hersteld
-- Gesloten
+- Verwijderd
 
-
-De **risiconiveau** filter kunt u selecteren:
+Met het filter **risico niveau** kunt u het volgende selecteren:
 
 - Hoog
 - Gemiddeld
 - Laag
 
-
-De **Type** filter kunt u selecteren:
+Met het filter **type** kunt u het volgende selecteren:
 
 - Gast
 - Lid
 
-De **Status** filter kunt u selecteren:
+Met het **status** filter kunt u het volgende selecteren:
 
-- Verwijderen
+- Verwijderd
 - Actief
 
+### <a name="download-risky-users-data"></a>Risk ante gebruikers gegevens downloaden
 
-### <a name="download-risky-users-data"></a>Riskante gebruikers gegevens downloaden
+U kunt de Risk ante gebruikers gegevens downloaden als u deze buiten het Azure Portal wilt gebruiken. Als u op downloaden klikt, wordt er een CSV-bestand van de meest recente 2.500 records gemaakt. 
 
-Als u wilt werken met deze buiten de Azure-portal, kunt u de gegevens riskante gebruikers downloaden. Downloaden te klikken op maakt een CSV-bestand van de meest recente 2500 records. 
+![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/07.png)
 
-![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/07.png)
-
-
-U kunt de lijstweergave aanpassen door kolommen in de werkbalk te klikken.
+U kunt de lijst weergave aanpassen door te klikken op de kolommen in de werk balk.
  
 Hiermee kunt u extra velden weergeven of velden verwijderen die al worden weergegeven.
  
-Voor meer informatie over een riskante gebruiker, klikt u op in de sectie van de gegevens uit te vouwen
-
- 
-
-
+Als u meer wilt weten over een Risk ante gebruiker, klikt u op de gegevens lade om deze uit te vouwen
 
 ## <a name="risky-sign-ins-report"></a>Rapport Riskante aanmeldingen
 
-Met de informatie die wordt geleverd door het rapport riskante aanmeldingen, vindt u antwoorden op vragen zoals:
+Met de informatie van het rapport Risk ante aanmeldingen kunt u antwoorden vinden op vragen zoals:
 
-- Het aantal geslaagde aanmeldingen zijn er die anonieme risicogebeurtenissen voor IP-adres heeft in de afgelopen week?
+- Hoeveel geslaagde aanmeldingen heeft de afgelopen week anonieme IP-adres risico gebeurtenissen gehad?
+- Welke gebruikers zijn in de afgelopen maand in het gedrang zijn bevestigd?
+- Welke gebruikers hebben Risk ante aanmeldingen bij de Office 365-Portal?
 
-- Welke gebruikers zijn bevestigd dat het gedrang komen in de afgelopen maand?
-
-- Welke gebruikers waren riskante aanmeldingen bij de Office 365-portal?
-
-
-
-
-Uw eerste beginpunt voor dit rapport is de **onderzoeken** sectie op de pagina.
+Uw eerste ingangs punt voor dit rapport is de sectie **onderzoek** op de pagina beveiliging.
 
 ![Rapport Riskante aanmeldingen](./media/howto-investigate-risky-users-signins/02.png)
 
-Het rapport riskante aanmeldingen heeft een standaard-weergave waarin wordt weergegeven:
+Het rapport Risk ante aanmeldingen heeft een standaard weergave waarin het volgende wordt weer gegeven:
 
 - Date
-
 - Gebruiker
-
 - Toepassing
-
 - Aanmeldingsstatus
-
-- Status gebruikersrisico
-
-- Risiconiveau (totaal)
-
-- Risiconiveau (realtime)
-
+- Status van risico
+- Risico niveau (aggregatie)
+- Risico niveau (realtime)
 - Voorwaardelijke toegang
-
 - MFA vereist  
- 
 
 ![Rapport Riskante aanmeldingen](./media/howto-investigate-risky-users-signins/09.png)
 
-
 U kunt de lijstweergave aanpassen door te klikken op **Kolommen** op de werkbalk.
 
-![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/11.png)
+![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/11.png)
 
-Het dialoogvenster kolommen kunt u extra velden weergeven of velden verwijderen die al worden weergegeven.
+In het dialoog venster kolommen kunt u extra velden weer geven of velden verwijderen die al worden weer gegeven.
 
 Wanneer u op een item in de lijstweergave klikt, worden in een horizontale weergave alle beschikbare gegevens voor het item vermeld.
 
-![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/12.png)
+![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/12.png)
 
-
-De details weer wordt weergegeven:
+In de detail weergave ziet u het volgende:
 
 - Basisgegevens
-
 - Apparaatgegevens
-
-- Informatie over de risico 's
-
+- Risicogegevens
 - MFA-info
-
 - Voorwaardelijke toegang
 
+Daarnaast kunt u het volgende doen:
 
+![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/13.png)
 
+- Inbreuk bevestigen 
+- Veiligheid bevestigen
 
+Zie het artikel [feedback geven over risico gebeurtenissen in azure AD Identity Protection](howto-provide-risk-event-feedback.md)voor meer informatie.
 
-U kunt ook het volgende doen:
+### <a name="filter-risky-sign-ins"></a>Risk ante aanmeldingen filteren
 
-![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/13.png)
-
-- Controleer of aangetast 
-
-- Veilige bevestigen
-
-Zie voor meer informatie, [over het verbeteren van de nauwkeurigheid van de detectie](howto-improve-detection-accuracy.md).
-
-
-
-
-### <a name="filter-risky-sign-ins"></a>Riskante aanmeldingen filteren
-
-Als u wilt beperken de gerapporteerde gegevens naar een niveau die bij u past, kunt u de gegevens van de riskante gebruiker met behulp van de volgende standaardvelden filteren:
+Als u de gerapporteerde gegevens wilt beperken tot een niveau dat geschikt is voor u, kunt u de Risk ante gebruikers gegevens filteren met behulp van de volgende standaard velden:
 
 - Gebruiker
 - Toepassing
 - Aanmeldingsstatus
-- Status gebruikersrisico
-- Risiconiveau (totaal)
-- Risiconiveau (realtime)
+- Status van risico
+- Risico niveau (aggregatie)
+- Risico niveau (realtime)
 - Voorwaardelijke toegang
 - Date
-- Niveau risicotype
+- Type risico niveau
 
 ![Rapport Riskante aanmeldingen](./media/howto-investigate-risky-users-signins/14.png)
 
+Met het filter **naam** kunt u de naam of de User Principal Name (UPN) opgeven van de gebruiker die u bezorgt.
 
-
-De **naam** filter kunt u de naam of de user principal name (UPN) van de gewenste gebruiker opgeven.
-
-De **toepassing** filter kunt u opgeven van de cloud-app die de gebruiker toegang probeert te krijgen.
+Met het filter **toepassing** kunt u de Cloud-app opgeven waartoe de gebruiker toegang probeerde te krijgen.
 
 Met het filter **Aanmeldingsstatus** kunt u selecteren:
 
 - Alle
 - Geslaagd
-- Fout
+- Mislukte poging
 
+Met het filter **risico status** kunt u het volgende selecteren:
 
-De **risico status** filter kunt u selecteren:
-
-- Risico lopen
-- Bevestigd aangetast
-- Veilige bevestigd
-- Gesloten
+- Loopt risico
+- Bevestigd (inbreuk)
+- Bevestigd (veilig)
+- Verwijderd
 - Hersteld
 
-
-De **risiconiveau (totaal)** filter kunt u selecteren:
-
-- Hoog
-- Gemiddeld
-- Laag
-
-De **(realtime) risiconiveau** filter kunt u selecteren:
+Met het filter **risico niveau (aggregatie)** kunt u het volgende selecteren:
 
 - Hoog
 - Gemiddeld
 - Laag
 
+Met het filter **risico niveau (realtime)** kunt u het volgende selecteren:
 
-De **voorwaardelijke toegang** filter kunt u selecteren:
+- Hoog
+- Gemiddeld
+- Laag
+
+Met het filter **voorwaardelijke toegang** kunt u het volgende selecteren:
 
 - Alle
 - Niet toegepast
 - Geslaagd
-- Fout
-
+- Mislukte poging
 
 Met het filter **Datum** kunt u een tijdsbestek opgeven voor de geretourneerde gegevens.
 Mogelijke waarden zijn:
@@ -312,20 +232,14 @@ Mogelijke waarden zijn:
 - Afgelopen maand
 - Afgelopen 7 dagen
 - Afgelopen 24 uur
-- Aangepast tijdsinterval
+- Aangepaste tijdinterval
 
+### <a name="download-risky-sign-ins-data"></a>Risk ante aanmeldingen gegevens downloaden
 
+U kunt de gegevens voor Risk ante aanmeldingen downloaden als u deze buiten het Azure Portal wilt gebruiken. Als u op downloaden klikt, wordt er een CSV-bestand van de meest recente 2.500 records gemaakt. 
 
-
-
-### <a name="download-risky-sign-ins-data"></a>Riskante aanmeldingen gegevens downloaden
-
-Als u wilt werken met deze buiten de Azure-portal, kunt u de gegevens riskante aanmeldingen downloaden. Downloaden te klikken op maakt een CSV-bestand van de meest recente 2500 records. 
-
-![Rapport riskante gebruikers](./media/howto-investigate-risky-users-signins/15.png)
-
-
+![Rapport over riskante gebruikers](./media/howto-investigate-risky-users-signins/15.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u een overzicht van Azure AD Identity Protection, raadpleegt u de [overzicht van Azure AD Identity Protection](overview-v2.md).
+Zie overzicht van de [Azure AD Identity Protection](overview-v2.md)voor een overzicht van Azure AD Identity Protection.

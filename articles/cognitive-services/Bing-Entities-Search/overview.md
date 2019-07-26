@@ -1,6 +1,6 @@
 ---
 title: Wat is de Bing Entiteiten zoeken-API?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Gebruik de Bing Entiteiten zoeken-API om te zoeken naar entiteiten en locaties en om deze te extraheren uit zoekquery's.
 services: cognitive-services
 author: swhite-msft
@@ -10,16 +10,16 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: scottwhi
-ms.openlocfilehash: 679a3d9efbeeb75e0aa8e3986fa85b7ecf0d77bd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 8f43401296a154ee40e7c214ad63da878129244a
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388503"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424009"
 ---
 # <a name="what-is-bing-entity-search-api"></a>Wat is de Bing Entiteiten zoeken-API?
 
-De Bing Entiteiten zoeken-API verzendt een zoekquery naar Bing en haalt resultaten op die zowel entiteiten als plaatsen bevatten. Plaatsresultaten kunnen restaurants, hotels of andere lokale bedrijven zijn. Bing retourneert plaatsen als in de query de naam van een lokaal bedrijf is opgegeven, of als er om een type bedrijf wordt gevraagd (bijvoorbeeld restaurants in de buurt). Bing retourneert entiteiten als de query bekende mensen, plaatsen (toeristische bezienswaardigheden, Staten, landen/regio's, enzovoort) of dingen geeft.
+De Bing Entiteiten zoeken-API verzendt een zoekquery naar Bing en haalt resultaten op die zowel entiteiten als plaatsen bevatten. Plaatsresultaten kunnen restaurants, hotels of andere lokale bedrijven zijn. Bing retourneert plaatsen als in de query de naam van een lokaal bedrijf is opgegeven, of als er om een type bedrijf wordt gevraagd (bijvoorbeeld restaurants in de buurt). Bing retourneert entiteiten als de query bekende mensen, plaatsen (toeristische attractions, Staten, landen/regio's enz.) of dingen aangeeft.
 
 |Functie  |Description  |
 |---------|---------|

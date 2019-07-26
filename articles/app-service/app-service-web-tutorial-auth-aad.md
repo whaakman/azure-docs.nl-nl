@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ff0cb82e3f1ddedf8dabebadf7a0309d08b2c4e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fff2469269d8f60f837f0af444e16928a9212bb0
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66139098"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67866567"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Zelfstudie: Zelfstudie: Gebruikers eind-tot-eind verifiëren en autoriseren in Azure App Service
 
@@ -90,29 +90,29 @@ In deze stap implementeert u het project in twee App Service-apps. De ene is de 
 
 ### <a name="create-azure-resources"></a>Azure-resources maken
 
-Voer in Azure Cloud Shell de volgende opdrachten uit om twee web-apps te maken. Vervang _&lt;front\_end\_app\_name>_ en _&lt;back\_end\_app\_name>_ door twee globaal unieke app-namen (geldige tekens zijn `a-z`, `0-9` en `-`). Zie [RESTful API hosten met CORS in Azure App Service](app-service-web-tutorial-rest-api.md) voor meer informatie over de opdrachten.
+Voer in Azure Cloud Shell de volgende opdrachten uit om twee web-apps te maken. Vervang  _\<front-end-app-naam >_ en  _\<back-end-app-name >_ met twee globaal unieke app-namen (geldige tekens zijn `a-z`, `0-9`, en `-`). Zie [RESTful API hosten met CORS in Azure App Service](app-service-web-tutorial-rest-api.md) voor meer informatie over de opdrachten.
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
 az appservice plan create --name myAuthAppServicePlan --resource-group myAuthResourceGroup --sku FREE
-az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <front_end_app_name> --deployment-local-git --query deploymentLocalGitUrl
-az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <back_end_app_name> --deployment-local-git --query deploymentLocalGitUrl
+az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <front-end-app-name> --deployment-local-git --query deploymentLocalGitUrl
+az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <back-end-app-name> --deployment-local-git --query deploymentLocalGitUrl
 ```
 
 > [!NOTE]
-> Sla de URL's van de externe Git-instanties voor de front-en-app en de back-end-app op. Deze worden in de uitvoer van `az webapp create` weergegeven.
+> Sla de URL's van de Git-remotes voor uw front-end en back-end-apps worden weergegeven in de uitvoer van `az webapp create`.
 >
 
 ### <a name="push-to-azure-from-git"></a>Pushen naar Azure vanaf Git
 
-Voer in het _lokale terminalvenster_ de volgende Git-opdrachten uit om de implementatie in de back-end-app uit te voeren. Vervang _&lt;deploymentLocalGitUrl-of-back-end-app>_ door de URL van de externe Git-instantie die u hebt opgeslagen in [Azure-resources maken](#create-azure-resources). Wanneer u door Git Credential Manager om referenties wordt gevraagd, geeft u [de referenties voor implementatie](deploy-configure-credentials.md) op en niet de referenties die u gebruikt om u aan te melden bij Azure Portal.
+Voer in het _lokale terminalvenster_ de volgende Git-opdrachten uit om de implementatie in de back-end-app uit te voeren. Vervang _\<deploymentLocalGitUrl-of-back-end-app>_ door de URL van de externe Git-instantie die u hebt opgeslagen in [Azure-resources maken](#create-azure-resources). Wanneer u wordt gevraagd om referenties door Git Credential Manager, zorg ervoor dat u [de referenties voor implementatie](deploy-configure-credentials.md), niet de referenties die u gebruiken om aan te melden bij de Azure-portal.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
 git push backend master
 ```
 
-Voer in het lokale terminalvenster de volgende Git-opdrachten uit om dezelfde code in de front-end-app te implementeren. Vervang _&lt;deploymentLocalGitUrl-of-front-end-app>_ door de URL van de externe Git-instantie die u hebt opgeslagen in [Azure-resources maken](#create-azure-resources).
+Voer in het lokale terminalvenster de volgende Git-opdrachten uit om dezelfde code in de front-end-app te implementeren. Vervang _\<deploymentLocalGitUrl-of-front-end-app>_ door de URL van de externe Git-instantie die u hebt opgeslagen in [Azure-resources maken](#create-azure-resources).
 
 ```bash
 git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
@@ -124,8 +124,8 @@ git push frontend master
 Ga in een browser naar de volgende URL's om de twee apps in werking te zien.
 
 ```
-http://<back_end_app_name>.azurewebsites.net
-http://<front_end_app_name>.azurewebsites.net
+http://<back-end-app-name>.azurewebsites.net
+http://<front-end-app-name>.azurewebsites.net
 ```
 
 ![ASP.NET Core-API uitvoeren in Azure App Service](./media/app-service-web-tutorial-auth-aad/azure-run.png)
@@ -141,11 +141,11 @@ In deze stap legt u voor de servercode van de front-end-app vast dat toegang tot
 
 ### <a name="modify-front-end-code"></a>Front-end-code wijzigen
 
-Open _Controllers/TodoController.cs_ in de lokale opslagplaats. Voeg aan het begin van de `TodoController`-klasse de volgende regels toe en vervang _&lt;back\_end\_app\_name>_ door de naam van de back-end-app:
+Open _Controllers/TodoController.cs_ in de lokale opslagplaats. Aan het begin van de `TodoController` klasse de volgende regels toe en vervang  _\<back-end-app-name >_ met de naam van de back-end-app:
 
 ```cs
 private static readonly HttpClient _client = new HttpClient();
-private static readonly string _remoteUrl = "https://<back_end_app_name>.azurewebsites.net";
+private static readonly string _remoteUrl = "https://<back-end-app-name>.azurewebsites.net";
 ```
 
 Zoek de `GetAll()`-methode en vervang de code binnen de accolades door:
@@ -204,9 +204,9 @@ git push frontend master
 
 ### <a name="check-your-changes"></a>Wijzigingen controleren
 
-Ga naar `http://<front_end_app_name>.azurewebsites.net` en voeg enkele items toe, bijvoorbeeld `from front end 1` en `from front end 2`.
+Ga naar `http://<front-end-app-name>.azurewebsites.net` en voeg enkele items toe, bijvoorbeeld `from front end 1` en `from front end 2`.
 
-Ga naar `http://<back_end_app_name>.azurewebsites.net` om de items te zien die aan de front-end-app zijn toegevoegd. Voeg nu ook een paar items toe, zoals `from back end 1` en `from back end 2`, en vernieuw de front-end-app om de doorgevoerde wijzigingen te zien.
+Ga naar `http://<back-end-app-name>.azurewebsites.net` om de items te zien die aan de front-end-app zijn toegevoegd. Voeg nu ook een paar items toe, zoals `from back end 1` en `from back end 2`, en vernieuw de front-end-app om de doorgevoerde wijzigingen te zien.
 
 ![ASP.NET Core-API uitvoeren in Azure App Service](./media/app-service-web-tutorial-auth-aad/remote-api-call-run.png)
 
@@ -218,7 +218,7 @@ U gebruikt Azure Active Directory als id-provider. Zie [Verificatie van Azure Ac
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Verificatie en autorisatie voor de back-end-app inschakelen
 
-Open in de [Azure-portal](https://portal.azure.com) de beheerpagina voor de back-end-app door in het linkermenu te klikken op: **Resourcegroepen** > **myAuthResourceGroup** > _\<terug\_end\_app\_naam>_.
+Open in de [Azure-portal](https://portal.azure.com) de beheerpagina voor de back-end-app door in het linkermenu te klikken op: **Resourcegroepen** > **myAuthResourceGroup** >  _\<back-end-app-name >_ .
 
 ![ASP.NET Core-API uitvoeren in Azure App Service](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -234,7 +234,7 @@ Klik op **Express** en accepteer de standaardinstellingen om een nieuwe AD-app t
 
 Klik op de pagina **Verificatie/autorisatie** op **Opslaan**. 
 
-Vernieuw de pagina als de melding met het bericht `Successfully saved the Auth Settings for <back_end_app_name> App` wordt weergegeven.
+Vernieuw de pagina als de melding met het bericht `Successfully saved the Auth Settings for <back-end-app-name> App` wordt weergegeven.
 
 Klik nogmaals op **Azure Active Directory** en klik op **Toepassing beheren**.
 
@@ -246,7 +246,7 @@ Kopieer vanaf de beheerpagina van de AD-toepassing de **toepassings-id** in Klad
 
 Volg dezelfde stappen voor de front-end-app, maar sla de laatste stap over. U hebt de **toepassings-id** niet voor de front-end-app nodig. Houd de pagina **Azure Active Directory-instellingen** geopend.
 
-Ga, als u wilt, naar `http://<front_end_app_name>.azurewebsites.net`. U wordt nu doorgestuurd naar een beveiligde aanmeldingspagina. Nadat u zich hebt aangemeld, hebt u nog steeds geen toegang tot de gegevens in de back-end-app, omdat u nog drie dingen moet doen:
+Ga, als u wilt, naar `http://<front-end-app-name>.azurewebsites.net`. U wordt nu doorgestuurd naar een beveiligde aanmeldingspagina. Nadat u zich hebt aangemeld, hebt u nog steeds geen toegang tot de gegevens in de back-end-app, omdat u nog drie dingen moet doen:
 
 - De front-end toegang geven tot de back-end
 - App Service configureren zodat een bruikbaar token wordt geretourneerd
@@ -267,7 +267,7 @@ Klik op **Machtigingen beheren** > **Toevoegen** > **Select an API**.
 
 Typ op de pagina **Select an API** de naam van de AD-toepassing voor de back-end-app. Dit is dezelfde naam als de standaardnaam van de back-end-app. Selecteer de naam in de lijst en klik op **Selecteren**.
 
-Schakel het selectievakje in naast **Access _&lt;AD\_application\_name>_**. Klik op **Selecteren** > **Gereed**.
+Schakel het selectievakje in naast **toegang  _\<AD-toepassing-name >_** . Klik op **Selecteren** > **Gereed**.
 
 ![ASP.NET Core-API uitvoeren in Azure App Service](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
 
@@ -279,7 +279,7 @@ Meld u aan bij [Azure Resource Explorer](https://resources.azure.com). Klik bove
 
 ![ASP.NET Core-API uitvoeren in Azure App Service](./media/app-service-web-tutorial-auth-aad/resources-enable-write.png)
 
-Klik in de linkerbrowser op **subscriptions** > **_&lt;your\_subscription>_** > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** > **_\<front\_end\_app\_name>_** > **config** > **authsettings**.
+Klik in het linkerdeelvenster browser **abonnementen** >  **_\<uw abonnement >_**  > **resourceGroups**   >  **myAuthResourceGroup** > **providers** > **Microsoft.Web**  >  **sites** >  **_\<front-end-app-naam >_**  > **config**  >  **authsettings**.
 
 Klik in de weergave **authsettings** op **Bewerken**. Stel `additionalLoginParams` in op de volgende JSON-tekenreeks met behulp van de toepassings-id die u hebt gekopieerd. 
 
@@ -327,7 +327,7 @@ git commit -m "add authorization header for server code"
 git push frontend master
 ```
 
-Meld u opnieuw aan bij `https://<front_end_app_name>.azurewebsites.net`. Klik op de pagina over de gebruiksovereenkomst voor gebruikersgegevens op **Accepteren**.
+Meld u opnieuw aan bij `https://<front-end-app-name>.azurewebsites.net`. Klik op de pagina over de gebruiksovereenkomst voor gebruikersgegevens op **Accepteren**.
 
 U moet nu net als eerder gegevens uit de back-end-app kunnen maken, lezen, bijwerken en verwijderen. Het enige verschil is dat beide apps nu worden beveiligd door App Service-verificatie en -autorisatie, waaronder de aanroepen tussen services.
 
@@ -345,10 +345,10 @@ Terwijl de servercode toegang heeft tot de aanvraag-headers, heeft de clientcode
 
 ### <a name="configure-cors"></a>CORS configureren
 
-Schakel in Cloud Shell CORS in voor de URL van de client met de opdracht [`az resource update`](/cli/azure/resource#az-resource-update). Vervang de tijdelijke aanduidingen _\<back\_end\_app\_name>_ en _\<front\_end\_app\_name>_.
+Schakel in Cloud Shell CORS in voor de URL van de client met de opdracht [`az resource update`](/cli/azure/resource#az-resource-update). Vervang de  _\<back-end-app-name >_ en  _\<front-end-app-naam >_ tijdelijke aanduidingen.
 
 ```azurecli-interactive
-az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.azurewebsites.net']" --api-version 2015-06-01
+az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back-end-app-name> --set properties.cors.allowedOrigins="['https://<front-end-app-name>.azurewebsites.net']" --api-version 2015-06-01
 ```
 
 Deze stap heeft geen betrekking op verificatie en autorisatie. U hebt deze echter nodig zodat de browser API-aanroepen tussen domeinen vanaf de Angular.js-app toestaat. Zie [CORS-functionaliteit toevoegen](app-service-web-tutorial-rest-api.md#add-cors-functionality) voor meer informatie.
@@ -357,7 +357,7 @@ Deze stap heeft geen betrekking op verificatie en autorisatie. U hebt deze echte
 
 Open _wwwroot/index.html_ in de lokale opslagplaats.
 
-Stel in regel 51 de variabele `apiEndpoint` in op de URL van uw back-end-app (`https://<back_end_app_name>.azurewebsites.net`). Vervang _\<back\_end\_app\_name>_ door de naam van uw app in App Service.
+Stel in regel 51 de variabele `apiEndpoint` in op de URL van uw back-end-app (`https://<back-end-app-name>.azurewebsites.net`). Vervang  _\<back-end-app-name >_ met de naam van uw app in App Service.
 
 Open _wwwroot/app/scripts/todoListSvc.js_ in de lokale opslagplaats en controleer of alle API-aanroepen door `apiEndpoint` vooraf worden gegaan. De Angular.js-app roept nu de back-end-API's aan. 
 
@@ -411,7 +411,7 @@ git commit -m "add authorization header for Angular"
 git push frontend master
 ```
 
-Ga opnieuw naar `https://<front_end_app_name>.azurewebsites.net`. U moet nu rechtstreeks in de Angular.js-app gegevens in de back-end kunnen maken, lezen, bijwerken en verwijderen.
+Ga opnieuw naar `https://<front-end-app-name>.azurewebsites.net`. U moet nu rechtstreeks in de Angular.js-app gegevens in de back-end kunnen maken, lezen, bijwerken en verwijderen.
 
 Gefeliciteerd! De clientcode heeft nu toegang tot de gegevens van de back-end namens de geverifieerde gebruiker.
 

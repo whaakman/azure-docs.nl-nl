@@ -5,6 +5,10 @@
   items:
     - name: Wat zijn cognitieve services?
       href: Welcome.md
+    - name: Aangepaste subdomeinen voor Cognitive Services
+      href: cognitive-services-custom-subdomains.md
+    - name: Cognitive Services en machine learning
+      href: cognitive-services-and-machine-learning.md
     - name: Taalondersteuning
       href: language-support.md
 - name: Ondersteuning voor containers
@@ -31,9 +35,9 @@
           href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Snelstartgidsen
   items:
-    - name: Een account maken in Azure Portal
+    - name: Een nieuwe resource maken met de Azure-portal
       href: cognitive-services-apis-create-account.md
-    - name: Een account maken met behulp van de Azure CLI
+    - name: Een nieuwe resource maken met de Azure CLI
       href: cognitive-services-apis-create-account-cli.md
     - name: Verificatie
       href: authentication.md

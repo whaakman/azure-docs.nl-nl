@@ -1,7 +1,7 @@
 ---
 title: 'Snelstartgids: Afbeeldingen zoeken - Bing Image Search-SDK voor C#'
-description: Gebruik deze snelstart om voor de eerste keer afbeeldingen te zoeken met behulp van de Bing Afbeeldingen zoeken-SDK, wat een wrapper is voor de API en die dus dezelfde functies bevat. Deze eenvoudige C#-toepassing verzendt een zoekquery voor afbeeldingen, parseert het JSON-antwoord en geeft de URL weer van de eerst geretourneerde afbeelding.
 titleSuffix: Azure Cognitive Services
+description: Gebruik deze snelstart om voor de eerste keer afbeeldingen te zoeken met behulp van de Bing Afbeeldingen zoeken-SDK, wat een wrapper is voor de API en die dus dezelfde functies bevat. Deze eenvoudige C#-toepassing verzendt een zoekquery voor afbeeldingen, parseert het JSON-antwoord en geeft de URL weer van de eerst geretourneerde afbeelding.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 0a50ca8dfda1e51cdc27728975e40dcbf8ce6dbd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: b45fbf551d17de499b5019e22a4b7174653d9eff
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384217"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423857"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-c"></a>Snelstartgids: Afbeeldingen zoeken met de Bing Image Search-SDK voor C#
 
@@ -25,10 +25,10 @@ Gebruik deze snelstart om voor de eerste keer afbeeldingen te zoeken met behulp 
 De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) met extra foutafhandeling en aantekeningen.
 
 ## <a name="prerequisites"></a>Vereisten
-* Een versie van [Visual Studio 2017 of later](https://visualstudio.microsoft.com/vs/whatsnew/).
+* Een versie van [Visual Studio 2017 of hoger](https://visualstudio.microsoft.com/vs/whatsnew/).
 * Het [Cognitieve Afbeeldingen zoeken NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 
-Voor het installeren van de Bing afbeeldingen zoeken-SDK in Visual Studio, gebruikt u de **NuGet-pakketten beheren** optie van **Solution Explorer**.
+Als u de Bing Image Search SDK in Visual Studio wilt installeren, gebruikt u de optie **NuGet-pakketten beheren** vanuit **Solution Explorer**.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

@@ -1,7 +1,7 @@
 ---
-title: Overzicht van Azure Automation-status
-description: Een overzicht van Azure Automation State Configuration (DSC), de voorwaarden en bekende problemen
-keywords: PowerShell dsc, configuratie van gewenste status, powershell dsc azure
+title: Overzicht van Azure Automation status configuratie
+description: Een overzicht van Azure Automation State Configuration (DSC), de voor waarden en bekende problemen
+keywords: Power shell DSC, desired state Configuration, Power shell DSC Azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,44 +10,44 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a5d4657f87b0a6cbae0699c5a2f95773ff55f633
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 3f6d15e67122afcbea3cc294c803a302e961bdbd
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798439"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372549"
 ---
-# <a name="azure-automation-state-configuration-overview"></a>Overzicht van Azure Automation-status
+# <a name="azure-automation-state-configuration-overview"></a>Overzicht van Azure Automation status configuratie
 
-Configuratie van de status van Azure Automation is een Azure-service waarmee u te schrijven, beheren en compileren PowerShell Desired State Configuration (DSC) [configuraties](/powershell/dsc/configurations), importeren [DSC-Resources](/powershell/dsc/resources), en configuraties toewijzen aan doelknooppunten, allemaal in de cloud.
+Azure Automation status configuratie is een Azure-service waarmee u Power shell desired state Configuration (DSC)- [configuraties](/powershell/dsc/configurations)kunt schrijven, beheren en compileren, [DSC-resources](/powershell/dsc/resources)kunt importeren en configuraties aan doel knooppunten kunt toewijzen. Cloud.
 
-## <a name="why-use-azure-automation-state-configuration"></a>Waarom Azure Automation State Configuration gebruiken
+## <a name="why-use-azure-automation-state-configuration"></a>Waarom Azure Automation status configuratie gebruiken?
 
-Statusconfiguratie van Azure Automation biedt verschillende voordelen boven het gebruik van DSC buiten Azure.
+Azure Automation status configuratie biedt verschillende voor delen ten opzichte van het gebruik van DSC buiten Azure.
 
 ### <a name="built-in-pull-server"></a>Ingebouwde pull-server
 
-Configuratie van de status van Azure Automation biedt een DSC-pull-server die vergelijkbaar is met de [Windows functie DSC-Service](/powershell/dsc/pullserver) zodat doelknooppunten automatisch configuraties ontvangen, voldoen aan de gewenste status en rapporteren over hun naleving van beleid. De ingebouwde pull-server in Azure Automation elimineert de noodzaak te instellen en onderhouden van uw eigen pull-server. Azure Automation kunt zich richten op virtuele of fysieke Windows- of Linux-systemen, in de cloud of on-premises.
+Azure Automation status configuratie biedt een DSC-pull-server vergelijkbaar met de [Windows-functie DSC-service](/powershell/dsc/pullserver) zodat doel knooppunten automatisch configuraties ontvangen, voldoen aan de gewenste status en rapporteren aan hun naleving. De ingebouwde pull-server in Azure Automation elimineert de nood zaak om uw eigen pull-server in te stellen en te onderhouden. Azure Automation kunnen virtuele of fysieke Windows-of Linux-machines in de Cloud of on-premises zijn gericht.
 
-### <a name="management-of-all-your-dsc-artifacts"></a>Beheer van alle DSC-artefacten
+### <a name="management-of-all-your-dsc-artifacts"></a>Beheer van al uw DSC-artefacten
 
-Statusconfiguratie van Azure Automation biedt dezelfde beheerlaag [PowerShell Desired State Configuration](/powershell/dsc/overview) als Azure Automation voor PowerShell-scripts biedt.
+Met de configuratie van de Azure Automation-status wordt dezelfde Management laag naar de [gewenste status configuratie van Power shell](/powershell/dsc/overview) verzonden als Azure Automation aanbiedingen voor Power shell-scripts.
 
-Vanuit Azure portal of PowerShell, kunt u alle uw DSC-configuraties, resources en doelknooppunten kunt beheren.
+Vanuit het Azure Portal, of vanuit Power shell, kunt u al uw DSC-configuraties,-resources en-doel knooppunten beheren.
 
-![Schermafbeelding van de pagina Azure Automation](./media/automation-dsc-overview/azure-automation-blade.png)
+![Scherm afbeelding van de Azure Automation pagina](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### <a name="import-reporting-data-into-azure-monitor-logs"></a>Rapportage gegevens importeren in Azure Monitor-Logboeken
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>Rapport gegevens importeren in Azure Monitor logboeken
 
-Gedetailleerde status rapportagegegevens verzenden knooppunten die worden beheerd met Azure Automation State Configuration naar de ingebouwde pull-server. U kunt Azure Automation State Configuration voor het verzenden van deze gegevens aan uw Log Analytics-werkruimte configureren. Zie voor meer informatie over het verzenden van gegevens over de toepassingsstatus State Configuration naar uw Log Analytics-werkruimte, [doorsturen Azure Automation State Configuration rapportagegegevens naar Logboeken van Azure Monitor](automation-dsc-diagnostics.md).
+Knoop punten die worden beheerd met Azure Automation status configuratie, verzenden gedetailleerde rapportage status gegevens naar de ingebouwde pull-server. U kunt Azure Automation status configuratie configureren om deze gegevens te verzenden naar uw Log Analytics-werk ruimte. Zie voor meer informatie over het verzenden van status gegevens van status configuratie naar uw Log Analytics-werk ruimte [Azure Automation status configuratie rapport gegevens naar Azure monitor logboeken](automation-dsc-diagnostics.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Houd rekening met de volgende vereisten bij het gebruik van Azure Automation State Configuration (DSC).
+Houd rekening met de volgende vereisten wanneer u Azure Automation State Configuration (DSC) gebruikt.
 
-### <a name="operating-system-requirements"></a>Vereisten voor besturingssysteem
+### <a name="operating-system-requirements"></a>Besturingssysteem vereisten
 
-Voor de knooppunten waarop Windows wordt uitgevoerd, zijn de volgende versies worden ondersteund:
+Voor knoop punten waarop Windows worden uitgevoerd, worden de volgende versies ondersteund:
 
 - Windows Server 2019
 - Windows Server 2016
@@ -58,52 +58,53 @@ Voor de knooppunten waarop Windows wordt uitgevoerd, zijn de volgende versies wo
 - Windows 8.1
 - Windows 7
 
-Voor de knooppunten waarop Linux wordt uitgevoerd, zijn de volgende distributies/versies worden ondersteund:
+Voor knoop punten waarop Linux wordt uitgevoerd, worden de volgende distributies/versies ondersteund:
 
-De DSC-Linux-extensie biedt ondersteuning voor alle Linux-distributies [goedgekeurd op Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , met uitzondering:
+De DSC Linux-extensie ondersteunt alle Linux-distributies die zijn [goedgekeurd op Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , met uitzonde ring van:
 
 Distributie | Version
 -|-
-Debian  | Alle versies
-Ubuntu  | 18.04
+Debian  | alle versies
+Ubuntu  | 18,04
 
 ### <a name="dsc-requirements"></a>DSC-vereisten
 
-Voor alle Windows-knooppunten die worden uitgevoerd in Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) wordt geïnstalleerd tijdens onboarding.  Knooppunten met Windows Server 2012 en Windows 7, [WinRM wordt ingeschakeld](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+Voor alle Windows-knoop punten die worden uitgevoerd in azure, wordt [WMF 5,1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) tijdens het voorbereiden geïnstalleerd.  Voor knoop punten met Windows Server 2012 en Windows 7 [wordt WinRM ingeschakeld](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
-Voor alle Linux-knooppunten die worden uitgevoerd in Azure, [PowerShell DSC voor Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) wordt geïnstalleerd tijdens onboarding.
+Voor alle Linux-knoop punten die worden uitgevoerd in azure, wordt [Power shell DSC voor Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) geïnstalleerd tijdens de onboarding.
 
 ### <a name="network-planning"></a>Particuliere netwerken configureren
 
-Als uw knooppunten zich in een particulier netwerk bevinden, zijn de volgende poort en URL's vereist voor State Configuration (DSC) om te communiceren met Automation:
+Als uw knoop punten zich in een particulier netwerk bevinden, zijn de volgende poort en Url's vereist voor de status configuratie (DSC) om te communiceren met Automation:
 
-* Poort: Alleen TCP 443 is vereist voor uitgaande toegang tot internet.
-* Algemene URL: *.azure-automation.net
-* Algemene URL van de VS (overheid) Virginia: *.azure-automation.us
-* Agent-service: https://\<workspaceId\>.agentsvc.azure-automation.net
+* Poort: Alleen TCP 443 is vereist voor uitgaande internet toegang.
+* Globale URL: *. azure-automation.net
+* Globale URL van US Gov-Virginia: *. azure-automation.us
+* Agent service: https://\<workspaceId\>. agentsvc.Azure-Automation.net
 
-Op deze manier verbinding met het netwerk voor het beheerde knooppunt om te communiceren met Azure Automation.
-Als u DSC-resources die communicatie tussen knooppunten, zoals de [WaitFor * resources](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource), moet u ook verkeer tussen knooppunten toe te staan.
-Zie de documentatie voor elke DSC-resource om te begrijpen die netwerkvereisten.
+Dit biedt netwerk connectiviteit voor het beheerde knoop punt om te communiceren met Azure Automation.
+Als u DSC-resources gebruikt die communiceren tussen knoop punten, zoals de [WaitFor *-resources](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource), moet u ook verkeer tussen knoop punten toestaan.
+Raadpleeg de documentatie voor elke DSC-resource voor meer informatie over deze netwerk vereisten.
 
-#### <a name="proxy-support"></a>Proxy-ondersteuning
+#### <a name="proxy-support"></a>Proxy ondersteuning
 
-Proxy-ondersteuning voor de DSC-agent is beschikbaar in Windows versie 1809 en hoger.
-Als u wilt configureren met deze optie, stel de waarde voor **ProxyURL** en **ProxyCredential** in de [metaconfiguration script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) gebruikt voor het registreren van de knooppunten.
+Proxy ondersteuning voor de DSC-agent is beschikbaar in Windows versie 1809 en hoger.
+Als u deze optie wilt configureren, stelt u de waarde voor **ProxyURL** en **ProxyCredential** in het- [configuratie script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) dat wordt gebruikt voor het registreren van knoop punten.
 Proxy is niet beschikbaar in DSC voor eerdere versies van Windows.
 
-Voor Linux-knooppunten, de DSC-agent biedt ondersteuning voor proxy en de variabele gebruikt om te bepalen van de url gaan gebruiken.
+Voor Linux-knoop punten ondersteunt de DSC-agent proxy en wordt de http_proxy-variabele gebruikt om de URL te bepalen.
 
-#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Bereik van Azure staat configuratie van netwerken en de naamruimte
+#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Netwerkbereiken en naam ruimte van Azure status configuratie
 
-Het is raadzaam om de adressen die worden vermeld bij het definiëren van uitzonderingen te gebruiken. Voor IP-adressen die u kunt downloaden de [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). Dit bestand wordt wekelijks bijgewerkt, en heeft de bereiken momenteel zijn geïmplementeerd en eventuele toekomstige wijzigingen in de IP-adresbereiken.
+Het is raadzaam om de adressen te gebruiken die worden weer gegeven bij het definiëren van uitzonde ringen. Voor IP-adressen kunt u de [IP-adresbereiken van Microsoft Azure Data Center](https://www.microsoft.com/download/details.aspx?id=41653)downloaden. Dit bestand wordt wekelijks bijgewerkt en heeft de huidige geïmplementeerde bereiken en eventuele toekomstige wijzigingen in de IP-bereiken.
 
-Als u een Automation-account dat gedefinieerd voor een specifieke regio hebt, kunt u communicatie met dat regionaal datacenter kunt beperken. De volgende tabel bevat de DNS-record voor elke regio:
+Als u een Automation-account hebt dat is gedefinieerd voor een specifieke regio, kunt u de communicatie beperken tot dat regionale Data Center. De volgende tabel bevat de DNS-record voor elke regio:
 
 | **Regio** | **DNS-record** |
 | --- | --- |
 | US - west-centraal | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | US - zuid-centraal |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| East US   | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
 | US - oost 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | Canada - midden |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
 | Europa -west |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
@@ -115,29 +116,29 @@ Als u een Automation-account dat gedefinieerd voor een specifieke regio hebt, ku
 | Verenigd Koninkrijk Zuid | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
 | VS (overheid) - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
-Voor een lijst met IP-adressen in plaats van regionamen regio, downloadt u de [Azure Datacenter IP-adres](https://www.microsoft.com/download/details.aspx?id=41653) XML-bestand van het Microsoft Download Center.
+Down load het [Azure Data Center IP-adres](https://www.microsoft.com/download/details.aspx?id=41653) XML-bestand in het micro soft Download centrum voor een lijst met IP-adressen van regio's in plaats van regio namen.
 
 > [!NOTE]
-> Het Azure Datacenter IP-adres XML-bestand bevat de IP-adresbereiken die worden gebruikt in de Microsoft Azure-datacenters. Het bestand bevat compute, SQL en storage.
+> Het XML-bestand met IP-adressen van Azure Data Center geeft een lijst van de IP-adresbereiken die worden gebruikt in de Microsoft Azure data centers. Het bestand bevat compute-, SQL-en Storage-bereiken.
 >
->Wekelijks wordt een bijgewerkt bestand geplaatst. Het bestand weerspiegelt bereiken momenteel zijn geïmplementeerd en eventuele toekomstige wijzigingen in de IP-adresbereiken. Nieuwe bereiken die worden weergegeven in het bestand worden niet gebruikt in de datacenters voor ten minste één week.
+>Er wordt wekelijks een bijgewerkt bestand geplaatst. Het bestand weerspiegelt de huidige geïmplementeerde bereiken en eventuele toekomstige wijzigingen in de IP-bereiken. Nieuwe bereiken die in het bestand worden weer gegeven, worden gedurende ten minste één week niet gebruikt in de data centers.
 >
-> Er is een goed idee om te downloaden van het nieuwe XML-bestand elke week. Werk vervolgens uw site services die worden uitgevoerd in Azure correct kan worden geïdentificeerd. Gebruikers van Azure ExpressRoute Houd er rekening mee dat dit bestand wordt gebruikt voor het bijwerken van de aankondiging Border Gateway Protocol (BGP) van Azure-ruimte in de eerste week van elke maand.
+> Het is een goed idee om elke week het nieuwe XML-bestand te downloaden. Werk vervolgens uw site bij om de services die in Azure worden uitgevoerd, correct te identificeren. Gebruikers van Azure ExpressRoute moeten weten dat dit bestand wordt gebruikt om de Border Gateway Protocol (BGP)-advertentie van Azure Space bij te werken in de eerste week van elke maand.
 
 ## <a name="introduction-video"></a>Introductievideo
 
-Wilt u liever kijken dan lezen? Bekijk de volgende video van mei 2015 wanneer Azure Automation State Configuration voor het eerst werd aangekondigd hebben.
+Wilt u liever kijken dan lezen? Bekijk de volgende video van mei 2015, wanneer Azure Automation status configuratie voor het eerst werd aangekondigd.
 
 > [!NOTE]
-> Hoewel de concepten en de levenscyclus van die in deze video worden besproken correct zijn, Azure Automation State Configuration heeft veel vooruitgang geboekt met sinds deze video is opgenomen. Het is nu algemeen beschikbaar, heeft een veel uitgebreidere gebruikersinterface in Azure portal en biedt ondersteuning voor veel extra mogelijkheden.
+> Hoewel de concepten en levens cyclus die in deze video worden besproken juist zijn, is de configuratie van de status van Azure Automation een hoop dat deze video is vastgelegd. Het is nu algemeen beschikbaar, heeft een veel uitgebreidere gebruikers interface in de Azure Portal en ondersteunt een groot aantal extra mogelijkheden.
 
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u wilt beginnen, Zie [aan de slag met Azure Automation State Configuration](automation-dsc-getting-started.md)
-- Voor meer informatie over hoe voor onboarding knooppunten, Zie [Onboarding van machines voor beheer met Azure Automation State Configuration](automation-dsc-onboarding.md)
-- Zie voor meer informatie over het DSC-configuraties compileren zodat u ze aan de doelknooppunten toewijzen kunt, [-configuraties in Azure Automation-staat configuratie compileren](automation-dsc-compile.md)
-- Zie voor naslagdocumentatie voor PowerShell-cmdlet, [Statusconfiguratie van Azure Automation-cmdlets](/powershell/module/azurerm.automation/#automation)
-- Zie voor informatie over de prijzen [Statusconfiguratie van Azure Automation-prijzen](https://azure.microsoft.com/pricing/details/automation/)
-- Zie voor een voorbeeld van het gebruik van Azure Automation State Configuration in een pijplijn voor continue implementatie [continue implementatie met behulp van Azure Automation Statusconfiguratie- en Chocolatey](automation-dsc-cd-chocolatey.md)
+- Zie aan de slag [met de configuratie van de Azure Automation-status](automation-dsc-getting-started.md) om aan de slag te gaan.
+- Voor meer informatie over het voorbereiden van knoop punten, zie onboarding [machines voor beheer door Azure Automation status configuratie](automation-dsc-onboarding.md)
+- Zie [configuraties compileren in azure Automation status configuratie](automation-dsc-compile.md) voor meer informatie over het compileren van DSC-configuraties zodat u ze aan doel knooppunten kunt toewijzen.
+- Zie [Azure Automation status configuratie](/powershell/module/azurerm.automation/#automation) -cmdlets voor informatie over de Power shell-cmdlet.
+- Zie [prijzen voor Azure Automation status configuratie](https://azure.microsoft.com/pricing/details/automation/) voor prijs informatie.
+- Voor een voor beeld van het gebruik van Azure Automation status configuratie in een pijp lijn voor continue implementatie gaat u naar [continue implementatie met behulp van Azure Automation-status configuratie en chocolade](automation-dsc-cd-chocolatey.md)

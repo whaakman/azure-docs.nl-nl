@@ -1,6 +1,6 @@
 ---
-title: Probleemoplossing - oplossen van problemen met uw Azure-serviceconfiguratie voor voordeur | Microsoft Docs
-description: In deze zelfstudie leert u hoe u voor het zelf oplossen van de veelvoorkomende problemen die zich voor uw voordeur voordoen kunnen.
+title: Problemen oplossen-problemen met de Azure front-deur service configuratie oplossen | Microsoft Docs
+description: In deze zelf studie leert u hoe u zelf een aantal veelvoorkomende problemen met uw voor deur kunt oplossen.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,61 +12,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 7a261d65a7bd3eea150dd764c65b94ddd47466b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 420d7afe0d825da9149f2cb2ae1540a2805b357c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736119"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335891"
 ---
-# <a name="troubleshooting-common-routing-issues"></a>Het oplossen van veelvoorkomende problemen met Routering
-Dit artikel wordt beschreven hoe u voor het oplossen van de algemene problemen met routering die zich voor uw Azure voordeur-serviceconfiguratie voordoen kunnen. 
+# <a name="troubleshooting-common-routing-issues"></a>Veelvoorkomende problemen met route ring oplossen
+In dit artikel wordt beschreven hoe u een aantal veelvoorkomende problemen met route ring kunt oplossen voor de configuratie van de Azure front-deur-service. 
 
-## <a name="hostname-not-routing-to-backend-and-returns-400-status-code"></a>Hostnaam niet routering naar back-end en retourneert 400-statuscode
+## <a name="hostname-not-routing-to-backend-and-returns-400-status-code"></a>De hostnaam is niet doorgestuurd naar de back-end en retourneert de 400-status code
 
-
-### <a name="symptom"></a>Symptoom
-- U kunt een voordeur hebt gemaakt, maar een aanvraag naar de Frontend-host een HTTP-fout 400-statuscode is geretourneerd.
-
-  - U kunt een DNS-server hebt gemaakt van een aangepast domein toewijzen aan de front-end-host u hebt geconfigureerd. Echter, verzenden van een aanvraag naar de hostnaam van het aangepaste domein een statuscode HTTP 400 geretourneerd en wordt niet weergegeven voor het routeren naar de backend(s) die u hebt geconfigureerd.
-
-### <a name="cause"></a>Oorzaak
-- Dit probleem kan zich voordoen als u een regel voor het doorsturen voor het aangepaste domein die u hebt toegevoegd als een front-host niet hebt geconfigureerd. Een regel voor doorsturen moet expliciet worden toegevoegd voor die host frontend, zelfs als een is al geconfigureerd voor de frontend-host onder het subdomein voordeur (*. azurefd.net) dat uw aangepaste domein een DNS-toewijzing aan heeft.
-
-### <a name="troubleshooting-steps"></a>Stappen voor probleemoplossing
-- Een regel voor het doorsturen van het aangepaste domein toevoegen aan de gewenste back-endpool.
-
-## <a name="request-to-frontend-hostname-returns-404-status-code"></a>Aanvraag voor de Frontend-hostnaam retourneert 404-statuscode
 
 ### <a name="symptom"></a>Symptoom
-- U hebt een voordeur gemaakt en een front-end-host, een back-endpool met ten minste één back-end erin en een regel voor doorsturen die verbinding de frontend-host naar de back-endpool maakt geconfigureerd. Uw inhoud lijkt niet beschikbaar zijn bij het verzenden van een aanvraag naar de geconfigureerde front-end-host, omdat er een HTTP 404-statuscode is geretourneerd.
+- U hebt een front-deur gemaakt, maar een aanvraag naar de frontend-host retourneert een HTTP 400-status code.
+
+  - U hebt een DNS-toewijzing van een aangepast domein gemaakt aan de frontend-host die u hebt geconfigureerd. Het verzenden van een aanvraag naar de aangepaste domein-hostnaam retourneert echter een HTTP 400-status code en lijkt niet te worden gerouteerd naar de back-end (s) die u hebt geconfigureerd.
 
 ### <a name="cause"></a>Oorzaak
-Er zijn verschillende mogelijke oorzaken voor dit probleem:
- - De back-end is niet een openbare gerichte back-end en is niet zichtbaar voor de voordeur-service.
+- Dit probleem kan zich voordoen als u geen routerings regel hebt geconfigureerd voor het aangepaste domein dat u hebt toegevoegd als een frontend-host. Een routerings regel moet expliciet worden toegevoegd voor die frontend-host, zelfs als er al een is geconfigureerd voor de frontend-host onder het subdomein van de voor deur (*. azurefd.net) waaraan uw aangepaste domein een DNS-toewijzing heeft.
 
-- De back-end onjuist is geconfigureerd, dat wordt veroorzaakt door de voordeur-service de verkeerde aanvraag te verzenden (dat wil zeggen, uw back-end accepteert alleen HTTP, maar u dit niet hebt uitgeschakeld zodat HTTPS, zodat de voordeur probeert om door te sturen van HTTPS-aanvragen).
-- De back-end wordt afgewezen met de host-header die is doorgegeven aan het verzoek om de back-end.
+### <a name="troubleshooting-steps"></a>Probleemoplossings stappen
+- Voeg een routerings regel van het aangepaste domein toe aan de gewenste back-end-groep.
+
+## <a name="request-to-frontend-hostname-returns-404-status-code"></a>Aanvraag voor frontend-hostnaam retourneert 404-status code
+
+### <a name="symptom"></a>Symptoom
+- U hebt een voor deur gemaakt en een front-end-host geconfigureerd, een back-end-pool met ten minste één back-end en een routerings regel die de frontend-host verbindt met de back-end-groep. Uw inhoud lijkt niet beschikbaar te zijn bij het verzenden van een aanvraag naar de geconfigureerde frontend-host, omdat er een HTTP 404-status code wordt geretourneerd.
+
+### <a name="cause"></a>Oorzaak
+Er zijn verschillende mogelijke oorzaken voor dit symptoom:
+ - De back-end is geen open bare back-end en is niet zichtbaar voor de front-deur service.
+
+- De back-end is onjuist geconfigureerd. Dit zorgt ervoor dat de front-deur service de verkeerde aanvraag verzendt (dat wil zeggen, uw back-end accepteert alleen HTTP, maar u hebt niet de optie HTTPS toegestaan zodat de voor deur HTTPS-aanvragen doorstuurt).
+- De back-end weigert de host-header die is doorgestuurd met de aanvraag naar de back-end.
 - De configuratie voor de back-end is nog niet volledig geïmplementeerd.
 
-### <a name="troubleshooting-steps"></a>Stappen voor probleemoplossing
-1. Implementatietijd
-    - Zorg ervoor dat u ongeveer 10 minuten voor de configuratie om te worden geïmplementeerd hebt gewacht.
+### <a name="troubleshooting-steps"></a>Probleemoplossings stappen
+1. Implementatie tijd
+    - Zorg ervoor dat u ongeveer 10 minuten hebt gewacht totdat de configuratie is geïmplementeerd.
 
-2. Controleer de instellingen van de back-end
-   - Navigeer naar de back endadresgroep die de aanvraag moet worden routering naar (afhankelijk van hoe u de regel voor doorsturen geconfigureerd hebt) en controleer de _back-end hosttype_ en back-end-hostnaam juist zijn. Als de back-end een aangepaste host is, zorgt u ervoor dat u hebt deze correct gespeld. 
+2. Controleer de back-end-instellingen
+   - Navigeer naar de back-end-pool waarnaar de aanvraag moet worden doorgestuurd (afhankelijk van hoe u de routerings regel hebt geconfigureerd) en controleer of het _type back-end_ en de back-end van de backend juist zijn. Als de back-end een aangepaste host is, controleert u of u deze correct hebt gespeld. 
 
-   - Controleer uw HTTP en HTTPS-poorten. In de meeste gevallen 80 en 443 (respectievelijk) juist zijn en er zijn geen wijzigingen is vereist. Er is echter een kans is dat uw back-end niet op deze manier is geconfigureerd en een andere poort luistert.
+   - Controleer uw HTTP-en HTTPS-poorten. In de meeste gevallen zijn 80 en 443 (respectievelijk) juist. u hoeft geen wijzigingen aan te brengen. Er is echter een kans dat uw back-end niet op deze manier is geconfigureerd en luistert op een andere poort.
 
-     - Controleer de _host-header van back-end_ geconfigureerd voor de back-ends die de front-end-host moet routering naar. In de meeste gevallen deze header moet gelijk zijn aan de _back-end-hostnaam_. Een onjuiste waarde kan echter verschillende HTTP 4xx-statuscodes veroorzaken als de back-end wordt verwacht iets anders dat. Als u het IP-adres van uw back-end-ingang, moet u mogelijk om in te stellen de _host-header van back-end_ op de hostnaam van de back-end.
+     - Controleer of de back-end- _host-header_ is geconfigureerd voor de back-end waarnaar de frontend-host moet worden gerouteerd. In de meeste gevallen moet deze header hetzelfde zijn als de naam van de _back-end_. Een onjuiste waarde kan echter verschillende HTTP 4xx-status codes veroorzaken als de back-end iets anders verwacht. Als u het IP-adres van uw back-end invoert, moet u mogelijk de host-header van de _back-end_ instellen op de hostnaam van de back-end.
 
 
-3. Controleer de regelinstellingen van de routering
-     - Navigeer naar de regel voor doorsturen die uit de betreffende Frontend-hostnaam naar een back-endpool routeren moet. Zorg ervoor dat de toegestane protocollen correct zijn geconfigureerd of als dit niet het geval is, zorg ervoor dat het protocol dat voordeur wordt gebruikt als de aanvraag correct is geconfigureerd. De _geaccepteerd protocollen_ bepaalt welke aanvragen voordeur moet accepteren en de _doorsturen protocol_ onder de _Geavanceerd_ tabblad bepaalt welk protocol voordeur moet gebruiken om de aanvraag doorsturen naar de back-end.
-          - Een voorbeeld: als de back-end alleen HTTP-aanvragen accepteert de volgende configuraties kunnen worden gebruikt:
-               - _Geaccepteerd protocollen_ zijn HTTP en HTTPS. _Doorsturen van protocol_ is HTTP. Overeenkomst aanvraag werkt niet, aangezien HTTPS een toegestane-protocol is en als een aanvraag afkomstig als HTTPS is, voordeur probeert om door te sturen met behulp van HTTPS.
+3. Controleer de instellingen voor de routerings regel
+     - Ga naar de routerings regel die moet worden gerouteerd van de frontend-hostnaam die u wilt verzenden naar een back-end-groep. Zorg ervoor dat de geaccepteerde protocollen correct zijn geconfigureerd of dat, als dat niet het geval is, ervoor moet worden gezorgd dat de protocol front-deur wordt gebruikt bij het door sturen van de aanvraag correct is geconfigureerd. De _geaccepteerde protocollen_ bepalen welke aanvragen aan de voor deur moeten accepteren en het _doorstuur protocol_ bepaalt welk protocol front deur moet worden gebruikt om de aanvraag door te sturen naar de back-end.
+          - Als de back-end alleen HTTP-aanvragen accepteert, zijn de volgende configuraties geldig:
+               - _Geaccepteerde protocollen_ zijn http en HTTPS. _Protocol voor door sturen_ is http. De overeenkomst werkt niet, omdat HTTPS een toegestaan protocol is en als er een aanvraag is ontvangen als HTTPS, probeert de voor deur de aanvraag door te sturen via HTTPS.
 
-               - _Geaccepteerd protocollen_ zijn HTTP. _Doorsturen van protocol_ is een aanvraag of HTTPS overeenkomen.
+               - _Geaccepteerde protocollen_ zijn http. Het _doorstuur protocol_ komt overeen met de aanvraag of https.
 
-   - Klik op de _Geavanceerd_ tabblad aan de bovenkant van het deelvenster voor configuratie van routering regel. _Herschrijven van URL's_ is standaard uitgeschakeld en moet u dit veld alleen gebruiken als u wilt beperken tot het bereik van de back-end gehoste bronnen die u beschikbaar wilt maken. Als uitgeschakeld, stuurt de voordeur hetzelfde Aanvraagpad die wordt ontvangen. Het is mogelijk dat dit veld is onjuist geconfigureerd en voordeur een resource van de back-end die niet beschikbaar vraagt, dus een HTTP 404-statuscode geretourneerd.
+   - Het opnieuw schrijven van de _URL_ is standaard uitgeschakeld en u moet dit veld alleen gebruiken als u het bereik van op back-gehoste bronnen wilt beperken dat u beschikbaar wilt maken. Als deze functie is uitgeschakeld, stuurt de voor deur hetzelfde aanvraag traject dat het ontvangt. Het is mogelijk dat dit veld onjuist is geconfigureerd en dat de voor deur een bron aanvraagt vanaf de back-end die niet beschikbaar is, waardoor een HTTP 404-status code wordt geretourneerd.
 

@@ -1,7 +1,7 @@
 ---
-title: Snelstartgids - verzenden een query naar de Bing lokale bedrijven zoeken-API in Python | Microsoft Docs
+title: 'Quick Start: een query naar de Bing Local Business Search-API in python verzenden'
 titleSuffix: Azure Cognitive Services
-description: Gebruik dit artikel om te beginnen met de Bing API voor zoeken van lokale bedrijven in Python.
+description: Gebruik dit artikel om te beginnen met het gebruik van de Bing Local Business Search-API in python.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,33 +9,33 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: cfc4bd95214c56dfbe940b7a2785d297f59105a9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: c6da3c9a169f3b6e5885499d3a7bc5347902782e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592730"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423318"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Quickstart: Een query verzenden naar de Bing lokale bedrijven zoeken-API in Python
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Quickstart: Een query naar de Bing Local Business Search-API in python verzenden
 
-Gebruik deze Quick Start om te beginnen met het verzenden van aanvragen naar de Bing lokale bedrijven zoeken-API, dit is een Cognitive Service van Azure. Terwijl deze eenvoudige toepassing is geschreven in Python, de API is een RESTful-Web-compatibel is met elke programmeertaal die HTTP-aanvragen en parseren van JSON.
+Gebruik deze Quick Start om aanvragen te verzenden naar de Bing lokale Business Search-API, een Azure-cognitieve service. Hoewel deze eenvoudige toepassing is geschreven in Python, is de API een betrouw bare webservice die compatibel is met elke programmeer taal die kan leiden tot het maken van HTTP-aanvragen en het parseren van JSON.
 
-In dit voorbeeld van de toepassing lokaal antwoordgegevens worden opgehaald uit de API voor de zoekquery `hotel in Bellevue`.
+In deze voorbeeld toepassing worden lokale antwoord gegevens opgehaald uit de API voor de `hotel in Bellevue`Zoek query.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * [Python](https://www.python.org/) 2.x of 3.x
  
-Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met Bing-API's. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstartgids. Gebruik de toegangssleutel die is geleverd door de gratis proefversie.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+U moet een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) hebben met Bing-api's. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstartgids. Gebruik de toegangs sleutel die wordt gebruikt door de gratis proef versie.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="run-the-complete-application"></a>De volledige toepassing uitvoeren
 
-De volgende code haalt de gelokaliseerde resultaten. De code wordt geïmplementeerd in de volgende stappen:
+De volgende code haalt gelokaliseerde resultaten op. De code wordt geïmplementeerd in de volgende stappen:
 1. Declareer variabelen om het eindpunt op te geven met een host en pad.
-2. Geef de queryparameter. 
-3. Definieer de Search-functie die wordt gemaakt van de aanvraag en de kop Ocp-Apim-Subscription-Key toegevoegd.
-4. Stel de kop Ocp-Apim-Subscription-Key. 
-5. Verbinding maken en verzend de aanvraag.
+2. Geef de query parameter op. 
+3. Definieer de zoek functie die de aanvraag maakt en voegt de header van de APIM-abonnements sleutel toe.
+4. Stel de APIM-abonnee sleutel header in. 
+5. Maak de verbinding en verzend de aanvraag.
 6. Geef de JSON-resultaten weer.
 
 Dit is de volledige code voor deze demo:
@@ -67,6 +67,6 @@ print (json.dumps(json.loads(result), indent=4))
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Lokale bedrijven zoeken Java-snelstartgids](local-search-java-quickstart.md)
-- [Lokale bedrijven zoeken C# Quick Start](local-quickstart.md)
-- [Lokale bedrijven zoeken Node-Quickstart](local-search-node-quickstart.md)
+- [Lokale zakelijke zoek opdracht voor zoeken in Java Quick Start](local-search-java-quickstart.md)
+- [Snelstartgids voor lokale C# zakelijke Zoek opdrachten](local-quickstart.md)
+- [Quick start voor lokaal bedrijfs Zoek knooppunt](local-search-node-quickstart.md)

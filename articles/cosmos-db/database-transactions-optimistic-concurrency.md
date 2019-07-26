@@ -1,67 +1,67 @@
 ---
-title: Databasetransacties en optimistische gelijktijdigheid beheren in Azure Cosmos DB
-description: Dit artikel wordt beschreven databasetransacties en optimistische gelijktijdigheid beheren in Azure Cosmos DB
+title: Database transacties en optimistische gelijktijdigheids beheer in Azure Cosmos DB
+description: In dit artikel worden database transacties en optimistische gelijktijdigheids beheer in Azure Cosmos DB beschreven
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 1da5dabad04d72c903072a33dfb7b0229f99c62d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b58255aa471fe78c84b5f6a7432c0f3d402f0875
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978989"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467909"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transacties en optimistisch beheer van gelijktijdigheid
 
-Databasetransacties bieden een veilige en voorspelbare programmeermodel gelijktijdige wijzigingen in de gegevens zijn getroffen. Traditionele relationele databases, zoals SQL Server, kunt u het schrijven van de bedrijfslogica met behulp van opgeslagen procedures en/of triggers, verzenden naar de server voor de uitvoering van rechtstreeks in de database-engine. Met traditionele relationele databases, bent u vereist voor het omgaan met twee verschillende programmeertalen de (niet-transactionele) toepassing programmeertaal, zoals JavaScript, Python, C#, Java, enz. en de transactionele programmeer-taal ( zoals T-SQL) is die systeemeigen uitgevoerd door de database.
+Database transacties bieden een veilig en voorspelbaar programmeer model voor het afhandelen van gelijktijdige wijzigingen in de gegevens. Met traditionele relationele data bases, zoals SQL Server, kunt u de bedrijfs logica schrijven met behulp van opgeslagen procedures en/of triggers, deze naar de server verzenden zodat deze rechtstreeks vanuit de data base-engine kan worden uitgevoerd. Met traditionele relationele data bases moet u twee verschillende programmeer talen behandelen: (niet-transactionele) programmeer taal van de toepassing, zoals Java script, C#python, Java, enzovoort en de transactionele programmeer taal ( zoals T-SQL), die systeem eigen worden uitgevoerd door de data base.
 
-De database-engine in Azure Cosmos DB ondersteunt volledige ACID (atomisch, consistent, geïsoleerd, duurzaamheid) compatibele transacties met snapshot-isolatie. Alle databasebewerkingen binnen het bereik van een container [logische partitie](partition-data.md) transactioneel worden uitgevoerd in de database-engine die wordt gehost door de replica van de partitie. Deze bewerkingen zijn beide bewerkingen lezen en schrijven (bijwerken van een of meer items in de logische partitie). De volgende tabel ziet u verschillende bewerkingen en transactietypen:
+De data base-engine in Azure Cosmos DB ondersteunt volwaardige trans acties met volledige zuren (atomiciteit, consistentie, isolatie, duurzaamheid) met snap shot-isolatie. Alle database bewerkingen binnen het bereik van de [logische partitie](partition-data.md) van een container zijn transactioneel uitgevoerd in de data base-engine die wordt gehost door de replica van de partitie. Deze bewerkingen zijn onder andere schrijven (het bijwerken van een of meer items in de logische partitie) en lees bewerkingen. In de volgende tabel ziet u verschillende bewerkingen en transactie typen:
 
-| **Bewerking**  | **Bewerkingstype** | **Één of meerdere Item transactie** |
+| **Bewerking**  | **Bewerkings type** | **Trans actie met één of meerdere items** |
 |---------|---------|---------|
-| Invoegen (zonder een vooraf/post-trigger) | Schrijven | Één item transactie |
-| Plaats (met een vooraf/post-trigger) | Lezen en schrijven | Meerdere item transactie |
-| Vervangen (zonder een vooraf/post-trigger) | Schrijven | Één item transactie |
-| Vervang (met een vooraf/post-trigger) | Lezen en schrijven | Meerdere item transactie |
-| Upsert (zonder een vooraf/post-trigger) | Schrijven | Één item transactie |
-| Upsert (met een vooraf/post-trigger) | Lezen en schrijven | Meerdere item transactie |
-| Verwijderen (zonder een vooraf/post-trigger) | Schrijven | Één item transactie |
-| Verwijderen (met een vooraf/post-trigger) | Lezen en schrijven | Meerdere item transactie |
-| Opgeslagen procedure uitvoeren | Lezen en schrijven | Meerdere item transactie |
-| Systeem gestart uitvoering van een procedure samenvoegen | Schrijven | Meerdere item transactie |
-| Systeem gestart uitvoering van de items op basis van verlopen (TTL) van een item verwijderen | Schrijven | Meerdere item transactie |
-| Lezen | Lezen | Één item transactie |
-| Feed wijzigen | Lezen | Meerdere item transactie |
-| Gepagineerde lezen | Lezen | Meerdere item transactie |
-| Gepagineerde Query | Lezen | Meerdere item transactie |
-| UDF als onderdeel van de gepagineerde query uitvoeren | Lezen | Meerdere item transactie |
+| Invoegen (zonder een pre/post-trigger) | Schrijven | Trans actie met één item |
+| Invoegen (met een pre/post-trigger) | Schrijven en lezen | Trans actie met meerdere items |
+| Vervangen (zonder een pre/post-trigger) | Schrijven | Trans actie met één item |
+| Vervangen (met een pre/post-trigger) | Schrijven en lezen | Trans actie met meerdere items |
+| Upsert (zonder een pre/post-trigger) | Schrijven | Trans actie met één item |
+| Upsert (met een pre/post-trigger) | Schrijven en lezen | Trans actie met meerdere items |
+| Verwijderen (zonder een pre/post-trigger) | Schrijven | Trans actie met één item |
+| Verwijderen (met een pre/post-trigger) | Schrijven en lezen | Trans actie met meerdere items |
+| Opgeslagen procedures uitvoeren | Schrijven en lezen | Trans actie met meerdere items |
+| Het systeem heeft de uitvoering van een samenvoeg procedure gestart | Schrijven | Trans actie met meerdere items |
+| Het systeem heeft de uitvoering van items die zijn verwijderd op basis van de verval datum (TTL) van een item gestart | Schrijven | Trans actie met meerdere items |
+| Lezen | Lezen | Trans actie met één item |
+| Feed wijzigen | Lezen | Trans actie met meerdere items |
+| Gepagineerd lezen | Lezen | Trans actie met meerdere items |
+| Gepagineerde query | Lezen | Trans actie met meerdere items |
+| UDF uitvoeren als onderdeel van de gepagineerde query | Lezen | Trans actie met meerdere items |
 
-## <a name="multi-item-transactions"></a>Meerdere item transacties
+## <a name="multi-item-transactions"></a>Trans acties met meerdere items
 
-Azure Cosmos DB kunt u schrijven [opgeslagen procedures, triggers vooraf/post, gebruiker-gedefinieerde-functies (UDF's)](stored-procedures-triggers-udfs.md) en procedures in JavaScript samen te voegen. Azure Cosmos DB biedt systeemeigen ondersteuning voor de JavaScript-uitvoering in de database-engine. Kunt u zich registreren met opgeslagen procedures, vooraf/post triggers, gebruiker-gedefinieerde-functies (UDF's) en procedures samenvoegen in een container en hoger voert ze transactioneel binnen de Azure Cosmos-database-engine. Toepassingslogica schrijven in JavaScript kunt natuurlijke vorm van Controlestroom, variabele scoping, toewijzing en integratie van uitzonderingsverwerking primitieven in de databasetransacties rechtstreeks in de JavaScript-taal.
+Met Azure Cosmos DB kunt u [opgeslagen procedures, vooraf/post triggers, door de gebruiker gedefinieerde functies (udf's)](stored-procedures-triggers-udfs.md) en procedures voor samen voegen schrijven in Java script. Azure Cosmos DB ondersteunt Java script-uitvoering in de data base-engine. U kunt opgeslagen procedures, vooraf/post triggers, door de gebruiker gedefinieerde functies (Udf's) en procedures voor het samen voegen van een container registreren en deze later transactioneel uitvoeren in de Azure Cosmos data base-engine. Het schrijven van toepassings logica in Java script maakt natuurlijke expressie van controle stroom, variabele scoping, toewijzing en integratie van primitieve uitzonderings verwerking in de database transacties rechtstreeks in de Java script-taal mogelijk.
 
-De JavaScript-gebaseerde opgeslagen procedures, triggers, UDF's en procedures voor samenvoegen zijn ingepakt binnen een ambient ACID-transactie met snapshot-isolatie voor alle items in de logische partitie. In de loop van de uitvoering ervan, als de JavaScript-programma genereert een uitzondering, de hele transactie is afgebroken en Service-update-back. De resulterende programmeermodel is eenvoudige maar krachtige. JavaScript-ontwikkelaars ophalen een duurzame programmeermodel terwijl nog steeds met behulp van hun eigen bekende taal constructs en bibliotheek primitieven.
+De op Java script gebaseerde opgeslagen procedures, triggers, Udf's en samenvoeg procedures worden verpakt in een omgevings zure trans actie met momentopname isolatie voor alle items in de logische partitie. Als tijdens de uitvoering een uitzonde ring wordt gegenereerd door het Java script-programma, wordt de hele trans actie afgebroken en teruggezet. Het resulterende programmeer model is eenvoudig maar krachtig. Java script-ontwikkel aars krijgen een duurzaam programmeer model terwijl ze nog steeds hun vertrouwde taal constructies en bibliotheek primitieven gebruiken.
 
-De mogelijkheid voor het uitvoeren van JavaScript direct in de database-engine biedt prestaties en transactionele uitvoering van databasebewerkingen op de items van een container. Bovendien, omdat Azure Cosmos-database-engine systeemeigen ondersteuning voor JSON en JavaScript, is er geen wat betreft impedantie tussen het type van een toepassing en de database.
+De mogelijkheid om Java script direct in de data base-engine uit te voeren, biedt prestaties en transactionele uitvoering van database bewerkingen voor de items van een container. Omdat de Azure Cosmos-data base-engine systeem eigen ondersteuning biedt voor JSON en Java script, is er bovendien geen sprake van een niet-belemmerde impedantie tussen het type systemen van een toepassing en de data base.
 
-## <a name="optimistic-concurrency-control"></a>Optimistische gelijktijdigheid beheren 
+## <a name="optimistic-concurrency-control"></a>Optimistisch gelijktijdigheids beheer 
 
-Optimistisch gelijktijdigheidbeheer kunt u voorkomen dat updates verloren gaan en wordt verwijderd. Gelijktijdige, conflicterende bewerkingen worden onderworpen aan de reguliere pessimistische vergrendeling van de database-engine die wordt gehost door de logische partitie die eigenaar is van het item. Wanneer twee gelijktijdige bewerkingen proberen bij te werken van de meest recente versie van een item in een logische partitie, een van deze wordt win en de andere mislukken. Echter, als een of twee bewerkingen bij het gelijktijdig bijwerken van hetzelfde artikel eerder een oudere waarde van het item lezen heeft, de database niet weten als de eerder leeswaarden door een of beide de conflicterende bewerkingen inderdaad de laatste waarde van het item. Gelukkig deze situatie kan worden gedetecteerd met de **optimistische gelijktijdigheid besturingselement (OCC)** voordat waarin de twee bewerkingen opgeven de transactiegrens van de in de database-engine. OCC beschermt uw gegevens tegen per ongeluk worden overschreven wijzigingen die zijn aangebracht door anderen. Dit voorkomt ook dat anderen uw eigen wijzigingen per ongeluk wordt overschreven.
+Met optimistische gelijktijdigheids controle kunt u voor komen dat updates en verwijderingen verloren gaan. Gelijktijdige, conflicterende bewerkingen worden onderhevig aan de reguliere pessimistische vergren deling van de data base-engine die wordt gehost door de logische partitie die eigenaar is van het item. Wanneer twee gelijktijdige bewerkingen proberen om de nieuwste versie van een item binnen een logische partitie bij te werken, wordt een van de items gewonnen en mislukt de andere. Als echter een of twee bewerkingen die hetzelfde item gelijktijdig proberen te updaten een oudere waarde van het item hebben gelezen, is de data base niet bekend als de eerder gelezen waarde door ofwel een van beide of beide conflicten inderdaad de laatste waarde van het item waren. Gelukkig kan deze situatie worden gedetecteerd met het **optimistische Gelijktijdigheids beheer (OCC)** voordat de twee bewerkingen de transactie grens in de data base-engine invoeren. OCC beschermt uw gegevens tegen per ongeluk wijzigingen die door anderen zijn aangebracht. Ook wordt voor komen dat anderen uw eigen wijzigingen overschrijven.
 
-De gelijktijdige updates van een item zijn onderworpen aan de OCC door Azure Cosmos DB-communicatielaag-protocol. Azure Cosmos-database zorgt ervoor dat de client-side-versie van het item dat u bijwerken (of verwijderen) gelijk zijn aan de versie van het item in de Azure Cosmos-container. Dit zorgt ervoor dat uw schrijfbewerkingen zijn beschermd tegen het per ongeluk worden overschreven door het schrijven van anderen en vice versa. In een omgeving met meerdere gebruikers voorkomt de Optimistisch gelijktijdigheidbeheer dat u per ongeluk verwijderen of bijwerken van de verkeerde versie van een item. Items zijn zo beschermd tegen de roemruchte "verloren update" of 'verloren verwijderen' problemen.
+De gelijktijdige updates van een item worden onderhevig aan de OCC door de Layer van het communicatie protocol van Azure Cosmos DB. Azure Cosmos data base zorgt ervoor dat de client-side versie van het item dat u bijwerkt (of verwijdert) hetzelfde is als de versie van het item in de Azure Cosmos-container. Dit zorgt ervoor dat uw schrijf bewerkingen worden beschermd tegen het onbedoeld overschrijven van de schrijf bewerkingen door anderen en andersom. In een omgeving met meerdere gebruikers beschermt u met het optimistische gelijktijdigheids beheer dat u per ongeluk de verkeerde versie van een item verwijdert of bijwerkt. Als zodanig worden items beschermd tegen de problemen met de Infamous ' verloren update ' of ' verloren gegane verwijderingen '.
 
-Elk item dat is opgeslagen in een Azure Cosmos-container is een systeem gedefinieerd `_etag` eigenschap. De waarde van de `_etag` automatisch wordt gegenereerd en bijgewerkt door de server telkens als het item wordt bijgewerkt. `_etag` kan worden gebruikt met de opgegeven client `if-match` aanvraagheader om toe te staan van de server om te bepalen of een item voorwaardelijk kan worden bijgewerkt. De waarde van de `if-match` header komt overeen met de waarde van de `_etag` op de server, klikt u vervolgens het item wordt bijgewerkt. Als de waarde van de `if-match` aanvraagheader is niet meer actueel, worden geweigerd door de server de bewerking opnieuw uit met een ' HTTP 412 Precondition failure ' antwoordbericht. De client vervolgens kunt opnieuw ophalen van het item om het verkrijgen van de huidige versie van het item op de server of de versie van het item op de server met een eigen overschrijven `_etag` waarde voor het item. Bovendien `_etag` kan worden gebruikt met de `if-none-match` header om te bepalen of een opnieuw ophalen van een resource nodig is. 
+Elk item dat in een Azure Cosmos-container is opgeslagen, `_etag` heeft een door het systeem gedefinieerde eigenschap. De waarde van de `_etag` wordt automatisch gegenereerd en bijgewerkt door de server telkens wanneer het item wordt bijgewerkt. `_etag`kan worden gebruikt met de door de `if-match` client geleverde aanvraag header om de server toe te staan om te bepalen of een item voorwaardelijk kan worden bijgewerkt. De waarde van de `if-match` header komt overeen met de waarde `_etag` van de op de server, het item wordt vervolgens bijgewerkt. Als de waarde van de `if-match` aanvraag header niet meer actueel is, weigert de server de bewerking met een respons bericht ' http 412-voor waarde voor fout '. De client kan het item vervolgens opnieuw ophalen voor het verkrijgen van de huidige versie van het item op de server of de versie van het item op de server vervangen door `_etag` een eigen waarde voor het item. Daarnaast `_etag` kan worden gebruikt met de `if-none-match` header om te bepalen of een resource opnieuw moet worden opgehaald. 
 
-Van het item `_etag` wijzigingen waarde telkens als het item wordt bijgewerkt. Voor item vervangen, `if-match` expliciet moet worden uitgedrukt als een onderdeel van de Aanvraagopties. Zie voor een voorbeeld: de voorbeeldcode in [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). `_etag` waarden zijn impliciet gecontroleerd op alle geschreven artikelen die door de opgeslagen procedure. Als er een conflict wordt gedetecteerd, wordt de opgeslagen procedure Draai de transactie terug en een uitzondering. Met deze methode worden alle of geen schrijfbewerkingen binnen de opgeslagen procedure atomisch toegepast. Dit is een signaal aan de toepassing om de updates opnieuw en probeer de aanvraag van de oorspronkelijke client.
+De waarde van `_etag` het item wordt gewijzigd telkens wanneer het item wordt bijgewerkt. Voor vervanging van items `if-match` moet expliciet worden uitgedrukt als onderdeel van de aanvraag opties. Zie de voorbeeld code in [github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446)voor een voor beeld. `_etag`waarden worden impliciet gecontroleerd op alle schriftelijke items die door de opgeslagen procedure worden beïnvloed. Als er conflicten worden gedetecteerd, wordt de trans actie teruggedraaid door de opgeslagen procedure en wordt er een uitzonde ring gegenereerd. Met deze methode worden alle of geen schrijf bewerkingen binnen de opgeslagen procedure op een Atomic toegepast. Dit is een signaal voor de toepassing om updates opnieuw toe te passen en de oorspronkelijke client aanvraag opnieuw uit te voeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over databasetransacties en functionaliteit voor optimistische gelijktijdigheid beheren in de volgende artikelen:
+Meer informatie over database transacties en optimistisch gelijktijdigheids beheer vindt u in de volgende artikelen:
 
-- [Werken met Azure Cosmos-databases, containers en objecten](databases-containers-items.md)
-- [Consistentieniveaus](consistency-levels.md)
-- [Conflicttypen en resolutie beleidsregels](conflict-resolution-policies.md)
-- [Opgeslagen procedures, triggers en gebruikersgedefinieerde functies](stored-procedures-triggers-udfs.md)
+- [Werken met Azure Cosmos-data bases,-containers en-items](databases-containers-items.md)
+- [Consistentie niveaus](consistency-levels.md)
+- [Conflict typen en oplossings beleid](conflict-resolution-policies.md)
+- [Opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies](stored-procedures-triggers-udfs.md)

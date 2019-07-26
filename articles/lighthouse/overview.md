@@ -1,5 +1,7 @@
 ---
+
 title: Wat is Azure naar?
+
 description: Met Azure Lighthouse kunnen serviceproviders beheerde services voor hun klanten met een hogere automation en efficiëntie leveren op schaal.
 author: JnHs
 ms.author: jenhayes
@@ -14,7 +16,7 @@ ms.contentlocale: nl-NL
 ms.lasthandoff: 07/11/2019
 ms.locfileid: "67809818"
 ---
-# <a name="what-is-azure-lighthouse"></a>Wat is Azure naar?
+# <a name="what-is-azure-lighthouse"></a>Wat is Azure Lighthouse?
 
 Azure Lighthouse biedt serviceproviders één besturingsvlak waarin ze Azure voor al hun klanten kunnen weergeven en beheren met een verbeterde automatisering, schaal en beheer. Met Azure Lighthouse kunnen serviceproviders beheerde services leveren met behulp van uitgebreide en krachtige beheertools die zijn ingebouwd in het Azure-platform. Azure Lighthouse biedt ook voordelen voor grote IT-organisaties die resources voor meerdere tenants beheren.
 

@@ -21,6 +21,8 @@
       href: compare-video-indexer-with-media-services-presets.md
     - name: Meerdere tenants beheren
       href: manage-multiple-tenants.md
+    - name: Taalidentificatiemodel
+      href: language-identification-model.md
     - name: Inhoudsmodellen aanpassen
       items:
         - name: Overzicht

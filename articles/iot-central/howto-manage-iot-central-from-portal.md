@@ -1,76 +1,76 @@
 ---
-title: IoT Central beheren vanuit Azure portal | Microsoft Docs
-description: IoT Central beheren vanuit Azure portal.
+title: IoT Central beheren via de Azure Portal | Microsoft Docs
+description: IoT Central beheren vanuit de Azure Portal.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/14/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: c72de0ef874659a5d7840689e38bd7857c25b840
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7893c8e8b8d67b4b63bd9d6bb5a71552e95c9125
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464113"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850251"
 ---
-# <a name="manage-iot-central-from-the-azure-portal"></a>IoT Central beheren vanuit Azure portal
+# <a name="manage-iot-central-from-the-azure-portal"></a>IoT Central beheren via de Azure Portal
 
 [!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
 
-In plaats van het maken en beheren van IoT Central-toepassingen van de IoT Central [Toepassingsbeheer](https://aka.ms/iotcentral) pagina, kunt u de [Azure-portal](https://portal.azure.com) voor het beheren van uw toepassingen.
+In plaats van IoT Central-toepassingen te maken en beheren via de pagina [toepassings beheer](https://aka.ms/iotcentral) van IOT Central kunt u de [Azure Portal](https://portal.azure.com) gebruiken om uw toepassingen te beheren.
 
 ## <a name="create-iot-central-applications"></a>IoT Central-toepassingen maken
 
-Voor het maken van een toepassing, gaat u naar de [Azure-portal](https://ms.portal.azure.com) en selecteer **een resource maken** in het hoofdgedeelte voor navigatie-menu aan de linkerkant.
+Als u een toepassing wilt maken, gaat u naar de [Azure Portal](https://ms.portal.azure.com) en selecteert u **een resource maken** in het hoofd menu navigatie aan de linkerkant.
 
-![Beheerportal: nav-menu](media/howto-manage-iot-central-from-portal/image0.png)
+![Beheer Portal: navigatie menu](media/howto-manage-iot-central-from-portal/image0.png)
 
-Typ in de zoekbalk typt, **IoT Central**.
+Typ **IOT Central**in de zoek balk.
 
-![Beheerportal: zoeken](media/howto-manage-iot-central-from-portal/image0a1.png)
+![Beheer Portal: zoeken](media/howto-manage-iot-central-from-portal/image0a1.png)
 
-Selecteer de **IoT Central Application** regelitem in de lijst met zoekresultaten.
+Selecteer het regel item **IOT Central toepassing** in de zoek resultaten.
 
-![Beheerportal: zoekresultaten](media/howto-manage-iot-central-from-portal/image0b1.png)
+![Beheerportal: Zoek resultaten](media/howto-manage-iot-central-from-portal/image0b1.png)
 
 Selecteer nu **Maken**.
 
-![Beheerportal: IoT Central-resource](media/howto-manage-iot-central-from-portal/image0c1.png)
+![Beheer Portal: IoT Central resource](media/howto-manage-iot-central-from-portal/image0c1.png)
 
-Vul de velden in het formulier. Dit formulier is vergelijkbaar met het formulier invullen om toepassingen te maken op het IoT Central [Toepassingsbeheer](https://aka.ms/iotcentral) pagina. Zie voor meer informatie de [maken van een toepassing IoT Central](quick-deploy-iot-central.md) Quick Start.
+Vul alle velden in het formulier in. Dit formulier is vergelijkbaar met het formulier dat u invult om toepassingen te maken op de pagina IoT Central [toepassings beheer](https://aka.ms/iotcentral) . Zie de Snelstartgids [een IOT Central-toepassing maken](quick-deploy-iot-central.md) voor meer informatie.
 
-![Beheerportal: IoT Central-resource maken](media/howto-manage-iot-central-from-portal/image1a.png)  
+![Beheer Portal: IoT Central-resource maken](media/howto-manage-iot-central-from-portal/image1a.png)  
 
-Na het invullen van alle velden, selecteer **maken**.
+Nadat u alle velden hebt ingevuld, selecteert u **maken**.
 
-## <a name="manage-existing-iot-central-applications"></a>Bestaande IoT Central toepassingen beheren
+## <a name="manage-existing-iot-central-applications"></a>Bestaande IoT Central-toepassingen beheren
 
-Als u al een Azure IoT Central-toepassing verwijderen of verplaatsen naar een ander abonnement of resourcegroep groep in Azure portal hebt.
+Als u al een Azure IoT Central-toepassing hebt, kunt u deze verwijderen of verplaatsen naar een ander abonnement of een andere resource groep in de Azure Portal.
 
 > [!NOTE]
-> U kunt proefversie toepassingen in Azure portal niet zien, omdat ze niet gekoppeld aan uw abonnement zijn.
+> U kunt geen proef toepassingen weer geven in de Azure Portal omdat deze niet zijn gekoppeld aan uw abonnement.
 
-Selecteer om te beginnen, **alle resources** in het hoofdgedeelte voor navigatie-menu aan de linkerkant. Gebruik het zoekvak typt de naam van uw toepassing te vinden in de lijst met resources. Selecteer vervolgens de IoT Central-toepassing die u wilt beheren.
+Om aan de slag te gaan, selecteert u **alle resources** in het hoofd menu navigatie aan de linkerkant. Gebruik het zoekvak om de naam van uw toepassing te typen om deze te zoeken in de lijst met resources. Selecteer vervolgens de IoT Central toepassing die u wilt beheren.
 
-![Beheerportal: resourcebeheer](media/howto-manage-iot-central-from-portal/image2a.png)
+![Beheer Portal: resource beheer](media/howto-manage-iot-central-from-portal/image2a.png)
 
-Ga naar de toepassing, selecteert u de URL van IoT Central-toepassing.
+Als u naar de toepassing wilt navigeren, selecteert u de IoT Central toepassings-URL.
 
-![Beheerportal: resourcebeheer](media/howto-manage-iot-central-from-portal/image3.png)
+![Beheer Portal: resource beheer](media/howto-manage-iot-central-from-portal/image3.png)
 
-Om de toepassing naar een andere resourcegroep verplaatsen, selecteert u **wijzigen** naast de resourcegroep. Op de **resources verplaatsen** pagina, kies de resourcegroep die u wilt migreren van deze toepassing.
+Als u de toepassing wilt verplaatsen naar een andere resource groep, selecteert u **wijzigen** naast de resource groep. Kies op de pagina **resources verplaatsen** de resource groep waar u deze toepassing naartoe wilt migreren.
 
-![Beheerportal: resourcebeheer](media/howto-manage-iot-central-from-portal/image4a.png)
+![Beheer Portal: resource beheer](media/howto-manage-iot-central-from-portal/image4a.png)
 
-Selecteer voor het verplaatsen van de toepassing naar een ander abonnement, de **wijzigen** koppeling naast het abonnement. Kies het abonnement waarvoor u wilt migreren van deze toepassing in het dialoogvenster dat wordt weergegeven.
+Als u de toepassing naar een ander abonnement wilt verplaatsen,  selecteert u de wijzigings koppeling naast het abonnement. Kies het abonnement waarnaar u deze toepassing wilt migreren in het dialoog venster dat wordt weer gegeven.
 
-![Beheerportal: resourcebeheer](media/howto-manage-iot-central-from-portal/image5a.png)
+![Beheer Portal: resource beheer](media/howto-manage-iot-central-from-portal/image5a.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt geleerd hoe u Azure IoT Central om toepassingen te beheren vanuit Azure portal, volgt de voorgestelde volgende stap:
+Nu u hebt geleerd hoe u Azure IoT Central-toepassingen kunt beheren vanuit de Azure Portal, volgt u de voorgestelde volgende stap:
 
 > [!div class="nextstepaction"]
 > [Uw toepassing beheren](howto-administer.md)

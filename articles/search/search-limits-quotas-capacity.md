@@ -1,6 +1,6 @@
 ---
-title: Servicelimieten voor lagen en SKU's - Azure Search
-description: Servicelimieten gebruikt voor het plannen van capaciteit en maximumlimieten op aanvragen en antwoorden voor Azure Search.
+title: Service limieten voor lagen en sku's-Azure Search
+description: Service limieten die worden gebruikt voor capaciteits planning en maximum aantal limieten voor aanvragen en antwoorden voor Azure Search.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -10,69 +10,69 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b6940be7f64aa9ae16258fa936d197e2715235ab
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 35beb55d7326b954a568a377b73696fe598742c5
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485397"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348296"
 ---
-# <a name="service-limits-in-azure-search"></a>Servicelimieten in Azure Search
-Maximale limieten voor opslag, workloads en aantallen indexen, documenten, en andere objecten afhankelijk zijn van of u [inrichten van Azure Search](search-create-service-portal.md) op **gratis**, **Basic**,  **Standard**, of **met geoptimaliseerde opslag** Prijscategorieën.
+# <a name="service-limits-in-azure-search"></a>Service limieten in Azure Search
+De maximum limieten voor opslag, werk belastingen en hoeveel heden indexen, documenten en andere objecten zijn afhankelijk van het feit of u Azure Search hebt [ingericht](search-create-service-portal.md) , **basis**, **standaard**of voor **opslag geoptimaliseerde** prijs categorieën.
 
-+ **Gratis** is een multitenant gedeelde service die wordt geleverd met uw Azure-abonnement.
++ **Gratis** is een multi tenant-gedeelde service die wordt geleverd bij uw Azure-abonnement.
 
-+ **Basic** biedt speciale computerbronnen voor productieworkloads op kleinere schaal.
++ **Basic** biedt speciale computer bronnen voor productie werkbelastingen op een kleinere schaal.
 
-+ **Standard** wordt uitgevoerd op toegewezen virtuele machines met meer capaciteit voor opslag en verwerking op ieder niveau. Er is standaard beschikbaar in vier niveaus: S1, S2, S3 en S3 HD.
++ **Standaard** wordt uitgevoerd op toegewezen computers met meer opslag-en verwerkings capaciteit op elk niveau. De standaard is beschikbaar op vier niveaus: S1, S2, S3 en S3 HD.
 
-+ **Opslag geoptimaliseerd** wordt uitgevoerd op toegewezen virtuele machines met meer totale opslag, opslag, bandbreedte en geheugen dan **Standard**. Opslag geoptimaliseerd wordt geleverd met twee niveaus: L1 en L2
-
-> [!NOTE]
-> Alle lagen worden vanaf 1 juli algemeen beschikbaar, met inbegrip van de laag geoptimaliseerd voor opslag. Alle prijzen vindt u op de [prijsinformatie](https://azure.microsoft.com/pricing/details/search/) pagina.
-
-  S3 High Density (S3 HD) is ontworpen voor specifieke werkbelastingen: [multitenancy](search-modeling-multitenant-saas-applications.md) en grote hoeveelheden kleine indexen (1 miljoen documenten per index, drie duizend indexen per service). Deze laag biedt de [indexeerfunctie functie](search-indexer-overview.md). Opname van gegevens moet gebruikmaken van de push-benadering, met behulp van API-aanroepen om gegevens te pushen van bron naar een index op S3 HD. 
++ **Opslag geoptimaliseerd** wordt uitgevoerd op toegewezen computers met meer totale opslag, opslag bandbreedte en geheugen dan **standaard**. Geoptimaliseerde opslag is beschikbaar op twee niveaus: L1 en L2
 
 > [!NOTE]
-> Een service wordt op een specifieke laag ingericht. Lagen te krijgen van de capaciteit te springen omvat het inrichten van een nieuwe service (Er is geen in-place upgrade). Zie voor meer informatie, [Kies een SKU of laag](search-sku-tier.md). Zie voor meer informatie over het aanpassen van capaciteit binnen een service die u al hebt ingericht, [resource niveaus voor query's en indexering workloads schalen](search-capacity-planning.md).
+> Vanaf 1 juli zijn alle lagen algemeen beschikbaar, waaronder de laag geoptimaliseerd voor opslag. U kunt alle prijzen vinden op de pagina met [prijs informatie](https://azure.microsoft.com/pricing/details/search/) .
+
+  S3 high density (S3 HD) is ontworpen voor specifieke werk belastingen: [multitenancy](search-modeling-multitenant-saas-applications.md) en grote hoeveel heden kleine indexen (1.000.000 documenten per index, 3000 indexen per service). Deze laag biedt geen [Indexeer functie](search-indexer-overview.md). Op S3 HD moet gegevens opname gebruikmaken van de push-benadering, met behulp van API-aanroepen om gegevens van bron naar index te pushen. 
+
+> [!NOTE]
+> Een service is ingericht op een specifieke laag. Als u de capaciteit van de laag wilt halen, moet u een nieuwe service inrichten (er is geen in-place upgrade). Zie [een SKU of laag kiezen](search-sku-tier.md)voor meer informatie. Zie voor meer informatie over het aanpassen van capaciteit in een service die u al hebt ingericht, [resource niveaus schalen voor het uitvoeren van query's en het indexeren van werk belastingen](search-capacity-planning.md).
 >
 
 ## <a name="subscription-limits"></a>Abonnementslimieten
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## <a name="storage-limits"></a>Maximale opslag
+## <a name="storage-limits"></a>Opslag limieten
 [!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
 <a name="index-limits"></a>
 
-## <a name="index-limits"></a>Index-limieten
+## <a name="index-limits"></a>Index limieten
 
-| Resource | Gratis | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Resource | Free | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Maximale aantal indexen |3 |5 of 15 |50 |200 |200 |1000 per partitie of 3000 per service |10 |10 |
-| Maximale eenvoudige velden per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
-| Maximum aantal complexe verzameling velden per index |40 |40 |40 |40 |40 |40 |40 |40 |
-| Maximum aantal elementen voor alle complexe verzamelingen per document |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Maximum aantal eenvoudige velden per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Maximum aantal complexe verzamelings velden per index |40 |40 |40 |40 |40 |40 |40 |40 |
+| Maximum aantal elementen in alle complexe verzamelingen per document |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Maximale diepte van complexe velden |10 |10 |10 |10 |10 |10 |10 |10 |
-| Maximale [suggesties](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
-| Maximale [scoreprofielen](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
-| Maximumaantal functies per profiel |8 |8 |8 |8 |8 |8 |8 |8 |
+| Maximum aantal [suggesties](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
+| Maximum aantal [Score profielen](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
+| Maximum aantal functies per profiel |8 |8 |8 |8 |8 |8 |8 |8 |
 
-<sup>1</sup> eenvoudige services die zijn gemaakt vóór December 2017 hebben lagere limieten (5 in plaats van 15) over indexen. Basic-laag is de enige SKU met een lagere limiet van 100 velden per index.
+<sup>1</sup> Basic-services die zijn gemaakt vóór december 2017 hebben lagere limieten (5 in plaats van 15) op indices. Basic-laag is de enige SKU met een ondergrens van 100 velden per index.
 
 <a name="document-limits"></a>
 
-## <a name="document-limits"></a>Document-limieten 
+## <a name="document-limits"></a>Document limieten 
 
-Vanaf oktober 2018 zijn er niet langer een document-limieten voor elke nieuwe service die is gemaakt op een factureerbare laag (Basic, S1, S2, S3, S3 HD) in elke regio. Hoewel de meeste regio's hadden onbeperkt aantal documenten telt sinds November/December 2017, zijn er vijf regio's die verder in te stellen document limieten. Afhankelijk van waar en wanneer u een search-service hebt gemaakt, kunt u een service die wordt nog steeds worden beperkt door de document worden uitgevoerd.
+Vanaf oktober 2018 zijn er geen document limieten meer voor nieuwe services die zijn gemaakt in een wille keurige laag (Basic, S1, S2, S3, S3 HD) in een wille keurige regio. Hoewel de meeste regio's een onbeperkt aantal documenten hebben gehad sinds november/december 2017, waren er vijf regio's die de document limieten bleven oplopen. Afhankelijk van wanneer en waar u een zoek service hebt gemaakt, kunt u een service uitvoeren die nog steeds aan de document limieten is onderworpen.
 
-Om te bepalen of uw service document limiet een, controleert u de tegel Usage in de overzichtspagina van uw service. Telt het aantal documenten worden onbeperkt of geldt een limiet op basis van de laag.
+Als u wilt bepalen of uw service document limieten heeft, controleert u de tegel gebruik op de pagina overzicht van uw service. Document tellingen zijn onbeperkt of zijn onderworpen aan een limiet op basis van de laag.
 
   ![Gebruikstegel](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-### <a name="regions-previously-having-document-limits"></a>Regio's eerder met document-limieten
+### <a name="regions-previously-having-document-limits"></a>Regio's die eerder document limieten hebben
 
-Als de portal wordt aangegeven de Documentlimiet van een dat, wordt uw service is gemaakt vóór eind 2017 of deze is gemaakt op een datacenter met lagere capaciteit-clusters voor het hosten van Azure Search-services:
+Als de portal een document limiet aangeeft, is de service gemaakt vóór de eind versie van 2017 of is deze gemaakt in een Data Center met clusters met lagere capaciteit voor het hosten van Azure Search Services:
 
 + Australië - oost
 + Azië - oost
@@ -80,80 +80,80 @@ Als de portal wordt aangegeven de Documentlimiet van een dat, wordt uw service i
 + Japan - west
 + US - west-centraal
 
-Voor services beperkt het document de volgende maximale limieten gelden:
+Voor services die aan de document limieten voldoen, gelden de volgende maximum limieten:
 
-|  Gratis | Basic | S1 | S2 | S3 | S3&nbsp;HD |
+|  Free | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
 |  10.000 |1&nbsp;miljoen |15 miljoen per partitie of 180 miljoen per service |60 miljoen per partitie of 720 miljoen per service |120 miljoen per partitie of 1,4 miljard per service |1 miljoen per index of 200 miljoen per partitie |
 
-Als uw service limiet die u blokkeren een, een nieuwe service maken en alle inhoud die service vervolgens opnieuw te publiceren. Er is geen mechanisme voor het naadloos beëindiging van uw service op de nieuwe hardware op de achtergrond.
+Als uw service limieten heeft die u blokkeert, maakt u een nieuwe service en publiceert u vervolgens alle inhoud opnieuw naar die service. Er is geen mechanisme voor het naadloos opnieuw inrichten van uw service op nieuwe hardware achter de schermen.
 
 > [!Note] 
-> Voor S3 high-density-services die zijn gemaakt na laat 2017, is het document 200 miljoen per partitie verwijderd, maar het document van 1 miljoen per index limiet blijven.
+> Voor de S3-Services voor hoge dichtheid die zijn gemaakt na te laat 2017, is het 200.000.000-document per partitie verwijderd, maar blijft de limiet van 1.000.000 documenten per index.
 
 
-### <a name="document-size-limits-per-api-call"></a>Documenteer de maximale grootte per API-aanroep
+### <a name="document-size-limits-per-api-call"></a>Maximale document grootte per API-aanroep
 
-Maximale grootte van het document bij het aanroepen van een Index-API is ongeveer 16 MB.
+De maximale document grootte bij het aanroepen van een index-API is ongeveer 16 MB.
 
-Documentgrootte van het is eigenlijk een limiet voor de grootte van de hoofdtekst van de Index API-aanvraag. Omdat u in één keer een batch van meerdere documenten aan de API-Index doorgeven kunt, afhankelijk de maximale grootte in de praktijk zijn van het aantal documenten in de batch zijn. Voor een batch met één document is de maximale documentgrootte 16 MB van JSON.
+De document grootte is in feite een limiet voor de grootte van de aanvraag tekst van de index-API. Omdat u een batch van meerdere documenten tegelijk kunt door geven aan de index-API, is de grootte van het aantal documenten in de batch realistisch. Voor een batch met één document is de maximale document grootte 16 MB JSON.
 
-Houd er rekening mee om te voorkomen dat documentgrootte omlaag, moeten worden uitgesloten om gegevens van de aanvraag. Afbeeldingen en andere binaire gegevens zijn niet rechtstreeks waarin u kunt zoeken en mag niet worden opgeslagen in de index. Als u wilt integreren om gegevens in de zoekresultaten, definieert u een niet-doorzoekbaar veld waarin een URL-verwijzing naar de resource.
+Als u de document grootte wilt behouden, moet u niet-bevraagde gegevens uit de aanvraag uitsluiten. Afbeeldingen en andere binaire gegevens kunnen niet rechtstreeks worden doorzocht en mogen niet worden opgeslagen in de index. Als u niet-query bare gegevens wilt integreren in Zoek resultaten, definieert u een niet-doorzoekbaar veld waarin een URL-verwijzing naar de resource wordt opgeslagen.
 
-## <a name="indexer-limits"></a>Indexeerfunctie limieten
+## <a name="indexer-limits"></a>Limieten voor Indexeer functie
 
-Maximum aantal actieve keren herhaald bestaan voor het saldo en stabiliteit naar de service als geheel, maar grotere gegevenssets mogelijk meer indexering tijd dan is toegestaan door de maximale nodig hebt. Als een indexeringstaak kan niet worden voltooid binnen de maximale tijd die is toegestaan, probeert u deze volgens een schema uitvoert. De scheduler houdt van Indexstatus. Als een geplande taak voor indexering is onderbroken voor een bepaalde reden, de indexeerfunctie verder kan gaan waar het laatste bij de volgende geplande run afgebroken.
+Er zijn maximale uitvoerings tijden beschikbaar om het saldo en de stabiliteit van de service als geheel te bieden, maar grotere gegevens sets hebben mogelijk meer indexerings tijd nodig dan het maximum aantal toestaat. Als een indexerings taak niet kan worden voltooid binnen de toegestane maximum tijd, voert u deze uit volgens een schema. De scheduler houdt de indexerings status bij. Als een geplande indexerings taak om welke reden dan ook wordt onderbroken, kan de Indexeer functie ophalen waar deze voor het laatst bij de volgende geplande uitvoering was gebleven.
 
 
 | Resource | Gratis&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Maximale aantal indexeerfuncties |3 |5 of 15|50 |200 |200 |N/A |10 |10 |
 | Maximale aantal gegevensbronnen |3 |5 of 15 |50 |200 |200 |N/A |10 |10 |
-| Maximale kennis en vaardigheden <sup>4</sup> |3 |5 of 15 |50 |200 |200 |N/A |10 |10 |
-| Indexering maximumbelasting per aanroep |10.000 documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |Alleen beperkt door het maximale aantal documenten |N/A |Geen limiet |Geen limiet |
-| Minimale plannen | 5 minuten |5 minuten |5 minuten |5 minuten |5 minuten |5 minuten |5 minuten | 5 minuten |
-| Maximale uitvoeringstijd <sup>5</sup> | 1-3 minuten |24 uur |24 uur |24 uur |24 uur |N/A  |24 uur |24 uur |
-| Maximale uitvoeringstijd voor cognitief zoeken kennis en vaardigheden of blob-indexering met analyse van de afbeelding <sup>5</sup> | 3-10 minuten |2 uur |2 uur |2 uur |2 uur |N/A  |2 uur |2 uur |
-| Indexeerfunctie voor BLOB: maximum blobgrootte, MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
-| Indexeerfunctie voor BLOB: maximum aantal tekens van de inhoud opgehaald uit een blob |32,000 |64,000 |4&nbsp;miljoen |4&nbsp;miljoen |4&nbsp;miljoen |N/A |4&nbsp;miljoen |4&nbsp;miljoen |
+| Maximum vaardig heden <sup>4</sup> |3 |5 of 15 |50 |200 |200 |N/A |10 |10 |
+| Maximale indexerings belasting per aanroep |10.000 documenten |Alleen beperkt door de maximale hoeveelheid documenten |Alleen beperkt door de maximale hoeveelheid documenten |Alleen beperkt door de maximale hoeveelheid documenten |Alleen beperkt door de maximale hoeveelheid documenten |N/A |Geen limiet |Geen limiet |
+| Minimale planning | 5 minuten |5 minuten |5 minuten |5 minuten |5 minuten |5 minuten |5 minuten | 5 minuten |
+| Maximale uitvoerings tijd <sup>5</sup> | 1-3 minuten |24 uur |24 uur |24 uur |24 uur |N/A  |24 uur |24 uur |
+| Maximale uitvoerings tijd voor cognitieve Zoek vaardig heden of BLOB-indexering met afbeeldings analyse <sup>5</sup> | 3-10 minuten |2 uur |2 uur |2 uur |2 uur |N/A  |2 uur |2 uur |
+| BLOB-Indexer: maximale grootte van BLOB, MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
+| BLOB-Indexeer functie: maximum aantal tekens inhoud geëxtraheerd uit een BLOB |32,000 |64,000 |4&nbsp;miljoen |4&nbsp;miljoen |4&nbsp;miljoen |N/A |4&nbsp;miljoen |4&nbsp;miljoen |
 
-<sup>1</sup> gratis services hebben een maximale uitvoeringstijd van 3 minuten indexeerfunctie voor blob-bronnen en 1 minuut voor alle andere gegevensbronnen. Voor AI indexeren die aanroepen naar Cognitive Services, zijn gratis services beperkt tot 20 gratis transacties per dag, waarbij een transactie is gedefinieerd als een document dat is doorgegeven via de pijplijn verrijking.
+<sup>1</sup> gratis services hebben de maximale uitvoerings tijd van de Indexeer functie van 3 minuten voor BLOB-bronnen en 1 minuut voor alle andere gegevens bronnen. Voor AI-indexering die in Cognitive Services aanroept, zijn gratis services beperkt tot 20 gratis trans acties per dag, waarbij een trans actie wordt gedefinieerd als een document dat door de verrijkings pijplijn is door gegeven.
 
-<sup>2</sup> eenvoudige services die zijn gemaakt vóór December 2017 hebben lagere limieten (5 in plaats van 15) op Indexeerfuncties en gegevensbronnen kennis en vaardigheden.
+<sup>2</sup> basis services die zijn gemaakt vóór december 2017 hebben lagere limieten (5 in plaats van 15) voor Indexeer functies, gegevens bronnen en vaardig heden.
 
-<sup>3</sup> S3 HD-services omvatten geen ondersteuning voor indexeerfuncties.
+<sup>3</sup> S3 HD services bevatten geen ondersteuning voor Indexeer functie.
 
-<sup>4</sup> maximaal 30 vaardigheden per vaardigheden.
+<sup>4</sup> Maxi maal 30 vaardig heden per vaardig heden.
 
-<sup>5</sup> cognitief zoeken workloads en analyse van de afbeelding in Azure blob-indexering hebben kortere tijden dan het indexeren van gewone tekst. Analyse van de afbeelding en verwerking van natuurlijke taal voor rekenintensieve en buitensporige hoeveelheden beschikbaar verwerkingskracht in beslag nemen. Uitvoeringstijd is verkleind zodat andere taken in de wachtrij een kans om uit te voeren.  
+<sup>5</sup> cognitieve werk belastingen en afbeeldings analyse in Azure Blob-indexering hebben minder uitvoerings tijden dan gewone tekst indexering. De verwerking van afbeeldings-en natuurlijke taal wordt reken intensief uitgevoerd en verbruikt onevenredige hoeveel heden beschik bare verwerkings kracht. De uitvoerings tijd is gereduceerd om andere taken in de wachtrij te geven die een kans om te worden uitgevoerd.  
 
 ## <a name="queries-per-second-qps"></a>Query's per seconde (QPS)
 
-Maakt een schatting QPS moeten onafhankelijk van elkaar zijn ontwikkeld door elke klant. Zijn de primaire factoren van QPS indexgrootte en complexiteit, query-grootte en complexiteit en de hoeveelheid verkeer. Er is geen manier voor een zinvolle schattingen bij deze factoren zijn onbekend.
+QPS-schattingen moeten onafhankelijk van elke klant worden ontwikkeld. De grootte en complexiteit van de index, de grootte en complexiteit van query's en de hoeveelheid verkeer zijn primaire determinanten van QPS. Er is geen manier om zinvolle schattingen te bieden wanneer dergelijke factoren onbekend zijn.
 
-Er zijn geen schattingen beter te voorspellen wanneer berekend op services die worden uitgevoerd op specifieke resources (Basic en Standard-lagen). U kunt meer QPS nauw schatten omdat u controle over meer van de parameters hebt. Zie voor instructies over het benadering schatting [Azure Search-prestaties en optimalisatie](search-performance-optimization.md).
+Schattingen zijn meer voorspelbaar wanneer ze worden berekend op Services die worden uitgevoerd op speciale resources (Basic-en Standard-lagen). U kunt de QPS nauw keuriger schatten omdat u meer controle hebt over de para meters. Zie [Azure Search prestaties en optimalisatie](search-performance-optimization.md)voor meer informatie over het aanpaken van de schatting.
 
-Voor de lagen met geoptimaliseerde opslag, moet u verwachten dat een lagere query-doorvoer en een hogere latentie dan de standaard-laag.  De methodologie voor het schatten van de prestaties van query's die u zult ervaren is hetzelfde als de standaard-laag.
+Voor de lagen geoptimaliseerd voor opslag moet u een lagere query door Voer en een hogere latentie hebben dan de standaard lagen.  De methodologie voor het schatten van de query prestaties die u krijgt, is hetzelfde als de standaard lagen.
 
-## <a name="data-limits-cognitive-search"></a>Gegevenslimieten (cognitief zoeken)
+## <a name="data-limits-cognitive-search"></a>Gegevens limieten (cognitieve zoek opdracht)
 
-Een [cognitief zoeken pijplijn](cognitive-search-concept-intro.md) waardoor aanroepen naar een Text Analytics-resource voor [entiteit erkenning](cognitive-search-skill-entity-recognition.md), [sleutel vindt er sleuteltermextractie plaats](cognitive-search-skill-keyphrases.md), [sentimentanalyse ](cognitive-search-skill-sentiment.md), en [taaldetectie](cognitive-search-skill-language-detection.md) is onderhevig aan de limieten van gegevens. De maximale grootte van een record moet tussen de 50.000 tekens wordt gemeten door `String.Length`. Als u splitst u uw gegevens wilt voordat deze worden verzonden naar de analyzer sentiment, gebruik de [tekst splitsen vaardigheid](cognitive-search-skill-textsplit.md).
+Een [cognitieve Zoek pijplijn](cognitive-search-concept-intro.md) die aanroepen naar een Text Analytics resource voor [entiteit herkenning](cognitive-search-skill-entity-recognition.md), [extractie van sleutel zinnen](cognitive-search-skill-keyphrases.md), [sentiment analyse](cognitive-search-skill-sentiment.md)en [taal detectie](cognitive-search-skill-language-detection.md) onderhevig is aan gegevens limieten. De maximale grootte van een record moet 50.000 tekens zijn, zoals gemeten [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)door. Als u uw gegevens wilt opsplitsen voordat u deze naar de sentiment Analyzer verzendt, gebruikt u de functie [tekst splitsen](cognitive-search-skill-textsplit.md).
 
-## <a name="api-request-limits"></a>API-limieten voor aanvraag
-* Maximaal 16 MB per aanvraag <sup>1</sup>
-* Maximale URL-lengte van 8 KB
-* Maximaal 1000 documenten per batch van index wordt geüpload, worden samengevoegd of verwijderd
-* Maximaal 32 velden in de component $orderby
-* Maximale zoeken Termgrootte is 32.766 bytes (32 KB min 2 bytes) van UTF-8-gecodeerde tekst
+## <a name="api-request-limits"></a>API-aanvraag limieten
+* Maxi maal 16 MB per aanvraag <sup>1</sup>
+* Maxi maal 8 KB URL-lengte
+* Maxi maal 1000 documenten per batch met index-uploads, samen voegingen of verwijderingen
+* Maxi maal 32 velden in de $orderby-component
+* De maximale grootte van de zoek term is 32.766 bytes (32 KB min 2 bytes) van tekst UTF-8-code ring
 
-<sup>1</sup> in Azure Search de hoofdtekst van een aanvraag is onderworpen aan een bovengrens van 16 MB, waarbij een praktische limiet op de inhoud van afzonderlijke velden of verzamelingen die zijn niet anders is beperkt door theoretische limieten (Zie [gegevens ondersteund typen](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) voor meer informatie over het veld samenstelling en beperkingen).
+<sup>1</sup> in azure Search is de hoofd tekst van een aanvraag onderhevig aan een bovengrens van 16 MB, waardoor een praktische limiet wordt opgelegd aan de inhoud van afzonderlijke velden of verzamelingen die niet anderszins beperkt zijn door theoretische limieten (Zie [ondersteunde gegevens typen](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) voor meer informatie informatie over de samen stelling van velden en beperkingen).
 
-## <a name="api-response-limits"></a>API-reactie-limieten
-* Maximaal 1000 documenten per pagina met zoekresultaten geretourneerd
-* Maximaal 100 suggesties per voorstellen API-aanvraag geretourneerd
+## <a name="api-response-limits"></a>API-antwoord limieten
+* Maxi maal 1000 documenten geretourneerd per pagina met zoek resultaten
+* Maxi maal 100 suggesties die worden geretourneerd per API-aanvraag Voorst Ellen
 
 ## <a name="api-key-limits"></a>API-sleutel limieten
-API-sleutels worden gebruikt voor service-verificatie. Er zijn twee typen. Beheersleutels zijn opgegeven in de aanvraagheader en lezen-schrijven toegang verlenen tot de service. Querysleutels zijn alleen-lezen, opgegeven in de URL en doorgaans verleend aan clienttoepassingen.
+API-sleutels worden gebruikt voor service verificatie. Er zijn twee typen. Beheerders sleutels worden opgegeven in de aanvraag header en krijgen volledige lees-/schrijftoegang tot de service. Query sleutels zijn alleen-lezen, opgegeven voor de URL en worden meestal gedistribueerd naar client toepassingen.
 
-* Maximaal 2 beheersleutels per service
-* Maximum van 50 querysleutels per service
+* Maxi maal 2 beheer sleutels per service
+* Maxi maal 50 query sleutels per service

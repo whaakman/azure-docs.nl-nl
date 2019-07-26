@@ -1,7 +1,6 @@
 ---
 title: Azure-quickstart - Een back-up van een VM maken met Azure CLI
 description: Lees hoe u een back-up van virtuele machines maakt met Azure CLI
-services: backup
 author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d3ed9370726d35f67edfbcf32dfd25e74d7865e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d431cceee80175710f339e4734972340ed3469d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66127677"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467240"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Een back-up van een virtuele machine maken in Azure met de CLI
 De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. U kunt uw gegevens beschermen door regelmatig back-ups te maken. Gebruik Azure Backup om herstelpunten te maken die kunnen worden opgeslagen in geografisch redundante kluizen van Recovery Services. In dit artikel wordt uitgelegd hoe u een back-up van een virtuele machine (VM) maakt in Azure met Azure CLI. U kunt deze stappen ook uitvoeren met [Azure PowerShell](quick-backup-vm-powershell.md) of in [Azure Portal](quick-backup-vm-portal.md).
@@ -43,7 +42,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-De Recovery Services-kluis is standaard ingesteld voor geografisch redundante opslag. In geval van geografisch redundante opslag worden uw back-upgegevens gerepliceerd naar een secundaire Azure-regio die honderden kilometers van de primaire regio is verwijderd. Als de instelling van de redundantie opslag worden gewijzigd moet, gebruikt u [az Backup-kluis back-up-eigenschappen instellen](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
+De Recovery Services-kluis is standaard ingesteld voor geografisch redundante opslag. In geval van geografisch redundante opslag worden uw back-upgegevens gerepliceerd naar een secundaire Azure-regio die honderden kilometers van de primaire regio is verwijderd. Als de instelling voor opslag redundantie moet worden gewijzigd, gebruikt u [AZ backup kluis backup-Properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
 
 ```azurecli
 az backup vault backup-properties set \

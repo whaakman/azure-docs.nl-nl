@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 07/25/2019
 ms.author: diberry
-ms.openlocfilehash: efb2524b430935e6c74415efe850b69835825bc7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 156b2cf7c8042699f70e4bc3ec0b8944ac59a364
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447677"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501167"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Gegevensbronnen voor QnA Maker-inhoud
 
@@ -25,22 +25,22 @@ De onderstaande tabel bevat een overzicht van de typen inhoud en bestandsindelin
 
 |Brontype|Inhoudstype| Voorbeelden|
 |--|--|--|
-|URL|Veelgestelde vragen<br> (Vast, met secties of met een startpagina onderwerpen)<br>Ondersteuning voor pagina 's <br> (Één pagina artikelen met procedures, het oplossen van artikelen enz.)|[Veelgestelde vragen over de gewone](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Veelgestelde vragen over met koppelingen](https://www.microsoft.com/software-download/faq),<br> [Veelgestelde vragen over met onderwerpen startpagina](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Support-artikel](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
-|PDF / DOC-BESTAND|Veelgestelde vragen,<br> Handleiding voor product<br> Brochures,<br> Papier<br> Beleid voor Folder<br> Ondersteuningshandleiding voor<br> Gestructureerde QnA<br> Enzovoort.|[Gestructureerd QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Voorbeeld van een Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Voorbeeld van semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Voorbeeld van een wit paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
-|Excel|Gestructureerd QnA-bestand<br> (met inbegrip van RTF, HTML ondersteuning)|[Voorbeeld QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|URL|Veelgestelde vragen<br> (Plat, met secties of met een start pagina voor onderwerpen)<br>Ondersteunings pagina's <br> (Procedures voor één pagina, artikelen, problemen oplossen, enz.)|[Veelgestelde vragen](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Veelgestelde vragen met koppelingen](https://www.microsoft.com/software-download/faq),<br> [Veelgestelde vragen met de introductie pagina van de onderwerpen](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Ondersteunings artikel](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|PDF / DOC-BESTAND|Faq's<br> Product handleiding,<br> Brochures,<br> Waarop<br> Flyer-beleid,<br> Ondersteunings handleiding,<br> Gestructureerde QnA,<br> Heap.|[Structured QnA. doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> Voor [beeld van product manual. PDF](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> Voor [beeld van semi-Structured. doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Voor beeld van technisch document. PDF](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
+|Excel|Gestructureerd QnA-bestand<br> (inclusief RTF-, HTML-ondersteuning)|[Voorbeeld QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Gestructureerd QnA-bestand|[Voorbeeld chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
 ## <a name="data-source-locations"></a>Gegevensbronnen
 
-De meeste gegevensbronlocaties moeten opgeven openbare URL's of bestanden waarvoor geen verificatie vereist is. 
+De meeste gegevens bron locaties moeten open bare Url's of bestanden bieden waarvoor geen verificatie is vereist. 
 
-[SharePoint-gegevensbron locaties](../How-to/add-sharepoint-datasources.md) voor geverifieerde bestanden zijn toegestaan. SharePoint-resources moeten bestanden, niet webpagina's. 
+[Share point-gegevens bron locaties](../How-to/add-sharepoint-datasources.md) mogen geauthenticeerde bestanden bevatten. Share point-resources moeten bestanden, niet webpagina's zijn. 
 
-Hebt u een geverifieerde bestand of de URL, een alternatief is het downloaden van het bestand van de geverifieerde site naar de lokale computer, klikt u vervolgens het bestand toevoegen vanaf uw lokale computer naar de knowledge base. 
+Als u een geverifieerd bestand of URL hebt, kunt u het bestand downloaden van de geverifieerde site naar uw lokale computer en vervolgens het bestand van uw lokale computer toevoegen aan de Knowledge Base. 
 
 ## <a name="faq-urls"></a>Veelgestelde vragen over URL 's
 
-QnA Maker kunt webpagina's voor veelgestelde vragen over ondersteuning in 3 verschillende vormen: Plain Veelgestelde vragen over pagina's, veelgestelde vragen over pagina's met koppelingen, veelgestelde vragen over pagina's met een startpagina onderwerpen.
+QnA Maker kunnen webpagina's met veelgestelde vragen in drie verschillende vormen ondersteunen: Pagina's met veelgestelde vragen, veelgestelde vragen pagina's met koppelingen, pagina's met veelgestelde vragen met een start pagina voor onderwerpen.
 
 ### <a name="plain-faq-pages"></a>Plain Veelgestelde vragen over pagina 's
 
@@ -69,14 +69,14 @@ Hieronder volgt een voorbeeld van een pagina met veelgestelde vragen waar een st
  ![Voorbeeld van veelgestelde vragen over de dieptekoppeling naar de pagina voor een knowledge base](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
-### <a name="support-urls"></a>Ondersteuning voor URL 's
+### <a name="support-urls"></a>Url's voor ondersteuning
 
-QnA Maker kunnen ondersteuning van semi-gestructureerde webpagina's, zoals webartikelen dat beschrijft hoe u een bepaalde taak uit te voeren, het diagnosticeren en oplossen van een bepaald probleem en wat zijn de aanbevolen procedures voor een bepaald proces worden verwerkt. Extractie werkt het beste op inhoud waarvoor een duidelijke structuur met hiërarchische koppen.
+QnA Maker kunt semi-gestructureerde ondersteunings webpagina's verwerken, zoals webartikelen waarin wordt beschreven hoe u een bepaalde taak uitvoert, hoe u een bepaald probleem opspoort en oplost en wat de aanbevolen procedures voor een bepaald proces zijn. Extractie werkt het beste voor inhoud die een duidelijke structuur met hiërarchische koppen heeft.
 
 > [!NOTE]
-> Extractie voor artikelen over ondersteuning voor een nieuwe functie is en is in de eerste fasen. Deze geschikt is voor eenvoudige pagina's, die goed zijn gestructureerd en bevatten geen complexe kopteksten en voetteksten.
+> Uitpakken voor ondersteunings artikelen is een nieuwe functie en is in vroege stadia. Het werkt het beste voor eenvoudige pagina's, die goed zijn gestructureerd en geen complexe kop-en voet teksten bevatten.
 
-![QnA Maker ondersteunt extractie van semi-gestructureerde webpagina's waarbij een duidelijke structuur wordt weergegeven met hiërarchische koppen](../media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
+![QnA Maker ondersteunt de extractie van semi-gestructureerde webpagina's waarbij een duidelijke structuur wordt weer gegeven met hiërarchische koppen](../media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
 
 
 ## <a name="pdf-doc-files"></a>PDF / DOC-bestand
@@ -98,7 +98,7 @@ Hieronder volgt een voorbeeld van een handmatige met een index-pagina en hiërar
 
 ### <a name="brochures-guidelines-papers-and-other-files"></a>Brochures, richtlijnen, documenten en andere bestanden
 
-Nog vele andere typen documenten kunnen ook worden verwerkt voor het genereren van QA-paren, mits ze een duidelijke structuur en indeling hebben. Deze omvatten: Brochures, richtlijnen, rapporten, technische documenten, wetenschappelijke documenten, beleid, boeken, enzovoort. Bekijk een voorbeeld [hier](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
+Nog vele andere typen documenten kunnen ook worden verwerkt voor het genereren van QA-paren, mits ze een duidelijke structuur en indeling hebben. Deze omvatten: Brochures, richt lijnen, rapporten, White papers, weten schappelijke documenten, beleids regels, boeken, enzovoort. Bekijk een voorbeeld [hier](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
 
 Hieronder volgt een voorbeeld van een semi-gestructureerde doc, zonder een index:
 
@@ -126,7 +126,7 @@ Hieronder volgt een voorbeeld van een gestructureerde QnA word-document:
 
 Vragen en antwoorden supereenvoudig in de vorm van gestructureerde *.txt*, *.tsv* of *xls* bestanden kunnen ook worden geüpload naar de QnA Maker te maken of uitbreiden van een kennisdatabase.  Dit kunnen bestaan uit tekst zonder opmaak of inhoud in de RTF- of HTML-code kunnen hebben. 
 
-| Vraag  | Antwoord  | Metadata (1 key: 1 waarde) |
+| Vraag  | Antwoord  | Meta gegevens (1 sleutel: 1 waarde) |
 |-----------|---------|-------------------------|
 | Question1 | Answer1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 |      `Key:Value`           |
@@ -139,9 +139,9 @@ Hieronder volgt een voorbeeld van een gestructureerde QnA *xls* bestand met de H
 
 ## <a name="structured-data-format-through-import"></a>Indeling van gestructureerde gegevens via importeren
 
-Importeren van een kennisdatabase wordt vervangen door de inhoud van de bestaande knowledge base. Invoer vereist een gestructureerde .tsv-bestand met informatie van de gegevensbron. Deze informatie helpt QnA Maker groep van de vraag-antwoord-paren en ze het kenmerk met een bepaalde gegevensbron.
+Importeren van een kennisdatabase wordt vervangen door de inhoud van de bestaande knowledge base. Invoer vereist een gestructureerde .tsv-bestand met informatie van de gegevensbron. Deze informatie helpt bij het QnA Maker groeperen van de vraag-antwoord paren en het kenmerk ervan aan een bepaalde gegevens bron.
 
-| Vraag  | Antwoord  | source| Metadata (1 key: 1 waarde) |          
+| Vraag  | Antwoord  | Source| Meta gegevens (1 sleutel: 1 waarde) |          
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Redactioneel|    `Key:Value`       |
@@ -150,26 +150,46 @@ Importeren van een kennisdatabase wordt vervangen door de inhoud van de bestaand
 
 Als u geen bestaande inhoud voor het vullen van de knowledge base, kunt u vragen en antwoorden supereenvoudig redactioneel toevoegen in de QnA Maker Knowledge base. Meer informatie over het bijwerken van uw knowledge base [hier](../How-To/edit-knowledge-base.md).
 
+<a href="#formatting-considerations"></a>
+
 ## <a name="formatting-considerations"></a>Overwegingen voor opmaak
 
-Na het importeren van een bestand of een URL, wordt deze omgezet in Markdown en opgeslagen in deze indeling. Als tijdens de conversie niet correct koppelingen in uw bestanden en de URL's converteert is, moet u de vragen en antwoorden bewerken op de **bewerken** pagina. 
+Nadat u een bestand of URL hebt geïmporteerd, worden QnA Maker geconverteerd en wordt de inhoud opgeslagen in de [indeling voor prijs verlaging](https://en.wikipedia.org/wiki/Markdown). Het conversie proces voegt nieuwe regels toe aan de tekst, zoals `\n\n`. Een kennis van de prijs verlaging helpt u bij het begrijpen van de geconverteerde inhoud en het beheren van uw Knowledge Base-inhoud. 
 
-|Indeling|Doel|
-|--|--|
-|`\n\n`| Nieuwe regel|
-|`\n*`|Opsommingsteken voor een geordende lijst|
+Als u inhoud rechtstreeks in uw Knowledge Base toevoegt of bewerkt, gebruikt u de indeling voor **prijs verlaging** om inhoud met opmaak te maken of de inhoud van de prijs verlaging te wijzigen die al in het antwoord voor komt. QnA Maker ondersteunt een groot deel van de prijs verlaging voor uw inhoud. De client toepassing, zoals een chat-bot, ondersteunt echter mogelijk niet dezelfde set prijs notaties. Het is belang rijk om de weer gave van antwoorden van de client toepassing te testen. 
 
-## <a name="editing-your-knowledge-base-locally"></a>Uw knowledge base lokaal bewerken
+Hieronder ziet u de lijst met indelingen voor prijs opgaven die u in QnA Maker kunt gebruiken: 
 
-Zodra een kennisdatabase is gemaakt, is het raadzaam dat u wijzigingen aanbrengt in de knowledge base-tekst in de [QnA Maker portal](https://qnamaker.ai), in plaats van exporteren en importeren door middel van lokale bestanden. Echter, kunnen er tijden dat u wilt een kennisdatabase lokaal bewerken. 
+|Doel|Indeling|Voor beeld van prijs verlaging|Rendering<br>zoals weer gegeven in de chat-bot|
+|--|--|--|--|
+Een nieuwe regel tussen twee zinnen.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![nieuwe lijn tussen twee zinnen opmaken](../media/qnamaker-concepts-datasources/format-newline.png)|
+|Headers van H1 tot H6, het aantal `#` geeft aan welke koptekst u wilt. 1 `#` is de H1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![indeling met kopteksten voor korting](../media/qnamaker-concepts-datasources/format-headers.png)<br>![notatie met de koppen H1 tot en met H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
+|Cursief |`*text*`|`How do I create a bot with *QnA Maker*?`|![opmaken met cursief](../media/qnamaker-concepts-datasources/format-italics.png)|
+|Teken reeks (vet)|`**text**`|`How do I create a bot with **QnA Maker**?`|![indeling met sterke markering voor vet](../media/qnamaker-concepts-datasources/format-strong.png)|
+|URL voor koppeling|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![indeling voor URL (Hyper Link)](../media/qnamaker-concepts-datasources/format-url.png)|
+|\* URL voor de open bare afbeelding|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![indeling voor URL van open bare afbeelding ](../media/qnamaker-concepts-datasources/format-image-url.png)|
+|Doorhalen|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![opmaak voor door halen](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
+|Vet en cursief|`***text***`|`How can I create a ***QnA Maker*** bot?`|![opmaak voor vet en cursief](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
+|Vetgedrukte URL voor koppeling|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![notatie voor vetgedrukte URL](../media/qnamaker-concepts-datasources/format-bold-url.png)|
+|Cursieve URL voor koppeling|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![notatie voor cursieve URL](../media/qnamaker-concepts-datasources/format-url-italics.png)|
+|Symbolen voor kortings symbool voor Escape|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![notatie voor cursieve URL](../media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
+|Geordende lijst|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>In het voor gaande voor beeld wordt gebruikgemaakt van automatische nummering in korting.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>In het vorige voor beeld wordt gebruikgemaakt van expliciete nummering.|![indeling voor geordende lijst](../media/qnamaker-concepts-datasources/format-ordered-list.png)|
+|Niet-geordende lijst|`\n * item1 \n * item2`<br>of<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![indeling voor niet-geordende lijst](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
+|Geneste lijsten|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>U kunt bestelde en niet-geordende lijsten samen nesten. Het tabblad, `\t`, geeft het inspring niveau van het onderliggende element aan.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![indeling voor geneste niet-geordende lijst](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![indeling voor geneste geordende lijst](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
-Exporteren van de knowledge base van de **instellingen** pagina en vervolgens op de knowledge base met Microsoft Excel bewerken. Als u kiest voor het gebruik van een andere toepassing om uw geëxporteerde TSV-bestand te bewerken, de toepassing kan leiden tot fouten in de syntaxis omdat deze niet volledig compatibel TSV. Van Microsoft Excel TSV-bestanden in het algemeen introduceren geen opmaak fouten. 
+\* QnA Maker de afbeelding niet op enigerlei manier verwerken. Het is de rol van de client toepassing om de installatie kopie weer te geven. 
 
-Wanneer u klaar bent met uw bewerkingen, importeer de TSV-bestand van de **instellingen** pagina. Hiermee wordt de huidige knowledge base volledig vervangen door de geïmporteerde knowledge base. 
+## <a name="editing-your-knowledge-base-locally"></a>Uw kennis database lokaal bewerken
 
-## <a name="testing-your-markdown"></a>Testen van uw Markdown
+Zodra een Knowledge Base is gemaakt, wordt het aanbevolen dat u wijzigingen aanbrengt in de Knowledge Base-tekst in de [QnA Maker Portal](https://qnamaker.ai)in plaats van het exporteren en opnieuw importeren via lokale bestanden. Het is echter mogelijk dat u een kennis database lokaal moet bewerken. 
 
-Gebruik de **[CommonMark](https://commonmark.org/help/tutorial/index.html)** zelfstudie voor het valideren van uw Markdown. De zelfstudie is een **uitproberen** functie voor snelle kopiëren/plakken validatie. 
+Exporteer de Knowledge Base van de pagina **instellingen** en bewerk vervolgens de Knowledge Base met micro soft Excel. Als u ervoor kiest om een andere toepassing te gebruiken om het geëxporteerde TSV-bestand te bewerken, kan de toepassing syntaxis fouten veroorzaken omdat deze niet volledig TSV-compatibel is. De TSV-bestanden van micro soft Excel voeren doorgaans geen opmaak fouten uit. 
+
+Wanneer u klaar bent met uw bewerkingen, importeert u het TSV-bestand opnieuw vanaf de pagina **instellingen** . Hiermee wordt de huidige Knowledge Base volledig vervangen door de geïmporteerde kennis database. 
+
+## <a name="testing-your-markdown"></a>Uw prijs verlaging testen
+
+Gebruik de **[CommonMark](https://commonmark.org/help/tutorial/index.html)** -zelf studie om uw prijs verlaging te valideren. De zelf studie heeft een **try it** -functie voor het snel kopiëren/plakken van validatie. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

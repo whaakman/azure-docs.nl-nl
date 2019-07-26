@@ -1,10 +1,10 @@
 ---
-title: 'Quickstart: Een Standard load balancer - Resource Manager-sjabloon maken'
+title: 'Quickstart: Een standaard sjabloon voor load balancer-Azure Resource Manager maken'
 titlesuffix: Azure Load Balancer
-description: Deze quickstart laat zien hoe u een Standard load balancer maken met behulp van de Azure Resource Manager-sjabloon.
+description: In deze Quick start ziet u hoe u een standaard load balancer maakt met behulp van de Azure Resource Manager sjabloon.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Standard load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,30 +13,30 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 00dbb29cac30f2a3bbecf71727c79617e24af3e0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e1a04cad7fe5c9c95397ffad2faa80c7d657d0f8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441300"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273797"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-an-azure-resource-manager-template"></a>Quickstart: Een Standard load balancer om taken te verdelen VM's met behulp van een Azure Resource Manager-sjabloon maken
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-an-azure-resource-manager-template"></a>Quickstart: Een standaard load balancer maken om taken van Vm's te verdelen met behulp van een Azure Resource Manager sjabloon
 
-Taakverdeling zorgt voor een hogere beschikbaarheid en betere schaalbaarheid door binnenkomende aanvragen te spreiden over meerdere virtuele machines (VM's). Deze quickstart laat zien hoe u een Azure Resource Manager-sjabloon waarmee een standaardversie van load balancer om taken te verdelen VM's implementeren.
+Taakverdeling zorgt voor een hogere beschikbaarheid en betere schaalbaarheid door binnenkomende aanvragen te spreiden over meerdere virtuele machines (VM's). In deze Quick start ziet u hoe u een Azure Resource Manager sjabloon kunt implementeren waarmee een standaard-load balancer wordt gemaakt voor de taak verdeling van Vm's.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="create-a-standard-load-balancer"></a>Een standaardversie van een load balancer maken
 
-Standard Load Balancer ondersteunt alleen een Standard openbaar IP-adres. Wanneer u een Standard load balancer maakt, moet u ook een nieuwe standaard, openbaar IP-adres dat is geconfigureerd als de front-end voor de standaardversie van load balancer maken.
+Standard Load Balancer ondersteunt alleen een standaard openbaar IP-adres. Wanneer u een standaard load balancer maakt, moet u ook een nieuw standaard openbaar IP-adres maken dat is geconfigureerd als de front-end voor de standaard load balancer.
 
-U kunt veel methoden gebruiken om te maken van een Standard load balancer. In deze snelstartgids hebt u Azure PowerShell gebruiken om te implementeren een [Resource Manager-sjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json). Resource Manager-sjablonen zijn JSON-bestanden die de resources definiëren die u voor uw oplossing moet implementeren.
+U kunt een groot aantal methoden gebruiken om een standaard load balancer te maken. In deze Quick Start gebruikt u Azure PowerShell voor het implementeren van een [Resource Manager-sjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json). Resource Manager-sjablonen zijn JSON-bestanden die de resources definiëren die u voor uw oplossing moet implementeren.
 
-Zie voor meer informatie over de concepten die zijn gekoppeld aan het implementeren en beheren van uw Azure-oplossingen, [Azure Resource Manager-documentatie](/azure/azure-resource-manager/). Meer sjablonen die zijn gerelateerd aan Azure Load Balancer, Zie [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
+Zie [Azure Resource Manager documentatie](/azure/azure-resource-manager/)voor meer informatie over de concepten van het implementeren en beheren van uw Azure-oplossingen. Zie [Azure Quick](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular)start-sjablonen voor meer informatie over de sjablonen die zijn gerelateerd aan Azure Load Balancer.
 
-1. Selecteer **uitproberen** uit het volgende codeblok Azure Cloud Shell openen en volg de instructies om aan te melden bij Azure.
+1. Selecteer **deze** in het volgende code blok proberen om Azure Cloud shell te openen en volg de instructies om u aan te melden bij Azure.
 
    ```azurepowershell-interactive
    $projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
@@ -53,17 +53,17 @@ Zie voor meer informatie over de concepten die zijn gekoppeld aan het implemente
    Write-Host "Press [ENTER] to continue."
    ```
 
-   Wacht tot u de opdrachtprompt vanuit de console.
+   Wacht totdat u de prompt van de-console ziet.
 
-1. Selecteer **kopie** uit het vorige blok van code te kopiëren van het PowerShell-script.
+1. Selecteer **kopiëren** in het vorige code blok om het Power shell-script te kopiëren.
 
-1. Met de rechtermuisknop op de shell-consolevenster en selecteer vervolgens **plakken**.
+1. Klik met de rechter muisknop op het deel venster shell console en selecteer vervolgens **Plakken**.
 
-1. Geef de waarden op.
+1. Voer de waarden in.
 
-   De sjabloonimplementatie maakt drie beschikbaarheidszones. Beschikbaarheidszones worden alleen ondersteund in [bepaalde regio's](../availability-zones/az-overview.md). Gebruik een van de ondersteunde regio's. Als u niet zeker weet, voert u **centralus**.
+   Met de sjabloon implementatie worden drie beschikbaarheids zones gemaakt. Beschikbaarheids zones worden alleen ondersteund in [bepaalde regio's](../availability-zones/az-overview.md). Gebruik een van de ondersteunde regio's. Als u dat niet zeker weet , voert u centralus in.
 
-   Naam van de resourcegroep met de naam van het project is **rg** toegevoegd. U moet de naam van de resourcegroep in de volgende sectie.
+   De naam van de resource groep is de naam van het project waaraan **RG** is toegevoegd. U hebt de naam van de resource groep nodig in de volgende sectie.
 
 Het duurt ongeveer 10 minuten om de sjabloon te implementeren.
 
@@ -71,27 +71,27 @@ Het duurt ongeveer 10 minuten om de sjabloon te implementeren.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-1. Selecteer **resourcegroepen** in het linkerdeelvenster.
+1. Selecteer **resource groepen** in het linkerdeel venster.
 
-1. Selecteer de resourcegroep die u in de vorige sectie hebt gemaakt. De standaardnaam van de resource-group is de naam van het project met **rg** toegevoegd.
+1. Selecteer de resource groep die u in de vorige sectie hebt gemaakt. De standaard naam van de resource groep is de naam van het project waaraan **RG** is toegevoegd.
 
-1. Selecteer de load balancer. De standaardnaam is de naam van het project met **-lb** toegevoegd.
+1. Selecteer de load balancer. De standaard naam is de project naam met **-lb** toevoegen.
 
-1. Kopieer alleen het IP-adres-gedeelte van het openbare IP-adres en plak deze in de adresbalk van uw browser. De browser weergegeven de standaardpagina van de webserver van Internet Information Services (IIS).
+1. Kopieer alleen het IP-adres gedeelte van het open bare IP-adres en plak het in de adres balk van uw browser. In de browser wordt de standaard pagina van de Internet Information Services-webserver (IIS) weer gegeven.
 
    ![IIS-webserver](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-Als u wilt zien hoe de load balancer verkeer distribueert naar alle drie virtuele machines, kunt u een vernieuwing van uw webbrowser dwingen de clientcomputer.
+Als u de load balancer distributie van verkeer over alle drie Vm's wilt zien, kunt u het vernieuwen van uw webbrowser afdwingen van de client computer.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u deze niet meer nodig, verwijdert u de resourcegroep, de load balancer en alle gerelateerde resources. Om dit te doen, gaat u naar de Azure-portal, selecteert u de resourcegroep met de load balancer en selecteer vervolgens **resourcegroep verwijderen**.
+Wanneer u deze niet meer nodig hebt, verwijdert u de resource groep, de load balancer en alle gerelateerde resources. Als u dit wilt doen, gaat u naar de Azure Portal, selecteert u de resource groep die de load balancer bevat en selecteert u **resource groep verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u een Standard load balancer gemaakt, virtuele machines die zijn gekoppeld aan deze regel voor het load balancer-verkeer geconfigureerd, heeft een statustest en vervolgens de load balancer getest.
+In deze Quick Start hebt u een standaard load balancer, gekoppelde virtuele machines, gemaakt, de regel voor de Load Balancer-verkeer geconfigureerd, een status test en vervolgens de load balancer getest.
 
-Voor meer informatie gaat u verder met de zelfstudies voor Load Balancer.
+Ga verder met de zelf studies voor Load Balancer voor meer informatie.
 
 > [!div class="nextstepaction"]
 > [Zelfstudies voor Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

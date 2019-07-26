@@ -1,19 +1,18 @@
 ---
 title: Problemen met langzame back-ups van bestanden en mappen in Azure Backup
 description: Biedt richt lijnen voor probleem oplossing waarmee u de oorzaak van Azure Backup prestatie problemen kunt vaststellen
-services: backup
 author: saurabhsensharma
 manager: saurabhsensharma
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: saurse
-ms.openlocfilehash: 592a46077bb9e3469f3a42a95173af1b6db93510
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 3a39d39412c8b64d1851ea0fc9511d116f3b232a
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "67704938"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465347"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Problemen met langzame back-ups van bestanden en mappen in Azure Backup
 Dit artikel bevat richt lijnen voor probleem oplossing waarmee u de oorzaak van trage back-upprestaties voor bestanden en mappen kunt vaststellen wanneer u Azure Backup gebruikt. Wanneer u de Azure Backup-agent gebruikt voor het maken van back-ups van bestanden, kan het back-upproces langer duren dan verwacht. Deze vertraging kan een of meer van de volgende oorzaken hebben:
@@ -38,7 +37,7 @@ Windows biedt een ingebouwd hulp programma dat [prestatie meter](https://technet
 
 Hier volgen enkele prestatie meter items en bereiken die nuttig kunnen zijn bij het diagnosticeren van knel punten voor optimale back-ups.
 
-| Item | Status |
+| Teller | Status |
 | --- | --- |
 | Logische schijf (fysieke schijf)--% inactief |• 100% niet-actief tot 50% inactief = in orde</br>• 49% niet actief tot 20% inactief = waarschuwing of monitor</br>• 19% niet-actief tot 0% inactief = kritiek of van specificatie |
 | Logische schijf (fysieke schijf)--% gem. Lees-of schrijf tijd schijf |• 0,001 MS tot 0,015 MS = in orde</br>• 0,015 MS tot 0,025 MS = waarschuwing of monitor</br>• 0,026 MS of langer = kritiek of van de specificatie |
@@ -83,7 +82,7 @@ The following indicators can help you understand the bottleneck and accordingly 
 * **UI is showing progress for the data transfer**. The data is still being transferred. The network bandwidth or the size of data might be causing delays.
 * **UI is not showing progress for the data transfer**. Open the logs located at C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support).Processor--\`processor tijd (alle exemplaren)es and folders in Azure Backup
 description: Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues
-services: backup
+
 author: saurabhsensharma
 manager: saurabhsensharma
 ms.service: backup

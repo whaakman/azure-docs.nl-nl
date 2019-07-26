@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 07/09/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 2e6eb449f4e7a8dcd6c4547162a575d21f303f83
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 43d1942b1413569d77c6c17fee9fff14dc83c924
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712446"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68362494"
 ---
-### <a name="what-is-expressroute-direct"></a>Wat is ExpressRoute Direct?
+### <a name="what-is-expressroute-direct"></a>Wat is ExpressRoute direct?
 
-ExpressRoute Direct biedt klanten de mogelijkheid om rechtstreeks verbinding te maken met het wereldwijde netwerk van Microsoft op peeringlocaties die zich strategisch verdeeld over de hele wereld bevinden. ExpressRoute Direct biedt dual 100 of 10 Gbps-connectiviteit, die ondersteuning biedt voor actief/actief-verbindingen op schaal. 
+ExpressRoute Direct biedt klanten de mogelijkheid om rechtstreeks verbinding te maken met het wereldwijde netwerk van Microsoft op peeringlocaties die zich strategisch verdeeld over de hele wereld bevinden. ExpressRoute direct biedt een Dual 100-of 10 Gbps-connectiviteit, die ondersteuning biedt voor actieve/actieve connectiviteit op schaal. 
 
-### <a name="how-do-customers-connect-to-expressroute-direct"></a>Hoe klanten verbinding maken voor ExpressRoute Direct? 
+### <a name="how-do-customers-connect-to-expressroute-direct"></a>Hoe maken klanten verbinding met ExpressRoute direct? 
 
-Klanten moet samenwerken met hun lokale providers en CO-locatieproviders connectiviteit met ExpressRoute routers ophalen om te profiteren van ExpressRoute Direct.
+Klanten moeten samen werken met hun lokale vervoerders en co-locatie providers om verbinding te maken met ExpressRoute-routers om gebruik te kunnen maken van ExpressRoute direct.
 
-### <a name="what-locations-currently-support-expressroute-direct"></a>ExpressRoute Direct wordt momenteel ondersteund door welke locaties? 
+### <a name="what-locations-currently-support-expressroute-direct"></a>Welke locaties ondersteunen momenteel ExpressRoute direct? 
 
-De beschikbare poorten zijn dynamisch en is beschikbaar door PowerShell om de capaciteit weer te geven. Locaties zijn en *worden gewijzigd op basis van beschikbaarheid*:
+De beschik bare poorten worden dynamisch en zijn beschikbaar in Power shell om de capaciteit te bekijken. Locaties bevatten en *zijn onderhevig aan wijzigingen op basis van Beschik baarheid*:
 
 * Amsterdam
 * Amsterdam2
@@ -35,7 +35,6 @@ De beschikbare poorten zijn dynamisch en is beschikbaar door PowerShell om de ca
 * Dublin
 * Hongkong SAR
 * Londen
-* Los Angeles
 * Melbourne
 * New York City
 * Perth
@@ -51,18 +50,18 @@ De beschikbare poorten zijn dynamisch en is beschikbaar door PowerShell om de ca
 * Washington DC
 * Washington DC2
 
-### <a name="what-is-the-sla-for-expressroute-direct"></a>Wat is de SLA voor ExpressRoute Direct?
+### <a name="what-is-the-sla-for-expressroute-direct"></a>Wat is de SLA voor ExpressRoute direct?
 
-ExpressRoute Direct maakt gebruik van dezelfde [zakelijke van ExpressRoute](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/). 
+ExpressRoute direct maakt gebruik [van dezelfde bedrijfs kwaliteit als ExpressRoute](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/). 
 
-### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>Welke scenario's overwegen klanten met ExpressRoute Direct?  
+### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>Welke scenario's moeten klanten overwegen met ExpressRoute direct?  
 
-ExpressRoute Direct biedt klanten direct 100 of 10 Gbps-poort-paren in de algemene Microsoft-backbone. De scenario's die de grootste voordelen van van klanten voorzien zijn onder andere: Grootschalige gegevens opnemen, fysieke isolatie voor gereguleerde markten en toegewezen capaciteit voor burst-scenario, zoals rendering. 
+ExpressRoute direct biedt klanten direct 100 of 10 Gbps poort paren in de globale backbone van micro soft. De scenario's die klanten de beste voor delen bieden, zijn onder andere: Enorme gegevens opname, fysieke isolatie voor gereglementeerde markten en toegewezen capaciteit voor burst-scenario, zoals rendering. 
 
-### <a name="what-is-the-billing-model-for-expressroute-direct"></a>Wat is het factureringsmodel voor ExpressRoute Direct? 
+### <a name="what-is-the-billing-model-for-expressroute-direct"></a>Wat is het facturerings model voor ExpressRoute direct? 
 
-ExpressRoute Direct wordt gefactureerd voor het paar poort op een vast bedrag. Standard-circuits worden opgenomen op geen extra uren en premium is een lichte aanvullende kosten in rekening gebracht. Uitgaand verkeer wordt gefactureerd op basis van per circuit op basis van de zone van de locatie.
+ExpressRoute direct wordt in rekening gebracht voor het poort paar met een vast bedrag. Standaard circuits worden zonder extra uren opgenomen en Premium heeft een kleine invoeg toepassing. Uitgang wordt gefactureerd op basis van het circuit op basis van de zone van de locatie van de peering.
 
-### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>Facturering start wanneer voor de poortparen ExpressRoute Direct?
+### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>Wanneer begint de facturering voor de directe poort paren voor ExpressRoute?
 
-Poortparen ExpressRoute Direct van 45 dagen worden gefactureerd in het maken van de resource die ExpressRoute rechtstreeks of wanneer 1 of beide van de koppelingen zijn ingeschakeld, afhankelijk van wat het eerste komt. De respijtperiode van 45 dagen wordt verleend aan kunnen klanten het proces overlappende verbinding met de provider CO-locatie is voltooid.
+Poort paren van ExpressRoute direct worden 45 dagen in rekening gebracht bij het maken van de ExpressRoute direct-resource of wanneer 1 of beide koppelingen zijn ingeschakeld, afhankelijk van wat het eerste komt. De respijt periode van 45 dagen wordt verleend zodat klanten het cross-Connection proces kunnen volt ooien met de co-locatie provider.

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9776126687832485bf329061dfeedce928918d9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 901cf3e25ed63421f7e07d7773b6381fc54ea8a2
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321143"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489115"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Configureer bare levens duur van tokens in Azure Active Directory (preview-versie)
 
@@ -40,6 +40,7 @@ U kunt een beleid instellen als het standaard beleid voor uw organisatie. Het be
 > Het beleid voor de levens duur van Configureer bare tokens wordt niet ondersteund voor share point online.  Hoewel u de mogelijkheid hebt om dit beleid via Power shell te maken, wordt dit beleid niet door share point online bevestigd. Raadpleeg de [share point online-blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) voor meer informatie over het configureren van time-outs voor inactieve sessies.
 >* De standaard levensduur voor het share point online-toegangs token is 1 uur. 
 >* De standaard waarde voor inactieve tijd van het share point online-vernieuwings token is 90 dagen.
+
 
 ## <a name="token-types"></a>Token typen
 
@@ -80,7 +81,7 @@ Beleid voor levens duur van tokens is een type beleids object dat de levens duur
 ### <a name="configurable-token-lifetime-properties"></a>Eigenschappen van Configureer bare token levensduur
 | Eigenschap | Teken reeks eigenschap van beleid | Alleen | Standaard | Minimum | Maximum |
 | --- | --- | --- | --- | --- | --- |
-| Levens duur van toegangs token |AccessTokenLifetime |Toegangs tokens, ID-tokens, SAML2-tokens |1 uur |10 minuten |1 dag |
+| Levens duur van toegangs token |AccessTokenLifetime<sup>4</sup> |Toegangs tokens, ID-tokens, SAML2-tokens |1 uur |10 minuten |1 dag |
 | Maximum aantal inactieve tijd voor het vernieuwen van token |MaxInactiveTime |Tokens vernieuwen |90 dagen |10 minuten |90 dagen |
 | Maximum leeftijd van het token voor eenmalige vernieuwing |MaxAgeSingleFactor |Tokens vernieuwen (voor alle gebruikers) |Until-revoked |10 minuten |Until-revoked<sup>1</sup> |
 | Maximum leeftijd van multi-factor Refresh-token |MaxAgeMultiFactor |Tokens vernieuwen (voor alle gebruikers) |Until-revoked |10 minuten |Until-revoked<sup>1</sup> |
@@ -88,6 +89,7 @@ Beleid voor levens duur van tokens is een type beleids object dat de levens duur
 | Maximale leeftijds duur multi-factor Session-token |MaxAgeSessionMultiFactor<sup>3</sup> |Sessie tokens (permanent en niet permanent) |Until-revoked |10 minuten |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 dagen is de maximale expliciete lengte die voor deze kenmerken kan worden ingesteld.
+* <sup>4</sup> Als u de micro soft teams-webclient wilt gebruiken, is het raadzaam om AccessTokenLifetime in te stellen op meer dan 15 minuten voor de micro soft-teams.
 
 ### <a name="exceptions"></a>Uitzonderingen
 | Eigenschap | Alleen | Standaard |
@@ -492,7 +494,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Service-Principal-beleid
+### <a name="service-principal-policies"></a>Service-principal-beleidsregels
 U kunt de volgende cmdlets gebruiken voor Service Principal-beleids regels.
 
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy

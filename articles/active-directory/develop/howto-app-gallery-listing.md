@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/08/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e1b0ea2f808c982a587392edbe57eb75c532ee2
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0198e5f5df3d25ef825248ff78db95326dc755c2
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324710"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477061"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedure: Uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
 
@@ -49,6 +49,8 @@ In dit artikel wordt beschreven hoe u een toepassing kunt weer geven in de Azure
 - Zorg ervoor dat uw toepassing ondersteuning biedt voor formulier verificatie zodat wachtwoord kluizen kan worden uitgevoerd voor het uitvoeren van eenmalige aanmelding.
 
 - Voor automatische aanvraag voor gebruikers inrichting moet de toepassing worden weer gegeven in de galerie met eenmalige aanmelding die is ingeschakeld met behulp van SAML 2.0/WS-voeder. U kunt een aanvraag indienen voor SSO en gebruikers inrichten samen op de portal, als deze nog niet wordt vermeld.
+
+- U hebt een permanent account nodig om te testen met ten minste twee gebruikers die zijn geregistreerd.
 
 >[!NOTE]
 >We worden uitgevoerd met een groot aantal SCIM-connector aanvragen, dus hebben we geen nieuwe aanvragen meer op onze portal. Wacht op uw aanvragen tot verdere kennisgeving. Onze excuses voor deze vertraging en eventueel ongemak. Dit kan zijn veroorzaakt.
@@ -123,7 +125,7 @@ Hieronder volgt de stroom van door de klant aangevraagde toepassingen-
 
 ![Toont de door de klant aangevraagde apps stroom](./media/howto-app-gallery-listing/customer-request.png)
 
-## <a name="timelines"></a>Tijd lijnen
+## <a name="timelines"></a>Tijdlijnen
 
 De tijd lijn voor het proces van het weer geven van een SAML 2,0-of WS-gevoede toepassing in de galerie is 7-10 werk dagen.
 

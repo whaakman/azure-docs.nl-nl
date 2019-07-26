@@ -1,6 +1,6 @@
 ---
-title: Aanmelden automatisch-versnelling voor een toepassing met behulp van een Thuisrealmdetectie-beleid configureren | Microsoft Docs
-description: Informatie over het configureren van beleid voor Thuisrealmdetectie voor Azure Active Directory-verificatie voor federatieve gebruikers, met inbegrip van auto-versnelling en domein hints.
+title: Automatische versnelling bij het aanmelden configureren met het beleid voor het detecteren van een thuis domein | Microsoft Docs
+description: Meer informatie over het configureren van beleid voor het detecteren van basis-Realms voor Azure Active Directory authenticatie voor federatieve gebruikers, met inbegrip van automatische versnelling en domein hints.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,96 +15,96 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0534037393f4634364b927020595aa21d8e1b7b3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8f8f51fcd69a7115879aad97bbf696833e87877b
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440377"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477209"
 ---
-# <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Azure Active Directory-aanmelding in gedrag voor een toepassing met behulp van een Thuisrealmdetectie-beleid configureren
+# <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Azure Active Directory aanmeldings gedrag configureren voor een toepassing met behulp van een beleid voor het detecteren van een thuis domein
 
-In dit artikel bevat een inleiding tot Azure Active Directory-verificatiegedrag voor federatieve gebruikers configureren. Het bevat informatie over de configuratie van automatische-versnelling en verificatie beperkingen voor gebruikers in federatieve domeinen.
+Dit artikel bevat een inleiding tot het configureren van Azure Active Directory verificatie gedrag voor federatieve gebruikers. Het behandelt de configuratie van beperkingen voor automatische versnelling en verificatie voor gebruikers in federatieve domeinen.
 
 ## <a name="home-realm-discovery"></a>Home Realm Discovery
-Thuis Realm detectie (HRD) is het proces waarmee Azure Active Directory (Azure AD) om te bepalen wanneer een gebruiker moet worden geverifieerd tijdens het aanmelden.  Wanneer een gebruiker zich aanmeldt met een Azure AD-tenant voor toegang tot een resource, of naar de Azure AD algemene aanmelden pagina, typt u de naam van een gebruiker (UPN). Azure AD gebruikt om te ontdekken waar de gebruiker moet zich aanmelden. 
+Home realm Discovery (HRD) is het proces waarmee Azure Active Directory (Azure AD) kunt bepalen waar een gebruiker zich moet verifiëren tijdens de aanmeldings tijd.  Wanneer een gebruiker zich aanmeldt bij een Azure AD-Tenant om toegang te krijgen tot een resource, of naar de aanmeldings pagina van de Azure AD-aanmelding, typt u een gebruikers naam (UPN). Azure AD gebruikt om te ontdekken waar de gebruiker zich moet aanmelden. 
 
-De gebruiker moet mogelijk worden uitgevoerd op een van de volgende locaties worden geverifieerd:
+De gebruiker moet mogelijk worden uitgevoerd op een van de volgende locaties om te worden geverifieerd:
 
-- De starttenant van de gebruiker (mogelijk als de bron die de gebruiker probeert zich te krijgen tot dezelfde tenant is). 
+- De thuis Tenant van de gebruiker (kan dezelfde Tenant zijn als de bron waartoe de gebruiker toegang probeert te krijgen). 
 
-- Microsoft-account.  De gebruiker is een gast in de resource-tenant.
+- Microsoft-account.  De gebruiker is een gast in de resource-Tenant.
 
--  Een on-premises id-provider, zoals Active Directory Federation Services (AD FS).
+-  Een on-premises ID-provider, zoals Active Directory Federation Services (AD FS).
 
-- Een andere id-provider die gefedereerd met de Azure AD-tenant.
+- Een andere ID-provider die federatief is voor de Azure AD-Tenant.
 
-## <a name="auto-acceleration"></a>Automatisch-versnelling 
-Sommige organisaties configureren domeinen in hun tenant Azure Active Directory te federeren met een andere id-provider, zoals AD FS voor verificatie van de gebruiker.  
+## <a name="auto-acceleration"></a>Automatische versnelling 
+Sommige organisaties configureren domeinen in hun Azure Active Directory Tenant om te communiceren met een andere IdP, zoals AD FS voor gebruikers verificatie.  
 
-Wanneer een gebruiker zich in een toepassing, worden ze eerst met een Azure AD-aanmeldingspagina weergegeven. Nadat ze hun UPN, hebt getypt als ze zich in een federatief domein ze vervolgens gaat naar de aanmeldingspagina van de id-provider voor dat domein. Onder bepaalde omstandigheden, beheerders mogelijk willen gebruikers naar de aanmeldingspagina leiden wanneer ze voor specifieke toepassingen aanmeldt zich. 
+Wanneer een gebruiker zich aanmeldt bij een toepassing, worden ze eerst weer gegeven met een aanmeldings pagina voor Azure AD. Nadat ze hun UPN hebben getypt, worden ze in een federatief domein geplaatst op de aanmeldings pagina van de IdP voor dat domein. Onder bepaalde omstandigheden kunnen beheerders gebruikers willen omleiden naar de aanmeldings pagina wanneer ze zich aanmelden bij specifieke toepassingen. 
 
-Gebruikers, kan de eerste pagina van Azure Active Directory als gevolg hiervan kunnen overslaan. Dit proces wordt aangeduid als "aanmelden automatisch-versnelling."
+Als gevolg hiervan kunnen gebruikers de eerste Azure Active Directory-pagina overs Laan. Dit proces wordt ' automatische versnelling ' genoemd.
 
-In gevallen waar de tenant is gefedereerd naar een andere id-provider voor aanmelden, wordt auto-versnelling de gebruiker aanmelden sneller.  U kunt automatisch-versnelling voor afzonderlijke toepassingen kunt configureren.
-
->[!NOTE]
->Als u een toepassing voor automatische-versnelling configureren, aanmelden gastgebruikers ook kunnen niet. Als u een gebruiker rechtstreeks naar een federatieve id-provider voor verificatie, is er geen manier om deze terug te gaan naar de aanmeldingspagina van Azure Active Directory. Gastgebruikers die worden doorgestuurd naar andere tenants of een externe id-provider, zoals een Microsoft-account moeten mogelijk, kunnen niet aanmelden bij die toepassing omdat ze bij het overslaan van de stap start Realm detectie.  
-
-Er zijn twee manieren voor het beheren van auto-versnelling voor een federatieve id-provider:   
-
-- Gebruik een geheugensteun voor het domein op verificatieaanvragen voor een toepassing. 
-- Configureer een beleid Thuisrealmdetectie voor het automatisch-versnelling inschakelen.
-
-### <a name="domain-hints"></a>Domein-hints    
-Domein-hints zijn richtlijnen die zijn opgenomen in de verificatieaanvraag van een toepassing. Ze kunnen worden gebruikt om te versnellen van de gebruiker naar de federatieve IdP-aanmelden pagina. Of ze kunnen worden gebruikt door een toepassing met meerdere tenants te versnellen van de gebruiker rechtstreeks naar de merknaam Azure AD-aanmeldingspagina voor hun tenant.  
-
-Bijvoorbeeld, de toepassing 'largeapp.com' mogelijk hun klanten te krijgen tot de toepassing op een aangepaste URL "contoso.largeapp.com." De app ook advies inwinnen een geheugensteun voor het domein contoso.com in de verificatieaanvraag. 
-
-De syntaxis van de domein-hint is afhankelijk van het protocol dat wordt gebruikt en deze standaard geconfigureerd in de toepassing.
-
-**WS-Federation**: whr=contoso.com in de querytekenreeks.
-
-**SAML**:  Een van beide een SAML-verificatie-aanvraag die een geheugensteun voor het domein of een whr=contoso.com query-tekenreeks bevat.
-
-**Open ID Connect**: Een query-tekenreeks domain_hint=contoso.com. 
-
-Als een geheugensteun voor het domein is opgenomen in de verificatieaanvraag van de toepassing en de tenant is gefedereerd met het desbetreffende domein, probeert Azure AD aanmelden omleiden naar de id-provider die geconfigureerd voor het domein. 
-
-Als de domeinhint niet naar een geverifieerde federatief domein verwijst, wordt dit genegeerd en normale start Realm detectie wordt aangeroepen.
-
-Zie voor meer informatie over automatische-versnelling met behulp van de domein-hints die worden ondersteund door Azure Active Directory, de [Enterprise Mobility + Security-blog](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/).
+In gevallen waarbij de Tenant federatief is voor een andere IdP om zich aan te melden, maakt automatische versnelling gebruikers meer gestroomlijnd.  U kunt automatische versnelling voor afzonderlijke toepassingen configureren.
 
 >[!NOTE]
->Als een geheugensteun voor het domein is opgenomen in een verificatieaanvraag, overschrijft de aanwezigheid auto-versnelling die is ingesteld voor de toepassing in HRD-beleid.
+>Als u een toepassing configureert voor automatische versnelling, kunnen gast gebruikers zich niet aanmelden. Als u een gebruiker recht hebt op een federatieve IdP voor authenticatie, is er geen manier om deze te openen om terug te gaan naar de aanmeldings pagina van Azure Active Directory. Gast gebruikers, die mogelijk moeten worden omgeleid naar andere tenants of een externe IdP, zoals een Microsoft-account, kunnen zich niet aanmelden bij die toepassing omdat ze de stap voor het detecteren van de Home-realm overs Laan.  
 
-### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>Thuis Realm detectie-beleid voor automatische-versnelling
-Sommige toepassingen bieden een manier om te configureren van de verificatieaanvraag die deze onderdelen introduceren. In dergelijke gevallen is het niet mogelijk om te domein-hints gebruiken voor het beheren van auto-versnelling. Automatisch-versnelling kan worden geconfigureerd via Groepsbeleid om hetzelfde gedrag.  
+Er zijn twee manieren om automatische versnelling naar een federatieve IdP te beheren:   
 
-## <a name="enable-direct-authentication-for-legacy-applications"></a>Direct-verificatie voor oudere toepassingen inschakelen
-Aanbevolen procedure is voor toepassingen kunnen gebruikmaken van AAD-bibliotheken en interactief aanmelden om gebruikers te verifiëren. De bibliotheken zorgen voor de stromen federatieve gebruiker.  Soms oudere toepassingen niet worden geschreven naar het federation begrijpen. Deze detectie van thuisrealm niet uitvoeren en werken niet met de juiste federatief eindpunt om een gebruiker te verifiëren. Als u ervoor kiest, kunt u HRD-beleid gebruiken om in te schakelen specifieke oudere toepassingen die de referenties van de gebruikersnaam en wachtwoord voor verificatie rechtstreeks met Azure Active Directory indienen. Synchronisatie van Wachtwoordhashes moet zijn ingeschakeld. 
+- Gebruik een domein hint op verificatie aanvragen voor een toepassing. 
+- Configureer een beleid voor het detecteren van basis-Realms om automatische versnelling in te scha kelen.
+
+### <a name="domain-hints"></a>Domein hints    
+Domein hints zijn richt lijnen die zijn opgenomen in de verificatie aanvraag van een toepassing. Ze kunnen worden gebruikt om de gebruiker te versnellen tot hun federatieve IdP-aanmeldings pagina. Of ze kunnen worden gebruikt door een toepassing met meerdere tenants om de gebruiker rechtstreeks naar de aanmeldings pagina van Azure AD te versnellen voor hun Tenant.  
+
+De toepassing ' largeapp.com ' kan bijvoorbeeld de klanten in staat stellen om toegang te krijgen tot de toepassing op een aangepaste URL ' contoso.largeapp.com '. De app kan ook een domein Hint bevatten voor contoso.com in de verificatie aanvraag. 
+
+De syntaxis van de domein Hint is afhankelijk van het gebruikte protocol en is doorgaans geconfigureerd in de toepassing.
+
+**WS-Federation**: w/h = contoso. com in de query teken reeks.
+
+**SAML**:  Een SAML-verificatie aanvraag die een domein Hint bevat of een query reeks w/of contoso. com.
+
+**Open ID-verbinding**: Een query reeks domain_hint = contoso. com. 
+
+Als een domein Hint is opgenomen in de verificatie aanvraag van de toepassing en de Tenant federatief is met dat domein, probeert Azure AD de aanmelding te omleiden naar de IdP die voor dat domein is geconfigureerd. 
+
+Als de domein Hint niet verwijst naar een geverifieerd federatief domein, wordt dit genegeerd en wordt de normale detectie van de start realm geactiveerd.
+
+Zie de [Enterprise Mobility + Security Blog](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/)voor meer informatie over automatische versnelling met behulp van de domein hints die door Azure Active Directory worden ondersteund.
+
+>[!NOTE]
+>Als een domein Hint is opgenomen in een verificatie aanvraag, overschrijft de aanwezigheid een automatische versnelling die is ingesteld voor de toepassing in HRD-beleid.
+
+### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>Beleid voor het detecteren van basis-Realms voor automatische versnelling
+Sommige toepassingen bieden geen manier om de verificatie aanvraag te configureren die ze verzenden. In dergelijke gevallen is het niet mogelijk domein hints te gebruiken voor het beheren van automatische versnelling. Automatische versnelling kan via het beleid worden geconfigureerd om hetzelfde gedrag te krijgen.  
+
+## <a name="enable-direct-authentication-for-legacy-applications"></a>Directe verificatie inschakelen voor oudere toepassingen
+De aanbevolen procedure is voor toepassingen om AAD-bibliotheken en interactieve aanmelding te gebruiken om gebruikers te verifiëren. De bibliotheken zorgen voor de federatieve gebruikers stromen.  Soms worden verouderde toepassingen niet geschreven om de Federatie te begrijpen. Ze voeren geen Home realm-detectie uit en werken niet met het juiste federatieve eind punt om een gebruiker te verifiëren. Als u wilt, kunt u HRD-beleid gebruiken om specifieke verouderde toepassingen in te scha kelen waarmee gebruikers naam/wacht woord referenties worden ingediend om rechtstreeks met Azure Active Directory te verifiëren. Wachtwoord hash-synchronisatie moet zijn ingeschakeld. 
 
 > [!IMPORTANT]
-> Directe verificatie alleen inschakelen als u synchronisatie van Wachtwoordhashes ingeschakeld hebt en u weet dit geen probleem dat voor het verifiëren van deze toepassing zonder een beleid dat is geïmplementeerd door uw on-premises id-provider. Als u synchronisatie van Wachtwoordhashes uitschakelen of Directory Synchronization met AD Connect voor een bepaalde reden uitschakelen, moet u dit beleid om te voorkomen dat de mogelijkheid om direct met behulp van een verlopen wachtwoord-hash-verificatie verwijderen.
+> Schakel directe verificatie alleen in als wachtwoord-hash-synchronisatie is ingeschakeld en u weet dat u deze toepassing kunt verifiëren zonder dat er beleids regels worden geïmplementeerd door uw on-premises IdP. Als u wacht woord-hash synchronisatie uitschakelt of Directory synchronisatie met AD Connect uit te scha kelen om welke reden dan ook, moet u dit beleid verwijderen om te voor komen dat u direct verificatie kunt gebruiken met behulp van een verouderde hash van het wacht woord.
 
 ## <a name="set-hrd-policy"></a>HRD-beleid instellen
-Er zijn drie stappen voor het instelling HRD-beleid op een toepassing voor federatieve aanmelding automatisch-versnelling of direct cloud-gebaseerde toepassingen:
+Er zijn drie stappen voor het instellen van HRD-beleid voor een toepassing voor federatieve aanmelding voor automatische versnelling of directe Cloud toepassingen:
 
 1. Maak een HRD-beleid.
 
-2. Ga naar de service-principal waarop het beleid te koppelen.
+2. Zoek de service-principal waaraan het beleid moet worden gekoppeld.
 
-3. Het beleid aan de service-principal koppelen. 
+3. Koppel het beleid aan de Service-Principal. 
 
-Beleid pas van kracht voor een bepaalde toepassing wanneer ze zijn gekoppeld aan een service-principal. 
+Beleids regels worden alleen van kracht voor een specifieke toepassing wanneer ze zijn gekoppeld aan een service-principal. 
 
-Slechts één HRD-beleid kan op elk willekeurig moment actief zijn op een service-principal zijn.  
+Er kan slechts één HRD-beleid tegelijk actief zijn op een service-principal.  
 
-De Microsoft Azure Active Directory Graph API rechtstreeks of de Azure Active Directory PowerShell-cmdlets kunt u HRD-beleid maken en beheren.
+U kunt de Microsoft Azure Active Directory Graph-API rechtstreeks of de Azure Active Directory Power shell-cmdlets gebruiken om HRD-beleid te maken en te beheren.
 
-De Graph-API die beleid bewerkt, wordt beschreven in de [bewerkingen op beleid](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) artikel op MSDN.
+De Graph API die het beleid manipuleert, wordt beschreven in het artikel [bewerkingen op het beleid](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) op MSDN.
 
-Hieronder volgt een voorbeeld van de beleidsdefinitie HRD:
+Hier volgt een voor beeld van een HRD-beleids definitie:
     
  ```
    {  
@@ -117,158 +117,158 @@ Hieronder volgt een voorbeeld van de beleidsdefinitie HRD:
    }
 ```
 
-Het beleidstype is "HomeRealmDiscoveryPolicy."
+Het beleids type is ' HomeRealmDiscoveryPolicy '.
 
-**AccelerateToFederatedDomain** is optioneel. Als **AccelerateToFederatedDomain** is ingesteld op false, het beleid heeft geen invloed op auto-versnelling. Als **AccelerateToFederatedDomain** is true en er is slechts één geverifieerd en federatief domein in de tenant en vervolgens gebruikers gaat rechtstreeks naar de federatieve id-provider voor aanmelden. Als dit het geval is en er meer dan één geverifieerd domein in de tenant **PreferredDomain** moet worden opgegeven.
+**AccelerateToFederatedDomain** is optioneel. Als **AccelerateToFederatedDomain** False is, heeft het beleid geen effect op automatische versnelling. Als **AccelerateToFederatedDomain** is ingesteld op True en er slechts één geverifieerd en federatief domein is in de Tenant, worden gebruikers direct naar de federatieve IDP geleid om zich aan te melden. Als dit het geval is en er meer dan één geverifieerd domein in de Tenant is, moet **PreferredDomain** worden opgegeven.
 
-**PreferredDomain** is optioneel. **PreferredDomain** moet wijzen op een domein waarnaar u wilt versnellen. Het kan worden overgeslagen als de tenant slechts één federatief domein heeft.  Als deze wordt weggelaten, en er meer dan een federatief domein geverifieerd, wordt het beleid heeft geen effect.
+**PreferredDomain** is optioneel. **PreferredDomain** moet een domein aangeven dat moet worden versneld. Deze kan worden wegge laten als de Tenant slechts één federatief domein heeft.  Als de para meter wordt wegge laten en er meer dan één geverifieerd Federatie domein is, heeft het beleid geen effect.
 
- Als **PreferredDomain** is opgegeven, moet deze overeenkomen met een geverifieerde, federatieve domein voor de tenant. Alle gebruikers van de toepassing moet kunnen zich aanmelden bij dat domein.
+ Als **PreferredDomain** is opgegeven, moet deze overeenkomen met een geverifieerd, federatief domein voor de Tenant. Alle gebruikers van de toepassing moeten zich kunnen aanmelden bij dat domein.
 
-**AllowCloudPasswordValidation** is optioneel. Als **AllowCloudPasswordValidation** is ingesteld op true en vervolgens de toepassing is toegestaan voor een federatieve gebruiker verifiëren met gebruikersnaam en wachtwoord referenties rechtstreeks naar het eindpunt van de Azure Active Directory-token wordt gepresenteerd. Dit werkt alleen als de synchronisatie van Wachtwoordhashes is ingeschakeld.
+**AllowCloudPasswordValidation** is optioneel. Als **AllowCloudPasswordValidation** is ingesteld op True, kan de toepassing een federatieve gebruiker verifiëren door referenties voor gebruikers naam/wacht woord rechtstreeks te presen teren aan het eind punt van het Azure Active Directory-token. Dit werkt alleen als wachtwoord-hash-synchronisatie is ingeschakeld.
 
-### <a name="priority-and-evaluation-of-hrd-policies"></a>Prioriteit en beoordeling van HRD-beleid
-HRD-beleid kunnen worden gemaakt en worden vervolgens toegewezen aan specifieke organisaties en service-principals. Dit betekent dat het is mogelijk voor meerdere beleidsregels toe te passen op een specifieke toepassing. Het HRD-beleid dat van kracht wordt met deze regels de volgende:
-
-
-- Als een domeinhint in de verificatieaanvraag aanwezig is, wordt klikt u vervolgens een HRD-beleid genegeerd voor automatische-versnelling. Het gedrag op dat opgegeven door de geheugensteun voor het domein wordt gebruikt.
-
-- Anders als een beleid expliciet is toegewezen aan de service-principal, dat deze wordt afgedwongen. 
-
-- Als er geen geheugensteun voor het domein, en er geen beleid expliciet is toegewezen aan de service-principal, wordt een beleid dat expliciet toegewezen aan de bovenliggende organisatie van de service-principal wordt afgedwongen. 
-
-- Als er geen geheugensteun voor het domein, en er geen beleid is toegewezen aan de service-principal of de organisatie, wordt het standaardgedrag van HRD gebruikt.
-
-## <a name="tutorial-for-setting-hrd-policy-on-an-application"></a>Zelfstudie voor het instellen van HRD-beleid in een toepassing 
-We gebruiken Azure AD PowerShell-cmdlets om te zien hoe een aantal scenario's, waaronder:
+### <a name="priority-and-evaluation-of-hrd-policies"></a>Prioriteit en evaluatie van HRD-beleid
+HRD-beleid kan worden gemaakt en vervolgens worden toegewezen aan specifieke organisaties en service-principals. Dit betekent dat het mogelijk is dat meerdere beleids regels worden toegepast op een bepaalde toepassing. Het HRD-beleid dat van kracht wordt, volgt deze regels:
 
 
-- Instellen van HRD-beleid te doen, auto-versnelling voor een toepassing in een tenant met een enkele federatief domein.
+- Als de verificatie aanvraag een domein Hint bevat, wordt het HRD-beleid voor automatische versnelling genegeerd. Het gedrag dat door de domein Hint wordt opgegeven, wordt gebruikt.
 
-- Instellen van HRD-beleid voor het automatisch-versnelling voor een toepassing op een van verschillende domeinen die zijn geverifieerd doen voor uw tenant.
+- Als een beleid expliciet is toegewezen aan de Service-Principal, wordt dit afgedwongen. 
 
-- HRD-beleid instellen om in te schakelen van een oudere toepassing te directe verificatie voor gebruikersnaam/wachtwoord aan Azure Active Directory voor een federatieve gebruiker.
+- Als er geen domein Hint is en er geen beleid expliciet is toegewezen aan de Service-Principal, wordt een beleid afgedwongen dat expliciet is toegewezen aan de bovenliggende organisatie van de Service-Principal. 
 
-- Lijst met de toepassingen waarvoor een beleid is geconfigureerd.
+- Als er geen domein Hint is en er geen beleid is toegewezen aan de service-principal of de organisatie, wordt het standaard HRD-gedrag gebruikt.
+
+## <a name="tutorial-for-setting-hrd-policy-on-an-application"></a>Zelf studie voor het instellen van HRD-beleid voor een toepassing 
+We gebruiken Azure AD Power shell-cmdlets om enkele scenario's uit te voeren, waaronder:
+
+
+- Instellen van HRD-beleid voor het automatisch versnellen van een toepassing in een Tenant met één federatief domein.
+
+- Instellen van HRD-beleid voor het automatisch versnellen van een toepassing naar een van de domeinen die worden gecontroleerd voor uw Tenant.
+
+- Instellen van HRD-beleid om ervoor te zorgen dat een verouderde toepassing direct gebruikers naam/wacht woord verificatie kan Azure Active Directory voor een federatieve gebruiker.
+
+- De toepassingen weer geven waarvoor een beleid is geconfigureerd.
 
 
 ### <a name="prerequisites"></a>Vereisten
-In de volgende voorbeelden u maken, bijwerken, koppelen en verwijderen van beleidsregels op de toepassingsservice-principals in Azure AD.
+In de volgende voor beelden maakt, bijwerkt, koppelt en verwijdert u beleids regels op Application Service-principals in azure AD.
 
-1.  Download de nieuwste preview voor Azure AD PowerShell-cmdlet om te beginnen. 
+1.  Down load de nieuwste preview van Azure AD Power shell-cmdlet om te beginnen. 
 
-2.  Nadat u de Azure AD PowerShell-cmdlets hebt gedownload, kunt u de opdracht Connect zich aanmeldt bij Azure AD met uw beheerdersaccount uitvoeren:
+2.  Nadat u de Azure AD Power shell-cmdlets hebt gedownload, voert u de opdracht Connect uit om u aan te melden bij Azure AD met uw beheerders account:
 
     ``` powershell
     Connect-AzureAD -Confirm
     ```
-3.  Voer de volgende opdracht uit om te zien van alle beleidsregels in uw organisatie:
+3.  Voer de volgende opdracht uit om alle beleids regels in uw organisatie weer te geven:
 
     ``` powershell
     Get-AzureADPolicy
     ```
 
-Als er niets wordt geretourneerd, betekent dat u hebt geen beleidsregels die zijn gemaakt in uw tenant.
+Als er niets wordt geretourneerd, betekent dit dat er geen beleid is gemaakt in uw Tenant.
 
 ### <a name="example-set-hrd-policy-for-an-application"></a>Voorbeeld: HRD-beleid instellen voor een toepassing 
 
-In dit voorbeeld maken u een beleid dat als deze is toegewezen aan een toepassing een: 
-- Automatisch versnelt-gebruikers aan een AD FS-aanmeldingsscherm wanneer ze bij een toepassing aanmeldt zich wanneer er een enkel domein in uw tenant. 
-- Gebruikers automatisch versnelt aan een AD FS-aanmeldingsscherm er is meer dan één federatief domein in uw tenant.
-- Hiermee kunt niet-interactieve gebruikersnaam en wachtwoord aanmelden bij Azure Active Directory voor federatieve gebruikers voor de toepassingen die het beleid is toegewezen aan rechtstreeks.
+In dit voor beeld maakt u een beleid dat wanneer het wordt toegewezen aan een toepassing, hetzij: 
+- Gebruikers worden automatisch naar een AD FS aanmeld scherm versneld wanneer ze zich aanmelden bij een toepassing wanneer er één domein in uw Tenant is. 
+- Gebruikers worden automatisch naar een AD FS-aanmeld scherm versneld. er is meer dan een federatief domein in uw Tenant.
+- Hiermee kunnen niet-interactieve gebruikers naam/wacht woord worden aangemeld bij Azure Active Directory voor federatieve gebruikers voor de toepassingen waaraan het beleid is toegewezen.
 
 #### <a name="step-1-create-an-hrd-policy"></a>Stap 1: Een HRD-beleid maken
 
-Het volgende beleid versnelt auto-gebruikers aan een AD FS-aanmeldingsscherm wanneer ze bij een toepassing aanmeldt zich wanneer er een enkel domein in uw tenant.
+Het volgende beleid versnelt gebruikers automatisch naar een AD FS aanmeld scherm wanneer ze zich aanmelden bij een toepassing wanneer er één domein in uw Tenant is.
 
 ``` powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
-Het volgende beleid versnelt auto-gebruikers aan een AD FS-aanmeldingsscherm er is meer dan één federatieve domein in uw tenant. Hebt u meer dan één federatief domein waarmee gebruikers voor toepassingen worden geverifieerd, moet u het domein dat moet automatisch versnellen.
+Het volgende beleid versnelt gebruikers automatisch naar een AD FS aanmeld scherm. er is meer dan een federatief domein in uw Tenant. Als u meer dan één federatief domein hebt dat gebruikers verifieert voor toepassingen, moet u het domein opgeven om automatisch te versnellen.
 
 ``` powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
-Voer de volgende opdracht voor het maken van een beleid voor het inschakelen van verificatie voor gebruikersnaam en wachtwoord voor federatieve gebruikers rechtstreeks met Azure Active Directory voor specifieke toepassingen:
+Voer de volgende opdracht uit om een beleid te maken om gebruikers naam/wacht woord voor federatieve gebruikers rechtstreeks met Azure Active Directory voor specifieke toepassingen in te scha kelen:
 
 ``` powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuthPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 
-Om te zien van het nieuwe beleid en krijg de **ObjectID**, voer de volgende opdracht uit:
+Voer de volgende opdracht uit om het nieuwe beleid weer te geven en de **ObjectID**te verkrijgen:
 
 ``` powershell
 Get-AzureADPolicy
 ```
 
 
-Als u wilt het HRD-beleid wordt toegepast nadat u deze hebt gemaakt, kunt u deze toewijzen aan meerdere service-principals van toepassing.
+Als u het HRD-beleid wilt Toep assen nadat u het hebt gemaakt, kunt u dit toewijzen aan meerdere Application Service-principals.
 
-#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Stap 2: Zoek de service-principal waarop het beleid toewijzen  
-U moet de **ObjectID** van de service-principals die u wilt toewijzen van het beleid. Er zijn verschillende manieren zoeken naar de **ObjectID** van service-principals.    
+#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Stap 2: Zoek de service-principal waaraan u het beleid wilt toewijzen  
+U hebt de **ObjectID** nodig van de service-principals waaraan u het beleid wilt toewijzen. Er zijn verschillende manieren om de **ObjectID** van service-principals te vinden.    
 
-U kunt de portal of u kunt een query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). U kunt ook gaan naar de [Graph Explorer hulpprogramma](https://developer.microsoft.com/graph/graph-explorer) en aanmelden bij uw Azure AD-account om te zien van de service-principals van uw organisatie. 
+U kunt de portal gebruiken of u kunt een query uitvoeren op [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). U kunt ook naar het [hulp programma Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) gaan en u aanmelden bij uw Azure ad-account om alle service-principals van uw organisatie weer te geven. 
 
-Omdat u met behulp van PowerShell, kunt u de volgende cmdlet om de service-principals en hun-id's weer te geven.
+Omdat u Power shell gebruikt, kunt u de volgende cmdlet gebruiken om de service-principals en hun Id's weer te geven.
 
 ``` powershell
 Get-AzureADServicePrincipal
 ```
 
-#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Stap 3: Wijs het beleid toe aan uw service-principal  
-Nadat u hebt de **ObjectID** van de service-principal van de toepassing waarvoor u wilt configureren van automatische-versnelling, de volgende opdracht uitvoeren. Met deze opdracht wordt gekoppeld aan het HRD-beleid dat u in stap 1 hebt gemaakt met de service-principal die u in stap 2.
+#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Stap 3: Wijs het beleid toe aan uw Service-Principal  
+Nadat u het **ObjectID** hebt van de service-principal van de toepassing waarvoor u automatische versnelling wilt configureren, voert u de volgende opdracht uit. Met deze opdracht wordt het HRD-beleid dat u in stap 1 hebt gemaakt, gekoppeld aan de service-principal die u in stap 2 hebt gevonden.
 
 ``` powershell
 Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
 ```
 
-U kunt deze opdracht herhalen voor elke service-principal die u wilt toevoegen van het beleid.
+U kunt deze opdracht herhalen voor elke service-principal waaraan u het beleid wilt toevoegen.
 
-In het geval waarbij een toepassing al een HomeRealmDiscovery beleid is toegewezen heeft, kunt u zich niet aan het toevoegen van een tweede account.  In dat geval wordt de definitie van het Thuisrealmdetectie-beleid dat is toegewezen aan de toepassing toe te voegen extra parameters wijzigen.
+In het geval dat er al een HomeRealmDiscovery-beleid aan een toepassing is toegewezen, kunt u geen tweede toevoegen.  In dat geval wijzigt u de definitie van het beleid voor thuis-realm-detectie dat is toegewezen aan de toepassing om aanvullende para meters toe te voegen.
 
-#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Stap 4: Controleer welke service-principals van toepassing uw HRD-beleid is toegewezen aan
-Om te controleren welke toepassingen hebben HRD-beleid dat is geconfigureerd, gebruikt u de **Get-AzureADPolicyAppliedObject** cmdlet. Geeft die door de **ObjectID** van het beleid dat u controleren wilt op.
+#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Stap 4: Controleren aan welke Application Service-principals uw HRD-beleid is toegewezen
+Gebruik de cmdlet **Get-AzureADPolicyAppliedObject** om te controleren voor welke toepassingen hrd-beleid is geconfigureerd. Geef de **ObjectID** door aan het beleid dat u wilt controleren.
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 #### <a name="step-5-youre-done"></a>Stap 5: U bent klaar.
-Probeer de toepassing om te controleren of het nieuwe beleid werkt.
+Voer de toepassing uit om te controleren of het nieuwe beleid werkt.
 
-### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Voorbeeld: Lijst van de toepassingen voor welke HRD beleid is geconfigureerd
+### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Voorbeeld: De toepassingen weer geven waarvoor HRD-beleid is geconfigureerd
 
-#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Stap 1: Lijst van alle beleidsregels die zijn gemaakt in uw organisatie 
+#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Stap 1: Alle beleids regels weer geven die in uw organisatie zijn gemaakt 
 
 ``` powershell
 Get-AzureADPolicy
 ```
 
-Houd er rekening mee de **ObjectID** van het beleid dat u de lijst met toewijzingen voor wilt.
+Let op de **ObjectID** van het beleid waarvan u de toewijzingen wilt weer geven.
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Stap 2: Lijst van de service-principals waarop het beleid is toegewezen  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Stap 2: De service-principals weer geven waaraan het beleid is toegewezen  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
 ### <a name="example-remove-an-hrd-policy-for-an-application"></a>Voorbeeld: Een HRD-beleid voor een toepassing verwijderen
-#### <a name="step-1-get-the-objectid"></a>Stap 1: De object-id ophalen
-Het vorige voorbeeld gebruiken om op te halen de **ObjectID** van het beleid en die van de toepassingsservice-principal van waaruit u wilt verwijderen. 
+#### <a name="step-1-get-the-objectid"></a>Stap 1: De ObjectID ophalen
+Gebruik het vorige voor beeld om de **ObjectID** van het beleid op te halen en van de toepassing Service-Principal waaruit u wilt verwijderen. 
 
-#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Stap 2: De beleidstoewijzing verwijderen uit de service-principal van toepassing  
+#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Stap 2: De beleids toewijzing verwijderen uit de service-principal van de toepassing  
 
 ``` powershell
 Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
-#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Stap 3: Selectievakje verwijderen door de service-principals waarop het beleid is toegewezen weer te geven 
+#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Stap 3: Controleer het verwijderen door de service-principals weer te geven waaraan het beleid is toegewezen 
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Volgende stappen
-- Zie voor meer informatie over de werking van verificatie in Azure AD [Verificatiescenario's voor Azure AD](../develop/authentication-scenarios.md).
-- Zie voor meer informatie over eenmalige gebruikersaanmelding [toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](configure-single-sign-on-portal.md).
-- Ga naar de [Ontwikkelaarshandleiding voor Active Directory](../develop/v1-overview.md) voor een overzicht van alle inhoud die relevant zijn voor ontwikkelaars.
+- Zie [verificatie scenario's voor Azure AD](../develop/authentication-scenarios.md)voor meer informatie over hoe verificatie werkt in azure AD.
+- Zie voor meer informatie over eenmalige aanmelding [voor gebruikers eenmalige aanmelding bij toepassingen in azure Active Directory](what-is-single-sign-on.md).
+- Bezoek de [Active Directory hand leiding voor ontwikkel aars](../develop/v1-overview.md) voor een overzicht van alle inhoud die betrekking heeft op ontwikkel aars.

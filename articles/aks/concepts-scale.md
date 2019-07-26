@@ -1,109 +1,109 @@
 ---
-title: Concepten - Scale applications in Azure Kubernetes Services (AKS)
-description: Meer informatie over het schalen in Azure Kubernetes Service (AKS), met inbegrip van horizontale schillen automatisch schalen, cluster automatisch schalen en de Azure Container Instances-connector.
+title: 'Concepten: toepassingen schalen in azure Kubernetes Services (AKS)'
+description: Meer informatie over schalen in azure Kubernetes service (AKS), met inbegrip van horizontale pod automatisch schalen, cluster automatisch schalen en de Azure Container Instances-connector.
 services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 2070c79a6ce0627280b1793e412002783f385cc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3230d85dfcf57bfd4e2e1684f4f5620600ec4e3a
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074042"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424198"
 ---
-# <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Schaalopties voor toepassingen in Azure Kubernetes Service (AKS)
+# <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Schaal opties voor toepassingen in azure Kubernetes service (AKS)
 
-Als u toepassingen in Azure Kubernetes Service (AKS) uitvoert, moet u het vergroten of verkleinen van de hoeveelheid rekenresources. Als het aantal exemplaren van de toepassing moet u het aantal onderliggende Kubernetes knooppunten moet mogelijk ook wijzigen wijzigen. U moet mogelijk ook een groot aantal exemplaren van een extra toepassing snel inrichten.
+Wanneer u toepassingen uitvoert in azure Kubernetes service (AKS), moet u mogelijk de hoeveelheid reken resources verhogen of verlagen. Als het aantal toepassings exemplaren dat u moet wijzigen, moet het aantal onderliggende Kubernetes-knoop punten mogelijk ook worden gewijzigd. Mogelijk moet u ook snel een groot aantal extra toepassings exemplaren inrichten.
 
-Dit artikel bevat de belangrijkste concepten waarmee u kunt toepassingen schalen in AKS:
+In dit artikel worden de belangrijkste concepten geïntroduceerd waarmee u toepassingen in AKS kunt schalen:
 
-- [Handmatig schalen](#manually-scale-pods-or-nodes)
-- [Horizontale schillen automatisch schalen (HPA)](#horizontal-pod-autoscaler)
-- [Automatisch schalen van cluster](#cluster-autoscaler)
-- [Integratie van Azure Container exemplaar (ACI) met AKS](#burst-to-azure-container-instances)
+- [Hand matig schalen](#manually-scale-pods-or-nodes)
+- [Pod (HPA)](#horizontal-pod-autoscaler)
+- [Cluster automatisch schalen](#cluster-autoscaler)
+- [Azure container instance (ACI)-integratie met AKS](#burst-to-azure-container-instances)
 
-## <a name="manually-scale-pods-or-nodes"></a>Handmatig schalen van schillen of knooppunten
+## <a name="manually-scale-pods-or-nodes"></a>Peulen of knoop punten hand matig schalen
 
-U kunt handmatig schalen replica's (schillen) en knooppunten te testen hoe uw toepassing reageert op een wijziging in de beschikbare resources en status. Handmatig schalen van resources kunt u een vaste hoeveelheid resources om te gebruiken voor het onderhouden van een vaste prijs, zoals het aantal knooppunten definiëren. Als u wilt handmatig schalen, definieert u de replica of aantal knooppunten en de planning van de Kubernetes API extra schillen of leegmaken van knooppunten.
+U kunt replica's (peul) en knoop punten hand matig schalen om te testen hoe uw toepassing reageert op een wijziging in de beschik bare resources en de status. Door resources hand matig te schalen, kunt u ook een ingestelde hoeveelheid resources definiëren die moeten worden gebruikt voor het onderhouden van vaste kosten, zoals het aantal knoop punten. Als u hand matig wilt schalen, definieert u de replica of het aantal knoop punten en maakt u de Kubernetes-API planningen voor het maken van extra peul-of afvoer knooppunten.
 
-Aan de slag met het handmatig schalen van schillen en knooppunten zien [toepassingen schalen in AKS][aks-scale].
+Zie [toepassingen schalen in AKS][aks-scale]om aan de slag te gaan met het hand matig schalen van peulen en knoop punten.
 
-## <a name="horizontal-pod-autoscaler"></a>Horizontale schillen automatisch schalen
+## <a name="horizontal-pod-autoscaler"></a>Pod voor horizontale automatische schaal baarheid
 
-Kubernetes gebruikt het horizontale schillen automatisch schalen (HPA) om de vraag naar resources controleren en automatisch schalen van het aantal replica's. Standaard controleert het horizontale schillen automatisch schalen de metrische gegevens API elke 30 seconden voor eventuele vereiste wijzigingen in aantal replica's. Wanneer er wijzigingen nodig zijn, het aantal replica's of afneemt dienovereenkomstig. Horizontale schillen automatisch schalen werkt met AKS-clusters die de Server van de metrische gegevens voor Kubernetes 1.8 + hebt geïmplementeerd.
+Kubernetes maakt gebruik van de horizontale pod autoscaleer (HPA) voor het bewaken van de vraag van de resource en het automatisch schalen van het aantal replica's. Standaard controleert de pod automatisch schalen de metrische gegevens van de API elke 30 seconden voor eventuele vereiste wijzigingen in het aantal replica's. Als er wijzigingen zijn vereist, wordt het aantal replica's verhoogd of verlaagd. De pod-functie voor Horizon taal automatisch schalen werkt met AKS-clusters die de metrische server voor Kubernetes 1.8 + hebben geïmplementeerd.
 
-![Kubernetes horizontale u automatisch schalen](media/concepts-scale/horizontal-pod-autoscaling.png)
+![Kubernetes horizon taal pod automatisch schalen](media/concepts-scale/horizontal-pod-autoscaling.png)
 
-Wanneer u het horizontale schillen automatisch schalen voor een bepaalde implementatie configureert, definieert u het minimum en maximum aantal replica's die kunnen worden uitgevoerd. U definieert ook de metrische gegevens om te controleren en eventuele vergroten/verkleinen besluiten baseren op, zoals CPU-gebruik.
+Wanneer u de horizontale pod voor een bepaalde implementatie configureert, definieert u het minimale en maximale aantal replica's dat kan worden uitgevoerd. U definieert ook de metriek voor het bewaken en baseren van eventuele beslissingen op, zoals CPU-gebruik.
 
-Als u wilt beginnen met het horizontale schillen automatisch schalen in AKS, Zie [schillen automatisch schalen in AKS][aks-hpa].
+Zie pod [automatisch schalen in AKS][aks-hpa]om aan de slag te gaan met de horizontale autoscaleer in AKS.
 
-### <a name="cooldown-of-scaling-events"></a>Afkoeltijd van het schalen van gebeurtenissen
+### <a name="cooldown-of-scaling-events"></a>Cooldown van het schalen van gebeurtenissen
 
-Als het horizontale schillen automatisch schalen de metrische gegevens-API elke 30 seconden wordt gecontroleerd, vorige schaalgebeurtenissen mogelijk niet hebt voltooid voordat een andere op uitgevoerd. Dit gedrag kan ertoe leiden dat het horizontale pod automatisch schalen om te wijzigen van het aantal replica's voordat bleek in de vorige schaalgebeurtenis staat voor het ontvangen van de workload van toepassing en de resource-eisen aan overeenkomstig aanpassen.
+Als de horizontale pod autoscaleer de metrische gegevens-API elke 30 seconden controleert, is het mogelijk dat eerdere schaal gebeurtenissen niet zijn voltooid voordat een andere controle is uitgevoerd. Dit gedrag kan ertoe leiden dat de pod van de horizontale automatisch schalen het aantal replica's wijzigt voordat de vorige Scale-gebeurtenis de werk belasting van de toepassing kan ontvangen en de resource vereisten dienovereenkomstig aan te passen.
 
-Als u wilt deze gebeurtenissen race minimaliseren, kunnen afkoeltijd of vertraging waarden worden ingesteld. Deze waarden bepalen hoe lang het horizontale schillen automatisch schalen moet wachten na een schaalgebeurtenis voordat een andere schaalgebeurtenis kan worden geactiveerd. Dit gedrag kunt de nieuwe replica tellen te laten treden, en de API voor metrische gegevens geven de gedistribueerde werkbelasting. Standaard de vertraging op schaal gebeurtenissen is 3 minuten en de vertraging op schaal omlaag gebeurtenissen is 5 minuten
+Als u deze race gebeurtenissen wilt minimaliseren, kunt u cooldown of vertragings waarden instellen. Deze waarden bepalen hoe lang de pod moet wachten na een schaal gebeurtenis voordat een andere schaal gebeurtenis kan worden geactiveerd. Dit gedrag zorgt ervoor dat het nieuwe aantal replica's van kracht wordt en dat de metrische gegevens API de gedistribueerde werk belasting weer spie gelen. De vertraging voor het opschalen van gebeurtenissen is standaard drie minuten en de vertraging bij het omlaag schalen van gebeurtenissen is 5 minuten
 
-Mogelijk moet u deze waarden afkoeltijd af te stemmen. De standaardwaarden van de afkoeltijd geven de indruk dat de horizontale schillen automatisch schalen het aantal replica's snel genoeg is niet schalen. Bijvoorbeeld, als u wilt sneller verhoogt het aantal replica's gebruikt, verminderen de `--horizontal-pod-autoscaler-upscale-delay` bij het maken van uw schil horizontale definities van automatisch schalen met behulp van `kubectl`.
+Mogelijk moet u deze cooldown-waarden afstemmen. De standaard waarden voor cooldown geven mogelijk de indruk dat de horizontale pod autoscaler het aantal replica's niet snel genoeg kan schalen. Als u bijvoorbeeld sneller het aantal gebruikte replica's wilt verg Roten, vermindert u de `--horizontal-pod-autoscaler-upscale-delay` bij het maken van de definitie van uw horizontale pod-automatisch schalen met. `kubectl`
 
-## <a name="cluster-autoscaler"></a>Automatisch schalen van cluster
+## <a name="cluster-autoscaler"></a>Cluster automatisch schalen
 
-Kubernetes is om te reageren op veranderende vraag pod, een cluster automatisch schalen (momenteel in preview in AKS) die het aantal knooppunten op basis van de aangevraagde compute-resources in de knooppuntgroep wordt aangepast. Standaard controleert het cluster automatisch schalen de API-server elke tien seconden totdat de vereiste wijzigingen in het aantal knooppunten. Als de cluster voor automatisch schalen wordt vastgesteld dat er een wijziging vereist is, het aantal knooppunten in uw AKS-cluster- of afneemt dienovereenkomstig. Het cluster automatisch schalen werkt met AKS RBAC-functionaliteit clusters met Kubernetes 1.10.x of hoger.
+Om te reageren op het wijzigen van de pod-vraag, heeft Kubernetes een cluster automatisch schalen (momenteel in de preview-versie van AKS) waarmee het aantal knoop punten wordt aangepast op basis van de aangevraagde Compute-resources in de knooppunt groep. Standaard controleert de cluster automatisch schalen de API-server elke 10 seconden op basis van de vereiste wijzigingen in het aantal knoop punten. Als de automatisch schalen van het cluster bepaalt dat een wijziging vereist is, wordt het aantal knoop punten in uw AKS-cluster verhoogd of verlaagd. De cluster-automatische schaal functie werkt met AKS-clusters met RBAC-functionaliteit waarop Kubernetes 1,10. x of hoger wordt uitgevoerd.
 
 ![Kubernetes-cluster automatisch schalen](media/concepts-scale/cluster-autoscaler.png)
 
-Cluster automatisch schalen wordt meestal gebruikt samen met het horizontale schillen automatisch schalen. In combinatie, automatisch schalen horizontaal pod vergroot of verkleint u het aantal schillen op basis van de vraag van toepassing, en het aantal knooppunten van het cluster automatisch schalen wordt aangepast behoefte om uit te voeren die extra schillen dienovereenkomstig.
+Cluster automatisch schalen wordt doorgaans samen met de horizontale pod automatisch geschaald gebruikt. In combi natie met de horizontale pod wordt het aantal peulen verg root of verkleind op basis van de vraag van de toepassing en past het cluster automatisch te schalen het aantal knoop punten zo nodig aan om deze te kunnen uitvoeren.
 
-Automatisch schalen van cluster moet alleen in Preview-versie van AKS-clusters met een groep met één knooppunt worden getest.
+Cluster automatisch schalen mag alleen worden getest als preview-versie van AKS-clusters.
 
-Als u wilt beginnen met het cluster automatisch schalen in AKS, Zie [Cluster automatisch schalen in AKS][aks-cluster-autoscaler].
+Als u aan de slag wilt gaan met de automatische cluster schaalr in AKS, raadpleegt u [cluster automatisch schalen op AKS][aks-cluster-autoscaler].
 
 ### <a name="scale-up-events"></a>Gebeurtenissen opschalen
 
-Als een knooppunt niet voldoende rekenresources om uit te voeren van een aangevraagde schil heeft, kan niet deze pod voortgang van het planningsproces. De schil kan niet worden gestart als aanvullende rekenbronnen beschikbaar binnen de pool knooppunt zijn.
+Als een knoop punt niet voldoende reken resources heeft om een aangevraagde pod uit te voeren, kan dat pod de voortgang van het plannings proces niet volgen. De pod kan alleen worden gestart als er extra reken bronnen beschikbaar zijn in de knooppunt groep.
 
-Wanneer het cluster automatisch schalen schillen die door resourcebeperkingen voor knooppunt groep kunnen niet worden gepland kennisgevingen, wordt het aantal knooppunten in het knooppunt pool verhoogd voor de extra rekenresources. Wanneer deze extra knooppunten is geïmplementeerd en beschikbaar zijn voor gebruik binnen de pool knooppunt zijn, worden vervolgens de schillen gepland om uit te voeren op deze.
+Wanneer de cluster-automatische schaal aanpassing het verschil is dat niet kan worden gepland vanwege resource beperkingen van de knooppunt groep, wordt het aantal knoop punten in de knooppunt groep verhoogd om de extra reken bronnen te leveren. Wanneer deze extra knoop punten zijn geïmplementeerd en beschikbaar zijn voor gebruik in de knooppunt groep, wordt het Peul gepland om te worden uitgevoerd.
 
-Als uw toepassing moet schalen, blijven sommige schillen in een status die moet worden gepland totdat de extra knooppunten geïmplementeerd door het cluster automatisch schalen kunnen de geplande schillen accepteren. Voor toepassingen die hoge burst vraag hebt, kunt u schalen met virtuele knooppunten en Azure Container Instances.
+Als uw toepassing snel moet worden geschaald, kan sommige peulen in een staat wachten om te worden gepland totdat de extra knoop punten die door de cluster-automatische schaal functie worden geïmplementeerd, de geplande peul kunnen accepteren. Voor toepassingen met hoge burst-vereisten kunt u schalen met virtuele knoop punten en Azure Container Instances.
 
-### <a name="scale-down-events"></a>Gebeurtenissen verkleinen
+### <a name="scale-down-events"></a>Gebeurtenissen omlaag schalen
 
-Het cluster automatisch schalen controleert ook de schil planning van de status van knooppunten die niet onlangs nieuwe planning aanvragen ontvangen. In dit scenario geeft aan dat de knooppuntgroep meer rekenresources dan vereist is, en dat het aantal knooppunten kan worden verlaagd.
+De cluster-automatische schaal functie bewaakt ook de pod-plannings status voor knoop punten die recent geen nieuwe plannings aanvragen hebben ontvangen. Dit scenario geeft aan dat de knooppunt groep meer reken resources heeft dan vereist is, en dat het aantal knoop punten kan worden verminderd.
 
-Een knooppunt dat wordt doorgegeven een drempelwaarde niet langer wordt standaard meer 10 minuten nodig is gepland voor verwijdering. Als deze situatie zich voordoet, schillen zijn gepland voor uitvoering op andere knooppunten in de pool knooppunt en het cluster automatisch schalen vermindert het aantal knooppunten.
+Een knoop punt dat een drempel waarde door geeft voor niet langer 10 minuten, is standaard gepland voor verwijdering. Wanneer deze situatie zich voordoet, wordt de planning op andere knoop punten in de knooppunt groep uitgevoerd en wordt het aantal knoop punten verkleind door de automatische schaal functie van het cluster.
 
-Uw toepassingen kunnen sommige onderbreking optreden als schillen zijn gepland op verschillende knooppunten wanneer het cluster automatisch schalen het aantal knooppunten vermindert. Om te beperken wordt onderbroken, te voorkomen dat toepassingen die gebruikmaken van een één pod-exemplaar.
+Het kan voor komen dat uw toepassingen enige onderbrekingen ondervinden wanneer het cluster automatisch schalen het aantal knoop punten verkleint. Vermijd toepassingen die gebruikmaken van één pod-exemplaar om onderbrekingen te minimaliseren.
 
-## <a name="burst-to-azure-container-instances"></a>Stap over op Azure Container Instances
+## <a name="burst-to-azure-container-instances"></a>Burst to Azure Container Instances
 
-Als u wilt snel uw AKS-cluster schalen, kunt u met Azure Container Instances (ACI) integreren. Kubernetes heeft ingebouwde onderdelen voor het schalen van het aantal replica- en knooppunt. Als uw toepassing kunnen snel worden geschaald moet, kan het horizontale schillen automatisch schalen echter meer schillen dan kan worden geleverd door de bestaande compute-resources in het knooppunt toepassingen plannen. Als geconfigureerd, in dit scenario vervolgens het cluster automatisch schalen voor het implementeren van extra knooppunten in het knooppunt toepassingen activeren, maar het duurt een paar minuten voor die knooppunten is inrichten en de scheduler Kubernetes schillen uitgevoerd op deze toestaan.
+Als u uw AKS-cluster snel wilt schalen, kunt u integreren met Azure Container Instances (ACI). Kubernetes heeft ingebouwde onderdelen voor het schalen van de replica en het aantal knoop punten. Als uw toepassing echter snel moet worden geschaald, kan de pod automatisch worden gepland meer dan kan worden verzorgd door de bestaande Compute-resources in de knooppunt groep. Als dit scenario is geconfigureerd, wordt vervolgens de automatische cluster functie geactiveerd om extra knoop punten in de knooppunt groep te implementeren, maar het kan een paar minuten duren voordat deze knoop punten zijn ingericht en de scheduler van de Kubernetes zo groot mogelijk maken.
 
-![Kubernetes-burst schalen naar ACI](media/concepts-scale/burst-scaling.png)
+![Kubernetes burst-schaling naar ACI](media/concepts-scale/burst-scaling.png)
 
-ACI kunt u snel containerinstanties zonder de overhead van het aanvullende infrastructuur te implementeren. Wanneer u verbinding met AKS maakt, wordt ACI een beveiligde, logische verlengstuk van uw AKS-cluster. De Virtual Kubelet-onderdeel wordt geïnstalleerd in uw AKS-cluster met daarin ACI als een virtuele Kubernetes-knooppunt. Kubernetes kunt vervolgens schillen die worden uitgevoerd als virtuele knooppunten ACI-instanties, niet als schillen op VM-knooppunten rechtstreeks in uw AKS-cluster plannen. Virtuele knooppunten zijn momenteel in preview in AKS.
+Met ACI kunt u snel container instanties implementeren zonder extra infrastructuur overhead. Wanneer u verbinding maakt met AKS, wordt ACI een beveiligde logische extensie van uw AKS-cluster. Het onderdeel virtuele-Kubelet is geïnstalleerd in uw AKS-cluster dat ACI presenteert als een virtueel Kubernetes-knoop punt. Kubernetes kan vervolgens peulen plannen die worden uitgevoerd als ACI-instanties via virtuele knoop punten, en niet als peul op VM-knoop punten direct in uw AKS-cluster. Virtuele knoop punten zijn momenteel beschikbaar als preview-versie in AKS.
 
-Uw toepassing vereist geen wijzigingen aan de virtuele-knooppunten gebruiken. Implementaties kunnen schalen via AKS en ACI en zonder vertraging als cluster met automatisch schalen nieuwe knooppunten in uw AKS-cluster implementeert.
+Uw toepassing hoeft niet te worden gewijzigd om virtuele knoop punten te gebruiken. Implementaties kunnen worden geschaald op basis van AKS en ACI en zonder vertraging als cluster automatisch schalen nieuwe knoop punten implementeert in uw AKS-cluster.
 
-Virtuele knooppunten worden geïmplementeerd naar een ander subnet in hetzelfde virtuele netwerk bevinden als uw AKS-cluster. Deze configuratie van het virtuele netwerk kan het verkeer tussen ACI en AKS te worden beveiligd. Als een AKS-cluster is een ACI-exemplaar een veilige, logische compute-resource die is geïsoleerd van andere gebruikers.
+Virtuele knoop punten worden geïmplementeerd naar een extra subnet in hetzelfde virtuele netwerk als uw AKS-cluster. Met deze virtuele netwerk configuratie kan het verkeer tussen ACI en AKS worden beveiligd. Net als een AKS-cluster is een ACI-exemplaar een veilige, logische Compute-resource die is geïsoleerd van andere gebruikers.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt beginnen met het schalen van toepassingen, volgt u eerst de [Snelstartgids voor het maken van een AKS-cluster met de Azure CLI][aks-quickstart]. Vervolgens kunt u beginnen met het handmatig of automatisch schalen van toepassingen in uw AKS-cluster:
+Om aan de slag te gaan met het schalen van toepassingen, volgt u eerst de [Snelstartgids om een AKS-cluster te maken met de Azure cli][aks-quickstart]. U kunt de toepassingen vervolgens hand matig of automatisch schalen in uw AKS-cluster:
 
-- Handmatig schalen [schillen] [ aks-manually-scale-pods] of [knooppunten][aks-manually-scale-nodes]
-- Gebruik de [horizontale schillen automatisch schalen][aks-hpa]
-- Gebruik de [automatisch schalen van cluster][aks-cluster-autoscaler]
+- Een [peul][aks-manually-scale-pods] hand matig schalen or [nodes][aks-manually-scale-nodes]
+- De pod-functie voor [horizontale automatisch schalen][aks-hpa] gebruiken
+- De automatische [schaal][aks-cluster-autoscaler] functie van het cluster gebruiken
 
-Zie de volgende artikelen voor meer informatie over core Kubernetes en AKS concepten:
+Raadpleeg de volgende artikelen voor meer informatie over de belangrijkste Kubernetes-en AKS-concepten:
 
-- [Kubernetes / AKS-clusters en workloads][aks-concepts-clusters-workloads]
-- [Kubernetes / AKS toegang en identiteit][aks-concepts-identity]
-- [Kubernetes / AKS-beveiliging][aks-concepts-security]
-- [Kubernetes / AKS virtuele netwerken][aks-concepts-network]
-- [Kubernetes / AKS-opslag][aks-concepts-storage]
+- [Kubernetes/AKS-clusters en-workloads][aks-concepts-clusters-workloads]
+- [Kubernetes/AKS-toegang en-identiteit][aks-concepts-identity]
+- [Kubernetes/AKS-beveiliging][aks-concepts-security]
+- [Kubernetes/AKS virtuele netwerken][aks-concepts-network]
+- [Kubernetes/AKS-opslag][aks-concepts-storage]
 
 <!-- LINKS - external -->
 

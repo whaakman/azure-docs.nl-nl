@@ -110,7 +110,7 @@ In JavaScript, [bindingen](functions-triggers-bindings.md) zijn geconfigureerd e
 
 ### <a name="inputs"></a>Invoer
 Invoer zijn onderverdeeld in twee categorieën in Azure Functions: de invoer voor de werkstroomtrigger is en de andere is de aanvullende invoer. Trigger en andere invoer Bindingen (bindingen van `direction === "in"`) kunnen worden gelezen door een functie op drie manieren:
- - ** _(Aanbevolen)_  Als parameters aan uw functie doorgegeven.** Ze worden doorgegeven aan de functie in dezelfde volgorde als waarin ze zijn gedefinieerd in *function.json*. De `name` -eigenschap worden gedefinieerd *function.json* hoeft niet te overeenkomen met de naam van de parameter, maar het moet.
+ - **_(Aanbevolen)_  Als parameters aan uw functie doorgegeven.** Ze worden doorgegeven aan de functie in dezelfde volgorde als waarin ze zijn gedefinieerd in *function.json*. De `name` -eigenschap worden gedefinieerd *function.json* hoeft niet te overeenkomen met de naam van de parameter, maar het moet.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -141,7 +141,7 @@ Uitvoer (bindingen van `direction === "out"`) door een functie in een aantal man
 
 U kunt gegevens toewijzen aan uitvoerbindingen in een van de volgende manieren (geen deze methoden combineren):
 
-- ** _[Aanbevolen voor meerdere uitvoer]_  Retourneren een object.** Als u van een asynchrone/belofte functie retourneren gebruikmaakt, kunt u een object met een toegewezen uitvoergegevens retourneren. In het volgende voorbeeld wordt de uitvoerbindingen zijn met de naam "httpResponse" en "queueOutput" in *function.json*.
+- **_[Aanbevolen voor meerdere uitvoer]_  Retourneren een object.** Als u van een asynchrone/belofte functie retourneren gebruikmaakt, kunt u een object met een toegewezen uitvoergegevens retourneren. In het volgende voorbeeld wordt de uitvoerbindingen zijn met de naam "httpResponse" en "queueOutput" in *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -156,7 +156,7 @@ U kunt gegevens toewijzen aan uitvoerbindingen in een van de volgende manieren (
   ```
 
   Als u van een synchrone functie gebruikmaakt, kunt u terugkeren dit object met [ `context.done` ](#contextdone-method) (Zie het voorbeeld).
-- ** _[Aanbevolen voor één uitvoer]_  Rechtstreeks een waarde retourneren en het gebruik van de naam van de binding $return.** Dit werkt alleen voor asynchrone/belofte functies retourneren. Zie het voorbeeld in [exporteren van een functie asynchrone](#exporting-an-async-function). 
+- **_[Aanbevolen voor één uitvoer]_  Rechtstreeks een waarde retourneren en het gebruik van de naam van de binding $return.** Dit werkt alleen voor asynchrone/belofte functies retourneren. Zie het voorbeeld in [exporteren van een functie asynchrone](#exporting-an-async-function). 
 - **Toewijzen van waarden die moeten worden `context.bindings`**  kunt u waarden rechtstreeks aan context.bindings toewijzen.
 
   ```javascript
@@ -397,9 +397,9 @@ Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en respons objecten i
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ ** _[Alleen-antwoord]_  Door het aanroepen van `context.res.send(body?: any)`.** Een HTTP-antwoord wordt gemaakt met invoer `body` als hoofdtekst van het antwoord. `context.done()` impliciet wordt genoemd.
++ **_[Alleen-antwoord]_  Door het aanroepen van `context.res.send(body?: any)`.** Een HTTP-antwoord wordt gemaakt met invoer `body` als hoofdtekst van het antwoord. `context.done()` impliciet wordt genoemd.
 
-+ ** _[Alleen-antwoord]_  Door het aanroepen van `context.done()`.** Een speciaal type HTTP-binding retourneert het antwoord dat is doorgegeven aan de `context.done()` methode. De volgende HTTP-Uitvoerbinding definieert een `$return` uitvoerparameter:
++ **_[Alleen-antwoord]_  Door het aanroepen van `context.done()`.** Een speciaal type HTTP-binding retourneert het antwoord dat is doorgegeven aan de `context.done()` methode. De volgende HTTP-Uitvoerbinding definieert een `$return` uitvoerparameter:
 
     ```json
     {

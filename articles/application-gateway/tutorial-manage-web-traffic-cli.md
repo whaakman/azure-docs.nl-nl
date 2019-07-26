@@ -5,18 +5,18 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/1/2019
+ms.date: 07/20/2019
 ms.author: victorh
-ms.openlocfilehash: d60c756fcf0b527731b8a1f31a8d93f108c91665
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3064def2eac0aaee5c04f7ab736cf539ae372cb4
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146233"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359897"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Webverkeer met een toepassingsgateway beheren met behulp van Azure CLI
 
-De toepassingsgateway wordt gebruikt voor het beheren en beveiligen van webverkeer naar servers die door u worden onderhouden. U kunt de Azure CLI gebruiken om te maken een [toepassingsgateway](overview.md) die gebruikmaakt van een [virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) voor back-endservers. In dit voorbeeld bevat de schaalset twee exemplaren van de virtuele machine. De schaalset wordt toegevoegd aan de standaardgroep voor back-end van de toepassingsgateway.
+De toepassingsgateway wordt gebruikt voor het beheren en beveiligen van webverkeer naar servers die door u worden onderhouden. U kunt de Azure CLI gebruiken om een [toepassings gateway](overview.md) te maken die gebruikmaakt van een schaalset voor [virtuele machines](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) voor back-endservers. In dit voor beeld bevat de schaalset twee exemplaren van virtuele machines. De schaalset wordt toegevoegd aan de standaard back-end-groep van de toepassings gateway.
 
 In dit artikel leert u het volgende:
 
@@ -25,13 +25,13 @@ In dit artikel leert u het volgende:
 > * Een toepassingsgateway maken
 > * Een virtuele-machineschaalset maken met de standaard back-endpool
 
-Als u liever, kunt u het gebruik van deze procedure te voltooien [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
+Als u wilt, kunt u deze procedure volt ooien met behulp van [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, deze snelstartgids moet u uitvoeren van de Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze Quick Start de Azure CLI-versie 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -64,7 +64,9 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
@@ -79,7 +81,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -87,7 +89,7 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
- Het kan enkele minuten duren voordat de toepassingsgateway is gemaakt. Nadat de toepassingsgateway is gemaakt, ziet u deze nieuwe functies:
+ Het kan enkele minuten duren voordat de toepassingsgateway is gemaakt. Nadat de toepassings gateway is gemaakt, ziet u deze nieuwe functies:
 
 - *appGatewayBackendPool*: een toepassingsgateway moet ten minste één back-endadresgroep hebben.
 - *appGatewayBackendHttpSettings*: hiermee wordt aangegeven dat voor de communicatie poort 80 en een HTTP-protocol worden gebruikt.

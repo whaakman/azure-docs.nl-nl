@@ -1,19 +1,18 @@
 ---
 title: Een Recovery Services kluis verplaatsen over Azure-abonnementen of naar een andere resource groep
 description: Instructies voor het verplaatsen van de Recovery Services-kluis in azure-abonnementen en resource groepen.
-services: backup
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 57263dfd1e226f2ff4321b2d097d30106fae87fa
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 0e351a842a303430e66a52a87305cba23f774ef2
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304910"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465819"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Een Recovery Services kluis verplaatsen over Azure-abonnementen en-resource groepen
 
@@ -68,7 +67,7 @@ Een Recovery Services-kluis en de bijbehorende resources verplaatsen naar een an
 
 5. Als u de doel resource groep wilt toevoegen, selecteert u in de vervolg keuzelijst **resource groep** een bestaande resource groep of klikt u op **een nieuwe groep maken** optie.
 
-   ![Resource maken](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
+   ![Bron maken](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
 6. Nadat u de resource groep hebt toegevoegd, **moet u weten dat de hulpprogram ma's en scripts die zijn gekoppeld aan verplaatste resources, niet werken totdat ze zijn bijgewerkt** met de optie nieuwe resource-id's en klik vervolgens op **OK** om het verplaatsen van de kluis te volt ooien.
 

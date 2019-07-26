@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 0d7ca38ecb66dbf92678eae4da7d8706f68cbaa2
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 4cc21a4dbab7d5114eed8414c6530eab5f42bb00
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273816"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478865"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Een winkelzoeker maken met behulp van Azure Maps
 
@@ -37,21 +37,21 @@ Spring vooruit naar het [live-winkelzoekervoorbeeld](https://azuremapscodesample
 
 Om de stappen in deze zelfstudie te voltooien, moet u eerst [uw Azure Maps-account maken](./tutorial-search-location.md#createaccount) en [de abonnementssleutel voor uw account ophalen](./tutorial-search-location.md#getkey).
 
-## <a name="design"></a>Ontwerp
+## <a name="design"></a>Ontwerpen
 
 Voordat u in de code duikt, is het een goed idee om met een ontwerp te beginnen. Uw winkelzoeker kan zo eenvoudig of zo ingewikkeld zijn als u wilt. In deze zelfstudie maken we een eenvoudige winkelzoeker. We nemen onderweg enkele tips op om u te helpen sommige functies uit te breiden als u dat wilt. We maken een winkelzoeker voor het fictieve bedrijf Contoso Coffee. De volgende afbeelding toont een draadmodel van de algemene indeling van de winkelzoeker die we in deze zelfstudie bouwen:
 
 <br/>
 <center>
 
-![Draadmodel van een store-locator voor Contoso koffie restaurant locaties](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Draad model van een Store-Locator voor contoso-Shop koffie-winkel locaties](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 Om de bruikbaarheid van deze winkelzoeker te maximaliseren, gebruiken we een responsieve lay-out die wordt aangepast wanneer de schermbreedte van een gebruiker kleiner is dan 700 pixels. Een responsieve lay-out maakt het gemakkelijk om de winkelzoeker op een klein scherm te gebruiken, zoals op een mobiel apparaat. Hier volgt een draadmodel van een lay-out voor een klein scherm:  
 
 <br/>
 <center>
 
-![Draadmodel van de Contoso-koffie locator opslaan op een mobiel apparaat](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![Draad model van de contoso-Store-Locator op een mobiel apparaat](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 De draadmodellen tonen een redelijk eenvoudige toepassing. De toepassing heeft een zoekvak, een lijst met winkels in de buurt, een kaart met enkele markeringen (symbolen) en een pop-upvenster met extra informatie wanneer de gebruiker een markering selecteert. Meer specifiek zijn hier de functies die we in deze zelfstudie inbouwen in de winkelzoeker:
 
@@ -71,12 +71,12 @@ De draadmodellen tonen een redelijk eenvoudige toepassing. De toepassing heeft e
 
 ## <a name="create-the-store-location-dataset"></a>De gegevensset met winkellocaties maken
 
-Voordat we een winkelzoektoepassing ontwikkelen, moeten we een gegevensset maken van de winkels die we willen weergeven op de kaart. In deze zelfstudie gebruiken we een gegevensset voor een fictieve koffiebar met de naam Contoso Coffee. De gegevensset voor deze eenvoudige winkelzoeker wordt beheerd in een Excel-werkmap. De gegevensset bevat 10,213 Contoso koffie restaurant locaties verdeeld over negen landen/regio's: de Verenigde Staten, Canada, het Verenigd Koninkrijk, Frankrijk, Duitsland, Italië, de Nederland, Denemarken, en Spanje. Hier volgt een schermopname van hoe de gegevens eruitzien:
+Voordat we een winkelzoektoepassing ontwikkelen, moeten we een gegevensset maken van de winkels die we willen weergeven op de kaart. In deze zelfstudie gebruiken we een gegevensset voor een fictieve koffiebar met de naam Contoso Coffee. De gegevensset voor deze eenvoudige winkelzoeker wordt beheerd in een Excel-werkmap. De gegevensset bevat 10.213 contoso koffie-winkel locaties die zijn verspreid over negen landen/regio's: de Verenigde Staten, Canada, het Verenigd Konink rijk, Frank rijk, Duitsland, Italië, Nederland, Denemarken en Spanje. Hier volgt een schermopname van hoe de gegevens eruitzien:
 
 <br/>
 <center>
 
-![Schermafbeelding van de gegevens in de locator in een Excel-werkmap](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
+![Scherm afbeelding van de Store-locatorgegevens in een Excel-werkmap](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
 
 U kunt [de Excel-werkmap downloaden](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). 
 
@@ -98,14 +98,14 @@ Als u de werkmap wilt converteren naar een platte-tekstbestand, slaat u de werkm
 <br/>
 <center>
 
-![Schermopname van het dialoogvenster Opslaan als type](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
+![Scherm afbeelding van het dialoog venster Opslaan als type](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 Als u het bestand in Kladblok opent, ziet dit eruit als in de volgende afbeelding:
 
 <br/>
 <center>
 
-![Schermafbeelding van een Kladblok-bestand waarin een gegevensset door tabs gescheiden](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
+![Scherm afbeelding van een Klad blok-bestand waarin een door tabs gescheiden gegevensset wordt weer gegeven](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
 
 
 ## <a name="set-up-the-project"></a>Het project instellen
@@ -115,7 +115,7 @@ Voor het maken van het project kunt u [Visual Studio](https://visualstudio.micro
 <br/>
 <center>
 
-![Schermafbeelding van de projectmap eenvoudige Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
+![Scherm afbeelding van de projectmap voor het archief van de eenvoudige Store](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
 
 ## <a name="create-the-user-interface"></a>De gebruikersinterface maken
 
@@ -139,7 +139,7 @@ Voor het maken van de gebruikersinterface voegt u code toe aan *index.html*:
 1. Voeg een verwijzing toe naar de servicesmodule van Azure Maps. De module is a JavaScript-bibliotheek die de Azure Maps REST-services verpakt en ze gemakkelijk in JavaScript te gebruiken maakt. De module is handig voor het aandrijven van de zoekfunctionaliteit.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
 1. Voeg verwijzingen toe naar *index.js* en *index.css*:
@@ -403,7 +403,7 @@ Op dit punt is alles ingesteld in de gebruikersinterface. Nu moeten we de JavaSc
 
 1. Voeg code toe aan *index.js*. De volgende code initialiseert de kaart, voegt een [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) toe die wacht totdat de pagina is geladen, gebeurtenissen aansluit om het laden van de kaart te controleren en de zoekknop en de knop Mijn locatie aandrijft.
 
-   Wanneer de gebruiker de zoekknop selecteert, of wanneer de gebruiker op Enter drukt nadat een locatie in het zoekvak is ingevoerd, wordt een fuzzy zoekopdracht gestart met de zoekopdracht van de gebruiker. Doorgeven in een matrix van land ISO 2 waarden om de `countrySet` optie om de zoekresultaten op deze landen/regio's te beperken. De landen/regio's om te zoeken naar te beperken, verhoogt u de nauwkeurigheid van de resultaten die worden geretourneerd. 
+   Wanneer de gebruiker de zoekknop selecteert, of wanneer de gebruiker op Enter drukt nadat een locatie in het zoekvak is ingevoerd, wordt een fuzzy zoekopdracht gestart met de zoekopdracht van de gebruiker. Geef een matrix van ISO 2-waarden op voor de `countrySet` optie om de zoek resultaten te beperken tot die landen/regio's. Het beperken van de landen/regio's voor zoeken helpt de nauw keurigheid van de geretourneerde resultaten te verg Roten. 
   
    Wanneer de zoekopdracht is voltooid, wordt het eerste resultaat genomen en wordt de kaartcamera op dat gebied gezet. Wanneer de gebruiker de knop Mijn locatie selecteert, gebruikt u de HTML5 Geolocation-API die in de browser is ingebouwd om de locatie van de gebruiker op te halen en de kaart te centreren op die locatie.  
 
@@ -933,21 +933,21 @@ De eerste keer dat een gebruiker de knop Mijn locatie selecteert, geeft de brows
 <br/>
 <center>
 
-![Schermafbeelding van de browser de voor toegang tot de locatie van de gebruiker uitnodiging](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
+![Scherm afbeelding van de aanvraag van de browser voor toegang tot de locatie van de gebruiker](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
 Wanneer u sterk genoeg inzoomt op een gebied met koffiebarlocaties, worden de clusters gescheiden in afzonderlijke locaties. Selecteer een van de pictogrammen op de kaart of selecteer een item in het zijpaneel om een ​​pop-upvenster te bekijken met informatie over die locatie.
 
 <br/>
 <center>
 
-![Schermafbeelding van de voltooide store locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
+![Scherm opname van de voltooide Store-Locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 Als u het formaat van het browservenster verkleint tot minder dan 700 pixels breed of de toepassing op een mobiel apparaat opent, verandert de lay-out zodat deze beter geschikt is voor kleinere schermen. 
 
 <br/>
 <center>
 
-![Schermafbeelding van de versie klein scherm van de store-locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
+![Scherm afbeelding van de Small Screen-versie van de Store-Locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -963,10 +963,10 @@ In dit zelfstudie leert u hoe u een eenvoudige winkelzoeker kunt maken met behul
 > * Sla uw gegevens op in een database en zoek naar nabijgelegen locaties. Zie voor meer informatie [SQL Server spatial data types overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) (overzicht van ruimtelijke gegevenstypen in SQL Server) en [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017) (ruimtelijke gegevens opvragen voor de dichtstbijzijnde buren).
 
 > [!div class="nextstepaction"]
-> [De volledige broncode weergeven](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
+> [Volledige bron code weer geven](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
 
 > [!div class="nextstepaction"]
-> [Live voorbeeld weergeven](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
+> [Live voor beeld weer geven](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Voor meer informatie over de dekking en de mogelijkheden van Azure Maps:
 
@@ -979,4 +979,4 @@ Voor meer voorbeelden van code en interactieve codering:
 > [Map Control gebruiken](how-to-use-map-control.md)
 
 > [!div class="nextstepaction"]
-> [Gegevensgestuurde stijl expressies gebruiken](data-driven-style-expressions-web-sdk.md)
+> [Op gegevens gebaseerde stijl expressies gebruiken](data-driven-style-expressions-web-sdk.md)

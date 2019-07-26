@@ -1,6 +1,6 @@
 ---
-title: Ontwerpen en implementeren van een Oracle-database in Azure | Microsoft Docs
-description: Ontwerpen en implementeren van een Oracle-database in uw Azure-omgeving.
+title: Een Oracle-data base ontwerpen en implementeren in azure | Microsoft Docs
+description: Ontwerp en implementeer een Oracle-data base in uw Azure-omgeving.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
@@ -15,69 +15,69 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 8058246ea5f4ac87c24fab8c5ec64032eb8a1f0b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ebe6f27818df8407504e4254f16d952aa298b6cc
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710648"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348321"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Een Oracle-database ontwerpen en in Azure implementeren
 
 ## <a name="assumptions"></a>Veronderstellingen
 
-- U van plan bent een Oracle-database migreren van on-premises naar Azure.
-- U hebt de [Diagnostics Pack](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) voor de Oracle-Database die u wilt migreren
-- U hebt een goed begrip van de verschillende metrische gegevens in Oracle AWR rapporten.
-- Hebt u een basislijn begrip van de prestaties van toepassingen en het gebruik van platform.
+- U bent van plan om een Oracle-data base van on-premises naar Azure te migreren.
+- U hebt het [Diagnostische pakket](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) voor de Oracle database u wilt migreren
+- U hebt een goed idee van de diverse metrische gegevens in Oracle AWR-rapporten.
+- U hebt een basis informatie over de prestaties en het platform gebruik van de toepassing.
 
 ## <a name="goals"></a>Doelstellingen
 
-- Inzicht in het optimaliseren van uw Oracle-implementatie in Azure.
-- Verken opties voor een Oracle-database in een Azure-omgeving afstemmen van de prestaties.
+- Meer informatie over het optimaliseren van uw Oracle-implementatie in Azure.
+- Verken opties voor het afstemmen van prestaties voor een Oracle-data base in een Azure-omgeving.
 
 ## <a name="the-differences-between-an-on-premises-and-azure-implementation"></a>De verschillen tussen een on-premises en Azure-implementatie 
 
-Hier volgen enkele belangrijke zaken waarmee u rekening moet houden wanneer u bij het migreren van on-premises toepassingen naar Azure. 
+Hieronder volgen enkele belang rijke zaken die u moet overwegen wanneer u on-premises toepassingen naar Azure migreert. 
 
-Een belangrijk verschil is dat de resources zoals virtuele machines, schijven en virtuele netwerken in een Azure-implementatie worden gedeeld door andere clients. Resources kunnen bovendien worden beperkt op basis van de vereisten. In plaats van voor het voorkomen van (MBTF) mislukt, wordt Azure meer gericht op functionerende de fouten (MTTR).
+Een belang rijk verschil is dat in een Azure-implementatie resources, zoals Vm's, schijven en virtuele netwerken, worden gedeeld tussen andere clients. Bovendien kunnen resources worden beperkt op basis van de vereisten. In plaats van zich te richten op het voor komen van een fout (MBTF), is Azure beter gericht op het naleven van de fout (MTTR).
 
-De volgende tabel bevat enkele van de verschillen tussen een on-premises implementatie en een Azure-implementatie van een Oracle-database.
+De volgende tabel bevat enkele van de verschillen tussen een on-premises implementatie en een Azure-implementatie van een Oracle-data base.
 
 > 
 > |  | **On-premises implementatie** | **Azure-implementatie** |
 > | --- | --- | --- |
-> | **Netwerken** |LAN/WAN  |SDN (software gedefinieerde netwerken)|
-> | **Beveiligingsgroep** |IP/poort beperking hulpprogramma 's |[Netwerkbeveiligingsgroep (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
-> | **Flexibiliteit** |MBTF (gemiddelde tijd tussen fouten) |MTTR (gemiddelde tijd tot herstel)|
-> | **Gepland onderhoud** |Patching/upgrades|[Beschikbaarheidssets](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (patches of upgrades worden uitgevoerd door Azure beheerd) |
+> | **Netwerken** |LAN/WAN  |SDN (door software gedefinieerde netwerken)|
+> | **Beveiligings groep** |Hulpprogram ma's voor IP-en poort beperking |[Netwerk beveiligings groep (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
+> | **Tolerantie** |MBTF (gemiddelde tijd tussen storingen) |MTTR (gemiddelde tijd voor herstel)|
+> | **Gepland onderhoud** |Patching/upgrades|[Beschikbaarheids sets](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (patches/upgrades die worden beheerd door Azure) |
 > | **Resource** |Toegewezen  |Gedeeld met andere clients|
-> | **Regio's** |Datacenters |[Regioparen](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
-> | **Storage** |SAN-/ fysieke schijven |[Beheerde Azure opslag](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **Schalen** |Verticaal schalen |Horizontaal schalen|
+> | **Regio's** |Datacenters |[Regio paren](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
+> | **Storage** |SAN/fysieke schijven |[Door Azure beheerde opslag](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+> | **Schalen** |Verticale schaal |Horizontaal schalen|
 
 
 ### <a name="requirements"></a>Vereisten
 
-- Bepaalt de snelheid van grootte en de groei van de database.
-- Bepaalt de IOPS-vereisten die u kunt een schatting maken op basis van Oracle AWR rapporten of andere hulpmiddelen voor netwerkbeheer.
+- Bepaal de grootte en het groei tempo van de data base.
+- Bepaal de IOPS-vereisten, die u kunt schatten op basis van Oracle AWR-rapporten of andere hulpprogram ma's voor netwerk controle.
 
 ## <a name="configuration-options"></a>Configuratie-opties
 
-Er zijn vier potentiële probleemgebieden die u stemmen kunt voor betere prestaties in een Azure-omgeving:
+Er zijn vier mogelijke gebieden die u kunt afstemmen om de prestaties in een Azure-omgeving te verbeteren:
 
-- Grootte van virtuele machine
-- Netwerkdoorvoer
-- Schijftypen en configuraties
-- Cache-instellingen voor schijf
+- Grootte van de virtuele machine
+- Netwerk doorvoer
+- Schijf typen en configuraties
+- Instellingen voor schijf cache
 
-### <a name="generate-an-awr-report"></a>Een rapport AWR genereren
+### <a name="generate-an-awr-report"></a>Een AWR-rapport genereren
 
-Als u een bestaande een Oracle-database, en u van plan bent te migreren naar Azure, hebt u verschillende mogelijkheden. Als u hebt de [Diagnostics Pack](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) voor uw Oracle-instanties, kunt u het rapport Oracle AWR om op te halen van de metrische gegevens (IOPS, Mbps, GiBs, enzovoort) uitvoeren. Kies vervolgens de virtuele machine op basis van de metrische gegevens die u hebt verzameld. Of u kunt contact opnemen met uw team voor infrastructuur voor vergelijkbare informatie.
+Als u een bestaande Oracle-Data Base hebt en wilt migreren naar Azure, hebt u verschillende opties. Als u het [Diagnostische pakket](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) voor uw Oracle-exemplaren hebt, kunt u het rapport Oracle AWR uitvoeren om de metrische gegevens (IOPS, Mbps, GiBs, enzovoort) op te halen. Kies vervolgens de virtuele machine op basis van de metrische gegevens die u hebt verzameld. U kunt ook contact opnemen met uw infrastructuur team om Vergelijk bare informatie te verkrijgen.
 
-Kunt u overwegen uw rapport AWR uitvoeren tijdens de normale en piekuren workloads, zodat u kunt vergelijken. Op basis van deze rapporten, u kunt het formaat van de virtuele machines op basis van de gemiddelde workload of de maximale werkbelasting.
+U kunt overwegen uw AWR-rapport uit te voeren tijdens zowel normale als piek werk belastingen. Op basis van deze rapporten kunt u de grootte van de virtuele machines aanpassen op basis van de gemiddelde werk belasting of de maximale werk belasting.
 
-Hieronder volgt een voorbeeld van hoe u een rapport AWR genereren (uw AWR rapporten genereren met uw Oracle Enterprise Manager, als de huidige installatie is):
+Hieronder volgt een voor beeld van het genereren van een AWR-rapport (uw AWR-rapporten genereren met behulp van uw Oracle Enter prise Manager als uw huidige installatie een van de volgende is):
 
 ```bash
 $ sqlplus / as sysdba
@@ -85,155 +85,155 @@ SQL> EXEC DBMS_WORKLOAD_REPOSITORY.CREATE_SNAPSHOT;
 SQL> @?/rdbms/admin/awrrpt.sql
 ```
 
-### <a name="key-metrics"></a>Belangrijke metrische gegevens
+### <a name="key-metrics"></a>Metrische sleutel gegevens
 
-Hieronder vindt u de metrische gegevens die u uit het rapport AWR verkrijgen kunt:
+Hieronder vindt u de metrische gegevens die u kunt ophalen uit het AWR-rapport:
 
-- Totale aantal kernen
-- Kloksnelheid van CPU
+- Totaal aantal kernen
+- CPU-klok snelheid
 - Totaal geheugen in GB
 - CPU-gebruik
-- Gegevensoverdrachtssnelheid piek
-- Aantal i/o-wijzigingen (lezen/schrijven)
-- Opnieuw uitvoeren van logboek tarief (MBPs)
-- Netwerkdoorvoer
-- Netwerk latentie tarief (laag/hoog)
-- Grootte van de database in GB
-- Bytes ontvangen via SQL * Net van/naar client
+- Piek waarde voor gegevens overdracht
+- Aantal I/O-wijzigingen (lezen/schrijven)
+- Logboek frequentie opnieuw uitvoeren (MBPs)
+- Netwerk doorvoer
+- Netwerk latentie (laag/hoog)
+- Database grootte in GB
+- Bytes ontvangen via SQL * net van/naar client
 
-### <a name="virtual-machine-size"></a>Grootte van virtuele machine
+### <a name="virtual-machine-size"></a>Grootte van de virtuele machine
 
-#### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. Schatting VM-grootte op basis van CPU, geheugen en i/o-gebruik van het rapport AWR
+#### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. De grootte van de virtuele machine schatten op basis van CPU, geheugen en I/O-gebruik van het AWR-rapport
 
-U kijken naar kunt wat is de top vijf getimede voorgrond gebeurtenissen die aangeven waar de knelpunten van het systeem zijn.
+Een ding waarnaar u kunt kijken, is de vijf getimede voorgrond gebeurtenissen die aangeven waar de systeem knelpunten zich bevinden.
 
-In het volgende diagram wordt is de synchronisatie van log-bestand bijvoorbeeld aan de bovenkant. Deze geeft het aantal wachten op die moet voldaan worden voordat de LGWR de logboekbuffer naar het logboekbestand opnieuw schrijft. Deze resultaten blijkt dat betere presterende opslag of schijven vereist zijn. Het diagram toont bovendien ook het aantal CPU (kernen) en de hoeveelheid geheugen.
+In het volgende diagram bevindt zich bijvoorbeeld bovenaan het logboek bestand. Hiermee wordt het aantal wacht tijden aangegeven dat vereist is voordat de LGWR de logboek buffer naar het logboek bestand voor opnieuw uitvoeren schrijft. Deze resultaten geven aan dat er meer opslag of schijven moeten worden uitgevoerd. Daarnaast toont het diagram ook het aantal CPU (kernen) en de hoeveelheid geheugen.
 
-![Schermafbeelding van de rapportpagina AWR](./media/oracle-design/cpu_memory_info.png)
+![Scherm afbeelding van de rapport pagina AWR](./media/oracle-design/cpu_memory_info.png)
 
-Het volgende diagram toont de totale i/o van lezen en schrijven. Er zijn 59 lezen en 247.3 GB geschreven tijdens het ophalen van het rapport.
+In het volgende diagram ziet u de totale I/O van lezen en schrijven. Er zijn 59 GB gelezen en 247,3 GB geschreven tijdens de periode van het rapport.
 
-![Schermafbeelding van de rapportpagina AWR](./media/oracle-design/io_info.png)
+![Scherm afbeelding van de rapport pagina AWR](./media/oracle-design/io_info.png)
 
-#### <a name="2-choose-a-vm"></a>2. Kies een virtuele machine
+#### <a name="2-choose-a-vm"></a>2. Een virtuele machine kiezen
 
-Op basis van de informatie die u hebt verzameld uit het rapport AWR, is de volgende stap om te kiezen van een virtuele machine met een vergelijkbare grootte die voldoet aan uw vereisten. U kunt een lijst met beschikbare virtuele machines vinden in het artikel [geoptimaliseerd voor geheugen](../../linux/sizes-memory.md).
+Op basis van de informatie die u hebt verzameld uit het AWR-rapport, is de volgende stap het kiezen van een virtuele machine met een vergelijk bare grootte die voldoet aan uw vereisten. U kunt een lijst met beschik bare virtuele machines vinden in het artikel [geoptimaliseerd voor geheugen](../../linux/sizes-memory.md).
 
-#### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. De grootte van de virtuele machine met een vergelijkbare VM-reeks op basis van de ACU aanpassen
+#### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. De VM-grootte nauw keurig afstemmen met een soort gelijke VM-reeks op basis van de ACU
 
-Nadat u de virtuele machine hebt gekozen, Let op de ACU voor de virtuele machine. U kunt een andere virtuele machine op basis van de ACU-waarde die beter aansluit bij uw vereisten. Zie voor meer informatie, [Azure compute unit](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
+Nadat u de virtuele machine hebt gekozen, moet u rekening best Eden aan de ACU voor de virtuele machine. U kunt een andere VM kiezen op basis van de ACU-waarde die beter aansluit bij uw vereisten. Zie [Azure Compute unit](https://docs.microsoft.com/azure/virtual-machines/windows/acu)voor meer informatie.
 
-![Schermafbeelding van de ACU eenheden-pagina](./media/oracle-design/acu_units.png)
+![Scherm afbeelding van de pagina ACU units](./media/oracle-design/acu_units.png)
 
-### <a name="network-throughput"></a>Netwerkdoorvoer
+### <a name="network-throughput"></a>Netwerk doorvoer
 
-Het volgende diagram toont de relatie tussen de doorvoer en IOPS:
+In het volgende diagram ziet u de relatie tussen door Voer en IOPS:
 
-![Schermafbeelding van doorvoer](./media/oracle-design/throughput.png)
+![Scherm afbeelding van door Voer](./media/oracle-design/throughput.png)
 
-De totale netwerkdoorvoer wordt geschat op basis van de volgende informatie:
-- SQL * Net verkeer
-- MBps maal het aantal servers (uitgaande stroom, zoals Oracle Data Guard)
-- Andere factoren, zoals het repliceren van toepassingen
+De totale netwerk doorvoer wordt geschat op basis van de volgende gegevens:
+- SQL * net-verkeer
+- MBps x aantal servers (uitgaande stroom zoals Oracle Data Guard)
+- Andere factoren, zoals toepassings replicatie
 
-![Schermafbeelding van de SQL * Net doorvoer](./media/oracle-design/sqlnet_info.png)
+![Scherm afbeelding van de SQL * netto-door Voer](./media/oracle-design/sqlnet_info.png)
 
-Op basis van uw netwerkvereisten voor bandbreedte, zijn er diverse soorten gateways voor u om de verkeersbelasting. Het gaat hierbij om basic, VpnGw en Azure ExpressRoute. Zie voor meer informatie de [pagina met prijzen voor VPN-gateway](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
-
-**Aanbevelingen**
-
-- De netwerklatentie hoger vergeleken met een on-premises implementatie. Netwerk round trips kan aanzienlijk verminderen, de prestaties verbeteren.
-- Als u wilt verkleinen retouren, consolideren toepassingen met hoge transacties of 'intensieve' apps op dezelfde virtuele machine.
-- Gebruik virtuele Machines met [versnelde netwerken](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) voor betere prestaties van het netwerk.
-- Voor bepaalde Linux-distrubutions, overweeg in te schakelen [TRIM/UNMAP ondersteuning](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
-- Installeer [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) op een afzonderlijke virtuele Machine.
-- Grote pagina's worden niet standaard ingeschakeld in linux. Overweeg in te schakelen grote pagina's en stel `use_large_pages = ONLY` op de Oracle-database. Dit kan helpen de prestaties verbeteren. Meer informatie vindt [hier](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
-
-### <a name="disk-types-and-configurations"></a>Schijftypen en configuraties
-
-- *Standaard besturingssysteemschijven*: Deze schijftypen bieden uw permanente gegevens en caching. Ze zijn geoptimaliseerd voor het besturingssysteem toegang bij het opstarten en zijn niet bedoeld voor transactionele of datawarehouse-workloads (analytische).
-
-- *Niet-beheerde schijven*: Met deze schijftypen, moet u de storage-accounts die opslaan van de virtuele harde schijf (VHD)-bestanden die met de VM-schijven overeenkomen beheren. VHD-bestanden worden opgeslagen als pagina-blobs in Azure storage-accounts.
-
-- *Beheerde schijven*: Azure beheert de storage-accounts die u voor de VM-schijven gebruikt. Geeft u het schijftype (premium of standard) en de grootte van de schijf die u nodig hebt. Azure maakt en beheert de schijf voor u.
-
-- *Premium-opslagschijven*: Deze schijftypen zijn zeer geschikt voor werkbelastingen voor productie. Premium-opslag biedt ondersteuning voor VM-schijven die kunnen worden gekoppeld aan specifieke grootte-series-VM's, zoals Active Directory-, DSv2-, GS- en F-serie VM's. De premium-schijf wordt geleverd met verschillende formaten en kunt u kiezen tussen schijven, variërend van 32 GB tot 4096 GB. De grootte van elke schijf heeft een eigen prestatiespecificaties. Afhankelijk van uw toepassingsvereisten kunt u een of meer schijven koppelen aan uw virtuele machine.
-
-Wanneer u een nieuwe beheerde schijf via de portal maakt, kunt u de **accounttype** voor het type van de schijf die u wilt gebruiken. Houd er rekening mee dat niet alle beschikbare schijven worden weergegeven in de vervolgkeuzelijst. Nadat u een specifieke VM-grootte kiest, ziet u het menu alleen de premiumopslag van de beschikbare SKU's die zijn gebaseerd op deze VM-grootte.
-
-![Schermafbeelding van de beheerde schijf-pagina](./media/oracle-design/premium_disk01.png)
-
-Nadat u uw opslag op een virtuele machine hebt geconfigureerd, kunt u laden van de schijven te testen voordat u een database te maken. De i/o-snelheid in termen van zowel de latentie en doorvoer te weten, kunt u bepalen of de virtuele machines de verwachte doorvoer met latentie doelen ondersteunen.
-
-Er zijn een aantal hulpprogramma's voor belastingstesten van toepassingen, zoals Oracle Orion Sysbench en Fio.
-
-Voer de belastingtest opnieuw uit nadat u een Oracle-database hebt geïmplementeerd. Start uw normale en piekuren workloads en de resultaten ziet u de basislijn van uw omgeving.
-
-Het is mogelijk om de grootte van de opslag op basis van het tarief voor IOPS in plaats van de grootte van de belangrijkste. Bijvoorbeeld, als de vereiste IOPS 5.000 is, maar u slechts 200 GB hoeft, kunt u nog steeds krijgen de P30 klasse premium-schijf zelfs als deze wordt geleverd met meer dan 200 GB aan opslagruimte.
-
-De snelheid IOP's kan worden verkregen uit het rapport AWR. Dit wordt bepaald door het logboek opnieuw, de fysieke leesbewerkingen en de snelheid van schrijfbewerkingen.
-
-![Schermafbeelding van de rapportpagina AWR](./media/oracle-design/awr_report.png)
-
-Bijvoorbeeld, is de grootte van de opnieuw 12,200,000 bytes per seconde, die gelijk aan 11.63 MBPs is.
-De IOPS is 12.200.000 / 2,358 = 5,174.
-
-Nadat u een helder beeld van de i/o-vereisten hebt, kunt u een combinatie van stations die bij uitstek geschikt zijn om te voldoen aan deze vereisten.
+Op basis van de vereisten voor de netwerk bandbreedte zijn er verschillende gateway typen waaruit u kunt kiezen. Dit zijn onder andere Basic, VpnGw en Azure ExpressRoute. Zie de pagina met prijzen voor [VPN-gateways](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h)voor meer informatie.
 
 **Aanbevelingen**
 
-- Voor gegevens verdeeld tabelruimte, de i/o-werkbelasting over een aantal schijven met behulp van beheerde opslag of Oracle Asm installeren.
-- Als de grootte van het i/o-blok voor lees-intensieve en write-intensieve bewerkingen toeneemt, Voeg meer gegevensschijven.
-- Verhoog de grootte van het blok voor grote opeenvolgende processen.
-- Compressie van gegevens gebruiken om te beperken van i/o (voor zowel gegevens als indexen).
-- Afzonderlijke opnieuw Logboeken, systeem- en temps en ongedaan maken van TS op afzonderlijke gegevensschijven.
-- Plaats geen toepassingsbestanden op de standaard OS-schijven (/ dev/sda). Deze schijven niet zijn geoptimaliseerd voor snelle VM boot keer, en ze bieden mogelijk niet goede prestaties voor uw toepassing.
-- Wanneer u virtuele machines uit de M-serie op Premium-opslag, inschakelen [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) op Logboeken schijf opnieuw.
+- De netwerk latentie is hoger vergeleken met een on-premises implementatie. Het verminderen van netwerk round trips kan de prestaties aanzienlijk verbeteren.
+- Consolidatie van toepassingen die hoge trans acties of ' intensieve-apps hebben op dezelfde virtuele machine om retouren te verminderen.
+- Gebruik Virtual Machines met [versneld netwerken](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) voor betere netwerk prestaties.
+- Voor bepaalde Linux-distrubutions kunt u [ondersteuning voor knippen/](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support)ontkoppelen inschakelen.
+- Installeer [Oracle Enter prise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) op een afzonderlijke virtuele machine.
+- Zeer grote pagina's zijn standaard niet ingeschakeld op Linux. Overweeg om zeer grote pagina's in `use_large_pages = ONLY` te scha kelen en in te stellen op de Oracle DB. Dit kan helpen om de prestaties te verbeteren. Meer informatie vindt u [hier](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
-### <a name="disk-cache-settings"></a>Cache-instellingen voor schijf
+### <a name="disk-types-and-configurations"></a>Schijf typen en configuraties
 
-Er zijn drie opties voor opslaan in cache:
+- *Standaard besturingssysteem schijven*: Deze schijf typen bieden permanente gegevens en caching. Ze zijn geoptimaliseerd voor toegang tot het besturings systeem bij het opstarten en zijn niet bedoeld voor trans acties die zijn gebaseerd op transactionele of Data Warehouse-workloads.
 
-- *ReadOnly*: Alle aanvragen voor toekomstige leesbewerkingen in cache zijn opgeslagen. Alle schrijfbewerkingen zijn rechtstreeks naar Azure Blob-opslag opgeslagen.
+- Niet- *beheerde schijven*: Met deze schijf typen beheert u de opslag accounts waarin de VHD-bestanden (virtuele harde schijf) worden opgeslagen die overeenkomen met uw VM-schijven. VHD-bestanden worden opgeslagen als pagina-blobs in azure-opslag accounts.
 
-- *ReadWrite*: Dit is een "read-ahead" algoritme. De lees- en schrijfbewerkingen in cache zijn opgeslagen voor toekomstige leesbewerkingen. Niet-write-through schrijfbewerkingen worden persistent gemaakt met de lokale cache eerst. Het biedt ook de laagste latentie van de schijf voor lichte workloads. ReadWrite cache gebruiken met een toepassing die niet behouden van de vereiste gegevens verwerkt, kan leiden tot verlies van gegevens, als de virtuele machine vastloopt.
+- *Beheerde schijven*: Azure beheert de opslag accounts die u gebruikt voor uw VM-schijven. U geeft het schijf type (Premium of Standard) en de grootte van de schijf op die u nodig hebt. Azure maakt en beheert de schijf voor u.
 
-- *Geen* (uitgeschakeld): Deze optie gebruikt, kunt u de cache overslaan. Alle de gegevens worden overgebracht naar de schijf en persistent gemaakt met Azure Storage. Deze methode biedt de hoogste i/o-snelheid voor i/o-intensieve workloads. U moet ook "transactiekosten" rekening mee te houden.
+- *Premium-opslag schijven*: Deze schijf typen zijn het meest geschikt voor productie werkbelastingen. Premium-opslag ondersteunt VM-schijven die kunnen worden gekoppeld aan specifieke Vm's met een grootte van virtuele machines, zoals DS-, DSv2-, GS-en F-serie-Vm's. De Premium-schijf wordt geleverd met verschillende grootten en u kunt kiezen tussen schijven van 32 GB tot 4.096 GB. Elke schijf grootte heeft eigen prestatie specificaties. Afhankelijk van de toepassings vereisten kunt u een of meer schijven aan uw virtuele machine koppelen.
+
+Wanneer u een nieuwe beheerde schijf maakt vanuit de portal, kunt u het **account type** kiezen voor het type schijf dat u wilt gebruiken. Niet alle beschik bare schijven worden weer gegeven in de vervolg keuzelijst. Nadat u een bepaalde VM-grootte hebt gekozen, worden in het menu alleen de beschik bare Sku's voor Premium-opslag weer gegeven die zijn gebaseerd op die VM-grootte.
+
+![Scherm afbeelding van de pagina Managed Disk](./media/oracle-design/premium_disk01.png)
+
+Nadat u uw opslag op een VM hebt geconfigureerd, wilt u de schijven wellicht testen voordat u een Data Base maakt. Als u de I/O-snelheid in termen van zowel latentie als door Voer kent, kunt u bepalen of de Vm's de verwachte door Voer ondersteunen met latentie doelen.
+
+Er zijn een aantal hulpprogram ma's voor het testen van de toepassings belasting, zoals Oracle Orion, sysbench en Fio.
+
+Voer de belasting test opnieuw uit nadat u een Oracle-Data Base hebt geïmplementeerd. Start uw normale en piek werkbelastingen en de resultaten tonen de basis lijn van uw omgeving.
+
+Het is mogelijk belang rijker om de grootte van de opslag te wijzigen op basis van het aantal IOPS in plaats van de opslag grootte. Als de vereiste IOPS bijvoorbeeld 5.000 is, maar u alleen 200 GB nodig hebt, kunt u nog steeds de Premium-schijf van de P30-klasse krijgen, ook al is er meer dan 200 GB opslag ruimte beschikbaar.
+
+U kunt het aantal IOPS ophalen uit het AWR-rapport. Dit wordt bepaald door het logboek voor opnieuw uitvoeren, de fysieke Lees-en schrijf snelheden.
+
+![Scherm afbeelding van de rapport pagina AWR](./media/oracle-design/awr_report.png)
+
+De grootte voor opnieuw uitvoeren is bijvoorbeeld 12.200.000 bytes per seconde, die gelijk is aan 11,63 MBPs.
+De IOPS is 12.200.000/2.358 = 5.174.
+
+Nadat u een duidelijke afbeelding van de I/O-vereisten hebt, kunt u een combi natie van stations kiezen die het meest geschikt zijn om aan deze vereisten te voldoen.
 
 **Aanbevelingen**
 
-Als u wilt de doorvoer te maximaliseren, raden we aan dat u met Start **geen** voor opslaan in cache. Voor Premium-opslag, houd er rekening mee moet u de 'barrières"uitschakelen wanneer u het bestandssysteem met koppelt de **ReadOnly** of **geen** opties. Het bestand/etc/fstab bijwerken met de UUID naar de schijven.
+- Voor gegevens tabel ruimte kunt u de I/O-werk belasting over een aantal schijven verdelen met behulp van beheerde opslag of Oracle ASM.
+- Voeg meer gegevens schijven toe als de grootte van de I/O-blok kering toeneemt voor lees-en schrijf bewerkingen.
+- Verg root de blok grootte voor grote sequentiële processen.
+- Gebruik gegevens compressie om I/O (voor gegevens en indexen) te verminderen.
+- Afzonderlijke logboeken, systeem en temps afzonderlijk opnieuw uitvoeren en TS ongedaan maken op afzonderlijke gegevens schijven.
+- Plaats geen toepassings bestanden op de standaard besturingssysteem schijven (/dev/sda). Deze schijven zijn niet geoptimaliseerd voor snelle opstart tijden voor de virtuele machines en ze bieden mogelijk geen goede prestaties voor uw toepassing.
+- Wanneer u virtuele machines uit de M-serie in Premium Storage gebruikt, schakelt u [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) in op de schijf voor opnieuw uitvoeren van Logboeken.
 
-![Schermafbeelding van de beheerde schijf-pagina](./media/oracle-design/premium_disk02.png)
+### <a name="disk-cache-settings"></a>Instellingen voor schijf cache
 
-- Bij een besturingssysteemschijf gebruiken standaard **lezen/schrijven** opslaan in cache.
-- Gebruik voor het systeem, TEMP en ongedaan maken **geen** voor opslaan in cache.
-- Voor gegevens, gebruikt u **geen** voor opslaan in cache. Maar als uw database alleen-lezen of lees-intensieve is, gebruikt u **alleen-lezen** opslaan in cache.
+Er zijn drie opties voor het opslaan van hosts in de cache:
 
-Nadat de instelling van de gegevens-schijf zijn opgeslagen, kunt u de host de cache-instelling niet wijzigen, tenzij u het station op het niveau van het besturingssysteem ontkoppelen en koppelen nadat u de wijziging hebt aangebracht.
+- *ReadOnly*: Alle aanvragen worden in de cache opgeslagen voor toekomstige Lees bewerkingen. Alle schrijf bewerkingen worden direct opgeslagen in Azure Blob-opslag.
+
+- *Readwrite*: Dit is een ' read-ahead ' algoritme. De lees-en schrijf bewerkingen worden opgeslagen in de cache voor toekomstige Lees bewerkingen. Schrijf bewerkingen die niet write-through zijn, worden eerst opgeslagen in de lokale cache. Het biedt ook de laagste schijf latentie voor lichte werk belastingen. Het gebruik van de ReadWrite-cache met een toepassing die het persistent maken van de vereiste gegevens niet verwerkt, kan leiden tot verlies van gegevens, als de virtuele machine vastloopt.
+
+- *Geen* (uitgeschakeld): Met deze optie kunt u de cache overs Laan. Alle gegevens worden overgebracht naar de schijf en blijven bewaard voor Azure Storage. Deze methode biedt u de hoogste I/O-frequentie voor I/O-intensieve workloads. U moet ook rekening houden met transactie kosten.
+
+**Aanbevelingen**
+
+Om de door voer te maximaliseren, raden we u aan om te beginnen met **geen** voor host-caching. Bedenk voor Premium Storage dat u de ' obstakels ' moet uitschakelen wanneer u het bestands systeem koppelt aan de opties **alleen-lezen** of **geen** . Werk het bestand/etc/fstab-bestand met de UUID bij naar de schijven.
+
+![Scherm afbeelding van de pagina Managed Disk](./media/oracle-design/premium_disk02.png)
+
+- Gebruik voor besturingssysteem schijven de standaard cache voor **lezen/schrijven** .
+- Gebruik voor systeem, tijdelijk en ongedaan maken **geen** voor het opslaan in cache.
+- Gebruik voor gegevens **geen** voor caching. Maar als uw data base alleen-lezen of lezen-intensief is, gebruikt u **alleen-lezen** cache.
+
+Nadat de instelling van de gegevens schijf is opgeslagen, kunt u de instelling voor de cache van de host niet wijzigen, tenzij u het station ontkoppelt op het niveau van het besturings systeem en vervolgens opnieuw koppelt nadat u de wijziging hebt aangebracht.
 
 ## <a name="security"></a>Beveiliging
 
-Nadat u hebt ingesteld en geconfigureerd van uw Azure-omgeving, wordt de volgende stap is om uw netwerk te beveiligen. Hier volgen enkele aanbevelingen:
+Nadat u uw Azure-omgeving hebt ingesteld en geconfigureerd, is de volgende stap het beveiligen van uw netwerk. Hier volgen enkele aanbevelingen:
 
-- *Beleid voor NSG*: NSG kan worden gedefinieerd door een subnet of NIC. Het is eenvoudiger om toegang te beheren op het subnetniveau, zowel voor beveiliging en werking routering voor zaken zoals firewalls van toepassingen.
+- *NSG-beleid*: NSG kan worden gedefinieerd door een subnet of NIC. Het is eenvoudiger om de toegang op het subnetniveau te beheren, zowel voor beveiliging als voor het afdwingen van route ring voor zaken als toepassings firewalls.
 
-- *Jumpbox*: Voor veiliger toegang beheerders moeten niet rechtstreeks verbinding maken met de toepassingsservice of de database. Een jumpbox wordt gebruikt als een medium tussen de administrator-machine en de Azure-resources.
-![Schermafbeelding van de Jumpbox-topologie-pagina](./media/oracle-design/jumpbox.png)
+- *JumpBox*: Voor een veiligere toegang mogen beheerders niet rechtstreeks verbinding maken met de toepassings service of-Data Base. Een JumpBox wordt gebruikt als een medium tussen de computer van de beheerder en Azure-resources.
+![Scherm afbeelding van de pagina met de JumpBox-topologie](./media/oracle-design/jumpbox.png)
 
-    De beheerder-machine moet IP beperkte toegang tot de jumpbox alleen aanbieden. De jumpbox hebt toegang tot de toepassing en de database.
+    De beheerder computer moet alleen IP-beperkte toegang bieden tot de JumpBox. De JumpBox moet toegang hebben tot de toepassing en de data base.
 
-- *Particulier netwerk* (subnetten): Het is raadzaam dat u hebt de toepassingsservice en de database op afzonderlijke subnetten, zodat betere controle kan worden ingesteld door NSG-beleid.
+- *Particulier netwerk* (subnetten): U wordt aangeraden de toepassings service en-Data Base op afzonderlijke subnetten te hebben, zodat u beter beheer kunt instellen met NSG-beleid.
 
 
 ## <a name="additional-reading"></a>Meer lezen
 
 - [Oracle ASM configureren](configure-oracle-asm.md)
 - [Oracle Data Guard configureren](configure-oracle-dataguard.md)
-- [Oracle Golden Gate configureren](configure-oracle-golden-gate.md)
-- [Oracle back-up en herstel](oracle-backup-recovery.md)
+- [Een Oracle Golden-Gate configureren](configure-oracle-golden-gate.md)
+- [Oracle-back-up en-herstel](oracle-backup-recovery.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zelfstudie: Maximaal beschikbare virtuele machines maken](../../linux/create-cli-complete.md)
-- [Azure CLI-voorbeelden voor VM-implementatie verkennen](../../linux/cli-samples.md)
+- [Zelfstudie: Maxi maal beschik bare Vm's maken](../../linux/create-cli-complete.md)
+- [Azure CLI-voor beelden van VM-implementatie verkennen](../../linux/cli-samples.md)

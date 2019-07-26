@@ -1,48 +1,48 @@
 ---
-title: 'Azure Toolkit voor IntelliJ: Fouten opsporen in Spark-toepassingen op afstand via SSH '
-description: Stapsgewijze instructies over het gebruik van HDInsight-hulpprogramma's in Azure Toolkit voor IntelliJ bij foutopsporing in toepassingen op afstand op HDInsight-clusters via SSH
-keywords: foutopsporing op afstand intellij, externe foutopsporing intellij, ssh, intellij, hdinsight, fouten opsporen in intellij, foutopsporing
+title: 'Azure-toolkit voor IntelliJ: Fout opsporing van Spark-toepassingen op afstand via SSH '
+description: Stapsgewijze richt lijnen voor het gebruik van HDInsight-Hulpprogram Ma's in Azure-toolkit voor IntelliJ voor het opsporen van fouten op externe toepassingen op HDInsight-clusters via SSH
+keywords: fout opsporing op afstand IntelliJ, externe fout opsporing IntelliJ, SSH, IntelliJ, hdinsight, debug IntelliJ, fout opsporing
 ms.service: hdinsight
-author: hrasheed
-ms.author: hrasheed-msft
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: 7554f0739626520153196472a790ab672a932331
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0bca6c16124f886d9df9e88e651f3f7450f51a1a
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066206"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876353"
 ---
-# <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Fouten opsporen in Apache Spark toepassingen lokaal of extern op een HDInsight-cluster met de Azure Toolkit voor IntelliJ via SSH
+# <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Fouten opsporen Apache Spark toepassingen lokaal of op afstand op een HDInsight-cluster met Azure-toolkit voor IntelliJ via SSH
 
-In dit artikel biedt stapsgewijze instructies over het gebruik van HDInsight-hulpprogramma's in [Azure Toolkit voor IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) bij foutopsporing in toepassingen op afstand op een HDInsight-cluster. Als u wilt fouten opsporen in uw project, kunt u ook bekijken de [fouten opsporen in HDInsight Spark-toepassingen met Azure Toolkit voor IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) video.
+In dit artikel vindt u stapsgewijze richt lijnen voor het gebruik van HDInsight-Hulpprogram Ma's in [Azure-Toolkit voor IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) voor het op afstand opsporen van toepassingen op een HDInsight-cluster. Als u fouten wilt opsporen in uw project, kunt u ook de [fout opsporing HDInsight Spark-toepassingen met Azure-Toolkit voor IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) video bekijken.
 
 **Vereisten**
-* **HDInsight-hulpprogramma's in Azure Toolkit voor IntelliJ**. Dit hulpprogramma maakt deel uit van de Azure Toolkit voor IntelliJ. Zie voor meer informatie, [Installeer Azure Toolkit voor IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). En **Azure Toolkit voor IntelliJ**. Gebruik deze toolkit om Apache Spark-toepassingen voor een HDInsight-cluster te maken. Voor meer informatie, volg de instructies in [Azure-Toolkit voor IntelliJ om een Apache Spark-toepassingen voor een HDInsight-cluster maken](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
+* **HDInsight-Hulpprogram ma's in azure-Toolkit voor IntelliJ**. Dit hulp programma maakt deel uit van Azure-toolkit voor IntelliJ. Zie [Install Azure-Toolkit voor IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation)(Engelstalig) voor meer informatie. En **Azure-Toolkit voor IntelliJ**. Gebruik deze Toolkit om Apache Spark-toepassingen voor een HDInsight-cluster te maken. Volg de instructies in [Use Azure-Toolkit voor IntelliJ om Apache Spark-toepassingen voor een HDInsight-cluster te maken](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin)voor meer informatie.
 
-* **HDInsight SSH service met de gebruikersnaam en wachtwoord management**. Zie voor meer informatie, [verbinding maken met HDInsight (Apache Hadoop) met behulp van SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) en [SSH gebruiken voor toegang tot de Ambari-tunneling web-UI, JobHistory, NameNode, Apache Oozie en andere web-UI](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
+* **HDINSIGHT SSH-service met gebruikers naam en wachtwoord beheer**. Zie voor meer informatie [verbinding maken met HDInsight (Apache Hadoop) met SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) en [ssh-tunneling gebruiken om toegang te krijgen tot Ambari Web UI, JobHistory, NameNode, Apache Oozie en andere web-UIs](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
  
-## <a name="learn-how-to-perform-local-run-and-debugging"></a>Leer hoe u uitvoert lokaal uitvoeren en fouten opsporen
-### <a name="scenario-1-create-a-spark-scala-application"></a>Scenario 1: Een Spark Scala-toepassing maken 
+## <a name="learn-how-to-perform-local-run-and-debugging"></a>Meer informatie over het uitvoeren van lokale uitvoering en fout opsporing
+### <a name="scenario-1-create-a-spark-scala-application"></a>Scenario 1: Een Spark scala-toepassing maken 
 
 1. Start IntelliJ IDEA en maak een project. Voer in het dialoogvenster **Nieuw project** de volgende handelingen uit:
 
    a. Selecteer **Azure Spark/HDInsight**. 
 
-   b. Selecteer een Java- of Scala-sjabloon op basis van uw voorkeur. Selecteer een van de volgende opties:
+   b. Selecteer een Java-of scala-sjabloon op basis van uw voor keur. Selecteer een van de volgende opties:
 
-   - **Spark-Project (Java)**
+   - **Spark-project (Java)**
 
    - **Spark Project (Scala)**
 
-   - **Spark-Project met voorbeelden (Scala)**
+   - **Spark-project met voor beelden (scala)**
 
-   - **Spark-Project met de mislukte taak foutopsporing voorbeelden (Preview) (Scala)**
+   - **Spark-project met fout fout opsporing voor beelden van taken (preview) (scala)**
 
-     In dit voorbeeld wordt een **Project Spark met voorbeelden (Scala)** sjabloon.
+     In dit voor beeld wordt een **Spark-project met samples (scala)** -sjabloon gebruikt.
 
    c. Selecteer in de lijst **Build-programma** een van de volgende opties, afhankelijk van uw behoeften:
 
@@ -50,133 +50,133 @@ In dit artikel biedt stapsgewijze instructies over het gebruik van HDInsight-hul
 
    - **SBT**, voor het beheren van de afhankelijkheden en het maken van het Scala-project 
 
-     ![Maak een project foutopsporing](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
+     ![Een project voor fout opsporing maken](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
-   d. Selecteer **Next**.     
+   d. Selecteer **Volgende**.     
  
-1. In de volgende **nieuw Project** venster de volgende handelingen uit:
+1. Ga als volgt te werk in het volgende **nieuwe project** venster:
 
-   ![Selecteer de Spark-SDK](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-new-project.png)
+   ![De Spark-SDK selecteren](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-new-project.png)
 
-   a. Voer een naam van het project en de projectlocatie.
+   a. Voer een project naam en Project locatie in.
 
-   b. In de **Project SDK** vervolgkeuzelijst, selecteer **Java 1.8** voor **Spark 2.x** cluster of selecteer **Java 1.7** voor **Spark 1.x**  cluster.
+   b. Selecteer in de vervolg keuzelijst **Project SDK** **Java 1,8** voor **Spark 2. x** -cluster of selecteer **Java 1,7** voor **Spark 1. x** -cluster.
 
-   c. In de **Spark-versie** vervolgkeuzelijst, de wizard Scala-project maken voor Spark-SDK en Scala-SDK de juiste versie kan worden geïntegreerd. Als de spark-cluster-versie lager dan 2.0 is, selecteert u **Spark 1.x**. Selecteer anders **2.x Spark.** In dit voorbeeld wordt **Spark 2.0.2 (Scala 2.11.8)** gebruikt.
+   c. In de vervolg keuzelijst **Spark-versie** integreert de wizard scala project maken de juiste versie voor de Spark SDK en scala SDK. Als de versie van het Spark-cluster ouder is dan 2,0, selecteert u **Spark 1. x**. Selecteer anders **Spark 2. x.** In dit voorbeeld wordt **Spark 2.0.2 (Scala 2.11.8)** gebruikt.
 
    d. Selecteer **Finish**.
 
-1. Selecteer **src** > **belangrijkste** > **scala** aan uw code in het project openen. In dit voorbeeld wordt de **SparkCore_wasbloTest** script.
+1. Selecteer **src** > Mainscala > om de code in het project te openen. In dit voor beeld wordt het **SparkCore_wasbloTest** -script gebruikt.
 
 ### <a name="prerequisite-for-windows"></a>Vereiste voor Windows
-Terwijl u de lokale Spark Scala-toepassing op een Windows-computer uitvoert, krijgt u mogelijk een uitzondering, zoals uitgelegd in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). De uitzondering treedt op omdat WinUtils.exe in Windows ontbreekt. 
+Terwijl u de lokale Spark scala-toepassing uitvoert op een Windows-computer, kunt u een uitzonde ring krijgen, zoals wordt uitgelegd in [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). De uitzonde ring treedt op omdat WinUtils. exe ontbreekt in Windows. 
 
-Deze fout op te lossen [downloaden van het uitvoerbare bestand](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) naar een locatie zoals **C:\WinUtils\bin**. Vervolgens voegt u de omgevingsvariabele **HADOOP_HOME**, en stel de waarde van de variabele **C:\WinUtils**.
+U kunt deze fout oplossen door [het uitvoer bare bestand te downloaden](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) naar een locatie zoals **C:\WinUtils\bin**. Voeg vervolgens de omgevings variabele **HADOOP_HOME**toe en stel de waarde van de variabele in op **C:\WinUtils**.
 
-### <a name="scenario-2-perform-local-run"></a>Scenario 2: Uitvoeren van lokaal uitvoeren
-1. Open de **SparkCore_wasbloTest** script, met de rechtermuisknop op de script-editor en selecteer vervolgens de optie **uitvoeren '[Spark-taak] XXX'** om uit te voeren lokaal uitvoeren.
-1. Eenmaal lokale uitvoering is voltooid, ziet u het uitvoerbestand opslaan in uw huidige Projectverkenner **gegevens** >  **__standaard__** .
+### <a name="scenario-2-perform-local-run"></a>Scenario 2: Lokale uitvoering uitvoeren
+1. Open het script **SparkCore_wasbloTest** , klik met de rechter muisknop op de script editor en selecteer vervolgens de optie **Run ' [Spark-taak] xxx '** om lokale uitvoering uit te voeren.
+1. Zodra de lokale uitvoering is voltooid, kunt u het uitvoer bestand opslaan in de **__standaard__** **gegevens** > van de project Verkenner.
 
-    ![Lokaal uitvoeren van resultaat](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
-1. Onze programma's hebben standaard lokale uitvoeringsconfiguratie automatisch bij het uitvoeren van de lokale uitvoeren en lokale foutopsporing ingesteld. Open de configuratie van de **[Spark in HDInsight] XXX** in de rechterbovenhoek ziet u de **[Spark in HDInsight] XXX** al zijn gemaakt onder **Apache Spark in HDInsight**. Schakel over naar **lokaal uitvoeren** tabblad.
+    ![Resultaat van lokale uitvoer](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
+1. Onze tools hebben de standaard configuratie voor lokale uitvoering automatisch ingesteld wanneer u de lokale uitvoering en de lokale fout opsporing uitvoert. Open de configuratie **[Spark op hdinsight] xxx** . in de rechter bovenhoek ziet u de **[Spark op hdinsight] xxx** die al is gemaakt onder **Apache Spark op hdinsight**. Schakel over naar het tabblad **lokaal uitvoeren** .
 
-    ![Lokale uitvoering configuratie](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
-    - [Omgevingsvariabelen](#prerequisite-for-windows): Als u de systeemomgevingsvariabele al ingesteld **HADOOP_HOME** naar **C:\WinUtils**, automatisch kunnen detecteren dat hoeft niet handmatig toe te voegen.
-    - [WinUtils.exe Location](#prerequisite-for-windows): Als u de omgevingsvariabele van het systeem niet hebt ingesteld, kunt u de locatie vinden door te klikken op de knop.
-    - Kies een van twee opties en ze niet nodig zijn in MacOS en Linux.
-1. U kunt ook instellen op de configuratie handmatig voordat u lokaal fouten opsporen en lokaal worden uitgevoerd. In de vorige schermafbeelding, selecteer het plusteken ( **+** ). Selecteer vervolgens de **Apache Spark in HDInsight** optie. Informatie invoeren voor **naam**, **de naam van de Main-klasse** om op te slaan, klik vervolgens op de knop voor lokale uitvoeren.
+    ![Lokale uitvoerings configuratie](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
+    - [Omgevings variabelen](#prerequisite-for-windows): Als u de systeem omgevings variabele **HADOOP_HOME** al hebt ingesteld op **C:\WinUtils**, kan deze automatisch detecteren dat deze niet hand matig hoeft toe te voegen.
+    - [Locatie van WinUtils. exe](#prerequisite-for-windows): Als u de omgevings variabele systeem niet hebt ingesteld, kunt u de locatie vinden door op de knop te klikken.
+    - Kies een van de twee opties en ze zijn niet nodig voor MacOS en Linux.
+1. U kunt de configuratie ook hand matig instellen voordat u Local run en Local debug uitvoert. Selecteer in de vorige scherm afbeelding het plus teken ( **+** ). Selecteer vervolgens de optie **Apache Spark op HDInsight** . Voer informatie in voor de **naam**, de naam van de **hoofd klasse** die u wilt opslaan en klik vervolgens op de knop lokale uitvoering.
 
-### <a name="scenario-3-perform-local-debugging"></a>Scenario 3: Lokale foutopsporing uitvoeren
-1. Open de **SparkCore_wasbloTest** script, onderbrekingspunten instellen.
-1. Met de rechtermuisknop op de script-editor, en selecteer vervolgens de optie **fouten opsporen in ' [Spark in HDInsight] XXX'** om uit te voeren lokale foutopsporing.   
+### <a name="scenario-3-perform-local-debugging"></a>Scenario 3: Lokale fout opsporing uitvoeren
+1. Open het script **SparkCore_wasbloTest** en stel onderbrekings punten in.
+1. Klik met de rechter muisknop op de script editor en selecteer vervolgens de optie **fout opsporing [Spark op HDInsight] xxx** om lokale fout opsporing uit te voeren.   
 
 
 
-## <a name="learn-how-to-perform-remote-run-and-debugging"></a>Leer hoe u extern uitvoeren en fouten opsporen
-### <a name="scenario-1-perform-remote-run"></a>Scenario 1: Externe uitvoering uitvoeren
+## <a name="learn-how-to-perform-remote-run-and-debugging"></a>Meer informatie over het uitvoeren en opsporen van fouten op afstand
+### <a name="scenario-1-perform-remote-run"></a>Scenario 1: Extern uitvoeren uitvoeren
 
-1. Toegang krijgen tot de **configuraties bewerken** menu, selecteer het pictogram in de rechterbovenhoek. In dit menu kunt u maken of bewerken van de configuraties voor foutopsporing op afstand.
+1. Selecteer het pictogram in de rechter bovenhoek om toegang te krijgen tot het menu voor het **bewerken van configuraties** . In dit menu kunt u de configuraties voor fout opsporing op afstand maken of bewerken.
 
    ![Configuraties bewerken](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
 
-1. In de **uitvoeren/Debug configuraties** dialoogvenster vak, selecteer het plusteken ( **+** ). Selecteer vervolgens de **Apache Spark in HDInsight** optie.
+1. Selecteer in het dialoog venster **configuraties voor uitvoeren/fout opsporing** het plus teken **+** (). Selecteer vervolgens de optie **Apache Spark op HDInsight** .
 
    ![Nieuwe configuratie toevoegen](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
-1. Schakel over naar **op afstand uitvoeren in Cluster** tabblad. Informatie invoeren voor **naam**, **Spark-cluster**, en **de naam van de Main-klasse**. Klik vervolgens op **geavanceerde configuratie (foutopsporing op afstand)** . Onze hulpprogramma's voor ondersteuning van foutopsporing met **Executor**. De **numExectors**, de standaardwaarde is 5. U zou beter niet instellen hoger is dan 3.
+1. Overschakelen naar **extern uitvoeren op** het tabblad cluster. Voer informatie in voor de **naam**, het **Spark-cluster**en de naam van de **hoofd klasse**. Klik vervolgens op **Geavanceerde configuratie (fout opsporing op afstand)** . Onze hulp middelen ondersteunen debug met **uitvoerende**software. De **numExectors**, de standaard waarde is 5. U kunt beter niet meer dan 3 instellen.
 
-   ![Foutopsporing configuraties uitvoeren](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
+   ![Configuraties voor fout opsporing uitvoeren](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
-1. In de **geavanceerde configuratie van (externe foutopsporing)** onderdeel, selecteer **externe foutopsporing voor Spark inschakelen**. De SSH-gebruikersnaam invoeren en een wachtwoord invoeren of een bestand met persoonlijke sleutel gebruiken. Als u foutopsporing op afstand uitvoeren wilt, moet u deze in te stellen. Er is niet nodig in te stellen als u alleen wilt gebruiken extern worden uitgevoerd.
+1. Selecteer in het gedeelte **Geavanceerde configuratie (externe fout opsporing)** de optie **Spark externe fout opsporing inschakelen**. Voer de SSH-gebruikers naam in en voer een wacht woord in of gebruik een bestand met een persoonlijke sleutel. Als u fout opsporing op afstand wilt uitvoeren, moet u het instellen. U hoeft deze niet in te stellen als u alleen extern uitvoeren wilt gebruiken.
 
-   ![Externe foutopsporing voor Spark inschakelen](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
+   ![Spark externe fout opsporing inschakelen](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 
-1. De configuratie is nu opgeslagen met de naam die u hebt opgegeven. Als u wilt weergeven van informatie over de configuratie, door de configuratienaam te selecteren. Als u wilt wijzigen, selecteert u **configuraties bewerken**. 
+1. De configuratie wordt nu opgeslagen met de naam die u hebt ingevoerd. Als u de configuratie gegevens wilt weer geven, selecteert u de naam van de configuratie. Als u wijzigingen wilt aanbrengen, selecteert u **configuraties bewerken**. 
 
-1. Nadat u de configuratie-instellingen hebt voltooid, kunt u het project te voeren op het externe cluster of afstand fouten kunt opsporen.
+1. Nadat u de configuratie-instellingen hebt voltooid, kunt u het project uitvoeren op het externe cluster of externe fout opsporing uitvoeren.
    
-   ![Knop voor extern uitvoeren](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
+   ![Knop voor uitvoering op afstand](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
 
-1. Klik op de **verbinding verbreken** knop waarmee de verzending van Logboeken niet in het linkerdeelvenster weergegeven. Het wordt echter nog steeds uitgevoerd op de back-end.
+1. Klik op de knop **verbinding verbreken** als de inzendings logboeken niet worden weer gegeven in het linkerdeel venster. Het is echter nog steeds actief op de back-end.
 
-   ![Knop voor extern uitvoeren](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
+   ![Knop voor uitvoering op afstand](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
 
 
 
-### <a name="scenario-2-perform-remote-debugging"></a>Scenario 2: Foutopsporing op afstand uitvoeren
-1. Instellen van belangrijke punten en klik vervolgens op de **foutopsporing op afstand** pictogram. Het verschil met het indienen van externe is die SSH-gebruikersnaam en wachtwoord moeten worden geconfigureerd.
+### <a name="scenario-2-perform-remote-debugging"></a>Scenario 2: Fout opsporing op afstand uitvoeren
+1. Stel breuk punten in en klik vervolgens op het pictogram **fout opsporing op afstand** . Het verschil met externe verzen ding is dat de SSH-gebruikers naam en het wacht woord moeten worden geconfigureerd.
 
-   ![Selecteer het pictogram voor foutopsporing](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-icon.png)
+   ![Het pictogram voor fout opsporing selecteren](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-icon.png)
 
-1. Wanneer de programma-uitvoering is het laatste punt bereikt, ziet u een **stuurprogramma** tabblad en twee **Executor** tabbladen de **foutopsporingsprogramma** deelvenster. Selecteer de **hervatten programma** pictogram om door te gaan met het uitvoeren van de code, die vervolgens het volgende onderbrekingspunt bereikt. U moet overschakelen naar de juiste **Executor** tabblad voor de doel-uitvoerder om op te sporen. U kunt de logboeken van taakuitvoeringen weergeven op de bijbehorende **Console** tabblad.
+1. Wanneer de uitvoering van het programma het breuk punt bereikt, ziet u een tabblad van het **stuur programma** **en twee tabbladen** voor uitvoeringen in het deel venster **fout opsporing** . Selecteer het pictogram **programma hervatten** om door te gaan met het uitvoeren van de code, waarna het volgende onderbrekings punt wordt bereikt. U moet overschakelen naar **het tabblad voor** de juiste uitvoerder om de doel-uitvoerder te vinden voor fout opsporing. U kunt de uitvoerings logboeken bekijken op het bijbehorende **console** tabblad.
 
-   ![Tabblad foutopsporing](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debugger-tab.png)
+   ![Tabblad fout opsporing](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debugger-tab.png)
 
-### <a name="scenario-3-perform-remote-debugging-and-bug-fixing"></a>Scenario 3: Foutopsporing op afstand en het verhelpen van bug uitvoeren
-1. Instellen van twee belangrijke punten en selecteer vervolgens de **Debug** pictogram om de externe foutopsporing proces te starten.
+### <a name="scenario-3-perform-remote-debugging-and-bug-fixing"></a>Scenario 3: Fout opsporing op afstand en probleem oplossing uitvoeren
+1. Stel twee afbreek punten in en selecteer vervolgens het pictogram **fout opsporing** om het proces voor externe fout opsporing te starten.
 
-1. De code stopt op de eerste belangrijke punt en de parameter en de variabele informatie worden weergegeven in de **variabelen** deelvenster. 
+1. De code stopt bij het eerste punt, en de para meter-en variabele gegevens worden weer gegeven in het deel venster **variabelen** . 
 
-1. Selecteer de **hervatten programma** pictogram om door te gaan. De code stopt op de tweede plaats. De uitzondering is opgetreden, zoals verwacht.
+1. Selecteer het pictogram **programma hervatten** om door te gaan. De code wordt op het tweede punt gestopt. De uitzonde ring wordt naar verwachting gedetecteerd.
 
    ![Fout bij genereren](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-throw-error.png) 
 
-1. Selecteer de **hervatten programma** pictogram opnieuw. De **HDInsight Spark-inzending** venster een fout "job uitvoeren is mislukt" weergegeven.
+1. Selecteer opnieuw het pictogram **programma hervatten** . In het venster **HDInsight Spark-verzen ding** wordt de fout taak uitvoering is mislukt weer gegeven.
 
    ![Fout bij verzenden](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-error-submission.png) 
 
-1. Als u wilt de variabele waarde dynamisch bijwerken met behulp van de mogelijkheid foutopsporing IntelliJ, selecteer **Debug** opnieuw. De **variabelen** deelvenster wordt opnieuw weergegeven. 
+1. Als u de waarde van de variabele dynamisch wilt bijwerken met behulp van de IntelliJ-functie voor fout opsporing, selecteert u **fout opsporing** opnieuw. Het deel venster **variabelen** wordt weer gegeven. 
 
-1. Het doel met de rechtermuisknop op de **Debug** tabblad, en selecteer vervolgens **waarde instellen**. Voer vervolgens een nieuwe waarde voor de variabele. Selecteer vervolgens **Enter** om op te slaan de waarde. 
+1. Klik met de rechter muisknop op het doel op het tabblad **fout opsporing** en selecteer vervolgens **waarde instellen**. Voer vervolgens een nieuwe waarde in voor de variabele. Selecteer vervolgens **Enter** om de waarde op te slaan. 
 
    ![Waarde instellen](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
 
-1. Selecteer de **hervatten programma** pictogram om door te gaan het programma uit te voeren. Dit moment is geen uitzondering opgetreden. U kunt zien dat het project met succes wordt uitgevoerd zonder eventuele uitzonderingen.
+1. Selecteer het pictogram **programma hervatten** om door te gaan met het programma uitvoeren. Deze keer wordt er geen uitzonde ring gedetecteerd. U kunt zien dat het project zonder uitzonde ringen correct wordt uitgevoerd.
 
-   ![Fouten opsporen zonder uitzondering](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
+   ![Debug zonder uitzonde ring](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
 
 ## <a name="seealso"></a>Volgende stappen
-* [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
+* [Krijgt Apache Spark in azure HDInsight](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demo
-* Maak Scala-project (video): [Apache Spark Scala-toepassingen maken](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Externe foutopsporing (video): [Azure-Toolkit voor IntelliJ voor foutopsporing van Apache Spark-toepassingen op afstand op een HDInsight-cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+* Scala-project maken (video): [Apache Spark scala-toepassingen maken](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Fout opsporing op afstand (video): [Azure-toolkit voor IntelliJ gebruiken om fouten in Apache Spark toepassingen op afstand op te lossen op een HDInsight-cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>Scenario's
-* [Apache Spark met BI: Interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-hulpprogramma 's](apache-spark-use-bi-tools.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor de resultaten van voedingsinspectie voorspellen](apache-spark-machine-learning-mllib-ipython.md)
-* [Websitelogboekanalyse met Apache Spark in HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark met BI: Interactieve gegevens analyse uitvoeren met behulp van Spark in HDInsight met BI-hulpprogram ma's](apache-spark-use-bi-tools.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouw temperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark met Machine Learning: Spark in HDInsight gebruiken om voedsel inspectie resultaten te voors pellen](apache-spark-machine-learning-mllib-ipython.md)
+* [Analyse van website logboeken met Apache Spark in HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren
 * [Een zelfstandige toepassing maken met behulp van Scala](../hdinsight-apache-spark-create-standalone-application.md)
 * [Apache Livy gebruiken om taken op afstand uit te voeren in een Apache Spark-cluster](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
-* [Azure Toolkit voor IntelliJ gebruiken voor het maken van Apache Spark-toepassingen voor een HDInsight-cluster](apache-spark-intellij-tool-plugin.md)
-* [Azure Toolkit voor IntelliJ voor foutopsporing van Apache Spark-toepassingen op afstand via VPN-verbinding gebruiken](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight-hulpprogramma's in Azure Toolkit voor Eclipse gebruiken voor het maken van Apache Spark-toepassingen](../hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Azure-toolkit voor IntelliJ gebruiken om Apache Spark-toepassingen voor een HDInsight-cluster te maken](apache-spark-intellij-tool-plugin.md)
+* [Azure-toolkit voor IntelliJ gebruiken om fouten op te lossen Apache Spark toepassingen op afstand via VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Gebruik HDInsight-Hulpprogram Ma's in Azure-toolkit voor Eclipse om Apache Spark-toepassingen te maken](../hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [Apache Zeppelin-notebooks gebruiken met een Apache Spark-cluster in HDInsight](apache-spark-zeppelin-notebook.md)
-* [Beschikbare kernels voor Jupyter-notebook in het Apache Spark-cluster voor HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Kernels die beschikbaar zijn voor Jupyter-notebook in het Apache Spark-cluster voor HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Externe pakketten gebruiken met Jupyter-notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Jupyter op uw computer installeren en verbinding maken met een HDInsight Spark-cluster](apache-spark-jupyter-notebook-install-locally.md)
 

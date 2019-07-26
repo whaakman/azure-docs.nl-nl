@@ -1,6 +1,6 @@
 ---
-title: Controleer Azure enterprise-inschrijving facturering van gegevens met REST-API | Microsoft Docs
-description: Leer hoe u Azure REST API's gebruiken om te controleren van enterprise-inschrijving factureringsgegevens.
+title: Facturerings gegevens voor Azure Enter prise-inschrijving door nemen met REST API | Microsoft Docs
+description: Meer informatie over het gebruik van Azure REST Api's voor het controleren van de facturerings gegevens van de Enter prise-inschrijving.
 services: billing
 documentationcenter: na
 author: lleonard-msft
@@ -13,23 +13,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: erikre
-ms.openlocfilehash: 9a0b536426ab024d5af7b257e44a2d5e20f14def
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: banders
+ms.openlocfilehash: 25d9b48696dc2a83ea0ba77c1be2c7aad7627fff
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371033"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443152"
 ---
-# <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Enterprise-inschrijving facturering met behulp van REST-API's bekijken
+# <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>De facturering van ENTER prise Enrollment controleren met behulp van REST Api's
 
-Azure API's van Reporting helpt u bij bekijken en beheren van uw Azure-kosten.
+Met Azure Reporting Api's kunt u uw Azure-kosten controleren en beheren.
 
-In dit artikel leert u om op te halen van de informatie die is gekoppeld aan facturering-accounts, afdeling of inschrijvingsaccounts voor enterprise agreement (EA) met behulp van de Azure REST API's. 
+In dit artikel vindt u informatie over het ophalen van de facturerings gegevens die zijn gekoppeld aan accounts voor facturerings accounts, afdelingen of ENTER prise Agreement (EA) met de Azure REST Api's. 
 
-## <a name="individual-account-billing"></a>Facturering voor afzonderlijke account
+## <a name="individual-account-billing"></a>Facturering van afzonderlijke accounts
 
-Informatie over het gebruik voor accounts in een afdeling ophalen:
+Details van het gebruik van accounts in een afdeling ophalen:
 
 ```http
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
@@ -37,21 +37,21 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-De `{billingAccountId}` -parameter is vereist en de ID voor de account moet bevatten.
+De `{billingAccountId}` para meter is vereist en moet de id voor het account bevatten.
 
 De volgende headers zijn vereist: 
 
-|Aanvraagheader|Description|  
+|Aanvraag header|Description|  
 |--------------------|-----------------|  
-|*Content-Type:*|Vereist. Ingesteld op `application/json`.|  
-|*Authorization:*|Vereist. Ingesteld op een geldige `Bearer` [API-sleutel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Inhouds type:*|Vereist. Ingesteld op `application/json`.|  
+|*Authorization:*|Vereist. Stel in op een `Bearer` geldige [API-sleutel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
 
-Dit voorbeeld toont een synchrone aanroep waarmee gegevens worden geretourneerd voor de huidige factureringscyclus. Uit prestatieoverwegingen synchrone aanroepen informatie geretourneerd voor de afgelopen maand.  U kunt ook aanroepen de [API asynchroon](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) om terug te keren gegevens gedurende 36 maanden.
+In dit voor beeld ziet u een synchrone aanroep waarmee Details voor de huidige facturerings cyclus worden geretourneerd. Uit prestatie overwegingen retour neren synchrone informatie over de afgelopen maand.  U kunt de API ook [asynchroon](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) aanroepen om gegevens te retour neren voor 36 maanden.
 
 
 ## <a name="response"></a>Antwoord  
 
-Statuscode 200 wordt (OK) geretourneerd voor een geslaagde respons, waarin een lijst met gedetailleerde kosten voor het account.
+Status code 200 (OK) wordt geretourneerd voor een geslaagde reactie, die een lijst met gedetailleerde kosten voor het account bevat.
 
 ```json
 {
@@ -78,11 +78,11 @@ Statuscode 200 wordt (OK) geretourneerd voor een geslaagde respons, waarin een l
 }
 ```  
 
-In dit voorbeeld is afgekort; Zie [gebruiksdetails ophalen voor een factureringsaccount](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist) voor een volledige beschrijving van elk veld met de reactie en foutafhandeling.
+Dit voor beeld is afgekort; Zie [gebruiks gegevens voor een facturerings account ophalen](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist) voor een volledige beschrijving van elk antwoord veld en fout afhandeling.
 
-## <a name="department-billing"></a>Afdeling facturering 
+## <a name="department-billing"></a>Facturering afdeling 
 
-Informatie over het gebruik samengevoegd voor alle accounts in een afdeling ophalen. 
+Statistische gegevens over gebruik ophalen voor alle accounts in een afdeling. 
 
 ```http
 GET https://management.azure.com/providers/Microsoft.Billing/departments/{departmentId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
@@ -90,23 +90,23 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-De `{departmentId}` -parameter is vereist en moet de ID voor de afdeling in het inschrijvingsaccount bevatten.
+De `{departmentId}` para meter is vereist en moet de id voor de afdeling in het inschrijvings account bevatten.
 
 De volgende headers zijn vereist: 
 
-|Aanvraagheader|Description|  
+|Aanvraag header|Description|  
 |--------------------|-----------------|  
-|*Content-Type:*|Vereist. Ingesteld op `application/json`.|  
-|*Authorization:*|Vereist. Ingesteld op een geldige `Bearer` [API-sleutel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Inhouds type:*|Vereist. Ingesteld op `application/json`.|  
+|*Authorization:*|Vereist. Stel in op een `Bearer` geldige [API-sleutel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
 
-Dit voorbeeld toont een synchrone aanroep waarmee gegevens worden geretourneerd voor de huidige factureringscyclus. Uit prestatieoverwegingen synchrone aanroepen informatie geretourneerd voor de afgelopen maand.  U kunt ook aanroepen de [API asynchroon](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) om terug te keren gegevens gedurende 36 maanden.
+In dit voor beeld ziet u een synchrone aanroep waarmee Details voor de huidige facturerings cyclus worden geretourneerd. Uit prestatie overwegingen retour neren synchrone informatie over de afgelopen maand.  U kunt de API ook [asynchroon](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) aanroepen om gegevens te retour neren voor 36 maanden.
 
 ### <a name="response"></a>Antwoord  
 
-Statuscode 200 wordt (OK) geretourneerd voor een geslaagde respons, waarin een lijst met informatie over het gedetailleerde gebruik en kosten voor een bepaalde facturering periode en de factuur-ID voor de afdeling.
+Status code 200 (OK) wordt geretourneerd voor een geslaagde reactie, die een lijst met gedetailleerde gebruiks gegevens en-kosten bevat voor een bepaalde facturerings periode en factuur-ID voor de afdeling.
 
 
-Het volgende voorbeeld ziet de uitvoer van de REST-API voor afdeling `1234`.
+In het volgende voor beeld ziet u de uitvoer van de `1234`rest API voor afdeling.
 
 ```json
 {
@@ -134,11 +134,11 @@ Het volgende voorbeeld ziet de uitvoer van de REST-API voor afdeling `1234`.
 }
 ```  
 
-In dit voorbeeld is afgekort; Zie [gebruiksdetails ophalen voor een afdeling](/rest/api/consumption/usagedetails/list#departmentusagedetailslist) voor een volledige beschrijving van elk veld met de reactie en foutafhandeling.
+Dit voor beeld is afgekort; Zie [gebruiks gegevens voor een afdeling ophalen](/rest/api/consumption/usagedetails/list#departmentusagedetailslist) voor een volledige beschrijving van elk antwoord veld en fout afhandeling.
 
-## <a name="enrollment-account-billing"></a>Facturering voor inschrijving
+## <a name="enrollment-account-billing"></a>Facturering van inschrijvings account
 
-Ophalen van informatie over het gebruik voor de apparaatregistratie-account samengevoegd.
+Statistische gegevens over gebruik ophalen voor het inschrijvings account.
 
 ```http
 GET GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
@@ -146,22 +146,22 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-De `{enrollmentAccountId}` -parameter is vereist en de ID voor de inschrijvingsaccount moet bevatten.
+De `{enrollmentAccountId}` para meter is vereist en moet de id voor het inschrijvings account bevatten.
 
 De volgende headers zijn vereist: 
 
-|Aanvraagheader|Description|  
+|Aanvraag header|Description|  
 |--------------------|-----------------|  
-|*Content-Type:*|Vereist. Ingesteld op `application/json`.|  
-|*Authorization:*|Vereist. Ingesteld op een geldige `Bearer` [API-sleutel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Inhouds type:*|Vereist. Ingesteld op `application/json`.|  
+|*Authorization:*|Vereist. Stel in op een `Bearer` geldige [API-sleutel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
 
-Dit voorbeeld toont een synchrone aanroep waarmee gegevens worden geretourneerd voor de huidige factureringscyclus. Uit prestatieoverwegingen synchrone aanroepen informatie geretourneerd voor de afgelopen maand.  U kunt ook aanroepen de [API asynchroon](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) om terug te keren gegevens gedurende 36 maanden.
+In dit voor beeld ziet u een synchrone aanroep waarmee Details voor de huidige facturerings cyclus worden geretourneerd. Uit prestatie overwegingen retour neren synchrone informatie over de afgelopen maand.  U kunt de API ook [asynchroon](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) aanroepen om gegevens te retour neren voor 36 maanden.
 
 ### <a name="response"></a>Antwoord  
 
-Statuscode 200 wordt (OK) geretourneerd voor een geslaagde respons, waarin een lijst met informatie over het gedetailleerde gebruik en kosten voor een bepaalde facturering periode en de factuur-ID voor de afdeling.
+Status code 200 (OK) wordt geretourneerd voor een geslaagde reactie, die een lijst met gedetailleerde gebruiks gegevens en-kosten bevat voor een bepaalde facturerings periode en factuur-ID voor de afdeling.
 
-Het volgende voorbeeld ziet de uitvoer van de REST-API voor enterprise-inschrijving `1234`.
+In het volgende voor beeld ziet u de uitvoer van de REST API `1234`voor Enter prise-inschrijving.
 
 ```json
 {
@@ -187,9 +187,9 @@ Het volgende voorbeeld ziet de uitvoer van de REST-API voor enterprise-inschrijv
 }
 ``` 
 
-In dit voorbeeld is afgekort; Zie [gebruiksdetails ophalen voor een inschrijvingsaccount](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist) voor een volledige beschrijving van elk veld met de reactie en foutafhandeling.
+Dit voor beeld is afgekort; Zie [gebruiks gegevens ophalen voor een inschrijvings account](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist) voor een volledige beschrijving van elk antwoord veld en fout afhandeling.
 
 ## <a name="next-steps"></a>Volgende stappen 
-- Beoordeling [Enterprise rapportageoverzicht](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Onderzoeken [Enterprise facturering REST-API](https://docs.microsoft.com/rest/api/billing/)   
-- [Aan de slag met REST API van Azure](https://docs.microsoft.com/rest/api/azure/)   
+- [Overzicht van ENTER prise Reporting](https://docs.microsoft.com/azure/billing/billing-enterprise-api) bekijken
+- [Facturerings rest API voor ondernemingen](https://docs.microsoft.com/rest/api/billing/) onderzoeken   
+- [Aan de slag met Azure REST API](https://docs.microsoft.com/rest/api/azure/)   

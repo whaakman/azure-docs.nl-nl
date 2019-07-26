@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 4de8f68e0384742cea4ce50ccd23a7455b186893
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 253629bab6b0985ab8f540c653f3671c49e6d278
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827150"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360232"
 ---
 # <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Quickstart: een query uitvoeren op gegevens met behulp van de Python-bibliotheek voor Azure Data Explorer
 
@@ -62,13 +62,14 @@ De tenant-id is in dit geval `6babcaad-604b-40ac-a9d7-9fd97c0b779f`. Stel de waa
 ```python
 AAD_TENANT_ID = "<TenantId>"
 KUSTO_CLUSTER = "https://help.kusto.windows.net/"
-KUSTO_DATABASE  = "Samples"
+KUSTO_DATABASE = "Samples"
 ```
 
 Nu maakt u de verbindingsreeks. In dit voorbeeld wordt apparaatverificatie gebruikt voor toegang tot het cluster. U kunt ook een [AAD-toepassingscertificaat](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), een [AAD-toepassingssleutel](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) en een [AAD-gebruiker en -wachtwoord](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34) gebruiken.
 
 ```python
-KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_CLUSTER)
+KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(
+    KUSTO_CLUSTER)
 KCSB.authority_id = AAD_TENANT_ID
 ```
 
@@ -77,8 +78,8 @@ KCSB.authority_id = AAD_TENANT_ID
 Voer een query uit op het cluster en sla de uitvoer op in een gegevensframe. Wanneer deze code wordt uitgevoerd, wordt een bericht als het volgende geretourneerd: *Als u zich wilt aanmelden, opent u de pagina https://microsoft.com/devicelogin met een webbrowser. Voer de code F3W4VWZDM in om te verifiëren*. Volg de stappen om u aan te melden en ga vervolgens terug om het volgende codeblok uit te voeren.
 
 ```python
-KUSTO_CLIENT  = KustoClient(KCSB)
-KUSTO_QUERY  = "StormEvents | sort by StartTime desc | take 10"
+KUSTO_CLIENT = KustoClient(KCSB)
+KUSTO_QUERY = "StormEvents | sort by StartTime desc | take 10"
 
 RESPONSE = KUSTO_CLIENT.execute(KUSTO_DATABASE, KUSTO_QUERY)
 ```

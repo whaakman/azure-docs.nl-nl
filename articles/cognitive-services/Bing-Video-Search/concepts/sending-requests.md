@@ -1,6 +1,6 @@
 ---
 title: Zoekaanvragen verzenden naar de Bing Video's zoeken-API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Lees hier alles over het verzenden van zoekquery's naar de Bing Video's zoeken-API.
 services: cognitive-services
 author: aahi
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/27/2019
 ms.author: aahill
-ms.openlocfilehash: 93c2a5f9cd9fb3141e79559429ae69c0c42a96c1
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 892220a08480b6b6b1b246967f225422c8c5a105
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542683"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500751"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>Verzenden van zoekaanvragen naar de Bing Video's zoeken-API
 

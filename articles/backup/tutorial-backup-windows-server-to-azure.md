@@ -1,7 +1,6 @@
 ---
 title: Een back-up maken van een Windows-server naar Azure
 description: In deze zelfstudie wordt beschreven hoe u een back-up maakt van een on-premises Windows-server naar een Recovery Services-kluis.
-services: backup
 author: dcurwin
 manager: carmonm
 keywords: windows-server back-up; back-up windows-server; back-up en herstel na noodgevallen
@@ -10,12 +9,12 @@ ms.topic: tutorial
 ms.date: 8/22/2018
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 907a10314f27428d4d4b867abb71e2046208650b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0a8a4795cf35402ebecbf6838aaeb5f17768aa06
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273958"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467041"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Een back-up maken van een Windows-server naar Azure
 
@@ -26,7 +25,7 @@ U kunt Azure Backup gebruiken om uw Windows-server te beschermen tegen beschadig
 > [!div class="checklist"]
 > * De MARS-agent downloaden en instellen
 > * Back-uptijden en retentieschema configureren voor back-ups van uw server
-> * Back-up van een ad-hoc uitvoeren
+> * Een ad-hoc back-up uitvoeren
 
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
@@ -114,7 +113,7 @@ U gebruikt de Microsoft Azure Recovery Services-agent om te plannen wanneer er b
 
 4. Klik op **Items toevoegen** en selecteer **systeemstatus** in het dialoogvenster dat wordt geopend, evenals de bestanden of mappen waarvan u een back-up wilt maken. Klik vervolgens op **OK**.
 
-5. Klik op **volgende**.
+5. Klik op **Volgende**.
 
 6. Geef op de pagina **Back-upschema opgeven (Systeemstatus)** de tijd van de dag of van de week op waarop de back-up voor de systeemstatus moet worden geactiveerd. Klik vervolgens op **Volgende**.
 
@@ -128,7 +127,7 @@ U gebruikt de Microsoft Azure Recovery Services-agent om te plannen wanneer er b
 
 11. Nadat u de wizard voor het maken van een back-upschema hebt doorlopen, klikt u op **Sluiten**.
 
-## <a name="perform-an-ad-hoc-back-up"></a>Back-up van een ad-hoc uitvoeren
+## <a name="perform-an-ad-hoc-back-up"></a>Een ad-hoc back-up uitvoeren
 
 U hebt een planning ingesteld voor het uitvoeren van de back-uptaken. U hebt echter nog geen back-up gemaakt van de server. In het kader van noodherstel doet u er verstandig aan om een back-up op aanvraag te maken, zodat gegevenstolerantie voor uw server is gewaarborgd.
 

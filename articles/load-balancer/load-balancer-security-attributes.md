@@ -1,6 +1,6 @@
 ---
-title: Beveiligingskenmerken voor Azure Load Balancer
-description: Een controlelijst met beveiligingsinstellingen voor het evalueren van de Load Balancer
+title: Beveiligings kenmerken voor Azure Load Balancer
+description: Een controle lijst met beveiligings kenmerken voor het evalueren van Load Balancer
 services: load-balancer
 author: msmbaldwin
 manager: barbkess
@@ -8,47 +8,47 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1892b918ed35221bc73d5070d5a73ecc359aa4c2
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 7d40618d5f4fde4a2b3fdfbde8a6de0a049ce3b6
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800079"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68440872"
 ---
-# <a name="security-attributes-for-azure-load-balancer"></a>Beveiligingskenmerken voor Azure Load Balancer
+# <a name="security-attributes-for-azure-load-balancer"></a>Beveiligings kenmerken voor Azure Load Balancer
 
-In dit artikel worden de algemene beveiligingskenmerken die zijn ingebouwd in Azure Load Balancer.
+In dit artikel worden de beveiligings kenmerken gedocumenteerd die zijn ingebouwd in Azure Load Balancer.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-## <a name="preventative"></a>Preventative
+## <a name="preventative"></a>Preventie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen |
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
-| Versleuteling-at-rest (zoals versleuteling op de server, server-side-versleuteling met de klant beheerde sleutels en andere versleutelingsfuncties) | N/A | |
-| Versleuteling tijdens overdracht (zoals ExpressRoute-codering in VNet-versleuteling en versleuteling van de VNet-VNet)| N/A | |
-| Versleuteling verwerking (CMK, BYOK, enz.)| N/A | |
-| Versleuteling op kolom (Azure Data Services)| N/A | |
-| API-aanroepen die zijn versleuteld| Ja | Via de [Azure Resource Manager](../azure-resource-manager/index.yml). |
+| Versleuteling bij rest (zoals versleuteling aan server zijde, versleuteling aan server zijde met door de klant beheerde sleutels en andere versleutelings functies) | N/A | |
+| Versleuteling in transit (zoals ExpressRoute-versleuteling, in VNet-versleuteling en VNet-VNet-versleuteling)| N/A | |
+| Verwerking van versleutelings sleutels (CMK, BYOK, enz.)| N/A | |
+| Versleuteling op kolom niveau (Azure Data Services)| N/A | |
+| Versleutelde API-aanroepen| Ja | Via de [Azure Resource Manager](../azure-resource-manager/index.yml). |
 
-## <a name="network-segmentation"></a>Segmentatie
+## <a name="network-segmentation"></a>Netwerk segmentatie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen |
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
-| Ondersteuning voor service-eindpunt| N/A | |
+| Ondersteuning voor service-eind punten| N/A | |
 | Ondersteuning voor VNet-injectie| N/A | . |
-| Ondersteuning voor netwerkisolatie en Firewalling| N/A |  |
-| Geforceerde tunneling ondersteuning| N/A | |
+| Ondersteuning voor netwerk isolatie en firewalling| N/A |  |
+| Ondersteuning voor geforceerde tunneling| N/A | |
 
 ## <a name="detection"></a>Detectie
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Azure monitoring ondersteuning (Log analytics, Application insights, enz.)| Ja | Zie [Azure Monitor-logboeken voor openbare Basic Load Balancer](load-balancer-monitor-log.md). |
+| Ondersteuning voor Azure-bewaking (log Analytics, app Insights, enz.)| Ja | Zie [Azure monitor-logboeken voor open bare basis Load Balancer](load-balancer-monitor-log.md). |
 
 ## <a name="identity-and-access-management"></a>Identiteits- en toegangsbeheer
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
 | Authentication| N/A |  |
 | Authorization| N/A |  |
@@ -56,13 +56,13 @@ In dit artikel worden de algemene beveiligingskenmerken die zijn ingebouwd in Az
 
 ## <a name="audit-trail"></a>Audittrail
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Controle en beheer vlak logboekregistratie en controle| Ja | Zie [Azure Monitor-logboeken voor openbare Basic Load Balancer](load-balancer-monitor-log.md). |
-| Gegevens vlak logboekregistratie en controle | N/A |  |
+| Logboek registratie en controle op het vlak van controle en beheer| Ja | Zie [Azure monitor-logboeken voor open bare basis Load Balancer](load-balancer-monitor-log.md). |
+| Logboek registratie en controle van het gegevens vlak | N/A |  |
 
 ## <a name="configuration-management"></a>Configuratiebeheer
 
-| Beveiligingskenmerk | Ja/Nee | Opmerkingen|
+| Beveiligings kenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Configuration management-ondersteuning (versiebeheer van de configuratie, enz.)| N/A |  | 
+| Ondersteuning voor configuratie beheer (versie van configuratie, enz.)| N/A |  | 

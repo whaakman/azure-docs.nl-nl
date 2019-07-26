@@ -1,119 +1,105 @@
 ---
-title: Het beleid voor gebruikersrisico's configureren in Azure Active Directory Identity Protection | Microsoft Docs
-description: Informatie over het configureren van het beleid voor gebruikersrisico's Azure AD Identity Protection.
+title: Het beleid voor gebruikers Risico's configureren in Azure Active Directory Identity Protection | Microsoft Docs
+description: Meer informatie over het configureren van het beleid voor Azure AD Identity Protection gebruikers risico.
 services: active-directory
-keywords: Azure active directory identity protection cloud app discovery, toepassingen, beveiliging, risico's, risiconiveau, beveiligingsproblemen, beveiligingsbeleid beheren
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 942f7e43a549b5aa1a21284949ffc12ef3c8d75f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc7ea05497d69a7ca833cc783e7a2bc6bf1a8b07
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108918"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335449"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Procedure: Het beleid voor gebruikersrisico’s configureren
 
-Met het gebruikersrisico vaststelt Azure AD dat de kans dat een gebruikersaccount verdacht is. U kunt een gebruikersrisico beleid voor voorwaardelijke toegang, automatisch reageren op een specifieke gebruiker risiconiveau configureren als een beheerder.
+Met het gebruikers risico detecteert Azure AD de waarschijnlijkheid dat een gebruikers account is aangetast. Als beheerder kunt u een beleid voor voorwaardelijke toegang voor gebruikers Risico's configureren, zodat automatisch wordt gereageerd op een specifiek risico niveau van de gebruiker.
  
-In dit artikel biedt u de informatie die u moet een beleid voor gebruikersrisico's configureren.
+In dit artikel vindt u de informatie die u nodig hebt om een beleid voor gebruikers Risico's te configureren.
 
+## <a name="what-is-a-user-risk-policy"></a>Wat is een gebruikers risico beleid?
 
-## <a name="what-is-a-user-risk-policy"></a>Wat is er een beleid voor gebruikersrisico's?
+Azure AD analyseert elke aanmelding van een gebruiker. Het doel van de analyse is het detecteren van verdachte acties die samen met de aanmelding worden uitgevoerd. In azure AD worden de verdachte acties die door het systeem kunnen worden gedetecteerd ook wel risico gebeurtenissen genoemd. Hoewel sommige risico gebeurtenissen in realtime kunnen worden gedetecteerd, zijn er ook risico gebeurtenissen die meer tijd vereisen. Als u bijvoorbeeld een onmogelijke reis naar ongewone locaties wilt detecteren, is voor het systeem een eerste leer periode van 14 dagen vereist om meer te weten te komen over het normale gedrag van een gebruiker. Er zijn verschillende opties om gedetecteerde risico gebeurtenissen op te lossen. U kunt bijvoorbeeld afzonderlijke risico gebeurtenissen hand matig oplossen, of u kunt ze oplossen met behulp van een aanmeldings risico of een beleid voor voorwaardelijke toegang voor gebruikers Risico's.
 
-Azure AD analyseert elke aanmelding van een gebruiker. Het doel van de analyse is voor het detecteren van verdachte activiteit die afkomstig, samen met de aanmelding zijn. De verdachte activiteit die kan worden gedetecteerd door het systeem zijn in Azure AD, ook wel bekend als risicogebeurtenissen. Risico's en gebeurtenissen in realtime kunnen worden gedetecteerd, er zijn ook risicogebeurtenissen vereisen meer tijd. Voor het detecteren van een onmogelijke reis naar ongewone locaties, bijvoorbeeld, vereist het systeem een eerste leerperiode van 14 dagen voor meer informatie over het normale gedrag van een gebruiker. Er zijn verschillende opties om op te lossen gedetecteerde risico. Bijvoorbeeld, kunt u afzonderlijke risicogebeurtenissen handmatig oplossen, of u deze omgezet met behulp van een aanmeldingsrisico of een gebruikersrisico beleid voor voorwaardelijke toegang kunt krijgen.
+Alle risico gebeurtenissen die zijn gedetecteerd voor een gebruiker en niet zijn opgelost, worden actieve risico gebeurtenissen genoemd. De actieve risico gebeurtenissen die aan een gebruiker zijn gekoppeld, worden gebruikers risico genoemd. Op basis van het gebruikers risico berekent Azure AD een waarschijnlijkheid (laag, gemiddeld, hoog) die een gebruiker heeft geknoeid. De kans is het gebruikers risico niveau.
 
-Alle risicogebeurtenissen die zijn gedetecteerd voor een gebruiker en niet worden opgelost staat bekend als actieve risico's. De actieve risicogebeurtenissen die gekoppeld aan een gebruiker zijn staat bekend als gebruikersrisico. Op basis van het gebruikersrisico, berekent Azure AD een kans (laag, Gemiddeld, hoog) dat een gebruiker is aangetast. De kans op heet risiconiveau van de gebruiker.
+![Gebruikers Risico's](./media/howto-user-risk-policy/1031.png)
 
-![Gebruiker risico 's](./media/howto-user-risk-policy/1031.png)
+Het beleid voor gebruikers Risico's is een geautomatiseerd antwoord dat u kunt configureren voor een specifiek gebruikers risico niveau. Met een gebruikers risico beleid kunt u de toegang tot uw resources blok keren of een wachtwoord wijziging vereisen om een gebruikers account weer in een schone staat te krijgen.
 
-Het beleid voor gebruikersrisico's is een geautomatiseerd antwoord dat u voor een specifieke gebruiker risiconiveau configureren kunt. U kunt met een beleid voor gebruikersrisico's, toegang tot uw resources blokkeren of een wachtwoordwijziging aan een gebruikersaccount toegang krijgen tot een schone toestand vereisen.
-
-
-## <a name="how-do-i-access-the-user-risk-policy"></a>Hoe krijg ik toegang tot het beleid voor gebruikersrisico's?
+## <a name="how-do-i-access-the-user-risk-policy"></a>Hoe kan ik toegang tot het gebruikers risico beleid?
    
-Het beleid voor aanmeldingsrisico is in de **configureren** sectie op de [Azure AD Identity Protection-pagina](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+Het beleid voor aanmeldings Risico's vindt u in de sectie **configureren** op de [pagina Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
-![Beleid voor gebruikersrisico 's](./media/howto-user-risk-policy/1014.png)
-
-
+![Beleid voor gebruikersrisico's](./media/howto-user-risk-policy/1014.png)
 
 ## <a name="policy-settings"></a>Beleidsinstellingen
 
-Wanneer u het beleid voor aanmeldingsrisico configureert, moet u instellen:
+Wanneer u het beleid voor aanmeldings Risico's configureert, moet u het volgende instellen:
 
-- De gebruikers en groepen die het beleid van toepassing op:
+- De gebruikers en groepen waarop het beleid van toepassing is:
 
     ![Gebruikers en groepen](./media/howto-user-risk-policy/11.png)
 
-- Het niveau van aanmeldingsrisico waarmee het beleid wordt geactiveerd:
+- Het niveau van het aanmeldings risico waarmee het beleid wordt geactiveerd:
 
-    ![Risiconiveau van de gebruiker](./media/howto-user-risk-policy/12.png)
+    ![Niveau van gebruikersrisico](./media/howto-user-risk-policy/12.png)
 
-- Het type toegang dat u wilt worden afgedwongen wanneer de risiconiveau van uw aanmelding is voldaan:  
+- Het type toegang dat u wilt afdwingen wanneer aan uw aanmeldings risico niveau is voldaan:  
 
-    ![Access](./media/howto-user-risk-policy/13.png)
+    ![Toegang](./media/howto-user-risk-policy/13.png)
 
-- De status van uw beleid:
+- De status van het beleid:
 
-    ![Afdwingen van beleid](./media/howto-user-risk-policy/14.png)
+    ![Beleid afdwingen](./media/howto-user-risk-policy/14.png)
 
-Het dialoogvenster van de configuratie van beleid biedt u een optie voor het schatten van de impact van uw configuratie.
+Het dialoog venster beleids configuratie biedt u een optie om de impact van uw configuratie te schatten.
 
-![De geschatte impact](./media/howto-user-risk-policy/15.png)
+![Verwachte impact](./media/howto-user-risk-policy/15.png)
 
 ## <a name="what-you-should-know"></a>Wat u moet weten
 
-U kunt een beleid voor gebruikersrisico's security instellen om te voorkomen dat gebruikers bij het aanmelden, afhankelijk van het risiconiveau.
+U kunt een beveiligings beleid voor gebruikers Risico's instellen om gebruikers te blok keren bij het aanmelden, afhankelijk van het risico niveau.
 
 ![Blokkeren](./media/howto-user-risk-policy/16.png)
 
+Een aanmelding blok keren:
 
-Blokkering van een aanmeldingen:
-
-* Hiermee voorkomt u dat de generatie van de nieuwe gebruiker-risicogebeurtenissen voor de betrokken gebruiker
-* Hiermee kunnen beheerders handmatig de risicogebeurtenissen die betrekking hebben op de identiteit van de gebruiker herstellen en terug te zetten naar een veilige status
+* Voor komt dat nieuwe gebruikers risico gebeurtenissen voor de betrokken gebruiker worden gegenereerd
+* Hiermee kunnen beheerders de risico gebeurtenissen hand matig herstellen die van invloed zijn op de identiteit van de gebruiker en deze terugzetten naar een veilige status
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 
-Kiezen van een **hoge** drempelwaarde vermindert het aantal keer dat een beleid wordt geactiveerd en minimaliseert de gevolgen voor gebruikers.
-Echter, worden uitgesloten **laag** en **gemiddeld** gebruikers die zijn gemarkeerd voor risico's van het beleid, die niet-id's of apparaten die beveiligen mogelijk eerder zijn verdachte of bekend is.
+Het kiezen van een **hoge** drempel waarde vermindert het aantal keren dat een beleid wordt geactiveerd en minimaliseert de gevolgen voor gebruikers.
+Het biedt echter geen **kleine** en **gemiddelde** gebruikers die zijn gemarkeerd voor risico van het beleid, die mogelijk geen beveiligde identiteiten of apparaten beveiligen die eerder zijn vermoed of waarvan bekend is dat ze worden aangetast.
 
-Bij het instellen van het beleid
+Wanneer het beleid wordt ingesteld,
 
-* Gebruikers die waarschijnlijk voor het genereren van een groot aantal fout-positieven (ontwikkelaars, beveiligingsanalisten) uitsluiten
-* Gebruikers in de landinstellingen waar als het beleid is het niet praktisch uitsluiten (bijvoorbeeld geen toegang tot de helpdesk)
-* Gebruik een **hoge** drempelwaarde tijdens de implementatie van het eerste beleid, of als u uitdagingen gezien door eindgebruikers moet minimaliseren.
-* Gebruik een **laag** drempelwaarde als uw organisatie betere beveiliging vereist. Selecteren van een **laag** drempelwaarde introduceert extra gebruiker aanmelden uitdagingen, maar de verbeterde beveiliging.
+* Gebruikers uitsluiten die waarschijnlijk veel valse-positieven genereren (ontwikkel aars, beveiligings analisten)
+* Gebruikers in landen uitsluiten waarbij het inschakelen van het beleid niet praktisch is (bijvoorbeeld geen toegang tot de Help Desk)
+* Gebruik een **hoge** drempel waarde tijdens de eerste implementatie van het beleid of als u de uitdagingen die door eind gebruikers moeten worden beperkt, wilt minimaliseren.
+* Gebruik een **lage** drempel waarde als uw organisatie betere beveiliging vereist. Als u een **lage** drempel waarde selecteert, worden extra aanmeldings uitdagingen voor gebruikers geïntroduceerd, maar een betere beveiliging.
 
-De aanbevolen standaardwaarde voor de meeste organisaties is het configureren van een regel voor een **gemiddeld** drempelwaarde een evenwicht tussen bruikbaarheid en veiligheid te vinden.
+De aanbevolen standaard instelling voor de meeste organisaties is het configureren van een regel voor een **gemiddelde** drempel waarde om een evenwicht tussen de bruikbaarheid en de beveiliging te halen.
 
-Zie voor een overzicht van de gebruikerservaring:
+Zie voor een overzicht van de gerelateerde gebruikers ervaring:
 
-* [Aangetast account recovery stroom](flows.md#compromised-account-recovery).  
-* [Aangetast account geblokkeerd stroom](flows.md#compromised-account-blocked).  
+* [Beschadigde account herstel stroom](flows.md#compromised-account-recovery).  
+* [Geblokkeerde stroom van beschadigd account](flows.md#compromised-account-blocked).  
 
-**Opent het dialoogvenster gerelateerde configuratie**:
+**Het dialoog venster gerelateerde configuratie openen**:
 
-- Op de **Azure AD Identity Protection** blade in de **configureren** sectie, klikt u op **beleid voor gebruikersrisico's**.
+- Klik op de Blade **Azure AD Identity Protection** in de sectie **configureren** op **beleid voor gebruikers Risico's**.
 
-    ![Beleid voor gebruikersrisico's](./media/howto-user-risk-policy/1009.png "beleid voor gebruikersrisico's")
-
-
-
+    ![Beleid voor gebruikers Risico's](./media/howto-user-risk-policy/1009.png "Beleid voor gebruikers Risico's")
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u een overzicht van Azure AD Identity Protection, raadpleegt u de [overzicht van Azure AD Identity Protection](overview.md).
+Zie overzicht van de [Azure AD Identity Protection](overview.md)voor een overzicht van Azure AD Identity Protection.

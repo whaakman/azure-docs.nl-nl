@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: f3668a069013bc3b913051161ec0cdadc989e9d5
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 24716a9b9fa5174d899cf0678b83b2da0c59957c
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314146"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358666"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Troubleshooting Azure Machine Learning service Azure Kubernetes service and Azure Container Instances Deployment
 
@@ -101,7 +101,7 @@ print(ws.images['myimg'].image_build_log_uri)
 
 # list logs for all images in the workspace
 for name, img in ws.images.items():
-    print (img.name, img.version, img.image_build_log_uri)
+    print(img.name, img.version, img.image_build_log_uri)
 ```
 
 De uri van de installatiekopie-logboek is een SAS-URL die verwijst naar een logboekbestand die zijn opgeslagen in de Azure blob-opslag. Alleen kopiëren en plakken de uri in een browservenster en u kunnen downloaden en weergeven van het logboekbestand.
@@ -165,18 +165,19 @@ Als u problemen ondervindt bij het implementeren van een model naar ACI of AKS, 
 Als u lokaal wilt implementeren, wijzigt u de `LocalWebservice.deploy_configuration()` code die u wilt gebruiken om een implementatie configuratie te maken. Vervolgens gebruiken `Model.deploy()` om de service te implementeren. In het volgende voor beeld wordt een model (opgenomen in `model` de variabele) geïmplementeerd als een lokale webservice:
 
 ```python
-from azureml.core.model import InferenceConfig,Model
+from azureml.core.model import InferenceConfig, Model
 from azureml.core.webservice import LocalWebservice
 
 # Create inference configuration. This creates a docker image that contains the model.
-inference_config = InferenceConfig(runtime= "python", 
+inference_config = InferenceConfig(runtime="python",
                                    entry_script="score.py",
                                    conda_file="myenv.yml")
 
 # Create a local deployment, using port 8890 for the web service endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 # Deploy the service
-service = Model.deploy(ws, "mymodel", [model], inference_config, deployment_config)
+service = Model.deploy(
+    ws, "mymodel", [model], inference_config, deployment_config)
 # Wait for the deployment to complete
 service.wait_for_deployment(True)
 # Display the port that the web service is available on
@@ -189,11 +190,11 @@ Op dit moment kunt u de service als normaal gebruiken. De volgende code toont bi
 import json
 
 test_sample = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10], 
-    [10,9,8,7,6,5,4,3,2,1]
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ]})
 
-test_sample = bytes(test_sample,encoding = 'utf8')
+test_sample = bytes(test_sample, encoding='utf8')
 
 prediction = service.run(input_data=test_sample)
 print(prediction)
@@ -244,9 +245,9 @@ Gebruik de informatie in de sectie [het docker-logbestand controleren](#dockerlo
 De functie `init()` [model. Get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) wordt vaak aangeroepen voor het vinden van een model bestand of een map met model bestanden in de container. Als het model bestand of de map niet kan worden gevonden, mislukt de functie. De eenvoudigste manier om op te sporen van deze fout is om uit te voeren de volgende Python-code in de Container-shell:
 
 ```python
+from azureml.core.model import Model
 import logging
 logging.basicConfig(level=logging.DEBUG)
-from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 

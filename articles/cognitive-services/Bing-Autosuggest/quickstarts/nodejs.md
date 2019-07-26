@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Zoekquery's met de REST-API voor Bing Automatische suggestie en Node.js voorstellen"
-titlesuffix: Azure Cognitive Services
-description: Meer informatie over het snel starten voorstellen zoektermen in realtime met de Automatische suggestie-API.
+title: "Quickstart: Zoek query's Voorst Ellen met de Bing Automatische suggesties REST API en node. js"
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over hoe u snel aan de slag kunt met de Automatische suggestie-API voor Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: a8782951baccd63d3087ef0628a8fca31b9a4bc1
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 47c91b1e089c491eb94cd37c0ee9710deaa0e59a
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390406"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405305"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Quickstart: Zoekquery's met de REST-API voor Bing Automatische suggestie en Node.js voorstellen
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Quickstart: Zoek query's Voorst Ellen met de Bing Automatische suggesties REST API en node. js
 
-Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Automatische suggestie-API en het ophalen van het JSON-antwoord. Deze eenvoudige Node.js-toepassing een gedeeltelijke zoekquery verzendt naar de API en suggesties voor zoekopdrachten retourneert. Hoewel deze toepassing in JavaScript is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal. De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
+Gebruik deze Quick Start om te beginnen met het aanroepen van de Automatische suggestie-API voor Bing en het verkrijgen van het JSON-antwoord. Met deze eenvoudige node. js-toepassing wordt een gedeeltelijke Zoek query naar de API verzonden en worden suggesties voor Zoek opdrachten geretourneerd. Hoewel deze toepassing in JavaScript is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal. De bron code voor dit voor beeld is beschikbaar op [github](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -37,7 +37,7 @@ Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Aut
     let https = require ('https');
     ```
 
-2. Variabelen voor de API-eindpunt-host en pad, uw abonnementssleutel maken [code markt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), en een zoekterm.
+2. Maak variabelen voor de API-eindpunt-host en het-pad, uw abonnements sleutel, [markt code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)en een zoek term.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -52,13 +52,13 @@ Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Aut
 
 ## <a name="construct-the-search-request-and-query"></a>Compileer de zoekopdracht en een query.
 
-1. Maken van een tekenreeks van de parameters voor de query door de code markt toe te voegen de `mkt=` parameter en de query naar de `q=` parameter.
+1. Maak een teken reeks voor de para meters voor uw query door de markt `mkt=` code toe te voegen aan de `q=` para meter en uw query naar de para meter.
 
     ```javascript 
     let params = '?mkt=' + mkt + '&q=' + query;
     ```
 
-2. Maak een functie met de naam `get_suggestions()`. Gebruik de variabelen van de laatste stappen om een URL zoeken voor de API-aanvraag. Uw zoekterm moet URL-gecodeerd zijn voordat deze wordt verzonden naar de API.
+2. Maak een functie met de naam `get_suggestions()`. Gebruik de variabelen uit de laatste stappen om een zoek-URL voor de API-aanvraag op te maken. Uw zoekterm moet URL-gecodeerd zijn voordat deze wordt verzonden naar de API.
 
     ```javascript
     let get_suggestions = function () {
@@ -74,7 +74,7 @@ Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Aut
     }
     ```
 
-    1. In dezelfde functie, gebruikt u de aanvraag-bibliotheek voor het verzenden van uw query aan de API. `response_handler` wordt gedefinieerd in de volgende sectie.
+    1. In dezelfde functie gebruikt u de bibliotheek voor aanvragen om uw query te verzenden naar de API. `response_handler` wordt gedefinieerd in de volgende sectie.
     
         ```javascript
         //...
@@ -82,7 +82,7 @@ Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Aut
         req.end();
         ```
 
-## <a name="create-a-search-handler"></a>Maken van een handler zoeken
+## <a name="create-a-search-handler"></a>Een zoek-handler maken
 
 1. definieer een functie met de naam `response_handler` en als parameter de HTTP-aanroep `response`. Voer binnen deze functie de volgende stappen uit:
     
@@ -102,7 +102,7 @@ Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Aut
         });
         ```
 
-    3. Wanneer een **end** markering wordt doorgegeven, gebruiker `JSON.parse()` en `JSON.stringify()` afdrukken van het antwoord.
+    3. Wanneer een **End** -vlag is gesignaleerd `JSON.parse()` , `JSON.stringify()` de gebruiker en het antwoord worden afgedrukt.
     
         ```javascript
         response.on ('end', function () {
@@ -115,7 +115,7 @@ Gebruik deze Quick Start om te beginnen met maken van aanroepen naar de Bing Aut
         });
         ```
 
-2. Bel `get_suggestions()` voor het verzenden van de aanvraag naar de Bing Automatische suggestie-API.
+2. Aanroep `get_suggestions()` voor het verzenden van de aanvraag naar de automatische suggestie-API voor Bing.
 
 ## <a name="example-json-response"></a>Voorbeeld van JSON-antwoord
 

@@ -1,45 +1,38 @@
 ---
-title: Wat is een cloudservicemodel en -pakket | Microsoft Docs
-description: Beschrijving van de cloud-servicemodel (csdef, cscfg-bestand) en het pakket (.cspkg) in Azure
+title: Wat is een Cloud service model en-pakket | Microsoft Docs
+description: Hierin worden het Cloud service model (. csdef,. cscfg) en het pakket (. cspkg) in azure beschreven
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 6c8833dc0db80dde96dda92c426c7840c44c1f1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080762"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359552"
 ---
-# <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Wat is het servicemodel van Cloud en hoe ik een pakket?
-Een cloudservice is gemaakt op basis van drie onderdelen, de servicedefinitie *(.csdef)* , de configuratie van de service *(.cscfg)* , en een servicepakket *(.cspkg)* . Zowel de **ServiceDefinition.csdef** en **ServiceConfig.cscfg** bestanden zijn gebaseerd op XML en beschrijven de structuur van de cloudservice en hoe deze geconfigureerd, samen met de naam het model. De **ServicePackage.cspkg** is een zipbestand dat is gegenereerd op basis van de **ServiceDefinition.csdef** en bevat onder andere alle vereiste binaire bestanden op basis van afhankelijkheden. Azure maakt een cloudservice van zowel de **ServicePackage.cspkg** en de **ServiceConfig.cscfg**.
+# <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Wat is het Cloud service model en hoe kan ik het pakket inpakken?
+Een Cloud service wordt gemaakt op basis van drie onderdelen, de service definitie *(. csdef)* , de service configuratie *(. cscfg)* en een service pakket *(. cspkg)* . De bestanden **ServiceDefinition. csdef** en **ServiceConfig. cscfg** zijn gebaseerd op XML en beschrijven de structuur van de Cloud service en hoe deze zijn geconfigureerd. het model wordt gezamenlijk genoemd. **ServicePackage. cspkg** is een zip-bestand dat is gegenereerd op basis van de **ServiceDefinition. csdef** en onder andere, bevat alle vereiste op basis van binaire afhankelijkheden. Azure maakt een Cloud service van zowel **ServicePackage. cspkg** als **ServiceConfig. cscfg**.
 
-Zodra de service in de cloud wordt uitgevoerd in Azure, kunt u het configureren via de **ServiceConfig.cscfg** bestand, maar kan de definitie niet wijzigen.
+Zodra de Cloud service wordt uitgevoerd in azure, kunt u deze opnieuw configureren via het **ServiceConfig. cscfg** -bestand, maar u kunt de definitie niet wijzigen.
 
-## <a name="what-would-you-like-to-know-more-about"></a>Wat wilt u meer weten?
-* Ik wil meer informatie over de [ServiceDefinition.csdef](#csdef) en [ServiceConfig.cscfg](#cscfg) bestanden.
-* Ik al weet over dat uitleggen [enkele voorbeelden](#next-steps) op wat ik kunt configureren.
-* Ik wil maken de [ServicePackage.cspkg](#cspkg).
+## <a name="what-would-you-like-to-know-more-about"></a>Waarover wilt u meer weten?
+* Ik wil meer weten over de bestanden [ServiceDefinition. csdef](#csdef) en [ServiceConfig. cscfg](#cscfg) .
+* Ik weet er al over dat, ik wil graag [enkele voor beelden](#next-steps) kennen van wat ik kan configureren.
+* Ik wil de [ServicePackage. cspkg](#cspkg)maken.
 * Ik gebruik Visual Studio en ik wil...
-  * [Een cloudservice maken][vs_create]
-  * [Een bestaande cloudservice configureren][vs_reconfigure]
-  * [Een project voor de Service in de Cloud implementeren][vs_deploy]
-  * [Extern bureaublad in een cloud service-exemplaar][remotedesktop]
+  * [Een Cloud service maken][vs_create]
+  * [Een bestaande Cloud service opnieuw configureren][vs_reconfigure]
+  * [Een Cloud service project implementeren][vs_deploy]
+  * [Extern bureau blad in een Cloud service-exemplaar][remotedesktop]
 
 <a name="csdef"></a>
 
 ## <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
-De **ServiceDefinition.csdef** bestand Hiermee geeft u de instellingen die worden gebruikt door Azure voor een cloudservice configureren. De [Definitieschema voor Azure-Service (.csdef-bestand)](/previous-versions/azure/reference/ee758711(v=azure.100)) biedt de toegestane indeling voor een service-definitiebestand. Het volgende voorbeeld ziet u de instellingen die kunnen worden gedefinieerd voor de Web- en werknemersrollen:
+Het bestand **ServiceDefinition. csdef** geeft de instellingen op die door Azure worden gebruikt voor het configureren van een Cloud service. Het [Azure service definition-schema (csdef-bestand)](/previous-versions/azure/reference/ee758711(v=azure.100)) biedt de toegestane indeling voor een service definitie bestand. In het volgende voor beeld ziet u de instellingen die kunnen worden gedefinieerd voor de web-en werk rollen:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -90,38 +83,38 @@ De **ServiceDefinition.csdef** bestand Hiermee geeft u de instellingen die worde
 </ServiceDefinition>
 ```
 
-U kunt verwijzen naar de [Definitieschema voor Service](/previous-versions/azure/reference/ee758711(v=azure.100)) voor een beter begrip van het XML-schema dat hier wordt gebruikt, maar hier volgt een korte uitleg van enkele van de elementen:
+U kunt het [service definitie schema](/previous-versions/azure/reference/ee758711(v=azure.100)) raadplegen voor een beter begrip van het XML-schema dat hier wordt gebruikt, maar hier volgt een korte uitleg van een aantal van de elementen:
 
 **Sites**  
-Bevat de definities voor websites of webtoepassingen toepassingen die worden gehost in IIS7.
+Bevat de definities voor websites of webtoepassingen die worden gehost in IIS7.
 
 **InputEndpoints**  
-Bevat de definities voor eindpunten die worden gebruikt om contact op met de cloudservice.
+Bevat de definities voor eind punten die worden gebruikt om contact op te nemen met de Cloud service.
 
 **InternalEndpoints**  
-Bevat de definities voor eindpunten die worden gebruikt door de rolinstanties om te communiceren met elkaar.
+Bevat de definities voor eind punten die worden gebruikt door rolinstanties om met elkaar te communiceren.
 
 **ConfigurationSettings**  
-Bevat de instellingsdefinities voor de functies van een specifieke rol.
+Bevat de instellings definities voor functies van een specifieke rol.
 
 **Certificaten**  
-Bevat de definities voor certificaten die nodig zijn voor een rol. Het vorige codevoorbeeld ziet u een certificaat dat wordt gebruikt voor de configuratie van de Azure-verbinding.
+Bevat de definities voor certificaten die nodig zijn voor een rol. Het vorige code voorbeeld toont een certificaat dat wordt gebruikt voor de configuratie van Azure Connect.
 
 **LocalResources**  
-Bevat de definities voor de resources voor lokale opslag. Een lokale opslag-resource is een gereserveerde map op het bestandssysteem van de virtuele machine waarop een exemplaar van een rol wordt uitgevoerd.
+Bevat de definities voor lokale opslag resources. Een lokale opslag resource is een gereserveerde map op het bestands systeem van de virtuele machine waarin een exemplaar van een rol wordt uitgevoerd.
 
-**Invoer**  
-Bevat de definities voor de geïmporteerde modules. Het vorige codevoorbeeld ziet u de modules voor verbinding met extern bureaublad en Azure-verbinding.
+**Rusland**  
+Bevat de definities voor geïmporteerde modules. Het vorige code voorbeeld toont de modules voor Verbinding met extern bureaublad en Azure Connect.
 
 **Opstarten**  
-Bevat taken die worden uitgevoerd wanneer de rol wordt gestart. De taken zijn gedefinieerd in een .cmd of uitvoerbaar bestand.
+Bevat taken die worden uitgevoerd wanneer de rol wordt gestart. De taken worden gedefinieerd in een. cmd-of een uitvoerbaar bestand.
 
 <a name="cscfg"></a>
 
 ## <a name="serviceconfigurationcscfg"></a>ServiceConfiguration.cscfg
-De configuratie van de instellingen voor uw cloudservice wordt bepaald door de waarden in de **ServiceConfiguration.cscfg** bestand. U geeft het aantal exemplaren dat u voor elke rol in dit bestand wilt implementeren. De waarden voor de configuratie-instellingen die u hebt gedefinieerd in het servicedefinitiebestand worden toegevoegd aan het configuratiebestand van de service. De vingerafdrukken instellen voor van beheercertificaten die gekoppeld aan de cloudservice zijn worden ook toegevoegd aan het bestand. De [configuratieschema voor Azure-Service (.cscfg-bestand)](/previous-versions/azure/reference/ee758710(v=azure.100)) biedt de toegestane indeling voor een service-configuratiebestand.
+De configuratie van de instellingen voor uw Cloud service wordt bepaald door de waarden in het bestand **ServiceConfiguration. cscfg** . U geeft het aantal exemplaren op dat u wilt implementeren voor elke rol in dit bestand. De waarden voor de configuratie-instellingen die u in het service definitie bestand hebt gedefinieerd, worden toegevoegd aan het service configuratie bestand. De vinger afdrukken voor beheer certificaten die zijn gekoppeld aan de Cloud service worden ook toegevoegd aan het bestand. Het [Configuratie schema van de Azure-service (. cscfg-bestand)](/previous-versions/azure/reference/ee758710(v=azure.100)) biedt de toegestane indeling voor een service configuratie bestand.
 
-Het configuratiebestand van de service wordt niet geleverd met de toepassing, maar wordt geüpload naar Azure als een afzonderlijk bestand en wordt gebruikt voor het configureren van de cloudservice. U kunt een nieuwe service-configuratiebestand uploaden zonder uw cloudservice opnieuw te implementeren. De configuratiewaarden voor de cloudservice kunnen worden gewijzigd terwijl de service in de cloud wordt uitgevoerd. Het volgende voorbeeld ziet u de configuratie-instellingen die kunnen worden gedefinieerd voor de Web- en werknemersrollen:
+Het service configuratie bestand is niet verpakt met de toepassing, maar wordt als een afzonderlijk bestand geüpload naar Azure en wordt gebruikt om de Cloud service te configureren. U kunt een nieuw service configuratie bestand uploaden zonder uw Cloud service opnieuw te implementeren. De configuratie waarden voor de Cloud service kunnen worden gewijzigd terwijl de Cloud service wordt uitgevoerd. In het volgende voor beeld ziet u de configuratie-instellingen die kunnen worden gedefinieerd voor de web-en werk rollen:
 
 ```xml
 <?xml version="1.0"?>
@@ -141,28 +134,28 @@ Het configuratiebestand van de service wordt niet geleverd met de toepassing, ma
 </ServiceConfiguration>
 ```
 
-U kunt verwijzen naar de [configuratieschema Service](/previous-versions/azure/reference/ee758710(v=azure.100)) voor een beter beeld van het XML-schema dat hier wordt gebruikt, maar hier volgt een korte uitleg van de elementen:
+U kunt het schema voor [Service configuratie](/previous-versions/azure/reference/ee758710(v=azure.100)) raadplegen voor een beter inzicht in het XML-schema dat hier wordt gebruikt, maar hier volgt een korte uitleg van de elementen:
 
-**exemplaren**  
-Hiermee configureert u het aantal actieve instanties voor de rol. Om te voorkomen dat uw cloudservice mogelijk niet langer beschikbaar is tijdens upgrades, is het raadzaam dat u meer dan één exemplaar van uw web gerichte rollen implementeren. Meer dan één exemplaar implementeert, u voldoet aan de richtlijnen in de [Azure Compute-Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/), die garandeert dat externe connectiviteit van 99,95% voor internetgerichte rollen wanneer twee of meer rolinstanties geïmplementeerd voor een service.
+**Vaak**  
+Hiermee configureert u het aantal actieve instanties voor de rol. Om te voor komen dat uw Cloud service mogelijk niet meer beschikbaar is tijdens upgrades, is het raadzaam om meer dan één exemplaar van de webfacing-rollen te implementeren. Door meer dan één exemplaar te implementeren, moet u zich houden aan de richt lijnen in de [Azure compute service level Agreement (Sla)](https://azure.microsoft.com/support/legal/sla/), die 99,95% externe connectiviteit voor Internet gerichte rollen garandeert wanneer twee of meer rolinstanties voor een service worden geïmplementeerd. .
 
 **ConfigurationSettings**  
-Hiermee configureert u de instellingen voor de exemplaren die worden uitgevoerd voor een rol. De naam van de `<Setting>` elementen moeten overeenkomen met de instellingsdefinities van de in het servicedefinitiebestand.
+Hiermee configureert u de instellingen voor de actieve instanties voor een rol. De naam van de `<Setting>` elementen moet overeenkomen met de instellings definities in het service definitie bestand.
 
 **Certificaten**  
-Hiermee configureert u de certificaten die worden gebruikt door de service. Het vorige codevoorbeeld laat zien over het definiëren van het certificaat voor de RemoteAccess-module. De waarde van de *vingerafdruk* kenmerk moet worden ingesteld op de vingerafdruk van het certificaat te gebruiken.
+Hiermee configureert u de certificaten die door de service worden gebruikt. Het vorige code voorbeeld laat zien hoe u het certificaat voor de RemoteAccess-module definieert. De waarde van het kenmerk *vinger afdruk* moet worden ingesteld op de vinger afdruk van het certificaat dat moet worden gebruikt.
 
 <p/>
 
 > [!NOTE]
-> De vingerafdruk van het certificaat kan worden toegevoegd aan het configuratiebestand met behulp van een teksteditor. Of de waarde kan worden toegevoegd op het **certificaten** tabblad van de **eigenschappen** pagina van de functie in Visual Studio.
+> De vinger afdruk voor het certificaat kan worden toegevoegd aan het configuratie bestand met behulp van een tekst editor. Of de waarde kan worden toegevoegd op het tabblad **certificaten** van de pagina **Eigenschappen** van de rol in Visual Studio.
 > 
 > 
 
-## <a name="defining-ports-for-role-instances"></a>Poorten voor rolinstanties definiëren
-Met Azure kunt slechts één beginpunt voor een Webrol. Wat betekent dat al het verkeer via een IP-adres plaatsvindt. U kunt uw websites voor het delen van een poort door het configureren van de host-header om de aanvraag om de juiste locatie te configureren. U kunt ook uw toepassingen om te luisteren naar bekende poorten op het IP-adres configureren.
+## <a name="defining-ports-for-role-instances"></a>Poorten definiëren voor rolinstanties
+Azure staat slechts één toegangs punt toe voor een webrole. Dit betekent dat alle verkeer plaatsvindt via één IP-adres. U kunt uw websites zo configureren dat deze een poort delen door de hostheader zo te configureren dat de aanvraag naar de juiste locatie wordt geleid. U kunt uw toepassingen ook configureren om te Luis teren naar bekende poorten op het IP-adres.
 
-Het volgende voorbeeld ziet u de configuratie voor een Webrol aan een toepassing website en webtoepassingen. De website is geconfigureerd als de standaardlocatie voor de vermelding op poort 80 en de web-apps worden geconfigureerd voor het ontvangen van aanvragen van een alternatieve host-header met de naam 'mail.mysite.cloudapp.net'.
+In het volgende voor beeld ziet u de configuratie voor een webrole met een website en web-app. De website is geconfigureerd als de standaard locatie voor invoer op poort 80 en de webtoepassingen worden geconfigureerd voor het ontvangen van aanvragen van een alternatieve host-header met de naam ' mail.mysite.cloudapp.net '.
 
 ```xml
 <WebRole>
@@ -197,55 +190,55 @@ Het volgende voorbeeld ziet u de configuratie voor een Webrol aan een toepassing
 ```
 
 
-## <a name="changing-the-configuration-of-a-role"></a>Wijzigen van de configuratie van een rol
-U kunt de configuratie van uw cloudservice bijwerken terwijl deze wordt uitgevoerd in Azure, zonder de service offline. Als u wilt wijzigen van configuratie-informatie, kunt u een nieuw configuratiebestand uploaden of bewerken van het configuratiebestand in plaats en pas deze toe aan uw actieve service. De volgende wijzigingen kunnen worden gemaakt in de configuratie van een service:
+## <a name="changing-the-configuration-of-a-role"></a>De configuratie van een rol wijzigen
+U kunt de configuratie van uw Cloud service bijwerken terwijl deze wordt uitgevoerd in azure, zonder de service offline te halen. Als u configuratie-informatie wilt wijzigen, kunt u een nieuw configuratie bestand uploaden of het configuratie bestand op locatie bewerken en Toep assen op uw actieve service. De volgende wijzigingen kunnen worden aangebracht in de configuratie van een service:
 
-* **De waarden van configuratie-instellingen wijzigen**  
-  Wanneer een configuratie-instelling van wijzigingen, een rolinstantie kunt kiezen om de wijziging toepassen terwijl het exemplaar online is, of het exemplaar probleemloos herhalen en toepassen van de wijziging bij het exemplaar offline is.
-* **Wijzigen van de service-topologie van de rolinstanties**  
-  Wijzigingen in de netwerktopologie, zijn niet van invloed op exemplaren die worden uitgevoerd, behalve wanneer een exemplaar wordt verwijderd. Alle resterende exemplaren hebben doorgaans niet nodig worden gerecycled; u kunt echter recyclen rolinstanties in reactie op een wijziging in de topologie.
-* **Vingerafdruk van het certificaat wijzigen**  
-  U kunt alleen een certificaat bijwerken wanneer een rolinstantie offline is. Als een certificaat is toegevoegd, verwijderd of gewijzigd terwijl een rolinstantie online is, wordt Azure zonder problemen het exemplaar offline voor het bijwerken van het certificaat en weer online brengen nadat de wijziging voltooid is.
+* **De waarden van de configuratie-instellingen wijzigen**  
+  Wanneer een configuratie-instelling wordt gewijzigd, kan een rolinstantie ervoor kiezen de wijziging toe te passen terwijl het exemplaar online is, of om het exemplaar op de juiste wijze te recyclen en de wijziging toe te passen terwijl het exemplaar offline is.
+* **De service topologie van rolinstanties wijzigen**  
+  De topologie wijzigingen hebben geen invloed op actieve instanties, behalve wanneer een exemplaar wordt verwijderd. Alle overige instanties hoeven over het algemeen niet te worden gerecycled. u kunt er echter voor kiezen om rolinstanties te recyclen als reactie op een wijziging in de topologie.
+* **De vinger afdruk van het certificaat wijzigen**  
+  U kunt een certificaat alleen bijwerken wanneer een rolinstantie offline is. Als een certificaat wordt toegevoegd, verwijderd of gewijzigd terwijl een rolinstantie online is, neemt Azure het exemplaar op de juiste manier offline om het certificaat bij te werken en weer online te zetten nadat de wijziging is voltooid.
 
-### <a name="handling-configuration-changes-with-service-runtime-events"></a>Wijzigingen in de configuratie met de Service Runtime-gebeurtenissen verwerken
-De [Azure Runtime Library](/previous-versions/azure/reference/mt419365(v=azure.100)) bevat de [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)) naamruimte, waarmee u klassen voor interactie met de Azure-omgeving van een rol. De [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) klasse definieert de volgende gebeurtenissen die worden gegenereerd voor en na een wijziging in de configuratie:
+### <a name="handling-configuration-changes-with-service-runtime-events"></a>Configuratie wijzigingen afhandelen met Service runtime-gebeurtenissen
+De [Azure runtime library](/previous-versions/azure/reference/mt419365(v=azure.100)) bevat de naam ruimte [micro soft. WindowsAzure. ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)) , die klassen biedt voor interactie met de Azure-omgeving vanuit een rol. De klasse [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) definieert de volgende gebeurtenissen die worden gegenereerd voor en na een configuratie wijziging:
 
-* **[Wijzigen van](/previous-versions/azure/reference/ee758134(v=azure.100)) gebeurtenis**  
-  Dit gebeurt voordat de wijziging wordt toegepast op een opgegeven exemplaar van een rol zodat u een kans om de rolinstanties indien nodig.
-* **[Gewijzigd](/previous-versions/azure/reference/ee758129(v=azure.100)) gebeurtenis**  
-  Treedt op nadat de wijziging in de configuratie is toegepast op een opgegeven exemplaar van een rol.
+* **Gebeurtenis [wijzigen](/previous-versions/azure/reference/ee758134(v=azure.100))**  
+  Dit gebeurt voordat de configuratie wijziging wordt toegepast op een opgegeven exemplaar van een rol, zodat u zo nodig de rolinstanties kunt door voeren.
+* **[Gewijzigde](/previous-versions/azure/reference/ee758129(v=azure.100)) gebeurtenis**  
+  Deze gebeurtenis treedt op nadat de configuratie wijziging is toegepast op een opgegeven exemplaar van een rol.
 
 > [!NOTE]
-> Omdat het certificaat wijzigingen worden altijd de exemplaren van een rol offline, doen ze niet de gebeurtenissen RoleEnvironment.Changing of RoleEnvironment.Changed verhogen.
+> Omdat certificaat wijzigingen altijd de instanties van een rol offline nemen, worden de RoleEnvironment. changed of RoleEnvironment. gewijzigde gebeurtenissen niet verhoogd.
 > 
 > 
 
 <a name="cspkg"></a>
 
 ## <a name="servicepackagecspkg"></a>ServicePackage.cspkg
-Als u wilt een toepassing als een cloudservice in Azure implementeert, moet u eerst inpakken van de toepassing in de juiste indeling. U kunt de **CSPack** opdrachtregel-hulpprogramma (geïnstalleerd met de [Azure SDK](https://azure.microsoft.com/downloads/)) te maken van het pakketbestand als alternatief voor Visual Studio.
+Als u een toepassing als een Cloud service in azure wilt implementeren, moet u de toepassing eerst in de juiste indeling inpakken. U kunt het opdracht regel programma **CSPack** (geïnstalleerd met de Azure- [SDK](https://azure.microsoft.com/downloads/)) gebruiken om het pakket bestand te maken als een alternatief voor Visual Studio.
 
-**CSPack** de inhoud van het servicedefinitiebestand en het configuratiebestand gebruikt voor het definiëren van de inhoud van het pakket. **CSPack** genereert van een toepassing-pakketbestand (.cspkg) die u uploaden naar Azure met behulp van kunt de [Azure-portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Standaard wordt het pakket met de naam `[ServiceDefinitionFileName].cspkg`, maar u kunt een andere naam opgeven met behulp van de `/out` optie van **CSPack**.
+**CSPack** maakt gebruik van de inhoud van het service definitie bestand en service configuratie bestand om de inhoud van het pakket te definiëren. **CSPack** genereert een toepassings pakket bestand (. cspkg) dat u naar Azure kunt uploaden met behulp van de [Azure Portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Het pakket `[ServiceDefinitionFileName].cspkg`heet standaard, maar u kunt een andere naam opgeven met behulp van de `/out` optie **CSPack**.
 
-**CSPack** bevindt zich in  
+**CSPack** bevindt zich op  
 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
 
 > [!NOTE]
-> CSPack.exe (op windows) is beschikbaar door het uitvoeren van de **Microsoft Azure-opdrachtprompt** snelkoppeling die is geïnstalleerd met de SDK.  
+> CSPack. exe (in Windows) is beschikbaar door de **Microsoft Azure opdracht prompt** snelkoppeling uit te voeren die met de SDK is geïnstalleerd.  
 > 
-> Voer het programma CSPack.exe zelf om te zien van de documentatie over de mogelijke switches en opdrachten.
+> Voer het programma CSPack. exe zelf uit om documentatie over alle mogelijke switches en opdrachten te bekijken.
 > 
 > 
 
 <p />
 
 > [!TIP]
-> Uitvoeren van uw cloudservice lokaal in de **Microsoft Azure-Rekenemulator**, gebruikt u de **/copyonly** optie. Deze optie kopieert de binaire bestanden voor de toepassing naar een map lay-out van waaruit ze kunnen worden uitgevoerd in de rekenemulator.
+> Voer uw Cloud service lokaal uit in de **Microsoft Azure Compute-emulator**en gebruik de optie **/copyonly** . Met deze optie kopieert u de binaire bestanden voor de toepassing naar een directory-indeling van waaruit ze kunnen worden uitgevoerd in de compute emulator.
 > 
 > 
 
-### <a name="example-command-to-package-a-cloud-service"></a>Van de voorbeeldopdracht naar een cloudservice verpakken
-Het volgende voorbeeld wordt een toepassingspakket met de gegevens voor een Webrol. De opdracht geeft u het servicedefinitiebestand moet worden gebruikt, de map waar de binaire bestanden kunnen worden gevonden, en de naam van het pakketbestand.
+### <a name="example-command-to-package-a-cloud-service"></a>Voorbeeld opdracht voor het inpakken van een Cloud service
+In het volgende voor beeld wordt een toepassings pakket gemaakt dat de informatie voor een webrole bevat. De opdracht geeft het service definitie bestand op dat moet worden gebruikt, de map waar binaire bestanden kunnen worden gevonden en de naam van het pakket bestand.
 
 ```cmd
 cspack [DirectoryName]\[ServiceDefinition]
@@ -254,7 +247,7 @@ cspack [DirectoryName]\[ServiceDefinition]
        /out:[OutputFileName]
 ```
 
-Als de toepassing zowel een Webrol en een werkrol bevat, wordt de volgende opdracht gebruikt:
+Als de toepassing zowel een webrole als een worker-rol bevat, wordt de volgende opdracht gebruikt:
 
 ```cmd
 cspack [DirectoryName]\[ServiceDefinition]
@@ -264,31 +257,31 @@ cspack [DirectoryName]\[ServiceDefinition]
        /role:[RoleName];[RoleBinariesDirectory];[RoleAssemblyName]
 ```
 
-Waar de variabelen worden als volgt gedefinieerd:
+Waar de variabelen als volgt worden gedefinieerd:
 
-| Variabele | Value |
+| Variabele | Waarde |
 | --- | --- |
-| \[DirectoryName\] |De submap onder de hoofdmap van het project die het .csdef-bestand van de Azure-project bevat. |
-| \[ServiceDefinition\] |De naam van het servicedefinitiebestand. Standaard is dit bestand de naam ServiceDefinition.csdef. |
-| \[OutputFileName\] |De naam voor de gegenereerde pakketbestand. Dit is normaal gesproken ingesteld op de naam van de toepassing. Als er geen bestandsnaam is opgegeven, het toepassingspakket is gemaakt als \[ApplicationName\].cspkg. |
-| \[RoleName\] |De naam van de rol zoals gedefinieerd in het servicedefinitiebestand. |
+| \[DirectoryName\] |De submap onder de hoofdmap van het project met het. csdef-bestand van het Azure-project. |
+| \[ServiceDefinition\] |De naam van het service definitie bestand. Dit bestand heeft standaard de naam ServiceDefinition. csdef. |
+| \[OutputFileName\] |De naam voor het gegenereerde pakket bestand. Dit wordt doorgaans ingesteld op de naam van de toepassing. Als er geen bestands naam is opgegeven, wordt het toepassings pakket gemaakt \[als\]ApplicationName. cspkg. |
+| \[RoleName\] |De naam van de rol zoals gedefinieerd in het service definitie bestand. |
 | \[RoleBinariesDirectory] |De locatie van de binaire bestanden voor de rol. |
-| \[VirtualPath\] |De fysieke mappen voor elke virtuele pad dat is gedefinieerd in de sectie van de site van de definitie van de service. |
-| \[PhysicalPath\] |De fysieke mappen van de inhoud voor elke virtuele pad dat is gedefinieerd in het siteknooppunt van de definitie van de service. |
+| \[VirtualPath\] |De fysieke mappen voor elk virtueel pad dat is gedefinieerd in de sectie sites van de service definitie. |
+| \[PhysicalPath\] |De fysieke mappen van de inhoud voor elk virtueel pad dat is gedefinieerd in het knoop punt site van de service definitie. |
 | \[RoleAssemblyName\] |De naam van het binaire bestand voor de rol. |
 
 ## <a name="next-steps"></a>Volgende stappen
-Ik ben een cloud service-pakket wordt gemaakt en ik wil...
+Ik maak een Cloud service pakket en ik wil...
 
-* [Extern bureaublad voor een cloud service-exemplaar instellen][remotedesktop]
-* [Een project voor de Service in de Cloud implementeren][deploy]
+* [Extern bureau blad instellen voor een Cloud service-exemplaar][remotedesktop]
+* [Een Cloud service project implementeren][deploy]
 
 Ik gebruik Visual Studio en ik wil...
 
-* [Een nieuwe cloudservice maken][vs_create]
-* [Een bestaande cloudservice configureren][vs_reconfigure]
-* [Een project voor de Service in de Cloud implementeren][vs_deploy]
-* [Extern bureaublad voor een cloud service-exemplaar instellen][vs_remote]
+* [Een nieuwe Cloud service maken][vs_create]
+* [Een bestaande Cloud service opnieuw configureren][vs_reconfigure]
+* [Een Cloud service project implementeren][vs_deploy]
+* [Extern bureau blad instellen voor een Cloud service-exemplaar][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md

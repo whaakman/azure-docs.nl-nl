@@ -1,5 +1,5 @@
 ---
-title: Bouw een .NET web-API die is geïntegreerd met Azure AD voor verificatie en autorisatie | Microsoft Docs
+title: Een .NET-Web-API maken met Azure AD voor verificatie en autorisatie | Microsoft Docs
 description: Zo bouwt u een .NET MVC web-API die is geïntegreerd met Azure Active Directory voor verificatie en autorisatie.
 services: active-directory
 documentationcenter: .net
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38728bbeb4376e1584b3cb22c9a93c4fb63efc1d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a7891ea6aa2dbe10456c701b5e0216117f6ed27b
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321078"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380709"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Quickstart: Bouw een .NET web-API die is geïntegreerd met Azure Active Directory voor verificatie en autorisatie
 

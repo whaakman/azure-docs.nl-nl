@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c6ec16d50990b066f8b5c487c5c1f5452622eaf
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: edda3b6d669bf78fc4febbe993bc30c244abeeeb
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321093"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334162"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snelstart: Aanmelding met Microsoft toevoegen aan een ASP.NET-web-app
 
@@ -200,3 +200,8 @@ Volg de ASP.NET-zelfstudie voor een volledige stapsgewijze handleiding voor het 
 > [Zelfstudie Aanmelding](./tutorial-v2-asp-webapp.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Help ons het micro soft Identity-platform te verbeteren. Vertel ons wat u denkt door een korte enquête met twee vragen te volt ooien.
+
+> [!div class="nextstepaction"]
+> [Micro soft Identity platform-enquête](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

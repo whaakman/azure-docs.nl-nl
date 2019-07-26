@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 766208c01f27d2024025b7a202bc3724b4fc9fff
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 28b9c8f343437c20e277d2f3ba53767afa45a5c2
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311838"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501259"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Veelgestelde vragen over Media Services v3
 
@@ -110,28 +110,6 @@ Vaak klanten in een serverfarm licentie geïnvesteerd in hun eigen Datacenter of
 
 * STS moet uitgeven van tokens die worden geaccepteerd en kunnen worden gecontroleerd door de licentie voor server-farm. De Widevine-licentieservers geleverd door Axinom vereisen bijvoorbeeld een specifieke JWT die een bericht rechten bevat. Daarom moet u een STS om uit te geven die een JWT hebben. 
 * U moet niet meer licentieleveringsservice configureren in Media Services. U moet de licentie overname URL's opgeven (voor PlayReady, Widevine en FairPlay) wanneer u ContentKeyPolicies configureert.
-
-### <a name="what-if-i-want-to-use-a-custom-sts"></a>Wat gebeurt er als ik wil een aangepaste STS gebruiken?
-
-Een klant kan kiezen voor een aangepaste STS JWTs opgeven. Redenen zijn:
-
-* STS biedt geen ondersteuning voor de id-provider die wordt gebruikt door de klant. In dit geval een aangepaste STS mogelijk een optie.
-* De klant mogelijk meer flexibele of betere controle STS integreren met de klant abonnee factureringssysteem. Bijvoorbeeld, een operator MVPD biedt mogelijk meerdere OTT-abonnee pakketten, zoals basic, premium en sport. De operator wilt overeenkomen met de claims in een token met de abonnee pakket zodat alleen de inhoud in een specifiek pakket beschikbaar worden gesteld. In dit geval een aangepaste STS biedt de benodigde flexibiliteit en controle.
-
-Wanneer u een aangepaste STS, moet twee worden gewijzigd:
-
-* Wanneer u een service voor het leveren van licenties voor een asset configureert, moet u opgeven de beveiligingssleutel gebruikt voor verificatie door de aangepaste STS in plaats van de huidige sleutel van Azure AD. (Meer informatie volgt.) 
-* Wanneer een JTW-token wordt gegenereerd, een beveiligingssleutel is opgegeven in plaats van de persoonlijke sleutel van de huidige X509 certificaat in Azure AD.
-
-Er zijn twee soorten sleutels:
-
-* Symmetrische sleutel: Dezelfde sleutel wordt gebruikt om een JWT te genereren en te verifiëren.
-* Asymmetrische sleutel: Een combi natie van open bare en persoonlijke sleutels in een x509-certificaat wordt gebruikt met een persoonlijke sleutel voor het versleutelen/genereren van een JWT en met de open bare sleutel om het token te verifiëren.
-
-> [!NOTE]
-> Als u .NET Framework / C# als uw ontwikkelplatform, de X509 certificaat dat wordt gebruikt voor een asymmetrische beveiligingssleutel moet een sleutellengte van ten minste 2048 hebben. Dit is een vereiste van de klasse System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. Anders is de volgende uitzondering opgetreden:
-> 
-> IDX10630: De ' System. Identity model. tokens. X509AsymmetricSecurityKey ' voor ondertekening mag niet kleiner zijn dan ' 2048 ' bits.
 
 ## <a name="media-services-v2-vs-v3"></a>Media Services v2 VS v3 
 

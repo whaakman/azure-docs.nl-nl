@@ -1,119 +1,118 @@
 ---
-title: Beveiligingsfuncties die u helpen hybride back-ups die gebruikmaken van Azure back-up beveiligen
-description: Informatie over het gebruik van de beveiligingsfuncties in Azure Backup back-ups om veiliger te maken
-services: backup
+title: Beveiligings functies voor het beveiligen van hybride back-ups die gebruikmaken van Azure Backup
+description: Meer informatie over het gebruik van beveiligings functies in Azure Backup om back-ups veiliger te maken
 author: utraghuv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: utraghuv
-ms.openlocfilehash: eaa0c0dc45b37491cd55033b49e2f78d219d416b
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 1e643e74f35b381dfb329453d81615bc69785ed7
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565722"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465402"
 ---
-# <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Beveiligingsfuncties die u helpen hybride back-ups die gebruikmaken van Azure back-up beveiligen
-Opmerkingen over beveiligingsproblemen, zoals malware, ransomware en inbraakdetectie, verhogen. Deze beveiligingsproblemen met zich mee kunnen erg kostbaar zijn, in termen van gegevens en geld. Als u wilt beveiligen tegen dergelijke aanvallen, biedt Azure Backup nu beveiligingsfuncties ter bescherming van hybride back-ups. In dit artikel wordt uitgelegd hoe u inschakelen en gebruiken van deze functies, met behulp van een Azure Recovery Services-agent en de Azure Backup Server. Deze functies omvatten onder andere:
+# <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Beveiligings functies voor het beveiligen van hybride back-ups die gebruikmaken van Azure Backup
+Problemen met betrekking tot beveiligings problemen, zoals malware, Ransomware en indringing, worden verhoogd. Deze beveiligings problemen kunnen kostbaar zijn, zowel voor geld als voor gegevens. Azure Backup biedt nu beveiligings functies waarmee hybride back-ups kunnen worden beveiligd tegen dergelijke aanvallen. In dit artikel wordt beschreven hoe u deze functies kunt inschakelen en gebruiken met behulp van een Azure Recovery Services-agent en Azure Backup Server. Deze functies omvatten onder andere:
 
-- **Preventie**. Een extra verificatielaag wordt toegevoegd wanneer er een kritieke bewerking zoals het wijzigen van een wachtwoordzin wordt uitgevoerd. Deze validatie is om ervoor te zorgen dat deze bewerkingen kunnen worden uitgevoerd door gebruikers met geldig Azure-referenties.
-- **Waarschuwingen**. Een e-mailmelding verzonden naar de beheerder van abonnement telkens wanneer een kritieke bewerking, zoals back-upgegevens verwijderen wordt uitgevoerd. Dit e-mailbericht zorgt ervoor dat de gebruiker snel wordt geïnformeerd over deze acties.
-- **Recovery**. Verwijderde back-upgegevens worden bewaard voor een extra veertien dagen vanaf de datum van de verwijdering. Dit zorgt ervoor dat herstel van de gegevens binnen een bepaalde periode, zodat er zonder verlies van gegevens, zelfs als een aanval plaatsvindt. Ook worden een groter aantal minimale herstelpunten bewaard ter bescherming tegen beschadigde gegevens.
-
-> [!NOTE]
-> Beveiligingsfuncties mag niet worden ingeschakeld als u infrastructuur als een service (IaaS)-VM back-up. Deze functies nog niet beschikbaar voor IaaS VM backup, zodat dit van invloed is niet om hen in staat hoeven wordt. Beveiligingsfuncties die moeten worden ingeschakeld, alleen als u gebruikmaakt van: <br/>
->  * **Azure backup-agent**. Agentversie 2.0.9052 van de minimale. Nadat u deze functies hebt ingeschakeld, moet u upgraden naar deze versie van agent kritieke bewerkingen uit te voeren. <br/>
->  * **Azure Backup Server**. Minimale Azure Backup-agentversie 2.0.9052 met Azure Backup Server-update 1. <br/>
->  * **System Center Data Protection Manager**. Azure Backup agent minimumversie 2.0.9052 met Data Protection Manager 2012 R2 UR12 of Data Protection Manager 2016 UR2. <br/>
-
+- **Preventie**. Er wordt een extra beveiligingslaag toegevoegd wanneer een kritieke bewerking wordt uitgevoerd, zoals het wijzigen van een wachtwoordzin. Deze validatie is om ervoor te zorgen dat dergelijke bewerkingen alleen kunnen worden uitgevoerd door gebruikers die geldige Azure-referenties hebben.
+- **Waarschuwing**. Er wordt een e-mail melding verzonden naar de abonnements beheerder wanneer er een kritieke bewerking wordt uitgevoerd, zoals het verwijderen van back-upgegevens. Dit e-mail bericht zorgt ervoor dat de gebruiker snel op de hoogte wordt gebracht van dergelijke acties.
+- **Herstel**. Verwijderde back-upgegevens worden nog 14 dagen na de verwijdering bewaard. Dit waarborgt de herstel baarheid van de gegevens binnen een bepaalde periode, zodat er geen gegevens verloren gaan, zelfs als er een aanval plaatsvindt. Daarnaast worden er voor het beveiligen van beschadigde gegevens een groter aantal minimale herstel punten onderhouden.
 
 > [!NOTE]
-> Deze functies zijn alleen beschikbaar voor Recovery Services-kluis. Alle gemaakte Recovery Services-kluizen hebben deze functies standaard ingeschakeld. Voor bestaande Recovery Services-kluizen inschakelen gebruikers deze functies met behulp van de stappen in de volgende sectie. Nadat de functies zijn ingeschakeld, ze van toepassing op alle Recovery Services agentcomputers, Azure Backup Server-instanties, en Data Protection Manager-servers geregistreerd bij de kluis. Als u deze instelling inschakelt, is een eenmalige bewerking en kunt u deze functies niet uitschakelen nadat deze is ingeschakeld.
+> Beveiligings functies mogen niet worden ingeschakeld als u een IaaS-back-up (Infrastructure as a Service) gebruikt. Deze functies zijn nog niet beschikbaar voor IaaS VM-back-up, dus het inschakelen ervan heeft geen gevolgen. Beveiligings functies moeten alleen worden ingeschakeld als u het volgende gebruikt: <br/>
+>  * **Azure backup-agent**. Minimale agent versie 2.0.9052. Nadat u deze functies hebt ingeschakeld, moet u een upgrade uitvoeren naar deze agent versie om kritieke bewerkingen uit te voeren. <br/>
+>  * **Azure backup server**. Minimale 2.0.9052-versie van Azure Backup Agent met Azure Backup Server Update 1. <br/>
+>  * **Data Protection Manager van System Center**. Mini maal Azure Backup Agent versie 2.0.9052 met Data Protection Manager 2012 R2 UR12 of Data Protection Manager 2016 UR2. <br/>
+
+
+> [!NOTE]
+> Deze functies zijn alleen beschikbaar voor Recovery Services kluis. Voor alle nieuw gemaakte Recovery Services-kluizen zijn deze functies standaard ingeschakeld. Voor bestaande Recovery Services kluizen kunnen gebruikers deze functies inschakelen met behulp van de stappen die in de volgende sectie worden beschreven. Nadat de functies zijn ingeschakeld, zijn deze van toepassing op alle Recovery Services agent computers, Azure Backup Server instanties en Data Protection Manager servers die zijn geregistreerd bij de kluis. Het inschakelen van deze instelling is een eenmalige actie en u kunt deze functies niet uitschakelen nadat ze zijn ingeschakeld.
 >
 
 ## <a name="enable-security-features"></a>Beveiligingsfuncties inschakelen
-Als u een Recovery Services-kluis maakt, kunt u de beveiligingsfuncties. Als u met een bestaande kluis werkt, kunt u beveiligingsfuncties inschakelen door de volgende stappen:
+Als u een Recovery Services kluis maakt, kunt u alle beveiligings functies gebruiken. Als u met een bestaande kluis werkt, schakelt u de beveiligings functies in door de volgende stappen uit te voeren:
 
-1. Meld u bij Azure portal met behulp van uw Azure-referenties.
-2. Selecteer **Bladeren**, en het type **herstelservices**.
+1. Meld u aan bij de Azure Portal met uw Azure-referenties.
+2. Selecteer **Bladeren**en typ **Recovery Services**.
 
-    ![Schermafbeelding van de Azure portal bladeroptie](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
+    ![Scherm afbeelding van de optie Azure Portal bladeren](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
-    De lijst met Recovery Services-kluizen wordt weergegeven. In deze lijst, selecteer een kluis. Het geselecteerde kluisdashboard wordt geopend.
-3. In de lijst met items dat wordt weergegeven op de kluis onder **instellingen**, klikt u op **eigenschappen**.
+    De lijst met Recovery Services-kluizen wordt weergegeven. Selecteer een kluis in deze lijst. Het geselecteerde kluisdashboard wordt geopend.
+3. Klik in de lijst met items die wordt weer gegeven onder de kluis, onder **instellingen**op **Eigenschappen**.
 
-    ![Schermafbeelding van de Recovery Services-kluis opties](./media/backup-azure-security-feature/vault-list-properties.png)
-4. Onder **beveiligingsinstellingen**, klikt u op **Update**.
+    ![Scherm afbeelding van Recovery Services kluis opties](./media/backup-azure-security-feature/vault-list-properties.png)
+4. Klik onder **beveiligings instellingen**op **bijwerken**.
 
-    ![Schermafbeelding van de Recovery Services-kluis eigenschappen](./media/backup-azure-security-feature/security-settings-update.png)
+    ![Scherm afbeelding van Recovery Services kluis eigenschappen](./media/backup-azure-security-feature/security-settings-update.png)
 
-    Hiermee opent u de koppeling voor het bijwerken de **beveiligingsinstellingen** blade die bevat een samenvatting van de functies en kunt u ze inschakelen.
-5. In de lijst vervolgkeuzelijst **hebt u Azure multi-factor Authentication?** , selecteert u een waarde om te bevestigen of u hebt ingeschakeld [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Als deze is ingeschakeld, wordt u gevraagd om u te verifiëren vanaf een ander apparaat (bijvoorbeeld een mobiele telefoon) tijdens het aanmelden bij de Azure-portal.
+    Met de koppeling bijwerken wordt de Blade **beveiligings instellingen** geopend. Deze bevat een samen vatting van de functies en kunt u deze inschakelen.
+5. In de vervolg keuzelijst **hebt u Azure multi-factor Authentication geconfigureerd?** Selecteer een waarde om te bevestigen of [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md)is ingeschakeld. Als deze functie is ingeschakeld, wordt u gevraagd om u te verifiëren vanaf een ander apparaat (bijvoorbeeld een mobiele telefoon) terwijl u zich aanmeldt bij de Azure Portal.
 
-   Wanneer u kritieke bewerkingen in de back-up uitvoert, hebt u een beveiligingspincode invoeren, beschikbaar via Azure portal. Azure multi-factor Authentication inschakelen, voegt een beveiligingslaag toe. Alleen gebruikers met geldig Azure-referenties geautoriseerde, en is geverifieerd vanaf een tweede apparaat, hebben toegang tot de Azure-portal.
-6. Selecteren om op te slaan beveiligingsinstellingen, **inschakelen** en klikt u op **opslaan**. U kunt selecteren **inschakelen** pas nadat u een waarde van de **hebt u Azure multi-factor Authentication?** lijst in de vorige stap.
+   Wanneer u kritieke bewerkingen in een back-up uitvoert, moet u een beveiligings pincode invoeren die beschikbaar is op de Azure Portal. Het inschakelen van Azure multi-factor Authentication voegt een beveiligingslaag toe. Alleen geautoriseerde gebruikers met geldige Azure-referenties en vanaf een tweede apparaat worden geverifieerd, hebben toegang tot de Azure Portal.
+6. Als u de beveiligings instellingen wilt opslaan, selecteert u **inschakelen** en klikt u op **Opslaan**. U kunt alleen **inschakelen** selecteren nadat u een waarde hebt geselecteerd in de lijst **hebt u Azure multi-factor Authentication hebt geconfigureerd?** in de vorige stap.
 
-    ![Schermafbeelding van de beveiligingsinstellingen](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
+    ![Scherm opname van beveiligings instellingen](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## <a name="recover-deleted-backup-data"></a>Verwijderde back-upgegevens herstellen
-Back-up verwijderde back-upgegevens worden bewaard een extra 14 dagen en wordt niet verwijderd onmiddellijk als de **back-up stoppen met de back-upgegevens verwijderen** bewerking wordt uitgevoerd. Als u deze gegevens herstellen in de periode van 14 dagen, de volgende stappen, afhankelijk van wat u gebruikt:
+Back-ups behouden de verwijderde back-upgegevens gedurende een extra 14 dagen en worden niet onmiddellijk verwijderd als de bewerking **back-up stoppen met verwijderen van back-upgegevens** wordt uitgevoerd. Als u deze gegevens in de periode van 14 dagen wilt herstellen, voert u de volgende stappen uit, afhankelijk van wat u gebruikt:
 
-Voor **Azure Recovery Services-agent** gebruikers:
+Voor gebruikers van **Azure Recovery Services agent** :
 
-1. Als de computer waar de back-ups zijn gebeurt nog steeds beschikbaar is, de verwijderde gegevensbronnen opnieuw te beveiligen en gebruiken de [gegevens op dezelfde computer herstellen](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) in de Azure Recovery Services, om van de oude herstelpunten te herstellen.
-2. Als deze computer niet beschikbaar is, gebruikt u [herstellen naar een alternatieve machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) aan het gebruik van een andere Azure Recovery Services-computer om deze gegevens.
+1. Als de computer waarop back-ups werden gemaakt, nog steeds beschikbaar is, moet u de verwijderde gegevens bronnen opnieuw beveiligen en de [herstel gegevens gebruiken op dezelfde machine](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) in azure Recovery Services om alle oude herstel punten te herstellen.
+2. Als deze computer niet beschikbaar is, gebruikt u [herstellen naar een andere computer](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) om een andere Azure Recovery Services computer te gebruiken om deze gegevens op te halen.
 
-Voor **Azure Backup Server** gebruikers:
+Voor **Azure backup server** gebruikers:
 
-1. Als de server waar de back-ups zijn gebeurt nog steeds beschikbaar is, de verwijderde gegevensbronnen opnieuw te beveiligen en gebruiken de **gegevens herstellen** functie om van de oude herstelpunten te herstellen.
-2. Als deze server niet beschikbaar is, gebruikt u [gegevens herstellen vanaf een andere Azure Backup Server](backup-azure-alternate-dpm-server.md) naar een ander exemplaar van Azure Backup Server gebruiken deze gegevens op te halen.
+1. Als de server waarop back-ups werden gemaakt, nog steeds beschikbaar is, moet u de verwijderde gegevens bronnen opnieuw beveiligen en de functie **gegevens herstellen** gebruiken om alle oude herstel punten te herstellen.
+2. Als deze server niet beschikbaar is, gebruikt u [gegevens herstellen van een andere Azure backup server](backup-azure-alternate-dpm-server.md) om een ander Azure Backup Server exemplaar te gebruiken om deze gegevens op te halen.
 
 Voor **Data Protection Manager** gebruikers:
 
-1. Als de server waar de back-ups zijn gebeurt nog steeds beschikbaar is, de verwijderde gegevensbronnen opnieuw te beveiligen en gebruiken de **gegevens herstellen** functie om van de oude herstelpunten te herstellen.
-2. Als deze server niet beschikbaar is, gebruikt u [externe DPM toevoegen](backup-azure-alternate-dpm-server.md) naar een andere Data Protection Manager-server gebruikt deze gegevens op te halen.
+1. Als de server waarop back-ups werden gemaakt, nog steeds beschikbaar is, moet u de verwijderde gegevens bronnen opnieuw beveiligen en de functie **gegevens herstellen** gebruiken om alle oude herstel punten te herstellen.
+2. Als deze server niet beschikbaar is, gebruikt u [externe DPM toevoegen](backup-azure-alternate-dpm-server.md) om een andere Data Protection Manager server te gebruiken om deze gegevens op te halen.
 
-## <a name="prevent-attacks"></a>Aanvallen te voorkomen
-Controles zijn toegevoegd om ervoor te zorgen dat alleen geldige gebruikers verschillende bewerkingen kunnen uitvoeren. Deze omvatten een extra verificatielaag toe te voegen en onderhouden van een minimale bewaartermijn voor hersteldoeleinden.
+## <a name="prevent-attacks"></a>Aanvallen voor komen
+Er zijn controles toegevoegd om ervoor te zorgen dat alleen geldige gebruikers verschillende bewerkingen kunnen uitvoeren. Dit omvat het toevoegen van een extra laag voor verificatie en het onderhouden van een minimale Bewaar termijn voor herstel doeleinden.
 
-### <a name="authentication-to-perform-critical-operations"></a>Verificatie kritieke bewerkingen uit te voeren
-Als onderdeel van het toevoegen van een extra verificatielaag voor essentiële bewerkingen u wordt gevraagd een beveiligingspincode invoeren bij het uitvoeren van **beveiliging stoppen en verwijder gegevens** en **wijziging wachtwoordzin** bewerkingen.
+### <a name="authentication-to-perform-critical-operations"></a>Verificatie voor het uitvoeren van kritieke bewerkingen
+Als onderdeel van het toevoegen van een extra verificatie niveau voor kritieke bewerkingen, wordt u gevraagd een beveiligings pincode op te geven wanneer u de **beveiliging stoppen met gegevens verwijderen** en **wachtwoordzin wijzigen wijzigt** .
 
 > [!NOTE]
 > 
-> Beveiligingspincode wordt momenteel niet ondersteund voor **beveiliging stoppen en verwijder gegevens** voor DPM en MABS.
+> Op dit moment wordt de beveiliging pincode niet ondersteund voor het stoppen van de **beveiliging met Verwijder gegevens** voor dpm en MABS.
 
-Voor het ontvangen van deze PINCODE:
+Deze pincode ontvangen:
 
 1. Meld u aan bij Azure Portal.
-2. Blader naar **Recovery Services-kluis** > **instellingen** > **eigenschappen**.
-3. Onder **BEVEILIGINGSPINCODE**, klikt u op **genereren**. Hiermee opent u een blade met de PINCODE moet worden ingevoerd in de gebruikersinterface van de Azure Recovery Services-agent.
-    Deze PINCODE slechts vijf minuten geldig is en deze automatisch wordt gegenereerd na die periode.
+2. Blader naar **Recovery Services** > **Eigenschappen**van de kluis**instellingen** > .
+3. Klik onder **BEVEILIGINGS pincode**op **genereren**. Hiermee opent u een Blade die de pincode bevat die moet worden ingevoerd in de gebruikers interface van de Azure Recovery Services-agent.
+    Deze pincode is slechts vijf minuten geldig en wordt na die periode automatisch gegenereerd.
 
-### <a name="maintain-a-minimum-retention-range"></a>Een minimale bewaartermijn onderhouden
-Om ervoor te zorgen dat er altijd een geldig aantal herstelpunten beschikbaar zijn, zijn de volgende controles toegevoegd:
+### <a name="maintain-a-minimum-retention-range"></a>Een minimale Bewaar termijn onderhouden
+Om ervoor te zorgen dat er altijd een geldig aantal herstel punten beschikbaar is, zijn de volgende controles toegevoegd:
 
-- Voor het bewaren van dagelijkse, een minimum van **zeven** dagen retentie moeten worden uitgevoerd.
-- Voor het bewaren van wekelijks, een minimum van **vier** weken na de bewaarperiode moeten worden uitgevoerd.
-- Voor het bewaren van maandelijkse, een minimum van **drie** retentieperiode van maanden moeten worden uitgevoerd.
-- Voor het bewaren van jaarlijkse, een minimum van **één** jaar bewaard moet worden uitgevoerd.
+- Voor een dagelijkse Bewaar periode moet mini maal **zeven** dagen retentie worden uitgevoerd.
+- Voor een wekelijkse Bewaar periode moet er mini maal **vier** weken worden bewaard.
+- Voor een maandelijkse Bewaar periode moet er mini maal **drie** maanden worden bewaard.
+- Voor een jaarlijkse Bewaar periode moet mini maal **één** jaar van bewaren worden uitgevoerd.
 
-## <a name="notifications-for-critical-operations"></a>Meldingen voor essentiële bewerkingen
-Wanneer een kritieke bewerking wordt uitgevoerd, wordt de beheerder van abonnement normaal gesproken een e-mailmelding met informatie over de bewerking verzonden. U kunt aanvullende e-mailontvangers voor deze meldingen configureren met behulp van de Azure-portal.
+## <a name="notifications-for-critical-operations"></a>Meldingen voor kritieke bewerkingen
+Wanneer er een kritieke bewerking wordt uitgevoerd, wordt er normaal gesp roken een e-mail melding met informatie over de bewerking verzonden. U kunt aanvullende e-mail ontvangers voor deze meldingen configureren met behulp van de Azure Portal.
 
-De beveiligingsfuncties die worden vermeld in dit artikel biedt defense methoden op basis van gerichte aanvallen. Nog belangrijker, als een aanval gebeurt, bieden deze functies u de mogelijkheid om uw gegevens te herstellen.
+De beveiligings functies die in dit artikel worden vermeld, bieden verdedigings mechanismen tegen gerichte aanvallen. Als er een aanval plaatsvindt, bieden deze functies u de mogelijkheid om uw gegevens te herstellen.
 
 ## <a name="troubleshooting-errors"></a>Fouten oplossen
-| Bewerking | Foutdetails | Oplossing |
+| Bewerking | Details van fout | Oplossing |
 | --- | --- | --- |
-| Beleid wijzigen |Het back-upbeleid kan niet worden gewijzigd. Fout: De huidige bewerking is mislukt vanwege een interne servicefout [0x29834]. Probeer het later opnieuw. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen. |**Oorzaak:**<br/>Deze fout ontstaat wanneer beveiligingsinstellingen zijn ingeschakeld en u probeert te verminderen bewaartermijn hieronder de hierboven opgegeven minimumwaarden u van niet-ondersteunde versie gebruikmaakt (de ondersteunde versies zijn opgegeven in de eerste notitie van dit artikel). <br/>**Aanbevolen actie:**<br/> In dit geval moet u de bewaarperiode boven de minimale bewaartermijn opgegeven tijdsperiode (zeven dagen voor dagelijks, vier weken voor wekelijkse, drie weken voor maandelijks of één jaar voor jaarlijkse) instellen om door te gaan met het beleid gerelateerde updates. (Optioneel) de aanpak van voorkeur om bij te werken van de backup-agent, Azure Backup-Server en/of DPM UR gebruikmaken van alle beveiligingsupdates zou zijn. |
-| Wachtwoordzin wijzigen |De ingevoerde beveiligingspincode is onjuist. (ID: 100130) Geef de BEVEILIGINGSPINCODE op om deze bewerking te voltooien. |**Oorzaak:**<br/> Deze fout wordt geleverd bij het invoeren van ongeldige of verlopen BEVEILIGINGSPINCODE tijdens het uitvoeren van kritieke bewerking (zoals wachtwoordzin wijzigen). <br/>**Aanbevolen actie:**<br/> Als u wilt de bewerking is voltooid, moet u geldige BEVEILIGINGSPINCODE invoeren. Als de PINCODE, meld u aan bij Azure portal en navigeer naar de Recovery Services-kluis > Instellingen > Eigenschappen > BEVEILIGINGSPINCODE genereren. Gebruik deze PINCODE te wijzigen van de wachtwoordzin. |
-| Wachtwoordzin wijzigen |Bewerking is mislukt. ID: 120002 |**Oorzaak:**<br/>Deze fout ontstaat wanneer beveiligingsinstellingen zijn ingeschakeld, u probeert te wachtwoordzin wijzigen en u op niet-ondersteunde versie (geldige versies die zijn opgegeven in de eerste notitie van dit artikel bent).<br/>**Aanbevolen actie:**<br/> Als u wilt wijzigen wachtwoordzin, moet u eerst backup-agent bijwerken naar minimaal versie 2.0.9052 van minimale, Azure back-upserver voor minimale update 1, en/of DPM naar ten minste DPM 2012 R2 UR12 of DPM 2016 UR2 (downloadkoppelingen hieronder), en voer vervolgens geldig BEVEILIGINGSPINCODE. Als de PINCODE, meld u aan bij Azure portal en navigeer naar de Recovery Services-kluis > Instellingen > Eigenschappen > BEVEILIGINGSPINCODE genereren. Gebruik deze PINCODE te wijzigen van de wachtwoordzin. |
+| Beleids wijziging |Het back-upbeleid kan niet worden gewijzigd. Fout: De huidige bewerking is mislukt vanwege een interne service fout [0x29834]. Probeer het later opnieuw. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen. |**Wordt**<br/>Deze fout wordt weer gegeven wanneer de beveiligings instellingen zijn ingeschakeld, kunt u de Bewaar termijn verlagen onder de hierboven vermelde minimum waarden en u een niet-ondersteunde versie (ondersteunde versies zijn opgegeven in de eerste opmerking van dit artikel). <br/>**Aanbevolen actie:**<br/> In dit geval moet u de Bewaar periode instellen boven de minimale Bewaar periode (zeven dagen voor dagelijks, vier weken voor wekelijks, drie weken voor maandelijks of één jaar voor jaarlijks) om door te gaan met beleids updates. De aanbevolen benadering is om de back-upagent, Azure Backup Server en/of de DPM-UR bij te werken om alle beveiligings updates te benutten. |
+| Wachtwoordzin wijzigen |De ingevoerde beveiligings pincode is onjuist. (ID: 100130) Geef de juiste beveiligings pincode op om deze bewerking te volt ooien. |**Wordt**<br/> Deze fout treedt op wanneer u een ongeldige of verlopen beveiligings pincode invoert tijdens het uitvoeren van een kritieke bewerking (zoals wachtwoordzin wijzigen). <br/>**Aanbevolen actie:**<br/> Als u de bewerking wilt volt ooien, moet u een geldige beveiligings pincode opgeven. Als u de pincode wilt ontvangen, meldt u zich aan bij Azure Portal en navigeert u naar Recovery Services kluis > Instellingen > Eigenschappen > beveiligings pincode genereren. Gebruik deze pincode om de wachtwoordzin te wijzigen. |
+| Wachtwoordzin wijzigen |Bewerking mislukt. ID: 120002 |**Wordt**<br/>Deze fout wordt weer gegeven wanneer beveiligings instellingen zijn ingeschakeld, probeert u de wachtwoordzin te wijzigen en hebt u een niet-ondersteunde versie (geldige versies die zijn opgegeven in de eerste opmerking van dit artikel).<br/>**Aanbevolen actie:**<br/> Als u de wachtwoordzin wilt wijzigen, moet u eerst de back-upagent bijwerken naar mini maal minimale versie 2.0.9052, Azure Backup Server naar minimale update 1 en/of DPM ten minste DPM 2012 R2 UR12 of DPM 2016 UR2 (onderstaande koppelingen downloaden) en vervolgens een geldige beveiligings pincode invoeren. Als u de pincode wilt ontvangen, meldt u zich aan bij Azure Portal en navigeert u naar Recovery Services kluis > Instellingen > Eigenschappen > beveiligings pincode genereren. Gebruik deze pincode om de wachtwoordzin te wijzigen. |
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Aan de slag met Azure Recovery Services-kluis](backup-azure-vms-first-look-arm.md) om in te schakelen van deze functies.
-* [Download de nieuwste Azure Recovery Services-agent](https://aka.ms/azurebackup_agent) om u te helpen bij het beveiligen van Windows-computers en bescherming van uw back-upgegevens tegen aanvallen.
-* [Download de meest recente Azure Backup Server](https://aka.ms/latest_azurebackupserver) om u te helpen bij het beveiligen van workloads en bescherming van uw back-upgegevens tegen aanvallen.
-* [Download UR12 voor System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) of [UR2 voor System Center 2016 Data Protection Manager downloaden](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) om u te helpen bij het beveiligen van workloads en bescherming van uw back-upgegevens tegen aanvallen.
+* [Ga aan de slag met Azure Recovery Services kluis](backup-azure-vms-first-look-arm.md) om deze functies in te scha kelen.
+* [Down load de nieuwste versie van Azure Recovery Services-agent](https://aka.ms/azurebackup_agent) om Windows-computers te beveiligen en uw back-upgegevens te beschermen tegen aanvallen.
+* [Down load de nieuwste Azure backup server](https://aka.ms/latest_azurebackupserver) om workloads te beveiligen en uw back-upgegevens te beschermen tegen aanvallen.
+* [Down load UR12 voor System center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) of [down load UR2 voor system Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) om werk belastingen te beveiligen en uw back-upgegevens te beschermen tegen aanvallen.

@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 26b31781ae0056999eb222981b2eea3eb4595041
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 361613c52c00b7a7e468eccbb52bf113b6adb434
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228048"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444512"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overzicht van bedrijfscontinuïteit met Azure SQL Database
 
@@ -58,7 +58,23 @@ U kunt automatische database back-ups gebruiken om een Data Base te herstellen n
 
 Als de maximale ondersteunde Bewaar periode voor back-ups voor PITR (Point-in-time Restore) niet voldoende is voor uw toepassing, kunt u deze uitbreiden door een beleid voor lange termijn retentie (LTR) voor de data base (s) te configureren. Zie [lange termijn retentie van back-ups](sql-database-long-term-retention.md)voor meer informatie.
 
-## <a name="recover-a-database-to-another-azure-region"></a>Een Data Base herstellen naar een andere Azure-regio
+## <a name="compare-geo-replication-with-failover-groups"></a>Geo-replicatie met failover-groepen vergelijken
+
+Met [groepen voor automatische failover](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) worden de implementatie en het gebruik van [geo-replicatie](sql-database-active-geo-replication.md) vereenvoudigd en worden de extra mogelijkheden toegevoegd, zoals beschreven in de volgende tabel:
+
+|                                              | Geo-replicatie | Failovergroepen  |
+|:---------------------------------------------| :-------------- | :----------------|
+| Automatische failover                           |     Nee          |      Ja         |
+| Gelijktijdige failover van meerdere data bases  |     Nee          |      Ja         |
+| connection string bijwerken na een failover      |     Ja         |      Nee          |
+| Beheerd exemplaar ondersteund                   |     Nee          |      Ja         |
+| Kan zich in dezelfde regio bevinden als primair             |     Ja         |      Nee          |
+| Meerdere replica's                            |     Ja         |      Nee          |
+| Ondersteunt Lees-Scale                          |     Ja         |      Ja         |
+| &nbsp; | &nbsp; | &nbsp; |
+
+
+## <a name="recover-a-database-to-the-existing-server"></a>Een Data Base naar de bestaande server herstellen
 
 Hoewel zeldzaam, kan er een storing optreden in een Azure-datacenter. Wanneer er een storing optreedt, veroorzaakt deze een bedrijfsonderbreking die mogelijk slechts een paar minuten maar ook enkele uren kan duren.
 
@@ -72,8 +88,8 @@ Verschillende herstel methoden bieden verschillende niveaus van RPO en RTO. U ku
 
 | Herstel methode | RTO | RPO |
 | --- | --- | --- | 
-| Geo-herstel van geo-gerepliceerde back-ups | 12 uur | 1 uur |
-| Automatische failover-groepen | 1 uur | 5 s |
+| Geo-herstel van geo-gerepliceerde back-ups | 12 uur | 1 u |
+| Automatische failover-groepen | 1 u | 5 s |
 | Hand matige data base-failover | 30 s | 5 s |
 
 > [!NOTE]

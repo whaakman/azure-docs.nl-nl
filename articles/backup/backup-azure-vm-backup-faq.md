@@ -1,37 +1,36 @@
 ---
-title: Veelgestelde vragen over back-ups van virtuele Azure-machines met Azure Backup
-description: Antwoorden op veelgestelde vragen over back-ups van virtuele Azure-machines met Azure Backup.
-services: backup
+title: Veelgestelde vragen over het maken van back-ups van virtuele Azure-machines met Azure Backup
+description: Antwoorden op veelgestelde vragen over het maken van back-ups van virtuele Azure-machines met Azure Backup.
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: sogup
-ms.openlocfilehash: 0248e169f5d502cce8723f594f438b87ab088f3a
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: a26cc2fcdc381361912085b0980a736f040c5b0a
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551601"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465295"
 ---
-# <a name="frequently-asked-questions-back-up-azure-vms"></a>Veelgestelde vragen-Back-up van virtuele Azure-machines
+# <a name="frequently-asked-questions-back-up-azure-vms"></a>Veelgestelde vragen: back-ups maken van virtuele Azure-machines
 
-In dit artikel vindt u antwoorden op veelgestelde vragen over back-ups van virtuele Azure-machines met de [Azure Backup](backup-introduction-to-azure-backup.md) service.
+In dit artikel vindt u antwoorden op veelgestelde vragen over het maken van back-ups van virtuele Azure-machines met de [Azure backup](backup-introduction-to-azure-backup.md) -service.
 
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Back-up
 
-### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Welke VM-installatiekopieën kunnen worden ingeschakeld voor back-up wanneer ik ze maken?
-Wanneer u een virtuele machine maakt, kunt u back-up inschakelen voor virtuele machines met [ondersteunde besturingssystemen](backup-support-matrix-iaas.md#supported-backup-actions)
+### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Welke VM-installatie kopieën kunnen worden ingeschakeld voor back-up wanneer ik ze Maak?
+Wanneer u een virtuele machine maakt, kunt u back-ups inschakelen voor Vm's met [ondersteunde besturings systemen](backup-support-matrix-iaas.md#supported-backup-actions)
 
-### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Zijn de back-up kosten opgenomen in de VM-kosten?
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Worden de kosten voor back-ups opgenomen in de VM-kosten?
 
-Nee. Back-kosten zijn gescheiden van de kosten van een virtuele machine. Meer informatie over [prijzen van Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+Nee. De back-upkosten zijn gescheiden van de kosten van de virtuele machine. Meer informatie over [Azure backup prijzen](https://azure.microsoft.com/pricing/details/backup/).
 
-### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Welke machtigingen zijn vereist voor het inschakelen van back-up voor een virtuele machine?
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Welke machtigingen zijn vereist voor het inschakelen van een back-up voor een virtuele machine?
 
-Als u een VM-Inzender bent, kunt u back-up op de virtuele machine inschakelen. Als u een aangepaste rol, moet u de volgende machtigingen voor de back-up op de virtuele machine inschakelen:
+Als u een VM-bijdrager bent, kunt u back-up inschakelen op de VM. Als u een aangepaste rol gebruikt, hebt u de volgende machtigingen nodig voor het inschakelen van back-ups op de VM:
 
 - Microsoft.RecoveryServices/Vaults/write
 - Microsoft.RecoveryServices/Vaults/read
@@ -43,99 +42,99 @@ Als u een VM-Inzender bent, kunt u back-up op de virtuele machine inschakelen. A
 - Microsoft.RecoveryServices/Vaults/backupPolicies/read
 - Microsoft.RecoveryServices/Vaults/backupPolicies/write
 
-Als uw Recovery Services-kluis en de virtuele machine hebt verschillende resourcegroepen bevinden, zorg er dan voor dat u hebt schrijfmachtigingen in de resourcegroep voor de Recovery Services-kluis.  
+Als uw Recovery Services kluis en VM verschillende resource groepen hebben, moet u ervoor zorgen dat u schrijf machtigingen hebt in de resource groep voor de Recovery Services kluis.  
 
 
-### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Maakt een on-demand back-uptaak het hetzelfde bewaarschema als geplande back-ups gebruik?
-Nee. Geef de bewaartermijn voor een back-uptaak op aanvraag. Standaard wel 30 dagen worden bewaard wanneer ze worden geactiveerd via de portal.
+### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Maakt een back-uptaak op aanvraag gebruik van hetzelfde Bewaar schema als geplande back-ups?
+Nee. Geef de Bewaar termijn op voor een back-uptaak op aanvraag. Standaard wordt deze 30 dagen bewaard bij het activeren van de portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Ik heb onlangs Azure Disk Encryption ingeschakeld op een aantal virtuele machines. Worden mijn back-ups gewoon uitgevoerd?
-Machtigingen voor Azure Backup toegang tot Key Vault opgeven. De machtigingen opgeven in PowerShell, zoals beschreven in de **back-up inschakelen** sectie de [Azure Backup PowerShell](backup-azure-vms-automation.md) documentatie.
+Machtigingen opgeven voor Azure Backup toegang tot Key Vault. Geef de machtigingen in Power shell op zoals beschreven in de sectie **back-up inschakelen** in de [Azure backup Power shell](backup-azure-vms-automation.md) -documentatie.
 
-### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>Ik VM-schijven gemigreerd naar managed disks. Worden mijn back-ups gewoon uitgevoerd?
-Ja, back-ups werken naadloos. Er is niet nodig om alles opnieuw te configureren.
+### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>Ik heb VM-schijven naar Managed disks gemigreerd. Worden mijn back-ups gewoon uitgevoerd?
+Ja, back-ups werken probleemloos. U hoeft niets opnieuw te configureren.
 
 ### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>Waarom zie ik mijn VM niet in de wizard voor Back-up configureren?
-De wizard worden alleen virtuele machines in dezelfde regio bevinden als de kluis en die niet worden al back-up.
+De wizard bevat alleen Vm's in dezelfde regio als de kluis en er wordt nog geen back-up van gemaakt.
 
-### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Mijn virtuele machine wordt afgesloten. Maakt een on-demand of een geplande back-werk?
-Ja. Back-ups uitgevoerd wanneer een virtuele machine wordt afgesloten. Het herstelpunt dat is gemarkeerd als crash consistent.
+### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Mijn VM is afgesloten. Werkt een on-demand of een geplande back-up?
+Ja. Back-ups worden uitgevoerd wanneer een machine wordt afgesloten. Het herstel punt is gemarkeerd als crash consistent.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Kan ik een back-uptaak in uitvoering annuleren?
-Ja. U kunt back-uptaak in annuleren een **duurt momentopname** staat. U kunt een taak niet annuleren als de overdracht van gegevens vanuit de momentopname uitgevoerd wordt.
+Ja. U kunt de back-uptaak annuleren in een status voor het **maken van moment opnamen** . U kunt een taak niet annuleren als de gegevens overdracht van de moment opname wordt uitgevoerd.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Ik ingeschakeld vergrendelen op de resourcegroep hebt gemaakt met Azure Backup-Service (zoals) `AzureBackupRG_<geo>_<number>`), blijven mijn back-ups werken?
-Wanneer u de resourcegroep hebt gemaakt met Azure Backup-Service, back-ups niet gestart omdat er een maximumlimiet van 18 herstelpunten.
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Ik heb de vergren deling ingeschakeld voor de resource groep die is gemaakt door Azure Backup Service (dat wil zeggen `AzureBackupRG_<geo>_<number>`) zullen mijn back-ups blijven werken?
+Als u de resource groep die is gemaakt met Azure Backup-Service vergrendelt, mislukken back-ups als er een maximum limiet van 18 herstel punten is.
 
-Gebruiker moet Verwijder de vergrendeling en schakelt u de verzameling voor herstelpunt in die resourcegroep zodat de toekomstige back-ups lukt, [als volgt te werk](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) de herstelpuntverzameling verwijderen.
+De gebruiker moet de vergren deling verwijderen en de herstel punt verzameling wissen van die resource groep om de toekomstige back-ups te kunnen volt ooien. [Volg deze stappen](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) om de verzameling herstel punten te verwijderen.
 
 
-### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Wordt Azure back-upondersteuning SSD beheerde standaardschijven?
-Azure Backup ondersteunt [standard-SSD-beheerde schijven](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD-beheerde schijven bieden een nieuw type duurzame opslag voor virtuele Azure-machines. Ondersteuning voor SSD beheerde schijven wordt aangeboden in de [direct herstellen](backup-instant-restore-capability.md).
+### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Biedt Azure backup ondersteuning voor Standard SSD Managed Disk?
+Azure Backup ondersteunt [Standard SSD Managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD-Managed disks bieden een nieuw type duurzame opslag voor Azure-Vm's. Ondersteuning voor SSD Managed disks wordt weer gegeven in het [direct herstellen](backup-instant-restore-capability.md).
 
-### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Kunnen we back-up van een virtuele machine met een schijf Write Accelerator WA ingeschakeld?
-Momentopnamen kunnen niet worden uitgevoerd op de schijf WA ingeschakeld. De Azure Backup-service kunt echter de WA ingeschakeld schijf uitsluiten van back-up.
+### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Kan ik een back-up maken van een VM met een Write Accelerator (WA) ingeschakelde schijf?
+Er kunnen geen moment opnamen worden gemaakt op de schijf met WA-functionaliteit. De Azure Backup-service kan de op WA ingeschakelde schijf echter uitsluiten van een back-up.
 
-### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Een virtuele machine met Write Accelerator (WA) schijven, en SAP HANA zijn geïnstalleerd. Hoe maak ik een back-up?
-Azure Backup kan geen back-up van de schijf WA is ingeschakeld, maar kunt uitsluiten van back-up. De back-up wordt niet evenwel consistentie van de database omdat de informatie op de schijf WA-functionaliteit is niet een back-up. U kunt back-up van schijven met deze configuratie als u wilt dat de besturingssysteemschijf back-ups en back-ups van schijven die niet WA ingeschakeld.
+### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Ik heb een virtuele machine met Write Accelerator (WA) schijven en SAP HANA geïnstalleerd. Hoe kan ik back-up?
+Azure Backup kan geen back-up maken van de op WA ingeschakelde schijf, maar deze kan wel worden uitgesloten van een back-up. De back-up biedt echter geen consistentie van de data base, omdat er geen back-up wordt gemaakt van de gegevens op de schijf met WA. U kunt met deze configuratie back-ups maken van schijven als u back-ups wilt maken van de besturingssysteem schijf en een back-up wilt maken van schijven waarop geen WA is ingeschakeld.
 
-We uitvoert beperkte preview voor back-up van een SAP HANA met een RPO van 15 minuten. Het gebouwd op een soortgelijke manier SQL DB back-up maken en de backInt-interface wordt gebruikt voor oplossingen van derden gecertificeerd door SAP HANA. Als u geïnteresseerd bent, een e-mail verzenden naar `AskAzureBackupTeam@microsoft.com` met het onderwerp **zich aanmelden voor een beperkte preview voor back-up van SAP HANA in virtuele Azure-machines**.
+Er wordt een persoonlijke preview uitgevoerd voor een SAP HANA back-up met een RPO van 15 minuten. Het is gebaseerd op een soort gelijke manier als SQL DB-back-up en gebruikt de backInt-interface voor oplossingen van derden die door SAP HANA zijn gecertificeerd. Als u geïnteresseerd bent, kunt u een `AskAzureBackupTeam@microsoft.com` e-mail sturen naar het onderwerp **Aanmelden voor persoonlijke Preview voor het maken van een back-up van SAP Hana in azure-vm's**.
 
-### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Wat is de maximale vertraging die ik kan verwachten in de begintijd voor back-up van de geplande back-uptijd die ik hebt ingesteld in de back-upbeleid van mijn VM?
-De geplande back-up wordt binnen twee uur van de geplande back-uptijd geactiveerd. Voor bijvoorbeeld. Als 100 virtuele machines begintijd back-up gepland om 2:00 uur hebt, klikt u vervolgens hebt aan maximaal 4:00 uur alle 100VMs back-uptaak wordt uitgevoerd. Als de geplande back-ups zijn onderbroken vanwege onderbreking en hervat/opnieuw geprobeerd kunt back-up starten buiten dit venster geplande 2 uur.
+### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Wat is de maximale vertraging die ik kan verwachten in de start tijd van de back-up vanaf de geplande back-uptijd die ik heb ingesteld in mijn VM-back-upbeleid?
+De geplande back-up wordt binnen twee uur na de geplande back-uptijd geactiveerd. Voor ex. Als 100 Vm's een begin tijd voor back-ups hebben die is gepland om 2:00 uur, wordt de back-uptaak uitgevoerd op Maxi maal 4:00 uur voor alle 100VMs. Als geplande back-ups zijn onderbroken wegens onderbrekingen en hervat/opnieuw proberen, kan de back-up worden gestart buiten dit geplande 2 uur-venster.
 
-### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>Wat is de minimaal toegestane bewaartermijn voor dagelijkse back-uppunt?
-Azure virtuele Machine back-upbeleid ondersteunt een minimale bewaartermijn van 7 dagen tot 9999 dagen. Elke wijziging in een bestaande VM-back-upbeleid met minder zijn dan zeven dagen wordt moeten worden bijgewerkt om te voldoen aan de minimale bewaartermijn van zeven dagen.
+### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>Wat is de mini maal toegestane Bewaar termijn voor dagelijks back-uppunt?
+Het back-upbeleid van Azure Virtual Machine ondersteunt een minimale Bewaar termijn van 7 dagen tot 9999 dagen. Elke wijziging van een bestaand VM-back-upbeleid met minder dan zeven dagen vereist dat een update voldoet aan de minimale Bewaar periode van 7 dagen.
 
-## <a name="restore"></a>Herstellen
+## <a name="restore"></a>Terugzetten
 
-### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Hoe bepaal ik of alleen schijven herstellen of een volledige virtuele machine?
-Zien van een virtuele machine als geheel als de optie voor een snelle versie maken voor een Azure-VM. Deze optie wijzigt de namen van de schijf, containers die worden gebruikt door de schijven, het openbare IP-adressen en de netwerkinterfacenamen. De wijziging houdt unieke bronnen wanneer een virtuele machine wordt gemaakt. De virtuele machine is niet toegevoegd aan een beschikbaarheidsset.
+### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Hoe kan ik bepalen of u alleen schijven of een volledige virtuele machine wilt herstellen?
+U kunt een VM-herstel bewerking beschouwen als een snelle optie voor het maken van een virtuele Azure-machine. Met deze optie wijzigt u de schijf namen, containers die worden gebruikt door de schijven, open bare IP-adressen en netwerk interface namen. De wijziging houdt unieke resources bij wanneer een virtuele machine wordt gemaakt. De virtuele machine is niet toegevoegd aan een beschikbaarheidsset.
 
-Als u wilt, kunt u de optie voor terugzetten schijf gebruiken:
-  * Aanpassen van de virtuele machine die wordt gemaakt. Bijvoorbeeld, de grootte wijzigen.
-  * Configuratieinstellingen die niet er op het moment van back-up waren toevoegen.
-  * Beheer de naamgevingsconventie voor resources die zijn gemaakt.
-  * De virtuele machine toevoegen aan een beschikbaarheidsset.
-  * Alle andere instellingen die moet worden geconfigureerd met behulp van PowerShell of een sjabloon toevoegen.
+U kunt de optie voor het herstellen van de schijf gebruiken als u het volgende wilt doen:
+  * Pas de virtuele machine aan die wordt gemaakt. Wijzig bijvoorbeeld de grootte.
+  * Voeg configuratie-instellingen toe die niet aanwezig zijn op het moment van de back-up.
+  * Bepaal de naamgevings regels voor resources die worden gemaakt.
+  * Voeg de virtuele machine toe aan een beschikbaarheidsset.
+  * Voeg een andere instelling toe die moet worden geconfigureerd met Power shell of een sjabloon.
 
-### <a name="can-i-restore-backups-of-unmanaged-vm-disks-after-i-upgrade-to-managed-disks"></a>Kan ik back-ups van niet-beheerde VM-schijven herstellen nadat ik een upgrade naar managed disks uitvoeren?
-Ja, kunt u back-ups uitgevoerd voordat de schijven zijn gemigreerd vanuit niet-beheerde beheerd.
-- Een hersteltaak van de virtuele machine maakt standaard een niet-beheerde virtuele machine.
-- U kunt echter herstel de schijven en gebruiken voor het maken van een beheerde virtuele machine.
+### <a name="can-i-restore-backups-of-unmanaged-vm-disks-after-i-upgrade-to-managed-disks"></a>Kan ik back-ups van niet-beheerde VM-schijven herstellen na een upgrade naar Managed disks?
+Ja, u kunt back-ups gebruiken die zijn gemaakt voordat schijven zijn gemigreerd van niet-beheerd naar beheerd.
+- Een VM-taak herstellen maakt standaard een niet-beheerde virtuele machine.
+- U kunt echter schijven herstellen en gebruiken om een beheerde virtuele machine te maken.
 
 ### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>Hoe herstel ik een VM naar een herstelpunt vóór de migratie van de VM naar beheerde schijven?
-Een hersteltaak van de virtuele machine maakt standaard een virtuele machine met niet-beheerde schijven. Een virtuele machine maken met beheerde schijven:
+Een VM-taak herstellen maakt standaard een virtuele machine met onbeheerde schijven. Een virtuele machine maken met Managed disks:
 1. [Herstellen naar niet-beheerde schijven](tutorial-restore-disk.md#restore-a-vm-disk).
-2. [De herstelde schijven converteren naar managed disks](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
-3. [Een virtuele machine maken met beheerde schijven](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
+2. [Converteer de herstelde schijven naar Managed disks](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
+3. [Maak een virtuele machine met Managed disks](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
 
-[Meer informatie](backup-azure-vms-automation.md#restore-an-azure-vm) hierover in PowerShell.
+Meer [informatie hierover vindt](backup-azure-vms-automation.md#restore-an-azure-vm) u in Power shell.
 
-### <a name="can-i-restore-the-vm-thats-been-deleted"></a>Kan ik de virtuele machine die wordt verwijderd herstellen?
-Ja. Zelfs als u de virtuele machine hebt verwijderd, gaat u naar de bijbehorende back-up item in de kluis en deze herstellen vanaf een herstelpunt.
+### <a name="can-i-restore-the-vm-thats-been-deleted"></a>Kan ik de verwijderde VM herstellen?
+Ja. Zelfs als u de virtuele machine verwijdert, kunt u naar het bijbehorende back-upitem in de kluis gaan en het herstellen vanaf een herstel punt.
 
-### <a name="how-to-restore-a-vm-to-the-same-availability-sets"></a>Hiermee stelt u een virtuele machine herstellen op de beschikbaarheid van dezelfde?
-Door op te geven van een optie in de sjabloon tijdens het herstellen van beheerde schijven is terugzetten naar de beschikbaarheidssets voor beheerde schijf Azure VM ingeschakeld. Deze sjabloon bevat de invoerparameter **beschikbaarheidssets**.
+### <a name="how-to-restore-a-vm-to-the-same-availability-sets"></a>Hoe kan ik een virtuele machine herstellen naar dezelfde beschikbaarheids sets?
+Voor de virtuele machine van de beheerde schijf wordt het herstellen naar de beschikbaarheids sets ingeschakeld door een optie in de sjabloon op te geven tijdens het herstellen als beheerde schijven. Deze sjabloon bevat de invoer parameter met de naam **beschikbaarheids sets**.
 
-### <a name="how-do-we-get-faster-restore-performances"></a>Hoe krijgen we de prestaties voor sneller herstellen?
-Voor nog betere prestaties voor herstel, zijn we verplaatsen naar [direct herstellen](backup-instant-restore-capability.md) mogelijkheid.
+### <a name="how-do-we-get-faster-restore-performances"></a>Hoe worden de prestaties sneller teruggezet?
+Voor een snellere herstel snelheid gaan we over naar de mogelijkheid om [direct te herstellen](backup-instant-restore-capability.md) .
 
 ## <a name="manage-vm-backups"></a>Back-ups van uw virtuele machine beheren
 
-### <a name="what-happens-if-i-modify-a-backup-policy"></a>Wat gebeurt er als ik een back-upbeleid wijzigen?
-De VM een back-up met behulp van het schema en de retentie-instellingen in het gewijzigde of nieuwe beleid.
+### <a name="what-happens-if-i-modify-a-backup-policy"></a>Wat gebeurt er als ik een back-upbeleid Wijzig?
+Er wordt een back-up van de virtuele machine gemaakt met behulp van de instellingen voor planning en bewaren in het gewijzigde of nieuwe beleid.
 
-- Als de retentie is uitgebreid, worden de bestaande herstelpunten gemarkeerd en blijven in overeenstemming met het nieuwe beleid.
-- Als de retentie is beperkt, worden herstelpunten gemarkeerd voor verwijdering in de eerstvolgende opschoontaak en vervolgens verwijderd.
+- Als de retentie is uitgebreid, worden de bestaande herstel punten gemarkeerd en bewaard op basis van het nieuwe beleid.
+- Als de retentie wordt beperkt, worden herstel punten gemarkeerd voor verwijdering in de volgende opschoon taak en vervolgens verwijderd.
 
-### <a name="how-do-i-move-a-vm-backed-up-by-azure-backup-to-a-different-resource-group"></a>Hoe kan ik een virtuele machine back-ups van door Azure Backup naar een andere resourcegroep verplaatsen?
+### <a name="how-do-i-move-a-vm-backed-up-by-azure-backup-to-a-different-resource-group"></a>Hoe kan ik een VM waarvan een back-up is gemaakt door Azure Backup naar een andere resource groep?
 
-1. Tijdelijk de back-up stoppen en back-upgegevens behouden.
-2. Verplaats de virtuele machine naar de doelresourcegroep.
-3. Opnieuw worden ingeschakeld back-up in de dezelfde of een nieuwe kluis.
+1. De back-up tijdelijk stoppen en back-upgegevens behouden.
+2. Verplaats de virtuele machine naar de doel resource groep.
+3. Maak de back-up in dezelfde of nieuwe kluis opnieuw.
 
-U kunt de virtuele machine herstellen met beschikbare herstelpunten die zijn gemaakt voordat de bewerking voor verplaatsen.
+U kunt de virtuele machine herstellen vanaf beschik bare herstel punten die zijn gemaakt voor de verplaatsings bewerking.
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>Is er een limiet voor het aantal VM's die gekoppeld aan een dezelfde back-upbeleid worden kunnen?
-Ja, er is een limiet van 100 VM's die gekoppeld aan het beleid met dezelfde back-up van de portal worden kunnen. We raden aan dat voor meer dan 100 virtuele machines, meerdere back-upbeleid maken met hetzelfde schema of een ander schema.
+### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>Geldt er een limiet voor het aantal Vm's dat kan worden gekoppeld aan een back-upbeleid?
+Ja, er is een limiet van 100 Vm's die kan worden gekoppeld aan hetzelfde back-upbeleid vanuit de portal. We raden u aan meer dan 100 Vm's te maken meerdere back-upbeleid met dezelfde planning of een ander schema.

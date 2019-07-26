@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure IoT Hub identiteits- en module moduledubbel (C) | Microsoft Docs
-description: Meer informatie over het module-id maken en bijwerken met behulp van IoT SDK's voor C. moduledubbel
+title: Aan de slag met de Azure IoT Hub-module identiteit en module dubbele (C) | Microsoft Docs
+description: Meer informatie over het maken van module-identiteit en-update module, met behulp van IoT Sdk's voor C.
 author: chrissie926
 ms.service: iot-hub
 services: iot-hub
@@ -8,40 +8,48 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 2642d956d94a0a685d6586be1a7b0446e94f1042
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8de2e238383ad3319ab43e6ff06b631af48c8a72
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61327417"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68402598"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>Aan de slag met IoT Hub identiteits- en module moduledubbel met behulp van back-end C en C-apparaat
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>Aan de slag met de identiteit en module van IoT Hub module, met behulp van C back-end en C-apparaat
 
 > [!NOTE]
 > [Module-id's en moduledubbels](iot-hub-devguide-module-twins.md) zijn vergelijkbaar met Azure IoT Hub-apparaat-id's en apparaatdubbels, maar bieden een hogere granulariteit. Met een Azure IoT Hub-apparaat-id en apparaatdubbel kan een apparaat worden geconfigureerd via de back-endtoepassing en kunt u inzicht krijgen in de toestand van een apparaat. Een module-id en moduledubbel bieden deze mogelijkheden voor afzonderlijke onderdelen van een apparaat. Op apparaten met meerdere onderdelen, zoals apparaten met een besturingssysteem of firmware, kunt u afzonderlijke configuraties en voorwaarden voor elk onderdeel instellen.
 
-Aan het einde van deze zelfstudie hebt u twee C-apps:
+Aan het einde van deze zelf studie hebt u twee C-apps:
 
 * **CreateIdentities**: deze toepassing maakt een apparaat-id, een module-id en de bijbehorende beveiligingssleutel waarmee uw apparaat- en moduleclients verbonden kunnen worden.
 
 * **UpdateModuleTwinReportedProperties**: deze toepassing verzendt bijgewerkte gerapporteerde eigenschappen van de moduledubbel naar uw IoT Hub.
 
 > [!NOTE]
-> Zie voor informatie over de Azure IoT SDK's die u gebruiken kunt om beide toepassingen uit te voeren op apparaten en uw oplossing voor back-end te bouwen, [Azure IoT SDK's](iot-hub-devguide-sdks.md).
+> Voor informatie over de Azure IoT-Sdk's die u kunt gebruiken om beide toepassingen te bouwen die op apparaten kunnen worden uitgevoerd en de back-end van uw oplossing, raadpleegt u [Azure IOT sdk's](iot-hub-devguide-sdks.md).
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis Azure-account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
-* An IoT Hub.
-* De meest recente [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
+* Een actief Azure-account. (Als u geen account hebt, kunt u in slechts een paar minuten een [gratis Azure-account](https://azure.microsoft.com/pricing/free-trial/) maken.)
 
-U hebt nu uw IoT Hub gemaakt en u hebt de hostnaam en de IoT Hub-verbindingsreeks die u nodig hebt voor de rest van deze handleiding.
+* De meest recente [Azure IOT C-SDK](https://github.com/Azure/azure-iot-sdk-c).
 
-## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Een apparaat-id en de identiteit van een module in IoT-Hub maken
+## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-In deze sectie maakt u een C-app die wordt gemaakt van een apparaat-id en de identiteit van een module in het identiteitenregister van uw IoT-hub. Een apparaat of module kan alleen verbinding maken met de IoT-hub als het apparaat of de module is vermeld in het identiteitsregister. Zie voor meer informatie de **id-register** sectie van de [Ontwikkelaarshandleiding voor IoT Hub](iot-hub-devguide-identity-registry.md). Als u deze consoletoepassing uitvoert, worden er een unieke id en een unieke sleutel gemaakt voor zowel het apparaat als de module. Deze waarden worden door het apparaat en de module gebruikt om zichzelf te identificeren bij het verzenden van apparaat-naar-cloud-berichten naar IoT Hub. De id's zijn hoofdlettergevoelig.
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-Voeg de volgende code toe aan het bestand C:
+## <a name="get-the-iot-hub-connection-string"></a>De IoT hub-connection string ophalen
+
+[!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+
+## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Een apparaat-id en een module-ID maken in IoT Hub
+
+In deze sectie maakt u een C-app die een apparaat-id en een module-identiteit maakt in het identiteits register van uw IoT-hub. Een apparaat of module kan alleen verbinding maken met de IoT-hub als het apparaat of de module is vermeld in het identiteitsregister. Zie de sectie **id-REGI ster** in de [hand leiding voor de IOT hub-ontwikkel aars](iot-hub-devguide-identity-registry.md)voor meer informatie. Als u deze consoletoepassing uitvoert, worden er een unieke id en een unieke sleutel gemaakt voor zowel het apparaat als de module. Deze waarden worden door het apparaat en de module gebruikt om zichzelf te identificeren bij het verzenden van apparaat-naar-cloud-berichten naar IoT Hub. De id's zijn hoofdlettergevoelig.
+
+Voeg de volgende code toe aan uw C-bestand:
 
 ```C
 #include <stdio.h>
@@ -167,20 +175,20 @@ int main(void)
 }
 ```
 
-Deze app maakt een apparaat-id met de ID **myFirstDevice** en de identiteit van een module met de ID **myFirstModule** onder apparaat **myFirstDevice**. (Als deze module-id al in het id-register staat, haalt de code gewoon de bestaande modulegegevens op.) De app geeft vervolgens de primaire sleutel voor die identiteit weer. U gebruikt deze sleutel in de gesimuleerde module-app om verbinding te maken met uw IoT-hub.
+Met deze app maakt u een apparaat-id met de naam **myFirstDevice** en een module-ID met id **MyFirstModule** onder apparaat **myFirstDevice**. (Als deze module-id al in het id-register staat, haalt de code gewoon de bestaande modulegegevens op.) De app geeft vervolgens de primaire sleutel voor die identiteit weer. U gebruikt deze sleutel in de gesimuleerde module-app om verbinding te maken met uw IoT-hub.
 
 > [!NOTE]
-> In het identiteitsregister van IoT Hub worden alleen apparaat- en module-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. In het identiteitsregister worden apparaat-id's en -sleutels opgeslagen die als beveiligingsreferenties worden gebruikt. In het identiteitsregister wordt ook een vlag ingeschakeld/uitgeschakeld voor elk apparaat opgeslagen die u kunt gebruiken om de toegang tot dat apparaat uit te schakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Er is geen vlag voor ingeschakeld/uitgeschakeld voor module-id's. Zie voor meer informatie, [Ontwikkelaarshandleiding voor IoT Hub](iot-hub-devguide-identity-registry.md).
+> In het identiteitsregister van IoT Hub worden alleen apparaat- en module-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. In het identiteitsregister worden apparaat-id's en -sleutels opgeslagen die als beveiligingsreferenties worden gebruikt. In het identiteitsregister wordt ook een vlag ingeschakeld/uitgeschakeld voor elk apparaat opgeslagen die u kunt gebruiken om de toegang tot dat apparaat uit te schakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Er is geen vlag voor ingeschakeld/uitgeschakeld voor module-id's. Zie [IOT hub ontwikkelaars handleiding](iot-hub-devguide-identity-registry.md)voor meer informatie.
 
-## <a name="update-the-module-twin-using-c-device-sdk"></a>De moduledubbel met de C SDK bijwerken
+## <a name="update-the-module-twin-using-c-device-sdk"></a>De module bijwerken met behulp van de SDK voor C-apparaten
 
-In deze sectie maakt u een app C op uw gesimuleerde apparaat die updates van de moduledubbel gerapporteerde eigenschappen.
+In deze sectie maakt u een C-app op uw gesimuleerde apparaat die de module dubbele gerapporteerde eigenschappen bijwerkt.
 
-1. **Haal de verbindingsreeks van uw module** --als u zich aanmelden bij nu [Azure-portal](https://portal.azure.com). Navigeer naar uw IoT Hub en klik op IoT-apparaten. Zoeken naar myFirstDevice, open deze en u ziet myFirstModule is aangemaakt. Kopieer de moduleverbindingsreeks. Deze is vereist voor de volgende stap.
+1. **Down load uw module Connection String** --nu als u zich aanmeldt bij [Azure Portal](https://portal.azure.com). Navigeer naar uw IoT Hub en klik op IoT-apparaten. Zoek myFirstDevice, open het en controleer of myFirstModule is gemaakt. Kopieer de moduleverbindingsreeks. Deze is vereist voor de volgende stap.
 
     ![Details van de Azure Portal-module](./media/iot-hub-c-c-module-twin-getstarted/module-detail.png)
 
-2. **Maak UpdateModuleTwinReportedProperties app** Voeg de volgende `using` instructies aan het begin van de **Program.cs** bestand:
+2. **UpdateModuleTwinReportedProperties-app maken** Voeg de volgende `using` instructies toe boven aan het **Program.cs** -bestand:
 
     ```C
     #include <stdio.h>
@@ -236,11 +244,11 @@ In deze sectie maakt u een app C op uw gesimuleerde apparaat die updates van de 
     }
     ```
 
-Dit codevoorbeeld laat zien hoe u de moduledubbel ophalen en gerapporteerde eigenschappen bij te werken. 
+Dit code voorbeeld laat zien hoe u de module dubbele en gerapporteerde eigenschappen ophaalt. 
 
-## <a name="get-updates-on-the-device-side"></a>Ontvang updates aan de kant van het apparaat
+## <a name="get-updates-on-the-device-side"></a>Updates aan het apparaat zijde ophalen
 
-Naast de bovenstaande code kunt u toevoegen onderstaande codeblok om de update dubbele bericht op uw apparaat.
+Naast de bovenstaande code kunt u onder code blok toevoegen om het dubbele update bericht op uw apparaat op te halen.
 
 ```C
 #include <stdio.h>

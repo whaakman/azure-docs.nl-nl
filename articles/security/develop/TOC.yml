@@ -1,5 +1,10 @@
 - name: Documentatie over het ontwikkelen van beveiligde toepassingen
   href: index.yml
+- name: Voorbeeld-apps
+  expanded: true
+  items:
+    - name: Web-app in een Linux-container
+      href: secure-web-app.md
 - name: Concepten
   expanded: true
   items:

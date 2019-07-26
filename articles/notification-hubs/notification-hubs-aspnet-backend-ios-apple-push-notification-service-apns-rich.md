@@ -1,6 +1,6 @@
 ---
-title: Azure Notification Hubs uitgebreide Push
-description: Leer hoe u uitgebreide pushmeldingen verzenden naar een iOS-app van Azure. Codevoorbeelden geschreven in Objective-C en C#.
+title: Azure Notification Hubs Rich push
+description: Meer informatie over het verzenden van uitgebreide push meldingen naar een iOS-app vanuit Azure. Code voorbeelden geschreven in doel-C en C#.
 documentationcenter: ios
 services: notification-hubs
 author: jwargo
@@ -14,48 +14,48 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: dd808a04dff77388248bf7309f5ff804e6dd065c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fcb4a1db62abfc04d2b0c60488d35393d98c57e
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60873056"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348471"
 ---
-# <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs uitgebreide Push
+# <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs Rich push
 
 ## <a name="overview"></a>Overzicht
 
-Om gebruikers met directe uitgebreide inhoud, wilt een toepassing pushen buiten tekst zonder opmaak. Deze meldingen bevordering van interactie van gebruikers en die de inhoud, zoals URL's, geluiden en afbeeldingen/coupons. In deze zelfstudie bouwt voort op de [gebruikers waarschuwen](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) onderwerp, en laat zien hoe u pushmeldingen te verzenden die nettoladingen (bijvoorbeeld, afbeelding).
+Als u gebruikers wilt voorzien van een directe inhoud, kan een toepassing niet alleen in tekst zonder opmaak worden gepusht. Deze meldingen verhogen gebruikers interacties en presen teren inhoud zoals url's, geluiden, afbeeldingen/Coupons en meer. Deze zelf studie is gebaseerd op het onderwerp [gebruikers waarschuwen](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) en laat zien hoe u push meldingen verzendt die payloads bevatten (bijvoorbeeld afbeelding).
 
-Deze zelfstudie is compatibel met iOS 7 en 8.
+Deze zelf studie is compatibel met iOS 7 & 8.
 
   ![][IOS1]
 
 Op hoog niveau:
 
-1. De back-end:
-   * De nettolading van de uitgebreide opgeslagen (in dit geval installatiekopie) in de back-end-database/lokale opslag
-   * ID van deze uitgebreide melding verzendt naar het apparaat
-2. De App op het apparaat:
-   * Neemt contact op met de back-end het aanvragen van de nettolading van de uitgebreide met de ID die wordt ontvangen
-   * Meldingen voor gebruikers op het apparaat wordt verzonden wanneer het ophalen van gegevens voltooid is en de nettolading bevat onmiddellijk wanneer gebruikers Tik voor meer informatie
+1. De app-back-end:
+   * Hiermee wordt de uitgebreide nettolading (in dit geval de afbeelding) opgeslagen in de back-end-data base/lokale opslag
+   * Hiermee wordt de ID van deze uitgebreide melding verzonden naar het apparaat
+2. App op het apparaat:
+   * Neem contact op met de back-end die de uitgebreide Payload aanvraagt met de ID die wordt ontvangen
+   * Verzendt gebruikers meldingen op het apparaat wanneer het ophalen van gegevens is voltooid en de payload wordt direct weer gegeven wanneer gebruikers tikken op meer informatie
 
-## <a name="webapi-project"></a>WebAPI Project
+## <a name="webapi-project"></a>WebAPI-project
 
-1. Open in Visual Studio, de **AppBackend** project dat u hebt gemaakt in de [gebruikers waarschuwen](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) zelfstudie.
-2. Verkrijgen van een installatiekopie die u wilt gebruikers met een melding ontvangen en plaatst deze in een **img** map in uw projectmap.
-3. Klik op **alle bestanden weergeven** in Solution Explorer met de rechtermuisknop op de map **opnemen In Project**.
-4. Met de installatiekopie hebt geselecteerd, wijzigt u de bijbehorende actie bouwen in het venster Eigenschappen naar **ingesloten bron**.
+1. Open in Visual Studio het **project appbackend** -project dat u hebt gemaakt in de zelf studie [gebruikers melden](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
+2. Verkrijg een installatie kopie waarmee u gebruikers op de hoogte wilt stellen en plaats deze in een **IMG** -map in de projectmap.
+3. Klik op **alle bestanden weer geven** in de Solution Explorer en klik met de rechter muisknop op de map die u **in project wilt invoegen**.
+4. Als de afbeelding is geselecteerd, wijzigt u de opbouw actie in venster Eigenschappen in de **Inge sloten resource**.
 
     ![][IOS2]
 5. Voeg in `Notifications.cs` de volgende using-instructie toe:
 
-    ```c#
+    ```csharp
     using System.Reflection;
     ```
-6. Bijwerken van de gehele `Notifications` klasse met de volgende code. Zorg ervoor dat Vervang de tijdelijke aanduidingen door uw notification hub referenties en de bestandsnaam van de installatiekopie.
+6. Werk de hele `Notifications` klasse bij met de volgende code. Zorg ervoor dat u de tijdelijke aanduidingen vervangt door uw referenties voor de notification hub en de naam van het afbeeldings bestand.
 
-    ```c#
+    ```csharp
     public class Notification {
         public int Id { get; set; }
         // Initial notification message to display to users
@@ -101,11 +101,11 @@ Op hoog niveau:
     ```
 
    > [!NOTE]
-   > (optioneel) Raadpleeg [insluiten en toegang krijgen tot bronnen met behulp van Visual C# ](https://support.microsoft.com/kb/319292) voor meer informatie over het toevoegen en de projectresources te verkrijgen.
+   > Beschrijving Raadpleeg voor meer informatie over het [insluiten en openen van resources C# ](https://support.microsoft.com/kb/319292) met behulp van Visual.
 
-7. In `NotificationsController.cs`, definiëren ' NotificationsController met de volgende codefragmenten. Dit wordt een eerste op de achtergrond uitgebreide meldings-id naar apparaat verzonden en kan aan de clientzijde voor het ophalen van de installatiekopie van:
+7. In `NotificationsController.cs`wordt ' Notifications controller met de volgende fragmenten opnieuw gedefinieerd. Hiermee wordt een eerste meldings-id op de achtergrond verzonden naar het apparaat en kan de installatie kopie aan de client zijde worden opgehaald:
 
-    ```c#
+    ```csharp
     // Return http response with image binary
     public HttpResponseMessage Get(int id) {
         var stream = Notifications.Instance.ReadImage(id);
@@ -134,43 +134,43 @@ Op hoog niveau:
         return Request.CreateResponse(HttpStatusCode.OK);
     }
     ```
-8. We gaan deze app naar een Azure-Website nu opnieuw zodat deze toegankelijk is vanaf alle apparaten implementeren. Klik met de rechtermuisknop op het project **AppBackend** en selecteer **Publiceren**.
-9. Selecteer de Azure-Website als het doel van uw publiceren. Meld u aan met uw Azure-account en selecteer een bestaande of nieuwe Website en noteer de **doel-URL** eigenschap in de **verbinding** tabblad. Naar deze URL wordt verderop in deze zelfstudie verwezen als uw *back-endeindpunt*. Klik op **Publish**.
+8. Nu gaan we deze app opnieuw implementeren op een Azure-website om deze toegankelijk te maken vanaf alle apparaten. Klik met de rechtermuisknop op het project **AppBackend** en selecteer **Publiceren**.
+9. Selecteer de Azure-website als uw publicatie doel. Meld u aan met uw Azure-account en selecteer een bestaande of nieuwe website en noteer de eigenschap **doel-URL** op het tabblad **verbinding** . Naar deze URL wordt verderop in deze zelfstudie verwezen als uw *back-endeindpunt*. Klik op **Publish**.
 
-## <a name="modify-the-ios-project"></a>Wijzigen van het iOS-project
+## <a name="modify-the-ios-project"></a>Het iOS-project wijzigen
 
-Nu dat u hebt gewijzigd dat uw back-end voor het verzenden van alleen de *id* van een melding, wijzigt u uw iOS-app voor het verwerken van deze id en het uitgebreide bericht ophalen uit uw back-end.
+Nu u de back-end van uw app hebt gewijzigd om alleen de *id* van een melding te verzenden, wijzigt u uw IOS-app zodat deze id wordt afgehandeld en wordt het uitgebreide bericht opgehaald van uw back-end.
 
-1. Open uw iOS-project en externe meldingen inschakelen door te gaan naar het doel van de belangrijkste app in de **doelen** sectie.
-2. Klik op **mogelijkheden**, schakel **Achtergrondmodi**, en controleer de **Remote Notifications** selectievakje.
+1. Open uw iOS-project en Schakel externe meldingen in door naar uw hoofd doel van de app in de sectie **doelen** te gaan.
+2. Klik op **mogelijkheden**, Schakel **achtergrond modi**in en schakel het selectie vakje **externe meldingen** in.
 
     ![][IOS3]
-3. Open `Main.storyboard`, en zorg ervoor dat u een View-Controller (aangeduid als Start View-Controller in deze zelfstudie) van [gebruiker inlichten](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) zelfstudie.
-4. Toevoegen een **navigatie Controller** aan uw storyboard en controle en sleep naar Start Weergavecontroller u gemakkelijk de **hoofdmap weergave** van navigatie. Zorg ervoor dat de **initiële View-Controller Is** in kenmerken inspector is geselecteerd voor de navigatie-Controller alleen.
-5. Voeg een **View-Controller** storyboard en toevoegen een **Afbeeldingsweergave**. Dit is de pagina die gebruikers zien wanneer ze ervoor kiezen om meer te weten te komen door te klikken op de melding. Uw storyboard moet er als volgt uitzien:
+3. Open `Main.storyboard`, en zorg ervoor dat u een weergave controller (Home view-controller in deze zelf studie genoemd) hebt, van de gebruiker zelf studie [waarschuwen](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
+4. Voeg een **Navigatie controller** toe aan het Story Board en houd Control ingedrukt en sleep naar de besturing van de start weergave om de **hoofd weergave** van de navigatie te maken. Zorg ervoor dat de controller van de **eerste weer gave** in kenmerken controle alleen is geselecteerd voor de navigatie controller.
+5. Een **weergave controller** toevoegen aan het Story Board en een **afbeeldings weergave**toevoegen. Dit is de pagina die gebruikers te zien krijgen wanneer ze kiezen om meer te weten te komen door te klikken op de melding. Het Story Board moet er als volgt uitzien:
 
     ![][IOS4]
-6. Klik op de **start View-Controller** in de hoofd-storyboard en zorg ervoor dat het heeft **homeViewController** als de **aangepaste klasse** en **Storyboard ID**onder de inspector identiteit.
-7. Doe hetzelfde voor installatiekopie View-Controller als **imageViewController**.
-8. Maak vervolgens een nieuwe View-Controller-klasse met de titel **imageViewController** voor het afhandelen van de gebruikersinterface die u zojuist hebt gemaakt.
-9. In **imageViewController.h**, Voeg het volgende toe van de controller interface declaraties. Zorg ervoor dat u control ingedrukt houden van de weergave van de installatiekopie van hoofd-storyboard aan deze eigenschappen om te koppelen van de twee:
+6. Klik op de **besturing van de start weergave** in het Story Board en zorg ervoor dat deze **HomeViewController** als **aangepaste klasse** en **Story Board-id** onder de identiteits controle heeft.
+7. Doe hetzelfde voor de afbeeldings weergave controller als **imageViewController**.
+8. Maak vervolgens een nieuwe weergave controller klasse met de naam **imageViewController** om de gebruikers interface die u zojuist hebt gemaakt, te verwerken.
+9. Voeg in **imageViewController. h**het volgende toe aan de interface declaraties van de controller. Zorg ervoor dat u Control ingedrukt houden en slepen van de Story Board-afbeeldings weergave naar deze eigenschappen om de twee te koppelen:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UIImageView *myImage;
     @property (strong) UIImage* imagePayload;
     ```
-10. In `imageViewController.m`, Voeg het volgende toe aan het einde van `viewDidload`:
+10. Voeg `imageViewController.m`in het volgende toe aan het einde van `viewDidload`:
 
     ```objc
     // Display the UI Image in UI Image View
     [self.myImage setImage:self.imagePayload];
     ```
-11. In `AppDelegate.m`, importeren van de installatiekopie-controller die u hebt gemaakt:
+11. Importeer `AppDelegate.m`in de installatie kopie-controller die u hebt gemaakt:
 
     ```objc
     #import "imageViewController.h"
     ```
-12. Een sectie interface met de volgende declaratie toevoegen:
+12. Voeg een interface sectie toe met de volgende verklaring:
 
     ```objc
     @interface AppDelegate ()
@@ -187,7 +187,7 @@ Nu dat u hebt gewijzigd dat uw back-end voor het verzenden van alleen de *id* va
 
     @end
     ```
-13. In `AppDelegate`, zorg ervoor dat uw app wordt geregistreerd voor meldingen op de achtergrond `application: didFinishLaunchingWithOptions`:
+13. Zorg ervoor dat uw app `application: didFinishLaunchingWithOptions` wordtgeregistreerdvoormeldingenin:`AppDelegate`
 
     ```objc
     // Software version
@@ -231,7 +231,7 @@ Nu dat u hebt gewijzigd dat uw back-end voor het verzenden van alleen de *id* va
     return YES;
     ```
 
-14. Vervang in de volgende implementatie voor `application:didRegisterForRemoteNotificationsWithDeviceToken` aan de hoofd-storyboard gebruikersinterface wordt gewijzigd in aanmerking nemen:
+14. Vervang de volgende implementatie `application:didRegisterForRemoteNotificationsWithDeviceToken` om de Story board-gebruikers interface te wijzigen in account:
 
     ```objc
     // Access navigation controller which is at the root of window
@@ -240,7 +240,7 @@ Nu dat u hebt gewijzigd dat uw back-end voor het verzenden van alleen de *id* va
     homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
     hvc.deviceToken = deviceToken;
     ```
-15. Vervolgens voegt u de volgende methoden voor het `AppDelegate.m` ophalen van de installatiekopie van het eindpunt en een lokale melding verzenden wanneer het ophalen van voltooid is. Zorg ervoor dat u de tijdelijke aanduiding vervangt `{backend endpoint}` aan uw back endeindpunt:
+15. Voeg vervolgens de volgende methoden toe om `AppDelegate.m` de installatie kopie van uw eind punt op te halen en een lokale melding te verzenden wanneer het ophalen is voltooid. Zorg ervoor dat u de tijdelijke `{backend endpoint}` aanduiding vervangt door het back-end-eind punt:
 
     ```objc
     NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";
@@ -321,7 +321,7 @@ Nu dat u hebt gewijzigd dat uw back-end voor het verzenden van alleen de *id* va
         // Add "else if" here to handle more types of rich content such as url, sound files, etc.
     }
     ```
-16. De lokale melding hierboven worden verwerkt door het openen van de installatiekopie view-controller in `AppDelegate.m` met de volgende methoden:
+16. Als u de bovenstaande lokale melding wilt afhandelen, opent u `AppDelegate.m` de afbeeldings weergave controller met de volgende methoden:
 
     ```objc
     // Helper: redirect users to image view controller
@@ -369,12 +369,12 @@ Nu dat u hebt gewijzigd dat uw back-end voor het verzenden van alleen de *id* va
     }
     ```
 
-## <a name="run-the-application"></a>De toepassing wordt uitgevoerd
+## <a name="run-the-application"></a>De toepassing uitvoeren
 
-1. In XCode, moet u de app uitvoeren op een fysiek iOS-apparaat (push-meldingen niet in de simulator werken).
-2. Voer een gebruikersnaam en wachtwoord van de dezelfde waarde voor verificatie en klik in de iOS-app UI **aanmelden**.
-3. Klik op **pushmelding verzonden** en ziet u een waarschuwing in de app. Als u klikt op **meer**, u naar de installatiekopie die u hebt gekozen om op te nemen in de back-end van uw app wordt geopend.
-4. U kunt ook klikken op **pushmelding verzonden** en druk onmiddellijk op de knop Start van uw apparaat. In enkele ogenblikken ontvangt u een pushmelding ontvangen. Als u erop tikt of klikt u op meer, wordt u in uw app en de inhoud van de uitgebreide gebracht.
+1. In XCode voert u de app uit op een fysiek iOS-apparaat (push meldingen werken niet in de simulator).
+2. Voer in de gebruikers interface van de iOS-app een gebruikers naam en wacht woord in met dezelfde waarde voor verificatie en klik op **Aanmelden**.
+3. Klik op **Push verzenden** om een waarschuwing in de app weer te geven. Als u op **meer**klikt, wordt u naar de installatie kopie geleid die u in de back-end van uw app hebt gekozen.
+4. U kunt ook op **Push verzenden** klikken en direct op de knop Start op het apparaat drukken. Over enkele ogen blikken ontvangt u een push melding. Als u erop tikt of op meer klikt, wordt u naar uw app en de inhoud van de uitgebreide afbeelding geleid.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-1.png
 [IOS2]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-2.png

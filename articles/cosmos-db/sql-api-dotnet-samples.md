@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 04/04/2019
+ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: df673e4f76dcc868811a2874ff36e0ea5c1c64fc
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 3a7690ca446efa275f0854a3e35e68034fe85e7a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342083"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384003"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: .NET-voorbeelden voor de SQL API
 > [!div class="op_single_selector"]
@@ -25,32 +25,32 @@ ms.locfileid: "67342083"
 > 
 > 
 
-De [azure-cosmos-dotnet-v2](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples) GitHub-opslagplaats bevat de nieuwste oplossingen met de .NET-voorbeeld om uit te voeren CRUD en andere algemene bewerkingen voor Azure Cosmos DB-resources. Dit artikel bevat:
+De GitHub-opslag plaats [Azure-Cosmos-DotNet-v2](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples) bevat de meest recente .net-voorbeeld oplossingen voor het uitvoeren van ruwe en andere veelvoorkomende bewerkingen op Azure Cosmos DB-resources. Dit artikel bevat:
 
 * Koppelingen naar de taken in elk van de C#-voorbeeldprojectbestanden. 
 * Koppelingen naar het bijbehorende API-referentiemateriaal.
 
-Voor codevoorbeelden voor .NET SDK-versie 3.0 (Preview), raadpleegt u de meest recente voorbeelden in de [azure-cosmos-dotnet-v3](https://github.com/Azure/azure-cosmos-dotnet-v3) GitHub-opslagplaats. 
+Zie de meest recente voor beelden in de GitHub-opslag plaats [Azure-Cosmos-DotNet-v3](https://github.com/Azure/azure-cosmos-dotnet-v3) voor .NET SDK versie 3,0 (preview). 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Visual Studio 2019 met de Azure-ontwikkeling-werkstroom geïnstalleerd
-- U kunt downloaden en gebruiken de **gratis** [Community Edition van Visual Studio 2019](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio. 
+Visual Studio 2019 met de Azure-Ontwikkel werk stroom geïnstalleerd
+- U kunt de **gratis** [versie van Visual Studio 2019 Community](https://www.visualstudio.com/downloads/)downloaden en gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio. 
 
-De [Microsoft.Azure.DocumentDB NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
+Het [micro soft. Azure. DocumentDB NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 
-Een Azure-abonnement of een gratis proefaccount van Cosmos DB
+Een Azure-abonnement of gratis Cosmos DB proef account
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
   
-- U kunt [voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Uw Visual Studio-abonnement ontvangt u elke maand tegoeden, die u voor betaalde Azure-services kunt gebruiken.
+- U kunt [voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Uw Visual Studio-abonnement geeft u elke maand tegoed, dat u voor betaalde Azure-Services kunt gebruiken.
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 > [!NOTE]
-> De voorbeelden zijn ingesloten, en instellen en opschonen van na zelf met meerdere aanroepen naar [CreateDocumentCollectionAsync()](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync). Elk exemplaar kosten in rekening gebracht uw abonnement voor één uur in uw prestatielaag. 
+> De voor beelden zijn op zichzelf staan en kunnen na zichzelf worden ingesteld en opgeruimd met meerdere aanroepen naar [CreateDocumentCollectionAsync ()](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync). Elk exemplaar factureert uw abonnement gedurende één uur gebruik in de prestatie tier van uw verzameling. 
 > 
 
 ## <a name="database-examples"></a>Voorbeelden voor databases
-De [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) methode van het voorbeeld *DatabaseManagement* project laat zien hoe u de volgende taken uitvoeren. Zie voor meer informatie over Azure Cosmos-databases voordat u de volgende voorbeelden uitvoert, [werken met databases, containers en objecten](databases-containers-items.md). 
+De methode [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) van het *DatabaseManagement* -voorbeeld project laat zien hoe u de volgende taken kunt uitvoeren. Zie [werken met data bases, containers en items](databases-containers-items.md)voor meer informatie over Azure Cosmos-data bases voordat u de volgende voor beelden uitvoert. 
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -61,7 +61,7 @@ De [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8
 | [Een database verwijderen](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L118) |[DocumentClient.DeleteDatabaseAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedatabaseasync) |
 
 ## <a name="collection-examples"></a>Voorbeelden voor verzamelingen
-De [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) methode van het voorbeeld *CollectionManagement* project laat zien hoe u de volgende taken uitvoeren. Zie voor meer informatie over Azure Cosmos-verzamelingen voordat u de volgende voorbeelden uitvoert, [werken met databases, containers en objecten](databases-containers-items.md). 
+De methode [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) van het *CollectionManagement* -voorbeeld project laat zien hoe u de volgende taken kunt uitvoeren. Zie [werken met data bases, containers en items](databases-containers-items.md)voor meer informatie over Azure Cosmos-verzamelingen voordat u de volgende voor beelden uitvoert. 
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -73,7 +73,7 @@ De [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530
 | [Een verzameling verwijderen](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L175) |[DocumentClient.DeleteDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync) |
 
 ## <a name="document-examples"></a>Voorbeelden voor documenten
-De [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) methode van het voorbeeld *DocumentManagement* project laat zien hoe u de volgende taken uitvoeren. Zie voor meer informatie over Azure Cosmos-documenten voordat u de volgende voorbeelden uitvoert, [werken met databases, containers en objecten](databases-containers-items.md). 
+De methode [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) van het *DocumentManagement* -voorbeeld project laat zien hoe u de volgende taken kunt uitvoeren. Zie [werken met data bases, containers en items](databases-containers-items.md)voor meer informatie over Azure Cosmos-documenten voordat u de volgende voor beelden uitvoert. 
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -89,7 +89,7 @@ De [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374
 | [Document alleen lezen als het is gewijzigd](https://github.com/Azure/azure-documentdb-dotnet/blob/f2b11dec45a195ddeed333560ebba63055f5ed09/samples/code-samples/DocumentManagement/Program.cs#L442-L470) |[DocumentClient.AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition)<br>[Documents.Client.AccessConditionType](/dotnet/api/microsoft.azure.documents.client.accessconditiontype) |
 
 ## <a name="indexing-examples"></a>Voorbeelden van indexen
-De [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) methode van het voorbeeld *IndexManagement* project laat zien hoe u de volgende taken uitvoeren. Zie voor meer informatie over het indexeren in Azure Cosmos DB, voordat u de volgende voorbeelden uitvoert, [index beleid](index-policy.md), [index typen](index-types.md), en [index-paden](index-paths.md). 
+De methode [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) van het *IndexManagement* -voorbeeld project laat zien hoe u de volgende taken kunt uitvoeren. Zie [index beleid](index-policy.md), [index typen](index-types.md)en [index paden](index-paths.md)voor meer informatie over het indexeren in azure Cosmos DB voordat u de volgende voor beelden uitvoert. 
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -101,19 +101,19 @@ De [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b
 | [Een indextransformatie uitvoeren](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L407-L464) |[ReplaceDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync) |
 
 ## <a name="geospatial-examples"></a>Georuimtelijke voorbeelden
-In het bestand met georuimtelijke voorbeelden [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) ziet u hoe de volgende taken worden uitgevoerd.  Zie voor meer informatie over GeoJSON en georuimtelijke gegevens voordat u de volgende voorbeelden uitvoert, [georuimtelijke en GeoJSON locatiegegevens gebruiken](geospatial.md). 
+In het bestand met georuimtelijke voorbeelden [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) ziet u hoe de volgende taken worden uitgevoerd.  Zie Georuimtelijke [en geojson-locatie gegevens gebruiken](geospatial.md)voor meer informatie over geojson en georuimtelijke gegevens voordat u de volgende voor beelden uitvoert. 
 
 | Taak | API-verwijzing |
 | --- | --- |
 | [Georuimtelijke indexering op een nieuwe verzameling inschakelen](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L45-L63) |[IndexingPolicy](/dotnet/api/microsoft.azure.documents.indexingpolicy) <br> [IndexKind.Spatial](/dotnet/api/microsoft.azure.documents.indexkind) <br>[DataType.Point](/dotnet/api/microsoft.azure.documents.datatype) |
 | [Documenten met GeoJSON-punten invoegen](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L116-L126) |[DocumentClient.CreateDocumentAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentasync) </br> [DataType.Point](/dotnet/api/microsoft.azure.documents.datatype) |
 | [Punten zoeken binnen een opgegeven afstand](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L152-L194) |[ST_DISTANCE](sql-query-system-functions.md#spatial-functions) </br> [GeometryOperationExtensions.Distance](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.distance) |
-| [Punten in een polygoon vinden](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L196-L221) |[ST_WITHIN](sql-query-system-functions.md#spatial-functions) </br> [GeometryOperationExtensions.Within](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.distance) </br>[Polygoon](/dotnet/api/microsoft.azure.documents.spatial.polygon) |
+| [Punten in een polygoon vinden](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L196-L221) |[ST_WITHIN](sql-query-system-functions.md#spatial-functions) </br> [GeometryOperationExtensions. binnen](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.distance) </br>[Polygoon](/dotnet/api/microsoft.azure.documents.spatial.polygon) |
 | [Georuimtelijke indexering op een bestaande verzameling inschakelen](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L312-L336) |[DocumentClient.ReplaceDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync)<br>[DocumentCollection.IndexingPolicy](/dotnet/api/microsoft.azure.documents.documentcollection.indexingpolicy) |
 | [Point- en polygoongegevens valideren](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L223-L265) |[ST_ISVALID](sql-query-system-functions.md#spatial-functions)<br>[ST_ISVALIDDETAILED](sql-query-system-functions.md#spatial-functions)<br>[GeometryOperationExtensions.IsValid](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid)<br>[GeometryOperationExtensions.IsValidDetailed](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed) |
 
 ## <a name="query-examples"></a>Voorbeelden van query's
-De query-documentbestand [azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs), ziet u hoe u elk van de volgende taken uitvoeren met behulp van de SQL-grammatica voor query's, de LINQ-provider met query's en Lambda. Zie voor meer informatie over een verwijzing naar de SQL-query in Azure Cosmos DB voordat u de volgende voorbeelden uitvoert, [SQL query-voorbeelden voor Azure Cosmos DB](how-to-sql-query.md). 
+Het query document bestand, [Azure-documentdb-DotNet/samples/code-samples/queries/Program. cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs), laat zien hoe u elk van de volgende taken uitvoert met behulp van de grammatica van de SQL-query, de Linq-provider met de query en Lambda. Zie [SQL query-voor beelden voor Azure Cosmos DB](how-to-sql-query.md)voor meer informatie over de SQL-query verwijzing in azure Cosmos DB voordat u de volgende voor beelden uitvoert. 
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -122,41 +122,41 @@ De query-documentbestand [azure-documentdb-dotnet/samples/code-samples/Queries/P
 | [Query uitvoeren voor ongelijkheid met behulp van != en NOT](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L270-L276) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
 | [Query uitvoeren met behulp van bereikoperators zoals >, <, >=, <=](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L305-L325) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
 | [Query uitvoeren met behulp van bereikoperators op tekenreeksen](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L337-L346) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
-| [Query's uitvoeren met ORDER BY-](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L370-L392) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
-| [Query's uitvoeren met statistische functies](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L448-L496) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
+| [Query met ORDER BY](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L370-L392) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
+| [Query met statistische functies](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L448-L496) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
 | [Werken met subdocumenten](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L394-L419) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
 | [Query uitvoeren met Joins tussen documenten](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L421-L435) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
-| [Query's uitvoeren met de tekenreeks, Wiskunde en matrix-operators](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L527-L552) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
+| [Query's met teken reeks-, reken kundige en matrix operators](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L527-L552) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
 | [Query uitvoeren met SQL met parameters met behulp van SqlQuerySpec](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L140-L174) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100))<br>[SqlQuerySpec](/dotnet/api/microsoft.azure.documents.sqlqueryspec) |
 | [Query uitvoeren met expliciete paginering](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L554-L576) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
 | [Query gelijktijdig uitvoeren op gepartitioneerde verzamelingen](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L664-L734) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
-| [Query's uitvoeren met ORDER BY voor gepartitioneerde verzamelingen](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L737-L810) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
+| [Query met volg orde op basis van gepartitioneerde verzamelingen](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L737-L810) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
 
 ## <a name="change-feed-examples"></a>Voorbeelden van wijzigingenfeeds 
-De wijzigingenfeed voorbeeld [azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), ziet u hoe u de volgende taken uitvoeren. Zie voor meer informatie over wijzigen voordat u de volgende voorbeelden worden uitgevoerd in Azure Cosmos DB-feed, [lezen Azure Cosmos DB-wijzigingenfeed](read-change-feed.md) en [Change feed processor](change-feed-processor.md). 
+In het voor beeld van een feed voor wijzigings voorbeeld, [Azure-documentdb-DotNet/samples/code-samples/ChangeFeed/Program. cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)ziet u hoe u de volgende taken kunt uitvoeren. Voor meer informatie over wijzigings invoer in Azure Cosmos DB voordat u de volgende voor beelden uitvoert, raadpleegt u [lezen Azure Cosmos DB feed wijzigen](read-change-feed.md) en de [feed-processor wijzigen](change-feed-processor.md). 
 
 | Taak | API-verwijzing |
 | --- | --- |
 | [Wijzigingenfeed lezen](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L132) |[DocumentClient.CreateDocumentChangeFeedQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery) | 
 | [Partitiesleutelbereiken lezen](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L118) |[DocumentClient.ReadPartitionKeyRangeFeedAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readpartitionkeyrangefeedasync) | 
 
-De change feed processor-voorbeeld, [ChangeFeedMigrationTool](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool), ziet u hoe u de change feed processor-bibliotheek om gegevens te repliceren naar een andere Cosmos DB-verzameling.   
+In het voor beeld van een feed voor de wijzigings voorbeeld, [ChangeFeedMigrationTool](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool)wordt getoond hoe u de wijzigings bibliotheek voor feeds kunt gebruiken om gegevens te repliceren naar een andere Cosmos DB verzameling.   
 
 ## <a name="server-side-programming-examples"></a>Voorbeelden van programmering op de server
-In het bestand voor programmering op de server[azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), ziet u hoe de volgende taken worden uitgevoerd. Zie voor meer informatie over programmeren in Azure Cosmos DB-server voordat u de volgende voorbeelden uitvoert, [opgeslagen procedures, triggers en gebruikersgedefinieerde functies](stored-procedures-triggers-udfs.md). 
+In het bestand voor programmering op de server[azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), ziet u hoe de volgende taken worden uitgevoerd. Zie [opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies](stored-procedures-triggers-udfs.md)voor meer informatie over het Program meren van de server in azure Cosmos DB voordat u de volgende voor beelden uitvoert. 
 
 | Taak | API-verwijzing |
 | --- | --- |
 | [Een opgeslagen procedure maken](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L112) |[DocumentClient.CreateStoredProcedureAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createstoredprocedureasync) |
 | [Een opgeslagen procedure uitvoeren](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L127) |[DocumentClient.ExecuteStoredProcedureAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.executestoredprocedureasync) |
 | [Een documentfeed voor een opgeslagen procedure document lezen](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L194) |[DocumentClient.ReadDocumentFeedAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentfeedasync) |
-| [Een opgeslagen procedure met ORDER BY maken](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L219) |[DocumentClient.CreateStoredProcedureAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createstoredprocedureasync) |
+| [Een opgeslagen procedure maken met ORDER BY](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L219) |[DocumentClient.CreateStoredProcedureAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createstoredprocedureasync) |
 | [Een voorafgaande trigger maken](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L264) |[DocumentClient.CreateTriggerAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createtriggerasync) |
 | [Een navolgende trigger maken](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L329) |[DocumentClient.CreateTriggerAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createtriggerasync) |
-| [Een door de gebruiker gedefinieerde functie (UDF's) maken](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L389) |[DocumentClient.CreateUserDefinedFunctionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createuserdefinedfunctionasync) |
+| [Een door de gebruiker gedefinieerde functie maken (UDF)](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L389) |[DocumentClient.CreateUserDefinedFunctionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createuserdefinedfunctionasync) |
 
 ## <a name="user-management-examples"></a>Voorbeelden van gebruikersbeheer
-Het bestand van het beheer van gebruiker [azure-documentdb-dotnet/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs), ziet u hoe u de volgende taken uitvoeren:
+Het gebruikers beheer bestand, [Azure-documentdb-DotNet/samples/code-samples/UserManagement/Program. cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs), laat zien hoe u de volgende taken kunt uitvoeren:
 
 | Taak | API-verwijzing |
 | --- | --- |

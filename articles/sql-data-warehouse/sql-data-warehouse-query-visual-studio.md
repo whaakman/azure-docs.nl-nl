@@ -2,7 +2,7 @@
 title: Verbinding maken met Azure SQL Data Warehouse - VSTS| Microsoft Docs
 description: Query’s uitvoeren bij SQL Data Warehouse met Visual Studio.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 6aa707d3c63b7ead6db94f84ebd9214302cc7367
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c0867252023378347e55d673260f28a7bf2ccc4
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873729"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479449"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Verbinding maken met SQL Data Warehouse met Visual Studio en SSDT
 > [!div class="op_single_selector"]
@@ -32,8 +32,8 @@ Gebruik Visual Studio om binnen enkele minuten query’s uit te voeren bij Azure
 ## <a name="prerequisites"></a>Vereisten
 Voor deze zelfstudie hebt u het volgende nodig:
 
-* Een bestaande SQL-datawarehouse. Zie [Een SQL-datawarehouse maken][Create a SQL Data Warehouse] om een datawarehouse te maken.
-* SSDT voor Visual Studio. Als u Visual Studio hebt, hebt u dit waarschijnlijk al. Zie [Visual Studio en SSDT installeren][Installing Visual Studio and SSDT] voor instructies en opties voor de installatie.
+* Een bestaande SQL-datawarehouse. Zie [Een SQL Data Warehouse maken][Create a SQL Data Warehouse] als u er een wilt maken.
+* SSDT voor Visual Studio. Als u Visual Studio hebt, hebt u dit waarschijnlijk al. Voor installatie-instructies en -opties raadpleegt u [Visual Studio en SSDT installeren][Installing Visual Studio and SSDT].
 * De volledig gekwalificeerde SQL-servernaam. Zie [Verbinding maken met SQL Data Warehouse][Connect to SQL Data Warehouse] om dit te vinden.
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Verbinding maken met uw SQL Data Warehouse

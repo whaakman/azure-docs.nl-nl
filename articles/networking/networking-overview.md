@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2019
 ms.author: kumud
-ms.openlocfilehash: 759b61e5fb444643bf83e1cca47b6f7152a96590
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 9fb7fc9b4f0e5af0847876ff41b6a307f8a09749
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305656"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348040"
 ---
 # <a name="azure-networking"></a>Azure-netwerken
 
@@ -36,7 +36,7 @@ In deze sectie worden de services beschreven die verbinding bieden tussen Azure-
 |[Virtueel netwerk](#vnet)|Hiermee kunnen Azure-bronnen veilig communiceren met elkaar, Internet en on-premises netwerken.| <p>[Netwerkverkeer filteren](../virtual-network/tutorial-filter-network-traffic.md)</p> <p>[Netwerkverkeer routeren](../virtual-network/tutorial-create-route-table-portal.md)</p> <p>[Netwerktoegang tot resources beperken](../virtual-network/tutorial-restrict-network-access-to-resources.md)</p> <p>[Virtuele netwerken verbinden](../virtual-network/tutorial-connect-virtual-networks-portal.md)</p>|
 |[ExpressRoute](#expressroute)|Breidt uw on-premises netwerken uit in de micro soft-Cloud via een persoonlijke verbinding die wordt vereenvoudigd door een connectiviteits provider.|<p>[Een ExpressRoute-circuit maken en wijzigen](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> <p>[Peering voor een ExpressRoute-circuit maken en wijzigen](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[Een VNet koppelen aan een ExpressRoute-circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[Route filters configureren en beheren voor ExpressRoute-circuits](../expressroute/how-to-routefilter-portal.md)</p>|
 |[VPN Gateway](#vpngateway)|Versleuteld verkeer verzenden tussen een virtueel Azure-netwerk en een on-premises locatie via het open bare Internet.|<p>[Site-naar-site-verbindingen](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[VNet-naar-VNet-verbindingen](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Punt-naar-site-verbindingen](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
-|[Virtueel WAN](#virtualwan)|Optimaliseert en automatiseert de verbinding tussen filialen en Azure. Azure-regio's fungeren als hubs die u kunt gebruiken om uw filialen te koppelen aan.|<p>[Site-naar-site-verbindingen](../virtual-wan/virtual-wan-site-to-site-portal.md), [ExpressRoute-verbindingen](../virtual-wan/virtual-wan-expressroute-portal.md)</p> <p>[Punt-naar-site-verbindingen](../virtual-wan/virtual-wan-point-to-site-portal.md)</p> |
+|[Virtueel WAN](#virtualwan)|Optimaliseert en automatiseert de verbinding tussen filialen en Azure. Azure-regio's fungeren als hubs die u kunt gebruiken om uw filialen te koppelen aan.|<p>[Site-naar-site-verbindingen](../virtual-wan/virtual-wan-site-to-site-portal.md), [ExpressRoute-verbindingen](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
 |[Azure DNS](#dns)|Host DNS-domeinen die naam omzetting bieden met behulp van Microsoft Azure-infra structuur.|<p>[Uw domein hosten in Azure DNS](../dns/dns-delegate-domain-azure-dns.md)</p><p>[DNS-records voor een web-app maken](../dns/dns-web-sites-custom-domain.md)</p> <p>[Een alias record maken voor Traffic Manager](../dns/tutorial-alias-tm.md)</p> <p>[Een alias record maken voor openbaar IP-adres](../dns/tutorial-alias-pip.md)</p> <p>[Een alias record maken voor de zone bron record](../dns/tutorial-alias-rr.md)</p>|
 |[Azure-Bastion (preview-versie)](#bastion)|Configureer beveiligde en naadloze RDP-/SSH-connectiviteit in je virtuele machine, rechtstreeks in de Azure-portal via SSL. Wanneer u verbinding maakt via Azure Bastion, hebt u geen openbaar IP-adres nodig voor uw virtuele machines|<p>[Een Azure bastion-host maken](../bastion/bastion-create-host-portal.md)</p><p>[Via SSH verbinding maken met een virtuele Linux-machine](../bastion/bastion-connect-vm-ssh.md)</p><p>[Verbinding maken met behulp van RDP met een Windows VM](/bastion/bastion-connect-vm-rdp.md)</p>|
 ||||
@@ -55,7 +55,7 @@ Zie [Wat is Azure Virtual Network?](../virtual-network/virtual-networks-overview
 ### <a name="expressroute"></a>ExpressRoute
 Met ExpressRoute kunt u uw on-premises netwerken in de micro soft Cloud uitbreiden via een persoonlijke verbinding die wordt vereenvoudigd door een connectiviteits provider. Deze verbinding is een privéverbinding. Verkeer gaat niet via internet. Met ExpressRoute kunt u verbindingen tot stand brengen met Microsoft Cloud-services, zoals Microsoft Azure, Office 365 en Dynamics 365.  Zie [Wat is ExpressRoute?](../expressroute/expressroute-introduction.md)voor meer informatie.
 
-![ExpressRoute van Azure](./media/networking-overview/expressroute-connection-overview.png)
+![Azure ExpressRoute](./media/networking-overview/expressroute-connection-overview.png)
 
 ### <a name="vpngateway"></a>VPN Gateway
 VPN Gateway helpt u bij het maken van versleutelde cross-premises verbindingen met uw virtuele netwerk vanaf on-premises locaties of het maken van versleutelde verbindingen tussen VNets. Er zijn verschillende configuraties beschikbaar voor VPN Gateway verbindingen, zoals site-naar-site, punt-naar-site-of VNet-naar-VNet.
@@ -101,6 +101,8 @@ In deze sectie worden netwerk services in azure beschreven waarmee u uw netwerk 
 Azure Web Application firewall (WAF) biedt beveiliging voor uw webtoepassingen van veelvoorkomende webtoepassingen en zwakke plekken, zoals SQL-injectie en scripting op meerdere sites. Azure WAF voorziet in out-of-Box-beveiliging van OWASP Top 10 van beveiligings problemen via beheerde regels. Daarnaast kunnen klanten aangepaste regels configureren, die door de klant beheerde regels zijn om extra beveiliging te bieden op basis van het bron-IP-bereik, en om kenmerken zoals kopteksten, cookies, formulier gegevens velden of query reeks parameters op te geven.
 
 Klanten kunnen ervoor kiezen om [Azure WAF te implementeren met Application Gateway](../application-gateway/waf-overview.md) die regionale beveiliging biedt aan entiteiten in open bare en privé-adres ruimte. Klanten kunnen er ook voor kiezen om [Azure WAF te implementeren met de voor deur](../frontdoor/waf-overview.md) die beveiliging biedt aan de rand van het netwerk tot open bare eind punten.
+
+![Web Application Firewall](./media/networking-overview/waf-overview.png)
 
 
 ### <a name="firewall"></a>Azure Firewall

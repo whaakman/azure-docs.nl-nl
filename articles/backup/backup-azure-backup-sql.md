@@ -1,155 +1,154 @@
 ---
 title: Workloads van Azure Backup for SQL Server met DPM
-description: Een inleiding tot de back-ups van SQL Server-databases via de Azure Backup-service
-services: backup
+description: Een inleiding tot het maken van back-ups van SQL Server-data bases met de Azure Backup-Service
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: d7d94c7b238f8d413d8837c3c34468c6cd653fe3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60afba5d094d730aab20f2a7d50206c063f390ff
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60643973"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466633"
 ---
-# <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Back-up van SQL Server naar Azure als een DPM-workload
-In dit artikel leidt u door de configuratiestappen voor back-up van SQL Server-databases met Azure Backup.
+# <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Back-ups maken van SQL Server naar Azure als een DPM-workload
+Dit artikel leidt u door de configuratie stappen voor het maken van back-ups van SQL Server-data bases met behulp van Azure Backup.
 
-Als u wilt back-up van SQL Server-databases naar Azure, moet u een Azure-account. Als u geen account hebt, kunt u een gratis proefaccount maken in slechts enkele minuten. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+Als u back-ups wilt maken van SQL Server-data bases naar Azure, hebt u een Azure-account nodig. Als u geen account hebt, kunt u binnen slechts een paar minuten een gratis proef account maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
-Het beheer van SQL Server-database back-up naar Azure en het herstel van Azure omvat drie stappen:
+Het beheer van SQL Server database back-up naar Azure en het herstel van Azure bestaat uit drie stappen:
 
-1. Maak een back-upbeleid ter bescherming van SQL Server-databases naar Azure.
-2. Maak de back-ups op aanvraag naar Azure.
-3. Herstel de database van Azure.
+1. Maak een back-upbeleid om SQL Server data bases te beveiligen in Azure.
+2. Back-ups op aanvraag maken naar Azure.
+3. De data base herstellen vanuit Azure.
 
 ## <a name="before-you-start"></a>Voordat u begint
-Voordat u begint, zorg ervoor dat alle de [vereisten](backup-azure-dpm-introduction.md#prerequisites-and-limitations) voor het gebruik van Microsoft Azure Backup om te beveiligen werkbelastingen is voldaan. De vereisten, zoals taken besproken: het maken van een back-upkluis, kluisreferenties downloadt, installeert de Azure Backup-Agent en de server met de kluis registreert.
+Voordat u begint, moet u ervoor zorgen dat aan alle [vereisten](backup-azure-dpm-introduction.md#prerequisites-and-limitations) voor het gebruik van Microsoft Azure backup voor het beveiligen van werk belastingen is voldaan. De vereisten omvatten taken zoals: het maken van een back-upkluis, het downloaden van kluis referenties, het installeren van de Azure Backup Agent en het registreren van de server met de kluis.
 
-## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Een back-upbeleid ter bescherming van SQL Server-databases in Azure maken
-1. Klik op de DPM-server op de **Protection** werkruimte.
-2. Klik op het lint **nieuw** om een nieuwe beveiligingsgroep te maken.
+## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Een back-upbeleid maken om SQL Server data bases te beveiligen in azure
+1. Klik op de DPM-server op de werk ruimte **beveiliging** .
+2. Klik op het lint met hulp middelen op **Nieuw** om een nieuwe beveiligings groep te maken.
 
-    ![Beveiligingsgroep maken](./media/backup-azure-backup-sql/protection-group.png)
-3. DPM toont het startscherm met de richtlijnen over het maken van een **beveiligingsgroep**. Klik op **volgende**.
-4. Selecteer **Servers**.
+    ![Beveiligings groep maken](./media/backup-azure-backup-sql/protection-group.png)
+3. DPM toont het Start scherm met de richt lijnen voor het maken van een **beveiligings groep**. Klik op **Volgende**.
+4. Selecteer **servers**.
 
-    ![Type beveiligingsgroep - 'Servers' selecteren](./media/backup-azure-backup-sql/pg-servers.png)
-5. Vouwt u de SQL Server-computer waar de databases naar een back-up aanwezig zijn. DPM bevat verschillende gegevensbronnen die een back-kunnen worden gemaakt van die server. Vouw de **alle SQL-Shares** en selecteer de databases (in dit geval we geselecteerde ReportServer$ MSDPM2012 en ReportServer$ MSDPM2012TempDB) naar het back-up worden gemaakt. Klik op **volgende**.
+    ![Type beveiligings groep selecteren-' servers '](./media/backup-azure-backup-sql/pg-servers.png)
+5. Vouw de SQL Server machine uit waarvan de data bases waarvan een back-up moet worden gemaakt, aanwezig zijn. DPM toont verschillende gegevens bronnen waarvan een back-up van die server kan worden gemaakt. Vouw de **alle SQL** -shares uit en selecteer de data bases (in dit geval hebben we Report Server $ MSDPM2012 en Report Server $ MSDPM2012TempDB) geselecteerd waarvan een back-up moet worden gemaakt. Klik op **Volgende**.
 
-    ![SQL-database selecteren](./media/backup-azure-backup-sql/pg-databases.png)
-6. Geef een naam op voor de beveiligingsgroep en selecteer de **ik Kies voor online beveiliging** selectievakje.
+    ![SQL-data base selecteren](./media/backup-azure-backup-sql/pg-databases.png)
+6. Geef een naam op voor de beveiligings groep en schakel het selectie vakje **Ik wil online beveiliging** in.
 
-    ![Methode voor gegevensbeveiliging - kortetermijnbeveiliging op schijf en Online Azure](./media/backup-azure-backup-sql/pg-name.png)
-7. In de **Kortetermijndoelen opgeven** scherm, bevatten de benodigde invoeren voor het maken van back-uppunten op schijf.
+    ![Methode voor gegevens beveiliging-korte termijn schijf & online Azure](./media/backup-azure-backup-sql/pg-name.png)
+7. In het scherm doelen voor de **korte termijn opgeven** , neemt u de benodigde invoer op om back-uppunten te maken op schijf.
 
-    Hier zien we dat **bewaartermijn** is ingesteld op *5 dagen*, **Synchronisatiefrequentie** is ingesteld op één keer elke *15 minuten* dit is de de frequentie waarmee back-up wordt gemaakt. **Snelle volledige back-up** is ingesteld op *8:00 uur*.
+    Hier ziet u dat het **Bewaar bereik** is ingesteld op *5 dagen*, wordt de **synchronisatie frequentie** elke *15 minuten* ingesteld op de frequentie waarmee back-ups worden gemaakt. **Snelle volledige back-up** is ingesteld op *8:00 P. M*.
 
-    ![Doelstellingen van de korte termijn](./media/backup-azure-backup-sql/pg-shortterm.png)
+    ![Doelen voor de korte termijn](./media/backup-azure-backup-sql/pg-shortterm.png)
 
    > [!NOTE]
-   > Een back-uppunt wordt elke dag om 8:00 uur (op basis van de invoer van het scherm) door het overdragen van de gegevens die is gewijzigd van de vorige dag 8:00 uur back-uppunt gemaakt. Dit proces wordt genoemd **snelle volledige back-up**. Tijdens de transactie logboeken worden gesynchroniseerd snelle om de 15 minuten als nodig voor het herstellen van de database om 21:00 – is het punt is gemaakt door af te spelen de logboeken van de laatste volledige back-uppunt (8 pm in dit geval).
+   > Om 8:00 uur (volgens de scherm invoer) wordt er elke dag een back-uppunt gemaakt door de gegevens over te dragen die zijn gewijzigd sinds de vorige dag van het 8:00 PM-back-uppunt. Dit proces heet **snelle volledige back-up**. Hoewel de transactie Logboeken om de 15 minuten worden gesynchroniseerd, als de Data Base op 9:00 uur moet worden hersteld, wordt het punt gemaakt door de logboeken van de laatste snelle volledige back-uppunt (8 p.m. in dit geval) opnieuw af te spelen.
    >
    >
 
 8. Klik op **Volgende**
 
-    DPM toont de totale opslagruimte beschikbaar is en de mogelijke schijfgebruik voor ruimte.
+    DPM toont de totale beschik bare opslag ruimte en het mogelijke schijfruimte gebruik.
 
-    ![Toegewezen schijfruimte](./media/backup-azure-backup-sql/pg-storage.png)
+    ![Schijf toewijzing](./media/backup-azure-backup-sql/pg-storage.png)
 
-    DPM maakt standaard één volume per gegevensbron (SQL Server-database) dat wordt gebruikt voor de eerste back-up. Met deze aanpak beperkt de Logical Disk Manager (LDM) DPM-beveiliging met 300 gegevensbronnen (SQL Server-databases). U kunt deze beperking omzeilen, selecteer de **dezelfde gegevens in de DPM-opslaggroep plaatsen**, optie. Als u deze optie gebruikt, DPM maakt gebruik van een enkel volume voor meerdere gegevensbronnen, zodat DPM maximaal 2000 SQL-databases worden beveiligd.
+    Standaard maakt DPM één volume per gegevens bron (SQL Server-Data Base) die wordt gebruikt voor de eerste back-upkopie. Met deze methode wordt de DPM-beveiliging door de LDM (Logical Disk Manager) beperkt tot 300-gegevens bronnen (SQL Server-data bases). Als u deze beperking wilt omzeilen, selecteert u de optie **gegevens samen voegen in DPM-opslag groep**. Als u deze optie gebruikt, gebruikt DPM één volume voor meerdere gegevens bronnen, waardoor DPM Maxi maal 2000 SQL-data bases kan beveiligen.
 
-    Als **volumes automatisch vergroten** optie is geselecteerd, DPM kan rekening voor de verbeterde back-upvolume wanneer de productiegegevens groeit. Als **volumes automatisch vergroten** optie niet is ingeschakeld, DPM Hiermee beperkt u de back-upopslag gebruikt met de gegevensbronnen in de beveiligingsgroep.
-9. Beheerders, krijgen de keuze van het overdragen van deze eerste back-up handmatig (uit netwerk) om te voorkomen opstoppingen in het bandbreedte of via het netwerk. Ze kunnen ook de tijd waarop de initiële overdracht kan gebeuren configureren. Klik op **volgende**.
+    Als **de optie volumes automatisch verg Roten** is geselecteerd, kan DPM het verhoogde back-upvolume account maken naarmate de productie gegevens groeien. Als **de optie volumes automatisch verg Roten** is niet geselecteerd, beperkt DPM de back-upopslag die wordt gebruikt voor de gegevens bronnen in de beveiligings groep.
+9. Beheerders krijgen de keuze om deze eerste back-up hand matig te verplaatsen (uit het netwerk) om te voor komen dat er band breedte overbelast of via het netwerk. Ze kunnen ook de tijd configureren waarop de eerste overdracht kan plaatsvinden. Klik op **Volgende**.
 
-    ![Methode voor eerste replicatie](./media/backup-azure-backup-sql/pg-manual.png)
+    ![Methode van initiële replicatie](./media/backup-azure-backup-sql/pg-manual.png)
 
-    De eerste back-up is vereist voor overdracht van de gehele gegevensbron (SQL Server-database) van productieserver (SQL Server-machine) naar de DPM-server. Deze gegevens zijn mogelijk grote, en bandbreedte als de gegevens worden overgebracht via het netwerk kunt overschrijden. Beheerders kunnen kiezen om deze reden om over te dragen van de eerste back-up: **Handmatig** (met behulp van verwijderbare media) om te voorkomen opstoppingen in het bandbreedte, of **automatisch via het netwerk** (op een bepaald tijdstip).
+    Voor de eerste back-up is overdracht van de volledige gegevens bron (SQL Server-Data Base) van de productie server (SQL Server machine) naar de DPM-server vereist. Deze gegevens zijn mogelijk erg groot en het overdragen van de gegevens via het netwerk kan de band breedte overschrijden. Daarom kunnen beheerders ervoor kiezen om de eerste back-up over te dragen: **Hand matig** (met behulp van Verwissel bare media) om te voor komen dat de band breedte overbelast of **automatisch via het netwerk** (op een bepaald moment).
 
-    Nadat de eerste back-up is voltooid, zijn de rest van de back-ups incrementele back-ups op de eerste back-up. Incrementele back-ups zijn meestal klein en eenvoudig worden overgedragen via het netwerk.
-10. Kies wanneer u de consistentiecontrole uitvoeren en klikt u op **volgende**.
+    Zodra de eerste back-up is voltooid, zijn de rest van de back-ups incrementele back-ups op de eerste back-upkopie. Incrementele back-ups zijn vaak klein en kunnen eenvoudig via het netwerk worden overgedragen.
+10. Kies wanneer u wilt dat de consistentie controle wordt uitgevoerd en klik op **volgende**.
 
-    ![Consistentiecontrole](./media/backup-azure-backup-sql/pg-consistent.png)
+    ![Consistentie controle](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    DPM kan uitvoeren een consistentiecontrole uit de integriteit van de back-uppunt. De controlesom van de back-upbestand op de productieserver (SQL Server-machine in dit scenario) en de gegevens waarvan een back-up is gemaakt voor het bestand op DPM wordt berekend. In het geval van een conflict optreedt, wordt ervan uitgegaan dat het bestand waarvan een back-up is gemaakt op DPM beschadigd is. DPM herstelt de gegevens waarvan een back-up is gemaakt door te sturen, de blokken die overeenkomt met de controlesom komt niet overeen. Als de consistentiecontrole een prestatie-intensieve bewerking is, hebben beheerders de mogelijkheid om de consistentiecontrole plannen of automatisch uitgevoerd.
-11. Als u online beveiliging van de gegevensbronnen, selecteert u de databases moeten worden beveiligd op Azure en klikt u op **volgende**.
+    DPM kan een consistentie controle uitvoeren om de integriteit van het back-uppunt te controleren. Het berekent de controlesom van het back-upbestand op de productie server (SQL Server machine in dit scenario) en de gegevens van de back-up voor dat bestand op DPM. Als er een conflict optreedt, wordt ervan uitgegaan dat het back-upbestand op DPM is beschadigd. DPM verholpen de back-upgegevens door de blokken te verzenden die overeenkomen met de controlesom komen niet overeen. Omdat de consistentie controle een prestatie-intensieve bewerking is, kunnen beheerders de consistentie controle plannen of automatisch uitvoeren.
+11. Als u de online beveiliging van de gegevens bronnen wilt opgeven, selecteert u de data bases die moeten worden beveiligd met Azure en klikt u op **volgende**.
 
-    ![Gegevensbronnen selecteren](./media/backup-azure-backup-sql/pg-sqldatabases.png)
-12. Beheerders kunnen kiezen voor back-upschema's en voor het bewaren van die geschikt is voor het beleid van hun organisatie.
+    ![Gegevens bronnen selecteren](./media/backup-azure-backup-sql/pg-sqldatabases.png)
+12. Beheerders kunnen back-upscheman en bewaar beleid voor hun organisatie beleid kiezen.
 
-    ![Schema en de retentie](./media/backup-azure-backup-sql/pg-schedule.png)
+    ![Plannen en bewaren](./media/backup-azure-backup-sql/pg-schedule.png)
 
-    In dit voorbeeld worden back-ups één keer per dag uitgevoerd om 12:00 uur en 8 uur (onderste gedeelte van het scherm)
+    In dit voor beeld worden back-ups eenmaal per dag om 12:00 uur en 8 uur (onderste deel van het scherm) gemaakt.
 
     > [!NOTE]
-    > Het is raadzaam om een aantal herstelpunten op korte termijn op schijf voor snel herstel. Deze herstelpunten worden gebruikt voor 'operationeel herstel'. Azure doet dienst als een goede externe locatie met hogere Sla's en beschikbaarheid gegarandeerd.
+    > Het is een goed idee om een aantal herstel punten voor de korte termijn te hebben op de schijf, voor snel herstel. Deze herstel punten worden gebruikt voor ' operationeel herstel '. Azure fungeert als een goede externe locatie met hogere Sla's en gegarandeerde Beschik baarheid.
     >
     >
 
-    **Best Practice**: Zorg ervoor dat Azure back-ups zijn gepland na de voltooiing van de lokale schijf-back-ups met behulp van DPM. Hierdoor is de laatste schijfback-ups moeten worden gekopieerd naar Azure.
+    **Aanbevolen procedure**: Zorg ervoor dat de Azure-back-ups zijn gepland na het volt ooien van de back-ups van de lokale schijf met behulp van DPM. Hiermee wordt de meest recente schijf back-up naar Azure gekopieerd.
 
-13. Kies het bewaarschema voor beleid. De details over de werking van het bewaarbeleid zijn opgegeven op [gebruik Azure Backup vervangt u uw tape-infrastructuur-artikel](backup-azure-backup-cloud-as-tape.md).
+13. Kies het schema voor het Bewaar beleid. De details over de manier waarop het Bewaar beleid werkt, vindt u in [gebruik Azure backup om uw tape-infrastructuur artikel te vervangen](backup-azure-backup-cloud-as-tape.md).
 
     ![Bewaarbeleid](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     In dit voorbeeld:
 
-    * Back-ups gaat één keer per dag om 12:00 uur en 8 uur (onderste gedeelte van het scherm) en 180 dagen worden bewaard.
-    * De back-up op zaterdag om 12:00 uur 104 weken wordt bewaard
-    * De back-up op de laatste zaterdag om 12:00 uur 60 maanden wordt bewaard
-    * De back-up op de laatste zaterdag van maart om 12:00 uur tien jaar worden bewaard
-14. Klik op **volgende** en selecteer de gewenste optie voor het overdragen van de eerste back-up naar Azure. U kunt ervoor kiezen **automatisch via het netwerk** of **Offline back-up**.
+    * Back-ups worden eenmaal per dag om 12:00 uur en 8 uur (onderste deel van het scherm) gemaakt en blijven 180 dagen bewaard.
+    * De back-up op zaterdag om 12:00 uur wordt 104 weken bewaard
+    * De back-up op de laatste zaterdag om 12:00 uur wordt gedurende 60 maanden bewaard
+    * De back-up op de laatste zaterdag van maart om 12:00 uur wordt gedurende tien jaar bewaard
+14. Klik op **volgende** en selecteer de juiste optie om de eerste back-up naar Azure te verplaatsen. U kunt **automatisch kiezen via het netwerk** of **offline back-up**.
 
-    * **Automatisch via het netwerk** brengt de back-upgegevens naar Azure aan de hand van de planning voor back-up is gekozen.
-    * Hoe **Offline back-up** werkt wordt uitgelegd op [Offlineback-upwerkstroom in Azure Backup](backup-azure-backup-import-export.md).
+    * **Automatisch via het netwerk** worden de back-upgegevens overgebracht naar Azure volgens het schema dat voor back-up is gekozen.
+    * Hoe **offline back-up** werkt, wordt uitgelegd [in de offline back-upwerk stroom in azure backup](backup-azure-backup-import-export.md).
 
-    Kies de relevante gegevensoverdrachtmechanisme voor het verzenden van de eerste back-up naar Azure en klikt u op **volgende**.
-15. Nadat u de details van het beleid in controleren de **samenvatting** scherm, klikt u op de **groep maken** knop om de werkstroom te voltooien. U kunt klikken op de **sluiten** knop en controleren van de voortgang van de taak in de werkruimte bewaking.
+    Kies het relevante overdrachts mechanisme om de eerste back-up naar Azure te verzenden en klik op **volgende**.
+15. Wanneer u de details van het beleid in het scherm **samen vatting** hebt bekeken, klikt u op de knop **groep maken** om de werk stroom te volt ooien. U kunt op de knop **sluiten** klikken en de voortgang van de taak in de werk ruimte bewaking bewaken.
 
-    ![Het maken van de beveiligingsgroep wordt uitgevoerd](./media/backup-azure-backup-sql/pg-summary.png)
+    ![Bezig met het maken van een beveiligings groep](./media/backup-azure-backup-sql/pg-summary.png)
 
-## <a name="on-demand-backup-of-a-sql-server-database"></a>On-demand back-up van een SQL Server-database
-Tijdens de vorige stappen hebt gemaakt van een back-upbeleid, wordt een 'herstelpunt' alleen gemaakt als de eerste back-up plaatsvindt. In plaats van te wachten tot de scheduler geactiveerd, wordt de stappen hieronder trigger het maken van een herstel handmatig verwijzen.
+## <a name="on-demand-backup-of-a-sql-server-database"></a>Back-ups op aanvraag van een SQL Server Data Base
+Terwijl de vorige stappen een back-upbeleid hebben gemaakt, wordt er alleen een ' herstel punt ' gemaakt wanneer de eerste back-up wordt uitgevoerd. In plaats van te wachten tot de scheduler wordt gestart, activeren de volgende stappen om hand matig een herstel punt te maken.
 
-1. Wacht totdat de status van de beveiliging groep bevat **OK** voor de database voordat u het herstelpunt maakt.
+1. Wacht totdat de status van de beveiligings groep op **OK** staat voor de Data Base voordat u het herstel punt maakt.
 
-    ![Leden van beveiligingsgroep](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
-2. Met de rechtermuisknop op de database en selecteer **herstelpunt maken**.
+    ![Leden van beveiligings groep](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
+2. Klik met de rechter muisknop op de data base en selecteer **herstel punt maken**.
 
-    ![Online herstelpunt maken](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
-3. Kies **Onlinebeveiliging** in de vervolgkeuzelijst en klik op **OK**. Hiermee start u het maken van een herstelpunt in Azure.
+    ![Online herstel punt maken](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
+3. Kies **online beveiliging** in de vervolg keuzelijst en klik op **OK**. Hiermee wordt het maken van een herstel punt in azure gestart.
 
-    ![Herstelpunt maken](./media/backup-azure-backup-sql/sqlbackup-azure.png)
-4. U ziet de voortgang van de taak in de **bewaking** werkruimte waar vindt u een actieve taak, zoals de naam weergegeven de volgende afbeelding.
+    ![Herstel punt maken](./media/backup-azure-backup-sql/sqlbackup-azure.png)
+4. U kunt de voortgang van de taak weer geven in de werk ruimte **bewaking** , waar u een taak in voortgang vindt, zoals in de volgende afbeelding.
 
-    ![Bewaking van console](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
+    ![Bewakings console](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
-## <a name="recover-a-sql-server-database-from-azure"></a>Een SQL Server-database herstellen van Azure
-De volgende stappen zijn vereist voor het herstellen van een beveiligde entiteit (SQL Server-database) van Azure.
+## <a name="recover-a-sql-server-database-from-azure"></a>Een SQL Server-Data Base herstellen vanuit Azure
+De volgende stappen zijn vereist om een beveiligde entiteit (SQL Server-Data Base) te herstellen vanuit Azure.
 
-1. Open de beheerconsole van de DPM-server. Navigeer naar **Recovery** werkruimte waar u de servers kunt zien back-up gemaakt door DPM. Blader door de vereiste database (in dit geval ReportServer$ MSDPM2012). Selecteer een **herstel vanaf** die eindigt op **Online**.
+1. Open de beheer console van DPM-server. Ga naar de **herstel** werkruimte, waar u de servers kunt zien waarvan een back-up is gemaakt door DPM. Blader door de vereiste data base (in dit geval Report Server $ MSDPM2012). Selecteer een **herstel** tijd die eindigt op **online**.
 
-    ![Herstelpunt selecteren](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
-2. Met de rechtermuisknop op de naam van de database en klik op **herstellen**.
+    ![Herstel punt selecteren](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
+2. Klik met de rechter muisknop op de naam van de data base en klik op **herstellen**.
 
-    ![Herstellen van Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM geeft de details van het herstelpunt. Klik op **volgende**. Als u wilt overschrijven van de database, selecteert u het hersteltype **herstellen naar oorspronkelijk exemplaar van SQL Server**. Klik op **volgende**.
+    ![Herstellen vanuit Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
+3. DPM toont de details van het herstel punt. Klik op **Volgende**. Als u de Data Base wilt overschrijven, selecteert u het herstel type **herstellen naar het oorspronkelijke exemplaar van SQL Server**. Klik op **Volgende**.
 
-    ![Herstellen naar oorspronkelijke locatie](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
+    ![Herstellen naar de oorspronkelijke locatie](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    In dit voorbeeld kan DPM herstel van de database naar een ander exemplaar van SQL Server of naar een netwerkmap zelfstandige.
-4. In de **herstelopties opgeven** scherm, kunt u de herstelopties zoals beperking van de netwerkbandbreedte te beperken van de bandbreedte die wordt gebruikt door herstel. Klik op **volgende**.
-5. In de **samenvatting** scherm ziet u alle van de recovery-configuraties geleverd tot nu toe. Klik op **herstellen**.
+    In dit voor beeld staat DPM het herstellen van de Data Base naar een andere SQL Server exemplaar of naar een zelfstandige netwerkmap toe.
+4. In het scherm **herstel opties opgeven** kunt u de herstel opties zoals netwerk bandbreedte gebruiken selecteren om de band breedte te beperken die wordt gebruikt voor herstel. Klik op **Volgende**.
+5. In het scherm **samen vatting** ziet u alle beschik bare herstel configuraties tot nu toe. Klik op **herstellen**.
 
-    De herstelstatus ziet u de database wordt hersteld. U kunt klikken op **sluiten** aan de wizard te sluiten en de voortgang in de **bewaking** werkruimte.
+    De herstel status toont de data base die wordt hersteld. U kunt op **sluiten** klikken om de wizard te sluiten en de voortgang in de werk ruimte **bewaking** weer te geven.
 
-    ![Herstelproces te starten](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
+    ![Herstel proces initiëren](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
 
-    Nadat het herstel is voltooid, wordt door de herstelde database toepassingsconsistent is.
+    Wanneer het herstel is voltooid, is de herstelde data base toepassings consistent.
 
 ### <a name="next-steps"></a>Volgende stappen
-• [Veelgestelde vragen over azure Backup](backup-azure-backup-faq.md)
+• [Azure backup Veelgestelde vragen](backup-azure-backup-faq.md)

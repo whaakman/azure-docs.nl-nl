@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a38b91cd17e2107fe85bfc77da8ead86196173
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d33a18aaca923bd49858671546ab053cf3fb21a3
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472761"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382139"
 ---
 # <a name="two-step-verification-overview"></a>Overzicht van verificatie in twee stappen
 
@@ -30,9 +30,9 @@ Verificatie in twee stappen is veiliger dat alleen een wachtwoord omdat het is g
 
 |Artikel |Description |
 |------|------------|
-|[Instellen](multi-factor-authentication-end-user-first-time.md) |Beschrijft hoe u verificatie in twee stappen de eerste keer instelt.|
-|[Aan de slag met verificatie in twee stappen](multi-factor-authentication-end-user.md)|Beschrijft wat verificatie in twee stappen voor u betekent.| 
-|[Aanmelden](user-help-sign-in.md)|Beschrijft hoe u zich kunt aanmelden met behulp van de opgegeven verificatiemethode.|
-|[Uw instellingen wijzigen](multi-factor-authentication-end-user-manage-settings.md) |Beschrijft hoe u de instellingen kunt wijzigen, zoals het telefoonnummer of de gewenste inschrijvingsmethode.|
-|[Help-informatie voor verificatie in twee stappen](multi-factor-authentication-end-user-troubleshoot.md) |Beschrijft hoe u veelvoorkomende problemen met verificatie in twee stappen kunt oplossen.|
-|[App-wachtwoorden beheren](multi-factor-authentication-end-user-app-passwords.md) |Beschrijft hoe u app-wachtwoorden kunt maken en gebruiken.|
+| [Instellen](multi-factor-authentication-end-user-first-time.md) |Beschrijft hoe u verificatie in twee stappen de eerste keer instelt.|
+| [Aan de slag met verificatie in twee stappen](multi-factor-authentication-end-user.md) ] Hierin wordt beschreven wat de verificatie in twee stappen voor u is.| 
+| [Hoe kan ik me aanmelden](user-help-sign-in.md) ? Hierin wordt beschreven hoe u zich aanmeldt met uw opgegeven verificatie methode.|
+| [Uw instellingen wijzigen](multi-factor-authentication-end-user-manage-settings.md) |Beschrijft hoe u de instellingen kunt wijzigen, zoals het telefoonnummer of de gewenste inschrijvingsmethode.|
+| [Help-informatie voor verificatie in twee stappen](multi-factor-authentication-end-user-troubleshoot.md) |Beschrijft hoe u veelvoorkomende problemen met verificatie in twee stappen kunt oplossen.|
+| [App-wachtwoorden beheren](multi-factor-authentication-end-user-app-passwords.md) |Beschrijft hoe u app-wachtwoorden kunt maken en gebruiken.|

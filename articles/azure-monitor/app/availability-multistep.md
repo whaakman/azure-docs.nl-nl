@@ -1,6 +1,6 @@
 ---
-title: Bewaken van uw webtoepassing met webtests met meerdere stappen en Azure Application Insights | Microsoft Docs
-description: WebTest met meerdere stappen-tests instellen voor het bewaken van uw webtoepassingen met Azure Application Insights
+title: Bewaak uw webtoepassing met webtests met meerdere stappen en Azure-toepassing inzichten | Microsoft Docs
+description: Webtests met meerdere stappen instellen om uw webtoepassingen te bewaken met Azure-toepassing Insights
 services: application-insights
 author: mrbullwinkle
 manager: carmonm
@@ -9,35 +9,38 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 07/25/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: d8bfe92af4e8afc4edae76efb2e1cb7b287c7aa9
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 150c41dce06c81f2e9e07605ab6d5afa9e424453
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304884"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494490"
 ---
 # <a name="multi-step-web-tests"></a>Webtests met meerdere stappen
 
-U kunt een geregistreerde reeks URL's en -interacties met een website via webtests met meerdere stappen bewaken. In dit artikel begeleidt u door het proces van het maken van een WebTest met meerdere stappen met Visual Studio Enterprise.
+U kunt een vastgelegde reeks Url's en interacties bewaken met een website via webtests met meerdere stappen. Dit artikel begeleidt u stapsgewijs door het proces van het maken van een webtest met meerdere stappen met Visual Studio Enter prise.
 
 > [!NOTE]
-> Webtests met meerdere stappen hebben extra kosten die zijn gekoppeld. Voor meer informatie over meer consult de [officiële prijzen handleiding](https://azure.microsoft.com/pricing/details/application-insights/).
+> Webtests met meerdere stappen zijn afhankelijk van bestanden van Visual Studio Web testen. Het werd [aangekondigd](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) dat Visual Studio 2019 de laatste versie is met de webtest-functionaliteit. Het is belang rijk om te begrijpen dat er geen nieuwe functies worden toegevoegd, maar dat de webtest-functionaliteit in Visual Studio 2019 nog steeds wordt ondersteund en wordt ondersteund tijdens de levens cyclus van het product. Het Azure Monitor-product team heeft [hier](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)vragen gesteld over de toekomst van Beschik baarheid van meerdere stappen.  
 
 ## <a name="pre-requisites"></a>Vereisten
 
-* Visual Studio 2017 Enterprise of hoger.
-* Visual Studio web performance en load testprogramma's.
+* Visual Studio 2017 Enter prise of hoger.
+* Visual Studio Web Performance en load test tools.
 
-Op zoek naar de vereiste tests hulpprogramma's. Start de **Visual Studio Installer** > **afzonderlijke onderdelen** > **foutopsporing en testen**  >   **Web-prestaties en testhulpprogramma's laden**.
+Om de vereiste voor de test hulpprogramma's te vinden. Start de > **afzonderlijke onderdelen** >   > van Visual Studio Installer**fouten opsporen en testen**op webprestaties**en laad Programma's**.
 
-![Schermafbeelding van het installatieprogramma voor Visual Studio gebruikersinterface met afzonderlijke onderdelen geselecteerd met een selectievakje naast het item voor webprestaties en belastingstests voor de hulpprogramma 's](./media/availability-multistep/web-performance-load-testing.png)
+![Scherm afbeelding van de gebruikers interface van Visual Studio Installer waarbij afzonderlijke onderdelen zijn geselecteerd met een selectie vakje naast het item voor de hulpprogram ma's voor webprestaties en laad Programma's](./media/availability-multistep/web-performance-load-testing.png)
 
-## <a name="record-a-multi-step-web-test"></a>Neem een WebTest met meerdere stappen
+> [!NOTE]
+> Voor webtests met meerdere stappen gelden aanvullende kosten. Raadpleeg de [officiële prijs handleiding](https://azure.microsoft.com/pricing/details/application-insights/)voor meer informatie.
 
-Als u een test met meerdere stappen wilt maken, neemt u het scenario op met Visual Studio Enterprise en uploadt u vervolgens de opname naar Application Insights. Application Insights speelt het scenario opnieuw met ingestelde intervallen en controleert de reactie.
+## <a name="record-a-multi-step-web-test"></a>Een webtest met meerdere stappen opnemen
+
+Als u een test met meerdere stappen wilt maken, neemt u het scenario op met Visual Studio Enterprise en uploadt u vervolgens de opname naar Application Insights. Application Insights speelt het scenario af met ingestelde intervallen en controleert het antwoord.
 
 > [!IMPORTANT]
 > * U kunt in uw tests geen gecodeerde functies of lussen gebruiken. De test moet volledig zijn opgenomen in het .webtest-script. U kunt echter wel standaard-invoegtoepassingen gebruiken.
@@ -45,79 +48,79 @@ Als u een test met meerdere stappen wilt maken, neemt u het scenario op met Visu
 
 Gebruik Visual Studio Enterprise om een websessie op te nemen.
 
-1. Maak een Web performance en Load-testproject. **Bestand** > **nieuwe** > **Project** > **Visual C#**   >  **testen**
+1. Maak een test project voor webprestaties en belasting.  > **Nieuwe** **Visual C#**  **test voor** hetprojectvan > eenbestand >   > 
 
-    ![Visual Studio-nieuw project UI](./media/availability-multistep/vs-web-performance-and-load-test.png)
+    ![Visual Studio nieuw project-gebruikers interface](./media/availability-multistep/vs-web-performance-and-load-test.png)
 
-2. Open de `.webtest` bestands- en begin met opnemen.
+2. Open het `.webtest` bestand en begin met de opname.
 
-    ![Visual Studio test UI op te nemen](./media/availability-multistep/open-web-test.png)
+    ![Gebruikers interface voor het opnemen van de Visual Studio-test](./media/availability-multistep/open-web-test.png)
 
-3. Klik in de stappen die u wilt dat uw test om te simuleren als onderdeel van de opname.
+3. Klik door de stappen die door de test moeten worden gesimuleerd als onderdeel van de opname.
 
-    ![Browseropname UI](./media/availability-multistep/record.png)
+    ![Gebruikers interface voor opnemen van browser](./media/availability-multistep/record.png)
 
 4. Bewerk de test als volgt:
 
     * Voeg validaties toe om de ontvangen tekst en reactiecodes te controleren.
-    * Verwijder alle onnodig interacties. U kan ook afhankelijke aanvragen voor afbeeldingen verwijderen of toevoegen van tracking-sites die niet relevant voor u overweegt uw test geslaagd.
+    * Verwijder alle uneccesary-interacties. U kunt ook afhankelijke aanvragen voor afbeeldingen verwijderen of tracking-sites toevoegen die niet relevant zijn voor u om uw test te laten slagen.
     
-    Houd er rekening mee dat u alleen het testscript bewerken kunt: u kunt aangepaste code toevoegen of andere webtests aanroepen. Voeg geen lussen toe aan de test. U kunt standaardinvoegtoepassingen voor webtest gebruiken.
+    Denk eraan dat u het test script alleen kunt bewerken: u kunt aangepaste code toevoegen of andere webtests aanroepen. Voeg geen lussen toe aan de test. U kunt standaardinvoegtoepassingen voor webtest gebruiken.
 
-5. De test uitvoeren in Visual Studio om te valideren en te controleren of dat deze werkt.
+5. Voer de test uit in Visual Studio om te valideren en controleer of deze werkt.
 
-    De webtestrunner opent een webbrowser en herhaalt de acties die u hebt opgenomen. Zorg ervoor dat alles werkt zoals verwacht.
+    De webtestrunner opent een webbrowser en herhaalt de acties die u hebt opgenomen. Controleer of alles werkt zoals verwacht.
 
-## <a name="upload-the-web-test"></a>De WebTest uploaden
+## <a name="upload-the-web-test"></a>De webtest uploaden
 
-1. Selecteer in de Application Insights-portal in het deelvenster beschikbaarheid **maken testen** > **testtype** > **WebTest met meerdere stappen**.
+1. Selecteer in de Portal Application Insights in het deel venster Beschik baarheid de optie test test**type** > **multi-step web test** **maken** > .
 
-2. Stel de testlocaties, frequentie en Waarschuwingsparameters.
+2. Stel de test locaties, frequentie en waarschuwings parameters in.
 
-### <a name="frequency--location"></a>Frequentie en locatie
-
-|Instelling| Uitleg
-|----|----|----|
-|**Testfrequentie**| Hiermee stelt u op hoe vaak de test wordt uitgevoerd vanaf elke testlocatie. Met een standaardfrequentie van vijf minuten en vijf testlocaties wordt uw site gemiddeld per minuut getest.|
-|**Testlocaties**| Zijn de plaatsen van waar onze servers webaanvragen naar uw URL verzenden. **Onze minimum aantal aanbevolen testlocaties is vijf** om te zorgen dat u problemen in uw website van netwerkproblemen onderscheiden kunt. U kunt maximaal 16 locaties selecteren.
-
-### <a name="success-criteria"></a>Criteria voor succes
+### <a name="frequency--location"></a>Frequentie & locatie
 
 |Instelling| Uitleg
 |----|----|----|
-| **Time-out voor testen** |Verlaag deze waarde om te worden gewaarschuwd over trage reacties. De test wordt als mislukt beschouwd als er binnen deze periode geen reactie van uw site is ontvangen. Als u **Parse onafhankelijke aanvragen** hebt geselecteerd, moeten alle afbeeldingen, stijlbestanden, scripts en andere afhankelijke resources binnen deze periode worden ontvangen.|
-| **HTTP-antwoord** | De geretourneerde statuscode die voor een geslaagde test staat. 200 is de code die aangeeft dat er een normale webpagina is geretourneerd.|
-| **Inhoudsovereenkomst** | Een tekenreeks, zoals 'Welkom!' Er wordt getest of er in elke respons een exacte (hoofdlettergevoelige) overeenkomst wordt gevonden. Het moet een eenvoudige tekenreeks zijn, zonder jokertekens. Als uw pagina-inhoud wordt gewijzigd, moet u deze tekenreeks mogelijk ook bijwerken. **Alleen Engelse tekens worden ondersteund met inhoudsovereenkomsten** |
+|**Test frequentie**| Hiermee stelt u in hoe vaak de test wordt uitgevoerd vanaf elke test locatie. Met een standaardfrequentie van vijf minuten en vijf testlocaties wordt uw site gemiddeld per minuut getest.|
+|**Test locaties**| Zijn de locaties waar onze servers webaanvragen verzenden naar uw URL. Het **minimum aantal aanbevolen test locaties is vijf** om ervoor te zorgen dat u problemen in uw website kunt onderscheiden van netwerk problemen. U kunt maximaal 16 locaties selecteren.
+
+### <a name="success-criteria"></a>Succescriteria
+
+|Instelling| Uitleg
+|----|----|----|
+| **Time-out testen** |Deze waarde verlagen om te worden gewaarschuwd over trage reacties. De test wordt als mislukt beschouwd als er binnen deze periode geen reactie van uw site is ontvangen. Als u **Parse onafhankelijke aanvragen** hebt geselecteerd, moeten alle afbeeldingen, stijlbestanden, scripts en andere afhankelijke resources binnen deze periode worden ontvangen.|
+| **HTTP-antwoord** | De geretourneerde status code die als geslaagd is geteld. 200 is de code die aangeeft dat er een normale webpagina is geretourneerd.|
+| **Inhouds overeenkomst** | Een teken reeks, bijvoorbeeld ' Welkom! ' Er wordt getest of er in elke respons een exacte (hoofdlettergevoelige) overeenkomst wordt gevonden. Het moet een eenvoudige tekenreeks zijn, zonder jokertekens. Als uw pagina-inhoud wordt gewijzigd, moet u deze tekenreeks mogelijk ook bijwerken. **Alleen Engelse tekens worden ondersteund met inhouds overeenkomsten** |
 
 ### <a name="alerts"></a>Waarschuwingen
 
 |Instelling| Uitleg
 |----|----|----|
-|**Near-realtime (Preview)** | Het is raadzaam om met behulp van de bijna realtime waarschuwingen. Configureren van dit type waarschuwing wordt uitgevoerd nadat de beschikbaarheidstest is gemaakt.  |
-|**Klassiek** | We niet meer wordt aanbevolen met klassieke waarschuwingen voor nieuwe beschikbaarheidstests.|
-|**Voor waarschuwingslocatie**|U wordt aangeraden een minimum van 3/5 locaties. De optimale relatie tussen waarschuwingslocatie en het aantal testlocaties **waarschuwingslocatie** = **aantal testlocaties - 2, met een minimum van vijf testlocaties.**|
+|**Bijna realtime (preview-versie)** | We raden u aan bijna realtime waarschuwingen te gebruiken. Het configureren van dit type waarschuwing wordt uitgevoerd nadat de beschikbaarheids test is gemaakt.  |
+|**Klassiek** | Het gebruik van klassieke waarschuwingen voor nieuwe beschikbaarheids tests wordt niet meer aanbevolen.|
+|**Drempel waarde voor waarschuwings locatie**|We raden aan dat er mini maal 3/5 locaties zijn. De optimale relatie tussen de drempel waarde van de waarschuwings locatie en het aantal test locaties is drempel = waarde voor **waarschuwings locaties** **aantal test locaties-2, met een minimum van vijf test locaties.**|
 
 ## <a name="advanced-configuration"></a>Geavanceerde configuratie
 
-### <a name="plugging-time-and-random-numbers-into-your-test"></a>Tijd en willekeurige cijfers invoegen in uw test
+### <a name="plugging-time-and-random-numbers-into-your-test"></a>Tijd en wille keurige getallen koppelen aan uw test
 
 Stel dat u een hulpprogramma test dat tijdsafhankelijke gegevens ontvangt van een externe feed (bijvoorbeeld een feed met aandelenkoersen). Wanneer u uw webtest opneemt, moet u specifieke tijden gebruiken, maar u stelt deze in als testparameters: StartTime en EndTime.
 
-![Mijn geweldige aandelen app-schermafbeelding](./media/availability-multistep/app-insights-72webtest-parameters.png)
+![Mijn scherm afbeelding van de fantastische Stock-app](./media/availability-multistep/app-insights-72webtest-parameters.png)
 
 Wanneer u de test uitvoert, moet EndTime altijd de huidige tijd zijn. StartTime moet een kwartier in het verleden liggen.
 
-De datum tijd de Webtestinvoegtoepassing biedt u de manier om af te handelen parameteriseren tijden.
+De invoeg toepassing datum tijd web test biedt de mogelijkheid om para meters-tijden te verwerken.
 
 1. Voeg een webtestinvoegtoepassing toe voor elke gewenste variabele parameterwaarde. Kies in de werkbalk van de webtest de optie **Webtestinvoegtoepassing toevoegen**.
     
-    ![Webtestinvoegtoepassing toevoegen](./media/availability-multistep/app-insights-72webtest-plugin-name.png)
+    ![Invoeg toepassing voor web-test toevoegen](./media/availability-multistep/app-insights-72webtest-plugin-name.png)
     
     In dit voorbeeld gebruiken we twee exemplaren van de invoegtoepassing Date Time. Een exemplaar is voor "15 minuten geleden" en een ander voor “nu”.
 
 2. Open de eigenschappen van elke invoegtoepassing. Geef de invoegtoepassing een naam en stel deze zodanig in dat de huidige tijd wordt gebruikt. Stel voor een van de toepassingen Minuten toevoegen in op -15.
 
-    ![Context Parameters](./media/availability-multistep/app-insights-72webtest-plugin-parameters.png)
+    ![Context parameters](./media/availability-multistep/app-insights-72webtest-plugin-parameters.png)
 
 3. Gebruik in de webtestparameters {{plug-in name}} om te verwijzen naar de naam van de invoegtoepassing.
 
@@ -131,20 +134,20 @@ Als uw gebruikers zich aanmelden bij uw app, hebt u verschillende functies om de
 
 In alle gevallne moet u een account maken in uw toepassing voor testdoeleinden. Beperk indien mogelijk de machtigingen voor dit testaccount, zodat webtests echte gebruikers niet beïnvloeden.
 
-**Eenvoudige gebruikersnaam en wachtwoord** een WebTest op de gebruikelijke manier. Verwijder eerst de cookies.
+**Eenvoudige gebruikers naam en wacht woord** Registreer een webtest op de gebruikelijke manier. Verwijder eerst de cookies.
 
-**SAML-verificatie** gebruikt u de SAML-invoegtoepassing die beschikbaar is voor webtests. Toegang tot de-invoegtoepassing door...
+**SAML-verificatie** Gebruik de SAML-invoeg toepassing die beschikbaar is voor webtests. Toegang tot de invoeg toepassing door...
 
-**Clientgeheim** als uw app een aanmeldroute die een klantgeheim omvat, gebruik dan deze route. Azure Active Directory (AAD) is een voorbeeld van een service die aanmelden met een clientgeheim bevat. In AAD is het klantgeheim de App Key.
+**Client geheim** Als uw app een aanmeldings route heeft die betrekking heeft op een client geheim, gebruikt u deze route. Azure Active Directory (AAD) is een voorbeeld van een service die aanmelden met een clientgeheim bevat. In AAD is het klantgeheim de App Key.
 
 Hier is een voorbeeldwebtest van een Azure web-app met een App Key:
 
-![Voorbeeld-schermafbeelding](./media/availability-multistep/client-secret.png)
+![Voorbeeldschermopname](./media/availability-multistep/client-secret.png)
 
 Token van AAD krijgen met klantgeheim (AppKey).
 Bearer token uit antwoord halen.
 API oproepen met bearer token in de autorisatie-header.
-Zorg ervoor dat de WebTest een eigenlijke client is - dat wil zeggen, deze een eigen app in AAD heeft - en zijn clientId + app key. Uw service onder de test heeft ook een eigen app in AAD: de appID URI van deze app wordt weergegeven in de WebTest in het resourceveld.
+Zorg ervoor dat de webtest een daad werkelijke client is, dat wil zeggen een eigen app in AAD, en gebruik de client sleutel voor clientId + app. Uw service onder test heeft ook een eigen app in AAD: de appID-URI van deze app wordt weer gegeven in de webtest in het veld Resource.
 
 ### <a name="open-authentication"></a>Open verificatie
 Een voorbeeld van open verificatie is het aanmelden met uw Microsoft- of Google-account. Veel apps die OAuth gebruiken, bieden een alternatief met clientgeheim, zodat uw eerste tactiek moet zijn deze mogelijkheid te onderzoeken.
@@ -159,9 +162,9 @@ Maak parameters van de tokens. Stel de parameter in wanneer er een token wordt g
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Toegewezen [probleemoplossingsartikel](troubleshoot-availability.md).
+Speciaal [artikel voor probleem oplossing](troubleshoot-availability.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Beschikbaarheid van waarschuwingen](availability-alerts.md)
-* [URL-ping-webtests](monitor-web-app-availability.md)
+* [Beschikbaarheids waarschuwingen](availability-alerts.md)
+* [Webtests voor URL-ping](monitor-web-app-availability.md)

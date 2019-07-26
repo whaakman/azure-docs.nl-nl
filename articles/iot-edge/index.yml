@@ -1,108 +1,112 @@
 ### YamlMime:Landing
 title: Azure IoT Edge
-summary: 'Azure IoT Edge is een Internet of Things-service (IoT-service) die voortbouwt op IoT Hub. Deze service is bedoeld voor klanten die gegevens willen analyseren op apparaten, oftewel ''bij de edge'' in plaats van in de cloud. Door delen van uw werkbelasting naar de rand te verplaatsen, hoeven uw apparaten minder tijd te besteden aan het verzenden van berichten naar de cloud en kunnen ze sneller reageren op gebeurtenissen.'
+summary: Azure IoT Edge is een Internet of Things-service (IoT-service) die voortbouwt op IoT Hub. Deze service is bedoeld voor klanten die gegevens willen analyseren op apparaten, oftewel 'bij de edge' in plaats van in de cloud. Door delen van uw werkbelasting naar de rand te verplaatsen, hoeven uw apparaten minder tijd te besteden aan het verzenden van berichten naar de cloud en kunnen ze sneller reageren op gebeurtenissen.
 metadata:
   ms.topic: landing-page
+  ms.openlocfilehash: 71589d66856b4f6d3a32da50252fadff564373ff
+  ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 07/23/2019
+  ms.locfileid: "68414418"
 landingContent:
-  - title: Ontwikkelen voor Linux-apparaten
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Uw eerste IoT Edge-module implementeren in een Linux-apparaat
-            url: quickstart-linux.md
-      - linkListType: tutorial
-        links:
-          - text: IoT Edge-modules ontwikkelen voor Linux-apparaten
-            url: tutorial-develop-for-linux.md
-      - linkListType: how-to-guide
-        links:
-          - text: Visual Studio Code gebruiken om modules te ontwikkelen en er fouten in op te sporen
-            url: how-to-vs-code-develop-module.md
-  - title: Ontwikkelen voor Windows-apparaten
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Uw eerste IoT Edge-module implementeren in een Windows-apparaat
-            url: quickstart.md
-      - linkListType: tutorial
-        links:
-          - text: IoT Edge-modules ontwikkelen voor Windows-apparaten
-            url: tutorial-develop-for-windows.md
-      - linkListType: how-to-guide
-        links:
-          - text: Visual Studio 2017 gebruiken om modules te ontwikkelen en er fouten in op te sporen
-            url: how-to-visual-studio-develop-module.md
-  - title: IoT Edge-apparaten inrichten
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: IoT Edge installeren in Linux x64
-            url: how-to-install-iot-edge-linux.md
-          - text: IoT Edge installeren in Linux ARM32
-            url: how-to-install-iot-edge-linux-arm.md
-          - text: IoT Edge installeren in Windows x64
-            url: how-to-install-iot-edge-windows.md
-          - text: Automatisch Linux-apparaten inrichten
-            url: how-to-auto-provision-simulated-device-linux.md
-          - text: Automatisch Windows-apparaten inrichten
-            url: how-to-auto-provision-simulated-device-windows.md
-  - title: Contact opnemen met de opensource-community
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: IoT Edge-opslagplaats
-            url: 'https://github.com/Azure/iotedge'
-          - text: GitHub-problemen met IoT Edge
-            url: 'https://github.com/Azure/iotedge/issues'
-          - text: Meest recente versies en wijzigingslogboeken
-            url: 'https://github.com/Azure/azure-iotedge/releases'
-  - title: IoT Edge-apparaten als gateways gebruiken
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Hoe een IoT Edge-apparaat kan worden gebruikt als gateway
-            url: iot-edge-as-gateway.md
-      - linkListType: how-to-guide
-        links:
-          - text: Een transparante gateway configureren
-            url: how-to-create-transparent-gateway.md
-          - text: Een downstream-apparaat verifiëren voor Azure IoT Hub
-            url: how-to-authenticate-downstream-device.md
-          - text: Een downstream-apparaat aan een gateway koppelen
-            url: how-to-connect-downstream-device.md
-  - title: Voorbereiden op productiescenario's
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Inzicht in automatische implementaties
-            url: module-deployment-monitoring.md
-          - text: Platformondersteuning
-            url: support.md
-          - text: Controlelijst voor productie-implementatie
-            url: production-checklist.md
-          - text: Inzicht in IoT Edge-certificaatgebruik
-            url: iot-edge-certs.md
-          - text: Beveiligingsstandaarden voor IoT Edge
-            url: security.md
-      - linkListType: how-to-guide
-        links:
-          - text: Op schaal implementeren en bewaken met de Azure CLI
-            url: how-to-deploy-monitor-cli.md
-          - text: Een CI/CD-pipeline maken met Azure Pipelines
-            url: how-to-ci-cd.md
-      - linkListType: deploy
-        links:
-          - text: REST API voor IoT Hub
-            url: 'https://docs.microsoft.com/rest/api/iothub/'
-  - title: AI implementeren naar de edge
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Azure Machine Learning als een IoT Edge-module implementeren
-            url: tutorial-deploy-machine-learning.md
-          - text: Custom Vision Service gebruiken om afbeeldingsclassificatie uit te voeren aan de rand
-            url: tutorial-deploy-custom-vision.md
-      - linkListType: deploy
-        links:
-          - text: Azure Cognitive Services-modules zoeken in de Azure Marketplace
-            url: 'https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&search=azure%20cognitive%20services'
+- title: Ontwikkelen voor Linux-apparaten
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Uw eerste IoT Edge-module implementeren in een Linux-apparaat
+      url: quickstart-linux.md
+  - linkListType: tutorial
+    links:
+    - text: IoT Edge-modules ontwikkelen voor Linux-apparaten
+      url: tutorial-develop-for-linux.md
+  - linkListType: how-to-guide
+    links:
+    - text: Visual Studio Code gebruiken om modules te ontwikkelen en er fouten in op te sporen
+      url: how-to-vs-code-develop-module.md
+- title: Ontwikkelen voor Windows-apparaten
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Uw eerste IoT Edge-module implementeren in een Windows-apparaat
+      url: quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: IoT Edge-modules ontwikkelen voor Windows-apparaten
+      url: tutorial-develop-for-windows.md
+  - linkListType: how-to-guide
+    links:
+    - text: Visual Studio 2017 gebruiken om modules te ontwikkelen en er fouten in op te sporen
+      url: how-to-visual-studio-develop-module.md
+- title: IoT Edge-apparaten inrichten
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: IoT Edge installeren in Linux
+      url: how-to-install-iot-edge-linux.md
+    - text: IoT Edge installeren in Windows
+      url: how-to-install-iot-edge-windows.md
+    - text: Automatisch Linux-apparaten inrichten
+      url: how-to-auto-provision-simulated-device-linux.md
+    - text: Automatisch Windows-apparaten inrichten
+      url: how-to-auto-provision-simulated-device-windows.md
+- title: Contact opnemen met de opensource-community
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: IoT Edge-opslagplaats
+      url: https://github.com/Azure/iotedge
+    - text: GitHub-problemen met IoT Edge
+      url: https://github.com/Azure/iotedge/issues
+    - text: Meest recente versies en wijzigingslogboeken
+      url: https://github.com/Azure/azure-iotedge/releases
+- title: IoT Edge-apparaten als gateways gebruiken
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Hoe een IoT Edge-apparaat kan worden gebruikt als gateway
+      url: iot-edge-as-gateway.md
+  - linkListType: how-to-guide
+    links:
+    - text: Een transparante gateway configureren
+      url: how-to-create-transparent-gateway.md
+    - text: Een downstream-apparaat verifiëren voor Azure IoT Hub
+      url: how-to-authenticate-downstream-device.md
+    - text: Een downstream-apparaat aan een gateway koppelen
+      url: how-to-connect-downstream-device.md
+- title: Voorbereiden op productiescenario's
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Inzicht in automatische implementaties
+      url: module-deployment-monitoring.md
+    - text: Platformondersteuning
+      url: support.md
+    - text: Controlelijst voor productie-implementatie
+      url: production-checklist.md
+    - text: Inzicht in IoT Edge-certificaatgebruik
+      url: iot-edge-certs.md
+    - text: Beveiligingsstandaarden voor IoT Edge
+      url: security.md
+  - linkListType: how-to-guide
+    links:
+    - text: Op schaal implementeren en bewaken met de Azure CLI
+      url: how-to-deploy-monitor-cli.md
+    - text: Een CI/CD-pipeline maken met Azure Pipelines
+      url: how-to-ci-cd.md
+  - linkListType: deploy
+    links:
+    - text: REST API voor IoT Hub
+      url: https://docs.microsoft.com/rest/api/iothub/
+- title: AI implementeren naar de edge
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Azure Machine Learning als een IoT Edge-module implementeren
+      url: tutorial-deploy-machine-learning.md
+    - text: Custom Vision Service gebruiken om afbeeldingsclassificatie uit te voeren aan de rand
+      url: tutorial-deploy-custom-vision.md
+  - linkListType: deploy
+    links:
+    - text: Azure Cognitive Services-modules zoeken in de Azure Marketplace
+      url: https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&search=azure%20cognitive%20services

@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Zelfstandig Service Fabric-cluster opschonen - Azure Service Fabric | Microsoft Docs'
-description: In deze zelfstudie leert u hoe u voor het opschonen van uw zelfstandige cluster
+description: In deze zelf studie leert u hoe u uw zelfstandige cluster opschoont
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,31 +12,31 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/11/2018
+ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9127ad1fe148f85779913454adf6578a9a8a1055
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: bebe3a2dc83b651e713ee80d7b11068b13096e04
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274087"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385156"
 ---
-# <a name="tutorial-clean-up-your-standalone-cluster"></a>Zelfstudie: Opschonen van uw zelfstandige cluster
+# <a name="tutorial-clean-up-your-standalone-cluster"></a>Zelfstudie: Uw zelfstandige cluster opschonen
 
-Zelfstandige Service Fabric-clusters bieden u de mogelijkheid om uw eigen omgeving te kiezen en een cluster te maken als onderdeel van de benadering "Elk besturingssysteem, elke cloud" die we in Service Fabric hanteren. In deze zelfstudie, een zelfstandige cluster die worden gehost op AWS- of Azure maken en installeren van een toepassing erin.
+Zelfstandige Service Fabric-clusters bieden u de mogelijkheid om uw eigen omgeving te kiezen en een cluster te maken als onderdeel van de benadering "Elk besturingssysteem, elke cloud" die we in Service Fabric hanteren. In deze zelfstudie reeks maakt u een zelfstandig cluster dat wordt gehost op AWS of Azure en hoe u een toepassing kunt installeren.
 
-Deze zelfstudie is deel vier een serie. Dit deel van de zelfstudie laat zien hoe u voor het opschonen van de AWS- of Azure-resources die u hebt gemaakt voor het hosten van uw Service Fabric-cluster.
+Deze zelfstudie is deel vier een serie. In dit deel van de zelf studie ziet u hoe u de AWS-of Azure-resources opschoont die u hebt gemaakt om uw Service Fabric-cluster te hosten.
 
 In deel vier van de serie leert u het volgende:
 
 > [!div class="checklist"]
 > * Service Fabric-cluster opschonen
-> * Opschonen van uw AWS- of Azure-resources
+> * Uw AWS-of Azure-resources opschonen
 
 ## <a name="clean-up-service-fabric-cluster"></a>Service Fabric-cluster opschonen
 
-1. Verbinding met de virtuele machine die u voor het geïnstalleerde Service Fabric gebruikt.
+1. RDP in de virtuele machine die u hebt gebruikt om Service Fabric te installeren.
 2. Open PowerShell.
 3. Ga naar de uitgepakte map uit de tweede zelfstudie.
 4. Voer de volgende opdracht uit om het Service Fabric-cluster te verwijderen:
@@ -45,7 +45,7 @@ In deel vier van de serie leert u het volgende:
   .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
   ```
 
-5. Voer `Y` wanneer hierom wordt gevraagd, als deze voltooid is de uitvoer ziet er als volgt met uw eigen IP-adressen vervangen in:
+5. `Y` Wanneer u hierom wordt gevraagd, ziet de uitvoer er als volgt uit, met uw eigen IP-adressen die worden vervangen in:
 
   ```powershell
   Best Practices Analyzer completed successfully.
@@ -60,16 +60,16 @@ In deel vier van de serie leert u het volgende:
 
 ## <a name="clean-up-aws-resources"></a>AWS-resources opschonen
 
-1. Meld u aan bij uw AWS-Account.
+1. Meld u aan bij uw AWS-account.
 2. Ga naar de EC2-console.
 3. Selecteer de drie knooppunten die u hebt gemaakt in deel een van de zelfstudie.
-4. Klik op **acties** > **status exemplaar** > **beëindigen**.
+4. Klik op **actie** > -**exemplaar status** > **beëindigen**.
 
-## <a name="clean-up-azure-resources"></a>Opschonen van de Azure-resources
+## <a name="clean-up-azure-resources"></a>Azure-resources opschonen
 
 1. Meld u aan bij Azure Portal.
-2. Ga naar de **virtuele Machines** sectie.
-3. Schakel de selectievakjes voor de drie knooppunten die u hebt gemaakt in deel één van de zelfstudie.
+2. Ga naar de sectie **virtual machines** .
+3. Schakel de selectie vakjes in voor de drie knoop punten die u in deel één van de zelf studie hebt gemaakt.
 4. Klik op **verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen

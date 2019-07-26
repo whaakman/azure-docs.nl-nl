@@ -4,18 +4,18 @@ description: Hierin vindt u een overzicht van bekende problemen in de Azure Migr
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: 0e2a8f269a98babc17f36ceff209ee2f057e6911
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 15d3809b9a028fd2495c504e9bf19251dd051520
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302312"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372580"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
-[Azure migrate](migrate-services-overview.md) biedt een hub van hulpprogram ma's voor evaluatie en migratie van micro soft, evenals onafhankelijke ISV-aanbiedingen (Independent Software Vendor) van derden. In dit document vindt u informatie over het oplossen van fouten met Azure Migrate Azure Migrate: Server evaluatie en Azure Migrate: Server migratie.
+[Azure migrate](migrate-services-overview.md) biedt een hub van hulpprogram ma's voor evaluatie en migratie van micro soft, evenals onafhankelijke ISV-aanbiedingen (Independent Software Vendor) van derden. In dit document vindt u informatie over het oplossen van fouten met Azure Migrate Azure Migrate: Server evaluatie en Azure Migrate: Server Migration.
 
 ## <a name="azure-migrate-project-issues"></a>Azure Migrate project problemen
 
@@ -54,6 +54,10 @@ Volg de onderstaande stappen om een nieuw Azure Migrate project te maken.
 
    ![Een tweede Azure Migrate-project maken](./media/troubleshooting-general/create-new-project.png)
 
+### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Welke Azure-geografies worden ondersteund door Azure Migrate?
+
+U vindt hier de lijst voor [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) en voor [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
+
 ### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Verwijdering van Azure Migrate projecten en gekoppelde Log Analytics werk ruimte
 
 Wanneer u een Azure Migrate project verwijdert, wordt het migratie project samen met de meta gegevens over gedetecteerde computers verwijderd. Als u echter een Log Analytics-werk ruimte hebt gekoppeld aan het hulp programma voor Server evaluatie, wordt de Log Analytics-werk ruimte niet automatisch verwijderd. Dit komt doordat dezelfde Log Analytics-werk ruimte kan worden gebruikt voor meerdere use cases. Als u de werk ruimte Log Analytics ook wilt verwijderen, moet u dit hand matig doen.
@@ -76,7 +80,7 @@ Zodra de uitnodigings-e-mail is ontvangen, moet u het e-mail bericht openen en k
 
 ### <a name="deployment-of-azure-migrate-appliance-for-vmware-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>De implementatie van Azure Migrate apparaat voor VMware is mislukt met de volgende fout: Het opgegeven manifestbestand is ongeldig: Ongeldige vermelding van OVF-manifest.
 
-1. Controleer of het bestand van Azure Migrate apparaat moet worden gedownload door de hash-waarde te controleren. Raadpleeg het [artikel](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) om de hash-waarde te controleren. Als de hash-waarde niet overeenkomt, downloadt u het bestand van de eicellen opnieuw en voert u de implementatie opnieuw uit.
+1. Controleer of het bestand van Azure Migrate apparaat moet worden gedownload door de hash-waarde te controleren. Raadpleeg het [artikel](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware) om de hash-waarde te controleren. Als de hash-waarde niet overeenkomt, downloadt u het bestand van de eicellen opnieuw en voert u de implementatie opnieuw uit.
 2. Als deze nog steeds mislukt en u VMware vSphere Client gebruikt om de OVF te implementeren, kunt u proberen deze te implementeren via de vSphere Web Client. Als de service nog steeds niet werkt, kunt u een andere webbrowser gebruiken.
 3. Als u vSphere-webclient gebruikt en probeert te implementeren op vCenter Server 6,5 of 6,7, probeert u de eicellen rechtstreeks op ESXi-host te implementeren door de onderstaande stappen te volgen:
    - Maak rechtstreeks verbinding met de ESXi-host (in plaats van vCenter Server) met behulp van de webclient (https://<*IP-adres*van de host >/UI).
@@ -121,9 +125,31 @@ Als het probleem zich nog steeds voordoet in de meest recente versie, kan de oor
 3. Bepaal het juiste poortnummer om verbinding te maken met de vCenter-server.
 4. Controleer tot slot of de vCenter-server actief is.
 
-## <a name="discovery-issues"></a>Detectie problemen
 
-### <a name="i-started-discovery-but-i-dont-see-the-discovered-vms-on-azure-portal-server-assessment-and-server-migrate-tiles-show-a-status-of-discovery-in-progress"></a>Ik heb detectie gestart, maar ik zie de gedetecteerde Vm's niet op Azure Portal. Tegels voor Server analyse en server migratie tonen de status ' detectie wordt uitgevoerd '
+### <a name="the-appliance-could-not-be-registered-successfully-to-the-azure-migrate-project-error-id-60052"></a>Het apparaat kan niet worden geregistreerd bij het Azure Migrate project (fout-ID: 60052)
+
+Deze fout wordt veroorzaakt door onvoldoende machtigingen voor het Azure-account dat is gebruikt om het apparaat te registreren. Zorg ervoor dat het Azure-gebruikers account dat wordt gebruikt om het apparaat te registreren, ten minste de toegangs rechten voor het abonnement heeft. Meer [informatie](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) over de vereiste Azure-rollen en-machtigingen.
+
+### <a name="the-appliance-could-not-be-registered-successfully-to-the-azure-migrate-project-error-id-60039"></a>Het apparaat kan niet worden geregistreerd bij het Azure Migrate project (fout-ID: 60039)
+
+Het Azure Migrate project dat u hebt geselecteerd om het apparaat te registreren, is niet gevonden waardoor de registratie mislukt. Ga naar de Azure Portal en controleer of het project bestaat in de resource groep. Als het project niet bestaat, maakt u een nieuw Azure Migrate project in de resource groep en registreert u het apparaat opnieuw. [Meer informatie](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) over het maken van een nieuw Azure migrate-project.
+
+### <a name="azure-key-vault-management-operation-failed-error-id-60030-60031"></a>De bewerking voor het beheer van Azure-sleutel kluis is mislukt (fout-ID: 60030, 60031)
+
+Zorg ervoor dat het Azure-gebruikers account dat wordt gebruikt om het apparaat te registreren, ten minste de toegangs rechten voor het abonnement heeft. Controleer ook of het account toegang heeft tot de Key Vault die is opgegeven in het fout bericht en voer de bewerking opnieuw uit. Neem contact op met micro soft ondersteuning als het probleem zich blijft voordoen. Meer [informatie](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) over de vereiste Azure-rollen en-machtigingen.
+
+### <a name="discovery-could-not-be-initiated-due-to-the-error-the-operation-failed-for-the-given-list-of-hosts-or-clusters-error-id-60028"></a>De detectie kan niet worden gestart vanwege de fout. De bewerking is mislukt voor de opgegeven lijst met hosts of clusters (fout-ID: 60028)
+
+Detectie kan niet worden gestart op de hosts die worden vermeld in de fout vanwege een probleem bij het openen of ophalen van VM-gegevens; de overige hosts die u hebt toegevoegd, zijn toegevoegd. Voeg de hosts opnieuw toe in de fout met behulp van de optie **host toevoegen** . Als er een validatie fout optreedt, raadpleegt u de richt lijnen voor herstel om de fouten op te lossen en probeert u de **detectie** opnieuw uit te voeren.
+
+### <a name="azure-active-directory-aad-operation-failed-the-error-occurred-while-creating-or-updating-the-aad-application-error-id-60025"></a>De bewerking Azure Active Directory (AAD) is mislukt. De fout is opgetreden tijdens het maken of bijwerken van de AAD-toepassing (fout-ID: 60025)
+
+Het Azure-gebruikers account dat wordt gebruikt voor het registreren van het apparaat heeft geen toegang tot de AAD-toepassing die is opgegeven in het fout bericht. Controleer of u de eigenaar bent van de AAD-toepassing. Meer [informatie](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) over Aad-toepassings machtigingen.
+
+
+## <a name="discovery-issues"></a>Problemen met detectie
+
+### <a name="i-started-discovery-but-i-dont-see-the-discovered-vms-on-azure-portal-server-assessment-and-server-migration-tiles-show-a-status-of-discovery-in-progress"></a>Ik heb detectie gestart, maar ik zie de gedetecteerde Vm's niet op Azure Portal. Tegels voor Server evaluatie en server migratie tonen de status ' detectie wordt uitgevoerd '
 Na het starten van de detectie van het apparaat, kan het enige tijd duren voordat de gedetecteerde computers worden weer gegeven op de Azure Portal. Het duurt ongeveer 15 minuten voor een VMware-detectie en ongeveer 2 minuten per toegevoegde host voor een Hyper-V-detectie. Als u nog steeds de detectie wordt uitgevoerd, klikt u op het tabblad **servers** op **vernieuwen** . Hier wordt het aantal gedetecteerde servers weer gegeven in de tegels server evaluatie en server migratie.
 
 
@@ -146,71 +172,74 @@ Het duurt Maxi maal 30 minuten voordat de detectie gegevens die door het apparaa
 4. Wacht tot de vernieuwings bewerking is voltooid. U ziet nu actuele informatie over uw Vm's.
 
 ### <a name="unable-to-connect-to-hosts-or-cluster-as-the-server-name-cannot-be-resolved-winrm-error-code-0x803381b9-error-id-50004"></a>Kan geen verbinding maken met de host (s) of het cluster omdat de server naam niet kan worden omgezet. WinRM-fout code: 0x803381B9 (fout-ID: 50004)
-Deze fout treedt op als de DNS-server van het apparaat het cluster of de hostnaam die u hebt ingevoerd, niet kan omzetten. Als deze fout op het cluster wordt weer geven, kunt u proberen om de Fully Qualified Domain Name van het cluster op te geven. 
+Deze fout treedt op als de DNS-server van het apparaat het cluster of de hostnaam die u hebt ingevoerd, niet kan omzetten. Als deze fout op het cluster wordt weer geven, kunt u proberen om de Fully Qualified Domain Name van het cluster op te geven.
 
-Mogelijk ziet u deze fout ook voor hosts in een cluster. In dit geval kan het apparaat verbinding maken met het cluster. Het cluster heeft echter de hostnamen geretourneerd die geen volledig gekwalificeerde domein namen zijn. 
+Mogelijk ziet u deze fout ook voor hosts in een cluster. In dit geval kan het apparaat verbinding maken met het cluster. Het cluster heeft echter de hostnamen geretourneerd die geen volledig gekwalificeerde domein namen zijn.
 
 Om deze fout op te lossen, werkt u het hosts-bestand op het apparaat bij om een toewijzing van het IP-adres en de hostnamen toe te voegen.
 1. Open Klad blok als gebruiker met beheerders rechten. Open het bestand C:\Windows\System32\Drivers\etc\hosts.
 2. Voeg het IP-adres en de hostnaam toe aan een rij. Herhaal deze stap voor elke host of elk cluster waar u deze fout ziet.
 3. Sla het bestand hosts op en sluit het.
-4. U kunt controleren of het apparaat verbinding kan maken met de hosts met behulp van de app voor het beheren van het apparaat. Na 30 minuten zou u de meest recente informatie op deze hosts op het Azure Portal moeten kunnen zien. 
+4. U kunt controleren of het apparaat verbinding kan maken met de hosts met behulp van de app voor het beheren van het apparaat. Na 30 minuten zou u de meest recente informatie op deze hosts op het Azure Portal moeten kunnen zien.
 
 
-## <a name="assessment-issues"></a>Beoordelings problemen
+## <a name="assessment-issues"></a>Evaluatieproblemen
 
 ### <a name="azure-readiness-issues"></a>Problemen met Azure-gereedheid
 
 Probleem | Herstel
 --- | ---
-Niet-ondersteund opstart type | Azure biedt geen ondersteuning voor Vm's met een EFI-opstart type. U wordt aangeraden het opstart type te converteren naar BIOS voordat u een migratie uitvoert. <br/><br/>U kunt Azure Migrate server migratie gebruiken om de migratie van dergelijke Vm's uit te voeren, omdat tijdens de migratie het opstart type van de virtuele machine wordt geconverteerd naar het BIOS.
+Niet-ondersteund opstarttype | Azure biedt geen ondersteuning voor Vm's met een EFI-opstart type. U wordt aangeraden het opstart type te converteren naar BIOS voordat u een migratie uitvoert. <br/><br/>U kunt Azure Migrate server migratie gebruiken om de migratie van dergelijke Vm's uit te voeren, omdat tijdens de migratie het opstart type van de virtuele machine wordt geconverteerd naar het BIOS.
 Voorwaardelijk ondersteund Windows-besturings systeem | Het besturings systeem heeft het einde van de ondersteunings datum door gegeven en heeft een aangepaste ondersteunings overeenkomst (CSA) nodig voor [ondersteuning in azure](https://aka.ms/WSosstatement). u kunt het besturings systeem upgraden voordat u naar Azure migreert.
-Niet-ondersteund Windows-besturings systeem | Azure ondersteunt alleen [geselecteerde versies van Windows-besturings systemen](https://aka.ms/WSosstatement), overweeg het besturings systeem van de machine te upgraden voordat u naar Azure migreert.
-Voorwaardelijk goedgekeurd Linux-besturings systeem | Azure bevestigt alleen [geselecteerde Linux-besturingssysteem versies](../virtual-machines/linux/endorsed-distros.md), overweeg het besturings systeem van de machine te upgraden voordat u naar Azure migreert.
-Niet-goedgekeurd Linux-besturings systeem | De computer kan worden opgestart in azure, maar er wordt geen ondersteuning voor het besturings systeem geboden door Azure. Overweeg het besturings systeem bij te werken naar een [officiële versie van Linux](../virtual-machines/linux/endorsed-distros.md) voordat u naar Azure migreert
+Niet-ondersteund Windows-besturingssysteem | Azure ondersteunt alleen [geselecteerde versies van Windows-besturings systemen](https://aka.ms/WSosstatement), overweeg het besturings systeem van de machine te upgraden voordat u naar Azure migreert.
+Voorwaardelijk goedgekeurd Linux-besturingssysteem | Azure bevestigt alleen [geselecteerde Linux-besturingssysteem versies](../virtual-machines/linux/endorsed-distros.md), overweeg het besturings systeem van de machine te upgraden voordat u naar Azure migreert.
+Niet-goedgekeurd Linux-besturingssysteem | De computer kan worden opgestart in azure, maar er wordt geen ondersteuning voor het besturings systeem geboden door Azure. Overweeg het besturings systeem bij te werken naar een [officiële versie van Linux](../virtual-machines/linux/endorsed-distros.md) voordat u naar Azure migreert
 Onbekend besturings systeem | Het besturings systeem van de virtuele machine is als ' Overig ' opgegeven in vCenter Server, omdat Azure Migrate de Azure-gereedheid van de virtuele machine niet kan identificeren. Zorg ervoor dat het besturings systeem dat op de computer wordt uitgevoerd, wordt [ondersteund](https://aka.ms/azureoslist) door Azure voordat u de computer migreert.
-Niet-ondersteunde OS-Bitness | Vm's met 32-bits besturings systeem kunnen worden opgestart in azure, maar het wordt aanbevolen het besturings systeem van de virtuele machine te upgraden van 32-bits naar 64-bits voordat u naar Azure migreert.
+Niet-ondersteunde hoeveelheid bits van besturingssysteem | Vm's met 32-bits besturings systeem kunnen worden opgestart in azure, maar het wordt aanbevolen het besturings systeem van de virtuele machine te upgraden van 32-bits naar 64-bits voordat u naar Azure migreert.
 Er is een Visual Studio-abonnement vereist. | Op de machine wordt een Windows-client besturingssysteem uitgevoerd. dit wordt alleen ondersteund in een Visual Studio-abonnement.
 Er is geen VM gevonden voor de vereiste opslag prestaties. | De opslag prestaties (IOPS/door Voer) die vereist zijn voor de machine overschrijdt de ondersteuning voor Azure-VM'S. Verminder de opslag vereisten voor de machine vóór de migratie.
 Er is geen VM gevonden voor de vereiste netwerk prestaties. | De netwerk prestaties (in/uit) die vereist zijn voor de computer, overschrijden de ondersteuning voor Azure-VM'S. Verminder de netwerk vereisten voor de computer.
 De virtuele machine is niet gevonden op de opgegeven locatie. | Gebruik een andere doel locatie vóór de migratie.
 Een of meer ongeschikte schijven. | Een of meer schijven die zijn gekoppeld aan de virtuele machine voldoen niet aan de vereisten van Azure. Voor elke schijf die is gekoppeld aan de virtuele machine, moet u ervoor zorgen dat de grootte van de schijf < 4 TB, als dat niet het geval is, verkleint u de schijf grootte voordat u naar Azure migreert. Zorg ervoor dat de prestaties (IOPS/door Voer) die nodig zijn voor elke schijf worden ondersteund door door Azure [beheerde virtuele-machine schijven](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).   
 Een of meer niet-geschikte netwerk adapters. | Verwijder ongebruikte netwerk adapters van de machine voordat de migratie wordt gebruikt.
-Aantal schijven overschrijdt de limiet | Verwijder ongebruikte schijven van de machine vóór de migratie.
-De schijf grootte overschrijdt de limiet | Azure ondersteunt schijven met een maximale grootte van 4 TB. Schijven verkleinen tot minder dan 4 TB vóór de migratie.
-De schijf is niet beschikbaar op de opgegeven locatie | Zorg ervoor dat de schijf zich op de doel locatie bevindt voordat u migreert.
-De schijf is niet beschikbaar voor de opgegeven redundantie | De schijf moet het opslag type redundantie gebruiken dat is gedefinieerd in de instellingen voor evaluatie (standaard LRS).
-Kan de schijf geschiktheid niet bepalen vanwege een interne fout | Probeer een nieuwe evaluatie voor de groep te maken.
-VM met vereiste kernen en geheugen niet gevonden | Azure kan een geschikt VM-type niet verfijnen. Verminder het geheugen en het aantal kernen van de on-premises machine voordat u migreert.
+Het aantal schijven overschrijdt de limiet | Verwijder ongebruikte schijven van de machine vóór de migratie.
+De schijfgrootte overschrijdt de limiet | Azure ondersteunt schijven met een maximale grootte van 4 TB. Schijven verkleinen tot minder dan 4 TB vóór de migratie.
+Schijf niet beschikbaar op de opgegeven locatie | Zorg ervoor dat de schijf zich op de doel locatie bevindt voordat u migreert.
+Schijf niet beschikbaar voor de opgegeven redundantie | De schijf moet het opslag type redundantie gebruiken dat is gedefinieerd in de instellingen voor evaluatie (standaard LRS).
+Kan de geschiktheid van de schijf niet bepalen vanwege een interne fout | Probeer een nieuwe evaluatie voor de groep te maken.
+Er is geen VM met vereiste kernen en geheugen gevonden | Azure kan een geschikt VM-type niet verfijnen. Verminder het geheugen en het aantal kernen van de on-premises machine voordat u migreert.
 Kan de geschiktheid van de virtuele machine niet bepalen vanwege een interne fout. | Probeer een nieuwe evaluatie voor de groep te maken.
 Kan de geschiktheid van een of meer schijven niet bepalen vanwege een interne fout. | Probeer een nieuwe evaluatie voor de groep te maken.
 Kan de geschiktheid van een of meer netwerk adapters niet bepalen vanwege een interne fout. | Probeer een nieuwe evaluatie voor de groep te maken.
 
 ### <a name="i-am-unable-to-specify-enterprise-agreement-ea-as-an-azure-offer-in-the-assessment-properties"></a>Ik kan Enterprise Agreement (EA) niet als een Azure-aanbieding opgeven in de beoordelings eigenschappen?
-Azure Migrate: Server analyse biedt momenteel geen ondersteuning voor prijzen op basis van Enterprise Agreement (EA). De tijdelijke oplossing is om ' betalen per gebruik ' als de Azure-aanbieding te gebruiken en de eigenschap Discount te gebruiken om een aangepaste korting op te geven die u ontvangt. Meer [informatie over hoe u een evaluatie kunt aanpassen](https://aka.ms/migrate/selfhelp/eapricing).
+Azure Migrate: Server Assessment ondersteunt momenteel geen op EA gebaseerde prijzen. De tijdelijke oplossing is om Betalen naar gebruik te gebruiken als de Azure-aanbieding en met behulp van de eigenschap ‘Korting’ aangepaste kortingen op te geven die u ontvangt. [Lees meer over hoe u een evaluatie kunt aanpassen](https://aka.ms/migrate/selfhelp/eapricing).
 
 ### <a name="why-does-server-assessment-mark-my-linux-vms-conditionally-ready-is-there-anything-i-need-to-do-to-fix-this"></a>Waarom markeert de server evaluatie mijn Linux-Vm's voor bereid. Is er iets wat ik moet doen om dit op te lossen?
-Er bevindt zich een bekende tussen ruimte in de server evaluatie waarbij de secundaire versie van het Linux-besturings systeem dat is geïnstalleerd op de on-premises Vm's (bijvoorbeeld voor RHEL 6,10) niet kan worden gedetecteerd. momenteel detecteert de server evaluatie alleen RHEL 6 als de versie van het besturings systeem. Aangezien Azure alleen specifieke versies van Linux afschrijft, zijn de virtuele Linux-machines momenteel gemarkeerd als voorwaardelijk gereed in Server evaluatie. U kunt hand matig controleren of het Linux-besturings systeem dat wordt uitgevoerd op de on-premises VM, wordt goedgekeurd in azure door de [Azure Linux](https://aka.ms/migrate/selfhost/azureendorseddistros)-ondersteunings documentatie te lezen. Nadat u de geviseerde distributie hebt gecontroleerd, kunt u deze waarschuwing negeren.
+Het is een bekend probleem in Server Assessment dat de secundaire versie van het Linux-besturingssysteem dat is geïnstalleerd op de on-premises VM's niet kan worden gedetecteerd (in het geval van RHEL 6.10 detecteert Server Assessment momenteel bijvoorbeeld alleen RHEL 6 als de versie van het besturingssysteem). Omdat Azure alleen specifieke versies van Linux ondersteunt, worden de Linux-VM's momenteel gemarkeerd als voorwaardelijk gereed in Server Assessment. U kunt hand matig controleren of het Linux-besturings systeem dat wordt uitgevoerd op de on-premises VM, wordt goedgekeurd in azure door de [Azure Linux](https://aka.ms/migrate/selfhost/azureendorseddistros)-ondersteunings documentatie te lezen. Als dat zo is, kunt u deze waarschuwing vervolgens negeren.
 
 ### <a name="the-vm-sku-recommended-by-server-assessment-has-more-number-of-cores-and-a-larger-memory-size-than-what-is-allocated-on-premises-why-is-that-so"></a>De VM-SKU die wordt aanbevolen door de server evaluatie heeft meer kernen en een grotere geheugen grootte dan op locatie toegewezen. Waarom is dat zo?
-De aanbeveling van de VM-SKU in Server beoordeling is afhankelijk van de evaluatie-eigenschappen. U kunt twee soorten evaluaties maken in de evaluaties van server evaluatie, ' prestaties op basis van ' en ' als on-premises '. Voor evaluaties op basis van prestaties worden de gebruiks gegevens van de on-premises Vm's (CPU, geheugen, schijf en netwerk gebruik) beschouwd om de juiste doel-VM-SKU voor uw on-premises Vm's te bepalen. Daarnaast wordt bij een op prestaties gebaseerd formaat de comfort factor in rekening gebracht om het effectief gebruik te identificeren. Bij een on-premises grootte worden de prestatie gegevens niet in overweging genomen en wordt een doel-SKU aanbevolen op basis van wat lokaal is toegewezen.
+De aanbeveling voor VM-SKU in Server Assessment is afhankelijk van de evaluatie-eigenschappen. U kunt twee soorten evaluaties maken in Server Assessment: Op basis van prestaties en Zoals on-premises. Voor evaluaties op basis van prestaties worden de gebruiks gegevens van de on-premises Vm's (CPU, geheugen, schijf en netwerk gebruik) beschouwd om de juiste doel-VM-SKU voor uw on-premises Vm's te bepalen. Daarnaast wordt er een comfortfactor opgegeven om het effectieve gebruik te bepalen. Bij evaluaties van het type Zoals on-premises blijven de prestatiegegevens buiten beschouwing en wordt er een doel-SKU aanbevolen op basis van wat er on-premises is toegewezen.
 
-Stel bijvoorbeeld dat er een on-premises VM is met 4 kernen en 8 GB geheugen met een CPU-gebruik van 50% en een geheugen gebruik van 50% en een comfort factor van 1,3 is opgegeven in de evaluatie. Als het grootte criterium van de evaluatie op on-premises is een Azure VM-SKU met 4 kernen en 8 GB geheugen wordt aanbevolen, maar als het criterium voor de grootte op prestaties gebaseerd is, op basis van effectief CPU-en geheugen gebruik (50% van 4 kernen * 1,3 = 2,6 kernen en 50% van 8 GB) geheugen * 1,3 = 5,3 GB geheugen), de goedkoopste VM-SKU van vier kernen (meest ondersteunde aantal kernen) en 8 GB geheugen grootte (dichtstbijgelegen ondersteunde geheugen grootte) wordt aanbevolen. Meer [informatie over hoe Server evaluatie het formaat van het maken kan aanpassen.](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing)
+Stel bijvoorbeeld dat er een on-premises VM is met 4 kernen en 8 GB geheugen met een CPU-gebruik van 50% en een geheugen gebruik van 50% en een comfort factor van 1,3 is opgegeven in de evaluatie. Als het grootte criterium van de evaluatie op on-premises is een Azure VM-SKU met 4 kernen en 8 GB geheugen wordt aanbevolen, maar als het criterium voor de grootte op prestaties gebaseerd is, op basis van effectief CPU-en geheugen gebruik (50% van 4 kernen * 1,3 = 2,6 kernen en 50% van 8 GB) geheugen * 1,3 = 5,3 GB geheugen), de goedkoopste VM-SKU van vier kernen (meest ondersteunde aantal kernen) en 8 GB geheugen grootte (dichtstbijgelegen ondersteunde geheugen grootte) wordt aanbevolen. [Lees meer informatie over hoe Server Assessment de grootte aanpast. ](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing).
 
 ### <a name="the-disk-sku-recommended-by-server-assessment-has-a-bigger-size-than-what-is-allocated-on-premises-why-is-that-so"></a>De schijf-SKU die wordt aanbevolen door de server evaluatie, heeft een grotere grootte dan de ruimte die on-premises wordt toegewezen. Waarom is dat zo?
-De schijf grootte in Server analyse is afhankelijk van twee evaluatie-eigenschappen: grootte criterium en opslag type. Als het criterium voor het instellen van de grootte is ingesteld op ' automatisch ', worden de IOPS-en doorvoer waarden van de schijf gezien als identificatie van het doel schijf type (Standard-HDD, Standard-SSD of Premium-schijven). Een schijf-SKU binnen het schijf type wordt vervolgens aanbevolen om de grootte vereisten van de on-premises schijf te overwegen. Als het criterium voor het bepalen van de grootte ' Premium ' is, wordt een Premium-schijf-SKU in azure aanbevolen op basis van de IOPS-, doorvoer-en grootte vereisten van de on-premises schijf. Dezelfde logica wordt gebruikt voor het uitvoeren van de schijf grootte wanneer het criterium voor het wijzigen van de grootte de grootte van de on-premises heeft en het opslag type is Standard-HDD, Standard-SSD of Premium.
+De schijfgrootte in Server Assessment is afhankelijk van twee evaluatie-eigenschappen: het criterium voor het aanpassen van de grootte en het opslagtype. Als het criterium voor het instellen van de grootte is ingesteld op ' automatisch ', worden de IOPS-en doorvoer waarden van de schijf gezien als identificatie van het doel schijf type (Standard-HDD, Standard-SSD of Premium-schijven). Vervolgens wordt er een schijf-SKU binnen het schijftype aanbevolen op basis van de groottevereisten van de on-premises schijf. Als het criterium voor het bepalen van de grootte ' Premium ' is, wordt een Premium-schijf-SKU in azure aanbevolen op basis van de IOPS-, doorvoer-en grootte vereisten van de on-premises schijf. Dezelfde logica wordt gebruikt voor het bepalen van de schijfgrootte wanneer het criterium voor het aanpassen van de grootte is ingesteld op 'Zoals on-premises' en het opslagtype Standard HDD, Standard SSD of Premium is.
 
-Als u bijvoorbeeld een on-premises schijf hebt met een geheugen van 32 GB, maar de geaggregeerde Lees-en schrijf-IOPS voor de schijf 800 IOPS is, raadt de server evaluatie een Premium-schijf type aan (als gevolg van de hogere IOPS-vereisten) en raden we u aan om een schijf-SKU te ondersteunen. Dit kan de vereiste IOPS en grootte. De dichtstbijzijnde overeenkomst in dit voor beeld is P15 (256 GB, 1100 IOPS). Hoewel de grootte die is vereist door de on-premises schijf 32 GB was, aanbevolen server evaluatie een schijf met een grotere grootte vanwege de hoge IOPS-vereiste van de on-premises schijf.
+Als u bijvoorbeeld een on-premises schijf hebt met een geheugen van 32 GB, maar de geaggregeerde Lees-en schrijf-IOPS voor de schijf 800 IOPS is, raadt de server evaluatie een Premium-schijf type aan (als gevolg van de hogere IOPS-vereisten) en raden we u aan om een schijf-SKU te ondersteunen. Dit kan de vereiste IOPS en grootte. In dit voorbeeld komen we dan uit bij P15 (256 GB, 1100 IOPS). Dus ondanks dat de on-premises-schijf een grootte van 32 GB vereist, adviseert Server Assessment een grotere schijf vanwege de hoge IOPS-vereiste van de on-premises schijf.
+
+### <a name="why-does-my-assessment-report-say-percentageofcoresutilizedmissing-or-percentageofmemoryutilizedmissing-for-some-vms"></a>Waarom zegt mijn beoordelings rapport ' PercentageOfCoresUtilizedMissing ' of ' PercentageOfMemoryUtilizedMissing ' voor sommige Vm's?
+De bovenstaande problemen worden weer gegeven wanneer het Azure Migrate apparaat geen prestatie gegevens kan verzamelen voor de on-premises Vm's. Dit kan gebeuren als de virtuele machines voor de duur worden uitgeschakeld waarvoor u de evaluatie maakt (laatste één dag/één week/één maand), omdat het apparaat geen prestatie gegevens voor een virtuele machine kan verzamelen wanneer deze is uitgeschakeld. Als er alleen geheugen items ontbreken en u probeert virtuele Hyper-V-machines te evalueren, controleert u of er dynamisch geheugen is ingeschakeld op deze virtuele machines. Er is momenteel een bekend probleem, omdat Azure Migrate apparaat geen geheugen gebruik kan verzamelen voor Vm's waarvoor geen dynamisch geheugen is ingeschakeld. Het probleem doet zich alleen voor op virtuele Hyper-V-machines en niet op virtuele VMware-machines. Als een van de prestatie meter items ontbreekt, Azure Migrate: De server analyse gaat terug naar de toegewezen kernen/geheugen en raadt een VM-grootte aan.
 
 ### <a name="is-the-os-license-cost-of-the-vm-included-in-the-compute-cost-estimated-by-server-assessment"></a>Zijn de OS-licentie kosten van de virtuele machine opgenomen in de reken kosten geschat door de server evaluatie?
-Voor de server analyse worden momenteel alleen de OS-licentie kosten voor Windows-computers beschouwd. de kosten voor OS-licenties voor Linux-machines worden momenteel niet in overweging genomen. 
+Server Assessment rekent momenteel alleen de licentiekosten voor het besturingssysteem voor Windows-machines; licentiekosten voor Linux-besturingssystemen worden op dit moment niet meegenomen.
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Welke invloed heeft de prestaties van de prestatie geschiedenis en het percentiel?
-Deze eigenschappen zijn alleen van toepassing op de grootte van het prestatie niveau. Server analyse verzamelt voortdurend prestatie gegevens van on-premises machines en gebruikt deze om de SKU van de VM en schijf in azure aan te bevelen. Hieronder ziet u hoe prestatie gegevens worden verzameld door server evaluatie:
+Deze eigenschappen zijn alleen van toepassing wanneer de grootte wordt bepaald op basis van prestaties. Met Server Assessment worden doorlopend prestatiegegevens van on-premises machines verzameld, die vervolgens worden gebruikt om SKU's voor VM en schijf aan te bevelen in Azure. Hieronder ziet u hoe prestatiegegevens worden verzameld door Server Assessment:
 - Het Azure Migrate apparaat maakt continu een profiel van de on-premises omgeving voor het verzamelen van gegevens over realtime gebruik om de 20 seconden voor VMware-Vm's en elke 30 seconden voor Hyper-V-Vm's.
-- Het apparaat implementeert de 20/30 seconden voor beelden om één gegevens punt voor elke 10 minuten te maken. Voor het maken van één gegevens punt selecteert het apparaat de piek waarde van alle voor beelden van 20/30 seconden en verzendt deze naar Azure.
-- Wanneer u een evaluatie maakt in Server evaluatie, op basis van de waarde voor prestatie duur en prestatie geschiedenis percentiel, wordt de representatieve gebruiks waarde aangeduid. Als de prestatie geschiedenis bijvoorbeeld één week is en het percentiel gebruik 95e is, sorteert Azure Migrate alle tien minuten bemonsterings punten voor de afgelopen week in oplopende volg orde en selecteert u vervolgens het 95e percentiel als de representatieve waarde.
-De 95e percentiel waarde zorgt ervoor dat u alle uitbijters negeert die kunnen worden opgenomen als u het 99e percentiel selecteert. Als u het piek gebruik voor de periode wilt kiezen en uitschieters niet wilt missen, moet u het 99e percentiel als het percentiel gebruik selecteren.
+- Het apparaat combineert de gegevens die iedere 20/30 seconden worden verzameld en maakt er elke 10 minuten één gegevenspunt van. Om dat gegevenspunt te maken, selecteert het apparaat de hoogste waarde uit alle gegevens die elke 20/30 seconden zijn verzameld en verzendt deze naar Azure.
+- Wanneer u een evaluatie maakt in Server Assessment, op basis van de prestatieduur en de percentielwaarde van de prestatiegeschiedenis, wordt er een waarde vastgesteld die het daadwerkelijke gebruik voorstelt. Als de prestatie geschiedenis bijvoorbeeld één week is en het percentiel gebruik 95e is, sorteert Azure Migrate alle tien minuten bemonsterings punten voor de afgelopen week in oplopende volg orde en selecteert u vervolgens het 95e percentiel als de representatieve waarde.
+De 95e-percentielwaarde zorgt ervoor dat uitbijters worden genegeerd, die mogelijk wel zouden worden meegenomen als u het 99e percentiel kiest. Als u het piekgebruik voor de periode wilt ophalen en uitbijters niet wilt uitsluiten, selecteert u het 99e percentiel.
 
 ## <a name="dependency-visualization-issues"></a>Afhankelijkheids problemen bij de visualisatie
 
