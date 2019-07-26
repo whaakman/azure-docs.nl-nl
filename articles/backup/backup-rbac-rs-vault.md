@@ -1,88 +1,87 @@
 ---
-title: Back-ups met op rollen gebaseerd toegangsbeheer in Azure beheren '
-description: Toegangsbeheer op basis van rollen gebruiken voor het beheren van toegang tot de back-upbeheer bewerkingen in Recovery Services-kluis.
-services: backup
+title: Back-ups beheren met op rollen gebaseerde Access Control van Azure
+description: Gebruik op rollen gebaseerde Access Control voor het beheren van de toegang tot bewerkingen voor back-upbeheer in Recovery Services kluis.
 author: utraghuv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: utraghuv
-ms.openlocfilehash: 3b4585422a36992241fb4839238b1f6aa46c659f
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 928c08862fdb8a447b6b7afdd7fc12317a201224
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565643"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464960"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Toegangsbeheer op basis van rollen gebruiken voor het beheren van Azure Backup-herstelpunten
+# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Op rollen gebaseerd Access Control gebruiken om Azure Backup herstel punten te beheren
 Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over geavanceerd toegangsbeheer voor Azure. Met op rollen gebaseerd toegangsbeheer kunt u taken scheiden binnen uw team en alleen de mate van toegang verlenen aan gebruikers die nodig is om de taken uit te voeren.
 
 > [!IMPORTANT]
-> Geleverd door Azure Backup zijn beperkt tot de acties die kunnen worden uitgevoerd in Azure portal of via REST API of PowerShell of CLI-cmdlets voor Recovery Services-kluis. Acties die worden uitgevoerd in Azure backup Agent Client-gebruikersinterface of System center Data Protection Manager UI of de gebruikersinterface van Azure Backup Server zijn buiten het besturingselement van deze rollen.
+> Rollen die door Azure Backup worden verschaft, zijn beperkt tot acties die kunnen worden uitgevoerd in Azure Portal of via REST API of Recovery Services kluis Power shell of CLI-cmdlets. Acties die worden uitgevoerd in de gebruikers interface van de Azure backup-agent of System Center Data Protection Manager gebruikers interface of Azure Backup Server gebruikers interface zijn niet van invloed op deze rollen.
 
-Azure Backup biedt drie ingebouwde rollen voor het beheren van back-beheerbewerkingen. Meer informatie over [ingebouwde Azure RBAC-rollen](../role-based-access-control/built-in-roles.md)
+Azure Backup biedt drie ingebouwde rollen voor het beheren van de bewerkingen voor back-upbeheer. Meer informatie over [ingebouwde Azure RBAC-rollen](../role-based-access-control/built-in-roles.md)
 
-* [Back-Inzender](../role-based-access-control/built-in-roles.md#backup-contributor) -deze rol heeft alle machtigingen voor het maken en beheren van back-up met uitzondering van de Recovery Services-kluis verwijderen en het verlenen van toegang aan anderen. Stel dat u deze rol als beheerder van de back-upbeheer die elke back-upbeheer bewerking kunt uitvoeren.
-* [Back-up van Operator](../role-based-access-control/built-in-roles.md#backup-operator) -deze rol heeft machtigingen voor alles wat een inzender met uitzondering van back-up en beheren van back-upbeleidsregels verwijderen. Deze rol is gelijk aan Inzender, behalve het destructieve bewerkingen uitvoeren kunt, zoals back-up stoppen met gegevens of verwijderen van registratie van on-premises resources.
-* [Back-up lezer](../role-based-access-control/built-in-roles.md#backup-reader) -deze rol heeft machtigingen voor het weergeven van alle bewerkingen van de back-upbeheer. Stel dat u deze rol niet de bewaking van een persoon.
+* [Back-upinzender](../role-based-access-control/built-in-roles.md#backup-contributor) : deze rol heeft alle machtigingen voor het maken en beheren van back-ups, behalve het verwijderen van Recovery Services kluis en het verlenen van toegang aan anderen. Stel deze rol in als beheerder van het back-upbeheer, die elke bewerking van het back-upbeheer kan uitvoeren.
+* [Back-upoperator](../role-based-access-control/built-in-roles.md#backup-operator) -deze rol heeft machtigingen voor alles wat een bijdrager heeft, behalve het verwijderen van back-ups en het beheer van back-upbeleid. Deze rol is gelijk aan Inzender, behalve dat er geen destructieve bewerkingen kunnen worden uitgevoerd, zoals het stoppen van back-ups met gegevens verwijderen of het verwijderen van de registratie van on-premises resources.
+* [Back-uplezer](../role-based-access-control/built-in-roles.md#backup-reader) : deze rol heeft machtigingen voor het weer geven van alle bewerkingen voor back-upbeheer. Stel dat deze rol een bewakings persoon is.
 
-Als u op zoek bent voor het definiëren van uw eigen rollen voor nog meer controle, Zie hoe u [bouwen van aangepaste rollen](../role-based-access-control/custom-roles.md) in Azure RBAC.
+Als u uw eigen rollen wilt definiëren voor nog meer controle, raadpleegt u [aangepaste rollen bouwen](../role-based-access-control/custom-roles.md) in azure RBAC.
 
 
 
-## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Back-up ingebouwde rollen toewijzen aan back-upbeheer acties
-De volgende tabel bevat de acties voor back-up en de bijbehorende minimale RBAC-rol om uit te voeren die voor deze bewerking.
+## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Ingebouwde functies voor back-ups koppelen aan back-upbeheer acties
+In de volgende tabel worden de acties voor back-upbeheer en de bijbehorende minimale RBAC-rol vastgelegd die vereist zijn om die bewerking uit te voeren.
 
-| Bewerking voor het beheer | Minimale RBAC-rol vereist | Bereik vereist |
+| Beheer bewerking | Mini maal RBAC-rol vereist | Bereik vereist |
 | --- | --- | --- |
-| Een Recovery Services-kluis maken | Back-Inzender | Resourcegroep met de kluis |
-| Back-up van virtuele Azure-machines inschakelen | Back-upoperator | Resourcegroep met de kluis |
+| Een Recovery Services-kluis maken | Back-upinzender | Resource groep met de kluis |
+| Back-ups van virtuele Azure-machines inschakelen | Back-upoperator | Resource groep met de kluis |
 | | Inzender voor virtuele machines | VM-resource |
-| On-demand back-up van virtuele machine | Back-upoperator | Recovery vault-resource |
+| Back-up op aanvraag van de virtuele machine | Back-upoperator | Recovery-kluis bron |
 | VM herstellen | Back-upoperator | Recovery Services-kluis |
-| | Inzender | Resourcegroep waarin u de virtuele machine wordt geïmplementeerd |
+| | Inzender | De resource groep waarin de VM wordt geïmplementeerd |
 | | Inzender voor virtuele machines | Bron-VM waarvan een back-up is gemaakt |
-| Niet-beheerde schijven VM back-up herstellen | Back-upoperator | Recovery vault-resource |
+| Back-up van niet-beheerde schijven herstellen | Back-upoperator | Recovery-kluis bron |
 | | Inzender voor virtuele machines | Bron-VM waarvan een back-up is gemaakt |
-| | Inzender voor Opslagaccounts | Opslagaccountresource waar opstartcyclus schijven kunnen worden hersteld |
-| Beheerde schijven terugzetten van back-up van virtuele machine | Back-upoperator | Recovery vault-resource |
+| | Inzender voor opslagaccounts | Bron van het opslag account waar de schijven zullen worden teruggezet |
+| Beheerde schijven terugzetten vanuit een back-up van de VM | Back-upoperator | Recovery-kluis bron |
 | | Inzender voor virtuele machines | Bron-VM waarvan een back-up is gemaakt |
-| | Inzender voor Opslagaccounts | Tijdelijke Opslagaccount dat is geselecteerd als onderdeel van herstellen voor het opslaan van gegevens uit de kluis voordat u deze te converteren naar beheerde schijven |
-| | Inzender | Resourcegroep waartoe de beheerde schijven worden hersteld |
-| Afzonderlijke bestanden herstellen vanaf back-up van virtuele machine | Back-upoperator | Recovery vault-resource |
+| | Inzender voor opslagaccounts | Het tijdelijke opslag account dat is geselecteerd als onderdeel van de herstel bewerking om gegevens van de kluis te bewaren voordat deze naar beheerde schijven worden geconverteerd |
+| | Inzender | De resource groep waarvoor beheerde schijven worden hersteld |
+| Afzonderlijke bestanden herstellen vanuit een back-up van de VM | Back-upoperator | Recovery-kluis bron |
 | | Inzender voor virtuele machines | Bron-VM waarvan een back-up is gemaakt |
-| Back-upbeleid voor back-up van virtuele Azure-machine maken | Back-Inzender | Recovery vault-resource |
-| Back-upbeleid van Azure VM backup wijzigen | Back-Inzender | Recovery vault-resource |
-| Back-upbeleid van Azure VM backup | Back-Inzender | Recovery vault-resource |
-| Back-up stoppen (met behoud van gegevens of verwijderen van gegevens) op virtuele machine back-up | Back-Inzender | Recovery vault-resource |
-| On-premises Windows Server/client-/ SCDPM of Azure Backup-Server registreren | Back-upoperator | Recovery vault-resource |
-| Geregistreerde on-premises Windows Server/client-/ SCDPM of Azure Backup-Server verwijderen | Back-Inzender | Recovery vault-resource |
+| Back-upbeleid voor Azure VM-back-up maken | Back-upinzender | Recovery-kluis bron |
+| Back-upbeleid van Azure VM-back-up wijzigen | Back-upinzender | Recovery-kluis bron |
+| Back-upbeleid van Azure VM-back-up verwijderen | Back-upinzender | Recovery-kluis bron |
+| Back-up stoppen (met gegevens behouden of gegevens verwijderen) bij een back-up van de VM | Back-upinzender | Recovery-kluis bron |
+| On-premises Windows Server/client/SCDPM of Azure Backup Server registreren | Back-upoperator | Recovery-kluis bron |
+| Geregistreerde on-premises Windows Server/client-SCDPM of Azure Backup Server verwijderen | Back-upinzender | Recovery-kluis bron |
 
 > [!IMPORTANT]
-> Als u VM-Inzender bij een VM-resource-bereik opgeven en klik op back-up als onderdeel van de VM-instellingen, wordt deze 'Back-up inschakelen' scherm geopend, zelfs als de virtuele machine is al back-up gemaakt als de aanroep om te controleren of de status van de back-up werkt alleen op abonnementsniveau. Om dit te voorkomen, hetzij gaat u naar de kluis en opent u de back-upitem weergave van de virtuele machine of geef de rol Inzender voor virtuele machine op een abonnementsniveau.
+> Als u een VM-bijdrager opgeeft in een VM-bron bereik en op back-up klikt als onderdeel van de VM-instellingen, wordt het scherm back-up inschakelen geopend, zelfs als de aanroep voor het controleren van de back-upstatus alleen op abonnements niveau werkt. Om dit te voor komen, gaat u naar de kluis en opent u de weer gave back-upitem van de virtuele machine of geeft u de rol van de VM-bijdrage op abonnements niveau op.
 
-## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>De rol van de minimale vereisten voor de back-up van Azure File share
-De volgende tabel bevat de acties voor back-up en de bijbehorende rol Azure File share bewerking moet worden uitgevoerd.
+## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Minimale functie vereisten voor de back-up van de Azure-bestands share
+In de volgende tabel worden de acties voor back-upbeheer en de bijbehorende rol vastgelegd die vereist zijn voor het uitvoeren van een Azure file share-bewerking.
 
-| Bewerking voor het beheer | Rol is vereist | Resources |
+| Beheer bewerking | Rol vereist | Resources |
 | --- | --- | --- |
-| Back-up van Azure-bestandsshares inschakelen | Back-Inzender | Recovery Services-kluis |
-| | Opslagaccount | Inzender voor de resource van Opslagaccount |
-| On-demand back-up van virtuele machine | Back-upoperator | Recovery Services-kluis |
-| Terugzetten van bestandsshare | Back-upoperator | Recovery Services-kluis |
-| | Inzender voor Opslagaccounts | Waar terugzetten bron en doel-bestandsshares aanwezig zijn de resources van opslagaccount |
-| Afzonderlijke bestanden terugzetten | Back-upoperator | Recovery Services-kluis |
-| | Inzender voor Opslagaccounts |   Waar terugzetten bron en doel-bestandsshares aanwezig zijn de resources van opslagaccount |
-| Beveiliging stoppen | Back-Inzender | Recovery Services-kluis |      
-| Registratie van storage-account van de kluis ongedaan maken |   Back-Inzender | Recovery Services-kluis |
-| | Inzender voor Opslagaccounts | De resource van opslagaccount|
+| Back-ups van Azure-bestands shares inschakelen | Back-upinzender | Recovery Services-kluis |
+| | Opslagaccount | Resource voor het opslag account Inzender |
+| Back-up op aanvraag van de virtuele machine | Back-upoperator | Recovery Services-kluis |
+| Bestands share herstellen | Back-upoperator | Recovery Services-kluis |
+| | Inzender voor opslagaccounts | Opslag account resources waar bron-en doel bestands shares voor herstellen aanwezig zijn |
+| Afzonderlijke bestanden herstellen | Back-upoperator | Recovery Services-kluis |
+| | Inzender voor opslagaccounts |   Opslag account resources waar bron-en doel bestands shares voor herstellen aanwezig zijn |
+| Beveiliging stoppen | Back-upinzender | Recovery Services-kluis |      
+| De registratie van het opslag account bij de kluis ongedaan maken |   Back-upinzender | Recovery Services-kluis |
+| | Inzender voor opslagaccounts | Bron van opslag account|
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Op rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md): Aan de slag met RBAC in Azure portal.
-* Informatie over het beheren van toegang met:
+* [Access Control op basis van rollen](../role-based-access-control/role-assignments-portal.md): Ga aan de slag met RBAC in het Azure Portal.
+* Meer informatie over het beheren van toegang met:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure-CLI](../role-based-access-control/role-assignments-cli.md)
   * [REST API](../role-based-access-control/role-assignments-rest.md)
-* [Role-Based Access Control probleemoplossing](../role-based-access-control/troubleshooting.md): Profiteer van tips voor veelvoorkomende problemen oplossen.
+* [Access Control probleem oplossing op basis van rollen](../role-based-access-control/troubleshooting.md): Vind suggesties voor het oplossen van veelvoorkomende problemen.

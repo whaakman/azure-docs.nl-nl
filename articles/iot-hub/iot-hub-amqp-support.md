@@ -1,46 +1,46 @@
 ---
-title: Ondersteuning voor Azure IoT Hub AMQP begrijpen | Microsoft Docs
-description: Handleiding voor ontwikkelaars - ondersteuning voor apparaten die verbinding maken met IoT Hub apparaat gerichte en gerichte service-eindpunten met behulp van het AMQP-Protocol. Bevat informatie over ingebouwde ondersteuning voor AMQP in de Azure IoT device SDK's.
+title: Meer informatie over ondersteuning voor Azure IoT Hub AMQP | Microsoft Docs
+description: "Ontwikkelaars handleiding: ondersteuning voor apparaten die verbinding maken met IoT Hub op het apparaat gerichte en service gerichte eind punten met behulp van het AMQP-protocol. Bevat informatie over ingebouwde AMQP-ondersteuning in de Azure IoT-apparaat-Sdk's."
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: robinsh
-ms.openlocfilehash: e0c7b6aa9745beaf7a7d336e8308d12348bb274b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b53bb0f04bf6a739b588b14febd622f6bf7a6a63
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67432618"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68354894"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Communiceren met uw IoT-hub met behulp van het AMQP-Protocol
 
-Biedt ondersteuning voor Azure IoT Hub [OASIS Advanced Message Queuing Protocol (AMQP) versie 1.0](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf) bieden een verscheidenheid aan functies via apparaat gerichte en gerichte service-eindpunten. Dit document beschrijft het gebruik van AMQP clients verbinding maken met een IoT-hub, IoT Hub-functionaliteit gebruiken.
+Azure IoT Hub ondersteunt [OASIS Advanced Message queueing Protocol (AMQP) versie 1,0](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf) om diverse functies te leveren via apparaten die aan het apparaat en de service gerichte eind punten. Dit document beschrijft het gebruik van AMQP-clients om verbinding te maken met een IoT-hub om IoT Hub functionaliteit te gebruiken.
 
 ## <a name="service-client"></a>Service-client
 
-### <a name="connect-and-authenticate-to-an-iot-hub-service-client"></a>Verbinding maken en verifiëren naar een IoT-hub (serviceclient)
+### <a name="connect-and-authenticate-to-an-iot-hub-service-client"></a>Verbinding maken en verifiëren met een IoT-hub (Service-client)
 
-Als u wilt verbinding maken met een IoT-hub via AMQP, een client kan gebruiken de [beveiliging op basis van claims (CBS)](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) of [eenvoudige verificatie en beveiliging laag (SASL) verificatie](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer).
+Als u verbinding wilt maken met een IoT-hub met behulp van AMQP, kan een client gebruikmaken van de verificatie [op basis van op claims gebaseerde beveiliging (CBS)](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) of [Simple Authentication and Security Layer (SASL)](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer).
 
 De volgende informatie is vereist voor de service-client:
 
-| Informatie | Value |
+| Information | Value |
 |-------------|--------------|
 | IoT hub-hostnaam | `<iot-hub-name>.azure-devices.net` |
 | Sleutelnaam | `service` |
 | Toegangssleutel | Een primaire of secundaire sleutel die is gekoppeld aan de service |
-| Handtekening voor gedeelde toegang | Een eenvoudige shared access signature in de volgende indeling: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Als u de code voor het genereren van deze handtekening, Zie [beheren van toegang tot IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
+| Shared Access Signature | Een korte hand tekening voor gedeelde toegang in de volgende indeling: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Zie [toegang tot IOT hub beheren](./iot-hub-devguide-security.md#security-token-structure)voor het verkrijgen van de code voor het genereren van deze hand tekening.
 
-De volgende code codefragment wordt de [uAMQP-bibliotheek in Python](https://github.com/Azure/azure-uamqp-python) verbinding maken met een IoT-hub via een koppeling van de afzender.
+In het volgende code fragment wordt de [uAMQP-bibliotheek in python](https://github.com/Azure/azure-uamqp-python) gebruikt om verbinding te maken met een IOT-hub via een afzender koppeling.
 
 ```python
 import uamqp
 import urllib
 import time
 
-# Use generate_sas_token implementation available here: 
+# Use generate_sas_token implementation available here:
 # https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
 from helper import generate_sas_token
 
@@ -48,27 +48,29 @@ iot_hub_name = '<iot-hub-name>'
 hostname = '{iot_hub_name}.azure-devices.net'.format(iot_hub_name=iot_hub_name)
 policy_name = 'service'
 access_key = '<primary-or-secondary-key>'
-operation = '<operation-link-name>' # example: '/messages/devicebound'
+operation = '<operation-link-name>'  # example: '/messages/devicebound'
 
-username = '{policy_name}@sas.root.{iot_hub_name}'.format(iot_hub_name=iot_hub_name, policy_name=policy_name)
+username = '{policy_name}@sas.root.{iot_hub_name}'.format(
+    iot_hub_name=iot_hub_name, policy_name=policy_name)
 sas_token = generate_sas_token(hostname, access_key, policy_name)
-uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username),
+                                  urllib.quote_plus(sas_token), hostname, operation)
 
 # Create a send or receive client
 send_client = uamqp.SendClient(uri, debug=True)
 receive_client = uamqp.ReceiveClient(uri, debug=True)
 ```
 
-### <a name="invoke-cloud-to-device-messages-service-client"></a>Aanroepen van cloud-naar-apparaat-berichten (serviceclient)
+### <a name="invoke-cloud-to-device-messages-service-client"></a>Cloud-naar-apparaat-berichten aanroepen (Service-client)
 
-Zie voor meer informatie over de cloud-naar-apparaat berichtuitwisseling tussen de service en de IoT-hub en tussen het apparaat en de IoT-hub, [cloud-naar-apparaat-berichten verzenden vanaf uw IoT-hub](iot-hub-devguide-messages-c2d.md). Service-client maakt gebruik van twee koppelingen naar berichten verzenden en ontvangen van feedback voor eerder verzonden berichten van apparaten, zoals beschreven in de volgende tabel:
+Zie [Cloud-naar-apparaat-berichten vanuit uw IOT-hub verzenden](iot-hub-devguide-messages-c2d.md)voor meer informatie over de Cloud-naar-apparaat-bericht uitwisseling tussen de service en de IOT-hub en tussen het apparaat en de IOT-hub. De service-client gebruikt twee koppelingen om berichten te verzenden en feedback te ontvangen voor eerder verzonden berichten van apparaten, zoals wordt beschreven in de volgende tabel:
 
-| Gemaakt door | Koppelingstype | Pad van de koppeling | Description |
+| Gemaakt door | Type koppeling | Pad van koppeling | Description |
 |------------|-----------|-----------|-------------|
-| Service | Koppeling van de afzender | `/messages/devicebound` | Cloud-naar-apparaat-berichten die bestemd zijn voor apparaten worden verzonden naar deze koppeling door de service. Berichten verzonden via deze koppeling hebben hun `To` eigenschap is ingesteld op het doelapparaat ontvanger link naar `/devices/<deviceID>/messages/devicebound`. |
-| Service | Koppeling van de ontvanger | `/messages/serviceBound/feedback` | Voltooiing, afwijzing en stopzetting feedbackberichten die afkomstig van apparaten ontvangen op deze koppeling met de service zijn. Zie voor meer informatie over Feedbackberichten [cloud-naar-apparaat-berichten verzenden vanuit een IoT-hub](./iot-hub-devguide-messages-c2d.md#message-feedback). |
+| Service | Koppeling naar afzender | `/messages/devicebound` | Cloud-naar-apparaat-berichten die bestemd zijn voor apparaten, worden door de service naar deze koppeling verzonden. Voor berichten die via deze koppeling `To` worden verzonden, wordt `/devices/<deviceID>/messages/devicebound`de eigenschap ingesteld op het pad van de ontvanger van het doel apparaat. |
+| Service | Koppeling ontvanger | `/messages/serviceBound/feedback` | Het volt ooien, afkeuren en afhandelen van feedback berichten die afkomstig zijn van apparaten die op deze koppeling door de service zijn ontvangen. Zie [Cloud-naar-apparaat-berichten verzenden vanuit een IOT-hub](./iot-hub-devguide-messages-c2d.md#message-feedback)voor meer informatie over feedback berichten. |
 
-Het volgende codefragment laat zien hoe u een cloud-naar-apparaat-bericht maken en te verzenden naar een apparaat met behulp van de [uAMQP-bibliotheek in Python](https://github.com/Azure/azure-uamqp-python).
+Het volgende code fragment laat zien hoe u een Cloud-naar-apparaat-bericht maakt en het naar een apparaat verzendt met behulp van de [uAMQP-bibliotheek in python](https://github.com/Azure/azure-uamqp-python).
 
 ```python
 import uuid
@@ -77,10 +79,11 @@ msg_id = str(uuid.uuid4())
 msg_content = b"Message content goes here!"
 device_id = '<device-id>'
 to = '/devices/{device_id}/messages/devicebound'.format(device_id=device_id)
-ack = 'full' # Alternative values are 'positive', 'negative', and 'none'
-app_props = { 'iothub-ack': ack }
+ack = 'full'  # Alternative values are 'positive', 'negative', and 'none'
+app_props = {'iothub-ack': ack}
 msg_props = uamqp.message.MessageProperties(message_id=msg_id, to=to)
-msg = uamqp.Message(msg_content, properties=msg_props, application_properties=app_props)
+msg = uamqp.Message(msg_content, properties=msg_props,
+                    application_properties=app_props)
 
 # Send the message by using the send client that you created and connected to the IoT hub earlier
 send_client.queue_message(msg)
@@ -90,7 +93,7 @@ results = send_client.send_all_messages()
 send_client.close()
 ```
 
-De service-client maakt voor het ontvangen van feedback van de koppeling van een ontvanger. Het volgende codefragment laat zien hoe u een koppeling maken met behulp van de [uAMQP-bibliotheek in Python](https://github.com/Azure/azure-uamqp-python):
+Als u feedback wilt ontvangen, maakt de service-client een koppeling naar een ontvanger. Het volgende code fragment laat zien hoe u een koppeling maakt met behulp van de [uAMQP-bibliotheek in python](https://github.com/Azure/azure-uamqp-python):
 
 ```python
 import json
@@ -99,52 +102,53 @@ operation = '/messages/serviceBound/feedback'
 
 # ...
 # Re-create the URI by using the preceding feedback path and authenticate it
-uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username),
+                                  urllib.quote_plus(sas_token), hostname, operation)
 
 receive_client = uamqp.ReceiveClient(uri, debug=True)
 batch = receive_client.receive_message_batch(max_batch_size=10)
 for msg in batch:
-  print('received a message')
-  # Check content_type in message property to identify feedback messages coming from device
-  if msg.properties.content_type == 'application/vnd.microsoft.iothub.feedback.json':
-    msg_body_raw = msg.get_data()
-    msg_body_str = ''.join(msg_body_raw)
-    msg_body = json.loads(msg_body_str)
-    print(json.dumps(msg_body, indent=2))
-    print('******************')
-    for feedback in msg_body:
-      print('feedback received')
-      print('\tstatusCode: ' + str(feedback['statusCode']))
-      print('\toriginalMessageId: ' + str(feedback['originalMessageId']))
-      print('\tdeviceId: ' + str(feedback['deviceId']))
-      print
-  else:
-    print('unknown message:', msg.properties.content_type)
+    print('received a message')
+    # Check content_type in message property to identify feedback messages coming from device
+    if msg.properties.content_type == 'application/vnd.microsoft.iothub.feedback.json':
+        msg_body_raw = msg.get_data()
+        msg_body_str = ''.join(msg_body_raw)
+        msg_body = json.loads(msg_body_str)
+        print(json.dumps(msg_body, indent=2))
+        print('******************')
+        for feedback in msg_body:
+            print('feedback received')
+            print('\tstatusCode: ' + str(feedback['statusCode']))
+            print('\toriginalMessageId: ' + str(feedback['originalMessageId']))
+            print('\tdeviceId: ' + str(feedback['deviceId']))
+            print
+    else:
+        print('unknown message:', msg.properties.content_type)
 ```
 
-Zoals weergegeven in de bovenstaande code, een feedbackbericht van cloud-naar-apparaat heeft een inhoudstype van *application/vnd.microsoft.iothub.feedback.json*. U kunt de eigenschappen in de JSON-hoofdtekst van het bericht afleiden uit de van de leveringsstatus van het oorspronkelijke bericht:
+Zoals u in de voor gaande code kunt zien, heeft een feedback bericht van Cloud naar apparaat het inhouds type *application/vnd. micro soft. iothub. feedback. json*. U kunt de eigenschappen in de JSON-hoofd tekst van het bericht gebruiken om de leverings status van het oorspronkelijke bericht af te leiden:
 
-* Sleutel `statusCode` in de feedback die de hoofdtekst bevat een van de volgende waarden: *Succes*, *verlopen*, *DeliveryCountExceeded*, *geweigerd*, of *opgeschoond*.
+* De `statusCode` sleutel in de feedback tekst heeft een van de volgende waarden: *Geslaagd*, *verlopen*, *DeliveryCountExceeded*, *afgewezen*of *opgeschoond*.
 
-* Sleutel `deviceId` in de feedback die de hoofdtekst van de ID van het doelapparaat bevat.
+* De `deviceId` sleutel in de feedback tekst heeft de id van het doel apparaat.
 
-* Sleutel `originalMessageId` in de feedback die de hoofdtekst van de ID van het oorspronkelijke bericht van cloud-naar-apparaat dat is verzonden door de service bevat. Deze leveringsstatus kunt u feedback om cloud-naar-apparaatberichten te correleren.
+* De `originalMessageId` sleutel in de feedback tekst is de id van het oorspronkelijke Cloud-naar-apparaat-bericht dat is verzonden door de service. U kunt deze leverings status gebruiken om feedback voor Cloud-naar-apparaat-berichten te correleren.
 
-### <a name="receive-telemetry-messages-service-client"></a>Ontvangen berichten over telemetrie (serviceclient)
+### <a name="receive-telemetry-messages-service-client"></a>Telemetrie-berichten ontvangen (Service-client)
 
-Standaard slaat uw IoT-hub opgenomen apparaat telemetrie-berichten in een ingebouwde event hub. Uw serviceclient kan het AMQP-Protocol gebruiken voor het ontvangen van de opgeslagen gebeurtenissen.
+Standaard slaat uw IoT-hub geopnamete telemetrie-berichten op in een ingebouwde Event Hub. Uw service-client kan het AMQP-protocol gebruiken om de opgeslagen gebeurtenissen te ontvangen.
 
-Voor dit doel moet de service-client eerst verbinding maken met het eindpunt van de IoT hub en een omleiding-adres aan de ingebouwde eventhubs ontvangt. De service-client gebruikt vervolgens het opgegeven adres om verbinding maken met de ingebouwde event hub.
+Voor dit doel moet de service-client eerst verbinding maken met het eind punt van de IoT-hub en een omleidings adres ontvangen voor de ingebouwde Event hubs. De service-client gebruikt het gegeven adres om verbinding te maken met de ingebouwde Event Hub.
 
-De client moet de volgende soorten informatie weergeven in elke stap:
+In elke stap moet de client de volgende informatie bevatten:
 
-* Geldige Servicereferenties (servicetoken shared access signature).
+* Geldige service referenties (Service Shared Access Signature token).
 
-* Een juist opgemaakte pad naar de consument groepspartitie die zal worden berichten ophalen. Voor een bepaalde consumenten groep en partitie-ID, het pad heeft de volgende indeling: `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` (de standaard-consumergroep is `$Default`).
+* Een goed opgemaakt pad naar de groeps partitie van de Consumer waarvan het van plan is berichten op te halen. Voor een bepaalde Consumer groep en partitie-id heeft het pad de volgende indeling `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` : (de standaard Consumer `$Default`groep is).
 
-* Een optioneel filter predikaat om een beginpunt in de partitie toe te wijzen. Dit predicaat kan zich in de vorm van een tijdstempel voor een reeks nummer, offset of in de wachtrij.
+* Een optioneel filter predicaat voor het aanwijzen van een begin punt in de partitie. Dit predicaat kan de vorm hebben van een volgorde nummer, een verschuiving of een time stamp.
 
-De volgende code codefragment wordt de [uAMQP-bibliotheek in Python](https://github.com/Azure/azure-uamqp-python) ter illustratie van de voorgaande stappen:
+In het volgende code fragment wordt de [uAMQP-bibliotheek in python](https://github.com/Azure/azure-uamqp-python) gebruikt om de voor gaande stappen te demonstreren:
 
 ```python
 import json
@@ -159,11 +163,14 @@ iot_hub_name = '<iot-hub-name>'
 hostname = '{iot_hub_name}.azure-devices.net'.format(iot_hub_name=iot_hub_name)
 policy_name = 'service'
 access_key = '<primary-or-secondary-key>'
-operation = '/messages/events/ConsumerGroups/{consumer_group}/Partitions/{p_id}'.format(consumer_group='$Default', p_id=0)
+operation = '/messages/events/ConsumerGroups/{consumer_group}/Partitions/{p_id}'.format(
+    consumer_group='$Default', p_id=0)
 
-username = '{policy_name}@sas.root.{iot_hub_name}'.format(policy_name=policy_name, iot_hub_name=iot_hub_name)
+username = '{policy_name}@sas.root.{iot_hub_name}'.format(
+    policy_name=policy_name, iot_hub_name=iot_hub_name)
 sas_token = generate_sas_token(hostname, access_key, policy_name)
-uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username),
+                                  urllib.quote_plus(sas_token), hostname, operation)
 
 # Optional filtering predicates can be specified by using endpoint_filter
 # Valid predicates include:
@@ -174,55 +181,61 @@ uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus
 endpoint_filter = b'amqp.annotation.x-opt-sequence-number > 2995'
 
 # Helper function to set the filtering predicate on the source URI
+
+
 def set_endpoint_filter(uri, endpoint_filter=''):
-  source_uri = uamqp.address.Source(uri)
-  source_uri.set_filter(endpoint_filter)
-  return source_uri
+    source_uri = uamqp.address.Source(uri)
+    source_uri.set_filter(endpoint_filter)
+    return source_uri
 
-receive_client = uamqp.ReceiveClient(set_endpoint_filter(uri, endpoint_filter), debug=True)
+
+receive_client = uamqp.ReceiveClient(
+    set_endpoint_filter(uri, endpoint_filter), debug=True)
 try:
-  batch = receive_client.receive_message_batch(max_batch_size=5)
+    batch = receive_client.receive_message_batch(max_batch_size=5)
 except uamqp.errors.LinkRedirect as redirect:
-  # Once a redirect error is received, close the original client and recreate a new one to the re-directed address
-  receive_client.close()
+    # Once a redirect error is received, close the original client and recreate a new one to the re-directed address
+    receive_client.close()
 
-  sas_auth = uamqp.authentication.SASTokenAuth.from_shared_access_key(redirect.address, policy_name, access_key)
-  receive_client = uamqp.ReceiveClient(set_endpoint_filter(redirect.address, endpoint_filter), auth=sas_auth, debug=True)
+    sas_auth = uamqp.authentication.SASTokenAuth.from_shared_access_key(
+        redirect.address, policy_name, access_key)
+    receive_client = uamqp.ReceiveClient(set_endpoint_filter(
+        redirect.address, endpoint_filter), auth=sas_auth, debug=True)
 
 # Start receiving messages in batches
 batch = receive_client.receive_message_batch(max_batch_size=5)
 for msg in batch:
-  print('*** received a message ***')
-  print(''.join(msg.get_data()))
-  print('\t: ' + str(msg.annotations['x-opt-sequence-number']))
-  print('\t: ' + str(msg.annotations['x-opt-offset']))
-  print('\t: ' + str(msg.annotations['x-opt-enqueued-time']))
+    print('*** received a message ***')
+    print(''.join(msg.get_data()))
+    print('\t: ' + str(msg.annotations['x-opt-sequence-number']))
+    print('\t: ' + str(msg.annotations['x-opt-offset']))
+    print('\t: ' + str(msg.annotations['x-opt-enqueued-time']))
 ```
 
-Voor een bepaald apparaat-ID, wordt met de IoT-hub een hash van de apparaat-ID gebruikt om te bepalen welke partitie voor het opslaan van de berichten in. Het bovenstaande codefragment laat zien hoe de gebeurtenissen worden ontvangen van één partitie bestaat. Houd er echter rekening mee dat een typische toepassing vaak hoeft op te halen van gebeurtenissen die zijn opgeslagen in alle event hub-partities.
+Voor een bepaalde apparaat-ID gebruikt de IoT-hub een hash van de apparaat-ID om te bepalen met welke partitie de berichten moeten worden opgeslagen. In het voor gaande code fragment ziet u hoe gebeurtenissen worden ontvangen van een enkele dergelijke partitie. Houd er echter rekening mee dat een typische toepassing vaak gebeurtenissen moet ophalen die zijn opgeslagen in alle Event Hub partities.
 
 ## <a name="device-client"></a>Apparaatclient
 
-### <a name="connect-and-authenticate-to-an-iot-hub-device-client"></a>Verbinding maken en verifiëren naar een IoT-hub (apparaatclient)
+### <a name="connect-and-authenticate-to-an-iot-hub-device-client"></a>Verbinding maken en verifiëren met een IoT-hub (apparaatclient)
 
-Als u wilt verbinding maken met een IoT-hub via AMQP, een apparaat kunnen worden gebruikt [beveiliging (CBS) op basis van claims](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) of [eenvoudige verificatie en beveiliging laag (SASL)](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer) verificatie.
+Als u verbinding wilt maken met een IoT-hub met behulp van AMQP, kan een apparaat gebruikmaken [van op claims gebaseerde beveiliging (CBS)](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) of [Simple Authentication and Security Layer (SASL)-](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer) verificatie.
 
 De volgende informatie is vereist voor de apparaatclient:
 
-| Informatie | Value |
+| Information | Value |
 |-------------|--------------|
 | IoT hub-hostnaam | `<iot-hub-name>.azure-devices.net` |
 | Toegangssleutel | Een primaire of secundaire sleutel die is gekoppeld aan het apparaat |
-| Handtekening voor gedeelde toegang | Een eenvoudige shared access signature in de volgende indeling: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Als u de code voor het genereren van deze handtekening, Zie [beheren van toegang tot IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
+| Shared Access Signature | Een korte hand tekening voor gedeelde toegang in de volgende indeling: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Zie [toegang tot IOT hub beheren](./iot-hub-devguide-security.md#security-token-structure)voor het verkrijgen van de code voor het genereren van deze hand tekening.
 
-De volgende code codefragment wordt de [uAMQP-bibliotheek in Python](https://github.com/Azure/azure-uamqp-python) verbinding maken met een IoT-hub via een koppeling van de afzender.
+In het volgende code fragment wordt de [uAMQP-bibliotheek in python](https://github.com/Azure/azure-uamqp-python) gebruikt om verbinding te maken met een IOT-hub via een afzender koppeling.
 
 ```python
 import uamqp
 import urllib
 import uuid
 
-# Use generate_sas_token implementation available here: 
+# Use generate_sas_token implementation available here:
 # https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
 from helper import generate_sas_token
 
@@ -230,71 +243,83 @@ iot_hub_name = '<iot-hub-name>'
 hostname = '{iot_hub_name}.azure-devices.net'.format(iot_hub_name=iot_hub_name)
 device_id = '<device-id>'
 access_key = '<primary-or-secondary-key>'
-username = '{device_id}@sas.{iot_hub_name}'.format(device_id=device_id, iot_hub_name=iot_hub_name)
-sas_token = generate_sas_token('{hostname}/devices/{device_id}'.format(hostname=hostname, device_id=device_id), access_key, None)
+username = '{device_id}@sas.{iot_hub_name}'.format(
+    device_id=device_id, iot_hub_name=iot_hub_name)
+sas_token = generate_sas_token('{hostname}/devices/{device_id}'.format(
+    hostname=hostname, device_id=device_id), access_key, None)
 
-operation = '<operation-link-name>' # e.g., '/devices/{device_id}/messages/devicebound'
-uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+# e.g., '/devices/{device_id}/messages/devicebound'
+operation = '<operation-link-name>'
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username),
+                                  urllib.quote_plus(sas_token), hostname, operation)
 
 receive_client = uamqp.ReceiveClient(uri, debug=True)
 send_client = uamqp.SendClient(uri, debug=True)
 ```
 
-De volgende koppelingspaden worden ondersteund als apparaatbewerkingen:
+De volgende koppelings paden worden ondersteund als apparaat-bewerkingen:
 
-| Gemaakt door | Koppelingstype | Pad van de koppeling | Description |
+| Gemaakt door | Type koppeling | Pad van koppeling | Description |
 |------------|-----------|-----------|-------------|
-| Apparaten | Koppeling van de ontvanger | `/devices/<deviceID>/messages/devicebound` | Cloud-naar-apparaat-berichten die bestemd zijn voor apparaten worden ontvangen op deze koppeling door elk Bestemmingsapparaat. |
-| Apparaten | Koppeling van de afzender | `/devices/<deviceID>messages/events` | Apparaat-naar-cloud-berichten die worden verzonden vanaf een apparaat worden verzonden via deze koppeling. |
-| Apparaten | Koppeling van de afzender | `/messages/serviceBound/feedback` | Cloud-naar-apparaat bericht feedback via deze koppeling naar de service verzonden door apparaten. |
+| Apparaten | Koppeling ontvanger | `/devices/<deviceID>/messages/devicebound` | Cloud-naar-apparaat-berichten die bestemd zijn voor apparaten, worden op deze koppeling door elk doel apparaat ontvangen. |
+| Apparaten | Koppeling naar afzender | `/devices/<deviceID>messages/events` | Apparaat-naar-Cloud-berichten die vanaf een apparaat worden verzonden, worden via deze koppeling verzonden. |
+| Apparaten | Koppeling naar afzender | `/messages/serviceBound/feedback` | Cloud-naar-apparaat-bericht feedback dat via deze koppeling via apparaten naar de service wordt verzonden. |
 
-### <a name="receive-cloud-to-device-commands-device-client"></a>Ontvangt opdrachten van cloud-naar-apparaat (apparaatclient)
+### <a name="receive-cloud-to-device-commands-device-client"></a>Cloud-naar-apparaat-opdrachten ontvangen (apparaatclient)
 
-Cloud-naar-apparaat-opdrachten die worden verzonden naar apparaten komen op een `/devices/<deviceID>/messages/devicebound` koppeling. Apparaten kunnen ontvangen deze berichten in batches en de gegevens berichtnettolading, eigenschappen van berichten, aantekeningen of toepassingseigenschappen indien nodig kunnen gebruiken in het bericht.
+Cloud-naar-apparaat-opdrachten die worden verzonden naar apparaten, arriveren op een `/devices/<deviceID>/messages/devicebound` koppeling. Apparaten kunnen deze berichten in batches ontvangen en de bericht gegevens Payload, bericht eigenschappen, aantekeningen of toepassings eigenschappen in het bericht naar behoefte gebruiken.
 
-De volgende code codefragment wordt de [uAMQP-bibliotheek in Python](https://github.com/Azure/azure-uamqp-python)) voor het ontvangen van berichten van cloud-naar-apparaat door een apparaat.
+Het volgende code fragment maakt gebruik [van de uAMQP-bibliotheek in python](https://github.com/Azure/azure-uamqp-python)) om Cloud-naar-apparaat-berichten te ontvangen door een apparaat.
 
 ```python
 # ...
 # Create a receive client for the cloud-to-device receive link on the device
-operation = '/devices/{device_id}/messages/devicebound'.format(device_id=device_id)
-uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+operation = '/devices/{device_id}/messages/devicebound'.format(
+    device_id=device_id)
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username),
+                                  urllib.quote_plus(sas_token), hostname, operation)
 
 receive_client = uamqp.ReceiveClient(uri, debug=True)
 while True:
-  batch = receive_client.receive_message_batch(max_batch_size=5)
-  for msg in batch:
-    print('*** received a message ***')
-    print(''.join(msg.get_data()))
+    batch = receive_client.receive_message_batch(max_batch_size=5)
+    for msg in batch:
+        print('*** received a message ***')
+        print(''.join(msg.get_data()))
 
-    # Property 'to' is set to: '/devices/device1/messages/devicebound',
-    print('\tto:                     ' + str(msg.properties.to))
+        # Property 'to' is set to: '/devices/device1/messages/devicebound',
+        print('\tto:                     ' + str(msg.properties.to))
 
-    # Property 'message_id' is set to value provided by the service
-    print('\tmessage_id:             ' + str(msg.properties.message_id))
+        # Property 'message_id' is set to value provided by the service
+        print('\tmessage_id:             ' + str(msg.properties.message_id))
 
-    # Other properties are present if they were provided by the service
-    print('\tcreation_time:          ' + str(msg.properties.creation_time))
-    print('\tcorrelation_id:         ' + str(msg.properties.correlation_id))
-    print('\tcontent_type:           ' + str(msg.properties.content_type))
-    print('\treply_to_group_id:      ' + str(msg.properties.reply_to_group_id))
-    print('\tsubject:                ' + str(msg.properties.subject))
-    print('\tuser_id:                ' + str(msg.properties.user_id))
-    print('\tgroup_sequence:         ' + str(msg.properties.group_sequence))
-    print('\tcontent_encoding:       ' + str(msg.properties.content_encoding))
-    print('\treply_to:               ' + str(msg.properties.reply_to))
-    print('\tabsolute_expiry_time:   ' + str(msg.properties.absolute_expiry_time))
-    print('\tgroup_id:               ' + str(msg.properties.group_id))
+        # Other properties are present if they were provided by the service
+        print('\tcreation_time:          ' + str(msg.properties.creation_time))
+        print('\tcorrelation_id:         ' +
+              str(msg.properties.correlation_id))
+        print('\tcontent_type:           ' + str(msg.properties.content_type))
+        print('\treply_to_group_id:      ' +
+              str(msg.properties.reply_to_group_id))
+        print('\tsubject:                ' + str(msg.properties.subject))
+        print('\tuser_id:                ' + str(msg.properties.user_id))
+        print('\tgroup_sequence:         ' +
+              str(msg.properties.group_sequence))
+        print('\tcontent_encoding:       ' +
+              str(msg.properties.content_encoding))
+        print('\treply_to:               ' + str(msg.properties.reply_to))
+        print('\tabsolute_expiry_time:   ' +
+              str(msg.properties.absolute_expiry_time))
+        print('\tgroup_id:               ' + str(msg.properties.group_id))
 
-    # Message sequence number in the built-in event hub
-    print('\tx-opt-sequence-number:  ' + str(msg.annotations['x-opt-sequence-number']))
+        # Message sequence number in the built-in event hub
+        print('\tx-opt-sequence-number:  ' +
+              str(msg.annotations['x-opt-sequence-number']))
 ```
 
-### <a name="send-telemetry-messages-device-client"></a>Verzenden van berichten over telemetrie (apparaatclient)
+### <a name="send-telemetry-messages-device-client"></a>Telemetrie-berichten verzenden (apparaatclient)
 
-U kunt ook telemetrieberichten vanaf een apparaat verzenden met behulp van AMQP. Het apparaat kunt desgewenst een woordenlijst met eigenschappen voor de toepassing of verschillende bericht eigenschappen, zoals de bericht-ID.
+U kunt ook telemetrie-berichten vanaf een apparaat verzenden met behulp van AMQP. Het apparaat kan optioneel een woorden lijst met toepassings eigenschappen of verschillende bericht eigenschappen, zoals bericht-ID, opgeven.
 
-De volgende code codefragment wordt de [uAMQP-bibliotheek in Python](https://github.com/Azure/azure-uamqp-python) voor het verzenden van apparaat-naar-cloud-berichten vanaf een apparaat.
+In het volgende code fragment wordt de [uAMQP-bibliotheek in python](https://github.com/Azure/azure-uamqp-python) gebruikt voor het verzenden van apparaat-naar-Cloud-berichten van een apparaat.
 
 ```python
 # ...
@@ -337,16 +362,16 @@ for result in results:
 
 ## <a name="additional-notes"></a>Aanvullende opmerkingen
 
-* Het AMQP-verbindingen kunnen worden onderbroken vanwege een netwerkfout opgetreden of de vervaldatum van de verificatie token (gegenereerd in de code). De service-client moet deze omstandigheden verwerken en herstellen van de verbinding en koppelingen, indien nodig. Als een verificatietoken is verlopen, kan de client een vervolgkeuzelijst verbinding voorkomen door proactief vernieuwen van het token vóór de vervaldatum van de.
+* De AMQP-verbindingen kunnen worden verstoord vanwege een netwerk storing of het verlopen van het verificatie token (gegenereerd in de code). De service-client moet deze omstandigheden afhandelen en de verbinding en koppelingen, indien nodig, opnieuw tot stand brengen. Als een verificatie token verloopt, kan de client voor komen dat een verbinding wordt verbroken door proactief het token te vernieuwen voordat het verloopt.
 
-* Uw client moet af en toe kan koppeling omleidingen correct verwerken. Om te begrijpen die een bewerking, Zie de documentatie van de client AMQP.
+* De client moet af en toe de koppelings omleidingen correct kunnen verwerken. Raadpleeg de documentatie van uw AMQP-client om een dergelijke bewerking te begrijpen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het AMQP-Protocol, de [AMQP v1.0 specificatie](https://www.amqp.org/sites/amqp.org/files/amqp.pdf).
+Zie de [AMQP v 1.0-specificatie](https://www.amqp.org/sites/amqp.org/files/amqp.pdf)voor meer informatie over het AMQP-protocol.
 
 Zie voor meer informatie over IoT Hub-berichten:
 
 * [Cloud-naar-apparaat-berichten](./iot-hub-devguide-messages-c2d.md)
 * [Ondersteuning voor extra protocollen](iot-hub-protocol-gateway.md)
-* [Ondersteuning voor het Transport (MQTT) Protocol Message Queuing-telemetrie](./iot-hub-mqtt-support.md)
+* [Ondersteuning voor het MQTT-Protocol (Message Queuing telemetrie Trans Port)](./iot-hub-mqtt-support.md)

@@ -5,28 +5,28 @@ ms.topic: include
 ms.date: 06/13/2019
 ms.author: sttramer
 ms.openlocfilehash: 8b2a9561a0933e435649c81334706481531c9ce9
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/25/2019
 ms.locfileid: "67836877"
 ---
 ## <a name="use-azure-cloud-shell"></a>Azure Cloud Shell gebruiken
 
-Azure Cloud Shell, een interactieve shell-omgeving die u via uw browser kunt gebruiken als host fungeert voor Azure. Cloudshell kunt u een `bash` of `PowerShell` om te werken met Azure-services. U kunt de vooraf geïnstalleerde Cloud Shell-opdrachten gebruiken om uit te voeren van de code in dit artikel zonder dat u hoeft te installeren op uw lokale omgeving.
+Azure host Azure Cloud Shell, een interactieve shell-omgeving die u via uw browser kunt gebruiken. Met Cloud shell kunt u `bash` of `PowerShell` gebruiken om met Azure-Services te werken. U kunt de Cloud Shell vooraf geïnstalleerde opdrachten gebruiken om de code in dit artikel uit te voeren zonder dat u iets hoeft te installeren in uw lokale omgeving.
 
 Azure Cloud Shell starten:
 
-| Optie | Voorbeeld of de koppeling |
+| Optie | Voor beeld/koppeling |
 |-----------------------------------------------|---|
-| Selecteer **Nu proberen** in de rechterbovenhoek van een codeblok. Selecteren **uitproberen** niet automatisch de code kopiëren naar de Cloud Shell. | ![Voorbeeld van proberen voor Azure Cloudshell](./media/cloud-shell-try-it/cli-try-it.png) |
-| Ga naar [ https://shell.azure.com ](https://shell.azure.com) of Selecteer de **Cloud Shell openen** knop Cloud Shell in uw browser openen. | <a href="https://shell.azure.com" title="Open Azure Cloudshell"><img name="launch-cloud-shell" src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" /></a> |
-| Selecteer de **Cloud Shell** knop in het menu rechtsboven in de [Azure-portal](https://portal.azure.com). | ![Knop Cloud Shell in de Azure Portal](./media/cloud-shell-try-it/cloud-shell-menu.png) |
+| Selecteer **Nu proberen** in de rechterbovenhoek van een codeblok. Als u **opnieuw proberen selecteert,** wordt de code niet automatisch gekopieerd naar Cloud shell. | ![Voor beeld van uitproberen voor Azure Cloud Shell](./media/cloud-shell-try-it/cli-try-it.png) |
+| Ga naar of selecteer de knop **Cloud shell starten** om Cloud shell in uw browser te openen. [https://shell.azure.com](https://shell.azure.com) | <a href="https://shell.azure.com" title="Azure Cloud Shell starten"><img name="launch-cloud-shell" src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" /></a> |
+| Selecteer de knop **Cloud shell** in de rechter menu balk van het [Azure Portal](https://portal.azure.com). | ![Knop Cloud Shell in de Azure Portal](./media/cloud-shell-try-it/cloud-shell-menu.png) |
 
-De code uitvoeren in dit artikel in Azure Cloud Shell:
+Als u de code in dit artikel in Azure Cloud Shell wilt uitvoeren:
 
-1. Open Cloudshell.
-1. Selecteer de **kopie** knop in een codeblok om de code te kopiëren. 
-1. Plak de code in de Cloud Shell-sessie met **Ctrl**+**Shift**+**V** in Windows en Linux, of **Cmd** + **Shift**+**V** in macOS. 
-1. Druk op **Enter** de code uit te voeren.
+1. Start Cloud Shell.
+1. Selecteer de knop **kopiëren** in een code blok om de code te kopiëren. 
+1. Plak de code in de Cloud shell-sessie met **CTRL**+ **+ SHIFT**+**v** in Windows en Linux, of **cmd**+**SHIFT**+**v** op macOS. 
+1. Druk op **Enter** om de code uit te voeren.
 

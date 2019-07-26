@@ -1,6 +1,6 @@
 ---
-title: Uw persoonlijke Microsoft-accounts toevoegen aan de Microsoft Authenticator-app - Azure Active Directory | Microsoft Docs
-description: Hoe u uw persoonlijke Microsoft-accounts, bijvoorbeeld voor Outlook.com of Xbox LIVE toevoegen aan de Microsoft Authenticator-app voor tweeledige verificatie.
+title: Voeg uw persoonlijke micro soft-accounts toe aan de app-Azure Active Directory van Microsoft Authenticator | Microsoft Docs
+description: Hoe u uw persoonlijke micro soft-accounts, zoals Outlook.com of Xbox LIVE, toevoegt aan de Microsoft Authenticator-app voor twee ledige verificatie.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,62 +12,64 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb49048fa9200b8970f37a4f187ca995d208cc2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 502407bbf1cdb47fc8105ed0220babcd9f292faa
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474066"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382691"
 ---
-# <a name="add-your-personal-microsoft-accounts"></a>Uw persoonlijke Microsoft-accounts toevoegen.
-Uw persoonlijke Microsoft-accounts, zoals voor Outlook.com en Xbox LIVE naar de Microsoft Authenticator-app voor zowel het proces voor de standard tweeledige verificatie en de aanmeldingsmethode zonder wachtwoord uitproberen phone toevoegen.
+# <a name="add-your-personal-microsoft-accounts"></a>Uw persoonlijke micro soft-accounts toevoegen
 
-- **Standard tweeledige verificatiemethode.** Typ uw gebruikersnaam en wachtwoord in het apparaat dat u bent aangemeld bij en kies vervolgens of de Microsoft Authenticator-app een melding verzonden en als u gebruiken wilt om te kopiëren van de bijbehorende verificatiecode uit de **Accounts** scherm van de Microsoft Authenticator-app.
+Voeg uw persoonlijke micro soft-accounts, zoals voor Outlook.com en Xbox LIVE, toe aan de Microsoft Authenticator-app voor zowel het standaard verificatie proces met twee factoren als de aanmeldings methode voor wacht woordloze telefoons.
 
-- **De configuratie aanmeldingsmethode.** Typ uw gebruikersnaam in het apparaat dat u bent aangemeld bij voor uw persoonlijke Microsoft-account, en vervolgens met uw mobiele apparaat om te controleren of dat het ligt aan jullie met behulp van uw vingerafdruk, vlak of PINCODE. Voor deze methode hoeft u niet uw wachtwoord op te geven.
+- **Standaard twee ledige verificatie methode.** Typ uw gebruikers naam en wacht woord in het apparaat waarmee u zich aanmeldt, en kies vervolgens of de Microsoft Authenticator app een melding verzendt of dat u de gekoppelde verificatie code wilt kopiëren vanuit het scherm **accounts** van de micro soft Verificator-app.
+
+- **Aanmeldings methode zonder wacht woord.** Typ uw gebruikers naam in het apparaat waarmee u zich aanmeldt voor uw persoonlijke Microsoft-account en gebruik vervolgens uw mobiele apparaat om te controleren of u het kunt gebruiken met behulp van uw vinger afdruk, gezicht of pincode. Voor deze methode hoeft u niet uw wachtwoord op te geven.
 
 >[!Important]
->Voordat u uw account toevoegen kunt, moet u download en installeer de Microsoft Authenticator-app. Als u dat nog niet hebt gedaan, volgt u de stappen in de [downloaden en installeren van de app](user-help-auth-app-download-install.md) artikel.
+>Voordat u uw account kunt toevoegen, moet u de app Microsoft Authenticator downloaden en installeren. Als u dat nog niet hebt gedaan, volgt u de stappen in het artikel [app downloaden en installeren](user-help-auth-app-download-install.md) .
 
 ## <a name="add-your-personal-microsoft-account"></a>Uw persoonlijke Microsoft-account toevoegen
-U kunt uw persoonlijke Microsoft-account toevoegen door het eerste inschakelen van tweeledige verificatie, en vervolgens op het account toe te voegen aan de app.
+
+U kunt uw persoonlijke Microsoft-account toevoegen door eerst twee ledige verificatie in te scha kelen en vervolgens het account toe te voegen aan de app.
 
 >[!Note]
->Als u van plan bent alleen aanmelden via telefoon van de configuratie worden gebruikt voor uw persoonlijke Microsoft-account, hebt u geen tweeledige verificatie inschakelen. Echter, voor extra accountveiligheid, wordt aangeraden dat u tweeledige verificatie inschakelen.
+>Als u van plan bent om aanmelding zonder wacht woord te gebruiken voor uw persoonlijke Microsoft-account, hoeft u niet twee ledige verificatie in te scha kelen. Voor extra account beveiliging wordt u echter aangeraden twee ledige verificatie in te scha kelen.
 
-### <a name="turn-on-two-factor-verification"></a>Tweeledige verificatie inschakelen
+### <a name="turn-on-two-factor-verification"></a>Twee ledige verificatie inschakelen
 
-1. Op uw computer, gaat u naar uw [basisprincipes van beveiliging](https://account.microsoft.com/security) pagina en meld u aan met uw persoonlijke Microsoft-account. Bijvoorbeeld alain@outlook.com.
+1. Op uw computer, gaat u naar de pagina met [beveiligings principes](https://account.microsoft.com/security) en meldt u zich aan met uw persoonlijke Microsoft-account. Bijvoorbeeld alain@outlook.com.
 
-2. Aan de onderkant van de **basisprincipes van beveiliging** pagina, kies de **meer beveiligingsopties** koppeling.
+2. Klik onder aan de pagina **basis beginselen van beveiliging** op de koppeling **meer beveiligings opties** .
 
-    ![Basisprincipes van beveiligingspagina met de koppeling 'meer security options' is gemarkeerd](./media/user-help-auth-app-add-personal-ms-account/more-security-options-link.png)
+    ![De pagina beveiligings beginselen met de koppeling ' meer beveiligings opties ' gemarkeerd](./media/user-help-auth-app-add-personal-ms-account/more-security-options-link.png)
 
-3. Ga naar de **verificatie in twee stappen** sectie en kiest u de functie **op**. U kunt ook uitschakelen deze hier als u niet meer wilt gebruiken met uw persoonlijke account.
+3. Ga naar het gedeelte **verificatie in twee stappen** en kies ervoor om de functie **in**te scha kelen. U kunt deze ook uitschakelen als u deze niet meer wilt gebruiken met uw persoonlijke account.
 
 ### <a name="add-your-microsoft-account-to-the-app"></a>Uw Microsoft-account toevoegen aan de app
 
 1. Open de Microsoft Authenticator-app op uw mobiele apparaat.
 
-2. Selecteer **account toevoegen** uit de **aanpassen en controle** pictogram in de rechterbovenhoek.
+2. Selecteer **account toevoegen** in het pictogram **aanpassen en beheer** in de rechter bovenhoek.
 
-    ![De pagina accounts, met het pictogram aanpassen en de controle van gemarkeerd](./media/user-help-auth-app-add-personal-ms-account/customize-and-control-icon.png)
+    ![Pagina accounts, met het pictogram aanpassen en besturings element gemarkeerd](./media/user-help-auth-app-add-personal-ms-account/customize-and-control-icon.png)
 
-3. In de **account toevoegen** pagina, kies **persoonlijk account**.
+3. Kies op de pagina **account toevoegen** de optie **persoonlijk account**.
 
-4. Meld u aan uw persoonlijk account is, met behulp van het juiste e-mailadres (zoals alain@outlook.com), en kies vervolgens **volgende**.
+4. Meld u aan bij uw persoonlijke account, gebruik het juiste e-mail adres alain@outlook.com(zoals), en kies vervolgens **volgende**.
 
     >[!Note]
-    >Als u geen een persoonlijk Microsoft-account hebt, kunt u voor het maken van een hier.
+    >Als u geen persoonlijke Microsoft-account hebt, kunt u hier een maken.
 
-5. Voer uw wachtwoord in en kies vervolgens **aanmelden**.
+5. Voer uw wacht woord in en klik vervolgens op **Aanmelden**.
 
-    Uw persoonlijke account wordt toegevoegd aan de Microsoft Authenticator-app.
+    Uw persoonlijke account wordt toegevoegd aan de app Microsoft Authenticator.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Nadat u uw accounts aan de app toevoegen, kunt u zich bij het gebruik van de Authenticator-app op uw apparaat. Zie voor meer informatie, [Meld u aan met behulp van de app](user-help-auth-app-sign-in.md).
+- Nadat u uw accounts aan de app hebt toegevoegd, kunt u zich aanmelden met behulp van de verificator-app op uw apparaat. Zie [Aanmelden met de app](user-help-auth-app-sign-in.md)voor meer informatie.
 
-- Als u problemen bij het ophalen van uw verificatiecode voor uw persoonlijke Microsoft-account ondervindt, raadpleegt u de **code voor verificatie problemen** sectie van de [beveiligingsgegevens voor Microsoft-account & verificatie codes](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) artikel.
+- Als u problemen ondervindt met het verkrijgen van uw verificatie code voor uw persoonlijke Microsoft-account, raadpleegt u de sectie **problemen met verificatie code oplossen** van het artikel [Microsoft-account Security Info & verificatie codes](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) .
 
-- Voor apparaten met iOS, u kunt ook een back-up maken van de accountreferenties van uw en appinstellingen, zoals de volgorde van uw accounts, die betrekking hebben op de cloud. Zie voor meer informatie, [back-up en herstellen met de Microsoft Authenticator-app](user-help-auth-app-backup-recovery.md).
+- Voor apparaten met iOS kunt u ook een back-up maken van uw account referenties en de bijbehorende app-instellingen, zoals de volg orde van uw accounts, naar de Cloud. Zie [back-up en herstellen met Microsoft Authenticator-app](user-help-auth-app-backup-recovery.md)voor meer informatie.

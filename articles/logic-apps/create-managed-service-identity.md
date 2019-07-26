@@ -1,6 +1,6 @@
 ---
-title: Verifiëren met beheerde identiteiten - Azure Logic Apps | Microsoft Docs
-description: Als u wilt verifiëren zonder dat u aangemeld, kunt u een beheerde identiteit (voorheen beheerde Service-identiteit of MSI genoemd) zodat uw logische app toegang heeft tot resources in andere Azure Active Directory (Azure AD) zonder referenties of geheimen voor tenants
+title: Verifiëren met beheerde identiteiten-Azure Logic Apps | Microsoft Docs
+description: Als u zich wilt verifiëren zonder u aan te melden, kunt u een beheerde identiteit (voorheen Managed Service Identity of MSI genoemd) maken zodat uw logische app toegang heeft tot bronnen in andere Azure Active Directory (Azure AD)-tenants zonder referenties of geheimen
 author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
@@ -9,66 +9,66 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: 65fe89bf775a649d5654ce739d8d18e05d3048ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b157db5032bd62ab443209f201b4ceded6e44cb5
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65416130"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385566"
 ---
-# <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Verifiëren en toegang krijgen tot bronnen met beheerde identiteiten in Azure Logic Apps
+# <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Verifiëren en toegang krijgen tot resources met beheerde identiteiten in Azure Logic Apps
 
-Voor toegang tot resources in andere tenants Azure Active Directory (Azure AD) en uw identiteit verifiëren zonder dat u aangemeld, uw logische app kunt gebruiken een [beheerde identiteit](../active-directory/managed-identities-azure-resources/overview.md) (voorheen bekend als beheerde Service-identiteit of MSI-bestand), in plaats van referenties of geheimen. Azure beheert deze identiteiten voor u en helpt uw referenties beveiligen, omdat u hoeft te bieden of geheimen draaien. Dit artikel wordt beschreven hoe u kunt instellen en gebruiken van een systeem toegewezen beheerde identiteit voor uw logische app. Zie voor meer informatie over beheerde identiteiten [wat is beheerde identiteiten voor Azure-resources?](../active-directory/managed-identities-azure-resources/overview.md)
+Om toegang te krijgen tot resources in andere Azure Active Directory (Azure AD)-tenants en uw identiteit te verifiëren zonder zich aan te melden, kan uw logische app gebruikmaken van een [beheerde identiteit](../active-directory/managed-identities-azure-resources/overview.md) (voorheen bekend als managed service Identity of MSI), in plaats van referenties of geheimen. Azure beheert deze identiteit voor u en helpt u bij het beveiligen van uw referenties omdat u geen geheimen hoeft op te geven of te draaien. In dit artikel wordt uitgelegd hoe u een door het systeem toegewezen beheerde identiteit voor uw logische app kunt instellen en gebruiken. Zie [Wat is beheerde identiteiten voor Azure-resources?](../active-directory/managed-identities-azure-resources/overview.md) voor meer informatie over beheerde identiteiten.
 
 > [!NOTE]
-> Uw logische app kunt gebruiken van beheerde identiteiten alleen met connectors die ondersteuning bieden voor beheerde identiteiten. Op dit moment alleen de HTTP-connector biedt ondersteuning voor beheerde identiteiten.
+> Uw logische app kan beheerde identiteiten alleen gebruiken met connectors die beheerde identiteiten ondersteunen. Op dit moment ondersteunt alleen beheerde identiteiten alleen de HTTP-connector.
 >
-> U kunt op dit moment hebben maximaal 10 logic app workflows met het systeem toegewezen beheerd identiteiten in elk Azure-abonnement.
+> In elk Azure-abonnement beschikt u over Maxi maal 10 werk stromen voor logische apps met door het systeem toegewezen beheerde identiteiten.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Azure-abonnement, of als u een abonnement hebt <a href="https://azure.microsoft.com/free/" target="_blank">zich aanmelden voor een gratis Azure-account</a>.
+* Een Azure-abonnement, of als u geen abonnement hebt, kunt <a href="https://azure.microsoft.com/free/" target="_blank">u zich aanmelden voor een gratis Azure-account</a>.
 
-* De logische app waar u wilt gebruiken door het systeem toegewezen identiteit beheerd. Als u een logische app niet hebt, raadpleegt u [maken van uw eerste werkstroom voor logische Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* De logische app waarvoor u de door het systeem toegewezen beheerde identiteit wilt gebruiken. Als u geen logische app hebt, raadpleegt u [uw eerste werk stroom voor logische apps maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="enable-identity"></a>
 
 ## <a name="enable-managed-identity"></a>Beheerde identiteit inschakelen
 
-Voor het systeem toegewezen beheerde identiteiten moet u niet handmatig maken die identiteit. Als u een systeem toegewezen beheerde identiteit voor uw logische app instelt, kunt u de volgende manieren gebruiken: 
+Voor door het systeem toegewezen beheerde identiteiten hoeft u deze identiteit niet hand matig te maken. Als u een door het systeem toegewezen beheerde identiteit voor uw logische app wilt instellen, kunt u op de volgende manieren te werk gaat: 
 
-* [Azure Portal](#azure-portal) 
-* [Azure Resource Manager-sjablonen](#template) 
+* [Azure-portal](#azure-portal) 
+* [Azure Resource Manager sjablonen](#template) 
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
 
 <a name="azure-portal"></a>
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Inschakelen om in te schakelen op een systeem toegewezen beheerde identiteit voor uw logische app via de Azure-portal, de **systeem toegewezen** instellen in instellingen voor de identiteiten van uw logische app.
+Als u via de Azure Portal een door het systeem toegewezen beheerde identiteit voor uw logische app wilt inschakelen, schakelt u de instelling **toegewezen systeem** in de identiteits instellingen van uw logische app in.
 
-1. In de [Azure-portal](https://portal.azure.com), opent u uw logische app in Logic App Designer.
+1. Open in de [Azure Portal](https://portal.azure.com)uw logische app in de ontwerp functie voor logische apps.
 
-1. Op het menu van de logische app, onder **instellingen**, selecteer **identiteit**. 
+1. Selecteer **identiteit**onder **instellingen**in het menu van de logische app. 
 
-1. Onder **systeem toegewezen** > **Status**, kiest u **op**. Kies vervolgens **opslaan** > **Ja**.
+1. Kies **aan**onder **toegewezen** > systeem**status**. Kies vervolgens **Opslaan** > **Ja**.
 
-   ![Schakel de instelling beheerde identiteit](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
+   ![De instelling beheerde identiteit inschakelen](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
 
-   Uw logische app heeft nu een systeem toegewezen beheerde identiteit in Azure Active Directory geregistreerd:
+   Uw logische app heeft nu een door het systeem toegewezen beheerde identiteit die is geregistreerd in Azure Active Directory:
 
-   ![GUID's voor object-ID](./media/create-managed-service-identity/object-id.png)
+   ![GUID'S voor object-ID](./media/create-managed-service-identity/object-id.png)
 
    | Eigenschap | Waarde | Description | 
    |----------|-------|-------------| 
-   | **Object-ID** | <*identity-resource-ID*> | De beheerde een Globally Unique Identifier (GUID) die door het systeem toegewezen aangeeft identiteit voor uw logische app in een Azure AD-tenant | 
+   | **Object-ID** | <*identity-resource-ID*> | Een GUID (Globally Unique Identifier) die de door het systeem toegewezen beheerde identiteit voor uw logische app vertegenwoordigt in een Azure AD-Tenant | 
    ||| 
 
 <a name="template"></a>
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-sjabloon
 
-Als u maken en distribueren Azure-resources zoals logic apps automatiseren wilt, kunt u [Azure Resource Manager-sjablonen](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). Voor het maken van een systeem toegewezen beheerde identiteit voor uw logische app via een sjabloon, voeg de `"identity"` element en `"type"` eigenschap in op de werkstroomdefinitie van uw logische app in uw sjabloon voor de implementatie: 
+Als u het maken en implementeren van Azure-resources, zoals Logic apps, wilt automatiseren, kunt u [Azure Resource Manager sjablonen](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)gebruiken. Als u via een sjabloon een door het systeem toegewezen beheerde identiteit voor uw logische app wilt maken `"identity"` , voegt `"type"` u het element en de eigenschap toe aan de werk stroom definitie van de logische app in uw implementatie sjabloon: 
 
 ```json
 "identity": {
@@ -101,7 +101,7 @@ Bijvoorbeeld:
 }
 ```
 
-Als Azure uw logische app maakt, bevat de werkstroomdefinitie die logica-app de aanvullende eigenschappen:
+Wanneer Azure uw logische app maakt, bevat deze werk stroom definitie van de logische app de volgende aanvullende eigenschappen:
 
 ```json
 "identity": {
@@ -113,90 +113,90 @@ Als Azure uw logische app maakt, bevat de werkstroomdefinitie die logica-app de 
 
 | Eigenschap | Waarde | Description | 
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | Een Globally Unique Identifier (GUID) die aangeeft van de logische app in de Azure AD-tenant en soms wordt weergegeven als 'Object-ID' of `objectID` | 
-| **tenantId** | <*Azure-AD-tenant-ID*> | Een Globally Unique Identifier (GUID) die aangeeft van de Azure AD-tenant waar de logische app nu lid is. In de Azure AD-tenant is de service-principal dezelfde naam als het logische app-exemplaar. | 
+| **principalId** | <*principal-ID*> | Een GUID (Globally Unique Identifier) die de logische app in de Azure AD-Tenant vertegenwoordigt en soms wordt weer gegeven als een ' object-ID ' of`objectID` | 
+| **tenantId** | <*Azure-AD-tenant-ID*> | Een GUID (Globally Unique Identifier) die de Azure AD-Tenant vertegenwoordigt waarbij de logische app nu lid is. De Service-Principal in de Azure AD-Tenant heeft dezelfde naam als de logische app-instantie. | 
 ||| 
 
 <a name="access-other-resources"></a>
 
-## <a name="access-resources-with-managed-identity"></a>Toegang tot bronnen met beheerde identiteit
+## <a name="access-resources-with-managed-identity"></a>Toegang tot resources met beheerde identiteit
 
-Nadat u een systeem toegewezen beheerde identiteit voor uw logische app maakt, kunt u [die identiteit toegang geven tot andere Azure-resources](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Vervolgens kunt u die identiteit gebruiken voor verificatie, net als elk ander [service-principal](../active-directory/develop/app-objects-and-service-principals.md). 
+Nadat u een door het systeem toegewezen beheerde identiteit voor uw logische app hebt gemaakt, kunt u [die identiteit toegang geven tot andere Azure-resources](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). U kunt deze identiteit vervolgens gebruiken voor verificatie, net zoals elke andere [Service-Principal](../active-directory/develop/app-objects-and-service-principals.md). 
 
 > [!NOTE]
-> Zowel de door het systeem toegewezen beheerde identiteit als de bron waar u toegang wilt toewijzen, moeten hetzelfde Azure-abonnement hebben.
+> Zowel de door het systeem toegewezen beheerde identiteit als de resource waaraan u toegang wilt toewijzen, moeten hetzelfde Azure-abonnement hebben.
 
 ### <a name="assign-access-to-managed-identity"></a>Toegang tot beheerde identiteit toewijzen
 
-Om toegang te verlenen aan een andere Azure-resource voor beheerde identiteit van uw logische app het systeem is toegewezen, de volgende stappen uit:
+Voer de volgende stappen uit om toegang te geven tot een andere Azure-resource voor de door het systeem toegewezen beheerde identiteit van de logische app:
 
-1. Ga naar de Azure-resource waar u toegang wilt toewijzen voor uw beheerde identiteit in de Azure-portal. 
+1. Ga in het Azure Portal naar de Azure-resource waaraan u toegang wilt toewijzen voor uw beheerde identiteit. 
 
-1. Selecteer in het resourcemenu **toegangsbeheer (IAM)** . Kies op de werkbalk **toevoegen** > **roltoewijzing toevoegen**.
+1. Selecteer **toegangs beheer (IAM)** in het menu van de resource. **Kies op** > de werk balk de optie roltoewijzing**toevoegen.**
 
    ![Roltoewijzing toevoegen](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
-1. Onder **roltoewijzing toevoegen**, selecteer de **rol** u wilt gebruiken voor de identiteit. 
+1. Onder roltoewijzing **toevoegen**selecteert u de gewenste **rol** voor de identiteit. 
 
-1. In de **toegang toewijzen aan** eigenschap, selecteer **Azure AD-gebruiker, groep of service-principal**, als u nog niet is geselecteerd.
+1. Selecteer in de eigenschap **toegang toewijzen aan** de optie **Azure AD-gebruiker,-groep of Service-Principal**als dat nog niet is geselecteerd.
 
-1. In de **Selecteer** , beginnen met het eerste teken in naam van uw logische app, voer de naam van uw logische app. Wanneer uw logische app wordt weergegeven, selecteert u de logische app.
+1. Typ in het vak **selecteren** , beginnend met het eerste teken in de naam van de logische app, de naam van de logische app. Wanneer uw logische app wordt weer gegeven, selecteert u de logische app.
 
-   ![Selecteer de logische app met beheerde identiteit](./media/create-managed-service-identity/add-permissions-select-logic-app.png)
+   ![Logische app met beheerde identiteit selecteren](./media/create-managed-service-identity/add-permissions-select-logic-app.png)
 
 1. Als u bent klaar, kiest u **Opslaan**.
 
 ### <a name="authenticate-with-managed-identity-in-logic-app"></a>Verifiëren met beheerde identiteit in de logische app
 
-Na het instellen van uw logische app met een door het systeem toegewezen beheerde identiteit en toegang tot de resource die u wilt gebruiken voor die identiteit toegewezen, kunt u nu die identiteit gebruiken voor verificatie. U kunt bijvoorbeeld een HTTP-actie gebruiken zodat uw logische app kunt verzenden van een HTTP-aanvraag of aanroepen van die resource. 
+Nadat u uw logische app hebt ingesteld met een door het systeem toegewezen beheerde identiteit en toegang hebt toegewezen aan de resource die u voor die identiteit wilt gebruiken, kunt u deze identiteit nu voor verificatie gebruikt. U kunt bijvoorbeeld een HTTP-actie gebruiken zodat uw logische app een HTTP-aanvraag kan verzenden of aanroepen naar die resource. 
 
-1. Voeg in uw logische app, de **HTTP** actie.
+1. Voeg in uw logische app de **http-** actie toe.
 
-1. Geef de benodigde informatie voor de actie, zoals de aanvraag **methode** en **URI** locatie voor de resource die u wilt aanroepen.
+1. Geef de benodigde gegevens voor die actie op, zoals de aanvraag **methode** en **URI** -locatie voor de resource die u wilt aanroepen.
 
-   Stel bijvoorbeeld dat u verificatie met Azure Active Directory (Azure AD) [een van deze Azure-services die ondersteuning bieden voor Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
-   In de **URI** voert u de eindpunt-URL voor deze Azure-service. 
-   Dus als u Azure Resource Manager gebruikt, voert u deze waarde in de **URI** eigenschap:
+   Stel dat u gebruikmaakt van Azure Active Directory-verificatie (Azure AD) met [een van deze Azure-Services die ondersteuning bieden voor Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
+   Voer in het vak **URI** de eind punt-URL voor de Azure-service in. 
+   Als u Azure Resource Manager gebruikt, voert u deze waarde in de **URI** -eigenschap in:
 
    `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
 
-1. Kies in de HTTP-actie **geavanceerde opties weergeven**.
+1. Kies in de actie HTTP de optie **Geavanceerde opties weer geven**.
 
-1. Uit de **verificatie** in de lijst met **beheerde identiteit**. Nadat u deze verificatie hebt geselecteerd de **doelgroep** eigenschap wordt weergegeven met de standaardwaarde van de resource-ID:
+1. Selecteer in de lijst **verificatie** de optie **beheerde identiteit**. Nadat u deze verificatie hebt geselecteerd, wordt de eigenschap **doel groep** weer gegeven met de standaard waarde voor de resource-id:
 
-   ![Selecteer "Beheerde identiteit"](./media/create-managed-service-identity/select-managed-service-identity.png)
+   ![Beheerde identiteit selecteren](./media/create-managed-service-identity/select-managed-service-identity.png)
 
    > [!IMPORTANT]
    > 
-   > In de **doelgroep** eigenschap, de waarde van de resource-ID moet exact overeenkomen met wat Azure AD verwacht, inclusief alle vereiste afsluitende schuine strepen. 
-   > U vindt deze resource-ID-waarden in deze [tabel waarin de Azure-services die ondersteuning bieden voor Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
-   > Bijvoorbeeld, als u de resource-ID van Azure Resource Manager gebruikt, moet u ervoor dat de URI heeft een afsluitende slash bevatten.
+   > In de eigenschap **doel groep** moet de resource-id-waarde exact overeenkomen met wat Azure AD verwacht, inclusief alle vereiste afsluitende slashes. 
+   > U vindt deze resource-ID-waarden in deze [tabel met een beschrijving van de Azure-Services die ondersteuning bieden voor Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
+   > Als u bijvoorbeeld de resource-ID van Azure Resource Manager gebruikt, moet u ervoor zorgen dat de URI een afsluitende slash heeft.
 
-1. Doorgaan met het ontwikkelen van de logische app zoals u dat wilt.
+1. Ga door met het bouwen van de logische app op de gewenste manier.
 
 <a name="remove-identity"></a>
 
-## <a name="remove-managed-identity"></a>Verwijder de beheerde identiteit
+## <a name="remove-managed-identity"></a>Beheerde identiteit verwijderen
 
-Als u wilt een systeem toegewezen beheerde identiteit in uw logische app uitschakelen, kunt u Volg de stappen vergelijkbaar met hoe u de identiteit via de Azure portal, Azure Resource Manager-sjablonen voor implementatie of Azure PowerShell instellen.
+Als u een door het systeem toegewezen beheerde identiteit wilt uitschakelen voor uw logische app, kunt u de stappen volgen die vergelijkbaar zijn met de manier waarop u de identiteit instelt via de Azure Portal, Azure Resource Manager implementatie sjablonen of Azure PowerShell.
 
-Wanneer u uw logische app verwijdert, verwijderd Azure uw logische app het systeem toegewezen identiteit automatisch uit Azure AD.
+Wanneer u uw logische app verwijdert, verwijdert Azure automatisch de door het systeem toegewezen identiteit van de logische app uit Azure AD.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Uitschakelen als u wilt verwijderen van een systeem toegewezen beheerde identiteit voor uw logische app via de Azure-portal, de **systeem toegewezen** instellen in instellingen voor de identiteiten van uw logische app.
+Als u een door het systeem toegewezen beheerde identiteit voor uw logische app wilt verwijderen via de Azure Portal, moet u de instelling **systeem toegewezen** uitschakelen in de identiteits instellingen van uw logische app.
 
-1. In de [Azure-portal](https://portal.azure.com), opent u uw logische app in Logic App Designer.
+1. Open in de [Azure Portal](https://portal.azure.com)uw logische app in de ontwerp functie voor logische apps.
 
-1. Op het menu van de logische app, onder **instellingen**, selecteer **identiteit**. 
+1. Selecteer **identiteit**onder **instellingen**in het menu van de logische app. 
 
-1. Onder **systeem toegewezen** > **Status**, kiest u **uit**. Kies vervolgens **opslaan** > **Ja**.
+1. Kies **uit**onder **toegewezen** > systeem**status**. Kies vervolgens **Opslaan** > **Ja**.
 
-   ![Beheerde identiteit uitschakelen](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
+   ![Instelling voor beheerde identiteit uitschakelen](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
 
-### <a name="deployment-template"></a>Sjabloon voor de implementatie
+### <a name="deployment-template"></a>Implementatiesjabloon
 
-Als u beheerde identiteit van de logische app het systeem toegewezen met een Azure Resource Manager-implementatiesjabloon gemaakt, stelt u de `"identity"` van element `"type"` eigenschap `"None"`. Deze actie verwijdert u ook de principal-ID van Azure AD.
+Als u de door het systeem toegewezen beheerde identiteit van de logische app met een Azure Resource Manager-implementatie sjabloon hebt `"identity"` gemaakt, `"type"` stelt u `"None"`de eigenschap van het element in op. Met deze actie wordt ook de principal-ID uit Azure AD verwijderd.
 
 ```json
 "identity": {
