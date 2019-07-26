@@ -1,5 +1,7 @@
 ---
-title: Wat is Azure Lighthouse?
+
+title: Wat is Azure naar?
+
 description: Met Azure Lighthouse kunnen serviceproviders beheerde services voor hun klanten met een hogere automation en efficiëntie leveren op schaal.
 author: JnHs
 ms.author: jenhayes
@@ -16,13 +18,13 @@ ms.locfileid: "67809818"
 ---
 # <a name="what-is-azure-lighthouse"></a>Wat is Azure Lighthouse?
 
-Azure vuurtoren biedt serviceproviders een één controlelaag om te bekijken en beheren van Azure voor hun klanten met een hogere automation, schaal en verbeterde governance. Met naar Azure, kunnen serviceproviders bieden beheerde services met behulp van uitgebreide en krachtige hulpprogramma's die zijn ingebouwd in het Azure-platform. Deze aanbieding kan ook profiteren van zakelijke IT-resources beheren voor meerdere tenants organisaties.
+Azure Lighthouse biedt serviceproviders één besturingsvlak waarin ze Azure voor al hun klanten kunnen weergeven en beheren met een verbeterde automatisering, schaal en beheer. Met Azure Lighthouse kunnen serviceproviders beheerde services leveren met behulp van uitgebreide en krachtige beheertools die zijn ingebouwd in het Azure-platform. Azure Lighthouse biedt ook voordelen voor grote IT-organisaties die resources voor meerdere tenants beheren.
 
 ![Overzichtsdiagram van Azure naar](media/azure-lighthouse-overview.jpg)
 
 ## <a name="benefits"></a>Voordelen
 
-Vuurtoren van Azure kunt u rendabele wijze en efficiënt kunt bouwen en afleveren van beheerde services voor uw klanten. De volgende voordelen:
+Met Azure Lighthouse kunt u beheerde services op een rendabele en efficiënte manier ontwikkelen en leveren aan uw klanten. U profiteert van de volgende voordelen:
 
 - **Beheer op grote schaal**: Customer engagement en levenscyclus van bewerkingen voor het beheren van resources van de klant zijn eenvoudiger en beter schaalbaar.
 - **Meer zichtbaarheid van en precisie voor klanten**: Klanten waarvan bronnen die u beheert wordt meer inzicht in uw acties en nauwkeurige controle over het bereik hebben ze delegeren voor beheer, terwijl uw IP-adres behouden blijft.
@@ -32,7 +34,7 @@ Er zijn geen extra kosten die zijn gekoppeld aan uw klanten Azure-resources behe
 
 ## <a name="capabilities"></a>Functionaliteit
 
-Azure vuurtoren bevat meerdere manieren om te stroomlijnen betrokkenheid van de klant en beheer:
+Azure Lighthouse biedt meerdere manieren waarop u de klantbetrokkenheid en het klantenbeheer kunt stroomlijnen.
 
 - **Azure Resourcemanagement overgedragen**: Beheren van uw klanten Azure-resources veilig binnen uw eigen tenant zonder om over te schakelen van context en controle vlakken. Zie voor meer informatie, [Azure Resourcemanagement overgedragen](./concepts/azure-delegated-resource-management.md).
 - **Nieuwe Azure-portal ervaringen**: Cross-tenant-gegevens weergeven in de nieuwe **mijn klanten** pagina in de [Azure-portal](https://portal.azure.com). Een bijbehorende **serviceproviders** blade kan uw klanten weergeven en beheren van toegang tot de service-provider. Zie voor meer informatie, [weergeven en beheren van klanten](./how-to/view-manage-customers.md) en [weergeven en beheren van serviceproviders](./how-to/view-manage-service-providers.md).
