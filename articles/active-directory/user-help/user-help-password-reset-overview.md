@@ -1,6 +1,6 @@
 ---
-title: Opnieuw instellen van uw eigen werk of school wachtwoord overzicht - Azure Active Directory | Microsoft Docs
-description: Een lijst met koppelingen naar artikelen over het registreren en uw werk- of schoolaccount wachtwoord zonder hulp van een beheerder opnieuw instellen.
+title: Overzicht van het wacht woord voor uw eigen werk of school opnieuw instellen-Azure Active Directory | Microsoft Docs
+description: Een lijst met koppelingen naar artikelen over het registreren en opnieuw instellen van uw werk-of school wachtwoord zonder beheerders assistentie.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,27 +12,27 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1dae1b8577c4f90211c3b377dbf88efe6907326
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 66cb7218b5217565529e1e15d875c23dff10e06f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243891"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382263"
 ---
-# <a name="reset-your-own-work-or-school-password-overview"></a>Opnieuw instellen van uw eigen werk of school van wachtwoord-overzicht
+# <a name="reset-your-own-work-or-school-password-overview"></a>Overzicht van het wacht woord voor uw eigen werk of school opnieuw instellen
 
-Als u uw werk- of schoolaccount wachtwoord bent vergeten, nooit hebt u een wachtwoord van uw organisatie of hebben toegang tot uw account is geblokkeerd, kunt u uw beveiligingsgegevens en uw mobiele apparaat op uw werk- of schoolaccount wachtwoord opnieuw instellen.
+Als u uw werk-of school Wachtwoord verg eten bent, nooit een wacht woord hebt ontvangen van uw organisatie of uw account hebt vergrendeld, kunt u uw beveiligings gegevens en uw mobiele apparaat gebruiken om uw werk-of school wachtwoord opnieuw in te stellen.
 
-De beheerder moet deze functie inschakelen op voor u te kunnen registreren van uw gegevens en uw eigen wachtwoord opnieuw instellen. Als er geen de **ben mijn wachtwoord vergeten** optie, betekent dit dat de beheerder de functie op nog niet is ingeschakeld voor uw organisatie. Als u denkt dit onjuist dat, neem dan contact op met de helpdesk voor hulp.
+Uw beheerder moet deze functie inschakelen om uw gegevens te kunnen registreren en uw eigen wacht woord opnieuw in te stellen. Als u de optie **mijn wacht woord verg eten** niet ziet, betekent dit dat uw beheerder de functie niet heeft ingeschakeld voor uw organisatie. Als u denkt dat dit onjuist is, neemt u contact op met de Help Desk voor ondersteuning.
 
 >[!Important]
 >Deze inhoud is bedoeld voor gebruikers. Als u een beheerder bent, kunt u meer informatie vinden over hoe u uw Azure Active Directory-omgeving (Azure AD) instelt en beheert in de [documentatie voor Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
-## <a name="reset-your-own-work-or-school-password-related-articles"></a>Opnieuw instellen van uw eigen werk of school wachtwoord gerelateerde artikelen
+## <a name="reset-your-own-work-or-school-password-related-articles"></a>Stel uw eigen werk-of school-gerelateerde artikelen opnieuw in
 
-Uw account voor wachtwoord opnieuw instellen en hoe u uw wachtwoord opnieuw instellen Zie voor gedetailleerde informatie en instructies over het registreren van de volgende artikelen:
+Raadpleeg de volgende artikelen voor gedetailleerde informatie en instructies over het registreren van uw account voor het opnieuw instellen van wacht woorden en het opnieuw instellen van uw wacht woord:
 
 |Artikel |Description |
 |------|------------|
-|[Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)| Instructies over hoe u uw verificatiemethoden en meld u controleren of u voor self-service voor wachtwoord opnieuw instellen, zodat u kunt uw eigen wachtwoord opnieuw instellen.|
-|[Uw wachtwoord opnieuw instellen](user-help-reset-password.md)| Instructies over het opnieuw instellen of ontgrendelen van het wachtwoord voor een account voor werk of school.|
+| [Registreren voor Self-service voor wachtwoord herstel](active-directory-passwords-reset-register.md) ] Instructies voor het verifiëren van uw verificatie methoden en registreren voor selfservice voor het opnieuw instellen van wacht woorden, zodat u uw eigen wacht woord opnieuw kunt instellen.|
+| [Uw wacht woord opnieuw instellen](user-help-reset-password.md) ] Instructies voor het opnieuw instellen of ontgrendelen van uw wacht woord voor een werk-of school account.|

@@ -1,123 +1,123 @@
 ---
-title: SaaS vervulling API v2 | Azure Marketplace
-description: In dit artikel wordt uitgelegd hoe u maken en beheren van een SaaS-aanbod voor de Azure Marketplace en AppSource met behulp van de bijbehorende uitvoering v2 API's.
+title: API voor SaaS-uitvoering v2 | Azure Marketplace
+description: In dit artikel wordt uitgelegd hoe u een SaaS-aanbieding maakt en beheert op de AppSource en Azure Marketplace met behulp van de bijbehorende fulfillment v2 Api's.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: 476aaacbe6f1bf6d1920df0f12599976bfcc27b7
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a8196370a93a6ce8eed83002397c2f09efbc777f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67701142"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358580"
 ---
-# <a name="saas-fulfillment-apis-version-2"></a>Afhandeling van SaaS-API's, versie 2 
+# <a name="saas-fulfillment-apis-version-2"></a>SaaS-fulfillment-Api's, versie 2 
 
-Dit artikel worden de API's waarmee partners hun SaaS-toepassingen in de AppSource-marketplace en de Azure Marketplace verkopen. Deze API's zijn dat een vereiste voor transactable SaaS biedt op de Azure Marketplace en AppSource.
+In dit artikel vindt u meer informatie over de Api's waarmee partners hun SaaS-toepassingen kunnen verkopen in de AppSource Marketplace en de Azure Marketplace. Deze Api's zijn een vereiste voor transactable SaaS-aanbiedingen op de AppSource en Azure Marketplace.
 
-## <a name="managing-the-saas-subscription-life-cycle"></a>De levenscyclus voor SaaS-abonnement beheren
+## <a name="managing-the-saas-subscription-life-cycle"></a>De levens cyclus van het SaaS-abonnement beheren
 
-Azure SaaS beheert de volledige levenscyclus van een SaaS-abonnement kopen. Het maakt gebruik van de uitvoering van API's als een mechanisme om de werkelijke naleving te stimuleren, wijzigingen van abonnementen en verwijderen van het abonnement met de partner. De factuur van de klant is gebaseerd op de status van de SaaS-abonnement die Microsoft onderhoudt. Het volgende diagram ziet u de Staten en de bewerkingen die de wijzigingen tussen de Staten station.
+Azure SaaS beheert de volledige levens cyclus van een SaaS-abonnements aankoop. Het gebruikt de fulfillment-Api's als mechanisme om de werkelijke uitvoering, wijzigingen in plannen en het verwijderen van het abonnement met de partner te best uren. De factuur van de klant is gebaseerd op de status van de SaaS-abonnement die micro soft onderhoudt. In het volgende diagram ziet u de statussen en de bewerkingen die de wijzigingen tussen de statussen aansturen.
 
-![Levenscyclus voor SaaS abonnementsstatussen](./media/saas-subscription-lifecycle-api-v2.png)
+![Levens cyclus status van SaaS-abonnement](./media/saas-subscription-lifecycle-api-v2.png)
 
 
-### <a name="states-of-a-saas-subscription"></a>Status van een SaaS-abonnement
+### <a name="states-of-a-saas-subscription"></a>Statussen van een SaaS-abonnement
 
-De volgende tabel bevat de inrichting statussen voor een SaaS-abonnement, met inbegrip van een diagram beschrijving en volgorde voor elk (indien van toepassing). 
+De volgende tabel geeft een lijst van de inrichtings statussen voor een SaaS-abonnement, met inbegrip van een beschrijving en sequentie diagram voor elke (indien van toepassing). 
 
 #### <a name="provisioning"></a>Inrichten
 
-Wanneer een klant een aankoop initieert, ontvangt de partner deze informatie in een autorisatiecode voor een klant-interactieve webpagina die gebruikmaakt van een URL-parameter. Een voorbeeld is `https://contoso.com/signup?token=..`, terwijl de URL van de landingspagina in Partner Center `https://contoso.com/signup`. De autorisatiecode kan worden gevalideerd en die voor de details van de provisioning-service door het aanroepen van de API kunt oplossen door worden uitgewisseld.  Wanneer een SaaS-service is voltooid wordt ingericht, stuurt een aanroep activeren om aan te geven dat de uitvoering voltooid is en de klant kan worden gefactureerd. 
+Wanneer een klant een aankoop initieert, ontvangt de partner deze informatie in een autorisatie code op een klant-interactieve webpagina die gebruikmaakt van een URL-para meter. Een voor beeld `https://contoso.com/signup?token=..`is dat de URL van de landings pagina in `https://contoso.com/signup`het partner centrum. De autorisatie code kan worden gevalideerd en uitgewisseld voor de details van de inrichtings service door de API voor het oplossen van conflicten aan te roepen.  Wanneer een SaaS-service is ingericht, verzendt deze een activerings aanroep om aan te geven dat de uitvoering is voltooid en dat de klant kan worden gefactureerd. 
 
-Het volgende diagram toont de volgorde van de API-aanroepen voor een scenario voor het inrichten.  
+In het volgende diagram ziet u de volg orde van API-aanroepen voor een inrichtings scenario.  
 
 ![API-aanroepen voor het inrichten van een SaaS-service](./media/saas-post-provisioning-api-v2-calls.png)
 
 #### <a name="provisioned"></a>Ingericht
 
-Deze status is de actieve status van een ingerichte service.
+Deze status is de stabiele status van een ingerichte service.
 
-##### <a name="provisioning-for-update"></a>Inrichting voor update 
+##### <a name="provisioning-for-update"></a>Inrichten voor update 
 
-Deze status geeft aan dat een update aan voor een bestaande service in behandeling is. Deze update kan worden gestart door de klant, vanuit de marketplace of in de SaaS-service (alleen voor directe klant transacties).
+Deze status geeft aan dat een update voor een bestaande service in behandeling is. Een dergelijke update kan worden geïnitieerd door de klant, hetzij via de Marketplace ofwel via de SaaS-service (alleen voor directe trans acties van klanten).
 
-##### <a name="provisioning-for-update-when-its-initiated-from-the-marketplace"></a>Inrichting van update (wanneer deze wordt gestart vanuit de marketplace)
+##### <a name="provisioning-for-update-when-its-initiated-from-the-marketplace"></a>Inrichten voor update (wanneer deze vanuit Marketplace wordt gestart)
 
-Het volgende diagram toont de volgorde van de acties wanneer een update wordt gestart vanuit de marketplace.
+In het volgende diagram ziet u de volg orde van de acties wanneer een update wordt gestart vanuit de Marketplace.
 
-![API-aanroepen wanneer de update wordt gestart vanuit de marketplace](./media/saas-update-api-v2-calls-from-marketplace-a.png)
+![API-aanroepen wanneer de update wordt gestart vanuit Marketplace](./media/saas-update-api-v2-calls-from-marketplace-a.png)
 
-##### <a name="provisioning-for-update-when-its-initiated-from-the-saas-service"></a>Inrichting van update (wanneer deze wordt gestart vanuit de SaaS-service)
+##### <a name="provisioning-for-update-when-its-initiated-from-the-saas-service"></a>Inrichten voor update (wanneer deze wordt gestart vanuit de SaaS-service)
 
-Het volgende diagram toont de acties wanneer een update van de SaaS-service wordt gestart. (De webhook-aanroep wordt vervangen door een update aan voor het abonnement dat is gestart door de SaaS-service.) 
+In het volgende diagram ziet u de acties wanneer een update wordt gestart vanuit de SaaS-service. (De webhook-aanroep wordt vervangen door een update van het abonnement dat door de SaaS-service is gestart.) 
 
 ![API-aanroepen wanneer de update wordt gestart vanuit de SaaS-service](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
 
 #### <a name="suspended"></a>Suspended
 
-Deze status geeft aan dat de betaling van een klant is niet ontvangen. Door het beleid bieden we de klant een respijtperiode voordat het abonnement wordt geannuleerd. Een abonnement heeft wanneer deze status: 
+Deze status geeft aan dat de betaling van een klant niet is ontvangen. Op basis van het beleid geven we de klant een respijt periode voordat ze het abonnement annuleren. Wanneer een abonnement de volgende status heeft: 
 
-- Als partner besluiten kunt u te verlagen of te blokkeren van de gebruiker toegang tot de service.
-- Het abonnement moet worden bewaard in een herstelbare staat die u kunt de volledige functionaliteit zonder verlies van gegevens of -instellingen herstellen. 
-- Verwacht om op te halen van een aanvraag voor reactiveren voor dit abonnement via de vervulling API's of een aanvraag voor ongedaan maken inrichting aan het einde van de respijtperiode. 
+- Als partner kunt u ervoor kiezen om de toegang van de gebruiker tot de service te degraderen of te blok keren.
+- Het abonnement moet worden bewaard met een herstel bare status waarmee de volledige functionaliteit kan worden hersteld zonder verlies van gegevens of instellingen. 
+- U ontvangt een aanvraag voor het opnieuw invoeren van dit abonnement via de fulfillment-Api's of een aanvraag voor het ongedaan maken van de inrichting aan het einde van de respijt periode. 
 
 #### <a name="unsubscribed"></a>Afgemeld 
 
-Abonnementen contact opnemen met deze status in reactie op een verzoek van de expliciete klant- of betaald van bijdragen. De verwachting van de partner is dat de gegevens van de klant voor herstel op aanvraag voor een bepaald aantal dagen bewaard en vervolgens verwijderd. 
+Abonnementen bereiken deze status als reactie op een expliciete aanvraag van een klant of op niet-betaalde contributie. De verwachting van de partner is dat de gegevens van de klant worden bewaard voor herstel op aanvraag voor een bepaald aantal dagen en vervolgens worden verwijderd. 
 
 
 ## <a name="api-reference"></a>API-verwijzing
 
-In deze sectie worden de SaaS *abonnement API* en *Operations API*.  De waarde van de `api-version` parameter voor versie 2-API's is `2018-08-31`.  
+In deze sectie worden de *API* voor SaaS-abonnementen en *Operations API*gedocumenteerd.  De waarde van de `api-version` para meter voor versie 2- `2018-08-31`api's is.  
 
 
-### <a name="parameter-and-entity-definitions"></a>Definities van parameter en de entiteit
+### <a name="parameter-and-entity-definitions"></a>Para meter-en entiteits definities
 
-De volgende tabel bevat de definities voor de algemene parameters en entiteiten die worden gebruikt door uitvoering API's.
+De volgende tabel bevat de definities voor algemene para meters en entiteiten die worden gebruikt door fulfillment-Api's.
 
-|     Entity/Parameter     |     Definitie                         |
+|     Entiteit/para meter     |     Definitie                         |
 |     ----------------     |     ----------                         |
 | `subscriptionId`         | De GUID-id voor een SaaS-resource.  |
-| `name`                   | Een beschrijvende naam voor deze resource is opgegeven door de klant. |
-| `publisherId`            | Een unieke tekenreeks-id voor elke uitgever (bijvoorbeeld: "contoso"). |
-| `offerId`                | Een unieke tekenreeks-id voor elke aanbieding (bijvoorbeeld: "offer1").  |
-| `planId`                 | Een unieke tekenreeks-id voor elk abonnement of welke SKU (bijvoorbeeld: 'silver'). |
+| `name`                   | Een beschrijvende naam voor deze resource door de klant. |
+| `publisherId`            | Een unieke teken reeks-id voor elke uitgever (bijvoorbeeld: contoso). |
+| `offerId`                | Een unieke teken reeks-id voor elke aanbieding (bijvoorbeeld: "Offer1").  |
+| `planId`                 | Een unieke teken reeks-id voor elk abonnement/SKU (bijvoorbeeld: ' zilver '). |
 | `operationId`            | De GUID-id voor een bepaalde bewerking.  |
-|  `action`                | De actie wordt uitgevoerd op een resource, ofwel `unsubscribe`, `suspend`, `reinstate`, of `changePlan`, `changeQuantity`, `transfer`.  |
+|  `action`                | De actie die wordt uitgevoerd voor een resource, `unsubscribe`ofwel `suspend` `reinstate`,, of `changePlan`, `changeQuantity`, `transfer`.  |
 |   |   |
 
-Unieke id's ([GUID's](https://en.wikipedia.org/wiki/Universally_unique_identifier)) 128-bits (32 hexadecimale) getallen die worden doorgaans automatisch gegenereerd. 
+[Guid's](https://en.wikipedia.org/wiki/Universally_unique_identifier)(Globally Unique Identifiers) zijn 128-bits (32-hexadecimale) getallen die doorgaans automatisch worden gegenereerd. 
 
-#### <a name="resolve-a-subscription"></a>Een abonnement op te lossen 
+#### <a name="resolve-a-subscription"></a>Een abonnement oplossen 
 
-Het eindpunt oplossen kunt de uitgever een marketplace-token omzetten in een permanente resource-ID. De resource-ID is de unieke id voor een SaaS-abonnement. Wanneer een gebruiker wordt omgeleid naar de website van de partner, bevat de URL een token in de queryparameters. De partner wordt verwacht voor gebruik van dit token en maken van een aanvraag om dit te verhelpen. Het antwoord bevat de unieke SaaS abonnements-ID, de naam, de aanbiedings-ID en het plan voor de resource. Dit token is slechts één uur geldig. 
+Met het eind punt voor omzetten kan de uitgever een Marketplace-token omzetten in een permanente Resource-ID. De resource-ID is de unieke id voor een SaaS-abonnement. Wanneer een gebruiker wordt omgeleid naar de website van een partner, bevat de URL een token in de query parameters. De partner wordt verwacht dit token te gebruiken en een aanvraag te doen om het te verhelpen. Het antwoord bevat de unieke SaaS-abonnements-ID, de naam, de aanbiedings-ID en het plan voor de resource. Dit token is slechts één uur geldig. 
 
-##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Verzenden<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
+##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Plaatsen<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
-*Queryparameters:*
+*Query parameters:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  ApiVersion        |  De versie van de bewerking te gebruiken voor deze aanvraag.  |
+|  ApiVersion        |  De versie van de bewerking die moet worden gebruikt voor deze aanvraag.  |
 
-*Aanvraagheaders:*
+*Aanvraag headers:*
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
-|  x-ms-requestid    |  Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
-|  x-ms-correlationid |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  authorization     |  [Ophalen van JSON web token (JWT) bearer-token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
-|  x-ms-marketplace-token  |  De queryparameter van de token in de URL in wanneer de gebruiker wordt omgeleid naar de website van de SaaS-partner van Azure (bijvoorbeeld: `https://contoso.com/signup?token=..`). *Opmerking:* Het wordt door URL gedecodeerd waarde vanuit de browser voor het token voordat u deze gebruikt.  |
+|  Inhoudstype      | `application/json` |
+|  x-ms-requestid    |  Een unieke teken reeks waarde voor het bijhouden van de aanvraag van de client, bij voor keur een GUID. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers. |
+|  x-MS-correlationid |  Een unieke teken reeks waarde voor de bewerking op de client. Deze para meter verbindt alle gebeurtenissen van de client bewerking met gebeurtenissen aan de server zijde. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers.  |
+|  authorization     |  Het [JWT-Bearer-token (JSON Web token) ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Bijvoorbeeld:`Bearer <access_token>`"". |
+|  x-MS-Marketplace-token  |  De token query-para meter in de URL wanneer de gebruiker wordt omgeleid naar de website van de SaaS-partner vanuit Azure ( `https://contoso.com/signup?token=..`bijvoorbeeld:). *Opmerking:* De URL decodeert de token waarde uit de browser voordat u deze gebruikt.  |
 
-*Responscodes:*
+*Antwoord codes:*
 
 Code: 200<br>
-De ondoorzichtige token worden omgezet in een SaaS-abonnement. Hoofdtekst van antwoord:
+Hiermee wordt het ondoorzichtige token omgezet in een SaaS-abonnement. Antwoord tekst:
  
 
 ```json
@@ -131,16 +131,16 @@ De ondoorzichtige token worden omgezet in een SaaS-abonnement. Hoofdtekst van an
 ```
 
 Code: 400<br>
-Ongeldige aanvraag. x-ms-marketplace-token is ontbrekende, ongeldige of verlopen.
+Ongeldige aanvraag. x-MS-Marketplace-token ontbreekt, is ongeldig of is verlopen.
 
 Code: 403<br>
-Niet-gemachtigde. Het verificatietoken is niet opgegeven of is ongeldig, of de aanvraag voor toegang tot een verzameling die geen deel van de uitgever van de huidige uitmaken probeert.
+Niet gemachtigd. Het verificatie token is niet opgegeven of is ongeldig, of er wordt geprobeerd toegang te krijgen tot een overname die geen deel uitmaakt van de huidige uitgever.
 
 Code: 404<br>
 Niet gevonden.
 
 Code: 500<br>
-Interne serverfout.
+Er is een interne serverfout opgetreden.
 
 ```json
 {
@@ -151,37 +151,37 @@ Interne serverfout.
 }
 ```
 
-### <a name="subscription-api"></a>Abonnement API
+### <a name="subscription-api"></a>API voor abonnementen
 
-Het abonnement API ondersteunt de volgende bewerkingen uit HTTPS: **Ophalen**, **Post**, **Patch**, en **verwijderen**.
+De API voor abonnementen ondersteunt de volgende HTTPS-bewerkingen: **Get**, **post**, **patch**en **Delete**.
 
 
-#### <a name="list-subscriptions"></a>Lijst met abonnementen
+#### <a name="list-subscriptions"></a>Een lijst met abonnementen maken
 
-Geeft een lijst van de SaaS-abonnementen voor een uitgever.
+Een lijst met alle SaaS-abonnementen voor een uitgever.
 
 ##### <a name="getbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Ophalen<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
 
-*Queryparameters:*
+*Query parameters:*
 
 |             |                   |
 |  --------   |  ---------------  |
-| ApiVersion  |  De versie van de bewerking te gebruiken voor deze aanvraag.  |
+| ApiVersion  |  De versie van de bewerking die moet worden gebruikt voor deze aanvraag.  |
 
-*Aanvraagheaders:*
+*Aanvraag headers:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| Content-Type       |  `application/json`  |
-| x-ms-requestid     |  Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
-| x-ms-correlationid |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-| authorization      |  [Ophalen van JSON web token (JWT) bearer-token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
+| Inhoudstype       |  `application/json`  |
+| x-ms-requestid     |  Een unieke teken reeks waarde voor het bijhouden van de aanvraag van de client, bij voor keur een GUID. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers. |
+| x-MS-correlationid |  Een unieke teken reeks waarde voor de bewerking op de client. Deze para meter verbindt alle gebeurtenissen van de client bewerking met gebeurtenissen aan de server zijde. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers.  |
+| authorization      |  Het [JWT-Bearer-token (JSON Web token) ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Bijvoorbeeld:`Bearer <access_token>`"".  |
 
-*Responscodes:*
+*Antwoord codes:*
 
 Code: 200 <br/>
-Hiermee haalt u de uitgever en de bijbehorende abonnementen van de uitgever-aanbiedingen, op basis van het verificatietoken.
-Payload van he antwoord:<br>
+Hiermee haalt u de uitgever en de bijbehorende abonnementen op voor alle aanbiedingen van de uitgever op basis van het verificatie token.
+Nettolading van reactie:<br>
 
 ```json
 {
@@ -216,13 +216,13 @@ Payload van he antwoord:<br>
 }
 ```
 
-Het vervolgtoken is alleen aanwezig als er zijn aanvullende "'s' van plannen om op te halen. 
+Het vervolg token wordt alleen weer gegeven als er extra ' pagina's ' van de plannen zijn die moeten worden opgehaald. 
 
 Code: 403 <br>
-Niet-gemachtigde. Het verificatietoken is niet opgegeven of is ongeldig, of de aanvraag voor toegang tot een verzameling die geen deel van de uitgever van de huidige uitmaken probeert. 
+Niet gemachtigd. Het verificatie token is niet opgegeven of is ongeldig, of er wordt geprobeerd toegang te krijgen tot een overname die geen deel uitmaakt van de huidige uitgever. 
 
 Code: 500<br>
-Interne serverfout.
+Er is een interne serverfout opgetreden.
 
 ```json
 {
@@ -235,30 +235,30 @@ Interne serverfout.
 
 #### <a name="get-subscription"></a>Abonnement nemen
 
-Hiermee haalt u het opgegeven SaaS-abonnement. Gebruik deze aanroep voor het ophalen van de licentie-informatie en informatie van plan bent.
+Hiermee wordt het opgegeven SaaS-abonnement opgehaald. Gebruik deze aanroep om licentie gegevens op te halen en informatie te plannen.
 
 ##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Ophalen<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`
 
-*Queryparameters:*
+*Query parameters:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| subscriptionId     |   Een unieke id van de SaaS-abonnement dat verkregen na het oplossen van het token via API oplossen.   |
-|  ApiVersion        |   De versie van de bewerking te gebruiken voor deze aanvraag.   |
+| subscriptionId     |   Een unieke id van het SaaS-abonnement dat is verkregen na het oplossen van het token via de API voor omzetten.   |
+|  ApiVersion        |   De versie van de bewerking die moet worden gebruikt voor deze aanvraag.   |
 
-*Aanvraagheaders:*
+*Aanvraag headers:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      |  `application/json`  |
-|  x-ms-requestid    |  Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
-|  x-ms-correlationid |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  authorization     |  [Ophalen van JSON web token (JWT) bearer-token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
+|  Inhoudstype      |  `application/json`  |
+|  x-ms-requestid    |  Een unieke teken reeks waarde voor het bijhouden van de aanvraag van de client, bij voor keur een GUID. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers. |
+|  x-MS-correlationid |  Een unieke teken reeks waarde voor de bewerking op de client. Deze para meter verbindt alle gebeurtenissen van de client bewerking met gebeurtenissen aan de server zijde. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers.  |
+|  authorization     |  Het [JWT-Bearer-token (JSON Web token) ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Bijvoorbeeld:`Bearer <access_token>`"".  |
 
-*Responscodes:*
+*Antwoord codes:*
 
 Code: 200<br>
-Hiermee haalt u de SaaS-abonnement uit-id. Payload van he antwoord:<br>
+Hiermee wordt het SaaS-abonnement opgehaald uit de id. Nettolading van reactie:<br>
 
 ```json
 Response Body:
@@ -288,13 +288,13 @@ Response Body:
 ```
 
 Code: 403<br>
-Niet-gemachtigde. Het verificatietoken is niet opgegeven of is ongeldig, of de aanvraag voor toegang tot een verzameling die geen deel van de uitgever van de huidige uitmaken probeert.
+Niet gemachtigd. Het verificatie token is niet opgegeven of is ongeldig, of er wordt geprobeerd toegang te krijgen tot een overname die geen deel uitmaakt van de huidige uitgever.
 
 Code: 404<br>
 Niet gevonden.<br> 
 
 Code: 500<br>
-Interne serverfout.<br>
+Er is een interne serverfout opgetreden.<br>
 
 ```json
 {
@@ -304,31 +304,31 @@ Interne serverfout.<br>
     }  
 ```
 
-#### <a name="list-available-plans"></a>Lijst met beschikbare abonnementen
+#### <a name="list-available-plans"></a>Beschik bare abonnementen weer geven
 
-Gebruik deze aanroep om erachter te komen of er geen persoonlijke of openbare aanbiedingen voor de huidige uitgever zijn.
+Gebruik deze aanroep om te achterhalen of er privé-of open bare aanbiedingen voor de huidige uitgever zijn.
 
 ##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidlistavailableplansapi-versionapiversion"></a>Ophalen<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
 
-*Queryparameters:*
+*Query parameters:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  ApiVersion        |   De versie van de bewerking te gebruiken voor deze aanvraag.  |
+|  ApiVersion        |   De versie van de bewerking die moet worden gebruikt voor deze aanvraag.  |
 
-*Aanvraagheaders:*
+*Aanvraag headers:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
-|   x-ms-requestid   |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
-|  x-ms-correlationid  | Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
-|  authorization     |  [Ophalen van JSON web token (JWT) bearer-token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
+|   Inhoudstype     |  `application/json` |
+|   x-ms-requestid   |   Een unieke teken reeks waarde voor het bijhouden van de aanvraag van de client, bij voor keur een GUID. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers. |
+|  x-MS-correlationid  | Een unieke teken reeks waarde voor de bewerking op de client. Deze para meter verbindt alle gebeurtenissen van de client bewerking met gebeurtenissen aan de server zijde. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers. |
+|  authorization     |  Het [JWT-Bearer-token (JSON Web token) ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Bijvoorbeeld:`Bearer <access_token>`"". |
 
-*Responscodes:*
+*Antwoord codes:*
 
 Code: 200<br>
-Hiermee haalt een lijst met beschikbare abonnementen voor een klant. Hoofdtekst van antwoord:
+Hiermee wordt een lijst met beschik bare abonnementen voor een klant opgehaald. Antwoord tekst:
 
 ```json
 {
@@ -344,10 +344,10 @@ Code: 404<br>
 Niet gevonden.<br> 
 
 Code: 403<br>
-Niet-gemachtigde. Het verificatietoken is niet opgegeven of is ongeldig, of de aanvraag voor toegang tot een verzameling die geen deel van de uitgever van de huidige uitmaken probeert. <br> 
+Niet gemachtigd. Het verificatie token is niet opgegeven of is ongeldig, of er wordt geprobeerd toegang te krijgen tot een overname die geen deel uitmaakt van de huidige uitgever. <br> 
 
 Code: 500<br>
-Interne serverfout.<br>
+Er is een interne serverfout opgetreden.<br>
 
 ```json
 { 
@@ -359,25 +359,25 @@ Interne serverfout.<br>
 
 #### <a name="activate-a-subscription"></a>Een abonnement activeren
 
-##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Verzenden<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
+##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Plaatsen<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
 
-*Queryparameters:*
+*Query parameters:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  ApiVersion        |  De versie van de bewerking te gebruiken voor deze aanvraag.  |
-| subscriptionId     | Een unieke id van het SaaS-abonnement dat verkregen na het oplossen van het token met behulp van de API oplossen.  |
+|  ApiVersion        |  De versie van de bewerking die moet worden gebruikt voor deze aanvraag.  |
+| subscriptionId     | Een unieke id van het SaaS-abonnement dat is verkregen na het oplossen van het token met behulp van de API voor omzetten.  |
 
-*Aanvraagheaders:*
+*Aanvraag headers:*
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json`  |
-|  x-ms-requestid    | Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  x-ms-correlationid  | Een unieke tekenreeks-waarde voor de bewerking op de client. Deze tekenreeks correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  authorization     |  [Ophalen van JSON web token (JWT) bearer-token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
+|  Inhoudstype      | `application/json`  |
+|  x-ms-requestid    | Een unieke teken reeks waarde voor het bijhouden van de aanvraag van de client, bij voor keur een GUID. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers.  |
+|  x-MS-correlationid  | Een unieke teken reeks waarde voor de bewerking op de client. Deze teken reeks correleert alle gebeurtenissen van de client bewerking met gebeurtenissen aan de server zijde. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers.  |
+|  authorization     |  Het [JWT-Bearer-token (JSON Web token) ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Bijvoorbeeld:`Bearer <access_token>`"". |
 
-*De nettolading van de aanvraag:*
+*Lading van aanvraag:*
 
 ```json
 {
@@ -386,22 +386,22 @@ Interne serverfout.<br>
 }
 ```
 
-*Responscodes:*
+*Antwoord codes:*
 
 Code: 200<br>
 Hiermee activeert u het abonnement.<br>
 
 Code: 400<br>
-Ongeldige aanvraag: validatiefouten.
+Ongeldige aanvraag: validatie mislukt.
 
 Code: 403<br>
-Niet-gemachtigde. Het verificatietoken is niet opgegeven of is ongeldig, of de aanvraag voor toegang tot een verzameling die geen deel van de uitgever van de huidige uitmaken probeert.
+Niet gemachtigd. Het verificatie token is niet opgegeven of is ongeldig, of er wordt geprobeerd toegang te krijgen tot een overname die geen deel uitmaakt van de huidige uitgever.
 
 Code: 404<br>
 Niet gevonden.
 
 Code: 500<br>
-Interne serverfout.
+Er is een interne serverfout opgetreden.
 
 ```json
 {
@@ -412,29 +412,29 @@ Interne serverfout.
 }
 ```
 
-#### <a name="change-the-plan-on-the-subscription"></a>Het abonnement van het abonnement wijzigen
+#### <a name="change-the-plan-on-the-subscription"></a>Wijzig het abonnement
 
-Werk de planning van het abonnement.
+Werk het abonnement op de abonnementen bij.
 
 ##### <a name="patchbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
-*Queryparameters:*
+*Query parameters:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  ApiVersion        |  De versie van de bewerking te gebruiken voor deze aanvraag.  |
-| subscriptionId     | Een unieke id van het SaaS-abonnement dat verkregen na het oplossen van het token met behulp van de API oplossen.  |
+|  ApiVersion        |  De versie van de bewerking die moet worden gebruikt voor deze aanvraag.  |
+| subscriptionId     | Een unieke id van het SaaS-abonnement dat is verkregen na het oplossen van het token met behulp van de API voor omzetten.  |
 
-*Aanvraagheaders:*
+*Aanvraag headers:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
-|  x-ms-requestid    |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  x-ms-correlationid  |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.    |
-| authorization      |  [Ophalen van JSON web token (JWT) bearer-token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
+|  Inhoudstype      | `application/json` |
+|  x-ms-requestid    |   Een unieke teken reeks waarde voor het bijhouden van de aanvraag van de client, bij voor keur een GUID. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers.  |
+|  x-MS-correlationid  |  Een unieke teken reeks waarde voor de bewerking op de client. Deze para meter verbindt alle gebeurtenissen van de client bewerking met gebeurtenissen aan de server zijde. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers.    |
+| authorization      |  Het [JWT-Bearer-token (JSON Web token) ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Bijvoorbeeld:`Bearer <access_token>`"".  |
 
-*De nettolading van de aanvraag:*
+*Lading van aanvraag:*
 
 ```json
 Request Body:
@@ -443,28 +443,28 @@ Request Body:
 }
 ```
 
-*Aanvraagheaders:*
+*Aanvraag headers:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| Operation-Location | De koppeling naar een resource om op te halen van de status van de bewerking.   |
+| Operation-Location | De koppeling naar een resource om de status van de bewerking op te halen.   |
 
-*Responscodes:*
+*Antwoord codes:*
 
 Code: 202<br>
-De aanvraag voor het abonnement wijzigen is geaccepteerd. De partner wordt verwacht op te vragen voor de bewerking-locatie om te bepalen of een geslaagd of mislukt. <br>
+De aanvraag voor het wijzigings plan is geaccepteerd. Er wordt naar verwachting de bewerkings locatie moet worden gecontroleerd om te bepalen of de partner is geslaagd of mislukt. <br>
 
 Code: 400<br>
-Ongeldige aanvraag: validatiefouten.
+Ongeldige aanvraag: validatie mislukt.
 
 Code: 403<br>
-Niet-gemachtigde. Het verificatietoken is niet opgegeven of is ongeldig, of de aanvraag voor toegang tot een verzameling die geen deel van de uitgever van de huidige uitmaken probeert.
+Niet gemachtigd. Het verificatie token is niet opgegeven of is ongeldig, of er wordt geprobeerd toegang te krijgen tot een overname die geen deel uitmaakt van de huidige uitgever.
 
 Code: 404<br>
 Niet gevonden.
 
 Code: 500<br>
-Interne serverfout.
+Er is een interne serverfout opgetreden.
 
 ```json
 {
@@ -476,31 +476,31 @@ Interne serverfout.
 ```
 
 >[!Note]
->Alleen een abonnement of de hoeveelheid kan worden patches in één keer, niet beide. Bewerkingen op een abonnement met **Update** zich niet in `allowedCustomerOperations`.
+>Alleen een plan of hoeveelheid kan in één keer worden bijgewerkt, niet beide. Bewerkingen voor een abonnement met **Update** zijn niet aanwezig `allowedCustomerOperations`in.
 
-#### <a name="change-the-quantity-on-the-subscription"></a>De hoeveelheid van het abonnement wijzigen
+#### <a name="change-the-quantity-on-the-subscription"></a>De hoeveelheid op het abonnement wijzigen
 
-Werk de hoeveelheid van het abonnement.
+Werk de hoeveelheid op het abonnement bij.
 
-##### <a name="patchbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch voor:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="patchbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Verzenden<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
-*Queryparameters:*
-
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  ApiVersion        |  De versie van de bewerking te gebruiken voor deze aanvraag.  |
-| subscriptionId     | Een unieke id van het SaaS-abonnement dat verkregen na het oplossen van het token met behulp van de API oplossen.  |
-
-*Aanvraagheaders:*
+*Query parameters:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
-|  x-ms-requestid    |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  x-ms-correlationid  |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.    |
-| authorization      |  [Ophalen van JSON web token (JWT) bearer-token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
+|  ApiVersion        |  De versie van de bewerking die moet worden gebruikt voor deze aanvraag.  |
+| subscriptionId     | Een unieke id van het SaaS-abonnement dat is verkregen na het oplossen van het token met behulp van de API voor omzetten.  |
 
-*De nettolading van de aanvraag:*
+*Aanvraag headers:*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  Inhoudstype      | `application/json` |
+|  x-ms-requestid    |   Een unieke teken reeks waarde voor het bijhouden van de aanvraag van de client, bij voor keur een GUID. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers.  |
+|  x-MS-correlationid  |  Een unieke teken reeks waarde voor de bewerking op de client. Deze para meter verbindt alle gebeurtenissen van de client bewerking met gebeurtenissen aan de server zijde. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers.    |
+| authorization      |  Het [JWT-Bearer-token (JSON Web token) ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Bijvoorbeeld:`Bearer <access_token>`"".  |
+
+*Lading van aanvraag:*
 
 ```json
 Request Body:
@@ -509,29 +509,29 @@ Request Body:
 }
 ```
 
-*Aanvraagheaders:*
+*Aanvraag headers:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| Operation-Location | Koppelen aan een resource om op te halen van de status van de bewerking.   |
+| Operation-Location | Koppeling naar een resource om de status van de bewerking op te halen.   |
 
-*Responscodes:*
+*Antwoord codes:*
 
 Code: 202<br>
-De aanvraag voor het wijzigen van de hoeveelheid is geaccepteerd. De partner wordt verwacht op te vragen voor de bewerking-locatie om te bepalen of een geslaagd of mislukt. <br>
+De aanvraag voor het wijzigen van de hoeveelheid is geaccepteerd. Er wordt naar verwachting de bewerkings locatie moet worden gecontroleerd om te bepalen of de partner is geslaagd of mislukt. <br>
 
 Code: 400<br>
-Ongeldige aanvraag: validatiefouten.
+Ongeldige aanvraag: validatie mislukt.
 
 
 Code: 403<br>
-Niet-gemachtigde. Het verificatietoken is niet opgegeven of is ongeldig, of de aanvraag voor toegang tot een verzameling die geen deel van de uitgever van de huidige uitmaken probeert.
+Niet gemachtigd. Het verificatie token is niet opgegeven of is ongeldig, of er wordt geprobeerd toegang te krijgen tot een overname die geen deel uitmaakt van de huidige uitgever.
 
 Code: 404<br>
 Niet gevonden.
 
 Code: 500<br>
-Interne serverfout.
+Er is een interne serverfout opgetreden.
 
 ```json
 {
@@ -543,46 +543,46 @@ Interne serverfout.
 ```
 
 >[!Note]
->Alleen een abonnement of de hoeveelheid kan worden patches in één keer, niet beide. Bewerkingen op een abonnement met **Update** zich niet in `allowedCustomerOperations`.
+>Alleen een plan of hoeveelheid kan in één keer worden bijgewerkt, niet beide. Bewerkingen voor een abonnement met **Update** zijn niet aanwezig `allowedCustomerOperations`in.
 
 #### <a name="delete-a-subscription"></a>Een abonnement verwijderen
 
-Afmelden en verwijderen van het opgegeven abonnement.
+Meld u af en verwijder het opgegeven abonnement.
 
 ##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionid-api-versionapiversion"></a>Verwijderen<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`
 
-*Queryparameters:*
+*Query parameters:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  ApiVersion        |  De versie van de bewerking te gebruiken voor deze aanvraag.  |
-| subscriptionId     | Een unieke id van het SaaS-abonnement dat verkregen na het oplossen van het token met behulp van de API oplossen.  |
+|  ApiVersion        |  De versie van de bewerking die moet worden gebruikt voor deze aanvraag.  |
+| subscriptionId     | Een unieke id van het SaaS-abonnement dat is verkregen na het oplossen van het token met behulp van de API voor omzetten.  |
 
-*Aanvraagheaders:*
+*Aanvraag headers:*
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
-|  x-ms-requestid    |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.   |
-|  x-ms-correlationid  |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.   |
-|  authorization     |  [Ophalen van JSON web token (JWT) bearer-token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
+|   Inhoudstype     |  `application/json` |
+|  x-ms-requestid    |   Een unieke teken reeks waarde voor het bijhouden van de aanvraag van de client, bij voor keur een GUID. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers.   |
+|  x-MS-correlationid  |  Een unieke teken reeks waarde voor de bewerking op de client. Deze para meter verbindt alle gebeurtenissen van de client bewerking met gebeurtenissen aan de server zijde. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers.   |
+|  authorization     |  Het [JWT-Bearer-token (JSON Web token) ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Bijvoorbeeld:`Bearer <access_token>`"".  |
 
-*Responscodes:*
+*Antwoord codes:*
 
 Code: 202<br>
-De partner gestart een aanroep van een SaaS-abonnement opzeggen.<br>
+De partner initieerde een aanroep voor het afmelden van een SaaS-abonnement.<br>
 
 Code: 400<br>
 Verwijderen van een abonnement met **verwijderen** niet in `allowedCustomerOperations`.
 
 Code: 403<br>
-Niet-gemachtigde. Het verificatietoken is niet opgegeven of is ongeldig, of de aanvraag voor toegang tot een verzameling die geen deel van de uitgever van de huidige uitmaken probeert.
+Niet gemachtigd. Het verificatie token is niet opgegeven of is ongeldig, of er wordt geprobeerd toegang te krijgen tot een overname die geen deel uitmaakt van de huidige uitgever.
 
 Code: 404<br>
 Niet gevonden.
 
 Code: 500<br>
-Interne serverfout.
+Er is een interne serverfout opgetreden.
 
 ```json
 {
@@ -594,35 +594,35 @@ Interne serverfout.
 ```
 
 
-### <a name="operations-api"></a>API-bewerkingen
+### <a name="operations-api"></a>Operations-API
 
-De operations-API ondersteunt de volgende Patch en Get-bewerkingen.
+De operations API ondersteunt de volgende patch-en Get-bewerkingen.
 
-#### <a name="list-outstanding-operations"></a>Lijst met openstaande bewerkingen 
+#### <a name="list-outstanding-operations"></a>Openstaande bewerkingen weer geven 
 
-Geeft een lijst van de openstaande bewerkingen voor de huidige uitgever. 
+Geeft een lijst van openstaande bewerkingen voor de huidige uitgever. 
 
 ##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Ophalen<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
-*Queryparameters:*
+*Query parameters:*
 
 |             |        |
 |  ---------------   |  ---------------  |
-|    ApiVersion                |   De versie van de bewerking te gebruiken voor deze aanvraag.                |
-| subscriptionId     | Een unieke id van het SaaS-abonnement dat verkregen na het oplossen van het token met behulp van de API oplossen.  |
+|    ApiVersion                |   De versie van de bewerking die moet worden gebruikt voor deze aanvraag.                |
+| subscriptionId     | Een unieke id van het SaaS-abonnement dat is verkregen na het oplossen van het token met behulp van de API voor omzetten.  |
 
-*Aanvraagheaders:*
+*Aanvraag headers:*
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
-|  x-ms-requestid    |  Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  x-ms-correlationid |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  authorization     |  [Ophalen van JSON web token (JWT) bearer-token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
+|   Inhoudstype     |  `application/json` |
+|  x-ms-requestid    |  Een unieke teken reeks waarde voor het bijhouden van de aanvraag van de client, bij voor keur een GUID. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers.  |
+|  x-MS-correlationid |  Een unieke teken reeks waarde voor de bewerking op de client. Deze para meter verbindt alle gebeurtenissen van de client bewerking met gebeurtenissen aan de server zijde. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers.  |
+|  authorization     |  Het [JWT-Bearer-token (JSON Web token) ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Bijvoorbeeld:`Bearer <access_token>`"".  |
 
-*Responscodes:*
+*Antwoord codes:*
 
-Code: 200<br> Hiermee haalt u de lijst met bewerkingen op een abonnement in behandeling. Payload van he antwoord:
+Code: 200<br> Hiermee wordt de lijst met openstaande bewerkingen voor een abonnement opgehaald. Nettolading van reactie:
 
 ```json
 [{
@@ -641,16 +641,16 @@ Code: 200<br> Hiermee haalt u de lijst met bewerkingen op een abonnement in beha
 
 
 Code: 400<br>
-Ongeldige aanvraag: validatiefouten.
+Ongeldige aanvraag: validatie mislukt.
 
 Code: 403<br>
-Niet-gemachtigde. Het verificatietoken is niet opgegeven of is ongeldig, of de aanvraag voor toegang tot een verzameling die geen deel van de uitgever van de huidige uitmaken probeert.
+Niet gemachtigd. Het verificatie token is niet opgegeven of is ongeldig, of er wordt geprobeerd toegang te krijgen tot een overname die geen deel uitmaakt van de huidige uitgever.
 
 Code: 404<br>
 Niet gevonden.
 
 Code: 500<br>
-Interne serverfout.
+Er is een interne serverfout opgetreden.
 
 ```json
 {
@@ -662,30 +662,30 @@ Interne serverfout.
 
 ```
 
-#### <a name="get-operation-status"></a>Bewerkingsstatus ophalen
+#### <a name="get-operation-status"></a>Bewerkings status ophalen
 
-Hiermee kunt u de uitgever om bij te houden van de status van de opgegeven geactiveerde asynchrone bewerking (zoals `subscribe`, `unsubscribe`, `changePlan`, of `changeQuantity`).
+Hiermee kan de uitgever de status van de opgegeven geactiveerde async-bewerking `subscribe`(zoals, `unsubscribe`, `changePlan`, of `changeQuantity`) volgen.
 
 ##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Ophalen<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
-*Queryparameters:*
+*Query parameters:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  ApiVersion        |  De versie van de bewerking te gebruiken voor deze aanvraag.  |
+|  ApiVersion        |  De versie van de bewerking die moet worden gebruikt voor deze aanvraag.  |
 
-*Aanvraagheaders:*
+*Aanvraag headers:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      |  `application/json`   |
-|  x-ms-requestid    |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  x-ms-correlationid |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
-|  authorization     |  [Ophalen van JSON web token (JWT) bearer-token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
+|  Inhoudstype      |  `application/json`   |
+|  x-ms-requestid    |   Een unieke teken reeks waarde voor het bijhouden van de aanvraag van de client, bij voor keur een GUID. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers.  |
+|  x-MS-correlationid |  Een unieke teken reeks waarde voor de bewerking op de client. Deze para meter verbindt alle gebeurtenissen van de client bewerking met gebeurtenissen aan de server zijde. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers.  |
+|  authorization     |  Het [JWT-Bearer-token (JSON Web token) ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Bijvoorbeeld:`Bearer <access_token>`"".  |
 
-*Responscodes:*<br>
+*Antwoord codes:*<br>
 
-Code: 200<br> Hiermee haalt u de opgegeven SaaS-bewerking in behandeling. Payload van he antwoord:
+Code: 200<br> Hiermee wordt de opgegeven SaaS-bewerking in behandeling opgehaald. Nettolading van reactie:
 
 ```json
 Response body:
@@ -705,15 +705,15 @@ Response body:
 ```
 
 Code: 400<br>
-Ongeldige aanvraag: validatiefouten.
+Ongeldige aanvraag: validatie mislukt.
 
 Code: 403<br>
-Niet-gemachtigde. Het verificatietoken is niet opgegeven of is ongeldig, of de aanvraag voor toegang tot een verzameling die geen deel van de uitgever van de huidige uitmaken probeert.
+Niet gemachtigd. Het verificatie token is niet opgegeven of is ongeldig, of er wordt geprobeerd toegang te krijgen tot een overname die geen deel uitmaakt van de huidige uitgever.
  
 Code: 404<br>
 Niet gevonden.
 
-Code: 500<br> Interne serverfout.
+Code: 500<br> Er is een interne serverfout opgetreden.
 
 ```json
 {
@@ -726,28 +726,28 @@ Code: 500<br> Interne serverfout.
 ```
 #### <a name="update-the-status-of-an-operation"></a>De status van een bewerking bijwerken
 
-De status van een bewerking voor het slagen of mislukken met de opgegeven waarden geven bijwerken.
+Werk de status van een bewerking bij om het slagen of mislukken van de geleverde waarden aan te geven.
 
 ##### <a name="patchbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Patch<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
-*Queryparameters:*
+*Query parameters:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   ApiVersion       |  De versie van de bewerking te gebruiken voor deze aanvraag.  |
-| subscriptionId     | Een unieke id van het SaaS-abonnement dat verkregen na het oplossen van het token met behulp van de API oplossen.  |
-|  operationId       | De bewerking die wordt uitgevoerd. |
+|   ApiVersion       |  De versie van de bewerking die moet worden gebruikt voor deze aanvraag.  |
+| subscriptionId     | Een unieke id van het SaaS-abonnement dat is verkregen na het oplossen van het token met behulp van de API voor omzetten.  |
+|  operationId       | De bewerking die wordt voltooid. |
 
-*Aanvraagheaders:*
+*Aanvraag headers:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     | `application/json`   |
-|   x-ms-requestid   |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
-|  x-ms-correlationid |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
-|  authorization     |  [Ophalen van JSON web token (JWT) bearer-token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
+|   Inhoudstype     | `application/json`   |
+|   x-ms-requestid   |   Een unieke teken reeks waarde voor het bijhouden van de aanvraag van de client, bij voor keur een GUID. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers. |
+|  x-MS-correlationid |  Een unieke teken reeks waarde voor de bewerking op de client. Deze para meter verbindt alle gebeurtenissen van de client bewerking met gebeurtenissen aan de server zijde. Als deze waarde niet is opgenomen, wordt er een gegenereerd en geleverd in de antwoord headers. |
+|  authorization     |  Het [JWT-Bearer-token (JSON Web token) ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Bijvoorbeeld:`Bearer <access_token>`"".  |
 
-*De nettolading van de aanvraag:*
+*Lading van aanvraag:*
 
 ```json
 {
@@ -758,23 +758,23 @@ De status van een bewerking voor het slagen of mislukken met de opgegeven waarde
 
 ```
 
-*Responscodes:*
+*Antwoord codes:*
 
-Code: 200<br> Een aanroep van de hoogte van een bewerking aan de partner is voltooid. Deze reactie kan bijvoorbeeld duiden dat de wijziging van de seats of plannen.
+Code: 200<br> Een aanroep om te informeren of een bewerking aan de partner zijde is voltooid. Deze reactie kan bijvoorbeeld de wijziging van de stoelen of plannen Signa leren.
 
 Code: 400<br>
-Ongeldige aanvraag: validatiefouten.
+Ongeldige aanvraag: validatie mislukt.
 
 Code: 403<br>
-Niet-gemachtigde. Het verificatietoken is niet opgegeven of is ongeldig, of de aanvraag voor toegang tot een verzameling die geen deel van de uitgever van de huidige uitmaken probeert.
+Niet gemachtigd. Het verificatie token is niet opgegeven of is ongeldig, of er wordt geprobeerd toegang te krijgen tot een overname die geen deel uitmaakt van de huidige uitgever.
 
 Code: 404<br>
 Niet gevonden.
 
 Code: 409<br>
-Een conflict. Bijvoorbeeld, is een nieuwe transactie al voldaan.
+Conflicteren. Er is bijvoorbeeld al aan een nieuwe trans actie voldaan.
 
-Code: 500<br> Interne serverfout.
+Code: 500<br> Er is een interne serverfout opgetreden.
 
 ```json
 {
@@ -786,9 +786,9 @@ Code: 500<br> Interne serverfout.
 
 ```
 
-## <a name="implementing-a-webhook-on-the-saas-service"></a>Implementatie van een webhook in de SaaS-service
+## <a name="implementing-a-webhook-on-the-saas-service"></a>Een webhook implementeren op de SaaS-service
 
-De uitgever moet een webhook in deze SaaS-service om proactief te waarschuwen gebruikers van wijzigingen in de service implementeren. De SaaS-service wordt verwacht voor het aanroepen van de operations-API om te verifiëren en autoriseren voordat een actie wordt ondernomen op de webhook-melding.
+De uitgever moet een webhook in deze SaaS-service implementeren om gebruikers proactief te informeren over wijzigingen in de service. De SaaS-service wordt verwacht de operations API aan te roepen om te valideren en goed te keuren voordat een actie wordt ondernomen voor de webhook-melding.
 
 ```json
 {
@@ -805,34 +805,34 @@ De uitgever moet een webhook in deze SaaS-service om proactief te waarschuwen ge
 
 }
 ```
-De actie kan waar een van de volgende zijn: 
-- `unsubscribe` (wanneer de resource is verwijderd)
-- `changePlan` (wanneer de wijziging plan-bewerking is voltooid)
-- `changeQuantity` (wanneer de wijziging hoeveelheid-bewerking is voltooid)
-- `suspend` (als bron is onderbroken)
-- `reinstate` (als bron heeft is hersteld na onderbreking)
+Waarbij de actie een van de volgende acties kan zijn: 
+- `unsubscribe`(wanneer de resource is verwijderd)
+- `changePlan`(wanneer de bewerking voor het wijzigings plan is voltooid)
+- `changeQuantity`(wanneer de bewerking hoeveelheid wijzigen is voltooid)
+- `suspend`(wanneer de resource is onderbroken)
+- `reinstate`(wanneer de bron na de onderbreking opnieuw is ingesteld)
 
-Waar kan de status van een van de volgende zijn: 
+Waar de status kan een van de volgende zijn: 
 - **NotStarted** <br>
  - **InProgress** <br>
 - **Geslaagd** <br>
 - **Mislukt** <br>
-- **Conflict** <br>
+- **Conflicteren** <br>
 
-In een melding webhook bruikbare statussen zijn beide **geslaagd** en **mislukt**. De levenscyclus van een bewerking is afkomstig van **NotStarted** naar een definitieve status heeft, zoals **geslaagd**, **mislukt**, of **Conflict**. Als u ontvangt **NotStarted** of **InProgress**, blijven de status opvragen via de API ophalen totdat de bewerking wordt een definitieve status bereikt voordat actie wordt ondernomen. 
+In een webhook-melding zijn de bewerkings statussen **geslaagd** en **mislukt**. De levens cyclus van een bewerking is van **NotStarted** naar een Terminal status, zoals **geslaagd**, **mislukt**of **conflict**. Als u **NotStarted** of InProgress ontvangt, kunt u door gaan met het aanvragen van de status via Get API totdat de bewerking een Terminal status bereikt voordat u actie onderneemt. 
 
-## <a name="mock-apis"></a>Mock-API 's
+## <a name="mock-apis"></a>Model-Api's
 
-U kunt onze mock API's gebruiken om u aan de slag met ontwikkelen, met name prototypen, ook als testen projecten te helpen. 
+U kunt onze model-Api's gebruiken om aan de slag te gaan met ontwikkelen, met name prototypen, en projecten te testen. 
 
-Eindpunt hosten: `https://marketplaceapi.microsoft.com/api` (geen verificatie vereist)<br/>
-API-versie: `2018-09-15`<br/>
-URI-voorbeeld: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
+Host-eind `https://marketplaceapi.microsoft.com/api` punt: (geen verificatie vereist)<br/>
+API-versie:`2018-09-15`<br/>
+Voor beeld-URI:`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
 
-De paden voor de API-eindpunt zijn hetzelfde voor echte zowel mock API's, maar de API-versies zijn verschillend. De versie is `2018-09-15` voor de mock-versie en `2018-08-31` voor de productieversie. 
+De API-eindpunt paden zijn hetzelfde voor beide modellen en echte Api's, maar de API-versies verschillen. De versie is `2018-09-15` voor de model versie en `2018-08-31` voor de productie versie. 
 
-Een van de API-aanroepen in dit artikel kan worden gemaakt met het eindpunt mock-host. In het algemeen kunt u verwachten mock-gegevens weer als een antwoord op te halen. Aanroepen van de methoden voor het abonnement van update op de mock-API retourneert altijd is 500. 
+Een van de API-aanroepen in dit artikel kan worden uitgevoerd naar het model host-eind punt. In het algemeen moet u gegevens weer geven als een antwoord. Aanroepen naar de methoden voor het bijwerken van abonnementen op de model-API altijd 500 retour neren. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ontwikkelaars kunnen ook programmatisch worden opgehaald en workloads, aanbiedingen en uitgever profielen bewerken met behulp van de [Cloud Partner Portal REST-API's](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).
+Ontwikkel aars kunnen werk belastingen, aanbiedingen en Publisher-profielen ook programmatisch ophalen en manipuleren met behulp van de [Cloud Partner-Portal rest-api's](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).

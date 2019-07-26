@@ -1,51 +1,51 @@
 ---
 title: Cloud-naar-apparaat-berichten met Azure IoT Hub (iOS) | Microsoft Docs
-description: Klik hier voor meer informatie over het cloud-naar-apparaat-berichten verzenden naar een apparaat van een Azure IoT-hub met behulp van de Azure IoT SDK's voor iOS.
+description: Cloud-naar-apparaat-berichten verzenden naar een apparaat vanuit een Azure IoT-hub met behulp van de Azure IoT Sdk's voor iOS.
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 6bb95bf887837fffc4196bca8d761239ac430a1a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: af1b331836cd025bbe15665aa03faee000e7c4f0
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620180"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404234"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Cloud-naar-apparaat-berichten verzenden met IoT Hub (iOS)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen apparaten inschakelen en een back-end oplossing. De [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-ios.md) quickstart laat zien hoe u een IoT-hub maken, een apparaat-id in het inrichten en code van een gesimuleerde apparaat-app dat apparaat-naar-cloud-berichten verzendt.
+Azure IoT Hub is een volledig beheerde service die zorgt voor betrouw bare en veilige bidirectionele communicatie tussen miljoenen apparaten en een back-end van een oplossing. Het [verzenden van telemetrie van een apparaat naar een IOT hub](quickstart-send-telemetry-ios.md) Quick Start laat zien hoe u een IOT-hub kunt maken, een apparaat-id kunt inrichten en een gesimuleerde apparaat-app kunt coderen die apparaat-naar-Cloud-berichten verzendt.
 
 In deze zelfstudie ontdekt u hoe u:
 
-* Vanuit de back-end, cloud-naar-apparaat-berichten naar een enkel apparaat via IoT Hub te verzenden.
+* Via de back-end van uw oplossing kunt u Cloud-naar-apparaat-berichten verzenden naar één apparaat via IoT Hub.
 
 * Cloud-naar-apparaat-berichten op een apparaat ontvangen.
 
-* Aanvragen van de back-end, levering bevestiging (*feedback*) voor berichten die worden verzonden naar een apparaat vanuit IoT Hub.
+* Van de back-end van uw oplossing, aanvraag bezorgings bevestiging (*feedback*) aanvragen voor berichten die worden verzonden naar een apparaat vanuit IOT hub.
 
-U vindt meer informatie over cloud-naar-apparaat-berichten in de [sectie van de Ontwikkelaarshandleiding voor IoT Hub-berichten](iot-hub-devguide-messaging.md).
+Meer informatie over Cloud-naar-apparaat-berichten vindt u in de [berichten sectie van de IOT hub-ontwikkelaars handleiding](iot-hub-devguide-messaging.md).
 
-Aan het einde van dit artikel u twee Swift iOS projecten uitvoeren:
+Aan het einde van dit artikel voert u twee snelle iOS-projecten uit:
 
-* **voorbeeld-apparaat**, gemaakt in dezelfde app [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-ios.md), die verbinding maakt met uw IoT-hub en cloud-naar-apparaat-berichten worden ontvangen.
+* voor **beeld-apparaat**, dezelfde app die is gemaakt in telemetrie [verzenden van een apparaat naar een IOT-hub](quickstart-send-telemetry-ios.md), die verbinding maakt met uw IOT-hub en Cloud-naar-apparaat-berichten ontvangt.
 
-* **voorbeeld-service**, die een cloud-naar-apparaat-bericht naar de gesimuleerde apparaattoepassing via IoT Hub verzendt en ontvangt u vervolgens de bevestiging levering.
+* voor **beeld-service**: Hiermee wordt een Cloud-naar-apparaat-bericht naar de gesimuleerde apparaat-app verzonden via IOT hub, waarna de ontvangst bevestiging wordt ontvangen.
 
 > [!NOTE]
-> IoT-Hub heeft SDK-ondersteuning voor vele platformen voor apparaten en talen (waaronder C, Java en Javascript) via Azure IoT device-SDK's. Zie voor stapsgewijze instructies voor het verbinding maken tussen uw apparaat in de code van deze zelfstudie, en in het algemeen voor Azure IoT Hub, de [Azure IoT-ontwikkelaarscentrum](https://www.azure.com/develop/iot).
+> IoT Hub heeft SDK-ondersteuning voor veel platformen en talen (waaronder C, Java en Java script) via Azure IoT-apparaat-Sdk's. Zie het [Azure IOT-ontwikkelaars centrum](https://www.azure.com/develop/iot)voor stapsgewijze instructies voor het verbinden van uw apparaat met de code van deze zelf studie en over het algemeen tot Azure IOT hub.
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
+* Een actief Azure-account. (Als u geen account hebt, kunt u in slechts een paar minuten een [gratis account](https://azure.microsoft.com/pricing/free-trial/) maken.)
 
 * Een actieve IoT-hub in Azure.
 
-* Het codevoorbeeld van [Azure-voorbeelden](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip).
+* Het code voorbeeld van [Azure](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip)-voor beelden.
 
 * De nieuwste versie van [XCode](https://developer.apple.com/xcode/), met de nieuwste versie van de iOS-SDK. Deze snelstart is getest met XCode 9.3 en iOS 11.3.
 
@@ -53,9 +53,9 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="simulate-an-iot-device"></a>Een IoT-apparaat simuleren
 
-In deze sectie maakt simuleren u een iOS-apparaat met een Swift toepassing cloud-naar-apparaat-berichten ontvangen van de IoT-hub. 
+In deze sectie simuleert u een iOS-apparaat waarop een Swift-toepassing wordt uitgevoerd om Cloud-naar-apparaat-berichten van de IoT-hub te ontvangen. 
 
-Dit is de voorbeeld-apparaat die u in het artikel maakt [verzenden van telemetrie vanaf een apparaat naar een IoT-hub](quickstart-send-telemetry-ios.md). Als u al dat deze worden uitgevoerd, kunt u deze sectie overslaan.
+Dit is het voorbeeld apparaat dat u in het artikel maakt, [verzendt telemetrie van een apparaat naar een IOT-hub](quickstart-send-telemetry-ios.md). Als u deze al hebt uitgevoerd, kunt u deze sectie overs Laan.
 
 ### <a name="install-cocoapods"></a>CocoaPods installeren
 
@@ -75,9 +75,9 @@ pod install
 
 Naast het installeren van de pods die nodig zijn voor uw project, heeft de installatieopdracht ook een XCode-werkruimtebestand gemaakt dat al geconfigureerd is om de pods te gebruiken voor afhankelijkheden.
 
-### <a name="run-the-sample-device-application"></a>De voorbeeldtoepassing voor apparaat uitvoeren
+### <a name="run-the-sample-device-application"></a>De voorbeeld toepassing voor apparaten uitvoeren
 
-1. Haal de verbindingsreeks voor uw apparaat. Kunt u deze tekenreeks van de [Azure-portal](https://portal.azure.com) in de blade Apparaatdetails, haalt u deze met de volgende CLI-opdracht:
+1. Haal de connection string op voor uw apparaat. U kunt deze teken reeks kopiëren uit de [Azure Portal](https://portal.azure.com) op de Blade met de apparaatgegevens of deze ophalen met de volgende CLI-opdracht:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id {YourDeviceID} --output table
@@ -89,11 +89,11 @@ Naast het installeren van de pods die nodig zijn voor uw project, heeft de insta
    open "MQTT Client Sample.xcworkspace"
    ```
 
-2. Vouw de **MQTT Client Sample** project en klikt u vervolgens de map met dezelfde naam.  
+2. Vouw het **voorbeeld** project van de MQTT-client uit en vervolgens de map met dezelfde naam.  
 
 3. Open **ViewController.swift** om het te bewerken in XCode. 
 
-4. Zoek de **connectionString** variabele en werk de waarde bij met de apparaatverbinding de tekenreeks die u in de eerste stap hebt gekopieerd.
+4. Zoek de **Connections Tring** -variabele en werk de waarde bij met het apparaat Connection String dat u in de eerste stap hebt gekopieerd.
 
 5. Sla uw wijzigingen op. 
 
@@ -101,15 +101,21 @@ Naast het installeren van de pods die nodig zijn voor uw project, heeft de insta
 
    ![Het project uitvoeren](media/iot-hub-ios-swift-c2d/run-sample.png)
 
-## <a name="simulate-a-service-device"></a>Een serviceapparaat simuleren
+## <a name="get-the-iot-hub-connection-string"></a>De IoT hub-connection string ophalen
 
-In deze sectie maakt simuleren u een tweede iOS-apparaat met een Swift-app dat cloud-naar-apparaat-berichten via de IoT hub verzendt. Dit is handig voor IoT-scenario's waarbij er een iPhone of iPad functioneert als een domeincontroller voor andere iOS-apparaten die zijn verbonden met een IoT-hub.
+In dit artikel maakt u een back-end-service om Cloud-naar-apparaat-berichten te verzenden via de IoT-hub die u hebt gemaakt in telemetrie [van een apparaat naar een IOT-hub verzenden](quickstart-send-telemetry-ios.md). Als u Cloud-naar-apparaat-berichten wilt verzenden, moet u de service **Connect** -machtiging hebben. Standaard wordt elke IoT Hub gemaakt met een gedeeld toegangs beleid met de naam **service** dat deze machtiging verleent.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
+## <a name="simulate-a-service-device"></a>Een service apparaat simuleren
+
+In deze sectie simuleert u een tweede iOS-apparaat met een snelle app die Cloud-naar-apparaat-berichten verzendt via de IoT-hub. Deze configuratie is handig voor IoT-scenario's waarbij een iPhone of iPad werkt als een controller voor andere iOS-apparaten die zijn verbonden met een IoT-hub.
 
 ### <a name="install-cocoapods"></a>CocoaPods installeren
 
 CocoaPods beheren afhankelijkheden voor iOS-projecten die gebruikmaken van bibliotheken van derden.
 
-Navigeer naar de map met Azure IoT iOS voorbeelden die u in de vereisten hebt gedownload. Navigeer vervolgens naar het voorbeeldproject van de service:
+Navigeer naar de map Azure IoT iOS-voor beelden die u hebt gedownload in de vereisten. Ga vervolgens naar het voorbeeld service project:
 
 ```sh
 cd quickstart/sample-service
@@ -123,58 +129,52 @@ pod install
 
 Naast het installeren van de pods die nodig zijn voor uw project, heeft de installatieopdracht ook een XCode-werkruimtebestand gemaakt dat al geconfigureerd is om de pods te gebruiken voor afhankelijkheden.
 
-### <a name="run-the-sample-service-application"></a>De voorbeeldtoepassing voor service uitvoeren
+### <a name="run-the-sample-service-application"></a>De voorbeeld service toepassing uitvoeren
 
-1. Haal de serviceverbindingsreeks voor uw IoT-hub. Kunt u deze tekenreeks van de [Azure-portal](https://portal.azure.com) uit de **iothubowner** beleid in de **beleid voor gedeelde toegang** blade, haalt u deze met de volgende CLI-opdracht:  
-
-    ```azurecli-interactive
-    az iot hub show-connection-string --name {YourIoTHubName} --output table
-    ```
-
-2. Open de voorbeeldwerkruimte in XCode.
+1. Open de voorbeeldwerkruimte in XCode.
 
    ```sh
    open AzureIoTServiceSample.xcworkspace
    ```
 
-3. Vouw de **AzureIoTServiceSample** project en vouw vervolgens de map met dezelfde naam.  
+2. Vouw het project **AzureIoTServiceSample** uit en vouw vervolgens de map met dezelfde naam uit.  
 
-4. Open **ViewController.swift** om het te bewerken in XCode. 
+3. Open **ViewController.swift** om het te bewerken in XCode. 
 
-5. Zoek de **connectionString** variabele en werk de waarde bij met de service-verbindingsreeks die u eerder hebt gekopieerd.
+4. Zoek naar de **Connections Tring** -variabele en werk de waarde bij met de Service Connection String die u eerder hebt gekopieerd in [de IoT hub-Connection String ophalen](#get-the-iot-hub-connection-string).
 
-6. Sla uw wijzigingen op.
+5. Sla uw wijzigingen op.
 
-7. In Xcode, door de emulator-instellingen te wijzigen naar een ander iOS-apparaat dan u hebt gebruikt voor het uitvoeren van de IoT-apparaat. Meerdere emulators van hetzelfde type kan niet worden uitgevoerd in XCode.
+6. In Xcode wijzigt u de emulator-instellingen in een ander iOS-apparaat dan u hebt gebruikt om het IoT-apparaat uit te voeren. XCode kan niet meerdere emulators van hetzelfde type uitvoeren.
 
-   ![Wijzigen van de emulator](media/iot-hub-ios-swift-c2d/change-device.png)
+   ![Het Emulator-apparaat wijzigen](media/iot-hub-ios-swift-c2d/change-device.png)
 
-8. Voer het project in de apparaatemulator uit met de **bouwen en uitvoeren** knop of de toetscombinatie **Command + r**.
+7. Voer het project uit in de emulator van het apparaat met de knop **opbouwen en uitvoeren** of de toetsen combinatie **opdracht + r**.
 
    ![Het project uitvoeren](media/iot-hub-ios-swift-c2d/run-app.png)
 
-## <a name="send-a-cloud-to-device-message"></a>Een cloud-naar-apparaat-bericht verzenden
+## <a name="send-a-cloud-to-device-message"></a>Een Cloud-naar-apparaat-bericht verzenden
 
-U bent nu klaar voor gebruik van de twee toepassingen naar de cloud-naar-apparaat-berichten verzenden en ontvangen.
+U bent nu klaar om de twee toepassingen te gebruiken om Cloud-naar-apparaat-berichten te verzenden en te ontvangen.
 
-1. In de **voorbeeld-App voor iOS** app die wordt uitgevoerd op het gesimuleerde IoT-apparaat, klikt u op **Start**. De toepassing wordt gestart voor het verzenden van apparaat-naar-cloud-berichten, maar ook begint luistert naar berichten van cloud-naar-apparaat.
+1. Klik in de app voor **beeld van Ios-app** die wordt uitgevoerd op het gesimuleerde IOT-apparaat op **Start**. De toepassing begint met het verzenden van apparaat-naar-Cloud-berichten, maar begint ook met Luis teren naar Cloud-naar-apparaat-berichten.
 
-   ![Voorbeeld-app voor IoT-apparaat weergeven](media/iot-hub-ios-swift-c2d/view-d2c.png)
+   ![Voor beeld van IoT-apparaat-app weer geven](media/iot-hub-ios-swift-c2d/view-d2c.png)
 
-2. In de **IoTHub-Service-clientvoorbeeld** app die wordt uitgevoerd op het gesimuleerde apparaat, voer de ID voor de IoT-apparaat die u wilt een bericht te verzenden. 
+2. Voer in de **IoTHub service-client voor beeld** -app die wordt uitgevoerd op het gesimuleerde service-apparaat de id in voor het IOT-apparaat waarnaar u een bericht wilt verzenden. 
 
-3. Schrijf een bericht als tekst zonder opmaak en klik vervolgens op **verzenden**.
+3. Schrijf een bericht met een lees bare tekst en klik vervolgens op **verzenden**.
 
-    Meerdere acties gebeuren als u op verzenden klikt. Voorbeeld van de service wordt het bericht verzonden naar uw IoT hub die de app heeft toegang tot het vanwege de verbinding met de tekenreeks die u hebt opgegeven. Uw IoT-hub controleert de apparaat-ID, wordt het bericht verzonden naar het doelapparaat en verzendt een bevestiging van ontvangst naar het bronapparaat. De app in uw gesimuleerde IoT-apparaat controleert op berichten uit IoT Hub en de tekst van de meest recente versie van het scherm wordt afgedrukt.
+    Zodra u op verzenden klikt, worden er verschillende acties uitgevoerd. Het service voorbeeld verzendt het bericht naar uw IoT-hub, waartoe de app toegang heeft vanwege de service connection string die u hebt ingevoerd. Uw IoT-hub controleert de apparaat-ID, verzendt het bericht naar het doel apparaat en stuurt een bevestigings bevestiging naar het bron apparaat. De app die op uw gesimuleerde IoT-apparaat wordt uitgevoerd, controleert op berichten van IoT Hub en drukt de tekst af van de meest recente op het scherm.
 
-    Uw uitvoer moet eruitzien als in het volgende voorbeeld:
+    De uitvoer moet er ongeveer uitzien als in het volgende voor beeld:
 
-   ![Cloud-naar-apparaat-berichten weergeven](media/iot-hub-ios-swift-c2d/view-c2d.png)
+   ![Cloud-naar-apparaat-berichten weer geven](media/iot-hub-ios-swift-c2d/view-c2d.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u cloud-naar-apparaat-berichten verzenden en ontvangen.
+In deze zelf studie hebt u geleerd hoe u Cloud-naar-apparaat-berichten kunt verzenden en ontvangen.
 
-Zie voor voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT Hub, de [Azure IoT-oplossingsversnellers](https://azure.microsoft.com/documentation/suites/iot-suite/) documentatie.
+Zie de documentatie van [Azure IOT Solution Accelerators](https://azure.microsoft.com/documentation/suites/iot-suite/) voor een overzicht van de volledige end-to-end-oplossingen die gebruikmaken van IOT hub.
 
-Zie voor meer informatie over het ontwikkelen van oplossingen met IoT Hub, de [Ontwikkelaarshandleiding voor IoT Hub](iot-hub-devguide.md).
+Raadpleeg de [IOT hub ontwikkelaars handleiding](iot-hub-devguide.md)voor meer informatie over het ontwikkelen van oplossingen met IOT hub.

@@ -1,6 +1,6 @@
 ---
-title: Maken en beheren van een Windows-VM in Azure met behulp van Python | Microsoft Docs
-description: Leer hoe u Python gebruiken om te maken en beheren van een Windows-VM in Azure.
+title: Een Windows-VM maken en beheren in azure met behulp van python | Microsoft Docs
+description: Meer informatie over het gebruik van python voor het maken en beheren van een Windows-VM in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 21b423aa900d4d47c1ae1239b6197280be8cada2
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: a132cf28b0ccd30b3f7e854e46763ce99372ddfe
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719885"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361144"
 ---
-# <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Windows-machines in Azure met behulp van Python maken en beheren
+# <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Windows-Vm's maken en beheren in azure met behulp van python
 
-Een [virtuele Azure-Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) moet diverse ondersteunende Azure-resources (VM). In dit artikel bevat informatie over het maken, beheren en verwijderen van VM-resources met behulp van Python. In deze zelfstudie leert u procedures om het volgende te doen:
+Een [virtuele machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) van Azure heeft verschillende ondersteunende Azure-resources nodig. In dit artikel wordt beschreven hoe u VM-resources maakt, beheert en verwijdert met behulp van python. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Een Visual Studio-project maken
 > * Pakketten installeren
 > * Referenties maken
 > * Resources maken
-> * Beheertaken uitvoeren
+> * Beheer taken uitvoeren
 > * Resources verwijderen
 > * De toepassing uitvoeren
 
-Het duurt ongeveer 20 minuten deze stappen uitvoeren.
+Het duurt ongeveer 20 minuten om deze stappen uit te voeren.
 
 ## <a name="create-a-visual-studio-project"></a>Een Visual Studio-project maken
 
-1. Als u niet hebt gedaan, installeert u [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecteer **Python-ontwikkeling** op de pagina van de werkbelasting, en klik vervolgens op **installeren**. In de samenvatting, kunt u zien dat **Python 3 64-bits (3.6.0)** automatisch voor u is geselecteerd. Als u Visual Studio al hebt geïnstalleerd, kunt u de Python-werkbelasting via Visual Studio starten toevoegen.
-2. Na de installatie en Visual Studio starten, klikt u op **bestand** > **nieuw** > **Project**.
-3. Klik op **sjablonen** > **Python** > **Python-toepassing**, voer *myPythonProject* voor de naam van het project, selecteer de locatie van het project en klik vervolgens op **OK**.
+1. Als u dat nog niet hebt gedaan, installeert u [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecteer **python-ontwikkeling** op de pagina workloads en klik vervolgens op **installeren**. In de samen vatting ziet u dat **Python 3 64-bits (3.6.0)** automatisch voor u wordt geselecteerd. Als u Visual Studio al hebt geïnstalleerd, kunt u de python-workload toevoegen met behulp van de Visual Studio Launcher.
+2. Klik na het installeren en starten van Visual Studio op **bestand** > **Nieuw** > **project**.
+3. Klik op **sjablonen** > **python** > python-**toepassing**, Voer *myPythonProject* in als de naam van het project, selecteer de locatie van het project en klik vervolgens op **OK**.
 
 ## <a name="install-packages"></a>Pakketten installeren
 
-1. Klik in Solution Explorer onder *myPythonProject*, met de rechtermuisknop op **Python-omgevingen**, en selecteer vervolgens **virtuele omgeving toevoegen**.
-2. Op het scherm van de virtuele omgeving toevoegen, accepteer de standaardnaam van *env*, zorg ervoor dat *Python 3.6 (64-bits)* voor de basisinterpreter is geselecteerd en klik vervolgens op **maken** .
-3. Met de rechtermuisknop op de *env* omgeving die u hebt gemaakt, klikt u op **Python-pakket installeren**, voer *azure* in het zoekvak en druk op Enter.
+1. Klik in Solution Explorer onder *myPythonProject*met de rechter muisknop op **python-omgevingen**en selecteer vervolgens **virtuele omgeving toevoegen**.
+2. Accepteer op het scherm virtuele omgeving toevoegen de standaard naam van de *env*, Controleer of *Python 3,6 (64-bits)* is geselecteerd voor de basis-interpreter en klik vervolgens op **maken**.
+3. Klik met de rechter muisknop op de *env* -omgeving die u hebt gemaakt, klik op **python-pakket installeren**, Voer *Azure* in het zoekvak in en druk op ENTER.
 
-U ziet in de windows-uitvoer dat de azure-pakketten zijn geïnstalleerd. 
+U ziet in de uitvoer Vensters dat de Azure-pakketten zijn geïnstalleerd. 
 
 ## <a name="create-credentials"></a>Referenties maken
 
-Voordat u deze stap begint, zorg ervoor dat u hebt een [Active Directory service-principal](../../active-directory/develop/howto-create-service-principal-portal.md). U moet ook de toepassings-ID, de verificatiesleutel en de tenant-ID die u nodig hebt in een latere stap vastleggen.
+Voordat u met deze stap begint, moet u ervoor zorgen dat u een [Active Directory Service-Principal](../../active-directory/develop/howto-create-service-principal-portal.md)hebt. Noteer ook de toepassings-ID, de verificatie sleutel en de Tenant-ID die u in een latere stap nodig hebt.
 
-1. Open *myPythonProject.py* -bestand dat is gemaakt, en voeg deze code om te zorgen dat uw toepassing om uit te voeren:
+1. Open het *myPythonProject.py* -bestand dat is gemaakt en voeg deze code toe om de uitvoering van uw toepassing mogelijk te maken:
 
     ```python
     if __name__ == "__main__":
     ```
 
-2. Toevoegen als u wilt importeren in de code die nodig is, deze instructies aan het begin van het bestand .py:
+2. Als u de code die nodig is wilt importeren, voegt u deze instructies toe aan het begin van het. py-bestand:
 
     ```python
     from azure.common.credentials import ServicePrincipalCredentials
@@ -71,7 +71,7 @@ Voordat u deze stap begint, zorg ervoor dat u hebt een [Active Directory service
     from azure.mgmt.compute.models import DiskCreateOption
     ```
 
-3. Vervolgens in het bestand .py, voegt u variabelen toe na de importinstructies algemene waarden die worden gebruikt in de code op te geven:
+3. Voeg vervolgens in het. py-bestand variabelen toe na de instructies importeren om algemene waarden op te geven die worden gebruikt in de code:
    
     ```
     SUBSCRIPTION_ID = 'subscription-id'
@@ -80,9 +80,9 @@ Voordat u deze stap begint, zorg ervoor dat u hebt een [Active Directory service
     VM_NAME = 'myVM'
     ```
 
-    Vervang **abonnement-id** met uw abonnements-id.
+    Vervang de **abonnements-id** door de id van uw abonnement.
 
-4. Voor het maken van de Active Directory-referenties die u nodig hebt om aan te vragen, moet u deze functie toevoegen na de variabelen in het bestand .py:
+4. Als u de Active Directory referenties wilt maken die u nodig hebt om aanvragen uit te voeren, voegt u deze functie toe na de variabelen in het. py-bestand:
 
     ```python
     def get_credentials():
@@ -95,9 +95,9 @@ Voordat u deze stap begint, zorg ervoor dat u hebt een [Active Directory service
         return credentials
     ```
 
-    Vervang **toepassing-id**, **verificatiesleutel**, en **tenant-id** door de waarden die u eerder hebt verzameld tijdens het maken van uw Azure Active Directory-service principal.
+    Vervang de **toepassings-id**, **verificatie sleutel**en **Tenant-id** door de waarden die u eerder hebt verzameld tijdens het maken van uw Azure Active Directory Service-Principal.
 
-5. Voor het aanroepen van de functie die u eerder hebt toegevoegd, voeg deze code onder de **als** instructie aan het einde van het bestand .py:
+5. Als u de functie die u eerder hebt toegevoegd wilt aanroepen, voegt u deze code toe onder de **if** -instructie aan het einde van het. py-bestand:
 
     ```python
     credentials = get_credentials()
@@ -105,30 +105,30 @@ Voordat u deze stap begint, zorg ervoor dat u hebt een [Active Directory service
 
 ## <a name="create-resources"></a>Resources maken
  
-### <a name="initialize-management-clients"></a>Beheer van clients te initialiseren
+### <a name="initialize-management-clients"></a>Managementclients initialiseren
 
-Beheer van clients nodig zijn om te maken en beheren van resources met behulp van de Python-SDK in Azure. Voor het maken van de management-clients, voeg deze code onder de **als** instructie aan vervolgens einde van het bestand .py:
+Er zijn management-clients nodig om resources te maken en te beheren met behulp van de python-SDK in Azure. Als u de Management-clients wilt maken, voegt u deze code toe onder de instructie **if** op het einde van het. py-bestand:
 
 ```python
 resource_group_client = ResourceManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 network_client = NetworkManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 compute_client = ComputeManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 ```
 
-### <a name="create-the-vm-and-supporting-resources"></a>De virtuele machine en de ondersteunende resources maken
+### <a name="create-the-vm-and-supporting-resources"></a>De virtuele machine en ondersteunende resources maken
 
-Alle resources moeten worden opgenomen in een [resourcegroep](../../azure-resource-manager/resource-group-overview.md).
+Alle resources moeten deel uitmaken van een [resource groep](../../azure-resource-manager/resource-group-overview.md).
 
-1. Voor het maken van een resourcegroep, moet u deze functie toevoegen na de variabelen in het bestand .py:
+1. Als u een resource groep wilt maken, voegt u deze functie toe na de variabelen in het. py-bestand:
 
     ```python
     def create_resource_group(resource_group_client):
@@ -139,16 +139,16 @@ Alle resources moeten worden opgenomen in een [resourcegroep](../../azure-resour
         )
     ```
 
-2. Voor het aanroepen van de functie die u eerder hebt toegevoegd, voeg deze code onder de **als** instructie aan het einde van het bestand .py:
+2. Als u de functie die u eerder hebt toegevoegd wilt aanroepen, voegt u deze code toe onder de **if** -instructie aan het einde van het. py-bestand:
 
     ```python
     create_resource_group(resource_group_client)
     input('Resource group created. Press enter to continue...')
     ```
 
-[Beschikbaarheidssets](tutorial-availability-sets.md) maken het gemakkelijker voor u te houden van de virtuele machines die worden gebruikt door uw toepassing.
+Met [beschikbaarheids sets](tutorial-availability-sets.md) kunt u gemakkelijker de virtuele machines onderhouden die door uw toepassing worden gebruikt.
 
-1. Voor het maken van een beschikbaarheidsset, voeg deze functie toe na de variabelen in het bestand .py:
+1. Als u een beschikbaarheidsset wilt maken, voegt u deze functie toe na de variabelen in het. py-bestand:
    
     ```python
     def create_availability_set(compute_client):
@@ -164,7 +164,7 @@ Alle resources moeten worden opgenomen in een [resourcegroep](../../azure-resour
         )
     ```
 
-2. Voor het aanroepen van de functie die u eerder hebt toegevoegd, voeg deze code onder de **als** instructie aan het einde van het bestand .py:
+2. Als u de functie die u eerder hebt toegevoegd wilt aanroepen, voegt u deze code toe onder de **if** -instructie aan het einde van het. py-bestand:
 
     ```python
     create_availability_set(compute_client)
@@ -174,7 +174,7 @@ Alle resources moeten worden opgenomen in een [resourcegroep](../../azure-resour
 
 Een [openbaar IP-adres](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) is nodig om te communiceren met de virtuele machine.
 
-1. Voor het maken van een openbaar IP-adres voor de virtuele machine, moet u deze functie toevoegen na de variabelen in het bestand .py:
+1. Als u een openbaar IP-adres voor de virtuele machine wilt maken, voegt u deze functie toe na de variabelen in het. py-bestand:
 
     ```python
     def create_public_ip_address(network_client):
@@ -191,7 +191,7 @@ Een [openbaar IP-adres](../../virtual-network/virtual-network-ip-addresses-overv
         return creation_result.result()
     ```
 
-2. Voor het aanroepen van de functie die u eerder hebt toegevoegd, voeg deze code onder de **als** instructie aan het einde van het bestand .py:
+2. Als u de functie die u eerder hebt toegevoegd wilt aanroepen, voegt u deze code toe onder de **if** -instructie aan het einde van het. py-bestand:
 
     ```python
     creation_result = create_public_ip_address(network_client)
@@ -200,9 +200,9 @@ Een [openbaar IP-adres](../../virtual-network/virtual-network-ip-addresses-overv
     input('Press enter to continue...')
     ```
 
-Een virtuele machine moet zich in een subnet van een [virtueel netwerk](../../virtual-network/virtual-networks-overview.md).
+Een virtuele machine moet zich in een subnet van een [virtueel netwerk](../../virtual-network/virtual-networks-overview.md)bevinden.
 
-1. Voor het maken van een virtueel netwerk, moet u deze functie toevoegen na de variabelen in het bestand .py:
+1. Als u een virtueel netwerk wilt maken, voegt u deze functie toe na de variabelen in het. py-bestand:
 
     ```python
     def create_vnet(network_client):
@@ -220,7 +220,7 @@ Een virtuele machine moet zich in een subnet van een [virtueel netwerk](../../vi
         return creation_result.result()
     ```
 
-2. Voor het aanroepen van de functie die u eerder hebt toegevoegd, voeg deze code onder de **als** instructie aan het einde van het bestand .py:
+2. Als u de functie die u eerder hebt toegevoegd wilt aanroepen, voegt u deze code toe onder de **if** -instructie aan het einde van het. py-bestand:
    
     ```python
     creation_result = create_vnet(network_client)
@@ -229,7 +229,7 @@ Een virtuele machine moet zich in een subnet van een [virtueel netwerk](../../vi
     input('Press enter to continue...')
     ```
 
-3. Toevoegen als u wilt toevoegen een subnet met het virtuele netwerk, deze functie na de variabelen in het bestand .py:
+3. Als u een subnet wilt toevoegen aan het virtuele netwerk, voegt u deze functie toe na de variabelen in het. py-bestand:
     
     ```python
     def create_subnet(network_client):
@@ -246,7 +246,7 @@ Een virtuele machine moet zich in een subnet van een [virtueel netwerk](../../vi
         return creation_result.result()
     ```
         
-4. Voor het aanroepen van de functie die u eerder hebt toegevoegd, voeg deze code onder de **als** instructie aan het einde van het bestand .py:
+4. Als u de functie die u eerder hebt toegevoegd wilt aanroepen, voegt u deze code toe onder de **if** -instructie aan het einde van het. py-bestand:
    
     ```python
     creation_result = create_subnet(network_client)
@@ -255,9 +255,9 @@ Een virtuele machine moet zich in een subnet van een [virtueel netwerk](../../vi
     input('Press enter to continue...')
     ```
 
-Een virtuele machine moet een netwerkinterface om te communiceren met het virtuele netwerk.
+Een virtuele machine heeft een netwerk interface nodig om te communiceren met het virtuele netwerk.
 
-1. Voor het maken van een netwerkinterface, moet u deze functie toevoegen na de variabelen in het bestand .py:
+1. Als u een netwerk interface wilt maken, voegt u deze functie toe na de variabelen in het. py-bestand:
 
     ```python
     def create_nic(network_client):
@@ -289,7 +289,7 @@ Een virtuele machine moet een netwerkinterface om te communiceren met het virtue
         return creation_result.result()
     ```
 
-2. Voor het aanroepen van de functie die u eerder hebt toegevoegd, voeg deze code onder de **als** instructie aan het einde van het bestand .py:
+2. Als u de functie die u eerder hebt toegevoegd wilt aanroepen, voegt u deze code toe onder de **if** -instructie aan het einde van het. py-bestand:
 
     ```python
     creation_result = create_nic(network_client)
@@ -298,9 +298,9 @@ Een virtuele machine moet een netwerkinterface om te communiceren met het virtue
     input('Press enter to continue...')
     ```
 
-Nu dat u de ondersteunende netwerkbronnen gemaakt, kunt u een virtuele machine kunt maken.
+Nu u alle ondersteunende resources hebt gemaakt, kunt u een virtuele machine maken.
 
-1. Voor het maken van de virtuele machine, moet u deze functie toevoegen na de variabelen in het bestand .py:
+1. Als u de virtuele machine wilt maken, voegt u deze functie toe na de variabelen in het. py-bestand:
    
     ```python
     def create_vm(network_client, compute_client):  
@@ -349,11 +349,11 @@ Nu dat u de ondersteunende netwerkbronnen gemaakt, kunt u een virtuele machine k
     ```
 
     > [!NOTE]
-    > Deze zelfstudie maakt u een virtuele machine met een versie van het besturingssysteem Windows Server. Zie voor meer informatie over het selecteren van andere installatiekopieën, [navigeren door en selecteren van installatiekopieën van virtuele machine met Windows PowerShell en de Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > In deze zelf studie maakt u een virtuele machine waarop een versie van het Windows Server-besturings systeem wordt uitgevoerd. Zie voor meer informatie over het selecteren van andere installatie kopieën [navigeren en installatie kopieën van virtuele Azure-machines selecteren met Windows Power shell en de Azure cli](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     > 
 
-2. Voor het aanroepen van de functie die u eerder hebt toegevoegd, voeg deze code onder de **als** instructie aan het einde van het bestand .py:
+2. Als u de functie die u eerder hebt toegevoegd wilt aanroepen, voegt u deze code toe onder de **if** -instructie aan het einde van het. py-bestand:
 
     ```python
     creation_result = create_vm(network_client, compute_client)
@@ -362,13 +362,13 @@ Nu dat u de ondersteunende netwerkbronnen gemaakt, kunt u een virtuele machine k
     input('Press enter to continue...')
     ```
 
-## <a name="perform-management-tasks"></a>Beheertaken uitvoeren
+## <a name="perform-management-tasks"></a>Beheer taken uitvoeren
 
-Tijdens de levenscyclus van een virtuele machine wilt u mogelijk beheertaken uitvoeren, zoals het starten, stoppen of verwijderen van een virtuele machine. Bovendien kunt u maken van code om repetitieve of complexe taken te automatiseren.
+Tijdens de levenscyclus van een virtuele machine wilt u mogelijk beheertaken uitvoeren, zoals het starten, stoppen of verwijderen van een virtuele machine. U kunt ook code maken om herhaalde of complexe taken te automatiseren.
 
-### <a name="get-information-about-the-vm"></a>Informatie over de virtuele machine
+### <a name="get-information-about-the-vm"></a>Informatie over de virtuele machine ophalen
 
-1. Voor informatie over de virtuele machine, moet u deze functie toevoegen na de variabelen in het bestand .py:
+1. Als u informatie over de virtuele machine wilt ophalen, voegt u deze functie toe na de variabelen in het. py-bestand:
 
     ```python
     def get_vm(compute_client):
@@ -421,7 +421,7 @@ Tijdens de levenscyclus van een virtuele machine wilt u mogelijk beheertaken uit
             print("  code: ", stat.code)
             print("  displayStatus: ", stat.display_status)
     ```
-2. Voor het aanroepen van de functie die u eerder hebt toegevoegd, voeg deze code onder de **als** instructie aan het einde van het bestand .py:
+2. Als u de functie die u eerder hebt toegevoegd wilt aanroepen, voegt u deze code toe onder de **if** -instructie aan het einde van het. py-bestand:
 
     ```python
     get_vm(compute_client)
@@ -431,22 +431,22 @@ Tijdens de levenscyclus van een virtuele machine wilt u mogelijk beheertaken uit
 
 ### <a name="stop-the-vm"></a>De virtuele machine stoppen
 
-U kunt een virtuele machine stoppen en alle bijbehorende instellingen behouden, maar nog steeds in rekening gebracht voor het, of u kunt een virtuele machine stoppen en deze toewijzing. Wanneer een virtuele machine ongedaan is gemaakt, worden alle resources die zijn gekoppeld aan deze ook ongedaan gemaakt en facturering-ends voor het.
+U kunt een virtuele machine stoppen en alle instellingen behouden, maar er nog steeds kosten in rekening worden gebracht, of u kunt een virtuele machine stoppen en de toewijzing ervan ongedaan maken. Wanneer de toewijzing van een virtuele machine ongedaan wordt gemaakt, worden alle resources die eraan zijn gekoppeld, ook ongedaan gemaakt en wordt de facturering voor het apparaat beëindigd.
 
-1. Toevoegen als u wilt de virtuele machine stoppen zonder toewijzing ongedaan maken... dit, deze functie na de variabelen in het bestand .py:
+1. Als u de virtuele machine wilt stoppen zonder de toewijzing ervan te detoewijzen, voegt u deze functie toe na de variabelen in het. py-bestand:
 
     ```python
     def stop_vm(compute_client):
         compute_client.virtual_machines.power_off(GROUP_NAME, VM_NAME)
     ```
 
-    Als u wilt de toewijzing van de virtuele machine, wijzigt u de aanroep power_off deze code:
+    Als u de toewijzing van de virtuele machine ongedaan wilt maken, wijzigt u de power_off-aanroep naar deze code:
 
     ```python
     compute_client.virtual_machines.deallocate(GROUP_NAME, VM_NAME)
     ```
 
-2. Voor het aanroepen van de functie die u eerder hebt toegevoegd, voeg deze code onder de **als** instructie aan het einde van het bestand .py:
+2. Als u de functie die u eerder hebt toegevoegd wilt aanroepen, voegt u deze code toe onder de **if** -instructie aan het einde van het. py-bestand:
 
     ```python
     stop_vm(compute_client)
@@ -455,14 +455,14 @@ U kunt een virtuele machine stoppen en alle bijbehorende instellingen behouden, 
 
 ### <a name="start-the-vm"></a>De virtuele machine starten
 
-1. Voor het starten van de virtuele machine, moet u deze functie toevoegen na de variabelen in het bestand .py:
+1. Als u de virtuele machine wilt starten, voegt u deze functie toe na de variabelen in het. py-bestand:
 
     ```python
     def start_vm(compute_client):
         compute_client.virtual_machines.start(GROUP_NAME, VM_NAME)
     ```
 
-2. Voor het aanroepen van de functie die u eerder hebt toegevoegd, voeg deze code onder de **als** instructie aan het einde van het bestand .py:
+2. Als u de functie die u eerder hebt toegevoegd wilt aanroepen, voegt u deze code toe onder de **if** -instructie aan het einde van het. py-bestand:
 
     ```python
     start_vm(compute_client)
@@ -471,9 +471,9 @@ U kunt een virtuele machine stoppen en alle bijbehorende instellingen behouden, 
 
 ### <a name="resize-the-vm"></a>Grootte van de virtuele machine wijzigen
 
-Veel aspecten van de implementatie moeten worden overwogen bij het bepalen van een grootte voor uw virtuele machine. Zie voor meer informatie, [VM-grootten](sizes.md).
+Veel aspecten van de implementatie moeten worden overwogen bij het bepalen van de grootte van de virtuele machine. Zie [VM](sizes.md)-grootten voor meer informatie.
 
-1. Toevoegen als u wilt de grootte van de virtuele machine wijzigen, deze functie na de variabelen in het bestand .py:
+1. Als u de grootte van de virtuele machine wilt wijzigen, voegt u deze functie toe na de variabelen in het. py-bestand:
 
     ```python
     def update_vm(compute_client):
@@ -488,7 +488,7 @@ Veel aspecten van de implementatie moeten worden overwogen bij het bepalen van e
     return update_result.result()
     ```
 
-2. Voor het aanroepen van de functie die u eerder hebt toegevoegd, voeg deze code onder de **als** instructie aan het einde van het bestand .py:
+2. Als u de functie die u eerder hebt toegevoegd wilt aanroepen, voegt u deze code toe onder de **if** -instructie aan het einde van het. py-bestand:
 
     ```python
     update_result = update_vm(compute_client)
@@ -497,11 +497,11 @@ Veel aspecten van de implementatie moeten worden overwogen bij het bepalen van e
     input('Press enter to continue...')
     ```
 
-### <a name="add-a-data-disk-to-the-vm"></a>Een gegevensschijf toevoegen aan de virtuele machine
+### <a name="add-a-data-disk-to-the-vm"></a>Een gegevens schijf toevoegen aan de VM
 
-Virtuele machines hebben een of meer [gegevensschijven](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) die als virtuele harde schijven zijn opgeslagen.
+Virtuele machines kunnen een of meer [gegevens schijven](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) hebben die zijn opgeslagen als vhd's.
 
-1. Een gegevensschijf toevoegen aan de virtuele machine, moet u deze functie toevoegen na de variabelen in het bestand .py: 
+1. Als u een gegevens schijf aan de virtuele machine wilt toevoegen, voegt u deze functie toe na de variabelen in het. py-bestand: 
 
     ```python
     def add_datadisk(compute_client):
@@ -534,7 +534,7 @@ Virtuele machines hebben een of meer [gegevensschijven](managed-disks-overview.m
         return add_result.result()
     ```
 
-2. Voor het aanroepen van de functie die u eerder hebt toegevoegd, voeg deze code onder de **als** instructie aan het einde van het bestand .py:
+2. Als u de functie die u eerder hebt toegevoegd wilt aanroepen, voegt u deze code toe onder de **if** -instructie aan het einde van het. py-bestand:
 
     ```python
     add_result = add_datadisk(compute_client)
@@ -545,16 +545,16 @@ Virtuele machines hebben een of meer [gegevensschijven](managed-disks-overview.m
 
 ## <a name="delete-resources"></a>Resources verwijderen
 
-Omdat u voor resources die worden gebruikt in Azure betaalt, maar het is altijd een goede gewoonte resources verwijderen die niet langer nodig zijn. Als u wilt verwijderen van de virtuele machines en de ondersteunende resources, u hoeft te doen, is de resourcegroep verwijderen.
+Omdat er in rekening worden gebracht voor resources die worden gebruikt in azure, is het altijd een goed idee om resources te verwijderen die niet meer nodig zijn. Als u de virtuele machines en alle ondersteunende bronnen wilt verwijderen, moet u de resource groep verwijderen.
 
-1. Toevoegen als u wilt verwijderen van de resourcegroep en alle resources, deze functie na de variabelen in het bestand .py:
+1. Als u de resource groep en alle resources wilt verwijderen, voegt u deze functie toe na de variabelen in het. py-bestand:
    
     ```python
     def delete_resources(resource_group_client):
         resource_group_client.resource_groups.delete(GROUP_NAME)
     ```
 
-2. Voor het aanroepen van de functie die u eerder hebt toegevoegd, voeg deze code onder de **als** instructie aan het einde van het bestand .py:
+2. Als u de functie die u eerder hebt toegevoegd wilt aanroepen, voegt u deze code toe onder de **if** -instructie aan het einde van het. py-bestand:
    
     ```python
     delete_resources(resource_group_client)
@@ -564,15 +564,15 @@ Omdat u voor resources die worden gebruikt in Azure betaalt, maar het is altijd 
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-1. Als u wilt de consoletoepassing uitvoeren, klikt u op **Start** in Visual Studio.
+1. Klik op **starten** in Visual Studio om de console toepassing uit te voeren.
 
-2. Druk op **Enter** nadat de status van elke resource wordt geretourneerd. In de statusinformatie, ziet u een **geslaagd** Inrichtingsstatus. Nadat de virtuele machine is gemaakt, hebt u de mogelijkheid om alle resources die u maakt te verwijderen. Voordat u druk op **Enter** om te beginnen met verwijderen van resources, kunt u een paar minuten om te controleren of het maken in Azure portal kunt nemen. Hebt u de Azure-portal openen, moet u mogelijk vernieuwen van de blade overzicht van nieuwe resources.  
+2. Druk op **Enter** nadat de status van elke resource is geretourneerd. In de status informatie ziet u een geslaagde  inrichtings status. Nadat de virtuele machine is gemaakt, hebt u de mogelijkheid om alle resources die u maakt, te verwijderen. Voordat u op **Enter** drukt om resources te verwijderen, kunt u een paar minuten duren om te controleren of de Azure Portal is gemaakt. Als u de Azure Portal hebt geopend, moet u de Blade wellicht vernieuwen om nieuwe resources weer te geven.  
 
-    Het duurt ongeveer vijf minuten voor deze consoletoepassing volledig uitvoeren vanaf het begin te voltooien. Het duurt enkele minuten nadat de toepassing is voltooid voordat u alle resources en de resourcegroep zijn verwijderd.
+    Het duurt ongeveer vijf minuten voordat deze console toepassing volledig van begin tot eind kan worden uitgevoerd. Het kan enkele minuten duren voordat de toepassing is voltooid voordat alle resources en de resource groep zijn verwijderd.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Als er problemen met de implementatie zijn, raadpleegt u als volgende stap [Problemen met resourcegroepimplementaties in Azure Portal oplossen](../../resource-manager-troubleshoot-deployments-portal.md).
-- Meer informatie over de [Azure Python-bibliotheek](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
+- Meer informatie over de [Azure python-bibliotheek](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
 

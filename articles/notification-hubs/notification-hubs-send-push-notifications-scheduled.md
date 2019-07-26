@@ -1,9 +1,9 @@
 ---
-title: Hoe u geplande meldingen verzendt | Microsoft Docs
-description: In dit onderwerp wordt beschreven met behulp van geplande meldingen met Azure Notification Hubs.
+title: Geplande meldingen verzenden | Microsoft Docs
+description: In dit onderwerp wordt beschreven hoe u geplande meldingen met Azure Notification Hubs gebruikt.
 services: notification-hubs
 documentationcenter: .net
-keywords: pushmeldingen, pushmelding, pushmeldingen plannen
+keywords: Push meldingen, Push meldingen, Push meldingen plannen
 author: jwargo
 manager: patniko
 editor: spelluru
@@ -15,40 +15,40 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: af0de9e8c18644f4ae200f6546c0dd0a41320f9f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 94af0dede158c091ae64ae317db3c3153063ce79
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61457682"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347358"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Procedure: Geplande meldingen verzenden
 
-Als u een scenario waarin u wilt een melding wordt verzonden op een bepaald moment in de toekomst hebt, maar nog geen een eenvoudige manier om te activeren om uw back-end-code om de melding te verzenden. Standard-laag notification hubs ondersteuning voor een functie waarmee u meldingen plannen van zeven dagen in de toekomst.
+Als u een scenario hebt waarin u op een bepaald moment in de toekomst een melding wilt verzenden, maar geen eenvoudige manier hebt om uw back-end code te ontwaken om de melding te verzenden. De Standard-laag notification hubs ondersteunen een functie waarmee u in de toekomst meldingen kunt plannen die Maxi maal zeven dagen duren.
 
 
-## <a name="schedule-your-notifications"></a>Plan uw meldingen
-Wanneer u een melding verzendt, gebruiken de [ `ScheduledNotification` klasse](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) in de Notification Hubs SDK zoals wordt weergegeven in het volgende voorbeeld:
+## <a name="schedule-your-notifications"></a>Uw meldingen plannen
+Bij het verzenden van een melding gebruikt u [ `ScheduledNotification` ](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) de-klasse in de notification hubs SDK, zoals wordt weer gegeven in het volgende voor beeld:
 
-```c#
+```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
 var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
 ```
 
 ## <a name="cancel-scheduled-notifications"></a>Geplande meldingen annuleren
-Bovendien kunt u een eerder geplande melding met behulp van de meldings-id:
+U kunt ook een eerder geplande melding annuleren met behulp van de notificationId:
 
-```c#
+```csharp
 await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 ```
 
-Er zijn geen beperkingen voor het aantal geplande meldingen die u kunt verzenden.
+Er zijn geen beperkingen voor het aantal geplande meldingen dat u kunt verzenden.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie de volgende zelfstudies:
 
- - [Pushmeldingen verzenden naar alle geregistreerde apparaten](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
+ - [Push meldingen naar alle geregistreerde apparaten](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
  - [Pushmeldingen verzenden naar specifieke apparaten](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
  - [Gelokaliseerde pushmeldingen verzenden](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
  - [Pushmeldingen verzenden naar specifieke gebruikers](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 

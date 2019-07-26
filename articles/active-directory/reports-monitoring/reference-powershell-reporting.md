@@ -17,21 +17,18 @@ ms.date: 07/12/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27fa3d7be5238527f86e9dfde3be70ae09259d69
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 2d9d5fdb9091d51c67fd5d778bac189c08647741
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302737"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359752"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Azure AD PowerShell-cmdlets voor rapportage
 
-Met Azure Active Directory-rapporten (Azure AD) kunt u de gegevens ophalen die u nodig hebt om te bepalen hoe uw omgeving wordt uitgevoerd. U kunt rapport gegevens ophalen met behulp van de Azure AD Power shell-cmdlets voor rapportage.
+Met Azure Active Directory-rapporten (Azure AD) kunt u Details opvragen over activiteiten rond alle schrijf bewerkingen in uw richting (audit Logboeken) en verificatie gegevens (aanmeld Logboeken). Hoewel de informatie beschikbaar is via de MS Graph API, kunt u nu dezelfde gegevens ophalen met behulp van de Azure AD Power shell-cmdlets voor rapportage.
 
-In dit artikel vindt u een overzicht van de cmdlet.
-
-
-
+In dit artikel vindt u een overzicht van de Power shell-cmdlets die moeten worden gebruikt voor audit logboeken en aanmeldings Logboeken.
 
 ## <a name="audit-logs"></a>Controlelogboeken
 
@@ -63,7 +60,7 @@ U krijgt toegang tot de aanmeld logboeken met behulp van de cmdlet Get-AzureADAu
 
 | Scenario                      | Power shell-opdracht |
 | :--                           | :--                |
-| Weergave naam van gebruiker             | Get-AzureADAuditSignInLogs-filter "userDisplayName EQ" Timothy Perkins ' " |
+| Weergavenaam gebruiker             | Get-AzureADAuditSignInLogs-filter "userDisplayName EQ" Timothy Perkins ' " |
 | Datum en tijd maken              | Get-AzureADAuditSignInLogs-filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (alles sinds 5:30 uur op 4/18) |
 | Status                        | Get-AzureADAuditSignInLogs-filter "status/error code EQ 50105" |
 | Weergave naam van toepassing      | Get-AzureADAuditSignInLogs-filter "appDisplayName EQ" StoreFrontStudio [wsfed ingeschakeld] "" |

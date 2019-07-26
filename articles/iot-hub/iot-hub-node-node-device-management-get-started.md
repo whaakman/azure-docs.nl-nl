@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure IoT Hub device management (Node) | Microsoft Docs
-description: Het gebruik van Apparaatbeheer via IoT Hub om te beginnen met een extern apparaat opnieuw opstarten. U de Azure IoT-SDK voor Node.js gebruiken voor het implementeren van een gesimuleerde apparaat-app met een rechtstreekse methode en een service-app die de directe methode aanroept.
+title: Aan de slag met Azure IoT Hub Apparaatbeheer (knoop punt) | Microsoft Docs
+description: IoT Hub Apparaatbeheer gebruiken om het opnieuw opstarten van een extern apparaat te initiëren. U gebruikt de Azure IoT SDK voor node. js voor het implementeren van een gesimuleerde apparaat-app die een directe methode en een service-app bevat die de directe methode aanroept.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -8,56 +8,52 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
-ms.openlocfilehash: 9bc34110b85119c7b8b303774b585d03ce9d3a0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 868df2c8d1e14000f743686dcb6d4174d851be86
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596639"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68403238"
 ---
-# <a name="get-started-with-device-management-node"></a>Aan de slag met Apparaatbeheer (Node)
+# <a name="get-started-with-device-management-node"></a>Aan de slag met Apparaatbeheer (knoop punt)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
 In deze zelfstudie ontdekt u hoe u:
 
-* Gebruik de [Azure-portal](https://portal.azure.com) te maken van een IoT-Hub maken van een apparaat-id in uw IoT-hub.
+* Gebruik de [Azure Portal](https://portal.azure.com) voor het maken van een IOT hub en het maken van een apparaat-id in uw IOT-hub.
 
-* Maak een gesimuleerde apparaat-app met een rechtstreekse methode die het apparaat opnieuw wordt opgestart. Directe methoden zijn aangeroepen vanuit de cloud.
+* Maak een gesimuleerde apparaat-app die een directe methode bevat waarmee dat apparaat opnieuw wordt opgestart. Directe methoden worden vanuit de Cloud aangeroepen.
 
-* Maak een Node.js-consoletoepassing die de directe methode voor opnieuw opstarten in de gesimuleerde apparaattoepassing via uw IoT-hub roept.
+* Maak een node. JS-Console-app die de directe methode voor opnieuw opstarten aanroept in de gesimuleerde apparaat-app via uw IoT-hub.
 
-Aan het einde van deze zelfstudie, beschikt u over twee Node.js-consoletoepassingen:
+Aan het einde van deze zelf studie hebt u twee node. js-console-apps:
 
-* **dmpatterns_getstarted_device.js**, deze toepassing koppelt uw IoT-hub aan de apparaat-id die eerder hebt gemaakt, ontvangt u een rechtstreekse methode voor opnieuw opstarten, simuleert fysieke opnieuw worden opgestart en rapporten van de tijd voor de laatste keer opnieuw opstarten.
+* **dmpatterns_getstarted_device. js**, dat verbinding maakt met uw IOT-hub met de apparaat-id die u eerder hebt gemaakt, ontvangt een directe methode voor opnieuw opstarten, simuleert fysieke opnieuw opstarten en rapporteert de tijd voor de laatste keer opnieuw opstarten.
 
-* **dmpatterns_getstarted_service.js**, die een rechtstreekse methode aanroepen in het gesimuleerde apparaat-app, wordt het antwoord weergegeven en wordt de bijgewerkte gerapporteerde eigenschappen.
+* **dmpatterns_getstarted_service. js**, waarmee een directe methode wordt aangeroepen in de gesimuleerde apparaat-app, het antwoord wordt weer gegeven en de bijgewerkte gerapporteerde eigenschappen worden weer gegeven.
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Node.js versie 10.0 x of hoger. [Uw ontwikkelomgeving voorbereiden](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) wordt beschreven hoe u Node.js voor deze zelfstudie installeren op Windows of Linux.
+* Node. js versie 10.0. x of hoger. [Uw ontwikkel omgeving voorbereiden](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) hierin wordt beschreven hoe u node. js installeert voor deze zelf studie op Windows of Linux.
 
-* Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
+* Een actief Azure-account. (Als u geen account hebt, kunt u in slechts een paar minuten een [gratis account](https://azure.microsoft.com/pricing/free-trial/) maken.)
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Verbindingsreeks voor IoT-hub ophalen
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
 
-In deze sectie wordt u in de volgende stappen uitvoeren:
+In deze sectie voert u de volgende stappen uit:
 
 * U maakt een Node.js-console-app die reageert op een directe methode die door de cloud wordt aangeroepen.
 
-* Activeren van een gesimuleerd apparaat opnieuw opstarten
+* Het opnieuw opstarten van een gesimuleerd apparaat activeren
 
-* Gebruik van de gerapporteerde eigenschappen om te schakelen apparaatdubbel-query's om apparaten te identificeren en wanneer ze het laatst opnieuw opgestart
+* Gebruik de gerapporteerde eigenschappen om Device-dubbele query's in te scha kelen om apparaten te identificeren en wanneer deze voor het laatst opnieuw zijn opgestart
 
 1. U maakt een lege map met de naam **simulateddevice**.  Maak in de map **simulateddevice** een bestand met de naam package.json door achter de opdrachtprompt de volgende opdracht op te geven.  Accepteer alle standaardwaarden:
       
@@ -65,15 +61,15 @@ In deze sectie wordt u in de volgende stappen uitvoeren:
     npm init
     ```
 
-2. In het opdrachtprompt in de **simulateddevice** map, voer de volgende opdracht voor het installeren van de **azure-iot-device** Device SDK-pakket en **azure-iot-device-mqtt** pakket:
+2. Voer bij de opdracht prompt in de map **simulateddevice** de volgende opdracht uit om het **Azure-IOT-Device-SDK-** pakket te installeren en **Azure-IOT-Device-mqtt** -pakket:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-3. Maak met een teksteditor een **dmpatterns_getstarted_device.js** -bestand in de **simulateddevice** map.
+3. Maak met een tekst editor een **dmpatterns_getstarted_device. js** -bestand in de map **simulateddevice** .
 
-4. Voeg de volgende 'require' instructies toe aan het begin van de **dmpatterns_getstarted_device.js** bestand:
+4. Voeg de volgende ' vereist '-instructies toe aan het begin van het bestand **dmpatterns_getstarted_device. js** :
    
     ```
     'use strict';
@@ -82,14 +78,14 @@ In deze sectie wordt u in de volgende stappen uitvoeren:
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. Voeg een **connectionString**-variabele toe en gebruik deze om een **client**exemplaar te maken.  Vervang de verbindingsreeks door de verbindingsreeks van uw apparaat.  
+5. Voeg een **connectionString**-variabele toe en gebruik deze om een **client**exemplaar te maken.  Vervang de connection string door de connection string van uw apparaat.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
-6. Voeg de volgende functie voor het implementeren van de directe methode die op het apparaat
+6. Voeg de volgende functie toe om de directe methode op het apparaat te implementeren
    
     ```
     var onReboot = function(request, response) {
@@ -131,7 +127,7 @@ In deze sectie wordt u in de volgende stappen uitvoeren:
     };
     ```
 
-7. Maak verbinding met uw IoT-hub en de directe methode listener starten:
+7. Open de verbinding met uw IoT-hub en start de listener voor directe methoden:
 
    
     ```
@@ -145,30 +141,36 @@ In deze sectie wordt u in de volgende stappen uitvoeren:
     });
     ```
 
-8. Opslaan en sluiten de **dmpatterns_getstarted_device.js** bestand.
+8. Sla het bestand **dmpatterns_getstarted_device. js** op en sluit het.
 
 > [!NOTE]
-> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals aangegeven in het artikel implementeren [afhandeling van tijdelijke fouten](/azure/architecture/best-practices/transient-faults).
+> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. In productie code moet u beleid voor opnieuw proberen implementeren (zoals een exponentiële uitstel), zoals wordt voorgesteld in het artikel, [tijdelijke fout afhandeling](/azure/architecture/best-practices/transient-faults).
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Een extern opnieuw opstarten op het apparaat met een rechtstreekse methode activeren
+## <a name="get-the-iot-hub-connection-string"></a>De IoT hub-connection string ophalen
 
-In deze sectie maakt u een Node.js-consoletoepassing die een extern opnieuw opstarten op een apparaat met een rechtstreekse methode initieert. De app maakt gebruik van apparaatdubbel-query's voor het detecteren van de laatste keer opnieuw opstarten voor dat apparaat.
+[!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
 
-1. Maak een lege map genaamd **triggerrebootondevice**. In de **triggerrebootondevice** map, maakt u een package.json-bestand met de volgende opdracht in uw opdrachtvenster. Accepteer alle standaardwaarden:
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Een externe keer opnieuw opstarten op het apparaat activeren met behulp van een directe methode
+
+In deze sectie maakt u een node. JS-Console-app die een op afstand opnieuw opstarten van een apparaat initieert met behulp van een directe methode. De app maakt gebruik van Device-dubbele query's om de tijd van de laatste keer opnieuw opstarten voor dat apparaat te detecteren.
+
+1. Maak een lege map met de naam **triggerrebootondevice**. Maak in de map **triggerrebootondevice** een package. JSON-bestand met de volgende opdracht achter de opdracht prompt. Accepteer alle standaardwaarden:
    
     ```
     npm init
     ```
 
-2. In het opdrachtprompt in de **triggerrebootondevice** map, voer de volgende opdracht voor het installeren van de **azure-iothub** Device SDK-pakket en **azure-iot-device-mqtt** pakket:
+2. Voer bij de opdracht prompt in de map **triggerrebootondevice** de volgende opdracht uit om het **Azure-iothub** apparaat SDK-pakket en het **Azure-IOT-Device-mqtt** -pakket te installeren:
    
     ```
     npm install azure-iothub --save
     ```
 
-3. Maak met een teksteditor een **dmpatterns_getstarted_service.js** -bestand in de **triggerrebootondevice** map.
+3. Maak met een tekst editor een **dmpatterns_getstarted_service. js** -bestand in de map **triggerrebootondevice** .
 
-4. Voeg de volgende 'require' instructies toe aan het begin van de **dmpatterns_getstarted_service.js** bestand:
+4. Voeg de volgende ' vereist '-instructies toe aan het begin van het bestand **dmpatterns_getstarted_service. js** :
 
   
     ```
@@ -178,7 +180,7 @@ In deze sectie maakt u een Node.js-consoletoepassing die een extern opnieuw opst
     var Client = require('azure-iothub').Client;
     ```
 
-5. Voeg de volgende variabelendeclaraties toe en vervang de tijdelijke aanduiding voor waarden:
+5. Voeg de volgende variabelen declaraties toe en vervang de waarden van de tijdelijke aanduiding:
 
    
     ```
@@ -188,7 +190,7 @@ In deze sectie maakt u een Node.js-consoletoepassing die een extern opnieuw opst
     var deviceToReboot = 'myDeviceId';
     ```
 
-6. Voeg de volgende functie voor het aanroepen van de apparaatmethode opnieuw opstarten van het doelapparaat:
+6. Voeg de volgende functie toe om de methode van het apparaat aan te roepen om het doel apparaat opnieuw op te starten:
    
     ```
     var startRebootDevice = function(twin) {
@@ -211,7 +213,7 @@ In deze sectie maakt u een Node.js-consoletoepassing die een extern opnieuw opst
     };
     ```
 
-7. Voeg de volgende functie om te zoeken naar het apparaat en de laatste keer dat opnieuw opstarten:
+7. Voeg de volgende functie toe aan een query voor het apparaat en ontvang het tijdstip van de laatste keer opnieuw opstarten:
    
     ```
     var queryTwinLastReboot = function() {
@@ -232,7 +234,7 @@ In deze sectie maakt u een Node.js-consoletoepassing die een extern opnieuw opst
     };
     ```
 
-8. Voeg de volgende code voor het aanroepen van de functies die de directe methode voor opnieuw opstarten en de query is geactiveerd voor de laatste keer dat opnieuw opstarten:
+8. Voeg de volgende code toe om de functies aan te roepen die de directe methode voor opnieuw opstarten activeren en de query voor de laatste keer opnieuw opstarten:
 
    
     ```
@@ -240,26 +242,26 @@ In deze sectie maakt u een Node.js-consoletoepassing die een extern opnieuw opst
     setInterval(queryTwinLastReboot, 2000);
     ```
 
-9. Opslaan en sluiten de **dmpatterns_getstarted_service.js** bestand.
+9. Sla het bestand **dmpatterns_getstarted_service. js** op en sluit het.
 
 ## <a name="run-the-apps"></a>De apps uitvoeren
 
 U kunt nu de apps uitvoeren.
 
-1. Bij de opdrachtprompt in de **simulateddevice** map, de volgende opdracht uit om te luisteren naar de directe methode die opnieuw worden opgestart.
+1. Voer bij de opdracht prompt in de map **simulateddevice** de volgende opdracht uit om te beginnen met Luis teren naar de methode voor direct opnieuw opstarten.
 
    
     ```
     node dmpatterns_getstarted_device.js
     ```
 
-2. Bij de opdrachtprompt in de **triggerrebootondevice** map, voer de volgende opdracht de extern opnieuw opstarten en de query voor het dubbele apparaat vinden van de laatste keer opnieuw activeren.
+2. Voer bij de opdracht prompt in de map **triggerrebootondevice** de volgende opdracht uit om het apparaat op afstand opnieuw op te starten en de query uit te voeren op het dubbele tijdstip van de laatste keer dat de computer opnieuw wordt opgestart.
 
    
     ```
     node dmpatterns_getstarted_service.js
     ```
 
-3. U ziet dat de reactie van het apparaat naar de directe methode die in de console.
+3. U ziet de reactie van het apparaat op de directe methode in de-console.
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

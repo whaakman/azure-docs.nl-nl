@@ -1,41 +1,41 @@
 ---
-title: Certificaten die vereist zijn voor opname in de whitelist back-ends via Azure Application Gateway
-description: In dit artikel vindt u voorbeelden van hoe een SSL-certificaat kan worden geconverteerd naar het certificaat voor clientverificatie en vertrouwd basiscertificaat die nodig voor opname in de whitelist back-end-exemplaren in Azure Application Gateway zijn
+title: Certificaten die vereist zijn voor White List-back-ends in Azure-toepassing gateway
+description: In dit artikel vindt u voor beelden van hoe een SSL-certificaat kan worden geconverteerd naar een verificatie certificaat en een vertrouwd basis certificaat dat vereist is voor White List back-end-instanties in Azure-toepassing gateway
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/14/2019
+ms.date: 07/23/2019
 ms.author: absha
-ms.openlocfilehash: 72ee9123ad959c0c7240d4f7a906adc1a4dd1a93
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d808548ef91ed416f27b0dbb3e3e93d79ade30c
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831587"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382055"
 ---
-# <a name="create-certificates-for-whitelisting-backend-with-azure-application-gateway"></a>Certificaten voor opname in de whitelist back-end met Azure Application Gateway maken
+# <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Certificaten maken om de back-end met Azure-toepassing gateway toe te staan
 
-Als u end-to-end SSL, vereist application-gateway dat de back-end-exemplaren in de whitelist opgenomen door de verificatie/vertrouwde basiscertificaten uploaden. In het geval van een v1-SKU zijn verificatiecertificaten vereist, terwijl bij een v2-SKU vertrouwde basiscertificaten vereist zijn voor expliciete goedkeuring van de certificaten
+Om end-to-end SSL uit te voeren, moeten Application Gateway de back-end-instanties worden toegestaan door verificatie/vertrouwde basis certificaten te uploaden. Voor de V1-SKU zijn verificatie certificaten vereist, maar voor de v2 SKU vertrouwde basis certificaten zijn vereist om de certificaten toe te staan.
 
 In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 >
-> - Certificaat voor serververificatie exporteren vanuit een back-end-certificaat (voor v1-SKU)
-> - Vertrouwd basiscertificaat exporteren vanuit een back-end-certificaat (voor v2 SKU)
+> - Verificatie certificaat exporteren vanuit een back-end-certificaat (voor v1-SKU)
+> - Een vertrouwd basis certificaat exporteren vanuit een back-end-certificaat (voor v2 SKU)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Hebt u nodig een bestaand back-end-certificaat voor het genereren van de certificaten voor serververificatie of de vertrouwde basiscertificaten vereist zijn voor opname in de whitelist back-end-exemplaren met application gateway. Het back-end-certificaat kan zijn hetzelfde als het SSL-certificaat of een ander voor extra beveiliging. Application gateway biedt u geen een mechanisme voor het maken of een SSL-certificaat kopen. U kunt een zelfondertekend certificaat maken voor testdoeleinden, maar moet u deze niet gebruiken voor productieworkloads. 
+Er is een bestaand back-end-certificaat vereist voor het genereren van de verificatie certificaten of vertrouwde basis certificaten die vereist zijn voor het toestaan van back-end-exemplaren met Application Gateway. Het back-end-certificaat kan hetzelfde zijn als het SSL-certificaat of anders voor extra beveiliging. Application Gateway biedt geen enkel mechanisme voor het maken of kopen van een SSL-certificaat. Voor test doeleinden kunt u een zelfondertekend certificaat maken, maar u moet het niet gebruiken voor productie werkbelastingen. 
 
-## <a name="export-authentication-certificate-for-v1-sku"></a>Certificaat voor serververificatie exporteren (voor v1-SKU)
+## <a name="export-authentication-certificate-for-v1-sku"></a>Verificatie certificaat exporteren (voor v1-SKU)
 
-Certificaat voor clientverificatie is vereist voor het goedgekeurde back-end-exemplaren in application gateway v1 SKU. Certificaat voor clientverificatie is de openbare sleutel van de back-in Base-64 encoded X.509 (. CER)-indeling. In dit voorbeeld, we gebruiken een SSL-certificaat voor de back-end-certificaat en exporteer de openbare sleutel moet worden gebruikt als de verificatie-certificering. Ook in dit voorbeeld gebruiken we het hulpprogramma Windows Certificate Manager om de vereiste certificaten te exporteren. U kunt een ander hulpprogramma aan de hand van uw gemak gebruiken.
+Een verificatie certificaat is vereist voor het toestaan van back-end-exemplaren in Application Gateway v1-SKU. Het verificatie certificaat is de open bare sleutel van back-endserver certificaten in base-64 Encoded X. 509 (. CER)-indeling. In dit voor beeld gebruikt u een SSL-certificaat voor het back-end-certificaat en exporteert u de open bare sleutel voor gebruik als verificatie-certificering. In dit voor beeld maakt u ook gebruik van het hulp programma Windows Certificate Manager voor het exporteren van de vereiste certificaten. U kunt ervoor kiezen om elk ander hulp programma te gebruiken dat handig is.
 
-Exporteer de openbare sleutel cer-bestand (niet de persoonlijke sleutel) van uw SSL-certificaat. De volgende stappen uit voor hulp bij het exporteren van het cer-bestand in de Base-64 encoded X.509 (. CER)-indeling voor het certificaat:
+Exporteer vanuit uw SSL-certificaat het bestand met de open bare sleutel. CER (niet de persoonlijke sleutel). De volgende stappen helpen u bij het exporteren van het CER-bestand in base-64 Encoded X. 509 (. CER) voor uw certificaat:
 
-1. Als u een CER-bestand wilt genereren van het certificaat, opent u **Gebruikerscertificaten beheren**. Zoek het certificaat, meestal in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten', en met de rechtermuisknop op. Klik op **Alle taken** en vervolgens op **Exporteren**. Hiermee opent u de **Wizard Certificaat exporteren**. Als u het certificaat in de huidige gebruiker\Persoonlijk\Certificaten niet vinden, mogelijk hebt u per ongeluk geopend 'Certificaten - lokale Computer, is' in plaats van 'Certificaten - huidige gebruiker'). Als u Certificate Manager openen in de huidige gebruikersbereik met behulp van PowerShell wilt, u typt *certmgr* in het consolevenster.
+1. Als u een CER-bestand wilt genereren van het certificaat, opent u **Gebruikerscertificaten beheren**. Zoek het certificaat, meestal in ' certificaten-Current Gebruiker\persoonlijk\certificaten ' en klik met de rechter muisknop op. Klik op **Alle taken** en vervolgens op **Exporteren**. Hiermee opent u de **Wizard Certificaat exporteren**. Als u het certificaat niet kunt vinden onder de huidige Gebruiker\persoonlijk\certificaten, hebt u mogelijk per ongeluk ' certificaten-lokale computer ' geopend, in plaats van ' certificaten-huidige gebruiker '). Als u certificaat beheer wilt openen in het huidige gebruikers bereik met behulp van Power shell, typt u *certmgr* in het console venster.
 
    ![Exporteren](./media/certificates-for-backend-authentication/export.png)
 
@@ -49,9 +49,9 @@ Exporteer de openbare sleutel cer-bestand (niet de persoonlijke sleutel) van uw 
 
 4. Selecteer op de pagina **Bestandsindeling voor export** de optie **Met Base64 gecodeerde X.509 (.CER)** en klik op **Volgende**.
 
-   ![Base-64 gecodeerd](./media/certificates-for-backend-authentication/base64.png)
+   ![Base-64-code ring](./media/certificates-for-backend-authentication/base64.png)
 
-5. Voor **te exporteren bestand**, **Bladeren** naar de locatie waarnaar u wilt dat het certificaat te exporteren. Geef bij **Bestandsnaam** de naam van het certificaatbestand op. Klik op **Volgende**.
+5. Als u het **bestand wilt exporteren**, **bladert** u naar de locatie waarnaar u het certificaat wilt exporteren. Geef bij **Bestandsnaam** de naam van het certificaatbestand op. Klik op **Volgende**.
 
    ![Bladeren](./media/certificates-for-backend-authentication/browse.png)
 
@@ -59,7 +59,7 @@ Exporteer de openbare sleutel cer-bestand (niet de persoonlijke sleutel) van uw 
 
    ![Voltooien](./media/certificates-for-backend-authentication/finish.png)
 
-7. Uw certificaat is geëxporteerd.
+7. Het certificaat is geëxporteerd.
 
    ![Geslaagd](./media/certificates-for-backend-authentication/success.png)
 
@@ -67,42 +67,42 @@ Exporteer de openbare sleutel cer-bestand (niet de persoonlijke sleutel) van uw 
 
    ![Geëxporteerd](./media/certificates-for-backend-authentication/exported.png)
 
-8. Als u het geëxporteerde certificaat met behulp van Kladblok opent, ziet er ongeveer uitzien als in dit voorbeeld. De sectie in het blauw bevat de informatie die wordt geüpload naar de toepassingsgateway. Als u uw certificaat open met Kladblok en deze niet ziet er ongeveer als volgt, doorgaans dit betekent dat u hebt niet het exporteren met behulp van de Base-64 encoded X.509 (. CER)-indeling. Als u een andere teksteditor gebruiken wilt, moet u bovendien begrijpen dat sommige editors kunnen leiden tot onverwachte opmaak op de achtergrond. Dit kan leiden tot problemen bij het uploaden van de tekst van dit certificaat naar Azure.
+8. Als u het geëxporteerde certificaat met Klad blok opent, ziet u iets dat vergelijkbaar is met dit voor beeld. De sectie in Blue bevat de informatie die wordt geüpload naar Application Gateway. Als u uw certificaat opent met Klad blok en dit niet lijkt op dit soort, betekent dit meestal dat u dit niet hebt geëxporteerd met de base-64 Encoded X. 509 (. CER)-indeling. Daarnaast kunt u, als u een andere tekst editor wilt gebruiken, begrijpen dat sommige editors onbedoelde opmaak op de achtergrond kunnen introduceren. Dit kan problemen veroorzaken bij het uploaden van de tekst van dit certificaat naar Azure.
 
-   ![Open met Kladblok](./media/certificates-for-backend-authentication/format.png)
+   ![Openen met Klad blok](./media/certificates-for-backend-authentication/format.png)
 
-## <a name="export-trusted-root-certificate-for-v2-sku"></a>Vertrouwd basiscertificaat exporteren (voor v2 SKU)
+## <a name="export-trusted-root-certificate-for-v2-sku"></a>Vertrouwd basis certificaat exporteren (voor v2-SKU)
 
-Vertrouwd basiscertificaat is vereist voor goedgekeurde back-end-exemplaren in application gateway v2 SKU. Het basiscertificaat is een met Base-64 encoded X.509 (. Basiscertificaat van CER)-indeling van de back-end-servercertificaten. In dit voorbeeld wordt we een SSL-certificaat gebruiken voor het back-end-certificaat, de openbare sleutel exporteren en vervolgens het basiscertificaat van de vertrouwde Certificeringsinstantie uit de openbare sleutel in base64-indeling om op te halen van het vertrouwde basiscertificaat te exporteren. 
+Een vertrouwd basis certificaat is vereist voor het toestaan van back-end-exemplaren in Application Gateway v2-SKU. Het basis certificaat is een base-64 Encoded X. 509 (. CER) basis certificaat van de back-end-server certificaten. In dit voor beeld gebruikt u een SSL-certificaat voor het back-end-certificaat en exporteert u de open bare sleutel. Vervolgens exporteert u het basis certificaat van de vertrouwde certificerings instantie uit de open bare sleutel in base64-gecodeerde indeling om het vertrouwde basis certificaat te verkrijgen. 
 
-De volgende stappen kunt u het cer-bestand voor het certificaat te exporteren:
+Met de volgende stappen kunt u het. cer-bestand voor uw certificaat exporteren:
 
-1. Gebruik de stappen 1-9 vermeld in de sectie **verificatiecertificaat exporteren vanuit een back-end-certificaat (voor v1-SKU)** hierboven voor de openbare sleutel van uw back-end-certificaat exporteren.
+1. Gebruik de stappen 1-9 vermeld in de sectie **verificatie certificaat exporteren van een back-end-certificaat (voor v1-SKU)** hierboven om de open bare sleutel van uw back-end-certificaat te exporteren.
 
-2. Nadat de openbare sleutel is geëxporteerd, open het bestand.
+2. Zodra de open bare sleutel is geëxporteerd, opent u het bestand.
 
-   ![Open autorisatie-certificaat](./media/certificates-for-backend-authentication/openAuthcert.png)
+   ![Autorisatie certificaat openen](./media/certificates-for-backend-authentication/openAuthcert.png)
 
-   ![over het certificaat](./media/certificates-for-backend-authentication/general.png)
+   ![over certificaat](./media/certificates-for-backend-authentication/general.png)
 
-3. Verplaatsen naar het certificeringspad weer te geven de certificeringsinstantie (CA).
+3. Ga naar de weer gave certificeringspad om de certificerings instantie weer te geven.
 
-   ![details van certificaat](./media/certificates-for-backend-authentication/certdetails.png)
+   ![certificaat Details](./media/certificates-for-backend-authentication/certdetails.png)
 
-4. Selecteer het basiscertificaat en klik op **certificaat weergeven**.
+4. Selecteer het basis certificaat en klik op **certificaat weer geven**.
 
-   ![certificaat-pad](./media/certificates-for-backend-authentication/rootcert.png)
+   ![certificaatpad](./media/certificates-for-backend-authentication/rootcert.png)
 
-   U zou het mogelijk om de details van het root-certificaat weer te geven.
+   De details van het basis certificaat moeten worden weer geven.
 
-   ![certificaat-info](./media/certificates-for-backend-authentication/rootcertdetails.png)
+   ![certificaat gegevens](./media/certificates-for-backend-authentication/rootcertdetails.png)
 
-5. Verplaatsen naar de **Details** bekijken en klik op **kopiëren naar bestand...**
+5. Ga naar de weer gave **Details** en klik op **kopiëren naar bestand...**
 
-   ![basiscertificaat kopiëren](./media/certificates-for-backend-authentication/rootcertcopytofile.png)
+   ![basis certificaat kopiëren](./media/certificates-for-backend-authentication/rootcertcopytofile.png)
 
-6. Op dit moment hebt u de details van het basiscertificaat opgehaald uit het back-end-certificaat. U ziet de **Wizard Certificaat exporteren**. Nu gebruik de stappen 2-9 vermeld in de sectie **verificatiecertificaat exporteren vanuit een back-end-certificaat (voor v1-SKU)** hierboven voor het exporteren van de vertrouwde basis-certificaat in de Base-64 encoded X.509 (. CER)-indeling.
+6. Op dit moment hebt u de details van het basis certificaat geëxtraheerd van het back-end-certificaat. U ziet de **wizard Certificaat exporteren**. Gebruik nu stap 2-9 vermeld in de sectie **verificatie certificaat exporteren van een back-end-certificaat (voor v1 sku's)** om het vertrouwde basis certificaat te exporteren in de met Base-64 gecodeerde X. 509 (. CER)-indeling.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu kunt u de verificatie/certificaat wordt vertrouwd basiscertificaat in een Base-64 encoded X.509 (. CER)-indeling. U kunt deze toevoegen aan de toepassingsgateway aan lijst met geaccepteerde uw back-endservers voor end-to-end SSL-versleuteling Zie [end to end SSL-versleuteling configureren](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+U hebt nu het verificatie certificaat/het vertrouwde basis certificaat in base-64 Encoded X. 509 (. CER)-indeling. U kunt deze toevoegen aan de toepassings gateway zodat uw back-endservers end-to-end SSL-versleuteling. Zie [end-to-end SSL-versleuteling configureren](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).

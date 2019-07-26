@@ -1,122 +1,121 @@
 ---
-title: Ondersteuningsmatrix voor Microsoft Azure Backup server en System Center DPM
-description: In dit artikel bevat een overzicht van Azure Backup-ondersteuning wanneer u Microsoft Azure Backup Server of System Center DPM back-up on-premises en Azure VM-resources.
-services: backup
+title: Ondersteunings matrix voor Microsoft Azure Backup Server en System Center DPM
+description: Dit artikel bevat een overzicht van Azure Backup ondersteuning wanneer u Microsoft Azure Backup Server of System Center DPM gebruikt om een back-up te maken van on-premises en Azure VM-resources.
 author: rayne-wiselman
 ms.service: backup
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 85e65c36a0d636d94a9ef9070c21ab047542d8f4
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 777d2286ed24123011e06edfb468d0f2db61715f
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594264"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464886"
 ---
-# <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Ondersteuningsmatrix voor back-up met Microsoft Azure Backup-Server of System Center DPM
+# <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Ondersteunings matrix voor back-up met Microsoft Azure Backup Server of System Center DPM
 
-U kunt de [Azure Backup-service](backup-overview.md) back-up on-premises computers en werkbelastingen en virtuele Azure-machines (VM's). In dit artikel bevat een overzicht van instellingen voor de ondersteuning en beperkingen voor back-ups van virtuele machines met behulp van Microsoft Azure Backup-Server (MABS) of System Center Data Protection Manager (DPM) en Azure Backup.
+U kunt de [Azure backup-service](backup-overview.md) gebruiken voor het maken van een back-up van on-premises machines en werk belastingen, en virtuele machines van Azure (vm's). In dit artikel vindt u een overzicht van de ondersteunings instellingen en beperkingen voor het maken van back-ups van machines met behulp van Microsoft Azure Backup Server (MABS) of System Center Data Protection Manager (DPM) en Azure Backup.
 
-## <a name="about-dpmmabs"></a>Over DPM/MABS
+## <a name="about-dpmmabs"></a>Over DPM-MABS
 
-[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview?view=sc-dpm-1807) is een bedrijfsoplossing die configureert en beheert back-up en herstel van enterprise-machines en gegevens vereenvoudigt. Het onderdeel van de [System Center](https://www.microsoft.com/cloud-platform/system-center-pricing) reeks producten.
+[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview?view=sc-dpm-1807) is een bedrijfs oplossing waarmee back-ups en herstel van bedrijfs computers en-gegevens worden geconfigureerd, vergemakkelijkt en beheerd. Het maakt deel uit van de [System Center](https://www.microsoft.com/cloud-platform/system-center-pricing) -product suite.
 
-MABS is een serverproduct dat kan worden gebruikt om back-up van fysieke on-premises servers, virtuele machines en apps die daarop worden uitgevoerd.
+MABS is een server product dat kan worden gebruikt voor het maken van een back-up van on-premises fysieke servers, Vm's en apps die hierop worden uitgevoerd.
 
-MABS is gebaseerd op System Center DPM en biedt een vergelijkbare functionaliteit met een paar verschillen:
-- Er is geen System Center-licentie is vereist voor MABS worden uitgevoerd.
-- Azure biedt voor MABS en DPM back-upopslag op lange termijn. Bovendien kunt DPM u back-up van gegevens voor langetermijnopslag op tape. MABS biedt niet deze functionaliteit.
+MABS is gebaseerd op System Center DPM en biedt vergelijk bare functionaliteit met een aantal verschillen:
+- Er is geen System Center-licentie vereist om MABS uit te voeren.
+- Voor zowel MABS als DPM biedt Azure lange termijn back-upopslag. Daarnaast kunt u met DPM back-ups maken van gegevens voor lange termijn opslag op tape. MABS biedt deze functionaliteit niet.
 
-Downloaden van MABS uit de [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=57520). Deze kan worden uitgevoerd-on-premises of op een Azure-VM.
+U kunt MABS downloaden van het [micro soft Download centrum](https://www.microsoft.com/en-us/download/details.aspx?id=57520). Het kan on-premises of op een virtuele machine van Azure worden uitgevoerd.
 
-DPM en MABS ondersteuning voor back-ups van een groot aantal apps en -server en client-besturingssystemen. Ze bieden meerdere back-upscenario's:
+DPM en MABS bieden ondersteuning voor het maken van back-ups van een groot aantal verschillende apps en server-en client besturingssystemen. Ze bieden meerdere back-upscenario's:
 
-- U kunt back-up op het machineniveau van de met systeemstatus of bare metal-back-up.
-- U kunt back-up van bepaalde volumes, shares, mappen en bestanden.
-- U kunt een back-up specifieke apps maken met behulp van geoptimaliseerde app-compatibele instellingen.
+- U kunt een back-up op machine niveau maken met de systeem status of bare metal-back-up.
+- U kunt back-ups maken van specifieke volumes, shares, mappen en bestanden.
+- U kunt back-ups van specifieke apps maken met behulp van geoptimaliseerde app-instellingen.
 
-## <a name="dpmmabs-backup"></a>DPM/MABS back-up
+## <a name="dpmmabs-backup"></a>DPM/MABS-back-up
 
-Back-up met DPM/MABS en Azure Backup werkt als volgt:
+Back-up met DPM-MABS en Azure Backup werkt als volgt:
 
-1. DPM/MABS-beveiligingsagent is geïnstalleerd op elke machine die wordt een back-up.
-1. Machines en apps back-ups naar de lokale opslag op DPM/MABS.
-1. De Microsoft Azure Recovery Services agent (MARS) is geïnstalleerd op de DPM-server/MABS.
-1. De MARS-agent back-ups van de DPM/MABS-schijven naar een back-Recovery Services-kluis in Azure met behulp van Azure Backup.
+1. De DPM/MABS-beveiligings agent wordt geïnstalleerd op elke computer waarvan een back-up wordt gemaakt.
+1. Er wordt een back-up gemaakt van machines en apps naar lokale opslag op DPM-MABS.
+1. De Microsoft Azure Recovery Services-agent (MARS) is geïnstalleerd op de DPM-server-MABS.
+1. De MARS-agent maakt een back-up van de DPM-MABS-schijven met een back-upRecovery Services kluis in azure met behulp van Azure Backup.
 
 Voor meer informatie:
 
-- [Meer informatie](backup-architecture.md#architecture-back-up-to-dpmmabs) over de architectuur van MABS.
-- [Bekijk wat er wordt ondersteund](backup-support-matrix-mars-agent.md) voor de MARS-agent.
+- Meer [informatie](backup-architecture.md#architecture-back-up-to-dpmmabs) over MABS-architectuur.
+- [Controleer wat wordt ondersteund](backup-support-matrix-mars-agent.md) voor de Mars-agent.
 
 ## <a name="supported-scenarios"></a>Ondersteunde scenario's
 
 **Scenario** | **Agent** | **Location**
 --- | --- | ---
-**Een back-up on-premises machines/werkbelastingen** | DPM/MABS-beveiligingsagent op de machines die u back wilt-up wordt uitgevoerd.<br/><br/> De MARS-agent op DPM/MABS-server.<br/> De minimale versie van het Microsoft Azure Recovery Services-agent of de Azure backup-agent, vereist voor het inschakelen van deze functie is 2.0.8719.0.  | DPM/MABS moet on-premises worden uitgevoerd.
-**Back-ups van Azure-VM's / workloads** | DPM/MABS-beveiligingsagent op beveiligde computer.<br/><br/> De MARS-agent op DPM/MABS-server. | DPM/MABS moet worden uitgevoerd op een Azure-VM.
+**Back-ups maken van on-premises machines/werk belastingen** | De DPM/MABS Protection-agent wordt uitgevoerd op de computers waarvan u een back-up wilt maken.<br/><br/> De MARS-agent op de DPM-MABS-server.<br/> De minimale versie van de Microsoft Azure Recovery Services agent, of Azure Backup Agent, die vereist is om deze functie in te scha kelen, is 2.0.8719.0.  | DPM-MABS moeten on-premises worden uitgevoerd.
+**Back-ups maken van virtuele Azure-machines/-workloads** | DPM/MABS-beveiligings agent op de beveiligde computer.<br/><br/> De MARS-agent op de DPM-MABS-server. | DPM/MABS moet worden uitgevoerd op een virtuele Azure-machine.
 
 ## <a name="supported-deployments"></a>Ondersteunde implementaties
 
-DPM/MABS kan worden geïmplementeerd, zoals samengevat in de volgende tabel.
+DPM/MABS kan worden geïmplementeerd, zoals in de volgende tabel wordt samenvatten.
 
 **Implementatie** | **Ondersteuning** | **Details**
 --- | --- | ---
-**On-premises geïmplementeerd** | Fysieke server<br/><br/>Hyper-V-VM<br/><br/> Virtuele VMware-machine | Als DPM/MABS als een VMware-VM is geïnstalleerd, wordt alleen back-ups van virtuele VMware-machines en werkbelastingen die worden uitgevoerd op deze virtuele machines.
-**Geïmplementeerd als een Azure Stack-VM** | Alleen MABS | DPM kan niet worden gebruikt om back-up van virtuele machines van Azure Stack.
-**Geïmplementeerd als een Azure-VM** | Beveiligt virtuele machines van Azure en werkbelastingen die worden uitgevoerd op deze virtuele machines | DPM/MABS worden uitgevoerd in Azure kan geen back-up on-premises computers.
+**On-premises geïmplementeerd** | Fysieke server<br/><br/>Virtuele Hyper-V-machine<br/><br/> VMware-VM | Als DPM/MABS is geïnstalleerd als een VMware-VM, wordt alleen een back-up gemaakt van virtuele VMware-machines en workloads die worden uitgevoerd op deze Vm's.
+**Geïmplementeerd als een Azure Stack VM** | Alleen MABS | DPM kan niet worden gebruikt om back-ups te maken van Azure Stack Vm's.
+**Geïmplementeerd als een virtuele machine van Azure** | Beveiligt Azure-Vm's en-workloads die worden uitgevoerd op deze Vm's | DPM-MABS die in Azure worden uitgevoerd, kunnen geen back-ups maken van on-premises machines.
 
 
-## <a name="supported-mabs-and-dpm-operating-systems"></a>Ondersteunde besturingssystemen voor MABS en DPM
+## <a name="supported-mabs-and-dpm-operating-systems"></a>Ondersteunde MABS-en DPM-besturings systemen
 
-Azure Backup een back-up DPM/MABS-instanties die een van de volgende besturingssystemen worden uitgevoerd. Besturingssystemen moet worden uitgevoerd, de nieuwste servicepacks en updates.
+Azure Backup kunt een back-up maken van DPM-MABS-exemplaren waarop een van de volgende besturings systemen wordt uitgevoerd. In besturings systemen moeten de nieuwste service packs en updates worden uitgevoerd.
 
-**Scenario** | **DPM/MABS**
+**Scenario** | **DPM-MABS**
 --- | ---
-**MABS op een Azure-VM** | Windows Server 2012 R2.<br/><br/> Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> Het is raadzaam dat u met een installatiekopie van de marketplace begint.<br/><br/> Minimale A2 Standard met twee kernen en 3,5 GB aan RAM-geheugen.
-**DPM op een Azure-VM** | System Center 2012 R2 met Update 3 of hoger.<br/><br/> Windows-besturingssysteem als [vereist voor System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Het is raadzaam dat u met een installatiekopie van de marketplace begint.<br/><br/> Minimale A2 Standard met twee kernen en 3,5 GB aan RAM-geheugen.
-**MABS on-premises** | 64-bits besturingssystemen ondersteund:<br/><br/> MABS v3 en hoger: WindowsServer (Standard, Datacenter, Essentials) 2019. <br/><br/> MABS v2 en hoger: WindowsServer 2016 (Standard, Datacenter, Essentials).<br/><br/> Alle MABS-versies: Windows Server 2012 R2.<br/><br/>Alle MABS-versies: Windows Storage Server 2012 R2.
-**DPM on-premises** | Fysieke server/Hyper-V virtuele machine: System Center 2012 SP1 of hoger.<br/><br/> Virtuele VMware-machine: System Center 2012 R2 met Update 5 of hoger.
+**MABS op een Azure VM** | Windows Server 2012 R2.<br/><br/> Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> U wordt aangeraden te beginnen met een installatie kopie van de Marketplace.<br/><br/> Mini maal a2 standaard met twee kernen en 3,5 GB aan RAM-geheugen.
+**DPM op een virtuele Azure-machine** | System Center 2012 R2 met update 3 of hoger.<br/><br/> Het Windows-besturings systeem zoals [vereist door System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> U wordt aangeraden te beginnen met een installatie kopie van de Marketplace.<br/><br/> Mini maal a2 standaard met twee kernen en 3,5 GB aan RAM-geheugen.
+**On-premises MABS** | Ondersteunde 64-bits besturings systemen:<br/><br/> MABS v3 en hoger: Windows Server 2019 (Standard, Data Center, Essentials). <br/><br/> MABS v2 en hoger: Windows Server 2016 (Standard, Data Center, Essentials).<br/><br/> Alle MABS-versies: Windows Server 2012 R2.<br/><br/>Alle MABS-versies: Windows Storage Server 2012 R2.
+**On-premises DPM** | Fysieke server/Hyper-V-VM: System Center 2012 SP1 of hoger.<br/><br/> VMware-VM: System Center 2012 R2 met Update 5 of hoger.
 
 
 
-## <a name="management-support"></a>Ondersteuning
+## <a name="management-support"></a>Beheer ondersteuning
 
-**Probleem** | **Details**
+**Name** | **Details**
 --- | ---
-**Installatie** | Installeer DPM/MABS op een machine met één doel.<br/><br/> Installeer DPM/MABS niet op een domeincontroller, op een computer met de installatie van de rol toepassingsserver, op een computer die Microsoft Exchange Server of System Center Operations Manager wordt uitgevoerd of op een clusterknooppunt.<br/><br/> [Alle DPM-systeemvereisten controleren](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).
-**Domein** | DPM/MABS moet worden toegevoegd aan een domein. Eerst installeren en vervolgens DPM/MABS toevoegen aan een domein. DPM/MABS verplaatsen naar een nieuw domein na implementatie wordt niet ondersteund.
-**Storage** | Moderne back-upopslag (MB/s) wordt ondersteund vanaf DPM 2016/MABS v2 en hoger. Het is niet beschikbaar voor MABS v1.
-**MABS-upgrade** | U kunt rechtstreeks MABS v3 installeren of upgraden naar MABS v3 van MABS v2. [Meer informatie](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
-**MABS verplaatsen** | MABS verplaatsen naar een nieuwe server behoudt de opslag wordt ondersteund als u MB/s.<br/><br/> De server moet dezelfde naam als de oorspronkelijke hebben. U kunt de naam niet wijzigen als u wilt behouden van dezelfde opslaggroep en de dezelfde MABS-database gebruiken voor het opslaan van gegevens herstelpunten.<br/><br/> U moet een back-up van de MAB-database omdat, moet u deze herstellen.
+**Installatie** | Installeer DPM-MABS op een computer met één doel.<br/><br/> Installeer DPM/MABS niet op een domein controller, op een computer met de installatie van de functie toepassings server op een computer waarop micro soft Exchange Server of System Center Operations Manager, of op een cluster knooppunt.<br/><br/> [Controleer alle DPM-systeem vereisten](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).
+**Domein** | DPM/MABS moet lid zijn van een domein. Installeer eerst en voeg vervolgens DPM-MABS toe aan een domein. Het verplaatsen van DPM-MABS naar een nieuw domein na implementatie wordt niet ondersteund.
+**Storage** | Moderne back-upopslag (MBS) wordt ondersteund vanuit DPM 2016/MABS v2 en hoger. Het is niet beschikbaar voor MABS v1.
+**MABS-upgrade** | U kunt MABS v3 rechtstreeks installeren of een upgrade uitvoeren naar MABS v3 vanuit MABS v2. [Meer informatie](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
+**MABS verplaatsen** | Het is niet mogelijk om MABS naar een nieuwe server te verplaatsen terwijl de opslag wordt behouden als u MBS gebruikt.<br/><br/> De server moet dezelfde naam hebben als de oorspronkelijke. U kunt de naam niet wijzigen als u dezelfde opslag groep wilt bewaren en dezelfde MABS-Data Base wilt gebruiken om gegevens herstel punten op te slaan.<br/><br/> U hebt een back-up van de MABS-data base nodig, omdat u deze moet herstellen.
 
 
-## <a name="mabs-support-on-azure-stack"></a>MABS-ondersteuning in Azure Stack
+## <a name="mabs-support-on-azure-stack"></a>MABS-ondersteuning voor Azure Stack
 
-U kunt MABS op een virtuele machine van Azure Stack kunt implementeren, zodat u back-up van Azure Stack-VM's en workloads vanaf één locatie beheren kunt.
+U kunt MABS implementeren op een Azure Stack virtuele machine, zodat u een back-up van Azure Stack Vm's en workloads vanaf één locatie kunt beheren.
 
 **Onderdeel** | **Details**
 --- | ---
-**MABS op Azure Stack VM** | Ten minste het formaat van A2. U wordt aangeraden dat u beginnen met een installatiekopie van Windows Server 2012 R2 of Windows Server 2016 op Azure Marketplace.<br/><br/> Installeer geen iets anders op de VM MABS.
-**MABS-opslag** | Gebruik een afzonderlijk opslagaccount voor de VM MABS. De MARS-agent die wordt uitgevoerd op MABS, heeft tijdelijke opslag voor de locatie van een cache en voor het opslaan van gegevens hersteld vanuit de cloud.
-**MABS-opslaggroep** | De grootte van de MAB-opslaggroep wordt bepaald door het aantal en de grootte van schijven die zijn gekoppeld aan de VM MABS. Elke Azure Stack-VM-grootte heeft een maximale aantal schijven. A2 is bijvoorbeeld vier schijven.
-**MABS bewaren** | Geen back-ups van gegevens op de lokale MABS-schijven niet meer dan vijf dagen bewaren.
-**MABS schalen omhoog** | Als u wilt schalen van uw implementatie, kunt u de grootte van de VM MABS verhogen. U kunt bijvoorbeeld wijzigen van A naar D-serie.<br/><br/> U kunt er ook voor zorgen dat u bent offloading van gegevens met back-up naar Azure regelmatig. Indien nodig, kunt u extra MABS-servers kunt implementeren.
-**.NET framework voor MABS** | De VM MABS moet .NET Framework 3.3 SP1 of hoger is geïnstalleerd.
-**MABS-domein** | De VM MABS moet worden toegevoegd aan een domein. Een gebruiker met beheerdersbevoegdheden moet MABS installeren op de virtuele machine.
-**Azure Stack VM gegevensback-up** | U kunt back-up van bestanden, mappen en apps.
-**Ondersteunde back-up** | Deze besturingssystemen worden ondersteund voor virtuele machines die u wilt back-up:<br/><br/> Windows Server semi-Annual-kanaal (Datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
-**SQL Server-ondersteuning voor Azure Stack-VM 's** | Back up SQL Server 2016, SQL Server 2014, SQL Server 2012 SP1.<br/><br/> Back-up en herstellen van een database.
-**SharePoint-ondersteuning voor Azure Stack-VM 's** | SharePoint 2016, SharePoint 2013, SharePoint 2010.<br/><br/> Back-up en herstellen van een farm, database, front-end en webserver.
-**Netwerkvereisten voor back-ups van virtuele machines** | Alle virtuele machines in Azure Stack-werkbelasting moeten deel uitmaken van hetzelfde virtuele netwerk en behoren tot hetzelfde abonnement.
+**MABS op Azure Stack VM** | Ten minste a2. U kunt het beste beginnen met een installatie kopie van Windows Server 2012 R2 of Windows Server 2016 vanuit Azure Marketplace.<br/><br/> Installeer niets anders op de MABS-VM.
+**MABS-opslag** | Gebruik een afzonderlijk opslag account voor de MABS-VM. De MARS-agent die wordt uitgevoerd op MABS, heeft tijdelijke opslag nodig voor een cache locatie en voor het bewaren van gegevens die zijn hersteld vanuit de Cloud.
+**Opslag groep MABS** | De grootte van de MABS-opslag groep wordt bepaald door het aantal en de grootte van de schijven die aan de MABS-VM zijn gekoppeld. Voor elke Azure Stack VM-grootte geldt een maximum aantal schijven. A2 is bijvoorbeeld vier schijven.
+**MABS-retentie** | Bewaar niet langer dan vijf dagen back-ups van gegevens op de lokale MABS-schijven.
+**MABS omhoog schalen** | Als u de implementatie wilt uitbreiden, kunt u de grootte van de MABS-VM verg Roten. U kunt bijvoorbeeld wijzigen van een naar D-serie.<br/><br/> U kunt er ook voor zorgen dat u regel matig gegevens offloadt met back-up naar Azure. Indien nodig kunt u aanvullende MABS-servers implementeren.
+**.NET Framework op MABS** | Voor de MABS-VM moet .NET Framework 3,3 SP1 of hoger zijn geïnstalleerd.
+**Domein MABS** | De MABS-VM moet lid zijn van een domein. Een domein gebruiker met beheerders bevoegdheden moet MABS installeren op de virtuele machine.
+**Back-up van VM-gegevens Azure Stack** | U kunt back-ups maken van bestanden, mappen en apps.
+**Ondersteunde back-up** | Deze besturings systemen worden ondersteund voor virtuele machines waarvan u een back-up wilt maken:<br/><br/> Windows Server Semi-Annual-kanaal (Data Center, Enter prise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
+**SQL Server ondersteuning voor Azure Stack Vm's** | Maak een back-up van SQL Server 2016 SQL Server 2014 SQL Server 2012 SP1.<br/><br/> Back-ups maken en herstellen van een Data Base.
+**Share point-ondersteuning voor Azure Stack Vm's** | SharePoint 2016, SharePoint 2013, SharePoint 2010.<br/><br/> Back-ups maken en herstellen van een farm, Data Base, front-end en webserver.
+**Netwerk vereisten voor het maken van back-ups van Vm's** | Alle virtuele machines in Azure Stack workload moeten deel uitmaken van hetzelfde virtuele netwerk en behoren tot hetzelfde abonnement.
 
-## <a name="dpmmabs-networking-support"></a>DPM/MABS netwerkondersteuning
+## <a name="dpmmabs-networking-support"></a>DPM/MABS-netwerk ondersteuning
 
 ### <a name="url-access"></a>URL-toegang
 
-De DPM-server/MABS moet toegang hebben tot deze URL's:
+De DPM-server-MABS moet toegang hebben tot deze Url's:
 
 - http://www.msftncsi.com/ncsi.txt
 - *.Microsoft.com
@@ -126,94 +125,94 @@ De DPM-server/MABS moet toegang hebben tot deze URL's:
 
 ### <a name="dpmmabs-connectivity-to-azure-backup"></a>DPM/MABS-verbinding met Azure Backup
 
-Verbinding met de Azure Backup-service is vereist voor back-ups te laten functioneren en de Azure-abonnement actief mag zijn. De volgende tabel ziet u het gedrag als deze twee dingen niet plaats.
+De verbinding met de Azure Backup-service is vereist voor een juiste werking van back-ups en het Azure-abonnement moet actief zijn. In de volgende tabel ziet u het gedrag als deze twee dingen zich niet voordoen.
 
-**MABS naar Azure** | **Abonnement** | **Back-up/herstellen**
+**MABS naar Azure** | **Abonnement** | **Back-up maken/herstellen**
 --- | --- | ---
-Verbonden | Actief | Back-up naar schijf voor DPM/MABS.<br/><br/> Back-up naar Azure.<br/><br/> Terugzetten vanaf schijf.<br/><br/> Herstellen van Azure.
-Verbonden | Verlopen/de inrichting ongedaan gemaakt | Er is geen back-up op schijf of op Azure.<br/><br/> Als het abonnement is verlopen, kunt u herstellen vanaf schijf of Azure.<br/><br/> Als het abonnement uit bedrijf genomen is, kunt u niet kunt herstellen vanaf schijf of Azure. De Azure-herstelpunten worden verwijderd.
-Er is geen verbinding meer dan 15 dagen | Actief | Er is geen back-up op schijf of op Azure.<br/><br/> U kunt herstellen vanaf schijf of Azure.
-Er is geen verbinding meer dan 15 dagen | Verlopen/de inrichting ongedaan gemaakt | Er is geen back-up op schijf of op Azure.<br/><br/> Als het abonnement is verlopen, kunt u herstellen vanaf schijf of Azure.<br/><br/> Als het abonnement uit bedrijf genomen is, kunt u niet kunt herstellen vanaf schijf of Azure. De Azure-herstelpunten worden verwijderd.
+Verbonden | Actief | Maak een back-up naar de DPM-MABS-schijf.<br/><br/> Maak een back-up naar Azure.<br/><br/> Herstellen vanaf schijf.<br/><br/> Herstellen vanuit Azure.
+Verbonden | Verlopen/niet-ingericht | Geen back-up naar schijf of Azure.<br/><br/> Als het abonnement is verlopen, kunt u het herstellen vanaf schijf of Azure.<br/><br/> Als het abonnement uit bedrijf is genomen, kunt u niet meer herstellen vanaf schijf of Azure. De Azure-herstel punten worden verwijderd.
+Geen connectiviteit langer dan 15 dagen | Actief | Geen back-up naar schijf of Azure.<br/><br/> U kunt herstellen vanaf schijf of Azure.
+Geen connectiviteit langer dan 15 dagen | Verlopen/niet-ingericht | Geen back-up naar schijf of Azure.<br/><br/> Als het abonnement is verlopen, kunt u het herstellen vanaf schijf of Azure.<br/><br/> Als het abonnement uit bedrijf is genomen, kunt u niet meer herstellen vanaf schijf of Azure. De Azure-herstel punten worden verwijderd.
 
 ## <a name="dpmmabs-storage-support"></a>Ondersteuning voor DPM/MABS-opslag
 
-Gegevens die de back-up naar DPM/MABS worden opgeslagen op de lokale schijfopslag.
+Gegevens waarvan een back-up is gemaakt naar DPM/MABS, worden opgeslagen op de lokale schijf opslag.
 
 **Storage** | **Details**
 --- | ---
-**MBS** | Moderne back-upopslag (MB/s) wordt ondersteund vanaf DPM 2016/MABS v2 en hoger. Het is niet beschikbaar voor MABS v1.
-**MABS-opslag op virtuele Azure-machine** | Gegevens worden opgeslagen op Azure-schijven die zijn gekoppeld aan de DPM/MABS-VM, en die worden beheerd in DPM/MABS. Het aantal schijven dat kan worden gebruikt voor DPM/MABS-opslaggroep wordt beperkt door de grootte van de virtuele machine.<br/><br/> A2 VM: 4-schijven. A3 VM: 8 schijven. A4 VM: 16 schijven, met een maximale grootte van 1 TB voor elke schijf. Hiermee bepaalt u het totale aantal back-upopslag die beschikbaar is.<br/><br/> De hoeveelheid gegevens die u kunt back-up, is afhankelijk van het aantal en de grootte van de gekoppelde schijven.
-**MABS het bewaren van gegevens op Azure VM** | U wordt aangeraden dat u gegevens gedurende één dag op de DPM/MABS-Azure-schijf bewaren en back-up van DPM/MABS naar de kluis voor een langere periode. U kunt dus een grotere hoeveelheid gegevens beveiligen door het offloaden van het back-up van Azure.
+**MBS** | Moderne back-upopslag (MBS) wordt ondersteund vanuit DPM 2016/MABS v2 en hoger. Het is niet beschikbaar voor MABS v1.
+**MABS-opslag op Azure VM** | Gegevens worden opgeslagen op Azure-schijven die zijn gekoppeld aan de DPM/MABS-VM en die worden beheerd in DPM/MABS. Het aantal schijven dat kan worden gebruikt voor de DPM/MABS-opslag groep wordt beperkt door de grootte van de virtuele machine.<br/><br/> A2-VM: 4 schijven; A3-VM: 8 schijven; A4 VM: 16 schijven, met een maximale grootte van 1 TB voor elke schijf. Hiermee bepaalt u de totale beschik bare back-upopslaggroep.<br/><br/> De hoeveelheid gegevens waarvan u een back-up kunt maken, is afhankelijk van het aantal en de grootte van de gekoppelde schijven.
+**MABS voor het bewaren van gegevens op Azure VM** | We raden u aan gegevens voor één dag op de DPM-MABS Azure-schijf te bewaren en een back-up te maken van DPM/MABS naar de kluis voor een langere Bewaar periode. Zo kunt u een grotere hoeveelheid gegevens beveiligen door deze naar Azure Backup te offloaden.
 
 
-### <a name="modern-backup-storage-mbs"></a>Moderne back-upopslag (MB/s)
-Van DPM 2016/MABS v2 (uitgevoerd op Windows Server 2016) en hoger, kunt u profiteren van modern backup storage (MB/s).
+### <a name="modern-backup-storage-mbs"></a>Moderne back-upopslag (MB)
+Vanuit DPM 2016/MABS v2 (dat wordt uitgevoerd op Windows Server 2016) en hoger, kunt u profiteren van moderne back-upopslag (MBS).
 
-- MB/s back-ups worden opgeslagen op een schijf Resilient File System (ReFS).
-- MB/s gebruikt ReFS blokklonering voor snellere back-ups en efficiënter gebruik van opslagruimte.
-- Als u volumes aan de lokale DPM/MABS-opslaggroep toevoegt, kunt u ze configureren met de stationsletters. Vervolgens kunt u de werkbelasting opslag configureren op verschillende volumes.
-- Als u beveiligingsgroepen aan back-ups naar DPM/MABS maakt, selecteert u het station dat u wilt gebruiken. U kunt bijvoorbeeld opslaan van back-ups voor SQL of andere werkbelastingen met hoge IOPS op een station met hoge prestaties, en opslaan van workloads die minder vaak op een lagere prestaties station worden ondersteund.
+- MBS-back-ups worden opgeslagen op een ReFS-schijf (robuust bestands systeem).
+- MBS maakt gebruik van ReFS-blok kloon voor snellere back-ups en efficiënter gebruik van opslag ruimte.
+- Wanneer u volumes aan de lokale DPM/MABS-opslag groep toevoegt, configureert u deze met stationsletters. U kunt vervolgens de werkbelasting opslag configureren op verschillende volumes.
+- Wanneer u beveiligings groepen maakt om een back-up te maken van gegevens naar DPM/MABS, selecteert u het station dat u wilt gebruiken. U kunt bijvoorbeeld back-ups opslaan voor SQL of andere workloads met een hoge IOPS op een hoogwaardige schijf en werk belastingen opslaan waarvan minder vaak een back-up wordt gemaakt op een lager prestatie station.
 
 
 ## <a name="supported-backups-to-mabs"></a>Ondersteunde back-ups naar MABS
 
-De volgende tabel geeft een overzicht van wat kan worden back-ups op MABS van on-premises machines en virtuele Azure-machines.
+De volgende tabel bevat een overzicht van waaruit een back-up kan worden gemaakt naar MABS vanaf on-premises machines en Azure-Vm's.
 
 
 **Een back-up maken** | **Versies** | **MABS** | **Details** |
 --- | --- | --- | --- |
-**Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(64-32-bits) | MABS v3, v2 | On-premises. | Volume/share/map/bestand.<br/><br/> Ontdubbelde volumes wordt ondersteund.<br/><br/> Volumes moeten ten minste 1 GB en NTFS. |
-**Windows Server 2016 (Datacenter, Standard, not Nano)**<br/><br/> 32-64-bits | MABS v3, v2 | On-premises/Azure VM.| Volume/share/map/bestand. systeem-status/bare metal.<br/><br/> Ontdubbelde volumes wordt ondersteund. |
-**Windows Server 2012 R2 (Datacenter en Standard)**<br/><br/> 32-64-bits | MABS v3, v2 | On-premises/Azure VM. | **On-premises bescherming**: Volume/share/map/bestand. systeem-status/bare metal.<br/><br/> **Azure VMprotection**: Volume/share/map/bestand.<br/><br/> Ontdubbelde volumes wordt ondersteund. |
-**WindowsServer 2012 met SP1 (Datacenter en Standard)**<br/><br/> 32-64-bits | MABS v3, v2 <br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) moet worden geïnstalleerd. | On-premises/Azure VM. | **On-premises bescherming**: Volume/share/map/bestand. systeem-status/bare metal.<br/><br/> **Azure VM-beveiliging**: Volume/share/map/bestand.<br/><br/> Ontdubbelde volumes wordt ondersteund. |
-**Windows 2008 R2 met SP1 (Standard en Enterprise)**<br/><br/> 32-64-bits | Ondersteund door MABS v3, v2.<br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) moet worden geïnstalleerd. | On-premises/Azure VM. |   **On-premises bescherming**: Volume/share/map/bestand. systeem-status/bare metal.<br/><br/> **Azure VM-beveiliging**: Volume/share/map/bestand.<br/><br/> Ontdubbelde volumes wordt ondersteund. |
-**Windows 2008 R2 (Standard en Enterprise)**<br/><br/> 32-64-bits | Voor MABS moet het besturingssysteem v2/v3 SP1 worden uitgevoerd. | On-premises/Azure VM. | **On-premises bescherming**: Volume/share/map/bestand. systeem-status/bare metal.<br/><br/> **Azure VM-beveiliging**: Volume/share/map/bestand.<br/><br/> Ontdubbelde volumes wordt ondersteund. |
-**WindowsServer 2008 met SP2**<br/><br/> 32-64-bits | MABS v2, v3 | MABS v2, v3 wordt ondersteund bij MABS wordt geïmplementeerd als een VMware-VM.<br/><br/> Niet ondersteund voor MABS die worden uitgevoerd op virtuele Azure-machine. | Volume/share/map/bestand. systeem-status/bare metal. |
-**Windows Storage Server 2008** | MABS v2, v3 | MABS als on-premises fysieke server/Hyper-V virtuele machine. <br/><br/> Niet ondersteund voor MABS die worden uitgevoerd op virtuele Azure-machine. | Volume/share/map/bestand. systeem-status/bare metal.
-**SQL Server 2017** | MABS v3 | On-premises/Azure VM.| Back-up van SQL Server-database.<br/><br/> SQL Server-cluster back-up wordt ondersteund.<br/><br/>Databases die zijn opgeslagen op CSV's wordt niet ondersteund. |
-**SQL Server 2016/2016 met SP1** | MABS v3, v2 | On-premises/Azure VM.| Back-up van SQL Server-database.<br/><br/> SQL Server-cluster back-up wordt ondersteund.<br/><br/>Databases die zijn opgeslagen op CSV's wordt niet ondersteund. |
-**SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | MABS v3, v2 | On-premises/Azure VM.| Back-up van SQL Server-database.<br/><br/> SQL Server-cluster back-up wordt ondersteund.<br/><br/>Databases die zijn opgeslagen op CSV's wordt niet ondersteund. |
-**Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | MABS v3, v2 | On-premises. | Back-up zelfstandige Exchange server, database onder een DAG.<br/><br/> Postvak, postvakdatabase onder een DAG herstellen.<br/><br/> ReFS niet wordt ondersteund.<br/><br/> Back-up niet-gedeelde schijfclusters.<br/><br/> Back-up van Exchange Server die is geconfigureerd voor continue replicatie. |
-**SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | MABS v3, v2 | On-premises/Azure VM. | Back-up-farm, front-endwebserver.<br/><br/> Herstellen-farm, database, webtoepassing, bestand of lijstitem, SharePoint zoeken, front-endwebserver.<br/><br/> U kunt geen back-up van een farm met behulp van SQL Server AlwaysOn voor inhoudsdatabases. |
-**Hyper-V in WindowsServer 2016**<br/><br/> **Windows Server 2008 R2 (with SP1)** | MABS v3, v2 | On-premises. | **MAB-agent op Hyper-V-host**: Back-up volledige VM's en gegevensbestanden van de host. Back-up van virtuele machines met lokale opslag, virtuele machines in een cluster met CSV-opslag, virtuele machines met SMB file server storage.<br/><br/> **MAB-agent in Gast-VM**: Back-up van workloads die worden uitgevoerd op de virtuele machine. CSV's.<br/><br/> **Recovery**: Virtuele machine, herstel op itemniveau van VHD/volume/mappen/bestanden.<br/><br/> **Virtuele Linux-machines**: Back-up wanneer de Hyper-V wordt uitgevoerd op Windows Server 2012 R2 en hoger. Herstel voor virtuele Linux-machines is voor de hele machine. |
-**Virtuele VMware-machines: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 | On-premises. | Back-up van virtuele VMware-machines op CSV's, NFS en SAN-opslag.<br/><br/> Volledige VM herstellen.<br/><br/> Back-up van Windows/Linux.<br/><br/> Herstel op itemniveau van de map/voor Windows-VM's alleen bestanden.<br/><br/> VMware vApps worden niet ondersteund.<br/><br/> Herstel voor virtuele Linux-machines is voor de hele machine. |
+**Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64 bits) | MABS v3, v2 | On-premises. | Volume/share/map/bestand.<br/><br/> Niet-geduplicatede volumes worden ondersteund.<br/><br/> Volumes moeten ten minste 1 GB en NTFS zijn. |
+**Windows Server 2016 (Data Center, Standard, not nano)**<br/><br/> 64/32-bits | MABS v3, v2 | On-premises/Azure VM.| Volume/share/map/bestand; systeem status/bare-metal.<br/><br/> Niet-geduplicatede volumes worden ondersteund. |
+**Windows Server 2012 R2 (Data Center en Standard)**<br/><br/> 64/32-bits | MABS v3, v2 | On-premises/Azure VM. | **On-premises beveiliging**: Volume/share/map/bestand; systeem status/bare-metal.<br/><br/> **Azure-VMprotection**: Volume/share/map/bestand.<br/><br/> Niet-geduplicatede volumes worden ondersteund. |
+**Windows Server 2012 met SP1 (Data Center en Standard)**<br/><br/> 64/32-bits | MABS v3, v2 <br/><br/> [Windows Management Framework 4,0](https://www.microsoft.com/download/details.aspx?id=40855) moet zijn geïnstalleerd. | On-premises/Azure VM. | **On-premises beveiliging**: Volume/share/map/bestand; systeem status/bare-metal.<br/><br/> **Azure VM-beveiliging**: Volume/share/map/bestand.<br/><br/> Niet-geduplicatede volumes worden ondersteund. |
+**Windows 2008 R2 met SP1 (Standard en Enter prise)**<br/><br/> 64/32-bits | Ondersteund door MABS v3, v2.<br/><br/> [Windows Management Framework 4,0](https://www.microsoft.com/download/details.aspx?id=40855) moet zijn geïnstalleerd. | On-premises/Azure VM. |   **On-premises beveiliging**: Volume/share/map/bestand; systeem status/bare-metal.<br/><br/> **Azure VM-beveiliging**: Volume/share/map/bestand.<br/><br/> Niet-geduplicatede volumes worden ondersteund. |
+**Windows 2008 R2 (Standard en Enter prise)**<br/><br/> 64/32-bits | Voor MABS v2/v3 moet het besturings systeem SP1 uitvoeren. | On-premises/Azure VM. | **On-premises beveiliging**: Volume/share/map/bestand; systeem status/bare-metal.<br/><br/> **Azure VM-beveiliging**: Volume/share/map/bestand.<br/><br/> Niet-geduplicatede volumes worden ondersteund. |
+**Windows Server 2008 met SP2**<br/><br/> 64/32-bits | MABS v2, v3 | MABS v2, V3 wordt ondersteund wanneer MABS wordt geïmplementeerd als een virtuele VMware-machine.<br/><br/> Niet ondersteund voor MABS die worden uitgevoerd op een virtuele Azure-machine. | Volume/share/map/bestand; systeem status/bare-metal. |
+**Windows Storage Server 2008** | MABS v2, v3 | MABS als een on-premises fysieke server/Hyper-V-VM. <br/><br/> Niet ondersteund voor MABS die worden uitgevoerd op een virtuele Azure-machine. | Volume/share/map/bestand; systeem status/bare-metal.
+**SQL Server 2017** | MABS v3 | On-premises/Azure VM.| Maak een back-up van SQL Server Data Base.<br/><br/> SQL Server cluster back-up ondersteund.<br/><br/>Data bases die zijn opgeslagen op Csv's, worden niet ondersteund. |
+**SQL Server 2016/2016 met SP1** | MABS v3, v2 | On-premises/Azure VM.| Maak een back-up van SQL Server Data Base.<br/><br/> SQL Server cluster back-up ondersteund.<br/><br/>Data bases die zijn opgeslagen op Csv's, worden niet ondersteund. |
+**SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | MABS v3, v2 | On-premises/Azure VM.| Maak een back-up van SQL Server Data Base.<br/><br/> SQL Server cluster back-up ondersteund.<br/><br/>Data bases die zijn opgeslagen op Csv's, worden niet ondersteund. |
+**Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | MABS v3, v2 | On-premises. | Maak een back-up van een zelfstandige Exchange Server, data base onder een DAG.<br/><br/> Postvak herstellen, Postvak database onder een DAG.<br/><br/> ReFS wordt niet ondersteund.<br/><br/> Maak een back-up van niet-gedeelde schijf clusters.<br/><br/> Back-up maken van Exchange server die is geconfigureerd voor continue replicatie. |
+**SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | MABS v3, v2 | On-premises/Azure VM. | Maak een back-up van de farm, front-end-webserver.<br/><br/> Farm, Data Base, Web-app, bestand of lijst item, share Point zoeken, front-endwebserver webserver herstellen.<br/><br/> U kunt geen back-up maken van een farm met SQL Server AlwaysOn voor de inhouds databases. |
+**Hyper-V op Windows Server 2016**<br/><br/> **Windows Server 2008 R2 (met SP1)** | MABS v3, v2 | On-premises. | **MABS-agent op de Hyper-V-host**: Back-ups van hele Vm's en gegevens bestanden hosten. Back-ups maken van Vm's met lokale opslag, Vm's in een cluster met CSV-opslag, Vm's met SMB-Bestands server opslag.<br/><br/> **MABS-agent op gast-VM**: Maak een back-up van workloads die worden uitgevoerd op de VM. Csv's.<br/><br/> **Herstel**: VM, herstel op item niveau van VHD/volume/mappen/bestanden.<br/><br/> **Virtuele Linux-machines**: Maak een back-up wanneer Hyper-V wordt uitgevoerd op Windows Server 2012 R2 of hoger. Herstel voor Linux-Vm's is voor de hele machine. |
+**VMware-Vm's: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 | On-premises. | Maak een back-up van virtuele VMware-machines op Csv's-, NFS-en SAN-opslag.<br/><br/> Volledige VM herstellen.<br/><br/> Windows/Linux-back-up.<br/><br/> Herstel op item niveau van alleen mappen/bestanden voor Windows-Vm's.<br/><br/> VMware-vApps worden niet ondersteund.<br/><br/> Herstel voor Linux-Vm's is voor de hele machine. |
 
 
 
-## <a name="supported-backups-to-dpm"></a>Ondersteunde back-ups van DPM
+## <a name="supported-backups-to-dpm"></a>Ondersteunde back-ups naar DPM
 
-De volgende tabel geeft een overzicht van wat kan een back-up aan DPM van de on-premises machines en virtuele Azure-machines.
+De volgende tabel bevat een overzicht van de onderdelen waarvan een back-up kan worden gemaakt naar DPM vanaf on-premises machines en Azure-Vm's.
 
 
 
-**Een back-up maken** | **DPM** | **Details**
+**Een back-up maken** | **UP** | **Details**
 --- | --- | ---
-**Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(64-32-bits) | Alleen on-premises.<br/><br/> Voor back-ups van Windows 10 met DPM 2012 R2, het beste installeren [Update 11](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager). | Volume/share/map/bestand.<br/><br/> Ontdubbelde volumes wordt ondersteund.<br/><br/> Volumes moeten ten minste 1 GB en NTFS.
-**Windows Server 2016 (Datacenter, Standard, not Nano)**<br/><br/> 32-64-bits | On-premises/Azure VM.<br/><br/> DPM 2016.| Volume/share/map/bestand. systeem-status/bare metal.<br/><br/> Ontdubbelde volumes wordt ondersteund.
-**Windows Server 2012 R2 (Datacenter en Standard)**<br/><br/> 32-64-bits | On-premises/Azure VM. | **On-premises bescherming**: Volume/share/map/bestand. systeem-status/bare metal.<br/><br/> **Azure VM-beveiliging**: Volume/share/map/bestand.<br/><br/> Ontdubbelde volumes met DPM 2012 R2 en hoger ondersteund.
-**WindowsServer 2012 met SP1 (Datacenter en Standard)**<br/><br/> 32-64-bits | On-premises/Azure VM. | **On-premises bescherming**: Volume/share/map/bestand. systeem-status/bare metal.<br/><br/> **Azure VM-beveiliging**: Volume/share/map/bestand.<br/><br/> Ontdubbelde volumes met DPM 2012 R2 en hoger ondersteund.
-**Windows 2008 R2 met SP1 (Standard en Enterprise)**<br/><br/> 32-64-bits | On-premises/Azure VM.<br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) moet worden geïnstalleerd. |   **On-premises bescherming**: Volume/share/map/bestand. systeem-status/bare metal.<br/><br/> **Azure VM-beveiliging**: Volume/share/map/bestand.
-**Windows 2008 R2 (Standard en Enterprise)**<br/><br/> 32-64-bits | On-premises.<br/><br/> DPM kan niet worden geïnstalleerd als een VMware-VM.<br/><br/> DPM wordt uitgevoerd op een Azure-VM wordt niet ondersteund. | **On-premises bescherming**: Volume/share/map/bestand. systeem-status/bare metal.
-**WindowsServer 2008 met SP2**<br/><br/> 32-64-bits | Alleen on-premises.<br/><br/> DPM wordt ondersteund bij het uitvoeren als een VMware-VM. Service wordt uitgevoerd als een fysieke server of Hyper-V-VM wordt niet ondersteund. | Volume/share/map/bestand. systeem-status/bare metal.
-**Windows Storage Server 2008** | DPM on-premises uitgevoerd als een fysieke server of Hyper-V-VM. | Volume/share/map/bestand. systeem-status/bare metal.
-**SQL Server 2017** | DPM SAC; DPM 2016 Update Roll up 5 of hoger uitvoeren.<br/><br/> On-premises/Azure VM.| Back-up van SQL Server-database.<br/><br/> SQL Server-cluster back-up wordt ondersteund.<br/><br/>Databases die zijn opgeslagen op CSV's wordt niet ondersteund.
-**SQL Server 2016 met SP1** | Niet ondersteund voor DPM 2012 R2; Ondersteund voor DPM SAC DPM 2016 Update Rollup 4 of hoger uitvoeren.<br/><br/> On-premises/Azure VM.| Back-up van SQL Server-database.<br/><br/> SQL Server-cluster back-up wordt ondersteund.<br/><br/>Databases die zijn opgeslagen op CSV's wordt niet ondersteund.
-**SQL Server 2016** | Niet ondersteund voor DPM 2012 R2. Ondersteund voor DPM SAC DPM 2016 vanaf updatepakket 2 en hoger.<br/><br/> On-premises/Azure VM.| Back-up van SQL Server-database.<br/><br/> SQL Server-cluster back-up wordt ondersteund.<br/><br/>Databases die zijn opgeslagen op CSV's wordt niet ondersteund.
-**SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | SQL Server 2014 met DPM 2012 R2 met updatepakket 4 en hoger.<br/><br/> On-premises/Azure VM.| Back-up van SQL Server-database.<br/><br/> SQL Server-cluster back-up wordt ondersteund.<br/><br/>Databases die zijn opgeslagen op CSV's wordt niet ondersteund.
-**Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | Voor Exchange 2016 moet DPM 2012 R2 updatepakket 9 of hoger.<br/><br/> On-premises | Back-up zelfstandige Exchange server, database onder een DAG.<br/><br/> Postvak, postvakdatabase onder een DAG herstellen.<br/><br/> ReFS niet wordt ondersteund.<br/><br/> Back-up niet-gedeelde schijfclusters.<br/><br/> Back-up van Exchange Server die is geconfigureerd voor continue replicatie.
-**SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | SharePoint 2016 op DPM 2016 en hoger.<br/><br/>On-premises/Azure VM. | Back-up-farm, front-endwebserver.<br/><br/> Herstellen-farm, database, webtoepassing, bestand of lijstitem, SharePoint zoeken, front-endwebserver.<br/><br/> U kunt geen back-up van een farm met behulp van SQL Server AlwaysOn voor inhoudsdatabases.
-**Hyper-V in WindowsServer 2016**<br/><br/> **Windows Server 2012 R2/2012** (Datacenter/Standard)<br/><br/> **Windows Server 2008 R2 (with SP1)** | Hyper-V op 2016 ondersteund voor DPM 2016 en hoger.<br/><br/> On-premises. | **MAB-agent op Hyper-V-host**: Back-up volledige VM's en gegevensbestanden van de host. Back-up van virtuele machines met lokale opslag, virtuele machines in een cluster met CSV-opslag, virtuele machines met SMB file server storage.<br/><br/> **MAB-agent in Gast-VM**: Back-up van workloads die worden uitgevoerd op de virtuele machine. CSV's.<br/><br/> **Recovery**: Virtuele machine, herstel op itemniveau van VHD/volume/mappen/bestanden.<br/><br/> **Virtuele Linux-machines**: Back-up wanneer de Hyper-V wordt uitgevoerd op Windows Server 2012 R2 en hoger. Herstel voor virtuele Linux-machines is voor de hele machine.
-**Virtuele VMware-machines: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> DPM 2012 R2 moet System Center Update Rollup 1) <br/><br/>On-premises. | Back-up van virtuele VMware-machines op CSV's, NFS en SAN-opslag.<br/><br/> Volledige VM herstellen.<br/><br/> Back-up van Windows/Linux.<br/><br/> Herstel op itemniveau van de map/voor Windows-VM's alleen bestanden.<br/><br/> VMware vApps worden niet ondersteund.<br/><br/> Herstel voor virtuele Linux-machines is voor de hele machine.
+**Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64 bits) | Alleen on-premises.<br/><br/> Voor het maken van een back-up van Windows 10 met DPM 2012 R2, raden we u aan om [Update 11](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager)te installeren. | Volume/share/map/bestand.<br/><br/> Niet-geduplicatede volumes worden ondersteund.<br/><br/> Volumes moeten ten minste 1 GB en NTFS zijn.
+**Windows Server 2016 (Data Center, Standard, not nano)**<br/><br/> 64/32-bits | On-premises/Azure VM.<br/><br/> Alleen DPM 2016.| Volume/share/map/bestand; systeem status/bare-metal.<br/><br/> Niet-geduplicatede volumes worden ondersteund.
+**Windows Server 2012 R2 (Data Center en Standard)**<br/><br/> 64/32-bits | On-premises/Azure VM. | **On-premises beveiliging**: Volume/share/map/bestand; systeem status/bare-metal.<br/><br/> **Azure VM-beveiliging**: Volume/share/map/bestand.<br/><br/> Ontdubbelde volumes die worden ondersteund met DPM 2012 R2 of hoger.
+**Windows Server 2012 met SP1 (Data Center en Standard)**<br/><br/> 64/32-bits | On-premises/Azure VM. | **On-premises beveiliging**: Volume/share/map/bestand; systeem status/bare-metal.<br/><br/> **Azure VM-beveiliging**: Volume/share/map/bestand.<br/><br/> Ontdubbelde volumes die worden ondersteund met DPM 2012 R2 of hoger.
+**Windows 2008 R2 met SP1 (Standard en Enter prise)**<br/><br/> 64/32-bits | On-premises/Azure VM.<br/><br/> [Windows Management Framework 4,0](https://www.microsoft.com/download/details.aspx?id=40855) moet zijn geïnstalleerd. |   **On-premises beveiliging**: Volume/share/map/bestand; systeem status/bare-metal.<br/><br/> **Azure VM-beveiliging**: Volume/share/map/bestand.
+**Windows 2008 R2 (Standard en Enter prise)**<br/><br/> 64/32-bits | On-premises.<br/><br/> DPM kan niet worden geïnstalleerd als een virtuele VMware-machine.<br/><br/> DPM die wordt uitgevoerd op een virtuele Azure-machine wordt niet ondersteund. | **On-premises beveiliging**: Volume/share/map/bestand; systeem status/bare-metal.
+**Windows Server 2008 met SP2**<br/><br/> 64/32-bits | Alleen on-premises.<br/><br/> DPM wordt ondersteund bij het uitvoeren als een VMware-VM. Uitvoeren als een fysieke server of Hyper-V-VM wordt niet ondersteund. | Volume/share/map/bestand; systeem status/bare-metal.
+**Windows Storage Server 2008** | DPM on-premises wordt uitgevoerd als een fysieke server of Hyper-V-VM. | Volume/share/map/bestand; systeem status/bare-metal.
+**SQL Server 2017** | DPM SAC; DPM 2016 met Update 5 of hoger.<br/><br/> On-premises/Azure VM.| Maak een back-up van SQL Server Data Base.<br/><br/> SQL Server cluster back-up ondersteund.<br/><br/>Data bases die zijn opgeslagen op Csv's, worden niet ondersteund.
+**SQL Server 2016 met SP1** | Niet ondersteund voor DPM 2012 R2; DPM 2016 met update pakket 4 of hoger wordt ondersteund voor DPM SAC.<br/><br/> On-premises/Azure VM.| Maak een back-up van SQL Server Data Base.<br/><br/> SQL Server cluster back-up ondersteund.<br/><br/>Data bases die zijn opgeslagen op Csv's, worden niet ondersteund.
+**SQL Server 2016** | Niet ondersteund voor DPM 2012 R2. Wordt ondersteund voor DPM SAC, DPM 2016 van update pakket 2 en hoger.<br/><br/> On-premises/Azure VM.| Maak een back-up van SQL Server Data Base.<br/><br/> SQL Server cluster back-up ondersteund.<br/><br/>Data bases die zijn opgeslagen op Csv's, worden niet ondersteund.
+**SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | SQL Server 2014 met DPM 2012 R2 met update pakket 4 en hoger.<br/><br/> On-premises/Azure VM.| Maak een back-up van SQL Server Data Base.<br/><br/> SQL Server cluster back-up ondersteund.<br/><br/>Data bases die zijn opgeslagen op Csv's, worden niet ondersteund.
+**Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | Voor Exchange 2016 heeft DPM 2012 R2 Update Rollup 9 of hoger nodig.<br/><br/> On-premises | Maak een back-up van een zelfstandige Exchange Server, data base onder een DAG.<br/><br/> Postvak herstellen, Postvak database onder een DAG.<br/><br/> ReFS wordt niet ondersteund.<br/><br/> Maak een back-up van niet-gedeelde schijf clusters.<br/><br/> Back-up maken van Exchange server die is geconfigureerd voor continue replicatie.
+**SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | Share point 2016 op DPM 2016 of hoger.<br/><br/>On-premises/Azure VM. | Maak een back-up van de farm, front-end-webserver.<br/><br/> Farm, Data Base, Web-app, bestand of lijst item, share Point zoeken, front-endwebserver webserver herstellen.<br/><br/> U kunt geen back-up maken van een farm met SQL Server AlwaysOn voor de inhouds databases.
+**Hyper-V op Windows Server 2016**<br/><br/> **Windows Server 2012 R2/2012** (Data Center/Standard)<br/><br/> **Windows Server 2008 R2 (met SP1)** | Hyper-V op 2016 wordt ondersteund voor DPM 2016 en hoger.<br/><br/> On-premises. | **MABS-agent op de Hyper-V-host**: Back-ups van hele Vm's en gegevens bestanden hosten. Back-ups maken van Vm's met lokale opslag, Vm's in een cluster met CSV-opslag, Vm's met SMB-Bestands server opslag.<br/><br/> **MABS-agent op gast-VM**: Maak een back-up van workloads die worden uitgevoerd op de VM. Csv's.<br/><br/> **Herstel**: VM, herstel op item niveau van VHD/volume/mappen/bestanden.<br/><br/> **Virtuele Linux-machines**: Maak een back-up wanneer Hyper-V wordt uitgevoerd op Windows Server 2012 R2 of hoger. Herstel voor Linux-Vm's is voor de hele machine.
+**VMware-Vm's: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> DPM 2012 R2 vereist System Center update pakket 1) <br/><br/>On-premises. | Maak een back-up van virtuele VMware-machines op Csv's-, NFS-en SAN-opslag.<br/><br/> Volledige VM herstellen.<br/><br/> Windows/Linux-back-up.<br/><br/> Herstel op item niveau van alleen mappen/bestanden voor Windows-Vm's.<br/><br/> VMware-vApps worden niet ondersteund.<br/><br/> Herstel voor Linux-Vm's is voor de hele machine.
 
 
-- Geclusterde werkbelastingen een back-up door DPM/MABS moeten zich in hetzelfde domein als de DPM/MABS of in een onderliggende/vertrouwd domein.
-- Verificatie via NTLM/certificaat kunt u back-up van gegevens in niet-vertrouwde domeinen of werkgroepen.
+- Het maken van een back-up van geclusterde werk belastingen door DPM/MABS moet zich in hetzelfde domein als DPM/MABS of in een onderliggend/vertrouwd domein bevallen.
+- U kunt NTLM/certificaat verificatie gebruiken om een back-up te maken van gegevens in niet-vertrouwde domeinen of werk groepen.
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Meer informatie](backup-architecture.md#architecture-back-up-to-dpmmabs) over de architectuur van MABS.
-- [Beoordeling](backup-support-matrix-mars-agent.md) wat wordt ondersteund voor de MARS-agent.
-- [Instellen van](backup-azure-microsoft-azure-backup.md) een MABS-server.
-- [Instellen van DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180).
+- Meer [informatie](backup-architecture.md#architecture-back-up-to-dpmmabs) over MABS-architectuur.
+- [Controleer](backup-support-matrix-mars-agent.md) wat wordt ondersteund voor de Mars-agent.
+- [Stel](backup-azure-microsoft-azure-backup.md) een MABS-server in.
+- [DPM instellen](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180).

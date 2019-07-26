@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 489a3935605432b485f7b0866668f6dbfaac686b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 431212b2b0ac7bba209130e511e3510e3008a6c4
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323758"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500028"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Een automatisch Schalende formule voor het schalen van reken knooppunten in een batch-pool maken
 
@@ -40,7 +40,7 @@ In dit artikel worden de verschillende entiteiten beschreven waaruit uw formules
 >
 
 ## <a name="automatic-scaling-formulas"></a>Formules voor automatisch schalen
-Een formule voor automatisch schalen is een teken reeks waarde die u definieert die een of meer instructies bevat. De formule voor automatisch schalen wordt toegewezen aan de eigenschap [autoScaleFormula][rest_autoscaleformula] element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] van een groep (batch .net). De batch-service gebruikt de formule om het doel aantal reken knooppunten in de pool te bepalen voor het volgende interval voor de verwerking. De formule teken reeks mag niet langer zijn dan 8 KB, kan bestaan uit Maxi maal 100 instructies, gescheiden door punt komma's, en regel einden en opmerkingen kunnen bevatten.
+Een formule voor automatisch schalen is een teken reeks waarde die u definieert die een of meer instructies bevat. De formule voor automatisch schalen wordt toegewezen aan het [autoScaleFormula][rest_autoscaleformula] -element van een groep (batch rest) of de eigenschap [CloudPool. autoScaleFormula][net_cloudpool_autoscaleformula] (batch .net). De batch-service gebruikt de formule om het doel aantal reken knooppunten in de pool te bepalen voor het volgende interval voor de verwerking. De formule teken reeks mag niet langer zijn dan 8 KB, kan bestaan uit Maxi maal 100 instructies, gescheiden door punt komma's, en regel einden en opmerkingen kunnen bevatten.
 
 U kunt formules voor automatisch schalen beschouwen als een batch-automatische schaal aanpassing. Formule-instructies zijn vrije expressies die zowel door de service gedefinieerde variabelen (variabelen die zijn gedefinieerd door de batch-service) als door de gebruiker gedefinieerde variabelen (variabelen die u definieert) kunnen bevatten. Ze kunnen verschillende bewerkingen uitvoeren op deze waarden met behulp van ingebouwde typen, Opera tors en functies. Een instructie kan bijvoorbeeld de volgende vorm hebben:
 
@@ -132,7 +132,7 @@ U kunt de waarde van deze door de service gedefinieerde variabelen ophalen om aa
 >
 >
 
-## <a name="types"></a>Dergelijke
+## <a name="types"></a>Typen
 Deze typen worden ondersteund in een formule:
 
 * double
@@ -185,7 +185,7 @@ Deze bewerkingen zijn toegestaan voor de typen die worden vermeld in de vorige s
 
 Bij het testen van een dubbele met een ternaire`double ? statement1 : statement2`operator (), is niet nul **waar**en is nul **False**.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Functies
 Deze vooraf gedefinieerde **functies** zijn beschikbaar voor gebruik bij het definiëren van een formule voor automatisch schalen.
 
 | Function | Retour type | Description |
@@ -364,15 +364,19 @@ $totalDedicatedNodes =
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 ```
 
-## <a name="create-an-autoscale-enabled-pool-with-net"></a>Een groep met automatisch schalen maken met .NET
+## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Een groep met automatisch schalen maken met batch-Sdk's
+
+Het automatisch schalen van groepen kan worden geconfigureerd met een van [de batch-sdk's](batch-apis-tools.md#azure-accounts-for-batch-development), de batch- [rest API](https://docs.microsoft.com/rest/api/batchservice/) [batch Power shell](batch-powershell-cmdlets-get-started.md)-cmdlets en de [batch-cli](batch-cli-get-started.md). In deze sectie vindt u voor beelden voor .NET en python.
+
+### <a name="net"></a>.NET
 
 Voer de volgende stappen uit om een pool te maken met automatisch schalen in .NET.
 
 1. Maak de pool met [BatchClient. pool Operations. CreatePool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
-2. Stel de eigenschap [CloudPool. AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) in `true`op.
-3. Stel de eigenschap [CloudPool. AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) in op uw formule voor automatisch schalen.
-4. Beschrijving Stel de eigenschap [CloudPool. AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) in (de standaard waarde is 15 minuten).
-5. Voer de pool door met [CloudPool. commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) of [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
+1. Stel de eigenschap [CloudPool. AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) in `true`op.
+1. Stel de eigenschap [CloudPool. AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) in op uw formule voor automatisch schalen.
+1. Beschrijving Stel de eigenschap [CloudPool. AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) in (de standaard waarde is 15 minuten).
+1. Voer de pool door met [CloudPool. commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) of [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
 Met het volgende code fragment maakt u een groep met automatische schaal functionaliteit in .NET. Met de formule automatisch schalen van de pool wordt het doel aantal toegewezen knoop punten ingesteld op 5 op maandag en 1 op elke andere dag van de week. Het [interval voor automatisch schalen](#automatic-scaling-interval) is ingesteld op 30 minuten. In deze en de andere C# fragmenten in dit artikel is een `myBatchClient` correct geïnitialiseerd exemplaar van de [BatchClient][net_batchclient] -klasse.
 
@@ -392,10 +396,8 @@ await pool.CommitAsync();
 >
 >
 
-Naast batch .NET kunt u gebruikmaken van een van de andere batch- [sdk's](batch-apis-tools.md#azure-accounts-for-batch-development), [batch rest](https://docs.microsoft.com/rest/api/batchservice/), [batch Power shell](batch-powershell-cmdlets-get-started.md)-cmdlets en de [batch-cli](batch-cli-get-started.md) voor het configureren van automatisch schalen.
+#### <a name="automatic-scaling-interval"></a>Interval voor automatisch schalen
 
-
-### <a name="automatic-scaling-interval"></a>Interval voor automatisch schalen
 De batch-service past standaard elke 15 minuten de grootte van een pool aan op basis van de automatisch geschaalde formule. Dit interval kan worden geconfigureerd met behulp van de volgende groeps eigenschappen:
 
 * [CloudPool. AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (batch .net)
@@ -405,6 +407,50 @@ Het minimale interval is vijf minuten en de maximum waarde is 168 uur. Als er ee
 
 > [!NOTE]
 > Automatisch schalen is momenteel niet bedoeld om te reageren op wijzigingen in minder dan een minuut, maar is bedoeld om de grootte van de pool geleidelijk aan te passen wanneer u een werk belasting uitvoert.
+>
+>
+
+### <a name="python"></a>Python
+
+Op dezelfde manier kunt u een groep met automatisch schalen maken met de python-SDK door:
+
+1. Een pool maken en de configuratie opgeven.
+1. Voeg de groep toe aan de service-client.
+1. Schakel automatisch schalen in voor de pool met een formule die u schrijft.
+
+```python
+# Create a pool; specify configuration
+new_pool = batch.models.PoolAddParameter(
+    id="autoscale-enabled-pool",
+    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+        image_reference=batchmodels.ImageReference(
+          publisher="Canonical",
+          offer="UbuntuServer",
+          sku="18.04-LTS",
+          version="latest"
+            ),
+        node_agent_sku_id="batch.node.ubuntu 18.04"),
+    vm_size="STANDARD_D1_v2",
+    target_dedicated_nodes=0,
+    target_low_priority_nodes=0
+)
+batch_service_client.pool.add(new_pool) # Add the pool to the service client
+
+formula = """$curTime = time();
+             $workHours = $curTime.hour >= 8 && $curTime.hour < 18; 
+             $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5; 
+             $isWorkingWeekdayHour = $workHours && $isWeekday; 
+             $TargetDedicated = $isWorkingWeekdayHour ? 20:10;""";
+
+# Enable autoscale; specify the formula
+response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formula=formula,
+                                            auto_scale_evaluation_interval=datetime.timedelta(minutes=10), 
+                                            pool_enable_auto_scale_options=None, 
+                                            custom_headers=None, raw=False)
+```
+
+> [!TIP]
+> Meer voor beelden van het gebruik van de python-SDK vindt u in de Quick Start- [opslag plaats van batch python](https://github.com/Azure-Samples/batch-python-quickstart) op github.
 >
 >
 

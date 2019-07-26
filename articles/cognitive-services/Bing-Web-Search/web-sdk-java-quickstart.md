@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 07/25/2019
 ms.author: aahi
-ms.openlocfilehash: 7209df902f03a7055e142dcbbb7743b6832958b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d2c1ca439dbbbd79ddabd2ea7a4eb5298d1071a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344108"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500973"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Quickstart: De Bing Web Search SDK voor Java gebruiken
 
@@ -35,9 +35,9 @@ Voordat u verdergaat met deze snelstart moet u beschikken over:
 * [Apache Maven](https://maven.apache.org/download.cgi) of uw favoriete hulpprogramma voor het automatiseren van builds
 * Een abonnementssleutel
 
-## <a name="create-a-project-and-set-up-your-pom-file"></a>Een project maken en instellen van uw POM-bestand
+## <a name="create-a-project-and-set-up-your-pom-file"></a>Een project maken en uw POM-bestand instellen
 
-Maak een nieuw Java-project met behulp van Maven of uw favoriete hulpprogramma voor het automatiseren van builds. Ervan uitgaande dat u Maven gebruikt, voeg de volgende regels aan uw [Project Object Model (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) bestand. Vervang alle instanties van `mainClass` door uw toepassing.
+Maak een nieuw Java-project met behulp van Maven of uw favoriete hulpprogramma voor het automatiseren van builds. Ervan uitgaande dat u maven gebruikt, voegt u de volgende regels toe aan uw [pom-bestand (project object model)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) . Vervang alle instanties van `mainClass` door uw toepassing.
 
 ```xml
 <build>
@@ -300,4 +300,4 @@ Wanneer u klaar bent met dit project, moet u uw abonnementssleutel verwijderen u
 
 ## <a name="see-also"></a>Zie ook
 
-* [Naslaginformatie over Azure Java SDK](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch)
+* [Naslaginformatie over Azure Java SDK](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)

@@ -1,80 +1,101 @@
 ---
-title: Partnerintegraties virtuele Windows-bureaublad - Azure
-description: Meer informatie over Windows virtueel bureaublad partners en toegang tot documentatie over het integreren met hen.
+title: Windows Virtual Desktop-partner integraties-Azure
+description: Meer informatie over de partners van een virtueel bureau blad van Windows en de documentatie over hoe u ermee kunt integreren.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: eb433b8781a72943c059754d0b3acff00a603506
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 6fe2e63138ce9e0f4e8980e4f37330228ac2bdb6
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811308"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68369551"
 ---
-# <a name="windows-virtual-desktop-partner-integrations"></a>Virtuele Windows-bureaublad partnerintegraties
+# <a name="windows-virtual-desktop-partner-integrations"></a>Integratie van virtuele bureau blad-partners van Windows
 
-In dit artikel geeft een lijst van de Windows virtuele bureaublad van partners in alfabetische volgorde.
+In dit artikel worden de partners van het virtuele Windows-bureau blad in alfabetische volg orde weer gegeven.
 
-## <a name="active-cypher"></a>Actieve ineens
+## <a name="active-cypher"></a>Actieve coderings
 
-Actieve ineens is een virtuele Windows-bureaublad-services met toegevoegde waarde-provider die implementatievoorbeeld IT met versleutelingstechnologie kunt u de onderneming beveiligen tegen schendingen en gegevensverlies. Met actieve Cypher innovatieve versleutelingstechnologie biedt ondersteuning voor de algehele strategie van de beveiliging bestand voor het uitvoeren van virtuele Windows-bureaublad op Azure.
+![Actief coderings-logo](./media/partners/active-cypher.png)
 
-Gebruikt in combinatie met virtuele Windows-bureaublad, biedt actieve Cypher extra mogelijkheden voor toegankelijkheid en mobiliteit van gebruikersgegevens inschakelen tijdens het onbedoeld gegevensverlies voorkomen. Met actieve Cypher kunnen bestaande groep beveiligingsbeleid en machtigingen in Azure Information Protection worden gebruikt voor het versleutelen van bestanden tijdens het gebruik van virtuele Windows-bureaublad.
+Active coderings is een Windows-service provider voor virtueel bureau blad, die IT voorziet van versleutelings technologie om de onderneming te beschermen tegen inbreuken en gegevens verlies. Met actieve coderings ondersteunt innovatieve coderings technologie de algehele strategie voor bestands beveiliging om virtueel bureau blad van Windows op Azure uit te voeren.
 
-[Ga naar de website van de partner.](https://activecypher.com/)
+Bij gebruik in combi natie met Windows Virtual Desktop biedt Active coderings aanvullende mogelijkheden om toegankelijkheid en mobiliteit van gebruikers gegevens mogelijk te maken, terwijl er onbedoeld gegevens verlies wordt voor komen. Met Active coderings kunnen bestaande beleids regels voor groeps beveiliging en machtigingen in Azure Information Protection worden gebruikt voor het versleutelen van gebruikers bestanden tijdens het gebruik van Windows virtueel bureau blad.
+
+- [Bekijk de kortere oplossing.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oNLu)
+- [Ga naar de website van de partner.](https://activecypher.com/)
 
 ## <a name="cloudjumper"></a>CloudJumper
 
-CloudJumper is een virtuele Windows-bureaublad-services met toegevoegde waarde-provider die implementatievoorbeeld leveranciers van oplossingen en enterprise IT met software kunt zuinigste inrichten en beheren van virtuele Windows-bureaublad-omgevingen. Met de CloudJumper software, kan IT elke laag van een virtuele Windows-bureaublad-implementatie te beheren. Levering van werkbelastingen en toepassingen is geautomatiseerd, ervoor te zorgen dat gebruikers snel toegang hun bureaublad overal op elk apparaat tot.
+![CloudJumper-logo](./media/partners/cloudjumper.png)
 
-CloudJumper van software, Cloud werkruimte Management Suite vervolg op de waarde van virtuele Windows-bureaublad-implementatie en doorlopende beheertaken in Azure te vereenvoudigen. In een enkel glazen, kan IT inrichten, beheren en infrastructuur voor werkruimten die gebruiker te optimaliseren. CloudJumper van eenvoudige activeren scriptengine kan worden geïntegreerd met de IT-service platforms voor het automatiseren van taken die betrokken zijn bij het inrichten van virtuele Windows-bureaublad. Bovendien kunt CloudJumper APIs verdere uitbreidbaarheid en integratie met andere bedrijfssystemen zoals ServiceNow en BMC gereed.
+CloudJumper is een Windows-service provider voor virtueel bureau blad die oplossings providers aanstuurt en IT-bedrijf software kan voorzien van een holistische inrichting en beheer van Windows virtueel-bureaublad omgevingen. Met CloudJumper-software kan IT elke laag van een Windows-implementatie voor virtueel bureau blad beheren. De levering van werk belastingen en toepassingen wordt geautomatiseerd, zodat gebruikers snel toegang hebben tot hun bureau blad op een wille keurig apparaat.
 
-[Ga naar de website van de partner.](https://cloudjumper.com/wvd/)
+De software van CloudJumper in de Cloud werkruimte Management Suite breidt de waarde van virtueel bureau blad van Windows uit door de implementatie en doorlopende beheer taken in azure te vereenvoudigen. Vanuit één deel venster kan de infra structuur voor gebruikers werkruimte worden ingericht, beheerd en geoptimaliseerd. De eenvoudige script activerings engine van CloudJumper kan worden geïntegreerd met IT-service platforms om taken te automatiseren die betrokken zijn bij het inrichten van Windows virtueel bureau blad. Daarnaast kunnen CloudJumper-Api's verdere uitbreid baarheid en integratie met andere bedrijfs systemen, zoals ServiceNow en BMC, voor bereid zijn.
 
-## <a name="lakeside-software"></a>Lakeside Software
+- [Bekijk de kortere oplossing.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mg)
+- [Ga naar de website van de partner.](https://cloudjumper.com/wvd/)
 
-Lakeside Software is een virtuele Windows-bureaublad-services met toegevoegde waarde-provider die IT-teams met software vormt voor het bewaken van de prestaties en beoordelen van de gereedheid van de Azure-migratie van werkbelastingen van de gebruiker. Met deze software, IT-winsten beter inzicht in de toepassing gebruiks- en resource-verbruik voor het stroomlijnen van het migratieproces. Lakeside Software verzamelt gegevens in elke werkruimte te maken van een uitgebreid rapport op gebruiker-omgevingen, snelle probleemoplossing en optimalisatie van de activa inschakelen.
+## <a name="lakeside-software"></a>Lakeside-software
 
-Lakeside Software van digitale ervaringen bewakingsoplossing, SysTrack, kunt een goede gebruikerservaring te bieden door het bijhouden van prestaties en het identificeren van de ideale werkbelastingen voor migratie. SysTrack werkt om uit te breiden de waarde van de virtuele bureaublad van Windows via het juiste formaat evaluaties en de voortdurende bewaking van de omgevingen van gebruiker.
+![Logo van de Lakeside-software](./media/partners/lakeside.png)
 
-[Ga naar de website van de partner.](https://www.lakesidesoftware.com/assessments/wvd)
+Lakeside software is een Windows-service provider voor virtueel bureau blad die IT-teams voorziet van software voor het bewaken van prestaties en het beoordelen van de gereedheid voor Azure-migratie van gebruikers werkbelastingen. Met deze software krijgt de IT-afdeling duidelijker inzicht in het gebruik van toepassingen en bronnen om het migratie proces te stroom lijnen. Lakeside-software verzamelt gegevens in elke werk ruimte voor het maken van een uitgebreid rapport over gebruikers omgevingen, waardoor het snel oplossen van problemen en het optimaliseren van assets mogelijk is.
+
+De Lakeside-oplossing voor digitale beleving, SysTrack, kan u helpen een fantastische gebruikers ervaring te bieden door de prestaties bij te houden en ideale werk belastingen te identificeren voor migratie. SysTrack werkt om de waarde van Windows virtueel bureau blad uit te breiden met behulp van ingrijpende evaluaties en doorlopende bewaking van gebruikers omgevingen.
+
+- [Bekijk de kortere oplossing.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8Q)
+- [Ga naar de website van de partner.](https://www.lakesidesoftware.com/assessments/wvd)
 
 ## <a name="liquidware"></a>Liquidware
 
-Liquidware is een virtuele Windows-bureaublad-services met toegevoegde waarde-provider die zorgt voor software die u beheert en optimaliseert virtuele Windows-bureaublad-implementatie. De suite Liquidware Essentials biedt levering van toepassingen via de lagen, beheer van gebruikers-omgeving, en belangrijke ervaring zichtbaarheid en diagnostische procedures. Met oplossingen voor beoordeling van gereedheid voor migratie en analyseren van metrische gegevens over gebruik biedt Liquidware een naadloze ervaring voor virtuele bureaublad voor eindgebruikers.
+![Liquidware-logo](./media/partners/liquidware.png)
 
-Liquidware Essentials vervolg op de waarde van virtuele Windows-bureaublad efficiënt voor het verzamelen van gebruikersprofielen en verzamelen van belangrijke gegevens voor het stroomlijnen van de migratie van de gebruiker omgevingen naar Azure. Bovendien Liquidware Essentials vereenvoudigt het beheer van installatiekopieën door aaneengeschakelde gebruikersprofielen en gelaagdheid apps op basis van configureerbare rights management-instellingen.
+Liquidware is een Windows-provider voor virtueel bureau blad-services die software levert die de implementatie van Windows virtueel bureau blad beheert en optimaliseert. De Liquidware Essentials suite biedt de levering van toepassingen via lagen, beheer van gebruikers omgevingen en de zicht baarheid en diagnoses van de belangrijkste gebruikers ervaring. Met oplossingen voor het beoordelen van de gereedheid voor de migratie en het analyseren van metrische gegevens over het gebruik, biedt Liquidware een naadloze beleving van virtueel bureau blad voor eind gebruikers.
 
-[Ga naar de website van de partner.](https://www.liquidware.com/solutions/solutions-platform/microsoft)
+Liquidware Essentials breidt de waarde van Windows virtueel bureau blad uit door het efficiënt verzamelen van gebruikers profielen en het verzamelen van belang rijke gebruikers gegevens om de migratie van gebruikers omgevingen naar Azure te stroom lijnen. Daarnaast vereenvoudigt Liquidware Essentials het beheer van afbeeldingen door het samen voegen van gebruikers profielen en het belagen van apps op basis van Configureer bare Rights Management-instellingen.
+
+- [Bekijk de kortere oplossing.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1)
+- [Ga naar de website van de partner.](https://www.liquidware.com/solutions/solutions-platform/microsoft)
 
 ## <a name="nerdio"></a>Nerdio
 
-Nerdio is een Azure IT-platform voor toepassingsautomatisering waarmee u eenvoudig implementeren en beheren van virtuele Windows-bureaublad. Nerdio biedt de kennis en -technologieën om te implementeren, prijs, inpakken, beheren en optimaliseren van Azure-implementaties van klanten, met virtuele Windows-bureaublad front-en-midden.
+![Nerdio-logo](./media/partners/nerdio.png)
 
-Nerdio vervolg op de waarde van virtuele Windows-bureaublad zodat u eenvoudig Azure-resources inrichten en implementatie te stroomlijnen. Met Nerdio voor Azure, IT kan automatisch implementeren en beheren van een volledige Azure-omgeving, met inbegrip van virtuele Windows-bureaublad, binnen twee uur.
+Nerdio is een Azure IT Automation-platform waarmee u gemakkelijk virtuele Windows-Bureau bladen kunt implementeren en beheren. Nerdio biedt de kennis en technologie om Azure-implementaties van klanten te implementeren, te prijzen te bieden, te beheren en te optimaliseren, met behulp van Windows virtueel bureau blad-voor-en-midden.
 
-[Ga naar de website van de partner.](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/)
+Nerdio breidt de waarde van het virtuele bureau blad van Windows uit door eenvoudig Azure-resources in te richten en de implementatie te stroom lijnen. Met Nerdio voor Azure kunt u binnen twee uur automatisch een volledige Azure-omgeving implementeren en beheren, met inbegrip van het virtuele bureau blad van Windows.
+
+- [Bekijk de kortere oplossing.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh)
+- [Ga naar de website van de partner.](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/)
 
 ## <a name="thinprint"></a>ThinPrint
 
-ThinPrint is de provider van een virtuele Windows-bureaublad-services met toegevoegde waarde die biedt een eenvoudige en veilige cloud afdrukken vanuit virtuele Windows-bureaublad. Met de services en software, kan de bestaande afdrukken infrastructuur als u wilt afdrukken van documenten vanuit de cloud worden gebruikt. ThinPrint maakt verbinding met lokale en netwerkprinters, waardoor het gemakkelijker voor gebruikers om af te drukken op kantoor of op afstand werken.
+![ThinPrint-logo](./media/partners/thinprint.png)
 
-De ThinPrint ezeep oplossing vergroot u de waarde van virtuele Windows-bureaublad door in te schakelen van de verbinding met bestaande afdrukken enterprise-infrastructuur. ezeep biedt gebruikers controle over afdrukken in de onderneming, ongeacht waar ze zich bevinden. Met behulp van ezeep, kunnen gebruikers de kloof tussen virtuele Windows-bureaublad en afdrukken hardware.
+ThinPrint is een Windows-service provider met toegevoegde waarde waarmee u eenvoudig en veilig afdrukken via de cloud van virtueel bureau blad van Windows biedt. Met zijn services en software kan bestaande afdruk infrastructuur worden gebruikt voor het afdrukken van documenten vanuit de Cloud. ThinPrint maakt het mogelijk om verbinding te maken met zowel lokale als netwerk printers, zodat gebruikers gemakkelijk kunnen afdrukken terwijl ze op kantoor zijn of op afstand werken.
 
-[Ga naar de website van de partner.](http://www.ezeep.com/wvd-printing)
+De ezeep-oplossing van ThinPrint breidt de waarde van virtueel bureau blad van Windows uit door de verbinding met de bestaande printer infrastructuur van het bedrijf in te scha kelen. ezeep biedt gebruikers controle over afdrukken in de onderneming, ongeacht waar ze zich bevinden. Met ezeep kunnen gebruikers een brug maken tussen het virtuele bureau blad van Windows en het afdrukken van hardware.
+
+- [Bekijk de kortere oplossing.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas)
+- [Ga naar de website van de partner.](http://www.ezeep.com/wvd-printing)
 
 ## <a name="workspot"></a>Workspot
 
-Workspot is een virtuele Windows-bureaublad-services met toegevoegde waarde-provider die implementatievoorbeeld ondernemingen met hoge prestaties desktops en werkstations in Azure. Met Workspot, inrichten van de infrastructuur is geautomatiseerd, wat betekent dat gebruikers hebben toegang tot hun virtuele Windows-bureaublad-omgeving overal over de hele wereld met hoge beschikbaarheid.
+![Workspot-logo](./media/partners/workspot.png)
 
-Workspot breidt de waarde van virtuele Windows-bureaublad door het proces van inrichting van een desktopinfrastructuur cloud te vereenvoudigen. Met Workspot, kunnen resources worden eenvoudig geschaald omhoog en omlaag om te voldoen aan de behoeften van verschillende gebruikers en maakt gebruik van aanvragen. Workspot kunt optimaliseren voor implementaties voor hoge prestaties GPU werkstations die nodig zijn voor CAD- en technische gebruikers, evenals toepassingen voor Windows en Windows 10-desktops voor alle zakelijke gebruikers.
+Workspot is een Windows-service provider voor virtueel bureau blad die ondernemingen met hoogwaardige Desk tops en werk stations in azure aanstuurt. Met Workspot is het inrichten van infra structuur geautomatiseerd. Dit betekent dat gebruikers overal ter wereld toegang hebben tot hun virtuele Windows-desktop omgeving met hoge Beschik baarheid.
 
-[Ga naar de website van de partner.](https://www.workspot.com/wvd)
+Workspot breidt de waarde van Windows virtueel bureau blad uit door het inrichtings proces van de Cloud-desktop infrastructuur te vereenvoudigen. Met Workspot kunnen resources eenvoudig omhoog en omlaag worden geschaald om te voldoen aan de behoeften van verschillende gebruikers en worden gebruikt. Workspot kan implementaties optimaliseren voor GPU-werk stations met hoge prestaties die nodig zijn voor CAD-en engineering-gebruikers, evenals Windows-toepassingen en Windows 10-Desk tops voor alle zakelijke gebruikers.
+
+- [Bekijk de kortere oplossing.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P)
+- [Ga naar de website van de partner.](https://www.workspot.com/wvd)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Meer informatie over virtuele Windows-bureaublad](overview.md)
-- [Een tenant maken in Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+- [Meer informatie over virtueel bureau blad van Windows.](overview.md)
+- [Een Tenant maken in Windows virtueel bureau blad.](tenant-setup-azure-active-directory.md)

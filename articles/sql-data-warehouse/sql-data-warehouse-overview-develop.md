@@ -1,8 +1,8 @@
 ---
-title: Resources voor het ontwikkelen van een datawarehouse in Azure | Microsoft Docs
-description: Ontwikkeling van concepten, ontwerpbeslissingen, aanbevelingen en codering technieken voor SQL Data Warehouse.
+title: Resources voor het ontwikkelen van een Data Warehouse in azure | Microsoft Docs
+description: Ontwikkel concepten, ontwerp beslissingen, aanbevelingen en codeer technieken voor SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,43 +10,43 @@ ms.subservice: development
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 613bcb05dab993989a2ae00b71fef95794953ab8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a78d78618a4cd9bf8d2aaebbd0c0da13697549bc
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850737"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479479"
 ---
-# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Ontwerpbeslissingen en codering technieken voor SQL Data Warehouse
-Bekijk via deze ontwikkeling artikelen voor meer informatie over belangrijke ontwerpbeslissingen, aanbevelingen en codering technieken voor SQL Data Warehouse.
+# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Ontwerp beslissingen en coderings technieken voor SQL Data Warehouse
+Bekijk deze ontwikkel artikelen om meer inzicht te krijgen in belang rijke beslissingen, aanbevelingen en coderings technieken voor SQL Data Warehouse.
 
-## <a name="key-design-decisions"></a>Belangrijkste ontwerpbeslissingen
-De volgende artikelen markeren concepten en volg de ontwerpbeslissingen voor het ontwikkelen van een gedistribueerde datawarehouse met SQL Data Warehouse:
+## <a name="key-design-decisions"></a>Voornaamste ontwerp beslissingen
+De volgende artikelen markeren concepten en ontwerp beslissingen voor het ontwikkelen van een gedistribueerd data warehouse met behulp van SQL Data Warehouse:
 
-* [Verbindingen][connections]
-* [concurrency][concurrency]
-* [Transacties][transactions]
-* [gebruiker gedefinieerde schema 's][user-defined schemas]
-* [tabeldistributie][table distribution]
-* [tabelindexen][table indexes]
-* [Tabelpartities][table partitions]
+* [inbel][connections]
+* [gelijktijdigheid][concurrency]
+* [transacties][transactions]
+* [door de gebruiker gedefinieerde schema's][user-defined schemas]
+* [tabel distributie][table distribution]
+* [tabel indexen][table indexes]
+* [tabel partities][table partitions]
 * [CTAS][CTAS]
 * [statistieken][statistics]
 
-## <a name="development-recommendations-and-coding-techniques"></a>Aanbevelingen voor ontwikkeling en technieken voor codering
-Deze artikelen markeren specifieke code technieken, tips en aanbevelingen voor het ontwikkelen van uw SQL Data Warehouse:
+## <a name="development-recommendations-and-coding-techniques"></a>Aanbevelingen voor ontwikkeling en code ring
+Deze artikelen markeren specifieke coderings technieken, tips en aanbevelingen voor het ontwikkelen van uw SQL Data Warehouse:
 
-* [Opgeslagen procedures][stored procedures]
-* [labels][labels]
+* [opgeslagen procedures][stored procedures]
+* [Labels][labels]
 * [Weergaven][views]
-* [Tijdelijke tabellen][temporary tables]
-* [Dynamic SQL][dynamic SQL]
+* [tijdelijke tabellen][temporary tables]
+* [dynamische SQL][dynamic SQL]
 * [lussen][looping]
 * [groeperen op Opties][group by options]
 * [variabele toewijzing][variable assignment]
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie, [SQL Data Warehouse T-SQL-instructies](sql-data-warehouse-reference-tsql-statements.md).
+Zie [SQL Data Warehouse T-SQL-instructies](sql-data-warehouse-reference-tsql-statements.md)voor meer informatie.
 
 <!--Image references-->
 

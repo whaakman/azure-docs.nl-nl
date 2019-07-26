@@ -1,6 +1,6 @@
 ---
-title: Referentie - frameworks vertrouwen in Azure Active Directory B2C | Microsoft Docs
-description: Een onderwerp over Azure Active Directory B2C aangepast beleid en de Identiteitservaring-Framework.
+title: Referentie-vertrouwens raamwerken in Azure Active Directory B2C | Microsoft Docs
+description: Een onderwerp over Azure Active Directory B2C aangepast beleid en het Framework voor identiteits ervaring.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,118 +10,118 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 47e45a7dac8abc65f414fedd0fd910e3a7a78113
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e96ddcb904bbda6c3123ffc9d3da50ff80823689
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508812"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500017"
 ---
-# <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Vertrouwensrelatie Frameworks met Azure AD B2C Identity-Ervaringsframework definiëren
+# <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Vertrouwens raamwerken definiëren met Azure AD B2C Identity experience Framework
 
-Azure Active Directory B2C (Azure AD B2C) aangepaste beleidsregels die gebruikmaken van de Identity-Ervaringsframework voorziet uw organisatie met een gecentraliseerde service. Deze service vermindert de complexiteit van identiteitsfederatie in een grote gebruikerscommunity van belang zijn. De complexiteit is verlaagd tot een enkele vertrouwensrelatie en de uitwisseling van een enkele metagegevens.
+Azure Active Directory B2C (Azure AD B2C) aangepaste beleids regels die gebruikmaken van het Framework voor identiteits ervaring, bieden uw organisatie een gecentraliseerde service. Deze service vermindert de complexiteit van identiteits Federatie in een grote community van belang. De complexiteit is beperkt tot één vertrouwens relatie en één uitwisseling van meta gegevens.
 
-Azure AD B2C aangepaste beleidsregels die gebruikmaken van de Identiteitservaring-Framework waarmee u kunt de volgende vragen beantwoorden:
+Azure AD B2C aangepaste beleids regels maken gebruik van het Framework voor identiteits ervaring zodat u de volgende vragen kunt beantwoorden:
 
-- Wat zijn de juridische, beveiliging, privacy en beleidsregels voor gegevensbescherming die moeten worden gehouden aan?
-- Wie zijn de contactpersonen en wat zijn de processen voor een erkende deelnemer steeds?
-- Ze bieden die de erkende id-gegevens-providers (ook wel bekend als ' claimproviders'), en doen?
-- Wie zijn de erkende Relying Party's (en eventueel wat ze hoeven)?
-- Wat zijn de technische 'op de kabel"interoperabiliteitsvereisten voor deelnemers aan?
-- Wat zijn de operationele "runtime" regels die moeten worden afgedwongen voor het uitwisselen van gegevens van digitale identiteit?
+- Wat zijn de juridische, beveiligings-, privacy-en gegevens beveiligings beleidsregels waaraan moet worden voldaan?
+- Wie zijn de contact personen en wat zijn de processen om een geaccrediteerde deel nemer te worden?
+- Wie zijn de geaccrediteerde identiteits gegevens providers (ook wel ' claim providers ' genoemd) en wat doen ze?
+- Wie zijn de erkende relying party's (en optioneel, wat zijn ze nodig)?
+- Wat zijn de technische interoperabiliteits vereisten voor deel nemers?
+- Wat zijn de operationele runtime-regels die moeten worden afgedwongen voor het uitwisselen van gegevens van digitale identiteiten?
 
-Als u wilt alle deze vragen te beantwoorden, een aangepast Azure AD B2C-beleid die gebruikmaken van het gebruik Identity-Ervaringsframework de "vertrouwen Framework" (TF) maken. Laten we eens v tomto konstruktoru SE en het pakket bevat.
+Azure AD B2C aangepaste beleids regels die gebruikmaken van het Framework voor identiteits ervaring, gebruiken we de retrust Framework (TF)-Construct om al deze vragen te beantwoorden. Laten we eens kijken naar deze constructie en wat deze biedt.
 
-## <a name="understand-the-trust-framework-and-federation-management-foundation"></a>Inzicht in de basis van de management Framework vertrouwen en Federatie
+## <a name="understand-the-trust-framework-and-federation-management-foundation"></a>Meer informatie over het vertrouwens raamwerk en Federatie beheer Foundation
 
-Het Framework vertrouwen is een schriftelijke specificatie van de identiteit, beveiliging, privacy en beleidsregels voor gegevensbescherming waarop deelnemers in een community van belang zijn, moeten voldoen.
+Het vertrouwens raamwerk is een schriftelijke specificatie van het identiteits-, beveiligings-, privacy-en gegevens beveiligings beleid waaraan deel nemers in een community van belang moeten voldoen.
 
-Federatieve identiteiten biedt een basis voor het bereiken van eindgebruikers identiteitscontrole op internetschaal. Door over te dragen identiteitsbeheer aan derden, één digitale identiteit voor een eindgebruiker opnieuw kan worden gebruikt met meerdere Relying Party's.  
+Federatieve identiteiten bieden een basis voor het realiseren van identiteits garantie voor eind gebruikers op internet. Door identiteits beheer te delegeren aan derden, kan één digitale identiteit voor een eind gebruiker opnieuw worden gebruikt met meerdere relying party's.  
 
-Identiteitscontrole is vereist dat de id-providers (IdPs) en de kenmerk-providers (AtPs) aan specifieke beveiliging, privacy, en operationele beleidsregels en procedures voldoen.  Als ze niet direct controles uitvoeren, moet Relying Party's (RPs) ontwikkelen vertrouwensrelaties met de id-providers en ze ervoor kiezen om te werken met AtPs.  
+Identiteits controle vereist dat id-providers (id) en kenmerk providers (AtPs) zich houden aan specifieke beveiligings-, privacy-en operationeel beleid en-procedures.  Als ze geen rechtstreekse controles kunnen uitvoeren, moeten relying party's (RPs) vertrouwens relaties ontwikkelen met de id en AtPs waarmee ze werken.  
 
-Als het aantal gebruikers en informatie over digitale id-providers groeit, is het moeilijk zijn om door te gaan pairwise beheer van deze vertrouwensrelaties of zelfs de pairwise uitwisseling van de metagegevens van de technische die zijn voor verbinding met het netwerk vereist.  Federation-hubs hebben alleen beperkt succes bij het oplossen van deze problemen bereikt.
+Naarmate het aantal consumenten en providers van digitale identiteits gegevens groeit, is het lastig om het Pairwise-beheer van deze vertrouwens relaties te voortzetten, of zelfs de Pairwise-uitwisseling van de technische meta gegevens die vereist zijn voor de netwerk verbinding.  Bij het oplossen van deze problemen hebben Federatie hubs slechts een beperkt aantal geslaagd.
 
-### <a name="what-a-trust-framework-specification-defines"></a>Definieert wat een specificatie van het Framework vertrouwen
-TFs zijn de linchpins van het Open identiteit Exchange (OIX) vertrouwen Framework-model, waarbij elke community van belang is onderworpen aan een bepaalde TF-specificatie. Dergelijke een TF-specificatie worden gedefinieerd:
+### <a name="what-a-trust-framework-specification-defines"></a>Wat een trust Framework-specificatie definieert
+TFs zijn de linchpins van het OIX-vertrouwens raamwerk model (Open Identity Exchange), waarbij elke community van belang is onderworpen aan een bepaalde TF-specificatie. Een dergelijke TF-specificatie definieert:
 
-- **De beveiliging en privacy metrische gegevens voor de definitie van de Gemeenschap van belang:**
-    - Het niveau van zekerheid (LOA) die aangeboden/vereist voor deelnemers zijn. bijvoorbeeld: een geordende reeks vertrouwen classificaties voor de authenticiteit van de gegevens van digitale identiteit.
-    - De beveiligingsniveaus (LOP) die aangeboden/vereist voor deelnemers zijn. bijvoorbeeld: een geordende reeks vertrouwen classificaties voor de beveiliging van gegevens van de digitale identiteit die wordt verwerkt door de deelnemers aan de community van belang zijn.
+- **De metrische gegevens over beveiliging en privacy voor de community van belang voor de definitie van:**
+    - De mate van zekerheid (LOA) die door deel nemers worden aangeboden/vereist; bijvoorbeeld een geordende set betrouwbaarheids classificaties voor de echtheid van digitale identiteits gegevens.
+    - De beveiligings niveaus (LOP) die door deel nemers worden aangeboden/vereist; bijvoorbeeld een geordende set betrouwbaarheids classificaties voor de beveiliging van digitale identiteits gegevens die worden verwerkt door deel nemers in de community van belang.
 
-- **De beschrijving van de digitale identiteitsinformatie die is aangeboden/vereist door deelnemers**.
+- **De beschrijving van de digitale identiteits gegevens die door deel nemers worden aangeboden/vereist**.
 
-- **De technische beleidsregels voor productie en het verbruik van gegevens van digitale identiteit, en dus voor het meten van LOA en LOP. Deze schriftelijke beleidsregels zijn doorgaans de volgende categorieën van het beleid:**
-    - Identiteit taalprogramma beleid, bijvoorbeeld: *Hoe sterk is van een persoon identiteitsgegevens gecontroleerd?*
-    - Beveiligingsbeleid, bijvoorbeeld: *Hoe sterk zijn informatie berichtintegriteit en vertrouwelijkheid beveiligd?*
-    - Privacybeleid voor, bijvoorbeeld: *Welke besturingselement een gebruiker hebben over persoonlijk identificeerbare informatie (PII)* ?
-    - Beleid voor overlevingsvermogen, bijvoorbeeld: *Als een provider niet langer operations, hoe gaat de continuïteit en bescherming van persoonsgegevens functie?*
+- **Het technische beleid voor de productie en het gebruik van digitale identiteits gegevens, en dus voor het meten van LOA en LOP. Deze schriftelijke beleids regels bevatten doorgaans de volgende beleids regels:**
+    - Beleids regels voor identiteits controle, bijvoorbeeld: *Hoe sterk is de identiteits gegevens van een persoon gecontroleerd?*
+    - Beveiligings beleid, bijvoorbeeld: *Hoe sterk zijn de integriteit en vertrouwelijkheid van gegevens beschermd?*
+    - Privacybeleid, bijvoorbeeld: *Welk besturings element heeft een gebruiker over persoonlijke Identificeer bare informatie (PII)* ?
+    - Beleid voor overlevings vermogen, bijvoorbeeld: *Als een provider geen bewerkingen meer onderhoudt, hoe wordt de functie voor continuïteit en beveiliging van PII?*
 
-- **De technische profielen voor productie en het verbruik van gegevens van digitale identiteit. Deze profielen bevatten:**
-    - Bereik interfaces waarvoor digitale identiteitsinformatie beschikbaar op een opgegeven LOA is.
-    - Technische vereisten voor de wire-compatibiliteit.
+- **De technische profielen voor de productie en het gebruik van digitale identiteits gegevens. Deze profielen zijn onder andere:**
+    - Scope-interfaces waarvoor informatie over digitale identiteiten beschikbaar is op een opgegeven LOA.
+    - Technische vereisten voor on-the-Wire-interoperabiliteit.
 
-- **De beschrijvingen van de verschillende rollen die deelneemt aan de community kunnen uitvoeren en de kwalificatie die nodig zijn om te voldoen aan deze rollen.**
+- **De beschrijvingen van de verschillende rollen die deel nemers in de community kunnen uitvoeren en de kwalificaties die nodig zijn om aan deze rollen te voldoen.**
 
-Een specificatie TF bepaalt dus hoe identiteitsgegevens worden uitgewisseld tussen de deelnemers van de community van belang: Relying Party's, identiteit en -kenmerk providers en controleprogramma's voor kenmerk.
+Daarom bepaalt een TF-specificatie hoe identiteits gegevens worden uitgewisseld tussen de deel nemers van de community van belang: relying party's, identiteits-en kenmerk providers en controle Programma's voor kenmerken.
 
-Een TF-specificatie is een of meerdere documenten, die dienen als referentie voor het beheer van de community van belang dat de verklaring regelt en het verbruik van de gegevens van de digitale identiteit binnen de community. Er is een gedocumenteerde set beleidsregels en procedures die zijn ontworpen voor vertrouwen in de digitale identiteiten die worden gebruikt voor online transacties tussen de leden van een community van belang zijn.  
+Een TF-specificatie is een of meer documenten die dienen als referentie voor het governance van de community van belang voor het bepalen van de beweringen en het gebruik van digitale identiteits gegevens in de community. Het is een gedocumenteerde set beleids regels en procedures die zijn ontworpen om vertrouwen in de digitale identiteiten in te richten die worden gebruikt voor online trans acties tussen leden van een community van belang.  
 
-Met andere woorden, definieert een specificatie TF de regels voor het maken van een ecosysteem van bruikbare federatieve identiteiten voor een community.
+Met andere woorden, een TF-specificatie definieert de regels voor het maken van een levensvatbaar federatieve identiteits ecosysteem voor een community.
 
-Er is momenteel wijdverbreid overeenkomst op het voordeel van een dergelijke aanpak. Er is geen twijfel bestaat dat vertrouwensrelatie framework specificaties vergemakkelijken de ontwikkeling van digitale identiteit ecosystemen met controleerbare beveiliging, assurance en privacy kenmerken, wat betekent dat ze kunnen worden hergebruikt binnen meerdere community's van belang zijn.
+Er is momenteel een wijde overeenkomst tussen de voor delen van een dergelijke benadering. Er is geen twijfel dat de specificaties van het vertrouwens raamwerk de ontwikkeling van digitale identiteits ecosystemen met Controleer bare kenmerken van veiligheid, verzekeringen en privacy vergemakkelijken, wat betekent dat ze opnieuw kunnen worden gebruikt in meerdere community's van belang.
 
-Voor die om die reden worden aangepast Azure AD B2C-beleid die gebruikmaken van de Identity-Ervaringsframework maakt gebruik van de specificatie als basis voor de weergave van de gegevens voor een TF om interoperabiliteit mogelijk te maken.  
+Daarom gebruikt Azure AD B2C aangepast beleid dat het Framework voor identiteits ervaring gebruikt, de specificatie als basis voor de gegevens representatie van een TF om interoperabiliteit te vergemakkelijken.  
 
-Azure AD B2C aangepaste beleidsregels die gebruikmaken van de Identity-Ervaringsframework vertegenwoordigen een specificatie TF als een combinatie van menselijke en door machine leesbare gegevens. Bepaalde secties van dit model (meestal secties die meer gericht is op governance zijn) worden weergegeven als verwijzingen naar de gepubliceerde beveiliging en privacy documentatie over beleid samen met de gerelateerde procedures (indien aanwezig). Andere secties worden de metagegevens en runtime configuratieregels die operationele automation vergemakkelijken in detail beschreven.
+Azure AD B2C aangepaste beleids regels die gebruikmaken van het Framework voor identiteits ervaring, vertegenwoordigen een TF-specificatie als een mengeling van menselijk en machine-Lees bare gegevens. Sommige secties van dit model (doorgaans secties die meer gericht zijn op governance) worden weer gegeven als verwijzingen naar gepubliceerde documentatie over beveiligings-en privacybeleid, samen met de bijbehorende procedures (indien van toepassing). In andere secties worden de meta gegevens van de configuratie en runtime regels beschreven die de operationele automatisering vergemakkelijken.
 
-## <a name="understand-trust-framework-policies"></a>Framework vertrouwen beleid begrijpen
+## <a name="understand-trust-framework-policies"></a>Vertrouwens raamwerk beleid begrijpen
 
-Wat betreft implementatie, wordt de specificatie TF bestaat uit een verzameling van beleidsregels waarmee u volledige controle over het gedrag van de identiteit en ervaringen.  Azure AD B2C aangepaste beleidsregels die gebruikmaken van de Identity-Ervaringsframework kunnen u voor het ontwerpen en maken van uw eigen TF via dergelijk declaratieve beleid die u kunt definiëren en configureren:
+In termen van de implementatie bestaat de TF-specificatie uit een set beleids regels waarmee het gedrag van identiteiten en ervaringen kan worden beheerd.  Azure AD B2C aangepaste beleids regels die gebruikmaken van het Framework voor identiteits ervaring, kunt u uw eigen TF ontwerpen en maken met behulp van de volgende declaratieve beleids regels die kunnen worden gedefinieerd en geconfigureerd:
 
-- De verwijzing naar document of verwijzingen die het ecosysteem federatieve identiteit van de community die is gekoppeld aan de TF definiëren. Ze vindt u koppelingen naar de TF-documentatie. De regels (vooraf gedefinieerde) operationele "runtime', of de gebruiker reizen automatiseren en/of beheren van de exchange en het gebruik van de claims. Deze gebruiker reizen zijn gekoppeld aan een LOA (en een LOP). Een beleid kan daarom gebruiker reizen met uiteenlopende LOAs (en LOPs) hebben.
+- De document verwijzing of verwijzingen die het federatieve identiteits ecosysteem van de Community bepalen, gerelateerd aan de TF. Ze zijn koppelingen naar de TF-documentatie. De (vooraf gedefinieerde) operationele runtime regels of de gebruikers ritten waarmee de uitwisseling en het gebruik van de claims worden geautomatiseerd en/of beheerd. Deze gebruikers ritten zijn gekoppeld aan een LOA (en een LOP). Een beleid kan daarom gebruikers ritten hebben met verschillende LOAs (en LOPs).
 
-- De identiteits- en -providers, of de claims-providers, in de community van belang en de technische profielen die ze samen met de LOA/LOP erkenning van (out-of-band) dat is gekoppeld aan deze ondersteunen.
+- De identiteits-en kenmerk providers, of de claim providers, in de community van belang en de technische profielen die worden ondersteund samen met de (out-of-band) LOA/LOP-accreditering die aan hen is gekoppeld.
 
-- De integratie met kenmerk controleprogramma's of claims-providers.
+- De integratie met kenmerk controleprogramma's of claim providers.
 
-- De Relying Party's in de community (door Deductie).
+- De relying party's in de Community (door middel van interferentie).
 
-- De metagegevens voor het tot stand brengen van netwerkcommunicatie tussen deelnemers. Deze metagegevens, samen met de technische profielen worden gebruikt tijdens een transactie leegmaken 'op de kabel"interoperabiliteit tussen de relying party's en andere deelnemers aan de community.
+- De meta gegevens voor het tot stand brengen van netwerk communicatie tussen deel nemers. Deze meta gegevens, samen met de technische profielen, worden gebruikt tijdens een trans actie voor het vastmaken van de Wire-interoperabiliteit tussen de Relying Party en andere deel nemers van de community.
 
-- De conversie van het protocol indien van toepassing (bijvoorbeeld, SAML 2.0, OAuth2, WS-Federation en OpenID Connect).
+- De Protocol conversie, indien aanwezig (bijvoorbeeld SAML 2,0, OAuth2, WS-Federation en OpenID Connect Connect).
 
-- De verificatievereisten.
+- De verificatie vereisten.
 
-- De indeling van de meervoudige indien van toepassing.
+- De multi factor-indeling, indien aanwezig.
 
-- Een gedeelde schema voor de claims die beschikbaar zijn en toewijzingen aan deelnemers van de community van belang zijn.
+- Een gedeeld schema voor alle claims die beschikbaar zijn en toewijzingen aan deel nemers van een community van belang.
 
-- Alle claimtransformaties, samen met de tot mogelijk gegevens in deze context te accepteren van de exchange en het gebruik van de claims.
+- Alle claim transformaties, samen met de gegevens die in deze context kunnen worden geminimaliseerd, om de uitwisseling en het gebruik van de claims te hand haven.
 
 - De binding en versleuteling.
 
-- De claims-opslag.
+- De claim opslag.
 
 ### <a name="understand-claims"></a>Informatie over claims
 
 > [!NOTE]
-> We gezamenlijk verwijzen naar alle mogelijke typen van identiteitsgegevens die kunnen worden uitgewisseld als 'claims': claims over van de eindgebruiker verificatiereferentie, identiteit gaan, communicatie-apparaat, fysieke locatie, persoonlijke id-kenmerken, enzovoort.  
+> We verwijzen gezamenlijk naar alle mogelijke soorten identiteits gegevens die kunnen worden uitgewisseld als ' claims ': claims over de authenticatie referenties van een eind gebruiker, identiteits hebben, communicatie apparaat, fysieke locatie, persoonlijke identificatie kenmerken, enzovoort.  
 >
-> We gebruiken de term 'claims'--in plaats van "kenmerken"--omdat in online transacties, de gegevensartefacten van deze niet zijn ingesteld op feiten die rechtstreeks kunnen worden gecontroleerd door de relying party. Ze zijn in plaats van asserties of claims over feiten waarvoor de relying party voldoende vertrouwen voor het verlenen van de eindgebruiker aangevraagde transactie moet ontwikkelen.  
+> We gebruiken de term ' claims '--in plaats van ' Attributes '--omdat deze gegevens artefacten in online trans acties geen feiten zijn die rechtstreeks kunnen worden geverifieerd door de Relying Party. In plaats daarvan zijn er beweringen of claims over feiten waarvoor de Relying Party voldoende vertrouwen moet ontwikkelen om de aangevraagde trans actie van de eind gebruiker te verlenen.  
 >
-> We gebruiken ook de term 'claims' omdat Azure AD B2C aangepaste beleidsregels die gebruikmaken van de Identity-Ervaringsframework zijn ontworpen voor het vereenvoudigen van de uitwisseling van alle soorten gegevens van digitale identiteit in een consistente manier, ongeacht of het onderliggende protocol is voor verificatie of kenmerk ophalen van de gebruiker gedefinieerd.  Evenzo, gebruiken we de term "claimproviders" gezamenlijk id-providers, kenmerk providers en controleprogramma's voor kenmerk verwijzen als we niet willen onderscheid maken tussen hun specifieke functies.   
+> We gebruiken ook de term ' claims ' omdat Azure AD B2C aangepaste beleids regels die gebruikmaken van het Framework voor identiteits ervaring, zijn ontworpen om de uitwisseling van alle typen digitale identiteits gegevens op een consistente manier te vereenvoudigen, ongeacht of het onderliggende protocol gedefinieerd voor gebruikers verificatie of het ophalen van kenmerken.  We gebruiken ook de term ' claim providers ' om gezamenlijk te verwijzen naar id-providers, kenmerk providers en controle Programma's voor kenmerken wanneer we niet willen onderscheiden van hun specifieke functies.   
 
-Dus bepalen ze hoe identiteitsgegevens worden uitgewisseld tussen een relying party, identiteit en -kenmerk providers en controleprogramma's voor kenmerk. Ze bepalen welke identiteit en kenmerk providers zijn vereist voor een relying party verificatie. Ze moeten worden beschouwd als een taal domeinspecifieke (DSL), dat wil zeggen, de computertaal van een die is speciaal bedoeld voor een bepaalde toepassingsdomein met overname *als* overzichten, polymorfisme.
+Daarom bepalen ze hoe identiteits gegevens worden uitgewisseld tussen een Relying Party, identiteit en kenmerk providers en controle Programma's voor kenmerken. Ze bepalen welke identiteits-en kenmerk providers vereist zijn voor de verificatie van een Relying Party. Ze moeten worden beschouwd als een domein-specifieke taal (DSL), dat wil zeggen, een computer taal die speciaal is bedoeld voor een bepaald toepassings domein met overname, *indien* -instructies, polymorfisme.
 
-Deze beleidsregels vormen het machineleesbare gedeelte van de constructie TF in Azure AD B2C aangepaste beleidsregels voor gebruik te maken van de Identiteitservaring-Framework. Ze bevatten alle operationele details, met inbegrip van claims-providers metagegevens en technische profielen, schemadefinities voor claims, claims transformatiefuncties en gebruiker reizen die worden ingevuld om operationele indeling en automatisering mogelijk te maken.  
+Deze beleids regels vormen het door de machine Lees bare deel van de TF-construct in Azure AD B2C aangepaste beleids regels maken gebruik van het Framework voor identiteits ervaring. Ze omvatten alle operationele gegevens, waaronder meta gegevens en technische profielen van claim providers, claim schema definities, claim transformatie functies en gebruikers trajecten die zijn ingevuld om operationele integratie en automatisering te vergemakkelijken.  
 
-Ze worden beschouwd *levensonderhoud documenten* omdat er is een goede kans is dat de inhoud ervan worden trouwens tijd over de actieve deelnemers gedeclareerd in het beleid. Er is ook de kans dat de voorwaarden en bepalingen voor een deelnemer kunnen worden gewijzigd.  
+Er wordt van uitgegaan dat er sprake is van *levende documenten* , omdat er een goede kans bestaat dat de inhoud gedurende een periode wordt gewijzigd met betrekking tot de actieve deel nemers die in het beleid zijn gedeclareerd. Het is ook mogelijk dat de voor waarden van een deel nemer worden gewijzigd.  
 
-Federatieve installatie en het onderhoud sterk wordt vereenvoudigd door toepassing afscherming Relying Party's van actieve regels en connectiviteit wanneer andere claims-providers/controleprogramma's toevoegen of laat u (de community vertegenwoordigd door) de set met beleidsregels.
+De Federatie-instellingen en-onderhoud worden uitgebreid vereenvoudigd door relying party's te gebruiken voor het afschermen van vertrouwens relaties en het opnieuw configureren van connectiviteit als verschillende claim providers/controle Programma's die worden toegevoegd aan of verlaten (de Community vertegenwoordigd door) de set beleids regels.
 
-Interoperabiliteit is nog een aanzienlijke uitdaging om. Aanvullende claims providers/controleprogramma's moeten worden geïntegreerd, omdat de Relying Party's waarschijnlijk geen ondersteuning voor alle protocollen die nodig zijn. Azure AD B2C aangepast beleid wordt dit probleem oplossen door de ondersteuning van standaardprotocollen en door het toepassen van de specifieke gebruiker trajecten voor de omzetting van aanvragen als Relying Party's en leveranciers van het kenmerk niet hetzelfde protocol ondersteunen.  
+Interoperabiliteit is een andere belang rijke uitdaging. Aanvullende claim providers/controle Programma's moeten worden geïntegreerd, omdat relying party's waarschijnlijk niet alle benodigde protocollen ondersteunen. Azure AD B2C aangepast beleid lost dit probleem op door de industrie standaard protocollen te ondersteunen en door specifieke gebruikers ritten toe te passen om aanvragen te transponeren wanneer relying party's en kenmerk providers niet hetzelfde protocol ondersteunen.  
 
-Gebruikers reizen zijn protocol profielen en metagegevens die worden gebruikt voor het leegmaken van 'op de kabel"interoperabiliteit tussen de relying party's en andere deelnemers. Er zijn ook operationele runtime-regels die worden toegepast op identiteit exchange aanvraag/antwoord informatieberichten voor het afdwingen van naleving van gepubliceerde beleid als onderdeel van de TF-specificatie. Het idee van de gebruiker reizen is essentieel voor het aanpassen van de gebruikerservaring. Deze geworpen ook licht over de werking van het systeem op het protocolniveau van het.
+Gebruikers trajecten zijn protocol profielen en meta gegevens die worden gebruikt voor het vastmaken van de Wire-interoperabiliteit tussen de Relying Party en andere deel nemers. Er zijn ook operationele runtime regels die worden toegepast op identiteits informatie Exchange-aanvraag/antwoord berichten voor het afdwingen van naleving van het gepubliceerde beleid als onderdeel van de TF-specificatie. Het idee van gebruikers ritten is essentieel voor de aanpassing van de klant ervaring. Ook wordt het lampje uitgescheiden van de werking van het systeem op protocol niveau.
 
-Op basis daarvan kunnen, relying party toepassingen en -portals afhankelijk van hun context aangepast Azure AD B2C-beleid die gebruikmaken van de Identity-Ervaringsframework doorgeven van de naam van een specifiek beleid aanroepen en nauwkeurig de gedrag en informatie uitwisseling ophalen ze willen zonder wirwar, fuss of risico's.
+Op basis hiervan kunnen Relying Party toepassingen en portals, afhankelijk van hun context, Azure AD B2C aangepast beleid aanroepen dat gebruikmaakt van het Framework voor identiteits ervaring waarbij de naam van een specifiek beleid wordt door gegeven en precies het gedrag en de uitwisseling van informatie te verkrijgen ze willen zonder muss, Fuss of risico.

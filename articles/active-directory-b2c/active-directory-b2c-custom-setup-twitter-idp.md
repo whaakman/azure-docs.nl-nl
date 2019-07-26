@@ -1,6 +1,6 @@
 ---
-title: Instellen van aanmelding met een Twitter-account met behulp van aangepaste beleidsregels in Azure Active Directory B2C | Microsoft Docs
-description: Instellen van aanmelding met een Twitter-account met behulp van aangepaste beleidsregels in Azure Active Directory B2C.
+title: Aanmelden met een Twitter-account instellen met behulp van aangepast beleid in Azure Active Directory B2C | Microsoft Docs
+description: Stel aanmelden met een Twitter-account in met behulp van aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,61 +10,61 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1bf90ec8987ec419131ba21137972a0905e33f19
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 557d25c4921c9906be75bce03c326903e63432de
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654127"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464798"
 ---
-# <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Instellen van aanmelding met een Twitter-account met behulp van aangepaste beleidsregels in Azure Active Directory B2C
+# <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Aanmelden met een Twitter-account instellen met behulp van aangepast beleid in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Dit artikel leest u hoe u aanmelding voor gebruikers van een Twitter-account inschakelen met behulp van [aangepast beleid](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C.
+In dit artikel leest u hoe u aanmelden voor gebruikers van een Twitter-account kunt inschakelen met behulp van [aangepast beleid](active-directory-b2c-overview-custom.md) in azure Active Directory (Azure AD) B2C.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Voer de stappen in [aan de slag met aangepaste beleidsregels in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
-- Als u nog een Twitter-account hebt, maakt u één voor één [pagina voor het registreren van Twitter](https://twitter.com/signup).
+- Voer de stappen in aan de [slag met aangepast beleid in azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+- Als u nog geen Twitter-account hebt, maakt u er een op de [aanmeldings pagina voor Twitter](https://twitter.com/signup).
 
 ## <a name="create-an-application"></a>Een app maken
 
-Voor het gebruik van Twitter als id-provider in Azure AD B2C, moet u een Twitter-toepassing maken.
+Als u Twitter als een id-provider in Azure AD B2C wilt gebruiken, moet u een Twitter-toepassing maken.
 
-1. Aanmelden bij de [Twitter ontwikkelaars](https://developer.twitter.com/en/apps) -website met de referenties van uw Twitter-account.
-2. Selecteer **maken van een app**.
-3. Voer een **appnaam** en een **toepassingsbeschrijving**.
-4. In **Website-URL**, voer `https://your-tenant.b2clogin.com`. Vervang `your-tenant` met de naam van uw tenant. Bijvoorbeeld https://contosob2c.b2clogin.com.
-5. Voor de **URL voor terugbellen**, voer `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`. Vervang `your-tenant` met de naam van de naam van uw tenant en `your-policy-Id` met de id van uw beleid. Bijvoorbeeld `b2c_1A_signup_signin_twitter`. U moet alle kleine letters gebruiken bij het invoeren van de tenantnaam van uw, zelfs als de tenant is gedefinieerd met behulp van hoofdletters in Azure AD B2C.
-6. Aan de onderkant van de pagina, lees en accepteer de voorwaarden en selecteer vervolgens **maken**.
-7. Op de **App-details** weergeeft, schakelt **bewerken > details bewerken**, schakel het selectievakje voor **inschakelen aanmelden bij Twitter**, en selecteer vervolgens **opslaan**.
-8. Selecteer **sleutels en tokens** en noteer de **consument-API-sleutel** en de **consument-API-geheim** waarden voor later gebruik.
+1. Meld u aan bij de website van de [Twitter-ontwikkel aars](https://developer.twitter.com/en/apps) met de referenties van uw Twitter-account.
+2. Selecteer **een app maken**.
+3. Voer een **app-naam** en een **toepassings beschrijving**in.
+4. Voer`https://your-tenant.b2clogin.com`in **website-URL**in. Vervang `your-tenant` door de naam van uw Tenant. Bijvoorbeeld https://contosob2c.b2clogin.com.
+5. Voer`https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`in voor de **call back-URL**. Vervang `your-tenant` door de naam van uw Tenant naam en `your-policy-Id` met de id van uw beleid. Bijvoorbeeld `b2c_1A_signup_signin_twitter`. U moet alle kleine letters gebruiken bij het invoeren van de naam van uw Tenant, zelfs als de Tenant is gedefinieerd met hoofd letters in Azure AD B2C.
+6. Lees en accepteer de voor waarden aan de onderkant van de pagina en selecteer vervolgens **maken**.
+7. Op de **pagina app-Details** selecteert u **Bewerken > Details bewerken**, schakelt u het selectie vakje **Aanmelden met Twitter inschakelen in**en selecteert u vervolgens **Opslaan**.
+8. Selecteer **sleutels en tokens** en noteer de **CONSUMer-API-sleutel** en de **geheime sleutel** waarden voor de Consumer-API die u later wilt gebruiken.
 
-## <a name="create-a-policy-key"></a>De beleidssleutel van een maken
+## <a name="create-a-policy-key"></a>Een beleids sleutel maken
 
-U moet voor het opslaan van de geheime sleutel die u eerder hebt genoteerd in uw Azure AD B2C-tenant.
+U moet de geheime sleutel opslaan die u eerder in uw Azure AD B2C-Tenant hebt vastgelegd.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant. Selecteer de **map- en abonnementsfilter** in het bovenste menu en kiest u de map waarin uw tenant.
+2. Zorg ervoor dat u de map gebruikt die uw Azure AD B2C-Tenant bevat. Selecteer het **Directory-en abonnements filter** in het bovenste menu en kies de map die uw Tenant bevat.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
-4. Selecteer op de pagina overzicht **Identity-Ervaringsframework**.
-5. Selecteer **Beleidssleutels** en selecteer vervolgens **toevoegen**.
-6. Voor **opties**, kiest u `Manual`.
-7. Voer een **naam** voor de beleidssleutel. Bijvoorbeeld `TwitterSecret`. Het voorvoegsel `B2C_1A_` wordt automatisch toegevoegd aan de naam van uw sleutel.
-8. In **geheim**, voer het clientgeheim die u eerder hebt genoteerd.
-9. Voor **sleutelgebruik**, selecteer `Encryption`.
+4. Selecteer op de pagina overzicht **identiteits ervaring-Framework**.
+5. Selecteer **beleids sleutels** en selecteer vervolgens **toevoegen**.
+6. Kies`Manual`voor **Opties**.
+7. Voer een **naam** in voor de beleids sleutel. Bijvoorbeeld `TwitterSecret`. Het voor `B2C_1A_` voegsel wordt automatisch toegevoegd aan de naam van uw sleutel.
+8. Voer in het **geheim**uw client geheim in dat u eerder hebt vastgelegd.
+9. Selecteer`Encryption`voor **sleutel gebruik**.
 10. Klik op **Create**.
 
-## <a name="add-a-claims-provider"></a>Toevoegen van een claimprovider
+## <a name="add-a-claims-provider"></a>Een claim provider toevoegen
 
-Als u wilt dat gebruikers zich aanmelden met een Twitter-account, moet u het account als een claimprovider waarmee Azure AD B2C via een eindpunt communiceren kunnen definiëren. Het eindpunt biedt een set claims die worden gebruikt door Azure AD B2C om te controleren of dat een specifieke gebruiker is geverifieerd.
+Als u wilt dat gebruikers zich aanmelden met een Twitter-account, moet u het account definiëren als een claim provider waarmee Azure AD B2C met behulp van een eind punt kunnen communiceren. Het eind punt biedt een set claims die wordt gebruikt door Azure AD B2C om te controleren of een specifieke gebruiker is geverifieerd.
 
-U kunt een Twitter-account als een claimprovider definiëren door toe te voegen aan de **ClaimsProviders** element in het bestand uitbreiding van uw beleid.
+U kunt een Twitter-account definiëren als een claim provider door deze toe te voegen aan het **ClaimsProviders** -element in het extensie bestand van uw beleid.
 
-1. Open de *TrustFrameworkExtensions.xml*.
-2. Zoek de **ClaimsProviders** element. Als deze niet bestaat, kunt u deze onder het root-element toevoegen.
-3. Toevoegen van een nieuwe **ClaimsProvider** als volgt:
+1. Open *TrustFrameworkExtensions. XML*.
+2. Zoek het element **ClaimsProviders** . Als deze niet bestaat, voegt u deze toe onder het hoofd element.
+3. Voeg als volgt een nieuwe **ClaimsProvider** toe:
 
     ```xml
     <ClaimsProvider>
@@ -105,72 +105,72 @@ U kunt een Twitter-account als een claimprovider definiëren door toe te voegen 
     </ClaimsProvider>
     ```
 
-4. Vervang de waarde van **client_id** met de consumentsleutel die u eerder hebt genoteerd.
+4. Vervang de waarde van **client_id** door de consumenten sleutel die u eerder hebt vastgelegd.
 5. Sla het bestand op.
 
-### <a name="upload-the-extension-file-for-verification"></a>Upload het extensiebestand voor verificatie
+### <a name="upload-the-extension-file-for-verification"></a>Upload het extensie bestand voor verificatie
 
-U hebt nu uw beleid geconfigureerd zodat Azure AD B2C weet hoe om te communiceren met uw LinkedIn-account. Upload het bestand uitbreiding van uw beleid om te bevestigen dat er geen problemen met tot nu toe.
+Nu hebt u uw beleid zodanig geconfigureerd dat Azure AD B2C weet hoe u kunt communiceren met uw Twitter-account. Upload het extensie bestand van uw beleid alleen om te bevestigen dat er tot nu toe geen problemen zijn.
 
-1. Op de **aangepast beleid** pagina in uw Azure AD B2C-tenant, selecteer **uploaden beleid**.
-2. Schakel **het beleid overschrijven als deze bestaat**, en blader vervolgens naar en selecteer de *TrustFrameworkExtensions.xml* bestand.
+1. Selecteer op de pagina **aangepaste beleids regels** in uw Azure AD B2C-Tenant de optie **beleid uploaden**.
+2. Schakel **het beleid overschrijven als dit bestaat**in en selecteer vervolgens het *TrustFrameworkExtensions. XML-* bestand.
 3. Klik op **Uploaden**.
 
-## <a name="register-the-claims-provider"></a>De claimprovider registreren
+## <a name="register-the-claims-provider"></a>De claim provider registreren
 
-Op dit moment wordt de id-provider is ingesteld, maar het is niet beschikbaar zijn in elk van de schermen registreren of aanmelden. Om het beschikbaar maken, kunt u een duplicaat van een bestaande sjabloon voor de gebruikersbeleving maken en wijzigen zodat het bevat ook de Twitter-id-provider.
+Op dit moment is de ID-provider ingesteld, maar is deze niet beschikbaar in de beschik bare registratie-of aanmeldings schermen. Om het beschikbaar te maken, maakt u een kopie van een bestaande sjabloon gebruiker en wijzigt u deze zo dat deze ook de Twitter-ID-provider heeft.
 
-1. Open de *TrustFrameworkBase.xml* -bestand van het starter-pack.
-2. Zoeken en kopieer de gehele inhoud van de **UserJourney** element met `Id="SignUpOrSignIn"`.
-3. Open de *TrustFrameworkExtensions.xml* en zoek de **UserJourneys** element. Als het element niet bestaat, Voeg een.
-4. Plak de volledige inhoud van de **UserJourney** element dat u hebt gekopieerd als onderliggende site van de **UserJourneys** element.
-5. Wijzig de naam van de ID van de gebruikersbeleving. Bijvoorbeeld `SignUpSignInTwitter`.
+1. Open het bestand *TrustFrameworkBase. XML* van het Starter Pack.
+2. Zoek en kopieer de volledige inhoud van het **UserJourney** -element dat `Id="SignUpOrSignIn"`bevat.
+3. Open *TrustFrameworkExtensions. XML* en zoek het element **UserJourneys** . Als het element niet bestaat, voegt u er een toe.
+4. Plak de volledige inhoud van het **UserJourney** -element dat u hebt gekopieerd als onderliggend element van het onderdeel **UserJourneys** .
+5. Wijzig de naam van de gebruikers traject. Bijvoorbeeld `SignUpSignInTwitter`.
 
-### <a name="display-the-button"></a>De knop weergeven
+### <a name="display-the-button"></a>De knop weer geven
 
-De **ClaimsProviderSelection** element is vergelijkbaar met een id-provider-knop op het scherm registreren of aanmelden. Als u een **ClaimsProviderSelection** -element voor een Twitter-account, een nieuwe knop wordt weergegeven wanneer een gebruiker op de pagina terechtkomt.
+Het element **ClaimsProviderSelection** is vergelijkbaar met een id-provider knop op een registratie-of aanmeldings scherm. Als u een **ClaimsProviderSelection** -element toevoegt voor een Twitter-account, wordt een nieuwe knop weer gegeven wanneer een gebruiker op de pagina terechtkomt.
 
-1. Zoek de **OrchestrationStep** element met `Order="1"` in de gebruikersbeleving die u hebt gemaakt.
-2. Onder **ClaimsProviderSelects**, voegt u het volgende element toe. Stel de waarde van **TargetClaimsExchangeId** naar een geschikte waarde, bijvoorbeeld `TwitterExchange`:
+1. Zoek het **OrchestrationStep** -element dat `Order="1"` is opgenomen in de gebruikers traject die u hebt gemaakt.
+2. Voeg onder **ClaimsProviderSelects**het volgende element toe. Stel de waarde van **TargetClaimsExchangeId** in op een geschikte waarde, bijvoorbeeld `TwitterExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="TwitterExchange" />
     ```
 
-### <a name="link-the-button-to-an-action"></a>De knop koppelen aan een actie
+### <a name="link-the-button-to-an-action"></a>De knop aan een actie koppelen
 
-Nu dat u een knop op locatie hebt, die u wilt koppelen aan een actie. De actie, wordt in dit geval is voor Azure AD B2C om te communiceren met een Twitter-account voor het ontvangen van een token.
+Nu er een knop aanwezig is, moet u deze koppelen aan een actie. De actie in dit geval is voor Azure AD B2C om te communiceren met een Twitter-account om een token te ontvangen.
 
-1. Zoek de **OrchestrationStep** die bevat `Order="2"` in de gebruikersbeleving.
-2. Voeg de volgende **ClaimsExchange** element ervoor te zorgen dat u dezelfde waarde voor de ID die u gebruikt voor **TargetClaimsExchangeId**:
+1. Zoek de **OrchestrationStep** die in `Order="2"` de gebruikers reis zijn opgenomen.
+2. Voeg het volgende **ClaimsExchange** -element toe om ervoor te zorgen dat u dezelfde waarde gebruikt voor de id die u hebt gebruikt voor **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
     ```
 
-    Werk de waarde van **TechnicalProfileReferenceId** aan de ID van het technische profiel dat u eerder hebt gemaakt. Bijvoorbeeld `Twitter-OAUTH1`.
+    Werk de waarde van **TechnicalProfileReferenceId** bij naar de id van het technische profiel dat u eerder hebt gemaakt. Bijvoorbeeld `Twitter-OAUTH1`.
 
-3. Sla de *TrustFrameworkExtensions.xml* -bestand en upload het opnieuw om te verifiëren.
+3. Sla het bestand *TrustFrameworkExtensions. XML* op en upload het opnieuw voor verificatie.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Een Azure AD B2C-toepassing maken
 
-Communicatie met Azure AD B2c vindt plaats via een toepassing die u in uw tenant maakt. Deze sectie vindt u optionele stappen die u uitvoeren kunt voor het maken van een testtoepassing als u dat nog niet hebt gedaan.
+Communicatie met Azure AD B2c vindt plaats via een toepassing die u in uw Tenant maakt. In deze sectie vindt u optionele stappen die u kunt uitvoeren om een test toepassing te maken als u dit nog niet hebt gedaan.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant. Selecteer de **map- en abonnementsfilter** in het bovenste menu en kiest u de map waarin uw tenant.
+2. Zorg ervoor dat u de map gebruikt die uw Azure AD B2C-Tenant bevat. Selecteer het **Directory-en abonnements filter** in het bovenste menu en kies de map die uw Tenant bevat.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
-5. Voer een naam voor de toepassing, bijvoorbeeld *testapp1*.
-6. Voor **Web-App / Web-API**, selecteer `Yes`, en voer vervolgens `https://jwt.ms` voor de **antwoord-URL**.
+5. Voer een naam in voor de toepassing, bijvoorbeeld *testapp1*.
+6. Voor **Web-app/Web**-API `Yes`selecteert u en voert `https://jwt.ms` u vervolgens in voor de **antwoord-URL**.
 7. Klik op **Create**.
 
-## <a name="update-and-test-the-relying-party-file"></a>Bijwerken en testen van de relying party-bestand
+## <a name="update-and-test-the-relying-party-file"></a>Het Relying Party bestand bijwerken en testen
 
-Bijwerken van de relying party (RP)-bestand dat initieert de gebruikersbeleving die u hebt gemaakt.
+Werk het Relying Party (RP)-bestand bij waarmee de door u gemaakte gebruikers traject wordt gestart.
 
-1. Maak een kopie van *SignUpOrSignIn.xml* in uw werkmap en wijzig de naam. Bijvoorbeeld, wijzig de naam *SignUpSignInTwitter.xml*.
-2. Open het nieuwe bestand en werk de waarde van de **PolicyId** voor het kenmerk **TrustFrameworkPolicy** met een unieke waarde. Bijvoorbeeld `SignUpSignInTwitter`.
-3. Werk de waarde van **PublicPolicyUri** aan de URI voor het beleid. Bijvoorbeeld:`http://contoso.com/B2C_1A_signup_signin_twitter`
-4. Werk de waarde van de **ReferenceId** kenmerk in **DefaultUserJourney** zodat deze overeenkomen met de ID van de nieuwe gebruikersbeleving die u hebt gemaakt (SignUpSignTwitter).
-5. Sla uw wijzigingen, upload het bestand en selecteer vervolgens het nieuwe beleid in de lijst.
-6. Zorg ervoor dat Azure AD B2C-toepassing die u hebt gemaakt is geselecteerd de **toepassing selecteren** veld en vervolgens testen door te klikken op **nu uitvoeren**.
+1. Maak een kopie van *SignUpOrSignIn. XML* in uw werkmap en wijzig de naam ervan. Wijzig de naam bijvoorbeeld in *SignUpSignInTwitter. XML*.
+2. Open het nieuwe bestand en werk de waarde van het kenmerk **PolicyId** voor **TrustFrameworkPolicy** met een unieke waarde bij. Bijvoorbeeld `SignUpSignInTwitter`.
+3. Werk de waarde van **PublicPolicyUri** bij met de URI voor het beleid. Bijvoorbeeld:`http://contoso.com/B2C_1A_signup_signin_twitter`
+4. Werk de waarde van het kenmerk **ReferenceId** in **DefaultUserJourney** bij zodat dit overeenkomt met de id van de nieuwe gebruikers traject die u hebt gemaakt (SignUpSignTwitter).
+5. Sla de wijzigingen op, upload het bestand en selecteer vervolgens het nieuwe beleid in de lijst.
+6. Zorg ervoor dat Azure AD B2C toepassing die u hebt gemaakt, is geselecteerd in het veld **toepassing selecteren** en test deze door op **nu uitvoeren**te klikken.

@@ -1,62 +1,62 @@
 ---
-title: Voorbeeld van de Share Azure gegevens oplossen
-description: Meer informatie over het oplossen van problemen met Azure gegevens delen Preview
+title: Problemen met Azure data share preview oplossen
+description: Meer informatie over het oplossen van problemen met Azure data share preview
 services: data-share
 author: joannapea
 ms.service: data-share
-ms.topic: overview
+ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: c02f72d6a327c4dcb94ac8844005613cfe316986
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 386a5e34dccafa61859cd13c3e0ad88cd3a7ffac
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838386"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421459"
 ---
-# <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>Oplossen van algemene problemen in Azure Data Share-Preview
+# <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>Veelvoorkomende problemen in azure data share preview oplossen
 
-In dit artikel laat zien hoe algemene problemen oplossen voor Azure-Gegevensvoorbeeld delen. 
+In dit artikel wordt beschreven hoe u veelvoorkomende problemen met Azure data share preview kunt oplossen. 
 
-## <a name="azure-data-share-invitations"></a>Azure uitnodigingen voor het delen van gegevens 
+## <a name="azure-data-share-invitations"></a>Uitnodigingen voor Azure-gegevens delen 
 
-In sommige gevallen, wanneer een nieuwe gebruiker op **uitnodiging accepteren** van het e-mailuitnodiging die is verzonden, kunnen ze worden weergegeven met een lege lijst met uitnodigingen. 
+In sommige gevallen wordt er een lege lijst met uitnodigingen weer gegeven wanneer een nieuwe gebruiker op **uitnodiging accepteren** klikt vanuit de uitnodiging voor het verzenden van e-mail. 
 
-![Er zijn geen uitnodigingen](media/no-invites.png)
+![Geen uitnodigingen](media/no-invites.png)
 
-De bovenstaande fout is een bekend probleem met de service en is momenteel gericht. Als tijdelijke oplossing, volg de onderstaande stappen. 
+De bovenstaande fout is een bekend probleem met de service en wordt op dit moment opgelost. Volg de onderstaande stappen als tijdelijke oplossing. 
 
-1. In de Azure-portal, gaat u naar **abonnementen**
-1. Selecteer het abonnement dat u voor Azure het delen van gegevens
-1. Klik op **Resourceproviders**
-1. Zoeken naar Microsoft.DataShare
+1. Ga in het Azure Portal naar **abonnementen**
+1. Selecteer het abonnement dat u gebruikt voor Azure-gegevens share
+1. Klik op **resource providers**
+1. Zoeken naar micro soft. DataShare
 1. Klik op **registreren**
 
-U moet beschikken over de [Azure Inzender RBAC-rol](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) om deze stappen te voltooien. 
+U moet de [rol van Azure INZENDER RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) hebben om deze stappen te kunnen volt ooien. 
 
-Als u zich nog steeds niet om een uitnodiging voor delen gegevens te bekijken, neem contact op met uw gegevens en ervoor te zorgen dat zij de uitnodiging voor uw Azure-aanmelding e-mailadres hebt verzonden en *niet* uw e-mailalias. 
+Als u nog steeds geen uitnodiging voor gegevens delen kunt zien, neemt u contact op met uw gegevens provider en zorgt u ervoor dat ze de uitnodiging hebben verzonden naar uw e-mail adres voor Azure-aanmelding en *niet* uw e-mail alias. 
 
 > [!IMPORTANT]
-> Als u hebt al een Azure-Gegevensshare uitnodiging geaccepteerd en de service voor het configureren van opslag is afgesloten, volgt u de instructies die zijn uiteengezet in de [configureren van de toewijzing van een gegevensset](how-to-configure-mapping.md) handleiding voor meer informatie over hoe u klaar bent met het configureren van uw ontvangen gegevens delen en ontvangen van gegevens. 
+> Als u al een uitnodiging voor een Azure-gegevens share hebt geaccepteerd en de service hebt afgesloten voordat u de opslag ruimte hebt geconfigureerd, volgt u de instructies in de hand leiding [Configure a dataset mapping](how-to-configure-mapping.md) How-to om te leren hoe u de configuratie van uw ontvangen gegevens delen kunt volt ooien en beginnen met het ontvangen van gegevens. 
 
-## <a name="error-when-creating-or-receiving-a-new-data-share"></a>Fout bij het maken van of het delen van een nieuwe gegevens ontvangen
+## <a name="error-when-creating-or-receiving-a-new-data-share"></a>Fout bij het maken of ontvangen van een nieuwe gegevens share
 
-' Fout: Bewerking heeft een ongeldige statuscode 'BadRequest' geretourneerd als"
+Optreedt De bewerking heeft een ongeldige status code onjuiste aanvraag
 
-' Fout: AuthorizationFailed"
+Optreedt AuthorizationFailed"
 
-"Fout: roltoewijzing met storage-account"
+"Fout: roltoewijzing aan opslag account"
 
-![Fout: onvoldoende toegangsrechten](media/error-write-privilege.png)
+![Bevoegdheids fout](media/error-write-privilege.png)
 
-Als u ontvangt een van de bovenstaande fouten bij het maken van een nieuwe gegevens delen of het delen van een nieuwe gegevens ontvangen, is omdat er onvoldoende machtigingen voor het opslagaccount. De vereiste machtiging is *Microsoft.Authorization/role toewijzingen schrijftijd*, die bestaat in de rol van de eigenaar opslag of kunnen worden toegewezen aan een aangepaste rol. Zelfs als u de Storage-account hebt gemaakt, maakt deze niet automatisch u de eigenaar van het storage-account. Volg deze stappen voor het verlenen uzelf eigenaar van het storage-account. U kunt ook kan een aangepaste rol worden gemaakt met deze machtiging die u uzelf in om u te kan toevoegen.  
+Als u een van de bovenstaande foutberichten ontvangt tijdens het maken of ontvangen van een nieuwe gegevensshare, is dit omdat het opslagaccount onvoldoende machtigingen heeft. De vereiste machtiging is *micro soft. autorisatie/roltoewijzingen/schrijven*, die voor komt in de rol van de opslag eigenaar of die kan worden toegewezen aan een aangepaste rol. Zelfs als u het opslagaccount hebt gemaakt, betekent dit NIET automatisch dat u de eigenaar van het opslagaccount bent. Volg deze stappen om uzelf eigenaar te maken van het opslagaccount. U kunt ook een aangepaste rol maken met deze machtiging die u zelf kunt toevoegen aan.  
 
-1. Ga naar opslagaccount in Azure portal
-1. Selecteer **toegangsbeheer (IAM)**
+1. Ga naar Opslagaccount in de Azure-portal
+1. **Toegangs beheer (IAM)** selecteren
 1. Klik op **toevoegen**
-1. Uzelf in toevoegen als eigenaar.
+1. Voeg jezelf toe als eigenaar.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt meer informatie over het delen van gegevens, blijven de [delen van uw gegevens](share-your-data.md) zelfstudie.
+Ga door naar de zelf studie [uw gegevens delen](share-your-data.md) voor meer informatie over het delen van gegevens.
 

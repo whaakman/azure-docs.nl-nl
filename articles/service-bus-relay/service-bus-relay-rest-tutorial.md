@@ -1,6 +1,6 @@
 ---
-title: Met behulp van Azure Relay REST-zelfstudie | Microsoft Docs
-description: Bouw een eenvoudige Azure Service Bus Relay-hosttoepassing waarmee wordt aangegeven dat een op REST gebaseerde interface.
+title: REST zelf studie met Azure Relay | Microsoft Docs
+description: Bouw een eenvoudige Azure Service Bus Relay Host-toepassing die een op REST gebaseerde interface beschikbaar stelt.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 4ed45e1ed18ad630831772997b1fc150882731bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e988724f842ff12cd599eba95c31006fe208fad
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123396"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422885"
 ---
-# <a name="azure-wcf-relay-rest-tutorial"></a>Zelfstudie voor Azure WCF Relay REST
-Deze zelfstudie wordt beschreven hoe u bouwt een eenvoudige Azure Relay-hosttoepassing waarmee wordt aangegeven dat een op REST gebaseerde interface. Met REST kan een webclient, zoals een webbrowser, toegang krijgen tot de Service Bus-API's via HTTP-aanvragen.
+# <a name="azure-wcf-relay-rest-tutorial"></a>REST-zelf studie voor Azure WCF Relay
+In deze zelf studie wordt beschreven hoe u een eenvoudige Azure Relay-hosttoepassing bouwt die een op REST gebaseerde interface beschrijft. Met REST kan een webclient, zoals een webbrowser, toegang krijgen tot de Service Bus-API's via HTTP-aanvragen.
 
-De zelfstudie maakt gebruik van de Windows Communication Foundation (WCF) REST-programmeermodel om te maken van een REST-service op Azure Relay. Zie [WCF REST Programming Model](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) (WCF REST-programmeermodel) en [Designing and Implementing Services](/dotnet/framework/wcf/designing-and-implementing-services) (Services ontwerpen en implementeren) in de WCF-documentatie voor meer informatie.
+De zelf studie maakt gebruik van het Windows Communication Foundation (WCF) REST programmeer model voor het bouwen van een REST-service op Azure Relay. Zie [WCF REST Programming Model](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) (WCF REST-programmeermodel) en [Designing and Implementing Services](/dotnet/framework/wcf/designing-and-implementing-services) (Services ontwerpen en implementeren) in de WCF-documentatie voor meer informatie.
 
 In deze zelfstudie voert u de volgende stappen uit:
 
 > [!div class="checklist"]
-> * Een Relay-naamruimte maken.
-> * Een op REST gebaseerd WCF-servicecontract definiëren
-> * De REST gebaseerd WCF-contract implementeren
-> * Hosten en uitvoeren van de REST gebaseerd WCF-service
-> * Uitvoeren en testen van de service
+> * Een relay-naam ruimte maken.
+> * Een op REST gebaseerd WCF-service contract definiëren
+> * Het op REST gebaseerde WCF-contract implementeren
+> * Host en voer de op REST gebaseerde WCF-service uit
+> * De service uitvoeren en testen
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -43,17 +43,17 @@ Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden vol
 - [Visual Studio 2015 of hoger](https://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt Visual Studio 2017 gebruikt.
 - Azure-SDK voor .NET. Installeer de SDK via de [SDK-downloadpagina](https://azure.microsoft.com/downloads/).
 
-## <a name="create-a-relay-namespace"></a>Een Relay-naamruimte maken
+## <a name="create-a-relay-namespace"></a>Een relay-naam ruimte maken
 
 Als u de relayfuncties in Azure wilt gebruiken, moet u eerst een servicenaamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Azure-resources in uw toepassing. Volg [deze instructies](relay-create-namespace-portal.md) om een Relay-naamruimte te maken.
 
-## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Een REST gebaseerd WCF-servicecontract voor gebruik met Azure Relay definiëren
+## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Definieer een op REST gebaseerd WCF-service contract voor gebruik met Azure Relay
 
-Wanneer u een service WCF REST-stijl maakt, moet u het contract definiëren. Het contract geeft aan welke bewerkingen door de host worden ondersteund. Een servicebewerking kan worden beschouwd als een webservicemethode. Contracten worden gemaakt door een C++-, C#- of Visual Basic-interface te definiëren. Elke methode in de interface komt overeen met een specifieke servicebewerking. Op elke interface moet het kenmerk [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) worden toegepast en op elke bewerking moet het kenmerk [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) worden toegepast. Als een methode in een interface met het kenmerk [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) niet beschikt over het kenmerk [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), wordt die methode niet weergegeven. In het voorbeeld na de procedure wordt de code weergegeven die voor deze taken wordt gebruikt.
+Wanneer u een service voor de REST-stijl van WCF maakt, moet u het contract definiëren. Het contract geeft aan welke bewerkingen door de host worden ondersteund. Een servicebewerking kan worden beschouwd als een webservicemethode. Contracten worden gemaakt door een C++-, C#- of Visual Basic-interface te definiëren. Elke methode in de interface komt overeen met een specifieke servicebewerking. Op elke interface moet het kenmerk [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) worden toegepast en op elke bewerking moet het kenmerk [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) worden toegepast. Als een methode in een interface met het kenmerk [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) niet beschikt over het kenmerk [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), wordt die methode niet weergegeven. In het voorbeeld na de procedure wordt de code weergegeven die voor deze taken wordt gebruikt.
 
-Het belangrijkste verschil tussen een WCF-contract en een REST-stijlcontract is de toevoeging van een eigenschap aan de [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute): [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). Met deze eigenschap kunt u een methode in uw interface toewijzen aan een methode aan de andere kant van de interface. In dit voorbeeld wordt de [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) kenmerk voor het koppelen van een methode aan HTTP GET. Hierdoor kunnen Service Bus correct ophalen en interpreteren van opdrachten verzonden naar de interface.
+Het belangrijkste verschil tussen een WCF-contract en een REST-stijl contract is het toevoegen van een eigenschap aan de [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute): [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). Met deze eigenschap kunt u een methode in uw interface toewijzen aan een methode aan de andere kant van de interface. In dit voor beeld wordt het attributes [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) gebruikt om een methode aan http Get te koppelen. Hierdoor kunnen Service Bus opdrachten die naar de interface worden verzonden, nauw keurig ophalen en interpreteren.
 
-### <a name="to-create-a-contract-with-an-interface"></a>Het maken van een contract met een interface
+### <a name="to-create-a-contract-with-an-interface"></a>Een contract met een interface maken
 
 1. Open Visual Studio als beheerder: klik met de rechtermuisknop op het programma in het menu **Start** en klik vervolgens op **Als administrator uitvoeren**.
 2. Maak een nieuw consoletoepassingsproject aan. Klik op het menu **Bestand**, selecteer **Nieuw** en selecteer vervolgens **Project**. Klik in het dialoogvenster **Nieuw project** op **Visual C#** , selecteer de sjabloon **Consoletoepassing** en geef deze de naam **ImageListener**. Gebruik de standaardwaarde voor **Locatie**. Klik op **OK** om het project te maken.
@@ -73,7 +73,7 @@ Het belangrijkste verschil tussen een WCF-contract en een REST-stijlcontract is 
     using System.IO;
     ```
    
-    [System.ServiceModel](/dotnet/api/system.servicemodel) is de naamruimte die programmatisch toegang biedt tot de basisfuncties van WCF. WCF-Relay maakt gebruik van veel van de objecten en kenmerken van WCF om servicecontracten te definiëren. U gebruikt deze naamruimte in de meeste van de relay-toepassingen. Op deze manier [System.ServiceModel.Channels](/dotnet/api/system.servicemodel.channels) bij het definiëren van het kanaal, dit is het object waarmee u contact met de Azure Relay en de clientwebbrowser opnemen. Tot slot bevat [System.ServiceModel.Web](/dotnet/api/system.servicemodel.web) de typen waarmee u webtoepassingen kunt maken.
+    [System.ServiceModel](/dotnet/api/system.servicemodel) is de naamruimte die programmatisch toegang biedt tot de basisfuncties van WCF. WCF Relay maakt gebruik van veel van de objecten en kenmerken van WCF om service contracten te definiëren. U gebruikt deze naam ruimte in de meeste van uw relay-toepassingen. Net als [System. service model. channels](/dotnet/api/system.servicemodel.channels) kunt u het kanaal definiëren. Dit is het object waarmee u communiceert met Azure relay en de webbrowser van de client. Tot slot bevat [System.ServiceModel.Web](/dotnet/api/system.servicemodel.web) de typen waarmee u webtoepassingen kunt maken.
 7. Wijzig de naam van de naamruimte `ImageListener` in **Microsoft.ServiceBus.Samples**.
    
     ```csharp
@@ -108,18 +108,18 @@ Het belangrijkste verschil tussen een WCF-contract en een REST-stijlcontract is 
     }
     ```
     
-    Zo kunnen de relay-service op route HTTP GET verzoeken om te doen `GetImage`, en voor de omzetting van de retourwaarden van `GetImage` in een HTTP GETRESPONSE-antwoord. Verderop in de zelfstudie gebruikt u een webbrowser om toegang te krijgen tot deze methode en de installatiekopie weer te geven in de browser.
+    Hierdoor kan de Relay-service HTTP Get-aanvragen routeren `GetImage`naar en de retour waarden van `GetImage` in een http GETRESPONSE-antwoord omzetten. Verderop in de zelfstudie gebruikt u een webbrowser om toegang te krijgen tot deze methode en de installatiekopie weer te geven in de browser.
 11. Declareer direct na de `IImageContract`-definitie een kanaal dat de eigenschappen overneemt van de `IImageContract`- en `IClientChannel`-interface.
     
     ```csharp
     public interface IImageChannel : IImageContract, IClientChannel { }
     ```
     
-    Een kanaal is het WCF-object waarmee de service en de client informatie aan elkaar doorgeven. Later, maakt u het kanaal in uw hosttoepassing. Azure Relay gebruikt dit kanaal om door te geven van de HTTP GET-aanvragen vanuit de browser naar uw **GetImage** implementatie. De relay gebruikt dit kanaal ook worden de **GetImage** waarde retourneren en op te zetten in een HTTP GETRESPONSE voor de clientbrowser.
+    Een kanaal is het WCF-object waarmee de service en de client informatie aan elkaar doorgeven. Later maakt u het kanaal in uw host-toepassing. Azure Relay maakt vervolgens gebruik van dit kanaal om de HTTP GET-aanvragen van de browser door te geven aan uw **GetImage** -implementatie. De relay gebruikt ook het kanaal om de retour waarde **GetImage** te nemen en deze te vertalen in een http-GETRESPONSE voor de client browser.
 12. Klik in het menu **Bouwen** op **Oplossing opbouwen** om de juistheid van uw werk tot nu toe te controleren.
 
 ### <a name="example"></a>Voorbeeld
-De volgende code toont een eenvoudige interface die een WCF-Relay-contract wordt gedefinieerd.
+De volgende code toont een basis interface die een WCF Relay contract definieert.
 
 ```csharp
 using System;
@@ -152,10 +152,10 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="implement-the-rest-based-wcf-service-contract"></a>De REST gebaseerd WCF-servicecontract implementeren
-Het maken van een REST-stijl WCF Relay-service, moet u eerst het contract, dat is gedefinieerd door middel van een interface maken. De volgende stap is het implementeren van de interface. Hiervoor moet u een klasse met de naam **ImageService** maken die de door de gebruiker gedefinieerde **IImageContract**-interface implementeert. Nadat het contract is geïmplementeerd, configureert u de interface met een App.config-bestand. Het configuratiebestand bevat de benodigde gegevens voor de toepassing, zoals de naam van de service, de naam van het contract en het type protocol dat wordt gebruikt om te communiceren met de relay-service. In het voorbeeld na de procedure wordt de code weergegeven die voor deze taken wordt gebruikt.
+## <a name="implement-the-rest-based-wcf-service-contract"></a>Het op REST gebaseerde WCF-service contract implementeren
+Als u een REST-Style WCF Relay-service wilt maken, moet u eerst het contract maken. dit wordt gedefinieerd door middel van een interface. De volgende stap is het implementeren van de interface. Hiervoor moet u een klasse met de naam **ImageService** maken die de door de gebruiker gedefinieerde **IImageContract**-interface implementeert. Nadat het contract is geïmplementeerd, configureert u de interface met een App.config-bestand. Het configuratie bestand bevat de benodigde informatie voor de toepassing, zoals de naam van de service, de naam van het contract en het type protocol dat wordt gebruikt om te communiceren met de Relay-service. In het voorbeeld na de procedure wordt de code weergegeven die voor deze taken wordt gebruikt.
 
-Net als bij de vorige stappen, is er weinig verschil tussen het implementeren van een REST-stijlcontract en een contract WCF-Relay.
+Net als bij de vorige stappen is er zeer weinig verschil tussen het implementeren van een REST-stijl contract en een WCF Relay-contract.
 
 ### <a name="to-implement-a-rest-style-service-bus-contract"></a>Een Service Bus-contract in REST-stijl implementeren
 1. Maak een nieuwe klasse met de naam **ImageService** direct na de definitie van de **IImageContract**-interface. Met de klasse **ImageService** wordt de **IImageContract**-interface geïmplementeerd.
@@ -175,12 +175,12 @@ Net als bij de vorige stappen, is er weinig verschil tussen het implementeren va
     }
     ```
    
-    Zoals eerder is vermeld, is deze naamruimte geen traditionele naamruimte, maar maakt deze deel uit van de WCF-architectuur waarmee het contract wordt geïdentificeerd. Zie voor meer informatie de [Data Contract Names](https://msdn.microsoft.com/library/ms731045.aspx) artikel in de WCF-documentatie.
+    Zoals eerder is vermeld, is deze naamruimte geen traditionele naamruimte, maar maakt deze deel uit van de WCF-architectuur waarmee het contract wordt geïdentificeerd. Zie het artikel [gegevens contract namen](https://msdn.microsoft.com/library/ms731045.aspx) in de WCF-documentatie voor meer informatie.
 3. Voeg een JPG-afbeelding toe aan uw project.  
    
     Dit is een afbeelding die de service in de ontvangende browser weergeeft. Klik met de rechtermuisknop op het project en klik op **Toevoegen**. Klik vervolgens op **Bestaand item**. Gebruik het dialoogvenster **Bestaand item toevoegen** om te bladeren naar een geschikt JPG-bestand en klik vervolgens op **Toevoegen**.
    
-    Als u het bestand toevoegt, moet u ervoor zorgen dat **Alle bestanden** is geselecteerd in de vervolgkeuzelijst naast het veld **Bestandsnaam:** . In de rest van deze zelfstudie wordt ervan uitgegaan dat de naam van de afbeelding 'image.jpg' is. Als u een ander bestand hebt, moet u Wijzig de naam van de afbeelding of wijzigen van uw code.
+    Als u het bestand toevoegt, moet u ervoor zorgen dat **Alle bestanden** is geselecteerd in de vervolgkeuzelijst naast het veld **Bestandsnaam:** . In de rest van deze zelfstudie wordt ervan uitgegaan dat de naam van de afbeelding 'image.jpg' is. Als u een ander bestand hebt, moet u de naam van de installatie kopie wijzigen of uw code wijzigen om te compenseren.
 4. Klik in **Solution Explorer** met de rechtermuisknop op het afbeeldingsbestand en klik op **Eigenschappen** om te controleren of de service die wordt uitgevoerd het affbeeldingsbestand kan vinden. Stel **Naar uitvoermap kopiëren** in het deelvenster **Eigenschappen** in op **Kopiëren indien nieuwer**.
 5. Voeg een verwijzing naar de **System.Drawing.dll**-assembly toe aan het project en voeg tevens de volgende gekoppelde `using`-instructies toe.  
    
@@ -226,7 +226,7 @@ Net als bij de vorige stappen, is er weinig verschil tussen het implementeren va
 ### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>De configuratie voor het uitvoeren van de webservice in Service Bus definiëren
 1. Dubbelklik in **Solution Explorer** op het bestand **App.config** om dit te openen in de Visual Studio-editor.
    
-    De **App.config** bestand bevat de servicenaam, het eindpunt (dat wil zeggen, de locatie die is Azure Relay biedt voor clients en hosts om te communiceren met elkaar) en de binding (het type protocol dat wordt gebruikt om te communiceren). Het belangrijkste verschil is hier is dat het geconfigureerde service-eindpunt naar verwijst een [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding.
+    Het bestand **app. config** bevat de service naam, het eind punt (dat wil zeggen, de locatie Azure relay geeft aan dat clients en hosts kunnen communiceren met elkaar) en binding (het type protocol dat wordt gebruikt om te communiceren). Het belangrijkste verschil is hier dat het geconfigureerde service-eind punt verwijst naar een [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) -binding.
 2. Het `<system.serviceModel>` XML-element is een WCF-element waarmee een of meer services worden gedefinieerd. Hier wordt het gebruikt om de servicenaam en het eindpunt te definiëren. Voeg onder aan het `<system.serviceModel>`-element (maar nog wel binnen `<system.serviceModel>`) een `<bindings>`-element toe met de volgende inhoud. Hiermee definieert u de bindingen die in de toepassing worden gebruikt. U kunt meerdere bindingen definiëren, maar in deze zelfstudie definieert u er slechts één.
    
     ```xml
@@ -240,7 +240,7 @@ Net als bij de vorige stappen, is er weinig verschil tussen het implementeren va
     </bindings>
     ```
    
-    De vorige code definieert een WCF-Relay [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding met **relayClientAuthenticationType** ingesteld op **geen**. Met deze instelling geeft u aan dat voor een eindpunt dat deze binding gebruikt, geen clientreferentie is vereist.
+    Met de vorige code wordt een WCF Relay [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) -binding gedefinieerd waarvoor **relayClientAuthenticationType** is ingesteld op **geen**. Met deze instelling geeft u aan dat voor een eindpunt dat deze binding gebruikt, geen clientreferentie is vereist.
 3. Na het `<bindings>`-element voegt u een `<services>`-element toe. Net zoals bij bindingen kunt u meerdere services definiëren in een enkel configuratiebestand. In deze zelfstudie definieert u slechts een service.
    
     ```xml
@@ -259,7 +259,7 @@ Net als bij de vorige stappen, is er weinig verschil tussen het implementeren va
     ```
    
     In deze stap configureert u een service die de vooraf gedefinieerde **webHttpRelayBinding**-binding gebruikt. Deze service gebruikt ook de standaard **sbTokenProvider**, die in de volgende stap wordt gedefinieerd.
-4. Na de `<services>` -element, maakt een `<behaviors>` element met de volgende inhoud en 'SAS_KEY' vervangen door de *Shared Access Signature* (SAS)-sleutel voor u eerder hebt verkregen via de [Azure-portal] [Azure portal].
+4. Maak na `<services>` het-element een `<behaviors>` element met de volgende inhoud en vervang "SAS_KEY" door de *Shared Access Signature* SAS-sleutel die u eerder van de [Azure Portal][Azure portal]hebt verkregen.
    
     ```xml
     <behaviors>
@@ -446,11 +446,11 @@ In het volgende voorbeeld wordt het aan de service gekoppelde bestand App.config
 </configuration>
 ```
 
-## <a name="host-the-rest-based-wcf-service-to-use-azure-relay"></a>De REST gebaseerd WCF-service voor het gebruik van Azure Relay hosten
-Deze stap wordt beschreven hoe u een webservice die met een consoletoepassing met WCF Relay uitvoert. Een volledig overzicht van de code die in deze stap wordt geschreven, vindt u in het voorbeeld na de procedure.
+## <a name="host-the-rest-based-wcf-service-to-use-azure-relay"></a>Host de op REST gebaseerde WCF-service voor het gebruik van Azure Relay
+In deze stap wordt beschreven hoe u een webservice uitvoert met behulp van een console toepassing met WCF Relay. Een volledig overzicht van de code die in deze stap wordt geschreven, vindt u in het voorbeeld na de procedure.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>Een basisadres voor de service maken
-1. In de `Main()` declaratie van de functie, maakt u een variabele voor het opslaan van de naamruimte van uw project. Vervang `yourNamespace` met de naam van de Relay-naamruimte die u eerder hebt gemaakt.
+1. Maak in `Main()` de functie declaratie een variabele om de naam ruimte van het project op te slaan. Vervang `yourNamespace` door de naam van de relay-naam ruimte die u eerder hebt gemaakt.
    
     ```csharp
     string serviceNamespace = "yourNamespace";
@@ -567,7 +567,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="run-and-test-the-service"></a>Uitvoeren en testen van de service
+## <a name="run-and-test-the-service"></a>De service uitvoeren en testen
 Nadat u de oplossing hebt opgebouwd, gaat u als volgt te werk om de toepassing uit te voeren:
 
 1. Druk op **F5** of blader naar de locatie van het uitvoerbare bestand (ImageListener\bin\Debug\ImageListener.exe) om de service uit te voeren. Zorg ervoor dat de app actief blijft. Dit is vereist voor het uitvoeren van de volgende stap.
@@ -575,9 +575,9 @@ Nadat u de oplossing hebt opgebouwd, gaat u als volgt te werk om de toepassing u
 3. Druk op **Enter** in het opdrachtpromptvenster om de app te sluiten wanneer u klaar bent.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u een toepassing die gebruikmaakt van de Azure Relay-service hebt gemaakt, ziet u de volgende artikelen voor meer informatie:
+Nu u een toepassing hebt gebouwd die gebruikmaakt van de Azure Relay-service, raadpleegt u de volgende artikelen voor meer informatie:
 
 * [Overzicht van Azure Relay](relay-what-is-it.md)
-* [De WCF relay-service gebruiken met .NET](relay-wcf-dotnet-get-started.md)
+* [De WCF Relay-service gebruiken met .NET](service-bus-relay-tutorial.md)
 
 [Azure portal]: https://portal.azure.com

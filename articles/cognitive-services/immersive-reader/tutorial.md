@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: ba00842200d8a896fa1ffaccad8826d1c3173462
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
-ms.translationtype: HT
+ms.openlocfilehash: 73f9ee597682cc995f3a2cc783abeee92bf11bd2
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488811"
+ms.locfileid: "68501144"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Zelfstudie: Start de Insluitende lezer (Node.js)
 
@@ -265,4 +265,4 @@ U kunt wiskundige inhoud in de insluitende lezer toevoegen met behulp van [MathM
 ## <a name="next-steps"></a>Volgende stappen
 
 * Verken de insluitende [Lezer SDK](https://github.com/Microsoft/immersive-reader-sdk) en de referentie voor de insluitende [Lezer SDK](./reference.md)
-* Code voorbeelden weer geven op [github](https://github.com/microsoft/immersive-reader-sdk/samples/advanced-csharp)
+* Code voorbeelden weer geven op [github](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/advanced-csharp)

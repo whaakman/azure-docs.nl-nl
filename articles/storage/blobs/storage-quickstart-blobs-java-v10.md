@@ -1,20 +1,20 @@
 ---
-title: 'Azure Quick Start: Een BLOB maken in object opslag met behulp van de Java Storage SDK V10 toevoegen | Microsoft Docs'
+title: 'Quickstart: De Java Storage SDK gebruiken om een BLOB te maken'
 description: In deze snelstart gaat u een container maken in objectopslag (Azure Blob), een bestand uploaden, objecten vermelden en downloaden met behulp van de Java Storage SDK.
 services: storage
 author: mhopkins-msft
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 2aa004ffa98730341c8de105f16feea6e3931a86
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 96da1f8903896f932fa63aa8497eaff69f893559
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326686"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489667"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Quickstart: Blobs uploaden, downloaden en vermelden met behulp van de V10 toevoegen voor Java Storage SDK
 

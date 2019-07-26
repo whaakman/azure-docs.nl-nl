@@ -1,75 +1,84 @@
 ---
-title: Instellen van aanmelding met een LinkedIn-account met behulp van aangepaste beleidsregels - Azure Active Directory B2C | Microsoft Docs
-description: Instellen van aanmelding met een LinkedIn-account in Azure Active Directory B2C met behulp van aangepast beleid.
+title: Aanmelden met een LinkedIn-account instellen met aangepaste beleids regels-Azure Active Directory B2C
+description: Stel aanmelden met een LinkedIn-account in Azure Active Directory B2C met aangepaste beleids regels.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b336428592a4897319725782c994c3fae26bfae0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f854e1771eec1d02fd14e040510688bf33c59c8
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510421"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442430"
 ---
-# <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Instellen van aanmelding met een LinkedIn-account met behulp van aangepaste beleidsregels in Azure Active Directory B2C
+# <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Aanmelden met een LinkedIn-account instellen met behulp van aangepast beleid in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Dit artikel leest u hoe u aanmelding voor gebruikers van een LinkedIn-account inschakelen met behulp van [aangepast beleid](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C.
+In dit artikel wordt beschreven hoe u aanmelden voor gebruikers vanaf een LinkedIn-account inschakelt met [aangepaste beleids regels](active-directory-b2c-overview-custom.md) in azure Active Directory (Azure AD) B2C.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Voer de stappen in [aan de slag met aangepaste beleidsregels in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
-- Als u nog een LinkedIn-account hebt, maakt u een voor de [pagina voor het registreren van LinkedIn](https://www.linkedin.com/start/join).
-- Een toepassing LinkedIn moet u een installatiekopie 80, 80 pixel-logo om weer te geven van uw toepassing opgeven.
+- Voer de stappen in aan de [slag met aangepast beleid in azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+- LinkedIn-account: als u dit nog niet hebt, [maakt u een account](https://www.linkedin.com/start/join).
+- LinkedIn-pagina: u hebt een [LinkedIn-pagina](https://www.linkedin.com/company/setup/new/) nodig om te koppelen aan de LinkedIn-toepassing die u in de volgende sectie maakt.
 
 ## <a name="create-an-application"></a>Een app maken
 
-Voor het gebruik van LinkedIn als id-provider in Azure AD B2C, moet u een LinkedIn-toepassing maken.
+Als u LinkedIn wilt gebruiken als een id-provider in Azure AD B2C, moet u een LinkedIn-toepassing maken.
 
-1. Aanmelden bij de [LinkedIn Toepassingsbeheer](https://www.linkedin.com/secure/developer?newapp=) -website met de referenties van uw LinkedIn-account.
-2. Selecteer **-toepassing maken**.
-3. Voer uw **bedrijfsnaam**, een **toepassingsnaam**, en een **Toepassingsbeschrijving**.
-4. Upload de **toepassing Logo** die u hebt gemaakt.
-5. Kies een **gebruik** uit de opgegeven lijst.
-6. Voor **Website-URL**, voer `https://your-tenant.b2clogin.com`.  Vervang `your-tenant` met de naam van uw Azure AD B2C-tenant. Bijvoorbeeld, contoso.b2clogin.com.
-7. Voer uw **zakelijke e-mailadres** adres en **telefoon** getal.
-8. Aan de onderkant van de pagina, lees en accepteer de gebruiksvoorwaarden en selecteer vervolgens **indienen**.
-9. Selecteer **verificatie**, en noteer vervolgens de **Client-ID** en **Clientgeheim** waarden voor later gebruik.
-10. In **Omleidings-URL's toegestaan**, voer `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`. Vervang `your-tenant` met de naam van uw tenant. U moet alle kleine letters gebruiken bij het invoeren van de tenantnaam van uw, zelfs als de tenant is gedefinieerd met behulp van hoofdletters in Azure AD B2C. 
-11. Selecteer **Update**.
-12. Selecteer **instellingen**, wijzigt de **toepassingsstatus** naar **Live**, en selecteer vervolgens **Update**.
+### <a name="create-app"></a>App maken
 
-## <a name="create-a-policy-key"></a>De beleidssleutel van een maken
+1. Meld u aan op de website [LinkedIn Application Management](https://www.linkedin.com/secure/developer?newapp=) met de referenties van uw LinkedIn-account.
+1. Selecteer **app maken**.
+1. Voer een **app-naam**in.
+1. Voer een **bedrijfs** naam in die overeenkomt met de naam van een LinkedIn-pagina. Maak een LinkedIn-pagina als u deze nog niet hebt.
+1. Beschrijving Voer een **URL**voor het privacybeleid in. Dit moet een geldige URL zijn, maar moet geen bereikbaar eind punt zijn.
+1. Voer een **zakelijk e-mail adres**in.
+1. Een **app-logo** afbeelding uploaden. De logo afbeelding moet rechthoekig zijn en de afmetingen moeten ten minste 100x100 pixels zijn.
+1. Behoud de standaard instellingen in de sectie **producten** .
+1. Lees de informatie die wordt weer gegeven in **juridische voor waarden**. Als u akkoord gaat met de voor waarden, schakelt u het selectie vakje in.
+1. Selecteer **app maken**.
 
-U moet voor het opslaan van het clientgeheim die u eerder hebt genoteerd in uw Azure AD B2C-tenant.
+### <a name="configure-auth"></a>Verificatie configureren
+
+1. Selecteer het tabblad **auth** .
+1. Registreer de **client-id**.
+1. Onthul en noteer het **client geheim**.
+1. Voeg onder **OAuth 2,0-instellingen**de volgende omleidings- **URL**toe. Vervang `your-tenant` door de naam van uw Tenant. Gebruik **alleen kleine letters** voor de naam van de Tenant, zelfs als deze is gedefinieerd met hoofd letters in azure AD B2C.
+
+    `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`
+
+## <a name="create-a-policy-key"></a>Een beleids sleutel maken
+
+U moet het client geheim opslaan dat u eerder in uw Azure AD B2C-Tenant hebt vastgelegd.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant. Selecteer de **map- en abonnementsfilter** in het bovenste menu en kiest u de map waarin uw tenant.
+2. Zorg ervoor dat u de map gebruikt die uw Azure AD B2C-Tenant bevat. Selecteer het **Directory-en abonnements filter** in het bovenste menu en kies de map die uw Tenant bevat.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
-4. Selecteer op de pagina overzicht **Identity-Ervaringsframework**.
-5. Selecteer **Beleidssleutels** en selecteer vervolgens **toevoegen**.
-6. Voor **opties**, kiest u `Manual`.
-7. Voer een **naam** voor de beleidssleutel. Bijvoorbeeld `LinkedInSecret`. Het voorvoegsel `B2C_1A_` wordt automatisch toegevoegd aan de naam van uw sleutel.
-8. In **geheim**, voer het clientgeheim die u eerder hebt genoteerd.
-9. Voor **sleutelgebruik**, selecteer `Signature`.
+4. Selecteer op de pagina overzicht **identiteits ervaring-Framework**.
+5. Selecteer **beleids sleutels** en selecteer vervolgens **toevoegen**.
+6. Kies`Manual`voor **Opties**.
+7. Voer een **naam** in voor de beleids sleutel. Bijvoorbeeld `LinkedInSecret`. Het voor voegsel *B2C_1A_* wordt automatisch toegevoegd aan de naam van uw sleutel.
+8. Voer in het **geheim**het client geheim in dat u eerder hebt vastgelegd.
+9. Selecteer`Signature`voor **sleutel gebruik**.
 10. Klik op **Create**.
 
-## <a name="add-a-claims-provider"></a>Toevoegen van een claimprovider
+## <a name="add-a-claims-provider"></a>Een claim provider toevoegen
 
-Als u wilt dat gebruikers zich aanmelden met een LinkedIn-account, moet u het account als een claimprovider waarmee Azure AD B2C via een eindpunt communiceren kunnen definiëren. Het eindpunt biedt een set claims die worden gebruikt door Azure AD B2C om te controleren of dat een specifieke gebruiker is geverifieerd. 
+Als u wilt dat gebruikers zich aanmelden met een LinkedIn-account, moet u het account definiëren als een claim provider waarmee Azure AD B2C met behulp van een eind punt kunnen communiceren. Het eind punt biedt een set claims die wordt gebruikt door Azure AD B2C om te controleren of een specifieke gebruiker is geverifieerd.
 
-U kunt een LinkedIn-account als een claimprovider definiëren door toe te voegen aan de **ClaimsProviders** element in het bestand uitbreiding van uw beleid.
+Definieer een LinkedIn-account als een claim provider door het toe te voegen aan het **ClaimsProviders** -element in het extensie bestand van uw beleid.
 
-1. Open de *TrustFrameworkExtensions.xml*.
-2. Zoek de **ClaimsProviders** element. Als deze niet bestaat, kunt u deze onder het root-element toevoegen.
-3. Toevoegen van een nieuwe **ClaimsProvider** als volgt:
+1. Open het bestand *SocialAndLocalAccounts/* * TrustFrameworkExtensions. XML** * in de editor. Dit bestand bevindt zich in het [aangepaste beleids Starter Pack][starter-pack] dat u hebt gedownload als onderdeel van een van de vereisten.
+1. Zoek het element **ClaimsProviders** . Als deze niet bestaat, voegt u deze toe onder het hoofd element.
+1. Voeg als volgt een nieuwe **ClaimsProvider** toe:
 
     ```xml
     <ClaimsProvider>
@@ -84,6 +93,8 @@ U kunt een LinkedIn-account als een claimprovider definiëren door toe te voegen
             <Item Key="authorization_endpoint">https://www.linkedin.com/oauth/v2/authorization</Item>
             <Item Key="AccessTokenEndpoint">https://www.linkedin.com/oauth/v2/accessToken</Item>
             <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
+            <Item Key="scope">r_emailaddress r_liteprofile</Item>
+            <Item Key="HttpBinding">POST</Item>
             <Item Key="external_user_identity_claim_id">id</Item>
             <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
             <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
@@ -93,12 +104,13 @@ U kunt een LinkedIn-account als een claimprovider definiëren door toe te voegen
           <CryptographicKeys>
             <Key Id="client_secret" StorageReferenceId="B2C_1A_LinkedInSecret" />
           </CryptographicKeys>
+          <InputClaims />
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="linkedin.com" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="linkedin.com" AlwaysUseDefaultValue="true" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />
@@ -114,14 +126,14 @@ U kunt een LinkedIn-account als een claimprovider definiëren door toe te voegen
     </ClaimsProvider>
     ```
 
-4. Vervang de waarde van **client_id** met de client-ID die u eerder hebt genoteerd.
-5. Sla het bestand op.
+1. Vervang de waarde van **client_id** door de client-id van de LinkedIn-toepassing die u eerder hebt opgenomen.
+1. Sla het bestand op.
 
-### <a name="add-the-claims-transformations"></a>De claimtransformaties toevoegen
+### <a name="add-the-claims-transformations"></a>De claim transformaties toevoegen
 
-Het technische profiel LinkedIn vereist de **ExtractGivenNameFromLinkedInResponse** en **ExtractSurNameFromLinkedInResponse** transformaties te worden toegevoegd aan de lijst met claims ClaimsTransformations. Als u geen een **ClaimsTransformations** element gedefinieerd in het bestand, de bovenliggende XML-elementen toevoegen, zoals hieronder wordt weergegeven. De claimtransformaties ook moet een nieuwe claimtype gedefinieerd met de naam **nullStringClaim**. 
+Voor het technische profiel LinkedIn moeten de **ExtractGivenNameFromLinkedInResponse** -en **ExtractSurNameFromLinkedInResponse** -claim transformaties worden toegevoegd aan de lijst met ClaimsTransformations. Als er geen **ClaimsTransformations** -element in uw bestand is gedefinieerd, voegt u de bovenliggende XML-elementen toe zoals hieronder wordt weer gegeven. De claim transformaties hebben ook een nieuw claim type gedefinieerd met de naam **nullStringClaim**.
 
-De **BuildingBlocks** element moet worden toegevoegd aan de bovenkant van het bestand. Zie de *TrustframeworkBase.xml* als voorbeeld.
+Voeg het  element BuildingBlocks toe aan de bovenkant van het bestand *TrustFrameworkExtensions. XML* . Zie *TrustFrameworkBase. XML* voor een voor beeld.
 
 ```XML
 <BuildingBlocks>
@@ -158,96 +170,97 @@ De **BuildingBlocks** element moet worden toegevoegd aan de bovenkant van het be
   </ClaimsTransformations>
 </BuildingBlocks>
 ```
-### <a name="upload-the-extension-file-for-verification"></a>Upload het extensiebestand voor verificatie
 
-U hebt nu uw beleid geconfigureerd zodat Azure AD B2C weet hoe om te communiceren met uw LinkedIn-account. Upload het bestand uitbreiding van uw beleid om te bevestigen dat er geen problemen met tot nu toe.
+### <a name="upload-the-extension-file-for-verification"></a>Upload het extensie bestand voor verificatie
 
-1. Op de **aangepast beleid** pagina in uw Azure AD B2C-tenant, selecteer **uploaden beleid**.
-2. Schakel **het beleid overschrijven als deze bestaat**, en blader vervolgens naar en selecteer de *TrustFrameworkExtensions.xml* bestand.
+U hebt nu een beleid geconfigureerd zodat Azure AD B2C weet hoe u kunt communiceren met uw LinkedIn-account. Upload het extensie bestand van uw beleid om te bevestigen dat er tot nu toe geen problemen zijn.
+
+1. Selecteer op de pagina **aangepaste beleids regels** in uw Azure AD B2C-Tenant de optie **beleid uploaden**.
+2. Schakel **het beleid overschrijven als dit bestaat**in en selecteer vervolgens het *TrustFrameworkExtensions. XML-* bestand.
 3. Klik op **Uploaden**.
 
-## <a name="register-the-claims-provider"></a>De claimprovider registreren
+## <a name="register-the-claims-provider"></a>De claim provider registreren
 
-Op dit moment wordt de id-provider is ingesteld, maar het is niet beschikbaar zijn in elk van de schermen registreren of aanmelden. Om het beschikbaar maken, kunt u een duplicaat van een bestaande sjabloon voor de gebruikersbeleving maken en wijzigen zodat het bevat ook de LinkedIn-id-provider.
+Op dit moment is de ID-provider ingesteld, maar is deze niet beschikbaar in de beschik bare registratie-of aanmeldings schermen. Om het beschikbaar te maken, maakt u een kopie van een bestaande sjabloon gebruiker en wijzigt u deze zo dat deze ook de LinkedIn-ID-provider heeft.
 
-1. Open de *TrustFrameworkBase.xml* -bestand van het starter-pack.
-2. Zoeken en kopieer de gehele inhoud van de **UserJourney** element met `Id="SignUpOrSignIn"`.
-3. Open de *TrustFrameworkExtensions.xml* en zoek de **UserJourneys** element. Als het element niet bestaat, Voeg een.
-4. Plak de volledige inhoud van de **UserJourney** element dat u hebt gekopieerd als onderliggende site van de **UserJourneys** element.
-5. Wijzig de naam van de ID van de gebruikersbeleving. Bijvoorbeeld `SignUpSignInLinkedIn`.
+1. Open het bestand *TrustFrameworkBase. XML* in het Starter Pack.
+2. Zoek en kopieer de volledige inhoud van het **UserJourney** -element dat `Id="SignUpOrSignIn"`bevat.
+3. Open *TrustFrameworkExtensions. XML* en zoek het element **UserJourneys** . Als het element niet bestaat, voegt u er een toe.
+4. Plak de volledige inhoud van het **UserJourney** -element dat u hebt gekopieerd als onderliggend element van het onderdeel **UserJourneys** .
+5. Wijzig de naam van de gebruikers traject. Bijvoorbeeld `SignUpSignInLinkedIn`.
 
-### <a name="display-the-button"></a>De knop weergeven
+### <a name="display-the-button"></a>De knop weer geven
 
-De **ClaimsProviderSelection** element is vergelijkbaar met een id-provider-knop op het scherm registreren of aanmelden. Als u een **ClaimsProviderSelection** -element voor een LinkedIn-account, een nieuwe knop wordt weergegeven wanneer een gebruiker op de pagina terechtkomt.
+Het element **ClaimsProviderSelection** is vergelijkbaar met een id-provider knop op een registratie-of aanmeldings scherm. Als u een **ClaimsProviderSelection** -element toevoegt voor een LinkedIn-account, wordt een nieuwe knop weer gegeven wanneer een gebruiker op de pagina terechtkomt.
 
-1. Zoek de **OrchestrationStep** element met `Order="1"` in de gebruikersbeleving die u hebt gemaakt.
-2. Onder **ClaimsProviderSelects**, voegt u het volgende element toe. Stel de waarde van **TargetClaimsExchangeId** naar een geschikte waarde, bijvoorbeeld `LinkedInExchange`:
+1. Zoek het **OrchestrationStep** -element dat `Order="1"` is opgenomen in de gebruikers traject die u hebt gemaakt.
+2. Voeg onder **ClaimsProviderSelections**het volgende element toe. Stel de waarde van **TargetClaimsExchangeId** in op een geschikte waarde, bijvoorbeeld `LinkedInExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
     ```
 
-### <a name="link-the-button-to-an-action"></a>De knop koppelen aan een actie
+### <a name="link-the-button-to-an-action"></a>De knop aan een actie koppelen
 
-Nu dat u een knop op locatie hebt, die u wilt koppelen aan een actie. De actie, wordt in dit geval is voor Azure AD B2C om te communiceren met een LinkedIn-account voor het ontvangen van een token.
+Nu er een knop aanwezig is, moet u deze koppelen aan een actie. De actie in dit geval is voor Azure AD B2C om te communiceren met een LinkedIn-account om een token te ontvangen.
 
-1. Zoek de **OrchestrationStep** die bevat `Order="2"` in de gebruikersbeleving.
-2. Voeg de volgende **ClaimsExchange** element ervoor te zorgen dat u dezelfde waarde voor de ID die u gebruikt voor **TargetClaimsExchangeId**:
+1. Zoek de **OrchestrationStep** die in `Order="2"` de gebruikers reis zijn opgenomen.
+2. Voeg het volgende **ClaimsExchange** -element toe om ervoor te zorgen dat u dezelfde waarde gebruikt voor de id die u hebt gebruikt voor **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     ```
-    
-    Werk de waarde van **TechnicalProfileReferenceId** aan de ID van het technische profiel dat u eerder hebt gemaakt. Bijvoorbeeld `LinkedIn-OAUTH`.
 
-3. Sla de *TrustFrameworkExtensions.xml* -bestand en upload het opnieuw om te verifiëren.
+    Werk de waarde van **TechnicalProfileReferenceId** bij naar de id van het technische profiel dat u eerder hebt gemaakt. Bijvoorbeeld `LinkedIn-OAUTH`.
+
+3. Sla het bestand *TrustFrameworkExtensions. XML* op en upload het opnieuw voor verificatie.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Een Azure AD B2C-toepassing maken
 
-Communicatie met Azure AD B2C vindt plaats via een toepassing die u in uw tenant maakt. Deze sectie vindt u optionele stappen die u uitvoeren kunt voor het maken van een testtoepassing als u dat nog niet hebt gedaan.
+Communicatie met Azure AD B2C vindt plaats via een toepassing die u in uw Tenant maakt. In deze sectie vindt u optionele stappen die u kunt uitvoeren om een test toepassing te maken als u dit nog niet hebt gedaan.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant. Selecteer de **map- en abonnementsfilter** in het bovenste menu en kiest u de map waarin uw tenant.
+2. Zorg ervoor dat u de map gebruikt die uw Azure AD B2C-Tenant bevat. Selecteer het **Directory-en abonnements filter** in het bovenste menu en kies de map die uw Tenant bevat.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
-5. Voer een naam voor de toepassing, bijvoorbeeld *testapp1*.
-6. Voor **Web-App / Web-API**, selecteer `Yes`, en voer vervolgens `https://jwt.ms` voor de **antwoord-URL**.
+5. Voer een naam in voor de toepassing, bijvoorbeeld *testapp1*.
+6. Voor **Web-app/Web**-API `Yes`selecteert u en voert `https://jwt.ms` u vervolgens in voor de **antwoord-URL**.
 7. Klik op **Create**.
 
-## <a name="update-and-test-the-relying-party-file"></a>Bijwerken en testen van de relying party-bestand
+## <a name="update-and-test-the-relying-party-file"></a>Het Relying Party bestand bijwerken en testen
 
-Bijwerken van de relying party (RP)-bestand dat initieert de gebruikersbeleving die u hebt gemaakt.
+Werk het Relying Party (RP)-bestand bij waarmee de door u gemaakte gebruikers traject wordt gestart.
 
-1. Maak een kopie van *SignUpOrSignIn.xml* in uw werkmap en wijzig de naam. Bijvoorbeeld, wijzig de naam *SignUpSignInLinkedIn.xml*.
-2. Open het nieuwe bestand en werk de waarde van de **PolicyId** voor het kenmerk **TrustFrameworkPolicy** met een unieke waarde. Bijvoorbeeld `SignUpSignInLinkedIn`.
-3. Werk de waarde van **PublicPolicyUri** aan de URI voor het beleid. Bijvoorbeeld:`http://contoso.com/B2C_1A_signup_signin_linkedin`
-4. Werk de waarde van de **ReferenceId** kenmerk in **DefaultUserJourney** zodat deze overeenkomen met de ID van de nieuwe gebruikersbeleving die u hebt gemaakt (SignUpSignLinkedIn).
-5. Sla uw wijzigingen, upload het bestand en selecteer vervolgens het nieuwe beleid in de lijst.
-6. Zorg ervoor dat Azure AD B2C-toepassing die u hebt gemaakt is geselecteerd de **toepassing selecteren** veld en vervolgens testen door te klikken op **nu uitvoeren**.
+1. Maak een kopie van *SignUpOrSignIn. XML* in uw werkmap en wijzig de naam ervan. Wijzig de naam bijvoorbeeld in *SignUpSignInLinkedIn. XML*.
+2. Open het nieuwe bestand en werk de waarde van het kenmerk **PolicyId** voor **TrustFrameworkPolicy** met een unieke waarde bij. Bijvoorbeeld `SignUpSignInLinkedIn`.
+3. Werk de waarde van **PublicPolicyUri** bij met de URI voor het beleid. Bijvoorbeeld:`http://contoso.com/B2C_1A_signup_signin_linkedin`
+4. Werk de waarde van het kenmerk **ReferenceId** in **DefaultUserJourney** bij zodat dit overeenkomt met de id van de nieuwe gebruikers traject die u hebt gemaakt (SignUpSignLinkedIn).
+5. Sla de wijzigingen op, upload het bestand en selecteer vervolgens het nieuwe beleid in de lijst.
+6. Zorg ervoor dat Azure AD B2C toepassing die u hebt gemaakt, is geselecteerd in het veld **toepassing selecteren** en test deze door op **nu uitvoeren**te klikken.
 
-## <a name="migration-from-v10-to-v20"></a>Migratie van v1.0 naar v2.0
+## <a name="migration-from-v10-to-v20"></a>Migratie van v 1.0 naar v 2.0
 
-Onlangs LinkedIn [bijgewerkt van hun API's van v1.0 naar v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Gebruik de informatie in de volgende secties om bij te werken van de elementen in het technische profiel voor het migreren van uw bestaande configuratie voor de nieuwe configuratie.
+LinkedIn heeft [de api's recent bijgewerkt van v 1.0 naar v 2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Als u de bestaande configuratie wilt migreren naar de nieuwe configuratie, gebruikt u de informatie in de volgende secties om de elementen in het technische profiel bij te werken.
 
-### <a name="replace-items-in-the-metadata"></a>Items in de metagegevens van de vervangen
+### <a name="replace-items-in-the-metadata"></a>Items in de meta gegevens vervangen
 
-In de bestaande **metagegevens** element van de **TechnicalProfile**, bijwerken van de volgende **Item** elementen uit:
+Werk in het bestaande **META** gegevenselement van de **TechnicalProfile**de volgende **item** elementen bij van:
 
 ```XML
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,headline)</Item>
 <Item Key="scope">r_emailaddress r_basicprofile</Item>
 ```
 
-Aan:
+T/m:
 
 ```XML
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
 <Item Key="scope">r_emailaddress r_liteprofile</Item>
 ```
 
-### <a name="add-items-to-the-metadata"></a>Items toevoegen aan de metagegevens
+### <a name="add-items-to-the-metadata"></a>Items toevoegen aan de meta gegevens
 
-In de **metagegevens** van de **TechnicalProfile**, voeg de volgende **Item** elementen:
+Voeg in de **meta gegevens** van de **TechnicalProfile**de volgende **item** elementen toe:
 
 ```XML
 <Item Key="external_user_identity_claim_id">id</Item>
@@ -257,34 +270,34 @@ In de **metagegevens** van de **TechnicalProfile**, voeg de volgende **Item** el
 
 ### <a name="update-the-outputclaims"></a>De OutputClaims bijwerken
 
-In de bestaande **OutputClaims** van de **TechnicalProfile**, bijwerken van de volgende **OutputClaim** elementen uit:
+Werk in de bestaande **OutputClaims** van de **TechnicalProfile**de volgende **output claim** -elementen bij:
 
 ```XML
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
 ```
 
-Aan:
+T/m:
 
 ```XML
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
 ```
 
-### <a name="add-new-outputclaimstransformation-elements"></a>Nieuwe OutputClaimsTransformation elementen toevoegen
+### <a name="add-new-outputclaimstransformation-elements"></a>Nieuwe OutputClaimsTransformation-elementen toevoegen
 
-In de **OutputClaimsTransformations** van de **TechnicalProfile**, voeg de volgende **OutputClaimsTransformation** elementen:
+Voeg in het **OutputClaimsTransformations** van de **TechnicalProfile**de volgende **OutputClaimsTransformation** -elementen toe:
 
 ```XML
 <OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />
 <OutputClaimsTransformation ReferenceId="ExtractSurNameFromLinkedInResponse" />
 ```
 
-### <a name="define-the-new-claims-transformations-and-claim-type"></a>De nieuwe claimtransformaties te definiëren en claimtype
+### <a name="define-the-new-claims-transformations-and-claim-type"></a>Definieer de nieuwe claim transformaties en het claim type
 
-U hebt toegevoegd nieuwe claimtransformaties die moeten worden gedefinieerd in de vorige stap. Voor het definiëren van de claimtransformaties, toevoegen aan de lijst met **ClaimsTransformations**. Als u geen een **ClaimsTransformations** element gedefinieerd in het bestand, de bovenliggende XML-elementen toevoegen, zoals hieronder wordt weergegeven. De claimtransformaties ook moet een nieuwe claimtype gedefinieerd met de naam **nullStringClaim**. 
+In de laatste stap hebt u nieuwe claim transformaties toegevoegd die moeten worden gedefinieerd. Als u de claim transformaties wilt definiëren, voegt u deze toe aan de lijst met **ClaimsTransformations**. Als er geen **ClaimsTransformations** -element in uw bestand is gedefinieerd, voegt u de bovenliggende XML-elementen toe zoals hieronder wordt weer gegeven. De claim transformaties hebben ook een nieuw claim type gedefinieerd met de naam **nullStringClaim**.
 
-De **BuildingBlocks** element moet worden toegevoegd aan de bovenkant van het bestand. Zie de *TrustframeworkBase.xml* als voorbeeld.
+Het  element BuildingBlocks moet aan de bovenkant van het bestand worden toegevoegd. Zie *TrustframeworkBase. XML* als voor beeld.
 
 ```XML
 <BuildingBlocks>
@@ -322,16 +335,16 @@ De **BuildingBlocks** element moet worden toegevoegd aan de bovenkant van het be
 </BuildingBlocks>
 ```
 
-### <a name="obtain-an-email-address"></a>Verkrijgen van een e-mailadres
+### <a name="obtain-an-email-address"></a>Een e-mail adres verkrijgen
 
-Als onderdeel van de migratie LinkedIn van v1.0 naar v2.0 is een extra aanroep naar een andere API vereist voor het verkrijgen van het e-mailadres. Als u wilt ophalen van het e-mailadres tijdens de registratie, het volgende doen:
+Als onderdeel van de LinkedIn-migratie van v 1.0 naar v 2.0, is er een aanvullende aanroep naar een andere API vereist om het e-mail adres op te halen. Ga als volgt te werk als u het e-mail adres moet verkrijgen tijdens het aanmelden:
 
-1. Voltooi de stappen hierboven om toe te staan van Azure AD B2C om te federeren met LinkedIn zodat de gebruiker zich aanmeldt. Als onderdeel van de Federatie ontvangt Azure AD B2C van het toegangstoken voor LinkedIn.
-2. Het toegangstoken LinkedIn opslaan in een claim. [Zie de instructies hier](idp-pass-through-custom.md).
-3. Voeg de volgende claimprovider die de aanvraag voor de LinkedIn maakt `/emailAddress` API. Autoriseer deze aanvraag, moet u het toegangstoken LinkedIn.
+1. Voer de bovenstaande stappen uit om Azure AD B2C toe te staan om te communiceren met LinkedIn zodat gebruikers zich kunnen aanmelden. Als onderdeel van de Federatie ontvangt Azure AD B2C het toegangs token voor LinkedIn.
+2. Sla het LinkedIn-toegangs token op in een claim. [Zie de instructies hier](idp-pass-through-custom.md).
+3. Voeg de volgende claim provider toe die de aanvraag maakt voor de `/emailAddress` API van LinkedIn. Als u deze aanvraag wilt autoriseren, hebt u het LinkedIn-toegangs token nodig.
 
     ```XML
-    <ClaimsProvider> 
+    <ClaimsProvider>
       <DisplayName>REST APIs</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="API-LinkedInEmail">
@@ -356,7 +369,7 @@ Als onderdeel van de migratie LinkedIn van v1.0 naar v2.0 is een extra aanroep n
     </ClaimsProvider>
     ```
 
-4. De volgende orchestration-stap in de gebruikersbeleving toevoegen zodat de claimprovider API wordt geactiveerd wanneer een gebruiker zich aanmeldt met LinkedIn. Zorg ervoor dat u het bijwerken van de `Order` nummer op de juiste wijze. Deze stap toevoegen direct na de orchestration-stap die u de technische LinkedIn-profiel activeert.
+4. Voeg de volgende indeling toe Step Into uw gebruikers traject, zodat de API-claim provider wordt geactiveerd wanneer een gebruiker zich aanmeldt met behulp van LinkedIn. Zorg ervoor dat u het `Order` juiste nummer bijwerkt. Voeg deze stap onmiddellijk toe na de Orchestration-stap die het technische profiel voor LinkedIn activeert.
 
     ```XML
     <!-- Extra step for LinkedIn to get the email -->
@@ -378,6 +391,9 @@ Als onderdeel van de migratie LinkedIn van v1.0 naar v2.0 is een extra aanroep n
     </OrchestrationStep>
     ```
 
-Het verkrijgen van het e-mailadres van LinkedIn tijdens de registratie is optioneel. Als u ervoor niet kiest verkrijgen van het e-mailbericht van LinkedIn echter een tijdens het aanmelden van in beslag nemen, wordt de gebruiker is vereist voor het handmatig invoeren van het e-mailadres en te valideren.
+Het e-mail adres van LinkedIn ophalen tijdens het aanmelden is optioneel. Als u ervoor kiest om het e-mail bericht niet van LinkedIn te ontvangen, maar er wel een vereisen tijdens de aanmelding, moet de gebruiker het e-mail adres hand matig invoeren en valideren.
 
-Zie voor een volledig voorbeeld van een beleid die gebruikmaakt van de LinkedIn-id-provider, de [aangepast beleid Beginnerspakket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/linkedin-identity-provider).
+Voor een volledig voor beeld van een beleid dat gebruikmaakt van de LinkedIn-ID-provider, raadpleegt u het [aangepaste beleid Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/linkedin-identity-provider).
+
+<!-- Links - EXTERNAL -->
+[starter-pack]: https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack

@@ -1,8 +1,8 @@
 ---
-title: Transacties voor Azure SQL Data Warehouse optimaliseren | Microsoft Docs
-description: Informatie over het optimaliseren van de prestaties van uw transactionele code in Azure SQL Data Warehouse bij het minimaliseren van risico's voor lange terugdraaiacties.
+title: Trans acties optimaliseren voor Azure SQL Data Warehouse | Microsoft Docs
+description: Meer informatie over het optimaliseren van de prestaties van uw transactionele code in Azure SQL Data Warehouse en het minimaliseren van het risico op lange terugdraai acties.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,46 +10,46 @@ ms.subservice: development
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 9ab1da9fce74359448311591986d57abbbcef066
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2299c526dd63eb8e8772661ee8fae66153fc36c3
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873648"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479676"
 ---
-# <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Transacties in Azure SQL Data Warehouse optimaliseren
-Informatie over het optimaliseren van de prestaties van uw transactionele code in Azure SQL Data Warehouse bij het minimaliseren van risico's voor lange terugdraaiacties.
+# <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Trans acties in Azure SQL Data Warehouse optimaliseren
+Meer informatie over het optimaliseren van de prestaties van uw transactionele code in Azure SQL Data Warehouse en het minimaliseren van het risico op lange terugdraai acties.
 
-## <a name="transactions-and-logging"></a>Transacties en logboekregistratie
-Transacties zijn een belangrijk onderdeel van een relationele database-engine. SQL Data Warehouse maakt gebruik van transacties tijdens het aanpassen van gegevens. Deze transacties kunnen worden expliciete of impliciete. Één INSERT, UPDATE en DELETE-instructies zijn alle voorbeelden van de impliciete transacties. Expliciete transacties BEGIN TRAN, TRAN doorvoeren of TERUGDRAAIEN TRAN gebruiken. Expliciete transacties worden meestal gebruikt wanneer meerdere wijziging instructies moeten samen in één atomische eenheid worden gekoppeld. 
+## <a name="transactions-and-logging"></a>Trans acties en logboek registratie
+Trans acties vormen een belang rijk onderdeel van een relationele data base-engine. SQL Data Warehouse maakt gebruik van trans acties tijdens het wijzigen van de gegevens. Deze trans acties kunnen expliciet of impliciet zijn. Enkele INSERT-, UPDATE-en DELETE-instructies zijn alle voor beelden van impliciete trans acties. Expliciete trans acties gebruiken BEGIN TRAN, COMMIT TRAN of ROLLBACK TRAN. Expliciete trans acties worden meestal gebruikt wanneer meerdere wijzigings instructies samen in één atomische eenheid moeten worden gebonden. 
 
-Azure SQL Data Warehouse wijzigingen worden doorgevoerd in de database met behulp van transactielogboeken. Elke distributie heeft een eigen transactielogboek. Transaction logboekschrijfbewerkingen worden automatisch uitgevoerd. Er is geen configuratie nodig. Tijdens dit proces zorgt ervoor dat de schrijfbewerking deze overhead introduceren in het systeem. U kunt deze gevolgen minimaliseren door transactioneel efficiënte code te schrijven. Transactioneel efficiënte code valt breed in twee categorieën.
+Azure SQL Data Warehouse wijzigingen door voeren in de data base met behulp van transactie Logboeken. Elke distributie heeft een eigen transactie logboek. Schrijf bewerkingen in transactie logboeken worden automatisch uitgevoerd. Er is geen configuratie vereist. Hoewel dit proces de schrijf bewerking echter waarborgt, wordt er een overhead in het systeem geïntroduceerd. U kunt dit effect minimaliseren door transactionele code te schrijven. Transactionele code is breed onderverdeeld in twee categorieën.
 
-* Minimale constructies indien mogelijk logboekregistratie van gebruik
-* Gegevens verwerken met behulp van binnen het bereik van batches om te voorkomen dat de rapportgebruiker langlopende transacties
-* Een partitie overschakelen patroon voor grote wijzigingen in een bepaalde partitie vaststellen
+* Gebruik minimale logboek registratie constructies, indien mogelijk
+* Gegevens verwerken met behulp van het bereik van batches om enkelvoudige langlopende trans acties te voor komen
+* Een patroon voor het wisselen van partities voor grote wijzigingen in een bepaalde partitie aannemen
 
-## <a name="minimal-vs-full-logging"></a>Minimale versus volledige logboekregistratie
-In tegenstelling tot volledig geregistreerde bewerkingen, die gebruikmaken van het transactielogboek om alle wijzigingen die rij bij te houden, minimaal geregistreerde bewerkingen mate toewijzingen, en alleen de metagegevens voor wijzigingen bijhouden van. Minimale logboekregistratie moet daarom logboekregistratie alleen de informatie die nodig is voor het terugdraaien van de transactie na een storing, of voor een expliciete aanvraag (TERUGDRAAIEN TRAN). Omdat veel minder gegevens worden bijgehouden in het transactielogboek, wordt een minimaal geregistreerde bewerking beter dan een vergelijkbaar formaat volledig geregistreerde bewerking wordt uitgevoerd. Bovendien, omdat minder schrijft het transactielogboek, een veel kleinere hoeveelheid logboekgegevens wordt gegenereerd en dus meer i/o efficiënt.
+## <a name="minimal-vs-full-logging"></a>Minimale versus volledige logboek registratie
+In tegens telling tot volledig geregistreerde bewerkingen, waarbij het transactie logboek wordt gebruikt voor het bijhouden van elke wijziging in rijen, worden minimale geregistreerde bewerkingen bijgehouden voor de mate van toewijzings-en meta gegevens wijzigingen. Daarom vergt minimale logboek registratie alleen de gegevens die nodig zijn voor het terugdraaien van de trans actie na een fout of voor een expliciete aanvraag (terugdraaiende TRAN). Als er veel minder informatie wordt bijgehouden in het transactie logboek, voert een mini maal geregistreerde bewerking beter uit dan een volledig geregistreerde volledige logboek bewerking. Omdat minder schrijf bewerkingen het transactie logboek gaan volgen, wordt er een veel kleinere hoeveelheid logboek gegevens gegenereerd en dus meer I/O-efficiënt.
 
-De limieten van de veiligheid transactie zijn alleen van toepassing op volledig geregistreerde bewerkingen.
+De limieten voor de transactie beveiliging zijn alleen van toepassing op volledig geregistreerde bewerkingen.
 
 > [!NOTE]
-> Minimaal geregistreerde bewerkingen kunnen deelnemen aan expliciete transacties. Als u alle wijzigingen in de toewijzing van structuren worden bijgehouden, is het mogelijk om terug te draaien minimaal geregistreerde bewerkingen. 
+> Mini maal geregistreerde bewerkingen kunnen deel nemen aan expliciete trans acties. Als alle wijzigingen in de toewijzings structuren worden bijgehouden, is het mogelijk om mini maal geregistreerde bewerkingen terug te draaien. 
 > 
 > 
 
-## <a name="minimally-logged-operations"></a>Minimaal geregistreerde bewerkingen
-De volgende bewerkingen zijn geschikt voor minimaal worden geregistreerd:
+## <a name="minimally-logged-operations"></a>Mini maal geregistreerde bewerkingen
+De volgende bewerkingen kunnen mini maal worden geregistreerd:
 
-* CREATE TABLE AS SELECT ([CTAS](sql-data-warehouse-develop-ctas.md))
+* CREATE TABLE ALS SELECTEREN ([CTAS](sql-data-warehouse-develop-ctas.md))
 * INSERT..SELECT
 * CREATE INDEX
-* ALTER INDEX OPNIEUW OPBOUWEN
+* ALTER INDEX REBUILD
 * DROP INDEX
 * TRUNCATE TABLE
-* TABEL VERWIJDEREN
-* ALTER TABLE SWITCH PARTITION
+* TABEL NEERZETTEN
+* ALTER TABLE SWITCH-PARTITIE
 
 <!--
 - MERGE
@@ -58,33 +58,33 @@ De volgende bewerkingen zijn geschikt voor minimaal worden geregistreerd:
 -->
 
 > [!NOTE]
-> Interne bewerkingen voor gegevensverplaatsing (zoals UITZENDING en SHUFFLE) worden niet beïnvloed door de Transactielimiet veiligheid.
+> Bewerkingen voor het verplaatsen van interne gegevens (zoals BROADCASTen en wille keurige volg orde) worden niet beïnvloed door de limiet voor trans actie-beveiliging.
 > 
 > 
 
-## <a name="minimal-logging-with-bulk-load"></a>Minimale logboekregistratie met bulksgewijs laden
-CTAS en invoegen... Selecteer zijn beide bewerkingen van bulksgewijs laden. Echter, beide worden beïnvloed door de definitie van de doel-tabel en afhankelijk van de load-scenario. De volgende tabel wordt uitgelegd wanneer bulkbewerkingen worden volledig of minimaal geregistreerd:  
+## <a name="minimal-logging-with-bulk-load"></a>Minimale logboek registratie met bulksgewijs laden
+CTAS en invoegen... Selecteer beide bewerkingen voor bulksgewijs laden. Beide worden echter beïnvloed door de definitie van de doel tabel en zijn afhankelijk van het laad scenario. In de volgende tabel wordt uitgelegd wanneer bulk bewerkingen volledig of mini maal zijn geregistreerd:  
 
-| Primaire Index | Belasting-Scenario | Modus voor logboekregistratie |
+| Primaire index | Scenario voor laden | Modus logboek registratie |
 | --- | --- | --- |
-| Heap |Alle |**Minimal** |
-| Geclusterde Index |Lege doeltabel |**Minimal** |
-| Geclusterde Index |Geladen rijen niet overlappen met bestaande pagina's in het doel |**Minimal** |
-| Geclusterde Index |Geladen rijen overlappen met bestaande pagina's in het doel |Volledig |
-| Geclusterde Columnstore-Index |Batchgrootte > = 102,400 per partitie uitgelijnd distributie |**Minimal** |
-| Geclusterde Columnstore-Index |Batch-grootte < 102,400 per partitie uitgelijnd distributie |Volledig |
+| Heap |Any |**Minimal** |
+| Geclusterde index |Lege doel tabel |**Minimal** |
+| Geclusterde index |Geladen rijen overlappen niet met bestaande pagina's in het doel |**Minimal** |
+| Geclusterde index |Geladen rijen overlappen met bestaande pagina's in het doel |Volledig |
+| Geclusterde column store-index |Batch grootte > = 102.400 per partitie, uitgelijnde distributie |**Minimal** |
+| Geclusterde column store-index |Batch grootte < 102.400 per partitie, uitgelijnde distributie |Volledig |
 
-Het is vermelden waard schrijfbewerkingen om bij te werken van secundaire of niet-geclusterde indexen worden altijd volledig geregistreerde bewerkingen.
+Het is een goed idee dat elke schrijf bewerking voor het bijwerken van secundaire of niet-geclusterde indexen altijd volledige geregistreerde bewerkingen is.
 
 > [!IMPORTANT]
-> SQL Data Warehouse heeft 60 distributies. Daarom, aangenomen dat alle rijen gelijkmatig worden gedistribueerd en terechtkomen in één partitie, uw batch moet 6,144,000 rijen bevatten of groter minimaal zijn aangemeld bij het schrijven naar een geclusterde Columnstore-Index. Als de tabel is gepartitioneerd en de rijen worden ingevoegd grenzen van partities omvatten, moet u 6,144,000 rijen per partitie grens ervan uitgaande dat het zelfs de verdeling van de gegevens. Elke partitie in elke distributie moet onafhankelijk groter zijn dan de drempelwaarde 102.400 rij voor de insert moeten minimaal worden vastgelegd in de distributie.
+> SQL Data Warehouse heeft 60 distributies. Als alle rijen gelijkmatig worden gedistribueerd en gespreid over één partitie, moet uw batch dus 6.144.000 rijen bevatten of groter zijn om mini maal te worden aangemeld bij het schrijven naar een geclusterde column store-index. Als de tabel is gepartitioneerd en de rijen worden ingevoegd, worden de limieten voor 6.144.000 rijen per partitie in rekening gebracht, uitgaande van de gegevens distributie. Elke partitie in elke distributie moet onafhankelijk de drempel waarde voor de 102.400-rij overschrijden voor het invoegen om mini maal te worden aangemeld bij de distributie.
 > 
 > 
 
-Het laden van gegevens naar een niet-lege tabel met een geclusterde index, kan een combinatie van rijen volledig geregistreerd en minimaal geregistreerde vaak bevatten. Een geclusterde index is een evenwichtige structuur (b-tree) van pagina's. Als de pagina wordt geschreven naar bevat al rijen uit een andere transactie, worden klikt u vervolgens deze schrijfbewerkingen volledig geregistreerd. Echter, als de pagina leeg is vervolgens het schrijven naar die pagina worden minimaal geregistreerd.
+Het laden van gegevens in een niet-lege tabel met een geclusterde index kan vaak een combi natie van volledig vastgelegde en mini maal geregistreerde rijen bevatten. Een geclusterde index is een evenwichtige boom structuur (b-structuur) van pagina's. Als de pagina die wordt geschreven, al rijen van een andere trans actie bevat, worden deze schrijf bewerkingen volledig vastgelegd. Als de pagina echter leeg is, wordt de schrijf bewerking naar die pagina mini maal vastgelegd.
 
 ## <a name="optimizing-deletes"></a>Verwijderingen optimaliseren
-VERWIJDEREN is een volledig geregistreerde bewerking.  Als u verwijderen van een grote hoeveelheid gegevens in een tabel of een partitie wilt, het vaak zinvol meer om te `SELECT` de gegevens die u behouden wilt, en die kunnen worden uitgevoerd als een minimaal geregistreerde bewerking.  Als u wilt de gegevens selecteert, maakt u een nieuwe tabel met [CTAS](sql-data-warehouse-develop-ctas.md).  Zodra u hebt gemaakt, gebruikt u [naam](/sql/t-sql/statements/rename-transact-sql) aan uw oude tabel met de zojuist gemaakte tabel vervangen.
+VERWIJDEREN is een volledig geregistreerde bewerking.  Als u een grote hoeveelheid gegevens in een tabel of partitie moet verwijderen, is het vaak beter voor `SELECT` de gegevens die u wilt blijven gebruiken, die kunnen worden uitgevoerd als een mini maal vastgelegde bewerking.  Als u de gegevens wilt selecteren, maakt u een nieuwe tabel met [CTAS](sql-data-warehouse-develop-ctas.md).  Nadat deze is gemaakt, gebruikt u de [naam wijzigen](/sql/t-sql/statements/rename-transact-sql) om de oude tabel om te wisselen met de zojuist gemaakte tabel.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -115,11 +115,11 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Updates optimaliseren
-Er is een volledig geregistreerde bewerking in de UPDATE.  Als u nodig hebt om bij te werken van een groot aantal rijen in een tabel of een partitie, dit kan vaak worden veel efficiënter te gebruiken, zoals een minimaal geregistreerde bewerking [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) om dit te doen.
+UPDATE is een volledig geregistreerde bewerking.  Als u een groot aantal rijen in een tabel of partitie moet bijwerken, kan het veel efficiënter zijn om een mini maal geregistreerde bewerking zoals [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) te gebruiken.
 
-In het voorbeeld hieronder een volledige tabel is bijwerken geconverteerd naar een CTAS zodat minimale logboekregistratie mogelijk is.
+In het voor beeld onder een volledige tabel update is geconverteerd naar een CTAS, zodat de logboek registratie mini maal mogelijk is.
 
-In dit geval zijn er een korting retroactief toegevoegd aan de verkoop in de tabel:
+In dit geval voegen we retro actief een kortings bedrag toe aan de verkoop in de tabel:
 
 ```sql
 --Step 01. Create a new table containing the "Update". 
@@ -176,22 +176,22 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Grote tabellen opnieuw te maken kan profiteren van beheerfuncties voor SQL Data Warehouse workload. Zie voor meer informatie, [resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md).
+> Het opnieuw maken van grote tabellen kan profiteren van het gebruik van SQL Data Warehouse werkbelasting beheer functies. Zie [resource klassen voor workload Management](resource-classes-for-workload-management.md)voor meer informatie.
 > 
 > 
 
-## <a name="optimizing-with-partition-switching"></a>Optimaliseren met partitie overschakelen
-Als u momenteel geconfronteerd met grootschalige wijzigingen binnen een [partitie tabel](sql-data-warehouse-tables-partition.md), en vervolgens een schakelen tussen patroon partities zinvol. Als de wijziging van de gegevens belangrijk is en meerdere partities omvat, geven klikt u vervolgens iteratie van de partities hetzelfde resultaat.
+## <a name="optimizing-with-partition-switching"></a>Optimaliseren met partitie wisseling
+Als u in een [tabel partitie](sql-data-warehouse-tables-partition.md)op grote schaal wijzigingen ondervindt, is een patroon voor het wisselen van partities zinvol. Als het wijzigen van de gegevens significant is en meerdere partities omvat, wordt door het herhalen van de partities hetzelfde resultaat gerealiseerd.
 
 De stappen voor het uitvoeren van een partitie-switch zijn als volgt:
 
-1. Maak een lege partitie
-2. De 'update' uitvoeren als een CTAS
-3. Overschakelen van de bestaande gegevens naar de tabel
-4. Ga in de nieuwe gegevens
+1. Een lege out-partitie maken
+2. De update uitvoeren als een CTAS
+3. De bestaande gegevens in de tabel uitzetten
+4. Scha kelen tussen de nieuwe gegevens
 5. De gegevens opschonen
 
-Maar om te identificeren van de partities om over te schakelen, maken de volgende Help-procedure.  
+Maak echter de volgende Help-procedure om te helpen bij het identificeren van de te scha kelen partities.  
 
 ```sql
 CREATE PROCEDURE dbo.partition_data_get
@@ -237,9 +237,9 @@ OPTION (LABEL = 'dbo.partition_data_get : CTAS : #ptn_data')
 GO
 ```
 
-Deze procedure wordt gemaximaliseerd hergebruik van code en blijft de partitie voorbeeld meer compacte overschakelen.
+Met deze procedure wordt het hergebruik van code gemaximaliseerd en blijft het voor beeld van de partitie-switch compacter.
 
-De volgende code ziet u de stappen die eerder is vermeld voor een volledige partitie routine overschakelen.
+De volgende code toont de eerder genoemde stappen voor het behalen van een volledige partitie switch-routine.
 
 ```sql
 --Create a partitioned aligned empty table to switch out the data 
@@ -342,10 +342,10 @@ DROP TABLE dbo.FactInternetSales_in
 DROP TABLE #ptn_data
 ```
 
-## <a name="minimize-logging-with-small-batches"></a>Logboekregistratie met kleine batches minimaliseren
-Voor bewerkingen voor het wijzigen van grote hoeveelheden gegevens, kan het zinvol zijn de bewerking in segmenten of batch-bestanden om het bereik van de eenheid van het werk te verdelen.
+## <a name="minimize-logging-with-small-batches"></a>Logboek registratie met kleine batches minimaliseren
+Voor bewerkingen voor grote gegevens wijziging kan het zinvol zijn om de bewerking te verdelen in segmenten of batches om de werk eenheid te bereiken.
 
-Een volgende code is een werkvoorbeeld van een. De batchgrootte is ingesteld op een trivial getal dat de techniek. In werkelijkheid, zou de batchgrootte aanzienlijk groter zijn. 
+Een van de volgende code is een werkend voor beeld. De Batch grootte is ingesteld op een trivial getal om de techniek te markeren. In werkelijkheid zou de Batch grootte aanzienlijk groter zijn. 
 
 ```sql
 SET NO_COUNT ON;
@@ -403,19 +403,19 @@ BEGIN
 END
 ```
 
-## <a name="pause-and-scaling-guidance"></a>Onderbreken en schalen van richtlijnen
-Azure SQL Data Warehouse kunt u [onderbreken, hervatten en schalen](sql-data-warehouse-manage-compute-overview.md) uw datawarehouse op aanvraag. Wanneer u onderbreken of schalen van uw SQL Data Warehouse, is het belangrijk om te begrijpen dat eventuele actieve transacties onmiddellijk; worden beëindigd zorgt ervoor dat alle open transacties worden teruggedraaid. Als uw werkbelasting een wijziging van de gegevens lang actief is en niet voltooid voordat de bewerking onderbreken of schalen uitgegeven heeft, klikt u vervolgens moet dit werk ongedaan worden gemaakt. Deze ongedaan te maken heeft mogelijk invloed op de tijd die nodig zijn om te onderbreken of schalen van uw Azure SQL Data Warehouse-database. 
+## <a name="pause-and-scaling-guidance"></a>Richt lijnen voor onderbreken en schalen
+Met Azure SQL Data Warehouse kunt u uw data warehouse op aanvraag [onderbreken, hervatten en schalen](sql-data-warehouse-manage-compute-overview.md) . Wanneer u uw SQL Data Warehouse pauzeert of schaalt, is het belang rijk om te begrijpen dat alle trans acties in de vlucht onmiddellijk worden beëindigd. zorgt ervoor dat alle openstaande trans acties worden teruggedraaid. Als uw werk belasting een langlopende en onvolledige gegevens wijziging heeft ondergaan voordat de onderbreking of schaal bewerking wordt uitgevoerd, moet dit werk ongedaan worden gemaakt. Dit kan van invloed zijn op de tijd die nodig is om uw Azure SQL Data Warehouse-data base te onderbreken of te schalen. 
 
 > [!IMPORTANT]
-> Beide `UPDATE` en `DELETE` zijn volledig geregistreerde bewerkingen en zodat deze ongedaan maken/opnieuw bewerkingen kunnen aanzienlijk langer duren dan equivalent minimaal operations geregistreerd. 
+> Beide `UPDATE` en`DELETE` zijn volledig geregistreerde bewerkingen, waardoor deze bewerkingen voor ongedaan maken/opnieuw uitvoeren aanzienlijk langer duren dan de gelijkwaardige minimale geregistreerde bewerkingen. 
 > 
 > 
 
-De beste scenario is het flight data wijziging transacties voltooid voordat het onderbreken of schalen van SQL Data Warehouse te laten. Echter, in dit scenario altijd mogelijk niet praktisch. Als u wilt het risico van een lange terugdraaiactie, houd rekening met een van de volgende opties:
+Het beste scenario is om trans acties voor het wijzigen van de vlucht gegevens te laten volt ooien voordat de SQL Data Warehouse worden onderbroken of geschaald. Dit scenario is echter mogelijk niet altijd praktisch. Als u het risico van een lange terugdraai actie wilt beperken, kunt u een van de volgende opties overwegen:
 
-* Herschrijven langlopende bewerkingen met behulp van [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
-* De bewerking opdelen in segmenten; besturingssysteem op een subset van de rijen
+* Langlopende bewerkingen opnieuw uitvoeren met [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+* De bewerking in segmenten opsplitsen. werken op een subset van de rijen
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [transacties in SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) voor meer informatie over isolatieniveaus van en transactionele limieten.  Zie voor een overzicht van andere Best Practices, [aanbevolen procedures voor SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Zie [trans acties in SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) voor meer informatie over isolatie niveaus en transactionele limieten.  Zie [SQL Data Warehouse aanbevolen procedures](sql-data-warehouse-best-practices.md)voor een overzicht van andere aanbevolen procedures.
 

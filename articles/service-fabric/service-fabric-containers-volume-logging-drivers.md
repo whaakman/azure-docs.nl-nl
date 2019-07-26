@@ -1,6 +1,6 @@
 ---
-title: Service Fabric-Azure-bestanden Volume stuurprogramma (Preview) | Microsoft Docs
-description: Service Fabric ondersteunt het gebruik van Azure Files met back-volumes in de container. Dit is momenteel in preview.
+title: Service Fabric Azure Files-volume stuur programma (preview) | Microsoft Docs
+description: Service Fabric ondersteunt het gebruik van Azure Files voor het maken van back-upvolumes in de container. Dit is momenteel beschikbaar als preview-versie.
 services: service-fabric
 documentationcenter: other
 author: aljo-microsoft
@@ -13,33 +13,35 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: subramar
-ms.openlocfilehash: 58bfee5963257df380adac94133dcc55dd03a443
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: aljo, subramar
+ms.openlocfilehash: 09ee729fea952665350aa25c21cdb3d5823b899f
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617621"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489900"
 ---
-# <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric-stuurprogramma voor Azure Files-Volume (Preview)
-De invoegtoepassing Azure Files-volume is een [Docker volume invoegtoepassing](https://docs.docker.com/engine/extend/plugins_volume/) waarmee de [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) op basis van volumes voor Docker-containers. Deze volume-invoegtoepassing voor Docker is verpakt als een Service Fabric-toepassing die kan worden geïmplementeerd in Service Fabric-clusters. Het doel van de invoegtoepassing is om volumes op basis van Azure Files te leveren aan andere Service Fabric-containertoepassingen die in het cluster zijn geïmplementeerd.
+# <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure Files-volume stuur programma (preview-versie)
+De Azure Files-invoeg toepassing voor volumes is een [docker volume-invoeg toepassing](https://docs.docker.com/engine/extend/plugins_volume/) die op [Azure files](https:///azure/storage/files/storage-files-introduction) gebaseerde volumes biedt voor docker-containers. Deze volume-invoegtoepassing voor Docker is verpakt als een Service Fabric-toepassing die kan worden geïmplementeerd in Service Fabric-clusters. Het doel is om Azure Files volumes te bieden voor andere Service Fabric container toepassingen die op het cluster worden geïmplementeerd.
 
 > [!NOTE]
-> Versie 6.4.571.9590 van de invoegtoepassing Azure Files-volume is een preview-versie die beschikbaar is in dit document. Als een preview-versie, is het **niet** ondersteund voor gebruik in productieomgevingen.
+> Versie 6.5.516.9494 van de invoeg toepassing voor het Azure Files-volume is een preview-versie die beschikbaar is in dit document. Als preview-versie wordt het **niet** ondersteund voor gebruik in productie omgevingen.
 >
 
 ## <a name="prerequisites"></a>Vereisten
-* De Windows-versie van de invoegtoepassing Azure Files-volume werkt op [Windows Server versie 1709](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 versie 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) of latere besturingssystemen. De Linux-versie van de invoegtoepassing Azure Files-volume werkt op alle versies van besturingssystemen wordt ondersteund door Service Fabric.
+* De Windows-versie van de invoeg toepassing volume Azure Files werkt alleen op [Windows Server versie 1709](https:///windows-server/get-started/whats-new-in-windows-server-1709), [windows 10 versie 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) of hoger.
 
-* De invoegtoepassing Azure Files-volume werkt alleen op Service Fabric versie 6.2 en hoger.
+* De Linux-versie van de invoeg toepassing volume van Azure Files werkt op alle versies van het besturings systeem die door Service Fabric worden ondersteund.
 
-* Volg de instructies in de [documentatie voor Azure Files](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) om een bestandsshare voor de Service Fabric-containertoepassing te gebruiken als een volume te maken.
+* De invoeg toepassing Azure Files volume werkt alleen op Service Fabric versie 6,2 en hoger.
 
-* U moet [Powershell gebruiken met de module Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) of [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) geïnstalleerd.
+* Volg de instructies in de [Azure files-documentatie](https:///azure/storage/files/storage-how-to-create-file-share) om een bestands share te maken voor de service Fabric container toepassing die als volume moet worden gebruikt.
 
-* Als u van Hyper-v-containers gebruikmaakt, moeten de volgende codefragmenten worden toegevoegd in het ClusterManifest (lokale cluster) of de instelling fabricSettings sectie in het ARM-sjabloon (Azure-cluster) of ClusterConfig.json (zelfstandige cluster). U moet de naam van het volume en de poort waarop het volume naar het cluster luistert. 
+* U hebt [Power shell nodig met de service Fabric-module](https:///azure/service-fabric/service-fabric-get-started) of [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) geïnstalleerd.
 
-In het ClusterManifest, het volgende moet worden toegevoegd in de sectie Hosting. In dit voorbeeld wordt de naam van het volume is **sfazurefile** en de poort die deze naar op het cluster luistert is **19100**.  
+* Als u Hyper-V-containers gebruikt, moeten de volgende fragmenten worden toegevoegd aan de ClusterManifest (lokale cluster) of fabricSettings sectie in uw Azure Resource Manager-sjabloon (Azure cluster) of ClusterConfig. json (zelfstandige cluster).
+
+In de ClusterManifest moet de volgende worden toegevoegd in de sectie hosting. In dit voor beeld is de volume naam **sfazurefile** en wordt de poort die wordt geluisterd naar op het cluster **19100**. Vervang deze door de juiste waarden voor uw cluster.
 
 ``` xml 
 <Section Name="Hosting">
@@ -47,7 +49,7 @@ In het ClusterManifest, het volgende moet worden toegevoegd in de sectie Hosting
 </Section>
 ```
 
-In de instelling fabricSettings-sectie van de ARM-sjabloon (voor Azure-implementaties) of ClusterConfig.json (voor zelfstandige implementaties) moet het volgende codefragment worden toegevoegd. 
+In de sectie fabricSettings in uw Azure Resource Manager-sjabloon (voor Azure-implementaties) of ClusterConfig. json (voor zelfstandige implementaties) moet het volgende code fragment worden toegevoegd. En vervang opnieuw de volume naam en poort waarden met uw eigen waarde.
 
 ```json
 "fabricSettings": [
@@ -64,11 +66,31 @@ In de instelling fabricSettings-sectie van de ARM-sjabloon (voor Azure-implement
 ```
 
 
-## <a name="deploy-the-service-fabric-azure-files-application"></a>De bestanden van de Azure Service Fabric-toepassing implementeren
+## <a name="deploy-the-service-fabric-azure-files-application"></a>De Service Fabric Azure Files-toepassing implementeren
 
-De Service Fabric-toepassing waarmee de volumes voor uw containers kan worden gedownload vanaf de volgende [koppeling](https://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.4.571.9590.zip). De toepassing kan worden geïmplementeerd in het cluster via [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) of [FabricClient APIs](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+### <a name="using-azure-resource-manager-via-the-provided-powershell-script-recommended"></a>Azure Resource Manager via het meegeleverde Power shell-script gebruiken (aanbevolen)
 
-1. Via de opdrachtregel, wijzig de map naar de hoofdmap van het toepassingspakket dat is gedownload.
+Als uw cluster is gebaseerd op Azure, raden we u aan om toepassingen te implementeren met behulp van het resource model van de Azure Resource Manager-toepassing voor gebruiks gemak en om te helpen bij het model van het onderhoud van de infra structuur als code. Deze aanpak elimineert de nood zaak om de App-versie bij te houden voor het Azure Files-volume stuur programma. U kunt hiermee ook afzonderlijke Azure Resource Manager sjablonen onderhouden voor elk ondersteund besturings systeem. In het script wordt ervan uitgegaan dat u de nieuwste versie van de Azure Files-toepassing implementeert en para meters gebruikt voor het type besturings systeem, de cluster abonnement-ID en de resource groep. U kunt het script downloaden van de [service Fabric download site](https://sfazfilevd.blob.core.windows.net/sfazfilevd/DeployAzureFilesVolumeDriver.zip). Houd er rekening mee dat hiermee automatisch de ListenPort wordt ingesteld. Dit is de poort waarop de Azure Files-volume-invoeg toepassing luistert naar aanvragen van de docker-daemon tot 19100. U kunt dit wijzigen door een para meter met de naam ' listenPort ' toe te voegen. Zorg ervoor dat de poort niet in conflict is met een andere poort die door het cluster of uw toepassingen wordt gebruikt.
+ 
+
+Azure Resource Manager implementatie opdracht voor Windows:
+```powershell
+.\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -windows
+```
+
+Azure Resource Manager implementatie opdracht voor Linux:
+```powershell
+.\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -linux
+```
+
+Zodra u het script hebt uitgevoerd, kunt u door gaan naar de [sectie uw toepassing configureren.](https:////azure/service-fabric/service-fabric-containers-volume-logging-drivers#configure-your-applications-to-use-the-volume)
+
+
+### <a name="manual-deployment-for-standalone-clusters"></a>Hand matige implementatie voor zelfstandige clusters
+
+De Service Fabric-toepassing die de volumes voor uw containers levert, kan worden gedownload van de [service Fabric download site](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.516.9494.zip). De toepassing kan worden geïmplementeerd in het cluster via [Power shell](https:///azure/service-fabric/service-fabric-deploy-remove-applications), [cli](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) of [FabricClient api's](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+
+1. Gebruik de opdracht regel om de map te wijzigen in de hoofdmap van het gedownloade toepassings pakket.
 
     ```powershell
     cd .\AzureFilesVolume\
@@ -78,7 +100,7 @@ De Service Fabric-toepassing waarmee de volumes voor uw containers kan worden ge
     cd ~/AzureFilesVolume
     ```
 
-2. Kopieer het toepassingspakket naar de installatiekopieopslag de opdracht hieronder uitvoeren met de juiste waarde voor [ApplicationPackagePath] en [ImageStoreConnectionString]:
+2. Kopieer vervolgens het toepassings pakket naar het archief met installatie kopieën met de juiste waarden voor [ApplicationPackagePath] en [ImageStoreConnectionString]:
 
     ```powershell
     Copy-ServiceFabricApplicationPackage -ApplicationPackagePath [ApplicationPackagePath] -ImageStoreConnectionString [ImageStoreConnectionString] -ApplicationPackagePathInImageStore AzureFilesVolumePlugin
@@ -89,7 +111,7 @@ De Service Fabric-toepassing waarmee de volumes voor uw containers kan worden ge
     sfctl application upload --path [ApplicationPackagePath] --show-progress
     ```
 
-3. Het toepassingstype te registreren
+3. Het toepassings type registreren
 
     ```powershell
     Register-ServiceFabricApplicationType -ApplicationPathInImageStore AzureFilesVolumePlugin
@@ -99,32 +121,35 @@ De Service Fabric-toepassing waarmee de volumes voor uw containers kan worden ge
     sfctl application provision --application-type-build-path [ApplicationPackagePath]
     ```
 
-4. De toepassing maken In de opdracht voor het maken van de onderstaande toepassing, houd er rekening mee de **ListenPort** parametr aplikace. Deze waarde opgegeven voor de parameter voor deze toepassing is de poort op waarop de invoegtoepassing Azure Files-volume voor aanvragen van de Docker-daemon luistert. Het is belangrijk om ervoor te zorgen dat de poort voor de toepassing overeenkomen met de VolumePluginPorts in het ClusterManifest opgegeven en niet in strijd met een andere poort die gebruikmaken van het cluster of van uw toepassingen.
+4. Maak de toepassing en betaal de waarde voor de **ListenPort** -toepassings parameter. Deze waarde is de poort waarop de Azure Files-invoeg toepassing van het volume luistert naar aanvragen van de docker-daemon. Zorg ervoor dat de poort die aan de toepassing is gegeven, overeenkomt met de VolumePluginPorts in de ClusterManifest en niet in strijd is met een andere poort die door het cluster of uw toepassingen wordt gebruikt.
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494  -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
 > 
-> Toewijzing van SMB-koppelingen naar containers biedt geen ondersteuning voor Windows Server 2016 Datacenter ([die wordt alleen ondersteund op Windows Server versie 1709](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage)). Deze beperking voorkomt dat netwerktoewijzing volume en stuurprogramma's voor Azure Files-volume op versies ouder dan 1709.
+> Windows Server 2016 Data Center biedt geen ondersteuning voor het toewijzen van SMB-koppelingen aan containers ([dat wordt alleen ondersteund op Windows Server versie 1709](https:///virtualization/windowscontainers/manage-containers/container-storage)). Deze beperking voor komt dat netwerk volume toewijzing en Azure Files volume Stuur Programma's op oudere versies dan 1709.
 
-### <a name="deploy-the-application-on-a-local-development-cluster"></a>De toepassing op een lokaal ontwikkelcluster implementeren
-Het standaardaantal-service-exemplaar voor de toepassing Azure Files-volume-invoegtoepassing wordt -1, wat inhoudt dat er een exemplaar van de service op elk knooppunt in het cluster geïmplementeerd is. Bij het implementeren van de toepassing Azure Files-volume-invoegtoepassing op een lokaal ontwikkelcluster, moet er echter het aantal service-exemplaren worden opgegeven als 1. Dit kan worden gedaan de **InstanceCount** parametr aplikace. De opdracht voor het implementeren van de toepassing Azure Files-volume-invoegtoepassing op een lokaal ontwikkelcluster is daarom:
+#### <a name="deploy-the-application-on-a-local-development-cluster"></a>De toepassing implementeren op een lokaal ontwikkelings cluster
+Volg de stappen 1-3 van de [bovenstaande.](https:////azure/service-fabric/service-fabric-containers-volume-logging-drivers#manual-deployment-for-standalone-clusters)
+
+ Het standaard aantal service-exemplaren voor de Azure Files volume plugin-toepassing is-1, wat betekent dat er een exemplaar van de service op elk knoop punt in het cluster is geïmplementeerd. Bij het implementeren van de Azure Files volume plugin-toepassing op een lokaal ontwikkel cluster, moet het aantal service-exemplaren echter worden opgegeven als 1. Dit kan worden gedaan via de para meter **InstanceCount** -toepassing. Daarom is de opdracht voor het maken van de Azure Files volume plugin-toepassing op een lokaal ontwikkel cluster:
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
-## <a name="configure-your-applications-to-use-the-volume"></a>Configureren van uw toepassingen op het volume gebruiken
-Het volgende fragment toont hoe een Azure-bestanden op basis van volume kan worden opgegeven in het toepassingsmanifest van uw toepassing. Het specifieke element van belang zijn, is de **Volume** tag:
+
+## <a name="configure-your-applications-to-use-the-volume"></a>Uw toepassingen configureren voor het gebruik van het volume
+In het volgende code fragment ziet u hoe een op Azure Files gebaseerd volume kan worden opgegeven in het manifest bestand van de toepassing van uw toepassing. Het specifieke element van belang is de **volume** code:
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
@@ -158,17 +183,17 @@ Het volgende fragment toont hoe een Azure-bestanden op basis van volume kan word
 </ApplicationManifest>
 ```
 
-De naam van het stuurprogramma voor de invoegtoepassing Azure Files-volume is **sfazurefile**. Deze waarde is ingesteld voor de **stuurprogramma** kenmerk van de **Volume** element in het toepassingsmanifest.
+De naam van het stuur programma voor de Azure Files-volume-invoeg toepassing is **sfazurefile**. Deze waarde wordt ingesteld voor het kenmerk **stuur programma** van het element **volume** tag in het manifest van de toepassing.
 
-In de **Volume** -element in het bovenstaande codefragment de invoegtoepassing Azure Files-volume vereist de volgende codes:
-- **Bron** -dit is de naam van het volume. De gebruiker kan een willekeurige naam voor het volume kiezen.
-- **Bestemming** -dit label is de locatie die het volume is gekoppeld aan binnen de container die wordt uitgevoerd. Dus kan niet de bestemming een locatie die al in uw container bestaat worden
+In de **volume** code in het bovenstaande fragment zijn de volgende kenmerken vereist voor de Azure files volume-invoeg toepassing:
+- **Bron** : dit is de naam van het volume. De gebruiker kan een wille keurige naam voor het volume kiezen.
+- **Doel** -dit kenmerk is de locatie waarnaar het volume wordt toegewezen binnen de container die wordt uitgevoerd. Uw bestemming mag dus geen locatie zijn die al in uw container bestaat
 
-Zoals wordt weergegeven in de **DriverOption** elementen in het bovenstaande codefragment de volume-invoegtoepassing voor Azure Files ondersteunt de volgende stuurprogrammaopties:
-- **Sharenaam** -naam van de bestanden van de Azure-bestandsshare waarmee het volume voor de container.
-- **storageAccountName** : naam van de Azure storage-account met de Azure Files-bestand delen.
-- **storageAccountKey** -toegangssleutel voor de Azure storage-account met de Azure Files-share.
-- **storageAccountFQDN** -domeinnaam die is gekoppeld aan de storage-account. Als storageAccountFQDN niet opgegeven is, wordt met behulp van de standaard-suffix(.file.core.windows.net) met storageAccountName domeinnaam gevormd.  
+Zoals u kunt zien in de **DriverOption** -elementen in het bovenstaande fragment, ondersteunt de Azure files-volume-invoeg toepassing de volgende stuur programma-opties:
+- **sharename** : de naam van de Azure files bestands share die het volume voor de container levert.
+- **storageAccountName** : de naam van het Azure Storage-account dat de Azure files bestands share bevat.
+- **storageAccountKey** : de toegangs sleutel voor het Azure Storage-account dat de Azure files bestands share bevat.
+- **storageAccountFQDN** : de domein naam die aan het opslag account is gekoppeld. Als storageAccountFQDN niet is opgegeven, wordt de domein naam gevormd door het standaard achtervoegsel (. file. core. Windows. net) te gebruiken met de storageAccountName.  
 
     ```xml
     - Example1: 
@@ -183,10 +208,10 @@ Zoals wordt weergegeven in de **DriverOption** elementen in het bovenstaande cod
         <DriverOption Name="storageAccountFQDN" Value="myaccount2.file.core.chinacloudapi.cn" />
     ```
 
-## <a name="using-your-own-volume-or-logging-driver"></a>Met behulp van uw eigen volume of de stuurprogramma-logboekregistratie
-Service Fabric kunt u ook het gebruik van uw eigen aangepaste [volume](https://docs.docker.com/engine/extend/plugins_volume/) of [logboekregistratie](https://docs.docker.com/engine/admin/logging/overview/) stuurprogramma's. Als het volume/logboekregistratie Docker stuurprogramma is niet geïnstalleerd op het cluster, kunt u deze handmatig installeren met behulp van de RDP/SSH-protocollen. U kunt de installatie met deze protocollen via uitvoeren een [virtuele-machineschaalset opstarten script](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) of een [SetupEntryPoint script](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model).
+## <a name="using-your-own-volume-or-logging-driver"></a>Uw eigen volume of stuur programma voor logboek registratie gebruiken
+Met Service Fabric kunt u ook uw eigen aangepaste [volume](https://docs.docker.com/engine/extend/plugins_volume/) -of [logboek registratie](https://docs.docker.com/engine/admin/logging/overview/) Stuur Programma's gebruiken. Als het stuur programma voor volume/logboek registratie van docker niet is geïnstalleerd op het cluster, kunt u het hand matig installeren met behulp van de RDP/SSH-protocollen. U kunt de installatie met deze protocollen uitvoeren via een [opstart script](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) voor de schaalset van een virtuele machine of een [SetupEntryPoint-script](https:///azure/service-fabric/service-fabric-application-model).
 
-Een voorbeeld van het script voor het installeren van de [Docker volume stuurprogramma voor Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) is als volgt:
+Een voor beeld van het script om het [docker-volume stuur programma voor Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) te installeren, is als volgt:
 
 ```bash
 docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \
@@ -196,7 +221,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     DEBUG=1
 ```
 
-In uw toepassingen, voor het gebruik van het volume of de registratie een stuurprogramma hebt geïnstalleerd, dan hebt u om op te geven van de juiste waarden in de **Volume** en **LogConfig** elementen onder  **ContainerHostPolicies** in uw manifest van de toepassing.
+In uw toepassingen moet u de juiste waarden opgeven in het **volume** -en **LogConfig** -element onder **ContainerHostPolicies** in het manifest van de toepassing om het volume-of logboek registratie stuur programma te gebruiken dat u hebt geïnstalleerd.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
@@ -213,7 +238,7 @@ In uw toepassingen, voor het gebruik van het volume of de registratie een stuurp
 </ContainerHostPolicies>
 ```
 
-Wanneer u een invoegtoepassing volume opgeeft, maakt Service Fabric automatisch het volume met behulp van de opgegeven parameters. De **bron** taggen voor de **Volume** element is de naam van het volume en de **stuurprogramma** tag Hiermee geeft u het volume van invoegtoepassing stuurprogramma. De **bestemming** tag is de locatie die het **bron** is toegewezen aan binnen de container die wordt uitgevoerd. De bestemming kan dus een locatie die al in de container bestaat niet. Opties kunnen worden opgegeven met behulp van de **DriverOption** taggen als volgt:
+Wanneer u een volume-invoeg toepassing opgeeft, wordt Service Fabric automatisch het volume gemaakt met behulp van de opgegeven para meters. De **bron** code voor het element **volume** is de naam van het volume en het tag **stuur programma** specificeert de invoeg toepassing voor het volume stuur programma. De **doel** code is de locatie waarnaar de **bron** wordt toegewezen in de container die wordt uitgevoerd. Het doel kan dus geen locatie zijn die al in de container bestaat. U kunt opties als volgt opgeven met behulp van de **DriverOption** -code:
 
 ```xml
 <Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">
@@ -221,10 +246,10 @@ Wanneer u een invoegtoepassing volume opgeeft, maakt Service Fabric automatisch 
 </Volume>
 ```
 
-Parameters voor de toepassing worden ondersteund voor volumes, zoals wordt weergegeven in het bovenstaande fragment van een clustermanifest (zoek naar `MyStorageVar` gebruiken voor een voorbeeld).
+Toepassings parameters worden ondersteund voor volumes, zoals wordt weer gegeven in het voor gaande manifest `MyStorageVar` fragment (zoek naar een voor beeld).
 
-Als een Docker-log-stuurprogramma is opgegeven, hebt u voor de implementatie van agents (of containers) voor het afhandelen van de logboeken in het cluster. De **DriverOption** tag kan worden gebruikt om op te geven van de opties voor het logboek-stuurprogramma.
+Als er een docker-logboek stuur programma is opgegeven, moet u agents (of containers) implementeren voor het afhandelen van de logboeken in het cluster. De label **DriverOption** kan worden gebruikt om opties voor het logboek stuur programma op te geven.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Als u wilt zien van container-voorbeelden, met inbegrip van het volume-stuurprogramma, gaat u naar de [voorbeelden van Service Fabric-container](https://github.com/Azure-Samples/service-fabric-containers)
-* Raadpleeg het artikel voor het implementeren van containers in een Service Fabric-cluster, [een container in Service Fabric implementeren](service-fabric-deploy-container.md)
+* Als u container voorbeelden, inclusief het volume stuur programma, wilt bekijken, gaat u naar de [service Fabric container](https://github.com/Azure-Samples/service-fabric-containers) -voor beelden
+* Als u containers wilt implementeren in een Service Fabric cluster, raadpleegt u het artikel [een container implementeren op service Fabric](service-fabric-deploy-container.md)

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a99488025dc79a16006af4088555a67b23704cb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd89d70bfe7a7f5e72e7fcabe167bafac5777672
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60473733"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382248"
 ---
 # <a name="manage-my-devices-overview"></a>Overzicht van Mijn apparaten beheren
 
@@ -28,5 +28,5 @@ Zorg ervoor dat u toegang kunt krijgen tot alle mogelijk beperkte resources van 
 
 |Artikel |Description |
 |------|------------|
-|[Uw werkapparaat toevoegen](user-help-join-device-on-network.md)|Lees hoe u uw apparaat dat eigendom is van uw organisatie aan het netwerk van uw organisatie toevoegt.|
-|[Uw persoonlijke apparaat registreren](user-help-register-device-on-network.md)|Lees hoe u uw persoonlijke apparaat kunt registreren in het netwerk van uw organisatie.|
+| [Lid worden van uw werk apparaat](user-help-join-device-on-network.md) ] Meer informatie over het toevoegen van uw werk apparaat aan het netwerk van uw organisatie.|
+| [Uw persoonlijke apparaat registreren](user-help-register-device-on-network.md) ] Meer informatie over het registreren van uw persoonlijke apparaat in het netwerk van uw organisatie.|

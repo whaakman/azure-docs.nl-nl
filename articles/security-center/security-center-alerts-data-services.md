@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 7/24/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 1cafd8a3c766e57aed67634d7da8498c9a6ee120
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: f33b69ac443a1bb8f6b7d6e1b19f2f077bf38f58
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295824"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501486"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Detectie van bedreigingen voor gegevens Services in Azure Security Center
 
@@ -27,6 +27,7 @@ ms.locfileid: "68295824"
 
 * [Azure SQL Database en SQL Data Warehouse](#data-sql)
 * [Azure Storage](#azure-storage)
+* [Cosmos DB](#cosmos-db)
 
 ## Azure SQL Database en SQL Data Warehouse<a name="data-sql"></a>
 
@@ -46,7 +47,7 @@ Zie[Azure SQL database bedreigings detectie](https://docs.microsoft.com/azure/sq
 ## Azure Storage<a name="azure-storage"></a>
 
 >[!NOTE]
-> Advanced Threat Protection voor Azure Storage is momenteel alleen beschikbaar voor Blob Storage. 
+> Advanced Threat Protection voor Azure Storage is momenteel alleen beschikbaar voor Blob Storage.
 
 Advanced Threat Protection voor Azure Storage biedt een extra laag met beveiligingsinformatie voor de detectie van ongebruikelijke en mogelijk schadelijke pogingen om toegang te verkrijgen tot of aanvallen op opslagaccounts. Met deze beveiligingslaag kunt u bedreigingen aanpakken zonder dat u een beveiligings expert hoeft te zijn en beveiligings bewakings systemen te beheren.
 
@@ -70,3 +71,14 @@ Security Center analyseert Diagnostische logboeken met lees-, schrijf-en verwijd
 >Advanced Threat Protection voor Azure Storage is momenteel niet beschikbaar in azure Government en soevereine Cloud regio's.
 
 Voor meer informatie over de waarschuwingen voor opslag raadpleegt u het artikel [Advanced Threat Protection voor Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) en raadpleegt u de sectie beveiligings waarschuwingen.
+
+## Cosmos DB<a name="cosmos-db"></a>
+
+De volgende waarschuwingen worden gegenereerd door ongebruikelijke en mogelijk schadelijke pogingen om Azure Cosmos DB accounts te openen of misbruik te maken:
+
+|Waarschuwing|Description|
+|---|---|
+|**Toegang vanaf ongebruikelijke locatie**|Geeft aan dat er een wijziging is in het toegangs patroon voor een Cosmos DB-account. Iemand heeft dit account geopend vanuit een onbekend IP-adres, vergeleken met de recente activiteit. Een aanvaller heeft toegang tot een Cosmos DB account of een rechtmatige gebruiker heeft de Cosmos DB-account geopend vanuit een nieuwe en ongebruikelijke geografische locatie. Bijvoorbeeld: een nieuwe toepassing of onderhouds plan voor ontwikkel aars van Remote.|
+|**Ongebruikelijke gegevens exfiltration**|Geeft aan dat er een wijziging is opgetreden in het patroon voor gegevens extractie van een Cosmos DB-account. Iemand heeft een ongebruikelijke hoeveelheid gegevens geëxtraheerd in vergelijking met de recente activiteit. Een aanvaller heeft een grote hoeveelheid gegevens geëxtraheerd uit een Cosmos DB-Data Base. Bijvoorbeeld: gegevens exfiltration/lekkage, niet-geautoriseerde overdracht van gegevens. Of een rechtmatige gebruiker of toepassing heeft een ongebruikelijke hoeveelheid gegevens uit een container geëxtraheerd. Bijvoorbeeld: onderhouds back-upactiviteit.|
+
+Zie [Advanced Threat Protection voor Azure Cosmos DB](../cosmos-db/cosmos-db-advanced-threat-protection.md)voor meer informatie.

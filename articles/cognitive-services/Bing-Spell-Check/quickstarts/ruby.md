@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Spellingcontrole met de Bing Spellingcontrole-REST API en Ruby'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Aan de slag met de Bing Spellingcontrole-REST API om de spelling en grammatica te controleren.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: a3e65f9ad8e8a9c6876d1588ecaa94531206c6f4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 4c324bc013ccf339d19bb9dd7681909c4331db60
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389712"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500322"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Quickstart: Spellingcontrole met de Bing Spellingcontrole-REST API en Ruby
 

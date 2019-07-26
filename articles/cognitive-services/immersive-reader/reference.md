@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 67da7d67a3165583a872c2b435c3cdca9763d4dd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 22860e0798ec852b6d25da27e108befe8a3089a2
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443803"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488820"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Naslag Gids voor insluitende lezers SDK
 
@@ -37,7 +37,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
-| `token` | string | Het Azure AD-verificatie token. Raadpleeg de [zelf studie over Azure AD-verificatie](./azure-active-directory-authentication.md). |
+| `token` | string | Het Azure AD-verificatie token. Zie de [instructies voor Azure AD-verificatie](./azure-active-directory-authentication.md). |
 | `subdomain` | string | Het aangepaste subdomein van uw insluitende lezer-resource in Azure. Zie de [instructies voor Azure AD-verificatie](./azure-active-directory-authentication.md). |
 | `content` | [Inhoud](#content) | Een object met de inhoud die in de insluitende lezer moet worden weer gegeven. |
 | `options` | [Opties](#options) | Opties voor het configureren van bepaald gedrag van de insluitende lezer. Optioneel. |

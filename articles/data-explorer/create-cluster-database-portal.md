@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 41a15a29798953cb32029b7c4d1167020074e49f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/22/2019
+ms.openlocfilehash: cfab883f9b9b063bd51b9fdb7306d45371449180
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60760028"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406093"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Quickstart: Een Azure Data Explorer-cluster en -database maken
 
@@ -47,14 +47,15 @@ Maak een Azure Data Explorer-cluster met een gedefinieerde set met reken- en ops
 
 1. Vul de basic-cluster in met de volgende informatie.
 
-   ![Een clusterformulier maken](media/create-cluster-database-portal/create-cluster-form.png)
+   ![Een clusterformulier maken](media/create-cluster-database-portal/create-cluster-form2.png)
 
     **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
-    | Abonnement | Uw abonnement | Selecteer het Azure-abonnement dat u wilt gebruiken voor uw cluster.|
-    | Resourcegroep | *test-resource-group* | Gebruik een bestaande resourcegroep of maak een nieuwe. |
-    | Clusternaam | Een unieke clusternaam | Kies een unieke naam die uw cluster identificeert. Bijvoorbeeld, *mydataexplorercluster*. De domeinnaam *[regio].kusto.windows.net* wordt toegevoegd aan de clusternaam die u opgeeft. De naam mag alleen kleine letters en cijfers bevatten. Het wachtwoord moet tussen 3 en 22 tekens lang zijn.
-    | Locatie | *US - west* | Selecteer *US - west* voor deze snelstart. Selecteer voor een productiesysteem de regio die het beste voldoet aan uw behoeften.
+    | Subscription | Uw abonnement | Selecteer het Azure-abonnement dat u wilt gebruiken voor uw cluster.|
+    | Resource group | De resource groep | Gebruik een bestaande resourcegroep of maak een nieuwe. |
+    | Clusternaam | Een unieke clusternaam | Kies een unieke naam die uw cluster identificeert. De domeinnaam *[regio].kusto.windows.net* wordt toegevoegd aan de clusternaam die u opgeeft. De naam mag alleen kleine letters en cijfers bevatten. De waarde moet tussen 4 en 22 tekens bevatten.
+    | Regio | VS- *West* en VS-West *2* | Selecteer VS- *West* of *VS-West 2* (als u beschikbaarheids zones gebruikt) voor deze Quick Start. Selecteer voor een productiesysteem de regio die het beste voldoet aan uw behoeften.
+    | Beschikbaarheidszones | *1*, *2*en/of *3* | Voor zones die worden ondersteund door redundantie regio's, selecteert u in welke zones uw instanties worden opgeslagen (optioneel). De cluster knooppunten worden standaard gemaakt in hetzelfde Data Center. Gebruik [Azure-beschikbaarheidszones](/azure/availability-zones/az-overview) om de cluster exemplaren in verschillende beschikbaarheids zones in dezelfde regio te plaatsen. Als u verschillende beschikbaarheids zones selecteert, kunt u een Single Point of Failure elimineren en zorgen voor hoge Beschik baarheid. 
     | Specificaties voor rekenkracht | *D13_v2* | Selecteer de laagste prijsspecificatie voor deze snelstart. Selecteer voor een productiesysteem de specificatie die het beste voldoet aan uw behoeften.
     | | |
 
@@ -62,7 +63,7 @@ Maak een Azure Data Explorer-cluster met een gedefinieerde set met reken- en ops
 
 1. Nadat de implementatie is voltooid, selecteert u **Ga naar resource**.
 
-    ![Ga naar resource](media/create-cluster-database-portal/notification-resource.png)
+    ![Naar de resource gaan](media/create-cluster-database-portal/notification-resource.png)
 
 ## <a name="create-a-database"></a>Een database maken
 
@@ -78,8 +79,8 @@ U bent nu klaar voor de tweede stap in het proces: het maken van de database.
 
     **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
-    | Databasenaam | *TestDatabase* | De databasenaam moet uniek zijn binnen het cluster.
-    | Bewaarperiode | *3650* | De periode (in dagen) dat de gegevens gegarandeerd beschikbaar blijven voor query's. De periode wordt gemeten vanaf het moment dat de gegevens zijn opgenomen.
+    | De naam van database | *TestDatabase* | De databasenaam moet uniek zijn binnen het cluster.
+    | Retentieperiode | *3650* | De periode (in dagen) dat de gegevens gegarandeerd beschikbaar blijven voor query's. De periode wordt gemeten vanaf het moment dat de gegevens zijn opgenomen.
     | Cacheperiode | *31* | De periode (in dagen) dat vaak opgevraagde gegevens beschikbaar blijven in de SSD-opslag of het RAM-geheugen in plaats van in de langetermijnopslag.
     | | | |
 

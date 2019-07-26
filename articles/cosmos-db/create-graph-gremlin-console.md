@@ -5,16 +5,16 @@ author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
-ms.date: 01/08/2019
+ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: 277755641047bf311e06d17de5fe9d39bcc3b74b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: cd5408e9a40177fb2c8b029673b96994c6928313
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480591"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384324"
 ---
-# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Quickstart: Maken, opzoeken en doorzoeken van een Azure Cosmos DB-grafiekdatabase met behulp van de Gremlin-console
+# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Quickstart: Een Azure Cosmos DB Graph-data base maken, doorzoeken en er een query op uitvoeren met behulp van de Gremlin-console
 
 > [!div class="op_single_selector"]
 > * [Gremlin-console](create-graph-gremlin-console.md)
@@ -45,7 +45,7 @@ U moet ook de [Gremlin-console](https://tinkerpop.apache.org/) installeren. Gebr
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Een graaf toevoegen
+## <a name="add-a-graph"></a>Een grafiek toevoegen
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -56,7 +56,7 @@ U moet ook de [Gremlin-console](https://tinkerpop.apache.org/) installeren. Gebr
     Instelling|Voorgestelde waarde|Description
     ---|---|---
     hosts|[*account-name*.gremlin.cosmos.azure.com]|Zie de volgende schermafbeelding. Dit is de Gremlin URI-waarde op de pagina Overzicht van Azure Portal tussen vierkante haken, waarbij de afsluitende: 443/ is verwijderd.
-    poort|443|Ingesteld op 443.
+    port|443|Ingesteld op 443.
     gebruikersnaam|*Uw gebruikersnaam*|De bron van het formulier `/dbs/<db>/colls/<coll>` waar `<db>` de naam van uw database is en `<coll>` de naam van uw verzameling is.
     password|*Uw primaire sleutel*| Zie de tweede onderstaande schermafbeelding. Dit is uw primaire sleutel, die u kunt ophalen van de pagina Sleutels in Azure Portal, in het vak Primaire sleutel. Gebruik de kopieerknop aan de linkerkant van het vak om de waarde te kopiëren.
     connectionPool|{enableSsl: true}|De instelling van de verbindingsgroep voor SSL.

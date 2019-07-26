@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub Device Provisioning Service - attestation-symmetrische sleutel
-description: In dit artikel biedt een conceptueel overzicht van de symmetrische sleutel attestation met IoT Device Provisioning Service.
+title: Attestation-sleutel voor Azure IoT Hub Device Provisioning Service-symmetrische sleutels
+description: Dit artikel bevat een conceptueel overzicht van de symmetrische sleutel Attestation met IoT Device Provisioning Service.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -8,74 +8,74 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1a849732539dbc9e066bee7cc20141f56ffe10c
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60746085"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348354"
 ---
 # <a name="symmetric-key-attestation"></a>Attestation met behulp van een symmetrische sleutel
 
-Dit artikel beschrijft de attestation-proces identiteit als u de symmetrische sleutels voor de Device Provisioning Service. 
+In dit artikel wordt het identiteits attest proces beschreven bij het gebruik van symmetrische sleutels met de Device Provisioning Service. 
 
-Attestation-symmetrische sleutel is een eenvoudige benadering voor het verifiëren van een apparaat met een Device Provisioning Service-exemplaar. Deze methode attestation vertegenwoordigt een 'Hallo wereld'-ervaring voor ontwikkelaars die niet bekend bent met het apparaat wordt ingericht, of geen strikte beveiligingseisen. Apparaten attestation met een [TPM](concepts-tpm-attestation.md) of een [X.509-certificaat](concepts-security.md#x509-certificates) is veiliger zijn en moet worden gebruikt voor striktere beveiligingsvereisten.
+Symmetrische-sleutel attest is een eenvoudige benadering voor het verifiëren van een apparaat met een Device Provisioning service-exemplaar. Deze Attestation-methode vertegenwoordigt een ' Hello World '-ervaring voor ontwikkel aars die nieuw zijn voor het inrichten van apparaten of waarvoor geen strikte beveiligings vereisten gelden. Attestation van apparaten met een [TPM](concepts-tpm-attestation.md) of een [X. 509-certificaat](concepts-security.md#x509-certificates) is veiliger en moet worden gebruikt voor strengere beveiligings vereisten.
 
-Symmetrische sleutel inschrijvingen bieden ook een uitstekende manier voor oudere apparaten met beperkte beveiligingsfunctionaliteit, opstarten naar de cloud via Azure IoT. Zie voor meer informatie over symmetrische sleutel attestation met verouderde apparaten [symmetrische sleutels gebruiken met oudere apparaten](how-to-legacy-device-symm-key.md).
+Symmetrische sleutel registraties bieden ook een uitstekende manier voor oudere apparaten, met beperkte beveiligings functionaliteit, om een Boots trap naar de Cloud uit te voeren via Azure IoT. Zie voor meer informatie over symmetrische sleutel attest met verouderde apparaten [symmetrische sleutels gebruiken met verouderde apparaten](how-to-legacy-device-symm-key.md).
 
 
 ## <a name="symmetric-key-creation"></a>Symmetrische sleutel maken
 
-De Device Provisioning Service maakt standaard nieuwe symmetrische sleutels met een standaardlengte 32 bytes wanneer nieuwe registraties worden opgeslagen met de **automatisch genereren van sleutels** optie is ingeschakeld.
+De Device Provisioning Service maakt standaard nieuwe symmetrische sleutels met een standaard lengte van 32 bytes wanneer nieuwe inschrijvingen worden opgeslagen met de optie **sleutels automatisch genereren** ingeschakeld.
 
-![Automatisch genereren symmetrische sleutels](./media/concepts-symmetric-key-attestation/auto-generate-keys.png)
+![Symmetrische sleutels automatisch genereren](./media/concepts-symmetric-key-attestation/auto-generate-keys.png)
 
-U kunt ook uw eigen symmetrische sleutels voor inschrijvingen opgeven door deze optie uit te schakelen. Wanneer u uw eigen symmetrische sleutels opgeeft, moeten uw sleutels een sleutellengte tussen 16 bytes en 64 bytes hebben. Symmetrische sleutels moeten ook worden opgegeven in geldige Base 64-indeling.
+U kunt ook uw eigen symmetrische sleutels voor inschrijvingen opgeven door deze optie uit te scha kelen. Wanneer u uw eigen symmetrische sleutels opgeeft, moeten de sleutels een sleutel lengte hebben tussen 16 bytes en 64 bytes. Symmetrische sleutels moeten ook worden opgenomen in een geldige Base64-indeling.
 
 
 
-## <a name="detailed-attestation-process"></a>Gedetailleerde attestation-proces
+## <a name="detailed-attestation-process"></a>Gedetailleerd Attestation-proces
 
-Attestation-symmetrische sleutel met de Device Provisioning-Service wordt uitgevoerd met behulp van dezelfde [beveiligingstokens](../iot-hub/iot-hub-devguide-security.md#security-token-structure) ondersteund door de IoT-hubs om apparaten te identificeren. Deze beveiligingstokens zijn [Shared Access Signature (SAS)-tokens](../service-bus-messaging/service-bus-sas.md). 
+Symmetrische sleutel attest met de Device Provisioning Service wordt uitgevoerd met behulp van de [beveiligings tokens](../iot-hub/iot-hub-devguide-security.md#security-token-structure) die worden ondersteund door IOT hubs om apparaten te identificeren. Deze beveiligings tokens zijn [Shared Access Signature-tokens (SAS)](../service-bus-messaging/service-bus-sas.md). 
 
-SAS-tokens hebben een hash *handtekening* dat is gemaakt met behulp van de symmetrische sleutel. De handtekening wordt opnieuw gemaakt door de Device Provisioning Service om te controleren of een beveiligingstoken dat wordt weergegeven tijdens de attestation authentiek of niet is.
+SAS-tokens hebben een gehashte *hand tekening* die wordt gemaakt met behulp van de symmetrische sleutel. De hand tekening wordt opnieuw gemaakt door de Device Provisioning Service om te controleren of een beveiligings token dat wordt gepresenteerd tijdens de Attestation authentiek is of niet.
 
-SAS-tokens hebben de volgende notatie:
+SAS-tokens hebben de volgende vorm:
 
 `SharedAccessSignature sig={signature}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`
 
-Hier vindt u de onderdelen van elke token:
+Hier volgen de onderdelen van elk token:
 
-| Value | Description |
+| Waarde | Description |
 | --- | --- |
-| {handtekening} |Een tekenreeks van de HMAC-SHA256 handtekening. Voor afzonderlijke inschrijvingen, wordt deze handtekening gemaakt met behulp van de symmetrische sleutel (primair of secundair) om uit te voeren van de hash. Voor het registreren van groepen, wordt een sleutel die is afgeleid van de sleutel van de groep registratie gebruikt om uit te voeren van de hash. De hash wordt uitgevoerd op een bericht van het formulier: `URL-encoded-resourceURI + "\n" + expiry`. **Belangrijke**: De sleutel moet worden gedecodeerd op basis van base64 voordat het wordt gebruikt voor het uitvoeren van de HMAC-SHA256-berekening. Het resultaat van de handtekening moet ook zijn URL gecodeerd. |
-| {resourceURI} |De URI van het eindpunt voor clientregistratie die toegankelijk zijn met dit token beginnen met bereik-ID voor de Device Provisioning Service-exemplaar. Bijvoorbeeld: `{Scope ID}/registrations/{Registration ID}` |
-| {expiry} |UTF8-tekenreeksen voor het aantal seconden sinds de epoche 00:00:00 UTC op 1 januari 1970. |
-| {URL-encoded-resourceURI} |Lagere aanvraag-URL-codering van de resource-URI van de kleine letters |
-| {policyName} |De naam van het beleid voor gedeelde toegang waarvoor dit token verwijst. De naam van het beleid gebruikt bij het inrichten met de attestation-symmetrische sleutel is **registratie**. |
+| ondertekening |Een HMAC-SHA256-handtekening teken reeks. Voor afzonderlijke inschrijvingen wordt deze hand tekening gemaakt met behulp van de symmetrische sleutel (primair of secundair) om de hash uit te voeren. Voor inschrijvings groepen wordt een sleutel die is afgeleid van de sleutel registratie groep gebruikt om de hash uit te voeren. De hash wordt uitgevoerd in een bericht van de volgende indeling `URL-encoded-resourceURI + "\n" + expiry`:. **Belang rijk**: De sleutel moet worden gedecodeerd van Base64 voordat deze wordt gebruikt om de HMAC-SHA256-berekening uit te voeren. Daarnaast moet het handtekening resultaat URL-gecodeerd zijn. |
+| {resourceURI} |De URI van het registratie-eind punt dat met dit token kan worden geopend, beginnend met de scope-ID voor het Device Provisioning service-exemplaar. Bijvoorbeeld: `{Scope ID}/registrations/{Registration ID}` |
+| verloop |UTF8-teken reeksen voor het aantal seconden sinds de epoche 00:00:00 UTC op 1 januari 1970. |
+| {URL-encoded-resourceURI} |Kleine letter-URL-code ring van de resource-URI voor kleine letters |
+| {policyName} |De naam van het gedeelde toegangs beleid waarnaar dit token verwijst. De beleids naam die wordt gebruikt bij het inrichten met een symmetrische sleutel attest is **registratie**. |
 
-Wanneer een apparaat te bewijzen met een afzonderlijke inschrijving dat is, het apparaat maakt gebruik van de symmetrische sleutel die is gedefinieerd in de vermelding voor afzonderlijke registratie te maken van de hash-handtekening voor de SAS-token.
+Wanneer een apparaat wordt verklaard met een afzonderlijke registratie, gebruikt het apparaat de symmetrische sleutel die is gedefinieerd in de afzonderlijke registratie vermelding voor het maken van de gehashte hand tekening voor het SAS-token.
 
-Zie voor voorbeelden van code die een SAS-token maken, [beveiligingstokens](../iot-hub/iot-hub-devguide-security.md#security-token-structure).
+Zie [beveiligings tokens](../iot-hub/iot-hub-devguide-security.md#security-token-structure)voor code voorbeelden waarmee een SAS-token wordt gemaakt.
 
-Het maken van beveiligingstokens voor attestation-symmetrische sleutel wordt ondersteund door de Azure IoT C SDK. Zie voor een voorbeeld met behulp van de Azure IoT C SDK om te bevestigen met een afzonderlijke inschrijving [een gesimuleerd apparaat inrichten met symmetrische sleutels](quick-create-simulated-device-symm-key.md).
+Het maken van beveiligings tokens voor symmetrische sleutel attest wordt ondersteund door de Azure IoT C-SDK. Zie [een gesimuleerd apparaat inrichten met symmetrische sleutels](quick-create-simulated-device-symm-key.md)voor een voor beeld van het gebruik van de Azure IOT C SDK om te bevestigen met een afzonderlijke registratie.
 
 
-## <a name="group-enrollments"></a>Registratiegroepen
+## <a name="group-enrollments"></a>Groeps registraties
 
-De symmetrische sleutels voor groepsinschrijvingen worden niet rechtstreeks door apparaten gebruikt bij het inrichten. Apparaten die deel uitmaken van een inschrijving groep in plaats daarvan inrichten met behulp van een afgeleide apparaatsleutel. 
+De symmetrische sleutels voor groeps registraties worden niet rechtstreeks door apparaten gebruikt tijdens het inrichten. In plaats daarvan worden apparaten die deel uitmaken van een registratie groep ingericht met behulp van een afgeleide apparaatcode. 
 
-Een unieke registratie-ID wordt eerst gedefinieerd voor elk apparaat te bewijzen dat met een registratiegroep zit. Geldige tekens voor de registratie-ID zijn kleine alfanumeriek en streepje ('-'). Deze registratie-ID moet een unieke dat het apparaat identificeert. Een ouder apparaat kan bijvoorbeeld geen ondersteuning voor veel beveiligingsfuncties. Het oude apparaat mogelijk alleen een MAC-adres of een serienummer is beschikbaar voor het aanduiden van dat apparaat. In dat geval kan een registratie-ID bestaan uit de MAC-adres en het serienummer is vergelijkbaar met het volgende:
+Eerst wordt een unieke registratie-ID gedefinieerd voor elk apparaat dat met een registratie groep wordt verklaard. Geldige tekens voor de registratie-ID zijn kleine letters en streepjes ('-'). Deze registratie-ID moet uniek zijn voor het identificeren van het apparaat. Een verouderd apparaat biedt bijvoorbeeld mogelijk geen ondersteuning voor veel beveiligings functies. Het verouderde apparaat heeft mogelijk alleen een MAC-adres of serie nummer ter identificatie van het apparaat. In dat geval kan een registratie-ID bestaan uit het MAC-adres en serie nummer dat lijkt op het volgende:
 
 ```
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-In dit voorbeeld exact wordt gebruikt in de [over het inrichten van verouderde apparaten met behulp van symmetrische sleutels](how-to-legacy-device-symm-key.md) artikel.
+Dit exacte voor beeld wordt gebruikt in het artikel het inrichten van verouderde [apparaten met behulp van symmetrische sleutels](how-to-legacy-device-symm-key.md) .
 
-Zodra een registratie-ID is gedefinieerd voor het apparaat, de symmetrische sleutel voor de registratiegroep wordt gebruikt voor het berekenen van een [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) hash van de registratie-ID voor het produceren van een afgeleide apparaatsleutel. De hash van de registratie-ID kan worden uitgevoerd met de volgende C#-code:
+Zodra een registratie-ID voor het apparaat is gedefinieerd, wordt de symmetrische sleutel voor de registratie groep gebruikt voor het berekenen van een [HMAC-sha256-](https://wikipedia.org/wiki/HMAC) hash van de registratie-id voor het produceren van een afgeleide apparaatwachtwoord. De hashing van de registratie-ID kan worden uitgevoerd met de C# volgende code:
 
-```C#
+```csharp
 using System; 
 using System.Security.Cryptography; 
 using System.Text;  
@@ -92,28 +92,28 @@ public static class Utils
 } 
 ```
 
-```C#
+```csharp
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
 
-De resulterende sleutel voor het apparaat wordt vervolgens gebruikt voor het genereren van een SAS-token moet worden gebruikt voor attestation. Elk apparaat in een registratiegroep zit is vereist om te bevestigen met een beveiligingstoken dat is gegenereerd op basis van een unieke afgeleide sleutel. De symmetrische sleutel voor inschrijving-groep kan niet worden gebruikt voor attestation.
+De resulterende apparaatinstantie wordt vervolgens gebruikt voor het genereren van een SAS-token dat moet worden gebruikt voor Attestation. Elk apparaat in een registratie groep moet worden verklaard met behulp van een beveiligings token dat is gegenereerd op basis van een unieke afgeleide sleutel. De symmetrische sleutel van de registratie groep kan niet rechtstreeks worden gebruikt voor Attestation.
 
-#### <a name="installation-of-the-derived-device-key"></a>Installatie van de afgeleide apparaatsleutel
+#### <a name="installation-of-the-derived-device-key"></a>Installatie van de afgeleide-apparaatwachtwoord
 
-De apparaatsleutels zijn in het ideale geval afgeleid en geïnstalleerd in de fabriek. Deze methode wordt gegarandeerd dat de groepssleutel is nooit opgenomen in enige software geïmplementeerd op het apparaat. Wanneer het apparaat wordt toegewezen, een MAC-adres of het serienummer wordt geverifieerd, kunt u de sleutel afgeleid en opgenomen in het apparaat echter kiest voor de fabrikant om op te slaan.
+In het ideale geval worden de apparaatinstellingen afgeleid en geïnstalleerd in de fabriek. Deze methode zorgt ervoor dat de groeps sleutel nooit is opgenomen in software die op het apparaat is geïmplementeerd. Wanneer aan het apparaat een MAC-adres of serie nummer wordt toegewezen, kan de sleutel worden afgeleid en geïnjecteerd in het apparaat, maar de fabrikant kiest ervoor om deze op te slaan.
 
-Houd rekening met het volgende diagram ziet u een tabel van apparaatsleutels gegenereerd in een fabriek door elk apparaat registratie-ID met de sleutel van de inschrijving groep-hashing (**K**). 
+Bekijk het volgende diagram met een tabel met apparaatgegevens die in een fabriek zijn gegenereerd door de registratie-ID van elk apparaat te hashen met de groeps inschrijvings sleutel (**K**). 
 
-![Apparaatsleutels die zijn toegewezen op basis van een fabriek](./media/concepts-symmetric-key-attestation/key-diversification.png)
+![Apparaatinstellingen die zijn toegewezen vanuit een fabriek](./media/concepts-symmetric-key-attestation/key-diversification.png)
 
-De identiteit van elk apparaat dat wordt vertegenwoordigd door de registratie-ID en afgeleide apparaatsleutel die is geïnstalleerd in de fabriek. Sleutel voor het apparaat nooit naar een andere locatie wordt gekopieerd en de groepssleutel is nooit worden opgeslagen op een apparaat.
+De identiteit van elk apparaat wordt vertegenwoordigd door de registratie-ID en de afgeleide apparaatcode die in de fabriek is geïnstalleerd. De apparaatgegevens worden nooit naar een andere locatie gekopieerd en de groeps sleutel wordt nooit op een apparaat opgeslagen.
 
-Als de apparaatsleutels zijn niet geïnstalleerd in de factory, een [HSM hardware security module](concepts-security.md#hardware-security-module) moet worden gebruikt voor het veilig opslaan van de apparaat-id.
+Als de apparaatinstellingen niet in de fabriek zijn geïnstalleerd, moet er een HSM van de [Hardware Security-module](concepts-security.md#hardware-security-module) worden gebruikt om de apparaat-id veilig op te slaan.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u een goed begrip van de symmetrische sleutel attestation hebt, bekijkt u de volgende artikelen voor meer informatie:
+Nu u een goed idee hebt van de symmetrische sleutel attest, raadpleegt u de volgende artikelen voor meer informatie:
 
-* [Snelstart: Een gesimuleerd apparaat inrichten met symmetrische sleutels](quick-create-simulated-device-symm-key.md)
+* [Snelstart: Een gesimuleerd apparaat met symmetrische sleutels inrichten](quick-create-simulated-device-symm-key.md)
 * [Meer informatie over de concepten in automatische inrichting](./concepts-auto-provisioning.md)
-* [Aan de slag met behulp van automatische inrichting](./quick-setup-auto-provision.md) 
+* [Aan de slag met automatische inrichting](./quick-setup-auto-provision.md) 
