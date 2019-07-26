@@ -1,37 +1,39 @@
 ---
-title: Overzicht van de weergavedefinitie in Azure Managed Applications | Microsoft Docs
-description: Beschrijving van het concept van het maken van de weergavedefinitie voor Azure beheerde toepassingen.
+title: Overzicht van de definitie van de weer gave in Azure Managed Applications | Microsoft Docs
+description: Hierin wordt het concept van het maken van de weergave definitie voor Azure Managed Applications beschreven.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: 6735787f9b43f98ab611584f3c7191c9f927dbc2
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: ff96bddef1b34f5a8bf743ccaaccba2da01534dc
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478743"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335066"
 ---
-# <a name="view-definition-artifact-in-azure-managed-applications"></a>Weergave definitie artefact in Azure beheerde toepassingen
+# <a name="view-definition-artifact-in-azure-managed-applications"></a>Definitie artefact in Azure Managed Applications weer geven
 
-De weergavedefinitie van de is een optionele artefact in Azure beheerde toepassingen. Hierdoor kan meer weergaven, zoals metrische gegevens en aangepaste resources toevoegen en aanpassen van de overzichtspagina.
+Weergave definitie is een optioneel artefact in Azure Managed Applications. Hiermee kunt u de overzichts pagina aanpassen en meer weer gaven toevoegen, zoals metrische gegevens en aangepaste resources.
 
-Dit artikel bevat een overzicht van definitie-artefact weergeven en de mogelijkheden ervan.
+Dit artikel bevat een overzicht van het weer geven van definitie artefacten en de mogelijkheden ervan.
 
 ## <a name="view-definition-artifact"></a>Definitie-artefact weergeven
 
-De weergave definitie artefact moet de naam **viewDefinition.json** en geplaatst op hetzelfde niveau als **createUiDefinition.json** en **mainTemplate.json** in de .zip het pakket dat wordt gemaakt van de definitie van een beheerde toepassing. Zie voor meer informatie over het maken van het ZIP-pakket en de definitie van een beheerde toepassing publiceren, [de definitie van een Azure beheerde toepassing publiceren](publish-managed-app-definition-quickstart.md)
+De weergave definitie artefact moet de naam **viewDefinition. json** hebben en op hetzelfde niveau worden geplaatst als **createUiDefinition. json** en **mainTemplate. json** in het zip-pakket dat een definitie van een beheerde toepassing maakt. Zie [een definitie van een door Azure beheerde toepassing publiceren](publish-managed-app-definition-quickstart.md) voor meer informatie over het maken van een zip-pakket en het publiceren van een definitie van een beheerde toepassing.
 
-## <a name="view-definition-schema"></a>Schema van de definitie weergeven
+## <a name="view-definition-schema"></a>Definitie schema weer geven
 
-De **viewDefinition.json** bestand heeft slechts één hoogste niveau `views` eigenschap, dit een matrix van weergaven is. Elke weergave wordt weergegeven in de gebruikersinterface van de beheerde toepassing als een afzonderlijke menu-item in de tabel van inhoud. Elke weergave bevat een `kind` eigenschap die Hiermee stelt u het type van de weergave. Het moet worden ingesteld op een van de volgende waarden: [Overzicht](#overview), [metrische gegevens](#metrics), [CustomResources](#custom-resources). Zie voor meer informatie, huidige [JSON-schema voor viewDefinition.json](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
+Het bestand **viewDefinition. json** heeft slechts één eigenschap van `views` het hoogste niveau. Dit is een matrix met weer gaven. Elke weer gave wordt weer gegeven in de gebruikers interface van de beheerde toepassing als een afzonderlijke menu opdracht in de inhouds opgave. Elke weer gave heeft `kind` een eigenschap waarmee het type weer gave wordt ingesteld. Deze moet worden ingesteld op een van de volgende waarden: [Overzicht](#overview), [metrische gegevens](#metrics), [CustomResources](#custom-resources). Zie het huidige [JSON-schema voor viewDefinition. json](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)voor meer informatie.
 
-Voorbeeld-JSON voor de weergavedefinitie van de:
+Voor beeld van JSON voor weergave definitie:
 
 ```json
 {
+    "$schema": "https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#",
+    "contentVersion": "0.0.0.1",
     "views": [
         {
             "kind": "Overview",
@@ -84,7 +86,7 @@ Voorbeeld-JSON voor de weergavedefinitie van de:
                         "displayName": "Custom Context Action",
                         "path": "testCustomResource/testContextAction",
                         "icon": "Stop",
-                        "createUIDefinition": { },
+                        "createUIDefinition": { }
                     }
                 ],
                 "columns": [
@@ -103,7 +105,7 @@ Voorbeeld-JSON voor de weergavedefinitie van de:
 
 `"kind": "Overview"`
 
-Wanneer u voorzien in deze weergave in **viewDefinition.json**, heeft deze voorrang op de pagina overzicht van standaard in uw beheerde toepassing.
+Wanneer u deze weer gave in **viewDefinition. json**opgeeft, wordt de standaard overzichts pagina in uw beheerde toepassing overschreven.
 
 ```json
 {
@@ -123,15 +125,17 @@ Wanneer u voorzien in deze weergave in **viewDefinition.json**, heeft deze voorr
 
 |Eigenschap|Vereist|Description|
 |---------|---------|---------|
-|koptekst|Nee|De koptekst van de overzichtspagina.|
-|description|Nee|De beschrijving van uw beheerde toepassing.|
-|Opdrachten|Nee|Zie de reeks aanvullende knoppen aan de overzichtspagina [opdrachten](#commands).|
+|koptekst|Nee|De koptekst van de pagina overzicht.|
+|description|Nee|De beschrijving van de beheerde toepassing.|
+|opdrachten|Nee|De matrix met aanvullende werkbalk knoppen van de overzichts pagina, Zie [opdrachten](#commands).|
+
+![Overzicht](./media/view-definition/overview.png)
 
 ## <a name="metrics"></a>Metrische gegevens
 
 `"kind": "Metrics"`
 
-De weergave voor metrische gegevens kunt verzamelen en samenvoegen van gegevens van de resources van uw beheerde toepassing in [Azure Monitor Metrics](../azure-monitor/platform/data-platform-metrics.md).
+Met de weer gave metrieken kunt u gegevens verzamelen en samen voegen uit uw beheerde toepassings resources in [Azure monitor metrieken](../azure-monitor/platform/data-platform-metrics.md).
 
 ```json
 {
@@ -160,35 +164,37 @@ De weergave voor metrische gegevens kunt verzamelen en samenvoegen van gegevens 
 
 |Eigenschap|Vereist|Description|
 |---------|---------|---------|
-|displayName|Nee|De weergegeven naam van de weergave.|
-|version|Nee|De versie van het platform dat wordt gebruikt om de weergave.|
-|Grafieken|Ja|De matrix met grafieken van de pagina metrische gegevens.|
+|displayName|Nee|De weer gegeven titel van de weer gave.|
+|version|Nee|De versie van het platform waarmee de weer gave wordt weer gegeven.|
+|diagrammen|Ja|De matrix van grafieken van de pagina metrische gegevens.|
 
 ### <a name="chart"></a>Grafiek
 
 |Eigenschap|Vereist|Description|
 |---------|---------|---------|
-|displayName|Ja|De weergegeven naam van de grafiek.|
-|chartType|Nee|De visualisatie moet worden gebruikt voor deze grafiek. Standaard maakt het gebruik van een lijndiagram. Grafiektypen ondersteund: `Bar, Line, Area, Scatter`.|
-|metrics|Ja|De matrix van metrische gegevens moeten worden getekend in deze grafiek. Zie voor meer informatie over metrische gegevens die worden ondersteund in Azure portal, [ondersteunde metrische gegevens met Azure Monitor](../azure-monitor/platform/metrics-supported.md)|
+|displayName|Ja|De weer gegeven titel van de grafiek.|
+|chartType|Nee|De visualisatie die moet worden gebruikt voor deze grafiek. Standaard wordt een lijn diagram gebruikt. Ondersteunde grafiek typen: `Bar, Line, Area, Scatter`.|
+|metrische gegevens|Ja|De matrix met metrische gegevens die in deze grafiek moeten worden getekend. Zie [ondersteunde metrische gegevens met Azure monitor](../azure-monitor/platform/metrics-supported.md) voor meer informatie over metrische gegevens die worden ondersteund in azure Portal.|
 
 ### <a name="metric"></a>Gegevens
 
 |Eigenschap|Vereist|Description|
 |---------|---------|---------|
-|name|Ja|De naam van de metrische gegevens.|
-|aggregationType|Ja|Het aggregatietype moet worden gebruikt voor deze metrische gegevens. Van de ondersteunde aggregatietypen: `none, sum, min, max, avg, unique, percentile, count`|
-|naamruimte|Nee|Als u meer informatie over het gebruik bij het bepalen van de provider van de juiste metrische gegevens.|
-|resourceTagFilter|Nee|De resource tags matrix (worden gescheiden met `or` word) voor welke metrische gegevens worden weergegeven. Is van toepassing op type resourcefilter.|
-|ResourceType|Ja|Het brontype waarvoor metrische gegevens worden weergegeven.|
+|name|Ja|De naam van de metriek.|
+|aggregationType|Ja|Het aggregatie type dat moet worden gebruikt voor deze metriek. Ondersteunde aggregatie typen:`none, sum, min, max, avg, unique, percentile, count`|
+|naamruimte|Nee|Aanvullende informatie die moet worden gebruikt bij het bepalen van de juiste metrics-provider.|
+|resourceTagFilter|Nee|De matrix van de bron Tags (wordt gescheiden `or` met Word) waarvoor metrische gegevens worden weer gegeven. Is boven op het resource type filter.|
+|resourceType|Ja|Het resource type waarvoor metrische gegevens worden weer gegeven.|
+
+![Metrische gegevens](./media/view-definition/metrics.png)
 
 ## <a name="custom-resources"></a>Aangepaste resources
 
 `"kind": "CustomResources"`
 
-U kunt meerdere weergaven van dit type definiëren. Elke weergave vertegenwoordigt een **unieke** aangepaste resource typen van de aangepaste provider die u hebt gedefinieerd in **mainTemplate.json**. Zie voor een inleiding tot aangepaste providers, [Azure aangepaste Providers Preview overzicht](custom-providers-overview.md).
+U kunt meerdere weer gaven van dit type definiëren. Elke weer gave vertegenwoordigt een **uniek** aangepast resource type van de aangepaste provider die u hebt gedefinieerd in **mainTemplate. json**. Zie [Preview-versie van Azure Custom providers](custom-providers-overview.md)voor een inleiding tot aangepaste providers.
 
-In deze weergave die kunt u uitvoeren GET, PUT, verwijderen en te plaatsen van bewerkingen voor uw aangepaste brontype. POST-bewerkingen kunnen worden algemene aangepaste acties of aangepaste acties in de context van uw aangepaste brontype.
+In deze weer gave kunt u GET-, PUT-, DELETE-en POST-bewerkingen uitvoeren voor uw aangepaste resource type. POST-bewerkingen kunnen globale aangepaste acties of aangepaste acties zijn in een context van uw aangepaste resource type.
 
 ```json
 {
@@ -221,16 +227,18 @@ In deze weergave die kunt u uitvoeren GET, PUT, verwijderen en te plaatsen van b
 
 |Eigenschap|Vereist|Description|
 |---------|---------|---------|
-|displayName|Ja|De weergegeven naam van de weergave. De titel moet **unieke** voor elke weergave CustomResources in uw **viewDefinition.json**.|
-|version|Nee|De versie van het platform dat wordt gebruikt om de weergave.|
-|ResourceType|Ja|Het aangepaste brontype. Moet een **unieke** aangepaste resourcetype van uw aangepaste provider.|
-|createUIDefinition|Nee|UI-definitie maken-schema voor de aangepaste resource-opdracht maken. Zie voor een inleiding tot het maken van definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md)|
-|Opdrachten|Nee|Zie de reeks aanvullende werkbalkknoppen van de weergave CustomResources [opdrachten](#commands).|
-|Kolommen|Nee|De matrix van de kolommen van de aangepaste resource. Als niet is gedefinieerd de `name` kolom wordt standaard weergegeven. De kolom moet hebben `"key"` en `"displayName"`. Voor de sleutel, moet u de sleutel van de eigenschap om weer te geven in een weergave opgeven. Als genest, gebruik een punt als scheidingsteken, bijvoorbeeld `"key": "name"` of `"key": "properties.property1"`. Voor de weergavenaam, geeft u de weergavenaam van de eigenschap om weer te geven in een weergave. U kunt ook opgeven een `"optional"` eigenschap. Wanneer is ingesteld op true, wordt de kolom is verborgen in een standaard.|
+|displayName|Ja|De weer gegeven titel van de weer gave. De titel moet **uniek** zijn voor elke CustomResources-weer gave in uw **viewDefinition. json**.|
+|version|Nee|De versie van het platform waarmee de weer gave wordt weer gegeven.|
+|resourceType|Ja|Het aangepaste resource type. Moet een **uniek** aangepast resource type van uw aangepaste provider zijn.|
+|createUIDefinition|Nee|Maak een UI-definitie schema voor het maken van een aangepaste resource opdracht. Zie aan de slag [met CreateUiDefinition](create-uidefinition-overview.md) voor een inleiding tot het maken van UI-definities.|
+|opdrachten|Nee|De matrix met aanvullende werkbalk knoppen van de weer gave CustomResources Zie [Commands](#commands).|
+|Kolommen|Nee|De matrix van kolommen van de aangepaste resource. Indien niet gedefinieerd, `name` wordt de kolom standaard weer gegeven. De kolom moet en `"key"` `"displayName"`bevatten. Geef bij sleutel de sleutel van de eigenschap op die in een weer gave moet worden weer gegeven. Als genest, gebruikt u punt als scheidings teken `"key": "name"` , `"key": "properties.property1"`bijvoorbeeld of. Geef bij weergave naam de weergave naam op van de eigenschap die in een weer gave moet worden weer gegeven. U kunt ook een `"optional"` eigenschap opgeven. Als deze eigenschap is ingesteld op True, wordt de kolom standaard verborgen in een weer gave.|
+
+![CustomResources](./media/view-definition/customresources.png)
 
 ## <a name="commands"></a>Opdrachten
 
-Opdrachten is een matrix van aanvullende werkbalkknoppen die worden weergegeven op de pagina. Elke opdracht vertegenwoordigt een actie na de van uw Azure-aangepaste Provider gedefinieerd in **mainTemplate.json**. Zie voor een inleiding tot aangepaste providers, [Azure aangepaste Providers overzicht](custom-providers-overview.md).
+Opdrachten is een matrix met aanvullende werkbalk knoppen die op de pagina worden weer gegeven. Elke opdracht vertegenwoordigt een bericht actie van uw aangepaste Azure-provider die is gedefinieerd in **mainTemplate. json**. Zie [overzicht van aangepaste Azure-providers](custom-providers-overview.md)voor een inleiding tot aangepaste providers.
 
 ```json
 {
@@ -247,12 +255,17 @@ Opdrachten is een matrix van aanvullende werkbalkknoppen die worden weergegeven 
 
 |Eigenschap|Vereist|Description|
 |---------|---------|---------|
-|displayName|Ja|De weergegeven naam van de knop.|
-|pad|Ja|De naam van de aangepaste provider-actie. De actie moet worden gedefinieerd in **mainTemplate.json**.|
-|Pictogram|Nee|Het pictogram van de knop. Lijst met ondersteunde pictogrammen is gedefinieerd in [JSON-Schema](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
-|createUIDefinition|Nee|UI-definitie-schema voor opdracht maken. Zie voor een inleiding tot het maken van definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).|
+|displayName|Ja|De weer gegeven naam van de opdracht knop.|
+|path|Ja|De actie naam van de aangepaste provider. De actie moet worden gedefinieerd in **mainTemplate. json**.|
+|Pictogram|Nee|Het pictogram van de opdracht knop. Een lijst met ondersteunde pictogrammen wordt gedefinieerd in het [JSON-schema](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
+|createUIDefinition|Nee|Het definitie schema voor de gebruikers interface maken voor de opdracht. Zie aan de slag [met CreateUiDefinition](create-uidefinition-overview.md)voor een inleiding tot het maken van UI-definities.|
+
+## <a name="looking-for-help"></a>Zoeken naar Help
+
+Als u vragen hebt over Azure Managed Applications, kunt u vragen om [stack overflow](http://stackoverflow.com/questions/tagged/azure-managedapps). Er is mogelijk al een vergelijk bare vraag gesteld en beantwoord, dus controleer eerst vóór het boeken. Voeg de tag `azure-managedapps` toe om een snel antwoord te krijgen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie [Overzicht van door Azure beheerde toepassingen](overview.md) voor algemene informatie over beheerde toepassingen.
-- Zie voor een inleiding tot aangepaste providers, [Azure aangepaste Providers overzicht](custom-providers-overview.md).
+- Zie [overzicht van aangepaste Azure-providers](custom-providers-overview.md)voor een inleiding tot aangepaste providers.
+- Zie [zelf studie voor het maken van een door Azure beheerde toepassing met aangepaste Azure-providers: Een beheerde toepassing maken met aangepaste provider acties en resource typen](tutorial-create-managed-app-with-custom-provider.md)

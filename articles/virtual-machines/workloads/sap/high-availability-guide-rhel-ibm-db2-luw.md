@@ -1,6 +1,6 @@
 ---
-title: IBM Db2 HADR instellen op Azure virtual machines (VM's) op RHEL | Microsoft Docs
-description: Hoge beschikbaarheid van IBM Db2 LUW op Azure virtual machines (VM's) RHEL vast.
+title: IBM Db2 HADR instellen op Azure virtual machines (Vm's) op RHEL | Microsoft Docs
+description: Stel hoge Beschik baarheid in van IBM Db2 LUW op virtuele machines van Azure (Vm's) RHEL.
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
-ms.openlocfilehash: b26a66eaee3a107c37d64541ec6b832331a3e2c9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 232468d9b3466759d7af2b7be68a1f553ced6e6d
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812127"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348654"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -48,7 +48,7 @@ ms.locfileid: "67812127"
 [ascs-ha-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel
 [glusterfs]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs
 [rhel-pcs-azr]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker
-[anf-rhel]:(https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
+[anf-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -57,206 +57,206 @@ ms.locfileid: "67812127"
 
 
 
-# <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Hoge beschikbaarheid van IBM Db2 LUW op Azure Virtual machines van Red Hat Enterprise Linux Server
+# <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Hoge beschikbaarheid van IBM Db2 LUW in Azure-VM's in Red Hat Enterprise Linux Server
 
-IBM Db2 voor Linux, UNIX- en Windows (LUW) in [hoge beschikbaarheid en noodherstel (HADR) herstelconfiguratie](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) bestaat uit één knooppunt waarop een exemplaar van de primaire database en ten minste één knooppunt dat een secundaire database-exemplaar wordt uitgevoerd. Wijzigingen in de primaire database-instantie worden gerepliceerd naar een secundaire database-exemplaar synchroon of asynchroon, afhankelijk van uw configuratie. 
+IBM Db2 voor Linux, UNIX en Windows (LUW) in de [configuratie hoge Beschik baarheid en herstel na nood geval (HADR)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) bestaat uit één knoop punt waarop een primair data base-exemplaar wordt uitgevoerd en ten minste één knoop punt waarop een secundair data base-exemplaar wordt uitgevoerd. Wijzigingen in het primaire data base-exemplaar worden synchroon of asynchroon gerepliceerd naar een secundaire data base-instantie, afhankelijk van uw configuratie. 
 
-Dit artikel wordt beschreven hoe u kunt implementeren en configureren van de Azure virtual machines (VM's), installeer het framework van het cluster en de IBM Db2 LUW installeren met HADR configuratie. 
+In dit artikel wordt beschreven hoe u virtuele Azure-machines (Vm's) implementeert en configureert, het cluster raamwerk installeert en de IBM Db2-LUW installeert met HADR-configuratie. 
 
-Het artikel niet uitgelegd hoe u installeren en configureren van IBM Db2 LUW met HADR of SAP software-installatie. Voor hulp bij het uitvoeren van deze taken, bieden we verwijzingen naar handleidingen van SAP en IBM-installatie. In dit artikel richt zich op de gedeelten die specifiek voor de Azure-omgeving zijn. 
+Het artikel heeft geen betrekking op het installeren en configureren van IBM Db2 LUW met HADR of SAP-software-installatie. Om u te helpen deze taken uit te voeren, bieden we verwijzingen naar SAP-en IBM-installatie handleidingen. Dit artikel is gericht op onderdelen die specifiek zijn voor de Azure-omgeving. 
 
-De ondersteunde IBM Db2-versies zijn 10,5 en hoger, zoals beschreven in de SAP-notitie [1928533].
+De ondersteunde IBM Db2-versies zijn 10,5 en hoger, zoals beschreven in SAP Note [1928533].
 
-Voordat u een installatie, Zie de volgende SAP-opmerkingen en documentatie:
+Raadpleeg de volgende SAP-opmerkingen en-documentatie voordat u met de installatie begint:
 
-| SAP-notitie | Description |
+| SAP-Opmerking | Description |
 | --- | --- |
-| [1928533] | SAP-toepassingen op Azure: Ondersteunde producten en typen Azure VM 's |
-| [2015553] | SAP op Azure: Vereisten voor ondersteuning |
-| [2178632] | Sleutel metrische gegevens controleren voor SAP op Azure |
+| [1928533] | SAP-toepassingen op Azure: Ondersteunde producten en Azure VM-typen |
+| [2015553] | SAP on Azure: Vereisten voor ondersteuning |
+| [2178632] | Belangrijkste meet waarden voor het bewaken van SAP on Azure |
 | [2191498] | SAP op Linux met Azure: Uitgebreide bewaking |
-| [2243692] | Linux op Azure (IaaS) virtuele machine: Problemen met SAP-licentie |
-| [2002167] | Red Hat Enterprise Linux 7.x: Installatie en Upgrade |
-| [2694118] | Red Hat Enterprise Linux HA-invoegtoepassing op Azure |
-| [1999351] | Het oplossen van uitgebreide Azure bewaking voor SAP |
-| [2233094] | DB6: SAP-toepassingen op Azure met IBM Db2 voor Linux, UNIX- en Windows - als u meer informatie |
+| [2243692] | Linux op Azure (IaaS) VM: SAP-licentie problemen |
+| [2002167] | Red Hat Enterprise Linux 7. x: Installatie en upgrade |
+| [2694118] | Red Hat Enterprise Linux HA-invoeg toepassing op Azure |
+| [1999351] | Problemen met verbeterde Azure-bewaking voor SAP oplossen |
+| [2233094] | DB6: SAP-toepassingen op Azure die gebruikmaken van IBM Db2 voor Linux, UNIX en Windows-aanvullende informatie |
 | [1612105] | DB6: Veelgestelde vragen over Db2 met HADR |
 
 
 | Documentatie | 
 | --- |
-| [SAP-Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Beschikt over alle van de vereiste SAP-opmerkingen voor Linux |
-| [Azure virtuele Machines, planning en implementatie van SAP op Linux][planning-guide] handleiding |
-| [Azure Virtual Machines-implementatie voor SAP op Linux][deployment-guide] (in dit artikel) |
-| [Virtuele Machines van Azure-database management system(DBMS)-implementatie voor SAP op Linux][dbms-guide] handleiding |
-| [SAP-werkbelasting op Azure controlelijst voor planning en implementatie][azr-sap-plancheck] |
-| [Overzicht van de invoegtoepassing hoge beschikbaarheid voor Red Hat Enterprise Linux 7][rhel-ha-addon] |
-| [Beheer van de invoegtoepassing voor hoge beschikbaarheid][rhel-ha-admin] |
-| [Naslaginformatie over hoge beschikbaarheid-invoegtoepassing][rhel-ha-ref] |
-| [Ondersteuningsbeleid voor RHEL Clusters met hoge beschikbaarheid - Microsoft Azure Virtual Machines als leden van het Cluster][rhel-azr-supp]
-| [Installeren en configureren van een Red Hat Enterprise Linux 7.4 (en hoger) Cluster met hoge beschikbaarheid voor Microsoft Azure][rhel-azr-inst]
-| [IBM Db2 Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP][dbms-db2] |
+| [Wiki van SAP-Community](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Bevat alle vereiste SAP-notities voor Linux |
+| [Azure virtual machines planning en implementatie van SAP in Linux][planning-guide] -hand leiding |
+| [Azure virtual machines-implementatie voor SAP op Linux][deployment-guide] (dit artikel) |
+| [Azure Virtual Machines Database Management System (DBMS) implementatie voor SAP in Linux-][dbms-guide] hand leiding |
+| [SAP-werk belasting op de Azure-planning en implementatie Controlelijst][azr-sap-plancheck] |
+| [Overzicht van de invoeg toepassing met hoge Beschik baarheid voor Red Hat Enterprise Linux 7][rhel-ha-addon] |
+| [Beheer van Maxi maal beschik bare invoeg toepassingen][rhel-ha-admin] |
+| [Naslag informatie voor de invoeg toepassing met hoge Beschik baarheid][rhel-ha-ref] |
+| [Ondersteunings beleid voor RHEL-clusters met hoge Beschik baarheid-Microsoft Azure Virtual Machines als cluster leden][rhel-azr-supp]
+| [Installeren en configureren van een cluster met hoge Beschik baarheid van Red Hat Enterprise Linux 7,4 (en hoger) op Microsoft Azure][rhel-azr-inst]
+| [Implementatie van IBM Db2 Azure Virtual Machines DBMS voor SAP-workload][dbms-db2] |
 | [IBM Db2 HADR 11.1][db2-hadr-11.1] |
 | [IBM Db2 HADR 10.5][db2-hadr-10.5] |
-| [Ondersteuningsbeleid voor Clusters met hoge beschikbaarheid RHEL - beheer van IBM Db2 voor Linux, Unix- en Windows in een Cluster][rhel-db2-supp]
+| [Ondersteunings beleid voor RHEL-clusters met hoge Beschik baarheid: beheer van IBM Db2 voor Linux, UNIX en Windows in een cluster][rhel-db2-supp]
 
 
 
 ## <a name="overview"></a>Overzicht
-Voor het bereiken van hoge beschikbaarheid, IBM Db2 LUW met HADR is geïnstalleerd op ten minste twee virtuele machines van Azure, die zijn geïmplementeerd in een [Azure-beschikbaarheidsset](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) of over meerdere [Azure Availability Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). 
+Om hoge Beschik baarheid te kunnen garanderen, wordt IBM Db2 LUW met HADR geïnstalleerd op ten minste twee virtuele machines van Azure, die worden geïmplementeerd in een [Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) -beschikbaarheidsset of op meerdere [Azure-beschikbaarheidszones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). 
 
-De volgende afbeeldingen weer een installatie van twee virtuele machines van Azure-databaseserver. Zowel Azure-VM's van de database-server hebben hun eigen opslag die is gekoppeld en actief zijn. In HADR heeft één database-instantie in een van de Azure VM's de rol van het primaire exemplaar. Alle clients zijn verbonden met het primaire exemplaar. Alle wijzigingen in de databasetransacties worden lokaal opgeslagen in het transactielogboek Db2. Als de transactie logboekrecords lokaal opgeslagen worden, worden de records overgebracht via TCP/IP op de database-instantie op de tweede database-server, de stand-by-server of de stand-by-exemplaar. De standby-instantie werkt de lokale database door te draaien naar voren de overgebrachte transactie records in logboek registreren. Op deze manier wordt de stand-by-server bewaard gesynchroniseerd met de primaire server.
+In de volgende afbeeldingen ziet u een installatie van twee Azure-Vm's voor de Data Base-Server. Zowel de Azure-Vm's van de database server als de eigen opslag zijn gekoppeld en zijn actief. In HADR is één data base-exemplaar op een van de virtuele machines van Azure de rol van het primaire exemplaar. Alle clients zijn verbonden met een primair exemplaar. Alle wijzigingen in database transacties worden lokaal opgeslagen in het Db2-transactie logboek. Omdat de transactie logboek records lokaal blijven bestaan, worden de records via TCP/IP overgebracht naar het data base-exemplaar op de tweede database server, de stand-by-server of de stand-by-instantie. Het standby-exemplaar werkt de lokale data base bij door de overgebrachte transactie logboek records door te sturen. Op deze manier wordt de stand-by-server gesynchroniseerd met de primaire server.
 
-HADR is alleen een replicatiefunctionaliteit. Er is geen foutdetectie en geen automatische failover voor een overname of faciliteiten. Een overname of overdracht naar de stand-by-server moet handmatig worden gestart door een databasebeheerder. Als u wilt een automatische overnemen en foutdetectie bereiken, kunt u de clusteringfunctie Linux Pacemaker. Pacemaker bewaakt de twee database server-exemplaren. Wanneer de primaire database server-exemplaar vastloopt, Pacemaker initieert een *automatische* HADR overname door de stand-by-server. Pacemaker zorgt er ook voor dat het virtuele IP-adres is toegewezen aan de nieuwe primaire server.
+HADR is slechts een replicatie functionaliteit. Er is geen detectie van fouten en geen automatische overname-of failover-faciliteiten. Een overname of overdracht naar de stand-by-server moet hand matig worden geïnitieerd door een database beheerder. U kunt de functie Linux pacemaker-clustering gebruiken om een automatische overname en detectie van de fout te verzorgen. Pacemaker bewaakt de twee Data Base-Server exemplaren. Wanneer het primaire database server exemplaar vastloopt, initieert pacemaker een *automatische* HADR-overname door de stand-by-server. Pacemaker zorgt er ook voor dat het virtuele IP-adres wordt toegewezen aan de nieuwe primaire server.
 
-![Overzicht van IBM Db2 hoge beschikbaarheid](./media/high-availability-guide-rhel-ibm-db2-luw/ha-db2-hadr-lb-rhel.png)
+![Overzicht van IBM Db2-hoge Beschik baarheid](./media/high-availability-guide-rhel-ibm-db2-luw/ha-db2-hadr-lb-rhel.png)
 
-Om SAP-toepassingsservers verbinding maken met de primaire database, moet u de naam van een virtuele host en een virtueel IP-adres. De SAP-toepassingsservers wordt in het geval van een failover verbinding maken met de nieuwe primaire database-instantie. In een Azure-omgeving, een [Azure load balancer](https://microsoft.sharepoint.com/teams/WAG/AzureNetworking/Wiki/Load%20Balancing.aspx) is vereist voor het gebruik van een virtueel IP-adres in de manier die voor HADR van IBM Db2 zijn vereist. 
+Als u SAP-toepassings servers verbinding wilt laten maken met een primaire data base, hebt u een virtuele-machinehost en een virtueel IP-adres nodig. In het geval van een failover maakt de SAP-toepassings servers verbinding met het nieuwe primaire data base-exemplaar. In een Azure-omgeving is [azure Load Balancer](https://microsoft.sharepoint.com/teams/WAG/AzureNetworking/Wiki/Load%20Balancing.aspx) vereist voor het gebruik van een virtueel IP-adres in de manier die vereist is voor HADR van IBM Db2. 
 
-De volgende afbeelding geeft, kunt u beter begrijpen hoe een maximaal beschikbare installatie van de SAP-systeem IBM Db2 LUW met HADR en Pacemaker past een overzicht van een maximaal beschikbare installatie van een SAP-systeem op basis van IBM Db2-database. Dit artikel behandelt alleen IBM Db2, maar deze bevat verwijzingen naar andere artikelen over het instellen van andere onderdelen van een SAP-systeem.
+De volgende afbeelding geeft een overzicht van een Maxi maal beschik bare installatie van een SAP-systeem op basis van een IBM Db2-data base, zodat u beter begrijpt hoe IBM Db2-LUW met HADR en pacemaker in een Maxi maal beschik bare SAP-systeem installatie past. Dit artikel behandelt alleen IBM Db2, maar bevat verwijzingen naar andere artikelen over het instellen van andere onderdelen van een SAP-systeem.
 
-![Overzicht van de volledige omgeving IBM DB2 hoge beschikbaarheid](./media/high-availability-guide-rhel-ibm-db2-luw/end-2-end-ha-rhel.png)
+![Overzicht van de volledige Beschik baarheid van IBM DB2-hele omgeving](./media/high-availability-guide-rhel-ibm-db2-luw/end-2-end-ha-rhel.png)
 
 
-### <a name="high-level-overview-of-the-required-steps"></a>Overzicht van de vereiste stappen op hoog niveau
-Voor het implementeren van een IBM Db2-configuratie, moet u als volgt te werk:
+### <a name="high-level-overview-of-the-required-steps"></a>Overzicht op hoog niveau van de vereiste stappen
+Als u een configuratie van IBM Db2 wilt implementeren, moet u de volgende stappen uitvoeren:
 
-  + Uw omgeving plannen.
-  + Implementeer de virtuele machines.
-  + Met deze eigenschap bestandssystemen, configureren en bijwerken van RHEL-Linux.
-  + Installeer en configureer Pacemaker.
-  + Setup [glusterfs cluster][glusterfs] or [Azure NetApp Files][anf-rhel]
-  + Installeer [ASCS/gebruikers op een ander cluster][ascs-ha-rhel].
-  + IBM Db2-database met de optie voor gedistribueerde/hoge beschikbaarheid (SWPM) installeren.
-  + Installeren en een secundaire database-knooppunt en een exemplaar maken en configureren van HADR.
-  + Controleer of de HADR werkt.
-  + De configuratie Pacemaker toepassen om te bepalen, IBM Db2.
+  + Plan uw omgeving.
+  + Implementeer de Vm's.
+  + RHEL Linux bijwerken en bestands systemen configureren.
+  + Pacemaker installeren en configureren.
+  + [Glusterfs-cluster][glusterfs] instellen or [Azure NetApp Files][anf-rhel]
+  + Installeer [ASCS/ers op een afzonderlijk cluster][ascs-ha-rhel].
+  + Installeer de IBM Db2-data base met de optie gedistribueerde/hoge Beschik baarheid (SWPM).
+  + Installeer en maak een secundair database knooppunt en-exemplaar en configureer HADR.
+  + Controleer of HADR werkt.
+  + Pas de pacemaker-configuratie toe om IBM Db2 te beheren.
   + Azure Load Balancer configureren.
-  + Primaire installeren en het dialoogvenster toepassingsservers.
-  + Controleer en aanpassen van de configuratie van SAP-toepassingsservers.
-  + Failover en overname tests uitvoeren.
+  + Primaire en dialoog toepassings servers installeren.
+  + De configuratie van SAP-toepassings servers controleren en aanpassen.
+  + Voer failover-en overname tests uit.
 
 
 
-## <a name="plan-azure-infrastructure-for-hosting-ibm-db2-luw-with-hadr"></a>Azure-infrastructuur voor het hosten van IBM Db2 LUW met HADR plannen
+## <a name="plan-azure-infrastructure-for-hosting-ibm-db2-luw-with-hadr"></a>Azure-infra structuur plannen voor het hosten van IBM Db2 LUW met HADR
 
-Het planningsproces voltooien voordat u de implementatie uitvoert. Planning bouwt de fundering voor het implementeren van een configuratie van Db2 met HADR in Azure. Belangrijkste elementen die deel uitmaken van de planning voor IMB Db2 LUW (database onderdeel van de SAP-omgeving) moeten worden weergegeven in de volgende tabel:
+Voltooi het plannings proces voordat u de implementatie uitvoert. Planning bouwt de basis voor het implementeren van een configuratie van Db2 met HADR in Azure. De belangrijkste elementen die deel moeten uitmaken van planning voor IMB Db2 LUW (database onderdeel van de SAP-omgeving), worden weer gegeven in de volgende tabel:
 
 | Onderwerp | Korte beschrijving |
 | --- | --- |
-| Azure-resourcegroepen definiëren | De resourcegroepen waar u de virtuele machine, VNet, Azure Load Balancer en andere resources implementeren. Kan worden bestaande of nieuwe. |
-| Virtueel netwerk / subnetdefinitie | Waar zijn virtuele machines voor IBM Db2 en Azure Load Balancer wordt geïmplementeerd. Kan worden bestaande of nieuwe. |
-| Virtuele machines die als host fungeert voor IBM Db2 LUW | VM-grootte, opslag, netwerken, IP-adres. |
-| Naam van virtuele host en virtuele IP-adres voor IBM Db2-database| De virtuele IP-adres of de host naam die wordt gebruikt voor verbinding met SAP-toepassingsservers. **db-virt-hostname**, **db-virt-ip**. |
-| De eerste optie Azure | Methode om te voorkomen dat splitsen brein situaties wordt voorkomen. |
-| Azure Load Balancer | Verbruik van Basic of Standard (aanbevolen), testpoort voor Db2-database (onze aanbeveling 62500) **testpoort**. |
-| Naamomzetting| Hoe de naamomzetting werkt in de omgeving. DNS-service wordt sterk aanbevolen. Lokale hosts-bestand kan worden gebruikt. |
+| Azure-resource groepen definiëren | Resource groepen waar u VM, VNet, Azure Load Balancer en andere resources implementeert. Kan bestaand of nieuw zijn. |
+| Definitie van virtueel netwerk/subnet | Waar Vm's voor IBM Db2 en Azure Load Balancer worden geïmplementeerd. U kunt bestaande of nieuwe maken. |
+| Virtuele machines die IBM Db2 LUW hosten | VM-grootte, opslag, netwerken, IP-adres. |
+| Naam van virtuele host en virtueel IP-adres voor de IBM Db2-data base| De naam van het virtuele IP-adres of de hostnaam die wordt gebruikt voor de verbinding met SAP-toepassings servers. **db-virt-hostname**, **db-virt-IP**. |
+| Azure-omheining | Methode om te voor komen dat situaties met gesplitste problemen worden voor komen. |
+| Azure Load Balancer | Gebruik van Basic of Standard (aanbevolen), test poort voor de Db2-data base (onze aanbeveling 62500) **test poort**. |
+| Naamomzetting| Hoe naam omzetting werkt in de omgeving. DNS-service wordt sterk aanbevolen. Lokaal Hosts-bestand kan worden gebruikt. |
     
-Zie voor meer informatie over Linux Pacemaker in Azure, [Pacemaker op Red Hat Enterprise Linux in Azure instellen][rhel-pcs-azr].
+Zie [pacemaker instellen op Red Hat Enterprise Linux in azure][rhel-pcs-azr]voor meer informatie over Linux-pacemaker in Azure.
 
-## <a name="deployment-on-red-hat-enterprise-linux"></a>Implementatie van Red Hat Enterprise Linux
+## <a name="deployment-on-red-hat-enterprise-linux"></a>Implementatie op Red Hat Enterprise Linux
 
-De resource-agent voor IBM Db2 LUW is opgenomen in Red Hat Enterprise Linux Server HA Addon. Voor de instelling die wordt beschreven in dit document, moet u Red Hat Enterprise Linux voor SAP. De Azure Marketplace bevat een afbeelding voor Red Hat Enterprise Linux 7.4 voor SAP of hoger die u gebruiken kunt voor het implementeren van nieuwe virtuele machines van Azure. Houd rekening met de verschillende support of service-modellen die worden aangeboden door Red Hat via Azure Marketplace wanneer u een VM-installatiekopie bij de Azure VM Marketplace selecteert.
+De resource agent voor IBM Db2 LUW is opgenomen in Red Hat Enterprise Linux server HA-invoeg toepassing. Voor de instellingen die in dit document worden beschreven, moet u Red Hat Enterprise Linux voor SAP gebruiken. Azure Marketplace bevat een installatie kopie voor Red Hat Enterprise Linux 7,4 voor SAP of hoger die u kunt gebruiken om nieuwe virtuele machines van Azure te implementeren. Houd rekening met de verschillende ondersteunings-of service modellen die door Red Hat worden aangeboden via de Azure Marketplace wanneer u een VM-installatie kopie kiest in de Azure VM Marketplace.
 
-### <a name="hosts-dns-updates"></a>Hosts: DNS-updates
-Maak een lijst van alle hostnamen, waaronder de namen van de virtuele host, en werk uw DNS-servers, zodat de juiste IP-adres op de host-naamomzetting. Als een DNS-server bestaat niet of u kunt geen bijwerken en DNS-vermeldingen te maken, moet u de lokale host-bestanden van de afzonderlijke virtuele machines die deelnemen aan in dit scenario gebruiken. Als u bestanden hostvermeldingen, zorg ervoor dat de vermeldingen worden toegepast op alle virtuele machines in de systeemomgeving SAP. We raden u echter aan dat u uw DNS waarmee, in het ideale geval wordt uitgebreid naar Azure
+### <a name="hosts-dns-updates"></a>Bruikgemaakt DNS-updates
+Maak een lijst van alle hostnamen, met inbegrip van namen van virtuele hosts, en werk uw DNS-servers bij om het juiste IP-adres in te stellen voor omzetting van hostnamen. Als er geen DNS-server bestaat of als u geen DNS-vermeldingen kunt bijwerken en maken, moet u de lokale host-bestanden gebruiken van de afzonderlijke virtuele machines die deel nemen aan dit scenario. Als u vermeldingen voor host-bestanden gebruikt, moet u ervoor zorgen dat de vermeldingen worden toegepast op alle virtuele machines in de SAP-systeem omgeving. We raden u echter aan uw DNS te gebruiken die in het ideale geval wordt uitgebreid naar Azure
 
 
-### <a name="manual-deployment"></a>Handmatige implementatie
+### <a name="manual-deployment"></a>Hand matige implementatie
 
-Zorg ervoor dat het geselecteerde besturingssysteem wordt ondersteund door IBM/SAP voor IBM Db2 LUW. De lijst met ondersteunde versies van het besturingssysteem voor virtuele Azure-machines en Db2 releases is beschikbaar in de SAP-notitie [1928533]. De lijst met OS releases door afzonderlijke Db2 versie is beschikbaar in de Matrix beschikbaarheid van SAP-Product. We raden een minimum van Red Hat Enterprise Linux 7.4 voor SAP door met betrekking tot Azure-prestatieverbeteringen in deze of hoger Red Hat Enterprise Linux-versies.
+Zorg ervoor dat het geselecteerde besturings systeem wordt ondersteund door IBM/SAP voor IBM Db2 LUW. De lijst met ondersteunde versies van besturings systemen voor Azure Vm's en Db2-releases is beschikbaar in SAP Note [1928533]. De lijst met versies van het besturings systeem per afzonderlijke Db2-versie is beschikbaar in de SAP-product beschikbaarheids matrix. We raden ten zeerste aan een minimum aan van Red Hat Enterprise Linux 7,4 voor SAP vanwege verbeteringen in de prestaties van Azure in deze of latere versies van Red Hat Enterprise Linux.
 
-1. Maak of Selecteer een resourcegroep.
-1. Maak of Selecteer een virtueel netwerk en subnet.
-1. Een Azure-beschikbaarheidsset maken of implementeren van een beschikbaarheidszone.
-    + Stel het maximum aantal updatedomeinen op 2 voor de beschikbaarheidsset.
-1. Virtuele Machine 1 maken.
-    + Gebruik Red Hat Enterprise Linux voor SAP-installatiekopie in de Azure Marketplace.
-    + Selecteer het Azure-beschikbaarheidsset dat u in stap 3 hebt gemaakt, of binnen een Beschikbaarheidszone.
-1.  Maak virtuele Machine 2.
-    + Gebruik Red Hat Enterprise Linux voor SAP-installatiekopie in de Azure Marketplace.
-    + Selecteer het Azure-beschikbaarheidsset u in stap 3 hebt gemaakt, of selecteer binnen een Beschikbaarheidszone (niet de dezelfde zone zoals in stap 3).
-1. Gegevensschijven toevoegen aan de virtuele machines en controleer vervolgens de aanbeveling van de installatie van een bestand system in het artikel [IBM Db2 Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP][dbms-db2].
+1. Een resource groep maken of selecteren.
+1. Maak of selecteer een virtueel netwerk en een subnet.
+1. Maak een beschikbaarheidsset voor Azure of implementeer een beschikbaarheids zone.
+    + Stel de maximale update domeinen in op 2 voor de beschikbaarheidsset.
+1. Virtuele machine 1 maken.
+    + Gebruik Red Hat Enterprise Linux voor SAP-installatie kopie in de Azure Marketplace.
+    + Selecteer de beschik bare Azure-beschikbaarheidsset die u hebt gemaakt in stap 3 of selecteer beschikbaarheids zone.
+1.  Maak de virtuele machine 2.
+    + Gebruik Red Hat Enterprise Linux voor SAP-installatie kopie in de Azure Marketplace.
+    + Selecteer de beschik baarheid van Azure die u hebt gemaakt in stap 3 of selecteer beschikbaarheids zone (niet dezelfde zone als in stap 3).
+1. Voeg gegevens schijven toe aan de Vm's en controleer vervolgens de aanbeveling van een bestandssysteem installatie in het artikel [IBM Db2 Azure virtual machines DBMS-implementatie voor SAP-workload][dbms-db2].
 
-## <a name="create-the-pacemaker-cluster"></a>Maken van het cluster Pacemaker
+## <a name="create-the-pacemaker-cluster"></a>Het pacemaker-cluster maken
     
-Zie voor het maken van een eenvoudige Pacemaker-cluster voor deze server IBM Db2, [Pacemaker op Red Hat Enterprise Linux in Azure instellen][rhel-pcs-azr]. 
+Als u een basis-pacemaker-cluster wilt maken voor deze IBM Db2-server, raadpleegt u [pacemaker instellen op Red Hat Enterprise Linux in azure][rhel-pcs-azr]. 
 
-## <a name="install-the-ibm-db2-luw-and-sap-environment"></a>Installeer de LUW van IBM Db2 en SAP-omgeving
+## <a name="install-the-ibm-db2-luw-and-sap-environment"></a>De IBM Db2 LUW-en SAP-omgeving installeren
 
-Voordat u begint met de installatie van een SAP-omgeving op basis van IBM Db2 LUW, controleert u de volgende documentatie:
+Voordat u begint met de installatie van een SAP-omgeving op basis van IBM Db2 LUW, raadpleegt u de volgende documentatie:
 
-+ Documentatie voor Azure
++ Azure-documentatie
 + SAP-documentatie
-+ IBM-documentatie
++ IBM-Documentatie
 
-In de inleidende sectie van dit artikel vindt u koppelingen naar deze documentatie.
+Koppelingen naar deze documentatie vindt u in de introductie sectie van dit artikel.
 
-Controleer de SAP-installatie handleidingen over het installeren van de NetWeaver-toepassingen op IBM Db2 LUW.
-U vindt de handleidingen in de Help van SAP-portal met behulp van de [SAP-installatie handleiding Finder][sap-instfind].
+Raadpleeg de SAP-installatie handleidingen voor het installeren van toepassingen op basis van netweave op IBM Db2 LUW.
+U kunt de hand leidingen vinden in de SAP-Help-Portal met behulp van de [SAP-installatie gids][sap-instfind]zoeken.
 
-U kunt het aantal gidsen weergegeven in de portal met de volgende filters reduceren:
+U kunt het aantal gidsen dat wordt weer gegeven in de portal verminderen door de volgende filters in te stellen:
 - Ik wil: "Een nieuw systeem installeren"
-- Mijn Database: "IBM Db2 voor Linux, Unix- en Windows"
-- Meer filters voor SAP NetWeaver-versies, -stack-configuratie of -besturingssysteem
+- Mijn Data Base: "IBM Db2 voor Linux, UNIX en Windows"
+- Aanvullende filters voor SAP NetWeaver-versies, stack configuratie of besturings systeem
 
 #### <a name="red-hat-firewall-rules"></a>Red Hat firewall-regels
-Red Hat Enterprise Linux heeft firewall standaard ingeschakeld. 
+Red Hat Enterprise Linux is Firewall standaard ingeschakeld. 
 
 <pre><code>#Allow access to SWPM tool. Rule is not permanent.
 sudo firewall-cmd --add-port=4237/tcp</code></pre>
 
-### <a name="installation-hints-for-setting-up-ibm-db2-luw-with-hadr"></a>Tips voor het instellen van IBM Db2 LUW met HADR installatie
+### <a name="installation-hints-for-setting-up-ibm-db2-luw-with-hadr"></a>Installatie hints voor het instellen van IBM Db2 LUW met HADR
 
-De primaire LUW van IBM Db2-database-instantie instellen:
+Het primaire exemplaar van de IBM Db2 LUW-data base instellen:
 
-- Gebruik de hoge beschikbaarheid of gedistribueerde optie.
-- Installeer de SAP ASCS/INGEN en Database-exemplaar.
-- Maak een back-up van de geïnstalleerde database.
+- Gebruik de optie hoge Beschik baarheid of gedistribueerd.
+- Installeer de SAP ASCS/ERS en het data base-exemplaar.
+- Maak een back-up van de zojuist geïnstalleerde data base.
 
 > [!IMPORTANT] 
-> Noteer de 'Database communicatiepoort' die ingesteld tijdens de installatie. Het moet hetzelfde poortnummer voor beide exemplaren van de database.
->![De definitie van de SAP SWPM poort](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-swpm-db2-port.png)
+> Noteer de "data base-communicatie poort" die tijdens de installatie is ingesteld. Dit moet hetzelfde poort nummer zijn voor beide data base-exemplaren.
+>![SAP SWPM-poort definitie](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-swpm-db2-port.png)
 
 ### <a name="ibm-db2-hadr-settings-for-azure"></a>IBM Db2 HADR-instellingen voor Azure
 
-   Wanneer u een agent van de eerste optie Azure Pacemaker gebruikt, moet u de volgende parameters instellen:
+   Wanneer u een Azure pacemaker omheinings agent gebruikt, stelt u de volgende para meters in:
 
-   - Duur van het venster HADR peer (seconden) (HADR_PEER_WINDOW) = 240  
+   - Duur van HADR-peer venster (seconden) (HADR_PEER_WINDOW) = 240  
    - HADR time-outwaarde (HADR_TIMEOUT) = 45
 
-U wordt aangeraden de bovenstaande parameters op basis van het eerste testen van failover/overnemen. Het is verplicht om te testen voor een correcte werking van failover en overname met deze parameterinstellingen. Omdat de configuraties kunnen verschillen, kunnen de parameters moeten worden aangepast. 
+We raden de voor gaande para meters aan op basis van initiële failover/overname-tests. Het is verplicht om te testen op de juiste functionaliteit van failover en overname met deze parameter instellingen. Omdat afzonderlijke configuraties kunnen variëren, moeten de para meters mogelijk worden aangepast. 
 
 > [!NOTE]
-> Die specifiek zijn voor IBM Db2 met HADR configuratie met normaal opstarten: De secundaire of stand-by-database-exemplaar moet actief en werkend voordat u kunt de primaire database-instantie.
+> Specifiek voor IBM Db2 met HADR-configuratie met normaal opstarten: Het secundaire of standby-data base-exemplaar moet actief zijn voordat u het primaire data base-exemplaar kunt starten.
 
    
 > [!NOTE]
-> Voor de installatie en configuratie die specifiek is voor Azure en Pacemaker: Tijdens de installatieprocedure via SAP Software inrichting Manager is een expliciete vraag over hoge beschikbaarheid voor IBM Db2 LUW:
->+ Schakel niet **IBM Db2 pureScale**.
->+ Schakel niet **IBM Tivoli System Automation installeren voor Multiplatforms**.
->+ Schakel niet **genereren van clusterconfiguraties**.
->![SAP SWPM - DB2 HA-opties](./media/high-availability-guide-rhel-ibm-db2-luw/swpm-db2ha-opt.png)
+> Voor installatie en configuratie die specifiek is voor Azure en pacemaker: Tijdens de installatie procedure via SAP software Provisioning Manager is er een expliciete vraag over hoge Beschik baarheid voor IBM Db2 LUW:
+>+ Selecteer geen **IBM Db2-pureScale**.
+>+ Selecteer geen **IBM Tivoli-systeem automatisering installeren voor**meerdere platformen.
+>+ Selecteer geen **cluster configuratie bestanden genereren**.
+>![Opties voor SAP SWPM-DB2 HA](./media/high-availability-guide-rhel-ibm-db2-luw/swpm-db2ha-opt.png)
 
 
-Als u de stand-by-database-server instelt met behulp van de procedure SAP homogene system kopiëren, voert u deze stappen:
+Voer de volgende stappen uit om de stand-by-database server in te stellen met behulp van de SAP-procedure voor het kopiëren van een systeem:
 
-1. Selecteer de **System kopiëren** optie > **systemen als doel** > **gedistribueerde** > **Database-instantie**.
-1. Als een methode voor kopiëren, selecteert u **homogene System** zodat u back-up gebruiken kunt om te herstellen van een back-up in de stand-by-server-exemplaar.
-1. Wanneer u bij de stap afsluiten om de database voor het kopiëren van homogene systeem te herstellen, sluit u het installatieprogramma. De database herstellen vanuit een back-up van de primaire host. Alle fasen van de volgende installatie zijn al uitgevoerd op de primaire database-server.
+1. Selecteer de optie **kopiëren** van het systeem > gedistribueerd > **Data Base-exemplaar**van het **doel systeem** > .
+1. Als Kopieer methode selecteert u **homo geen systeem** zodat u back-up kunt gebruiken om een back-up te herstellen op het stand-by-Server exemplaar.
+1. Wanneer u de stap afsluiten hebt bereikt om de data base te herstellen voor een homogene systeem kopie, sluit u het installatie programma af. Zet de data base terug vanuit een back-up van de primaire host. Alle volgende installatie fasen zijn al uitgevoerd op de primaire database server.
 
-#### <a name="red-hat-firewall-rules-for-db2-hadr"></a>Red Hat-firewallregels voor DB2 HADR
-Firewallregels voor verkeer tussen DB2 voor HADR om te werken en DB2 toevoegen:
-+ Communicatiepoort van de database. Als partities, voegt u deze poorten te.
-+ HADR poort (waarde van parameter DB2 HADR_LOCAL_SVC)
-+ Azure testpoort
+#### <a name="red-hat-firewall-rules-for-db2-hadr"></a>Red Hat firewall-regels voor DB2 HADR
+Voeg firewall regels toe om verkeer naar DB2 toe te staan en tussen DB2 voor HADR te werken:
++ Data base-communicatie poort. Als u partities gebruikt, voegt u deze poorten ook toe.
++ HADR-poort (waarde van de DB2-para meter HADR_LOCAL_SVC)
++ Azure-test poort
 <pre><code>sudo firewall-cmd --add-port=&lt;port&gt;/tcp --permanent
 sudo firewall-cmd --reload</code></pre>
 
-#### <a name="ibm-db2-hadr-check"></a>IBM Db2 HADR selectievakje
-Voor demonstratiedoeleinden te gebruiken en de procedures in dit artikel, de database SID is **ID2**.
+#### <a name="ibm-db2-hadr-check"></a>IBM Db2 HADR-controle
+Voor demonstratie doeleinden en de procedures die in dit artikel worden beschreven, is de SID van de Data Base **id2**.
 
-Nadat u HADR hebt geconfigureerd en de status van de peer-netwerk en verbonden op de primaire en stand-by-knooppunten is, voert u de volgende controle:
+Nadat u HADR hebt geconfigureerd en de status is ingesteld op PEER en op de primaire en stand-by-knoop punten is aangesloten, voert u de volgende controle uit:
 
 <pre><code>
 Execute command as db2&lt;sid&gt; db2pd -hadr -db &lt;SID&gt;
@@ -361,33 +361,33 @@ SOCK_RECV_BUF_REQUESTED,ACTUAL(bytes) = 0, 367360
 
 
 
-## <a name="db2-pacemaker-configuration"></a>Pacemaker Db2-configuratie
+## <a name="db2-pacemaker-configuration"></a>Configuratie van Db2 pacemaker
 
-Wanneer u Pacemaker voor automatische failover in het geval van storing op een knooppunt gebruikt, moet u de Db2-exemplaren en Pacemaker dienovereenkomstig configureren. Deze sectie wordt beschreven in dit type configuratie.
+Wanneer u pacemaker gebruikt voor automatische failover in het geval van een storing in een knoop punt, moet u de Db2-instanties en pacemaker dienovereenkomstig configureren. In deze sectie wordt dit type configuratie beschreven.
 
-De volgende items worden voorafgegaan door een:
+De volgende items worden voorafgegaan door een van beide:
 
-- **[A]** : Van toepassing op alle knooppunten
-- **[1]** : Alleen van toepassing op knooppunt 1 
-- **[2]** : Alleen van toepassing op knooppunt 2
+- **[A]** : Van toepassing op alle knoop punten
+- **[1]** : Alleen van toepassing op knoop punt 1 
+- **[2]** : Alleen van toepassing op knoop punt 2
 
-**[A]**  Vereisten voor de configuratie van Pacemaker:
-1. Sluit beide database-servers met gebruiker db2\<sid > met db2stop.
-1. Wijzigen van de shell-omgeving voor db2\<sid > gebruiker */bin/ksh*:
+**[A]** vereisten voor pacemaker-configuratie:
+1. Sluit beide database servers af met de sid\<van de gebruikers-DB2-> met db2stop.
+1. Wijzig de shell-omgeving voor\<de DB2-sid > gebruiker naar */bin/ksh*:
 <pre><code># Install korn shell:
 sudo yum install ksh
 # Change users shell:
 sudo usermod -s /bin/ksh db2&lt;sid&gt;</code></pre>
    
 
-### <a name="pacemaker-configuration"></a>Pacemaker configuratie
+### <a name="pacemaker-configuration"></a>Pacemaker-configuratie
 
-**[1]** IBM Db2 HADR-specific Pacemaker configuration:
+**[1]** IBM Db2 HADR-specifieke pacemaker-configuratie:
 <pre><code># Put Pacemaker into maintenance mode
 sudo pcs property set maintenance-mode=true 
 </code></pre>
 
-**[1]**  Maken IBM Db2-resources:
+**[1]** IBM Db2-resources maken:
 <pre><code># Replace <b>bold strings</b> with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
 sudo pcs resource create Db2_HADR_<b>ID2</b> db2 instance='<b>db2id2</b>' dblist='<b>ID2</b>' master meta notify=true resource-stickiness=5000
 
@@ -410,144 +410,144 @@ sudo pcs constraint colocation add g_ipnc_<b>db2id2</b>_<b>ID2</b> with master D
 sudo pcs constraint order promote Db2_HADR_<b>ID2</b>-master then g_ipnc_<b>db2id2</b>_<b>ID2</b>
 </code></pre>
 
-**[1]** Start IBM Db2 resources:
-* Pacemaker uit de onderhoudsmodus plaatsen.
+**[1]** IBM Db2-resources starten:
+* Pacemaker uit de onderhouds modus plaatsen.
 <pre><code># Put Pacemaker out of maintenance-mode - that start IBM Db2
 sudo pcs property set maintenance-mode=false</pre></code>
 
-**[1]**  Zorg dat de clusterstatus OK is en dat alle resources die worden gestart. Het is niet belangrijk welke bronnen worden uitgevoerd op knooppunt.
+**[1]** zorg ervoor dat de cluster status OK is en dat alle resources zijn gestart. Het is niet belang rijk op welke knoop punten de resources worden uitgevoerd.
 <pre><code>sudo pcs status</code>
 2 nodes configured
 5 resources configured
 
-Online: [az-idb01 az-idb02]
+Online: [AZ-idb01 AZ-idb02]
 
 Volledige lijst met resources:
 
- rsc_st_azure (stonith:fence_azure_arm):      Gestarte az-idb01 (Master/slave) instellen: Db2_HADR_ID2-master [Db2_HADR_ID2] Masters: [ az-idb01 ] Slaves: [ az-idb02 ] Resource Group: g_ipnc_db2id2_ID2 vip_db2id2_ID2     (ocf::heartbeat:IPaddr2):       Aan de slag az-idb01 nc_db2id2_ID2 (ocf::heartbeat:azure-lb):      Gestarte az-idb01
+ rsc_st_azure (stonith:fence_azure_arm):      Gestart AZ-idb01 Master/Slave set: Db2_HADR_ID2-Master [Db2_HADR_ID2] Masters: [AZ-idb01] Slaves: [AZ-idb02] resource groep: g_ipnc_db2id2_ID2 vip_db2id2_ID2 (OCF:: heartbeat: IPaddr2):       Gestart AZ-idb01 nc_db2id2_ID2 (OCF:: heartbeat: Azure-lb):      Gestart AZ-idb01
 
-Daemon-Status: corosync: actief/uitgeschakeld pacemaker: actief/uitgeschakeld pcsd: actief/ingeschakeld
+Daemon-status: corosync: actief/uitgeschakeld pacemaker: actief/uitgeschakeld pcsd: actief/ingeschakeld
 </pre>
 
 > [!IMPORTANT]
-> U moet de Pacemaker beheert geclusterde Db2-exemplaar met behulp van hulpprogramma's voor Pacemaker. Als u opdrachten, zoals db2stop db2, detecteert Pacemaker de actie als wanneer u een fout van de resource. Als u onderhoud uitvoert, kunt u de knooppunten of resources in de onderhoudsmodus plaatsen. Pacemaker bewakingsresources wordt onderbroken en vervolgens kunt u normale db2 beheeropdrachten gebruiken.
+> U moet de geclusterde Db2-instantie pacemaker beheren met behulp van pacemaker-hulpprogram ma's. Als u DB2-opdrachten gebruikt, zoals db2stop, detecteert pacemaker de actie als een storing van de resource. Als u onderhoud uitvoert, kunt u de knoop punten of resources in de onderhouds modus plaatsen. Pacemaker suspendeert bewakings bronnen en u kunt vervolgens normale DB2-beheer opdrachten gebruiken.
 
 
 ### <a name="configure-azure-load-balancer"></a>Azure Load Balancer configureren
-Voor het configureren van Azure Load Balancer, raden wij aan dat u de [Azure Standard Load Balancer-SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) en voer het volgende:
+Als u Azure Load Balancer wilt configureren, is het raadzaam om de [Azure Standard load BALANCER SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) te gebruiken en vervolgens de volgende handelingen uit te voeren.
 
-1. Maak een front-end IP-adresgroep:
+1. Een front-end-IP-adres groep maken:
 
-   a. Open de Azure Load Balancer in Azure portal, selecteer **front-end-IP-adresgroep**, en selecteer vervolgens **toevoegen**.
+   a. Open in de Azure Portal de Azure Load Balancer, selecteer **frontend-IP-adres groep**en selecteer vervolgens **toevoegen**.
 
-   b. Voer de naam van de nieuwe front-end-IP-adresgroep (bijvoorbeeld **Db2-connection**).
+   b. Voer de naam in van de nieuwe front-end-IP-adres groep (bijvoorbeeld **Db2-verbinding**).
 
-   c. Stel de **toewijzing** te **statische**, en voer het IP-adres **virtuele IP-** gedefinieerd aan het begin.
+   c. Stel de **toewijzing** in op **statisch**en voer het IP- **adres in** dat aan het begin is gedefinieerd.
 
    d. Selecteer **OK**.
 
-   e. Nadat de nieuwe front-end-IP-adresgroep is gemaakt, houd er rekening mee dat het IP-adres van toepassingen.
+   e. Nadat de nieuwe front-end-IP-groep is gemaakt, noteert u het IP-adres van de groep.
 
-1. Maak een back-end-groep:
+1. Maak een back-end-pool:
 
-   a. Open de Azure Load Balancer in Azure portal, selecteer **back-endpools**, en selecteer vervolgens **toevoegen**.
+   a. Open in de Azure Portal de Azure Load Balancer, selecteer **back-endservers**en selecteer vervolgens **toevoegen**.
 
-   b. Voer de naam van de nieuwe back-end-pool (bijvoorbeeld **Db2-back-end**).
+   b. Voer de naam van de nieuwe back-end-pool in (bijvoorbeeld **Db2-back-end**).
 
-   c. Selecteer **toevoegen van een virtuele machine**.
+   c. Selecteer **een virtuele machine toevoegen**.
 
-   d. Selecteer de beschikbaarheidsset of de virtuele machines die als host fungeert voor IBM Db2-database in de vorige stap hebt gemaakt.
+   d. Selecteer de beschikbaarheidsset of de virtuele machines die als host dienen voor de IBM Db2-data base die in de vorige stap is gemaakt.
 
-   e. Selecteer de virtuele machines van de IBM Db2-cluster.
+   e. Selecteer de virtuele machines van het IBM Db2-cluster.
 
    f. Selecteer **OK**.
 
-1. Maak een statustest:
+1. Een status test maken:
 
-   a. Open de Azure Load Balancer in Azure portal, selecteer **statuscontroles**, en selecteer **toevoegen**.
+   a. Open in de Azure Portal de Azure Load Balancer, selecteer **status controles**en selecteer **toevoegen**.
 
-   b. Voer de naam van de nieuwe statustest (bijvoorbeeld **Db2-hp**).
+   b. Voer de naam in van de nieuwe status test (bijvoorbeeld **Db2-HP**).
 
-   c. Selecteer **TCP** als het protocol en poort **62500**. Houd de **Interval** waarde ingesteld op **5**, en houd de **drempelwaarde voor onjuiste status** waarde ingesteld op **2**.
+   c. Selecteer **TCP** als protocol en poort **62500**. Behoud de waarde voor **interval** ingesteld op **5**en behoud de drempel waarde voor **onjuiste status** ingesteld op **2**.
 
    d. Selecteer **OK**.
 
-1. De regels voor taakverdeling maken:
+1. De regels voor taak verdeling maken:
 
-   a. Open de Azure Load Balancer in Azure portal, selecteer **Taakverdelingsregels**, en selecteer vervolgens **toevoegen**.
+   a. Open in de Azure Portal de Azure Load Balancer, selecteer **taakverdelings regels**en selecteer vervolgens **toevoegen**.
 
-   b. Voer de naam van de nieuwe Load Balancer-regel (bijvoorbeeld **Db2-SID**).
+   b. Voer de naam in van de nieuwe Load Balancer regel (bijvoorbeeld **Db2-sid**).
 
-   c. Selecteer het front-end-IP-adres, de back-endpool en de statustest die u eerder hebt gemaakt (bijvoorbeeld **Db2-frontend**).
+   c. Selecteer het front-end-IP-adres, de back-end-pool en de status test die u eerder hebt gemaakt (bijvoorbeeld **Db2-** front-end).
 
-   d. Houd de **Protocol** ingesteld op **TCP**, en voer de poort *Database communicatiepoort*.
+   d. Zorg ervoor dat het **protocol** is ingesteld op **TCP**en geef poort *database communicatie poort*op.
 
-   e. Verhoog de **time-out voor inactiviteit** tot 30 minuten.
+   e. Verhoog de **time-out** voor inactiviteit tot 30 minuten.
 
-   f. Zorg ervoor dat u **Floating IP inschakelen**.
+   f. Zorg ervoor dat u **zwevende IP-adressen**inschakelt.
 
    g. Selecteer **OK**.
 
-**[A]**  Firewallregel toevoegen voor testpoort:
+**[A]** firewall regel toevoegen voor test poort:
 <pre><code>sudo firewall-cmd --add-port=<b><probe-port></b>/tcp --permanent
 sudo firewall-cmd --reload</code></pre>
 
-### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Wijzigingen aanbrengen in SAP-profielen virtueel IP-adres gebruiken voor verbinding
-Als u wilt verbinding maken met het primaire exemplaar van de configuratie HADR de SAP moet toepassingslaag het virtuele IP-adres dat u hebt gedefinieerd en geconfigureerd voor de Azure Load Balancer gebruiken. De volgende wijzigingen zijn vereist:
+### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Wijzigingen aanbrengen in SAP-profielen voor het gebruik van een virtueel IP-adres voor verbinding
+Als u verbinding wilt maken met het primaire exemplaar van de HADR-configuratie, moet de SAP-toepassingslaag gebruikmaken van het virtuele IP-adres dat u hebt gedefinieerd en geconfigureerd voor de Azure Load Balancer. De volgende wijzigingen zijn vereist:
 
-/sapmnt/\<SID>/profile/DEFAULT.PFL
+/sapmnt/\<-sid >/profile/default. KON
 <pre><code>SAPDBHOST = db-virt-hostname
 j2ee/dbhost = db-virt-hostname
 </code></pre>
 
-/sapmnt/\<SID>/global/db6/db2cli.ini
+/sapmnt/\<-sid >/Global/db6/db2cli.ini
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
 
 
-## <a name="install-primary-and-dialog-application-servers"></a>Installatie van primaire en de toepassingsservers dialoogvenster
+## <a name="install-primary-and-dialog-application-servers"></a>Primaire en dialoog toepassings servers installeren
 
-Wanneer u primaire installeert en toepassingsservers op basis van de configuratie van een Db2-HADR dialoogvenster, gebruikt de virtuele host naam die u hebt geselecteerd voor de configuratie. 
+Wanneer u primaire en dialoogvenster toepassings servers installeert op basis van een Db2 HADR-configuratie, gebruikt u de naam van de virtuele host die u hebt gekozen voor de configuratie. 
 
-Als u de installatie voordat u de configuratie van de Db2 HADR gemaakt hebt uitgevoerd, moet u de wijzigingen, zoals beschreven in de vorige sectie en als volgt voor SAP-Java-stacks.
+Als u de installatie hebt uitgevoerd voordat u de configuratie van de Db2 HADR hebt gemaakt, brengt u de wijzigingen aan zoals beschreven in de voor gaande sectie en als volgt voor SAP Java-stacks.
 
-### <a name="abapjava-or-java-stack-systems-jdbc-url-check"></a>ABAP + Java of Java-stack-systemen JDBC URL controleren
+### <a name="abapjava-or-java-stack-systems-jdbc-url-check"></a>Controle van JDBC-URL voor ABAP + Java of Java stack Systems
 
-De J2EE-Config-hulpprogramma gebruiken om te controleren of de URL JDBC bijwerken. Omdat het J2EE-Config-hulpprogramma een grafisch hulpprogramma is, moet u hebben X server is geïnstalleerd:
+Gebruik het J2EE-configuratie programma om de JDBC-URL te controleren of bij te werken. Omdat het J2EE-configuratie programma een grafisch hulp programma is, moet X server zijn geïnstalleerd:
  
-1. Aanmelden bij de primaire toepassingsserver van het exemplaar J2EE en uitvoeren:
+1. Meld u aan bij de primaire toepassings server van het J2EE-exemplaar en voer de volgende handelingen uit:
      <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
-1. Kies in het linkerdeelvenster **security store**.
-1. Kies in het rechterdeelvenster de belangrijkste jdbc/groep / \ <SAPSID> /URL.
-1. Wijzig de hostnaam in de JDBC-URL op de virtuele host-naam.
+1.Kies in het linkerdeel venster de optie **beveiligings archief**.
+1.Kies in het rechterdeel venster de sleutel JDBC/pool/\<SAPSID>/URL.
+1.Wijzig de hostnaam in de JDBC-URL in de naam van de virtuele host.
      <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
-1. Selecteer **toevoegen**.
-1. Om uw wijzigingen hebt opgeslagen, selecteert u het pictogram van de schijf in de linkerbovenhoek.
-1. Sluit het configuratieprogramma.
-1. De Java-exemplaar opnieuw opstarten.
+1.Selecteer **toevoegen**.
+1.Als u de wijzigingen wilt opslaan, selecteert u het schijf pictogram in de linkerbovenhoek.
+1.Sluit het configuratie programma.
+1.Start het Java-exemplaar opnieuw.
 
-## <a name="configure-log-archiving-for-hadr-setup"></a>Logboek voor de installatie van HADR archivering configureren
-Als u wilt de Db2-logboek archiveren voor HADR setup configureert, is het raadzaam dat u configureert zowel de primaire als de stand-by-database hebben mogelijkheid van automatisch logboekgegevens voor het ophalen van alle logboek archiveren locaties. De primaire en stand-by-database moet mogelijk zijn om op te halen van logboekbestanden van het archief van alle de logboek archiveren locaties op die een van de database exemplaren mogelijk Archiveer de logboekbestanden. 
+## <a name="configure-log-archiving-for-hadr-setup"></a>Logboek Archivering configureren voor HADR Setup
+Als u de instelling voor het archiveren van de Db2-logboeken voor HADR wilt configureren, raden we u aan om zowel de primaire als de stand-by-data base zodanig te configureren dat het automatisch ophalen van logboeken van alle locatie van logboek archief is. Zowel de primaire als de stand-by-data base moeten logboek archiefbestanden kunnen ophalen van alle logboeken van de logbestanden waartoe een van de data base-exemplaren logboek bestanden kan archiveren. 
 
-Het logboek archiveren wordt alleen door de primaire database uitgevoerd. Als u de rollen HADR van de database-servers wijzigen of als er een fout optreedt, is de nieuwe primaire database is verantwoordelijk voor het archiveren van logboekbestanden. Als u meerdere logboeklocaties archief hebt ingesteld, kunnen uw logboeken twee keer worden gearchiveerd. In het geval van een lokaal of extern bijwerken hebt u mogelijk ook handmatig kopiëren van de gearchiveerde logboeken van de oude primaire server naar de locatie van het actieve logboek van de nieuwe primaire server.
+Het archiveren van het logboek wordt alleen uitgevoerd door de primaire data base. Als u de HADR-rollen van de database servers wijzigt of als er een fout optreedt, is de nieuwe primaire data base verantwoordelijk voor het archiveren van Logboeken. Als u meerdere archief locaties voor logboek registratie hebt ingesteld, kunnen uw logboeken twee keer worden gearchiveerd. In het geval van een lokale of externe achterstand moet u mogelijk ook hand matig de gearchiveerde logboeken van de oude primaire server kopiëren naar de actieve logboek locatie van de nieuwe primaire server.
 
-Het is raadzaam om de configuratie van een algemene NFS-share of GlusterFS, waar de logboeken vanaf beide knooppunten worden geschreven. De NFS-share of GlusterFS is maximaal beschikbaar. 
+U kunt het beste een algemene NFS-share of GlusterFS configureren, waarbij logboeken worden geschreven van beide knoop punten. De NFS-share of GlusterFS moet Maxi maal beschikbaar zijn. 
 
-U kunt bestaande maximaal beschikbare NFS-shares of GlusterFS gebruiken voor het transport of een map met het gebruikersprofiel. Zie voor meer informatie:
+U kunt bestaande Maxi maal beschik bare NFS-shares of GlusterFS gebruiken voor trans porten of een profielmap. Zie voor meer informatie:
 
 - [GlusterFS op Azure VM's op Red Hat Enterprise Linux voor SAP NetWeaver][glusterfs] 
-- [Hoge beschikbaarheid voor SAP NetWeaver op virtuele Azure-machines op Red Hat Enterprise Linux met Azure NetApp-bestanden voor SAP-toepassingen][anf-rhel]
-- [Azure Files met NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) (om het NFS-shares te maken)
+- [Hoge Beschik baarheid voor SAP NetWeaver op Azure Vm's op Red Hat Enterprise Linux met Azure NetApp Files voor SAP-toepassingen][anf-rhel]
+- [Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) (voor het maken van NFS-shares)
 
-## <a name="test-the-cluster-setup"></a>De cluster-instellingen testen
+## <a name="test-the-cluster-setup"></a>De Cluster installatie testen
 
-Deze sectie wordt beschreven hoe u uw instellingen Db2 HADR kunt testen. Elke test wordt ervan uitgegaan dat de primaire IBM Db2 wordt uitgevoerd op de *az-idb01* virtuele machine. Gebruiker met sudo-machtigingen of het basiscertificaat (niet aanbevolen) moet worden gebruikt.
+In deze sectie wordt beschreven hoe u de Setup van de Db2-HADR kunt testen. Elke test gaat ervan uit dat IBM Db2 Primary wordt uitgevoerd op de virtuele machine *AZ-idb01* . Gebruiker met sudo-bevoegdheden of root (niet aanbevolen) moet worden gebruikt.
 
-De initiële status van alle testcases wordt hier uitgelegd: (crm_mon - r of pc's status)
+De initiële status voor alle test cases wordt hier uitgelegd: (crm_mon-r of PCs status)
 
-- **status van de pc's** is een momentopname van de status Pacemaker tijdens de uitvoering 
-- **crm_mon - r** is continue uitvoer van Pacemaker status
+- de **status van pc's** is een moment opname van de pacemaker-status tijdens de uitvoerings tijd 
+- **crm_mon-r** is doorlopende uitvoer van de pacemaker-status
 
 <pre><code>2 nodes configured
 5 resources configured
@@ -570,27 +570,27 @@ Daemon Status:
   pcsd: active/enabled
 </code></pre>
 
-De status van de oorspronkelijke in een SAP-systeem wordt beschreven in de transactie DBACOCKPIT > Configuratie > overzicht, zoals wordt weergegeven in de volgende afbeelding:
+De oorspronkelijke status in een SAP-systeem wordt beschreven in trans actie DBACOCKPIT > Configuratie > overzicht, zoals wordt weer gegeven in de volgende afbeelding:
 
-![DBACockpit - Pre-migratie](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-org-rhel.png)
-
-
+![DBACockpit-pre-migratie](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-org-rhel.png)
 
 
-### <a name="test-takeover-of-ibm-db2"></a>Test overname van IBM Db2
+
+
+### <a name="test-takeover-of-ibm-db2"></a>De overname van IBM Db2 testen
 
 
 > [!IMPORTANT] 
-> Voordat u de test start, controleert u of:
-> * Pacemaker beschikt niet over een mislukte acties (status van de pc's).
-> * Er zijn geen Locatiebeperkingen (restanten van migratie-test)
-> * De synchronisatie van IBM Db2 HADR werkt. Neem contact op met de gebruiker db2\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> Voordat u met de test begint, moet u ervoor zorgen dat:
+> * Pacemaker heeft geen mislukte acties (pc's status).
+> * Er zijn geen locatie beperkingen (resten van de migratie test)
+> * De synchronisatie van IBM Db2 HADR werkt. Controleren met de sid\<van de gebruikers-DB2-> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
-Migreren van het knooppunt waarop de primaire Db2-database wordt uitgevoerd door het uitvoeren van de volgende opdracht:
+Migreer het knoop punt waarop de primaire Db2-data base wordt uitgevoerd door de volgende opdracht uit te voeren:
 <pre><code>sudo pcs resource move Db2_HADR_<b>ID2</b>-master</code></pre>
 
-Nadat de migratie is voltooid, wordt de uitvoer van de status van crm lijkt:
+Nadat de migratie is voltooid, ziet de CRM-status uitvoer er als volgt uit:
 <pre><code>2 nodes configured
 5 resources configured
 
@@ -608,15 +608,15 @@ Full list of resources:
 
 </code></pre>
 
-De status van de oorspronkelijke in een SAP-systeem wordt beschreven in de transactie DBACOCKPIT > Configuratie > overzicht, zoals wordt weergegeven in de volgende afbeelding:
+De oorspronkelijke status in een SAP-systeem wordt beschreven in trans actie DBACOCKPIT > Configuratie > overzicht, zoals wordt weer gegeven in de volgende afbeelding:
 
-![DBACockpit - nadat de migratie](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-post-rhel.png)
+![DBACockpit-na migratie](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-post-rhel.png)
 
-Resourcemigratie met 'pc's verplaatsen van de resource' maakt Locatiebeperkingen. Locatiebeperkingen belemmeren in dit geval actief IBM Db2-exemplaar op az-idb01. Als de locatie niet worden verwijderd, de bron kunt geen failback.
+Met resource migratie met ' pc's verplaatsen ' worden locatie beperkingen gemaakt. Locatie beperkingen in dit geval wordt het uitvoeren van een IBM Db2-exemplaar op AZ-idb01 voor komen. Als locatie beperkingen niet worden verwijderd, kan de resource geen failback uitvoeren.
 
-Remove beperken van de locatie en stand-by-knooppunt wordt gestart op az-idb01.
+Het knoop punt voor locatie beperking en stand-by verwijderen wordt gestart op AZ-idb01.
 <pre><code>sudo pcs resource clear Db2_HADR_<b>ID2</b>-master</code></pre>
-En clusterstatus gewijzigd in:
+De cluster status wordt gewijzigd in:
 <pre><code>2 nodes configured
 5 resources configured
 
@@ -632,24 +632,24 @@ Full list of resources:
      vip_db2id2_ID2     (ocf::heartbeat:IPaddr2):       Started az-idb02
      nc_db2id2_ID2      (ocf::heartbeat:azure-lb):      Started az-idb02</code></pre>
 
-![DBACockpit - verwijderde locatie beperken](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-clear-rhel.png)
+![DBACockpit-verwijderde locatie beperken](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-clear-rhel.png)
 
 
-Migreren van de resource naar *az-idb01* en schakelt u de Locatiebeperkingen
+Migreer de resource terug naar *AZ-idb01* en wis de locatie beperkingen
 <pre><code>sudo pcs resource move Db2_HADR_<b>ID2</b>-master az-idb01
 sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
 </code></pre>
 
-- **verplaatsen van de pc's-resource \<res_name > <host>:** Locatie maakt en kan problemen veroorzaken met overnemen
-- **pc's resource wissen \<res_name >** : Hiermee worden gewist Locatiebeperkingen
-- **opruimen van de pc's-resource \<res_name >** : Hiermee wist alle fouten van de resource
+- **PC resource Move \<res_name > <host>:** Maakt locatie beperkingen en kan problemen veroorzaken met overname
+- **PC-bron \<gewist res_name >** : Hiermee worden de beperkingen van locaties gewist
+- **pc's resource Cleanup \<res_name >** : Hiermee worden alle fouten van de resource gewist
 
-### <a name="test-a-manual-takeover"></a>Een handmatige overname testen
+### <a name="test-a-manual-takeover"></a>Een hand matige overname testen
 
-U kunt een handmatige overname testen door het stoppen van de service Pacemaker op *az-idb01* knooppunt:
+U kunt een hand matige overname testen door de pacemaker-service op *AZ-idb01* te stoppen:
 <pre><code>systemctl stop pacemaker</code></pre>
 
-status van *az-ibdb02*
+status op *AZ-ibdb02*
 <pre><code>2 nodes configured
 5 resources configured
 
@@ -671,11 +671,11 @@ Daemon Status:
   pacemaker: active/disabled
   pcsd: active/enabled</code></pre>
 
-Na de failover, u kunt de service opnieuw starten op *az-idb01*.
+Na de failover kunt u de service opnieuw starten op *AZ-idb01*.
 <pre><code>systemctl start  pacemaker</code></pre>
 
 
-### <a name="kill-the-db2-process-on-the-node-that-runs-the-hadr-primary-database"></a>De Db2-proces op het knooppunt waarop de primaire database HADR beëindigen
+### <a name="kill-the-db2-process-on-the-node-that-runs-the-hadr-primary-database"></a>Het Db2-proces beëindigen op het knoop punt waarop de primaire HADR-data base wordt uitgevoerd
 
 <pre><code>#Kill main db2 process - db2sysc
 [sapadmin@az-idb02 ~]$ sudo ps -ef|grep db2sysc
@@ -683,7 +683,7 @@ db2ptr    34598  34596  8 14:21 ?        00:00:07 db2sysc 0
 [sapadmin@az-idb02 ~]$ sudo kill -9 34598
 </code></pre>
 
-Het exemplaar Db2 gaat mislukken, en Pacemaker wordt verplaatst-hoofdknooppunt en het rapport status te volgen:
+Het Db2-exemplaar is mislukt en pacemaker verplaatst het hoofd knooppunt en rapport over de volgende status:
 
 <pre><code>2 nodes configured
 5 resources configured
@@ -704,16 +704,16 @@ Failed Actions:
 * Db2_HADR_ID2_demote_0 on az-idb01 'unknown error' (1): call=49, status=complete, exitreason='none',
     last-rc-change='Wed Jun 26 09:57:35 2019', queued=0ms, exec=362ms</code></pre>
 
-Pacemaker wordt opnieuw opgestart het exemplaar van de primaire database Db2 op hetzelfde knooppunt, of deze een failover uitgevoerd naar het knooppunt waarop de secundaire database-instantie wordt uitgevoerd en wordt een fout gerapporteerd.
+Pacemaker start het primaire Db2-data base-exemplaar opnieuw op hetzelfde knoop punt, of er wordt een failover uitgevoerd naar het knoop punt waarop het secundaire data base-exemplaar wordt uitgevoerd en er wordt een fout gemeld.
 
-### <a name="kill-the-db2-process-on-the-node-that-runs-the-secondary-database-instance"></a>Beëindig de Db2-proces op het knooppunt waarop de secundaire database-exemplaar wordt uitgevoerd
+### <a name="kill-the-db2-process-on-the-node-that-runs-the-secondary-database-instance"></a>Het Db2-proces beëindigen op het knoop punt waarop het secundaire data base-exemplaar wordt uitgevoerd
 
 <pre><code>[sapadmin@az-idb02 ~]$ sudo ps -ef|grep db2sysc
 db2id2    23144  23142  2 09:53 ?        00:00:13 db2sysc 0
 [sapadmin@az-idb02 ~]$ sudo kill -9 23144
 </code></pre>
 
-Het knooppunt opgehaald in kan niet wordt vermeld en fout gemeld
+Het knoop punt wordt weer gegeven als mislukt en er wordt een fout gerapporteerd
 <pre><code>2 nodes configured
 5 resources configured
 
@@ -733,14 +733,14 @@ Failed Actions:
 * Db2_HADR_ID2_monitor_20000 on az-idb02 'not running' (7): call=144, status=complete, exitreason='none',
     last-rc-change='Wed Jun 26 10:02:09 2019', queued=0ms, exec=0ms</code></pre>
 
-De Db2-exemplaar wordt opnieuw gestart in de secundaire rol die deze had toegewezen voordat.
+Het Db2-exemplaar wordt opnieuw gestart in de secundaire rol waaraan het is toegewezen.
 
-### <a name="stop-db-via-db2stop-force-on-the-node-that-runs-the-hadr-primary-database-instance"></a>Stop DB via db2stop afdwingen op het knooppunt waarop de primaire database HADR exemplaar wordt uitgevoerd
+### <a name="stop-db-via-db2stop-force-on-the-node-that-runs-the-hadr-primary-database-instance"></a>DATA base stoppen via db2stop forceren op het knoop punt waarop het primaire exemplaar van de HADR-data base wordt uitgevoerd
 
-Als gebruiker db2\<sid > opdracht db2stop force uitvoeren:
+Als gebruikers-\<DB2-sid > opdracht db2stop uitvoeren:
 <pre><code>az-idb01:db2ptr> db2stop force</code></pre>
 
-Fout gevonden:
+Fout gedetecteerd:
 
 <pre><code>2 nodes configured
 5 resources configured
@@ -761,7 +761,7 @@ Failed Actions:
 * Db2_HADR_ID2_demote_0 on az-idb01 'unknown error' (1): call=110, status=complete, exitreason='none',
     last-rc-change='Wed Jun 26 14:03:12 2019', queued=0ms, exec=355ms</code></pre>
 
-De Db2 HADR secundaire database-instantie is gepromoveerd tot de primaire rol.
+Het secundaire data base-exemplaar van de Db2-HADR is gepromoveerd tot de primaire rol.
 <pre><code>2 nodes configured
 5 resources configured
 
@@ -782,12 +782,12 @@ Failed Actions:
     last-rc-change='Wed Jun 26 14:03:12 2019', queued=0ms, exec=355ms</pre></code>
 
 
-### <a name="crash-the-vm-that-runs-the-hadr-primary-database-instance-with-halt"></a>Crash van de virtuele machine waarop het exemplaar van de primaire database HADR met "stilstand"
+### <a name="crash-the-vm-that-runs-the-hadr-primary-database-instance-with-halt"></a>De VM met de HADR Primary data base-instantie crashen met ' Stop '
 
 <pre><code>#Linux kernel panic. 
 sudo echo b > /proc/sysrq-trigger</code></pre>
 
-In dat geval detecteert Pacemaker dat het knooppunt waarop de primaire database-exemplaar wordt niet meer reageert.
+In dat geval detecteert pacemaker dat het knoop punt waarop het primaire data base-exemplaar wordt uitgevoerd, niet reageert.
 
 <pre><code>2 nodes configured
 5 resources configured
@@ -805,7 +805,7 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
      vip_db2id2_ID2     (ocf::heartbeat:IPaddr2):       Started az-idb01
      nc_db2id2_ID2      (ocf::heartbeat:azure-lb):      Started az-idb01</code></pre>
 
-de volgende stap is om te controleren op een *splitsen brein* situatie. Nadat het overgebleven knooppunt heeft vastgesteld dat het knooppunt dat de primaire database-exemplaar het laatst is uitgevoerd niet actief is, wordt een failover van de resources wordt uitgevoerd.
+De volgende stap is om te controleren op een situatie met *Split-hersenen* . Nadat het nagelaten knoop punt heeft vastgesteld dat het knoop punt waarop het primaire data base-exemplaar voor het laatst werd uitgevoerd, niet beschikbaar is, wordt er een failover van resources uitgevoerd.
 
 <pre><code>2 nodes configured
 5 resources configured
@@ -824,8 +824,8 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
      nc_db2id2_ID2      (ocf::heartbeat:azure-lb):      Started az-idb02 </code></pre>
 
 
-In het geval van een kernelprobleem, wordt het knooppunt door agent voor de eerste optie worden restared. Nadat het knooppunt weer online is, moet u pacemaker cluster door starten
-<pre><code>sudo pcs cluster start</code></pre> de Db2-exemplaar in de secundaire rol starten
+In het geval van een failover van een kernel wordt het knoop punt waarvoor een storing is opgetreden, opnieuw genoteerd door de afomheinings agent. Nadat het knoop punt met de fout weer online is, moet u het pacemaker-cluster starten door
+<pre><code>sudo pcs cluster start</code></pre> het Db2-exemplaar wordt gestart in de secundaire rol.
 
 <pre><code>2 nodes configured
 5 resources configured
@@ -843,5 +843,5 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
      nc_db2id2_ID2      (ocf::heartbeat:azure-lb):      Started az-idb02</code></pre>
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Architectuur voor hoge beschikbaarheid en scenario's voor SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
-- [Pacemaker op Red Hat Enterprise Linux in Azure instellen][rhel-pcs-azr]
+- [Architectuur en scenario's met hoge Beschik baarheid voor SAP net-Weaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
+- [Pacemaker instellen voor Red Hat Enterprise Linux in azure][rhel-pcs-azr]

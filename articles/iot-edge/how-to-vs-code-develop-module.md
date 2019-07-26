@@ -6,28 +6,32 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 06/25/2019
+ms.date: 07/23/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 2d190edfac71705590135988b64ed043784125ec
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
-ms.translationtype: HT
+ms.openlocfilehash: a9c38d82c4b460564077690d3cddd731ec6c2b89
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305566"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414502"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio code gebruiken voor het ontwikkelen en opsporen van fouten in modules voor Azure IoT Edge
 
 U kunt uw bedrijfslogica in modules inschakelen voor Azure IoT Edge. Dit artikel laat u zien hoe u Visual Studio code kunt gebruiken als het belangrijkste hulp programma voor het ontwikkelen en opsporen van fouten in modules.
 
+Voor modules die zijn C#geschreven in, node. js of Java, zijn er twee manieren om fouten in uw module in Visual Studio code op te sporen: U kunt een proces in een module container koppelen of de module code in de foutopsporingsmodus starten. Voor modules die in Python of C zijn geschreven, kunnen ze alleen worden opgespoord door te koppelen aan een proces in linux amd64-containers.
+
+Lees over [fout opsporing](https://code.visualstudio.com/Docs/editor/debugging)als u niet bekend bent met de mogelijkheden voor fout opsporing van Visual Studio code.
+
+Dit artikel bevat instructies voor het ontwikkelen en debuggen van modules in meerdere talen voor meerdere architecturen. Visual Studio code biedt momenteel ondersteuning voor modules die zijn geschreven C#in, C, Python, node. js en Java. De ondersteunde architecturen voor apparaten zijn x64 en ARM32. Zie [ondersteuning voor taal en architectuur](module-development.md#language-and-architecture-support)voor meer informatie over ondersteunde besturings systemen, talen en architecturen.
+
+>[!NOTE]
+>Ondersteuning voor het ontwikkelen en opsporen van fouten voor Linux ARM64-apparaten is beschikbaar in de [open bare preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Zie voor meer informatie [ARM64-modules ontwikkelen en fouten opsporen IOT Edge in Visual Studio code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+
 ## <a name="prerequisites"></a>Vereisten
 
 U kunt een computer of een virtuele machine met Windows, macOS of Linux gebruiken als uw ontwikkel computer. Een IoT Edge apparaat kan een fysiek apparaat zijn.
-
-Voor modules die zijn C#geschreven in, node. js of Java, zijn er twee manieren om fouten in uw module in Visual Studio code op te sporen: U kunt een proces in een module container koppelen of de module code in de foutopsporingsmodus starten. Voor modules die in Python of C zijn geschreven, kunnen ze alleen worden opgespoord door te koppelen aan een proces in linux amd64-containers.
-
-> [!TIP]
-> Lees over [fout opsporing](https://code.visualstudio.com/Docs/editor/debugging)als u niet bekend bent met de mogelijkheden voor fout opsporing van Visual Studio code.
 
 Installeer eerst [Visual Studio code](https://code.visualstudio.com/) en voeg vervolgens de volgende uitbrei dingen toe:
 
@@ -66,8 +70,7 @@ Tenzij u uw module in C ontwikkelt, hebt u ook het op python gebaseerde [Azure I
 > [!NOTE]
 > Als u meerdere python hebt, waaronder vooraf geïnstalleerde Python 2,7 (bijvoorbeeld op Ubuntu of macOS), moet u ervoor zorgen dat u de juiste `pip` of `pip3` installeert **iotedgehubdev** gebruikt
 
-> [!NOTE]
-> Als u uw module op een apparaat wilt testen, hebt u een actieve IoT-hub met ten minste één IoT Edge apparaat nodig. Volg de stappen in de Quick start voor [Linux](quickstart-linux.md) of [Windows](quickstart.md)om uw computer als IOT edge apparaat te gebruiken. Als IoT Edge daemon wordt uitgevoerd op uw ontwikkel computer, moet u mogelijk EdgeHub en EdgeAgent stoppen voordat u verdergaat met de volgende stap.
+Als u uw module op een apparaat wilt testen, hebt u een actieve IoT-hub met ten minste één IoT Edge apparaat nodig. Volg de stappen in de Quick start voor [Linux](quickstart-linux.md) of [Windows](quickstart.md)om uw computer als IOT edge apparaat te gebruiken. Als IoT Edge daemon wordt uitgevoerd op uw ontwikkel computer, moet u mogelijk EdgeHub en EdgeAgent stoppen voordat u verdergaat met de volgende stap.
 
 ## <a name="create-a-new-solution-template"></a>Een nieuwe oplossings sjabloon maken
 

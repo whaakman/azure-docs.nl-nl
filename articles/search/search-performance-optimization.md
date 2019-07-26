@@ -1,6 +1,6 @@
 ---
-title: Implementatiestrategieën en aanbevolen procedures voor het optimaliseren van prestaties - Azure Search
-description: Meer informatie over technieken en aanbevolen procedures voor het afstemmen van prestaties van Azure Search en optimale schaal configureren.
+title: Implementatie strategieën en aanbevolen procedures voor het optimaliseren van prestaties-Azure Search
+description: Leer technieken en aanbevolen procedures voor het afstemmen van Azure Search prestaties en het configureren van de optimale schaal.
 author: LiamCavanagh
 manager: jlembicz
 services: search
@@ -10,102 +10,102 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 32352a857f0a74dc008dc1ad76b4a5951a36b956
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4578e26df5a6c29e80a0bbd2e0a30725e3733ee
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024554"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370651"
 ---
-# <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Implementatiestrategieën en aanbevolen procedures voor het optimaliseren van prestaties van Azure Search
+# <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Implementatie strategieën en aanbevolen procedures voor het optimaliseren van de prestaties van Azure Search
 
-Dit artikel wordt beschreven aanbevolen procedures voor geavanceerde scenario's met geavanceerde vereisten voor schaalbaarheid en beschikbaarheid. 
+In dit artikel worden aanbevolen procedures beschreven voor geavanceerde scenario's met geavanceerde vereisten voor schaal baarheid en beschik baarheid. 
 
-## <a name="develop-baseline-numbers"></a>Basislijn getallen ontwikkelen
-Bij het optimaliseren voor prestaties, moet u zich richten op het moment dat de uitvoering van query verminderen. Om dit te doen, moet u weten wat een typische querybelasting ziet eruit als. De volgende richtlijnen kunt u basislijn query getallen aankomen.
+## <a name="develop-baseline-numbers"></a>Basislijn nummers ontwikkelen
+Bij optimalisatie voor zoek prestaties moet u zich richten op het verminderen van de uitvoerings tijd van de query. Hiervoor moet u weten wat een typische query belasting lijkt te zijn. De volgende richt lijnen kunnen u helpen bij het aankomen van basislijn query nummers.
 
-1. Kies met een doellatentie (of maximale hoeveelheid tijd) die een standaardzoekopdrachten aanvragen uitvoeren moet om te voltooien.
-2. Maken en testen van een echte werkbelasting op basis van uw search-service met een realistische gegevensset voor het meten van de latentie-tarieven.
-3. Beginnen met een klein aantal query's per seconde (QPS) en het nummer in de test wordt uitgevoerd totdat de latentie van query lager is dan de latentie gedefinieerd doel, geleidelijk te verhogen. Dit is een belangrijk benchmark om te plannen voor schaal wanneer uw toepassing in gebruik groeit.
-4. Waar mogelijk, opnieuw gebruiken de HTTP-verbindingen. Als u van de Azure Search .NET SDK gebruikmaakt, betekent dit dat u opnieuw een exemplaar moet worden gebruikt of [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) exemplaar, en als u de REST-API gebruikt, moet u een enkele HttpClient hergebruiken.
-5. De inhoud van de query-aanvragen verschillen, zodat die zoekopdracht vindt plaats via verschillende onderdelen van uw index. Verandering is belangrijk omdat als u de dezelfde zoekaanvragen continu worden uitgevoerd, in cache opslaan van gegevens wordt gestart om de prestaties beter dan deze mogelijk met een meer uiteenlopende query ingesteld.
-6. De structuur van queryaanvragen variëren zodat u verschillende typen query's krijgen. Niet elke zoekopdracht wordt uitgevoerd op hetzelfde niveau. Bijvoorbeeld, is een document lookup- of suggestie doorgaans sneller dan een query met een groot aantal facetten en filters. Samenstelling van de test moet verschillende query's, opnemen in ongeveer de dezelfde verhoudingen zoals u in de productieomgeving verwachten zou.  
+1. Kies een doel latentie (of maximale tijds duur) waarmee een typische zoek opdracht moet worden voltooid.
+2. Maak en test een echte werk belasting op uw zoek service met een realistische gegevensset om deze latentie tarieven te meten.
+3. Beginnen met een laag aantal query's per seconde (QPS) en het aantal dat in de test wordt uitgevoerd geleidelijk verhogen, totdat de query latentie onder de gedefinieerde doel latentie daalt. Dit is een belang rijk referentie punt om u te helpen bij het plannen van de schaal als uw toepassing groeit in gebruik.
+4. Gebruik waar mogelijk HTTP-verbindingen. Als u de Azure Search .NET SDK gebruikt, betekent dit dat u een instantie of [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) -exemplaar opnieuw moet gebruiken. Als u de rest API gebruikt, moet u één httpclient maakt opnieuw gebruiken.
+5. U kan de query op aanvragen van query's variëren zodat de zoek actie plaatsvindt in verschillende onderdelen van de index. Variatie is belang rijk omdat als u dezelfde Zoek opdrachten doorlopend uitvoert, het opslaan van gegevens in de cache wordt gestart, waardoor de prestaties kunnen worden verbeterd.
+6. U kunt de structuur van query-aanvragen variëren zodat u verschillende soorten query's krijgt. Niet alle zoek query's moeten op hetzelfde niveau worden uitgevoerd. Bijvoorbeeld: een zoek-of zoek voorstel voor documenten is doorgaans sneller dan een query met een groot aantal facetten en filters. De test samenstelling moet verschillende query's bevatten, in ongeveer dezelfde verhouding als bij de productie.  
 
-Testen tijdens het maken van deze workloads, zijn er enkele kenmerken van Azure Search moet rekening houden met:
+Tijdens het maken van deze test werkbelastingen zijn er enkele kenmerken van Azure Search die u moet onthouden:
 
-+ Het is mogelijk overbelasting van uw service door te veel zoekquery's in één keer te pushen. Als dit gebeurt, ziet u HTTP 503-responscodes. Om te voorkomen dat een 503 tijdens het testen, start u met verschillende bereiken van de search-aanvragen om te zien van de verschillen in latentie tarieven als u meer zoekaanvragen toevoegt.
++ Het is mogelijk om uw service te overbelasten door te veel zoek query's tegelijk te pushen. Als dit gebeurt, worden HTTP 503-antwoord codes weer geven. Als u een 503 tijdens het testen wilt voor komen, kunt u beginnen met verschillende bereiken van zoek opdrachten om de verschillen in latentie te zien wanneer u meer zoek aanvragen toevoegt.
 
-+ Azure Search indexeren taken niet op de achtergrond uitgevoerd. Als uw service worden verwerkt voor query's en workloads gelijktijdig indexering, rekening dit door de introductie van indexeringstaken in uw querytests, of door de opties voor het uitvoeren van indexeertaken laten tijdens drukke uren.
++ Met Azure Search worden index taken niet op de achtergrond uitgevoerd. Als uw service tegelijkertijd query's uitvoert en werk belastingen gelijktijdig indexeert, moet u rekening houden met het introduceren van index taken in uw query tests of door opties te verkennen voor het uitvoeren van index taken tijdens de piek uren.
 
 > [!NOTE]
-> [Belastingstests van Visual Studio](https://www.visualstudio.com/docs/test/performance-testing/run-performance-tests-app-before-release) is een goede manier om uit te voeren van uw benchmark test aangezien u HTTP-aanvragen uitvoeren kunt als nodig zou zijn voor het uitvoeren van query's voor Azure Search en kan parallellisering van aanvragen.
+> [Visual Studio load tests](https://www.visualstudio.com/docs/test/performance-testing/run-performance-tests-app-before-release) zijn een goede manier om uw benchmark tests uit te voeren, omdat u hiermee HTTP-aanvragen kunt uitvoeren, zoals u zou moeten doen om query's uit te voeren op Azure Search en parallel Lise ring van aanvragen mogelijk te maken.
 > 
 > 
 
-## <a name="scaling-for-high-query-volume-and-throttled-requests"></a>Schalen voor met hoog queryvolume en beperkte aanvragen
-Wanneer u te veel beperkte aanvragen worden ontvangen of groter zijn dan de tarieven van de latentie doel van een hogere querybelasting, kunt u bekijken om te verminderen latentie tarieven op twee manieren:
+## <a name="scaling-for-high-query-volume-and-throttled-requests"></a>Schalen voor hoog query volume en vertraagde aanvragen
+Wanneer u te veel vertraagde aanvragen ontvangt of als u de snelheid van de doel latentie overschrijdt van een verbeterde query belasting, kunt u de latentie snelheid op twee manieren verlagen:
 
-1. **Verhoging van de replica's:**  Een replica is vergelijkbaar met een kopie van uw gegevens toestaan van aanvragen verdelen over op basis van meerdere exemplaren van Azure Search.  Alle load balancing en replicatie van gegevens tussen de replica's wordt beheerd door Azure Search en kunt u het aantal replica's die zijn toegewezen voor uw service op elk gewenst moment wijzigen.  U kunt maximaal 12 replica's in een Standard-zoekservice en 3 replica's in een Basic-zoekservice toewijzen. Replica's kunnen worden aangepast via de [Azure-portal](search-create-service-portal.md) of [PowerShell](search-manage-powershell.md).
-2. **Search Tier verhogen:**  Azure Search is beschikbaar in een [aantal lagen](https://azure.microsoft.com/pricing/details/search/) en elk van deze lagen biedt verschillende prestatieniveaus.  In sommige gevallen mogelijk veel query's dat de laag die u voldoende lage latentie-tarieven, niet kan bieden, zelfs wanneer de replica's volledig worden benut uit. In dit geval kunt u overwegen gebruik te maken van een van de hogere lagen zoeken, zoals de Azure Search S3-laag is geschikt voor scenario's met grote aantallen documenten en zeer hoge querywerkbelastingen.
+1. **Replica's verg Roten:**  Een replica is een kopie van uw gegevens waarmee Azure Search Load Balancing-aanvragen voor de meerdere exemplaren.  Alle taak verdeling en replicatie van gegevens tussen replica's wordt beheerd door Azure Search en u kunt het aantal replica's dat voor uw service wordt toegewezen op elk gewenst moment wijzigen.  U kunt Maxi maal 12 replica's toewijzen in een Standard-zoek service en 3 replica's in een Basic Search-service. Replica's kunnen worden aangepast op basis van de [Azure Portal](search-create-service-portal.md) of [Power shell](search-manage-powershell.md).
+2. **Zoek niveau verhogen:**  Azure Search komt in een [aantal lagen](https://azure.microsoft.com/pricing/details/search/) voor en elk van deze lagen biedt verschillende prestatie niveaus.  In sommige gevallen hebt u mogelijk zoveel query's die de laag die u aanmeldt niet voldoende latentie kan bieden, zelfs wanneer er replica's benut uitvallen. In dit geval kunt u overwegen een van de hogere Zoek lagen te gebruiken, zoals de laag Azure Search S3, die geschikt is voor scenario's met een groot aantal documenten en extreem hoge query werkbelastingen.
 
-## <a name="scaling-for-slow-individual-queries"></a>Schaalbaarheid voor trage afzonderlijke query 's
-Een andere reden voor de hoge latentie is één query duurt te lang om te voltooien. In dit geval kunnen toevoegen van replica's niet. Twee opties mogelijke opties die kunnen helpen bij de volgende:
+## <a name="scaling-for-slow-individual-queries"></a>Verg Roten/verkleinen voor langzame afzonderlijke query's
+Een andere reden voor hoge latentie is dat een enkele query te lang duurt om te worden voltooid. In dit geval is het toevoegen van replica's geen uitkomst. Twee mogelijke opties die kunnen helpen bij het volgende:
 
-1. **Partities verhogen** een partitie is een mechanisme voor het splitsen van uw gegevens voor extra resources. Gegevens toevoegen van een tweede partitie worden gesplitst in twee, een derde partitie wordt dit gesplitst in drie, enzovoort. Een positief neveneffect is dat langzamer query's soms sneller vanwege parallelle berekeningen voeren. We hebben parallellisering op query's met lage selectiviteit, zoals query's die overeenkomen met veel documenten of facetten telt het aantal leveren via een groot aantal documenten die u hebt genoteerd. Sinds de aanzienlijke berekening is vereist om de relevantie van de documenten te beoordelen of te tellen van het aantal documenten, het toevoegen van extra partities kan query's sneller zijn voltooid.  
+1. **Partities verhogen** Een partitie is een mechanisme voor het splitsen van gegevens over extra resources. Wanneer u een tweede partitie toevoegt, worden gegevens gesplitst in twee, wordt deze door een derde partitie gesplitst in drie, enzovoort. Eén positieve neven effect is dat tragere query's soms sneller worden uitgevoerd als gevolg van parallelle computing. We hebben op parallel Lise ring genoteerd dat er weinig selectiviteit-query's zijn, zoals query's die overeenkomen met veel documenten, of facetten die aantallen bieden over een groot aantal documenten. Aangezien er een belang rijke berekening is vereist om de relevancy van de documenten te beoordelen, of om het aantal documenten te tellen, kunnen er met extra partities sneller query's worden uitgevoerd.  
    
-   Er zijn maximaal 12 partities in de Standard-zoekservice en 1 partitie in de basic search-service.  Partities kunnen worden aangepast via de [Azure-portal](search-create-service-portal.md) of [PowerShell](search-manage-powershell.md).
+   Er kunnen Maxi maal 12 partities in de Standard Search-service en 1 partitie in de Basic Search-service zijn.  Partities kunnen worden aangepast op basis van de [Azure Portal](search-create-service-portal.md) of [Power shell](search-manage-powershell.md).
 
-2. **Limiet hoge kardinaliteit velden:** Een hoge kardinaliteit veld bestaat uit een geschikt voor facetten of Filterbaar veld dat heeft een groot aantal unieke waarden, en als gevolg hiervan aanzienlijke resources verbruikt bij het berekenen van resultaten. Bijvoorbeeld, wordt instellen van een Product-ID of beschrijving van veld als geschikt voor facetten/Filterbaar gerekend als een hoge kardinaliteit omdat de meeste van de waarden uit het document naar document uniek zijn. Waar mogelijk, beperkt u het aantal hoge kardinaliteit velden.
+2. **Velden met hoge kardinaliteit beperken:** Een hoog veld voor kardinaliteit bestaat uit een facetbaar of filterbaar veld met een groot aantal unieke waarden. als gevolg hiervan worden aanzienlijke bronnen verbruikt bij het berekenen van resultaten. Zo kunt u bijvoorbeeld een product-ID of beschrijvings veld instellen als facetable/filterbaar als hoge kardinaliteit, omdat de meeste waarden van document naar document uniek zijn. Beperk waar mogelijk het aantal velden met hoge kardinaliteit.
 
-3. **Search Tier verhogen:**  Tot het verplaatsen van kan een hogere laag van Azure Search een andere manier om de prestaties van trage query's zijn. Elke hogere laag biedt snellere CPU's en meer geheugen, die beide een positieve invloed op prestaties van query's hebben.
+3. **Zoek niveau verhogen:**  Het verplaatsen naar een hogere Azure Search laag kan een andere manier zijn om de prestaties van trage query's te verbeteren. Elke hogere laag biedt snellere Cpu's en meer geheugen, beide met een positieve invloed op de prestaties van query's.
 
-## <a name="scaling-for-availability"></a>Schaalbaarheid voor beschikbaarheid
-Replica's niet alleen te verminderen latentie van query, maar kunnen ook de mogelijkheid om hoge beschikbaarheid. Met één replica, u kunt verwachten periodieke uitvaltijd vanwege de server opnieuw wordt opgestart nadat de software-updates of voor andere onderhoudsgebeurtenissen die wordt uitgevoerd.  Als gevolg hiervan is het belangrijk om te overwegen als uw toepassing is vereist voor hoge beschikbaarheid van zoekopdrachten (query's) en schrijfbewerkingen (indexering gebeurtenissen). Azure Search biedt een SLA-opties op de zoeken in betaalde aanbiedingen met de volgende kenmerken:
+## <a name="scaling-for-availability"></a>Schalen voor Beschik baarheid
+Replica's helpen niet alleen de latentie van query's te beperken, maar kunnen ook hoge Beschik baarheid toestaan. Met één replica moet u een periodieke downtime verwachten omdat de server opnieuw wordt opgestart na software-updates of voor andere onderhouds gebeurtenissen die optreden.  Daarom is het belang rijk om te overwegen of uw toepassing hoge Beschik baarheid van zoek opdrachten (query's) vereist en schrijf bewerkingen (indexerings gebeurtenissen). Azure Search bieden SLA-opties voor alle betaalde zoek aanbiedingen met de volgende kenmerken:
 
-* 2 replica's voor hoge beschikbaarheid van workloads voor alleen-lezen (query's)
-* 3 of meer replica's voor hoge beschikbaarheid van lezen / schrijven-workloads (query's en indexeren)
+* 2 replica's voor hoge Beschik baarheid van alleen-lezen workloads (query's)
+* 3 of meer replica's voor hoge Beschik baarheid van werk belastingen met lees bewerkingen (query's en indexering)
 
-Ga voor meer informatie over dit naar de [Azure Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+Ga voor meer informatie naar de [Azure Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-Omdat de replica's zijn kopieën van uw gegevens, kan met meerdere replica's Azure Search opnieuw wordt opgestart en onderhoud op basis van een van de replica uitvoeren voor machine terwijl de uitvoering van de query om door te gaan op andere replica's. Daarentegen als u replica's opgeslagen, u zult in rekening worden gebracht query prestatievermindering, ervan uitgaande dat deze replica's zijn een resource benut.
+Omdat replica's kopieën zijn van uw gegevens, kunnen met meerdere replica's Azure Search het opnieuw opstarten van de computer en het onderhoud van de ene replica, terwijl het uitvoeren van query's kan worden voortgezet op andere replica's. Als u replica's hebt verwijderd, kunt u de prestaties van de query afnemen, ervan uitgaande dat deze replica's een minder gebruikte bron zijn.
 
-## <a name="scaling-for-geo-distributed-workloads-and-geo-redundancy"></a>Schalen voor geografisch gedistribueerde werkbelastingen en geografische redundantie
-Gebruikers die zich ver van het datacenter die als host fungeert voor Azure Search ligt hebben hogere latentie tarieven voor geografisch gedistribueerde werkbelastingen. Een beperking is voor het inrichten van meerdere search-services in de regio's met dichter bij de aan deze gebruikers. Azure Search biedt momenteel geen een geautomatiseerde methode om Azure Search-index geo-replicatie tussen regio's, maar er zijn bepaalde technieken die kunnen worden gebruikt om dit proces eenvoudig te implementeren en beheren. Deze worden beschreven in de volgende gedeelten.
+## <a name="scaling-for-geo-distributed-workloads-and-geo-redundancy"></a>Schalen voor geografisch gedistribueerde workloads en geo-redundantie
+Voor geografisch gedistribueerde workloads hebben gebruikers die zich ver van het Data Center-Hosting Azure Search, een hogere latentie snelheid. Een beperking is het inrichten van meerdere zoek services in regio's met dichter nabijheid voor deze gebruikers. Azure Search biedt momenteel geen automatische methode voor geo-replicatie Azure Search indexen in verschillende regio's, maar er zijn enkele technieken die kunnen worden gebruikt om dit proces eenvoudig te implementeren en te beheren. Deze worden in de volgende paar secties beschreven.
 
-Het doel van een geografisch gedistribueerde set search-services is dat twee of meer indexen beschikbaar in twee of meer regio's waar een gebruiker wordt doorgestuurd naar de Azure Search-service met de laagste latentie zoals te zien is in dit voorbeeld:
+Het doel van een geografisch gedistribueerde set Zoek Services is om twee of meer indexen beschikbaar te hebben in twee of meer regio's waar een gebruiker wordt doorgestuurd naar de Azure Search-service die de laagste latentie levert, zoals in dit voor beeld wordt weer gegeven:
 
-   ![Cross-tabblad van services per regio][1]
+   ![Meerdere tabbladen van services per regio][1]
 
-### <a name="keeping-data-in-sync-across-multiple-azure-search-services"></a>Gegevens synchroon houden over meerdere Azure Search-services
-Er zijn twee opties voor het beveiligen van uw gedistribueerde zoekservices gesynchroniseerd die bestaan uit het mogelijk maken via de [Azure Search-indexeerfunctie](search-indexer-overview.md) of de Push-API (ook wel de [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)).  
+### <a name="keeping-data-in-sync-across-multiple-azure-search-services"></a>Gegevens synchroon houden over meerdere Azure Search Services
+Er zijn twee opties voor het bijhouden van uw gedistribueerde zoek services die bestaan uit het gebruik van de [Azure Search indexer](search-indexer-overview.md) of de Push-API (ook wel de [Azure Search rest API](https://docs.microsoft.com/rest/api/searchservice/)genoemd).  
 
-### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Indexeerfuncties gebruiken voor het bijwerken van inhoud op meerdere services
+### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Indexeer functies gebruiken voor het bijwerken van inhoud op meerdere services
 
-Als u al indexeerfunctie op één service gebruikt, kunt u een tweede indexeerfunctie configureren op een tweede service voor het gebruik van dezelfde gegevensbronobject binnenhalen van gegevens vanaf dezelfde locatie is. Elke service in elke regio heeft een eigen indexeerfunctie en een doelindex (uw search-index wordt niet gedeeld, wat betekent dat gegevens worden gedupliceerd), maar elke indexeerfunctie verwijst naar dezelfde gegevensbron.
+Als u Indexeer functie al gebruikt voor één service, kunt u een tweede Indexeer functie configureren voor een tweede service om hetzelfde gegevens bron object te gebruiken en gegevens uit dezelfde locatie op te halen. Elke service in elke regio heeft een eigen Indexeer functie en een doel index (uw zoek index wordt niet gedeeld, wat betekent dat de gegevens worden gedupliceerd), maar elke Indexeer functie verwijst naar dezelfde gegevens bron.
 
-Hier volgt een visual op hoog niveau van wat die architectuur eruit zou zien.
+Hier volgt een globaal visueel element van wat die architectuur eruit zou zien.
 
-   ![Één gegevensbron met gedistribueerde indexeerfunctie en combinaties van service][2]
+   ![Eén gegevens bron met combi Naties van gedistribueerde Indexeer functies en services][2]
 
-### <a name="use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>REST-API's gebruiken voor het pushen van updates van inhoud op meerdere services
-Als u de Azure Search REST-API voor [inhoud in uw Azure Search-index pushen](https://docs.microsoft.com/rest/api/searchservice/update-index), kunt u uw verschillende zoekservices gesynchroniseerd door wijzigingen aan alle zoekservices pushen wanneer een update vereist is. In uw code ervoor zorgen om af te handelen wanneer een update aan voor een search-service is mislukt, maar andere zoekservices is mislukt.
+### <a name="use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>REST-Api's gebruiken voor het pushen van inhouds updates op meerdere services
+Als u de Azure Search-REST API gebruikt om [inhoud in uw Azure search index](https://docs.microsoft.com/rest/api/searchservice/update-index)te pushen, kunt u uw verschillende Zoek Services synchroon laten door wijzigingen in alle zoek services te pushen wanneer een update is vereist. Zorg ervoor dat u in uw code cases afhandelt waarbij een update naar één zoek service mislukt, maar slaagt voor andere zoek services.
 
-## <a name="leverage-azure-traffic-manager"></a>Maak gebruik van Azure Traffic Manager
-[Met Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) kunt u routeren van aanvragen naar meerdere geo zich websites die vervolgens worden ondersteund door meerdere Azure Search-Services. Eén voordeel van het Traffic Manager is dat het Azure Search om ervoor te zorgen dat deze beschikbaar is en gebruikers te routeren naar alternatieve search-services in het geval van downtime kunt testen. Bovendien, als u zoekaanvragen via Azure Web Sites zijn routering, Azure Traffic Manager kunt u saldo gevallen waarin de Website is geladen, maar niet Azure Search. Hier volgt een voorbeeld van wat de architectuur die gebruikmaakt van Traffic Manager.
+## <a name="leverage-azure-traffic-manager"></a>Gebruik Azure Traffic Manager
+Met [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) kunt u aanvragen routeren naar meerdere websites met geografische locaties die vervolgens worden ondersteund door meerdere Azure Search Services. Een voor deel van het Traffic Manager is dat het Azure Search kan testen om er zeker van te zijn dat het beschikbaar is en gebruikers kan omleiden naar alternatieve Zoek Services in het geval van uitval tijd. Daarnaast kunt u, als u Search-aanvragen begeleidt via Azure-websites, in azure Traffic Manager taken verdelen waarbij de website niet Azure Search. Hier volgt een voor beeld van de architectuur die gebruikmaakt van Traffic Manager.
 
-   ![Cross-tabblad van services per regio, met centrale Traffic Manager][3]
+   ![Meerdere tabbladen van services per regio, met centrale Traffic Manager][3]
 
 ## <a name="monitor-performance"></a>Prestaties bewaken
-Azure Search biedt de mogelijkheid om te analyseren en controleren van de prestaties van uw service via [zoekverkeer](search-traffic-analytics.md). Wanneer u deze functie inschakelen en instrumentatie kunt aan uw client-app toevoegen, kunt u eventueel de afzonderlijke bewerkingen, evenals de samengevoegde metrische gegevens zich op een Azure Storage-account dat vervolgens kan worden verwerkt voor analyse of gevisualiseerd in Power BI. Metrische gegevens van schermopnamen worden op deze manier bieden prestatiestatistieken, zoals het gemiddelde aantal query's of de reactietijden van de query. Bovendien kunt de logboekregistratie van bewerkingen u inzoomen op gegevens van specifieke zoekopdrachten.
+Azure Search biedt de mogelijkheid om de prestaties van uw service te analyseren en te controleren met behulp van de analyse van het [gegevens verkeer](search-traffic-analytics.md). Wanneer u deze functie inschakelt en instrumentatie toevoegt aan uw client-app, kunt u eventueel de afzonderlijke Zoek bewerkingen registreren, evenals geaggregeerde metrische gegevens voor een Azure Storage-account dat vervolgens kan worden verwerkt voor analyse of visualisatie in Power BI. Met metrische gegevens kunt u op deze manier prestatie statistieken opgeven, zoals het gemiddelde aantal query's of de reactie tijden van query's. Daarnaast kunt u met de bewerking logboek registratie Details van specifieke zoek bewerkingen inzoomen.
 
-Traffic analytics is handig om te begrijpen latentie tarief met ingang van die Azure Search-perspectief. Omdat de prestatiegegevens van de query geregistreerd zijn gebaseerd op de tijd voor een query volledig in Azure Search worden verwerkt (vanaf het moment dat deze wordt aangevraagd wanneer deze wordt verzonden), zijn u kunt dit gebruiken om te bepalen of latentieproblemen met van de kant van Azure Search-service of time-outs IDE van de service, zoals netwerklatentie.  
+Traffic Analytics is handig om inzicht te krijgen in latentie tarieven van die Azure Search perspectief. Omdat de metrische gegevens van de query prestaties zijn geregistreerd op basis van het moment dat een query volledig wordt verwerkt in Azure Search (vanaf het moment dat deze wordt aangevraagd wanneer deze wordt verzonden), kunt u deze gebruiken om te bepalen of er latentie problemen zijn van de Azure Search aan de service zijde of het wegvallen IDE van de service, bijvoorbeeld van netwerk latentie.  
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over de prijzen-lagen en services beperkingen voor elk adres, [Servicelimieten in Azure Search](search-limits-quotas-capacity.md).
+Zie [service limieten in azure Search](search-limits-quotas-capacity.md)voor meer informatie over de prijs categorieën en de limieten voor services voor elk van deze.
 
-Ga naar [capaciteitsplanning](search-capacity-planning.md) voor meer informatie over combinaties van partitie en de replica.
+Bezoek [capaciteits planning](search-capacity-planning.md) voor meer informatie over combi Naties van partities en replica's.
 
-Bekijk de volgende video voor meer Inzoomen op de prestaties en ziet u enkele demonstraties van het implementeren van de optimalisaties die in dit artikel worden besproken:
+Bekijk de volgende video voor meer informatie over de prestaties en voor een aantal demonstraties van het implementeren van de optimalisaties die in dit artikel worden besproken:
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
 > 

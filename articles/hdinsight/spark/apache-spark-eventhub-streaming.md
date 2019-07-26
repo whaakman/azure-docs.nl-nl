@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: e121568ce4841e884dddc7c5adff89830a883e93
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: fef551c254eb4fa212333a55bde3d642645a16b6
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377464"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489812"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Zelfstudie: Tweets verwerken met Azure Event Hubs en Apache Spark in HDInsight
 
@@ -44,11 +44,11 @@ Als u een stream van tweets wilt ontvangen, maakt u een toepassing in Twitter. V
 
 1. Geef de volgende waarden op:
 
-    |Eigenschap |Waarde |
+    |Eigenschap |Value |
     |---|---|
     |Name|Geef de naam van de toepassing op. De waarde die voor deze zelf studie wordt gebruikt, is **HDISparkStreamApp0423**. Deze naam moet een unieke naam zijn.|
     |Description|Geef een korte beschrijving van de toepassing op. De waarde die voor deze zelf studie wordt gebruikt, is **een eenvoudige HDInsight Spark-streaming-toepassing**.|
-    |Website|Geef de website van de toepassing op. Het hoeft geen geldige website te zijn.  De waarde die wordt gebruikt voor deze zelf studie is **http:\//www.contoso.com**.|
+    |Website|Geef de website van de toepassing op. Het hoeft geen geldige website te zijn.  De waarde die wordt gebruikt voor deze `http://www.contoso.com`zelf studie is.|
     |URL voor terugbellen|U kunt het leeg laten.|
 
 1. Selecteer **Ja, ik heb de Twitter-ontwikkelaars overeenkomst gelezen en ga hiermee akkoord**en selecteer vervolgens **uw Twitter-toepassing maken**.
@@ -80,7 +80,7 @@ U gebruikt deze Event Hub om tweets op te slaan.
 
 5. Voer de volgende waarden in voor de nieuwe Event Hubs naam ruimte:
 
-    |Eigenschap |Waarde |
+    |Eigenschap |Value |
     |---|---|
     |Name|Voer een naam in voor de Event Hub.  De waarde die voor deze zelf studie wordt gebruikt, is **myeventhubns20180403**.|
     |Prijscategorie|selecteer **Standaard**.|

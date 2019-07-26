@@ -1,6 +1,6 @@
 ---
-title: Serverloze scenario - customer insights dashboard maken met de Azure-services | Microsoft Docs
-description: Beheren van feedback van klanten, sociale media-gegevens en meer met het bouwen van een klant-dashboard met Azure Logic Apps en Azure Functions
+title: Serverloze scenario-het dash board klanten inzichten maken met Azure-Services | Microsoft Docs
+description: Het beheren van feedback van klanten, gegevens van sociale media en meer door het maken van een dash board van klanten met Azure Logic Apps en Azure Functions
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,109 +10,109 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 29d56e64f118fe36fb4905dca20d9fba2f210665
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 6f0176253d0f1953e9c779a317cfe7bf453acb8f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295911"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385445"
 ---
-# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Streaming customer insights-dashboard maken met Azure Logic Apps en Azure Functions
+# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Het streaming-dash board voor klanten inzichten maken met Azure Logic Apps en Azure Functions
 
-Azure biedt [serverloze](https://azure.microsoft.com/solutions/serverless/) hulpprogramma's waarmee u snel apps bouwen en hosten in de cloud, zonder dat om na te denken over de infrastructuur. In deze zelfstudie, kunt u een dashboard dat wordt geactiveerd op feedback van klanten, analyseert feedback met machine learning en inzichten publiceert naar een bron, zoals Power BI of Azure Data Lake.
+Azure biedt [serverloze](https://azure.microsoft.com/solutions/serverless/) hulpprogram ma's waarmee u snel apps kunt bouwen en hosten in de Cloud, zonder dat u rekening moet houden met de infra structuur. In deze zelf studie kunt u een dash board maken dat de feedback van klanten activeert, de feedback met machine learning analyseert en inzichten publiceert naar een bron, zoals Power BI of Azure Data Lake.
 
-Voor deze oplossing kunt u deze belangrijke Azure-onderdelen voor serverloze apps gebruiken: [Azure Functions](https://azure.microsoft.com/services/functions/) en [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
-Met Azure Logic Apps biedt een engine voor serverloze werkstromen in de cloud, zodat u kunt maken van indelingen voor serverloze onderdelen en verbinding met meer dan 200 services en API's maken. Azure Functions biedt serverloze computing in de cloud. Deze oplossing maakt gebruik van Azure Functions voor het markeren van de klant tweets op basis van vooraf gedefinieerde trefwoorden.
+Voor deze oplossing gebruikt u de volgende belang rijke Azure-onderdelen voor serverloze apps: [Azure functions](https://azure.microsoft.com/services/functions/) en [Azure Logic apps](https://azure.microsoft.com/services/logic-apps/).
+Azure Logic Apps biedt een serverloze werk stroom-engine in de Cloud, zodat u met serverloze onderdelen kunt maken en verbinding met de services en Api's van 200 en de API. Azure Functions biedt serverloze computers in de Cloud. Deze oplossing maakt gebruik van Azure Functions voor het markeren van klant tweets op basis van vooraf gedefinieerde tref woorden.
 
-In dit scenario maakt u een logische app die wordt geactiveerd op het vinden van feedback van klanten. Sommige connectors dat help u reageren op feedback van klanten zijn onder andere Outlook.com, Office 365, enquête Monkey, Twitter, en een [HTTP-aanvraag van een webformulier](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). De werkstroom die u maakt bewaakt een hashtag op Twitter.
+In dit scenario maakt u een logische app die activeert om feedback van klanten te vinden. Voor sommige connectors kunt u reageren op feedback van klanten, waaronder Outlook.com, Office 365, Survey aap, Twitter en een [HTTP-aanvraag van een webformulier](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). De werk stroom die u maakt, bewaakt een hashtag op Twitter.
 
-U kunt [bouwen van de gehele oplossing in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) en [implementeren van de oplossing met Azure Resource Manager-sjabloon](../logic-apps/logic-apps-create-deploy-template.md). Voor een video-overzicht waarin wordt getoond hoe u deze oplossing maakt [Bekijk deze video voor Channel 9](https://aka.ms/logicappsdemo). 
+U kunt [de volledige oplossing in Visual Studio bouwen](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) en [de oplossing implementeren met Azure Resource Manager sjabloon](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). [Bekijk deze Channel 9-video](https://aka.ms/logicappsdemo)voor een video-overzicht waarin wordt getoond hoe u deze oplossing maakt. 
 
-## <a name="trigger-on-customer-data"></a>Activeren op gegevens van de klant
+## <a name="trigger-on-customer-data"></a>Activeren op klant gegevens
 
-1. In de Azure portal of Visual Studio, een lege logische app te maken. 
+1. Maak in de Azure Portal of Visual Studio een lege logische app. 
 
-   Als u geen ervaring met logische apps, raadpleegt u de [Quick Start voor de Azure-portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) of de [Quick Start voor Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+   Als u geen ervaring hebt met Logic apps, raadpleegt u de [Snelstartgids voor de Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) of de [Snelstartgids voor Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-2. Zoek in Logic App Designer en de Twitter-trigger met deze actie toevoegen: **Wanneer er een nieuwe tweet wordt geplaatst**
+2. In de ontwerp functie voor logische apps zoekt en voegt u de Twitter-trigger toe die deze actie heeft: **Wanneer een nieuwe tweet wordt geplaatst**
 
-3. De trigger instellen om te luisteren naar tweets op basis van een sleutelwoord of hashtag.
+3. Stel de trigger in om te Luis teren naar tweets op basis van een sleutel woord of hashtag.
 
-   Op triggers op basis van een polling, zoals de Twitter-trigger, bepaalt de eigenschap recurrence hoe vaak de logische app nieuwe items controleert.
+   Op polling gebaseerde triggers, zoals de Twitter-trigger, bepaalt de eigenschap Recurrence hoe vaak de logische app op nieuwe items controleert.
 
-   ![Voorbeeld van de Twitter-trigger][1]
+   ![Voor beeld van Twitter-trigger][1]
 
-Deze logische app wordt nu geactiveerd op alle nieuwe tweets. Vervolgens kunt u ondernemen en analyseren van de tweet-gegevens, zodat u beter in de sentimenten uitgedrukt inzicht. 
+Deze logische app wordt nu geactiveerd op alle nieuwe tweets. U kunt vervolgens de Tweet-gegevens nemen en analyseren, zodat u beter inzicht krijgt in de gevoel die worden weer gegeven. 
 
-## <a name="analyze-tweet-text"></a>Tekst van de tweet analyseren
+## <a name="analyze-tweet-text"></a>Tweet tekst analyseren
 
-U kunt gebruiken voor het detecteren van het sentiment achter tekst [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
+Als u de sentiment achter een bepaalde tekst wilt detecteren, kunt u [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)gebruiken.
 
-1. In Logic App Designer, onder de trigger kiezen **nieuwe stap**.
+1. Kies in Logic app Designer onder de trigger **nieuwe stap**.
 
-2. Zoek de **Tekstanalyse** connector.
+2. Zoek de **Text Analytics** -connector.
 
-3. Selecteer de **gevoel detecteren** actie.
+3. Selecteer de actie **sentiment detecteren** .
 
-4. Als u hierom wordt gevraagd, geeft u een geldige Cognitive Services-sleutel voor de Text Analytics-service.
+4. Als u hierom wordt gevraagd, geeft u een geldige Cognitive Services sleutel op voor de Text Analytics-service.
 
-5. Onder **aanvraagtekst**, selecteer de **Tweettekst** veld, waarmee de tekst van de tweet als invoer voor analyse.
+5. Selecteer onder **hoofd tekst van aanvraag**het **tekst veld Tweet** , waarmee de Tweet-tekst als invoer voor analyse wordt verstrekt.
 
-Nadat u de gegevens van de tweet en inzichten over de tweet ontvangen, kunt u nu verschillende andere relevante connectors en de bijbehorende acties gebruiken:
+Nadat u de Tweet-gegevens en inzichten over de Tweet hebt opgehaald, kunt u nu verschillende andere relevante connectors en de bijbehorende acties gebruiken:
 
-* **Power BI - rijen toevoegen aan de Streaminggegevensset**: Binnenkomende tweets in een Power BI-dashboard weergeven.
-* **Azure Data Lake - toevoegen aan het bestand**: Gegevens van de klant toevoegen aan een Azure Data Lake-gegevensset om op te nemen in analytics-taken.
-* **SQL - rijen toevoegen**: Gegevens in een database voor het ophalen van hoger Store.
-* **Slack - bericht verzenden**: Een Slack-kanaal over negatieve feedback die wellicht actie is vereist op de hoogte stellen.
+* **Power bi-rijen toevoegen aan streaming gegevensset**: Inkomende Tweets weer geven op een Power BI-dash board.
+* **Azure data Lake-bestand toevoegen**: Voeg klant gegevens toe aan een Azure Data Lake gegevensset die in analyse taken moet worden meegenomen.
+* **SQL-rijen toevoegen**: Sla gegevens op in een Data Base om deze later op te halen.
+* **Toegestane vertraging-bericht verzenden**: Een vertragings kanaal op de hoogte stellen over negatieve feedback die mogelijk actie vereist.
 
-U kunt ook maken en een Azure-functie zodat u kunt aangepaste verwerking uitvoeren op uw gegevens. 
+U kunt ook een Azure-functie maken, zodat u aangepaste verwerking voor uw gegevens kunt uitvoeren. 
 
 ## <a name="process-data-with-azure-functions"></a>Gegevens verwerken met Azure Functions
 
-Voordat u een functie maakt, moet u een functie-app maken in uw Azure-abonnement. Ook voor uw logische app voor het rechtstreeks aanroepen van een functie, de functie moet beschikken over een HTTP-binding, bijvoorbeeld activeren, gebruikt u de **HttpTrigger** sjabloon. Informatie over [over het maken van uw eerste functie-app en de functie in Azure portal](../azure-functions/functions-create-first-azure-function-azure-portal.md).
+Voordat u een functie maakt, maakt u een functie-app in uw Azure-abonnement. Voor uw logische app is het ook mogelijk om een functie rechtstreeks aan te roepen, de functie moet een binding met een HTTP-trigger hebben, bijvoorbeeld de **http trigger** -sjabloon. Meer informatie [over het maken van uw eerste functie-app en functie in de Azure Portal](../azure-functions/functions-create-first-azure-function-azure-portal.md).
 
-Voor dit scenario gebruikt u de tekst van de tweet als hoofdtekst van de aanvraag voor uw Azure-functie. In uw functiecode aan te geven, definieert u de logica waarmee wordt bepaald of de tekst van de tweet een sleutelwoord of woordgroep bevat. Houd de functie als eenvoudig of complex zijn als nodig is voor het scenario.
-Aan het einde van de functie, een antwoord aan de logische app met gegevens, bijvoorbeeld, een eenvoudige Booleaanse waarde, zoals `containsKeyword` of een complex object.
+Voor dit scenario gebruikt u de Tweet-tekst als de aanvraag tekst voor uw Azure-functie. Definieer in uw functie code de logica die bepaalt of de Tweet-tekst een sleutel woord of een woord groep bevat. Zorg ervoor dat de functie zo eenvoudig of complex is als nodig is voor het scenario.
+Aan het einde van de functie retourneert een antwoord op de logische app met enkele gegevens, bijvoorbeeld een eenvoudige Booleaanse waarde, zoals `containsKeyword` of een complex object.
 
 > [!TIP]
-> Voor toegang tot een complexe antwoord van een functie in een logische app, gebruikt de **JSON parseren** actie.
+> Gebruik de actie **JSON parseren** om toegang te krijgen tot een complexe reactie van een functie in een logische app.
 
-Wanneer u klaar bent, sla de functie en voeg vervolgens de functie als een actie in de logische app die u bouwt.
+Wanneer u klaar bent, slaat u de functie op en voegt u de functie toe als een actie in de logische app die u ontwikkelt.
 
-## <a name="add-azure-function-to-logic-app"></a>Azure-functie toevoegen aan de logische app
+## <a name="add-azure-function-to-logic-app"></a>Azure function toevoegen aan de logische app
 
-1. In Logic App Designer, onder de **gevoel detecteren** actie, kiest u **nieuwe stap**.
+1. Kies in Logic app Designer de optie **nieuwe stap**onder de actie **sentiment detecteren** .
 
-2. Zoek de **Azure Functions** connector en selecteer vervolgens de functie die u hebt gemaakt.
+2. Zoek de **Azure functions** -connector en selecteer vervolgens de functie die u hebt gemaakt.
 
-3. Onder **aanvraagtekst**, selecteer **Tweettekst**.
+3. Onder **aanvraag tekst**selecteert u **Tweet tekst**.
 
-![Geconfigureerde Azure-functie stap][2]
+![Azure-functie stap is geconfigureerd][2]
 
-## <a name="run-and-monitor-your-logic-app"></a>Uitvoeren en controleren van uw logische app
+## <a name="run-and-monitor-your-logic-app"></a>Uw logische app uitvoeren en controleren
 
-Als u wilt controleren elke huidige of de vorige uitvoeringen voor uw logische app, kunt u de uitgebreide foutopsporing en bewakingsmogelijkheden met Azure Logic Apps in Azure portal, Visual Studio, of via de Azure REST API's en SDK's.
+Als u de huidige of vorige uitvoeringen voor uw logische app wilt controleren, kunt u de geavanceerde functies voor fout opsporing en controle gebruiken die Azure Logic Apps biedt in de Azure Portal, Visual Studio of via de REST Api's en Sdk's van Azure.
 
-Als u wilt testen eenvoudig uw logische app, in Logic App Designer, kies **Trigger uitvoeren**. De trigger peilt tweets op basis van de opgegeven planning totdat er een tweet die voldoet aan uw criteria wordt gevonden. Tijdens de voortgang van de run toont de ontwerpfunctie voor een live weergave voor die run.
+Als u uw logische app eenvoudig wilt testen, kiest u in Logic app Designer de optie **trigger uitvoeren**. De trigger vraagt om tweets op basis van uw opgegeven planning tot een tweet die voldoet aan uw criteria is gevonden. Tijdens de uitvoering wordt de ontwerp functie weer gegeven in een live weer gave voor die uitvoering.
 
-Naar de vorige weergave uitvoeringsgeschiedenis in Visual Studio of de Azure-portal: 
+U kunt als volgt eerdere run-runs bekijken in Visual Studio of de Azure Portal: 
 
-* Open Visual Studio Cloud Explorer. Uw logische app zoeken, opent u het snelmenu van de app. Selecteer **Open uitvoeringsgeschiedenis**.
+* Open Visual Studio Cloud Explorer. Zoek uw logische app, open het snelmenu van de app. Selecteer **Open run-geschiedenis**.
 
   > [!TIP]
-  > Als u deze opdracht geen in Visual Studio 2019, Controleer of de meest recente updates voor Visual Studio.
+  > Als u deze opdracht niet in Visual Studio 2019 hebt, controleert u of u de meest recente updates voor Visual Studio hebt.
 
-* In de Azure-portal zoeken uw logische app. Kies in het menu van uw logische app **overzicht**. 
+* Zoek in de Azure Portal uw logische app. Kies **overzicht**in het menu van de logische app. 
 
 ## <a name="create-automated-deployment-templates"></a>Sjablonen voor automatische implementatie maken
 
-Nadat u de oplossing van een logische app maakt, u kunt vastleggen en implementeren van uw app als een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-overview.md#template-deployment) aan andere Azure-regio's in de hele wereld. U kunt deze mogelijkheid om te wijzigen van parameters voor het maken van verschillende versies van uw app en voor het integreren van uw oplossing in Azure-pijplijnen. U kunt ook Azure Functions opnemen in uw sjabloon voor de implementatie, zodat u de gehele oplossing met alle afhankelijkheden als één enkele sjabloon kunt beheren. Informatie over [over het maken van logische app implementatiesjablonen](../logic-apps/logic-apps-create-deploy-template.md).
+Nadat u een logische app-oplossing hebt gemaakt, kunt u uw app vastleggen en implementeren als [Azure Resource Manager sjabloon](../azure-resource-manager/resource-group-overview.md#template-deployment) voor elke Azure-regio in de wereld. U kunt deze mogelijkheid gebruiken om para meters te wijzigen voor het maken van verschillende versies van uw app en voor het integreren van uw oplossing in azure-pijp lijnen. U kunt ook Azure Functions in uw implementatie sjabloon toevoegen, zodat u de volledige oplossing met alle afhankelijkheden als één sjabloon kunt beheren. Meer informatie over het automatiseren van de [implementatie van logische apps](logic-apps-azure-resource-manager-templates-overview.md).
 
-Voor een voorbeeld-implementatiesjabloon met een Azure-functie, Controleer de [opslagplaats voor Azure quickstart-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
+Voor een voorbeeld implementatie sjabloon met een Azure-functie raadpleegt u de [opslag plaats van de Azure Quick](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic)start-sjabloon.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Andere voorbeelden en scenario's voor Azure Logic Apps vinden](logic-apps-examples-and-scenarios.md)
+* [Andere voor beelden en scenario's voor Azure Logic Apps zoeken](logic-apps-examples-and-scenarios.md)
 
 <!-- Image References -->
 [1]: ./media/logic-apps-scenario-social-serverless/twitter.png

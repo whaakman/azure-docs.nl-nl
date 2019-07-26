@@ -1,124 +1,124 @@
 ---
-title: Actiegroepen in Azure portal maken en beheren
-description: Informatie over het maken en beheren van actiegroepen in Azure portal.
+title: Actie groepen maken en beheren in de Azure Portal
+description: Meer informatie over het maken en beheren van actie groepen in de Azure Portal.
 author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/08/2019
+ms.date: 7/22/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 842965aa49ae4cd546fe9c107107d2a2ceebebbb
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 52d7b84fe6210d8a4d46814ad6749bed0463478e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705261"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405646"
 ---
-# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in Azure portal maken en beheren
-Een actiegroep is een verzameling van voorkeuren voor meldingen gedefinieerd door de eigenaar van een Azure-abonnement. Waarschuwingen van Azure Monitor en de servicestatus actiegroepen gebruiken om gebruikers te waarschuwen dat een waarschuwing is geactiveerd. Verschillende waarschuwingen kunnen gebruiken voor de actiegroep dezelfde of verschillende actiegroepen, afhankelijk van de vereisten van de gebruiker. U kunt maximaal 2.000 actiegroepen configureren in een abonnement.
+# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actie groepen maken en beheren in de Azure Portal
+Een actie groep is een verzameling voor keuren voor meldingen die zijn gedefinieerd door de eigenaar van een Azure-abonnement. Azure Monitor-en Service Health-waarschuwingen gebruiken actie groepen om gebruikers te laten weten dat een waarschuwing is geactiveerd. Verschillende waarschuwingen kunnen dezelfde actie groep of verschillende actie groepen gebruiken, afhankelijk van de vereisten van de gebruiker. U kunt Maxi maal 2.000 actie groepen in een abonnement configureren.
 
-U configureren een actie om de hoogte van een persoon via e-mail of SMS, ontvangen ze een bevestiging die aangeeft dat ze zijn toegevoegd aan de actiegroep te.
+U configureert een actie om een persoon op de hoogte te stellen per e-mail of SMS, waarna een bevestiging wordt gegeven dat de gebruiker aan de actie groep is toegevoegd.
 
-In dit artikel wordt beschreven hoe u maken en beheren van actiegroepen in Azure portal.
+In dit artikel wordt beschreven hoe u actie groepen maakt en beheert in de Azure Portal.
 
 Elke actie bestaat uit de volgende eigenschappen:
 
-* **Naam**: Een unieke id binnen de actiegroep.  
-* **Actietype**: De actie uitgevoerd. Voorbeelden zijn onder meer het verzenden van een stem oproep, SMS, e-mail; of verschillende soorten acties die automatisch wordt geactiveerd. Zie typen verderop in dit artikel.
-* **Details**: De bijbehorende details die per variëren *actietype*.
+* **Naam**: Een unieke id in de actie groep.  
+* **Actie type**: De uitgevoerde actie. Voor beelden hiervan zijn het verzenden van een spraak oproep, SMS, e-mail; of het activeren van verschillende typen geautomatiseerde acties. Zie typen verderop in dit artikel.
+* **Details**: De bijbehorende details die per *actie type*verschillen.
 
-Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen configureren actiegroepen [actie groep Resource Manager-sjablonen](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Zie voor meer informatie over het gebruik van Azure Resource Manager sjablonen voor het configureren van actie groepen de [actie groep Resource Manager-sjablonen](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-## <a name="create-an-action-group-by-using-the-azure-portal"></a>Een actiegroep maken met behulp van de Azure-portal
+## <a name="create-an-action-group-by-using-the-azure-portal"></a>Een actie groep maken met behulp van de Azure Portal
 
-1. In de [Azure-portal](https://portal.azure.com), selecteer **Monitor**. De **Monitor** deelvenster consolideert alle controle-instellingen en gegevens in één weergave.
+1. Selecteer in de [Azure Portal](https://portal.azure.com) **monitor**. In het deel venster **monitor** worden al uw bewakings instellingen en-gegevens in één weer gave geconsolideerd.
 
-    ![De service 'Controleren'](./media/action-groups/home-monitor.png)
+    ![De monitor-service](./media/action-groups/home-monitor.png)
     
-1. Selecteer **waarschuwingen** Selecteer **acties beheren**.
+1. Selecteer **waarschuwingen** en selecteer vervolgens **acties beheren**.
 
     ![Knop acties beheren](./media/action-groups/manage-action-groups.png)
     
-1. Selecteer **actiegroep toevoegen**, en vul de velden in.
+1. Selecteer **actie groep toevoegen**en vul de velden in.
 
-    ![De opdracht 'Actiegroep toevoegen'](./media/action-groups/add-action-group.png)
+    ![De opdracht ' actie groep toevoegen '](./media/action-groups/add-action-group.png)
     
-1. Voer een naam in de **naam van de actiegroep** vak en voer een naam in de **afkorting** vak. De korte naam wordt gebruikt in plaats van een volledige naam van de actiegroep als er meldingen via deze groep worden verzonden.
+1. Voer een naam in het vak Naam van de **actie groep** in en voer een naam in het vak **korte naam** in. De korte naam wordt gebruikt in plaats van een volledige naam van de actiegroep als er meldingen via deze groep worden verzonden.
 
-      ![In het dialoogvenster van de actiegroep toevoegen'](./media/action-groups/action-group-define.png)
+      ![Het dialoog venster actie groep toevoegen](./media/action-groups/action-group-define.png)
 
-1. De **abonnement** vak autofills met uw huidige abonnement. Dit abonnement is de waarin de actiegroep is opgeslagen.
+1. Het vak **abonnement** wordt aangevuld met uw huidige abonnement. Dit is de naam van het abonnement waarin de actie groep wordt opgeslagen.
 
-1. Selecteer de **resourcegroep** in de actiegroep is opgeslagen.
+1. Selecteer de **resource groep** waarin de actie groep wordt opgeslagen.
 
-1. Een lijst met acties definiëren. Hiermee geeft u de volgende voor elke actie:
+1. Definieer een lijst met acties. Geef het volgende op voor elke actie:
 
-    1. **Naam**: Voer een unieke id voor deze actie.
+    1. **Naam**: Voer een unieke id in voor deze actie.
 
-    1. **Actietype**: Selecteer de e-mailadres/SMS/Push/Voice, logische App, Webhook, ITSM of Automation-Runbook.
+    1. **Actie type**: Selecteer E-mail/SMS/push/Voice, Logic app, webhook, ITSM of Automation Runbook.
 
-    1. **Details**: Op basis van het actietype, voer een telefoonnummer, e-mailadres, webhook URI, Azure-app, ITSM-verbinding of Automation-runbook. Voor ITSM-actie, Daarnaast Geef **werkitem** en andere velden uw ITSM-hulpprogramma is vereist.
+    1. **Details**: Voer op basis van het actie type een telefoon nummer, e-mail adres, webhook-URI, Azure-app, ITSM-verbinding of Automation-runbook in. Geef voor ITSM-actie ook **werk item** en andere velden op die nodig zijn voor het ITSM-hulp programma.
     
-    1. **Algemene waarschuwing schema**: U kunt kiezen om in te schakelen de [algemene waarschuwing schema](https://aka.ms/commonAlertSchemaDocs), waarmee u het voordeel dat een enkele, uitbreidbare en geïntegreerde alert payload voor alle van de waarschuwing services in Azure Monitor.
+    1. **Algemeen waarschuwings schema**: U kunt ervoor kiezen om het [algemene schema voor waarschuwingen](https://aka.ms/commonAlertSchemaDocs)in te scha kelen. Dit biedt het voor deel van het gebruik van een enkele uitbreid bare en Unified payload van waarschuwingen over alle waarschuwings services in azure monitor.
 
-1. Selecteer **OK** te maken van de actiegroep.
+1. Selecteer **OK** om de actie groep te maken.
 
-## <a name="manage-your-action-groups"></a>Beheren van uw actiegroepen
+## <a name="manage-your-action-groups"></a>Uw actie groepen beheren
 
-Nadat u een actiegroep die u hebt gemaakt, wordt het weergegeven in de **actiegroepen** sectie van de **Monitor** deelvenster. Selecteer de actiegroep die u wilt beheren:
+Nadat u een actie groep hebt gemaakt, wordt deze weer gegeven in de sectie **actie groepen** van het deel venster **monitor** . Selecteer de actie groep die u wilt beheren:
 
-* Toevoegen, bewerken of verwijderen van acties.
-* De actiegroep verwijderen.
+* Acties toevoegen, bewerken of verwijderen.
+* De actie groep verwijderen.
 
 ## <a name="action-specific-information"></a>Actie-specifieke informatie
 
 > [!NOTE]
-> Zie [abonnement Servicelimieten voor bewaking](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) voor numerieke limieten op elk van de volgende items.  
+> Zie [limieten voor abonnements Services voor controle](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) op numerieke limieten voor elk van de onderstaande items.  
 
-### <a name="azure-app-push-notifications"></a>Azure-app Pushmeldingen te verzenden
-U mogelijk een beperkt aantal Azure-app-acties in een actiegroep.
+### <a name="azure-app-push-notifications"></a>Pushmeldingen van Azure-app
+Mogelijk hebt u een beperkt aantal Azure-app-acties in een actie groep.
 
 ### <a name="email"></a>Email
-E-mailberichten ontvangt van de volgende e-mailadressen. Zorg ervoor dat uw e-mail filteren op de juiste wijze is geconfigureerd
+E-mails worden verzonden vanaf de volgende e-mail adressen. Controleren of uw e-mail filtering op de juiste wijze is geconfigureerd
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
 - alerts-noreply@mail.windowsazure.com
 
-U mogelijk een beperkt aantal e-mailacties in een actiegroep. Zie de [snelheidsbeperking informatie](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel.
+Mogelijk hebt u een beperkt aantal e-mail acties in een actie groep. Zie het artikel [informatie over de frequentie beperking](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
 ### <a name="itsm"></a>ITSM
-ITSM-actie vereist een ITSM-verbinding. Meer informatie over het maken van een [ITSM-verbinding](../../azure-monitor/platform/itsmc-overview.md).
+Voor de actie ITSM is een ITSM-verbinding vereist. Meer informatie over het maken van een [ITSM-verbinding](../../azure-monitor/platform/itsmc-overview.md).
 
-U mogelijk een beperkt aantal ITSM-acties in een actiegroep. 
+Mogelijk hebt u een beperkt aantal ITSM-acties in een actie groep. 
 
-### <a name="logic-app"></a>Logische apps
-U mogelijk een beperkt aantal acties van logische apps in een actiegroep.
+### <a name="logic-app"></a>Logische app
+Mogelijk hebt u een beperkt aantal logische app-acties in een actie groep.
 
 ### <a name="function"></a>Function
-De functietoetsen voor functie-Apps die zijn geconfigureerd als acties worden gelezen via de API-functies, die momenteel v2 functie-apps vereist configureren van de app-instelling 'AzureWebJobsSecretStorageType' naar 'files'. Zie voor meer informatie, [wijzigingen in de Key Management in functies V2]( https://aka.ms/funcsecrets).
+De functie sleutels voor functie-apps die zijn geconfigureerd als acties, worden gelezen via de functions-API, die momenteel v2-functie-apps vereist voor het configureren van de app-instelling ' AzureWebJobsSecretStorageType ' in ' files '. Zie [wijzigingen in sleutel beheer in functions v2]( https://aka.ms/funcsecrets)voor meer informatie.
 
-U mogelijk een beperkt aantal functie acties in een actiegroep.
+Mogelijk hebt u een beperkt aantal functie acties in een actie groep.
 
-### <a name="automation-runbook"></a>Automation-Runbook
-Raadpleeg de [Servicelimieten van Azure-abonnement](../../azure-subscription-service-limits.md) voor beperkingen met betrekking tot de Runbook-nettoladingen.
+### <a name="automation-runbook"></a>Automation-runbook
+Raadpleeg de service limieten van het [Azure-abonnement](../../azure-subscription-service-limits.md) voor limieten voor nettoladingen van het Runbook.
 
-U mogelijk een beperkt aantal Runbook-acties in een actiegroep. 
+Mogelijk hebt u een beperkt aantal Runbook-acties in een actie groep. 
 
-### <a name="sms"></a>Sms
-Zie de [snelheidsbeperking informatie](./../../azure-monitor/platform/alerts-rate-limiting.md) en [SMS waarschuwen gedrag](../../azure-monitor/platform/alerts-sms-behavior.md) voor belangrijke aanvullende informatie.
+### <a name="sms"></a>SMS
+Zie de [informatie over het beperken](./../../azure-monitor/platform/alerts-rate-limiting.md) van de frequentie en het [gedrag van SMS-berichten](../../azure-monitor/platform/alerts-sms-behavior.md) voor aanvullende belang rijke informatie.
 
-U mogelijk een beperkt aantal SMS-acties in een actiegroep.  
+Mogelijk hebt u een beperkt aantal SMS-acties in een actie groep.  
 
 ### <a name="voice"></a>Spraak
-Zie de [snelheidsbeperking informatie](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel.
+Zie het artikel [informatie over de frequentie beperking](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
-U mogelijk een beperkt aantal Voice-acties in een actiegroep.
+Mogelijk hebt u een beperkt aantal spraak acties in een actie groep.
 
 ### <a name="webhook"></a>Webhook
-Webhooks worden opnieuw uitgevoerd met behulp van de volgende regels. De webhook-aanroep opnieuw is geprobeerd een maximum van 2 tijden wanneer de volgende HTTP-statuscodes worden weergegeven: 408, 429, 503, 504 of het HTTP-eindpunt reageert niet. De eerste poging vindt plaats na 10 seconden. De tweede nieuwe poging gebeurt na 100 seconden. Na twee fouten zal geen actiegroep het eindpunt aanroepen gedurende 30 minuten. 
+Webhooks worden opnieuw geprobeerd met de volgende regels. De webhook-aanroep wordt Maxi maal twee keer opnieuw geprobeerd wanneer de volgende HTTP-status codes worden geretourneerd: 408, 429, 503, 504 of het HTTP-eindpunt reageert niet. De eerste poging vindt plaats na 10 seconden. De tweede nieuwe poging gebeurt na 100 seconden. Na twee storingen wordt het eind punt gedurende 30 minuten niet door een actie groep aangeroepen. 
 
-Bron-IP-adresbereiken
+IP-adresbereiken van bron
  - 13.72.19.232
  - 13.106.57.181
  - 13.106.54.3
@@ -126,6 +126,7 @@ Bron-IP-adresbereiken
  - 13.106.38.142
  - 13.106.38.148
  - 13.106.57.196
+ - 13.106.57.197
  - 52.244.68.117
  - 52.244.65.137
  - 52.183.31.0
@@ -134,33 +135,33 @@ Bron-IP-adresbereiken
  - 51.5.148.86
  - 51.5.149.19
 
-U wordt aangeraden dat u een waarschuwing status van de Service, waarmee wordt gecontroleerd voor informatieve meldingen over de service actiegroepen configureren voor het ontvangen van updates over wijzigingen in deze IP-adressen.
+Als u updates wilt ontvangen over wijzigingen in deze IP-adressen, raden we u aan een Service Health-waarschuwing te configureren, waarmee wordt gecontroleerd op informatieve meldingen over de service voor de actie groep.
 
-U mogelijk een beperkt aantal webhookacties in een actiegroep.
+Mogelijk hebt u een beperkt aantal webhook-acties in een actie groep.
 
-#### <a name="secure-webhook"></a>Webhook beveiligen
-**De Webhook beveiligen-functionaliteit is momenteel in Preview.**
+#### <a name="secure-webhook"></a>Beveiligde webhook
+**De functionaliteit van de beveiligde webhook is momenteel beschikbaar als preview-versie.**
 
-Door de webhookactie actie groepen kunt u profiteren van Azure Active Directory voor het beveiligen van de verbinding tussen uw actiegroep en uw beveiligde web-API (webhook-eindpunt). De algemene werkstroom voor het gebruik van deze functionaliteit wordt hieronder beschreven. Zie voor een overzicht van Azure AD-toepassingen en service-principals, [overzicht van Microsoft identity-platform (v2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+Met de actie groepen webhook kunt u gebruikmaken van Azure Active Directory om de verbinding tussen uw actie groep en de beveiligde web-API (webhook-eind punt) te beveiligen. De algemene werk stroom voor het gebruik van deze functionaliteit wordt hieronder beschreven. Zie [overzicht van micro soft Identity platform (v 2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)voor een overzicht van Azure AD-toepassingen en-service-principals.
 
 1. Maak een Azure AD-toepassing voor uw beveiligde web-API. Zie https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
-    - Uw beveiligde API te worden opgeroepen door een daemon-app configureren.
+    - Configureer uw beveiligde API om te worden aangeroepen door een daemon-app.
     
-1. Actiegroepen gebruiken van uw Azure AD-toepassing inschakelen.
+1. Schakel actie groepen in voor het gebruik van uw Azure AD-toepassing.
 
     > [!NOTE]
-    > U moet een lid van de [beheerdersrol voor Azure AD-toepassing](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) dit script wilt uitvoeren.
+    > U moet lid zijn van de [rol Azure AD-toepassings beheerder](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) om dit script uit te voeren.
     
-    - Wijzigen van de aanroep van de PowerShell-script-Connect-AzureAD gebruik van uw Azure AD-Tenant-ID.
-    - Het PowerShell-script variabele $myAzureADApplicationObjectId voor het gebruik van de Object-ID van uw Azure AD-toepassing worden gewijzigd
-    - Voer het gewijzigde script.
+    - Wijzig de aanroep van de Connect-AzureAD van het Power shell-script om uw Azure AD-Tenant-ID te gebruiken.
+    - De variabele $myAzureADApplicationObjectId van het Power shell-script wijzigen om de object-ID van uw Azure AD-toepassing te gebruiken
+    - Voer het gewijzigde script uit.
     
-1. Configureer de actie groep Webhook-actie.
-    - Kopieer de waarde $myApp.ObjectId van het script en voer deze in het veld ID van toepassingsobject in de definitie van de Webhook-actie.
+1. Configureer de actie groep webhook.
+    - Kopieer de waarde $myApp. ObjectId uit het script en voer deze in het veld toepassings object-ID in de actie definitie van webhook in.
     
-    ![Beveiligen van webhookactie](./media/action-groups/action-groups-secure-webhook.png)
+    ![Actie beveiligde webhook](./media/action-groups/action-groups-secure-webhook.png)
 
-##### <a name="secure-webhook-powershell-script"></a>Webhook-PowerShell-Script beveiligen
+##### <a name="secure-webhook-powershell-script"></a>Power shell-script voor beveiligde webhook
 
 ```PowerShell
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
@@ -231,9 +232,9 @@ Write-Host $myApp.AppRoles
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [SMS waarschuwen gedrag](../../azure-monitor/platform/alerts-sms-behavior.md).  
-* Krijg een [begrip van de activiteit log waarschuwing webhook-schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
-* Meer informatie over [ITSM-Connector](../../azure-monitor/platform/itsmc-overview.md)
-* Meer informatie over [gelden enkele beperkingen](../../azure-monitor/platform/alerts-rate-limiting.md) op waarschuwingen.
-* Krijgen een [overzicht van waarschuwingen voor activiteitenlogboeken](../../azure-monitor/platform/alerts-overview.md), en leer hoe u waarschuwingen ontvangt.  
-* Meer informatie over het [waarschuwingen configureren wanneer er een melding van de health service wordt geplaatst](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+* Meer informatie over het [gedrag van SMS-waarschuwingen](../../azure-monitor/platform/alerts-sms-behavior.md).  
+* Krijg [inzicht in het webhook-schema van waarschuwingen voor activiteiten logboeken](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
+* Meer informatie over [ITSM-connector](../../azure-monitor/platform/itsmc-overview.md)
+* Meer informatie over de [frequentie limiet](../../azure-monitor/platform/alerts-rate-limiting.md) voor waarschuwingen.
+* Bekijk een [overzicht van waarschuwingen voor activiteiten logboeken](../../azure-monitor/platform/alerts-overview.md)en meer informatie over het ontvangen van waarschuwingen.  
+* Meer informatie over het [configureren van waarschuwingen wanneer een service status melding wordt geplaatst](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).

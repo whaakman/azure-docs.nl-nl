@@ -10,16 +10,16 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 851943ad967a79a6800a899b31d0cf9f90a6889b
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
-ms.translationtype: HT
+ms.openlocfilehash: 840124a35ed4389699757e011aaf5d05a9400836
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312243"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385538"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Status controleren, diagnostische logboek registratie instellen en waarschuwingen voor Azure Logic Apps inschakelen
 
-Nadat u [een logische app hebt gemaakt en uitgevoerd](../logic-apps/quickstart-create-first-logic-app-workflow.md), kunt u de uitvoerings geschiedenis, trigger geschiedenis, status en prestaties controleren. Voor real-time controle van gebeurtenissen en uitgebreidere fout opsporing stelt u [Diagnostische logboek registratie](#azure-diagnostics) in voor uw logische app. Op die manier kunt u [gebeurtenissen vinden en weer geven](#find-events), zoals trigger gebeurtenissen, uitvoer gebeurtenissen en actie gebeurtenissen. U kunt deze diagnostische [gegevens ook gebruiken met andere services](#extend-diagnostic-data), zoals Azure Storage en Azure Event hubs. 
+Nadat u een [logische app hebt gemaakt en uitgevoerd](../logic-apps/quickstart-create-first-logic-app-workflow.md) kunt u de uitvoeringsgeschiedenis, triggergeschiedenis, status en prestaties ervan controleren. Voor real-time controle van gebeurtenissen en uitgebreidere fout opsporing stelt u [Diagnostische logboek registratie](#azure-diagnostics) in voor uw logische app. Op deze manier kunt u [gebeurtenissen vinden en bekijken](#find-events), zoals trigger-, uitvoerings-, en actiegebeurtenissen. U kunt deze [diagnostische gegevens ook gebruiken met andere services](#extend-diagnostic-data), zoals Azure Storage en Azure Event Hubs. 
 
 Als u meldingen over mislukte of andere mogelijke problemen wilt ontvangen, stelt u [waarschuwingen](#add-azure-alerts)in. U kunt bijvoorbeeld een waarschuwing maken die detecteert dat er gedurende een uur meer dan vijf uitvoeringen mislukken. U kunt ook programmatisch bewaking, tracering en logboek registratie instellen met behulp van [Azure Diagnostics gebeurtenis instellingen en eigenschappen](#diagnostic-event-properties).
 
@@ -293,6 +293,6 @@ De `ActionCompleted` gebeurtenis heeft bijvoorbeeld de eigenschappen en `clientT
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Sjablonen maken voor implementatie en release beheer van Logic apps](../logic-apps/logic-apps-create-deploy-template.md)
+* [Implementatie van logische apps automatiseren](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [B2B-scenario's met Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [B2B-berichten bewaken](../logic-apps/logic-apps-monitor-b2b-message.md)

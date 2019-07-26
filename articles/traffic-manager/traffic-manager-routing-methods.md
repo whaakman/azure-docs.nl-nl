@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: dd4b9f88e61396003a209b1b8edabb8c1564c761
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 305f24fc274ad48f5c60762223b7bf4e970fe083
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320094"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333736"
 ---
 # <a name="traffic-manager-routing-methods"></a>Methoden voor het doorsturen van Traffic Manager
 
@@ -148,6 +148,14 @@ Zoals uitgelegd in de werking van [Traffic Manager](traffic-manager-how-it-works
 ## <a name = "multivalue"></a>Meerdere waarden verkeer-routerings methode
 Met de routerings methode met meerdere **waarden** kunt u in één antwoord op een DNS-query meer in orde zijnde eind punten ophalen. Dit maakt het mogelijk om aan client zijde nieuwe pogingen te doen met andere eind punten in het geval van een geretourneerd eind punt dat niet meer reageert. Dit patroon kan de beschik baarheid van een service verhogen en de latentie voor een nieuwe DNS-query verminderen om een gezonde eind punt te verkrijgen. De methode voor het routeren van meerdere waarden werkt alleen als alle eind punten van het type extern zijn en zijn opgegeven als IPv4-of IPv6-adres. Wanneer een query voor dit profiel wordt ontvangen, worden alle gezonde eind punten geretourneerd en onderhevig aan het Configureer bare maximum aantal retour waarden.
 
+### <a name="faqs"></a>Veelgestelde vragen
+
+* [Wat zijn enkele situaties waarbij de route ring met meerdere waarden nuttig is?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
+
+* [Hoeveel eind punten worden er geretourneerd wanneer meerdere waarden worden geroutingeerd?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
+
+* [Krijgt ik dezelfde set eind punten als de route ring met meerdere waarden wordt gebruikt?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
+
 ## <a name = "subnet"></a>Subnet Traffic-routerings methode
 Met de routerings methode voor het **subnet** Traffic kunt u een set IP-adresbereiken voor eind gebruikers toewijzen aan specifieke eind punten in een profiel. Als Traffic Manager vervolgens een DNS-query voor dat profiel ontvangt, wordt het bron-IP-adres van de aanvraag gecontroleerd (in de meeste gevallen is dit het uitgaande IP-adres van de DNS-resolver dat door de oproepende functie wordt gebruikt), te bepalen aan welk eind punt deze is toegewezen en wordt t geretourneerd. Hat-eind punt in de query-antwoord. 
 
@@ -155,6 +163,19 @@ Het IP-adres dat moet worden toegewezen aan een eind punt kan worden opgegeven a
 Als u een eind punt zonder adres bereik definieert, fungeert dat als een terugval en neemt het verkeer uit alle resterende subnetten. Als er geen terugval-eind punt is opgenomen, stuurt Traffic Manager een antwoord voor geen gegevens voor ongedefinieerde bereiken. Daarom wordt u ten zeerste aangeraden om een terugval-eind punt te definiëren, of om ervoor te zorgen dat alle mogelijke IP-bereiken zijn opgegeven voor uw eind punten.
 
 Subnet routering kan worden gebruikt om een andere ervaring te bieden voor gebruikers die verbinding maken vanaf een specifieke IP-adres ruimte. Als u bijvoorbeeld gebruikmaakt van het gebruik van een subnet routering, kan een klant alle aanvragen van het hoofd kantoor naar een ander eind punt sturen, waar ze een interne versie van de app kunnen testen. Een ander scenario is als u een andere ervaring wilt bieden aan gebruikers die verbinding maken met een specifieke Internet provider (bijvoorbeeld gebruikers van een bepaalde Internet provider blok keren).
+
+### <a name="faqs"></a>Veelgestelde vragen
+
+* [Wat zijn enkele gebruiks voorbeelden waarbij subnet routering nuttig is?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
+
+* [Hoe kent Traffic Manager het IP-adres van de eind gebruiker?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
+
+* [Hoe kan ik IP-adressen opgeven wanneer ik een subnet routering gebruik?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
+
+* [Hoe kan ik een terugval-eind punt opgeven bij het gebruik van subnet routering?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
+
+* [Wat gebeurt er als een eind punt wordt uitgeschakeld in een type profiel voor een subnet routering?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

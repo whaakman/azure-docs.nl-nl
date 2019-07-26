@@ -12,12 +12,12 @@ ms.date: 06/18/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efe9ac4580afc066c3addfd6e19004d0562284c4
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 1bdf275bbafa9c46cfc4577ac2843da0be74c7ef
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68425949"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477272"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Een galerie-app toevoegen aan uw Azure AD-organisatie
 
@@ -102,7 +102,7 @@ Azure Active Directory (Azure AD) bevat een galerie met duizenden vooraf geïnte
 
 Nu u de toepassing aan uw Azure AD-organisatie hebt toegevoegd, [kiest](what-is-single-sign-on.md#choosing-a-single-sign-on-method) u de methode voor eenmalige aanmelding die u wilt gebruiken en raadpleegt u het juiste artikel hieronder:
 
-- [Eenmalige aanmelding op basis van SAML configureren](configure-single-sign-on-portal.md)
+- [Eenmalige aanmelding op basis van SAML configureren](configure-single-sign-on-non-gallery-applications.md)
 - [Eenmalige aanmelding met een wacht woord configureren](configure-password-single-sign-on-non-gallery-applications.md)
 - [Gekoppelde aanmelding configureren](configure-linked-sign-on.md)
 

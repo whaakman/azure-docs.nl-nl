@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 5eb3e94ff65e8a8b74f357a4cb8a517fd3837c5a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1bfc415b2e4dbc66e2afeae73b78079fb027a60c
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871811"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358841"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Automatische machine learning experimenten maken en verkennen in de Azure Portal (preview-versie)
 
@@ -60,8 +60,8 @@ Selecteer de knop experiment maken om het volgende formulier in te vullen.
 
     Veld|Description
     ---|---
-    Compute name| Voer een unieke naam in die uw berekenings context identificeert.
-    Grootte van virtuele machine| Selecteer de grootte van de virtuele machine voor de reken kracht.
+    Compute-naam| Voer een unieke naam in die uw berekenings context identificeert.
+    Grootte van de virtuele machine| Selecteer de grootte van de virtuele machine voor de reken kracht.
     Aanvullende instellingen| *Min. knoop punt*: Voer het minimum aantal knoop punten in voor de reken kracht. Het minimum aantal knoop punten voor de AML-Compute is 0. Als u gegevens profilering wilt inschakelen, moet u één of meer knoop punten hebben. <br> *Maximum knoop punt*: Voer het maximum aantal knoop punten in voor de reken kracht. De standaard waarde is 6 knoop punten voor een AML-berekening.
 
       Selecteer **maken**om het maken van de nieuwe Compute te starten. Dit kan even duren.
@@ -180,7 +180,7 @@ Het kan even duren voordat trainings taken worden uitgevoerd om de uitvoering va
 
 ### <a name="view-training-run-details"></a>Details van de cursus uitvoering weer geven
 
-Inzoomen op de uitvoer modellen om details van de trainings uitvoering te bekijken, zoals prestatie gegevens en distributie grafieken. [Meer informatie over grafieken](how-to-track-experiments.md#understanding-automated-ml-charts).
+Inzoomen op de uitvoer modellen om details van de trainings uitvoering te bekijken, zoals prestatie gegevens en distributie grafieken. [Meer informatie over grafieken](how-to-understand-automated-ml.md).
 
 ![Details van herhaling](media/how-to-create-portal-experiments/iteration-details.png)
 
@@ -213,7 +213,7 @@ Automatische ML helpt u bij het implementeren van het model zonder code te schri
 
     U kunt het model identificeren aan de hand van de beschrijving, zoals de run-ID, het herhalings nummer, in de volgende indeling: *< Run_ID > _ < Iteration_number > _Model*
 
-    ![Basis Installatie kopie maken](media/how-to-create-portal-experiments/model-create-image.png)
+    ![Modellen: Installatiekopie maken](media/how-to-create-portal-experiments/model-create-image.png)
 
 1. Voer een naam in voor de installatie kopie. 
 1. Selecteer de knop **Bladeren** naast het vak Score bestand om het Score bestand (scoring.py) te uploaden dat u eerder hebt gedownload.
@@ -225,7 +225,7 @@ Automatische ML helpt u bij het implementeren van het model zonder code te schri
       >[!Important]
       > Bestands namen moeten minder dan 32 tekens lang zijn en moeten beginnen en eindigen met een alfanumerieke teken reeks. Kan streepjes, onderstrepings tekens, punten en alfanumerieken bevatten. Spaties zijn niet toegestaan.
 
-    ![Installatie kopie maken](media/how-to-create-portal-experiments/create-image.png)
+    ![Installatiekopie maken](media/how-to-create-portal-experiments/create-image.png)
 
 1. Selecteer de knop maken om de installatie kopie te maken. Dit kan een paar minuten duren. Zodra u dit hebt gedaan, wordt er een bericht weer gegeven op de bovenste balk.
 1. Ga naar het tabblad ' afbeeldingen ', schakel het selectie vakje in naast de installatie kopie die u wilt implementeren en selecteer implementatie maken. Meer [informatie over implementaties](how-to-deploy-and-where.md).
@@ -243,4 +243,5 @@ Automatische ML helpt u bij het implementeren van het model zonder code te schri
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer [informatie over automatische machine learning](concept-automated-ml.md) en Azure machine learning.
+* Krijg [inzicht in geautomatiseerde machine learning resultaten](how-to-understand-automated-ml.md).
 * [Meer informatie over het gebruik van een webservice](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

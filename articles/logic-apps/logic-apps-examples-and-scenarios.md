@@ -10,16 +10,16 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/2018
-ms.openlocfilehash: 6d9a2929d7b8b1687b602093d0e9de35508dbd8c
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 95eca4c7f3e8170f6559799fc4c706e95df70e9e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273088"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385520"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Veelvoorkomende scenario's, voor beelden, zelf studies en scenario's voor Azure Logic Apps
 
-[Azure Logic apps](../logic-apps/logic-apps-overview.md) helpt u bij het organiseren en integreren van verschillende services door honderden kant-en- [klare connectors](../connectors/apis-list.md)te bieden, variërend van on-premises SQL Server of SAP tot Microsoft Cognitive Services. De Logic Apps-service is ' serverloos ', dus u hoeft zich geen zorgen te maken over schalen of instanties. U hoeft alleen de werk stroom te definiëren met een trigger en de acties die de werk stroom uitvoert. Het onderliggende platform zorgt voor schaal, Beschik baarheid en prestaties. Logic Apps is vooral nuttig voor gebruik van gevallen en scenario's waarbij u meerdere acties op meerdere systemen moet coördineren.
+[Azure Logic apps](../logic-apps/logic-apps-overview.md) helpt u bij het organiseren en integreren van verschillende services door honderden kant-en- [klare connectors](../connectors/apis-list.md)te bieden, variërend van on-premises SQL Server of SAP naar Azure Cognitive Services. De Logic Apps-service is ' serverloos ', dus u hoeft zich geen zorgen te maken over schalen of instanties. U hoeft alleen de werk stroom te definiëren met een trigger en de acties die de werk stroom uitvoert. Het onderliggende platform zorgt voor schaal, Beschik baarheid en prestaties. Logic Apps is vooral nuttig voor gebruik van gevallen en scenario's waarbij u meerdere acties op meerdere systemen moet coördineren.
 
 Hier volgen enkele algemene voor beelden en scenario's voor meer informatie over de vele patronen en mogelijkheden die [Azure Logic apps](../logic-apps/logic-apps-overview.md) ondersteunt.
 
@@ -80,7 +80,7 @@ U kunt Logic apps volledig ontwikkelen en implementeren met Visual Studio, Azure
 
 * [Logische apps maken en implementeren met Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Bewaking, logboek registratie en waarschuwingen voor bestaande Logic apps inschakelen](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Een sjabloon voor automatische implementatie maken](../logic-apps/logic-apps-create-deploy-template.md)
+* [Implementatie van logische apps automatiseren](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>Inhouds typen, conversies en trans formaties binnen een uitvoering
 
@@ -98,7 +98,7 @@ Logic apps bieden ook integratie met veel services, zoals Azure Functions, Azure
 * [Azure Functions van Logic apps aanroepen](../logic-apps/logic-apps-azure-functions.md)
 * [Zelfstudie: Logische Apps activeren met Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Zelfstudie: Wijzigingen in de virtuele machine bewaken met Azure Event Grid en Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
-* [Zelfstudie: Een functie maken die kan worden geïntegreerd met Azure Logic Apps en Microsoft Cognitive Services voor het analyseren van Twitter post sentiment](../azure-functions/functions-twitter-email.md)
+* [Zelfstudie: Een functie maken die kan worden geïntegreerd met Azure Logic Apps en Azure Cognitive Services voor het analyseren van Twitter post sentiment](../azure-functions/functions-twitter-email.md)
 * [Zelfstudie: IoT-externe bewaking en meldingen met Azure Logic Apps verbinding maken met uw IoT hub en Postvak](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Blog: SOAP-eind punten aanroepen vanuit Logic apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 

@@ -1,6 +1,6 @@
 ---
-title: De toewijzing van een gebruiker of groep verwijderen uit een enterprise-app in Azure Active Directory | Microsoft Docs
-description: De toegang tot de toewijzing van een gebruiker of groep verwijderen uit een enterprise-app in Azure Active Directory
+title: Gebruikers-of groeps toewijzingen verwijderen uit een app in Azure Active Directory | Microsoft Docs
+description: De toegangs toewijzing van een gebruiker of groep verwijderen uit een bedrijfs-app in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,38 +16,38 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b6524a757d885e95637cb05480838db8ac37259
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 380816283156969c47f45a9b47435688df91f4ca
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67701933"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381044"
 ---
-# <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>De toewijzing van een gebruiker of groep verwijderen uit een enterprise-app in Azure Active Directory
+# <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Een toewijzing van een gebruiker of groep uit een bedrijfs-app in Azure Active Directory verwijderen
 
-Het is gemakkelijk om te verwijderen van een gebruiker of een groep van toegewezen toegang op een van uw bedrijfstoepassingen in Azure Active Directory (Azure AD). U moet de juiste machtigingen voor het beheren van de enterprise-app. En u moet globale beheerder voor de map.
+Het is eenvoudig om een gebruiker of een groep te verwijderen uit toegewezen toegang tot een van uw bedrijfs toepassingen in Azure Active Directory (Azure AD). U hebt de juiste machtigingen nodig om de Enter prise-app te beheren. En u moet globale beheerder zijn voor de Directory.
 
 > [!NOTE]
-> Voor Microsoft Applications (zoals Office 365-apps), moet u PowerShell gebruiken om gebruikers met een enterprise-app te verwijderen.
+> Voor micro soft-toepassingen (zoals Office 365-apps) gebruikt u Power shell om gebruikers te verwijderen voor een bedrijfs-app.
 
-## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Hoe verwijder ik een gebruiker of groepstoewijzing aan een enterprise-app in Azure portal?
+## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Hoe kan ik een gebruikers-of groeps toewijzing voor een bedrijfs-app in de Azure Portal verwijderen?
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com) met een account van een globale beheerder voor de directory.
-1. Selecteer **alle services**, voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
-1. Op de **Azure Active Directory - *directoryname***  pagina (dat wil zeggen, de Azure AD-pagina voor de map die u beheert), selecteer **bedrijfstoepassingen**.
-1. Op de **bedrijfstoepassingen - alle toepassingen** pagina, ziet u een lijst van de apps die u kunt beheren. Selecteer een app.
-1. Op de ***appname*** overzichtspagina (dat wil zeggen, de pagina met de naam van de geselecteerde app in de titel), selecteer **gebruikers en groepen**.
-1. Op de ***appname*** **-gebruiker & groepstoewijzing** pagina, selecteer een van de meer gebruikers of groepen en selecteer vervolgens de **verwijderen** opdracht. Controleer of uw beslissing bij de prompt.
+1. Selecteer **alle services**, Voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
+1. Selecteer op de pagina **Azure Active Directory- *map***  (dat wil zeggen, de pagina van Azure AD voor de map die u beheert) **bedrijfs toepassingen**.
+1. Op de pagina **bedrijfs toepassingen-alle toepassingen** ziet u een lijst met de apps die u kunt beheren. Selecteer een app.
+1. Selecteer op de pagina ***AppName*** -overzicht (dat wil zeggen, de pagina met de naam van de geselecteerde app in de titel) de optie **gebruikers & groepen**.
+1. Selecteer op de pagina ***AppName*** **-gebruiker & groeps toewijzing** een of meer gebruikers of groepen en selecteer vervolgens de opdracht **verwijderen** . Bevestig uw beslissing bij de prompt.
 
-## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-using-powershell"></a>Hoe verwijder ik een gebruiker of groepstoewijzing aan een enterprise-app met behulp van PowerShell?
+## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-using-powershell"></a>Een toewijzing van een gebruiker of groep Hoe kan ik verwijderen uit een bedrijfs-app met behulp van Power shell?
 
-1. Open een opdrachtprompt met verhoogde bevoegdheid Windows PowerShell.
+1. Open een verhoogde Windows Power shell-opdracht prompt.
 
    > [!NOTE]
-   > U moet de AzureAD-module installeren (Gebruik de opdracht `Install-Module -Name AzureAD`). Als u hierom wordt gevraagd om een NuGet-module of de nieuwe Azure Active Directory V2 PowerShell-module te installeren, typt u Y en druk op ENTER.
+   > U moet de AzureAD-module installeren (gebruik de opdracht `Install-Module -Name AzureAD`). Als u wordt gevraagd een NuGet-module of de nieuwe Azure Active Directory v2 Power shell-module te installeren, typt u j en drukt u op ENTER.
 
-1. Voer `Connect-AzureAD` en meld u aan met een globale beheerdersaccount voor de gebruiker.
-1. Het volgende script gebruiken om te verwijderen van een gebruiker en de rol van een toepassing:
+1. Voer `Connect-AzureAD` uit en meld u aan met een gebruikers account voor globale beheerders.
+1. Gebruik het volgende script om een gebruiker en een rol uit een toepassing te verwijderen:
 
     ```powershell
     # Store the proper parameters
@@ -66,7 +66,7 @@ Het is gemakkelijk om te verwijderen van een gebruiker of een groep van toegewez
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zie alle Mijn groepen](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Een gebruiker of groep toewijzen aan een enterprise-app](assign-user-or-group-access-portal.md)
-- [Gebruikersaanmeldingen voor een zakelijke app uitschakelen](disable-user-sign-in-portal.md)
+- [Alle groepen weer geven](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Een gebruiker of groep toewijzen aan een bedrijfs-app](assign-user-or-group-access-portal.md)
+- [Aanmeldingen van gebruikers voor een bedrijfs-app uitschakelen](disable-user-sign-in-portal.md)
 - [De naam of het logo van een zakelijke app wijzigen](change-name-or-logo-portal.md)

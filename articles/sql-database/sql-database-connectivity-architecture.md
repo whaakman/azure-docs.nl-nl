@@ -12,12 +12,12 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 07/02/2019
-ms.openlocfilehash: 951481a7dd7d7a9cfd8c88f2cd8bbcaaec4df685
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 9dfc22be45b68ba4ff59d88810435db35bafc8b6
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320631"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494972"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architectuur van Azure SQL-connectiviteit
 
@@ -27,7 +27,7 @@ In dit artikel worden de architectuur van Azure SQL Database en SQL Data Warehou
 
 In het volgende diagram vindt u een overzicht van de architectuur van de Azure SQL Database-connectiviteit.
 
-![Architectuur overzicht](./media/sql-database-connectivity-architecture/connectivity-overview.png)
+![architectuur overzicht](./media/sql-database-connectivity-architecture/connectivity-overview.png)
 
 In de volgende stappen wordt beschreven hoe een verbinding tot stand wordt gebracht met een Azure-SQL database:
 
@@ -47,13 +47,13 @@ Azure SQL Database ondersteunt de volgende drie opties voor de instelling van he
 
 Als u verbinding maakt vanuit Azure, hebben uw verbindingen standaard een verbindings beleid `Redirect` van. Een beleid `Redirect` waarbij wordt aangegeven dat nadat de TCP-sessie is ingesteld op de Azure-SQL database, de client sessie wordt omgeleid naar het juiste database cluster met een wijziging in de virtuele doel-IP van die van de Azure SQL database gateway naar die van de cluster. Daarna stroomt alle volgende pakketten rechtstreeks naar het cluster, waarbij de Azure SQL Database gateway wordt omzeild. In het volgende diagram ziet u deze verkeers stroom.
 
-![Architectuur overzicht](./media/sql-database-connectivity-architecture/connectivity-azure.png)
+![architectuur overzicht](./media/sql-database-connectivity-architecture/connectivity-azure.png)
 
 ## <a name="connectivity-from-outside-of-azure"></a>Connectiviteit van buiten Azure
 
 Als u verbinding maakt vanuit buiten Azure, hebben uw verbindingen standaard een verbindings beleid `Proxy` van. Een beleid voor `Proxy` betekent dat de TCP-sessie tot stand is gebracht via de Azure SQL database gateway en dat alle volgende pakketten via de gateway stromen. In het volgende diagram ziet u deze verkeers stroom.
 
-![Architectuur overzicht](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
+![architectuur overzicht](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>IP-adressen van Azure SQL Database gateway
 
@@ -72,12 +72,12 @@ Nu gaan we meer gateways in elke regio toevoegen en de gateways buiten gebruik s
 | Canada - midden       | 40.85.224.249      |                 | |
 | Canada - oost          | 40.86.226.166      |                 | |
 | US - centraal           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | Geen verbindingen na 1 september 2019 |
-| China-oost 1         | 139.219.130.35     |                 | |
+| China - oost           | 139.219.130.35     |                 | |
 | China - oost 2         | 40.73.82.1         |                 | |
-| China-noord 1        | 139.219.15.17      |                 | |
+| China - noord          | 139.219.15.17      |                 | |
 | China - noord 2        | 40.73.50.0         |                 | |
 | Azië - oost            | 191.234.2.139, 52.175.33.150 |       | |
-| VS-Oost 1            | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Geen verbindingen na 1 september 2019 |
+| East US              | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Geen verbindingen na 1 september 2019 |
 | US - oost 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | Geen verbindingen na 1 september 2019 |
 | Frankrijk - centraal       | 40.79.137.0, 40.79.129.1 |           | |
 | Duitsland - centraal      | 51.4.144.100       |                 | |
@@ -91,17 +91,17 @@ Nu gaan we meer gateways in elke regio toevoegen en de gateways buiten gebruik s
 | Korea - zuid          | 52.231.200.86      |                 | |
 | US - noord-centraal     | 23.96.178.199      | 23.98.55.75     | Geen verbindingen na 1 september 2019 |
 | Europa - noord         | 40.113.93.91       | 191.235.193.75  | Geen verbindingen na 1 september 2019 |
-| Zuid-Afrika (noord)   | 102.133.152.0      |                 | |
-| Zuid-Afrika (west)    | 102.133.24.0       |                 | |
+| Zuid-Afrika - noord   | 102.133.152.0      |                 | |
+| Zuid-Afrika - west    | 102.133.24.0       |                 | |
 | US - zuid-centraal     | 13.66.62.124       | 23.98.162.75    | Geen verbindingen na 1 september 2019 |
 | Azië - zuidoost      | 104.43.15.0        | 23.100.117.95   | Geen verbindingen na 1 september 2019 |
-| VAE - centraal          | 20.37.72.64        |                 | |
-| VAE - noord            | 65.52.248.0        |                 | |
+| UAE - centraal          | 20.37.72.64        |                 | |
+| UAE - noord            | 65.52.248.0        |                 | |
 | Verenigd Koninkrijk Zuid             | 51.140.184.11      |                 | |
 | Verenigd Koninkrijk West              | 51.141.8.11        |                 | |
 | US - west-centraal      | 13.78.145.25       |                 | |
-| Europa -west          | 191.237.232.75, 40.68.37.158 |       | |
-| VS-West 1            | 23.99.34.75, 104.42.238.205 |        | |
+| Europa -west          | 40.68.37.158       | 191.237.232.75  | Geen verbindingen na 1 september 2019 |
+| US - west              | 104.42.238.205     | 23.99.34.75     | Geen verbindingen na 1 september 2019 |
 | US - west 2            | 13.66.226.202      |                 | |
 |                      |                    |                 | |
 

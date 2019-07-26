@@ -1,12 +1,9 @@
 ---
-title: Een cloud service-container maken met PowerShell | Microsoft Docs
-description: In dit artikel wordt uitgelegd hoe u een cloud service-container maken met PowerShell. De container als host fungeert voor web-en werkrollen.
+title: Een Cloud service container maken met Power shell | Microsoft Docs
+description: In dit artikel wordt uitgelegd hoe u een Cloud service container maakt met Power shell. De container fungeert als host voor web-en werk rollen.
 services: cloud-services
 documentationcenter: .net
 author: cawaMS
-manager: timlt
-editor: ''
-ms.assetid: c8f32469-610e-4f37-a3aa-4fac5c714e13
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
@@ -14,39 +11,39 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 771f93edfee8f7b48fb7d0d2c98419f9427f6338
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ef9d3c7c479df9c71a855f0a243b5b9d0da947d7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60527334"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359503"
 ---
-# <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Een Azure PowerShell-opdracht gebruiken om te maken van een lege cloudservicecontainer
+# <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Een Azure PowerShell opdracht gebruiken om een lege Cloud service container te maken
 
-In dit artikel wordt uitgelegd hoe u snel maken van een Cloud Services-container met behulp van Azure PowerShell-cmdlets. Volg de onderstaande stappen:
+In dit artikel wordt uitgelegd hoe u snel een Cloud Services container maakt met behulp van Azure PowerShell-cmdlets. Voer de volgende stappen uit:
 
-1. Installeer de Microsoft Azure PowerShell-cmdlet uit de [Azure PowerShell downloadt](https://aka.ms/webpi-azps) pagina.
-2. Open de PowerShell-opdrachtprompt.
-3. Gebruik de [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-4.0.0) aan te melden.
+1. Installeer de Microsoft Azure PowerShell cmdlet van de pagina [Azure PowerShell down loads](https://aka.ms/webpi-azps) .
+2. Open de Power shell-opdracht prompt.
+3. Gebruik de [add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-4.0.0) om u aan te melden.
 
    > [!NOTE]
-   > Raadpleeg voor meer instructies over het installeren van de Azure PowerShell-cmdlet en verbinding te maken met uw Azure-abonnement [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
+   > Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview)voor meer instructies voor het installeren van de Azure PowerShell-cmdlet en het maken van een verbinding met uw Azure-abonnement.
    >
    >
-4. Gebruik de **New-AzureService** cmdlet om een lege Azure cloud service-container te maken.
+4. Gebruik de cmdlet **New-Service** om een lege Azure Cloud service-container te maken.
 
    ```
    New-AzureService [-ServiceName] <String> [-AffinityGroup] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
    New-AzureService [-ServiceName] <String> [-Location] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
    ```
 
-5. Ga als volgt in dit voorbeeld voor het aanroepen van de cmdlet:
+5. Volg dit voor beeld om de cmdlet aan te roepen:
 
    ```powershell
    New-AzureService -ServiceName "mytestcloudservice" -Location "Central US" -Label "mytestcloudservice"
    ```
 
-Voor meer informatie over het maken van de Azure-cloud-service, voert u de volgende uit:
+Voer de volgende handelingen uit voor meer informatie over het maken van de Azure-Cloud service:
 
 ```powershell
 Get-help New-AzureService
@@ -54,5 +51,5 @@ Get-help New-AzureService
 
 ### <a name="next-steps"></a>Volgende stappen
 
-* Voor het beheren van de cloud service-implementatie, verwijzen naar de [Get-AzureService](/powershell/module/servicemanagement/azure/Get-AzureService?view=azuresmps-4.0.0), [Remove-AzureService](/powershell/module/servicemanagement/azure/Remove-AzureService?view=azuresmps-4.0.0), en [Set-AzureService](/powershell/module/servicemanagement/azure/set-azureservice?view=azuresmps-4.0.0) opdrachten. U kunt ook verwijzen naar [cloudservices configureren](cloud-services-how-to-configure-portal.md) voor meer informatie.
-* Voor het publiceren van uw cloud service-project naar Azure, raadpleegt u de **PublishCloudService.ps1** codevoorbeeld van [gearchiveerde cloud services-opslagplaats](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery).
+* Raadpleeg de opdrachten [Get-service](/powershell/module/servicemanagement/azure/Get-AzureService?view=azuresmps-4.0.0), [Remove-service](/powershell/module/servicemanagement/azure/Remove-AzureService?view=azuresmps-4.0.0)en [set-service](/powershell/module/servicemanagement/azure/set-azureservice?view=azuresmps-4.0.0) om de Cloud service-implementatie te beheren. U kunt ook verwijzen naar [Cloud Services configureren](cloud-services-how-to-configure-portal.md) voor meer informatie.
+* Als u uw Cloud service project wilt publiceren naar Azure, raadpleegt u het code voorbeeld **PublishCloudService. ps1** van de [gearchiveerde Cloud Services-opslag plaats](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery).

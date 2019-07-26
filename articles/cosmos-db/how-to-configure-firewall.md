@@ -1,119 +1,122 @@
 ---
-title: Een IP-firewall configureren voor uw Azure Cosmos DB-account
-description: Informatie over het configureren van IP-beleid voor toegangsbeheer voor firewall-ondersteuning op Azure Cosmos DB-database-accounts.
+title: Een IP-Firewall configureren voor uw Azure Cosmos DB-account
+description: Meer informatie over het configureren van beleid voor IP-toegangs beheer voor firewall ondersteuning op Azure Cosmos DB database accounts.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 24ebc7eb4c9abc72a89419611e4b4b3fa2db88b4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 0b8ad6c5addbff293e9f7e9b8af6ed34d4dd274b
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241969"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494881"
 ---
-# <a name="configure-ip-firewall-in-azure-cosmos-db"></a>IP-firewall configureren in Azure Cosmos DB
+# <a name="configure-ip-firewall-in-azure-cosmos-db"></a>IP-firewall in Azure Cosmos DB configureren
 
-U kunt de gegevens die zijn opgeslagen in uw Azure Cosmos DB-account met behulp van IP-firewalls beveiligen. Azure Cosmos DB biedt ondersteuning voor IP-gebaseerd toegangsbeheer voor firewallregels voor binnenkomend ondersteuning. U kunt een IP-firewall op de Azure Cosmos DB-account instellen met behulp van een van de volgende manieren:
+U kunt de gegevens die zijn opgeslagen in uw Azure Cosmos DB-account beveiligen met behulp van IP-firewalls. Azure Cosmos DB ondersteunt toegangs beheer op basis van IP voor binnenkomende firewall ondersteuning. U kunt op een van de volgende manieren een IP-firewall instellen op het Azure Cosmos DB-account:
 
-* Vanuit Azure portal
-* Declaratief met behulp van een Azure Resource Manager-sjabloon
-* Via een programma via de Azure CLI of Azure PowerShell door het bijwerken van de **ipRangeFilter** eigenschap
+* Van de Azure Portal
+* Declaratief met behulp van een Azure Resource Manager sjabloon
+* Programmatisch door de Azure CLI of Azure PowerShell door de eigenschap **ipRangeFilter** bij te werken
 
-## <a id="configure-ip-policy"></a> Een IP-firewall configureren met behulp van Azure portal
+## <a id="configure-ip-policy"></a>Een IP-Firewall configureren met behulp van de Azure Portal
 
-Om in te stellen de IP-beleid voor toegangsbeheer in Azure portal, gaat u naar de pagina voor Azure Cosmos DB-account en selecteer **Firewall en virtuele netwerken** in het navigatiemenu. Wijzig de **zodat toegang vanaf** waarde die moet worden **geselecteerde netwerken**, en selecteer vervolgens **opslaan**. 
+Als u het beleid voor IP-toegangs beheer wilt instellen in de Azure Portal, gaat u naar de pagina Azure Cosmos DB account en selecteert u **firewall en virtuele netwerken** in het navigatie menu. Wijzig de optie **toegang vanaf waarde toestaan** voor **geselecteerde netwerken**en selecteer vervolgens **Opslaan**. 
 
-![Schermopname die laat zien hoe u de Firewall-pagina in de Azure-portal openen](./media/how-to-configure-firewall/azure-portal-firewall.png)
+![Scherm afbeelding die laat zien hoe u de pagina Firewall opent in de Azure Portal](./media/how-to-configure-firewall/azure-portal-firewall.png)
 
-Wanneer IP-toegangsbeheer is ingeschakeld, biedt de Azure-portal de mogelijkheid om op te geven van IP-adressen, IP-adresbereiken en switches. Switches inschakelen toegang tot andere Azure-services en Azure portal. De volgende secties geeft meer informatie over deze switches.
+Als IP-toegangs beheer is ingeschakeld, biedt de Azure Portal de mogelijkheid om IP-adressen, IP-adresbereiken en switches op te geven. Switches bieden toegang tot andere Azure-Services en de Azure Portal. De volgende secties bevatten informatie over deze switches.
 
 > [!NOTE]
-> Nadat u een beleid voor IP-toegangsbeheer voor uw Azure Cosmos DB-account hebt ingeschakeld, worden alle aanvragen naar uw Azure Cosmos DB-account van computers buiten de toegestane lijst met IP-adresbereiken worden geweigerd. Bladeren door de Azure Cosmos DB-resources vanaf de portal is ook om te controleren of de integriteit van access control geblokkeerd.
+> Nadat u een beleid voor IP-toegangs beheer voor uw Azure Cosmos DB-account hebt ingeschakeld, worden alle aanvragen voor uw Azure Cosmos DB-account van computers buiten de lijst met toegestane IP-adresbereiken geweigerd. Door de Azure Cosmos DB-resources te bladeren vanuit de portal, wordt ook geblokkeerd om de integriteit van toegangs beheer te garanderen.
 
-### <a name="allow-requests-from-the-azure-portal"></a>Aanvragen van de Azure-portal toestaan
+### <a name="allow-requests-from-the-azure-portal"></a>Aanvragen van de Azure Portal toestaan
 
-Wanneer u een beleid voor IP-toegangsbeheer via een programma inschakelt, moet u toevoegen het IP-adres voor de Azure-portal naar de **ipRangeFilter** eigenschap om toegang te behouden. De portal IP-adressen zijn:
+Wanneer u een beleid voor IP-toegangs beheer programmatisch inschakelt, moet u het IP-adres voor de Azure Portal toevoegen aan de eigenschap **ipRangeFilter** om de toegang te behouden. De IP-adressen van de portal zijn:
 
 |Regio|IP-adres|
 |------|----------|
 |Duitsland|51.4.229.218|
 |China|139.217.8.252|
 |VS (overheid)|52.244.48.71|
-|Alle andere regio 's|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
+|Alle andere regio's|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
-U kunt toegang tot de Azure-portal inschakelen door het selecteren van de **zodat toegang vanaf Azure portal** optie, zoals wordt weergegeven in de volgende schermafbeelding: 
+U kunt toegang tot de Azure Portal inschakelen door de optie **toegang toestaan vanaf Azure Portal** in te scha kelen, zoals wordt weer gegeven in de volgende scherm afbeelding: 
 
-![Schermopname die laat zien hoe u Azure portal toegang inschakelen](./media/how-to-configure-firewall/enable-azure-portal.png)
+![Scherm afbeelding die laat zien hoe Azure Portal toegang wordt ingeschakeld](./media/how-to-configure-firewall/enable-azure-portal.png)
 
-### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>Aanvragen van de globale Azure-datacenters of andere bronnen in Azure toestaan
+### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>Aanvragen van wereld wijde Azure-data centers of andere bronnen binnen Azure toestaan
 
-Als u toegang uw Azure Cosmos DB-account van de services die niet een statisch IP-adres (bijvoorbeeld Azure Stream Analytics en Azure Functions) bieden tot, kunt u de IP-firewall nog steeds gebruiken om toegang te beperken. Toevoegen als u wilt toegang tot de Azure Cosmos DB-account toestaan van dergelijke services, het IP-adres 0.0.0.0 aan de lijst met toegestane IP-adressen. De 0.0.0.0 adres aanvragen beperkt tot uw Azure Cosmos DB-account van Azure datacenter IP-adresbereik. Deze instelling is niet toegestaan voor toegang voor alle andere IP-adresbereiken op uw Azure Cosmos DB-account.
+Als u uw Azure Cosmos DB-account opent vanuit Services die geen statisch IP-adres (bijvoorbeeld Azure Stream Analytics en Azure Functions) bieden, kunt u de IP-firewall blijven gebruiken om de toegang te beperken. Als u toegang tot het Azure Cosmos DB-account wilt toestaan vanuit dergelijke services, voegt u het IP-adres 0.0.0.0 toe aan de lijst met toegestane IP-adressen. Het 0.0.0.0-adres beperkt aanvragen voor uw Azure Cosmos DB-account uit het Azure Data Center IP-bereik. Deze instelling staat geen toegang tot andere IP-adresbereiken toe aan uw Azure Cosmos DB-account.
 
 > [!NOTE]
-> Deze optie configureert u de firewall voor alle aanvragen van Azure, met inbegrip van aanvragen van de abonnementen van andere klanten geïmplementeerd in Azure. De lijst met IP-adressen toegestaan door deze optie is breed, zodat deze wordt beperkt door de effectiviteit van een firewall-beleid. Gebruik deze optie alleen als de aanvragen niet afkomstig van statische IP-adressen of subnetten in virtuele netwerken zijn. Als u deze optie kiest, wordt automatisch kan toegang vanuit de Azure-portal, omdat de Azure-portal is geïmplementeerd in Azure.
+> Met deze optie wordt de firewall zodanig geconfigureerd dat alle aanvragen van Azure worden toegestaan, met inbegrip van aanvragen van de abonnementen van andere klanten die in azure zijn geïmplementeerd. De lijst met IP-adressen die worden toegestaan door deze optie is breed, waardoor de effectiviteit van een firewall beleid wordt beperkt. Gebruik deze optie alleen als uw aanvragen afkomstig zijn van statische IP-adressen of subnetten in virtuele netwerken. Als u deze optie kiest, wordt automatisch toegang vanaf het Azure Portal toegestaan omdat de Azure Portal in Azure is geïmplementeerd.
 
-U kunt toegang tot de Azure-portal inschakelen door het selecteren van de **verbindingen aanvaarden van in de openbare Azure-datacenters** optie, zoals wordt weergegeven in de volgende schermafbeelding: 
+U kunt toegang tot de Azure Portal inschakelen door de optie **verbindingen accepteren binnen open bare Azure-data centers** te selecteren, zoals wordt weer gegeven in de volgende scherm afbeelding: 
 
-![Schermopname die laat zien hoe u de Firewall-pagina in de Azure-portal openen](./media/how-to-configure-firewall/enable-azure-services.png)
+![Scherm afbeelding die laat zien hoe u de pagina Firewall opent in de Azure Portal](./media/how-to-configure-firewall/enable-azure-services.png)
 
 ### <a name="requests-from-your-current-ip"></a>Aanvragen van uw huidige IP-adres
 
-Als u wilt vereenvoudigen, kunt de Azure-portal u identificeren en de IP-adres van uw client-computer toevoegen aan de lijst met toegestane. Apps die de computer worden uitgevoerd, hebben vervolgens toegang tot uw Azure Cosmos DB-account. 
+Om de ontwikkeling te vereenvoudigen, helpt de Azure Portal u bij het identificeren en toevoegen van het IP-adres van uw client computer aan de lijst met toegestane apps. Apps die uw computer uitvoeren, hebben vervolgens toegang tot uw Azure Cosmos DB-account. 
 
-De portal detecteert automatisch IP-adres van de client. Het is mogelijk het client-IP-adres van uw computer of het IP-adres van de gateway van uw netwerk. Zorg ervoor dat u dit IP-adres verwijderen voordat u uw workloads voor productie. 
+De portal detecteert automatisch het client-IP-adres. Dit kan het client-IP-adres van uw computer zijn of het IP-adres van uw netwerk gateway. Zorg ervoor dat u dit IP-adres verwijdert voordat u uw workloads in productie neemt. 
 
-Selecteer om uw huidige IP-adres toe aan de lijst met IP-adressen **mijn huidige IP toevoegen**. Selecteer vervolgens **Opslaan**.
+Als u uw huidige IP wilt toevoegen aan de lijst met IP-adressen, selecteert u **mijn huidige IP toevoegen**. Selecteer vervolgens **Opslaan**.
 
-![Schermopname die laat zien hoe u een firewall-instellingen voor het huidige IP-adres configureren](./media/how-to-configure-firewall/enable-current-ip.png)
+![Scherm opname van het configureren van Firewall instellingen voor het huidige IP-adres](./media/how-to-configure-firewall/enable-current-ip.png)
 
-### <a name="requests-from-cloud-services"></a>Aanvragen van cloudservices
+### <a name="requests-from-cloud-services"></a>Aanvragen van Cloud Services
 
-In Azure vormen cloudservices een veelgebruikte manier voor het hosten van logica voor de middelste laag service met behulp van Azure Cosmos DB. Als u wilt toegang inschakelen voor uw Azure Cosmos DB-account van een cloudservice, moet u het openbare IP-adres van de service in de cloud toevoegen aan de lijst met toegestane IP-adressen die zijn gekoppeld aan uw Azure Cosmos DB-account door [het IP-toegangscontrolebeleidconfigureren](#configure-ip-policy). Dit zorgt ervoor dat alle rolinstanties van cloudservices die toegang tot uw Azure Cosmos DB-account hebben. 
+In azure zijn Cloud Services een gemeen schappelijke manier voor het hosten van de service logica van de middelste laag door gebruik te maken van Azure Cosmos DB. Als u toegang tot uw Azure Cosmos DB-account wilt inschakelen vanuit een Cloud service, moet u het open bare IP-adres van de Cloud service toevoegen aan de lijst met toegestane IP-adressen die zijn gekoppeld aan uw Azure Cosmos DB account door [het beleid voor IP-toegangs beheer te configureren](#configure-ip-policy). Dit zorgt ervoor dat alle rolinstanties van Cloud Services toegang hebben tot uw Azure Cosmos DB-account. 
 
-U kunt IP-adressen voor uw cloud-services in Azure portal, ophalen, zoals wordt weergegeven in de volgende schermafbeelding:
+U kunt IP-adressen voor uw Cloud Services ophalen in de Azure Portal, zoals wordt weer gegeven in de volgende scherm afbeelding:
 
-![Schermopname van het openbare IP-adres voor een cloudservice die wordt weergegeven in de Azure portal](./media/how-to-configure-firewall/public-ip-addresses.png)
+![Scherm opname van het open bare IP-adres voor een Cloud service die wordt weer gegeven in de Azure Portal](./media/how-to-configure-firewall/public-ip-addresses.png)
 
-Wanneer u van uw cloudservice schalen door rolinstanties toe te voegen, hebben deze nieuwe exemplaren automatisch toegang tot het Azure Cosmos DB-account omdat ze deel uitmaken van dezelfde cloudservice.
+Wanneer u de Cloud service uitbreidt door rolinstanties toe te voegen, hebben deze nieuwe instanties automatisch toegang tot het Azure Cosmos DB-account omdat ze deel uitmaken van dezelfde Cloud service.
 
 ### <a name="requests-from-virtual-machines"></a>Aanvragen van virtuele machines
 
-U kunt ook [virtuele machines](https://azure.microsoft.com/services/virtual-machines/) of [virtuele-machineschaalsets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) op de middelste laag hosten van services met behulp van Azure Cosmos DB. Als u wilt uw Cosmos DB-account configureren zodat deze toegang van virtuele machines, moet u het openbare IP-adres van de virtuele machine en/of de virtuele-machineschaalset als een van de toegestane IP-adressen voor uw Azure Cosmos DB-account door [ configureren van het beleid voor IP-toegangsbeheer](#configure-ip-policy). 
+U kunt ook [virtuele machines](https://azure.microsoft.com/services/virtual-machines/) of [virtuele-machine schaal sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) gebruiken om services van de middelste laag te hosten met behulp van Azure Cosmos db. Als u uw Cosmos DB account zo wilt configureren dat toegang vanaf virtuele machines wordt toegestaan, moet u het open bare IP-adres van de virtuele machine en/of virtuele-machine schaalset configureren als een van de toegestane IP-adressen voor uw Azure Cosmos DB-account door het [configureren van het beleid voor IP-toegangs beheer](#configure-ip-policy). 
 
-U kunt IP-adressen voor virtuele machines in Azure portal kunt ophalen, zoals wordt weergegeven in de volgende schermafbeelding:
+U kunt IP-adressen voor virtuele machines ophalen in de Azure Portal, zoals wordt weer gegeven in de volgende scherm afbeelding:
 
-![Schermafbeelding met een openbaar IP-adres voor een virtuele machine weergegeven in de Azure portal](./media/how-to-configure-firewall/public-ip-addresses-dns.png)
+![Scherm afbeelding met een openbaar IP-adres voor een virtuele machine die wordt weer gegeven in de Azure Portal](./media/how-to-configure-firewall/public-ip-addresses-dns.png)
 
-Wanneer u exemplaren van virtuele machines aan de groep toevoegt, krijgen ze automatisch toegang tot uw Azure Cosmos DB-account.
+Wanneer u virtuele-machine-exemplaren aan de groep toevoegt, krijgen ze automatisch toegang tot uw Azure Cosmos DB-account.
 
-### <a name="requests-from-the-internet"></a>Aanvragen van internet
+### <a name="requests-from-the-internet"></a>Aanvragen van Internet
 
-Wanneer u toegang uw Azure Cosmos DB-account van een computer op het internet tot, moet de client-IP-adres of IP-adresbereik van de machine worden toegevoegd aan de lijst met toegestane IP-adressen voor uw account.
+Wanneer u uw Azure Cosmos DB-account opent vanaf een computer op internet, moet het client-IP-adres of IP-adres bereik van de computer worden toegevoegd aan de lijst met toegestane IP-adressen voor uw account.
 
-## <a id="configure-ip-firewall-arm"></a>Een IP-firewall configureren met behulp van Resource Manager-sjabloon
+## <a id="configure-ip-firewall-arm"></a>Een IP-Firewall configureren met behulp van een resource manager-sjabloon
 
-Voor het configureren van beheer van toegang tot uw Azure Cosmos DB-account, zorg ervoor dat de Resource Manager-sjabloon bevat de **ipRangeFilter** kenmerk met een lijst met toegestane IP-adresbereiken. Bijvoorbeeld, de volgende JSON-code toevoegen aan uw sjabloon:
+Als u toegangs beheer wilt configureren voor uw Azure Cosmos DB-account, zorgt u ervoor dat in de Resource Manager-sjabloon het kenmerk **ipRangeFilter** wordt opgegeven met een lijst met toegestane IP-bereiken. Als u IP-firewall configureert voor een al geïmplementeerd Cosmos-account `locations` , moet u ervoor zorgen dat de matrix overeenkomt met wat er momenteel is geïmplementeerd. U kunt de `locations` matrix en andere eigenschappen niet tegelijkertijd wijzigen. Voor meer informatie en voor beelden van ARM-sjablonen voor Azure Cosmos DB raadpleegt u [Azure Resource Manager sjablonen voor Azure Cosmos DB](resource-manager-samples.md)
 
 ```json
-   {
-     "apiVersion": "2015-04-08",
-     "type": "Microsoft.DocumentDB/databaseAccounts",
-     "kind": "GlobalDocumentDB",
-     "name": "[parameters('databaseAccountName')]",
-     "location": "[resourceGroup().location]",
-     "properties": {
-       "databaseAccountOfferType": "Standard",
-       "name": "[parameters('databaseAccountName')]",
-       "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
-     }
-   }
+{
+  "type": "Microsoft.DocumentDB/databaseAccounts",
+  "name": "[variables('accountName')]",
+  "apiVersion": "2016-03-31",
+  "location": "[parameters('location')]",
+  "kind": "GlobalDocumentDB",
+  "properties": {
+    "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+    "locations": "[variables('locations')]",
+    "databaseAccountOfferType": "Standard",
+    "enableAutomaticFailover": "[parameters('automaticFailover')]",
+    "enableMultipleWriteLocations": "[parameters('multipleWriteLocations')]",
+    "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+  }
+}
 ```
 
-## <a id="configure-ip-firewall-cli"></a>Een beleid voor IP-toegangsbeheer configureren met behulp van de Azure CLI
+## <a id="configure-ip-firewall-cli"></a>Een beleid voor IP-toegangs beheer configureren met behulp van de Azure CLI
 
-De volgende opdracht laat zien hoe een Azure Cosmos DB-account maken via IP-toegangsbeheer: 
+De volgende opdracht laat zien hoe u een Azure Cosmos DB-account maakt met IP-toegangs beheer: 
 
 ```azurecli-interactive
 
@@ -129,7 +132,7 @@ az cosmosdb create \
   --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
-Voor het bijwerken van de firewall-instellingen voor een bestaand account, moet u de volgende opdracht uitvoeren:
+Als u de firewall instellingen voor een bestaand account wilt bijwerken, voert u de volgende opdracht uit:
 
 ```azurecli-interactive
 az cosmosdb update \
@@ -138,9 +141,9 @@ az cosmosdb update \
       --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
-## <a id="configure-ip-firewall-ps"></a>Een beleid voor IP-toegangsbeheer configureren met behulp van PowerShell
+## <a id="configure-ip-firewall-ps"></a>Een beleid voor IP-toegangs beheer configureren met behulp van Power shell
 
-Het volgende script laat zien hoe een Azure Cosmos DB-account maken via IP-toegangsbeheer:
+In het volgende script ziet u hoe u een Azure Cosmos DB-account maakt met IP-toegangs beheer:
 
 ```azurepowershell-interactive
 
@@ -169,27 +172,27 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-## <a id="troubleshoot-ip-firewall"></a>Problemen oplossen met een beleid voor IP-toegangsbeheer
+## <a id="troubleshoot-ip-firewall"></a>Problemen met een IP-toegangs beheer beleid oplossen
 
-U kunt problemen met een beleid voor IP-toegangsbeheer oplossen met behulp van de volgende opties: 
+U kunt problemen met een IP-toegangs beheer beleid oplossen met behulp van de volgende opties: 
 
 ### <a name="azure-portal"></a>Azure Portal 
-Door een beleid voor toegangsbeheer IP voor uw Azure Cosmos DB-account is ingeschakeld, blokkeren u alle aanvragen naar uw account van computers buiten de toegestane lijst met IP-adresbereiken. Om in te schakelen portal data plane-bewerkingen, zoals bladeren, containers en opvragen van documenten, moet u expliciet toestaan toegang tot Azure portal met behulp van de **Firewall** deelvenster in de portal.
+Door een beleid voor IP-toegangs beheer in te scha kelen voor uw Azure Cosmos DB-account, blokkeert u alle aanvragen voor uw account van computers buiten de lijst met toegestane IP-adresbereiken. Als u Portal gegevenslaag bewerkingen wilt inschakelen, zoals bladeren door containers en documenten opvragen, moet u Azure Portal toegang expliciet toestaan met behulp van het deel venster **firewall** in de portal.
 
 ### <a name="sdks"></a>SDK's 
-Wanneer u Azure Cosmos DB-resources opent met behulp van SDK's van de computers die zich niet in de lijst met toegestane, een generieke **403-verboden** antwoord wordt geretourneerd met geen aanvullende informatie. Controleer of de lijst met toegestane IP-voor uw account en zorg ervoor dat de configuratie van het juiste beleid wordt toegepast op uw Azure Cosmos DB-account. 
+Wanneer u Azure Cosmos DB bronnen opent met behulp van Sdk's op computers die zich niet in de lijst met toegestane gegevens bevinden, wordt een algemeen **403 verboden** antwoord geretourneerd zonder aanvullende informatie. Controleer de lijst met toegestane IP-adressen voor uw account en zorg ervoor dat de juiste beleids configuratie wordt toegepast op uw Azure Cosmos DB-account. 
 
-### <a name="source-ips-in-blocked-requests"></a>Bron-IP's in geblokkeerde aanvragen
-Diagnostische logboekregistratie inschakelen op uw Azure Cosmos DB-account. Deze logboeken weergegeven voor elke aanvraag en reactie. De firewall-berichten worden geregistreerd met een 403 retourcode. Door deze berichten filteren, kunt u de bron-IP-adressen voor de geblokkeerde aanvragen bekijken. Zie [Diagnostische logboekregistratie van Azure Cosmos DB](logging.md).
+### <a name="source-ips-in-blocked-requests"></a>Bron-IP-adressen in geblokkeerde aanvragen
+Schakel diagnostische logboek registratie in voor uw Azure Cosmos DB-account. In deze logboeken worden alle aanvragen en antwoorden weer gegeven. De berichten die betrekking hebben op de firewall worden vastgelegd met een retour code van 403. Door deze berichten te filteren, kunt u de bron-Ip's voor de geblokkeerde aanvragen bekijken. Zie [Azure Cosmos DB diagnostische logboek registratie](logging.md).
 
-### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Aanvragen van een subnet met een service-eindpunt voor Azure Cosmos DB ingeschakeld
-Aanvragen van een subnet in een virtueel netwerk met een service-eindpunt voor Azure Cosmos DB is ingeschakeld, verzendt de identiteit van de virtuele netwerk en subnet met Azure Cosmos DB-accounts. Deze aanvragen beschikt niet over de openbare IP-adres van de bron, zodat het IP-filters weigeren. Zodat toegang vanaf specifieke subnetten in virtuele netwerken toevoegen een access control list, zoals wordt beschreven in [virtueel netwerk- en toegangsbeheer op basis van een subnet voor uw Azure Cosmos DB-account configureren](how-to-configure-vnet-service-endpoint.md). Het kan tot 15 minuten voor firewall-regels om toe te passen duren.
+### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Aanvragen van een subnet met een service-eind punt voor Azure Cosmos DB ingeschakeld
+Aanvragen van een subnet in een virtueel netwerk met een service-eind punt voor Azure Cosmos DB ingeschakeld, verzenden het virtuele netwerk en de identiteit van het subnet naar Azure Cosmos DB accounts. Deze aanvragen hebben niet het open bare IP-adres van de bron, waardoor IP-filters deze niet kunnen afwijzen. Als u toegang vanaf specifieke subnetten in virtuele netwerken wilt toestaan, voegt u een lijst met toegangs beheer toe, zoals beschreven in [How to configure Virtual Network and subnet-based Access voor uw Azure Cosmos DB-account](how-to-configure-vnet-service-endpoint.md). Het kan tot vijf tien minuten duren voordat de firewall regels worden toegepast.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor het configureren van een service-eindpunt voor virtueel netwerk voor uw Azure Cosmos DB-account, Zie de volgende artikelen:
+Als u een service-eind punt voor een virtueel netwerk wilt configureren voor uw Azure Cosmos DB-account, raadpleegt u de volgende artikelen:
 
-* [Virtueel netwerk en subnet toegangsbeheer voor uw Azure Cosmos DB-account](vnet-service-endpoint.md)
-* [Virtueel netwerk- en toegangsbeheer op basis van een subnet voor uw Azure Cosmos DB-account configureren](how-to-configure-vnet-service-endpoint.md)
+* [Toegangs beheer voor het virtuele netwerk en het subnet voor uw Azure Cosmos DB-account](vnet-service-endpoint.md)
+* [Virtueel netwerk en op subnet gebaseerde toegang voor uw Azure Cosmos DB-account configureren](how-to-configure-vnet-service-endpoint.md)
 

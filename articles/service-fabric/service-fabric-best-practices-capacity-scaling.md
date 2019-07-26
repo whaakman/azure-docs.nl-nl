@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: fe0af4ca7b6860fff19f4df3165a975c42b54a03
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d4daa7ae9c7e58c1949dfbe4427a154c389100d4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277779"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348374"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Capaciteits planning en schalen voor Azure Service Fabric
 
@@ -92,7 +92,7 @@ U kunt horizon taal schalen ofwel [hand matig](https://docs.microsoft.com/azure/
 
 Een Service Fabric cluster uitschalen door het aantal exemplaren voor een bepaalde schaalset voor virtuele machines te verhogen. U kunt het programma op `AzureClient` een programmatische manier uitbreiden met de id voor de gewenste schaalset om de capaciteit te verg Roten.
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -134,7 +134,7 @@ Als u hand matig wilt schalen, werkt u de capaciteit bij in de SKU-eigenschap va
 
 U moet het knoop punt voorbereiden op afsluiten om in een programma te schalen. Zoek het knoop punt dat moet worden verwijderd (het knoop punt met de hoogste instantie). Bijvoorbeeld:
 
-```c#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -151,7 +151,7 @@ using (var client = new FabricClient())
 
 Deactiveer en verwijder het knoop punt met behulp van`client` dezelfde `FabricClient` instantie (in dit geval) en`instanceIdString` het knooppunt exemplaar (in dit geval) dat u in de vorige code hebt gebruikt:
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster

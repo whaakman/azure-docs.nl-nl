@@ -1,6 +1,6 @@
 ---
-title: Hoe u kunt zoeken efficiënt gebruik van de service Azure Maps Search | Microsoft Docs
-description: Meer informatie over het gebruik van aanbevolen procedures voor search met behulp van de Azure Maps Search-service
+title: Efficiënt zoeken met behulp van de Azure Maps Search-service | Microsoft Docs
+description: Meer informatie over het gebruik van aanbevolen procedures voor zoeken met behulp van de Azure Maps Search-service
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/08/2019
@@ -8,80 +8,80 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8c4347eb0f89c17a285aaa4b51760300b9c89aa7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 996a084fd653b2100d94313e8801d915b4bf2cf3
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617866"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348176"
 ---
-# <a name="best-practices-to-use-azure-maps-search-service"></a>Aanbevolen procedures voor het gebruik van Azure Maps Search-Service
+# <a name="best-practices-to-use-azure-maps-search-service"></a>Aanbevolen procedures voor het gebruik van Azure Maps Search Service
 
-Azure Maps [zoekservice](https://docs.microsoft.com/rest/api/maps/search) voorziet in API's met verschillende mogelijkheden, bijvoorbeeld van zoeken om te zoeken naar gegevens van de punt van belang (pijl) om een specifieke locatie. In dit artikel hebben we de aanbevolen procedures voor het aanroepen van gegevens via Azure Maps Search-Services. U leert het volgende:
+Azure Maps [Search service](https://docs.microsoft.com/rest/api/maps/search) bevat api's met verschillende mogelijkheden, bijvoorbeeld van adres zoeken om te zoeken naar POI-gegevens (Point of interest) rond een specifieke locatie. In dit artikel delen we de aanbevolen procedures voor het aanroepen van gegevens via Azure Maps Search-Services. U leert het volgende:
 
-* Query's om te retourneren van de relevante overeenkomsten
-* Limiet voor zoekresultaten
-* Informatie over het verschil tussen verschillende resultaattypen
-* Lees de structuur van antwoord zoeken
+* Query's bouwen om relevante overeenkomsten te retour neren
+* Zoek resultaten beperken
+* Meer informatie over het verschil tussen verschillende resultaat typen
+* Lees de structuur van het antwoord op de zoek opdracht
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt dat alle aanroepen naar de Maps-service API's, moet u een Maps-account en een sleutel. Zie voor meer informatie over het maken van een account en het ophalen van een sleutel [over het beheren van uw Azure kaarten-account en sleutels](how-to-manage-account-keys.md).
+Voor het aanroepen van de Maps service Api's, hebt u een Maps-account en-sleutel nodig. Zie [uw Azure Maps account en sleutels beheren](how-to-manage-account-keys.md)voor meer informatie over het maken van een account en het ophalen van een sleutel.
 
 > [!Tip]
-> Om te vragen de search-service, kunt u de [Postman-app](https://www.getpostman.com/apps) bouwen REST-aanroepen of u een API-ontwikkelomgeving die u kunt gebruiken.
+> Als u een query wilt uitvoeren op de zoek service, kunt u de [app postman](https://www.getpostman.com/apps) gebruiken om rest-aanroepen te bouwen of kunt u elke gewenste API-ontwikkel omgeving gebruiken.
 
 
-## <a name="best-practices-for-geocoding"></a>Aanbevolen procedures voor Geocodering
+## <a name="best-practices-for-geocoding"></a>Aanbevolen procedures voor geocodering
 
-Wanneer u een volledige of gedeeltelijke-adres met behulp van Azure Maps Search-Service zoekt, gaat de zoekterm en retourneert de lengtegraad en breedtegraad coördinaten van het adres. Dit proces kan geocodering wordt genoemd. De mogelijkheid om geocode in een land/regio is afhankelijk van de gegevens onderweg dekking en de nauwkeurigheid van de geocodering van de service voor geocodering.
+Wanneer u een volledig of gedeeltelijk adres zoekt met Azure Maps Search Service, wordt de zoek term opgehaald en worden de lengte-en breedte coördinaten van het adres geretourneerd. Dit proces wordt geocodering genoemd. De mogelijkheid tot Geocode in een land is afhankelijk van de dekking van de weg en de geocoderings nauwkeurigheid van de geocoderings service.
 
-Zie [dekking voor geocodering](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage) voor meer informatie over de mogelijkheden van Azure Maps geocodering per land/regio.
+Zie [geocoderings dekking](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage) voor meer informatie over Azure Maps mogelijkheden voor geocodering per land/regio.
 
-### <a name="limit-search-results"></a>Limiet voor zoekresultaten
+### <a name="limit-search-results"></a>Zoek resultaten beperken
 
-   In deze sectie leert u hoe u Azure Maps search API's gebruiken om zoekresultaten te beperken. 
+   In deze sectie leert u hoe u Azure Maps Search-Api's kunt gebruiken om de zoek resultaten te beperken. 
 
    > [!Note]
-   > Niet alle search API's ondersteunen volledig onderstaande parameters
+   > Niet alle zoek-Api's bieden volledige ondersteuning voor de hieronder vermelde para meters
 
-   **Geo-afwijking van zoekresultaten**
+   **Zoek resultaten geo-bias**
 
-   Om geo-afwijking van de resultaten op het desbetreffende gebied voor uw gebruiker, moet u altijd toevoegen de maximaal mogelijke gedetailleerde locatie invoer. Als u wilt beperken de zoekresultaten, houd rekening met de volgende invoertypen toe te voegen:
+   Als u de resultaten van uw gebruiker naar het relevante gebied wilt verduidelijken, moet u altijd de Maxi maal mogelijke gedetailleerde locatie-invoer toevoegen. Als u de zoek resultaten wilt beperken, kunt u overwegen de volgende invoer typen toe te voegen:
 
-   1. Stel de `countrySet` parameter, bijvoorbeeld "US, FR". Het standaardgedrag van de zoekopdracht is om te zoeken naar de hele wereld, mogelijk onnodige resultaten retourneren. Als uw query bevat geen `countrySet` parameter, de zoekopdracht kan onnauwkeurig resultaten worden geretourneerd. Zoek bijvoorbeeld naar voor een stad met de naam **Bellevue** worden resultaten geretourneerd uit de Verenigde Staten en Frankrijk, omdat er met de naam steden **Bellevue** in Frankrijk en in de Verenigde Staten.
+   1. Stel de `countrySet` para meter in, bijvoorbeeld ' VS, FR '. Het standaard zoek gedrag is het doorzoeken van de hele wereld, waardoor mogelijk onnodige resultaten worden geretourneerd. Als uw query geen `countrySet` para meter bevat, kan de zoek opdracht onnauwkeurige resultaten retour neren. Als u bijvoorbeeld zoekt naar een stad met de naam **Bellevue** , worden de resultaten uit VS en Frank rijk geretourneerd, omdat er steden zijn met de naam **Bellevue** in Frank rijk en in de Verenigde Staten.
 
-   2. U kunt de `btmRight` en `topleft` parameters om in te stellen het selectiekader vak voor de zoekopdracht beperken tot een bepaald gebied op de kaart.
+   2. U kunt de `btmRight` para meters en `topleft` gebruiken om het begrenzingsvak in te stellen om de zoek opdracht te beperken tot een bepaald gebied op de kaart.
 
-   3. Als u wilt van invloed zijn op het gebied van belang zijn voor de resultaten, kunt u de `lat`en `lon` coördineren van parameters en instellen van de radius van de zoekopdracht gebied met de `radius` parameter.
-
-
-   **Fuzzy zoekopdrachten parameters**
-
-   1. De `minFuzzyLevel` en `maxFuzzyLevel`, op te halen van relevante overeenkomsten, zelfs wanneer de queryparameters niet precies overeenkomen met de gewenste informatie. De meeste zoekopdrachten standaard `minFuzzyLevel=1` en `maxFuzzyLevel=2` om prestaties en onvoorspelbare resultaten te verminderen. Nemen een voorbeeld van een zoekterm "restrant", deze wordt vergeleken met 'restaurant' wanneer de `maxFuzzyLevel` is ingesteld op 2. De fuzzy standaardniveaus kunnen aan de hand van de behoeften van de aanvraag worden genegeerd. 
-
-   2. U kunt ook opgeven de exacte set resultaattypen moeten worden geretourneerd met behulp van de `idxSet` parameter. Voor dit doel kunt u indienen met door komma's gescheiden lijst van indexen, de volgorde van items niet van belang. Hier volgen de ondersteunde indexen:
-
-       * `Addr` - **Adresbereiken**: Voor sommige Streets (straten) zijn er adres punten die worden geïnterpoleerd vanaf het begin en einde van de straat; Deze punten worden weergegeven als de adresbereiken.
-       * `Geo` - **Geographies**: Gebieden op een kaart die staan voor administratieve indeling van een land, dat wil zeggen, land, status, plaats.
-       * `PAD` - **Adres Point**:  Punten op een kaart waar specifiek adres met een straatnaam en een nummer kan worden gevonden in een index, bijvoorbeeld Soquel Dr 2501. Het is de hoogste mate van nauwkeurigheid is beschikbaar voor adressen.  
-       * `POI` - **Punten van belang**: Punten op een kaart die zijn het noemen waard aandacht en die van belang zijn.  [Search-adres ophalen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) koeriersbedrijven niet als resultaat.  
-       * `Str` - **Streets (straten)** : Weergave van Streets (straten) op de kaart.
-       * `XStr` - **Cross-Streets (straten) / snijpunten**:  Weergave van koppelingen; de locaties waar twee Streets (straten) elkaar overlappen.
+   3. Als u het relevantie gebied voor de resultaten wilt beïnvloeden, kunt u de `lat`para `lon` meters en de coördinaten definiëren en de RADIUS van het zoek `radius` gebied instellen met behulp van de para meter.
 
 
-       **Voorbeelden van het gebruik**:
+   **Zoek parameters voor fuzzy**
 
-       * idxSet = POI (alleen search punten) 
+   1. De `minFuzzyLevel` en `maxFuzzyLevel`, helpen bij het retour neren van relevante overeenkomsten, zelfs wanneer query parameters niet precies overeenkomen met de gewenste gegevens. De meeste zoek query's zijn `minFuzzyLevel=1` standaard `maxFuzzyLevel=2` en voor het verkrijgen van prestaties en het verminderen van ongebruikelijke resultaten. Bekijk een voor beeld van een zoek term ' restrant ', die overeenkomt met ' restaurant ' wanneer de `maxFuzzyLevel` is ingesteld op 2. De standaard niveaus voor fuzzy kunnen worden overschreven volgens de behoeften van de aanvraag. 
 
-       * idxSet PAD, adres = (search-adressen alleen PAD = punt adres, adres = adresbereik)
+   2. U kunt ook de exacte set resultaat typen opgeven die moeten worden geretourneerd met behulp `idxSet` van de para meter. Voor dit doel kunt u een lijst met door komma's gescheiden indexen verzenden, maar de volg orde van de items niet van belang is. De volgende indexen worden ondersteund:
 
-### <a name="reverse-geocode-and-geography-entity-type-filter"></a>Reverse-geocode en geography entiteit type filter
+       * `Addr` - **Adresbereiken:** Voor sommige straten zijn er adres punten die worden geïnterpoleerd vanaf het begin en het einde van de straat. deze punten worden weer gegeven als adresbereiken.
+       * `Geo` - Geographs: Gebieden op een kaart die de administratieve divisie van een land vertegenwoordigen, dat wil zeggen land, staat, plaats.
+       * `PAD` - **Punt adres**:  Punten op een kaart waarbij een specifiek adres met een straat naam en nummer kan worden gevonden in een index, bijvoorbeeld Soquel Dr 2501. Het is het hoogste nauwkeurigheids niveau dat beschikbaar is voor adressen.  
+       * `POI` - **Interessante punten**: Punten op een kaart die aandacht best Eden en mogelijk interessant zijn.  [Zoek adres ophalen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) retourneert niet poi's.  
+       * `Str` - **Streets**: Weer gave van straten op de kaart.
+       * `XStr` - **Kruis straten/snij punten**:  Vertegenwoordiging van koppelingen; plaatsen waar twee Streets INTERSECT.
 
-Bij het uitvoeren van een zoekopdracht omgekeerde geocode met [omgekeerde API voor Search-adres](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), de service heeft de mogelijkheid om terug te keren veelhoeken voor de administratieve gebieden. Door op te geven van de parameter `entityType` in de aanvraag, beperkt u het zoeken naar Entiteitstypen opgegeven geografische locatie. Het resulterende antwoord bevat de geografische locatie-ID, evenals het entiteitstype is gekoppeld. Als u meer dan één entiteit opgeven, eindpunt retourneert de **kleinste entiteit beschikbaar**. Geretourneerd geometrie-ID kan worden gebruikt om op te halen van de geometrie van die Geografie via [ophalen veelhoek service](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
-**Voorbeeld van een aanvraag:**
+       **Voor beelden van gebruik**:
+
+       * idxSet = POI (alleen zoeken naar interessante punten) 
+
+       * idxSet = PAD, addr (alleen adressen zoeken, PAD = punt adres, addr = adres bereik)
+
+### <a name="reverse-geocode-and-geography-entity-type-filter"></a>Filter voor reverse Geocode en geografie van het entiteits type
+
+Bij het uitvoeren van een reverse Geocode Search met [Search Address reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), heeft de service de mogelijkheid om veelhoeken te retour neren voor de administratieve gebieden. Door de para meter `entityType` in de aanvraag op te geven, kunt u de zoek opdracht beperken voor opgegeven geografie typen. De resulterende reactie bevat de geografie-ID en het entiteits type dat overeenkomt. Als u meer dan één entiteit opgeeft, wordt de **kleinste beschik bare entiteit**door het eind punt geretourneerd. De geretourneerde geometrie-ID kan worden gebruikt om de geometrie van die geografie op te halen via de service voor het [ophalen van polygoon](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
+
+**Voorbeeld aanvraag:**
 
 ```HTTP
 https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={subscription-key}&query=47.6394532,-122.1304551&language=en-US&entityType=Municipality
@@ -126,16 +126,16 @@ https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscrip
 }
 ```
 
-### <a name="search-results-language"></a>Resultaten zoektaal
+### <a name="search-results-language"></a>Taal van zoek resultaten
 
-De `language` parameter kunt u om in te stellen in welke taal search resultaten moeten worden geretourneerd. Als de taal is niet ingesteld in de aanvraag, standaard de meest voorkomende taal in het land/regio automatisch search-service. Wanneer gegevens in de opgegeven taal niet beschikbaar is, wordt ook de standaardtaal gebruikt. Zie [ondersteunde talen](https://docs.microsoft.com/azure/azure-maps/supported-languages) voor een lijst van ondersteunde talen met betrekking tot Azure kaarten-services per land/regio.
+Met `language` de para meter kunt u instellen in welke taal Zoek resultaten moeten worden geretourneerd. Als de taal niet is ingesteld in de aanvraag, wordt de zoek service automatisch ingesteld op de meest voorkomende taal in het land/de regio. Wanneer de gegevens in de opgegeven taal niet beschikbaar zijn, wordt ook de standaard taal gebruikt. Zie [ondersteunde talen](https://docs.microsoft.com/azure/azure-maps/supported-languages) voor een lijst met ondersteunde talen ten aanzien van Azure Maps services per land/regio.
 
 
-### <a name="predictive-mode-auto-suggest"></a>Voorspellende modus (Automatische suggesties)
+### <a name="predictive-mode-auto-suggest"></a>Voorspellende modus (automatische suggesties)
 
-Meer overeenkomende waarden voor gedeeltelijke query's, `typeahead` parameter moet worden ingesteld op 'true' zijn. De query wordt geïnterpreteerd als een gedeeltelijke invoer en de zoekopdracht wordt voorspeld modus invoeren. Anders wordt wordt de service uitgegaan van dat alle relevante informatie is doorgegeven.
+Als u meer overeenkomsten voor gedeeltelijke query's wilt `typeahead` vinden, moet de para meter worden ingesteld op ' True '. De query wordt geïnterpreteerd als een gedeeltelijke invoer en de voor Spellings modus wordt in de zoek opdracht weer geven. Anders gaat de service ervan uit dat alle relevante gegevens zijn door gegeven in.
 
-In het voorbeeld query hieronder u ziet dat de search service voor adres voor "Microsoft" is opgevraagd met de `typeahead` parameter ingesteld op **waar**. Als u het antwoord ziet, kunt u zien dat de service voor zoeken in de query als gedeeltelijke query geïnterpreteerd en antwoord bevat de resultaten voor query automatisch is voorgesteld.
+In de onderstaande voorbeeld query ziet u dat de Search-adres service wordt opgevraagd voor ' Microsoft ', waarbij de `typeahead` para meter is ingesteld op **True**. Als u het antwoord ziet, kunt u zien dat de zoek service de query heeft geïnterpreteerd als gedeeltelijke query en antwoord resultaten bevat voor automatisch voorgestelde query's.
 
 **Voorbeeldquery:**
 
@@ -239,34 +239,34 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 ```
 
 
-### <a name="uri-encoding-to-handle-special-characters"></a>URI-codering voor het afhandelen van speciale tekens 
+### <a name="uri-encoding-to-handle-special-characters"></a>URI-code ring voor het afhandelen van speciale tekens 
 
-Om te zoeken tussen adressen, dat wil zeggen '1st Avenue & Union straat, Seattle', speciaal teken '&' moet worden gecodeerd voordat de aanvraag wordt verzonden. We raden tekengegevens in een URI-codering waarbij alle tekens zijn gecodeerd met een '%'-teken en hexadecimale waarde overeenkomt met de UTF-8-teken twee tekens.
+U kunt als volgt Cross Street-adressen zoeken: "1ste punt & vakbonds straat Seattle", het speciale teken ' & ' moet worden versleuteld voordat de aanvraag wordt verzonden. We raden aan om teken gegevens te coderen in een URI, waarbij alle tekens worden gecodeerd met een%-teken en een hexadecimale waarde van twee tekens die overeenkomt met het UTF-8-teken.
 
-**Voorbeelden van het gebruik**:
+**Voor beelden van gebruik**:
 
-Search-adres ophalen:
+Zoek adres ophalen:
 
 ```
 query=1st Avenue & E 111th St, New York
 ```
 
- moeten worden gecodeerd als:
+ moet worden gecodeerd als:
 
 ```
 query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
 ```
 
 
-Hier volgen de verschillende methoden te gebruiken voor verschillende talen: 
+Hier volgen de verschillende methoden voor het gebruik van verschillende talen: 
 
-JavaScript/TypeScript:
+Java script-type script:
 ```Javascript
 encodeURIComponent(query)
 ```
 
 C#/VB:
-```C#
+```csharp
 Uri.EscapeDataString(query)
 ```
 
@@ -292,32 +292,32 @@ PHP:
 urlencode(query)
 ```
 
-Ruby:
+Ruby
 ```Ruby
 CGI::escape(query) 
 ```
 
-Swift:
+Swift
 ```Swift
 query.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()) 
 ```
 
-Ga naar:
+Gebleven
 ```Go
 import ("net/url") 
 url.QueryEscape(query)
 ```
 
 
-## <a name="best-practices-for-poi-search"></a>Aanbevolen procedures voor POI zoeken
+## <a name="best-practices-for-poi-search"></a>Aanbevolen procedures voor POI Search
 
-Punten van belang (pijl) Search kunt u om aan te vragen van resultaten van de route met de naam, bijvoorbeeld, zoeken bedrijven met de naam. Wij raden u aan het gebruik van de `countrySet` parameter om op te geven van landen waar de toepassing nodig dekking heeft, zoals het standaardgedrag is om te zoeken naar de hele wereld, mogelijk onnodige resultaten retourneren en/of leiden tot langere zoektijden.
+Met POI-Zoek opdrachten (Points of interest) kunt u POI-resultaten aanvragen op naam, bijvoorbeeld zoek naar bedrijf op naam. We raden u ten zeerste aan `countrySet` om de para meter te gebruiken voor het opgeven van landen waar uw toepassing behoefte heeft. het standaard gedrag is om de hele wereld te doorzoeken, mogelijk onnodige resultaten te retour neren en/of tot een langere Zoek tijd.
 
 ### <a name="brand-search"></a>Merk zoeken
 
-Ter verbetering van de relevantie van de resultaten en de informatie in het antwoord bevat de punt van belang (pijl) zoeken antwoord de merk-gegevens die verder kan worden gebruikt voor het parseren van het antwoord.
+Ter verbetering van de relevantie van de resultaten en de informatie in het antwoord, POI-Zoek antwoord (Point of interest) bevat de merk gegevens die verder kunnen worden gebruikt om de reactie te parseren.
 
-Laten we een [POI categorie zoeken](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) aanvraag voor benzinestations in de buurt van Microsoft-campus (Redmond, WA). Als u ziet dat het antwoord, ziet u merk-informatie voor elke route die geretourneerd.
+We gaan een zoek aanvraag voor een [POI categorie](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) maken voor de stations in de buurt van micro soft campus (REDMOND, WA). Als u het antwoord ziet, kunt u de merk gegevens voor elke geretourneerde POI bekijken.
 
 **Voorbeeldquery:**
 
@@ -482,9 +482,9 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
 ```
 
 
-### <a name="airport-search"></a>Luchthaven zoeken
+### <a name="airport-search"></a>Vlieg veld zoeken
 
-PIJL Search ondersteunt luchthavens zoeken met behulp van de officiële luchthaven-codes. Bijvoorbeeld, **zee** (het internationale vliegveld van de Seattle-Tacoma). 
+POI Search biedt ondersteuning voor het zoeken naar lucht havens door gebruik te maken van officiële luchthaven codes. Bijvoorbeeld **Sea** (Seattle-Tacoma internationale lucht haven). 
 
 ```HTTP
 https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=SEA 
@@ -492,11 +492,11 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
 
 ### <a name="nearby-search"></a>In de buurt zoeken
 
-Om op te halen, alleen POI resultaten om een specifieke locatie, de [in de buurt zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchnearby) mogelijk de juiste keuze. Dit eindpunt, retourneert alleen resultaten POI en neemt niet in een queryparameter zoeken. Als u wilt de resultaten beperken, is het aanbevolen om in te stellen van de radius.
+Als u alleen POI resultaten wilt ophalen rond een specifieke locatie, is de [zoek-API](https://docs.microsoft.com/rest/api/maps/search/getsearchnearby) in de buurt mogelijk de juiste keuze. Dit eind punt retourneert alleen POI-resultaten en levert geen zoek query parameter op. Als u de resultaten wilt beperken, is het raadzaam om de RADIUS in te stellen.
 
-## <a name="understanding-the-responses"></a>Informatie over de antwoorden
+## <a name="understanding-the-responses"></a>Meer informatie over de antwoorden
 
-Laten we een zoekaanvraag adres naar de Azure-kaarten [search-service](https://docs.microsoft.com/rest/api/maps/search) voor een adres in Seattle. Als u op de onderstaande aanvraag-URL letten, hebben we ingesteld de `countrySet` parameter **VS** om te zoeken naar het adres in de Verenigde Staten van Amerika.
+We gaan een aanvraag voor het zoeken naar een adres aanvragen bij de Azure Maps [Search-service](https://docs.microsoft.com/rest/api/maps/search) voor een adres in Seattle. Als u de onderstaande aanvraag-URL zorgvuldig bekijkt, moet u de `countrySet` para meter instellen op **ons** om te zoeken naar het adres in de Verenigde Staten van Amerika.
 
 **Voorbeeldquery:**
 
@@ -504,21 +504,21 @@ Laten we een zoekaanvraag adres naar de Azure-kaarten [search-service](https://d
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US
 ```
 
-We hebben verder een overzicht van de reactie van onderstaande structuur. De resultaattypen van de resultaatobjecten in het antwoord zijn verschillend. Als u zorgvuldig dat u ziet dat er drie verschillende typen resultaatobjecten ziet, die zijn "Punt adres", "Adres" en 'Cross straat'. U ziet dat adres met de zoekactie geen koeriersbedrijven geretourneerd. De `Score` parameter voor elk antwoordobject geeft aan dat de relatieve overeenkomende score scores van andere objecten in hetzelfde antwoord. Zie [Search-adres ophalen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) voor meer informatie over parameters voor antwoord-object.
+Hieronder vindt u een overzicht van de onderstaande antwoord structuur. De resultaat typen van de resultaat objecten in het antwoord wijken af. Als u voorzichtig bent, kunt u zien dat er drie verschillende typen resultaat objecten zijn: "punt adres", "straat" en "Cross Street". U ziet dat bij het zoeken naar adressen geen Poi's wordt geretourneerd. De `Score` para meter voor elk antwoord object geeft de relatieve overeenkomende score aan voor scores van andere objecten in hetzelfde antwoord. Zie [Zoek adres ophalen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) voor meer informatie over de para meters van het Response-object.
 
 **Ondersteunde typen resultaat:**
 
-* **Punt-adres:** Punten op een kaart met een specifiek adres met een straatnaam en een nummer. Het hoogste niveau van de nauwkeurigheid van de gegevens beschikbaar voor adressen. 
+* **Punt adres:** Punten op een kaart met een specifiek adres met een straat naam en nummer. Het hoogste nauwkeurigheids niveau dat beschikbaar is voor adressen. 
 
-* **Adresbereik:**  Voor sommige Streets (straten) zijn er adres punten die worden geïnterpoleerd vanaf het begin en einde van de straat; Deze punten worden weergegeven als de adresbereiken. 
+* **Adres bereik:**  Voor sommige straten zijn er adres punten die worden geïnterpoleerd vanaf het begin en het einde van de straat. deze punten worden weer gegeven als adresbereiken. 
 
-* **Geografie:** Gebieden op een kaart die staan voor administratieve indeling van een land, dat wil zeggen, land, status, plaats. 
+* **Geografie** Gebieden op een kaart die de administratieve divisie van een land vertegenwoordigen, dat wil zeggen land, staat, plaats. 
 
-* **PIJL - (punten van belang):** Punten op een kaart die zijn het noemen waard aandacht en die van belang zijn.
+* **POI-(interessante punten):** Punten op een kaart die aandacht best Eden en mogelijk interessant zijn.
 
-* **Adres:** Weergave van Streets (straten) op de kaart. Adressen worden omgezet in de breedtegraad/lengtegraad-coördinaat van de straat die het adres bevat. Het huisnummer kan niet worden verwerkt. 
+* **Adressen** Weer gave van straten op de kaart. Adressen worden omgezet naar de breedte graad/lengte graad van de straat die het adres bevat. Het huis nummer mag niet worden verwerkt. 
 
-* **Cross-adres:** Snijpunten. In de vorm van koppelingen; de locaties waar twee Streets (straten) elkaar overlappen.
+* **Kruis Straat:** Overschrijdingen. Representaties van koppelingen; plaatsen waar twee Streets INTERSECT.
 
 **Antwoord:**
 
@@ -684,12 +684,12 @@ We hebben verder een overzicht van de reactie van onderstaande structuur. De res
 }
 ```
 
-### <a name="geometry"></a>geometrie
+### <a name="geometry"></a>Geometrie
 
-Wanneer het antwoord van het type is **geometrie**, neemt de geometrie-ID die wordt geretourneerd in de **gegevensbronnen** object onder 'geometry' en 'id'. Bijvoorbeeld, [ophalen veelhoek service](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) Hiermee kunt u de geometriegegevens in de GeoJSON-indeling, zoals een plaats of luchthaven overzicht voor een set standaardentiteiten aanvragen. U kunt deze gegevens grens voor [Geofencing](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) of [koeriersbedrijven zoeken binnen de geometrie](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry).
+Wanneer het antwoord type **geometrie**is, kan het de geometrie-id bevatten die wordt geretourneerd in het object **Data sources** onder "geometrie" en "ID". Met de service voor het [ophalen van polygoon](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) kunt u bijvoorbeeld de geometrie gegevens opvragen in de geojson-indeling, zoals een plaats of een overzicht van de lucht haven voor een set entiteiten. U kunt deze grens gegevens gebruiken voor [geoomheining](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) of [Zoeken in poi's binnen de geometrie](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry).
 
 
-[Zoeken naar adres](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) of [Fuzzy zoeken](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) API antwoorden kunnen opnemen de **geometrie-ID** die wordt geretourneerd in het object gegevensbronnen onder 'geometry' en 'id'.
+[Zoek adres](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) of [Zoek acties](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) op fuzzy-API kunnen de **geometrie-id** bevatten die wordt geretourneerd in het object data sources onder "geometrie" en "ID".
 
 
 ```JSON 
@@ -702,5 +702,5 @@ Wanneer het antwoord van het type is **geometrie**, neemt de geometrie-ID die wo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Informatie over [over het bouwen van Azure Maps Search serviceaanvragen](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address).
-* De Azure Maps verkennen [zoeken naar documentatie over service-API](https://docs.microsoft.com/rest/api/maps/search). 
+* Meer informatie [over het bouwen van Azure Maps zoek service aanvragen](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address).
+* Verken de documentatie van de Azure Maps [Search Service-API](https://docs.microsoft.com/rest/api/maps/search). 

@@ -1,127 +1,105 @@
 ---
-title: Het beleid voor aanmeldingsrisico configureren in Azure Active Directory Identity Protection | Microsoft Docs
-description: Informatie over het configureren van de Azure AD Identity Protection-beleid voor aanmeldingsrisico.
+title: Het beleid voor aanmeldings Risico's configureren in Azure Active Directory Identity Protection | Microsoft Docs
+description: Meer informatie over het configureren van het beleid voor Azure AD Identity Protection-aanmeldings Risico's.
 services: active-directory
-keywords: Azure active directory identity protection cloud app discovery, toepassingen, beveiliging, risico's, risiconiveau, beveiligingsproblemen, beveiligingsbeleid beheren
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe9e0a4d481ef7b802c50fdc347872e389fa8ef7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0645e01c8ad9c620b77abd9af6cf7fe7c26ab4ea
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60294580"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335406"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Procedure: Het beleid voor aanmeldingsrisico’s configureren
 
-Azure Active Directory detecteert [risicogebeurtenistypen](../reports-monitoring/concept-risk-events.md#risk-event-types) in realtime en offline. Elke risicogebeurtenis die is gedetecteerd voor een aanmelding van een gebruiker draagt bij aan een logisch concept is met de naam riskante aanmelding. Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk niet uitgevoerd door de rechtmatige eigenaar van een gebruikersaccount.
+Azure Active Directory detecteert [risico gebeurtenis typen](../reports-monitoring/concept-risk-events.md#risk-event-types) in realtime en offline. Elke risico gebeurtenis die is gedetecteerd voor een aanmelding van een gebruiker draagt bij aan een logisch concept met de naam Risk ante aanmelding. Een Risk ante aanmelding is een indicator voor een aanmeldings poging die mogelijk niet is uitgevoerd door de rechtmatige eigenaar van een gebruikers account.
 
+## <a name="what-is-the-sign-in-risk-policy"></a>Wat is het aanmeldings risico beleid?
 
-## <a name="what-is-the-sign-in-risk-policy"></a>Wat is het beleid voor aanmeldingsrisico?
+Azure AD analyseert elke aanmelding van een gebruiker. Het doel van de analyse is het detecteren van verdachte acties die samen met de aanmelding worden uitgevoerd. Is de aanmelding bijvoorbeeld voltooid met een anoniem IP-adres of is de aanmelding gestart vanaf een onbekende locatie? In azure AD worden de verdachte acties die door het systeem kunnen worden gedetecteerd ook wel risico gebeurtenissen genoemd. Op basis van de risico gebeurtenissen die zijn gedetecteerd tijdens een aanmelding, berekent Azure AD een waarde. De waarde vertegenwoordigt de kans (laag, gemiddeld, hoog) dat de aanmelding niet wordt uitgevoerd door de rechtmatige gebruiker. De kans is het **risico niveau voor het aanmelden**.
 
-Azure AD analyseert elke aanmelding van een gebruiker. Het doel van de analyse is voor het detecteren van verdachte activiteit die afkomstig, samen met de aanmelding zijn. Bijvoorbeeld, is de aanmelding uitgevoerd met behulp van een anoniem IP-adres of is de aanmelding die afkomstig zijn van een onbekende locatie? De verdachte activiteit die kan worden gedetecteerd door het systeem zijn in Azure AD, ook wel bekend als risicogebeurtenissen. Op basis van de risicogebeurtenissen die zijn gedetecteerd tijdens de aanmelding, Azure AD een waarde wordt berekend. De waarde vertegenwoordigt de kans (laag, Gemiddeld, hoog) dat de aanmelding wordt niet uitgevoerd door de bevoegde gebruiker. De kans op heet **niveau van aanmeldingsrisico**.
-
-Het beleid voor aanmeldingsrisico is een geautomatiseerd antwoord dat u voor een specifieke aanmeldingsrisico-niveau configureren kunt. U kunt toegang tot uw resources blokkeren of vereisen voor het doorgeven van een uitdaging multi-factor authentication (MFA) om toegang te krijgen in uw antwoord.
-
+Het beleid voor aanmeldings Risico's is een geautomatiseerd antwoord dat u kunt configureren voor een specifiek aanmeldings risico niveau. In uw antwoord kunt u de toegang tot uw resources blok keren of vereisen dat een MFA-uitdaging (multi-factor Authentication) wordt door gegeven om toegang te krijgen.
    
-## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Hoe krijg ik toegang tot het beleid voor aanmeldingsrisico?
+## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Hoe kan ik toegang tot het beleid voor aanmeldings Risico's?
    
-Het beleid voor aanmeldingsrisico is in de **configureren** sectie op de [Azure AD Identity Protection-pagina](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+Het beleid voor aanmeldings Risico's vindt u in de sectie **configureren** op de [pagina Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
-![Beleid voor aanmeldingsrisico](./media/howto-sign-in-risk-policy/1014.png "aanmelden beleid voor gebruikersrisico's")
-
+![Beleid voor aanmeldings Risico's](./media/howto-sign-in-risk-policy/1014.png "Beleid voor aanmeldings Risico's")
 
 ## <a name="policy-settings"></a>Beleidsinstellingen
 
-Wanneer u het beleid voor aanmeldingsrisico configureert, moet u instellen:
+Wanneer u het beleid voor aanmeldings Risico's configureert, moet u het volgende instellen:
 
-- De gebruikers en groepen die het beleid van toepassing op:
+- De gebruikers en groepen waarop het beleid van toepassing is:
 
     ![Gebruikers en groepen](./media/howto-sign-in-risk-policy/11.png)
 
-- Het niveau van aanmeldingsrisico waarmee het beleid wordt geactiveerd:
+- Het niveau van het aanmeldings risico waarmee het beleid wordt geactiveerd:
 
-    ![Het niveau van aanmeldingsrisico](./media/howto-sign-in-risk-policy/12.png)
+    ![Niveau van aanmeldingsrisico](./media/howto-sign-in-risk-policy/12.png)
 
-- Het type toegang dat u wilt worden afgedwongen wanneer de risiconiveau van uw aanmelding is voldaan:  
+- Het type toegang dat u wilt afdwingen wanneer aan uw aanmeldings risico niveau is voldaan:  
 
-    ![Access](./media/howto-sign-in-risk-policy/13.png)
+    ![Toegang](./media/howto-sign-in-risk-policy/13.png)
 
-- De status van uw beleid:
+- De status van het beleid:
 
-    ![Afdwingen van beleid](./media/howto-sign-in-risk-policy/14.png)
+    ![Beleid afdwingen](./media/howto-sign-in-risk-policy/14.png)
 
+In het dialoog venster beleids configuratie kunt u de gevolgen van het opnieuw configureren schatten.
 
-Het dialoogvenster van de configuratie van beleid biedt u een optie voor het schatten van de impact van herconfiguratie.
-
-![De geschatte impact](./media/howto-sign-in-risk-policy/15.png)
+![Verwachte impact](./media/howto-sign-in-risk-policy/15.png)
 
 ## <a name="what-you-should-know"></a>Wat u moet weten
 
-U kunt een beveiligingsbeleid aanmeldingsrisico als u MFA wilt configureren:
+U kunt een beveiligings beleid voor aanmeldings Risico's configureren om MFA te vereisen:
 
 ![MFA vereisen](./media/howto-sign-in-risk-policy/16.png)
 
-Echter, uit veiligheidsoverwegingen, deze instelling werkt alleen voor gebruikers die al zijn geregistreerd voor MFA. Identiteitsbeveiliging wordt voorkomen dat gebruikers met een MFA-vereiste als ze zijn nog niet geregistreerd voor MFA.
+Uit veiligheids overwegingen werkt deze instelling echter alleen voor gebruikers die al zijn geregistreerd voor MFA. Identiteits beveiliging blokkeert gebruikers met een MFA-vereiste als ze nog niet zijn geregistreerd voor MFA.
 
-Als u wilt om MFA te vereisen voor riskante aanmeldingen, moet u:
+Als u MFA wilt vereisen voor Risk ante aanmeldingen, moet u het volgende doen:
 
-1. Schakel de [registratiebeleid voor meervoudige verificatie](howto-mfa-policy.md) voor de betreffende gebruikers.
+1. Schakel het [registratie beleid voor multi-factor Authentication](howto-mfa-policy.md) in voor de betrokken gebruikers.
+2. Vereisen dat de betrokken gebruikers zich aanmelden bij een niet-Risk ante sessie om een MFA-registratie uit te voeren.
 
-2. Vereisen dat de betrokken gebruikers aanmelden bij een niet-riskante-sessie uit te voeren een MFA-registratie.
+Door deze stappen uit te voeren, zorgt u ervoor dat multi-factor Authentication is vereist voor een Risk ante aanmelding.
 
-Deze stappen uit te voeren, zorgt u ervoor dat meervoudige verificatie is vereist voor een riskante aanmelding.
+Het beleid voor aanmeldings Risico's is:
 
-Het beleid voor aanmeldingsrisico is:
+- Wordt toegepast op alle browser verkeer en-aanmeldingen met moderne verificatie.
+- Niet toegepast op toepassingen met oudere beveiligings protocollen door het WS-Trust-eind punt uit te scha kelen bij de federatieve IDP, zoals ADFS.
 
-- Toegepast op alle browserverkeer en aanmeldingen die moderne authenticatie gebruiken.
+Zie voor een overzicht van de gerelateerde gebruikers ervaring:
 
-- Niet toegepast op toepassingen die gebruikmaken van oudere beveiligingsprotocollen door het WS-Trust-eindpunt op de federatieve id-provider, zoals ADFS uit te schakelen.
-
-
-Zie voor een overzicht van de gebruikerservaring:
-
-* [Riskante aanmelding herstel](flows.md#risky-sign-in-recovery)
-* [Riskante aanmelding geblokkeerd](flows.md#risky-sign-in-blocked)  
-* [Aanmelden-ervaringen met Azure AD Identity Protection](flows.md)  
+* [Risk ante aanmeld herstel](flows.md#risky-sign-in-recovery)
+* [Risk ante aanmelding geblokkeerd](flows.md#risky-sign-in-blocked)  
+* [Aanmeld ervaring met Azure AD Identity Protection](flows.md)  
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 
-Kiezen van een **hoge** drempelwaarde vermindert het aantal keer dat een beleid wordt geactiveerd en minimaliseert de gevolgen voor gebruikers.  
+Het kiezen van een **hoge** drempel waarde vermindert het aantal keren dat een beleid wordt geactiveerd en minimaliseert de gevolgen voor gebruikers.  
 
-Echter, worden uitgesloten **laag** en **gemiddeld** aanmeldingen die zijn gemarkeerd voor risico's van het beleid, dat een aanvaller misbruik kan maken van de identiteit van een verdachte kan niet worden geblokkeerd.
+Er zijn echter **lage** en **middel grote** aanmeldingen uitgesloten die zijn gemarkeerd voor risico van het beleid, waardoor een aanvaller niet kan worden misbruikt van een aangetaste identiteit.
 
-Bij het instellen van het beleid
+Wanneer het beleid wordt ingesteld,
 
-- Voorkomen dat gebruikers die geen / geen meervoudige verificatie
+- Gebruikers uitsluiten waarvoor multi-factor Authentication niet/niet kan worden uitgevoerd
+- Gebruikers in landen uitsluiten waarbij het inschakelen van het beleid niet praktisch is (bijvoorbeeld geen toegang tot de Help Desk)
+- Gebruikers uitsluiten die waarschijnlijk veel valse-positieven genereren (ontwikkel aars, beveiligings analisten)
+- Gebruik een **hoge** drempel waarde tijdens het initialiseren van het beleid of als u de uitdagingen moet minimaliseren die door eind gebruikers worden gezien.
+- Gebruik een **lage** drempel waarde als uw organisatie betere beveiliging vereist. Als u een **lage** drempel waarde selecteert, worden extra aanmeldings uitdagingen voor gebruikers geïntroduceerd, maar een betere beveiliging.
 
-- Gebruikers in de landinstellingen waar als het beleid is het niet praktisch uitsluiten (bijvoorbeeld geen toegang tot de helpdesk)
-
-- Gebruikers die waarschijnlijk voor het genereren van veel fout-positieven (ontwikkelaars, beveiligingsanalisten) uitsluiten
-
-- Gebruik een **hoge** drempelwaarde tijdens de eerste beleid uitrollen, of als u uitdagingen gezien door eindgebruikers moet minimaliseren.
-
-- Gebruik een **laag** drempelwaarde als uw organisatie betere beveiliging vereist. Selecteren van een **laag** drempelwaarde introduceert extra gebruiker aanmelden uitdagingen, maar de verbeterde beveiliging.
-
-De aanbevolen standaardwaarde voor de meeste organisaties is het configureren van een regel voor een **gemiddeld** drempelwaarde een evenwicht tussen bruikbaarheid en veiligheid te vinden.
-
-
-
-
-
+De aanbevolen standaard instelling voor de meeste organisaties is het configureren van een regel voor een **gemiddelde** drempel waarde om een evenwicht tussen de bruikbaarheid en de beveiliging te halen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u een overzicht van Azure AD Identity Protection, raadpleegt u de [overzicht van Azure AD Identity Protection](overview.md).
+Zie overzicht van de [Azure AD Identity Protection](overview.md)voor een overzicht van Azure AD Identity Protection.

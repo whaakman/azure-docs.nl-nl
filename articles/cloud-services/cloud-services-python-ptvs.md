@@ -3,23 +3,18 @@ title: Aan de slag met Python en Azure Cloud Services | Microsoft Docs
 description: Overzicht van het gebruik van Python-tools voor Visual Studio voor het maken van Azure Cloud Services, met inbegrip van webrollen en werkrollen.
 services: cloud-services
 documentationcenter: python
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 2cfb8f922819802834d9833ae614f5bc5b4ff886
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 981b1cc4a7adb98ba68ebf3a7673b7116479e704
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125437"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359568"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python-web- en -werkrollen met Python-tools voor Visual Studio
 
@@ -28,15 +23,15 @@ Dit artikel biedt een overzicht van het gebruik van Python-web- en -werkrollen m
 ## <a name="prerequisites"></a>Vereisten
 * [Visual Studio 2013, 2015 of 2017](https://www.visualstudio.com/)
 * [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
-* [Azure SDK-hulpprogramma’s voor VS 2013][Azure SDK Tools for VS 2013] of  
-[Azure SDK-hulpprogramma’s voor VS 2015][Azure SDK Tools for VS 2015] of  
-[Azure SDK-tools voor VS 2017][Azure SDK Tools for VS 2017]
+* [Azure SDK-Hulpprogram ma's voor VS 2013][Azure SDK Tools for VS 2013] or  
+[Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015] of  
+[Azure SDK-Hulpprogram ma's voor VS 2017] [Azure SDK-Hulpprogram ma's voor VS 2017]
 * [Python 2.7 32-bits][Python 2.7 32-bit] of [Python 3.5 32-bits][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Wat zijn Python-web- en -werkrollen?
-Azure biedt drie rekenmodellen voor het uitvoeren van toepassingen: [Functie voor web-apps in Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] en [Azure Cloud Services][execution model-cloud services]. Alle drie modellen ondersteunen Python. Cloud Services, die web- en werkrollen bevatten, bieden *Platform as a Service (PaaS)* . Binnen een cloudservice biedt een webrol een speciale IIS-webserver (Internet Information Services) voor het hosten van front-end webtoepassingen. Een werkrol kan asynchrone langlopende of permanente taken uitvoeren onafhankelijk van de interactie of invoer van de gebruiker.
+Azure biedt drie rekenmodellen voor het uitvoeren van toepassingen: [Web apps functie in azure app service][execution model-web sites], [Azure Virtual Machines][execution model-vms]en [Azure Cloud Services][Execution model-Cloud Services]. Alle drie modellen ondersteunen Python. Cloud Services, die web- en werkrollen bevatten, bieden *Platform as a Service (PaaS)* . Binnen een cloudservice biedt een webrol een speciale IIS-webserver (Internet Information Services) voor het hosten van front-end webtoepassingen. Een werkrol kan asynchrone langlopende of permanente taken uitvoeren onafhankelijk van de interactie of invoer van de gebruiker.
 
 Zie [Wat is een cloudservice?] voor meer informatie.
 
@@ -339,7 +334,7 @@ Zie de volgende artikelen voor meer informatie over het gebruik van Azure-servic
 
 * [Blob-service][Blob Service]
 * [Tabelservice][Table Service]
-* [Wachtrijservice][Queue Service]
+* [Queue-service][Queue Service]
 * [Service Bus-wachtrijen][Service Bus Queues]
 * [Service Bus-onderwerpen][Service Bus Topics]
 

@@ -1,66 +1,66 @@
 ---
-title: Kies de juiste consistentieniveau voor uw toepassing die gebruikmaakt van Azure Cosmos DB
-description: Het kiezen van de juiste consistentieniveau voor uw toepassing in Azure Cosmos DB.
+title: Het juiste consistentie niveau kiezen voor uw toepassing die gebruikmaakt van Azure Cosmos DB
+description: Het juiste consistentie niveau voor uw toepassing kiezen in Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b08f9a85b8c9f52724e2cd08eaf13eb1faae0977
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89c81e978c5f3dbbb8fac1ea5e75fc506612308f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243568"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384900"
 ---
 # <a name="choose-the-right-consistency-level"></a>Het juiste consistentieniveau kiezen 
 
-Gedistribueerde databases die afhankelijk zijn van replicatie voor hoge beschikbaarheid, lage latentie of beide, moet het fundamentele verschil tussen het lezen van consistentie en beschikbaarheid, latentie en doorvoer. De meeste commercieel verkrijgbaar gedistribueerde databases stellen ontwikkelaars om te kiezen tussen de twee extreme consistentiemodellen: *sterke* consistentie en *uiteindelijke* consistentie. Azure Cosmos DB kunnen ontwikkelaars kiezen tussen de vijf duidelijk gedefinieerde consistentiemodellen: *sterke*, *gebonden veroudering*, *sessie*, *consistent voorvoegsel* en *uiteindelijke*. Elk van deze consistentiemodellen is goed gedefinieerde, intuïtieve en kan worden gebruikt voor specifieke praktijkscenario's. Elk van de vijf consistentiemodellen bieden nauwkeurige [zorgen voor beschikbaarheid en prestaties van een balans](consistency-levels-tradeoffs.md) en worden ondersteund door uitgebreide Sla's. De volgende eenvoudige overwegingen krijgt u de juiste keuze maken in veel algemene scenario's.
+Gedistribueerde data bases die gebruikmaken van replicatie voor hoge Beschik baarheid, lage latentie of beide, maken de fundamentele verhouding tussen de Lees consistentie versus Beschik baarheid, latentie en door voer. De meeste commerciële beschik bare gedistribueerde data bases vragen ontwikkel aars om te kiezen tussen de twee uiterst consistente consistentie modellen: *sterke* consistentie en *uiteindelijke* consistentie. Met Azure Cosmos DB kunnen ontwikkel aars kiezen uit de vijf goed gedefinieerde consistentie modellen: *Strong*, *gebonden veroudering*, *sessie*, *consistent voor voegsel* en *uiteindelijk*. Elk van deze consistentie modellen is goed gedefinieerd, intuïtief en kan worden gebruikt voor specifieke praktijk scenario's. Elk van de vijf consistentie modellen biedt nauw keurige [Beschik baarheid en prestatie](consistency-levels-tradeoffs.md) -afwegingen en wordt ondersteund door de uitgebreide service overeenkomsten. Met de volgende eenvoudige overwegingen kunt u de juiste keuze maken in veel algemene scenario's.
 
 ## <a name="sql-api-and-table-api"></a>SQL-API en Table-API
 
-Houd rekening met de volgende punten als uw toepassing is gemaakt met behulp van SQL-API of de tabel-API:
+Houd rekening met de volgende punten als uw toepassing is gebouwd met behulp van SQL API of Table-API:
 
-- Sessieconsistentie is het optimale voor veel real-world scenario's, en is de aanbevolen optie. Voor meer informatie ziet, [procedures voor sessietoken voor uw toepassing beheren](how-to-manage-consistency.md#utilize-session-tokens).
+- Voor veel praktijk scenario's is sessie consistentie optimaal en de aanbevolen optie. Zie voor meer informatie, [How-to manage Session token voor uw toepassing](how-to-manage-consistency.md#utilize-session-tokens).
 
-- Als uw toepassing vereist een sterke consistentie, is het aanbevolen dat u het consistentieniveau gebonden veroudering.
+- Als voor uw toepassing sterke consistentie is vereist, is het raadzaam om het consistentie niveau van de gebonden veroudering te gebruiken.
 
-- Als u nodig strengere hebt garandeert consistentie dan de opgegeven sessieconsistentie en één cijfer milliseconde latentie voor schrijfbewerkingen, is het raadzaam dat u veroudering consistentieniveau gebonden.  
+- Als u strengere consistentie garanties nodig hebt dan door de consistentie van de sessie en latentie met één cijfer in milliseconden voor schrijf bewerkingen, wordt u aangeraden het consistentie niveau van de gebonden veroudering te gebruiken.  
 
-- Als uw toepassing uiteindelijke consistentie vereist, is het aanbevolen dat u consistent voorvoegsel consistentieniveau.
+- Als voor uw toepassing uiteindelijke consistentie is vereist, is het raadzaam consistent consistentie niveau te gebruiken.
 
-- Als u minder strikte consistentiegarantie dan de opgegeven door sessieconsistentie nodig hebt, is het aanbevolen dat u consistent voorvoegsel consistentieniveau.
+- Als u minder strikte consistentie garanties nodig hebt dan die van de sessie consistentie, kunt u het beste consistent consistentie niveau gebruiken.
 
-- Als u de hoogst mogelijke beschikbaarheid en de laagste latentie nodig hebt, gebruikt u het niveau van uiteindelijke consistentie.
+- Als u de hoogste Beschik baarheid en de laagste latentie nodig hebt, gebruikt u uiteindelijk consistentie niveau.
 
-- Als u nog hogere duurzaamheid van gegevens moet zonder verlies van prestaties, maakt u een aangepaste consistentieniveau op het niveau van de toepassing. Zie voor meer informatie, [instructies aangepaste synchronisatie implementeren in uw toepassingen](how-to-custom-synchronization.md).
+- Als u nog meer duurzaamheid van de gegevens nodig hebt zonder de prestaties te verbeteren, kunt u een aangepast consistentie niveau maken op de toepassingslaag. Zie voor meer informatie [over het implementeren van aangepaste synchronisatie in uw toepassingen](how-to-custom-synchronization.md).
 
-## <a name="cassandra-mongodb-and-gremlin-apis"></a>Cassandra, MongoDB en Gremlin-API 's
+## <a name="cassandra-mongodb-and-gremlin-apis"></a>Cassandra-, MongoDB-en Gremlin-Api's
 
-- Zie voor meer informatie over de toewijzing tussen 'Consistentieniveau lezen' aangeboden in Apache Cassandra en Cosmos DB-consistentieniveaus [consistentieniveaus en Cosmos DB-API's](consistency-levels-across-apis.md#cassandra-mapping).
+- Zie [consistentie niveaus en Cosmos DB api's](consistency-levels-across-apis.md#cassandra-mapping)voor meer informatie over de toewijzing van het ' consistentie niveau voor lezen ' dat wordt aangeboden in Apache Cassandra-en Cosmos DB-consistentie niveaus.
 
-- Zie voor meer informatie over de toewijzing tussen 'Lezen bezorgdheid' van de MongoDB- en Azure Cosmos DB-consistentieniveaus, [consistentieniveaus en Cosmos DB-API's](consistency-levels-across-apis.md#mongo-mapping).
+- Zie [consistentie niveaus en Cosmos DB api's](consistency-levels-across-apis.md#mongo-mapping)voor meer informatie over de toewijzing van ' Lees bezorgdheid ' van MongoDb-en Azure Cosmos DB consistentie niveaus.
 
-## <a name="consistency-guarantees-in-practice"></a>Garanties voor consistentie in de praktijk
+## <a name="consistency-guarantees-in-practice"></a>Consistentie garanties in de praktijk
 
-In de praktijk krijgt u mogelijk vaak sterkere garanties voor consistentie. Garanties voor consistentie voor een leesbewerking komen overeen met de nieuwheid en volgorde van de status van de database die u aanvraagt. Lezen van consistentie is gekoppeld aan de bestelling en de doorgifte van de bewerkingen voor schrijven/bijwerken.  
+In de praktijk kunt u vaak sterkere consistentie garanties krijgen. Consistentie garanties voor een lees bewerking komen overeen met de versheid en volg orde van de database status die u aanvraagt. Lees consistentie is gekoppeld aan de volg orde en doorgifte van de schrijf-en bijwerk bewerkingen.  
 
-* Wanneer het consistentieniveau is ingesteld op **gebonden veroudering**, garandeert Microsoft dat de clients altijd de waarde van een vorige schrijven met een vertraging begrensd door het venster veroudering lezen.
+* Wanneer het consistentie niveau is ingesteld op **gebonden veroudering**, zorgt Cosmos DB ervoor dat de clients altijd de waarde van een voor gaande schrijf bewerking lezen, met een vertraging die wordt begrensd door het verouderde venster.
 
-* Wanneer het consistentieniveau is ingesteld op **sterke**, het venster veroudering is gelijk aan nul en de clients de meest recente toegezegde waarde van de schrijfbewerking lezen worden gegarandeerd.
+* Wanneer het consistentie niveau is ingesteld op **Strong**, is het verouderde venster gelijk aan nul en zijn de clients gegarandeerd de laatste doorgevoerde waarde van de schrijf bewerking te lezen.
 
-* Het venster veroudering is voor de resterende drie consistentieniveaus, grotendeels afhankelijk van uw workload. Bijvoorbeeld, als er geen schrijfbewerkingen op de database, een leesbewerking met **uiteindelijke**, **sessie**, of **consistent voorvoegsel** consistentieniveaus waarschijnlijk opbrengst hetzelfde resultaat als een leesbewerking met hoog consistentieniveau.
+* Voor de resterende drie consistentie niveaus is het verouderde venster grotendeels afhankelijk van uw werk belasting. Als er bijvoorbeeld geen schrijf bewerkingen zijn op de data base, kan een Lees **bewerking met een**mogelijke consistentie **-of**consistentie niveau van het **voor voegsel** dezelfde resultaten opleveren als een lees bewerking met een hoog consistentie niveau.
 
-Als uw Azure Cosmos-account is geconfigureerd met een consistentieniveau dan de sterke consistentie, vindt u de kans dat uw clients kunnen er sterke en consistente leesbewerkingen voor uw workloads door te kijken de *Probabilistically Gebonden veroudering* metrische gegevens (PBS). Met deze metriek wordt weergegeven in de Azure-portal, voor meer informatie, Zie [Monitor Probabilistically gebonden veroudering (PBS) metriek](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+Als uw Azure Cosmos-account is geconfigureerd met een ander consistentie niveau dan de sterke consistentie, kunt u de kans opsporen dat uw clients sterke en consistente Lees bewerkingen voor uw workloads krijgen door te kijken naar de Probabilistically die is *gebonden* Waarde voor veroudering (PBS). Deze metriek wordt weer gegeven in de Azure Portal voor meer informatie, Zie [Probabilistically gebonden verouderde waarde (PBS) controleren](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
-Probabilistic gebonden veroudering wordt aangegeven hoe de uiteindelijke is uw uiteindelijke consistentie. Met deze metriek biedt een beter inzicht in hoe vaak u krijgt een sterkere consistentie dan het consistentieniveau die u momenteel hebt geconfigureerd voor uw Azure Cosmos-account. U kunt met andere woorden, Zie de kans (gemeten in milliseconden) aan sterk consistente leesbewerkingen voor een combinatie van schrijven en leesregio's.
+Probabilistic gebonden veroudering laten zien hoe uiteindelijk uw uiteindelijke consistentie is. Deze metrische gegevens bieden een inzicht in hoe vaak u een sterkere consistentie kunt krijgen dan het consistentie niveau dat u momenteel hebt geconfigureerd in uw Azure Cosmos-account. Met andere woorden, u kunt de waarschijnlijkheid (gemeten in milliseconden) voor het verkrijgen van sterk consistente Lees bewerkingen voor een combi natie van de regio's schrijven en lezen zien.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de consistentieniveaus in de volgende artikelen:
+Meer informatie over de consistentie niveaus vindt u in de volgende artikelen:
 
-* [Toewijzing van op consistentie voor Cosmos DB-API 's](consistency-levels-across-apis.md)
+* [Toewijzing van consistentie niveau tussen Cosmos DB-Api's](consistency-levels-across-apis.md)
 * [Beschikbaarheid en prestaties van optimalisatie voor verschillende consistentieniveaus](consistency-levels-tradeoffs.md)
-* [Over het beheren van de sessietoken voor uw toepassing](how-to-manage-consistency.md#utilize-session-tokens)
-* [Probabilistically gebonden veroudering (PBS) metrische gegevens controleren](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
+* [Het sessie token voor uw toepassing beheren](how-to-manage-consistency.md#utilize-session-tokens)
+* [Metrische gegevens van Probabilistically-gebonden veroudering (PBS) bewaken](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

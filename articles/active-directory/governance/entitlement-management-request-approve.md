@@ -1,10 +1,10 @@
 ---
-title: Goedkeuren of weigeren van toegang in Azure AD-recht beheer (Preview) - Azure Active Directory
-description: Meer informatie over het gebruik van de portal mijn toegang goedkeuren of weigeren van aanvragen voor een pakket toegang in Azure Active Directory waar u recht op management (Preview).
+title: Toegangs aanvragen goed keuren of weigeren in azure AD-rechts beheer (preview)-Azure Active Directory
+description: Meer informatie over het gebruik van de portal mijn toegang voor het goed keuren of weigeren van aanvragen voor een toegangs pakket in Azure Active Directory rechten beheer (preview).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
@@ -13,72 +13,72 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 04/18/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b2d07638f6c6f153ee3640273fbee5e56df0ab2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78243f02cbbe3d06b94ee52d6193865dbfa27121
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64541523"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488988"
 ---
-# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management-preview"></a>Goedkeuren of weigeren van toegang in Azure AD waar u recht op beheer (Preview)
+# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management-preview"></a>Toegangs aanvragen goed keuren of weigeren in azure AD-rechts beheer (preview-versie)
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) waar u recht op management is momenteel in openbare preview.
+> Azure Active Directory (Azure AD)-rechts beheer is momenteel beschikbaar als open bare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
 > Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-Met Azure AD recht management, kunt u beleid configureren voor goedkeuring vereisen voor toegang tot pakketten en kiest u een of meer fiatteurs. Dit artikel wordt beschreven hoe aangewezen goedkeurders kan goedkeuren of weigeren van aanvragen voor toegang tot pakketten.
+Met het beheer van rechten van Azure AD kunt u beleid configureren om goed keuring van toegangs pakketten te vereisen en een of meer goed keurders kiezen. In dit artikel wordt beschreven hoe aangewezen goed keurders aanvragen voor toegangs pakketten kunnen goed keuren of weigeren.
 
-## <a name="open-request"></a>Open aanvraag
+## <a name="open-request"></a>Aanvraag openen
 
-De eerste stap voor het goedkeuren of weigeren van toegang is om te zoeken en openen van de aanvraag in afwachting van goedkeuring. Er zijn twee manieren om de toegang te vragen.
-
-**Vereiste rol:** Goedkeurder
-
-1. Zoek naar een e-mailbericht van Microsoft Azure die u wilt goedkeuren of weigeren van een aanvraag wordt gevraagd. Hier volgt een voorbeeld van de e-mailbericht:
-
-    ![Aanvraag voor toegang tot e-mail van pakket goedkeuren](./media/entitlement-management-shared/email-approve-request.png)
-
-1. Klik op de **goedkeuren of weigeren van aanvraag** koppeling om de toegang te vragen.
-
-1. Aanmelden bij de portal mijn toegang.
-
-Als u het e-mailbericht niet hebt, kunt u de toegangsaanvragen vinden moeten worden goedgekeurd door de volgende stappen.
-
-1. Meld u aan bij de portal My Access op [ https://myaccess.microsoft.com ](https://myaccess.microsoft.com).
-
-1. Klik in het menu links op **goedkeuringen** voor een overzicht van aanvragen in afwachting van goedkeuring.
-
-1. Op de **in behandeling** tabblad, het vinden van de aanvraag.
-
-## <a name="approve-or-deny-request"></a>Goedkeuren of weigeren van aanvraag
-
-Nadat u een aanvraag voor toegang tot in afwachting van goedkeuring opent, ziet u informatie waarmee u bij het maken van een goedkeuren of weigeren van de beslissing.
+De eerste stap voor het goed keuren of weigeren van toegangs aanvragen is het zoeken en openen van de goedkeurings aanvraag in behandeling. Er zijn twee manieren om de toegangs aanvraag te openen.
 
 **Vereiste rol:** Goedkeurder
 
-1. Klik op de **weergave** koppeling om de toegang tot aanvraag deelvenster te openen.
+1. Zoek naar een e-mail bericht van Microsoft Azure waarin u wordt gevraagd of u een aanvraag wilt goed keuren of weigeren. Hier volgt een voor beeld van een e-mail bericht:
 
-1. Klik op **Details** voor informatie over de aanvraag.
+    ![Aanvraag voor toegang tot pakket e-mail goed keuren](./media/entitlement-management-shared/email-approve-request.png)
 
-    De details van de gebruiker de naam, organisatie, toegang tot begin- en datum indien opgegeven, zakelijke reden, wanneer de aanvraag is ingediend en verloopt de aanvraag.
+1. Klik op de koppeling **aanvraag goed keuren of weigeren** om de toegangs aanvraag te openen.
 
-1. Klik op **goedkeuren** of **weigeren**.
+1. Meld u aan bij de portal van mijn toegang.
 
-1. Voer een reden, indien nodig.
+Als u het e-mail bericht niet hebt, kunt u de toegangs aanvragen vinden die in behandeling zijn door de volgende stappen uit te voeren.
 
-    ![Mijn toegangsportal - aanvraag voor toegang tot](./media/entitlement-management-shared/my-access-approve-request.png)
+1. Meld u aan bij de portal van mijn [https://myaccess.microsoft.com](https://myaccess.microsoft.com)toegang op.
 
-1. Klik op **indienen** om in te dienen uw beslissing.
+1. Klik in het linkermenu op **goed keuringen** om een lijst weer te geven met toegangs aanvragen die in behandeling zijn.
 
-    Als een beleid is geconfigureerd met meerdere goedkeurders, moet slechts één fiatteur een beslissing nemen over de goedkeuring in behandeling. Nadat een goedkeurder de beslissing om de aanvraag voor toegang tot verzonden heeft, wordt de aanvraag is voltooid en is niet meer beschikbaar voor de andere goedkeurders goedkeuren of weigeren van de aanvraag. De beslissing van de aanvraag en de besluitvormer in de portal mijn toegang tot zien de andere goedkeurders. Op dit moment wordt alleen één fase goedkeuring ondersteund.
+1. Zoek de aanvraag op het tabblad **in behandeling** .
 
-    Als geen van de geconfigureerde goedkeurders kan goedkeuren of weigeren van de aanvraag voor toegang tot zijn, wordt de aanvraag verloopt na de duur van de geconfigureerde aanvraag. De gebruiker opgehaald op de hoogte gesteld dat hun access-aanvraag is verlopen en dat ze moeten de aanvraag opnieuw indienen.
+## <a name="approve-or-deny-request"></a>Aanvraag goed keuren of weigeren
+
+Nadat u een goedkeurings aanvraag in behandeling hebt geopend, ziet u details die u helpen bij het maken van een goed keuring of het weigeren van een beslissing.
+
+**Vereiste rol:** Goedkeurder
+
+1. Klik op de koppeling **weer geven** om het deel venster toegangs aanvraag te openen.
+
+1. Klik op **Details** om de details van de toegangs aanvraag te bekijken.
+
+    De details bestaan uit de naam van de gebruiker, de organisatie, de start-en eind datum van de toegang, indien van toepassing, zakelijke rechtvaardiging, wanneer de aanvraag is ingediend en wanneer de aanvraag verloopt.
+
+1. Klik op **goed keuren** of **weigeren**.
+
+1. Voer, indien nodig, een reden in.
+
+    ![Mijn toegangs Portal-toegangs aanvraag](./media/entitlement-management-shared/my-access-approve-request.png)
+
+1. Klik op **verzenden** om uw beslissing in te dienen.
+
+    Als een beleid is geconfigureerd met meerdere goed keurders, hoeft slechts één fiatteur een beslissing te nemen over de goed keuring in behandeling. Nadat een fiatteur zijn of haar beslissing heeft ingediend bij de toegangs aanvraag, wordt de aanvraag voltooid en is deze niet langer beschikbaar voor de andere goed keurders om de aanvraag goed te keuren of te weigeren. De andere goed keurders kunnen de beslissing van de aanvraag en de besluit Maker in hun mijn Access-Portal bekijken. Op dit moment wordt slechts één fase goed keuring ondersteund.
+
+    Als geen van de geconfigureerde goed keurders de toegangs aanvraag kan goed keuren of weigeren, verloopt de aanvraag na de geconfigureerde aanvraag duur. De gebruiker ontvangt een melding dat de toegangs aanvraag is verlopen en dat deze de toegangs aanvraag opnieuw moet indienen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Aanvraag voor toegang tot een package toegang](entitlement-management-request-access.md)
-- [Aanvraag verwerken en e-mailmeldingen](entitlement-management-process.md)
+- [Toegang aanvragen tot een toegangs pakket](entitlement-management-request-access.md)
+- [Aanvraag proces en e-mail meldingen](entitlement-management-process.md)

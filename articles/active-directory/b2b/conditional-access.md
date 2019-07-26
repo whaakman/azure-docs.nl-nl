@@ -1,6 +1,6 @@
 ---
-title: 'Voorwaardelijke toegang voor gebruikers van B2B-samenwerking: Azure Active Directory | Microsoft Docs'
-description: Azure Active Directory B2B-samenwerking ondersteunt multi-factor authentication (MFA) voor selectief toegang tot uw zakelijke toepassingen
+title: Voorwaardelijke toegang voor B2B-samenwerkings gebruikers-Azure Active Directory | Microsoft Docs
+description: Azure Active Directory B2B-samen werking ondersteunt multi-factor Authentication (MFA) voor selectieve toegang tot uw bedrijfs toepassingen
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,40 +11,40 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c012ebfb00b57079e43b74b4f6570744db980860
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a54e5006a268347148945fbe7fc5f18cfa41036
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113163"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357114"
 ---
-# <a name="conditional-access-for-b2b-collaboration-users"></a>Voorwaardelijke toegang voor gebruikers van B2B-samenwerking
+# <a name="conditional-access-for-b2b-collaboration-users"></a>Voorwaardelijke toegang voor B2B-samenwerkings gebruikers
 
-## <a name="multi-factor-authentication-for-b2b-users"></a>Multi-factor authentication voor B2B-gebruikers
-Met Azure AD B2B-samenwerking, kunnen organisaties multi-factor authentication (MFA)-beleid voor B2B-gebruikers afdwingen. Dit beleid kunnen worden afgedwongen op het niveau van de tenant, app, of individuele gebruiker, de dezelfde manier dat ze zijn ingeschakeld voor fulltime werknemers en leden van de organisatie. MFA-beleid worden afgedwongen voor de bronorganisatie.
+## <a name="multi-factor-authentication-for-b2b-users"></a>Multi-factor Authentication voor B2B-gebruikers
+Met Azure AD B2B-samen werking kunnen organisaties multi-factor Authentication (MFA)-beleid afdwingen voor B2B-gebruikers. Deze beleids regels kunnen worden afgedwongen op Tenant-, app-of individuele gebruikers niveau, op dezelfde manier als ze zijn ingeschakeld voor fulltime werk nemers en leden van de organisatie. MFA-beleids regels worden afgedwongen voor de resource organisatie.
 
 Voorbeeld:
-1. Beheerder of informatie worker in bedrijf A nodigt gebruikers van bedrijf B naar een toepassing *Foo* in bedrijf A.
-2. Toepassing *Foo* in bedrijf A is geconfigureerd voor MFA vereisen voor toegang.
-3. Wanneer de gebruiker van bedrijf B probeert te krijgen tot app *Foo* in het bedrijf een tenant, dan wordt hen gevraagd een MFA-controle voltooien.
-4. De gebruiker hun MFA bij een bedrijf kunt instellen en de MFA-optie kiest.
-5. In dit scenario werkt voor een identiteit (Azure AD of MSA, bijvoorbeeld, als gebruikers in bedrijf B verifiëren met behulp van sociale ID)
-6. Een bedrijf moet voldoende Azure AD Premium-licenties die ondersteuning bieden voor MFA hebt. De gebruiker van bedrijf B neemt deze licentie van bedrijf A.
+1. Beheerder of informatie medewerker in bedrijf A verzoekt een gebruiker van bedrijf B naar een toepassing *Foo* in bedrijf A.
+2. Application *Foo* in bedrijf A is geconfigureerd om MFA te vereisen voor toegang.
+3. Wanneer de gebruiker van bedrijf B probeert toegang te krijgen tot de app *Foo* in het bedrijf een Tenant, wordt deze gevraagd een MFA-uitdaging te volt ooien.
+4. De gebruiker kan hun MFA instellen met bedrijf A en de optie MFA kiezen.
+5. Dit scenario werkt voor elke identiteit (Azure AD of MSA, bijvoorbeeld als gebruikers in bedrijf B een verificatie uitvoeren met sociale ID)
+6. Bedrijf A moet voldoende Premium Azure AD-licenties hebben die ondersteuning bieden voor MFA. De gebruiker van bedrijf B gebruikt deze licentie van bedrijf A.
 
-De uitnodigende tenancy is altijd verantwoordelijk voor MFA voor gebruikers van de partnerorganisatie, zelfs als de partnerorganisatie MFA mogelijkheden heeft.
+De uitnodigende pacht is altijd verantwoordelijk voor MFA voor gebruikers van de partner organisatie, zelfs als de partner organisatie MFA-mogelijkheden heeft.
 
-### <a name="setting-up-mfa-for-b2b-collaboration-users"></a>MFA in te stellen voor gebruikers van B2B-samenwerking
-Om te ontdekken hoe eenvoudig het is het instellen van MFA voor gebruikers van B2B-samenwerking, Zie hoe u in de volgende video:
+### <a name="setting-up-mfa-for-b2b-collaboration-users"></a>MFA instellen voor gebruikers van B2B-samen werking
+Als u wilt weten hoe gemakkelijk het is om MFA in te stellen voor gebruikers van B2B-samen werking, raadpleegt u de volgende video:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
 
-### <a name="b2b-users-mfa-experience-for-offer-redemption"></a>B2B-gebruikers voor MFA-ervaring bieden inwisselen
-Bekijk de volgende animatie om te zien van de inschrijving ervaring:
+### <a name="b2b-users-mfa-experience-for-offer-redemption"></a>B2B-gebruikers MFA-ervaring voor aanbiedings inwisseling
+Bekijk de volgende animatie om de aflossings ervaring te bekijken:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
-### <a name="mfa-reset-for-b2b-collaboration-users"></a>MFA opnieuw instellen voor gebruikers van B2B-samenwerking
-Op dit moment kan de beheerder vereisen gebruikers van B2B-samenwerking bewijs van opnieuw alleen met behulp van de volgende PowerShell-cmdlets:
+### <a name="mfa-reset-for-b2b-collaboration-users"></a>MFA-reset voor gebruikers van B2B-samen werking
+Op dit moment kan de beheerder alleen opnieuw controleren met behulp van de volgende Power shell-cmdlets voor B2B-samenwerkings gebruikers:
 
 1. Verbinding maken met Azure AD
 
@@ -52,7 +52,7 @@ Op dit moment kan de beheerder vereisen gebruikers van B2B-samenwerking bewijs v
    $cred = Get-Credential
    Connect-MsolService -Credential $cred
    ```
-2. Ophalen van alle gebruikers met een bewijs van methoden
+2. Alle gebruikers ophalen met methoden voor testen
 
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
@@ -63,47 +63,51 @@ Op dit moment kan de beheerder vereisen gebruikers van B2B-samenwerking bewijs v
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
 
-3. Opnieuw instellen van de MFA-methode voor een specifieke gebruiker moet de gebruiker B2B-samenwerking bewijs van methoden opnieuw instellen. Voorbeeld:
+3. Stel de MFA-methode voor een specifieke gebruiker opnieuw in, zodat de B2B-samenwerkings gebruiker opnieuw proef methoden kan instellen. Voorbeeld:
 
    ```
    Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
    ```
 
-### <a name="why-do-we-perform-mfa-at-the-resource-tenancy"></a>Waarom we MFA uitvoeren op de resource-tenants?
+### <a name="why-do-we-perform-mfa-at-the-resource-tenancy"></a>Waarom wordt MFA op de bron pacht uitgevoerd?
 
-In de huidige versie is de MFA altijd in de resource-tenants, om redenen van voorspelbaarheid. Stel dat bijvoorbeeld een Contoso-gebruiker (Sandra) wordt uitgenodigd voor Fabrikam en Fabrikam MFA is ingeschakeld voor B2B-gebruikers.
+In de huidige release is MFA altijd in de resource pacht, om redenen van voorspel baarheid. Stel bijvoorbeeld dat een contoso-gebruiker (Sandra) wordt uitgenodigd voor fabrikam en fabrikam MFA voor B2B-gebruikers heeft ingeschakeld.
 
-Als Contoso ingeschakeld voor App1, maar niet App2 MFA-beleid heeft, klikt u vervolgens als we kijken naar de Contoso-MFA-claim in het token wordt mogelijk zien we het volgende probleem:
+Als contoso beleid heeft ingeschakeld voor App1, maar niet App2, dan zien we mogelijk het volgende probleem als we de contoso MFA-claim in het token bekijken:
 
-* Dag 1: Een gebruiker heeft van MFA in Contoso en toegang heeft tot App1 en geen extra MFA prompt wordt weergegeven in Fabrikam.
+* Dag 1: Een gebruiker heeft MFA in contoso en heeft toegang tot App1. vervolgens wordt er geen extra MFA-prompt weer gegeven in fabrikam.
 
-* Dag 2: De gebruiker toegang heeft gehad tot App 2 in Contoso, dus nu bij het openen van Fabrikam, moeten ze zich registreren voor MFA er.
+* Dag 2: De gebruiker heeft app 2 in contoso geopend, dus nu moet u bij het openen van Fabrikam zich registreren voor MFA.
 
-Dit proces kan verwarrend zijn en kan leiden tot neerzetten in aanvullen met aanmelden.
+Dit proces kan verwarrend zijn en kan ertoe leiden dat het aanmelden wordt voltooid.
 
-Bovendien, zelfs als Contoso MFA mogelijkheid heeft, is het niet altijd dat het geval de Fabrikam zou vertrouwt de Contoso-MFA-beleid.
+Ook als contoso een MFA-functionaliteit heeft, is het niet altijd het geval dat fabrikam het beleid van Contoso MFA vertrouwt.
 
-Tot slot werkt resource tenant MFA ook voor MSA's en sociale-id's en partner organisaties waarvoor geen MFA instellen.
+Ten slotte werkt resource Tenant MFA ook voor Msa's-en sociale Id's en voor partner-organisaties waarop MFA niet is ingesteld.
 
-Daarom is de aanbeveling voor MFA voor B2B-gebruikers altijd om MFA te vereisen in de uitnodigende tenant. Deze vereiste kan leiden tot dubbele MFA in sommige gevallen, maar wanneer u toegang wilt tot de uitnodigende tenant, de ervaring voor eindgebruikers voorspelbare is: Sandra moet aan de uitnodigende tenant worden geregistreerd voor MFA.
+Daarom moet de aanbeveling voor MFA voor B2B-gebruikers altijd MFA vereisen in de uitnodigende Tenant. Deze vereiste zou kunnen leiden tot dubbele MFA in sommige gevallen, maar wanneer toegang wordt verkregen tot de uitnodigende Tenant, is de ervaring voor eind gebruikers voorspelbaar: Sandra moet worden geregistreerd voor MFA met de uitnodigende Tenant.
 
-### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Op basis van apparaat, op basis van locatie en risico's gebaseerde voorwaardelijke toegang voor B2B-gebruikers
+### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Op apparaten gebaseerde, op locatie gebaseerde en op Risico's gebaseerde voorwaardelijke toegang voor B2B-gebruikers
 
-Bij Contoso beleid voor voorwaardelijke toegang op basis van het apparaat voor hun zakelijke gegevens kunt, wordt toegang vanaf apparaten die niet worden beheerd door Contoso en niet compatibel zijn met de Contoso-apparaatbeleid voorkomen.
+Wanneer contoso op apparaten gebaseerd beleid voor voorwaardelijke toegang voor hun bedrijfs gegevens inschakelt, wordt de toegang verhinderd vanaf apparaten die niet worden beheerd door Contoso en niet compatibel zijn met het contoso-apparaatbeleid.
 
-Als het apparaat van de B2B-gebruiker niet wordt beheerd door Contoso, wordt de toegang van B2B-gebruikers van de partnerorganisaties geblokkeerd in welke context deze beleidsregels worden afgedwongen. Contoso kan echter uitsluitingslijsten met specifieke partner gebruikers uitgesloten van het beleid voor voorwaardelijke toegang op basis van het apparaat te maken.
+Als het apparaat van de B2B-gebruiker niet wordt beheerd door contoso, wordt de toegang van B2B-gebruikers van de partner organisaties geblokkeerd in welke context deze beleids regels worden afgedwongen. Contoso kan echter uitsluitings lijsten maken met specifieke partner gebruikers om ze uit te sluiten van het beleid voor voorwaardelijke toegang op basis van apparaten.
 
-#### <a name="location-based-conditional-access-for-b2b"></a>Voorwaardelijke toegang op basis van locatie voor B2B
+#### <a name="mobile-application-management-policies-for-b2b"></a>Mobile Application Management-beleid voor B2B
 
-Beleid voor voorwaardelijke toegang op basis van locatie kunnen worden afgedwongen voor B2B-gebruikers als de organisatie kan maken van een vertrouwde IP-adresbereik dat hun partnerorganisaties definieert.
+App-beveiligings beleid voor voorwaardelijke toegang kan niet worden toegepast op B2B-gebruikers omdat de uitnodigende organisatie geen zicht baarheid heeft in de thuis organisatie van de B2B-gebruiker.
 
-#### <a name="risk-based-conditional-access-for-b2b"></a>Risico's gebaseerde voorwaardelijke toegang voor B2B
+#### <a name="location-based-conditional-access-for-b2b"></a>Voorwaardelijke toegang op basis van locaties voor B2B
 
-Op dit moment kunnen niet aanmelden risicobeleid voor B2B-gebruikers worden toegepast omdat de risico-evaluatie wordt uitgevoerd op de startpagina organisatie van de B2B-gebruiker.
+Op locatie gebaseerd beleid voor voorwaardelijke toegang kan worden afgedwongen voor B2B-gebruikers als de uitgenodigde organisatie een vertrouwd IP-adres bereik kan maken dat hun partner organisaties definieert.
+
+#### <a name="risk-based-conditional-access-for-b2b"></a>Voorwaardelijke toegang op basis van Risico's voor B2B
+
+Op dit moment kunnen aanmeldings beleid op basis van Risico's niet worden toegepast op B2B-gebruikers omdat de risico-evaluatie wordt uitgevoerd in de thuis organisatie van de B2B-gebruiker.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende artikelen op Azure AD B2B-samenwerking:
+Raadpleeg de volgende artikelen over Azure AD B2B-samen werking:
 
 * [Wat is Azure AD B2B-samenwerking?](what-is-b2b.md)
 * [Licenties voor Azure AD B2B-samenwerking](licensing-guidance.md)

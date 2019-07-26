@@ -1,31 +1,30 @@
 ---
-title: Installatie op de achtergrond van Azure Backup Server V2
-description: Gebruik een PowerShell-script op de achtergrond installeert Azure Backup Server V2. Dit soort installatie is een afkorting voor een installatie zonder toezicht.
-services: backup
+title: Achtergrond installatie van Azure Backup Server v2
+description: Gebruik een Power shell-script om Azure Backup Server v2 op de achtergrond te installeren. Dit type installatie wordt ook wel een installatie zonder toezicht genoemd.
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: raynew
-ms.openlocfilehash: 66ed5765a91b607bc5b765926c5df87d13ff6a24
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: add1f4057b5b52310f53553dcd23e3357fb1ee29
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253842"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465014"
 ---
-# <a name="run-an-unattended-installation-of-azure-backup-server"></a>Voer een installatie zonder toezicht van Azure Backup Server
+# <a name="run-an-unattended-installation-of-azure-backup-server"></a>Een installatie zonder toezicht van Azure Backup Server uitvoeren
 
-Leer hoe u een installatie zonder toezicht van Azure Backup Server uitvoert.
+Meer informatie over het uitvoeren van een installatie zonder toezicht van Azure Backup Server.
 
-Deze stappen niet van toepassing als u Azure Backup Server V1 installeert.
+Deze stappen zijn niet van toepassing als u Azure Backup Server v1 installeert.
 
-## <a name="install-backup-server"></a>Back-Server installeren
+## <a name="install-backup-server"></a>Back-upserver installeren
 
-1. Op de server die als host fungeert voor Azure Backup-Server versie 2 of hoger, maak een tekstbestand. (U kunt het bestand maken in Kladblok of een andere teksteditor.) Sla het bestand als MABSSetup.ini.
+1. Maak een tekst bestand op de server die als host fungeert voor Azure Backup Server v2 of hoger. (U kunt het bestand in Klad blok of in een andere tekst editor maken.) Sla het bestand op als MABSSetup. ini.
 
-2. Plak de volgende code in het bestand MABSSetup.ini. Vervang de tekst tussen de vierkante haken (\< \>) met waarden van uw omgeving. De volgende tekst is een voorbeeld:
+2. Plak de volgende code in het bestand MABSSetup. ini. Vervang de tekst tussen de haakjes (\< \>) door waarden uit uw omgeving. De volgende tekst is een voor beeld:
 
    ```
    [OPTIONS]
@@ -48,22 +47,22 @@ Deze stappen niet van toepassing als u Azure Backup Server V1 installeert.
    UseExistingSQL=<1/0 use or do not use existing SQL>
    ```
 
-3. Sla het bestand op. Klik vervolgens op een opdrachtprompt met verhoogde bevoegdheid op de server voor installatie, voer de volgende opdracht:
+3. Sla het bestand op. Voer vervolgens de volgende opdracht uit vanaf een opdracht prompt met verhoogde bevoegdheid op de installatie server:
 
    ```
    start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
    ```
 
 U kunt deze vlaggen gebruiken voor de installatie:</br>
-**/f**: pad naar INI-bestand</br>
-**/l**: Pad van logboekbestand</br>
+**/f**:. ini-bestandspad</br>
+**/l**: Logboekpad</br>
 **/i**: Installatiepad</br>
-**/x**: Pad verwijderen</br>
+**/x**: Uninstall-pad</br>
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u de back-up-Server hebt geïnstalleerd, informatie over het voorbereiden van uw server, of gaat een werkbelasting beveiligen.
+Nadat u de back-upserver installeert, leert u hoe u uw server voorbereidt of een werk belasting gaat beveiligen.
 
-- [Back-up-Server-workloads voorbereiden](backup-azure-microsoft-azure-backup.md)
-- [Backup Server gebruiken voor back-up van een VMware-server](backup-azure-backup-server-vmware.md)
-- [Backup Server gebruiken voor back-up van SQL Server](backup-azure-sql-mabs.md)
-- [Modern Backup Storage toevoegen naar back-upserver](backup-mabs-add-storage.md)
+- [Werk belastingen voor de back-upserver voorbereiden](backup-azure-microsoft-azure-backup.md)
+- [Back-upserver gebruiken om een back-up te maken van een VMware-Server](backup-azure-backup-server-vmware.md)
+- [Back-upserver gebruiken om back-ups te maken van SQL Server](backup-azure-sql-mabs.md)
+- [Modern Backup Storage toevoegen aan de back-upserver](backup-mabs-add-storage.md)

@@ -1,10 +1,10 @@
 ---
-title: Problemen met Azure AD recht management (Preview) - Azure Active Directory oplossen
-description: Meer informatie over sommige items dat moet u controleren bij het beheer van de rechten van een Azure Active Directory (Preview) oplossen.
+title: Problemen oplossen met Azure AD-rechten beheer (preview)-Azure Active Directory
+description: Meer informatie over sommige items die u moet controleren om u te helpen bij het oplossen van Azure Active Directory rechten beheer (preview).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -13,58 +13,58 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 05/30/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2526ef10c3080dae1b32881a109a9436a0fd390
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39ec27c75ff5ba9164b44b0524f90a4e28ab20f1
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473822"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488979"
 ---
-# <a name="troubleshoot-azure-ad-entitlement-management-preview"></a>Problemen met Azure AD recht management (Preview) oplossen
+# <a name="troubleshoot-azure-ad-entitlement-management-preview"></a>Problemen oplossen met Azure AD-rechten beheer (preview-versie)
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) waar u recht op management is momenteel in openbare preview.
+> Azure Active Directory (Azure AD)-rechts beheer is momenteel beschikbaar als open bare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
 > Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-Dit artikel beschrijft enkele items die u moet controleren om te helpen bij het oplossen van Azure Active Directory (Azure AD) waar u recht op beheer.
+In dit artikel worden enkele items beschreven die u moet controleren om te helpen bij het oplossen van het beheer van rechten van Azure Active Directory (Azure AD).
 
-## <a name="checklist-for-entitlement-management-administration"></a>Controlelijst voor het beheer van rechten
+## <a name="checklist-for-entitlement-management-administration"></a>Controle lijst voor beheer van rechten
 
-* Als u een bericht toegang geweigerd bij het configureren van beheer van rechten en u een globale beheerder bent, zorgt u ervoor dat uw directory heeft een [licentie voor Azure AD Premium P2 (of EMS E5)](entitlement-management-overview.md#license-requirements).  
-* Als u een toegang geweigerd bericht krijgt bij het maken of weergeven, toegang tot pakketten, en u lid zijn van een Catalogusgroep Maker, moet u een catalogus vóór het maken van uw eerste toegang-pakket maken.
+* Als u een bericht krijgt dat toegang is geweigerd bij het configureren van rechten beheer en u een globale beheerder bent, moet u ervoor zorgen dat uw Directory een [Azure AD Premium P2 (of EMS E5)-licentie](entitlement-management-overview.md#license-requirements)heeft.  
+* Als u een bericht krijgt dat toegang wordt geweigerd bij het maken of weer geven van toegangs pakketten en u lid bent van een maker van een catalogus, moet u een catalogus maken voordat u uw eerste toegangs pakket maakt.
 
-## <a name="checklist-for-adding-a-resource"></a>Controlelijst voor het toevoegen van een resource
+## <a name="checklist-for-adding-a-resource"></a>Controle lijst voor het toevoegen van een resource
 
-* Voor een toepassing moet een resource in een pakket toegang moet hebben ten minste één resourcerol die kan worden toegewezen. De rollen die zijn gedefinieerd door de toepassing zelf, en worden beheerd in Azure AD. Houd er rekening mee dat door de Azure-portal ook service-principals voor services die niet worden geselecteerd als toepassingen kan worden weergegeven.  In het bijzonder **Exchange Online** en **SharePoint Online** Services, zijn geen toepassingen waarvoor resource-rollen in de directory, zodat ze in een pakket toegang kunnen niet worden opgenomen.  Gebruik in plaats daarvan Groepslicenties tot stand brengen van een juiste licentie voor een gebruiker die toegang tot die services nodig heeft.
+* Een toepassing kan alleen een resource in een toegangs pakket zijn als deze ten minste één resource functie heeft die kan worden toegewezen. De rollen worden gedefinieerd door de toepassing zelf en worden beheerd in azure AD. Houd er rekening mee dat de Azure Portal ook service-principals kunnen weer geven voor services die niet als toepassingen kunnen worden geselecteerd.  Met name **Exchange Online** en **share point online** zijn services, geen toepassingen die resource rollen hebben in de Directory, zodat ze niet kunnen worden opgenomen in een toegangs pakket.  Gebruik in plaats daarvan op groep gebaseerde licenties om een juiste licentie te maken voor een gebruiker die toegang tot deze services nodig heeft.
 
-* Voor een groep moet een resource in een pakket toegang, moet het mogelijk zijn om te worden gewijzigd in Azure AD.  Groepen die afkomstig uit een on-premises Active Directory zijn kunnen niet als resources worden toegewezen omdat de eigenaar of lidkenmerken kunnen niet worden gewijzigd in Azure AD.  
+* Een groep kan alleen een resource in een toegangs pakket zijn als deze kan worden gewijzigd in azure AD.  Groepen die afkomstig zijn van een on-premises Active Directory, kunnen niet worden toegewezen als resources omdat hun eigen kenmerken of lideigenschappen niet kunnen worden gewijzigd in azure AD.  
 
-* SharePoint Online-documentbibliotheken en afzonderlijke documenten kunnen niet worden toegevoegd als resources.  In plaats daarvan een Azure AD-beveiligingsgroep maken, die groep en een siterol opnemen in het pakket toegang en in SharePoint Online kunt u die groep gebruiken voor het beheren van toegang tot de documentbibliotheek of het document.
+* Share point online-document bibliotheken en afzonderlijke documenten kunnen niet worden toegevoegd als resources.  Maak in plaats daarvan een Azure AD-beveiligings groep, neem deze groep en een siterol op in het toegangs pakket, en gebruik in share point online die groep om de toegang tot de document bibliotheek of het document te beheren.
 
-* Als er gebruikers die al zijn toegewezen aan een resource die u wilt beheren met een pakket toegang zijn, moet u dat de gebruikers zijn toegewezen aan het pakket met toegang tot een juiste beleid. U wilt bijvoorbeeld een groep opnemen in een access-pakket dat al gebruikers in de groep. Als de gebruikers in de groep vereisen toegang blijvende, moeten ze een juiste beleid voor de toegang tot pakketten hebben zodat ze hun toegang aan de groep houden blijven. Door een van beide waarin wordt gevraagd de gebruikers om aan te vragen van de access-pakket met die bron, of door ze rechtstreeks toe te wijzen aan het pakket toegang, kunt u het pakket toegang toewijzen. Zie voor meer informatie, [bewerken en beheren van een bestaand pakket met toegang tot](entitlement-management-access-package-edit.md).
+* Als er gebruikers zijn die al zijn toegewezen aan een resource die u met een toegangs pakket wilt beheren, moet u ervoor zorgen dat de gebruikers zijn toegewezen aan het toegangs pakket met een toepasselijk beleid. Het is bijvoorbeeld mogelijk dat u een groep wilt toevoegen in een toegangs pakket dat al gebruikers in de groep bevat. Als gebruikers in de groep voortdurende toegang vereisen, moeten ze beschikken over het juiste beleid voor de toegangs pakketten, zodat ze hun toegang tot de groep niet verliezen. U kunt het toegangs pakket toewijzen door de gebruikers te vragen het toegangs pakket met die bron te aanvragen of door ze rechtstreeks toe te wijzen aan het toegangs pakket. Zie [een bestaand toegangs pakket bewerken en beheren](entitlement-management-access-package-edit.md)voor meer informatie.
 
-## <a name="checklist-for-providing-external-users-access"></a>Controlelijst voor externe gebruikers toegang verlenen
+## <a name="checklist-for-providing-external-users-access"></a>Controle lijst voor het bieden van toegang tot externe gebruikers
 
-* Als er een B2B [acceptatielijst](../b2b/allow-deny-list.md), en vervolgens gebruikers waarvan mappen zijn niet toegestaan niet mogelijk om toegang te vragen.
+* Als er een B2B- [acceptatie lijst](../b2b/allow-deny-list.md)is, kunnen gebruikers waarvan de mappen niet zijn toegestaan geen toegang aanvragen.
 
-* Zorg ervoor dat er geen [beleid voor voorwaardelijke toegang](../conditional-access/require-managed-devices.md) die zou voorkomen dat externe gebruikers kunnen aanvragen van toegang of de mogelijkheid voor het gebruik van de toepassingen in de access-pakketten.
+* Zorg ervoor dat er geen [beleid voor voorwaardelijke toegang](../conditional-access/require-managed-devices.md) is om te voor komen dat externe gebruikers toegang aanvragen of de toepassingen in de toegangs pakketten kunnen gebruiken.
 
-## <a name="checklist-for-request-issues"></a>Controlelijst voor aanvraag-problemen
+## <a name="checklist-for-request-issues"></a>Controle lijst voor aanvraag problemen
 
-* Wanneer een gebruiker wil de toegang tot een access-pakket, zorg ervoor dat ze gebruiken de **koppeling naar de mijn toegang** voor het pakket toegang. Zie voor meer informatie, [koppeling naar de kopie mijn toegang](entitlement-management-access-package-edit.md#copy-my-access-portal-link).
+* Wanneer een gebruiker de toegang tot een toegangs pakket wil aanvragen, moet u ervoor zorgen dat ze de **Portal-koppeling van mijn toegang** gebruiken voor het toegangs pakket. Zie [de koppeling naar mijn Access-Portal kopiëren](entitlement-management-access-package-edit.md#copy-my-access-portal-link)voor meer informatie.
 
-* Wanneer een gebruiker zich aanmeldt bij de portal mijn toegang om aan te vragen van een pakket toegang, moet u verificatie met behulp van hun organisatie-account. De organisatie-account mag een account in de resource-map of in een map die is opgenomen in een van de beleidsregels van het pakket toegang. Als het gebruikersaccount niet een organisatie-account is of de map niet in het beleid opgenomen is, klikt u vervolgens de gebruiker ziet niet het pakket toegang. Zie voor meer informatie, [aanvragen van toegang tot een package toegang](entitlement-management-request-access.md).
+* Wanneer een gebruiker zich aanmeldt bij de portal van mijn toegang om een toegangs pakket aan te vragen, moet u ervoor zorgen dat ze worden geverifieerd met hun organisatie account. Het organisatie account kan een account in de Resource Directory zijn of een map die is opgenomen in een van de beleids regels van het toegangs pakket. Als het account van de gebruiker geen organisatie account is, of als de map niet is opgenomen in het beleid, wordt het toegangs pakket niet weer gegeven door de gebruiker. Zie [toegang tot een toegangs pakket aanvragen](entitlement-management-request-access.md)voor meer informatie.
 
-* Als een gebruiker is geblokkeerd bij de resource-map, is ze niet mogelijk om toegang in de portal mijn toegang te vragen. Voordat de gebruiker toegang aanvragen kan, moet u het blok aanmelden verwijderen uit het profiel van de gebruiker. Als u wilt verwijderen van het blok aanmelden in Azure portal, klikt u op **Azure Active Directory**, klikt u op **gebruikers**, klikt u op de gebruiker en klik vervolgens op **profiel**. Bewerken de **instellingen** sectie en wijzig **aanmelden blokkeren** naar **Nee**. Zie voor meer informatie, [toevoegen of bijwerken van de profielgegevens van een gebruiker met behulp van Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  U kunt ook controleren of de gebruiker is geblokkeerd vanwege een [Identity Protection-beleid](../identity-protection/howto-unblock-user.md).
+* Als een gebruiker zich niet kan aanmelden bij de resource directory, kunnen ze geen toegang aanvragen in de portal van mijn toegang. Voordat de gebruiker toegang kan aanvragen, moet u het aanmeldings blok verwijderen uit het profiel van de gebruiker. Als u het aanmeldings blok wilt verwijderen, klikt u in het Azure Portal op **Azure Active Directory**, klikt u op **gebruikers**, klikt u op de gebruiker en klikt u vervolgens op **profiel**. Bewerk de sectie **instellingen** en wijzig de **blok aanmelding in** op **Nee**. Zie [de profiel gegevens van een gebruiker toevoegen of bijwerken met behulp van Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md)voor meer informatie.  U kunt ook controleren of de gebruiker is geblokkeerd vanwege een [beleid voor identiteits beveiliging](../identity-protection/howto-unblock-user.md).
 
-* In de portal mijn toegang als een gebruiker zowel een aanvrager en de fiatteur is, zien ze de aanvraag voor een pakket toegang op de **goedkeuringen** pagina. Dit gedrag is opzettelijk: een gebruiker niet hun eigen aanvraag goedkeuren. Zorg ervoor dat het pakket met toegang tot dat ze aanvragen is extra fiatteurs geconfigureerd op het beleid. Zie voor meer informatie, [een bestaande beleidsregel bewerken](entitlement-management-access-package-edit.md#edit-an-existing-policy).
+* Als een gebruiker zowel een aanvrager als een fiatteur is, wordt in de portal mijn toegang de aanvraag voor een toegangs pakket niet weer geven op de pagina **goed keuringen** . Dit gedrag is opzettelijk: een gebruiker kan hun eigen aanvraag niet goed keuren. Zorg ervoor dat het toegangs pakket dat door de gebruikers wordt aangevraagd, extra goed keurders heeft geconfigureerd op het beleid. Zie [bestaande beleids regels bewerken](entitlement-management-access-package-edit.md#edit-an-existing-policy)voor meer informatie.
 
-* Als een nieuwe externe gebruiker, dat niet eerder ondertekend in uw directory, ontvangt een access-pakket met inbegrip van een SharePoint Online-site, wordt hun toegang pakket weergeven die niet volledig worden geleverd totdat hun account is ingericht in SharePoint Online.
+* Als een nieuwe externe gebruiker, die nog niet eerder in uw directory is ondertekend, een toegangs pakket met een share point online-site ontvangt, wordt het toegangs pakket weer gegeven als niet volledig geleverd tot het account is ingericht in share point online.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Rapporten van hoe gebruikers toegang in beheer van rechten kregen weergeven](entitlement-management-reports.md)
+- [Rapporten weer geven over hoe gebruikers toegang krijgen in het recht beheer](entitlement-management-reports.md)

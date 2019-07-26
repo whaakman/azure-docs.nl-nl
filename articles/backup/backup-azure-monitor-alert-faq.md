@@ -1,82 +1,81 @@
 ---
-title: Azure Monitoring waarschuwing Veelgestelde vragen over back-up
-description: 'Antwoorden op veelgestelde vragen over: De waarschuwing Azure back-up controleren'
-services: backup
+title: Veelgestelde vragen over het Azure Backup controleren van waarschuwingen
+description: 'Antwoorden op veelgestelde vragen over: De waarschuwing voor Azure Backup bewaking'
 author: srinathvasireddy
 manager: sivan
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: srinathv
-ms.openlocfilehash: bb684f65539b4429862b2dce0e378d8f659d2975
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: dc68b68ffa0ae2ee4f1bdd8f2c7ac0d7ff5ebb8c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705031"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465845"
 ---
-# <a name="azure-backup-monitoring-alert---faq"></a>Azure Monitoring waarschuwing - Veelgestelde vragen over back-up
-In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure monitoring waarschuwing.
+# <a name="azure-backup-monitoring-alert---faq"></a>Bewakings waarschuwing Azure Backup-Veelgestelde vragen
+In dit artikel vindt u antwoorden op veelgestelde vragen over de bewakings waarschuwing van Azure.
 
 ## <a name="configure-azure-backup-reports"></a>Azure Backup-rapporten configureren
 
-### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>Hoe kan ik als rapportagegegevens is gestart doorgestuurd naar een opslagaccount controleren?
-Ga naar het opslagaccount dat u hebt geconfigureerd, en selecteer containers. Als de container een vermelding voor insights-logs-azurebackupreport heeft, betekent dit dat rapportagegegevens is gestart stromen.
+### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>Hoe kan ik controleren of rapport gegevens zijn begonnen met stroom naar een opslag account?
+Ga naar het opslag account dat u hebt geconfigureerd en selecteer containers. Als de container een vermelding voor inzichten-logs-azurebackupreport bevat, geeft deze aan dat rapport gegevens in de stroom zijn begonnen.
 
-### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>Wat is de frequentie van de gegevens-push naar een opslagaccount en de Azure Backup-inhoudspakket in Power BI?
-  Het duurt ongeveer 24 uur om gegevens te pushen naar een opslagaccount voor dag 0-gebruikers. Nadat deze initiële push is voltooid, worden gegevens worden vernieuwd met de frequentie wordt weergegeven in de volgende afbeelding.
+### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>Wat is de frequentie van het pushen van gegevens naar een opslag account en het Azure Backup-inhouds pakket in Power BI?
+  Voor dag 0-gebruikers duurt het circa 24 uur om gegevens naar een opslag account te pushen. Nadat deze eerste push is voltooid, worden de gegevens vernieuwd met de frequentie die in de volgende afbeelding wordt weer gegeven.
 
-  * Gegevens met betrekking tot **taken**, **waarschuwingen**, **back-Upitems**, **kluizen**, **beschermde Servers**, en  **Beleid** naar een opslagaccount van de klant wordt gepusht, en wanneer ze wordt vastgelegd.
+  * Gegevens met betrekking tot **taken**, **waarschuwingen**, **back-** upitems, **kluizen**, **beveiligde servers**en **beleids regels** worden gepusht naar een opslag account van de klant als en wanneer het wordt geregistreerd.
 
-  * Gegevens met betrekking tot **opslag** wordt gepusht naar een opslagaccount van de klant om de 24 uur.
+  * Gegevens met betrekking tot **opslag** worden elke 24 uur gepusht naar een opslag account van de klant.
 
-       ![Azure Backup-rapporten gegevens pushen frequentie](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+       ![Gegevens push frequentie van Azure Backup-rapporten](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
 
-  * Power BI beschikt over een [geplande vernieuwing eenmaal per dag](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). U kunt handmatig vernieuwen van de gegevens in Power BI uitvoeren voor het inhoudspakket.
+  * Power BI heeft [eenmaal per dag een geplande vernieuwing](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). U kunt de gegevens in Power BI voor het inhouds pakket hand matig vernieuwen.
 
 ### <a name="how-long-can-i-retain-reports"></a>Hoe lang kan ik rapporten behouden?
-Wanneer u een storage-account configureert, kunt u een bewaarperiode voor gegevens in de storage-account. Voer stap 6 in de [Opslagaccount voor rapporten](backup-azure-configure-reports.md#configure-storage-account-for-reports) sectie. U kunt ook [rapporten in Excel analyseren](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) en deze wilt opslaan voor een langere bewaarperiode, op basis van uw behoeften.
+Wanneer u een opslag account configureert, kunt u een Bewaar periode voor rapport gegevens in het opslag account selecteren. Voer stap 6 in het gedeelte [opslag account voor rapporten configureren](backup-azure-configure-reports.md#configure-storage-account-for-reports) uit. U kunt ook [rapporten in Excel analyseren](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) en deze opslaan voor een langere Bewaar periode, op basis van uw behoeften.
 
-### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>Zie ik mijn gegevens in rapporten nadat ik de storage-account configureren?
- Alle gegevens die zijn gegenereerd na het configureren van een storage-account wordt doorgestuurd naar het opslagaccount en is beschikbaar in rapporten. Taken in uitvoering worden niet gepusht voor rapportage. Nadat de taak is voltooid of mislukt, wordt deze verzonden naar rapporten.
+### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>Worden alle gegevens in rapporten weer gegeven nadat ik het opslag account heb geconfigureerd?
+ Alle gegevens die worden gegenereerd nadat u een opslag account hebt geconfigureerd, worden gepusht naar het opslag account en zijn beschikbaar in rapporten. Taken in uitvoering worden niet gepusht voor rapportage. Nadat de taak is voltooid of mislukt, wordt deze naar rapporten verzonden.
 
-### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Als ik de storage-account om rapporten weer te geven al hebt geconfigureerd, kan ik de configuratie voor het gebruik van een ander opslagaccount wijzigen?
-Ja, kunt u de configuratie te verwijzen naar een ander opslagaccount. Gebruik de meest recent geconfigureerde storage-account terwijl u verbinding met de Azure Backup-inhoudspakket maken. Nadat een ander opslagaccount is geconfigureerd, loopt nieuwe gegevens ook in dit opslagaccount. Oudere gegevens (voordat u de configuratie wijzigt) wordt nog steeds in de oudere storage-account.
+### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Als ik het opslag account al heb geconfigureerd om rapporten weer te geven, kan ik dan de configuratie wijzigen zodat er een ander opslag account wordt gebruikt?
+Ja, u kunt de configuratie wijzigen zodat deze naar een ander opslag account wijst. Gebruik het zojuist geconfigureerde opslag account terwijl u verbinding maakt met het Azure Backup-inhouds pakket. Nadat een ander opslag account is geconfigureerd, worden er ook nieuwe gegevens stromen in dit opslag account. Oudere gegevens (voordat u de configuratie wijzigt) blijven behouden in het oudere opslag account.
 
-### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Kan ik rapporten bekijken in kluizen en abonnementen?
-Ja, kunt u hetzelfde opslagaccount in verschillende kluizen om cross-kluis rapporten weer te geven. U kunt ook hetzelfde opslagaccount voor kluizen configureren voor abonnementen. Vervolgens kunt u dit storage-account terwijl u verbinding maken met de Azure Backup-inhoudspakket in Power BI om de rapporten weer te geven. Het geselecteerde opslagaccount moet zich in dezelfde regio als de Recovery Services-kluis.
+### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Kan ik rapporten weer geven over kluizen en abonnementen?
+Ja, u kunt hetzelfde opslag account configureren voor verschillende kluizen om rapporten over meerdere kluizen weer te geven. U kunt ook hetzelfde opslag account configureren voor kluizen in abonnementen. U kunt dit opslag account vervolgens gebruiken terwijl u verbinding maakt met het Azure Backup-inhouds pakket in Power BI om de rapporten weer te geven. Het geselecteerde opslag account moet zich in dezelfde regio bevinden als de Recovery Services kluis.
 
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Hoe lang duurt het voor de status van de Azure backup-agent om weer te geven in de portal?
-De Azure-portal kan maximaal 15 minuten duren in overeenstemming met de status van de Azure backup-agent-taak.
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Hoe lang duurt het voordat de taak status van de Azure backup-agent in de portal wordt weer gegeven?
+Het Azure Portal kan Maxi maal 15 minuten duren om de taak status van de Azure backup-agent weer te geven.
 
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Wanneer een back-uptaak is mislukt, hoe lang duurt het voordat een waarschuwing te activeren?
-Een waarschuwing wordt gegenereerd binnen 20 minuten van de Azure back-upfouten.
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Hoe lang duurt het om een waarschuwing te genereren wanneer een back-uptaak mislukt?
+Er wordt een waarschuwing gegenereerd binnen 20 minuten van de Azure backup-fout.
 
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Is er een aanvraag waarin een e-mailbericht niet verzonden als meldingen zijn geconfigureerd?
-Ja. In de volgende situaties, worden geen meldingen verzonden.
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Is er sprake van een e-mail bericht dat niet wordt verzonden als er meldingen zijn geconfigureerd?
+Ja. In de volgende situaties worden er geen meldingen verzonden.
 
-* Als meldingen per uur worden geconfigureerd en een waarschuwing wordt gegenereerd en opgelost binnen het uur
-* Wanneer een taak is geannuleerd
-* Als een tweede back-uptaak is mislukt omdat de oorspronkelijke back-uptaak uitgevoerd wordt
+* Als meldingen per uur worden geconfigureerd en er binnen het uur een waarschuwing wordt gegenereerd en opgelost
+* Wanneer een taak wordt geannuleerd
+* Als een tweede back-uptaak mislukt, omdat de oorspronkelijke back-uptaak wordt uitgevoerd
 
-## <a name="recovery-services-vault"></a>Recovery Services-kluis
+## <a name="recovery-services-vault"></a>Recovery Services kluis
 
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Hoe lang duurt het voor de status van de Azure backup-agent om weer te geven in de portal?
-De Azure-portal kan maximaal 15 minuten duren in overeenstemming met de status van de Azure backup-agent-taak.
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Hoe lang duurt het voordat de taak status van de Azure backup-agent in de portal wordt weer gegeven?
+Het Azure Portal kan Maxi maal 15 minuten duren om de taak status van de Azure backup-agent weer te geven.
 
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Wanneer een back-uptaak is mislukt, hoe lang duurt het voordat een waarschuwing te activeren?
-Een waarschuwing wordt gegenereerd binnen 20 minuten van de Azure back-upfouten.
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Hoe lang duurt het om een waarschuwing te genereren wanneer een back-uptaak mislukt?
+Er wordt een waarschuwing gegenereerd binnen 20 minuten van de Azure backup-fout.
 
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Is er een aanvraag waarin een e-mailbericht niet verzonden als meldingen zijn geconfigureerd?
-Ja. In de volgende situaties, worden geen meldingen verzonden.
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Is er sprake van een e-mail bericht dat niet wordt verzonden als er meldingen zijn geconfigureerd?
+Ja. In de volgende situaties worden er geen meldingen verzonden.
 
-* Als meldingen per uur worden geconfigureerd en een waarschuwing wordt gegenereerd en opgelost binnen het uur
-* Wanneer een taak is geannuleerd
-* Als een tweede back-uptaak is mislukt omdat de oorspronkelijke back-uptaak uitgevoerd wordt
+* Als meldingen per uur worden geconfigureerd en er binnen het uur een waarschuwing wordt gegenereerd en opgelost
+* Wanneer een taak wordt geannuleerd
+* Als een tweede back-uptaak mislukt, omdat de oorspronkelijke back-uptaak wordt uitgevoerd
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees de andere veelgestelde vragen over:
+Lees de andere veelgestelde vragen:
 
-- [Veelgestelde vragen over](backup-azure-vm-backup-faq.md) over back-ups van virtuele Azure-machine.
-- [Veelgestelde vragen over](backup-azure-file-folder-backup-faq.md) over de Azure backup-agent
+- [Veelgestelde vragen](backup-azure-vm-backup-faq.md) over back-ups van Azure-vm's.
+- [Veelgestelde vragen](backup-azure-file-folder-backup-faq.md) over de Azure backup-agent

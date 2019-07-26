@@ -1,5 +1,5 @@
 ---
-title: Kerberos-beperkte overdracht configuraties voor Application Proxy oplossen | Microsoft Docs
+title: Problemen met Kerberos-beperkte overdracht configureren voor app proxy | Microsoft Docs
 description: Beperkte Kerberos-delegering configuraties voor Application Proxy oplossen
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c758b473dcdf36456bcc3569c18849488ad14983
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3ca50cfb8697fdbb8c71054c5a6b4d5e23792eb5
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702658"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381518"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Kerberos-beperkte overdracht configuraties voor Application Proxy oplossen
 
@@ -46,7 +46,7 @@ Om deze reden, het is raadzaam om ervoor te zorgen dat u hebt voldaan aan de ver
 
 - Het is niet ongebruikelijk dat voor een server in het domein voor het openen van een beveiligd kanaal-dialoogvenster met een specifieke domeincontroller (DC). De server kan vervolgens verplaatsen naar een ander dialoogvenster op elk moment. Connector-hosts zijn dus niet beperkt tot communicatie met alleen specifieke lokale site DC's.
 - Interdomein-scenario's, is afhankelijk van verwijzingen die rechtstreeks van een connector-host aan DC's die mogelijk buiten de perimeter van het lokale netwerk. In dergelijke gevallen is het belangrijk ook ten minste verkeer verzenden naar DC's waarbij andere domeinen. Als dat niet het geval is, overdracht is mislukt.
-- Waar mogelijk, te voorkomen dat alle actieve apparaten voor de IP-Adressen of -id's tussen de connector-hosts en -DC's plaatsen. Deze apparaten zijn soms te firewallverbinding en leiden tot problemen met core RPC-verkeer.
+- Waar mogelijk, te voorkomen dat alle actieve apparaten voor de IP-Adressen of -id's tussen de connector-hosts en -DC's plaatsen. Deze apparaten zijn soms te verstorend en veroorzaken een conflict met het kern RPC-verkeer.
 
 Delegering in eenvoudige scenario's te testen. Meer variabelen introduceren, hoe meer u wellicht met concurreren. Om tijd te besparen, Beperk de test met een één-connector. Extra connectors toevoegen nadat het probleem is opgelost.
 
@@ -60,7 +60,7 @@ Wat er wordt een probleem met KCD? Er zijn verschillende algemene aanwijzingen K
 
 ![Voorbeeld: Autorisatie is mislukt vanwege ontbrekende machtigingen](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
-Beide van deze installatiekopieën weergeven de dezelfde symptoom: Eenmalige aanmelding is mislukt. Gebruikerstoegang tot de toepassing is geweigerd.
+Beide installatie kopieën tonen hetzelfde symptoom: SSO-fout. Gebruikerstoegang tot de toepassing is geweigerd.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
@@ -129,7 +129,7 @@ De gebruiker van het Kerberos-ticket dat is opgegeven door de connector. In deze
 
      *Microsoft AAD Application Proxy Connector kan de gebruiker kan niet verifiëren omdat de back-endserver op Kerberos-verificatie geprobeerd met een 401 HTTP-fout reageert.*
 
-      ![Ziet u HTTTP 401 fout is niet toegestaan](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
+      ![Hiermee wordt HTTTP 401 verboden fout weer gegeven](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
 
    - Controleer de IIS-toepassing. Zorg ervoor dat de geconfigureerde groep van toepassingen en de SPN-naam zijn geconfigureerd voor het gebruik van hetzelfde account in Azure AD. Navigeer in IIS, zoals wordt weergegeven in de volgende afbeelding:
 
@@ -137,7 +137,7 @@ De gebruiker van het Kerberos-ticket dat is opgegeven door de connector. In deze
 
       Nadat u de identiteit, zorg er dan voor dat dit account is geconfigureerd met de betreffende SPN-naam. Een voorbeeld is `setspn –q http/spn.wacketywack.com`. Voer de volgende tekst in een opdrachtprompt:
 
-      ![Ziet u het opdrachtvenster SetSPN](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
+      ![Hiermee wordt het SetSPN-opdracht venster weer gegeven](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
 
    - Controleer de SPN-naam gedefinieerd voor de instellingen van de toepassing in de portal. Zorg ervoor dat de dezelfde SPN-naam geconfigureerd op de doel-Azure AD-account wordt gebruikt door de toepassingsgroep van de app.
 
@@ -165,8 +165,8 @@ Als u nog steeds kan niet wordt uitgevoerd, moet op Microsoft ondersteuning u ka
 
 ## <a name="other-scenarios"></a>Andere scenario's
 
-- Azure Application Proxy een Kerberos-ticket-aanvragen voordat de aanvraag wordt verzonden naar een toepassing. Sommige toepassingen van derden tevreden niet over deze methode voor verificatie. Deze toepassingen wordt verwacht dat de meer traditionele onderhandelingen moet plaatsvinden. De eerste aanvraag is anoniem, waarmee de toepassing om te reageren met de verificatietypen ondersteunt via een 401.
-- Multihop-verificatie wordt doorgaans gebruikt in scenario's waarin een toepassing is gelaagd, met een back-end en een front-end, waarbij zowel verificatie, zoals SQL Server Reporting Services is vereist. Zie het ondersteuningsartikel voor het configureren van het scenario met meerdere hops [Kerberos-beperkte overdracht kan vereisen Protocolovergang in Multihop-scenario's](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
+- Azure Application Proxy een Kerberos-ticket-aanvragen voordat de aanvraag wordt verzonden naar een toepassing. Sommige toepassingen van derden vallen niet zoals deze verificatie methode. Deze toepassingen wordt verwacht dat de meer traditionele onderhandelingen moet plaatsvinden. De eerste aanvraag is anoniem, waarmee de toepassing om te reageren met de verificatietypen ondersteunt via een 401.
+- Multihop-verificatie wordt doorgaans gebruikt in scenario's waarin een toepassing is gelaagd, met een back-end en een front-end, waarbij zowel verificatie, zoals SQL Server Reporting Services is vereist. Als u het scenario met meerdere hops wilt configureren, raadpleegt u het ondersteunings artikel [Kerberos-beperkte overdracht vereist mogelijk protocol overgang in scenario's met meerdere hops](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Volgende stappen
 

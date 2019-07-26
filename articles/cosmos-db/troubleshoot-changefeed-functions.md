@@ -1,26 +1,26 @@
 ---
-title: Problemen vaststellen en oplossen bij het gebruik van Azure Cosmos DB trigger in Azure Functions
-description: Veelvoorkomende problemen, tijdelijke oplossingen en diagnostische stappen bij het gebruik van de Azure Cosmos DB trigger met Azure Functions
+title: Problemen vaststellen en oplossen bij het gebruik van Azure Functions trigger voor Cosmos DB
+description: Veelvoorkomende problemen, tijdelijke oplossingen en diagnostische stappen bij het gebruik van de Azure Functions trigger voor Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.date: 05/23/2019
+ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9c728a735e56e461e49dd3f594186c9c0192a3f0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: b90986e449df7e81f97f9ef86ce3cf69621c76d6
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250017"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335748"
 ---
-# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Problemen vaststellen en oplossen bij het gebruik van Azure Cosmos DB trigger in Azure Functions
+# <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Problemen vaststellen en oplossen bij het gebruik van Azure Functions trigger voor Cosmos DB
 
-In dit artikel worden veelvoorkomende problemen, tijdelijke oplossingen en diagnostische stappen behandeld wanneer u de [Azure Cosmos DB trigger](change-feed-functions.md) gebruikt met Azure functions.
+In dit artikel worden veelvoorkomende problemen, tijdelijke oplossingen en diagnostische stappen behandeld wanneer u de [Azure functions trigger voor Cosmos DB](change-feed-functions.md)gebruikt.
 
 ## <a name="dependencies"></a>Afhankelijkheden
 
-De Azure Cosmos DB trigger en bindingen zijn afhankelijk van de uitbreidings pakketten voor de basis Azure Functions runtime. Zorg ervoor dat deze pakketten altijd worden bijgewerkt, omdat deze mogelijk oplossingen en nieuwe functies bevatten die kunnen leiden tot mogelijke problemen die optreden:
+De Azure Functions trigger en bindingen voor Cosmos DB zijn afhankelijk van de extensie pakketten in de basis Azure Functions runtime. Zorg ervoor dat deze pakketten altijd worden bijgewerkt, omdat deze mogelijk oplossingen en nieuwe functies bevatten die kunnen leiden tot mogelijke problemen die optreden:
 
 * Zie voor Azure Functions v2 [micro soft. Azure. webjobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 * Zie voor Azure Functions v1 [micro soft. Azure. webjobs. Extensions. DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
@@ -29,7 +29,7 @@ In dit artikel wordt altijd verwezen naar Azure Functions v2 wanneer de runtime 
 
 ## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>De Azure Cosmos DB SDK onafhankelijk gebruiken
 
-De belangrijkste functionaliteit van het uitbreidings pakket is om ondersteuning te bieden voor de Azure Cosmos DB trigger en bindingen. Het bevat ook de [Azure Cosmos db .NET SDK](sql-api-sdk-dotnet-core.md). Dit is handig als u via een programma wilt communiceren met Azure Cosmos DB zonder de trigger en bindingen te gebruiken.
+De belangrijkste functionaliteit van het uitbreidings pakket is om ondersteuning te bieden voor de Azure Functions trigger en bindingen voor Cosmos DB. Het bevat ook de [Azure Cosmos db .NET SDK](sql-api-sdk-dotnet-core.md). Dit is handig als u via een programma wilt communiceren met Azure Cosmos DB zonder de trigger en bindingen te gebruiken.
 
 Als u de Azure Cosmos DB SDK wilt gebruiken, moet u ervoor zorgen dat u niet nog een NuGet-pakket verwijzing aan uw project toevoegt. In plaats daarvan **kunt u de SDK-referentie oplossen via het uitbreidings pakket van de Azure functions**. De Azure Cosmos DB SDK afzonderlijk van de trigger en bindingen gebruiken
 
@@ -81,7 +81,7 @@ Als sommige wijzigingen op de bestemming ontbreken, kan dit betekenen dat er een
 In dit scenario is het mogelijk om een actie toe te voegen `try/catch blocks` in uw code en in de lussen die de wijzigingen kunnen verwerken, om eventuele fouten voor een bepaalde subset van items te detecteren en deze dienovereenkomstig te verwerken (naar een andere opslag locatie sturen). analyse of nieuwe poging). 
 
 > [!NOTE]
-> Als er een niet-verwerkte uitzonde ring is opgetreden tijdens het uitvoeren van de code, voert de Azure Cosmos DB-trigger standaard een batch wijzigingen opnieuw uit. Dit betekent dat de wijzigingen niet zijn doorgevoerd op de bestemming omdat u deze niet kunt verwerken.
+> Als er een onverwerkte uitzonde ring is opgetreden tijdens het uitvoeren van de code, wordt de Azure Functions trigger voor Cosmos DB standaard niet opnieuw geprobeerd een batch wijzigingen uit te voeren. Dit betekent dat de wijzigingen niet zijn doorgevoerd op de bestemming omdat u deze niet kunt verwerken.
 
 Als u merkt dat er helemaal geen wijzigingen zijn ontvangen door de trigger, is het meest voorkomende scenario dat er **een andere Azure-functie wordt uitgevoerd**. Het kan een andere Azure-functie zijn die is geïmplementeerd in azure of een Azure-functie die lokaal wordt uitgevoerd op de computer van een ontwikkelaar en die **exact dezelfde configuratie** heeft (dezelfde bewaakte en lease-containers). deze Azure-functie stelen een subset van de wijzigingen die u verwacht dat uw Azure-functie wordt verwerkt.
 

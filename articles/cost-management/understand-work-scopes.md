@@ -1,6 +1,6 @@
 ---
-title: Begrijpen en gebruiken met een bereik van Azure Cost Management | Microsoft Docs
-description: In dit artikel krijgt u inzicht in facturering en resource management bereiken die beschikbaar zijn in Azure en het gebruik van de bereiken in Cost Management en API's.
+title: Azure Cost Management bereiken begrijpen en ermee werken | Microsoft Docs
+description: Dit artikel helpt u inzicht te krijgen in de facturerings-en resource beheer bereiken die beschikbaar zijn in Azure en hoe u de bereiken gebruikt in Cost Management en Api's.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -10,215 +10,227 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 699707953ae06afa9cbf3cc7286f94917ba0efca
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 66bad9c9c647fe87fdcf6b99a8d17f319b1ef9fc
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490111"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479985"
 ---
 # <a name="understand-and-work-with-scopes"></a>Bereiken begrijpen en gebruiken
 
-In dit artikel krijgt u inzicht in facturering en resource management bereiken die beschikbaar zijn in Azure en het gebruik van de bereiken in Cost Management en API's.
+Dit artikel helpt u inzicht te krijgen in de facturerings-en resource beheer bereiken die beschikbaar zijn in Azure en hoe u de bereiken gebruikt in Cost Management en Api's.
 
 ## <a name="scopes"></a>Bereiken
 
-Een _bereik_ is een knooppunt in de hiërarchie van de Azure-resource waar Azure AD-gebruikers toegang tot en beheer van services. De meeste Azure-resources worden gemaakt en geïmplementeerd in resourcegroepen, die deel van abonnementen uitmaken. Microsoft biedt ook twee hiërarchieën boven Azure-abonnementen die specifieke functies voor het beheren van factureringsgegevens hebt:
-- Factureringsgegevens, zoals betalingen en facturen
-- Cloudservices, zoals kosten en beleid voor beheer
+Een _bereik_ is een knoop punt in de Azure-resource hiërarchie waar Azure AD-gebruikers services kunnen openen en beheren. De meeste Azure-resources worden gemaakt en geïmplementeerd in resource groepen, die deel uitmaken van abonnementen. Micro soft biedt ook twee hiërarchieën boven Azure-abonnementen met gespecialiseerde rollen voor het beheren van facturerings gegevens:
+- Facturerings gegevens, zoals betalingen en facturen
+- Cloud Services, zoals kosten en beleids beheer
 
-Bereiken zijn waar u factureringsgegevens beheren, hebt van functies die specifiek zijn voor betalingen, facturen weergeven en uitvoeren van algemene accountbeheer. Factuur- en -functies afzonderlijk worden beheerd die worden gebruikt voor het resourcebeheer van de waarmee [Azure RBAC](../role-based-access-control/overview.md). Als u wilt duidelijk onderscheid maken de bedoeling van de afzonderlijke bereiken, met inbegrip van de access control verschillen, deze worden aangeduid als _scopes facturering_ en _RBAC scopes_, respectievelijk.
+Met bereiken beheert u facturerings gegevens, beschikt u over functies die specifiek zijn voor betalingen, het weer geven van facturen en het uitvoeren van algemeen account beheer. Facturerings-en account rollen worden afzonderlijk beheerd vanaf de functies die worden gebruikt voor resource beheer, die gebruikmaken van [Azure RBAC](../role-based-access-control/overview.md). Om het doel van de afzonderlijke bereiken duidelijk te onderscheiden, met inbegrip van de verschillen in toegangs beheer, worden deze respectievelijk _facturerings bereiken_ en _RBAC-bereiken_genoemd.
 
-## <a name="how-cost-management-uses-scopes"></a>Hoe Cost Management maakt gebruik van bereiken
+## <a name="how-cost-management-uses-scopes"></a>Hoe Cost Management scopes gebruikt?
 
-Cost Management werkt scopes in alle bovenstaande resources waarmee organisaties voor het beheren van kosten op het niveau waarop ze toegang hebben of die de hele factureringsaccount of één resourcegroep bestaan. Hoewel facturering scopes verschillen op basis van uw Microsoft-overeenkomst (abonnementstype), niet de RBAC-bereiken.
+Cost Management werkt in alle bereiken boven de resources om organisaties in staat te stellen kosten te beheren op het niveau waarop ze toegang hebben, ongeacht of dat nu het hele facturerings account of één resource groep is. Hoewel de facturerings bereiken verschillen op basis van uw micro soft-overeenkomst (type abonnement), hebben de RBAC-bereiken dat niet.
 
 ## <a name="azure-rbac-scopes"></a>Azure RBAC-bereiken
 
-Azure ondersteunt drie bereiken voor resourcebeheer. Elk bereik biedt ondersteuning voor beheren van toegang en beheer, met inbegrip van maar niet beperkt tot, kostenbeheer.
+Azure ondersteunt drie bereiken voor resource beheer. Elk bereik biedt ondersteuning voor het beheer van toegang en governance, inclusief, maar niet beperkt tot, kosten beheer.
 
-- [**Beheergroepen** ](../governance/management-groups/index.md) -hiërarchische containers, maximaal acht niveaus, voor het ordenen van Azure-abonnementen.
+- [**Beheer groepen**](../governance/management-groups/index.md) -hiërarchische containers, Maxi maal acht niveaus, om Azure-abonnementen te organiseren.
 
-    Resourcetype: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
+    Resource type: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
 
-- **Abonnementen** -primaire containers voor Azure-resources.
+- **Abonnementen** : primaire containers voor Azure-resources.
 
-    Resourcetype: [Microsoft.Resources/subscriptions](/rest/api/resources/subscriptions)
+    Resource type: [Microsoft.Resources/subscriptions](/rest/api/resources/subscriptions)
 
-- [**Resourcegroepen** ](../azure-resource-manager/resource-group-overview.md#resource-groups) -logische groeperingen van gerelateerde resources voor een Azure-oplossing die de dezelfde levenscyclus delen. Bijvoorbeeld resources die zijn geïmplementeerd en verwijderd samen.
+- [**Resource groepen**](../azure-resource-manager/resource-group-overview.md#resource-groups) : logische groeperingen van gerelateerde resources voor een Azure-oplossing die dezelfde levens cyclus delen. Bijvoorbeeld resources die samen worden geïmplementeerd en verwijderd.
 
-    Resourcetype: [Microsoft.Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
+    Resource type: [Microsoft.Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
 
-Van beheergroepen kunnen u abonnementen in een hiërarchie te organiseren. U kunt bijvoorbeeld de hiërarchie van een logische organisatie met behulp van beheergroepen maken. Geef teams abonnementen voor productie en werkbelastingen voor ontwikkelen/testen. En maak vervolgens de resourcegroepen in de abonnementen voor het beheren van elk subsysteem of het onderdeel.
+Met beheer groepen kunt u abonnementen indelen in een-hiërarchie. U kunt bijvoorbeeld een logische organisatie hiërarchie maken met behulp van beheer groepen. Geef vervolgens teams abonnementen op voor productie-en dev/test-workloads. En vervolgens resource groepen maken in de abonnementen voor het beheren van elk subsysteem of onderdeel.
 
-Het maken van dat een organisatie-hiërarchie kan kosten en naleving van het beleid totaliseren aan. Vervolgens kunt elke leider weergeven en analyseren van hun huidige kosten. En vervolgens deze budgetten perken ongeldige bestedingslimiet patronen en kosten optimaliseert met aanbevelingen van Advisor op het laagste niveau kunnen maken.
+Door een organisatie hiërarchie te maken, kunt u de kosten en beleids naleving per organisatie samen vouwen. Elke leider kan vervolgens hun huidige kosten bekijken en analyseren. En vervolgens kunnen ze budgetten maken om te voorzien in onjuiste bestedings patronen en de kosten te optimaliseren met Advisor-aanbevelingen op het laagste niveau.
 
-Verlenen van toegang tot kosten weergeven en beheren (optioneel) kosten-configuratie, zoals budgetten en uitvoer, wordt uitgevoerd op governance bereiken met behulp van Azure RBAC. U Azure RBAC gebruiken om te verlenen van Azure AD-gebruikers en groepen toegang om uit te voeren van een vooraf gedefinieerde set acties die zijn gedefinieerd in een rol op een bepaald bereik en lager. Een rol die is toegewezen aan een bereik van de groep management verleent bijvoorbeeld ook dezelfde machtigingen voor geneste abonnementen en resourcegroepen.
+Het verlenen van toegang voor het weer geven van kosten en optioneel beheer van kosten configuratie, zoals budgetten en export bewerkingen, wordt uitgevoerd op beheer bereiken met behulp van Azure RBAC. U gebruikt Azure RBAC om Azure AD-gebruikers en-groepen toegang te verlenen tot het uitvoeren van een vooraf gedefinieerde set acties die zijn gedefinieerd in een rol voor een specifiek bereik en hieronder. Zo verleent een rol die is toegewezen aan een beheer groeps bereik ook dezelfde machtigingen voor geneste abonnementen en resource groepen.
 
-Kostenbeheer ondersteunt de volgende ingebouwde rollen voor elk van de volgende bereiken:
+Cost Management ondersteunt de volgende ingebouwde rollen voor elk van de volgende bereiken:
 
-- [**De eigenaar van** ](../role-based-access-control/built-in-roles.md#owner) : kunt u kosten wilt weergeven en alles beheren, inclusief configuratie van de kosten.
-- [**Inzender** ](../role-based-access-control/built-in-roles.md#contributor) : kunt u kosten wilt weergeven en alles beheren, inclusief configuratie van de kosten, maar met uitzondering van toegangsbeheer.
-- [**Lezer** ](../role-based-access-control/built-in-roles.md#reader) : alles, inclusief de voor kostengegevens en configuratie, kunt bekijken, maar u kunt geen wijzigingen aanbrengen.
-- [**Inzender voor versiebeheer voor kosten** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) : kunt u kosten wilt weergeven, configuratie van de kosten beheren en aanbevelingen weergeven.
-- [**Kosten Management lezer** ](../role-based-access-control/built-in-roles.md#cost-management-reader) : kunnen inzien voor kosten, configuratie, kosten, en aanbevelingen weergeven.
+- [**Eigenaar**](../role-based-access-control/built-in-roles.md#owner) : kan kosten bekijken en alles beheren, met inbegrip van de kosten configuratie.
+- [**Inzender**](../role-based-access-control/built-in-roles.md#contributor) : kan kosten bekijken en alles beheren, inclusief kosten configuratie, maar exclusief toegangs beheer.
+- [**Lezer**](../role-based-access-control/built-in-roles.md#reader) : kan alles weer geven, inclusief kosten gegevens en configuratie, maar kan geen wijzigingen aanbrengen.
+- [**Cost Management Inzender**](../role-based-access-control/built-in-roles.md#cost-management-contributor) : kan kosten bekijken, kosten configuratie beheren en aanbevelingen weer geven.
+- [**Cost Management lezer**](../role-based-access-control/built-in-roles.md#cost-management-reader) : kan kosten gegevens, kosten configuratie en aanbevelingen weer geven.
 
-Cost Management inzenders is de aanbevolen minimale bevoegdheden-rol. Deze personen toegang maken en beheren van budgetten en de uitvoer naar meer effectief bewaken en rapporteren van kosten. Management kostenposten mogelijk ook aanvullende functies voor de ondersteuning van scenario's voor het beheer van kosten voor end-to-end. Houd rekening met de volgende scenario's:
+Cost Management Inzender is de aanbevolen rol met minimale bevoegdheden. Hiermee kunnen gebruikers budgetten maken en beheren en exporteren om de kosten effectiever te controleren en te rapporteren. Cost Management inzenders kunnen ook extra rollen vereisen om end-to-end kosten beheer scenario's te ondersteunen. Houd rekening met de volgende scenario's:
 
-- **Handelen wanneer budgetten worden overschreden** – kostenposten Management moet ook toegang tot het maken en/of beheren van actiegroepen om automatisch reageren op overschrijdingen. Houd rekening met het verlenen van [bewaking Inzender](../role-based-access-control/built-in-roles.md#monitoring-contributor) naar een resourcegroep met de actiegroep voor het gebruik van wanneer budgetdrempelwaarden worden overschreden. Specifieke acties automatiseren vereist aanvullende functies voor de specifieke services gebruikt, zoals Automation en Azure Functions.
-- **Schema exporteren van gegevens kosten** – kostenposten Management moet ook toegang tot het beheer van opslagaccounts voor het plannen van een export gegevens te kopiëren naar een opslagaccount. Houd rekening met het verlenen van [Inzender voor Opslagaccounts](../role-based-access-control/built-in-roles.md#storage-account-contributor) aan een resourcegroep met de opslag account waar kostengegevens wordt geëxporteerd.
-- **Kostenbesparend aanbevelingen weergeven** – Cost Management lezers en kostenposten Management hebben toegang tot *weergave* aanbevelingen kosten standaard. Toegang om te reageren op de aanbevelingen voor kosten vereist echter toegang tot afzonderlijke resources. Houd rekening met het verlenen van een [servicespecifieke rollen](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) als u wilt om te reageren op een aanbeveling op basis van kosten.
+- **Reageren wanneer budgetten worden overschreden** : Cost Management mede werkers moeten ook toegang hebben tot het maken en/of beheren van actie groepen om automatisch te reageren op overschrijdingen. Overweeg het verlenen van [bewakings bijdrage](../role-based-access-control/built-in-roles.md#monitoring-contributor) aan een resource groep die de actie groep bevat die moet worden gebruikt wanneer de budget drempels worden overschreden. Voor het automatiseren van specifieke acties zijn aanvullende rollen vereist voor de specifieke services die worden gebruikt, zoals automatisering en Azure Functions.
+- **Schedule cost data export** : Cost Management-mede werkers moeten ook toegang hebben tot het beheren van opslag accounts om een export te plannen om gegevens naar een opslag account te kopiëren. Overweeg het verlenen van [Inzender voor opslag accounts](../role-based-access-control/built-in-roles.md#storage-account-contributor) aan een resource groep die het opslag account bevat waarin kosten gegevens worden geëxporteerd.
+- **Aanbevelingen voor het besparen van kosten bekijken** : Cost Management lezers en Cost Management mede werkers hebben standaard toegang tot het *weer geven* van kosten aanbevelingen. Toegang tot de kosten aanbevelingen vereist echter toegang tot afzonderlijke resources. Overweeg een [servicespecifieke functie](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) te verlenen als u op kosten gebaseerde aanbeveling wilt handelen.
 
-## <a name="enterprise-agreement-scopes"></a>Enterprise Agreement-bereiken
+## <a name="enterprise-agreement-scopes"></a>Enterprise Agreement bereiken
 
-Enterprise Agreement (EA)-facturering accounts, ook wel genoemd inschrijvingen, hebben de volgende bereiken:
+Enterprise Agreement (EA)-facturerings accounts, ook wel inschrijvingen genoemd, hebben de volgende bereiken:
 
-- [**Factureringsaccount** ](../billing/billing-view-all-accounts.md) -Hiermee geeft u een EA-inschrijving. Facturen worden gegenereerd op dit bereik. Aankopen die geen gebruik zijn gebaseerd, zoals Marketplace en reserveringen, zijn alleen beschikbaar op dit bereik. Ze worden niet weergegeven in de afdelingen of inschrijvingsaccounts.
+- [**Facturerings account**](../billing/billing-view-all-accounts.md) : vertegenwoordigt een EA-inschrijving. Facturen worden op dit bereik gegenereerd. Aankopen waarvoor geen gebruik is gemaakt, zoals Marketplace en reserve ringen, zijn alleen beschikbaar in dit bereik. Ze worden niet weer gegeven in afdelingen of inschrijvings accounts.
 
-    Resourcetype: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
-- **Afdeling** - optioneel groepering van inschrijvingsaccounts.
+    Resource type:`Microsoft.Billing/billingAccounts (accountType = Enrollment)`
+- **Afdeling** -optioneel groepering van inschrijvings accounts.
 
-    Resourcetype: `Billing/billingAccounts/departments`
+    Resource type:`Billing/billingAccounts/departments`
 
-- **Inschrijvingsaccount** -Hiermee geeft u de eigenaar van een één-account. Biedt geen ondersteuning voor toegang verlenen tot meerdere personen.
+- **Inschrijvings account** : vertegenwoordigt een enkele eigenaar van een account. Biedt geen ondersteuning voor het verlenen van toegang aan meerdere personen.
 
-    Resourcetype: `Microsoft.Billing/billingAccounts/enrollmentAccounts`
+    Resource type:`Microsoft.Billing/billingAccounts/enrollmentAccounts`
 
-Hoewel governance bereiken zijn gebonden aan één map, niet EA facturering bereiken. Een EA-factureringsaccount mogelijk abonnementen naar een willekeurig aantal Azure AD-mappen.
+Hoewel governance-bereiken zijn gebonden aan één map, zijn geen EA-facturerings bereik. Een EA-facturerings account kan abonnementen hebben op elk wille keurig aantal Azure AD-directory's.
 
-De volgende rollen bieden ondersteuning voor facturering EA-scopes:
+EA-facturerings bereik ondersteunen de volgende rollen:
 
-- **Ondernemingsadministrator** : facturering accountinstellingen en toegang kunt beheren, kunt u alle kosten weergeven en configuratie van de kosten kunt beheren. Bijvoorbeeld, budgetten en exporteert. In de functie, de EA facturering bereik is gelijk aan [Cost Management Inzender voor Azure RBAC-rol](../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Enterprise alleen-lezen-gebruiker** – facturering accountinstellingen, gegevens van cost en configuratie van de kosten kunt weergeven. Bijvoorbeeld, budgetten en exporteert. In de functie, de EA facturering bereik is gelijk aan de [Cost Management lezer Azure RBAC-rol](../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Beheerder van de afdeling** : kunt afdeling instellingen, zoals kostenplaats, beheren en kan toegang tot alle kosten weergeven en configuratie van de kosten beheren. Bijvoorbeeld, budgetten en exporteert.  De **DA weergave kosten** facturering van de instellingen van een account voor afdeling beheerders en alleen-lezen gebruikers moet zijn ingeschakeld om te zien van kosten. Als **DA weergave kosten** is uitgeschakeld, afdeling gebruikers niet zien kosten op elk niveau, zelfs als ze de eigenaar van een account of -abonnement.
-- **Afdeling alleen-lezengebruiker** – afdeling instellingen, kosten en de configuratie van de kosten kunt bekijken. Bijvoorbeeld, budgetten en exporteert. Als **DA weergave kosten** is uitgeschakeld, afdeling gebruikers niet zien kosten op elk niveau, zelfs als ze de eigenaar van een account of -abonnement.
-- **De eigenaar van account** : kan account inschrijvingsinstellingen (zoals kostenplaats) beheren, alle kosten weergeven en beheren van configuratie van de kosten (zoals budgetten en uitvoer) voor het inschrijvingsaccount. De **kosten weergeven die door de AO** facturering van de instellingen van een account voor eigenaars en gebruikers van RBAC moet zijn ingeschakeld om te zien van kosten.
+- **Ondernemings Administrator** : kan instellingen en toegang van het facturerings account beheren, kan alle kosten bekijken en de kosten configuratie beheren. Bijvoorbeeld budgetten en exports. In functie is het facturerings bereik EA hetzelfde als [Cost Management Inzender rol van Azure RBAC](../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Enter prise alleen-lezen gebruiker** – kan instellingen voor het facturerings account, kosten gegevens en kosten configuratie weer geven. Bijvoorbeeld budgetten en exports. In functie is het facturerings bereik EA hetzelfde als de [Azure RBAC-rol Cost Management Reader](../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Afdelings beheerder** : kan afdelings instellingen, zoals kosten centrum, beheren en alle kosten bekijken, en de kosten configuratie beheren. Bijvoorbeeld budgetten en exports.  De instelling voor het facturerings account voor **da-weer gave** moet zijn ingeschakeld voor afdelings beheerders en alleen-lezen gebruikers om de kosten te bekijken. Als de **da-weergave kosten** is uitgeschakeld, kunnen de afdelings gebruikers geen kosten op elk niveau zien, zelfs niet als ze een account of eigenaar van het abonnement zijn.
+- **Alleen-lezen gebruiker** van de afdeling: kan afdelings instellingen, kosten gegevens en kosten configuratie weer geven. Bijvoorbeeld budgetten en exports. Als de **da-weergave kosten** is uitgeschakeld, kunnen de afdelings gebruikers geen kosten op elk niveau zien, zelfs niet als ze een account of eigenaar van het abonnement zijn.
+- **Eigenaar** van het account: kan instellingen voor het inschrijvings account beheren (zoals het kosten centrum), alle kosten weer geven en de kosten configuratie (zoals budgetten en export bewerkingen) voor het inschrijvings account beheren. De instelling van het facturerings account **ao** moet zijn ingeschakeld voor account eigenaren en RBAC-gebruikers om de kosten te bekijken.
 
-EA facturering accountgebruikers hebben geen directe toegang tot facturen. Facturen zijn verkrijgbaar via een externe volume licensing-systeem.
+EA-facturerings account gebruikers hebben geen directe toegang tot facturen. Facturen zijn verkrijgbaar via een extern volume licentie systeem.
 
-Azure-abonnementen worden genest onder inschrijvingsaccounts. Facturering-gebruikers hebben toegang tot gegevens van cost voor de abonnementen en resourcegroepen die onder hun respectievelijke bereiken. Ze geen toegang om te bekijken of beheren van resources in Azure portal. Facturering-gebruikers kunnen kosten weergeven door te navigeren naar **kostenbeheer en facturering** in de Azure portal lijst met services. Vervolgens kunnen ze kosten voor de specifieke abonnementen en resourcegroepen die ze nodig hebben om te rapporteren over filteren.
+Azure-abonnementen zijn genest onder inschrijvings accounts. Facturerings gebruikers hebben toegang tot kosten gegevens voor de abonnementen en resource groepen die zich onder hun respectieve bereik bevinden. Ze hebben geen toegang tot het weer geven of beheren van resources in de Azure Portal. Facturerings gebruikers kunnen kosten weer geven door te navigeren naar **Cost Management en facturering** in de Azure Portal lijst met Services. Vervolgens kunnen ze de kosten filteren voor de specifieke abonnementen en resource groepen die ze nodig hebben om te rapporteren.
 
-Facturering-gebruikers hebben geen toegang tot van beheergroepen omdat ze expliciet niet onder een specifieke factureringsaccount vallen. Toegang moet expliciet worden verleend aan beheergroepen. -Beheergroepen totaliseren kosten van alle geneste abonnementen. Echter, zijn ze alleen aankopen op basis van gebruik. Ze omvatten geen aankopen zoals reserveringen en van derden Marketplace-aanbiedingen. Als u deze kosten, facturering EA-account te gebruiken.
+Facturerings gebruikers hebben geen toegang tot beheer groepen omdat ze niet expliciet onder een specifiek facturerings account vallen. Toegang moet expliciet aan beheer groepen worden verleend. De totale kosten van beheer groepen van alle geneste abonnementen. Ze omvatten echter alleen aankopen op basis van gebruik. Ze omvatten geen aankopen zoals reserve ringen en Marketplace-aanbiedingen van derden. Gebruik het account EA om deze kosten weer te geven.
 
-## <a name="individual-agreement-scopes"></a>Afzonderlijke overeenkomst bereiken
+## <a name="individual-agreement-scopes"></a>Scopes voor individuele overeenkomsten
 
-Azure-abonnementen gemaakt op basis van afzonderlijke aanbiedingen, zoals betalen per gebruik en de bijbehorende typen zoals gratis proefversie en dev/test-aanbiedingen, hoeft een expliciete facturering accountbereik. Elk abonnement heeft in plaats daarvan een accounteigenaar of beheerder van het account, net als de eigenaar van het EA-account.
+Azure-abonnementen die zijn gemaakt op basis van afzonderlijke aanbiedingen, zoals betalen per gebruik en gerelateerde typen, zoals gratis proef versie en ontwikkel-en test aanbiedingen, hebben geen expliciet account bereik voor facturering. In plaats daarvan heeft elk abonnement een account eigenaar of account beheerder, zoals de eigenaar van het EA-account.
 
-- [**Factureringsaccount** ](../billing/billing-view-all-accounts.md) -Hiermee geeft u de accounteigenaar van een enkel voor een of meer Azure-abonnementen. Het ondersteunt momenteel geen toegang verlenen tot meerdere personen of toegang tot samengevoegde kosten weergaven.
+- [**Facturerings account**](../billing/billing-view-all-accounts.md) : vertegenwoordigt een enkele eigenaar van een account voor een of meer Azure-abonnementen. Het biedt momenteel geen ondersteuning voor het verlenen van toegang aan meerdere personen of toegang tot samengevoegde kosten weergaven.
 
-    Resourcetype: Niet van toepassing
+    Resource type: Niet van toepassing
 
-Accountbeheerders individueel Azure-abonnement kunt weergeven en beheren van facturering gegevens, zoals facturen en betalingen van de [Azure-Accountcentrum](https://account.azure.com/subscriptions). Ze kunnen echter kostengegevens weergeven of beheren van resources in Azure portal. Om toegang tot de accountbeheerder, gebruikt u de Cost Management-functies die eerder is vermeld.
+Afzonderlijke accounts beheerders van een Azure-abonnement kunnen facturerings gegevens, zoals facturen en betalingen, bekijken en beheren vanuit de [Azure-Accountcentrum](https://account.azure.com/subscriptions). Ze kunnen echter geen kosten gegevens weer geven of resources in de Azure Portal beheren. Als u toegang wilt verlenen aan de account beheerder, gebruikt u de eerder genoemde Cost Management-functies.
 
-In tegenstelling tot EA ziet individueel Azure-abonnement rekening beheerders hun facturen in Azure portal. Houd er rekening mee dat Cost Management lezer en Inzender voor versiebeheer voor kosten rollen niet worden gebruikt voor het bieden van toegang tot facturen. Zie voor meer informatie, [over het verkrijgen van toegang tot facturen](../billing/billing-manage-access.md##give-read-only-access-to-billing).
+In tegens telling tot EA kunnen beheerders van afzonderlijke Azure-abonnements accounts hun facturen zien in de Azure Portal. Houd er wel voor dat Cost Management lezers en Cost Management Inzender rollen geen toegang tot facturen bieden. Zie [toegang tot facturen verlenen](../billing/billing-manage-access.md##give-read-only-access-to-billing)voor meer informatie.
 
-## <a name="microsoft-customer-agreement-scopes"></a>Overeenkomst voor Microsoft-klanten bereiken
+## <a name="microsoft-customer-agreement-scopes"></a>Micro soft-gebruikers overeenkomsten
 
-Facturering KLANTOVEREENKOMST van Microsoft-accounts hebben de volgende bereiken:
+Factuur accounts voor micro soft-klanten overeenkomst hebben de volgende bereiken:
 
-- **Factureringsaccount** -Hiermee geeft u een KLANTOVEREENKOMST voor meerdere Microsoft-producten en services. Facturering klantaccounts overeenkomst zijn niet functioneel gelijk zijn aan de EA-inschrijvingen. EA-inschrijvingen zijn beter aansluiten op facturering profielen uitgelijnd.
+- **Facturerings account** : vertegenwoordigt een klant overeenkomst voor meerdere micro soft-producten en-services. Facturerings accounts van klant overeenkomst zijn niet functioneel hetzelfde als EA-inschrijvingen. EA-inschrijvingen zijn nauw keuriger afgestemd op facturerings profielen.
 
-    Resourcetype: `Microsoft.Billing/billingAccounts (accountType = Organization)`
+    Resource type:`Microsoft.Billing/billingAccounts (accountType = Organization)`
 
-- **Facturering profiel** -definieert de abonnementen die zijn opgenomen in een factuur. Facturering-profielen zijn het functioneel equivalent van een EA-inschrijving, omdat dat het bereik die facturen worden gegenereerd op. Op deze manier-aankopen die niet op gebruik gebaseerde (zoals Marketplace en reserveringen) zijn alleen beschikbaar op dit bereik. Ze worden niet opgenomen in de secties van de factuur.
+- **Facturerings profiel** : Hiermee worden de abonnementen gedefinieerd die zijn opgenomen in een factuur. Facturerings profielen zijn het functionele equivalent van een EA-inschrijving, omdat dat de omvang is van facturen die op worden gegenereerd. Op dezelfde manier zijn aankopen waarvoor geen gebruik is gemaakt (zoals Marketplace en reserve ringen) alleen beschikbaar in dit bereik. Ze zijn niet opgenomen in de gedeelten van de factuur.
 
-    Resourcetype: `Microsoft.Billing/billingAccounts/billingProfiles`
+    Resource type:`Microsoft.Billing/billingAccounts/billingProfiles`
 
-- **Sectie factuur** -vertegenwoordigt een groep van abonnementen in een factuur of een profiel voor facturering. Factuur secties zijn, zoals afdelingen: meerdere mensen toegang hebt tot een gedeelte van de factuur.
+- **Factuur gedeelte** : dit is een groep abonnementen in een factuur of facturerings profiel. Factuur secties zijn vergelijkbaar met afdelingen: meerdere personen kunnen toegang hebben tot een factuur gedeelte.
 
-    Resourcetype: `Microsoft.Billing/billingAccounts/invoiceSections`
+    Resource type:`Microsoft.Billing/billingAccounts/invoiceSections`
 
-In tegenstelling tot EA facturering scopes, KLANTOVEREENKOMST facturering accounts _zijn_ gekoppeld aan één map en geen abonnementen over meerdere Azure AD-mappen.
+In tegens telling tot EA-facturerings bereiken _zijn_ facturerings accounts voor klant overeenkomsten gebonden aan één map en kunnen ze geen abonnementen hebben op meerdere Azure AD-directory's.
 
-Klant overeenkomst facturering bereiken ondersteunen de volgende rollen:
+Facturerings bereik van de klant overeenkomst ondersteunen de volgende rollen:
 
-- **De eigenaar van** : kan instellingen voor facturering en toegang beheren, alle kosten weergeven en beheren van configuratie van de kosten. Bijvoorbeeld, budgetten en exporteert. In de functie, deze KLANTOVEREENKOMST facturering bereik is hetzelfde als de [Cost Management Inzender voor Azure RBAC-rol](../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Inzender** – kunt facturering beheren behalve toegang, alle kosten weergeven en beheren van configuratie van de kosten. Bijvoorbeeld, budgetten en exporteert. In de functie, deze KLANTOVEREENKOMST facturering bereik is hetzelfde als de [Cost Management Inzender voor Azure RBAC-rol](../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Lezer** – instellingen voor facturering, gegevens van cost en configuratie van de kosten kunt weergeven. Bijvoorbeeld, budgetten en exporteert. In de functie, deze KLANTOVEREENKOMST facturering bereik is hetzelfde als de [Cost Management lezer Azure RBAC-rol](../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Factuurbeheer** : kunt weergeven en facturen en kunnen gegevens en configuratie weergeven. Bijvoorbeeld, budgetten en exporteert. In de functie, deze KLANTOVEREENKOMST facturering bereik is hetzelfde als de [Cost Management lezer Azure RBAC-rol](../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **De maker van de Azure-abonnement** – kunt maken van Azure-abonnementen, kosten weergeven en beheren van kosten configuratie. Bijvoorbeeld, budgetten en exporteert. In de functie is dit KLANTOVEREENKOMST facturering bereik gelijk zijn aan de eigenaarsrol van EA-inschrijving-account.
+- **Eigenaar** : kan facturerings instellingen en toegang beheren, alle kosten bekijken en de kosten configuratie beheren. Bijvoorbeeld budgetten en exports. In functie is dit factuur bereik voor klanten overeenkomst hetzelfde als de [Cost Management Inzender rol van Azure RBAC](../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Inzender** : kan facturerings instellingen beheren, met uitzonde ring van toegang, alle kosten weer geven en de kosten configuratie beheren. Bijvoorbeeld budgetten en exports. In functie is dit factuur bereik voor klanten overeenkomst hetzelfde als de [Cost Management Inzender rol van Azure RBAC](../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Lezer** : kan facturerings instellingen, kosten gegevens en kosten configuratie weer geven. Bijvoorbeeld budgetten en exports. In functie is dit factuur bereik voor klanten overeenkomst hetzelfde als de [Cost Management Reader van Azure RBAC-rol](../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Factuur beheerder** : kan facturen bekijken en betalen en kan kosten gegevens en-configuratie bekijken. Bijvoorbeeld budgetten en exports. In functie is dit factuur bereik voor klanten overeenkomst hetzelfde als de [Cost Management Reader van Azure RBAC-rol](../role-based-access-control/built-in-roles.md#cost-management-reader).
+- Ontwikkel **aars van Azure** -abonnementen: kunnen Azure-abonnementen maken, kosten bekijken en de kosten configuratie beheren. Bijvoorbeeld budgetten en exports. In functie is dit factuur bereik voor klanten overeenkomst hetzelfde als de rol van de account eigenaar van het EA-inschrijving.
 
-Azure-abonnementen worden genest onder factuur secties, zoals hoe ze onder EA-inschrijvingsaccounts zijn. Facturering-gebruikers hebben toegang tot gegevens van cost voor de abonnementen en resourcegroepen die onder hun respectievelijke bereiken. Ze hebben echter geen toegang om te bekijken of beheren van resources in Azure portal. Facturering-gebruikers kunnen kosten weergeven door te navigeren naar **kostenbeheer en facturering** in de Azure portal lijst met services. Kosten voor de specifieke abonnementen en resourcegroepen die ze nodig hebben om te rapporteren over vervolgens filteren.
+Azure-abonnementen zijn genest onder factuur secties, zoals hoe ze onder EA-inschrijvings accounts vallen. Facturerings gebruikers hebben toegang tot kosten gegevens voor de abonnementen en resource groepen die zich onder hun respectieve bereik bevinden. Ze hebben echter geen toegang tot het weer geven of beheren van resources in de Azure Portal. Facturerings gebruikers kunnen kosten weer geven door te navigeren naar **Cost Management en facturering** in de Azure Portal lijst met Services. Filter vervolgens de kosten voor de specifieke abonnementen en resource groepen waarover ze moeten rapporteren.
 
-Facturering-gebruikers hebben geen toegang tot van beheergroepen omdat ze expliciet niet onder het account van de facturering vallen. Echter wanneer beheergroepen zijn ingeschakeld voor de organisatie, abonnementskosten voor alle worden samengevouwen aan de factureringsrekening en aan de beheergroep hoofdmap omdat ze beide tot één map beperkt zijn. Beheergroepen zijn alleen van aankopen op basis van gebruik. Aankopen, zoals reserveringen en van derden Marketplace-aankopen worden niet opgenomen in beheergroepen. De facturering-account en de hoofdmap beheergroep kan dus verschillende totalen melden. Als u deze kosten, de factureringsaccount of de respectieve factureringsprofiel te gebruiken.
+Facturerings gebruikers hebben geen toegang tot beheer groepen omdat ze niet expliciet onder het facturerings account vallen. Als er echter beheer groepen zijn ingeschakeld voor de organisatie, worden alle abonnements kosten op basis van het facturerings account en de hoofd beheer groep gedistribueerd, omdat deze beide zijn beperkt tot één map. Beheer groepen bevatten alleen aankopen die gebaseerd zijn op gebruik. Aankopen als reserve ringen en Marketplace-aanbiedingen van derden zijn niet opgenomen in beheer groepen. Het facturerings account en de hoofd beheer groep kunnen dus verschillende totalen rapporteren. Gebruik het facturerings account of het respectieve facturerings profiel om deze kosten weer te geven.
 
-## <a name="cloud-solution-provider-csp-scopes"></a>Cloud Solution Provider (CSP) bereiken
+## <a name="aws-scopes"></a>AWS-bereiken
 
-Cloud Solution Provider (CSP) partners worden niet ondersteund in Cost Management vandaag nog. In plaats daarvan kunt u [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+Nadat de AWS-integratie is voltooid, raadpleegt [u de installatie en configuratie van AWS-integratie](aws-integration-set-up-configure.md). De volgende bereiken zijn beschikbaar:
 
-## <a name="switch-between-scopes-in-cost-management"></a>Schakelen tussen bereiken in Cost Management
+- **Externe facturerings account** : vertegenwoordigt een klant overeenkomst met een externe leverancier. Dit is vergelijkbaar met het facturerings account EA.
 
-Alle weergaven van Cost Management in Azure portal zijn onder meer een **bereik** pill selectie in de linkerbovenhoek van de weergave. Gebruik dit voor het snel bereik wijzigen. Klik op de **bereik** pill openen de bereikskiezer voor. U ziet facturering accounts, de root management-groep en abonnementen die niet worden genest onder het root-beheergroep. Als u wilt een bereik selecteert, klikt u op de achtergrond Markeer deze en klik vervolgens op **Selecteer** aan de onderkant. Als u wilt inzoomen in op de geneste bereiken, zoals resourcegroepen in een abonnement, klikt u op de koppeling van de naam van bereik. Klik om te selecteren in het bovenliggende bereik op het niveau van alle geneste, **Selecteer deze optie &lt;bereik&gt;**  aan de bovenkant van de bereikskiezer voor.
+    Resource type:`Microsoft.CostManagement/externalBillingAccounts`
+    
+- **Extern abonnement** : vertegenwoordigt een operationeel gebruikers account met een externe leverancier. Dit is vergelijkbaar met een Azure-abonnement.
 
-## <a name="identify-the-resource-id-for-a-scope"></a>Identificeren van de resource-ID voor een bereik
+    Resource type:`Microsoft.CostManagement/externalSubscriptions`
 
-Als u werkt met Cost Management-API's, weet dat het bereik is van essentieel belang. Gebruik de volgende informatie om het juiste bereik URI voor Cost Management-API's.
+## <a name="cloud-solution-provider-csp-scopes"></a>De scopes van de Cloud Solution Provider (CSP)
 
-### <a name="billing-accounts"></a>Facturering-accounts
+Cloud Solution Provider-partners (CSP) worden niet ondersteund in Cost Management vandaag. In plaats daarvan kunt u [partner centrum](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview)gebruiken.
 
-1. Open de Azure-portal en navigeer vervolgens naar **kostenbeheer en facturering** in de lijst met services.
-2. Selecteer **eigenschappen** in de facturering menu van het account.
-3. Kopieer de facturering account-ID.
-4. Uw bereik is: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`
+## <a name="switch-between-scopes-in-cost-management"></a>Scha kelen tussen bereiken in Cost Management
 
-### <a name="billing-profiles"></a>Facturering-profielen
+Alle Cost Management weer gaven in de Azure Portal bevatten een **bereik** selectie Pill in de linkerbovenhoek van de weer gave. Gebruik het om het bereik snel te wijzigen. Klik op de **Scope** Pill om de bereik kiezer te openen. Hierin worden facturerings accounts, de hoofd beheer groep en abonnementen weer gegeven die niet zijn genest onder de hoofd beheer groep. Als u een bereik wilt selecteren, klikt u op de achtergrond om deze te markeren en klikt u onderaan op **selecteren** . Als u wilt inzoomen op geneste bereiken, zoals resource groepen in een abonnement, klikt u op de koppeling Scope naam. Als u het bovenliggende bereik op een genest niveau wilt selecteren, klikt u op  **&lt;dit bereik&gt; selecteren** boven aan de bereik kiezer.
 
-1. Open de Azure-portal en navigeer vervolgens naar **kostenbeheer en facturering** in de lijst met services.
-2. Selecteer **facturering profielen** in de facturering menu van het account.
-3. Klik op de naam van het gewenste profiel voor facturering.
-4. Selecteer **eigenschappen** in het menu met facturering profiel.
-5. Kopieer de factureringsaccount en facturering profiel-id.
-6. Uw bereik is: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
+## <a name="identify-the-resource-id-for-a-scope"></a>De resource-ID voor een bereik identificeren
 
-### <a name="invoice-sections"></a>Factuur secties
+Wanneer u werkt met Cost Management Api's, weet u zeker dat de scope kritiek is. Gebruik de volgende informatie om de juiste Scope-URI te maken voor Cost Management-Api's.
 
-1. Open de Azure-portal en navigeer vervolgens naar **kostenbeheer en facturering** in de lijst met services.
-2. Selecteer **factuur secties** in de facturering menu van het account.
-3. Klik op de naam van de gewenste factuur-sectie.
-4. Selecteer **eigenschappen** in het menu van de sectie factuur.
-5. Kopieer de factureringsaccount en sectie id's factureren.
-6. Uw bereik is: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}"`
+### <a name="billing-accounts"></a>Factureringsaccounts
+
+1. Open de Azure Portal en navigeer vervolgens naar **Cost Management en facturering** in de lijst met Services.
+2. Selecteer **Eigenschappen** in het menu van het facturerings account.
+3. Kopieer de ID van het facturerings account.
+4. Uw bereik is:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`
+
+### <a name="billing-profiles"></a>Factureringsprofielen
+
+1. Open de Azure Portal en navigeer vervolgens naar **Cost Management en facturering** in de lijst met Services.
+2. Selecteer **facturerings profielen** in het menu van het facturerings account.
+3. Klik op de naam van het gewenste facturerings profiel.
+4. Selecteer **Eigenschappen** in het menu van het facturerings profiel.
+5. Kopieer het facturerings account en de facturerings profiel-Id's.
+6. Uw bereik is:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
+
+### <a name="invoice-sections"></a>Factuursecties
+
+1. Open de Azure Portal en navigeer vervolgens naar **Cost Management en facturering** in de lijst met Services.
+2. Selecteer **factuur secties** in het menu van het facturerings account.
+3. Klik op de naam van de gewenste factuur sectie.
+4. Selecteer **Eigenschappen** in het menu van de factuur sectie.
+5. Kopieer de id van het facturerings account en de factuur sectie.
+6. Uw bereik is:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}"`
 
 ### <a name="ea-departments"></a>EA-afdelingen
 
-1. Open de Azure-portal en navigeer vervolgens naar **kostenbeheer en facturering** in de lijst met services.
-2. Selecteer **afdelingen** in de facturering menu van het account.
+1. Open de Azure Portal en navigeer vervolgens naar **Cost Management en facturering** in de lijst met Services.
+2. Selecteer **afdelingen** in het menu van het facturerings account.
 3. Klik op de naam van de gewenste afdeling.
-4. Selecteer **eigenschappen** in het menu van de afdeling.
-5. Kopieer de facturering-ID-account en afdeling.
-6. Uw bereik is: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}"`
+4. Selecteer **Eigenschappen** in het menu afdeling.
+5. Kopieer het facturerings account en de afdelings-Id's.
+6. Uw bereik is:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}"`
 
-### <a name="ea-enrollment-account"></a>Account voor EA-inschrijving
+### <a name="ea-enrollment-account"></a>EA-inschrijvings account
 
-1. Open de Azure-portal en Ga naar **kostenbeheer en facturering** in de lijst met services.
-2. Selecteer **inschrijvingsaccounts** in de facturering menu van het account.
-3. Klik op de naam van de gewenste inschrijvingsaccount.
-4. Selecteer **eigenschappen** in het menu voor het account van inschrijving.
-5. Kopieer het factureringsaccount en id's voor apparaatregistratie-account.
-6. Uw bereik is: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}"`
+1. Open de Azure Portal en navigeer naar **Cost Management en facturering** in de lijst met Services.
+2. Selecteer **inschrijvings accounts** in het menu van het facturerings account.
+3. Klik op de naam van het gewenste inschrijvings account.
+4. Selecteer **Eigenschappen** in het menu inschrijvings account.
+5. Kopieer de id van het facturerings account en het inschrijvings account.
+6. Uw bereik is:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}"`
 
 ### <a name="management-group"></a>Beheergroep
 
-1. Open de Azure-portal en Ga naar **beheergroepen** in de lijst met services.
-2. Navigeer naar de gewenste beheergroep.
-3. Kopieer de beheergroep-ID van de tabel.
-4. Uw bereik is: `"/providers/Microsoft.Management/managementGroups/{id}"`
+1. Open de Azure Portal en navigeer naar **beheer groepen** in de lijst met Services.
+2. Ga naar de gewenste beheer groep.
+3. Kopieer de ID van de beheer groep uit de tabel.
+4. Uw bereik is:`"/providers/Microsoft.Management/managementGroups/{id}"`
 
-### <a name="subscription"></a>Abonnement
+### <a name="subscription"></a>Subscription
 
-1. Open de Azure-portal en Ga naar **abonnementen** in de lijst met services.
-2. Kopieer de abonnements-ID van de tabel.
-3. Uw bereik is: `"/subscriptions/{id}"`
+1. Open de Azure Portal en navigeer naar **abonnementen** in de lijst met Services.
+2. Kopieer de abonnements-ID uit de tabel.
+3. Uw bereik is:`"/subscriptions/{id}"`
 
 ### <a name="resource-groups"></a>Resourcegroepen
 
-1. Open de Azure-portal en Ga naar **resourcegroepen** in de lijst met services.
-2. Klik op de naam van de gewenste resourcegroep.
-3. Selecteer **eigenschappen** in het menu resourcegroep.
-4. Kopieer de waarde van het resource-ID-veld.
-5. Uw bereik is: `"/subscriptions/{id}/resourceGroups/{name}"`
+1. Open de Azure Portal en navigeer naar **resource groepen** in de lijst met Services.
+2. Klik op de naam van de gewenste resource groep.
+3. Selecteer **Eigenschappen** in het menu van de resource groep.
+4. Kopieer de waarde van het veld Resource-ID.
+5. Uw bereik is:`"/subscriptions/{id}/resourceGroups/{name}"`
 
-Cost Management is momenteel niet ondersteund in [Azure Global](https://management.azure.com) en [Azure Government](https://management.usgovcloudapi.net). Zie voor meer informatie over Azure Government [Azure Global en overheid API-eindpunten](../azure-government/documentation-government-developer-guide.md#endpoint-mapping) _._
+Cost Management wordt momenteel ondersteund in [Azure Global](https://management.azure.com) en [Azure Government](https://management.usgovcloudapi.net). Zie [Azure Global and Government API-eind punten](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)voor meer informatie over Azure Government _._
 
 ## <a name="next-steps"></a>Volgende stappen
 
