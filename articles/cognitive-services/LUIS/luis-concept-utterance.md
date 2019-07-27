@@ -1,7 +1,7 @@
 ---
-title: Goed voorbeeld uitingen
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Uitingen zijn invoer van de gebruiker die uw app moet worden geïnterpreteerd. Items waarvan u denkt dat gebruikers verzamelen. Uitingen die dezelfde betekenis, maar zijn samengesteld anders opnemen in word lengte en de plaatsing van word.
+title: Goed voor beeld van uitingen-LUIS
+titleSuffix: Azure Cognitive Services
+description: Uitingen zijn invoer van de gebruiker die uw app moet interpreteren. Verzamel zinsdelen die u denkt dat gebruikers worden ingevoerd. Uitingen bevatten die hetzelfde zijn, maar die anders zijn gemaakt in woord lengte en woord plaatsing.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,86 +11,86 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: fdf5508475d868ccb8c271daaac7449d3c940301
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43f4b289bb2d072961eb3dabe6970f11726e0ed3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073159"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560610"
 ---
-# <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Inzicht in wat goede uitingen zijn voor uw LUIS-app
+# <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Begrijpen wat goede uitingen zijn voor uw LUIS-app
 
-**Uitingen** zijn invoer van de gebruiker die uw app moet worden geïnterpreteerd. LUIS intenties en entiteiten ophalen uit deze trainen, is het belangrijk om vast te leggen van tal van verschillende voorbeeld-uitingen voor elk doel. Actief leren, of het proces voor u doorgaat met het trainen op nieuwe uitingen is essentieel voor hebt geleerd van machine-intelligentie die LUIS biedt.
+**Uitingen** zijn invoer van de gebruiker die uw app moet interpreteren. Om LUIS te trainen om de intenties en entiteiten van hen te extra heren, is het belang rijk dat u voor elke intentie een groot aantal verschillende voor beeld-uitingen vastlegt. Actief leren of het proces van het voortzetten van de nieuwe uitingen is essentieel voor door de machine geleerd intelligentie die LUIS biedt.
 
-Uitingen waarvan u denkt dat gebruikers verzamelen. Uitingen die dezelfde betekenis, maar in een aantal verschillende manieren zijn samengesteld omvatten:
+Verzamel uitingen die u denkt dat gebruikers worden ingevoerd. Neem uitingen op. Dit betekent hetzelfde als op verschillende manieren:
 
-* Lengte van utterance - korte, middellange en lang is voor uw clienttoepassing
-* Lengte van Word en woordgroep 
-* Plaatsing in Word - entiteit aan begin, midden en einde van utterance
-* Grammatica 
+* Lengte van Utterance-short, medium en Long voor uw client-app
+* Lengte van woord en woord groep 
+* Plaatsing van woorden: entiteit aan het begin, Midden en einde van utterance
+* Gecontroleerd 
 * Pluralization
 * Als gevolg
-* Zelfstandig naamwoord en werkwoord keuze
-* Leestekens - goede verschillende met behulp van de juiste, onjuiste en geen grammatica
+* Keuze uit zelfstandig naam woord en werk woord
+* Interpunctie: een goed RAS met de juiste, onjuiste en geen grammatica
 
-## <a name="how-to-choose-varied-utterances"></a>Uiteenlopende uitingen kiezen
+## <a name="how-to-choose-varied-utterances"></a>Een variabele uitingen kiezen
 
-Wanneer u eerst aan de slag door [toe te voegen voorbeeld uitingen](luis-how-to-add-example-utterances.md) aan uw LUIS-model, worden hier enkele principes rekening moet houden.
+Wanneer u voor het eerst aan de slag gaat door [bijvoorbeeld uitingen](luis-how-to-add-example-utterances.md) toe te voegen aan uw Luis-model, zijn hier enkele principes die u moet onthouden.
 
-### <a name="utterances-arent-always-well-formed"></a>Uitingen zijn niet altijd goed gevormd.
+### <a name="utterances-arent-always-well-formed"></a>Uitingen zijn niet altijd goed gevormd
 
-Het is mogelijk een zin, zoals 'Book een ticket naar Parijs voor mij' of een fragment van een zin, zoals 'Reservering' of "Parijs vlucht."  Gebruikers maken vaak spelfouten. Bij het plannen van uw app, moet u overwegen of u gebruikt [Bing spellingcontrole](luis-tutorial-bing-spellcheck.md) om op te lossen invoer van de gebruiker voordat deze wordt doorgegeven aan LUIS. 
+Dit kan een zin zijn, zoals "een ticket aan Parijs voor mij" of een fragment van een zin, zoals "boeken" of "Parijs vlucht".  Gebruikers maken vaak spel fouten. Overweeg bij het plannen van uw app of u [Bing spellingcontrole](luis-tutorial-bing-spellcheck.md) gebruikt om gebruikers invoer te corrigeren voordat u deze aan Luis door gegeven. 
 
-Als het selectievakje gebruiker uitingen niet is gespeld, moet u LUIS trainen op uitingen die typefouten en spelfouten bevatten.
+Als u de spelling van de gebruiker uitingen niet wilt controleren, moet u LUIS trainen op uitingen met type-en spel fouten.
 
-### <a name="use-the-representative-language-of-the-user"></a>Gebruik de representatieve taal van de gebruiker
+### <a name="use-the-representative-language-of-the-user"></a>De representatieve taal van de gebruiker gebruiken
 
-Bij het kiezen van uitingen er rekening mee dat wat u denkt dat een algemene term of woordgroep mogelijk niet juist zijn voor de meeste gebruikers van uw clienttoepassing. Ze hebben mogelijk niet de domein-ervaring. Wees voorzichtig bij het gebruik van termen of zinnen dat een gebruiker alleen zou bijvoorbeeld als ze een expert zijn.
+Wanneer u uitingen kiest, moet u er rekening mee houden dat u een veelvoorkomende term of woord groep zou kunnen hebben voor de typische gebruiker van uw client toepassing. Ze hebben mogelijk geen domein ervaring. Wees voorzichtig met het gebruik van termen of zinsdelen die een gebruiker alleen zou zeggen als hij een expert was.
 
-### <a name="choose-varied-terminology-as-well-as-phrasing"></a>Kies uiteenlopende terminologie, evenals formulering
+### <a name="choose-varied-terminology-as-well-as-phrasing"></a>Kies verschillende terminologie en formule ring
 
-U vindt dat zelfs als u inspanningen voor het maken van uiteenlopende zin patronen, u nog steeds herhaald sommige vocabulaire.
+U zult merken dat zelfs als u een gevarieerde zin maakt, u nog steeds een woorden lijst moet herhalen.
 
-Deze voorbeeld-uitingen nemen:
+Doe het volgende voor beeld uitingen:
 
 |Voorbeelden van utterances|
 |--|
-|hoe krijg ik een computer?|
-|Waar vind ik een computer?|
-|Ik wil ophalen van een computer, hoe gaat het erover?|
-|Wanneer kan ik een computer hebben?| 
+|Hoe krijg ik een computer?|
+|Hoe krijg ik een computer?|
+|Ik wil een computer verkrijgen, hoe ga ik daar naartoe?|
+|Wanneer kan ik een computer?| 
 
-De term core hier is niet 'computer', gewijzigd. Alternatieven zoals desktopcomputer, laptop, werkstation of zelfs alleen machine gebruiken. LUIS afleidt op intelligente wijze synoniemen uit de context, maar wanneer u uitingen voor training maakt, is het nog steeds beter ze variëren.
+De basis term hier, ' computer ', is niet gevarieerd. Gebruik alternatieven als desktop computer, laptop, werk station of zelfs alleen machine. LUIS maakt op intelligente wijze synoniemen van context, maar wanneer u uitingen voor de training gaat maken, is het nog steeds beter om ze te variëren.
 
-## <a name="example-utterances-in-each-intent"></a>Voorbeeld-uitingen in elk doel
+## <a name="example-utterances-in-each-intent"></a>Voor beeld van uitingen in elke intentie
 
-Elk doel moet voorbeeld uitingen, ten minste 15 hebben. Als u een doel dat geen alle uitingen voorbeeld hebt, wordt het niet mogelijk met het trainen van LUIS. Hebt u een doel met één of enkele voorbeeld-uitingen, LUIS wordt niet nauwkeurig te voorspellen de bedoeling. 
+Elke intentie moet voorbeeld uitingen hebben, ten minste 15. Als u een intentie hebt die geen voorbeeld uitingen heeft, kunt u LUIS niet trainen. Als u een intentie hebt met een of meer voor beeld uitingen, zal LUIS de bedoeling niet nauw keurig voors pellen. 
 
-## <a name="add-small-groups-of-15-utterances-for-each-authoring-iteration"></a>Kleine groepen van 15 uitingen voor elke herhaling authoring toevoegen
+## <a name="add-small-groups-of-15-utterances-for-each-authoring-iteration"></a>Kleine groepen van 15 uitingen toevoegen voor elke ontwerp herhaling
 
-In elke herhaling van het model, Voeg een grote hoeveelheid uitingen niet. Utterances toevoegen in hoeveelheden van 15. [Train](luis-how-to-train.md), [publiceren](luis-how-to-publish-app.md), en [testen](luis-interactive-test.md) opnieuw.  
+Voeg in elke herhaling van het model geen grote hoeveelheid uitingen toe. Voeg uitingen toe aan hoeveel heden van 15. [Train](luis-how-to-train.md), [Publiceer](luis-how-to-publish-app.md)en [test](luis-interactive-test.md) het opnieuw.  
 
-LUIS bouwt effectieve modellen met uitingen die zorgvuldig worden geselecteerd door de auteur van de LUIS-model. Te veel uitingen toe te voegen is niet nuttig omdat het verwarring leidt.  
+LUIS bouwt efficiënte modellen met uitingen die zorgvuldig zijn geselecteerd door de auteur van het LUIS-model. Het is niet waardevol om te veel uitingen toe te voegen, omdat het Verwar ring leidt.  
 
-Het is beter om te beginnen met een paar uitingen vervolgens [eindpunt uitingen bekijken](luis-how-to-review-endpoint-utterances.md) voor het juiste intentie voorspelling en entiteit ophalen.
+Het is beter om met een paar uitingen te beginnen en vervolgens [eind punt uitingen te controleren](luis-how-to-review-endpoint-utterances.md) op juiste intentie van voor spelling en extractie van entiteiten.
 
-## <a name="utterance-normalization"></a>Utterance normalisering
+## <a name="utterance-normalization"></a>Utterance normalisatie
 
-Utterance normalisatie is het proces van de gevolgen van interpunctie en diakritische tekens worden genegeerd tijdens het trainen en voorspellen.
+Utterance normalisatie is het proces van het negeren van de effecten van interpunctie en diakritische tekens tijdens training en voor spellingen.
 
-## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Utterance normalisering voor diakritische tekens en leestekens
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Utterance-normalisatie voor diakritische tekens en interpunctie
 
-Utterance normalisering wordt gedefinieerd bij het maken of importeren van de app omdat het een instelling in de JSON-bestand van de app. De utterance normalisatie-instellingen zijn standaard uitgeschakeld. 
+Utterance normalisatie wordt gedefinieerd wanneer u de app maakt of importeert, omdat het een instelling in het JSON-bestand van de app is. De utterance normalisatie-instellingen zijn standaard uitgeschakeld. 
 
-Diakritische tekens zijn merken of tekens in de tekst, zoals: 
+Diakritische tekens zijn tekens of tekens in de tekst, bijvoorbeeld: 
 
 ```
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-Als uw app normalisering ingeschakeld wordt, beoordeelt de **Test** deelvenster,, batchtests en eindpunt query's verandert er voor alle uitingen diakritische tekens of leestekens.
+Als uw app normalisatie inschakelt, worden de scores in het **test** deel venster, batch tests en eindpunt query's gewijzigd voor alle uitingen met diakritische tekens of interpunctie.
 
-Schakel utterance normalisering voor diakritische tekens of de interpunctieteken naar uw LUIS-JSON-app-bestand in de `settings` parameter.
+Schakel utterance normalisatie voor diakritische tekens of interpunctie in voor uw Luis JSON-app-bestand `settings` in de para meter.
 
 ```JSON
 "settings": [
@@ -99,39 +99,39 @@ Schakel utterance normalisering voor diakritische tekens of de interpunctieteken
 ] 
 ```
 
-Normaliseren **interpunctie** betekent dat voordat uw modellen ontvang training en voordat u uw eindpunt query's ophalen voorspeld, interpunctie wordt verwijderd uit de uitingen. 
+Het normaliseren van interpunctie betekent dat voordat uw modellen worden getraind en voordat uw eindpunt query's worden voor speld, wordt interpunctie verwijderd uit de uitingen. 
 
-Normaliseren **diakritische tekens** vervangt de tekens met diakritische tekens in uitingen met gewone tekens. Bijvoorbeeld: `Je parle français` wordt `Je parle francais`. 
+Als **diakritische** tekens worden genormaliseerd, worden de tekens vervangen door accenten in uitingen. Bijvoorbeeld: `Je parle français` wordt `Je parle francais`. 
 
-Normalisering betekent niet dat u wordt niet Zie interpunctie en diakritische tekens in uw voorbeeld-uitingen of voorspelling antwoorden, alleen dat ze worden genegeerd tijdens het trainen en voorspellen.
+Norma Lise ring betekent niet dat er geen lees-en diakritische tekens worden weer geven in uw voor beeld-uitingen of Voorspellings reacties, alleen dat ze worden genegeerd tijdens de training en voor spellingen.
 
 
-### <a name="punctuation-marks"></a>Leestekens
+### <a name="punctuation-marks"></a>Lees tekens
 
-Als leestekens niet is genormaliseerd, negeren niet LUIS leestekens, standaard, omdat sommige clienttoepassingen betekenis op deze markeringen kunnen plaatsen. Zorg ervoor dat uw voorbeeld-uitingen gebruikt zowel interpunctie en geen interpunctie in volgorde voor beide stijlen naar de dezelfde relatieve scores. 
+Als interpunctie niet is genormaliseerd, LUIS niet standaard interpunctie markeringen negeren, omdat sommige client toepassingen significant kunnen zijn voor deze markeringen. Zorg ervoor dat uw voor beeld-uitingen zowel interpunctie als geen interpunctie gebruiken voor beide stijlen om dezelfde relatieve scores te retour neren. 
 
-Als interpunctie geen specifieke betekenis in uw clienttoepassing heeft, kunt u overwegen [wordt genegeerd interpunctie](#utterance-normalization) door het normaliseren van leestekens. 
+Als interpunctie geen specifieke betekenis heeft in uw client toepassing, kunt u overwegen interpunctie te [negeren](#utterance-normalization) door interpunctie te normaliseren. 
 
-### <a name="ignoring-words-and-punctuation"></a>Woorden en leestekens worden genegeerd
+### <a name="ignoring-words-and-punctuation"></a>Woorden en interpunctie negeren
 
-Als u negeren specifieke woorden of de interpunctieteken in patronen wilt, gebruikt u een [patroon](luis-concept-patterns.md#pattern-syntax) met de _negeren_ syntaxis van tussen vierkante haken, `[]`. 
+Als u specifieke woorden of interpunctie in patronen wilt negeren, gebruikt u een [patroon](luis-concept-patterns.md#pattern-syntax) met de syntaxis _negeren_ van de vier Kante haken, `[]`. 
 
-## <a name="training-utterances"></a>Training-uitingen
+## <a name="training-utterances"></a>Trainings uitingen
 
-Training is in het algemeen niet-deterministisch: de voorspelling utterance kan enigszins verschillen voor verschillende versies of apps. U kunt niet-deterministisch training verwijderen door bij te werken de [versie instellingen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) API met de `UseAllTrainingData` naam/waarde-paar om alle trainingsgegevens te gebruiken.
+Training is doorgaans niet-deterministisch: de utterance-voor spelling kan enigszins variëren in verschillende versies of apps. U kunt niet-deterministische trainingen verwijderen door de API voor [versie](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) -instellingen `UseAllTrainingData` te wijzigen met de naam/waarde-paar om alle trainings gegevens te gebruiken.
 
 ## <a name="testing-utterances"></a>Uitingen testen 
 
-Ontwikkelaars moeten beginnen met het testen van hun LUIS-toepassing met echte verkeer door te sturen uitingen naar de [voorspelling eindpunt](luis-how-to-azure-subscription.md) URL. Deze uitingen worden gebruikt voor het verbeteren van de prestaties van de intenties en entiteiten met [bekijken uitingen](luis-how-to-review-endpoint-utterances.md). Tests verzonden met het testen van deelvenster LUIS-website niet via het eindpunt zijn verzonden, en dus niet bijdragen tot actief leren. 
+Ontwikkel aars moeten hun LUIS-toepassing met echt verkeer testen door uitingen naar de URL voor het Voorspellings [eindpunt](luis-how-to-azure-subscription.md) te sturen. Deze uitingen worden gebruikt om de prestaties van de intenties en entiteiten te verbeteren met [beoordeling uitingen](luis-how-to-review-endpoint-utterances.md). Tests die zijn verzonden met het deel venster LUIS website testen, worden niet via het eind punt verzonden en bijdragen dus niet aan actief leren. 
 
-## <a name="review-utterances"></a>Uitingen bekijken
+## <a name="review-utterances"></a>Uitingen controleren
 
-Nadat uw model getraind, gepubliceerde en ontvangende is [eindpunt](luis-glossary.md#endpoint) query's, [bekijken van de uitingen](luis-how-to-review-endpoint-utterances.md) LUIS worden voorgesteld. LUIS selecteert endpoint-uitingen waarvoor lage scores voor de doel- of entiteit. 
+Nadat uw model is getraind, gepubliceerd en [endpoint](luis-glossary.md#endpoint) -query's ontvangen, [controleert u de uitingen](luis-how-to-review-endpoint-utterances.md) die door Luis is voorgesteld. LUIS selecteert eind punt uitingen met een lage score voor de intentie of entiteit. 
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 
-Beoordeling [aanbevolen procedures](luis-concept-best-practices.md) en deze als onderdeel van uw normale authoring cyclus toepassen.
+Bekijk [Aanbevolen procedures](luis-concept-best-practices.md) en pas deze toe als onderdeel van uw reguliere ontwerp cyclus.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [voorbeeld utterances toevoegen](luis-how-to-add-example-utterances.md) voor meer informatie over het trainen van een LUIS-app om te begrijpen uitingen van de gebruiker.
+Zie [voor beeld uitingen toevoegen](luis-how-to-add-example-utterances.md) voor informatie over het trainen van een Luis-app om inzicht te krijgen in gebruikers uitingen.
 

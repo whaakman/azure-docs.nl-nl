@@ -1,6 +1,6 @@
 ---
-title: Voorbeelden van utterances toevoegen
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Voor beeld-uitingen-LUIS toevoegen
+titleSuffix: Azure Cognitive Services
 description: Voorbeeld uitingen zijn voorbeelden van de tekst van de gebruiker vragen of opdrachten. Als u wilt leren Language Understanding (LUIS), moet u voorbeeld utterances toevoegen aan een doel.
 services: cognitive-services
 author: diberry
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: af43697dc864019c6fd86b041e231a54d8aa8b40
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: f02f50eef971e774236f534c0d664dfcf090dcae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827479"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563737"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Een entiteit toevoegen aan de voorbeeld-uitingen 
 
 Voorbeeld uitingen zijn voorbeelden van de tekst van de gebruiker vragen of opdrachten. Om te leren Language Understanding (LUIS), die u nodig hebt om toe te voegen [voorbeeld uitingen](luis-concept-utterance.md) naar een [bedoeling](luis-concept-intent.md).
 
-Meestal kunt u een voorbeeld-utterance toevoegen aan een eerste intentie en vervolgens u entiteiten maken en uitingen label op de **Intents** pagina. Als u entiteiten in plaats daarvan eerst maakt, Zie [entiteiten toevoegen](luis-how-to-add-entities.md).
+Normaal gesp roken voegt u eerst een voor beeld-utterance toe aan een intentie en vervolgens maakt u entiteiten en label uitingen  op de pagina intenties. Als u entiteiten in plaats daarvan eerst maakt, Zie [entiteiten toevoegen](luis-how-to-add-entities.md).
 
 ## <a name="marking-entities-in-example-utterances"></a>Entiteiten in de voorbeeld-uitingen markeren
 
@@ -32,20 +32,20 @@ Bepaalde Entiteitstypen, zoals de vooraf gemaakte entiteiten en entiteiten regul
 
 ## <a name="add-a-simple-entity"></a>Een eenvoudige entiteit toevoegen
 
-In de volgende procedure maakt en een aangepaste entiteit in de volgende utterance tag op de **Intents** pagina:
+In de volgende procedure maakt en labelt u een aangepaste entiteit in de volgende utterance op de  pagina intenties:
 
 ```text
 Are there any SQL server jobs?
 ```
 
-1. Selecteer `SQL server` in de utterance label als een enkele entiteit. In het vak van de entiteit vervolgkeuzelijst die wordt weergegeven, kunt u een bestaande entiteit selecteren of een nieuwe entiteit toevoegen. Als u wilt een nieuwe entiteit toevoegen, typt u de naam `Job` in het tekstvak in en selecteer vervolgens **nieuwe entiteit maken**.
+1. Selecteer `SQL server` in de utterance label als een enkele entiteit. In het vak van de entiteit vervolgkeuzelijst die wordt weergegeven, kunt u een bestaande entiteit selecteren of een nieuwe entiteit toevoegen. Als u een nieuwe entiteit wilt toevoegen, typt `Job` u de naam ervan in het tekstvak en selecteert u **nieuwe entiteit maken**.
 
     ![Schermafbeelding van het invoeren van de naam van de entiteit](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
     > [!NOTE]
     > Bij het selecteren van woorden op tag als entiteiten:
     > * Selecteer op van één woord. 
-    > * Selecteer voor een set van twee of meer woorden, het eerste woord en het laatste woord.
+    > * Voor een set van twee of meer woorden selecteert u het eerste woord en vervolgens het laatste woord.
 
 1. In de **welk type entiteit wilt u maken?** pop-vak, Controleer of de naam van de entiteit en selecteer de **eenvoudige** entiteitstype en selecteer vervolgens **gedaan**.
 
@@ -53,11 +53,11 @@ Are there any SQL server jobs?
 
 ## <a name="add-a-list-entity"></a>Een lijst met entiteit toevoegen
 
-Lijst met entiteiten vertegenwoordigen een set exact overeenkomende tekst komt overeen met van verwante woorden in uw systeem. 
+Lijst entiteiten vertegenwoordigen een set exacte tekst overeenkomsten met verwante woorden in uw systeem. 
 
 Lijst van de afdeling van een bedrijf, u kunt hebben genormaliseerd waarden: `Accounting` en `Human Resources`. De naam van elke genormaliseerde heeft synoniemen. Voor een afdeling, kunnen deze synoniemen elke afdeling acroniemen, getallen of slang bevatten. U hoeft niet te weten van alle waarden bij het maken van de entiteit. U kunt meer toevoegen nadat u hebt bekeken real-user-uitingen door synoniemen.
 
-1. In een utterance voorbeeld op de **Intents** pagina, selecteert u het woord of woordgroep die u wilt dat in de nieuwe lijst. Wanneer de entiteit vervolgkeuzelijst wordt weergegeven, voert u de naam voor de nieuwe entiteit in de lijst in het bovenste tekstvak in en selecteert **nieuwe entiteit maken**.   
+1. Selecteer in een voor beeld-  utterance op de pagina intenties het woord of de woord groep die u in de nieuwe lijst wilt opnemen. Wanneer de vervolg keuzelijst entiteit wordt weer gegeven, voert u de naam voor de nieuwe entiteit lijst in het tekstvak boven in en selecteert u **nieuwe entiteit maken**.   
 
 1. In de **welk type entiteit wilt u maken?** pop-, de naam van de entiteit en selecteert u **lijst** als het type. Synoniemen van dit item in de lijst toevoegen, en selecteer vervolgens **gedaan**. 
 
@@ -67,15 +67,15 @@ Lijst van de afdeling van een bedrijf, u kunt hebben genormaliseerd waarden: `Ac
 
 ## <a name="add-a-composite-entity"></a>Een samengestelde entiteit toevoegen
 
-Samengestelde entiteiten zijn gemaakt op basis van bestaande **entiteiten** om te vormen van een bovenliggende entiteit. 
+Samengestelde entiteiten worden gemaakt op basis van bestaande **entiteiten** om een bovenliggende entiteit te vormen. 
 
-Ervan uitgaande dat de utterance `Does John Smith work in Seattle?`, een samengestelde utterance entiteit informatie van de naam van de werknemer kunt terugkeren `John Smith`, en de locatie `Seattle` in een samengestelde entiteit. De onderliggende entiteiten moeten al bestaan in de app en worden gemarkeerd in het voorbeeld utterance voordat u de samengestelde entiteit maakt.
+Ervan uitgaande dat de `Does John Smith work in Seattle?`utterance,, een samengestelde utterance, de entiteits gegevens van `John Smith`de naam van de `Seattle` werk nemer en de locatie in een samengestelde entiteit kan retour neren. De onderliggende entiteiten moeten al bestaan in de app en moeten zijn gemarkeerd in het voor beeld utterance voordat u de samengestelde entiteit maakt.
 
-1. Als u wilt de onderliggende entiteiten in een samengestelde entiteit, selecteer de **eerste** gelabeld entiteit (meest linkse) in de utterance voor de samengestelde entiteit. Een vervolgkeuzelijst wordt weergegeven om de opties voor deze selectie weer te geven.
+1. Als u de onderliggende entiteiten in een samengestelde entiteit wilt verpakken, selecteert u de **eerste** gelabelde entiteit (meest links) in het utterance voor de samengestelde entiteit. Er wordt een vervolg keuzelijst weer gegeven waarin de opties voor deze selectie worden weer gegeven.
 
-1. Selecteer **verpakken in samengestelde entiteit** uit de vervolgkeuzelijst. 
+1. Selecteer in de vervolg keuzelijst de optie **Terugloop in samengestelde entiteit** . 
 
-1. Selecteer het laatste woord van de samengestelde entiteit (meest rechtse). U ziet dat een groene lijn volgt de samengestelde entiteit. Dit is de visuele indicator voor een samengestelde entiteit en moet worden opgenomen in alle woorden in de samengestelde entiteit op basis van de meest linkse onderliggende entiteit naar de meest rechtse onderliggende entiteit.
+1. Selecteer het laatste woord van de samengestelde entiteit (meest rechtse). U ziet dat een groene lijn volgt de samengestelde entiteit. Dit is de visuele indicator voor een samengestelde entiteit en moet onder alle woorden in de samengestelde entiteit van de meest linkse onderliggende entiteit worden weer gegeven met de meest rechtse onderliggende entiteit.
 
 1. Voer de naam van de samengestelde entiteit in de vervolgkeuzelijst.
 
@@ -89,11 +89,11 @@ Ervan uitgaande dat de utterance `Does John Smith work in Seattle?`, een samenge
 
     ![Schermafbeelding van de intenties pagina, met samengestelde entiteit](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
-## <a name="add-entitys-role-to-utterance"></a>De rol van de entiteit toevoegen aan utterance
+## <a name="add-entitys-role-to-utterance"></a>De rol van entiteit toevoegen aan utterance
 
-Een rol is een benoemde subtype van een entiteit, bepaald door de context van de utterance. U kunt een entiteit binnen een utterance als de entiteit markeren of Selecteer een rol binnen die entiteit. Elke entiteit rollen, inclusief de aangepaste entiteiten die machine geleerd zijn (eenvoudige entiteiten en samengestelde entiteiten) kunt hebben, zich niet hebt geleerd van een machine (vooraf gemaakte entiteiten, reguliere expressie entiteiten, lijst met entiteiten). 
+Een rol is een benoemd subtype van een entiteit, bepaald door de context van de utterance. U kunt een entiteit in een utterance markeren als de entiteit of een rol binnen die entiteit selecteren. Elke entiteit kan rollen hebben met inbegrip van aangepaste entiteiten die door machines zijn geleerd (eenvoudige entiteiten en samengestelde entiteiten), zijn niet-geleerd op computers (vooraf gemaakte entiteiten, reguliere expressie-entiteiten, lijst entiteiten). 
 
-Informatie over [het markeren van een utterance met behulp van entiteit](tutorial-entity-roles.md) uit een praktische handleiding. 
+Meer informatie [over hoe u een utterance markeert met entiteits rollen](tutorial-entity-roles.md) vanuit een hand leiding. 
 
 ## <a name="entity-status-predictions"></a>Entiteit status voorspellingen
 
@@ -107,7 +107,7 @@ Selecteer de woorden die zijn onderstreept in rood in de utterance.
 
 Het van de entiteit wordt weergegeven de **entiteit status** met een rood uitroepteken als er een discrepantie voorspelling. De status van de entiteit met informatie over het verschil tussen entiteiten met het label en voorspelde Selecteer **entiteit status** Selecteer vervolgens het item aan de rechterkant.
 
-![Schermafbeelding van de entiteit status selecteren](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
+![Scherm afbeelding van de selectie van entiteits status](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
 
 De rode-regel kan worden weergegeven op een van de volgende tijden:
 
@@ -131,15 +131,15 @@ U kunt acties uitvoeren op de voorbeeld-uitingen als een geselecteerde groep of 
 
 ### <a name="remove-entity-labels-from-utterances"></a>Entiteit verwijderen van uitingen
 
-U kunt machine geleerd entiteit labels verwijderen uit een utterance op de pagina Intents. Als de entiteit niet machine geleerd, kan deze kan niet worden verwijderd uit een utterance. Als u een niet-machine-geleerd entiteit verwijderen uit de utterance moet, moet u de entiteit verwijderen uit de hele app. 
+U kunt door de machine geleerde entiteit labels verwijderen van een utterance op de pagina intenties. Als de entiteit niet machine geleerd, kan deze kan niet worden verwijderd uit een utterance. Als u een niet-machine-geleerd entiteit verwijderen uit de utterance moet, moet u de entiteit verwijderen uit de hele app. 
 
 Als een label hebt geleerd van een machine entiteit uit een utterance verwijderen, selecteert u de entiteit in de utterance. Selecteer vervolgens **Label verwijderen** in de entiteit vervolgkeuzelijst die wordt weergegeven.
 
-### <a name="add-a-prebuilt-entity-label"></a>Een label met vooraf gedefinieerde entiteit toevoegen
+### <a name="add-a-prebuilt-entity-label"></a>Een vooraf gedefinieerde entiteit label toevoegen
 
 Wanneer u de vooraf gemaakte entiteiten aan uw LUIS-app toevoegt, moet u geen tag uitingen met deze entiteiten. Zie voor meer informatie over het vooraf gemaakte entiteiten en hoe u bestanden toevoegt, [entiteiten toevoegen](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
-### <a name="add-a-regular-expression-entity-label"></a>Een entiteit reguliere expressie label toevoegen
+### <a name="add-a-regular-expression-entity-label"></a>Een label voor een reguliere expressie-entiteit toevoegen
 
 Als u de reguliere expressie entiteiten aan uw LUIS-app toevoegt, moet u geen code uitingen met deze entiteiten. Zie voor meer informatie over de reguliere expressie entiteiten en hoe u bestanden toevoegt, [entiteiten toevoegen](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
@@ -149,7 +149,7 @@ Als u de reguliere expressie entiteiten aan uw LUIS-app toevoegt, moet u geen co
 Zie [toevoegen patroon uit bestaande utterance op de pagina kunt u lezen wat of entiteit](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 
-### <a name="add-a-patternany-entity"></a>Een entiteit pattern.any toevoegen
+### <a name="add-a-patternany-entity"></a>Een patroon toevoegen. elke entiteit
 
 Als u de entiteiten pattern.any aan uw LUIS-app toevoegt, kunt u uitingen met deze entiteiten kan geen label. Ze zijn alleen geldig in patronen. Zie voor meer informatie over pattern.any entiteiten en het toe te voegen, [entiteiten toevoegen](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
@@ -159,4 +159,4 @@ Na het toevoegen, bewerken of verwijderen van uitingen, [trainen](luis-how-to-tr
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Na de labels uitingen in uw **Intents**, u kunt nu maken een [samengestelde entiteit](luis-how-to-add-entities.md).
+Nadat u uitingen in uw **intentie**hebt gelabeld, kunt u nu een [samengestelde entiteit](luis-how-to-add-entities.md)maken.

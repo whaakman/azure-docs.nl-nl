@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: f1eac83f2b5460bf56ddff1bf15d9180adb49a48
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 63ed2c5c334aef8f6281ee34ec4ed6e47ca8521a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382282"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569095"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Quickstarts: Verbinding maken met Microsoft Azure SQL Database en hierop query's uitvoeren
 
@@ -29,7 +28,7 @@ Het volgende document bevat koppelingen naar voorbeelden van Azure die laten zie
 |---|---|
 |[SQL Server Management Studio](sql-database-connect-query-ssms.md)|In deze Quick Start ziet u hoe u SSMS gebruikt om verbinding te maken met een Azure SQL-database en vervolgens Transact-SQL-instructies gebruikt om gegevens in de database te zoeken, in te voegen, bij te werken en te verwijderen.|
 |[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|In deze quickstart wordt uitgelegd hoe u Azure Data Studio gebruikt om verbinding te maken met een Azure SQL-database, waarna u met behulp van Transact-SQL-instructies (T-SQL) de TutorialDB maakt die wordt gebruikt in de zelfstudies voor Azure Data Studio.|
-|[Azure Portal](sql-database-connect-query-portal.md)|In deze quickstart ziet u hoe u de queryeditor gebruikt om verbinding te maken met een SQL-database en vervolgens Transact-SQL-instructies gebruikt om gegevens in de database te zoeken, in te voegen, bij te werken en te verwijderen.|
+|[Azure-portal](sql-database-connect-query-portal.md)|In deze quickstart ziet u hoe u de queryeditor gebruikt om verbinding te maken met een SQL-database en vervolgens Transact-SQL-instructies gebruikt om gegevens in de database te zoeken, in te voegen, bij te werken en te verwijderen.|
 |[Visual Studio Code](sql-database-connect-query-vscode.md)|In deze Quick Start ziet u hoe u Visual Studio Code gebruikt om verbinding te maken met een Azure SQL-database en vervolgens Transact-SQL-instructies gebruikt om gegevens in de database te zoeken, in te voegen, bij te werken en te verwijderen.|
 |[.NET met Visual Studio](sql-database-connect-query-dotnet-visual-studio.md)|In deze snelstart wordt gedemonstreerd hoe u .NET Framework gebruikt om een C#-programma te maken met Visual Studio dat verbinding maakt met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om gegevens te doorzoeken.|
 |[.NET Core](sql-database-connect-query-dotnet-core.md)|In deze snelstart wordt gedemonstreerd hoe u .NET Core gebruikt in Windows/Linux/macOS om een C#-programma te maken dat verbinding maakt met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om een query uit te voeren voor de gegevens.|
@@ -39,7 +38,7 @@ Het volgende document bevat koppelingen naar voorbeelden van Azure die laten zie
 |[PHP](sql-database-connect-query-php.md)|In deze snelstart wordt gedemonstreerd hoe u PHP gebruikt om een programma te maken dat verbinding maakt met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om gegevens te doorzoeken.|
 |[Python](sql-database-connect-query-python.md)|In deze snelstart wordt gedemonstreerd hoe u Python gebruikt om verbinding te maken met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om een query uit te voeren voor de gegevens. |
 |[Ruby](sql-database-connect-query-ruby.md)|In deze snelstart wordt gedemonstreerd hoe u Ruby gebruikt om een programma te maken dat verbinding maakt met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om gegevens te doorzoeken.|
-|[R](sql-database-connect-query-r.md)|Deze snelstartgids ziet u hoe u R gebruiken met Azure SQL Database Machine Learning Services om te maken van een programma verbinding maken met een Azure SQL database en Transact-SQL-instructies gebruikt om gegevens te doorzoeken.|
+|[R](sql-database-connect-query-r.md)|In deze Snelstartgids ziet u hoe u met behulp van R met Azure SQL Database Machine Learning Services een programma maakt om verbinding te maken met een Azure-SQL database en hoe u Transact-SQL-instructies gebruikt om gegevens op te vragen.|
 |||
 
 ## <a name="tls-considerations-for-sql-database-connectivity"></a>TLS-overwegingen voor de connectiviteit van SQL Database
@@ -94,8 +93,8 @@ De volgende tabel bevat voorbeelden van ORM-frameworks (Object-Relational Mappin
   - [Verbinding maken met SQL Database met behulp van Python](sql-database-connect-query-python.md)
   - [Verbinding maken met SQL Database met behulp van Ruby](sql-database-connect-query-ruby.md)
 - Voorbeelden van logische code voor opnieuw proberen:
-  - [Flexibel verbinding maken met SQL via ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-  - [Flexibel verbinding maken met SQL via PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+  - [Maak robuuste verbinding met SQL met ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+  - [Maak robuuste verbinding met SQL met PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <!-- Link references. -->
 

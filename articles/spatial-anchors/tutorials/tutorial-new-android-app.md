@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Stapsgewijze instructies voor het maken van een nieuwe Android-app met behulp van Azure ruimtelijke ankers | Microsoft Docs'
-description: In deze zelfstudie leert u hoe u een nieuwe Android-app met behulp van Azure ruimtelijke ankers te maken.
+title: Zelf studie-stapsgewijze instructies voor het maken van een nieuwe Android-app met behulp van ruimtelijke ankers van Azure | Microsoft Docs
+description: In deze zelf studie leert u hoe u een nieuwe Android-app kunt maken met behulp van Azure spatiale ankers.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -8,43 +8,43 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9838add4f83434848d61f3ae86db71765efdc59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 499b08dbdc8e798a884b721bcba51be1f6973df6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60786399"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562384"
 ---
-# <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Zelfstudie: Stapsgewijze instructies voor het maken van een nieuwe Android-app met behulp van Azure ruimtelijke ankers
+# <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Zelfstudie: Stapsgewijze instructies voor het maken van een nieuwe Android-app met behulp van Azure spatiale ankers
 
-Deze zelfstudie leert u hoe u een nieuwe Android-app die ARCore functionaliteit kan worden geïntegreerd met Azure ruimtelijke ankers maakt.
+In deze zelf studie wordt uitgelegd hoe u een nieuwe Android-app maakt die de ARCore-functionaliteit integreert met Azure spatiale ankers.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Het volgende moet zijn geïnstalleerd om deze zelfstudie te voltooien:
 
-- Een Windows- of macOS-machine met <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3 +</a>.
+- Een Windows-of macOS-computer met <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4 +</a>.
 - Een <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">door een ontwikkelaar geactiveerd</a> en <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">voor ARCore geschikt</a> Android-apparaat.
 
 ## <a name="getting-started"></a>Aan de slag
 
-Android Studio starten. In de **Welkom bij Android Studio** venster, klikt u op **Start een nieuw Android Studio-project**. Hebt u een project al is geopend, selecteert u **bestand**->**nieuw Project**.
+Android Studio starten. Klik in het venster **Welkom bij Android Studio** op **een nieuw Android Studio-project starten**. Als u een project al hebt geopend, selecteert u **bestand**->**Nieuw project**.
 
-In de **nieuw Project maken** venster onder de **telefoons en tablets** sectie **lege activiteit**, en klikt u op **volgende**. Klik vervolgens onder **minimaal API-niveau**, kiest u `API 26: Android 8.0 (Oreo)`, en zorg ervoor dat de **taal** is ingesteld op `Java`. Kunt u de projectnaam en locatie en naam van het pakket te wijzigen. Laat de overige opties zoals ze zijn. Klik op **Voltooien**. De **onderdeel installatieprogramma** wordt uitgevoerd. Nadat dit voltooid, klikt u op **voltooien**. Na het verwerken ervan, wordt de Android Studio de IDE geopend.
+Kies in het venster **Nieuw project maken** , onder de sectie **telefoon en Tablet** , **lege activiteit**en klik op **volgende**. Kies vervolgens onder **Mini maal API**-niveau `API 26: Android 8.0 (Oreo)`de optie en zorg ervoor dat de **taal** is ingesteld op `Java`. U kunt de naam van het project & locatie en de naam van het pakket wijzigen. Wijzig de andere opties. Klik op **Voltooien**. Het **installatie programma** van het onderdeel wordt uitgevoerd. Zodra de bewerking is voltooid, klikt u op **volt ooien**. Na sommige verwerking wordt de IDE door Android Studio geopend.
 
-## <a name="trying-it-out"></a>De functies uitgeprobeerd
+## <a name="trying-it-out"></a>Probeer het uit
 
-Als u wilt testen van uw nieuwe app, verbinding maken met uw developer-apparaat naar uw ontwikkelmachine met een USB-kabel. Klik op **uitvoeren**->**uitvoeren 'app'**. In de **implementatiedoel Selecteer** venster, selecteer uw apparaat en klikt u op **OK**. Android Studio de app wordt geïnstalleerd op het aangesloten apparaat en deze wordt gestart. U ziet nu "Hallo wereld!" in de app die wordt uitgevoerd op uw apparaat weergegeven. Klik op **uitvoeren**->**Stop 'app'**.
+Als u uw nieuwe app wilt testen, sluit u uw apparaat met ontwikkel aars aan op uw ontwikkel machine met een USB-kabel. Klik op**Run-app** **uitvoeren**->. Selecteer uw apparaat in het venster **implementatie doel selecteren** en klik op **OK**. Android Studio installeert de app op het aangesloten apparaat en start het. Nu ziet u "Hallo wereld!" wordt weer gegeven in de app die op uw apparaat wordt uitgevoerd. Klik op**toepassing stoppen ' app '** . ->
 
-## <a name="integrating-arcore"></a>Integratie van _ARCore_
+## <a name="integrating-arcore"></a>_ARCore_ integreren
 
-<a href="https://developers.google.com/ar/discover/" target="_blank">_ARCore_ </a> van Google-platform voor het bouwen van Augmented Reality ervaringen, zodat uw apparaat om bij te houden de positie wordt verplaatst en een eigen inzicht in de praktijk is gebaseerd.
+<a href="https://developers.google.com/ar/discover/" target="_blank">_ARCore_</a> is het platform van Google voor het ontwikkelen van uitgebreide realiteit-ervaringen, waardoor uw apparaat de positie kan bijhouden wanneer het wordt verplaatst en de eigen inzichten van de echte wereld worden gebouwd.
 
-Wijzigen `app\manifests\AndroidManifest.xml` om op te nemen van de volgende vermeldingen in de hoofdmap `<manifest>` knooppunt. Dit codefragment wordt een aantal dingen:
+Wijzig `app\manifests\AndroidManifest.xml` de volgende vermeldingen in het hoofd `<manifest>` knooppunt. Dit code fragment doet enkele dingen:
 
-- Hiermee wordt de app toegang tot de camera van uw apparaat.
-- Dit zorgt u ervoor dat uw app is alleen zichtbaar in de Google Play Store op apparaten die ondersteuning bieden voor ARCore.
-- Het configureert de Google Play Store wilt downloaden en installeren van ARCore, als deze al is niet geïnstalleerd wanneer uw app is geïnstalleerd.
+- Hiermee kan uw app toegang krijgen tot de camera van uw apparaat.
+- Er wordt ook gegarandeerd dat uw app alleen zichtbaar is in de Google Play Store op apparaten die ondersteuning bieden voor ARCore.
+- Hiermee configureert u de Google Play Store voor het downloaden en installeren van ARCore, als deze nog niet is geïnstalleerd, wanneer uw app is geïnstalleerd.
 
 ```xml
 <uses-permission android:name="android.permission.CAMERA" />
@@ -57,21 +57,21 @@ Wijzigen `app\manifests\AndroidManifest.xml` om op te nemen van de volgende verm
 </application>
 ```
 
-Wijzigen `Gradle Scripts\build.gradle (Module: app)` om op te nemen van de volgende vermelding. Deze code wordt ervoor te zorgen dat uw app doelen ARCore versie 1.7. Na deze wijziging kunt u mogelijk ontvangt een melding van Gradle of u wilt synchroniseren: klik op **nu synchroniseren**.
+Wijzig `Gradle Scripts\build.gradle (Module: app)` de volgende vermelding in. Met deze code zorgt u ervoor dat uw app is gericht op ARCore versie 1,8. Na deze wijziging wordt er mogelijk een melding weer van Gradle u wordt gevraagd om te synchroniseren: Klik op **Nu synchroniseren**.
 
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.7.0'
+    implementation 'com.google.ar:core:1.8.0'
     ...
 }
 ```
 
-## <a name="integrating-sceneform"></a>Integratie van _Sceneform_
+## <a name="integrating-sceneform"></a>_Sceneform_ integreren
 
-<a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_ </a> is het eenvoudig om realistische 3D-scènes in Augmented Reality-apps, zonder dat u hoeft voor meer informatie over OpenGL weer te geven.
+Met <a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_</a> kunt u eenvoudig realistische 3D-scènes weer geven in uitgebreide reality-apps, zonder dat u hoeft te leren van OpenGL.
 
-Wijzigen `Gradle Scripts\build.gradle (Module: app)` om op te nemen van de volgende vermeldingen. Deze code wordt kan uw app gebruiken taalconstructies met Java 8, die `Sceneform` is vereist. Dit zorgt u ervoor dat uw app is bedoeld voor `Sceneform` versie 1.7, omdat deze moet overeenkomen met de versie van uw App ARCore. Na deze wijziging kunt u mogelijk ontvangt een melding van Gradle of u wilt synchroniseren: klik op **nu synchroniseren**.
+Wijzig `Gradle Scripts\build.gradle (Module: app)` de volgende vermeldingen. Met deze code kan uw app taal constructies van Java 8 gebruiken, die `Sceneform` vereist. Er wordt ook gegarandeerd dat uw app `Sceneform` versie 1,8 heeft, omdat deze moet overeenkomen met de versie van ARCore die door uw app wordt gebruikt. Na deze wijziging wordt er mogelijk een melding weer van Gradle u wordt gevraagd om te synchroniseren: Klik op **Nu synchroniseren**.
 
 ```
 android {
@@ -85,12 +85,12 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.7.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.8.0'
     ...
 }
 ```
 
-Open uw `app\res\layout\activity_main.xml`, en vervang de bestaande Hello World `<TextView>` element met de volgende ArFragment. Deze code zorgt ervoor dat de camerafeed om te worden weergegeven op het scherm voor het inschakelen van ARCore om bij te houden van de positie van uw apparaat wordt ingecheckt, krijgt.
+Open uw `app\res\layout\activity_main.xml`en vervang het bestaande Hello Wolrd `<TextView>` -element door de volgende ArFragment. Deze code zorgt ervoor dat de camera feed wordt weer gegeven op het scherm, waardoor ARCore de positie van uw apparaat kan bijhouden wanneer het wordt verplaatst.
 
 ```xml
 <fragment android:name="com.google.ar.sceneform.ux.ArFragment"
@@ -99,48 +99,48 @@ Open uw `app\res\layout\activity_main.xml`, en vervang de bestaande Hello World 
     android:layout_height="match_parent" />
 ```
 
-[Opnieuw implementeren](#trying-it-out) uw app op uw apparaat zodra er meer valideren. Dit moment moet u gevraagd om de machtigingen van de camera. Na goedkeuring, ziet u dat uw camera feed rendering op uw scherm.
+[Implementeer](#trying-it-out) uw app opnieuw op uw apparaat om het opnieuw te valideren. Deze keer moet u worden gevraagd om camera machtigingen. Na goed keuring wordt de weer gave van de camera feed op het scherm weer gegeven.
 
 ## <a name="place-an-object-in-the-real-world"></a>Plaats een object in de praktijk
 
-We gaan maken en plaatst u een object met behulp van uw app. Voeg eerst toe de volgende invoer in uw `app\java\<PackageName>\MainActivity`:
+Laten we een object maken & deze met uw app te plaatsen. Voeg eerst de volgende invoer toe aan uw `app\java\<PackageName>\MainActivity`:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=23-33)]
 
-Voeg de volgende variabelen in uw `MainActivity` klasse:
+Voeg vervolgens de volgende lidvariabelen toe aan uw `MainActivity` klasse:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=52-57)]
 
-Voeg vervolgens de volgende code in uw `app\java\<PackageName>\MainActivity` `onCreate()` methode. Deze code wordt een listener met de naam koppelt `handleTap()`, die wordt gedetecteerd wanneer de gebruiker tikt op het scherm op uw apparaat. Als de Tik gebeurt op een Praktijkscenario oppervlak dat al is herkend door de ARCore bijhouden, wordt de listener wordt uitgevoerd.
+Voeg vervolgens de volgende code toe aan de `app\java\<PackageName>\MainActivity` `onCreate()` -methode. Met deze code wordt een listener met de naam `handleTap()`, die detecteert dat wordt gedetecteerd wanneer de gebruiker het scherm op het apparaat tikt. Als de kraan zich op een echt wereld vlak bevindt dat al is herkend door het volgen van de ARCore, wordt de listener uitgevoerd.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=68-74,85&highlight=6-7)]
 
-Voeg de volgende `handleTap()` methode, die wordt alles met elkaar verbinden. Het maakt een sphere, en plaats het op de locatie waarop u hebt getikt. De bol wordt in eerste instantie worden zwart, sinds `this.recommendedSessionProgress` is ingesteld op nul nu. Deze waarde wordt later worden aangepast.
+Voeg ten slotte de volgende `handleTap()` methode toe, waarmee alles aan elkaar wordt gekoppeld. Er wordt een bol gemaakt en op de getikte locatie geplaatst. De bol is in eerste instantie zwart, `this.recommendedSessionProgress` omdat deze nu is ingesteld op nul. Deze waarde wordt later aangepast.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-171,174-182,198-199)]
 
-[Opnieuw implementeren](#trying-it-out) uw app op uw apparaat zodra er meer valideren. Deze tijd kunt u verplaatsen om uw apparaat om op te halen ARCore om te beginnen met het herkennen van uw omgeving. Tik vervolgens op het scherm voor het maken en de zwarte sphere plaats op het vlak van uw keuze.
+[Implementeer](#trying-it-out) uw app opnieuw op uw apparaat om het opnieuw te valideren. Deze keer kunt u door uw apparaat overstappen om ARCore te krijgen om uw omgeving te herkennen. Tik vervolgens op het scherm om uw zwarte bol te maken & plaats op het gewenste Opper vlak.
 
-## <a name="attach-a-local-azure-spatial-anchor"></a>Een lokale Azure ruimtelijke anker koppelen
+## <a name="attach-a-local-azure-spatial-anchor"></a>Een lokaal ruimtelijk anker van Azure koppelen
 
-Wijzigen `Gradle Scripts\build.gradle (Module: app)` om op te nemen van de volgende vermelding. Deze code wordt ervoor te zorgen dat uw app doelen Azure ruimtelijke ankers versie 1.0.2. Die al zei, die verwijst naar een recente versie van Azure ruimtelijke ankers zou moeten werken.
+Wijzig `Gradle Scripts\build.gradle (Module: app)` de volgende vermelding in. Met deze code wordt ervoor gezorgd dat uw app de Azure spatiale ankers versie 1.3.0. Hiervoor moet worden verwezen naar een recente versie van Azure spatiale ankers.
 
 ```
 dependencies {
     ...
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[1.0.2]"
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[1.0.2]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[1.3.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[1.3.0]"
     ...
 }
 ```
 
-Met de rechtermuisknop op `app\java\<PackageName>` -> **nieuwe**->**Java-klasse**. Stel **naam** naar _Mijneersteapp_, en **superklasse** naar _android.app.Application_. Laat de overige opties zoals ze zijn. Klik op **OK**. Een bestand met de naam `MyFirstApp.java` wordt gemaakt. Voeg de volgende import toe:
+Klik met de `app\java\<PackageName>`rechter ->muisknop op **nieuwe**->**Java-klasse**. Stel **name** in op _Mijneersteapp_en **Super klasse** to _Android. app. Application_. Wijzig de andere opties. Klik op **OK**. Er wordt een `MyFirstApp.java` bestand gemaakt met de naam. Voeg de volgende import toe:
 
 ```java
 import com.microsoft.CloudServices;
 ```
 
-Voeg de volgende code in de nieuwe `MyFirstApp` klasse, die ruimtelijke ankers Azure zorgt u ervoor wordt geïnitialiseerd met de context van uw toepassing.
+Voeg vervolgens de volgende code toe in de nieuwe `MyFirstApp` klasse, waardoor de Azure spatiale ankers worden geïnitialiseerd met de context van uw toepassing.
 
 ```java
     @Override
@@ -150,7 +150,7 @@ Voeg de volgende code in de nieuwe `MyFirstApp` klasse, die ruimtelijke ankers A
     }
 ```
 
-Nu wijzigen `app\manifests\AndroidManifest.xml` om op te nemen van de volgende vermelding in de hoofdmap `<application>` knooppunt. Deze code wordt de Toepassingsklasse die u hebt gemaakt in uw app koppelen.
+Wijzig `app\manifests\AndroidManifest.xml` nu de volgende vermelding in het hoofd `<application>` knooppunt. Deze code koppelt de toepassings klasse die u in uw app hebt gemaakt.
 
 ```xml
     <application
@@ -159,74 +159,74 @@ Nu wijzigen `app\manifests\AndroidManifest.xml` om op te nemen van de volgende v
     </application>
 ```
 
-Terug in `app\java\<PackageName>\MainActivity`, voeg de volgende invoer in het:
+Voeg in `app\java\<PackageName>\MainActivity`de volgende invoer toe:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=33-40&highlight=2-8)]
 
-Voeg de volgende variabelen in uw `MainActivity` klasse:
+Voeg vervolgens de volgende lidvariabelen toe aan uw `MainActivity` klasse:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=57-60&highlight=3-4)]
 
-Vervolgens gaan we toevoegen de volgende `initializeSession()` methode binnen uw `mainActivity` klasse. Wanneer met de naam, zorgt het ervoor dat de sessie van een Azure ruimtelijke ankers is gemaakt en tijdens het opstarten van uw app de juiste wijze geïnitialiseerd.
+Vervolgens voegen we de volgende `initializeSession()` methode toe binnen uw `mainActivity` klasse. Zodra de app is aangeroepen, zorgt deze ervoor dat er een Azure spatiale-anker sessie wordt gemaakt en op de juiste wijze wordt geïnitialiseerd tijdens het opstarten van uw toepassing.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-97,146)]
 
-Nu gaan we een toepassing aansluiten uw `initializeSession()` methode in uw `onCreate()` methode. We u Zorg er ook voor dat frames van de camera feed met ruimtelijke ankers-SDK van Azure worden verzonden voor verwerking.
+Nu gaan we uw `initializeSession()` methode aan uw `onCreate()` methode koppelen. Het is ook belang rijk dat frames van uw camera feed worden verzonden naar de SDK voor de ruimtelijke micro soft Azure voor verwerking.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=68-85&highlight=9-17)]
 
-Voeg de volgende code in uw `handleTap()` methode. Er wordt een lokale Azure ruimtelijke anker koppelen aan de zwarte sphere die we in de praktijk wilt plaatsen.
+Voeg tot slot de volgende code toe aan `handleTap()` de methode. Er wordt een lokaal ruimtelijk anker van Azure aangesloten op de zwarte bol die we in de praktijk plaatsen.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-182,198-199&highlight=12-13)]
 
-[Opnieuw implementeren](#trying-it-out) uw app zodra er meer. Verplaatsen van uw apparaat, tik op het scherm en een zwarte sphere plaatsen. Dit moment echter wilt uw code maken en een lokale Azure ruimtelijke anker koppelen aan uw sphere.
+[Implementeer](#trying-it-out) uw app nog een keer. Schuif door het apparaat, tik op het scherm en plaats een zwarte bol. Deze keer is uw code echter bezig met het maken en koppelen van een lokaal ruimtelijke Azure-anker aan uw Sphere.
 
-Voordat u verdergaat, moet u een Azure-ruimtelijke ankers te maken account-id en sleutel, als u deze nog niet hebt. Volg de volgende sectie om ze te verkrijgen.
+Voordat u verder gaat, moet u een Azure spatiale-ankers account-id en-sleutel maken, als u deze nog niet hebt. Volg de volgende sectie om ze te verkrijgen.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="upload-your-local-anchor-into-the-cloud"></a>Uw lokale anker uploaden naar de cloud
+## <a name="upload-your-local-anchor-into-the-cloud"></a>Uw lokale anker uploaden naar de Cloud
 
-Zodra u uw ruimtelijke ankers Azure account-id en -sleutel hebt, kunnen we weer `app\java\<PackageName>\MainActivity`, voeg de volgende invoer in het:
+Zodra u uw Azure spatiale-ankers account-id en-sleutel hebt, kunt `app\java\<PackageName>\MainActivity`u de volgende Imports toevoegen:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=40-45&highlight=3-6)]
 
-Voeg de volgende variabelen in uw `MainActivity` klasse:
+Voeg vervolgens de volgende lidvariabelen toe aan uw `MainActivity` klasse:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=60-65&highlight=3-6)]
 
-Voeg nu de volgende code in uw `initializeSession()` methode. Deze code kan eerst uw app om de voortgang te controleren dat de Azure-SDK voor ruimtelijke ankers frames worden verzameld van uw camera feed maakt. Als dit wel gebeurt, wordt de kleur van uw sphere gestart wijzigen van de oorspronkelijke zwart in grijs. Het wordt Schakel wit zodra voldoende frames worden verzameld voor het verzenden van het anker naar de cloud. Deze code wordt ten tweede leveren dat de referenties die nodig zijn om te communiceren met de cloud back-end. Dit is waar u uw app naar uw account-id en-sleutel gaat configureren. U ze hebt gekopieerd in een teksteditor als [instellen van de bron van ruimtelijke ankers](#create-a-spatial-anchors-resource).
+Voeg nu de volgende code toe aan de `initializeSession()` methode. Met deze code kunt u de voortgang bewaken die de Azure spatiale ankers SDK maakt, omdat deze frames van uw camera feed verzamelt. Net als bij de kleur van uw bol wordt de kleuren van de oorspronkelijke zwart gewijzigd in grijs. Vervolgens wordt de kleur wit zodra er voldoende frames zijn verzameld om uw anker naar de cloud te verzenden. Ten tweede geeft deze code de referenties op die nodig zijn om te communiceren met de back-end van de Cloud. Hier kunt u uw app configureren voor het gebruik van uw account-id en-sleutel. U hebt deze in een tekst editor gekopieerd bij [het instellen van de bron voor ruimtelijke ankers](#create-a-spatial-anchors-resource).
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-120,142-146&highlight=11-36)]
 
-Voeg vervolgens de volgende `uploadCloudAnchorAsync()` methode binnen uw `mainActivity` klasse. Wanneer met de naam, wordt deze methode wordt asynchroon wacht totdat voldoende frames worden verzameld van uw apparaat. Als dit gebeurt, zal het de kleur van uw sphere overschakelen naar geel en vervolgens deze start uw lokale Azure ruimtelijke anker uploaden naar de cloud. Nadat het uploaden is voltooid, wordt de code een anker-id geretourneerd.
+Voeg vervolgens de volgende `uploadCloudAnchorAsync()` methode toe binnen uw `mainActivity` klasse. Wanneer deze methode wordt aangeroepen, wordt asynchroon gewacht tot er voldoende frames van het apparaat zijn verzameld. Zodra dat gebeurt, wordt de kleur van uw bol overgeschakeld naar geel en wordt vervolgens uw lokale Azure-ruimtelijk anker naar de Cloud geüpload. Zodra het uploaden is voltooid, wordt met de code een anker-id geretourneerd.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?name=uploadCloudAnchorAsync)]
 
-Ten slotte gaan we een toepassing aansluiten alles bij elkaar. In uw `handleTap()` methode, voeg de volgende code toe. Deze roept uw `uploadCloudAnchorAsync()` methode zodra uw sphere is gemaakt. Zodra de methode retourneert, worden de volgende code wordt uitgevoerd een laatste update van uw bol, wijzigt de kleur blauw.
+Ten slotte gaan we alles aansluiten. Voeg de `handleTap()` volgende code toe in de-methode. De `uploadCloudAnchorAsync()` methode wordt aangeroepen zodra uw Sphere is gemaakt. Zodra de methode is geretourneerd, voert de volgende code een laatste update uit op uw Sphere, waardoor de kleur wordt gewijzigd in blauw.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-199&highlight=24-37)]
 
-[Opnieuw implementeren](#trying-it-out) uw app zodra er meer. Verplaatsen van uw apparaat, tik op het scherm en uw sphere plaatsen. Dit moment echter verandert uw sphere de kleur van zwart naar wit, zoals camera frames worden verzameld. Zodra er voldoende frames, de sphere worden omgezet in geel en het uploaden van de cloud wordt gestart. Nadat het uploaden is voltooid, wordt uw sphere vervolgens blauw weergegeven. (Optioneel) u kunt ook gebruiken de `Logcat` venster in Android Studio voor het bewaken van de logboekberichten uw app verzendt. Bijvoorbeeld, de Sessievoortgang van de tijdens frame worden vastgelegd en de anker-id die de cloud geretourneerd nadat het uploaden is voltooid.
+[Implementeer](#trying-it-out) uw app nog een keer. Schuif door het apparaat, tik op het scherm en plaats uw bol. De kleur van uw bol verandert echter van zwart naar wit, wanneer er camera frames worden verzameld. Zodra er voldoende frames zijn, verandert de bol in geel en wordt het uploaden van de Cloud gestart. Zodra het uploaden is voltooid, wordt uw bol blauw. U kunt eventueel ook het `Logcat` venster in Android Studio gebruiken om de logboek berichten te bewaken die uw app verzendt. Bijvoorbeeld: de sessie voortgang tijdens frame opnamen en de anker-id die de Cloud retourneert wanneer het uploaden is voltooid.
 
-## <a name="locate-your-cloud-spatial-anchor"></a>Zoek uw cloud ruimtelijke anker
+## <a name="locate-your-cloud-spatial-anchor"></a>Het ruimtelijke fixeer punt in de Cloud zoeken
 
-Een uw anker is geüpload naar de cloud, kunt u proberen deze opnieuw te zoeken. Eerst gaan we de volgende invoer in uw code toevoegen.
+Er wordt een anker naar de Cloud geüpload, zodat u het opnieuw kunt proberen. Eerst voegen we de volgende invoer toe aan uw code.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=45-48&highlight=3-4)]
 
-Vervolgens voegen we de volgende code in uw `handleTap()` methode. Deze code wordt:
+Vervolgens voegen we de volgende code toe aan de `handleTap()` -methode. Deze code gaat als volgt:
 
-- Onze bestaande blauw sphere verwijderen uit het scherm.
-- Onze Azure ruimtelijke ankers-sessie opnieuw starten. Zo zorgt u ervoor dat het anker gaan we zoeken afkomstig is van de cloud in plaats van het lokale anker die we hebben gemaakt.
-- Een query voor het anker dat wordt geüpload naar de cloud geven.
+- Verwijder onze bestaande blauwe bol van het scherm.
+- Initialiseer onze Azure Spatial-anker sessie opnieuw. Met deze actie zorgt u ervoor dat het anker dat we gaan vinden, afkomstig is uit de cloud in plaats van het lokale anker dat we hebben gemaakt.
+- Geef een query op voor het anker dat is geüpload naar de Cloud.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?name=handleTap&highlight=10-19)]
 
-Nu gaan we de code die wordt aangeroepen wanneer het anker we query's voor bevindt van een toepassing aansluiten. Binnen uw `initializeSession()` methode, voeg de volgende code toe. Dit fragment wordt maken en een groene sphere plaatsen zodra het anker van cloud-ruimtelijke zich bevindt. Deze ook inschakelen met scherm te tikken op opnieuw, zodat u kunt het volledige scenario zodra er meer herhalen: maken van een andere lokale anker, uploaden en zoek het opnieuw.
+Nu gaan we de code die wordt aangeroepen wanneer er een query voor het anker is gevonden. Voeg de `initializeSession()` volgende code toe in de-methode. Met dit fragment wordt een groene bol gemaakt & geplaatst zodra het ruimtelijke bevinden van de Cloud zich bevindt. U kunt ook het hele scenario nog een keer herhalen: Maak een ander lokaal anker, upload het en zoek het opnieuw.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?name=initializeSession&highlight=34-53)]
 
-Dat is alles. [Opnieuw implementeren](#trying-it-out) uw app een laatste keer dat voor het uitproberen van het hele end-to-end-scenario. Verplaatsen van uw apparaat en de zwarte sphere plaats. Vervolgens, blijven uw apparaat om vast te leggen van de camera frames totdat de sphere geel wordt te verplaatsen. Uw lokale anker wordt geüpload en uw sphere wordt blauw inschakelen. Ten slotte, tikt u op uw scherm zodra er meer, zodat uw lokale anker wordt verwijderd en we vervolgens voor het bijbehorende equivalent van de cloud zoeken. Doorgaan met uw apparaat verplaatsen totdat uw ruimtelijke anker cloud bevindt. Een groene sphere moet worden weergegeven in de juiste locatie, en u kunt spoel en herhaal het hele scenario opnieuw.
+Dat is alles. [Implementeer](#trying-it-out) uw app een laatste keer opnieuw om het hele scenario end-to-end uit te proberen. Ga op het apparaat door en plaats uw zwarte bol. Blijf vervolgens uw apparaat verplaatsen naar camera frames vastleggen totdat de bol geel draait. Uw lokale anker wordt geüpload en uw Sphere wordt blauw. Tik ten slotte nogmaals op uw scherm, zodat uw lokale anker wordt verwijderd en zoek vervolgens naar de Cloud equivalent. Blijf door gaan met het verplaatsen van uw apparaat totdat het ruimtelijke bewaarde in de Cloud zich bevindt. Een groene bol moet op de juiste locatie worden weer gegeven en u kunt afspoelen & het hele scenario opnieuw te herhalen.
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-new-android-app-finished.md)]

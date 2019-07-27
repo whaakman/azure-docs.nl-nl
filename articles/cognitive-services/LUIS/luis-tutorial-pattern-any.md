@@ -1,5 +1,5 @@
 ---
-title: Pattern.any-entiteit
+title: Patroon. een wille keurige entiteit-LUIS
 titleSuffix: Azure Cognitive Services
 description: Gebruik de entiteit pattern.any om gegevens te extraheren uit utterances die goed zijn opgemaakt en waar het einde van de gegevens eenvoudig kan worden verward met de resterende woorden van de utterance.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 6007f88af4d1049a87851b3808c66693173a648a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 165163d0a889e0bd5f1faef8d7f6a17d28c2b4f7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069252"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563271"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Zelfstudie: Vrije vorm-gegevens ophalen met Pattern.any-entiteit
 
@@ -68,7 +68,7 @@ De lengte varieert en er zijn woorden die verwarrend kunnen zijn voor LUIS om te
 
 1. Download het [JSON-bestand van de app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json) en sla het op.
 
-1. In de [LUIS portal](https://www.luis.ai)op de **mijn apps** pagina, de JSON in een nieuwe app te importeren.
+1. Importeer in de [Luis-Portal](https://www.luis.ai)op de pagina **mijn apps** de json in een nieuwe app.
 
 1. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `patt-any`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL.
 
@@ -96,7 +96,7 @@ De entiteit Pattern.any extraheert entiteiten met verschillende lengten. Dit wer
 
 1. Selecteer **Nieuwe entiteit maken**, voer de naam `FormName` in en selecteer **Pattern.any** als type. Selecteer **Done**. 
 
-    U kunt de entiteit in de voorbeeld-uitingen van een doel kan niet label, omdat een Pattern.any alleen geldig in een patroon is. 
+    U kunt de entiteit niet in een voor beeld van een uitingen labelen, omdat het een patroon is. any is alleen geldig in een patroon. 
 
     Als u wilt dat de opgehaalde gegevens ook andere entiteiten bevatten, zoals number of datetimeV2, moet u een samengestelde entiteit maken met daarin zowel de Pattern.any als number en datetimeV2.
 
@@ -134,7 +134,7 @@ De entiteit Pattern.any extraheert entiteiten met verschillende lengten. Dit wer
 
 1. Sluit het testdeelvenster met de knop **Testen** in de bovenste navigatiebalk.
 
-## <a name="using-an-explicit-list"></a>Met behulp van een expliciete lijst
+## <a name="using-an-explicit-list"></a>Een expliciete lijst gebruiken
 
 Als u merkt dat het patroon, wanneer dit een Pattern.any bevat, entiteiten onjuist extraheert, gebruikt u een [expliciete lijst](luis-concept-patterns.md#explicit-lists) om dit probleem te verhelpen.
 

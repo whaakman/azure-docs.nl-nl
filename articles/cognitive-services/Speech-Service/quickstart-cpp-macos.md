@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Water, C++ (Mac OS) - spraakservices'
+title: 'Quickstart: Speech herkennen, C++ (macOS)-Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Meer informatie over het herkennen van gesproken tekst in C++ in macOS met behulp van de spraak-SDK
+description: Meer informatie over het herkennen van C++ spraak in macOS met behulp van de Speech SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: de170955ced45040541565800fc9853edea322f5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: d7d35c251848af5cfd5852080d01831085401227
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603068"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554124"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Quickstart: Herkennen van gesproken tekst in C++ in macOS met behulp van de spraak-SDK
+# <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Quickstart: Spraak herkennen in C++ macOS met behulp van de Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel maakt u een C++-consoletoepassing voor macOS 10.13 en hoger. U gebruikt de Cognitive Services [spraak SDK](speech-sdk.md) spraak naar tekst in realtime uit van uw Mac microfoon transcriberen. De toepassing is gemaakt met de [spraak-SDK voor Mac OS](https://aka.ms/csspeech/macosbinary) en van uw Mac standaard C++-compiler (bijvoorbeeld `g++`).
+In dit artikel maakt u een C++ console toepassing voor macOS 10,13 en hoger. U gebruikt de Cognitive Services [Speech SDK](speech-sdk.md) om spraak naar tekst in realtime te transcriberen van de microfoon van uw Mac. De toepassing is gebouwd met de [Speech SDK voor macOS](https://aka.ms/csspeech/macosbinary) en de standaard C++ compiler van uw Mac (bijvoorbeeld `g++`).
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet een abonnementssleutel Speech Services voor het voltooien van deze Quickstart. U kunt er gratis een krijgen. Zie [de Speech Services gratis uitproberen](get-started.md) voor meer informatie.
+U hebt een abonnement op spraak services nodig om deze Quick Start te volt ooien. U kunt er gratis een krijgen. Zie [de spraak services gratis uitproberen](get-started.md) voor meer informatie.
 
 ## <a name="install-speech-sdk"></a>Speech SDK installeren
 
@@ -33,7 +33,7 @@ U moet een abonnementssleutel Speech Services voor het voltooien van deze Quicks
 
 De huidige versie van de Speech SDK van Cognitive Services is `1.6.0`.
 
-De spraak-SDK voor Mac OS kan worden gedownload als een bundel gezipte framework van https://aka.ms/csspeech/macosbinary.
+De Speech SDK voor macOS kan worden gedownload als een gezipte Framework-bundel https://aka.ms/csspeech/macosbinary van.
 
 Download en installeer de SDK als volgt:
 
@@ -49,7 +49,7 @@ Download en installeer de SDK als volgt:
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
-1. Downloaden en uitpakken van de `.zip` archief met de spraak-SDK-framework:
+1. Down load en pak `.zip` het archief uit dat het Speech SDK-Framework bevat:
 
    ```sh
    wget -O SpeechSDK-macOS.zip https://aka.ms/csspeech/macosbinary
@@ -62,7 +62,7 @@ Download en installeer de SDK als volgt:
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   De mapweergave mag de kennisgeving van derden en licentiebestanden, evenals een `MicrosoftCognitiveServicesSpeech.framework` directory.
+   De mapweergave moet de kennisgevings-en licentie bestanden van derden, evenals een `MicrosoftCognitiveServicesSpeech.framework` Directory bevatten.
 
 ## <a name="add-sample-code"></a>Voorbeeldcode toevoegen
 
@@ -70,7 +70,7 @@ Download en installeer de SDK als volgt:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-macos/helloworld.cpp#code)]
 
-1. Vervang de tekenreeks in dit nieuwe bestand `YourSubscriptionKey` met uw abonnementssleutel Speech Services.
+1. Vervang in dit nieuwe bestand de teken reeks `YourSubscriptionKey` door de sleutel van uw speech Services-abonnement.
 
 1. Vervang de tekenreeks `YourServiceRegion` door de [regio](regions.md) die aan uw abonnement is gekoppeld (bijvoorbeeld `westus` voor het gratis proefabonnement).
 
@@ -79,7 +79,7 @@ Download en installeer de SDK als volgt:
 > [!NOTE]
 > Zorg ervoor dat u de onderstaande opdrachten als _één opdrachtregel_ invoert. De eenvoudigste manier om dat te doen is om de opdracht te kopiëren met behulp van de knop **Kopiëren** naast elke opdracht en deze vervolgens bij de shell-prompt te plakken.
 
-* Voer de volgende opdracht om de toepassing te bouwen.
+* Voer de volgende opdracht uit om de toepassing te bouwen.
 
   ```sh
   g++ helloworld.cpp -o helloworld --std=c++14 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
@@ -99,7 +99,7 @@ Download en installeer de SDK als volgt:
    ./helloworld
    ```
 
-1. In het consolevenster wordt een prompt weergegeven waarin u wordt gevraagd om iets te zeggen. Spreek een Engelse woordgroep of zin in. Uw stem is verzonden naar de Services voor spraak en getranscribeerde tekst, die in hetzelfde venster wordt weergegeven.
+1. In het consolevenster wordt een prompt weergegeven waarin u wordt gevraagd om iets te zeggen. Spreek een Engelse woordgroep of zin in. Uw spraak wordt verzonden naar de spraak Services en getranscribeerd naar tekst, die in hetzelfde venster wordt weer gegeven.
 
    ```text
    Say something...

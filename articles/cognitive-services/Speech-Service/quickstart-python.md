@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Spraak herkennen, Python - Speech Services'
+title: 'Quickstart: Spraak herkennen, python-Speech-Service'
 titleSuffix: Azure Cognitive Services
 description: Gebruik deze handleiding om een consoletoepassing voor spraak-naar-tekst te maken met de Speech-SDK voor Python. Als u klaar bent, kunt u de microfoon van de computer gebruiken om in realtime spraak naar tekst te transcriberen.
 services: cognitive-services
@@ -10,28 +10,28 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: d6b7cc275fc50fefbe0057620d315d1484c47745
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6cbe583ca59cb98ba233e58dc665c7e18c2a1f7f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603020"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559287"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Quickstart: Spraak herkennen met de Speech-SDK voor Python
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Dit artikel leest hoe u met de Speech Services via de spraak-SDK voor Python. U krijgt informatie over hoe u spraak kunt herkennen uit de invoer van een microfoon.
+In dit artikel wordt beschreven hoe u de spraak Services gebruikt via de Speech SDK voor python. U krijgt informatie over hoe u spraak kunt herkennen uit de invoer van een microfoon.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De sleutel van een Azure-abonnement voor de spraakservices. [Gratis downloaden](get-started.md).
+* Een Azure-abonnements sleutel voor de spraak Services. [Gratis downloaden](get-started.md).
 * [Python 3.5](https://www.python.org/downloads/) of hoger.
 * Het Python Speech-SDK-pakket is beschikbaar voor deze besturingssystemen:
     * Windows: x64 en x86.
     * Mac: Mac OS X-versie 10.12 of hoger.
-    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9 op x64.
-* Voer deze opdrachten om de vereiste pakketten te installeren op Linux:
+    * Linux: Ubuntu 16,04, Ubuntu 18,04, Debian 9 op x64.
+* Voer op Linux de volgende opdrachten uit om de vereiste pakketten te installeren:
 
   * Op Ubuntu:
 
@@ -47,7 +47,7 @@ Dit artikel leest hoe u met de Speech Services via de spraak-SDK voor Python. U 
     sudo apt-get install build-essential libssl1.0.2 libasound2
     ```
 
-* Op Windows, moet u de [Microsoft Visual C++ Redistributable voor Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) voor uw platform.
+* In Windows hebt u [micro soft Visual C++ Redistributable voor Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) voor uw platform nodig.
 
 ## <a name="install-the-speech-sdk"></a>De Speech-SDK installeren
 
@@ -101,7 +101,7 @@ Of u kunt deze quickstart-zelfstudie downloaden als een [Jupyter](https://jupyte
    ![Een bestand maken](media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Kopieer en plak de [Python-code](#sample-code) en sla deze op in het zojuist gemaakte bestand.
-1. Plaats uw abonnementsgegevens Speech Services.
+1. Voeg uw abonnements gegevens voor spraak Services in.
 1. Als er een Python-interpreter is geselecteerd, wordt deze onder aan het venster weergegeven, links van de statusbalk.
    Anders wordt er een lijst met beschikbare Python-interpreters geopend. Open het opdrachtenpalet (Ctrl+Shift+P) en voer **Python: Interpreter selecteren** in. Kies de juiste versie.
 1. U kunt het Python Speech-SDK-pakket installeren vanuit Visual Studio Code. Doe dat als het pakket nog niet is geïnstalleerd voor de Python-interpreter die u hebt geselecteerd.

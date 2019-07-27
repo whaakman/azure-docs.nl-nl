@@ -1,7 +1,7 @@
 ---
-title: Informatie over beoordeling hulpprogramma concepten - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Meer informatie over het hulpprogramma Content Moderator bekijken, een website die een gecombineerde AI en menselijke beoordeling toezicht moeite coördineert.
+title: Meer informatie over het evalueren van hulp middelen-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over het hulp programma Content Moderator beoordeling, een website die een combi natie van een gecombineerde AI-en Human Review-inspanning coördineert.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -10,43 +10,43 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: sajagtap
-ms.openlocfilehash: b7ec997fd3e9bfe294050893d80fd57a96a47aae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f20b9c824045ac2f8c13df3ed8f776195de611a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61269981"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564510"
 ---
-# <a name="content-moderator-review-tool"></a>Content Moderator-controlehulpprogramma
+# <a name="content-moderator-review-tool"></a>Hulp programma Content Moderator beoordeling
 
-Azure Content Moderator biedt services voor het combineren van machine learning-inhoudstoezicht met onlinebeoordelingen door mensen, en de [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com) website is een gebruiksvriendelijke front-end met uitgebreide toegang tot deze services.
+Azure Content Moderator biedt services voor het combi neren van machine learning inhouds toezicht met mensen beoordelingen en de website van het [controle programma](https://contentmoderator.cognitive.microsoft.com) is een gebruiks vriendelijke front-end die gedetailleerde toegang biedt tot deze services.
 
-![Het dashboard van het hulpprogramma controleren in een browser](./images/0-dashboard.png)
+![Het dash board van het controle programma in een browser](./images/0-dashboard.png)
 
 ## <a name="what-it-does"></a>Wat het doet
 
-De [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com), wanneer gebruikt in combinatie met het geautomatiseerd beheer-API's, kunt u de volgende taken in het proces inhoudstoezicht:
+Als u het [hulp programma voor controle](https://contentmoderator.cognitive.microsoft.com)gebruikt in combi natie met de door de machine ondersteunde toezicht-api's, kunt u de volgende taken uitvoeren in het proces voor content toezicht:
 
-- Gebruik één set hulpprogramma's voor het beheren van inhoud in verschillende indelingen (tekst, afbeeldingen en video).
-- Het maken van menselijke automatiseren [beoordeelt](../review-api.md#reviews) wanneer afbeeldingstoezicht-API komen resulteert in.
-- Toewijzen of escaleren inhoud beoordelingen aan meerdere revisie teams, onderverdeeld naar categorie of ervaring niveau van inhoud.
-- Gebruik standaard of aangepaste logica filters ([werkstromen](../review-api.md#workflows)) voor het sorteren en bijhouden van inhoud, zonder eventuele code te schrijven.
-- Gebruik [connectors](./configure.md#connectors) voor het verwerken van inhoud met Microsoft PhotoDNA, Tekstanalyse en Face-API's, naast de inhoud Moderator-API's.
-- Bouw uw eigen connector voor het maken van werkstromen API's of zakelijke processen.
-- Prestatie metrische gegevens op uw processen inhoudstoezicht ophalen.
+- Gebruik één set hulpprogram ma's om inhoud in meerdere indelingen (tekst, afbeelding en video) te gebruiken.
+- Automatiseer het maken van mensen [beoordelingen](../review-api.md#reviews) wanneer de resultaten van toezicht-api's binnenkomen.
+- Inhouds beoordelingen toewijzen of escaleren naar meerdere beoordelings teams, geordend op inhouds categorie of ervarings niveau.
+- Gebruik standaard-of aangepaste logische filters ([werk stromen](../review-api.md#workflows)) om inhoud te sorteren en te traceren zonder dat u code hoeft te schrijven.
+- Gebruik [connectors](./configure.md#connectors) voor het verwerken van inhoud met behulp van micro soft PhotoDNA, Text Analytics en face-api's naast de content moderator-api's.
+- Bouw uw eigen connector om werk stromen te maken voor elke API of bedrijfs proces.
+- Prestatie gegevens van de belangrijkste prestaties van uw inhouds restrictie processen ophalen.
 
-## <a name="review-tool-dashboard"></a>Beoordeling hulpprogramma dashboard
+## <a name="review-tool-dashboard"></a>Dash board hulp programma evalueren
 
-Op de **Dashboard** tabblad ziet u belangrijke metrische gegevens voor inhoud door in het hulpprogramma wordt uitgevoerd. Raadpleeg het nummer van totaal, voltooid, en in afwachting van beoordelingen van afbeeldingen, tekst en video-inhoud. U ziet ook de uitsplitsing van gebruikers en teams die hebt voltooid, beoordelingen, evenals de beheer-labels die zijn toegepast.
+Op het tabblad **dash board** ziet u belang rijke metrische gegevens voor inhouds beoordelingen die in het hulp programma worden uitgevoerd. Bekijk het totale aantal, de volledige en de in behandeling zijnde Beoordelingen voor afbeeldings-, tekst-en video-inhoud. U kunt ook de uitsplitsing van gebruikers en teams met voltooide beoordelingen bekijken, evenals de moderator Tags die zijn toegepast.
 
-![Bekijk het dashboard](images/0-dashboard.png)
+![Dashboard weergeven](images/0-dashboard.png)
 
-## <a name="review-tool-credentials"></a>Hulpprogramma referenties controleren
+## <a name="review-tool-credentials"></a>Referenties van het controle programma
 
-Wanneer u zich aanmeldt met de [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com), u wordt gevraagd om te selecteren van een Azure-regio voor u. Dit komt doordat de [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com) genereert een gratis proefversie sleutel voor Azure Content Moderator-services, moet u deze sleutel voor toegang tot alle van de services van een REST-aanroep of client-SDK. U kunt uw sleutel en de API-eindpunt-URL weergeven door het selecteren van **instellingen** > **referenties**.
+Wanneer u zich aanmeldt met het [hulp programma voor controle](https://contentmoderator.cognitive.microsoft.com), wordt u gevraagd een Azure-regio voor uw account te selecteren. Dit komt doordat het [beoordelings programma](https://contentmoderator.cognitive.microsoft.com) een gratis proef versie genereert voor Azure content moderator Services. u hebt deze sleutel nodig om toegang te krijgen tot een van de services van een REST-aanroep of client-SDK. U kunt de URL van uw sleutel en API-eind punt weer geven door **instellingen** > **referenties**te selecteren.
 
-![Content Moderator-referenties](images/settings-6-credentials.png)
+![Content Moderator referenties](images/settings-6-credentials.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [configureren van het beoordelingsprogramma](./configure.md) voor meer informatie over hoe u toegang tot revisie hulpprogramma bronnen en instellingen te wijzigen.
+Zie [het hulp programma beoordeling configureren](./configure.md) voor meer informatie over toegang tot resources van het hulp programma bekijken en instellingen wijzigen.

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Spraak herkennen, Node.js - Spraakservices'
+title: 'Quickstart: Speech herkennen, node. js-Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Gebruik deze handleiding om een consoletoepassing voor spraak-naar-tekst te maken met de Speech-SDK voor Node.js. Als u klaar bent, kunt u de microfoon van de computer gebruiken om in realtime spraak naar tekst te transcriberen.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 9d233de8a9cdd4b9a3637edcd1c6196b4ad16fd2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1a3d1bc62e995aff43d9538f49b436a7de16f1e9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605118"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554070"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Quickstart: Spraak herkennen met de Speech-SDK voor Node.js
 

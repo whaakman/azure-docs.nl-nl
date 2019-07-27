@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Converteren van tekst naar spraak, .NET Core - spraakservices'
+title: 'Quickstart: Tekst-naar-spraak-, .NET core-Speech-Service converteren'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids leert u hoe u kunt converteren van tekst naar spraak met de REST-API van tekst naar spraak. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als spraak synthese Markup Language (SSML). Hiermee kunt u de spraak en taal van het antwoord spraak te kiezen.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1dd54adeffab80d4334d8f08733cfd6603f673d3
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a4c514cab274c395fbe3cbf0b2ff1cd9eb3d5134
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606318"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554030"
 ---
-# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Quickstart: Converteert tekst naar spraak met behulp van .NET Core
+# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Quickstart: Tekst-naar-spraak converteren met behulp van .NET core
 
 In deze snelstartgids leert u hoe u om te converteren tekst naar spraak met behulp van .NET Core en de tekst naar spraak REST-API. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md), waarmee u de spraak en taal van het antwoord te kiezen.
 
-Deze snelstartgids moet een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een resource Speech Services. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
+Voor deze Snelstartgids is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) vereist met een speech Services-resource. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -70,9 +70,9 @@ using System.Threading.Tasks;
 
 ## <a name="create-a-class-for-token-exchange"></a>Maak een klasse voor token uitwisseling
 
-De Text to Speech REST-API is een toegangstoken voor verificatie vereist. Als u een toegangstoken, is een exchange vereist. In dit voorbeeld uitwisselt uw abonnementssleutel Speech Services voor een access token met de `issueToken` eindpunt.
+De Text to Speech REST-API is een toegangstoken voor verificatie vereist. Als u een toegangstoken, is een exchange vereist. In dit voor beeld wordt uw abonnements sleutel voor spraak Services voor een toegangs `issueToken` token met behulp van het eind punt uitgewisseld.
 
-In dit voorbeeld wordt ervan uitgegaan dat uw abonnement spraakservices in de regio VS-West. Als u een andere regio, werk de waarde voor `FetchTokenUri`. Zie voor een volledige lijst [regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+In dit voor beeld wordt ervan uitgegaan dat uw speech Services-abonnement zich in de regio vs-West bevindt. Als u een andere regio, werk de waarde voor `FetchTokenUri`. Zie voor een volledige lijst [regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 ```csharp
 public class Authentication
@@ -109,7 +109,7 @@ public class Authentication
 ```
 
 > [!NOTE]
-> Zie voor meer informatie over verificatie [verifiëren met een toegangstoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
+> Zie [verifiëren met een toegangs token](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token)voor meer informatie over verificatie.
 
 ## <a name="get-an-access-token-and-set-the-host-url"></a>Een toegangstoken ophalen en instellen van de host-URL
 
@@ -232,7 +232,7 @@ Als u uw abonnementssleutel hebt vastgelegd in het programma, verwijdert u deze 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [.NET-voorbeelden op GitHub bekijken](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NETCore)
+> [.NET-voor beelden verkennen op GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NETCore)
 
 ## <a name="see-also"></a>Zie ook
 

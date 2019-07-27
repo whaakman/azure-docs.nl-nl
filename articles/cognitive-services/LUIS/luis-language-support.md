@@ -1,5 +1,5 @@
 ---
-title: Taalondersteuning
+title: Taal ondersteuning-LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS heeft tal van functies in de service. Niet alle functies zijn op de dezelfde taalpariteit. Zorg ervoor dat u geïnteresseerd bent in functies worden ondersteund in de taal-cultuur die u ontwikkelt. Een LUIS-app is specifiek voor cultuur en kan niet worden gewijzigd nadat deze is ingesteld.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26127f9f6ed718e33a77b986f2edb0d2dc81b2c1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072379"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563563"
 ---
 # <a name="language-and-region-support-for-luis"></a>Ondersteuning voor LUIS taal en regio
 
@@ -30,7 +30,7 @@ Als u een clienttoepassing voor meerdere talen LUIS, zoals een chatbot nodig heb
 
 LUIS begrijpt uitingen in de volgende talen:
 
-| Taal |Landinstelling  |  Vooraf gedefinieerde domein | Vooraf gemaakte entiteiten | Woordgroep lijst met aanbevelingen | **[Tekstanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment en<br>Trefwoorden)|
+| Taal |Landinstelling  |  Vooraf gedefinieerde domein | Vooraf gemaakte entiteiten | Aanbevelingen voor woordgroepen lijst | **[Tekstanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment en<br>Trefwoorden)|
 |--|--|:--:|:--:|:--:|:--:|
 | Amerikaans-Engels |`en-US` | ✔ | ✔  |✔|✔|
 | *[Chinees](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -53,7 +53,7 @@ Taalondersteuning varieert voor [vooraf gemaakte entiteiten](luis-reference-preb
 
  - In de `zh-cn` cultuur, LUIS wordt verwacht dat de vereenvoudigd Chinees tekenset in plaats van de traditionele tekenset.
  - De namen van de intenties, entiteiten, functies en reguliere expressies mogelijk Chinese of Romeins tekens.
- - Zie de [vooraf gemaakte domeinen verwijzing](luis-reference-prebuilt-domains.md) voor meer informatie waarop vooraf gemaakte domeinen worden ondersteund in de `zh-cn` cultuur.
+ - Zie de [Naslag Gids met vooraf gedefinieerde domeinen](luis-reference-prebuilt-domains.md) voor informatie over welke vooraf ontwikkelde domeinen worden ondersteund `zh-cn` in de cultuur.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>\* Opmerkingen bij de Japanse ondersteuning
@@ -97,12 +97,12 @@ Als u machine learning, LUIS een utterance opgesplitst in [tokens](luis-glossary
 
 ### <a name="custom-tokenizer-versions"></a>Aangepaste tokenizer-versies
 
-De volgende culturen zijn aangepaste tokenizer-versies:
+De volgende cult uren hebben aangepaste tokenizer-versies:
 
 |Culture|Version|Doel|
 |--|--|--|
-|Duits<br>`de-de`|1.0.0|Basis van woorden woordgrenzen door op te splitsen met behulp van een machine learning gebaseerde tokenizer waarmee wordt geprobeerd om op te splitsen samengestelde woorden in hun afzonderlijke onderdelen.<br>Als een gebruiker invoert `Ich fahre einen krankenwagen` als een utterance is ingeschakeld op `Ich fahre einen kranken wagen`. De markering van zodat `kranken` en `wagen` onafhankelijk als andere entiteiten.|
-|Duits<br>`de-de`|1.0.2|Basis van woorden woordgrenzen door ze op opslagruimten worden gesplitst.<br> Als een gebruiker invoert `Ich fahre einen krankenwagen` als een utterance blijft een specifiek token. Dus `krankenwagen` is gemarkeerd als één entiteit. |
+|Duits<br>`de-de`|1.0.0|Tokenizes woorden door ze te splitsen met behulp van een tokenizer op basis van machine learning dat probeert samengestelde woorden op te splitsen in hun afzonderlijke onderdelen.<br>Als een gebruiker als `Ich fahre einen krankenwagen` een utterance wordt ingevoerd, wordt deze `Ich fahre einen kranken wagen`ingeschakeld. Het markeren van en `kranken` `wagen` onafhankelijk van verschillende entiteiten toestaan.|
+|Duits<br>`de-de`|1.0.2|Tokenizes woorden door ze te splitsen op spaties.<br> Als een gebruiker als `Ich fahre einen krankenwagen` een utterance wordt ingevoerd, blijft het één token. Is `krankenwagen` daarom gemarkeerd als één entiteit. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migreren tussen tokenizer-versies
 <!--
@@ -207,6 +207,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-Tokeniseren gebeurt op het niveau van de app. Er is geen ondersteuning voor versie-niveau tokeniseren. 
+Tokeniseren gebeurt op het niveau van de app. Er wordt geen ondersteuning geboden voor tokenisatie op versie niveau. 
 
-[Importeer het bestand als een nieuwe app](luis-how-to-start-new-app.md#import-an-app-from-file), in plaats van een versie. Deze actie betekent dat de nieuwe app heeft een andere app-ID, maar het tokenizer-versie opgegeven in het bestand wordt gebruikt. 
+[Importeer het bestand als een nieuwe app](luis-how-to-start-new-app.md#import-an-app-from-file), in plaats van een versie. Deze actie betekent dat de nieuwe app een andere app-ID heeft, maar gebruikmaakt van de Tokenizer-versie die is opgegeven in het bestand. 

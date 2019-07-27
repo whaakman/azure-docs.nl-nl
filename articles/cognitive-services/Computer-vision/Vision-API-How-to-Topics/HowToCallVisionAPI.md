@@ -1,6 +1,6 @@
 ---
 title: 'Voorbeeld: de Analyze image-API aanroepen - Computer Vision'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Lees hoe u de Computer Vision-API aanroept met behulp van REST in Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 35e6ad922ab54748165fcf8e273d93ee44bc42cc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202867"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564531"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Voorbeeld: de Computer Vision-API aanroepen
 
@@ -47,7 +47,7 @@ Functies worden onderverdeeld op:
 
 Voor elke aanroep naar de Computer Vision-API is een abonnementssleutel vereist. Deze sleutel moet worden doorgegeven via een tekenreeksparameter of zijn opgegeven in de aanvraagheader.
 
-Als u wilt ophalen van een gratis proefversie sleutel, Zie [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Of, volg de instructies in [een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) abonneren op de Computer Vision en haal uw sleutel.
+Zie [Cognitive services proberen](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)om een gratis proef versie te verkrijgen. Of volg de instructies in [Create a cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op computer vision en uw sleutel op te halen.
 
 1. De abonnementssleutel kan worden doorgegeven via een querytekenreeks. Hieronder ziet u een voorbeeld met de Computer Vision-API:
 
@@ -61,7 +61,7 @@ Als u wilt ophalen van een gratis proefversie sleutel, Zie [Cognitive Services p
 
 ```var visionClient = new VisionServiceClient("Your subscriptionKey");```
 
-## <a name="upload-an-image-to-the-computer-vision-api-service-and-get-back-tags-descriptions-and-celebrities"></a>Een installatiekopie uploaden naar de Computer Vision-API-service en teruggaan tags, beschrijvingen en beroemdheden
+## <a name="upload-an-image-to-the-computer-vision-api-service-and-get-back-tags-descriptions-and-celebrities"></a>Een installatie kopie uploaden naar de Computer Vision-API-service en tags, beschrijvingen en beroemdheden ophalen
 
 De eenvoudigste manier om de Computer Vision-API-aanroep uit te voeren is door rechtstreeks een afbeelding te uploaden. Dit wordt gedaan door de aanvraag POST te verzenden met het inhoudstype toepassing/octet-stream in combinatie met de gegevens die uit de afbeelding zijn gelezen. Voor Tags en Beschrijving is dit dezelfde uploadmethode als voor alle Computer Vision-API-aanroepen. Het enige verschil wordt bepaald door de queryparameters die de gebruiker opgeeft. 
 
@@ -89,14 +89,14 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 
 **Optie 2:** Een lijst ophalen met alleen Tags, of een lijst met alleen Beschrijving:
 
-###### <a name="tags-only"></a>Labels:
+###### <a name="tags-only"></a>Alleen Tags:
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag&subscription-key=<Your subscription key>
 var analysisResult = await visionClient.GetTagsAsync("http://contoso.com/example.jpg");
 ```
 
-###### <a name="description-only"></a>Beschrijving:
+###### <a name="description-only"></a>Alleen beschrijving:
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe&subscription-key=<Your subscription key>
@@ -106,7 +106,7 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 }
 ```
 
-### <a name="get-domain-specific-analysis-celebrities"></a>Domein-specifieke analyse (beroemdheden)
+### <a name="get-domain-specific-analysis-celebrities"></a>Domein-specifieke analyse ophalen (beroemdheden)
 
 **Optie 1:** Gerichte analyse: alleen een gegeven model analyseren
 ```
@@ -133,7 +133,7 @@ Wanneer deze methode is ingetrokken, roepen we eerst de 86-categorieënclassific
 
 Alle v1-queryparameters gedragen zich in dit geval op dezelfde manier.  Als visualFeatures=categorieën niet is opgegeven, wordt dit impliciet ingeschakeld.
 
-## <a name="retrieve-and-understand-the-json-output-for-analysis"></a>Ophalen en begrijpen van de JSON-uitvoer voor analyse
+## <a name="retrieve-and-understand-the-json-output-for-analysis"></a>De JSON-uitvoer voor analyse ophalen en begrijpen
 
 Hier volgt een voorbeeld:
 
@@ -166,7 +166,7 @@ Hier volgt een voorbeeld:
 
 Veld | Type | Inhoud
 ------|------|------|
-Tags  | `object` | Object op het hoogste niveau voor matrix van tags
+Labels  | `object` | Object op het hoogste niveau voor matrix van tags
 tags[].Name | `string`  | Trefwoord uit classificatie van tags
 tags[].Score    | `number`  | Betrouwbaarheidsscore, tussen 0 en 1.
 description  | `object` | Object op het hoogste niveau voor een beschrijving.
@@ -174,7 +174,7 @@ description.tags[] |    `string`    | Een lijst met tags.  Als de mogelijkheid o
 description.captions[].text | `string`  | Een zin die de afbeelding beschrijft.
 description.captions[].confidence   | `number`  | Vertrouwen voor de zin.
 
-## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Ophalen en begrijpen van de JSON-uitvoer van domeinspecifieke modellen
+## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>De JSON-uitvoer van domein-specifieke modellen ophalen en begrijpen
 
 **Optie 1:** Gerichte analyse: alleen een gegeven model analyseren
 
@@ -228,7 +228,7 @@ Het categorieënveld is een lijst met één of meer van de [86-categorieën](../
 
 Veld   | Type  | Inhoud
 ------|------|------|
-categorieën | `object`   | Object op het hoogste niveau
+categories | `object`   | Object op het hoogste niveau
 categories[].name    | `string` | Naam van 86-categorietaxonomie
 categories[].score  | `number`  | Betrouwbaarheidsscore, tussen 0 en 1
 categories[].detail  | `object?`      | Optioneel detailobject

@@ -1,6 +1,6 @@
 ---
-title: Afgeschafte vooraf gemaakte entiteiten
-titleSuffix: Azure
+title: Afgeschafte vooraf samengestelde entiteiten-LUIS
+titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat de afgeschafte vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 653fbd65e5ccfbc65781f2332b35d10237f718d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17693b7dff1df1d538f2f4a180be025e0de67c82
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712777"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563482"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Afgeschafte vooraf gemaakte entiteiten in een LUIS-app
 De volgende vooraf gemaakte entiteiten zijn afgeschaft en kunnen niet worden toegevoegd aan de nieuwe LUIS-apps.
 
-* **Datum-/** : Bestaande LUIS-apps die gebruikmaken van **datum-/** moeten worden gemigreerd naar **datetimeV2**, hoewel de datum/tijd-entiteit blijft werken in bestaande apps die worden gebruikt.
-* **Geografie**: Bestaande LUIS-apps die gebruikmaken van **Geografie** tot December 2018 wordt ondersteund.
-* **Encyclopedie**: Bestaande LUIS-apps die gebruikmaken van **encyclopedie** tot December 2018 wordt ondersteund.
+* **Datum tijd**: Bestaande LUIS-apps die gebruikmaken van **DateTime** , moeten worden gemigreerd naar **datetimeV2**, hoewel de datetime-entiteit blijft functioneren in reeds bestaande apps die deze gebruiken.
+* **Geografie**: Bestaande LUIS-apps die gebruikmaken van **geografie** , worden ondersteund tot december 2018.
+* **Encyclopedie**: Bestaande LUIS-apps die  gebruikmaken van encyclopedie, worden ondersteund tot december 2018.
 
 ## <a name="geography-culture"></a>Geografie cultuur
 **Geografie** is alleen beschikbaar in de `en-us` landinstelling.
@@ -43,7 +43,7 @@ Vooraf gemaakte entiteiten   |   Voorbeeld van een utterance   |   JSON
 **Encyclopedie** is alleen beschikbaar in de `en-US` landinstelling.
 
 #### <a name="encyclopedia-subtypes"></a>Encyclopedie subtypen
-Encyclopedie ingebouwde entiteit bevat meer dan 100 subtypen in de volgende tabel: Bovendien encyclopedie entiteiten worden vaak toegewezen aan meerdere typen. Bijvoorbeeld, de query Ronald Reagan levert: 
+De ingebouwde invoeg entiteit van de encyclopedie omvat meer dan 100 subtypen in de volgende tabel: Daarnaast wijzen encyclopedie-entiteiten vaak toe aan meerdere typen. Bijvoorbeeld, de query Ronald Reagan levert: 
 
 ```json
 {

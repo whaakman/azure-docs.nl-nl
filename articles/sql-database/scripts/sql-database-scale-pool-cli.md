@@ -10,14 +10,13 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 5a73ff02479bc7dd4b66605a3f6354ffc2d8a56b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b378bef296f7cf6546887bcf760a4e14ed66a385
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447845"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569828"
 ---
 # <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Een elastische pool schalen naar Azure SQL Database met CLI
 
@@ -35,7 +34,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Gebruik de volgende opdracht om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Gebruik de volgende opdracht om de resource groep en alle bijbehorende resources te verwijderen.
 
 ```azurecli-interactive
 az group delete --name $resourceGroupName

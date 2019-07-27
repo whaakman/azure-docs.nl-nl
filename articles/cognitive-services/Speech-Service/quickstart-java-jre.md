@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Spraak herkennen, Java (Windows, Linux) - Spraakservices'
+title: 'Quickstart: Herkenning van spraak, java (Windows, Linux)-spraak service'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstartgids leert u een eenvoudige Java-toepassing die worden vastgelegd en transcribes gebruiker spraak van de microfoon van uw computer maken.
+description: In deze Quick Start leert u hoe u een eenvoudige Java-toepassing maakt waarmee gebruikers spraak van de microfoon van uw computer worden vastgelegd en getranscribeerd.
 services: cognitive-services
 author: fmegen
 manager: nitinme
@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: dce0a1b2adf20b2301402f37307e7ee1284c9aee
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 498e41b08133113be9789ef49291b8e2bb0f3705
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605151"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554118"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Quickstart: Spraak herkennen met de Speech-SDK voor Java
 
-Snelstartgidsen zijn ook beschikbaar voor [-naar-spraak-spraakomzetting](quickstart-translate-speech-java-jre.md) en [stem op de eerste virtuele assistent](quickstart-virtual-assistant-java-jre.md).
+Quick starts zijn ook beschikbaar voor de virtuele assistent [spraak naar spraak-vertalen](quickstart-translate-speech-java-jre.md) en [spraak-eerste](quickstart-virtual-assistant-java-jre.md).
 
-Indien gewenst, kies een andere programmeertaal en/of de omgeving:<br/>
+Kies indien gewenst een andere programmeer taal en/of-omgeving:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel maakt u een Java-consoletoepassing met behulp van de [Speech-SDK](speech-sdk.md). Doel is om realtime spraak naar tekst om te zetten vanuit de microfoon van uw pc. De toepassing is gemaakt met de Speech SDK Maven-pakket en de Eclipse Java-IDE (v4.8) op Windows 64-bits, 64-bits Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9), of op macOS 10.13 of hoger. De toepassing wordt uitgevoerd op een 64-bit Java 8 runtime-omgeving (JRE).
+In dit artikel maakt u een Java-consoletoepassing met behulp van de [Speech-SDK](speech-sdk.md). Doel is om realtime spraak naar tekst om te zetten vanuit de microfoon van uw pc. De toepassing is gebouwd met het Speech SDK maven-pakket en de eclips Java IDE (v 4.8) op 64-bits Windows, 64-bits Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9) of op macOS 10,13 of hoger. De toepassing wordt uitgevoerd op een 64-bit Java 8 runtime-omgeving (JRE).
 
 > [!NOTE]
 > Zie [Speech Devices SDK](speech-devices-sdk.md) voor de Speech Devices-SDK en het Roobo-apparaat.
@@ -33,12 +33,12 @@ In dit artikel maakt u een Java-consoletoepassing met behulp van de [Speech-SDK]
 
 Voor deze snelstart zijn de volgende zaken vereist:
 
-* Besturingssysteem: 64-bits Windows, 64-bits Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9) of macOS 10.13 of hoger
+* Besturingssysteem: 64-bits Windows, 64-bits Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9) of macOS 10,13 of hoger
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) of [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Een Azure-abonnementssleutel voor de Spraakservice. [Gratis downloaden](get-started.md).
 
-Als u Linux uitvoert, zorg er dan voor dat deze afhankelijkheden zijn geïnstalleerd voordat u begint met Eclipse.
+Als u Linux uitvoert, moet u ervoor zorgen dat deze afhankelijkheden zijn geïnstalleerd voordat u een eclips start.
 
 * Op Ubuntu:
 
@@ -54,8 +54,8 @@ Als u Linux uitvoert, zorg er dan voor dat deze afhankelijkheden zijn geïnstall
   sudo apt-get install libssl1.0.2 libasound2
   ```
 
-Als u Windows uitvoert (64-bits), controleert u of u Microsoft Visual hebt geïnstalleerd C++ Redistributable voor uw platform.
-* [Download Microsoft Visual C++ Redistributable voor Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+Als u Windows (64-bits) gebruikt, moet u ervoor zorgen dat u micro C++ Soft Visual Redistributable hebt geïnstalleerd voor uw platform.
+* [Down load micro C++ Soft Visual Redistributable voor Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 ## <a name="create-and-configure-project"></a>Project maken en configureren
 

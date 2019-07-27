@@ -1,5 +1,5 @@
 ---
-title: Reguliere-expressie-entiteit
+title: Reguliere expressie-entiteit-LUIS
 titleSuffix: Azure Cognitive Services
 description: U kunt consistent opgemaakte gegevens uit een uiting extraheren met de reguliere-expressie-entiteit.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 5e79de8dc8b4e81f427925b6e3d662bd4931804d
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 958d880829e9524389a25f029415786231644c04
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497027"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563588"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Zelfstudie: Correct opgemaakte gegevens ophalen uit utterances
 In deze zelfstudie maakt u een app voor het extraheren van consistent opgemaakte gegevens uit een utterance met behulp van de entiteit **Regular Expression (regex)** .
@@ -125,7 +125,7 @@ Voer de volgende stappen uit om een entiteit in de vorm van een gewone expressie
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Ga naar het einde van de URL in het adres en voer de volgende utterance:
+2. Ga naar het einde van de URL in het adres en voer de volgende utterance in:
 
     `When were HRF-123456 and hrf-234567 published in the last year?`
 

@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell - voorbeeld: een beheerd exemplaar maken in Azure SQL Database | Microsoft Docs'
-description: Azure PowerShell-voorbeeldscript voor het maken van een beheerd exemplaar in Azure SQL Database
+title: 'Power shell-voor beeld: een beheerd exemplaar maken in Azure SQL Database | Microsoft Docs'
+description: Azure PowerShell voorbeeld script voor het maken van een beheerd exemplaar in Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -10,16 +10,15 @@ ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: e8f59faea80237be2ac0b056db4fb8b95d4ab217
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5a60e8efad41c94deeedd545e6e0c1c96ff04e25
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875357"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569729"
 ---
-# <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>PowerShell gebruiken met Azure Resource Manager-sjabloon maken van een beheerd exemplaar in Azure SQL Database
+# <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Power shell met Azure Resource Manager sjabloon gebruiken om een beheerd exemplaar in Azure SQL Database te maken
 
 Een MI kan worden gemaakt met behulp van een Azure PowerShell-bibliotheek en Azure Resource Manager-sjablonen.
 
@@ -27,7 +26,7 @@ Een MI kan worden gemaakt met behulp van een Azure PowerShell-bibliotheek en Azu
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om te installeren en lokaal gebruik van PowerShell, voor deze zelfstudie vereist AZ PowerShell 1.4.0 of hoger. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u ervoor kiest om Power shell lokaal te installeren en te gebruiken, hebt u voor deze zelf studie AZ Power shell 1.4.0 of hoger nodig. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 Azure PowerShell-opdrachten kunnen een implementatie starten met behulp van een vooraf gedefinieerde Azure Resource Manager-sjabloon. De volgende eigenschappen kunnen worden opgegeven in de sjabloon:
 
@@ -41,7 +40,7 @@ Exemplaarnaam, gebruikersnaam van SQL-beheerder, VNet/subnet en sortering kunnen
 
 ## <a name="prerequisites"></a>Vereisten
 
-In dit voorbeeld wordt ervan uitgegaan dat u[ een geldige netwerkomgeving hebt gemaakt](../sql-database-managed-instance-create-vnet-subnet.md) of [ een bestaand VNet](../sql-database-managed-instance-configure-vnet-subnet.md) hebt gewijzigd van uw beheerde exemplaar. In het voorbeeld wordt de cmdlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) en [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) dus zorg ervoor dat u de volgende PowerShell-modules hebt geïnstalleerd:
+In dit voorbeeld wordt ervan uitgegaan dat u[ een geldige netwerkomgeving hebt gemaakt](../sql-database-managed-instance-create-vnet-subnet.md) of [ een bestaand VNet](../sql-database-managed-instance-configure-vnet-subnet.md) hebt gewijzigd van uw beheerde exemplaar. In het voor beeld wordt gebruikgemaakt van de cmdlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) en [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) , dus zorg ervoor dat u de volgende Power shell-modules hebt geïnstalleerd:
 
 ```powershell
 Install-Module Az.Network
@@ -101,7 +100,7 @@ De volgende inhoud moet worden geplaatst in een bestand dat een sjabloon represe
 }
 ```
 
-Hierbij wordt verondersteld dat Azure VNet al bestaat met het correct geconfigureerde subnet. Als u geen een correct geconfigureerde subnet, bereid de netwerkomgeving met behulp van afzonderlijke [sjabloon Azure-Resource beheerde](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) die kunnen worden uitgevoerd, onafhankelijk of opgenomen in deze sjabloon.
+Hierbij wordt verondersteld dat Azure VNet al bestaat met het correct geconfigureerde subnet. Als u geen correct geconfigureerd subnet hebt, moet u de netwerk omgeving voorbereiden met behulp van een afzonderlijke [Azure resource Managed Temp late](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) die onafhankelijk kan worden uitgevoerd of in deze sjabloon kan worden opgenomen.
 
 Sla de inhoud van dit bestand op als een JSON-bestand, plaats het bestandspad in het volgende PowerShell-script en verander de namen van de objecten in het script:
 

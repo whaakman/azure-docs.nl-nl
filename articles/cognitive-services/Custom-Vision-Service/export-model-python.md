@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: TensorFlow-model uitvoeren in Python - Custom Vision Service'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Leer hoe u een TensorFlow-model uitvoert in Python.
 services: cognitive-services
 author: areddish
@@ -10,19 +10,19 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: ba8cf3392ac2bd3d371e5e1910c6671feba9dedf
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c6e7cf770e5f1639e676d232564809121a8c4e4b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606869"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561103"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Zelfstudie: TensorFlow-model uitvoeren in Python
 
 Nadat u [uw TensorFlow-model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) hebt geëxporteerd uit de Custom Vision Service, wordt in deze snelstartgids beschreven hoe u dit model lokaal kunt gebruiken voor het classificeren van afbeeldingen.
 
 > [!NOTE]
-> In deze zelfstudie geldt alleen voor modellen die zijn geëxporteerd uit afbeelding classificatie projecten.
+> Deze zelf studie is alleen van toepassing op modellen die zijn geëxporteerd uit afbeeldings classificatie projecten.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -88,7 +88,7 @@ image = update_orientation(image)
 image = convert_to_opencv(image)
 ```
 
-### <a name="handle-images-with-a-dimension-1600"></a>Verwerken van afbeeldingen met een dimensie > 1600
+### <a name="handle-images-with-a-dimension-1600"></a>Afbeeldingen verwerken met een dimensie > 1600
 
 ```Python
 # If the image has either w or h greater than 1600 we resize it down respecting
@@ -172,7 +172,7 @@ def update_orientation(image):
 
 ## <a name="predict-an-image"></a>Een afbeelding voorspellen
 
-Als de afbeelding als een tensor is voorbereid, kunnen we het verzenden via het model voor een voorspelling:
+Zodra de afbeelding is voor bereid als een tensor, kunnen we deze via het model verzenden voor een voor spelling:
 
 ```Python
 
@@ -210,7 +210,7 @@ De resultaten van het verwerken van de afbeeldingstensor door het model moet ver
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Vervolgens meer informatie over het inpakken van uw model in een mobiele toepassing:
+Vervolgens leert u hoe u uw model in een mobiele toepassing kunt inpakken:
 * [Geëxporteerd Tensorflow-model gebruiken in een Android-toepassing](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Geëxporteerd CoreML-model gebruiken in een Swift iOS-toepassing](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Geëxporteerd CoreML-model gebruiken in een iOS-toepassing met Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)

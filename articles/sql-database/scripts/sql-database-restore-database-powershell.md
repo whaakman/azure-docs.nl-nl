@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell-voorbeeld: back-up herstellen van een Azure SQL-database | Microsoft Docs'
-description: Azure PowerShell-voorbeeldscript voor het herstellen van een individuele Azure SQL-database naar een eerder tijdstip via automatische back-ups
+description: Azure PowerShell voorbeeld script om een Azure SQL-Data Base te herstellen naar een eerder tijdstip vanuit automatische back-ups
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -10,24 +10,23 @@ ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/27/2019
-ms.openlocfilehash: ffccbe58894a6fa7a523be2d2d26759fa20f371d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 8a34e2607a957f9af3756818bce9b2dd77541e85
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729282"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569857"
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>PowerShell gebruiken voor het herstellen van een individuele Azure SQL-database naar een eerder tijdstip
+# <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Power shell gebruiken om één Azure SQL-Data Base te herstellen naar een eerder tijdstip
 
-Met dit PowerShell-voorbeeldscript wordt een Azure SQL database hersteld naar een bepaald punt in de tijd.  
+In dit voor beeld van een Power shell-script wordt een Azure-SQL database teruggezet naar een bepaald tijdstip.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om te installeren en lokaal gebruik van PowerShell, voor deze zelfstudie vereist AZ PowerShell 1.4.0 of hoger. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u ervoor kiest om Power shell lokaal te installeren en te gebruiken, hebt u voor deze zelf studie AZ Power shell 1.4.0 of hoger nodig. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
@@ -35,7 +34,7 @@ Als u ervoor kiest om te installeren en lokaal gebruik van PowerShell, voor deze
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Gebruik de volgende opdracht om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Gebruik de volgende opdracht om de resource groep en alle bijbehorende resources te verwijderen.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname

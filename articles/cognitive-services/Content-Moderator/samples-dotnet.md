@@ -1,5 +1,6 @@
 ---
 title: Codevoorbeelden - Content Moderator, .NET
+titleSuffix: Azure Cognitive Services
 description: Gebruik Content Moderator via de SDK in uw .NET-toepassingen.
 services: cognitive-services
 author: sanjeev3
@@ -9,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 0857d571e3bb029f564299efbe8cc4fdf5fbb3ff
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0c7db3c48f1ff7a141fda84caaad84ac8ff7f85d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604097"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564433"
 ---
 # <a name="content-moderator-net-sdk-samples"></a>Content Moderator .NET SDK-voorbeelden
 
@@ -29,7 +30,7 @@ De volgende lijst bevat links naar de codevoorbeelden die zijn gecompileerd met 
 > Er is een maximumlimiet van **5 afbeeldingslijsten** waarbij elke lijst **niet meer dan 10.000 afbeeldingen mag bevatten**.
 >
 
-- **Tekstbeheer**: [Tekst voor grof taalgebruik en persoonlijke gegevens scherm](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Zie [snelstart](text-moderation-quickstart-dotnet.md).
+- **Tekstbeheer**: [Scherm tekst voor groveheid en persoonlijke gegevens](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Zie [snelstart](text-moderation-quickstart-dotnet.md).
 - **Aangepaste terminologie**: [Inhoud beheren met aangepaste terminologielijsten](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs). Zie [snelstart](term-lists-quickstart-dotnet.md).
 
 > [!NOTE]

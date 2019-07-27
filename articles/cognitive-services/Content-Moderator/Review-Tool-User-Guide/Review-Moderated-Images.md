@@ -1,7 +1,7 @@
 ---
-title: Beoordelingen van inhoud via het beoordelingsprogramma - Content Moderator gebruiken
-titlesuffix: Azure Cognitive Services
-description: Meer informatie over hoe het beoordelingsprogramma kunt menselijke moderators om te controleren van afbeeldingen in een webportal.
+title: Gebruik inhouds beoordelingen via het hulp programma voor beoordeling-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over hoe u met het hulp programma controleren afbeeldingen in een webportal kunt controleren.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -10,50 +10,50 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
-ms.openlocfilehash: a482ecf4a0d321525ab7e392695d2c4c0eebeadc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b73436153427019a7d0d2c641f50592a385f19c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628998"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564547"
 ---
-# <a name="create-human-reviews"></a>Onlinebeoordelingen door mensen maken
+# <a name="create-human-reviews"></a>Mensen beoordelingen maken
 
-In deze handleiding leert u hoe u voor het instellen van [beoordeelt](../review-api.md#reviews) op de website van het hulpprogramma voor beoordeling. Beoordelingen opslaan en weergeven van inhoud voor menselijke moderators om vast te stellen. Moderators kunnen de toegepaste labels wijzigen en hun eigen aangepaste tags waar nodig toepassen. Wanneer een gebruiker is een beoordeling voltooid, de resultaten worden verzonden naar een opgegeven retouraanroep-eindpunt en de inhoud van de site wordt verwijderd.
+In deze hand leiding leert u hoe u [beoordelingen](../review-api.md#reviews) kunt instellen op de website van het controle programma. Beoordelingen van de winkel en de weer gave van inhoud voor menselijke moderators om te beoordelen. Moderators kunnen de toegepaste labels wijzigen en hun eigen aangepaste labels Toep assen. Wanneer een gebruiker een beoordeling voltooit, worden de resultaten verzonden naar een opgegeven eind punt van de retour aanroep en wordt de inhoud verwijderd van de site.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Meld u aan of maak een account op de Content Moderator [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) site.
+- Meld u aan of maak een account op de site van het Content Moderator [controle programma](https://contentmoderator.cognitive.microsoft.com/) .
 
 ## <a name="image-reviews"></a>Beoordelingen van afbeeldingen
 
-1. Ga naar de [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/), selecteer de **probeer** tabblad, en het uploaden van enkele afbeeldingen om te controleren.
-1. Zodra de geüploade afbeeldingen zijn verwerkt, gaat u naar de **revisie** tabblad en selecteer **installatiekopie**.
+1. Ga naar het [hulp programma voor controle](https://contentmoderator.cognitive.microsoft.com/), selecteer het tabblad **try** en upload enkele afbeeldingen om te controleren.
+1. Zodra de verwerking van de geüploade installatie kopieën is voltooid, gaat u naar het tabblad **controleren** en selecteert u **afbeelding**.
 
-    ![Chrome-browser het beoordelingsprogramma waarin wordt weergegeven met de installatiekopie controleren-optie is gemarkeerd](images/review-images-1.png)
+    ![Chrome-browser met het beoordelings programma met de optie voor het controleren van de afbeelding gemarkeerd](images/review-images-1.png)
 
-    De afbeeldingen weergegeven met de labels die zijn toegewezen door het toezichtproces van automatische. De installatiekopieën die u hebt verzonden via het beoordelingsprogramma zijn niet zichtbaar voor andere revisoren.
+    De afbeeldingen worden weer gegeven met labels die zijn toegewezen door het automatische toezicht proces. De installatie kopieën die u via het hulp programma voor beoordeling hebt verzonden, zijn niet zichtbaar voor andere revisoren.
 
-1. (Optioneel) Verplaats de **weer te geven beoordelingen** schuifregelaar (1) naar het aantal afbeeldingen die worden weergegeven op het scherm. Klik op de **gelabelde** of **niet-gecodeerde** knoppen (2) de afbeeldingen dienovereenkomstig te sorteren. Klik op een label in het venster (3) om uit te schakelen het in- of uitschakelen.
+1. U kunt de beoordelingen eventueel verplaatsen **naar** de schuif regelaar (1) om het aantal installatie kopieën dat op het scherm wordt weer gegeven, aan te passen. Klik op de knoppen met een **Label** of een **Label** (2) om de afbeeldingen dienovereenkomstig te sorteren. Klik op het deel venster tag (3) om het in of uit te scha kelen.
 
-    ![Het beoordelingsprogramma met gelabelde afbeeldingen voor controle met chrome-browser](images/review-images-2.png)
+    ![Chrome-browser met het beoordelings programma met gelabelde afbeeldingen voor beoordeling](images/review-images-2.png)
 
-1. Als u meer informatie over een afbeelding, klik op het beletselteken in de miniatuur en selecteer **details weergeven**. U kunt een installatiekopie van een toewijzen aan een subteams bepalen met de **verplaatsen naar** optie (Zie de [teams](./configure.md#manage-team-and-subteams) sectie voor meer informatie over subteams).
+1. Als u meer informatie wilt weer geven over een afbeelding, klikt u op het beletsel teken in de miniatuur en selecteert u **Details weer geven**. U kunt een installatie kopie toewijzen aan een subteam met de optie **verplaatsen naar** (Zie de sectie [teams](./configure.md#manage-team-and-subteams) voor meer informatie over subteams).
 
-    ![Een afbeelding met de weergave details-optie is gemarkeerd](images/review-images-3.png)
+    ![Een afbeelding met de optie Details weer geven gemarkeerd](images/review-images-3.png)
 
-1. Blader door de informatie over de controle van afbeelding op de pagina met details.
+1. Blader op de pagina Details van de afbeeldings controle-informatie.
 
-    ![Een afbeelding met beheer van gegevens die worden vermeld in een apart venster](images/review-images-4.png)
+    ![Een afbeelding met toezicht details die worden weer gegeven in een afzonderlijk deel venster](images/review-images-4.png)
 
-1. Nadat u hebt bekeken en zo nodig de tag-toewijzingen bijgewerkt, klikt u op **volgende** om in te dienen uw beoordelingen. Nadat u hebt ingediend, hebt u ongeveer vijf seconden klikt u op de **vorig** knop terug naar het vorige scherm en afbeeldingen opnieuw beoordelen. Hierna de afbeeldingen zijn niet meer in de wachtrij verzenden en de **vorig** knop is niet meer beschikbaar.
+1. Zodra u de label toewijzingen hebt gecontroleerd en zo nodig hebt bijgewerkt, klikt u op **volgende** om uw beoordelingen in te dienen. Nadat u hebt ingediend, hebt u ongeveer vijf seconden op de knop **vorige** om terug te gaan naar het vorige scherm en de afbeeldingen opnieuw te bekijken. Daarna worden de afbeeldingen niet meer in de verzend wachtrij geplaatst en is de knop **vorige** niet meer beschikbaar.
 
 ## <a name="text-reviews"></a>Beoordelingen van teksten
 
-Tekst controleert functie op soortgelijke wijze aan beoordelingen van afbeeldingen. In plaats van inhoud te uploaden, u gewoon schrijven of plak tekst (maximaal 1024 tekens). Vervolgens Content Moderator analyseert de tekst en tags (naast andere beheer-informatie, zoals grof taalgebruik en persoonlijke gegevens) van toepassing is. In beoordelingen van teksten, u kunt de toegepaste labels in-/ uitschakelen en/of aangepaste labels toevoegen voordat u de beoordeling verzendt.
+Tekst beoordelingen worden op dezelfde manier gebruikt als voor beeld Beoordelingen. In plaats van inhoud te uploaden, kunt u tekst schrijven of plakken (Maxi maal 1.024 tekens). Content Moderator analyseert vervolgens de tekst en past labels toe (naast andere informatie over de controle, zoals Gods taal en persoonlijke gegevens). In tekst beoordelingen kunt u de toegepaste Tags en/of aangepaste labels Toep assen voordat u de beoordeling verzendt.
 
-![Schermafbeelding van de beoordeling hulpprogramma weergegeven tekst in een Chrome-browservenster gemarkeerd](../images/reviewresults_text.png)
+![Scherm afbeelding van het hulp programma beoordeling met gemarkeerde tekst in een Chrome-browser venster](../images/reviewresults_text.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze handleiding, hebt u geleerd hoe u kunt instellen en gebruiken van beoordelingen van de Content Moderator [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com). Hieronder staan de [REST-API-handleiding](../try-review-api-review.md) of de [.NET SDK-handleiding](../moderation-reviews-quickstart-dotnet.md) voor meer informatie over het maken van beoordelingen via een programma.
+In deze hand leiding hebt u geleerd hoe u beoordelingen kunt instellen en gebruiken via het [hulp programma content moderator beoordeling](https://contentmoderator.cognitive.microsoft.com). Raadpleeg vervolgens de [rest API gids](../try-review-api-review.md) of de [.NET SDK-hand leiding](../moderation-reviews-quickstart-dotnet.md) voor informatie over het programmatisch maken van Beoordelingen.

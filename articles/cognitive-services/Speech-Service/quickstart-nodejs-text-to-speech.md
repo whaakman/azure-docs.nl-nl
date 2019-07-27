@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Converteren van tekst naar spraak, Node.js - spraakservices'
+title: 'Quickstart: Tekst-naar-spraak-, node. js-Speech-Service converteren'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstartgids leert u hoe u om te converteren tekst naar spraak met behulp van Node.js en de tekst naar spraak REST-API. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als spraak synthese Markup Language (SSML). Hiermee kunt u de spraak en taal van het antwoord spraak te kiezen.
+description: In deze Quick Start leert u hoe u tekst naar spraak kunt converteren met behulp van node. js en de tekst-naar-spraak-REST API. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als spraak synthese Markup Language (SSML). Hiermee kunt u de spraak en taal van het antwoord spraak te kiezen.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 5a218db0527a5e1d5642cb485b75df894a275764
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 72be99ec666bb9e04ffca6e14ab4fcafa889ae68
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605002"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553944"
 ---
-# <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Quickstart: Converteert tekst naar spraak met behulp van Node.js
+# <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Quickstart: Tekst-naar-spraak converteren met behulp van node. js
 
-In deze snelstartgids leert u hoe u om te converteren tekst naar spraak met behulp van Node.js en de Text to Speech REST-API. De hoofdtekst van de aanvraag in deze handleiding is opgebouwd als [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md), waarmee u de spraak en taal van het antwoord te kiezen.
+In deze Quick Start leert u hoe u tekst naar spraak kunt converteren met behulp van node. js en de tekst-naar-spraak-REST API. De hoofdtekst van de aanvraag in deze handleiding is opgebouwd als [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md), waarmee u de spraak en taal van het antwoord te kiezen.
 
-Deze snelstartgids moet een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een resource Speech Services. Als u geen account hebt, kunt u de [gratis proefversie](get-started.md) gebruiken om een abonnementssleutel op te halen.
+Voor deze Snelstartgids is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) vereist met een speech Services-resource. Als u geen account hebt, kunt u de [gratis proefversie](get-started.md) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,11 +29,11 @@ Voor deze snelstart zijn de volgende zaken vereist:
 
 * [Node 8.12.x of hoger](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) of uw favoriete teksteditor
-* De sleutel van een Azure-abonnement voor de spraakservices. [Vraag een gratis! ](get-started.md).
+* Een Azure-abonnements sleutel voor de spraak Services. [Ontvang er gratis een](get-started.md).
 
-## <a name="create-a-project-and-require-dependencies"></a>Maak een project en afhankelijkheden vereist
+## <a name="create-a-project-and-require-dependencies"></a>Een project maken en afhankelijkheden vereisen
 
-Maak een nieuwe Node.js-project met behulp van uw favoriete IDE of editor. Kopieer dit codefragment naar uw project in een bestand met de naam `tts.js`.
+Maak een nieuw node. js-project met uw favoriete IDE of editor. Kopieer dit codefragment naar uw project in een bestand met de naam `tts.js`.
 
 ```javascript
 // Requires request and request-promise for HTTP requests
@@ -52,9 +52,9 @@ const xmlbuilder = require('xmlbuilder');
 
 ## <a name="get-an-access-token"></a>Een toegangstoken opvragen
 
-De Text to Speech REST-API is een toegangstoken voor verificatie vereist. Als u een toegangstoken, is een exchange vereist. Deze functie vervangt uw abonnementssleutel Speech Services voor een access token met de `issueToken` eindpunt.
+De Text to Speech REST-API is een toegangstoken voor verificatie vereist. Als u een toegangstoken, is een exchange vereist. Met deze functie wordt uw abonnements sleutel voor spraak Services voor een toegangs token `issueToken` met behulp van het eind punt.
 
-In dit voorbeeld wordt ervan uitgegaan dat uw abonnement spraakservices in de regio VS-West. Als u een andere regio, werk de waarde voor `uri`. Zie voor een volledige lijst [regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+In dit voor beeld wordt ervan uitgegaan dat uw speech Services-abonnement zich in de regio vs-West bevindt. Als u een andere regio, werk de waarde voor `uri`. Zie voor een volledige lijst [regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Kopieer deze code naar uw project:
 
@@ -73,13 +73,13 @@ function getAccessToken(subscriptionKey) {
 ```
 
 > [!NOTE]
-> Zie voor meer informatie over verificatie [verifiëren met een toegangstoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
+> Zie [verifiëren met een toegangs token](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token)voor meer informatie over verificatie.
 
-In de volgende sectie maken we de functie voor het aanroepen van de Text to Speech-API en het antwoord kunstmatige spraak opslaan.
+In de volgende sectie maken we de functie voor het aanroepen van de tekst-naar-spraak-API en het opslaan van het gesynthesizerde spraak antwoord.
 
 ## <a name="make-a-request-and-save-the-response"></a>Een aanvraag indienen en het antwoord opslaan
 
-U gaat hier de aanvraag voor de Text to Speech-API bouwen en sla het antwoord van spraak. In dit voorbeeld wordt ervan uitgegaan dat u het eindpunt van de VS-West. Als de bron naar een andere regio is geregistreerd, moet u bijwerken de `uri`. Zie voor meer informatie, [Speech Services-regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Hier gaat u de aanvraag voor de tekst-naar-spraak-API maken en het antwoord op de spraak actie Opslaan. In dit voorbeeld wordt ervan uitgegaan dat u het eindpunt van de VS-West. Als de bron naar een andere regio is geregistreerd, moet u bijwerken de `uri`. Zie voor meer informatie [spraak Services regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Vervolgens moet u vereiste headers voor de aanvraag toevoegen. Zorg ervoor dat bij te werken `User-Agent` met de naam van uw resource (te vinden in Azure portal) en stel `X-Microsoft-OutputFormat` aan uw gewenste audio-uitvoer. Zie voor een volledige lijst van de uitvoerindeling op te geven, [Audio-uitvoer](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
@@ -89,7 +89,7 @@ Vervolgens maken de hoofdtekst van de aanvraag met behulp van spraak synthese Ma
 > In dit voorbeeld wordt de `JessaRUS` spraakstijl. Voor een volledige lijst van door Microsoft geleverd stemmen/talen, Zie [taalondersteuning](language-support.md).
 > Als u geïnteresseerd bent in het maken van een unieke, herkenbare stem voor uw merk, Zie [het maken van aangepaste spraakstijlen](how-to-customize-voice-font.md).
 
-Ten slotte maakt u een aanvraag naar de service. Als de aanvraag voltooid is en een 200-statuscode is geretourneerd, wordt het antwoord spraak als geschreven `TTSOutput.wav`.
+Ten slotte maakt u een aanvraag naar de service. Als de aanvraag is gelukt en er een 200-status code wordt geretourneerd, wordt het spraak antwoord `TTSOutput.wav`als volgt geschreven.
 
 ```javascript
 // Make sure to update User-Agent with the name of your resource.
@@ -135,9 +135,9 @@ function textToSpeech(accessToken, text) {
 
 ## <a name="put-it-all-together"></a>Alles samenvoegen
 
-U bent bijna klaar. De laatste stap is het maken van een asynchrone-functie. Deze functie worden uw abonnementssleutel gelezen uit een omgevingsvariabele de prompt voor tekst, een token verkrijgen en wacht tot de aanvraag hebt voltooid, vervolgens de Text to Speech converteren en opslaan van de audio als een .wav.
+U bent bijna klaar. De laatste stap is het maken van een asynchrone functie. Met deze functie wordt uw abonnements sleutel van een omgevings variabele gelezen, wordt u gevraagd om tekst, een token op te halen, te wachten tot de aanvraag is voltooid, de tekst naar spraak te converteren en de audio op te slaan als een. wav-bestand.
 
-Als u niet bekend met omgevingsvariabelen bent of wil testen met uw abonnement sleutel vastgelegd als een tekenreeks, vervangt u `process.env.SPEECH_SERVICE_KEY` met uw abonnementssleutel als een tekenreeks.
+Als u niet bekend bent met omgevings variabelen of als u wilt testen met uw abonnements sleutel als een teken reeks `process.env.SPEECH_SERVICE_KEY` , vervangt u door uw abonnements sleutel als teken reeks.
 
 ```javascript
 // Use async and await to get the token before attempting

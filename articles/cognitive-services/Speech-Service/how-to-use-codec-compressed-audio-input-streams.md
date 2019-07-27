@@ -1,7 +1,7 @@
 ---
-title: Stream codec gecomprimeerd audio met de spraak-SDK - spraakservices
+title: Stream-codec gecomprimeerde audio met de Speech SDK-Speech-Service
 titleSuffix: Azure Cognitive Services
-description: Meer informatie over het streamen van gecomprimeerde audio naar Azure Speech Services met de spraak-SDK. Beschikbaar voor C++ C#, en Java voor Linux.
+description: Meer informatie over het streamen van gecomprimeerde audio naar Azure speech Services met de spraak-SDK. Beschikbaar voor C++, C#en Java voor Linux.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,39 +10,39 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: d23190dc8f7980cb8a94ba295f45ae67fc7d4678
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b29b42dea9522526d49c1bda017a522855946def
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605097"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559548"
 ---
-# <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Audio-invoer met de spraak-SDK met codec gecomprimeerd
+# <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Gecomprimeerde audio-invoer van codec gebruiken met de Speech SDK
 
-De spraak-SDK **gecomprimeerde Audio-invoer Stream** API biedt een manier om te streamen gecomprimeerde audio naar de Speech-Service met behulp van PullStream of PushStream.
+De **gecomprimeerde audio-invoer stroom** -API van de Speech SDK biedt een manier om gecomprimeerde audio naar de spraak service te streamen met behulp van PullStream of PushStream.
 
 > [!IMPORTANT]
-> Streaming van gecomprimeerde audio wordt alleen ondersteund voor C++, C#, en Java in Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9).
-> Spraak SDK versie 1.4.0 of hoger vereist.
+> Gecomprimeerde audio stromen worden alleen ondersteund voor C++, C#en Java op Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9).
+> Speech SDK-versie 1.4.0 of hoger is vereist.
 
-Raadpleeg de spraakdocumentatie hoofdlijnen voor wav PCM /.  Buiten wav/PCM, worden de volgende codec gecomprimeerde invoer indelingen ondersteund:
+Zie de mainline speech-documentatie voor WAV/PCM.  Buiten WAV/PCM worden de volgende in de codec gecomprimeerde invoer indelingen ondersteund:
 
 - MP3
 - OPUS/OGG
 
-## <a name="prerequisites-to-using-codec-compressed-audio-input"></a>Vereisten voor het gebruik van codec gecomprimeerd audio-invoer
+## <a name="prerequisites-to-using-codec-compressed-audio-input"></a>Vereisten voor het gebruik van gecomprimeerde audio-invoer van codec
 
-Deze extra afhankelijkheden voor het gebruik van gecomprimeerde audio-invoer met de spraak-SDK voor Linux installeren:
+Installeer deze extra afhankelijkheden voor het gebruik van gecomprimeerde audio-invoer met de Speech SDK voor Linux:
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
 ```
 
-## <a name="example-code-using-codec-compressed-audio-input"></a>Van voorbeeldcode met codec gecomprimeerd audio-invoer
+## <a name="example-code-using-codec-compressed-audio-input"></a>Voorbeeld code met behulp van gecomprimeerde audio-invoer van de codec
 
-Om te streamen in een gecomprimeerde audio-indeling met de Speech Services, maken `PullAudioInputStream` of `PushAudioInputStream`. Vervolgens maakt u een `AudioConfig` van een exemplaar van uw stream-klasse, op te geven de compressie-indeling van de stroom.
+Als u een gecomprimeerde audio-indeling naar de spraak Services wilt streamen `PushAudioInputStream`, maakt `PullAudioInputStream` of. Maak vervolgens een `AudioConfig` van een exemplaar van uw Stream-klasse, waarbij u de compressie-indeling van de stroom opgeeft.
 
-Stel dat u een invoerstroom klasse genaamd hebt `myPushStream` en OPUS/OGG gebruikt. Uw code ziet er als volgt:
+We gaan ervan uit dat u een invoer stroom klasse hebt `myPushStream` aangeroepen en gebruikmaakt van Opus/OGG. Uw code kan er als volgt uitzien:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;

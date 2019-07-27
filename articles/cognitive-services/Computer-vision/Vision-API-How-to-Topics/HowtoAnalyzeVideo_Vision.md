@@ -1,6 +1,6 @@
 ---
 title: 'Voorbeeld: Video-analyse in realtime: Computer Vision'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Leer hoe u met de Computer Vision-API vrijwel in realtime een analyse kunt uitvoeren van frames afkomstig uit een live-videostream.
 services: cognitive-services
 author: KellyDF
@@ -11,14 +11,14 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: feafb983a7b9e4aea6091753842b03a65ccd3ca5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3432ea20f9fb59524940258e13c46ee6f4c4e890
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61293750"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565701"
 ---
-# <a name="how-to-analyze-videos-in-real-time"></a>Hoe u kunt video's in realtime analyseren
+# <a name="how-to-analyze-videos-in-real-time"></a>Video's in realtime analyseren
 
 In deze handleiding wordt uitgelegd hoe u bijna in realtime een analyse kunt uitvoeren van frames die afkomstig zijn uit een live-videostream. Dit zijn de basisstappen van een dergelijk systeem:
 
@@ -194,7 +194,7 @@ De tweede voorbeeld-app is iets interessanter, en stelt u in staat om te kiezen 
 
 In de meeste modi is er een zichtbare vertraging tussen de livevideo aan de linkerkant en de gevisualiseerde analyse aan de rechterkant. Deze vertraging is de tijd die nodig is om de API-aanroep te maken. De uitzondering hierop is in de modus EmotionsWithClientFaceDetect, waarin gezichtsdetectie lokaal wordt uitgevoerd op de clientcomputer met behulp van OpenCV, voordat er afbeeldingen naar Cognitive Services worden verzonden. Op deze manier wordt het gedetecteerde gezicht direct gevisualiseerd en worden de emoties later bijgewerkt zodra de API-aanroep is uitgevoerd. Dit demonstreert de mogelijkheid van een 'hybride' benadering, waarbij bepaalde eenvoudige verwerkingen kunnen worden uitgevoerd op de client, waarna de API's van Cognitive Services kunnen worden gebruikt om dit waar nodig te verbeteren met een meer geavanceerde analyse.
 
-![Schermafbeelding van LiveCameraSample app tonen installatiekopie met tags weergegeven](../../Video/Images/FramebyFrame.jpg)
+![Scherm opname van de LiveCameraSample-app die de afbeelding weergeeft met de weer gegeven labels](../../Video/Images/FramebyFrame.jpg)
 
 ### <a name="integrating-into-your-codebase"></a>Integreren in de codebase
 

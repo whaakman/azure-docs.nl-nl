@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Spraakomzetting, C# (.NET Framework Windows) - Spraakservices'
+title: 'Quickstart: Vertaal spraak, C# (.NET Framework Windows): spraak service'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart maakt u een eenvoudige .NET Framework-toepassing om spraak van gebruikers vast te leggen, deze te om te zetten in een andere taal en de tekst uit te voeren naar de opdrachtregel. Deze handleiding is bedoeld voor Windows-gebruikers.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: b81aac4779570f39fcbacda867fe27d902322bc5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e62756ab428135ca3d5d9107f37e61813097d21f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602829"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553464"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Quickstart: Spraak omzetten met de spraak-SDK voor .NET Framework
 
-Snelstartgidsen zijn ook beschikbaar voor [spraak-naar-tekst](quickstart-csharp-dotnet-windows.md) en [tekst naar spraak](quickstart-text-to-speech-dotnet-windows.md).
+Quick starts zijn ook beschikbaar voor [spraak naar tekst](quickstart-csharp-dotnet-windows.md) en [tekst naar spraak](quickstart-text-to-speech-dotnet-windows.md).
 
 In deze quickstart maakt u een eenvoudige .NET Framework-toepassing waarmee spraak van gebruikers via de microfoon van de computer wordt vastgelegd, waarna de spraak wordt omgezet en de omgezette tekst in realtime wordt getranscribeerd naar de opdrachtregel. Deze toepassing is bedoeld om te worden uitgevoerd op Windows 64-bits en is gemaakt met het [Speech-SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
 

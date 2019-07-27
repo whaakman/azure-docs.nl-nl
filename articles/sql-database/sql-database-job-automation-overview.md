@@ -9,14 +9,13 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 677d9b5a8ca837288755ab098fbccd8a5b7ddacd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703008"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567858"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Beheertaken automatiseren met behulp van databasetaken
 
@@ -24,7 +23,7 @@ Met behulp van Azure SQL Database kunt u taken die regelmatig kunnen worden uitg
 U kunt een doeldatabase of groepen Azure SQL-databases definiëren waarin de taak wordt uitgevoerd, en ook schema's voor het uitvoeren van een taak definiëren.
 Een taak handelt het aanmelden bij de doeldatabase af. Ook definieert, onderhoudt en handhaaft u Transact-SQL-scripts die in een groep van Azure SQL-databases moeten worden uitgevoerd.
 
-## <a name="when-to-use-automated-jobs"></a>Wanneer u geautomatiseerde taken
+## <a name="when-to-use-automated-jobs"></a>Wanneer gebruikt u geautomatiseerde taken?
 
 Er zijn verschillende scenario's waarin u taakautomatisering kunt gebruiken:
 
@@ -51,7 +50,7 @@ Hier volgen enkele noemenswaardige verschillen tussen SQL Agent (on-premises bes
 
 |  |Elastische taken  |SQL Agent |
 |---------|---------|---------|
-|Bereik     |  Elk gewenst aantal Azure SQL-databases en/of -datawarehouses in dezelfde Azure-cloud als de taakagent. Doelen kunnen zich op verschillende SQL Database-servers en in verschillende abonnementen en/of regio's bevinden. <br><br>Doelgroepen kunnen bestaan uit afzonderlijke databases of datawarehouses of alle databases in een server, pool of shardkaart (dynamisch opgesomd tijdens het uitvoeren van een taak). | Een afzonderlijke database in hetzelfde SQL Server-exemplaar als de SQL agent. |
+|Scope     |  Elk gewenst aantal Azure SQL-databases en/of -datawarehouses in dezelfde Azure-cloud als de taakagent. Doelen kunnen zich op verschillende SQL Database-servers en in verschillende abonnementen en/of regio's bevinden. <br><br>Doelgroepen kunnen bestaan uit afzonderlijke databases of datawarehouses of alle databases in een server, pool of shardkaart (dynamisch opgesomd tijdens het uitvoeren van een taak). | Een afzonderlijke database in hetzelfde SQL Server-exemplaar als de SQL agent. |
 |Ondersteunde API's en hulpprogramma's     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 ## <a name="sql-agent-jobs"></a>SQL Agent-taken
@@ -81,7 +80,7 @@ Andere typen taakstappen worden momenteel niet ondersteund, waaronder:
 - De wachtrijlezer wordt niet ondersteund.
 - Analysis Services worden niet ondersteund
 
-### <a name="job-schedules"></a>Jobplanningen
+### <a name="job-schedules"></a>Taakplanningen
 
 Een schema geeft aan wanneer een taak wordt uitgevoerd. Er kan meer dan één taak worden uitgevoerd in hetzelfde schema en er kan meer dan één schema worden toegepast op dezelfde taak.
 Een schema kan de volgende voorwaarden definiëren voor het moment waarop een taak wordt uitgevoerd:

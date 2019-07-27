@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Spraak herkennen, C++ (Windows) - Speech Services'
+title: 'Quickstart: Speech herkennen, C++ (Windows)-spraak service'
 titleSuffix: Azure Cognitive Services
 description: Informatie over het herkennen van gesproken tekst in C++ op Windows Desktop met behulp van de Speech SDK
 services: cognitive-services
@@ -10,25 +10,25 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: d63d1c96077642e660e2272cbd8c2ee1250b1471
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b79d5aeb20301a2e5359ea712017b40ca7279bf0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606478"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559534"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Quickstart: Gesproken tekst herkennen in C++ onder Windows met behulp van de Speech-SDK
 
-Snelstartgidsen zijn ook beschikbaar voor [tekst naar spraak](quickstart-text-to-speech-cpp-windows.md) en [spraakomzetting](quickstart-translate-speech-cpp-windows.md).
+Quick starts zijn ook beschikbaar voor [tekst naar spraak](quickstart-text-to-speech-cpp-windows.md) en [spraak omzetting](quickstart-translate-speech-cpp-windows.md).
 
-Indien gewenst, kies een andere programmeertaal en/of de omgeving:<br/>
+Kies indien gewenst een andere programmeer taal en/of-omgeving:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In dit artikel maakt u een C++-consoletoepassing voor Windows. U gebruikt de [Speech SDK](speech-sdk.md) van Cognitive Services om in realtime spraak te transcriberen naar tekst via de microfoon van uw pc. De toepassing is gemaakt met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet een abonnementssleutel Speech Services voor het voltooien van deze Quickstart. U kunt er gratis een krijgen. Zie [de Speech Services gratis uitproberen](get-started.md) voor meer informatie.
+U hebt een abonnement op spraak services nodig om deze Quick Start te volt ooien. U kunt er gratis een krijgen. Zie [de spraak services gratis uitproberen](get-started.md) voor meer informatie.
 
 ## <a name="create-a-visual-studio-project"></a>Een Visual Studio-project maken
 
@@ -56,7 +56,7 @@ U moet een abonnementssleutel Speech Services voor het voltooien van deze Quicks
 
    ![Schermafbeelding van Visual Studio-toepassing met de optie Start Debugging gemarkeerd](media/sdk/qs-cpp-windows-07-start-debugging.png)
 
-1. Er wordt een consolevenster weergegeven waarin u wordt gevraagd iets te zeggen. Spreek een Engelse woordgroep of zin in. Uw stem is verzonden naar de Services voor spraak en getranscribeerde tekst, die in hetzelfde venster wordt weergegeven.
+1. Er wordt een consolevenster weergegeven waarin u wordt gevraagd iets te zeggen. Spreek een Engelse woordgroep of zin in. Uw spraak wordt verzonden naar de spraak Services en getranscribeerd naar tekst, die in hetzelfde venster wordt weer gegeven.
 
    ![Schermafbeelding van console-uitvoer na geslaagde herkenning](media/sdk/qs-cpp-windows-08-console-output-release.png)
 

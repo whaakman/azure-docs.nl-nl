@@ -10,10 +10,10 @@ ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: c9e8c7fe4d32a44e8c0831154f02eda1f82aaff3
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309471"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Snelstartgids: Een privé-containerregister maken met Azure Portal
@@ -22,7 +22,7 @@ Een Azure-containerregister is een persoonlijk Docker-register in Azure waar u u
 
 Als u zich wilt aanmelden bij het register om met containerinstallatiekopieën te werken, moet u in deze quickstart de Azure CLI uitvoeren (versie 2.0.55 of hoger wordt aanbevolen). Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][azure-cli] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
-Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten waarmee docker eenvoudig kan worden geconfigureerd op een [Mac][docker-mac], [Windows][docker-windows]-of [Linux][docker-Linux-] systeem.
+Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten die eenvoudig Docker op elke configureren op elk [Mac][docker-mac]-, [Windows][docker-windows]- of [Linux][docker-linux]-systeem.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 

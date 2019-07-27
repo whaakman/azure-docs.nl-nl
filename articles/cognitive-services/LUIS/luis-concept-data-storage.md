@@ -1,6 +1,6 @@
 ---
-title: Gegevensopslag
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Gegevens opslag-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS slaat gegevens op in een Azure-gegevensarchief overeenkomt met de regio die is opgegeven door de sleutel is gecodeerd.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: diberry
-ms.openlocfilehash: a1093c2a6303b453a17a52058303913de5ecfa8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: af0223db944f01346ddcbc1f198ac0c15a426be4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812955"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564017"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>De opslag van gegevens en de verwijdering van Cognitive Services Language Understanding (LUIS)
 LUIS slaat gegevens op in een Azure-gegevensarchief overeenkomt met de regio die is opgegeven door de sleutel is gecodeerd. Deze gegevens worden opgeslagen voor 30 dagen. 
@@ -26,26 +26,26 @@ Gebruikers hebben volledig beheer over [exporteren](luis-how-to-start-new-app.md
 
 ## <a name="utterances"></a>Utterances
 
-Uitingen kunnen worden opgeslagen in twee verschillende plaatsen. 
+Uitingen kan op twee verschillende plaatsen worden opgeslagen. 
 
-* Tijdens de **het ontwerpproces**, uitingen worden gemaakt en opgeslagen in het doel. Uitingen in intents zijn vereist voor een geslaagde LUIS-app. Zodra de app is gepubliceerd en query's op het eindpunt, de querystring van de eindpunt-aanvraag, ontvangt `log=false`, bepaalt u of het eindpunt utterance is opgeslagen. Als het eindpunt is opgeslagen, wordt het onderdeel van de actief leren uitingen gevonden in de **bouwen** sectie van de portal, in de **bekijken eindpunt uitingen** sectie. 
-* Wanneer u **bekijken eindpunt uitingen**, en een utterance toevoegen aan een doel, de utterance is niet meer opgeslagen als onderdeel van de eindpunt-uitingen worden beoordeeld. Deze wordt toegevoegd aan de app intents. 
+* Tijdens **het ontwerp proces**worden uitingen gemaakt en opgeslagen in de bedoeling. Uitingen in intenties zijn vereist voor een geslaagde LUIS-app. Zodra de app is gepubliceerd en er query's worden ontvangen op het eind punt, wordt de query `log=false`reeks van het eindpunt verzoek,, bepaalt of het eind punt utterance is opgeslagen. Als het eind punt wordt opgeslagen, maakt het deel uit van het actieve Learning uitingen dat wordt weer gegeven in de sectie **Build** van de portal, in de sectie beoordeling van het **eind punt uitingen** . 
+* Wanneer u **endpoint uitingen bekijkt**en een utterance aan een intentie toevoegt, wordt de utterance niet meer opgeslagen als onderdeel van het eind punt uitingen dat moet worden gecontroleerd. Deze wordt toegevoegd aan de intenties van de app. 
 
 <a name="utterances-in-an-intent"></a>
 
-### <a name="delete-example-utterances-from-an-intent"></a>Voorbeeld-uitingen vanuit een intent verwijderen
+### <a name="delete-example-utterances-from-an-intent"></a>Voor beeld-uitingen verwijderen uit een intentie
 Verwijderen van de voorbeeld-uitingen die wordt gebruikt voor de training [LUIS](luis-reference-regions.md). Als u een voorbeeld-utterance uit uw LUIS-app verwijdert, wordt verwijderd uit de LUIS-webservice en is niet beschikbaar voor het exporteren.
 
 <a name="utterances-in-review"></a>
 
-### <a name="delete-utterances-in-review-from-active-learning"></a>Uitingen onder revisie verwijderen uit actief leren
+### <a name="delete-utterances-in-review-from-active-learning"></a>Uitingen verwijderen uit actief leren
 
 U kunt uitingen verwijderen uit de lijst met gebruikers-uitingen die LUIS voorgesteld in de  **[voorbeeldpagina eindpunt uitingen](luis-how-to-review-endpoint-utterances.md)** . Uitingen verwijderen uit deze lijst voorkomt dat deze wordt voorgesteld, maar niet verwijderd van Logboeken.
 
-Als u niet dat uitingen actief leren wilt, kunt u [uitschakelen actief leren](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Actief leren uit te schakelen, schakelt ook logboekregistratie.
+Als u geen actieve Learning uitingen wilt, kunt u [actief leren uitschakelen](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Als u actief leren uitschakelt, wordt logboek registratie ook uitgeschakeld.
 
-### <a name="disable-logging-utterances"></a>Uitingen logboekregistratie uitschakelen
-[Actief leren uitschakelen](luis-how-to-review-endpoint-utterances.md#disable-active-learning) schakelt logboekregistratie is.
+### <a name="disable-logging-utterances"></a>Logboek registratie uitingen uitschakelen
+Als u [actief leren](luis-how-to-review-endpoint-utterances.md#disable-active-learning) uitschakelt, wordt logboek registratie uitgeschakeld.
 
 
 <a name="accounts"></a>

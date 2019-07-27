@@ -4,40 +4,40 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: e8daaaf5b6b15eb3095f11e94c707a33b4b18e28
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d8b6b1bfcbceb1168d0f74c73e72bd42b41bb2ec
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175722"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562485"
 ---
-Selecteer **bouwen**. In het dialoogvenster dat wordt geopend, moet u een map voor het exporteren van de Xcode-project te selecteren.
+Selecteer **Build**. In het dialoog venster dat wordt geopend, selecteert u een map waarnaar u het Xcode-project wilt exporteren.
 
-Wanneer de export voltooid is, verschijnt er een map met de geëxporteerde Xcode-project.
+Wanneer het exporteren is voltooid, wordt er een map met het geëxporteerde Xcode-project weer gegeven.
 
 > [!NOTE]
-> Als er een venster waarin u wordt gevraagd of u wilt vervangen of toe te voegen verschijnt, raden wij aan dat u selecteert **Append** omdat deze sneller. U hoeft alleen te selecteren **vervangen** als u activa in uw scène wijzigt. (Bijvoorbeeld, als u wilt toevoegen, verwijderen, of relaties tussen bovenliggende/onderliggende wijzigen of als u toevoegen wilt, verwijderen of wijzigen.) Als u alleen wijzigingen in de bron code **Append** moeten voldoende.
+> Als er een venster wordt weer gegeven waarin u wordt gevraagd of u wilt vervangen of toevoegen, wordt u aangeraden om **toevoegen** te selecteren, omdat het sneller is. U hoeft alleen **vervangen** te selecteren als u activa in uw scène wilt wijzigen. (Als u bijvoorbeeld bovenliggende/onderliggende relaties toevoegt, verwijdert of wijzigt, of als u eigenschappen toevoegt, verwijdert of wijzigt.) Als u alleen wijzigingen in de bron code aanbrengt, moet de **toevoeging** voldoende zijn.
 
-### <a name="open-the-xcode-project"></a>Xcode-project openen
+### <a name="convert-the-xcode-project-to-xcworkspace-containing-azure-spatial-anchors-references"></a>Het Xcode-project converteren naar xcworkspace met ruimtelijke verwijzingen van Azure
 
-Voer deze opdracht in de Terminal te installeren de CocoaPods die nodig zijn voor het project in de map geëxporteerde Xcode-project:
+Voer in de geëxporteerde Xcode-projectmap deze opdracht uit in de terminal om de benodigde CocoaPods voor het project te installeren:
 
 ```bash
 pod install --repo-update
 ```
 
-Nu kunt u openen `Unity-iPhone.xcworkspace` aan het project openen in Xcode:
+U kunt nu openen `Unity-iPhone.xcworkspace` om het project te openen in Xcode:
 
 ```bash
 open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> Als u ziet een `library not found for -lPods-Unity-iPhone` fout, u waarschijnlijk hebt geopend de `.xcodeproj` bestand in plaats van de `.xcworkspace` bestand. 
+> Als er een `library not found for -lPods-Unity-iPhone` fout wordt weer gegeven, hebt u `.xcodeproj` waarschijnlijk het bestand in `.xcworkspace` plaats van het bestand geopend. 
 
-Selecteer de hoofdmap **Unity-iPhone** knooppunt wilt weergeven van de instellingen van het project en selecteer vervolgens de **algemene** tabblad.
+Selecteer het knoop punt hoofd **eenheid van iPhone** om de project instellingen weer te geven en selecteer vervolgens het tabblad **Algemeen** .
 
-Onder **ondertekening**, zorg ervoor dat **ondertekening automatisch beheren** is ingeschakeld. Als dat niet het geval is, het inschakelen en selecteer vervolgens **inschakelen automatische** in het dialoogvenster dat wordt weergegeven om de buildinstellingen te herstellen.
+Zorg ervoor dat het hand tekening **automatisch beheren** onder **ondertekenen**is ingeschakeld. Als dat niet het geval is, schakelt u deze in en selecteert u **automatisch inschakelen** in het dialoog venster dat wordt weer gegeven om de instellingen voor het bouwen opnieuw in te stellen.
 
 Controleer of onder **Deployment Info** de optie **Deployment Info** is ingesteld op `11.0`.
 

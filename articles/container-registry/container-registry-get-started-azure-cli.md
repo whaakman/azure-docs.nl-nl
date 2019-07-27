@@ -10,10 +10,10 @@ ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017, mvc
 ms.openlocfilehash: 6c511c56ab8df14cc6ea81363772ae0fd6d61272
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309535"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Snelstartgids: Een privé-containerregister maken met Azure CLI
@@ -22,7 +22,7 @@ Azure Container Registry is een beheerde service voor Docker-containerregisters 
 
 Voor deze snelstart moet u Azure CLI uitvoeren (versie 2.0.55 of later aanbevolen). Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren][azure-cli] als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
-Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten waarmee docker eenvoudig kan worden geconfigureerd op een [macOS][docker-mac], [Windows][docker-windows]-of [Linux][docker-Linux-] systeem.
+Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten waarmee docker eenvoudig kan worden geconfigureerd op een [macOS][docker-mac]-, [Windows][docker-windows]-of [Linux][docker-linux] -systeem.
 
 Omdat Azure Cloud-Shell niet alle vereiste Docker-onderdelen bevat (de `dockerd`-daemon), kunt u de Cloud Shell niet voor deze snelstart gebruiken.
 

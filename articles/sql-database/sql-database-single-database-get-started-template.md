@@ -1,6 +1,6 @@
 ---
 title: 'Azure Resource Manager: Een individuele database maken - Azure SQL Database | Microsoft Docs'
-description: Een individuele database maken in Azure SQL Database met behulp van de Azure Resource Manager-sjabloon.
+description: Maak een enkele data base in Azure SQL Database met behulp van de Azure Resource Manager sjabloon.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,18 +10,17 @@ ms.topic: quickstart
 author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/28/2019
-ms.openlocfilehash: 4ef0f9ff6f8620109f2ef6f6bd5f549281b4de54
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: f3e9bb0e9a2c4c58a205798441ddc2208019e7d2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472146"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566562"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Quickstart: Een individuele database maken in Azure SQL Database met behulp van de Azure Resource Manager-sjabloon
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Quickstart: Een enkele data base in Azure SQL Database maken met behulp van de Azure Resource Manager sjabloon
 
-Het maken van [één database](sql-database-single-database.md) is de snelste een eenvoudigste implementatieoptie om een database te maken in Azure SQL Database. Deze quickstart laat zien hoe u een individuele database maken met de Azure Resource Manager-sjabloon. Zie voor meer informatie, [Azure Resource Manager-documentatie](/azure/azure-resource-manager/).
+Het maken van [één database](sql-database-single-database.md) is de snelste een eenvoudigste implementatieoptie om een database te maken in Azure SQL Database. In deze Quick start ziet u hoe u een enkele data base maakt met behulp van de sjabloon Azure Resource Manager. Zie [Azure Resource Manager-documentatie](/azure/azure-resource-manager/)voor meer informatie.
 
 Als u nog geen abonnement op Azure hebt, [maak dan een gratis account](https://azure.microsoft.com/free/).
 
@@ -29,11 +28,11 @@ Als u nog geen abonnement op Azure hebt, [maak dan een gratis account](https://a
 
 Een individuele database bevat een gedefinieerde set reken-, geheugen-, IO- en opslagresources die gebruikmaakt van één van twee [aankoopmodellen](sql-database-purchase-models.md). Wanneer u een individuele database maakt, definieert u ook een [SQL Database-server](sql-database-servers.md) om die te beheren en in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) in een opgegeven regio te plaatsen.
 
-De volgende JSON-bestand is de sjabloon die wordt gebruikt in dit artikel. De sjabloon is opgeslagen in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/SQLServerAndDatabase/azuredeploy.json). Meer voorbeelden van Azure SQL database-sjabloon kunnen u vinden in [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
+Het volgende JSON-bestand is de sjabloon die wordt gebruikt in dit artikel. De sjabloon wordt opgeslagen in [github](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/SQLServerAndDatabase/azuredeploy.json). Meer voor beelden van Azure SQL database-sjablonen vindt u in [Azure Quick](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular)start-sjablonen.
 
 [!code-json[create-azure-sql-database-server-and-database](~/resourcemanager-templates/SQLServerAndDatabase/azuredeploy.json)]
 
-1. Selecteer **uitproberen** uit het volgende PowerShell-codeblok Azure Cloud Shell te openen.
+1. Selecteer **Probeer het** uit het volgende Power shell-code blok om Azure Cloud shell te openen.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -50,20 +49,20 @@ De volgende JSON-bestand is de sjabloon die wordt gebruikt in dit artikel. De sj
     Read-Host -Prompt "Press [ENTER] to continue ..."
     ```
 
-1. Selecteer **kopie** het PowerShell-script naar Klembord kopiëren.
-1. Met de rechtermuisknop op de shell-venster en selecteer vervolgens **plakken**.
+1. Selecteer **kopiëren** om het Power shell-script naar het klem bord te kopiëren.
+1. Klik met de rechter muisknop op het deel venster shell en selecteer vervolgens **Plakken**.
 
-    Het duurt een paar minuten om de database-server en de database te maken.
+    Het duurt enkele minuten om de database server en de data base te maken.
 
 ## <a name="query-the-database"></a>Een query uitvoeren op de database
 
-Als u wilt zoeken in de database, Zie [zoeken in de database](./sql-database-single-database-get-started.md#query-the-database).
+Zie [query uitvoeren op de data](./sql-database-single-database-get-started.md#query-the-database)Base om de data base te doorzoeken.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 Behoud deze resourcegroep, databaseserver en individuele database als u naar de [Volgende stappen](#next-steps) wilt gaan. De volgende stappen laten zien hoe u verbinding maakt met en een query uitvoert op uw database met behulp van verschillende methoden.
 
-Verwijderen van de resourcegroep met Azure Powershell:
+De resource groep verwijderen door Azure Power shell:
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name"
@@ -80,5 +79,5 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 - Nadat u een serverfirewallregel hebt gemaakt, kunt u met verschillende hulpprogramma's en programmeertalen [verbinding maken met uw database en query's uitvoeren](sql-database-connect-query.md) op uw database.
   - [Verbinding maken en query's uitvoeren met behulp van SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Verbinding maken en query's uitvoeren met behulp van Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- Zie voor het maken van een individuele database met behulp van Azure CLI, [Azure CLI-voorbeelden](sql-database-cli-samples.md).
-- Zie voor het maken van een individuele database met behulp van Azure PowerShell, [voorbeelden van Azure PowerShell](sql-database-powershell-samples.md).
+- Zie [Azure cli](sql-database-cli-samples.md)-voor beelden voor het maken van één data base met behulp van Azure cli.
+- Zie Azure PowerShell-voor [beelden](sql-database-powershell-samples.md)om een enkele data base te maken met behulp van Azure PowerShell.

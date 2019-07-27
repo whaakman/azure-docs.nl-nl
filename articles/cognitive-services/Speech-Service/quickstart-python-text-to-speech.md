@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Converteren van tekst naar spraak, Python - spraakservices'
+title: 'Quickstart: Tekst-naar-spraak-, python-Speech-Service converteren'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids leert u hoe u om te converteren tekst naar spraak met behulp van Python en de tekst naar spraak REST-API. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als spraak synthese Markup Language (SSML). Hiermee kunt u de spraak en taal van het antwoord spraak te kiezen.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 60a7fe79de62e3b81e25c17c23ba39a08e8a061c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0afe5897c723e22405d9bde2e9c9e729d0373a06
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604990"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553675"
 ---
-# <a name="quickstart-convert-text-to-speech-using-python"></a>Quickstart: Converteert tekst naar spraak met behulp van Python
+# <a name="quickstart-convert-text-to-speech-using-python"></a>Quickstart: Tekst-naar-spraak converteren met behulp van python
 
 In deze snelstartgids leert u hoe u om te converteren tekst naar spraak met behulp van Python en de Text to Speech REST-API. De hoofdtekst van de aanvraag in deze handleiding is opgebouwd als [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md), waarmee u de spraak en taal van het antwoord te kiezen.
 
-Deze snelstartgids moet een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een resource Speech Services. Als u geen account hebt, kunt u de [gratis proefversie](get-started.md) gebruiken om een abonnementssleutel op te halen.
+Voor deze Snelstartgids is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) vereist met een speech Services-resource. Als u geen account hebt, kunt u de [gratis proefversie](get-started.md) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,7 +29,7 @@ Voor deze snelstart zijn de volgende zaken vereist:
 
 * Python 2.7.x of 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) of uw favoriete teksteditor
-* De sleutel van een Azure-abonnement voor de spraakservices
+* Een sleutel van een Azure-abonnement voor de spraak Services
 
 ## <a name="create-a-project-and-import-required-modules"></a>Een project maken en de vereiste modules importeren
 
@@ -73,9 +73,9 @@ De `subscription_key` is de unieke sleutel vanuit de Azure-portal. `tts` vraagt 
 
 ## <a name="get-an-access-token"></a>Een toegangstoken opvragen
 
-De Text to Speech REST-API is een toegangstoken voor verificatie vereist. Als u een toegangstoken, is een exchange vereist. In dit voorbeeld uitwisselt uw abonnementssleutel Speech Services voor een access token met de `issueToken` eindpunt.
+De Text to Speech REST-API is een toegangstoken voor verificatie vereist. Als u een toegangstoken, is een exchange vereist. In dit voor beeld wordt uw abonnements sleutel voor spraak Services voor een toegangs `issueToken` token met behulp van het eind punt uitgewisseld.
 
-In dit voorbeeld wordt ervan uitgegaan dat uw abonnement spraakservices in de regio VS-West. Als u een andere regio, werk de waarde voor `fetch_token_url`. Zie voor een volledige lijst [regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+In dit voor beeld wordt ervan uitgegaan dat uw speech Services-abonnement zich in de regio vs-West bevindt. Als u een andere regio, werk de waarde voor `fetch_token_url`. Zie voor een volledige lijst [regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Kopieer deze code in de `TextToSpeech` klasse:
 
@@ -90,11 +90,11 @@ def get_token(self):
 ```
 
 > [!NOTE]
-> Zie voor meer informatie over verificatie [verifiëren met een toegangstoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
+> Zie [verifiëren met een toegangs token](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token)voor meer informatie over verificatie.
 
 ## <a name="make-a-request-and-save-the-response"></a>Een aanvraag indienen en het antwoord opslaan
 
-Hier gaat u naar de aanvraag voor het samenstellen en sla het antwoord spraak. Eerst moet u om in te stellen de `base_url` en `path`. In dit voorbeeld wordt ervan uitgegaan dat u het eindpunt van de VS-West. Als de bron naar een andere regio is geregistreerd, moet u bijwerken de `base_url`. Zie voor meer informatie, [Speech Services-regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Hier gaat u naar de aanvraag voor het samenstellen en sla het antwoord spraak. Eerst moet u om in te stellen de `base_url` en `path`. In dit voorbeeld wordt ervan uitgegaan dat u het eindpunt van de VS-West. Als de bron naar een andere regio is geregistreerd, moet u bijwerken de `base_url`. Zie voor meer informatie [spraak Services regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Vervolgens moet u vereiste headers voor de aanvraag toevoegen. Zorg ervoor dat bij te werken `User-Agent` met de naam van uw resource (te vinden in Azure portal) en stel `X-Microsoft-OutputFormat` aan uw gewenste audio-uitvoer. Zie voor een volledige lijst van de uitvoerindeling op te geven, [Audio-uitvoer](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 

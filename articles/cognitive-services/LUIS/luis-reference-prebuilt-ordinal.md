@@ -1,6 +1,6 @@
 ---
-title: Rangtelwoord vooraf gemaakte entiteiten
-titleSuffix: Azure
+title: Vooraf samengestelde ordinale entiteit-LUIS
+titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat rangtelwoord vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 16529c8334ae9f2eed5715abb22dcbcdbebec7c4
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8070f614e84dd4c328d7451103c0850826704e60
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485114"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560209"
 ---
-# <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Rangtelwoord vooraf gedefinieerde entiteit voor een LUIS-app
+# <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Vooraf gebouwde ordinale entiteit voor een LUIS-app
 Rangtelwoord is een numerieke representatie van een object in een set: `first`, `second`, `third`. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met rangtelwoord voor de toepassing intents. Rangtelwoord entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-ordinal"></a>Typen volgnummer
-Het rangtelwoord voor wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) GitHub-opslagplaats
+Rang telwoord wordt beheerd vanuit de map [recognizers-text github-](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) opslag plaats
 
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>Oplossing voor vooraf gedefinieerde rangtelwoord entiteit
 
-### <a name="api-version-2x"></a>API-versie 2.x
+### <a name="api-version-2x"></a>API-versie 2. x
 
 Het volgende voorbeeld ziet u de resolutie van de **builtin.ordinal** entiteit.
 
@@ -61,9 +61,9 @@ Het volgende voorbeeld ziet u de resolutie van de **builtin.ordinal** entiteit.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Preview-API-versie 3.x
+### <a name="preview-api-version-3x"></a>Preview-API versie 3. x
 
-De volgende JSON is met de `verbose` parameter ingesteld op `false`:
+De volgende JSON is met de `verbose` para meter ingesteld `false`op:
 
 ```json
 {
@@ -88,7 +88,7 @@ De volgende JSON is met de `verbose` parameter ingesteld op `false`:
 }
 ```
 
-De volgende JSON is met de `verbose` parameter ingesteld op `true`:
+De volgende JSON is met de `verbose` para meter ingesteld `true`op:
 
 ```json
 {
@@ -130,4 +130,4 @@ De volgende JSON is met de `verbose` parameter ingesteld op `true`:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [telefoonnummer](luis-reference-prebuilt-phonenumber.md), en [temperatuur](luis-reference-prebuilt-temperature.md) entiteiten. 
+Meer informatie over de [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), het [telefoon nummer](luis-reference-prebuilt-phonenumber.md)en de [temperatuur](luis-reference-prebuilt-temperature.md) entiteiten. 

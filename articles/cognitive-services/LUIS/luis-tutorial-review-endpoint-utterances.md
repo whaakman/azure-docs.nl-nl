@@ -1,5 +1,5 @@
 ---
-title: Eindpuntuitingen controleren
+title: Endpoint uitingen-LUIS controleren
 titleSuffix: Azure Cognitive Services
 description: Verbeter de voorspellingen van de app door de uitingen die worden ontvangen via het LUIS-HTTP-eindpunt (en waar LUIS niet zeker over is) te controleren of corrigeren. Bij sommige uitingen moet mogelijk de intentie worden gecontroleerd en bij andere de entiteit.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 2994f7b19d5a104b129dc4d7aff29dabbc89f0f4
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: dd5c0012bad567623fdfc0a70760f692aafe0e3e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276026"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563327"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Zelfstudie: Onzekere voorspellingen herstellen door eindpuntuitingen te controleren
 In deze zelfstudie leert u de voorspellingen van de app te verbeteren door de uitingen die worden ontvangen via het LUIS-HTTP-eindpunt (en waar LUIS niet zeker over is) te controleren of corrigeren. Bij sommige uitingen moet mogelijk de intentie worden gecontroleerd en bij andere de entiteit. Controleer de eindpuntuitingen regelmatig als onderdeel van uw geplande LUIS-onderhoud. 
@@ -75,19 +75,19 @@ Voer de volgende stappen uit:
     [![Schermafbeelding van het paneel Eindpuntuitingen beoordelen met de wisselknop Entiteiten weergeven gemarkeerd](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
 
-    Deze utterance `I'm looking for a job with Natural Language Processing`, is niet de juiste intentie. 
+    Deze utterance, `I'm looking for a job with Natural Language Processing`, is niet in de juiste intentie. 
 
-    De reden dat de utterance is mispredicted is dat de **ApplyForJob** bedoeling is 21 uitingen ten opzichte van de 7 uitingen in **GetJobInformation**. Het doel met meer uitingen hebben een hogere voorspelling. Het is belangrijk dat de hoeveelheid en de kwaliteit van de uitingen via intents is verdeeld.
+    De reden waarom de utterance een misvoor speld is, is dat de **ApplyForJob** -intentie 21 uitingen heeft vergeleken met de 7 uitingen in **GetJobInformation**. De intentie met meer uitingen heeft een hogere voor spelling. Het is belang rijk dat de hoeveelheid en de kwaliteit van de uitingen in de intenties evenwichtig is.
 
-1.  Als u wilt deze utterance uitlijnen, selecteert u het juiste doel en de taak entiteit in het markeren. De gewijzigde utterance toevoegen aan de app door de groene selectievakje. 
+1.  Als u deze utterance wilt uitlijnen, selecteert u de juiste intentie en markeert u de taak entiteit hierin. Voeg het gewijzigde utterance toe aan de app door het selectie vakje groen in te scha kelen. 
 
     |Utterance|Correcte intentie|Ontbrekende entiteiten|
     |:--|:--|:--|
     |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Taak - 'Natuurlijke taalverwerking'|
 
-    Toevoegen van de utterance verplaatst de utterance van de **eindpunt uitingen bekijken** naar de **GetJobInformation** intentie. De eindpuntuiting is nu een voorbeelduiting voor deze intentie. 
+    Als u de utterance toevoegt, wordt de utterance van het **eind punt van de beoordeling uitingen** naar de **GetJobInformation** -intentie verplaatst. De eindpuntuiting is nu een voorbeelduiting voor deze intentie. 
 
-    Samen met het uitlijnen van deze utterance correct, meer uitingen moeten worden toegevoegd aan de **GetJobInformation** intentie. Deze stappen kunt u bij wijze van oefening zelf uitvoeren. Alle intenties, met uitzondering van de intentie **None**, zouden ongeveer hetzelfde aantal voorbeelduitingen moeten bevatten. De intentie **None** zou 10% van het totale aantal uitingen in de app moeten bevatten. 
+    Naast het correct uitlijnen van deze utterance, moeten er meer uitingen worden toegevoegd aan de **GetJobInformation** intentie. Deze stappen kunt u bij wijze van oefening zelf uitvoeren. Alle intenties, met uitzondering van de intentie **None**, zouden ongeveer hetzelfde aantal voorbeelduitingen moeten bevatten. De intentie **None** zou 10% van het totale aantal uitingen in de app moeten bevatten. 
 
 1. Beoordeel de resterende uitingen in deze intentie, waarbij u de uitingen van een label kunt voorzien en de **Uitgelijnde intentie** kunt corrigeren als deze onjuist zijn.
 

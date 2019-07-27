@@ -1,7 +1,7 @@
 ---
-title: Evalueren van nauwkeurigheid voor aangepaste spraak - spraakservices
-titlesuffix: Azure Cognitive Services
-description: In dit document leert u hoe u de kwaliteit van de spraak-naar-tekst-model van Microsoft of uw aangepaste kwantitatief te meten. Audio + human etiket transcriptie gegevens is vereist voor het testen van nauwkeurigheid en 30 minuten tot vijf uur representatieve audio moet worden opgegeven.
+title: Nauw keurigheid evalueren voor de Custom Speech Speech-Service
+titleSuffix: Azure Cognitive Services
+description: In dit document leert u hoe u de kwaliteit van het spraak-naar-tekst model of uw aangepaste model kwantitatief kunt meten. Audio en menselijk gelabelde transcriptie-gegevens zijn vereist om nauw keurigheid te testen en er moet een representatieve audio van 30 minuten tot 5 uur worden opgegeven.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,65 +10,65 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 2e9818fad9a0b5d04cc50a293b16d838c319dd86
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: bd8bbc28247ecd924db25cb4b916d1d466065606
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606571"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562869"
 ---
-# <a name="evaluate-custom-speech-accuracy"></a>Aangepaste spraak nauwkeurigheid evalueren
+# <a name="evaluate-custom-speech-accuracy"></a>Nauw keurigheid van Custom Speech evalueren
 
-In dit document leert u hoe u voor het meten van de kwaliteit van de spraak-naar-tekst-model van Microsoft of uw aangepaste kwantitatief. Audio + human etiket transcriptie gegevens is vereist voor het testen van nauwkeurigheid en 30 minuten tot vijf uur representatieve audio moet worden opgegeven.
+In dit document leert u hoe u de kwaliteit van het spraak-naar-tekst model van micro soft of uw aangepaste model kwantitatief kunt meten. Audio en menselijk gelabelde transcriptie-gegevens zijn vereist om nauw keurigheid te testen en er moet een representatieve audio van 30 minuten tot 5 uur worden opgegeven.
 
-## <a name="what-is-word-error-rate-wer"></a>Wat is er Word fout tarief (WER)?
+## <a name="what-is-word-error-rate-wer"></a>Wat is een woord fout (WER)?
 
-De industriestandaard voor het meten van de nauwkeurigheid van model is *Word Foutfrequentie* (Windows Foutrapportage). Windows Foutrapportage telt het aantal onjuiste woorden die zijn geïdentificeerd tijdens de opname, vervolgens wordt gedeeld door het totale aantal woorden die zijn opgegeven in het transcript human-met het label. Dit nummer wordt ten slotte, vermenigvuldigd met 100% voor het berekenen van de Windows Foutrapportage.
+De industrie standaard om de nauw keurigheid van het model te meten is een *woord fout* (wer). WER telt het aantal onjuiste woorden dat is geïdentificeerd tijdens de herkenning. vervolgens wordt gedeeld door het totale aantal woorden dat is opgegeven in de transcripten met menselijke labels. Ten slotte wordt dat aantal vermenigvuldigd met 100% om de WER te berekenen.
 
-![Windows Foutrapportage formule](./media/custom-speech/custom-speech-wer-formula.png)
+![WER-formule](./media/custom-speech/custom-speech-wer-formula.png)
 
-Onjuist geïdentificeerd woorden kunnen worden onderverdeeld in drie categorieën:
+Onjuist geïdentificeerde woorden vallen in drie categorieën:
 
-* Invoegen (I): Woorden die onjuist zijn toegevoegd in het transcript hypothese
-* Verwijderen (D): Woorden die gevonden in het transcript hypothese zijn
-* Vervanging (S): Woorden die zijn vervangen tussen de bron- en hypothese
+* Invoeg actie (I): Woorden die onjuist zijn toegevoegd in de transcripten van hypo Thesen
+* Verwijdering (D): Woorden die niet worden gedetecteerd in de transcripten van hypo Thesen
+* Vervanging (en): Woorden die zijn vervangen tussen verwijzing en hypo these
 
 Hier volgt een voorbeeld:
 
-![Voorbeeld van een onjuist geïdentificeerde woorden](./media/custom-speech/custom-speech-dis-words.png)
+![Voor beeld van onjuist geïdentificeerde woorden](./media/custom-speech/custom-speech-dis-words.png)
 
-## <a name="resolve-errors-and-improve-wer"></a>Los problemen op en verbeteren van Windows Foutrapportage
+## <a name="resolve-errors-and-improve-wer"></a>Fouten oplossen en WER verbeteren
 
-De Windows Foutrapportage uit de resultaten van de machine-herkenning kunt u de kwaliteit van het model dat u met uw app, een hulpprogramma of een product evalueren. Een Windows Foutrapportage van 5-10% wordt beschouwd als goede kwaliteit en is klaar voor gebruik. Een Windows Foutrapportage van 20% is acceptabel, maar kunt u rekening houden met extra training. Een Windows Foutrapportage van 30% of meer signalen van slechte kwaliteit en aanpassing en training vereist.
+U kunt de WER van de resultaten van de computer herkenning gebruiken om de kwaliteit te evalueren van het model dat u gebruikt met uw app, hulp programma of product. Een WER van 5%-10% wordt beschouwd als een goede kwaliteit en is klaar voor gebruik. Een WER van 20% is acceptabel, maar u kunt ook extra training overwegen. Een WER van 30% of meer heeft een slechte kwaliteit en vereist aanpassing en training.
 
-Hoe de fouten zijn verdeeld is belangrijk. Als veel verwijderingsfouten optreden, komt dit meestal vanwege zwakke audio signaalsterkte. U lost dit probleem, moet u voor het verzamelen van audio gegevens dichter bij de bron. Invoegen fouten betekenen dat de audio is vastgelegd in een omgeving met veel ruis en aanwezig is, is door elkaar praten mogelijk erkenning problemen veroorzaken. Vervanging fouten vaak optreden wanneer een onvoldoende voorbeeld van domeinspecifieke voorwaarden is opgegeven als een van beide transcripties human etiket of gerelateerde tekst.
+Hoe de fouten worden gedistribueerd, is belang rijk. Wanneer er veel verwijderings fouten optreden, is dit meestal het gevolg van een zwakke geluids signaal sterkte. Om dit probleem op te lossen, moet u audio gegevens dichter bij de bron verzamelen. Invoeg fouten betekenen dat de audio is vastgelegd in een rustige omgeving en dat er crosstalk mogelijk aanwezig zijn, waardoor herkennings problemen ontstaan. Vervangings fouten worden vaak aangetroffen wanneer er een ontoereikend voor beeld van specifieke domein termen is opgegeven als een transcripties of gerelateerde tekst.
 
-Door het analyseren van afzonderlijke bestanden, kunt u bepalen welk type fouten bestaan, en welke fouten zijn uniek is voor een specifiek bestand. Inzicht in problemen op het niveau van ziet u een gericht op verbeteringen.
+Door afzonderlijke bestanden te analyseren, kunt u bepalen welk type fouten bestaan en welke fouten uniek zijn voor een bepaald bestand. Als u problemen ondervindt op bestands niveau, kunt u verbeteringen aanrichten.
 
 ## <a name="create-a-test"></a>Een test maken
 
-Als u wilt testen van de kwaliteit van de spraak-naar-tekst basislijn-model van Microsoft of een aangepast model dat u hebt getraind, kunt u twee modellen met elkaar om te evalueren nauwkeurigheid kunt vergelijken. De vergelijking neemt de resultaten van Windows Foutrapportage en herkenning. Normaal gesproken wordt een aangepast model vergeleken met de Microsoft baseline model.
+Als u de kwaliteit van het spraak-naar-tekst basislijn model van micro soft of een aangepast model dat u hebt getraind wilt testen, kunt u twee modellen naast elkaar vergelijken om de nauw keurigheid te evalueren. De vergelijking omvat WER-en herkennings resultaten. Normaal gesp roken wordt een aangepast model vergeleken met het basis model van micro soft.
 
-Om te evalueren van modellen naast elkaar:
+Modellen naast elkaar evalueren:
 
-1. Navigeer naar **spraak-naar-tekst > aangepaste spraak > testen**.
-2. Klik op **Test toevoegen**.
-3. Selecteer **evalueren nauwkeurigheid**. Geef de test een naam en beschrijving, en selecteer uw gegevensset audio + human etiket transcriptie.
-4. Selecteer maximaal twee modellen die u wilt testen.
+1. Navigeer naar **> voor spraak naar tekst Custom Speech > tests**uit te voeren.
+2. Klik op **test toevoegen**.
+3. Selecteer **nauw keurigheid evalueren**. Geef een naam en beschrijving op voor de test en selecteer uw transcriptie-gegevensset voor audio + met Human label.
+4. Selecteer Maxi maal twee modellen die u wilt testen.
 5. Klik op **Create**.
 
-Nadat de test is gemaakt, kunt u de resultaten naast elkaar kunt vergelijken.
+Nadat de test is gemaakt, kunt u de resultaten naast elkaar vergelijken.
 
-## <a name="side-by-side-comparison"></a>Vergelijking van de side-by-side
+## <a name="side-by-side-comparison"></a>Side-by-side-vergelijking
 
-Zodra de test voltooid is, wordt aangegeven door de status gewijzigd in *geslaagd*, vindt u enkele van de Windows Foutrapportage voor beide modellen die zijn opgenomen in de test. Klik op de testnaam van de om de detailpagina van de tests weer te geven. Deze pagina geeft een lijst van alle uitingen in uw gegevensset, die wijzen op de resultaten van de twee modellen naast de transcriptie uit de opgegeven gegevensset. Om te controleren van de side-by-side-vergelijking, kunt u verschillende fouttypen, inclusief invoegen, verwijderen en vervangen van kunt schakelen. Door te luisteren naar de audio en vergelijken herkenningsresultaten in elke kolom, waarin de transcriptie human-met het label en de resultaten voor de twee modellen voor spraak-naar-tekst, kunt u bepalen welk model u voldoet aan uw behoeften en waarvoor extra training en verbeteringen zijn Vereist.
+Zodra de test is voltooid, wordt aangegeven dat de status is gewijzigd in *geslaagd*. u vindt hier een wer-nummer voor beide modellen die in de test zijn opgenomen. Klik op de naam van de test om de detail pagina van de test te bekijken. Deze detail pagina bevat een lijst met alle uitingen in uw gegevensset, waarmee de herkennings resultaten van de twee modellen naast de transcriptie van de verzonden gegevensset worden aangegeven. Als u de gelijktijdige vergelijking wilt controleren, kunt u verschillende fout typen met inbegrip van invoegen, verwijderen en vervangen. Als u naar de audio luistert en de herkennings resultaten in elke kolom vergelijkt, waarin de transcriptie en de resultaten van twee spraak-naar-tekst modellen worden weer gegeven, kunt u bepalen welk model aan uw behoeften voldoet en waar extra training en verbeteringen zijn Vereist.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Uw model te trainen](how-to-custom-speech-train-model.md)
+* [Uw model trainen](how-to-custom-speech-train-model.md)
 * [Uw model implementeren](how-to-custom-speech-deploy-model.md)
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Voorbereiden en testen van uw gegevens](how-to-custom-speech-test-data.md)
-* [Controleer uw gegevens](how-to-custom-speech-inspect-data.md)
+* [Uw gegevens voorbereiden en testen](how-to-custom-speech-test-data.md)
+* [Uw gegevens controleren](how-to-custom-speech-inspect-data.md)

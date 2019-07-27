@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Aangepaste spraak op de eerste virtuele assistent (Preview), Java (Android) - spraakservices'
+title: 'Quickstart: Aangepaste spraak-eerste virtuele assistent (preview), java (Android)-spraak service'
 titleSuffix: Azure Cognitive Services
-description: Informatie over het maken van een virtuele assistent voice-first-toepassing in Java op Android met behulp van de spraak-SDK
+description: Meer informatie over het maken van een toepassing voor de spraak-eerste virtuele assistent in java in Android met behulp van de Speech SDK
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -10,32 +10,32 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: c62402faa1995e1e992c8251ed87160a8f33d3a7
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1c203bb39a90fdb1c77c3a2c844318a748df7c63
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602749"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559215"
 ---
-# <a name="quickstart-create-a-voice-first-virtual-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Quickstart: Maken van een stem op de eerste virtuele assistent in Java op Android met behulp van de spraak-SDK
+# <a name="quickstart-create-a-voice-first-virtual-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Quickstart: Een virtuele assistent met spraak herkenning maken in Java op Android met behulp van de Speech SDK
 
-Er is ook een snelstartgids beschikbaar voor [spraak-naar-tekst](quickstart-java-android.md).
+Er is ook een Snelstartgids beschikbaar voor [spraak naar tekst](quickstart-java-android.md).
 
-In dit artikel, bouwt u een stem op de eerste virtuele assistent met behulp van Java voor het gebruik van Android de [spraak SDK](speech-sdk.md). Deze toepassing maakt verbinding met een bot die u al hebt gemaakt en geconfigureerd met de [channel voor directe regel spraak](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech). Deze wordt vervolgens een stem-aanvraag verzenden naar de bot en presenteren van een activiteit spraakmogelijkheden antwoord.
+In dit artikel maakt u een virtuele assistent van het hoogste spraak met Java voor Android met behulp van de [spraak-SDK](speech-sdk.md). Met deze toepassing wordt verbinding gemaakt met een bot die u al hebt gemaakt en geconfigureerd met het [directe lijn spraak kanaal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech). Er wordt dan een spraak aanvraag verzonden naar de bot en er wordt een reactie activiteit met spraak ingeschakeld.
 
-Deze toepassing is gemaakt met de Speech SDK Maven-pakket- en Android Studio 3.3. De Speech SDK is op dit moment compatibel met Android-apparaten met 32/64-bits ARM- en Intel x86/x64-compatibele processors.
+Deze toepassing is gebouwd met het Speech SDK maven-pakket en Android Studio 3,3. De Speech SDK is op dit moment compatibel met Android-apparaten met 32/64-bits ARM- en Intel x86/x64-compatibele processors.
 
 > [!NOTE]
 > Zie [Speech Devices SDK](speech-devices-sdk.md) voor de Speech Devices-SDK en het Roobo-apparaat.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De sleutel van een Azure-abonnement voor Speech Services. [Vraag een gratis](get-started.md) of maken door op de [Azure-portal](https://portal.azure.com).
-* Een eerder gemaakte bot geconfigureerd met de [channel voor directe regel spraak](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-* [Android Studio](https://developer.android.com/studio/) v3.3 of hoger
+* Een Azure-abonnements sleutel voor spraak Services. [Ontvang een gratis versie](get-started.md) of maak deze op de [Azure Portal](https://portal.azure.com).
+* Een eerder gemaakte bot die is geconfigureerd met het [directe lijn spraak kanaal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+* [Android Studio](https://developer.android.com/studio/) v 3.3 of hoger
 
     > [!NOTE]
-    > Directe regel spraak (Preview) is momenteel beschikbaar in een subset van Services voor spraak-regio's. Raadpleeg [de lijst met ondersteunde regio's voor virtuele voice-first-assistenten](regions.md#Voice-first virtual assistants) en zorg ervoor dat uw resources worden geïmplementeerd in een van deze regio's.
+    > Direct line Speech (preview) is momenteel beschikbaar in een subset van de regio's met spraak Services. Raadpleeg [de lijst met ondersteunde regio's voor de eerste virtuele assistenten voor spraak](regions.md#Voice-first virtual assistants) en zorg ervoor dat uw resources in een van deze regio's worden geïmplementeerd.
 
 ## <a name="create-and-configure-a-project"></a>Een project maken en configureren
 
@@ -43,7 +43,7 @@ Deze toepassing is gemaakt met de Speech SDK Maven-pakket- en Android Studio 3.3
 
 ## <a name="create-user-interface"></a>Gebruikersinterface maken
 
-In deze sectie maken we een eenvoudige gebruikersinterface (UI) voor de toepassing. Laten we beginnen met het openen van de belangrijkste activiteit: `activity_main.xml`. De eenvoudige sjabloon bevat een titelbalk met de naam van de toepassing, en een `TextView` met het bericht "Hallo wereld!".
+In deze sectie maken we een Basic-gebruikers interface (UI) voor de toepassing. Laten we beginnen met het openen van de hoofd `activity_main.xml`activiteit:. De basis sjabloon bevat een titel balk met de naam van de toepassing en een `TextView` met het bericht ' Hello World! '.
 
 Vervang vervolgens de inhoud van de `activity_main.xml` door de volgende code:
 
@@ -94,11 +94,11 @@ Vervang vervolgens de inhoud van de `activity_main.xml` door de volgende code:
    </LinearLayout>
    ```
 
-Deze XML definieert een eenvoudige gebruikersinterface voor interactie met uw bot.
+Deze XML definieert een eenvoudige gebruikers interface voor interactie met uw bot.
 
-* De `button` element initieert een interactie en roept de `onBotButtonClicked` methode wanneer geklikt.
-* De `recoText` element de resultaten van de spraak-naar-tekst wordt weergegeven als u Neem op met uw bot contact.
-* De `activityText` element de JSON-nettolading voor de meest recente Bot Framework-activiteit van uw bot wordt weergegeven.
+* Het `button` element initieert een interactie en roept de `onBotButtonClicked` methode aan wanneer erop wordt geklikt.
+* Het `recoText` element geeft de resultaten van de spraak-naar-tekst weer wanneer u met uw bot praat.
+* Het `activityText` element geeft de JSON-Payload voor de nieuwste bot-Framework activiteit van uw bot.
 
 De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeveer als volgt uitzien:
 
@@ -106,7 +106,7 @@ De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeve
 
 ## <a name="add-sample-code"></a>Voorbeeldcode toevoegen
 
-1. Open `MainActivity.java`, en vervang de inhoud door de volgende code:
+1. Open `MainActivity.java`en vervang de inhoud door de volgende code:
 
    ```java
     package samples.speech.cognitiveservices.microsoft.com;
@@ -250,19 +250,19 @@ De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeve
     }
    ```
 
-   * De `onCreate` methode omvat een code die microfoon en internet machtigingen worden aangevraagd.
+   * De `onCreate` methode bevat code die microfoon-en Internet machtigingen aanvraagt.
 
-   * De methode `onBotButtonClicked` is, zoals eerder gezegd, de methode voor het afhandelen van het klikken op de knop. Druk op een knop wordt één interactie ('inschakelen') met uw bot geactiveerd.
+   * De methode `onBotButtonClicked` is, zoals eerder gezegd, de methode voor het afhandelen van het klikken op de knop. Een knop indrukt een enkele interactie (' turn ') wordt geactiveerd met uw bot.
 
-   * De `registerEventListeners` methode ziet u de gebeurtenissen die worden gebruikt door de `DialogServiceConnector` en basic verwerking van inkomende activiteiten.
+   * De `registerEventListeners` -methode demonstreert de gebeurtenissen die worden `DialogServiceConnector` gebruikt door de en basis verwerking van binnenkomende activiteiten.
 
-1. Vervang de configuratietekenreeksen zodat deze overeenkomt met uw resources in hetzelfde bestand:
+1. Vervang in hetzelfde bestand de configuratie teken reeksen zodat deze overeenkomen met uw resources:
 
-    * Vervang `YourChannelSecret` met rechtstreekse regel spraak kanaal geheim voor uw bot.
+    * Vervang `YourChannelSecret` door het directe lijn spraak kanaal geheim voor uw bot.
 
     * Vervang `YourSpeechSubscriptionKey` door uw abonnementssleutel.
 
-    * Vervang `YourServiceRegion` met de [regio](regions.md) die zijn gekoppeld aan uw abonnement alleen een subset van Services voor spraak-regio's worden momenteel ondersteund met spraak-directe regel. Zie voor meer informatie, [regio's](regions.md#voice-first-virtual-assistants).
+    * Vervangen `YourServiceRegion` door de [regio](regions.md) die aan uw abonnement is gekoppeld alleen een subset van spraak Services regio's wordt momenteel ondersteund met direct line speech. Zie [regio's](regions.md#voice-first-virtual-assistants)voor meer informatie.
 
 ## <a name="build-and-run-the-app"></a>De app bouwen en uitvoeren
 
@@ -276,18 +276,18 @@ De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeve
 
    ![Schermafbeelding van het venster Select Deployment Target](media/sdk/qs-java-android-12-deploy.png)
 
-Nadat de toepassing en haar activiteit hebt gestart, klikt u op de knop om te beginnen met de communicatie met uw bot. Getranscribeerde tekst wordt weergegeven als u de meest recente activiteit hebt u ontvangen van uw bot wordt weergegeven wanneer deze is ontvangen en spreken. Als uw bot is geconfigureerd voor het bieden van respons gesproken, wordt de spraak-naar-tekst automatisch afgespeeld.
+Zodra de toepassing en de bijbehorende activiteiten zijn gestart, klikt u op de knop om te beginnen met het praten met uw bot. Getranscribeerde tekst wordt weer gegeven terwijl u praat en de laatste activiteit die u hebt ontvangen van uw bot wordt weer gegeven wanneer deze wordt ontvangen. Als uw bot is geconfigureerd om gesp roken reacties te geven, wordt de spraak-naar-tekst automatisch afgespeeld.
 
 ![Schermafbeelding van de Android-toepassing](media/sdk/qs-java-android-assistant-completed-turn.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Maken en implementeren van een basic-bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+> [Een basisbot maken en implementeren](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>Zie ook
-- [Over stem op de eerste virtuele assistent](voice-first-virtual-assistants.md)
-- [Ontvangt u een abonnementssleutel Speech Services gratis](get-started.md)
-- [Aangepaste wake woorden](speech-devices-sdk-create-kws.md)
-- [Directe regel spraak verbinden met uw bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Over de spraak-eerste virtuele assistenten](voice-first-virtual-assistants.md)
+- [Gratis een abonnements sleutel voor spraak Services aanschaffen](get-started.md)
+- [Aangepaste Ontwaak woorden](speech-devices-sdk-create-kws.md)
+- [Directe lijn spraak op uw bot aansluiten](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Bekijk Java-voorbeelden op GitHub](https://aka.ms/csspeech/samples)

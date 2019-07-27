@@ -1,6 +1,6 @@
 ---
-title: Samenwerken met anderen
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Samen werken met anderen-LUIS
+titleSuffix: Azure Cognitive Services
 description: Eigenaar van een app kunt deelnemers toevoegen aan de app. Deze medewerkers kunnen wijzigen het model te trainen en publiceren van de app.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: f23212a854fb37dda89fd2bf6b223cf0dc69526b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 004bb979adcc0d7ba4860a917242e2219d7f1379
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198719"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560476"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Auteurs en deelnemers beheren 
 
@@ -44,12 +44,12 @@ Hoewel LUIS momenteel geen overdracht van eigendom ondersteunt, kunt u uw app ex
 
 ## <a name="azure-active-directory-resources"></a>Azure Active Directory-resources
 
-Als u [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) in uw organisatie, Language Understanding (LUIS) heeft toestemming nodig om de informatie over uw gebruikers toegang wanneer ze willen LUIS gebruikt. De resources die vereist dat LUIS zijn minimaal. 
+Als u [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) in uw organisatie gebruikt, moet language UNDERSTANDING (Luis) toestemming hebben voor de informatie over de toegang van gebruikers wanneer ze Luis willen gebruiken. De resources die vereist dat LUIS zijn minimaal. 
 
 De gedetailleerde beschrijving ziet u wanneer u probeert aan te melden met een account met toestemming van een beheerder is of geen toestemming van een beheerder, zoals administrator toestemming vereist:
 
-* Hiermee kunt u zich aanmelden bij de app met uw organisatieaccount en kan uw profiel te lezen. Ook kunnen de app die basisgegevens over het bedrijfsinformatie te lezen. Dit biedt LUIS-machtiging voor het lezen van gegevens van de basisprofielgegevens, zoals gebruikers-ID, e-mailadres, naam
-* Hiermee kan de app weergeven en bijwerken van uw gegevens, zelfs wanneer u de app momenteel niet worden gebruikt. De machtiging is vereist voor het vernieuwen van het toegangstoken van de gebruiker.
+* Hiermee kunt u zich aanmelden bij de app met uw organisatieaccount en kan uw profiel te lezen. Ook kunnen de app die basisgegevens over het bedrijfsinformatie te lezen. Dit geeft LUIS-machtiging voor het lezen van basis profiel gegevens, zoals gebruikers-ID, e-mail, naam
+* Hiermee kan de app weergeven en bijwerken van uw gegevens, zelfs wanneer u de app momenteel niet worden gebruikt. De machtiging is vereist voor het vernieuwen van het toegangs token van de gebruiker.
 
 
 ## <a name="azure-active-directory-tenant-user"></a>Azure Active Directory-tenant-gebruiker
@@ -59,16 +59,16 @@ LUIS gebruikt standaard instemmingsstroom van Azure Active Directory (Azure AD).
 De tenantbeheerder kunnen rechtstreeks met de gebruiker die toegang krijgen tot LUIS in de Azure AD gebruiken nodig heeft. 
 
 * Eerst de gebruiker zich aanmeldt bij LUIS en ziet de pop-upvenster hoeven beheerder goedkeuring. De gebruiker neemt contact op met de tenantbeheerder voordat u doorgaat. 
-* Ten tweede tenant-beheerder zich aanmeldt bij LUIS en een toestemming stroom pop-upvenster ziet. Dit is het dialoogvenster dat de beheerder moet de machtiging voor de gebruiker. Zodra de beheerder de machtiging accepteert, kan de gebruiker om door te gaan met LUIS. Als de tenantbeheerder niet bij LUIS aanmelden wordt, de beheerder toegang tot [toestemming geven](https://account.activedirectory.windowsazure.com/r#/applications) voor LUIS, weergegeven in de volgende schermafbeelding. U ziet de lijst is gefilterd op items die de naam `LUIS`.
+* Ten tweede tenant-beheerder zich aanmeldt bij LUIS en een toestemming stroom pop-upvenster ziet. Dit is het dialoogvenster dat de beheerder moet de machtiging voor de gebruiker. Zodra de beheerder de machtiging accepteert, kan de gebruiker om door te gaan met LUIS. Als de Tenant beheerder zich niet bij LUIS aanmeldt, heeft de beheerder toegang tot [toestemming](https://account.activedirectory.windowsazure.com/r#/applications) voor Luis, zoals weer gegeven in de volgende scherm afbeelding. U ziet dat de lijst is gefilterd op items `LUIS`die de naam bevatten.
 
 ![Azure active directory-machtigingen per app-website](./media/luis-how-to-collaborate/tenant-permissions.png)
 
-Als de tenant-beheerder wil dat alleen bepaalde gebruikers LUIS gebruikt, moet u er een aantal mogelijke oplossingen zijn:
-* Geeft de 'beheerder toestemming geven' (toestemming geven voor alle gebruikers van de Azure AD), maar wordt ingesteld op 'Ja' de 'Gebruikerstoewijzing vereist' onder de Enterprise-eigenschappen voor de toepassing en ten slotte toewijzen/alleen de gewenste gebruikers toevoegen aan de toepassing. Met deze methode 'beheerder toestemming geven' is nog steeds het leveren van de beheerder van de App, het is echter mogelijk om te bepalen welke gebruikers die toegang hebben tot deze.
-* Een tweede oplossing, wordt met behulp van [Azure AD Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) voor toestemming voor elke specifieke gebruiker. 
+Als de Tenant beheerder alleen bepaalde gebruikers in staat wilt stellen om LUIS te gebruiken, zijn er enkele mogelijke oplossingen:
+* De "toestemming van de beheerder" (toestemming geven aan alle gebruikers van de Azure AD), maar vervolgens ingesteld op "ja" de "gebruikers toewijzing vereist" onder eigenschappen van bedrijfs toepassing en uiteindelijk alleen de gewenste gebruikers aan de toepassing toewijzen/toevoegen. Met deze methode wordt de beheerder nog steeds ' toestemming van de beheerder ' gegeven aan de app, maar het is mogelijk om de gebruikers te beheren die er toegang toe hebben.
+* Een tweede oplossing is het gebruik van [Azure AD Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) om toestemming te geven aan elke specifieke gebruiker. 
 
-Meer informatie over Azure active directory-gebruikers en toestemming: 
-* [Uw app beperken](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) aan een groep gebruikers
+Meer informatie over Azure Active Directory-gebruikers en-toestemming: 
+* [Uw app beperken](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) tot een set gebruikers
 
 ### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Gebruikersaccounts met meerdere e-mailberichten voor de medewerkers
 

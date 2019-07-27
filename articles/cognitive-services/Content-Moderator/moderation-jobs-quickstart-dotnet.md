@@ -1,7 +1,7 @@
 ---
-title: Gebruik toezicht op taken met behulp van .NET - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: De inhoud Moderator .NET SDK gebruiken voor het initiëren van taken voor de afbeelding of tekst inhoud in Azure Content Moderator inhoudstoezicht end-to-end.
+title: Beheer taken gebruiken met behulp van .NET-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Gebruik de Content Moderator .NET SDK om end-to-end taken voor het beheer van inhoud te initiëren voor afbeeldings-of tekst inhoud in azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,25 +10,25 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 24d5483cf3b418cada3c5b7f03eedbff13cc36d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d98c88a6e1d6dfa23f53c32c85c013b4cf2c468d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62113865"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565597"
 ---
-# <a name="define-and-use-moderation-jobs-net"></a>Definiëren en gebruik toezicht op taken (.NET)
+# <a name="define-and-use-moderation-jobs-net"></a>Toezicht taken definiëren en gebruiken (.NET)
 
-Een taak toezicht fungeert als een soort-wrapper voor de functionaliteit van inhoudstoezicht, werkstromen en recensies. Deze handleiding vindt u informatie en voorbeelden van code om u te helpen aan de slag met de [Content Moderator-SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) aan:
+Een toezicht taak fungeert als een soort wrapper voor de functionaliteit van toezicht op inhoud, werk stromen en Beoordelingen. Deze hand leiding bevat informatie en code voorbeelden waarmee u aan de slag kunt met de [Content moderator SDK voor .net voor](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) het volgende:
 
 - Een beoordelingstaak starten voor het scannen en maken van beoordelingen voor menselijke beoordelaars
 - De status van een openstaande beoordeling opvragen
 - De definitieve status van de beoordeling volgen en opvragen
-- Verzenden van de resultaten bekijken op de callback-URL
+- De beoordelings resultaten verzenden naar de call back-URL
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Meld u aan of maak een account op de Content Moderator [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) site.
+- Meld u aan of maak een account op de site van het Content Moderator [controle programma](https://contentmoderator.cognitive.microsoft.com/) .
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Instellen dat uw API-sleutel de beoordelings-API kan aanroepen voor het maken van de beoordeling
 

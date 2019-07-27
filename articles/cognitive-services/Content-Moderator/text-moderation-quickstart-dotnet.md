@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Tekstinhoud analyseren in C# - Content Moderator'
-titlesuffix: Azure Cognitive Services
-description: Over het analyseren van tekstinhoud voor verschillende aanstootgevende materiaal met de inhoud Moderator SDK voor .NET
+titleSuffix: Azure Cognitive Services
+description: Tekst inhoud voor verschillende aanstootgevende materialen analyseren met behulp van de Content Moderator SDK voor .NET
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: f848ea0d1c86b9c12d26c59b8f0e92d1e5d70094
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 45ac641948531aa27334762704eba3333aebba4d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604046"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564325"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Quickstart: Tekstinhoud op ongewenst materiaal analyseren in C#
 
-In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met de [Content Moderator SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). U leert hoe u om uit te voeren op basis van een term filteren en de classificatie van inhoud met het doel van toezicht houden van mogelijk aanstootgevende inhoud tekst.
+In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met de [Content Moderator SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). U leert hoe u op termen gebaseerde filtering en classificatie van tekst inhoud kunt uitvoeren met het oog op het beheer van potentieel aanstootgevend materiaal.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
@@ -57,11 +57,11 @@ Voeg de volgende code toe aan het bestand *Program.cs* om een Content Moderator-
 
 ### <a name="set-up-input-and-output-targets"></a>Invoer- en uitvoerdoelen instellen
 
-Voeg de volgende statische velden toe aan de klasse **Program** in _Program.cs_. Deze velden de bestanden voor invoertekst inhoud opgeven en uitvoer van de JSON-inhoud.
+Voeg de volgende statische velden toe aan de klasse **Program** in _Program.cs_. Deze velden geven de bestanden voor invoer tekst inhoud en JSON-inhoud voor uitvoer op.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
-U moet maken de *TextFile.txt* invoerbestand en bijwerken van het pad (paden zijn ten opzichte van de map kan worden uitgevoerd). Open _TextFile.txt_ en voeg de tekst toe waarop u toezicht wilt houden. In deze snelstart wordt de volgende voorbeeldtekst gebruikt:
+U moet het invoer bestand *TextFile. txt* maken en het bijbehorende pad bijwerken (de paden zijn relatief ten opzichte van de uitvoerings Directory). Open _TextFile.txt_ en voeg de tekst toe waarop u toezicht wilt houden. In deze snelstart wordt de volgende voorbeeldtekst gebruikt:
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -74,7 +74,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 Voeg de volgende code aan de methode **Hoofd**. De **ScreenText**-methode is de essentiële bewerking. De parameters ervan bepalen welke bewerkingen voor inhoudtoezicht worden uitgevoerd. In dit voorbeeld wordt de methode geconfigureerd om het volgende te doen:
 - Mogelijk grof taalgebruik in de tekst te detecteren.
 - De tekst te normaliseren en typfouten automatisch te corrigeren.
-- Persoonlijke gegevens detecteren, zoals de Verenigde Staten en het VK telefoon getallen, e-mailadressen en adressen van VS.
+- Persoons gegevens, zoals telefoon nummers van het Amerikaanse en UK, en e-mail adressen van de Verenigde Staten, detecteren.
 - Machine-learningmodellen gebruiken om de tekst onder te verdelen in drie categorieën.
 
 Als u meer wilt weten over wat deze bewerkingen doen, volgt u de koppeling in de sectie [Volgende stappen](#next-steps).

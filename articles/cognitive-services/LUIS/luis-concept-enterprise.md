@@ -1,6 +1,6 @@
 ---
-title: Enterprise-concepten
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Zakelijke concepten-LUIS
+titleSuffix: Azure Cognitive Services
 description: Ontwerpconcepten voor grote LUIS-apps of meerdere apps, met inbegrip van LUIS en QnA Maker samen begrijpen.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: e5d7e2bfe1ee4e3ca248f40701aa65e757fc4d74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d51778473dc033bce3c58b1572f1e514a8b6327
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812854"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560766"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Enterprise-strategieën voor een LUIS-app
 Bekijk deze ontwerpstrategieën voor uw enterprise-app.
@@ -42,13 +42,13 @@ Als uw app is bedoeld om te voorspellen van een groot aantal uitingen van de geb
 Plan een periodieke [uitingen eindpunt voor een nadere](luis-how-to-review-endpoint-utterances.md) voor actief leren, zoals elke twee weken, klikt u vervolgens opnieuw trainen en opnieuw publiceren. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Als u wilt hebben van meer dan 500 intents
-Stel dat u een office-assistent met meer dan 500 intents ontwikkelt. Als 200 intents verwant zijn aan de vergaderingen plannen, 200 herinneringen zijn, 200 zijn over het ophalen van informatie over collega's, en 200 zijn voor het verzenden van e-mailbericht, groep intents zodat elke groep is in een enkele app vervolgens maakt u een op het hoogste niveau app die elk doel. Gebruik de [verzending hulpprogramma en architectuur](#dispatch-tool-and-model) om de app op het hoogste niveau te maken. Wijzig uw bot voor het gebruik van de aanroep van trapsgewijze als weergeven in de [verzending van de zelfstudie][dispatcher-application-tutorial]. 
+Stel dat u een office-assistent met meer dan 500 intents ontwikkelt. Als 200 intents verwant zijn aan de vergaderingen plannen, 200 herinneringen zijn, 200 zijn over het ophalen van informatie over collega's, en 200 zijn voor het verzenden van e-mailbericht, groep intents zodat elke groep is in een enkele app vervolgens maakt u een op het hoogste niveau app die elk doel. Gebruik de [verzending hulpprogramma en architectuur](#dispatch-tool-and-model) om de app op het hoogste niveau te maken. Wijzig vervolgens uw bot om de trapsgewijze aanroep te gebruiken zoals weer geven in de [Verzend zelf studie][dispatcher-application-tutorial]. 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>Wanneer u moet verschillende LUIS en QnA maker toepassingen combineren
-Hebt u verschillende LUIS en QnA maker-apps die u nodig hebt om te reageren op een bot, gebruik de [verzending hulpprogramma](#dispatch-tool-and-model) om de app op het hoogste niveau te maken. Wijzig uw bot voor het gebruik van de aanroep van trapsgewijze als weergeven in de [verzending van de zelfstudie][dispatcher-application-tutorial]. 
+Hebt u verschillende LUIS en QnA maker-apps die u nodig hebt om te reageren op een bot, gebruik de [verzending hulpprogramma](#dispatch-tool-and-model) om de app op het hoogste niveau te maken. Wijzig vervolgens uw bot om de trapsgewijze aanroep te gebruiken zoals weer geven in de [Verzend zelf studie][dispatcher-application-tutorial]. 
 
 ## <a name="dispatch-tool-and-model"></a>Hulpprogramma voor verzending en het model
-Gebruik de [verzending] [ dispatch-tool] opdrachtregelprogramma, gevonden in [BotBuilder-hulpprogramma's](https://github.com/Microsoft/botbuilder-tools) combineren van meerdere LUIS en/of QnA Maker-apps in een bovenliggende LUIS-app. Deze aanpak kunt u een bovenliggende domein met inbegrip van alle onderwerpen en verschillende onderliggende onderwerpsdomeinen in afzonderlijke apps. 
+Gebruik het opdracht regel programma voor [verzen ding][dispatch-tool] , gevonden in [BotBuilder-hulpprogram MA'S](https://github.com/Microsoft/botbuilder-tools) om meerdere LUIS en/of QnA Maker apps te combi NEREN in een bovenliggende Luis-app. Deze aanpak kunt u een bovenliggende domein met inbegrip van alle onderwerpen en verschillende onderliggende onderwerpsdomeinen in afzonderlijke apps. 
 
 ![Conceptuele afbeelding van verzending van de architectuur](./media/luis-concept-enterprise/dispatch-architecture.png)
 
@@ -56,7 +56,7 @@ Het bovenliggende domein wordt vermeld in LUIS met een versie met de naam `Dispa
 
 De chatbot ontvangt de utterance en vervolgens verzendt naar de bovenliggende LUIS-app voor voorspelling. De bovenste voorspelde intentie van de bovenliggende app bepaalt welke onderliggende LUIS-app wordt vervolgens genoemd. De chatbot verzendt de utterance naar de onderliggende-app voor een meer specifieke voorspelling.
 
-Begrijpen hoe deze hiërarchie van aanroepen wordt uitgevoerd vanaf de Bot Builder-v4 [dispatcher-toepassing-tutorial][dispatcher-application-tutorial].  
+Meer informatie over hoe deze hiërarchie van aanroepen wordt gedaan vanuit de Bot Builder v4 [-verzender-toepassing-zelf studie][dispatcher-application-tutorial].  
 
 ### <a name="intent-limits-in-dispatch-model"></a>Intentie limieten in model voor verzending
 Een toepassing verzending heeft 500 verzending bronnen, gelijk aan 500 intents als het maximum. 

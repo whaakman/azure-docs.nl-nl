@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Spraak herkennen, .NET Framework (Windows) - Speech Services'
+title: 'Quickstart: Speech herkennen, .NET Framework (Windows)-spraak service'
 titleSuffix: Azure Cognitive Services
 description: Gebruik deze handleiding om een spraakconsoletoepassing voor -naar-tekst te maken met .NET Framework voor Windows en de Speech-SDK. Als u klaar bent, kunt u de microfoon van de computer gebruiken om in realtime spraak naar tekst te transcriberen.
 services: cognitive-services
@@ -10,25 +10,25 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: d8738357a3bad6626ef6d79248aef1c4d2cb1ead
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 47f955734070be4adfe7f58da98265b976e643d5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603092"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554157"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Quickstart: Spraak herkennen met de spraak-SDK voor .NET Framework (Windows)
 
-Snelstartgidsen zijn ook beschikbaar voor [tekst naar spraak](quickstart-text-to-speech-dotnet-windows.md) en [spraakomzetting](quickstart-translate-speech-dotnetframework-windows.md).
+Quick starts zijn ook beschikbaar voor [tekst naar spraak](quickstart-text-to-speech-dotnet-windows.md) en [spraak omzetting](quickstart-translate-speech-dotnetframework-windows.md).
 
-Indien gewenst, kies een andere programmeertaal en/of de omgeving:<br/>
+Kies indien gewenst een andere programmeer taal en/of-omgeving:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Gebruik deze handleiding om een spraakconsoletoepassing voor -naar-tekst te maken met .NET Framework voor Windows en de Speech-SDK. Als u klaar bent, kunt u de microfoon van de computer gebruiken om in realtime spraak naar tekst te transcriberen.
 
-Voor een snelle demonstratie (zonder het bouwen van de Visual Studio-project zelf, zoals hieronder weergegeven):
+Voor een snelle demonstratie (zonder het Visual Studio-project zelf te bouwen zoals hieronder wordt weer gegeven):
 
-De nieuwste [Cognitive Services Speech SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-speech-sdk) vanuit GitHub.
+Down load de nieuwste [Cognitive Services Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk) -voor beelden van github.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -48,7 +48,7 @@ Als u dit project wilt voltooien, hebt u het volgende nodig:
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. Zoek en vervang de tekenreeks `YourSubscriptionKey` met uw abonnementssleutel Speech Services.
+1. Zoek de teken reeks `YourSubscriptionKey` en vervang deze door uw abonnement sleutel voor spraak Services.
 
 1. Vervang de tekenreeks `YourServiceRegion` door de [regio](regions.md) die aan uw abonnement is gekoppeld. Als u bijvoorbeeld gebruikmaakt van de gratis proefversie, dan is `westus` de regio.
 
@@ -64,7 +64,7 @@ Als u dit project wilt voltooien, hebt u het volgende nodig:
 
     ![Schermafbeelding van Visual Studio-toepassing met de optie Start Debugging gemarkeerd](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Start foutopsporing van de app")
 
-1. Er verschijnt een consolevenster en u wordt gevraagd te spreken. Zeg iets in het Engels. Uw stem is verzonden naar de Services voor spraak en getranscribeerde tekst in realtime. Het resultaat wordt weergegeven in de console.
+1. Er verschijnt een consolevenster en u wordt gevraagd te spreken. Zeg iets in het Engels. Uw spraak wordt verzonden naar de spraak Services en getranscribeerd naar tekst in real-time. Het resultaat wordt weergegeven in de console.
 
     ![Schermafbeelding van console-uitvoer na geslaagde herkenning](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Console-uitvoer na geslaagde herkenning")
 

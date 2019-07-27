@@ -1,5 +1,5 @@
 ---
-title: Vooraf gemaakte entiteiten
+title: Vooraf gemaakte entiteiten voor Language Understanding
 titleSuffix: Azure Cognitive Services
 description: LUIS bevat een set met vooraf gemaakte entiteiten voor het herkennen van algemene typen gegevens, zoals datums, tijden, getallen, metingen en valuta. Ondersteuning voor vooraf gedefinieerde entiteit is afhankelijk van de cultuur van uw LUIS-app.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: 0cfc4ff58cfeb65f80f9ac5ce2dd532defde5ef8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: db0fb8962030b536b6ea73f4141da551434cd528
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596125"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560349"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Vooraf gemaakte entiteiten voor het herkennen van veelvoorkomende gegevenstypen
 
@@ -60,7 +60,7 @@ Test de nieuwe doel op het eindpunt toegevoegd door een waarde voor de **q** par
 
  Als u wilt markeren van dit type token, waar dat onderdeel van deze al is gemarkeerd met een vooraf gedefinieerde entiteit, de vooraf gedefinieerde entiteit uit de LUIS-app te verwijderen. U hoeft niet te trainen van de app. Markeert vervolgens het token aan uw eigen aangepaste entiteit. Voeg de vooraf gedefinieerde entiteit terug naar de LUIS-app.
 
- Houd rekening met de utterance als een lijst van de klasse voorkeuren voor een ander voorbeeld: `I want first year spanish, second year calculus, and fourth year english lit.` Als de LUIS-app het rangtelwoord voor de Prebuild toegevoegd heeft, `first`, `second`, en `fourth` al gemarkeerd met rangtelwoorden. Als u wilt dat het rangtelwoord voor de en de klasse vast te leggen, kunt u een samengestelde entiteit maken en deze teruglopen van de vooraf gedefinieerde volgnummer en de aangepaste entiteit voor de klassenaam van de.
+ Voor een ander voor beeld kunt u de utterance beschouwen als een lijst met voor keuren voor klassen: `I want first year spanish, second year calculus, and fourth year english lit.`Als de Luis-app het rang telwoord voor de prebuild `second`heeft toegevoegd `fourth` , `first`, en al is gemarkeerd met rang telwoorden. Als u wilt dat het rangtelwoord voor de en de klasse vast te leggen, kunt u een samengestelde entiteit maken en deze teruglopen van de vooraf gedefinieerde volgnummer en de aangepaste entiteit voor de klassenaam van de.
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]

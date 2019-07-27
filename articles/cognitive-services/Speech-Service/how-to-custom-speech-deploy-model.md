@@ -1,7 +1,7 @@
 ---
-title: Een model implementeren voor aangepaste spraak - spraakservices
-titlesuffix: Azure Cognitive Services
-description: In dit document leert u hoe u kunt maken en implementeren van een eindpunt met behulp van de aangepaste spraak-portal.
+title: Een model voor Custom Speech-Speech-Service implementeren
+titleSuffix: Azure Cognitive Services
+description: In dit document leert u hoe u een eind punt maakt en implementeert met behulp van de Custom Speech Portal.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,44 +10,44 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: f2b69bf3e5d536e7e813ef4a7c36b2937141fd43
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 15e2ce437a746d15622dc4e093a63c87448f100d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606629"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559675"
 ---
 # <a name="deploy-a-custom-model"></a>Aangepaste model implementeren
 
-Nadat u hebt geüpload en inspectie van gegevens, nauwkeurigheid geëvalueerd en een aangepast model wordt getraind, kunt u een aangepast eindpunt voor gebruik met uw apps, -tools en producten kunt implementeren. In dit document leert u hoe u kunt maken en implementeren van een eindpunt met behulp van de aangepaste spraak-portal.
+Nadat u gegevens hebt geüpload en geinspectet, de nauw keurigheid hebt geëvalueerd en een aangepast model hebt getraind, kunt u een aangepast eind punt implementeren voor gebruik met uw apps, hulpprogram ma's en producten. In dit document leert u hoe u een eind punt maakt en implementeert met behulp van de Custom Speech Portal.
 
-## <a name="create-a-custom-endpoint"></a>Maken van een aangepast eindpunt
+## <a name="create-a-custom-endpoint"></a>Een aangepast eind punt maken
 
-Voor het maken van een nieuw aangepast eindpunt selecteert **implementatie** in het menu voor aangepaste spraak-bovenaan de pagina. Als dit de eerste keer uitvoert, zult u merken dat er geen eindpunten die worden vermeld in de tabel zijn. Nadat u een eindpunt hebt gemaakt, gebruikt u deze pagina om bij te houden van elke geïmplementeerde eindpunt.
+Als u een nieuw aangepast eind punt wilt maken, selecteert u **implementatie** in het menu Custom speech boven aan de pagina. Als dit de eerste keer is dat u uitvoert, ziet u dat er geen eind punten in de tabel staan. Nadat u een eind punt hebt gemaakt, gebruikt u deze pagina om elk geïmplementeerd eind punt bij te houden.
 
-Selecteer vervolgens **eindpunt toevoegen** en voer een **naam** en **beschrijving** voor uw aangepast eindpunt. Selecteer vervolgens het aangepaste model dat u wilt koppelen aan dit eindpunt. U kunt ook logboekregistratie inschakelen op deze pagina. Logboekregistratie kunt u voor het bewaken van de eindpunt-verkeer. Als uitgeschakeld, kunt u verkeer wordt niet opgeslagen.
+Selecteer vervolgens **eind punt toevoegen** en voer een **naam** en **Beschrijving** in voor het aangepaste eind punt. Selecteer vervolgens het aangepaste model dat u aan dit eind punt wilt koppelen. Op deze pagina kunt u ook logboek registratie inschakelen. Met logboek registratie kunt u eindpunt verkeer bewaken. Als deze is uitgeschakeld, wordt verkeer niet opgeslagen.
 
 ![Een model implementeren](./media/custom-speech/custom-speech-deploy-model.png)
 
 > [!NOTE]
-> Vergeet niet om de voorwaarden van gebruik en de prijsinformatie te accepteren.
+> Vergeet niet om akkoord te gaan met de gebruiks voorwaarden en prijs gegevens.
 
-Selecteer vervolgens **maken**. Deze actie gaat u terug naar de **implementatie** pagina. De tabel bevat nu een vermelding die overeenkomt met uw aangepast eindpunt. Status van het eindpunt bevat de huidige status. Het kan instantiëren van een nieuw eindpunt met behulp van uw aangepaste modellen tot 30 minuten duren. Wanneer de status van de implementatie is gewijzigd in **voltooid**, het eindpunt kan worden gebruikt.
+Selecteer vervolgens **maken**. Met deze actie keert u terug naar de **implementatie** pagina. De tabel bevat nu een vermelding die overeenkomt met uw aangepaste eind punt. De status van het eind punt toont de huidige status. Het kan tot 30 minuten duren om een nieuw eind punt te instantiëren met uw aangepaste modellen. Wanneer de status van de implementatie verandert in **voltooid**, is het eind punt klaar voor gebruik.
 
-Nadat het eindpunt is geïmplementeerd, wordt de naam van het eindpunt als een koppeling weergegeven. Klik op de koppeling om specifieke informatie aan uw eindpunt, zoals de eindpuntsleutel, de eindpunt-URL en de voorbeeldcode weer te geven.
+Nadat het eind punt is geïmplementeerd, wordt de naam van het eind punt weer gegeven als een koppeling. Klik op de koppeling om informatie weer te geven die specifiek is voor uw eind punt, zoals de eindpunt sleutel, eind punt-URL en voorbeeld code.
 
-## <a name="view-logging-data"></a>Logboekgegevens weergeven
+## <a name="view-logging-data"></a>Logboek gegevens weer geven
 
-Gegevens voor logboekregistratie is beschikbaar als download onder **eindpunt > Details**.
+Logboek gegevens kunnen worden gedownload onder **eindpunt > Details**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Gebruik uw aangepaste eindpunt met de [spraak SDK](speech-sdk.md)
+* Uw aangepaste eind punt gebruiken met de [Speech SDK](speech-sdk.md)
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Voorbereiden en testen van uw gegevens](how-to-custom-speech-test-data.md)
-* [Controleer uw gegevens](how-to-custom-speech-inspect-data.md)
-* [Evalueren van uw gegevens](how-to-custom-speech-evaluate-data.md)
-* [Uw model te trainen](how-to-custom-speech-train-model.md)
+* [Uw gegevens voorbereiden en testen](how-to-custom-speech-test-data.md)
+* [Uw gegevens controleren](how-to-custom-speech-inspect-data.md)
+* [Uw gegevens evalueren](how-to-custom-speech-evaluate-data.md)
+* [Uw model trainen](how-to-custom-speech-train-model.md)
 * [Uw model implementeren](how-to-custom-speech-deploy-model.md)

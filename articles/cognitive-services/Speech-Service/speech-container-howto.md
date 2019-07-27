@@ -1,5 +1,5 @@
 ---
-title: Spraak containers installeren
+title: Spraak containers installeren-spraak service
 titleSuffix: Azure Cognitive Services
 description: Installeer en voer spraak containers uit. Met spraak naar tekst worden audio stromen naar tekst getranscribeerd in realtime die uw toepassingen, hulpprogram ma's of apparaten kunnen gebruiken of weer geven. Tekst-naar-spraak zet invoer tekst om in humane-achtige, gesynthesizerde spraak.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 089b9030debc7489e123d49b5c78052f597ca469
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 0778814d4a228afe3a986426684c7d1f2080b517
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348408"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553224"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Speech Service-containers installeren en uitvoeren
 
@@ -23,7 +23,7 @@ Met spraak containers kunnen klanten één spraak toepassings architectuur maken
 
 De twee spraak containers zijn **spraak-naar-tekst** en **tekst-naar-spraak**. 
 
-|Function|Functies|jongste|
+|Function|Functies|Meest recent|
 |-|-|--|
 |Spraak-naar-tekst| <li>Transcribeert doorlopend realtime spraak of batch opnames in tekst met tussenliggende resultaten.|1.1.3|
 |Tekst naar spraak| <li>Converteert tekst naar natuurlijk klinkende spraak. met SSML (tekst zonder opmaak of spraak-synthese Markup Language). |1.1.0|
@@ -34,7 +34,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 U moet voldoen aan de volgende vereisten voordat u spraak containers kunt gebruiken:
 
-|Verplicht|Doel|
+|Vereist|Doel|
 |--|--|
 |Docker-engine| De docker-engine moet zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten voor het configureren van de docker-omgeving op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **In Windows**moet docker ook worden geconfigureerd voor de ondersteuning van Linux-containers.<br><br>|
 |Vertrouwd met docker | U moet een basis kennis hebben van docker-concepten, zoals registers, opslag plaatsen, containers en container installatie kopieën, en kennis van basis `docker` opdrachten.| 

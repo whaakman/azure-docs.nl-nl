@@ -1,5 +1,5 @@
 ---
-title: Vergroot het quotum voor eindpunt
+title: Eindpunt quotum verhogen-LUIS
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) biedt de mogelijkheid om het quotum van de aanvraag eindpunt meer dan één sleutel quotum te verhogen. Dit wordt gedaan door het maken van meer sleutels voor LUIS en deze toevoegen aan de LUIS-toepassing op de **publiceren** pagina in de **Resources en sleutels** sectie.
 author: diberry
@@ -11,24 +11,24 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 10ddbed710d3055e66bd3cb0b06cfa7949a9a1c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123553"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563380"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager gebruiken voor het beheer van eindpunt quotum voor sleutels
 Language Understanding (LUIS) biedt de mogelijkheid om het quotum van de aanvraag eindpunt meer dan één sleutel quotum te verhogen. Dit wordt gedaan door het maken van meer sleutels voor LUIS en deze toevoegen aan de LUIS-toepassing op de **publiceren** pagina in de **Resources en sleutels** sectie. 
 
 De clienttoepassing heeft voor het beheren van het verkeer over de sleutels. LUIS doen dat niet. 
 
-In dit artikel wordt uitgelegd hoe u voor het beheren van het verkeer over de sleutels met Azure [Traffic Manager][traffic-manager-marketing]. U moet al een getraind en gepubliceerde LUIS-app hebben. Als u een hebt, volgt u de vooraf gedefinieerde domein [snelstartgids](luis-get-started-create-app.md). 
+In dit artikel wordt uitgelegd hoe u het verkeer beheert over sleutels met Azure [Traffic Manager][traffic-manager-marketing]. U moet al een getraind en gepubliceerde LUIS-app hebben. Als u een hebt, volgt u de vooraf gedefinieerde domein [snelstartgids](luis-get-started-create-app.md). 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="connect-to-powershell-in-the-azure-portal"></a>Verbinding maken met PowerShell in Azure portal
-In de [Azure] [ azure-portal] portal, open de PowerShell-venster. Het pictogram voor de PowerShell-venster is de **> _** in de bovenste navigatiebalk. Met behulp van PowerShell via de portal, krijgt u de meest recente versie van PowerShell en u bent geverifieerd. PowerShell in de portal vereist een [Azure Storage](https://azure.microsoft.com/services/storage/) account. 
+Open in [Azure][azure-portal] Portal het Power shell-venster. Het pictogram voor de PowerShell-venster is de **> _** in de bovenste navigatiebalk. Met behulp van PowerShell via de portal, krijgt u de meest recente versie van PowerShell en u bent geverifieerd. PowerShell in de portal vereist een [Azure Storage](https://azure.microsoft.com/services/storage/) account. 
 
 ![Schermopname van het Azure-portal met Powershell-venster openen](./media/traffic-manager/azure-portal-powershell.png)
 
@@ -37,7 +37,7 @@ De volgende secties [Traffic Manager PowerShell-cmdlets](https://docs.microsoft.
 ## <a name="create-azure-resource-group-with-powershell"></a>Azure-resourcegroep maken met PowerShell
 Voordat u de Azure-resources maakt, maakt u een resourcegroep voor alle resources bevatten. Naam van de resourcegroep `luis-traffic-manager` en gebruik de regio is `West US`. De regio van de resourcegroep slaat metagegevens op over de groep. Het wordt niet uw resources vertragen als ze zich in een andere regio. 
 
-Resourcegroep maken met **[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)** cmdlet:
+Een resource groep maken met de cmdlet **[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)** :
 
 ```powerShell
 New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Schermopname van het Azure-portal met twee LUIS sleutels in de resourcegroep van luis-traffic-manager](./media/traffic-manager/luis-keys.png)
 
-2. In de [LUIS] [ LUIS] website in de **beheren** sectie, op de **sleutels en eindpunten** pagina, sleutels toewijzen aan de app en de app door te publiceren selecteren van de **publiceren** knop in het menu rechtsboven. 
+2. Op de [Luis][LUIS] -website, in de sectie **beheren** op de pagina **sleutels en eind punten** , wijst u sleutels toe aan de app en publiceert u de app opnieuw door de knop **publiceren** te selecteren in het menu rechtsboven. 
 
     De voorbeeld-URL in de **eindpunt** kolom gebruikt een GET-aanvraag met de eindpuntsleutel als een queryparameter. Kopieer de twee nieuwe sleutels eindpunt-URL's. Ze worden gebruikt als onderdeel van de configuratie van Traffic Manager verderop in dit artikel.
 
@@ -68,7 +68,7 @@ De volgende secties maakt twee onderliggende profielen, één voor de sleutel Oo
 ### <a name="create-the-east-us-traffic-manager-profile-with-powershell"></a>VS-Oost Traffic Manager-profiel maken met PowerShell
 Voor het maken van de VS-Oost Traffic Manager-profiel, zijn er verschillende stappen: profiel maken, het eindpunt toevoegen en het eindpunt instellen. Een Traffic Manager-profiel kan veel eindpunten hebben, maar elk eindpunt heeft hetzelfde validatiepad. Omdat de LUIS eindpunt-URL's voor de Oost- en -abonnementen verschillen vanwege regio en het eindpunt sleutel, is elk eindpunt LUIS één eindpunt in het profiel. 
 
-1. Maken-profiel met **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)** cmdlet
+1. Profiel maken met de cmdlet **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)**
 
     Gebruik de volgende cmdlet om het profiel te maken. Zorg ervoor dat u wijzigt de `appIdLuis` en `subscriptionKeyLuis`. De subscriptionKey is voor de sleutel East US LUIS. Als het pad niet juist is is, met inbegrip van de LUIS-app-ID en het eindpunt sleutel, de polling Traffic Manager is een status van `degraded` omdat Traffic Manager het eindpunt LUIS is geen aanvragen. Zorg ervoor dat de waarde van `q` is `traffic-manager-east` zodat u deze waarde in de logboeken van LUIS-eindpunt kunt zien.
 
@@ -82,7 +82,7 @@ Voor het maken van de VS-Oost Traffic Manager-profiel, zijn er verschillende sta
     |--|--|--|
     |-Naam|Luis-profiel-VS Oost|Naam van Traffic Manager in Azure portal|
     |-ResourceGroupName|Luis-traffic-manager|In de vorige sectie hebt gemaakt|
-    |-TrafficRoutingMethod|Prestaties|Zie voor meer informatie, [methoden voor het doorsturen van Traffic Manager][routing-methods]. Als prestaties wordt gebruikt, moet de URL-aanvraag naar de Traffic Manager afkomstig zijn van de regio van de gebruiker. Als een chatbot of andere toepassing doorlopen, is de verantwoordelijkheid van de chatbot om na te bootsen van de regio in de aanroep naar de Traffic Manager. |
+    |-TrafficRoutingMethod|Prestaties|Zie [Traffic Manager routerings methoden][routing-methods]voor meer informatie. Als prestaties wordt gebruikt, moet de URL-aanvraag naar de Traffic Manager afkomstig zijn van de regio van de gebruiker. Als een chatbot of andere toepassing doorlopen, is de verantwoordelijkheid van de chatbot om na te bootsen van de regio in de aanroep naar de Traffic Manager. |
     |-RelativeDnsName|Luis-dns-VS Oost|Dit is het subdomein voor de service: luis-dns-eastus.trafficmanager.net|
     |-Ttl|30|Polling-interval, 30 seconden|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Poorten en protocollen voor LUIS is HTTPS/443|
@@ -90,7 +90,7 @@ Voor het maken van de VS-Oost Traffic Manager-profiel, zijn er verschillende sta
     
     Een geslaagde aanvraag heeft geen reactie.
 
-2. Toevoegen VS-Oost-eindpunt met **[toevoegen AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)** cmdlet
+2. Onderstaand Oost-eind punt toevoegen met de cmdlet **[add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
@@ -101,7 +101,7 @@ Voor het maken van de VS-Oost Traffic Manager-profiel, zijn er verschillende sta
     |--|--|--|
     |-EndpointName|Luis-Oost-eindpunt|Eindpuntnaam weergegeven onder het profiel|
     |-TrafficManagerProfile|$eastprofile|Profiel-object gemaakt in stap 1 gebruiken|
-    |-Type|ExternalEndpoints|Zie voor meer informatie, [Traffic Manager-eindpunt][traffic-manager-endpoints] |
+    |-Type|ExternalEndpoints|Zie [Traffic Manager-eind punt][traffic-manager-endpoints] voor meer informatie. |
     |-Doel|eastus.API.cognitive.Microsoft.com|Dit is het domein voor het eindpunt van LUIS.|
     |-EndpointLocation|"VS-Oost|De regio van het eindpunt|
     |-EndpointStatus|Ingeschakeld|Eindpunt in te schakelen wanneer deze is gemaakt|
@@ -125,7 +125,7 @@ Voor het maken van de VS-Oost Traffic Manager-profiel, zijn er verschillende sta
     Endpoints                        : {luis-east-endpoint}
     ```
 
-3. VS-Oost-eindpunt met instellen **[Set AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerprofile)** cmdlet
+3. Het VS-eind punt voor Oost instellen met de cmdlet **[set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerprofile)**
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $eastprofile
@@ -136,7 +136,7 @@ Voor het maken van de VS-Oost Traffic Manager-profiel, zijn er verschillende sta
 ### <a name="create-the-west-us-traffic-manager-profile-with-powershell"></a>VS-West Traffic Manager-profiel maken met PowerShell
 Volg dezelfde stappen voor het maken van de VS-West Traffic Manager-profiel: profiel maken, het eindpunt toevoegen en het eindpunt instellen.
 
-1. Maken-profiel met **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)** cmdlet
+1. Profiel maken met de cmdlet **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**
 
     Gebruik de volgende cmdlet om het profiel te maken. Zorg ervoor dat u wijzigt de `appIdLuis` en `subscriptionKeyLuis`. De subscriptionKey is voor de sleutel East US LUIS. Als het pad niet correct met inbegrip van de LUIS-app-sleutel-ID en -eindpunt is, de polling Traffic Manager is een status van `degraded` omdat Traffic Manager het eindpunt LUIS is geen aanvragen. Zorg ervoor dat de waarde van `q` is `traffic-manager-west` zodat u deze waarde in de logboeken van LUIS-eindpunt kunt zien.
 
@@ -150,7 +150,7 @@ Volg dezelfde stappen voor het maken van de VS-West Traffic Manager-profiel: pro
     |--|--|--|
     |-Naam|Luis-profiel-VS West|Naam van Traffic Manager in Azure portal|
     |-ResourceGroupName|Luis-traffic-manager|In de vorige sectie hebt gemaakt|
-    |-TrafficRoutingMethod|Prestaties|Zie voor meer informatie, [methoden voor het doorsturen van Traffic Manager][routing-methods]. Als prestaties wordt gebruikt, moet de URL-aanvraag naar de Traffic Manager afkomstig zijn van de regio van de gebruiker. Als een chatbot of andere toepassing doorlopen, is de verantwoordelijkheid van de chatbot om na te bootsen van de regio in de aanroep naar de Traffic Manager. |
+    |-TrafficRoutingMethod|Prestaties|Zie [Traffic Manager routerings methoden][routing-methods]voor meer informatie. Als prestaties wordt gebruikt, moet de URL-aanvraag naar de Traffic Manager afkomstig zijn van de regio van de gebruiker. Als een chatbot of andere toepassing doorlopen, is de verantwoordelijkheid van de chatbot om na te bootsen van de regio in de aanroep naar de Traffic Manager. |
     |-RelativeDnsName|Luis-dns-VS West|Dit is het subdomein voor de service: luis-dns-westus.trafficmanager.net|
     |-Ttl|30|Polling-interval, 30 seconden|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Poorten en protocollen voor LUIS is HTTPS/443|
@@ -158,7 +158,7 @@ Volg dezelfde stappen voor het maken van de VS-West Traffic Manager-profiel: pro
     
     Een geslaagde aanvraag heeft geen reactie.
 
-2. Toevoegen VS-West-eindpunt met **[toevoegen AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** cmdlet
+2. Een eind punt voor de VS West toevoegen met de cmdlet **[add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
@@ -170,7 +170,7 @@ Volg dezelfde stappen voor het maken van de VS-West Traffic Manager-profiel: pro
     |--|--|--|
     |-EndpointName|Luis-west-eindpunt|Eindpuntnaam weergegeven onder het profiel|
     |-TrafficManagerProfile|$westprofile|Profiel-object gemaakt in stap 1 gebruiken|
-    |-Type|ExternalEndpoints|Zie voor meer informatie, [Traffic Manager-eindpunt][traffic-manager-endpoints] |
+    |-Type|ExternalEndpoints|Zie [Traffic Manager-eind punt][traffic-manager-endpoints] voor meer informatie. |
     |-Doel|westus.API.cognitive.Microsoft.com|Dit is het domein voor het eindpunt van LUIS.|
     |-EndpointLocation|'westus'|De regio van het eindpunt|
     |-EndpointStatus|Ingeschakeld|Eindpunt in te schakelen wanneer deze is gemaakt|
@@ -194,7 +194,7 @@ Volg dezelfde stappen voor het maken van de VS-West Traffic Manager-profiel: pro
     Endpoints                        : {luis-west-endpoint}
     ```
 
-3. VS-West-eindpunt met instellen **[Set AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** cmdlet
+3. Het eind punt voor de Verenigde Staten instellen met de cmdlet **[set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)**
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $westprofile
@@ -205,7 +205,7 @@ Volg dezelfde stappen voor het maken van de VS-West Traffic Manager-profiel: pro
 ### <a name="create-parent-traffic-manager-profile"></a>Bovenliggende Traffic Manager-profiel maken
 Maken van de bovenliggende Traffic Manager-profiel en twee onderliggende Traffic Manager-profielen koppelen aan het bovenliggende item.
 
-1. Maken van de bovenliggende profiel met **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)** cmdlet
+1. Bovenliggend profiel maken met de cmdlet **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**
 
     ```powerShell
     $parentprofile = New-AzTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
@@ -217,7 +217,7 @@ Maken van de bovenliggende Traffic Manager-profiel en twee onderliggende Traffic
     |--|--|--|
     |-Naam|Luis-profiel-bovenliggende|Naam van Traffic Manager in Azure portal|
     |-ResourceGroupName|Luis-traffic-manager|In de vorige sectie hebt gemaakt|
-    |-TrafficRoutingMethod|Prestaties|Zie voor meer informatie, [methoden voor het doorsturen van Traffic Manager][routing-methods]. Als prestaties wordt gebruikt, moet de URL-aanvraag naar de Traffic Manager afkomstig zijn van de regio van de gebruiker. Als een chatbot of andere toepassing doorlopen, is de verantwoordelijkheid van de chatbot om na te bootsen van de regio in de aanroep naar de Traffic Manager. |
+    |-TrafficRoutingMethod|Prestaties|Zie [Traffic Manager routerings methoden][routing-methods]voor meer informatie. Als prestaties wordt gebruikt, moet de URL-aanvraag naar de Traffic Manager afkomstig zijn van de regio van de gebruiker. Als een chatbot of andere toepassing doorlopen, is de verantwoordelijkheid van de chatbot om na te bootsen van de regio in de aanroep naar de Traffic Manager. |
     |-RelativeDnsName|Luis-dns-bovenliggende|Dit is het subdomein voor de service: luis-dns-parent.trafficmanager.net|
     |-Ttl|30|Polling-interval, 30 seconden|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Poorten en protocollen voor LUIS is HTTPS/443|
@@ -225,7 +225,7 @@ Maken van de bovenliggende Traffic Manager-profiel en twee onderliggende Traffic
 
     Een geslaagde aanvraag heeft geen reactie.
 
-2. Voeg VS-Oost onderliggende profiel toe aan de bovenliggende met **[toevoegen AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** en **NestedEndpoints** type
+2. Onderliggend Oost-onderliggend profiel toevoegen aan bovenliggend item met **[het type add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** en **NestedEndpoints**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
@@ -237,7 +237,7 @@ Maken van de bovenliggende Traffic Manager-profiel en twee onderliggende Traffic
     |--|--|--|
     |-EndpointName|onderliggende-endpoint-useast|Oost-profiel|
     |-TrafficManagerProfile|$parentprofile|Profiel dat u wilt dit eindpunt aan toewijzen|
-    |-Type|NestedEndpoints|Zie voor meer informatie, [toevoegen AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
+    |-Type|NestedEndpoints|Zie [add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)voor meer informatie. |
     |-TargetResourceId|$eastprofile. ID|ID van het onderliggende profiel|
     |-EndpointStatus|Ingeschakeld|Eindpuntstatus na het toevoegen van bovenliggende|
     |-EndpointLocation|"VS-Oost|[De naam van de Azure-regio](https://azure.microsoft.com/global-infrastructure/regions/) van resource|
@@ -262,7 +262,7 @@ Maken van de bovenliggende Traffic Manager-profiel en twee onderliggende Traffic
     Endpoints                        : {child-endpoint-useast}
     ```
 
-3. Voeg VS-West onderliggende profiel toe aan de bovenliggende met **[toevoegen AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** cmdlet en **NestedEndpoints** type
+3. Onderliggend West-onderliggend profiel toevoegen aan bovenliggend item met de cmdlet **[add-AzTrafficManagerEndpointConfig en het](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** **NestedEndpoints** -type
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
@@ -274,7 +274,7 @@ Maken van de bovenliggende Traffic Manager-profiel en twee onderliggende Traffic
     |--|--|--|
     |-EndpointName|onderliggende-endpoint-uswest|West-profiel|
     |-TrafficManagerProfile|$parentprofile|Profiel dat u wilt dit eindpunt aan toewijzen|
-    |-Type|NestedEndpoints|Zie voor meer informatie, [toevoegen AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
+    |-Type|NestedEndpoints|Zie [add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)voor meer informatie. |
     |-TargetResourceId|$westprofile. ID|ID van het onderliggende profiel|
     |-EndpointStatus|Ingeschakeld|Eindpuntstatus na het toevoegen van bovenliggende|
     |-EndpointLocation|'westus'|[De naam van de Azure-regio](https://azure.microsoft.com/global-infrastructure/regions/) van resource|
@@ -299,7 +299,7 @@ Maken van de bovenliggende Traffic Manager-profiel en twee onderliggende Traffic
     Endpoints                        : {child-endpoint-useast, child-endpoint-uswest}
     ```
 
-4. Instellen van eindpunten met **[Set AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** cmdlet 
+4. Eind punten instellen met de cmdlet **[set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** 
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $parentprofile
@@ -308,7 +308,7 @@ Maken van de bovenliggende Traffic Manager-profiel en twee onderliggende Traffic
     Een geslaagde reactie is hetzelfde antwoord als stap 3.
 
 ### <a name="powershell-variables"></a>PowerShell-variabelen
-In de vorige secties, drie PowerShell-variabelen zijn gemaakt: `$eastprofile`, `$westprofile`, `$parentprofile`. Deze variabelen worden aan het einde van de configuratie van Traffic Manager gebruikt. Als u hebt gekozen niet te maken van de variabelen of bent vergeten, of het PowerShell-venster een optreedt time-out, kunt u de PowerShell-cmdlet  **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** wilt ophalen van het profiel voor het opnieuw en wijs deze toe aan een variabele. 
+In de vorige secties, drie PowerShell-variabelen zijn gemaakt: `$eastprofile`, `$westprofile`, `$parentprofile`. Deze variabelen worden aan het einde van de configuratie van Traffic Manager gebruikt. Als u ervoor hebt gekozen om de variabelen niet te maken of verg eten of het Power shell-venster een time-out heeft, kunt u de Power shell-cmdlet **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** gebruiken om het profiel opnieuw op te halen en toe te wijzen aan een variabele. 
 
 Vervang de items in de vierkante haken, `<>`, met de juiste waarden voor elk van de drie profielen die u nodig hebt. 
 
@@ -330,7 +330,7 @@ Traffic Manager controleert of het pad van elk eindpunt om te controleren of dat
 ![Schermopname van Azure Traffic Manager-profiel met Monitor de Status van de Online overzicht](./media/traffic-manager/profile-status-online.png)
 
 ### <a name="validate-traffic-manager-polling-works"></a>Traffic Manager werkt polling valideren
-Een andere manier om te valideren van traffic manager werkt polling is met de LUIS-eindpunt-Logboeken. Op de [LUIS] [ LUIS] lijst met apps van website pagina, exporteren van het logboek eindpunt voor de toepassing. Omdat het Traffic Manager haalt vaak van de twee eindpunten, zijn er items in de logboeken, zelfs als ze alleen aan een paar minuten zijn. Vergeet niet om te zoeken naar gegevens, waarbij de query met begint `traffic-manager-`.
+Een andere manier om te valideren van traffic manager werkt polling is met de LUIS-eindpunt-Logboeken. Op de pagina lijst met [Luis][LUIS] website-apps exporteert u het eindpunt logboek voor de toepassing. Omdat het Traffic Manager haalt vaak van de twee eindpunten, zijn er items in de logboeken, zelfs als ze alleen aan een paar minuten zijn. Vergeet niet om te zoeken naar gegevens, waarbij de query met begint `traffic-manager-`.
 
 ```console
 traffic-manager-west    6/7/2018 19:19  {"query":"traffic-manager-west","intents":[{"intent":"None","score":0.944767}],"entities":[]}
@@ -366,7 +366,7 @@ Om het verkeer over alle eindpunten beheren, moet u een aanroep naar de DNS Traf
 
 ## <a name="resolving-a-degraded-state"></a>Een gedegradeerde status oplossen
 
-Schakel [diagnostische logboeken](../../traffic-manager/traffic-manager-diagnostic-logs.md) voor Traffic Manager om te zien waarom Eindpuntstatus is gedegradeerd.
+Schakel [Diagnostische logboeken](../../traffic-manager/traffic-manager-diagnostic-logs.md) in voor Traffic Manager om te zien waarom de eind punt status is gedegradeerd.
 
 ## <a name="clean-up"></a>Opruimen
 De twee sleutels van LUIS-eindpunt, de drie Traffic Manager-profielen en de resourcegroep die deel uitmaakt van deze vijf resources verwijderen. Dit wordt gedaan via de Azure-portal. U kunt de vijf resources verwijderen uit de lijst met resources. Verwijder de resourcegroep. 

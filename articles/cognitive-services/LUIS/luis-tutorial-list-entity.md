@@ -1,21 +1,21 @@
 ---
-title: Totaalgehalte tekst overeenkomst entiteiten
+title: Extact tekst overeenkomst entiteiten-LUIS
+titleSuffix: Azure Cognitive Services
 description: Informatie over het toevoegen van een entiteit lijst om te helpen LUIS label variaties van een woord of woordgroep.
 services: cognitive-services
 author: diberry
-titleSuffix: Azure
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 929dc7a86d141446a2070b046c6febfda4a07f0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60364e864a8b35cf5f39bb8c0a0f86ae611a3c70
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62117445"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563254"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Een lijst met entiteit gebruiken voor het verhogen van detectie van entiteit 
 Deze zelfstudie ziet u het gebruik van een [entiteit lijst](luis-concept-entity-types.md) te verhogen van de detectie van de entiteit. Lijst met entiteiten hoeft te worden gelabeld als ze exact overeenkomen met de voorwaarden zijn.  
@@ -37,7 +37,7 @@ In deze zelfstudie leert u het volgende:
 > [!Tip]
 > Als u nog geen een abonnement, kunt u zich registreren voor een [gratis account](https://azure.microsoft.com/free/).
 
-Alle code in deze zelfstudie vindt u op de [Azure-Samples-GitHub-opslagplaats](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
+Alle code in deze zelf studie is beschikbaar in de [github-opslag plaats Azure-samples](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## <a name="use-homeautomation-app"></a>HomeAutomation app gebruiken
 De app HomeAutomation geeft u controle over apparaten zoals lichten, entertainmentsystemen en omgeving van besturingselementen, zoals verwarming en koeling. Deze systemen zijn diverse verschillende namen die de fabrikant van namen, bijnamen acroniemen en slang kunnen opnemen. 

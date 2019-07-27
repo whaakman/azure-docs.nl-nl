@@ -1,6 +1,6 @@
 ---
-title: Beveiliging wanneer ze samenwerken
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Beveiliging bij samen werking-LUIS
+titleSuffix: Azure Cognitive Services
 description: Ontwerpen toegang is beschikbaar voor de eigenaar en samenwerkers. Eindpunt toegang is voor een persoonlijke app beschikbaar voor de eigenaar en samenwerkers.
 services: cognitive-services
 author: diberry
@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: b52b0fffe9c32ab14600a3e296852faa626d794d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 25f6b675846f028b4ba9d49cce9e075bc79eece9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058534"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560668"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Ontwerp- en eindpunt gebruikerstoegang
-Ontwerpen toegang is beschikbaar voor de eigenaar en samenwerkers. Eindpunt toegang is voor een persoonlijke app beschikbaar voor de eigenaar en samenwerkers. Voor een openbare app eindpunt toegang is beschikbaar voor iedereen met hun eigen Azure [Cognitive Service](../cognitive-services-apis-create-account.md) of [LUIS](luis-how-to-azure-subscription.md#create-prediction-endpoint-runtime-resource-in-the-azure-portal) resource, en heeft de openbare app-ID. 
+Ontwerpen toegang is beschikbaar voor de eigenaar en samenwerkers. Eindpunt toegang is voor een persoonlijke app beschikbaar voor de eigenaar en samenwerkers. Voor een open bare app is endpoint Access beschikbaar voor iedereen met een eigen Azure [cognitieve service](../cognitive-services-apis-create-account.md) -of [Luis](luis-how-to-azure-subscription.md#create-prediction-endpoint-runtime-resource-in-the-azure-portal) -bron, en heeft de id van de open bare app. 
 
 ## <a name="access-to-authoring"></a>Toegang tot het ontwerpen
 Toegang tot de app uit de [LUIS](luis-reference-regions.md#luis-website) website of de [API's ontwerpen](https://go.microsoft.com/fwlink/?linkid=2092087) wordt bepaald door de eigenaar van de app. 

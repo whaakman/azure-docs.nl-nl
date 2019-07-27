@@ -1,6 +1,6 @@
 ---
 title: 'Snelstartgids: Een knowledge base maken - REST, Java - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: In deze op Java REST gebaseerde snelstart wordt stapsgewijs uitgelegd hoe u, met behulp van een programma, een voorbeeldexemplaar van een knowledge base in QnA Maker kunt maken, dat wordt weergegeven op het Azure-dashboard van uw account voor de Cognitive Services-API.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 298f7e90bb6848d7b0af032bdaff8724a69c227f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 767866fd6768237c4d3a0d7ea422521254414fb3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249662"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559879"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Snelstartgids: Een knowledge base maken in QnA Maker met behulp van Java
 
@@ -100,7 +100,7 @@ Herhaal de aanroep totdat deze lukt of mislukt:
 ```
 
 ## <a name="add-a-main-method"></a>Een hoofdmethode toevoegen
-De hoofdmethode maakt de KB en vraagt vervolgens de status na. De bewerking ID is die wordt geretourneerd in het veld bericht antwoord header **locatie**, klikt u vervolgens worden gebruikt als onderdeel van de route in de GET-aanvraag. De `while` lus probeert om opnieuw de status als deze nog niet is voltooid.
+De hoofdmethode maakt de KB en vraagt vervolgens de status na. De bewerkings-ID wordt geretourneerd in de veld **locatie**van de post-antwoord header en vervolgens gebruikt als onderdeel van de route in de GET-aanvraag. De `while` lus wordt opnieuw geprobeerd om de status te herhalen als deze nog niet is voltooid.
 
 [!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
 

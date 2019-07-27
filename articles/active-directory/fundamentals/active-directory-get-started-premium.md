@@ -2,23 +2,23 @@
 title: Registreren voor Premium-edities - Azure Active Directory | Microsoft Docs
 description: Instructies voor aanmelden voor de Azure Active Directory Premium-edities.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/07/2017
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed01b2b122724ba1428fb685bb3f1f52b7099a7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 016fbc8808c11f861dd4388ea5fb062c840187ea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249672"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561977"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Registreren voor Azure Active Directory Premium-edities
 U kunt Azure Active Directory (Azure AD) Premium-edities kopen en deze koppelen aan uw Azure-abonnement. Als u een nieuw Azure-abonnement moet maken, moet u ook uw licentieabonnement en toegang tot de Azure AD-service activeren.
@@ -65,17 +65,17 @@ Als u zich hebt aangemeld met behulp van een nieuw Azure AD-licentieplan, moet u
 ### <a name="to-activate-your-license-plan"></a>Uw licentieplan activeren
 - Open de bevestigingse-mail die u van Microsoft hebt ontvangen nadat u zich hebt geregistreerd, en klik dan ofwel op **Aanmelden** of **Registreren**.
    
-    ![E-mail ter bevestiging met het aanmelden en meld u aan koppelingen](media/active-directory-get-started-premium/MOLSEmail.png)
+    ![Bevestigings-e-mail met aanmeld-en registratie koppelingen](media/active-directory-get-started-premium/MOLSEmail.png)
 
     - **Aanmelden.** Als u een bestaande tenant hebt, klikt u op deze link, en vervolgens meldt u zich aan met uw bestaande administrator-account. U moet een globale beheerder zijn van de tenant waarin de licenties worden geactiveerd.
 
     - **Registreren.** Als u een nieuwe Azure AD-tenant wilt maken voor gebruik met uw licentieplan, klikt u op deze link om de pagina **Accountprofiel maken** te openen.
 
-        ![Account-profielpagina, met voorbeeldgegevens maken](media/active-directory-get-started-premium/MOLSAccountProfile.png)
+        ![De pagina account profiel maken met voorbeeld gegevens](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 
 Wanneer u klaar bent, ziet u een bevestigingsvenster met dank voor het activeren van het licentieplan voor uw tenant.
 
-![Bevestigingsvenster met Bedankt](media/active-directory-get-started-premium/MOLSThankYou.png)
+![Bevestigings venster met dank](media/active-directory-get-started-premium/MOLSThankYou.png)
 
 ## <a name="activate-your-azure-ad-access"></a>De Azure AD-toegang activeren
 Als u nieuwe Azure AD Premium-licenties wilt toevoegen aan een bestaand abonnement, moet de Azure AD-toegang al zijn geactiveerd. Anders moet u Azure AD-toegang activeren nadat u het **welkomstbericht** hebt ontvangen.  
@@ -89,11 +89,11 @@ Nadat uw aangekochte licenties in uw map zijn ingericht, ontvangt u een **Welkom
 
 1. Open het **Welkomstbericht**, en klik vervolgens op **Aanmelden**.
    
-    ![Welkom e-mailbericht met gemarkeerde koppeling voor registreren](media/active-directory-get-started-premium/AADEmail.png)
+    ![Welkomst-e-mail, met een gemarkeerde aanmeldings koppeling](media/active-directory-get-started-premium/AADEmail.png)
 
 2. Na de aanmelding, gaat u door met verificatie in twee stappen met behulp van een mobiel apparaat.
    
-    ![Verificatie in twee stappen verificatie pagina via een mobiele verificatie](media/active-directory-get-started-premium/SignUppage.png)
+    ![Verificatie pagina met twee stappen met mobiele verificatie](media/active-directory-get-started-premium/SignUppage.png)
 
 Het activeringsproces duurt meestal slechts een paar minuten en vervolgens kunt u uw Azure AD-tenant gebruiken. 
 

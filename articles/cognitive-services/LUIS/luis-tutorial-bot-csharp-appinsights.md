@@ -1,7 +1,7 @@
 ---
-title: Application Insights, C#
+title: Application Insights, C# -Luis
 titleSuffix: Azure Cognitive Services
-description: In deze zelfstudie wordt bot en Language Understanding informatie toegevoegd aan Application Insights telemetrie-gegevensopslag.
+description: In deze zelf studie worden bot en Language Understanding informatie toegevoegd voor het Application Insights van telemetriegegevens.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,45 +11,45 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/16/2019
 ms.author: diberry
-ms.openlocfilehash: 720352403fd5f5937669f9838f3974cb0d3f8797
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: bc8cf9973ed6889b0820e5ada5565d0541532fa3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657776"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560053"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-bot-in-c"></a>LUIS resultaten naar Application Insights toevoegen van een Bot inC#
+# <a name="add-luis-results-to-application-insights-from-a-bot-in-c"></a>LUIS resultaten toevoegen aan Application Insights vanuit een bot inC#
 
-In deze zelfstudie voegt bot en Language Understanding informatie [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetrie-gegevensopslag. Zodra u deze gegevens hebt, kunt u deze met de Kusto-taal of Power BI analyseren, samenvoegen, opvragen en te rapporteren intenties en entiteiten van de utterance in realtime. Met deze analyse kunt u bepalen of u moet toevoegen of bewerken van de intenties en entiteiten van uw LUIS-app.
+In deze zelf studie worden bot en Language Understanding informatie toegevoegd voor het [Application Insights](https://azure.microsoft.com/services/application-insights/) van telemetriegegevens. Wanneer u deze gegevens hebt, kunt u deze zoeken in de Kusto-taal of Power BI voor het analyseren, samen voegen en rapporteren van de intenties en entiteiten van de utterance in realtime. Met deze analyse kunt u bepalen of u moet toevoegen of bewerken van de intenties en entiteiten van uw LUIS-app.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Bot en Language understanding-gegevens in Application Insights vastleggen
-> * Application Insights op te vragen voor Language Understanding-gegevens
+> * Leg bot en taal informatie in Application Insights
+> * Query Application Insights voor Language Understanding gegevens
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Azure bot service-bot, die zijn gemaakt met Application Insights is ingeschakeld.
-* Bot-code van de vorige bot gedownload  **[zelfstudie](luis-csharp-tutorial-bf-v4.md)** . 
+* Een Azure bot service-bot, gemaakt met Application Insights ingeschakeld.
+* Gedownloade bot-code uit de vorige bot- **[zelf studie](luis-csharp-tutorial-bf-v4.md)** . 
 * [Botemulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
-Alle code in deze zelfstudie vindt u op de [Azure-Samples Language Understanding GitHub-opslagplaats](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/v4/luis-csharp-bot-johnsmith-src-telemetry). 
+Alle code in deze zelf studie is beschikbaar in de [github-opslag plaats Azure-samples language Understanding](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/v4/luis-csharp-bot-johnsmith-src-telemetry). 
 
-## <a name="add-application-insights-to-web-app-bot-project"></a>Application Insights toevoegen aan de web-app-bot-project
+## <a name="add-application-insights-to-web-app-bot-project"></a>Application Insights toevoegen aan Web app bot-project
 
-Op dit moment verzamelt de Application Insights-service, die wordt gebruikt in deze web-app-bot, telemetrie van de algemene status voor de bot. Deze verzamelt geen informatie van LUIS. 
+Op dit moment verzamelt de Application Insights-service, die wordt gebruikt in deze web-app-bot, telemetrie van de algemene status voor de bot. Er worden geen LUIS-gegevens verzameld. 
 
-Als u wilt de LUIS-gegevens vastleggen, de web-app-bot moet de **[Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** NuGet-pakket geïnstalleerd en geconfigureerd.  
+Om de LUIS-informatie vast te leggen, moet het **[micro soft. ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** NuGet-pakket zijn geïnstalleerd en geconfigureerd.  
 
-1. Vanuit Visual Studio, voeg de afhankelijkheden toe aan de oplossing. In de **Solution Explorer**, met de rechtermuisknop op de projectnaam en selecteer **NuGet-pakketten beheren...** . De NuGet Package manager geeft een lijst van geïnstalleerde pakketten. 
-1. Selecteer **Bladeren** Zoek **Microsoft.ApplicationInsights**.
+1. Voeg in Visual Studio de afhankelijkheid toe aan de oplossing. Klik in de **Solution Explorer**met de rechter muisknop op de project naam en selecteer **NuGet-pakketten beheren...** . De NuGet Package manager geeft een lijst van geïnstalleerde pakketten. 
+1. Selecteer **Bladeren** en zoek naar **micro soft. ApplicationInsights**.
 1. Installeer het pakket. 
 
 ## <a name="capture-and-send-luis-query-results-to-application-insights"></a>Vastleggen en LUIS queryresultaten verzenden naar Application Insights
 
-1. Open de `LuisHelper.cs` -bestand en vervang de inhoud door de volgende code. De **LogToApplicationInsights** methode de bot en LUIS gegevens vastleggen en verzendt dit naar Application Insights als een traceringsgebeurtenis met de naam `LUIS`.
+1. Open het `LuisHelper.cs` bestand en vervang de inhoud door de volgende code. Met de methode **LogToApplicationInsights** worden de bot-en Luis-gegevens vastgelegd en verzonden naar Application Insights als een `LUIS`tracerings gebeurtenis met de naam.
 
     ```csharp
     // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -146,37 +146,37 @@ Als u wilt de LUIS-gegevens vastleggen, de web-app-bot moet de **[Microsoft.Appl
     }
     ```
 
-## <a name="add-application-insights-instrumentation-key"></a>Application Insights-instrumentatiesleutel toevoegen 
+## <a name="add-application-insights-instrumentation-key"></a>Application Insights instrumentatie sleutel toevoegen 
 
-Gegevens naar application insights toevoegt, moet u de instrumentatiesleutel.
+Als u gegevens wilt toevoegen aan Application Insights, hebt u de instrumentatie sleutel nodig.
 
-1. In een browser, in de [Azure-portal](https://portal.azure.com), vinden van uw bot **Application Insights** resource. De naam heeft de meeste van de naam van de bot, en vervolgens willekeurige tekens aan het einde van de naam, zoals `luis-csharp-bot-johnsmithxqowom`. 
-1. Op de Application Insights-resource op de **overzicht** pagina-, Kopieer de **Instrumentatiesleutel**.
-1. Open in Visual Studio, de **appsettings.json** bestand in de hoofdmap van het project bot. Dit bestand bevat alle omgevingsvariabelen.
-1. Voeg een nieuwe variabele `BotDevAppInsightsKey` met de waarde van de instrumentatiesleutel. De waarde in moet worden opgegeven tussen aanhalingstekens. 
+1. Ga in een browser naar het [Azure Portal](https://portal.azure.com)en zoek de **Application Insights** resource van uw bot. De naam van de bot krijgt de meeste naam en vervolgens wille keurige tekens aan het einde van de naam, `luis-csharp-bot-johnsmithxqowom`bijvoorbeeld. 
+1. Kopieer de **instrumentatie sleutel**op de pagina **overzicht** van de Application Insights resource.
+1. Open in Visual Studio het bestand **appSettings. json** in de hoofdmap van het bot-project. Dit bestand bevat alle omgevings variabelen.
+1. Voeg een nieuwe variabele `BotDevAppInsightsKey` toe met de waarde van uw instrumentatie sleutel. De waarde in moet tussen aanhalings tekens staan. 
 
-## <a name="build-and-start-the-bot"></a>Bouwen en de bot te starten
+## <a name="build-and-start-the-bot"></a>De bot bouwen en starten
 
-1. In Visual Studio, bouwen en uitvoeren van de bot. 
-1. Start de bot-emulator en opent de bot. Dit [stap](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) is opgegeven in de vorige zelfstudie.
+1. In Visual Studio bouwt u de bot en voert u deze uit. 
+1. Start de bot-emulator en open de bot. Deze [stap](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) is opgenomen in de vorige zelf studie.
 
-1. De bot een vraag stellen. Dit [stap](luis-csharp-tutorial-bf-v4.md#ask-bot-a-question-for-the-book-flight-intent) is opgegeven in de vorige zelfstudie.
+1. Stel een vraag aan de bot. Deze [stap](luis-csharp-tutorial-bf-v4.md#ask-bot-a-question-for-the-book-flight-intent) is opgenomen in de vorige zelf studie.
 
 ## <a name="view-luis-entries-in-application-insights"></a>LUIS-items weergeven in Application Insights
 
-Open Application Insights om te zien van de LUIS-vermeldingen. Het kan enkele minuten voor de gegevens worden weergegeven in Application Insights duren.
+Open Application Insights om te zien van de LUIS-vermeldingen. Het kan enkele minuten duren voordat de gegevens in Application Insights worden weer gegeven.
 
-1. In de [Azure-portal](https://portal.azure.com), opent u de Application Insights-resource van de bot. 
-1. Wanneer de resource wordt geopend, selecteert u **zoeken** en zoek naar alle gegevens in de laatste **30 minuten** met het gebeurtenistype van **Trace**. Selecteer de tracering met de naam **LUIS**. 
-1. De bot en LUIS informatie vindt u onder **aangepaste eigenschappen**. 
+1. Open in de [Azure Portal](https://portal.azure.com)de Application Insights resource van de bot. 
+1. Wanneer de resource wordt geopend, selecteert u **zoeken** en zoekt u naar alle gegevens in de afgelopen **30 minuten** met het gebeurtenis type tracering. Selecteer de tracering met de naam **Luis**. 
+1. De bot-en LUIS-informatie is beschikbaar onder **aangepaste eigenschappen**. 
 
-    ![LUIS aangepaste eigenschappen die zijn opgeslagen in Application Insights bekijken](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties-csharp.png)
+    ![Aangepaste eigenschappen van LUIS controleren die zijn opgeslagen in Application Insights](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties-csharp.png)
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Application Insights-query voor het doel, score en utterance
-Application Insights biedt u de power query uitvoeren op gegevens die met de [Kusto](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#what-language-do-log-queries-use) taal, alsmede exporteren naar [Power BI](https://powerbi.microsoft.com). 
+Application Insights biedt u de mogelijkheid om een query uit te voeren op de gegevens in de [Kusto](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#what-language-do-log-queries-use) -taal en deze te exporteren naar [Power bi](https://powerbi.microsoft.com). 
 
-1. Selecteer **logboek (Analytics)** . Er wordt een nieuw venster geopend met een query aan de bovenkant en een venster van de tabel gegevens hieronder die. Als u databases hebt gebruikt, wordt deze rangschikking bekend is. De query geeft uw vorige gefilterde gegevens. De **CustomDimensions** kolom heeft de bot en LUIS-informatie.
-1. Om op te halen van de belangrijkste doel, score en utterance, voeg de volgende net boven de laatste regel (de `|top...` regel) in het queryvenster:
+1. Selecteer **logboek (Analytics)** . Er wordt een nieuw venster geopend met een query aan de bovenkant en een venster van de tabel gegevens hieronder die. Als u databases hebt gebruikt, wordt deze rangschikking bekend is. De query vertegenwoordigt uw vorige gefilterde gegevens. De kolom **CustomDimensions** heeft de bot-en Luis-informatie.
+1. Als u de hoogste intentie, Score en utterance wilt optellen, voegt u het volgende toe boven de laatste regel ( `|top...` de regel) in het query venster:
 
     ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_topScoringIntent_Name)
@@ -184,9 +184,9 @@ Application Insights biedt u de power query uitvoeren op gegevens die met de [Ku
     | extend utterance = tostring(customDimensions.LUIS_query)
     ```
 
-1. Voer de query uit. De nieuwe kolommen topIntent, score en utterance zijn beschikbaar. Selecteer topIntent kolom te sorteren.
+1. Voer de query uit. De nieuwe kolommen topIntent, score en utterance zijn beschikbaar. Selecteer de kolom topIntent die u wilt sorteren.
 
-Meer informatie over de [Kusto-querytaal](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) of [de gegevens exporteren naar Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
+Meer informatie over de [Kusto-query taal](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) of [het exporteren van de gegevens naar Power bi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
 
 ## <a name="learn-more-about-bot-framework"></a>Meer informatie over Bot Framework
@@ -195,7 +195,7 @@ Meer informatie over [Bot Framework](https://dev.botframework.com/).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Andere informatie die u mogelijk wilt toevoegen aan de application insights-gegevens omvatten app-ID, versie-ID, datum laatste model, laatste datum van de trein, de laatste publicatiedatum. Deze waarden kunnen worden opgehaald uit de eindpunt-URL (app-ID en versie-ID) of van een authoring API-aanroep en vervolgens ingesteld in de bot-instellingen van de web-app en van daaruit opgehaald.  
+Andere informatie die u mogelijk wilt toevoegen aan de application insights-gegevens omvatten app-ID, versie-ID, datum laatste model, laatste datum van de trein, de laatste publicatiedatum. Deze waarden kunnen worden opgehaald uit de eind punt-URL (App-ID en versie-ID), of vanuit een API-aanroep van de ontwerp functie en vervolgens worden ingesteld in de bot-instellingen van de web-app en daar worden opgehaald.  
 
 Als u van hetzelfde abonnement endpoint voor meer dan één LUIS-app gebruikmaakt, moet u ook de abonnements-ID en een eigenschap met de mededeling dat het een gedeelde sleutel opnemen.
 

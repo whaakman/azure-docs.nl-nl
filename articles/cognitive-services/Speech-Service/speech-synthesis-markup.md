@@ -1,5 +1,5 @@
 ---
-title: Spraak-synthese Markup Language (SSML)-spraak Services
+title: Speech-synthese Markup Language (SSML)-Speech Service
 titleSuffix: Azure Cognitive Services
 description: Met behulp van de spraakherkenning synthese Markup Language voor het beheren van uitspraak en prosody in tekst naar spraak.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: e2b1e02a622dfe4ae488e372e44c8440f20d7034
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 1bd1882218630aca0707a792d120045c06dea127
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501156"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552678"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -138,7 +138,7 @@ Wijzigingen worden toegepast op het niveau van de zin en de stijl varieert per s
 
 Gebruik deze tabel om te bepalen welke spraak stijlen worden ondersteund voor elke Neural-stem.
 
-| Stem | type | Description |
+| Spraak | type | Description |
 |-------|------|-------------|
 | `en-US-JessaNeural` | type=`cheerful` | Een Emotion die positief en blij is |
 | | type=`empathy` | Een idee van caring en inzicht |

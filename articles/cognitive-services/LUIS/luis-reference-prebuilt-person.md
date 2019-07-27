@@ -1,5 +1,5 @@
 ---
-title: PersonName vooraf gemaakte entiteiten
+title: De vooraf samengestelde entiteit van de persoon-LUIS
 titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat personName vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 3b12c69b7c6710e774d50e631d2423fd72ce828a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63e32fe79d1f3f6d2573d9a8f94f937cb9eb31ef
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072178"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560182"
 ---
-# <a name="personname-prebuilt-entity-for-a-luis-app"></a>PersonName vooraf gedefinieerde entiteit voor een LUIS-app
+# <a name="personname-prebuilt-entity-for-a-luis-app"></a>De vooraf samengestelde entiteit van de persoon voor een LUIS-app
 De vooraf gedefinieerde personName entiteit detecteert de namen van personen. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen voorbeeld uitingen met personName naar de toepassing intents. personName entiteit wordt ondersteund in het Engels en Chinees [culturen](luis-reference-prebuilt-entities.md).
 
 ## <a name="resolution-for-personname-entity"></a>Oplossing voor personName entiteit
 
-### <a name="api-version-2x"></a>API-versie 2.x
+### <a name="api-version-2x"></a>API-versie 2. x
 
 Het volgende voorbeeld ziet u de resolutie van de **builtin.personName** entiteit.
 
@@ -45,9 +45,9 @@ Het volgende voorbeeld ziet u de resolutie van de **builtin.personName** entitei
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Preview-API-versie 3.x
+### <a name="preview-api-version-3x"></a>Preview-API versie 3. x
 
-De volgende JSON is met de `verbose` parameter ingesteld op `false`:
+De volgende JSON is met de `verbose` para meter ingesteld `false`op:
 
 ```json
 {
@@ -69,7 +69,7 @@ De volgende JSON is met de `verbose` parameter ingesteld op `false`:
 }
 ```
 
-De volgende JSON is met de `verbose` parameter ingesteld op `true`:
+De volgende JSON is met de `verbose` para meter ingesteld `true`op:
 
 ```json
 {

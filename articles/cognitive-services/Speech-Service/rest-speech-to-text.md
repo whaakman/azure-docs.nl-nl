@@ -1,7 +1,7 @@
 ---
-title: Spraak-naar-tekst API reference (REST) - spraakservices
+title: Naslag informatie over spraak naar tekst-API (REST)-Speech Service
 titleSuffix: Azure Cognitive Services
-description: Informatie over het gebruik van de REST-API voor spraak-naar-tekst. In dit artikel leert u over de opties voor autorisatie, opties voor query's, het structureren van een aanvraag en antwoord heeft ontvangen.
+description: Meer informatie over het gebruik van de spraak-naar-tekst REST API. In dit artikel leert u over de opties voor autorisatie, opties voor query's, het structureren van een aanvraag en antwoord heeft ontvangen.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9d967fa4d5ba54e4470dadc5e797067454e1769a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6324c00d9b85a13ef6e69185e3b380b20f761f3b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606344"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552972"
 ---
-# <a name="speech-to-text-rest-api"></a>Spraak-naar-tekst REST-API
+# <a name="speech-to-text-rest-api"></a>REST API voor spraak naar tekst
 
-Als alternatief voor de [spraak SDK](speech-sdk.md), Speech Services kunt u Converteer spraak naar tekst met behulp van een REST-API. Elk eindpunt dat toegankelijk is, is gekoppeld aan een regio. Uw toepassing is een abonnementssleutel vereist voor het eindpunt dat u van plan bent te gebruiken.
+Als alternatief voor de [spraak-SDK](speech-sdk.md)kunt u met spraak Services spraak-naar-tekst converteren met behulp van een rest API. Elk eindpunt dat toegankelijk is, is gekoppeld aan een regio. Uw toepassing is een abonnementssleutel vereist voor het eindpunt dat u van plan bent te gebruiken.
 
-Voordat u de spraak-naar-tekst REST-API, begrijpen:
-* Aanvragen die gebruikmaken van de REST-API kunnen slechts tien seconden opgenomen audio bevatten.
+Voordat u de REST API voor spraak naar tekst gebruikt, moet u het volgende weten:
+* Aanvragen die gebruikmaken van de REST API kunnen slechts 10 seconden van opgenomen audio bevatten.
 * De spraak-naar-tekst REST-API retourneert alleen de laatste resultaten. Gedeeltelijke resultaten zijn niet opgegeven.
 
 Als verzendt langer audio is vereist voor uw toepassing, kunt u overwegen de [spraak SDK](speech-sdk.md) of [batch transcriptie](batch-transcription.md).
@@ -51,12 +51,12 @@ Deze tabel bevat de vereiste en optionele headers voor spraak-naar-tekst-aanvrag
 
 |Header| Description | Vereiste / optioneel |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Uw abonnementssleutel Speech Services. | Een van beide deze header of `Authorization` is vereist. |
+| `Ocp-Apim-Subscription-Key` | Uw abonnements sleutel voor spraak Services. | Een van beide deze header of `Authorization` is vereist. |
 | `Authorization` | Een verificatietoken voorafgegaan door het woord `Bearer`. Zie [Verificatie](#authentication) voor meer informatie. | Een van beide deze header of `Ocp-Apim-Subscription-Key` is vereist. |
 | `Content-type` | Beschrijft de indeling en codec van de opgegeven gegevens. Geaccepteerde waarden zijn `audio/wav; codecs=audio/pcm; samplerate=16000` en `audio/ogg; codecs=opus`. | Vereist |
 | `Transfer-Encoding` | Hiermee geeft u op of gesegmenteerde audiogegevens wordt verzonden, in plaats van één bestand. Gebruik alleen deze header als audiogegevens logische groepen te verdelen. | Optioneel |
-| `Expect` | Als u gesegmenteerde overdracht, stuurt u `Expect: 100-continue`. De spraakservices erkent de eerste aanvraag en wacht op de aanvullende gegevens.| Vereist als het gesegmenteerde audiogegevens verzenden. |
-| `Accept` | Indien opgegeven, moet deze `application/json`. De spraakservices bieden resultaten in JSON. Sommige Web aanvraag frameworks bieden een niet-compatibele standaardwaarde als u niets opgeeft, dus het is raadzaam om altijd opnemen `Accept`. | Optioneel maar aanbevolen. |
+| `Expect` | Als u gesegmenteerde overdracht, stuurt u `Expect: 100-continue`. De spraak Services erkennen de eerste aanvraag en wachten op aanvullende gegevens.| Vereist als het gesegmenteerde audiogegevens verzenden. |
+| `Accept` | Indien opgegeven, moet deze `application/json`. De spraak services bieden resultaten in JSON. Sommige Web aanvraag frameworks bieden een niet-compatibele standaardwaarde als u niets opgeeft, dus het is raadzaam om altijd opnemen `Accept`. | Optioneel maar aanbevolen. |
 
 ## <a name="audio-formats"></a>Audio-indelingen
 
@@ -68,7 +68,7 @@ Audio wordt verzonden in de hoofdtekst van de HTTP `POST` aanvraag. Het moet zic
 | OGG | OPUS | 16-bits | 16 kHz, mono |
 
 >[!NOTE]
->De bovenstaande indelingen worden ondersteund via REST-API en WebSocket in de spraakservices. De [spraak SDK](speech-sdk.md) momenteel alleen ondersteunt de WAV opmaken met PCM codec.
+>De bovenstaande indelingen worden ondersteund via REST API en WebSocket in de spraak Services. De [spraak SDK](speech-sdk.md) momenteel alleen ondersteunt de WAV opmaken met PCM codec.
 
 ## <a name="sample-request"></a>Voorbeeld van een aanvraag
 
@@ -98,7 +98,7 @@ De HTTP-statuscode voor elke reactie geeft aan dat het slagen of veelvoorkomende
 
 ## <a name="chunked-transfer"></a>Gesegmenteerde overdracht
 
-Gesegmenteerde overdrachtscodering overdracht (`Transfer-Encoding: chunked`) kunt u Verminder de latentie van de spraakherkenning omdat hierdoor de Speech Services om te beginnen met het audiobestand verwerken terwijl deze wordt verzonden. De REST-API biedt geen tijdelijke of gedeeltelijke resultaten. Deze optie is bedoeld uitsluitend het reactievermogen verbeteren.
+Gesegmenteerde overdracht`Transfer-Encoding: chunked`() kan helpen de latentie van herkenning te verminderen omdat de spraak Services kunnen beginnen met het verwerken van het audio bestand tijdens de verzen ding. De REST-API biedt geen tijdelijke of gedeeltelijke resultaten. Deze optie is bedoeld uitsluitend het reactievermogen verbeteren.
 
 Dit codevoorbeeld laat zien hoe voor het verzenden van audio in segmenten. Alleen de eerste chunk moet de audio bestands-header bevatten. `request` is een HTTPWebRequest-object dat is verbonden met het juiste REST-eindpunt. `audioFile` is het pad naar een audio-bestand op schijf.
 
@@ -163,7 +163,7 @@ De `RecognitionStatus` veld bevat deze waarden mogelijk:
 > [!NOTE]
 > Als de audio alleen uit grof taalgebruik bestaat, en de `profanity` queryparameter is ingesteld op `remove`, de service heeft geen spraak resultaat geretourneerd.
 
-De `detailed` indeling bevat dezelfde gegevens als de `simple` opmaken, samen met `NBest`, een lijst met alternatieve interpretatie van het herkenningsresultaat dezelfde. Deze resultaten worden geclassificeerd van meest waarschijnlijke naar ontwerpkenmerken. De eerste vermelding is hetzelfde als de belangrijkste herkenningsresultaat.  Wanneer u de `detailed` indeling `DisplayText` wordt geleverd als `Display` voor elk resultaat in de `NBest` lijst.
+De indeling bevat dezelfde gegevens als de `simple` indeling, samen met `NBest`een lijst met alternatieve interpretaties van hetzelfde herkennings resultaat. `detailed` Deze resultaten worden geclassificeerd op basis van de meest waarschijnlijke kans op minst. De eerste vermelding is hetzelfde als het belangrijkste herkennings resultaat.  Wanneer u de `detailed` indeling `DisplayText` wordt geleverd als `Display` voor elk resultaat in de `NBest` lijst.
 
 Elk object in de `NBest` lijst bevat:
 

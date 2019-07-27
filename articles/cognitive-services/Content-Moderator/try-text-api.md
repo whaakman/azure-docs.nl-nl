@@ -1,7 +1,7 @@
 ---
-title: Gemiddeld tekst met behulp van de tekst toezicht-API - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Maak een proefrit met beheer van tekst met behulp van de Text-API voor beheer in de online-console.
+title: Gemiddelde tekst met behulp van de API voor tekst toezicht-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: 'Test: tekst toezicht testen met behulp van de tekst toezicht-API in de online-console.'
 services: cognitive-services
 author: sanjeev3
 ms.author: sajagtap
@@ -10,60 +10,60 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: a3eb134d655f2a25acb45e0d249aa421667d1520
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 49047c21f86530aac6ed3e0138a643fd08c35af8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621391"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561189"
 ---
-# <a name="moderate-text-from-the-api-console"></a>Gemiddeld tekst van de API-console
+# <a name="moderate-text-from-the-api-console"></a>Tekst met gemiddelde van de API-console
 
-Gebruik de [tekst toezicht-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator om te scannen uw tekstinhoud taalgebruik en deze vergelijken met aangepaste en gedeelde lijsten.
+Gebruik de [tekst toezicht-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in azure content moderator om de tekst inhoud te scannen voor scheld woorden en deze te vergelijken met aangepaste en gedeelde lijsten.
 
-## <a name="get-your-api-key"></a>Haal uw API-sleutel
+## <a name="get-your-api-key"></a>Uw API-sleutel ophalen
 
-Voordat u de API in de online-console uitproberen kan, moet u de abonnementssleutel van uw. Dit bevindt zich op de **instellingen** tabblad, in de **Ocp-Apim-Subscription-Key** vak. Zie [Overzicht](overview.md) voor meer informatie.
+Voordat u de API in de online console kunt testen, moet u uw abonnements sleutel hebben. Dit bevindt zich op het tabblad **instellingen** in het vak **OCP-APIM-Subscription-Key** . Zie [Overzicht](overview.md) voor meer informatie.
 
-## <a name="navigate-to-the-api-reference"></a>Navigeer naar de API-verwijzing
+## <a name="navigate-to-the-api-reference"></a>Ga naar de API-verwijzing
 
-Ga naar de [tekst Afbeeldingstoezicht-API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
+Ga naar de [tekst toezicht API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
 
-  De **tekst - scherm** pagina wordt geopend.
+  De pagina **tekst scherm** wordt geopend.
 
-## <a name="open-the-api-console"></a>De API-console openen
+## <a name="open-the-api-console"></a>Open de API-console
 
-Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie. 
+Voor **open API-test console**selecteert u de regio die uw locatie het meest beschrijft. 
 
-  ![Tekst - scherm pagina regio selecteren](images/test-drive-region.png)
+  ![Pagina regio tekst scherm selecteren](images/test-drive-region.png)
 
-  De **tekst - scherm** API-console wordt geopend.
+  De API-console voor **tekst schermen** wordt geopend.
 
-## <a name="select-the-inputs"></a>Selecteer de invoer
+## <a name="select-the-inputs"></a>De invoer selecteren
 
 ### <a name="parameters"></a>Parameters
 
-Selecteer de queryparameters die u wilt gebruiken in uw tekst-scherm. In dit voorbeeld gebruikt u de standaardwaarde voor **taal**. U kunt ook het leeg laten omdat de bewerking automatisch de taal die waarschijnlijk als onderdeel van de uitvoering ervan detecteert.
+Selecteer de query parameters die u wilt gebruiken in het tekst scherm. Voor dit voor beeld gebruikt u de standaard waarde voor **taal**. U kunt deze waarde ook leeg laten, omdat de waarschijnlijke taal door de bewerking automatisch wordt gedetecteerd als onderdeel van de uitvoering.
 
 > [!NOTE]
-> Voor de **taal** parameter toewijzen `eng` of laat het veld leeg om te zien van de computer-ondersteund **classificatie** antwoord (preview-functie). **Deze functie ondersteunt alleen Engels**.
+> Voor de para meter **taal** wijst `eng` of laat u het leeg om de door de machine ondersteunde **classificatie** te zien (preview-functie). **Deze functie ondersteunt alleen Engels**.
 >
-> Voor **grof taalgebruik voorwaarden** detectie, gebruik de [ISO 639-3-code](http://www-01.sil.org/iso639-3/codes.asp) van de ondersteunde talen die worden vermeld in dit artikel of laat het veld leeg.
+> Gebruik  de [ISO 639-3-code](http://www-01.sil.org/iso639-3/codes.asp) van de ondersteunde talen die in dit artikel worden vermeld, of laat het leeg.
 
-Voor **AutoCorrectie**, **PII**, en **classificeren (preview)** , selecteer **waar**. Laat de **ListId** veld leeg.
+Selecteer **waar**voor **auto correctie**, **PII**en **classificeren (preview)** . Laat het veld **ListID** leeg.
 
-  ![Tekst - scherm console queryparameters](images/text-api-console-inputs.PNG)
+  ![Query parameters voor de console tekst scherm](images/text-api-console-inputs.PNG)
 
-### <a name="content-type"></a>Type inhoud
+### <a name="content-type"></a>Inhoudstype
 
-Voor **Content-Type**, selecteer het type inhoud dat u wilt dat op het scherm. In dit voorbeeld gebruikt u de standaard **text/plain** type inhoud. In de **Ocp-Apim-Subscription-Key** voert u de abonnementssleutel van uw.
+Selecteer bij **inhouds type**het type inhoud dat u wilt scherm. Voor dit voor beeld gebruikt u het standaard type **tekst/** onbewerkte inhoud. Voer in het vak **OCP-APIM-Subscription-Key** uw abonnements sleutel in.
 
-### <a name="sample-text-to-scan"></a>Voorbeeldtekst om te scannen
+### <a name="sample-text-to-scan"></a>Te scannen voorbeeld tekst
 
-In de **aanvraagtekst** Voer wat tekst. Het volgende voorbeeld ziet een opzettelijke typefout in de tekst.
+Voer in het vak hoofd tekst van de aanvraag een gedeelte van de **inhoud** in. In het volgende voor beeld ziet u een opzettelijke intypen in de tekst.
 
 > [!NOTE]
-> Ongeldige sociaal-fiscaal nummer in het volgende voorbeeldtekst is opzettelijk. Het doel is het overbrengen van de Voorbeeldinvoer en indeling van uitvoer.
+> Het ongeldige sofi-nummer in de volgende voorbeeld tekst is opzettelijk. Het doel is het overbrengen van de voorbeeld invoer en uitvoer indeling.
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -73,10 +73,10 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="analyze-the-response"></a>Het antwoord analyseren
 
-Het volgende antwoord bevat de verschillende inzichten van de API. Het bevat potentieel grof taalgebruik, persoonlijke gegevens, classificatie (preview) en de versie automatisch worden gecorrigeerd.
+Het volgende antwoord toont de verschillende inzichten van de API. Het bevat mogelijk ongepaste, persoonlijke gegevens, classificatie (preview) en de automatisch gecorrigeerde versie.
 
 > [!NOTE]
-> De functie 'Classificatie' geautomatiseerd is in preview en ondersteunt alleen Engels.
+> De functie ' classificatie ' die door de machine wordt ondersteund, is beschikbaar in de preview-versie en ondersteunt alleen Engels.
 
 ```json
 {"OriginalText":"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.\r\nThese are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300.\r\nAlso, 544-56-7788 looks like a social security number (SSN).",
@@ -172,8 +172,8 @@ Het volgende antwoord bevat de verschillende inzichten van de API. Het bevat pot
 }
 ```
 
-Voor een gedetailleerde beschrijving van alle secties in het JSON-antwoord, raadpleegt u de [teksttoezicht](text-moderation-api.md) conceptuele handleiding.
+Raadpleeg de conceptuele hand leiding voor [tekst toezicht](text-moderation-api.md) voor een gedetailleerde uitleg van alle secties in het JSON-antwoord.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De REST-API in uw code te gebruiken of beginnen met de [tekst toezicht .NET snelstartgids](text-moderation-quickstart-dotnet.md) om te integreren in uw toepassing.
+Gebruik de REST API in uw code of begin met de [tekst toezicht .net Quick](text-moderation-quickstart-dotnet.md) start om te integreren met uw toepassing.

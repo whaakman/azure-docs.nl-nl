@@ -1,6 +1,6 @@
 ---
-title: Containers configureren
-titlesuffix: Face - Azure Cognitive Services
+title: Containers configureren-FACE-API
+titleSuffix: Azure Cognitive Services
 description: Configuratie-instellingen voor containers.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dapine
-ms.openlocfilehash: c5044428b6f9c7c8fd343c93b06c1774eba8e17f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6dd047b0ba7f9a123ffcc014cff5604466946d07
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320527"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564107"
 ---
 # <a name="configure-face-docker-containers"></a>Face docker-containers configureren
 
@@ -51,7 +51,7 @@ Deze instelling bevindt zich op de volgende locatie:
 
 Vergeet niet om het _gezichts_ routering toe te voegen aan de URI van het eind punt zoals weer gegeven in het voor beeld. 
 
-|Verplicht| Name | Gegevenstype | Description |
+|Vereist| Name | Gegevenstype | Description |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Reeks | URI van de facturering-eindpunt<br><br>Voorbeeld:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
@@ -124,7 +124,7 @@ De exacte syntaxis van de locatie van de host koppelen, is afhankelijk van het h
 
 |Optioneel| Name | Gegevenstype | Description |
 |-------|------|-----------|-------------|
-|Niet toegestaan| `Input` | Tekenreeks | Bij face-containers worden deze niet gebruikt.|
+|Niet toegestaan| `Input` | Reeks | Bij face-containers worden deze niet gebruikt.|
 |Optioneel| `Output` | Tekenreeks | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`. Dit is de locatie van de logboeken. Dit omvat container Logboeken. <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Voorbeeld van de docker-opdrachten uitvoeren 

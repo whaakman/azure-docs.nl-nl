@@ -1,7 +1,7 @@
 ---
-title: Conversatie Transcriptie - spraakservices
+title: Gesprek transcriptie-Speech Service
 titleSuffix: Azure Cognitive Services
-description: Conversatie transcriptie is een geavanceerde functie van de spraakservices waarin realtime spraakherkenning, sprekeridentificatie en diarization worden gecombineerd. Conversatie transcriptie is perfect voor te transcriberen vergaderingen, de mogelijkheid om u te onderscheiden van sprekers, dit laat u weten hoe en wanneer, waardoor deelnemers zich kunt richten op de vergadering en snel voor de volgende stappen volgen in deze. Deze functie verbetert tevens de toegankelijkheid. Met transcriptie, kunt u deelnemers met gehoorproblemen actief betrekken.
+description: Conversation transcriptie is een geavanceerde functie van de spraak services die realtime spraak herkenning, luidspreker identificatie en diarization combi neren. Conversation transcriptie is perfect voor het overzetten van persoonlijke vergaderingen, met de mogelijkheid om de luid sprekers te onderscheiden, waarmee u kunt zien wie wat en wanneer, hoe deel nemers zich kunnen richten op de vergadering en snel op de volgende stappen moeten volgen. Deze functie verbetert ook de toegankelijkheid. Met transcriptie kunt u deel nemers actief houden met gehoor problemen.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,70 +10,70 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 18de3e52d61afd8e1ef20f80c020c8b7d96b9757
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: acbf82335523ee226f4b899180f0f22cb94cca5e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603257"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562886"
 ---
-# <a name="what-is-conversation-transcription"></a>Wat is conversatie transcriptie?
+# <a name="what-is-conversation-transcription"></a>Wat is een conversatie transcriptie?
 
-Conversatie transcriptie is een geavanceerde functie van de spraakservices waarin realtime spraakherkenning, sprekeridentificatie en diarization worden gecombineerd. Conversatie transcriptie is perfect voor te transcriberen vergaderingen, de mogelijkheid om u te onderscheiden van sprekers, dit laat u weten hoe en wanneer, waardoor deelnemers zich kunt richten op de vergadering en snel voor de volgende stappen volgen in deze. Deze functie verbetert tevens de toegankelijkheid. Met transcriptie, kunt u deelnemers met gehoorproblemen actief betrekken.   
+Conversation transcriptie is een geavanceerde functie van de spraak services die realtime spraak herkenning, luidspreker identificatie en diarization combi neren. Conversation transcriptie is perfect voor het overzetten van persoonlijke vergaderingen, met de mogelijkheid om de luid sprekers te onderscheiden, waarmee u kunt zien wie wat en wanneer, hoe deel nemers zich kunnen richten op de vergadering en snel op de volgende stappen moeten volgen. Deze functie verbetert ook de toegankelijkheid. Met transcriptie kunt u deel nemers actief houden met gehoor problemen.   
 
-Conversatie transcriptie biedt nauwkeurige herkenning met aanpasbare spraakmodellen die u aanpassen kunt om te begrijpen van de branche en bedrijfsspecifieke vocabulaire. U kunt bovendien transcriptie conversatie met de SDK van de apparaten spraak voor het optimaliseren van de ervaring voor meerdere microfoon apparaten worden gekoppeld.
+Conversation transcriptie levert nauw keurige herkenning met aanpas bare spraak modellen die u kunt aanpassen om inzicht te krijgen in de industrie en bedrijfsspecifieke woorden lijst. Daarnaast kunt u gespreks transcriptie koppelen aan de speech-apparaten SDK om de ervaring voor apparaten met meerdere microfoons te optimaliseren.
 
 >[!NOTE]
-> Op dit moment wordt conversatie transcriptie aanbevolen voor kleine vergaderingen. Als u wilt uitbreiden van de conversatie transcriptie voor grote vergaderingen op schaal, neem dan contact met ons.
+> Conversatie transcriptie wordt momenteel aanbevolen voor kleine vergaderingen. Neem contact met ons op als u de conversatie transcriptie voor grote vergaderingen op schaal wilt verlengen.
 
-In dit diagram ziet u de hardware, software en services die met de conversatie transcriptie samen.
+Dit diagram illustreert de hardware, software en services die samen werken met de conversatie-transcriptie.
 
-![Het importeren van conversatie transcriptie Diagram](media/scenarios/conversation-transcription-service.png)
+![Het diagram gesprek transcriptie importeren](media/scenarios/conversation-transcription-service.png)
 
 >[!IMPORTANT]
-> Er is een circulaire zeven Microfoonmatrix met specifieke geometrie-configuratie vereist. Zie voor meer informatie-specificatie en -ontwerp, [Microsoft Speech Device SDK microfoon](https://aka.ms/cts/microphone). Zie voor meer informatie of een development kit aanschaffen, [Microsoft Speech apparaat-SDK ophalen](https://aka.ms/cts/getsdk).
+> Er is een circulaire zeven microfoon matrix met een specifieke geometrie configuratie vereist. Zie de [micro soft speech Device SDK-microfoon](https://aka.ms/cts/microphone)voor informatie over specificaties en ontwerpen. Raadpleeg voor meer informatie of een Development Kit aanschaffen [micro soft speech Device SDK](https://aka.ms/cts/getsdk)(Engelstalig).
 
-## <a name="get-started-with-conversation-transcription"></a>Aan de slag met de conversatie transcriptie
+## <a name="get-started-with-conversation-transcription"></a>Aan de slag met een gesprek transcriptie
 
-Er zijn drie stappen die u nodig hebt om aan te nemen aan de slag met de conversatie transcriptie.
+Er zijn drie stappen die u moet uitvoeren om aan de slag te gaan met Conversation transcriptie.
 
-1. Toon voorbeelden van gebruikers verzamelen.
-2. Genereren van gebruikersprofielen met behulp van de gebruiker stem-voorbeelden
-3. De spraak-SDK gebruiken om te bepalen van gebruikers (sprekers) en moet transcriberen spraak
+1. Verzamel spraak voorbeelden van gebruikers.
+2. Gebruikers profielen genereren met behulp van de voor beelden van de gebruikers spraak
+3. De Speech SDK gebruiken om gebruikers (sprekers) te identificeren en spraak te transcriberen
 
-## <a name="collect-user-voice-samples"></a>Gebruiker stem voorbeelden verzamelen
+## <a name="collect-user-voice-samples"></a>Voor beelden van gebruikers spraak verzamelen
 
-De eerste stap is naar geluidsopnamen verzamelen van elke gebruiker. Gebruiker spraak moet worden geregistreerd in een stille omgeving zonder achtergrondgeluiden. De lengte van de aanbevolen voor elk audio voorbeeld ligt tussen 30 seconden en twee minuten. Bij het identificeren van luidsprekers resulteert langer audiovoorbeelden in betere nauwkeurigheid. Audio moet mono kanaal met een samplefrequentie 16 KHz.
+De eerste stap is het verzamelen van audio-opnames van elke gebruiker. Gebruikers spraak moet worden vastgelegd in een stille omgeving zonder achtergrond geluid. De aanbevolen lengte voor elk audio sample ligt tussen 30 seconden en twee minuten. Meer geluids voorbeelden leiden tot betere nauw keurigheid bij het identificeren van luid sprekers. Audio moet mono-kanaal zijn met een sample frequentie van 16 KHz.
 
-Meer dan de hiervoor genoemde richtlijnen, hoe de audio wordt vastgelegd en opgeslagen is aan u--wordt een beveiligde database aanbevolen. In de volgende sectie wordt we bekijken hoe deze audio wordt gebruikt voor het genereren van gebruikersprofielen die worden gebruikt met de spraak-SDK voor het herkennen van luidsprekers.
+Naast de voor noemde richt lijnen, hoe audio wordt vastgelegd en opgeslagen, is een beveiligde data base aanbevolen. In de volgende sectie wordt beschreven hoe deze audio wordt gebruikt voor het genereren van gebruikers profielen die worden gebruikt met de spraak-SDK om luid sprekers te herkennen.
 
-## <a name="generate-user-profiles"></a>Gebruikersprofielen genereren
+## <a name="generate-user-profiles"></a>Gebruikers profielen genereren
 
-Vervolgens moet u voor het verzenden van de audio-opnamen u hebt verzameld voor de Service voor het genereren van handtekeningen voor valideren van de audio en het genereren van gebruikersprofielen. De [Service voor het genereren van handtekeningen](https://aka.ms/cts/signaturegenservice) is een set REST-API's, waarmee u genereren en ophalen van gebruikersprofielen.
+Vervolgens moet u de audio-opnames die u hebt verzameld, naar de service Signature generate verzenden om de audio te valideren en gebruikers profielen te genereren. De [service voor het genereren van hand tekeningen](https://aka.ms/cts/signaturegenservice) is een set rest-api's waarmee u gebruikers profielen kunt genereren en ophalen.
 
-Voor het maken van een gebruikersprofiel, moet u gebruiken de `GenerateVoiceSignature` API. Details van de specificatie en voorbeeldcode zijn beschikbaar:
+Als u een gebruikers profiel wilt maken, moet u de `GenerateVoiceSignature` API gebruiken. Specificatie details en voorbeeld code zijn beschikbaar:
 
 > [!NOTE]
-> Conversatie transcriptie is momenteel beschikbaar in 'en-US' en 'zh-CN' in de volgende regio's: `centralus` en `eastasia`.
+> De conversatie transcriptie is momenteel beschikbaar in de volgende regio's: `centralus` en `eastasia`-US en "zh-cn".
 
 * [REST-specificatie](https://aka.ms/cts/signaturegenservice)
-* [Het gebruik van de conversatie transcriptie](https://aka.ms/cts/howto)
+* [Hoe kan ik gesprek transcriptie gebruiken?](https://aka.ms/cts/howto)
 
-## <a name="transcribe-and-identify-speakers"></a>Transcriberen en identificeren van luidsprekers
+## <a name="transcribe-and-identify-speakers"></a>Luid sprekers transcriberen en identificeren
 
-Conversatie transcriptie wordt verwacht dat meerdere kanalen audiostreams en gebruikersprofielen als invoer voor het genereren van transcripties en sprekers te identificeren. Audio- en profielgegevens worden verzonden naar de conversatie transcriptie service met behulp van de SDK van de apparaten spraak. Zoals eerder gezegd, een circulaire zeven Microfoonmatrix en de SDK van de apparaten spraak overstappen naar conversatie transcriptie.
+Conversatie transcriptie verwacht meerkanaalse audio stromen en gebruikers profielen als invoer voor het genereren van transcripties en het identificeren van luid sprekers. Audio-en gebruikers profiel gegevens worden verzonden naar de conversatie transcriptie-service met behulp van de speech-apparaten SDK. Zoals eerder vermeld, zijn er een circulaire zeven microfoon matrix en de speech apparaten SDK vereist voor het gebruik van conversatie transcriptie.
 
 >[!NOTE]
-> Zie voor meer informatie-specificatie en -ontwerp, [Microsoft Speech Device SDK microfoon](https://aka.ms/cts/microphone). Zie voor meer informatie of een development kit aanschaffen, [Microsoft Speech apparaat-SDK ophalen](https://aka.ms/cts/getsdk).
+> Zie de [micro soft speech Device SDK-microfoon](https://aka.ms/cts/microphone)voor informatie over specificaties en ontwerpen. Raadpleeg voor meer informatie of een Development Kit aanschaffen [micro soft speech Device SDK](https://aka.ms/cts/getsdk)(Engelstalig).
 
-Zie voor meer informatie over het gebruik van de conversatie transcriptie met de SDK van de apparaten spraak, [over het gebruik van de conversatie transcriptie](https://aka.ms/cts/howto).
+Zie [conversatie-transcriptie gebruiken](https://aka.ms/cts/howto)voor meer informatie over het gebruik van conversatie transcriptie met de speech-apparaten SDK.
 
 
-## <a name="quick-start-with-a-sample-app"></a>Snel starten met een voorbeeld-app
+## <a name="quick-start-with-a-sample-app"></a>Quick Start met een voor beeld-app
 
-Microsoft Speech Device SDK heeft een snel aan de slag-voorbeeld-app voor alle apparaten die betrekking hebben voorbeelden. Conversatie transcriptie is een van beide. U vindt deze in [android Quick Start voor een apparaat-SDK voor spraak](https://aka.ms/sdsdk-quickstart) met voorbeeld-app en de broncode ter referentie.
+De SDK voor spraak apparaten van micro soft heeft een snel starten-voor beeld van een app voor alle aan apparaten gerelateerde voor beelden. Conversation transcriptie is een van beide. U kunt dit vinden in de Quick start voor [spraak apparaten SDK](https://aka.ms/sdsdk-quickstart) met voor beeld-apps en de bijbehorende bron code voor uw referentie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over de SDK van de apparaten spraak](speech-devices-sdk.md)
+> [Meer informatie over de SDK voor spraak apparaten](speech-devices-sdk.md)

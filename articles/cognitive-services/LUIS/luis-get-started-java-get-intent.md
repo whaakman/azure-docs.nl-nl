@@ -1,6 +1,6 @@
 ---
-title: Intentie ophalen, Java
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Intentie, Java-LUIS
+titleSuffix: Azure Cognitive Services
 description: In deze Java-snelstart gebruikt u een beschikbare openbare LUIS-app om de intentie van een gebruiker te bepalen aan de hand van beschrijvende tekst.
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 42240c7b45029684e51c25419eab7f4378785a4d
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 7a80aefd7a88727cf3a2261115c076853bd45b3f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276143"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563818"
 ---
 # <a name="quickstart-get-intent-using-java"></a>Snelstart: Intentie ophalen met behulp van Java
 
@@ -29,7 +29,7 @@ In deze snelstart leest u hoe u utterances doorgeeft aan een LUIS-eindpunt en in
 ## <a name="prerequisites"></a>Vereisten
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
-* [Visual Studio Code](https://code.visualstudio.com/) of uw favoriete IDE
+* [Visual Studio code](https://code.visualstudio.com/) of uw favoriete IDE
 * Id van openbare app: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
@@ -44,7 +44,7 @@ In deze snelstart leest u hoe u utterances doorgeeft aan een LUIS-eindpunt en in
 
 ## <a name="get-intent-programmatically"></a>De intentie programmatisch ophalen
 
-U kunt Java gebruiken voor toegang tot de dezelfde resultaten die u in het browservenster in de vorige stap hebt gezien. Zorg ervoor dat de Apache-bibliotheken toevoegen aan uw project.
+U kunt Java gebruiken voor toegang tot de dezelfde resultaten die u in het browservenster in de vorige stap hebt gezien. Zorg ervoor dat u de Apache-bibliotheken aan uw project toevoegt.
 
 1. Kopieer de volgende code om een klasse te maken in een bestand met de naam `LuisGetRequest.java`:
 
@@ -52,9 +52,9 @@ U kunt Java gebruiken voor toegang tot de dezelfde resultaten die u in het brows
 
 2. Vervang de waarde van de variabele `YOUR-KEY` door de LUIS-sleutel.
 
-3. Vervangt door uw bestandspad en de java-programma vanaf de opdrachtregel compileren: `javac -cp .;<FILE_PATH>\* LuisGetRequest.java`.
+3. Vervang door het bestandspad en compileer het Java-programma vanaf een opdracht regel: `javac -cp .;<FILE_PATH>\* LuisGetRequest.java`.
 
-4. Vervangen door uw bestandspad en de toepassing wordt uitgevoerd vanaf een opdrachtregel: `java -cp .;<FILE_PATH>\* LuisGetRequest.java`. De uitvoer bestaat uit de JSON die u eerder hebt gezien in het browservenster.
+4. Vervang door het bestandspad en voer de toepassing uit vanaf een opdracht regel: `java -cp .;<FILE_PATH>\* LuisGetRequest.java`. De uitvoer bestaat uit de JSON die u eerder hebt gezien in het browservenster.
 
     ![In het consolevenster wordt het JSON-resultaat van LUIS weergegeven](./media/luis-get-started-java-get-intent/console-turn-on.png)
     
@@ -64,7 +64,7 @@ U kunt Java gebruiken voor toegang tot de dezelfde resultaten die u in het brows
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Verwijder de Java-bestand of het aangevraagde project-map.
+Verwijder de map Java-bestand/project.
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]

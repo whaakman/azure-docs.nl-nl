@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 7fbb9265ac12126fb13a26650fbb5d65f3d39260
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 89e67fd58f6cfc54e21406e9385e7ca5e5bc1d17
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792085"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569158"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Snelstartgids: Python gebruiken om een query uit te voeren voor een Azure SQL-database
 
@@ -37,7 +36,7 @@ Zorg ervoor dat u over het volgende beschikt om deze snelstart te voltooien:
   | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| [Connectiviteit vanaf een VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connectiviteit vanaf locatie](sql-database-managed-instance-configure-p2s.md)
   |Gegevens laden|Adventure Works geladen volgens de quickstart|[Wide World Importers herstellen](sql-database-managed-instance-get-started-restore.md)
-  |||Herstellen of importeren van Adventure Works van [BACPAC](sql-database-import.md) -bestand uit [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Adventure Works herstellen of importeren vanuit [BACPAC](sql-database-import.md) -bestand vanuit [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]

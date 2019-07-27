@@ -1,7 +1,7 @@
 ---
-title: Met de spraak-apparaten SDK - Speech Services oplossen
+title: Problemen met de speech-apparaten oplossen SDK-spraak service
 titleSuffix: Azure Cognitive Services
-description: Dit artikel bevat informatie om u te helpen bij het oplossen van problemen die mogelijk optreden wanneer u de spraak-apparaten-SDK gebruiken.
+description: In dit artikel vindt u informatie over het oplossen van problemen die kunnen optreden wanneer u de speech apparaten SDK gebruikt.
 services: cognitive-services
 author: mswellsi
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
-ms.openlocfilehash: f55171a177dfcbebb9bc6df5ce125a8f29494946
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 9a757402360b4b69e760315a809482be9b4e04d4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606302"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558904"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>Probleem oplossen met de Speech Devices-SDK
 
-Dit artikel bevat informatie om u te helpen bij het oplossen van problemen die mogelijk optreden wanneer u de spraak-apparaten-SDK gebruiken.
+In dit artikel vindt u informatie over het oplossen van problemen die kunnen optreden wanneer u de speech apparaten SDK gebruikt.
 
 ## <a name="certificate-failures"></a>Certificaatfouten
 
-Als er certificaatfouten bij het gebruik van de spraakservices, zorg ervoor dat uw apparaat de juiste datum en tijd heeft:
+Als er certificaat fouten optreden bij het gebruik van de spraak Services, moet u ervoor zorgen dat uw apparaat de juiste datum en tijd heeft:
 
 1. Ga naar **instellingen**. Onder **System**, selecteer **datum en tijd**.
 

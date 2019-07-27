@@ -1,7 +1,7 @@
 ---
-title: Rangtelwoord V2 vooraf gemaakte entiteiten
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: In dit artikel bevat rangtelwoord V2 vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
+title: Rang telwoord v2 vooraf gebouwde entiteit-LUIS
+titleSuffix: Azure Cognitive Services
+description: Dit artikel bevat vooraf opgemaakte nummer v2-entiteits gegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,21 +11,21 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 862b962f5642e01d7ed8250f49d51a6132447083
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 972f75fd1c977e79a2fa70c44bb3069e2c69a2c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67486138"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563415"
 ---
-# <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>Rangtelwoord V2 vooraf gedefinieerde entiteit voor een LUIS-app
-Rangtelwoord V2-nummer wordt uitgebreid [rangtelwoord](luis-reference-prebuilt-ordinal.md) voor relatieve verwijzingen zoals `next`, `last`, en `previous`. Deze gegevens worden niet opgehaald met behulp van de rangtelwoord vooraf gedefinieerde entiteit.
+# <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>Rang telwoord v2 vooraf gebouwde entiteit voor een LUIS-app
+Ordinal v2 `next`-nummer breidt [rang telwoord](luis-reference-prebuilt-ordinal.md) uit om relatieve verwijzingen te `last`bieden, `previous`zoals,, en. Deze worden niet geëxtraheerd met behulp van de vooraf gebouwde ordinale entiteit.
 
-## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>Oplossing voor vooraf gedefinieerde rangtelwoord V2-entiteit
+## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>Oplossing voor vooraf ontwikkelde rang telwoord v2-entiteit
 
-### <a name="api-version-2x"></a>API-versie 2.x
+### <a name="api-version-2x"></a>API-versie 2. x
 
-Het volgende voorbeeld ziet u de resolutie van de **builtin.ordinalV2** entiteit.
+In het volgende voor beeld ziet u de oplossing van de **ingebouwde entiteit. ordinalV2** .
 
 ```json
 {
@@ -55,9 +55,9 @@ Het volgende voorbeeld ziet u de resolutie van de **builtin.ordinalV2** entiteit
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Preview-API-versie 3.x
+### <a name="preview-api-version-3x"></a>Preview-API versie 3. x
 
-De volgende JSON is met de `verbose` parameter ingesteld op `false`:
+De volgende JSON is met de `verbose` para meter ingesteld `false`op:
 
 ```json
 {
@@ -82,7 +82,7 @@ De volgende JSON is met de `verbose` parameter ingesteld op `false`:
 }
 ```
 
-De volgende JSON is met de `verbose` parameter ingesteld op `true`:
+De volgende JSON is met de `verbose` para meter ingesteld `true`op:
 
 ```json
 {
@@ -124,4 +124,4 @@ De volgende JSON is met de `verbose` parameter ingesteld op `true`:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de [percentage](luis-reference-prebuilt-percentage.md), [telefoonnummer](luis-reference-prebuilt-phonenumber.md), en [temperatuur](luis-reference-prebuilt-temperature.md) entiteiten. 
+Meer informatie over het [percentage](luis-reference-prebuilt-percentage.md), het [telefoon nummer](luis-reference-prebuilt-phonenumber.md)en de [temperatuur](luis-reference-prebuilt-temperature.md) entiteiten. 

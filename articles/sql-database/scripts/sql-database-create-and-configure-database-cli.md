@@ -8,16 +8,15 @@ ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
-manager: craigg
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 2a5fb6fcd9b1f0c327df23741284ec0d5fc26c71
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f6051c5c83f43f20e453b5f87aabb1a80d7a0487
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447877"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569987"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>CLI gebruiken om één Azure SQL-database te maken en een firewallregel te configureren
 
@@ -35,7 +34,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Gebruik de volgende opdracht om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Gebruik de volgende opdracht om de resource groep en alle bijbehorende resources te verwijderen.
 
 ```azurecli-interactive
 az group delete --name $resourceGroupName

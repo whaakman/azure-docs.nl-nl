@@ -1,6 +1,6 @@
 ---
-title: Functies
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Functies-LUIS
+titleSuffix: Azure Cognitive Services
 description: Functies toevoegen aan een taalmodel voor tips over het herkennen van de invoer die u wilt een label of classificeren.
 services: cognitive-services
 author: diberry
@@ -11,71 +11,71 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1aed6f9a0ceec18ca800e5030ec09bbb8d98cb76
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812940"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560722"
 ---
-# <a name="phrase-list-features-in-your-luis-app"></a>Woordgroep lijst met functies in uw LUIS-app
+# <a name="phrase-list-features-in-your-luis-app"></a>Woordgroepen lijst functies in uw LUIS-app
 
 In machine learning, een *functie* is een onderscheidende eigenschap of kenmerk van de gegevens die uw systeem toetsenbordinvoer. 
 
 Functies toevoegen aan een taalmodel voor tips over het herkennen van de invoer die u wilt een label of classificeren. Functies helpen LUIS zowel intenties en entiteiten herkennen, maar functies zijn niet intents of entiteiten zelf. Functies mogelijk in plaats daarvan vindt u voorbeelden van de bijbehorende voorwaarden.  
 
 ## <a name="what-is-a-phrase-list-feature"></a>Wat is een functie van de lijst woordgroep?
-Een woordgroepenlijst wordt een lijst met woorden of zinsdelen die belangrijk om uw app zijn, meer dus dan andere woorden in uitingen. Een woordgroepenlijst wordt toegevoegd aan het vocabulaire van het domein van de app als een aanvullende signaal dat moet worden LUIS over deze woorden. LUIS leert over een van beide wordt automatisch toegepast op de andere. Deze lijst is niet een gesloten [entiteit lijst](luis-concept-entity-types.md#types-of-entities) van exact overeenkomende tekst komt overeen met.
+Een woordgroepen lijst is een lijst met woorden of woord groepen die belang rijk zijn voor uw app, meer dan andere woorden in uitingen. Een woordgroepen lijst wordt toegevoegd aan de vocabulaire van het app-domein als een extra signaal voor LUIS over die woorden. LUIS leert over een van beide wordt automatisch toegepast op de andere. Deze lijst is geen entiteit met een gesloten [lijst](luis-concept-entity-types.md#types-of-entities) met exacte tekst overeenkomsten.
 
-Woordgroep lijsten niet hebt kunnen met als gevolg van daarom voor utterance voorbeelden die gebruikmaken van tal van afleiding voor een aanzienlijke vocabulaire woorden en woordgroepen toevoegen.
+Woordgroepen lijsten bieden geen ondersteuning voor het opruimen van items, zodat u utterance-voor beelden kunt toevoegen die gebruikmaken van een verscheidenheid aan termen van grote woorden en zinsdelen.
 
-## <a name="phrase-lists-help-all-models"></a>Woordgroep lijsten helpen alle modellen
+## <a name="phrase-lists-help-all-models"></a>Woordgroepen lijsten helpen alle modellen
 
-Woordgroep lijsten niet zijn gekoppeld aan een bepaald doel of de entiteit, maar als een aanzienlijke verbetering zijn toegevoegd aan alle intenties en entiteiten. Het doel hiervan is voor het verbeteren van intentie detectie en entiteit classificatie.
+Woordgroepen lijsten zijn niet gekoppeld aan een specifieke intentie of entiteit, maar worden toegevoegd als een belang rijke versterking van alle doel stellingen en entiteiten. Het doel is om de detectie van de intentie en de entiteits classificatie te verbeteren.
 
 ## <a name="how-to-use-phrase-lists"></a>Het gebruik van een lijst met woorden
 
-Een woordgroepenlijst maken wanneer uw app heeft woorden of zinsdelen die belangrijk voor de app, zoals zijn:
+Maak een woordgroepen lijst als uw app woorden of zinsdelen bevat die belang rijk zijn voor de app, zoals:
 
-* voorwaarden voor de bedrijfstak
+* branche voorwaarden
 * slang
 * afkortingen
 * bedrijfsspecifieke taal
-* taal die afkomstig is van een andere taal, maar vaak gebruikt in uw app
-* sleutel woorden en woordgroepen in uw voorbeeld-uitingen
+* taal die afkomstig is uit een andere taal, maar vaak wordt gebruikt in uw app
+* tref woorden en zinsdelen in uw voor beeld uitingen
 
-Zodra u een paar woorden of zinsdelen hebt ingevoerd, gebruikt u de **raden** functie om gerelateerde waarden te vinden. Bekijk de gerelateerde waarden voordat u aan de lijst met waarden in de woordgroep toevoegt.
+Wanneer u enkele woorden of zinsdelen hebt ingevoerd, gebruikt u de functie **Aanbevolen** om verwante waarden te vinden. Controleer de gerelateerde waarden voordat u deze toevoegt aan de lijst waarden van de woordgroepen.
 
 |Lijsttype|Doel|
 |--|--|
-|Verwisselbaar|Synoniemen of woorden dat, wanneer gewijzigd in een ander woord in de lijst, de dezelfde intentie en entiteiten extraheren hebben.|
-|Niet-verwisselbaar|App vocabulaire, specifiek zijn voor uw app, meer, zodat er dan in het algemeen andere woorden in die taal.|
+|Uitwisselbaar|Synoniemen of woorden die, wanneer ze worden gewijzigd in een ander woord in de lijst, dezelfde intentie en entiteits extractie hebben.|
+|Niet-verwisselbaar|App-vocabulaire, specifiek voor uw app, meer dan over de meeste andere woorden in die taal.|
 
-### <a name="interchangeable-lists"></a>Verwisselbaar lijsten
+### <a name="interchangeable-lists"></a>Verwissel bare lijsten
 
-Een *uitwisselbaar* woordgroepenlijst is voor waarden die synoniemen worden. Bijvoorbeeld, als u wilt dat alle instanties van water gevonden en u beschikt over voorbeeld uitingen zoals: 
+Een  lijst met verwisselbaar woordgroepen is voor waarden die synoniemen zijn. Bijvoorbeeld, als u wilt dat alle water lichamen worden gevonden en u bijvoorbeeld uitingen hebt zoals: 
 
-* Wat steden zich dicht bij de grote meren? 
-* Welke weg wordt uitgevoerd langs Lake Havasu?
-* Waar de Nijl beginnen en eindigen? 
+* Welke steden bevinden zich dicht bij de fantastische meren? 
+* Wat is de weg van meer dan Lake Havasu?
+* Waar wordt de Nile gestart en beëindigd? 
 
-Elke utterance moet worden vastgesteld voor zowel de intentie en de entiteiten, ongeacht de hoofdtekst van het water: 
+Elk utterance moet worden vastgesteld voor zowel de intentie als de entiteiten ongeacht het water lichaam: 
 
-* Wat steden zich dicht bij [bodyOfWater]?
-* Welke weg wordt uitgevoerd op [bodyOfWater]?
-* Waar de [bodyOfWater] starten en beëindigen? 
+* Welke steden bevinden zich dicht bij [bodyOfWater]?
+* Wat loopt de weg langs [bodyOfWater]?
+* Waar wordt de [bodyOfWater] gestart en eindigen? 
 
-Omdat het woorden of zinsdelen voor de hoofdtekst van het water synoniem zijn en kunnen door elkaar worden gebruikt in de uitingen, gebruikt u de **verwisselbaar** instellen in de woordgroepenlijst met. 
+Omdat de woorden of zinsdelen voor het water lichaam synoniemen zijn en kunnen worden gebruikt door elkaar in de uitingen, gebruikt u de instelling die kan worden **gewijzigd** in de lijst met zinsdelen. 
 
-### <a name="non-interchangeable-lists"></a>Niet-verwisselbaar lijsten
+### <a name="non-interchangeable-lists"></a>Niet-Verwissel bare lijsten
 
-Een woordgroepenlijst met niet-verwisselbaar wordt een signaal die de loyaliteit van detectie van LUIS. De woordgroepenlijst met geeft woorden of zinsdelen die belangrijker zijn die andere woorden. Dit helpt met beide bepalende intentie en entiteit detecteren. Stel dat u hebt een onderwerp-domein, zoals traject dat globale (dat wil zeggen over culturen maar nog steeds in één taal). Er zijn woorden en zinnen die belangrijk zijn voor de app, maar niet hetzelfde zijn. 
+Een niet-verwisselbaar woordgroepen lijst is een signaal dat detectie naar LUIS verhoogt. De lijst met zinsdelen geeft woorden of woord groepen aan die belang rijker zijn dan andere woorden. Dit helpt bij het bepalen van de intentie en de entiteits detectie. Stel dat u een onderwerps domein hebt, zoals een globaal traject (dat wil zeggen over cult uren, maar nog steeds in één taal). Er zijn woorden en zinsdelen die belang rijk zijn voor de app, maar die niet synoniem zijn. 
 
-Gebruik voor een ander voorbeeld: een woordgroepenlijst met niet-verwisselbaar zeldzaam, eigen en externe woorden. LUIS is mogelijk niet worden herkend zeldzame en eigen woorden, evenals de woorden in vreemde talen (buiten de cultuur van de app). De niet-verwisselbaar instelling geeft aan dat de set zeldzaam woorden vormt een klasse die LUIS moet leren herkennen, maar ze niet synoniemen zijn of uitwisselbaar met elkaar.
+Voor een ander voor beeld gebruikt u een niet-verwisselbaar woordgroepen lijst voor zeldzame, bedrijfs eigen en vreemde woorden. LUIS is mogelijk niet worden herkend zeldzame en eigen woorden, evenals de woorden in vreemde talen (buiten de cultuur van de app). De niet-verwisselbaar instelling geeft aan dat de set zeldzaam woorden vormt een klasse die LUIS moet leren herkennen, maar ze niet synoniemen zijn of uitwisselbaar met elkaar.
 
-Niet elke mogelijke woord of woordgroep toevoegen aan een woordgroepenlijst met, een paar woorden of zinsdelen tegelijk, toevoegen en vervolgens opnieuw trainen en publiceren. 
+Voeg niet alle mogelijke woorden of woord groepen toe aan een woordgroepen lijst, voeg enkele woorden of zinsdelen per keer toe en voer ze vervolgens opnieuw uit. 
 
-Als de woordgroepenlijst na verloop van tijd groeit, merkt u misschien enkele termen vele vormen (synoniemen). Lichten deze in een andere zin-lijst die is uitwisselbaar. 
+Wanneer de lijst met zinsdelen langer duurt, zijn er mogelijk enkele formulieren (synoniemen). Verbreek deze naar een andere woordgroepen lijst die kan worden gewijzigd. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
@@ -93,7 +93,7 @@ Zowel een woordgroep en lijst met entiteiten kunnen uitingen over alle intents b
 ### <a name="use-a-phrase-list"></a>Gebruik een zin-lijst
 LUIS kunt nog steeds met een woordgroepenlijst rekening gehouden met context en generaliseren voor het identificeren van items die vergelijkbaar zijn met, maar niet een exacte overeenkomst als items in een lijst. Als u uw LUIS-app moet kunnen generaliseren en nieuwe items in een categorie te identificeren, gebruikt u een woordgroepenlijst met. 
 
-Gebruik een ander type machine geleerd entiteit, zoals een enkele entiteit als u mogelijk wilt voor het herkennen van nieuwe instanties van een entiteit, zoals een vergadering scheduler die de namen van nieuwe contactpersonen of een inventarisatie-app die, nieuwe producten herkennen moet te herkennen. Maak vervolgens een woordgroepenlijst met woorden en zinnen waarmee LUIS andere woorden die vergelijkbaar is met de entiteit zoeken. Deze lijst begeleidt LUIS zodat voorbeelden van de entiteit worden herkend door extra betekenis toe te voegen aan de waarde van deze woorden. 
+Als u nieuwe exemplaren van een entiteit wilt kunnen herkennen, zoals een Meeting scheduler die de namen van nieuwe contact personen moet herkennen of een inventarisatie-app die nieuwe producten moet herkennen, moet u een ander type computer-geleerde entiteit, zoals een eenvoudige entiteit, gebruiken. Maak vervolgens een woordgroepenlijst met woorden en zinnen waarmee LUIS andere woorden die vergelijkbaar is met de entiteit zoeken. Deze lijst begeleidt LUIS zodat voorbeelden van de entiteit worden herkend door extra betekenis toe te voegen aan de waarde van deze woorden. 
 
 Een lijst met woorden zijn domeinspecifieke-woordenlijst die u helpen bij het verbeteren van de kwaliteit van het inzicht van zowel intenties en entiteiten. Een veelvoorkomend gebruik van een woordgroepenlijst is de juiste zelfstandige naamwoorden, zoals plaatsnamen. Naam van een plaats kan meerdere woorden, inclusief afbreekstreepjes of apostroffen zijn.
  

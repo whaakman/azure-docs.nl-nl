@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Spraak omzetten, C# (UWP) - Speech Services'
+title: 'Quickstart: Vertaal spraak, C# (UWP)-Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart maakt u een eenvoudige UWP-toepassing (Universeel Windows-platform) om spraak van gebruikers vast te leggen, deze om te zetten in een andere taal en de tekst uit te voeren naar de opdrachtregel. Deze handleiding is bedoeld voor Windows-gebruikers.
 services: cognitive-services
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 07/23/2019
 ms.author: erhopf
-ms.openlocfilehash: dafcbd6bbe7f542d4eabc6b7cf858ac4871caae8
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: e73f15525aa679a3ba0242dab897adf999fe7e09
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404904"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559255"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>Quickstart: Spraak omzetten met de Speech SDK voor C# (UWP)
 

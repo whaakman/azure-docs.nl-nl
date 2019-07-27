@@ -1,7 +1,7 @@
 ---
-title: Een beperkte proefversie project naar Azure verplaatsen
-titlesuffix: Azure Cognitive Services
-description: Leer hoe u een beperkte proefversie-project naar Azure te verplaatsen.
+title: Een beperkte proef project verplaatsen naar Azure
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over het verplaatsen van een project met een beperkte proef versie naar Azure.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,52 +10,52 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: 6fac6531ea0a39796de13f95aee33b30dc91f131
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22c3767dfac1e377890f1e01517d18263e694854
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816513"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560933"
 ---
-# <a name="how-to-move-your-limited-trial-project-to-azure"></a>Uw project beperkte proefversie verplaatsen naar Azure
+# <a name="how-to-move-your-limited-trial-project-to-azure"></a>Uw beperkte proef project verplaatsen naar Azure
 
-Omdat Custom Vision Service is voltooid de overgang naar Azure, beëindigt de ondersteuning voor projecten met een beperkte proefversie buiten Azure. Dit document wordt beschreven hoe de Custom Vision-API's gebruiken om te kopiëren van uw project beperkte proefversie naar een Azure-resource.
+Als Custom Vision Service de overstap naar Azure voltooit, wordt ondersteuning voor projecten met een beperkte proef versie buiten Azure beëindigd. In dit document wordt uitgelegd hoe u de Custom Vision-Api's kunt gebruiken om het project met een beperkte proef versie te kopiëren naar een Azure-resource.
 
-Ondersteuning voor beperkte proefversie projecten weergeven op de [Custom Vision website](https://customvision.ai) is gestopt op 25 maart 2019. Dit document ziet u nu het gebruik van de aangepaste Vision-API's met een [migratie python-script](https://github.com/Azure-Samples/custom-vision-move-project) op GitHub) voor het dupliceren van uw project naar een Azure-resource.
+Ondersteuning voor het weer geven van beperkte proef projecten op de [Custom Vision website](https://customvision.ai) is beëindigd op 25 maart 2019. In dit document wordt uitgelegd hoe u de Custom Vision-Api's gebruikt met een [migratie python-script](https://github.com/Azure-Samples/custom-vision-move-project) op github) om uw project te dupliceren naar een Azure-resource.
 
-Voor meer informatie, zoals de sleutel deadlines in het proces beperkte proefversie afschaffing verwijzen wij u naar de [opmerkingen bij de release](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/release-notes#february-25-2019) of e-mailberichten verzonden voor eigenaars van beperkte proefversie projecten.
+Raadpleeg de [release opmerkingen](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/release-notes#february-25-2019) of e-mail berichten die worden verzonden naar eigen aren van projecten met een beperkte proef versie voor meer informatie.
 
-De [migratiescript](https://github.com/Azure-Samples/custom-vision-move-project) kunt u een project opnieuw door te downloaden en vervolgens geüpload alle labels, regio's en afbeeldingen in uw huidige iteratie. Dit laat u met een nieuw project in uw nieuwe abonnement dat u vervolgens kunt trainen.
+Met het [migratie script](https://github.com/Azure-Samples/custom-vision-move-project) kunt u een project opnieuw maken door alle tags, regio's en afbeeldingen in uw huidige iteratie te downloaden en vervolgens te uploaden. U ontvangt een nieuw project in uw nieuwe abonnement dat u vervolgens kunt trainen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- U moet een geldig Azure-abonnement is gekoppeld aan de Microsoft-account of Azure Active Directory (AAD)-account die u gebruiken wilt voor aanmelding bij de [Custom Vision website](https://customvision.ai). 
-    - Als u een Azure-account niet hebt [maken van een account](https://azure.microsoft.com/free/) gratis.
-    - Voor een inleiding tot de Azure-concepten van abonnementen en resources, raadpleegt u de [ontwikkelaarshandleiding van Azure.](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#manage-your-subscriptions).
+- U hebt een geldig Azure-abonnement nodig dat is gekoppeld aan het Microsoft-account-of Azure Active Directory (AAD)-account dat u wilt gebruiken om u aan te melden bij de [Custom Vision-website](https://customvision.ai). 
+    - Als u geen Azure-account hebt, kunt u gratis [een account maken](https://azure.microsoft.com/free/) .
+    - Raadpleeg de [hand leiding voor Azure-ontwikkel aars](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#manage-your-subscriptions)voor een inleiding tot de concepten van Azure-abonnementen en-resources.
 -  [Python](https://www.python.org/downloads/)
-- [PIP](https://pip.pypa.io/en/stable/installing/)
+- [Gooien](https://pip.pypa.io/en/stable/installing/)
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Custom Vision resources maken in Azure portal
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Custom Vision resources maken in de Azure Portal
 
-Voor het gebruik van Custom Vision Service met Azure, moet u maken van aangepaste Vision trainen en voorspellen resources in de [Azure-portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). 
+Als u Custom Vision Service met Azure wilt gebruiken, moet u Custom Vision trainings-en Voorspellings resources maken in de [Azure Portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). 
 
-Meerdere projecten kunnen worden gekoppeld aan één resource zijn. Meer informatie over [prijzen en beperkingen](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/limits-and-quotas) beschikbaar is. Als u wilt doorgaan Custom Vision Service gratis te gebruiken, kunt u de laag F0 in Azure portal. 
+Meerdere projecten kunnen worden gekoppeld aan één resource. Meer informatie over [prijzen en limieten](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/limits-and-quotas) is beschikbaar. Als u Custom Vision Service gratis wilt blijven gebruiken, kunt u de F0-laag selecteren in de Azure Portal. 
 
 > [!NOTE]
-> Wanneer u uw aangepaste Vision-project naar een Azure-resource verplaatst, neemt de onderliggende [machtigingen]( https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) van deze Azure-resource. Als andere gebruikers in uw organisatie eigenaren van de Azure-resource uw project is zijn, deze zich toegang tot uw project op de [Custom Vision website](https://customvision.ai). Op deze manier worden uw resources verwijdert, uw projecten.  
+> Wanneer u uw Custom Vision project verplaatst naar een Azure-resource, worden de onderliggende [machtigingen]( https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) van die Azure-resource overgenomen. Als andere gebruikers in uw organisatie eigenaar zijn van de Azure-resource waarin uw project zich bevindt, kunnen ze toegang krijgen tot uw project op de [Custom Vision-website](https://customvision.ai). Als u uw resources verwijdert, worden uw projecten ook verwijderd.  
 
-## <a name="find-your-limited-trial-project-information"></a>Informatie over uw beperkte proefversie project
+## <a name="find-your-limited-trial-project-information"></a>Uw project gegevens met een beperkte proef versie zoeken
 
-Voor het verplaatsen van uw project, moet u de _project ID_ en _training sleutel_ voor het project dat u probeert te migreren. Als u deze informatie niet hebt, gaat u naar [ https://limitedtrial.customvision.ai/projects ](https://limitedtrial.customvision.ai/projects) verkrijgen de ID en sleutel voor elk van uw projecten. 
+Als u uw project wilt verplaatsen, hebt u de _project-id_ en _trainings sleutel_ nodig voor het project dat u wilt migreren. Als u deze informatie niet hebt, gaat [https://limitedtrial.customvision.ai/projects](https://limitedtrial.customvision.ai/projects) u naar om de id en de sleutel voor elk van uw projecten op te halen. 
 
-## <a name="use-the-python-sample-code-to-copy-your-project-to-azure"></a>De voorbeeldcode voor Python gebruiken om te kopiëren van uw project naar Azure
+## <a name="use-the-python-sample-code-to-copy-your-project-to-azure"></a>De python-voorbeeld code gebruiken om uw project naar Azure te kopiëren
 
-Ga als volgt de [sample code instructies](https://github.com/Azure-Samples/custom-vision-move-project), met behulp van de sleutel van uw beperkte proefversie en ID als het materiaal 'bron' en de sleutel van de nieuwe Azure resource die u hebt gemaakt als het 'doel'-project.
+Volg de [instructies in de voorbeeld code](https://github.com/Azure-Samples/custom-vision-move-project), met behulp van de beperkte sleutel en project-id als bron materiaal en de sleutel van de nieuwe Azure-resource die u hebt gemaakt als de bestemming.
 
-Standaard zijn alle beperkte proefversie projecten in Zuid-centraal VS Azure regio wordt gehost.
+Standaard worden alle projecten met een beperkte proef versie gehost in de Azure-regio Zuid-Centraal vs.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Uw project is nu verplaatst naar een Azure-resource. U moet bijwerken van uw sleutels trainen en voorspellen in alle toepassingen die u hebt geschreven.
+Uw project is nu verplaatst naar een Azure-resource. U moet uw trainings-en Voorspellings sleutels bijwerken in alle toepassingen die u hebt geschreven.
 
-Om weer te geven van uw project op de [Custom Vision website](https://customvision.ai), meld u aan met hetzelfde account waarmee u zich bij de Azure-portal. Als u uw project niet ziet, Controleer of dat u zich in dezelfde map in de [Custom Vision website](https://customvision.ai) als de map waar de resources bevinden zich in de Azure-portal. In de Azure-portal en CustomVision.ai, kunt u uw directory in het menu van de gebruiker-omlaag in de rechterbovenhoek van het scherm.
+Als u uw project op de [Custom Vision website](https://customvision.ai)wilt bekijken, meldt u zich aan met hetzelfde account dat u hebt gebruikt om u aan te melden bij de Azure Portal. Als uw project niet wordt weer geven, controleert u of u zich in dezelfde [Custom Vision](https://customvision.ai) map bevindt als de map waarin uw resources zich bevinden in de Azure Portal. In zowel de Azure Portal als de CustomVision.ai kunt u uw map selecteren in het menu van de vervolg keuzelijst gebruiker in de rechter bovenhoek van het scherm.

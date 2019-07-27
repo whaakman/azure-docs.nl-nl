@@ -1,6 +1,6 @@
 ---
-title: Vooraf gemaakte domeinverwijzing
-titleSuffix: Azure
+title: Vooraf gebouwde domein verwijzing-LUIS
+titleSuffix: Azure Cognitive Services
 description: Referentie voor de vooraf gemaakte domeinen vooraf gemaakte verzamelingen van intenties en entiteiten van Language Understanding Intelligent Services (LUIS zijn).
 services: cognitive-services
 author: diberry
@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b615185472ede25fd6ceef9cc3e7325375e16ac7
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: ce043e23a0384a74fd5d2c9dd514045578ef836d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846666"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563456"
 ---
-# <a name="prebuilt-domain-reference-for-your-luis-app"></a>Naslaginformatie voor vooraf gedefinieerde voor uw LUIS-app
+# <a name="prebuilt-domain-reference-for-your-luis-app"></a>Vooraf ontwikkelde domein referentie voor uw LUIS-app
 Deze referentie bevat informatie over de [vooraf gemaakte domeinen](luis-how-to-use-prebuilt-domains.md), die zijn vooraf gemaakte verzamelingen van intenties en entiteiten die LUIS biedt.
 
 [Aangepaste domeinen](luis-how-to-start-new-app.md), daarentegen, beginnen met geen intents en modellen. U kunt een vooraf gedefinieerde domein intenties en entiteiten toevoegen aan een aangepast model.
 
-# <a name="supported-domains-across-cultures"></a>Ondersteunde domeinen voor culturen
+# <a name="supported-domains-across-cultures"></a>Ondersteunde domeinen in cult uren
 
 De enige ondersteunde cultuur is Engels. 
 
@@ -54,14 +54,14 @@ The table below summarizes the currently supported domains. Support for English 
 
 |Entiteitstype|description|
 |--|--|
-|Agenda|Kalender is over persoonlijke vergaderingen en afspraken, _niet_ openbare gebeurtenissen (zoals world cup planningen, Seattle gebeurtenis agenda's) of algemene agenda's (zoals welke dag het vandaag is, wat vallen begint, is wanneer Labor Day).|
-|Communicatie|Aanvragen voor aanroepen, verzenden teksten en chatberichten, contactpersonen en verschillende andere communicatie-verzoeken met betrekking tot (algemeen uitgaand) toevoegen vinden. Neem contact op met de naam alleen query's behoren niet tot communicatie-domein.|
-|Email|E-mailadres is een subdomein van de communicatie-domein. Het bevat voornamelijk aanvragen te verzenden en ontvangen van berichten via e-mailberichten.|
-|HomeAutomation|Het domein HomeAutomation biedt intenties en entiteiten met betrekking tot het smart home-apparaten beheren. Het hoofdzakelijk biedt ondersteuning voor de opdracht voor stroombeheer met betrekking tot verlichting en airconditioner maar sommige mogelijkheden generalisatie voor andere elektrische apparaten heeft.|
-|Opmerkingen|Houd er rekening mee domein biedt intenties en entiteiten voor het maken van notities en schrijven van artikelen voor gebruikers.|
-|Plaatsen|Locaties zijn bedrijven, instellingen, restaurants, ruimten voor algemeen gebruik en -adressen. Zoeken naar en vragen over de gegevens van een openbare locatie, zoals locatie, besturingssysteem met hoeveel uren en afstand biedt ondersteuning voor het domein.|
-|RestaurantReservation|Intents ondersteunt restaurant reservering domein voor het verwerken van reserveringen voor restaurants.|
-|Takenlijst|ToDo domein biedt typen taaklijsten voor gebruikers wilt toevoegen, markeren en hun todo-items verwijderen.|
-|Nutsbedrijven|Hulpprogramma's voor domein is een algemene domein tussen alle LUIS vooraf gemaakte modellen die algemene intents en uitingen in verschil scenario's bevat.|
-|Weer|Domein weer is gericht op de weersomstandigheden optreedt en aanbevelingen met de locatie en tijdstip controleren of tijd controleren door de weersomstandigheden.|
-|Web|Het domein Web biedt de intentie en entiteiten voor het zoeken naar een website.|
+|Agenda|Agenda is alles over persoonlijke vergaderingen en afspraken, _geen_ open bare gebeurtenissen (zoals planningen voor de wereld) of algemene kalenders (zoals de dag waarop het vandaag is, wat betekent dat het gaat om een dag van arbeid).|
+|Communicatie|Aanvragen voor het maken van aanroepen, het verzenden van teksten of expres berichten, het zoeken en toevoegen van contact personen en diverse andere communicatie aanvragen (doorgaans uitgaand). Contact persoon naam alleen query's die geen deel uitmaken van het communicatie domein.|
+|Email|E-mail is een subdomein van het communicatie domein. Het hoofd zakelijk bevat aanvragen voor het verzenden en ontvangen van berichten via e-mail.|
+|HomeAutomation|Het domein HomeAutomation biedt intenties en entiteiten die betrekking hebben op het beheren van Smart-Home-apparaten. Hoofd zakelijk ondersteunt de controle opdracht met betrekking tot verlichting en airconditioning, maar heeft een aantal generalisatie mogelijkheden voor andere elektrische apparaten.|
+|Opmerkingen|Opmerking: het domein biedt intenties en entiteiten voor het maken van notities en het schrijven van items voor gebruikers.|
+|Plaatsen|Locaties zijn onder andere bedrijven, instituten, restaurants, open bare ruimten en adressen. Het domein biedt ondersteuning voor het zoeken naar en vragen over de informatie van een open bare locatie, zoals location, Operating hours and distance.|
+|RestaurantReservation|Domein voor restaurant reservering ondersteunt intenties voor het verwerken van reserve ringen voor restaurants.|
+|Taken|ToDo-domein bevat typen taak lijsten die gebruikers kunnen toevoegen, markeren en verwijderen van hun TODO-items.|
+|Nutsbedrijven|Het domein hulpprogram ma's is een algemeen domein tussen alle LUIS-modellen met algemene intenties en uitingen in verschillen scenario's.|
+|Weer|Weer domein is gericht op het controleren van weers omstandigheden en adviseurs met de locatie en tijd of de controle tijd op basis van weer situaties.|
+|Web|Het webdomein biedt de intentie en entiteiten voor het zoeken naar een website.|

@@ -1,7 +1,7 @@
 ---
-title: Taxonomie van afbeelding categorieën - Computer Vision
-titlesuffix: Azure Cognitive Services
-description: Haal de 86 categorieën van taxonomie voor de Computer Vision-API in Azure Cognitive Services.
+title: Taxonomie van afbeeldings categorieën-Computer Vision
+titleSuffix: Azure Cognitive Services
+description: De 86-categorieën van de taxonomie ophalen voor de Computer Vision-API in azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: reference
 ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 92adcf40d008a94a2fd81846cf9aa712474beacc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 42562f3e19844621cb3893cb4ce185e85cf7e0ab
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60498845"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565758"
 ---
-# <a name="computer-vision-86-category-taxonomy"></a>Computer Vision 86-categorietaxonomie
+# <a name="computer-vision-86-category-taxonomy"></a>Computer Vision 86-categorie taxonomie
 
-abstract_
+productie
 
 abstract_net
 
@@ -32,7 +32,7 @@ abstract_shape
 
 abstract_texture
 
-animal_
+voeding
 
 animal_bird
 
@@ -44,7 +44,7 @@ animal_horse
 
 animal_panda
 
-building_
+opzetten
 
 building_arch
 
@@ -74,7 +74,7 @@ dark_fireworks
 
 sky_object
 
-food_
+middel
 
 food_bread
 
@@ -100,9 +100,9 @@ indoor_venue
 
 dark_light
 
-others_
+computers
 
-outdoor_
+outdooruitrusting
 
 outdoor_city
 
@@ -132,7 +132,7 @@ outdoor_water
 
 outdoor_waterside
 
-people_
+iedereen
 
 people_baby
 
@@ -152,7 +152,7 @@ people_tattoo
 
 people_young
 
-plant_
+brand
 
 plant_branch
 
@@ -174,7 +174,7 @@ people_swimming
 
 outdoor_pool
 
-text_
+SMS
 
 text_mag
 

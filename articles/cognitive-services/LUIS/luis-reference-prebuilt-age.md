@@ -1,6 +1,6 @@
 ---
-title: De ouderdom van vooraf gemaakte entiteiten
-titleSuffix: Azure
+title: Leeftijd preconstrueerde entiteit-LUIS
+titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat leeftijd vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b8239688000f0ce32ca2c2be054b1443bbb698b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77290790342c1159eca049108e1c9fadd5d4bbf3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65069123"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560300"
 ---
-# <a name="age-prebuilt-entity-for-a-luis-app"></a>De ouderdom van vooraf gedefinieerde entiteit voor een LUIS-app
+# <a name="age-prebuilt-entity-for-a-luis-app"></a>Leeftijd preconstrueerde entiteit voor een LUIS-app
 De vooraf gedefinieerde leeftijd entiteit bevat de leeftijdwaarde zowel numeriek en in termen van dagen, weken, maanden en jaren. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met leeftijd aan de toepassing intents. Leeftijd entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-age"></a>Typen leeftijd
-Leeftijd wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) GitHub-opslagplaats
+De leeftijd wordt beheerd vanuit de map [recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) github
 
 ## <a name="resolution-for-prebuilt-age-entity"></a>Oplossing voor vooraf gedefinieerde leeftijd entiteit
 
-### <a name="api-version-2x"></a>API-versie 2.x
+### <a name="api-version-2x"></a>API-versie 2. x
 
 Het volgende voorbeeld ziet u de resolutie van de **builtin.age** entiteit.
 
@@ -52,9 +52,9 @@ Het volgende voorbeeld ziet u de resolutie van de **builtin.age** entiteit.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Preview-API-versie 3.x
+### <a name="preview-api-version-3x"></a>Preview-API versie 3. x
 
-De volgende JSON is met de `verbose` parameter ingesteld op `false`:
+De volgende JSON is met de `verbose` para meter ingesteld `false`op:
 
 ```json
 {
@@ -79,7 +79,7 @@ De volgende JSON is met de `verbose` parameter ingesteld op `false`:
 }
 ```
 
-De volgende JSON is met de `verbose` parameter ingesteld op `true`:
+De volgende JSON is met de `verbose` para meter ingesteld `true`op:
 
 ```json
 {

@@ -8,14 +8,13 @@ ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: fc3b1cdfee76bbee7676170fa69a1c53a495dc53
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bbd009d127eecc4df357fc1073ba4055d13a8b2c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051139"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569023"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Zelfstudie: Een relationele database in een individuele database in Azure SQL Database ontwerpen met behulp van SQL Server Management Studio
 
@@ -60,7 +59,7 @@ Volg deze stappen om een lege individuele database te maken.
 
     | Instelling       | Voorgestelde waarde | Beschrijving |
     | ------------ | ------------------ | ------------------------------------------------- |
-    | **Databasenaam** | *yourDatabase* | Zie [Database-id's](/sql/relational-databases/databases/database-identifiers) voor geldige databasenamen. |
+    | **De naam van database** | *yourDatabase* | Zie [Database-id's](/sql/relational-databases/databases/database-identifiers) voor geldige databasenamen. |
     | **Abonnement** | *yourSubscription*  | Zie [Abonnementen](https://account.windowsazure.com/Subscriptions) voor meer informatie over uw abonnementen. |
     | **Resourcegroep** | *yourResourceGroup* | Zie [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen. |
     | **Bron selecteren** | Lege database | Hiermee geeft u aan dat er een lege database moet worden gemaakt. |
@@ -72,7 +71,7 @@ Volg deze stappen om een lege individuele database te maken.
     | **Servernaam** | Een wereldwijd unieke naam | Zie [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige servernamen. |
     | **Aanmeldgegevens van serverbeheerder** | Een geldige naam | Zie [Database-id's](/sql/relational-databases/databases/database-identifiers) voor geldige aanmeldingsnamen. |
     | **Wachtwoord** | Een geldig wachtwoord | Uw wachtwoord moet uit minstens acht tekens bestaan en moet tekens bevatten uit drie van de volgende categorieën: hoofdletters, kleine letters, cijfers en niet-alfanumerieke tekens. |
-    | **Locatie** | Een geldige locatie | Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's. |
+    | **Location** | Een geldige locatie | Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's. |
 
     ![database-server maken](./media/sql-database-design-first-database/create-database-server.png)
 
@@ -138,7 +137,7 @@ Gebruik [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ss
 
     ![verbinding maken met database op server](./media/sql-database-design-first-database/options-connect-to-db.png)  
 
-4. Klik op **Verbinden**. Het venster **Objectverkenner** wordt geopend in SSMS.
+4. Klik op**Verbinden**. Het venster **Objectverkenner** wordt geopend in SSMS.
 
 5. In **Objectverkenner** vouwt u **Databases** en daarna *yourDatabase* uit om de objecten in de voorbeelddatabase weer te geven.
 

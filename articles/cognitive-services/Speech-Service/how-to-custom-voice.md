@@ -1,7 +1,7 @@
 ---
-title: Wat is aangepaste spraak? -Spraakservices
-titlesuffix: Azure Cognitive Services
-description: Aangepaste spraak is een set online hulpprogramma's waarmee u kunt maken van een herkenbare, één van een unieke stem voor uw merk. Alles die wat u nodig om te beginnen zijn een paar van de audio-bestanden en de bijbehorende transcripties. Volg de koppelingen hieronder om te beginnen met het maken van een aangepaste spraak-naar-tekst-ervaring.
+title: Wat is aangepaste spraak? -Spraak service
+titleSuffix: Azure Cognitive Services
+description: Aangepaste spraak is een set online-hulpprogram ma's waarmee u een herken bare, eenmalige stem kunt maken voor uw merk. Alles wat u nodig hebt om aan de slag te gaan zijn een aantal audio bestanden en de bijbehorende transcripties. Volg de onderstaande koppelingen om aan de slag te gaan met het maken van een aangepaste spraak-naar-tekst-ervaring.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,55 +10,55 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ed5428da28ebea8b1c7f925696f88e3f3f898942
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 10d76bc1dd52f04cceb9f0952a755c55d90c6896
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606699"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562796"
 ---
 # <a name="get-started-with-custom-voice"></a>Aan de slag met Custom Voice
 
-Aangepaste spraak is een set online hulpprogramma's waarmee u kunt maken van een herkenbare, één van een unieke stem voor uw merk. Alles die wat u nodig om te beginnen zijn een paar van de audio-bestanden en de bijbehorende transcripties. Volg de koppelingen hieronder om te beginnen met het maken van een aangepaste Text to Speech-ervaring.
+Aangepaste spraak is een set online-hulpprogram ma's waarmee u een herken bare, eenmalige stem kunt maken voor uw merk. Alles wat u nodig hebt om aan de slag te gaan zijn een aantal audio bestanden en de bijbehorende transcripties. Volg de onderstaande koppelingen om te beginnen met het maken van een aangepaste tekst-naar-spraak-ervaring.
 
-## <a name="whats-in-custom-voice"></a>Wat is er in aangepaste gesproken?
+## <a name="whats-in-custom-voice"></a>Wat is er in aangepaste spraak?
 
-Voordat u begint met aangepaste spraak, moet u een Azure-account en een abonnement Speech Services. Als u een account hebt gemaakt, kunt u uw gegevens voorbereiden, trainen en testen van uw modellen stem kwaliteit evalueren en uiteindelijk het implementatiemodel van uw aangepaste spraak.
+Voordat u begint met een aangepaste spraak, hebt u een Azure-account en een abonnement op spraak services nodig. Zodra u een account hebt gemaakt, kunt u uw gegevens voorbereiden, uw modellen trainen en testen, de spraak kwaliteit evalueren en uiteindelijk uw aangepaste spraak model implementeren.
 
-In het onderstaande diagram ziet u de stappen voor het maken van een aangepaste spraak-model met behulp van de aangepaste spraak-portal. Gebruik de koppelingen voor meer informatie.
+In het onderstaande diagram worden de stappen beschreven voor het maken van een aangepast spraak model met behulp van de aangepaste Voice Portal. Gebruik de koppelingen voor meer informatie.
 
-![Architectuurdiagram van aangepaste spraak](media/custom-voice/custom-voice-diagram.png)
+![Diagram van aangepaste spraak architectuur](media/custom-voice/custom-voice-diagram.png)
 
-1.  [Abonneren en maak een project](#set-up-your-azure-account) : Maak een Azure-account en maakt u een abonnement Speech Services. Deze geïntegreerde abonnement geeft u toegang tot spraak-naar-tekst, Text to Speech, spraakomzetting en de aangepaste spraak-portal. Met behulp van uw abonnement Speech Services, maak vervolgens uw eerste aangepaste spraak-project.
+1.  [Abonneren en een project maken](#set-up-your-azure-account) : een Azure-account maken en een spraak Services-abonnement maken. Dit uniforme abonnement geeft u toegang tot spraak naar tekst, tekst naar spraak, spraak omzetting en de aangepaste Voice Portal. Maak vervolgens uw eerste aangepaste spraak project met behulp van uw abonnement voor spraak Services.
 
-2.  [Gegevens uploaden](how-to-custom-voice-create-voice.md#upload-your-datasets) -gegevens (audio en tekst) uploaden met behulp van de aangepaste spraak-portal of aangepaste spraak-API. U kunt onderzoeken en evalueren uitspraak van scores en signaal ruis ratio's vanuit de portal. Zie voor meer informatie, [over het voorbereiden van gegevens voor aangepaste spraak](how-to-custom-voice-prepare-data.md).
+2.  [Gegevens](how-to-custom-voice-create-voice.md#upload-your-datasets) uploaden (audio en tekst) uploaden met behulp van de aangepaste spraak portal of aangepaste spraak-API. Vanuit de portal kunt u scores voor uitspraak en signaal-naar-ruis-verhoudingen onderzoeken en evalueren. Zie [gegevens voorbereiden voor aangepaste spraak](how-to-custom-voice-prepare-data.md)voor meer informatie.
 
-3.  [Uw model te trainen](how-to-custom-voice-create-voice.md#build-your-custom-voice-model) – uw gegevens gebruiken om een aangepaste tekst-naar-spraak-model te maken. U kunt een model in verschillende talen te trainen. Na de training, uw model testen en als u tevreden met het resultaat bent, kunt u het model implementeren.
+3.  [Train uw model](how-to-custom-voice-create-voice.md#build-your-custom-voice-model) – gebruik uw gegevens om een aangepast spraak model voor tekst naar spraak te maken. U kunt een model in verschillende talen trainen. Wanneer u klaar bent, kunt u het model testen en, als u tevreden bent met het resultaat, het model implementeren.
 
-4.  [Uw model implementeert](how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint) : een aangepast eindpunt voor uw stem-model maken en deze gebruiken voor spraaksynthese in uw producten, -hulpprogramma's en toepassingen.
+4.  [Uw model implementeren](how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint) : Maak een aangepast eind punt voor uw spraak model voor tekst naar spraak en gebruik dit voor spraak synthese in uw producten, hulpprogram ma's en toepassingen.
 
-## <a name="set-up-your-azure-account"></a>Instellen van uw Azure-account
+## <a name="set-up-your-azure-account"></a>Uw Azure-account instellen
 
-Een abonnement Speech Services is vereist voordat u de portal voor aangepaste spraak gebruiken kunt om een aangepast model te maken. Volg deze instructies voor het maken van een abonnement Speech Services in Azure. Als u een Azure-account hebt, kunt u zich aanmelden voor een nieuwe resourcegroep.  
+Er is een abonnement op spraak Services vereist voordat u de Custom Speech Portal kunt gebruiken om een aangepast model te maken. Volg deze instructies voor het maken van een abonnement op spraak Services in Azure. Als u geen Azure-account hebt, kunt u zich aanmelden voor een nieuwe.  
 
-Als u een Azure-account en een Speech Services-abonnement hebt gemaakt, moet u zich aanmelden bij de portal voor aangepaste spraak en verbinding maken met uw abonnement.
+Zodra u een Azure-account en een speech Services-abonnement hebt gemaakt, moet u zich aanmelden bij de aangepaste Voice Portal en verbinding maken met uw abonnement.
 
-1. Uw abonnementssleutel Speech Services ophalen uit de Azure portal.
-2. Aanmelden bij de [aangepaste spraak portal](https://aka.ms/custom-voice).
-3. Selecteer uw abonnement en een spraak-project maken.
-4. Als u wilt overschakelen naar een andere spraak-abonnement, gebruikt u het tandwielpictogram zich in de bovenste navigatiebalk.
+1. Down load uw abonnements sleutel voor spraak services van de Azure Portal.
+2. Meld u aan bij de [aangepaste Voice Portal](https://aka.ms/custom-voice).
+3. Selecteer uw abonnement en maak een spraak project.
+4. Als u wilt overschakelen naar een ander spraak abonnement, gebruikt u het tandwiel-pictogram in de bovenste navigatie balk.
 
 > [!NOTE]
-> De aangepaste spraak-service biedt geen ondersteuning voor de sleutel 30 dagen gratis proefversie. U moet hebben een F0 of een S0-sleutel in Azure hebt gemaakt voordat u de service kunt gebruiken.
+> De aangepaste Voice-service biedt geen ondersteuning voor de gratis proef versie van 30 dagen. U moet een F0 of een S0-sleutel hebben gemaakt in azure voordat u de service kunt gebruiken.
 
 ## <a name="how-to-create-a-project"></a>Een project maken
 
-Inhoud, zoals gegevens, modellen, tests en eindpunten zijn ingedeeld in **projecten** in de portal voor aangepaste spraak. Elk project is specifiek voor een land/de taal en het geslacht van de stem die u wilt maken. U kunt bijvoorbeeld een project voor een vrouw stem voor uw callcenter chat bots die gebruik de Engelse versie in de Verenigde Staten (en-US) maken.
+Inhoud, zoals gegevens, modellen, testen en eind punten, zijn ingedeeld in **projecten** in de aangepaste Voice Portal. Elk project is specifiek voor een land/taal en het geslacht van de stem die u wilt maken. U kunt bijvoorbeeld een project voor een vrouwelijke stem maken voor de chat bots van uw Call Center die Engels gebruiken in de Verenigde Staten (en-US).
 
-Voor het maken van uw eerste project, selecteer de **Text-naar-Speech/aangepaste spraak** tabblad en klik vervolgens op **nieuw Project**. Volg de instructies van de wizard om uw project te maken. Nadat u een project hebt gemaakt, ziet u vier tabbladen: **Gegevens**, **Training**, **testen**, en **implementatie**. Gebruik de koppelingen [Vervolgstappen](#next-steps) voor informatie over het gebruik van elk tabblad.
+Als u uw eerste project wilt maken, selecteert u het tabblad **tekst naar spraak/aangepast stem** en klikt u vervolgens op **Nieuw project**. Volg de instructies in de wizard om het project te maken. Nadat u een project hebt gemaakt, ziet u vier tabbladen: **Gegevens**, **training**, **testen**en **implementatie**. Gebruik de koppelingen in de [volgende stappen](#next-steps) voor meer informatie over het gebruik van elk tabblad.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Aangepaste spraak-gegevens voorbereiden](how-to-custom-voice.md)
-- [Maken van een aangepaste spraak](how-to-custom-voice-create-voice.md)
-- [Handleiding voor het: Registreren van uw stem-voorbeelden](record-custom-voice-samples.md)
+- [Aangepaste spraak gegevens voorbereiden](how-to-custom-voice.md)
+- [Een aangepaste stem maken](how-to-custom-voice-create-voice.md)
+- [Begeleiden Uw stem voorbeelden vastleggen](record-custom-voice-samples.md)

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Antwoord uit knowledge base ophalen - REST, Go - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Deze Go REST-quickstart begeleidt u bij het programmatisch ophalen van een antwoord uit een knowledge base.
 services: cognitive-services
 author: diberry
@@ -10,16 +10,16 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 49734e50d616b3f88149f3c759e2a306ff8f136a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b903dfea11e5ac2390eb437e699ee8ec790a5061
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794898"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562989"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Antwoorden vinden op vragen met behulp van een knowledge base met Go
 
-In deze quickstart wordt beschreven hoe u programmatisch een antwoord uit een gepubliceerde QnA Maker-knowledge base kunt ophalen. De knowledge base bevat vragen en antwoorden uit [gegevensbronnen](../Concepts/data-sources-supported.md) zoals veelgestelde vragen over. De [vraag](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) wordt verzonden naar de QnA Maker-service. De [antwoord](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) bevat het antwoord boven voorspeld. 
+In deze quickstart wordt beschreven hoe u programmatisch een antwoord uit een gepubliceerde QnA Maker-knowledge base kunt ophalen. De Knowledge Base bevat vragen en antwoorden van [gegevens bronnen](../Concepts/data-sources-supported.md) , zoals Veelgestelde vragen. De [vraag](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) wordt verzonden naar de QnA Maker-service. Het [antwoord](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) bevat het meest voorspelde antwoord. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -66,7 +66,7 @@ Met de volgende code wordt een HTTPS-aanvraag naar de QnA Maker-API verzonden om
 
 De waarde van de header van `Authorization` bevat de tekenreeks `EndpointKey`. 
 
-Meer informatie over de [aanvraag](../how-to/metadata-generateanswer-usage.md#generateanswer-request) en [antwoord](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
+Meer informatie over de [aanvraag](../how-to/metadata-generateanswer-usage.md#generateanswer-request) en het [antwoord](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
 
 ## <a name="build-and-run-the-program"></a>Het programma bouwen en uitvoeren
 

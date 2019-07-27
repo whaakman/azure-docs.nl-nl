@@ -1,7 +1,7 @@
 ---
-title: 'Toezicht op beoordelingen maken met REST-API-console: Content Moderator'
-titlesuffix: Azure Cognitive Services
-description: Gebruik de Azure Content Moderator revisie API's te maken van de afbeelding of tekst beoordelingen voor menselijk toezicht.
+title: Toezicht beoordelingen maken met REST API-console-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Gebruik de Azure Content Moderator Review-Api's om afbeeldings-of tekst beoordelingen te maken voor menselijke toezicht.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,44 +10,44 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 254269ccedc92b9dfc164cc4665a8a8513682773
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 581ab488337cfecae3f5dd97610c7f92c75af8b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607497"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564344"
 ---
-# <a name="create-human-reviews-rest"></a>Create human reviews (REST)
+# <a name="create-human-reviews-rest"></a>Menselijke beoordelingen maken (REST)
 
-[Beoordelingen](./review-api.md#reviews) opslaan en weergeven van inhoud voor menselijke moderators om vast te stellen. Wanneer een gebruiker is een beoordeling voltooid, worden de resultaten verzonden naar een opgegeven retouraanroep-eindpunt. In deze handleiding leert u over het instellen van beoordelingen met behulp van de beoordeling REST-API's via de API-console. Als u inzicht in de structuur van de API's, kunt u eenvoudig deze aanroepen naar elk platform compatibel is met REST poort.
+[Beoordelingen](./review-api.md#reviews) van de winkel en de weer gave van inhoud voor menselijke moderators om te beoordelen. Wanneer een gebruiker een beoordeling voltooit, worden de resultaten verzonden naar een opgegeven eind punt voor terugbellen. In deze hand leiding leert u hoe u beoordelingen kunt instellen met behulp van de REST-Api's controleren via de API-console. Zodra u de structuur van de Api's begrijpt, kunt u deze aanroepen eenvoudig naar een wille keurig platform met een REST-compatibel poort.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Meld u aan of maak een account op de Content Moderator [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) site.
+- Meld u aan of maak een account op de site van het Content Moderator [controle programma](https://contentmoderator.cognitive.microsoft.com/) .
 
-## <a name="create-a-review"></a>Maken van een beoordeling
+## <a name="create-a-review"></a>Een beoordeling maken
 
-Voor het maken van een beoordeling, gaat u naar de **[controleren - maken](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** API verwijzen naar pagina en selecteer de knop voor uw belangrijkste regio (u kunt dit vinden in de eindpunt-URL op de **referenties** pagina van de [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/)). Hiermee start u de API-console, kunt u eenvoudig maken en uitvoeren van de REST API-aanroepen.
+Als u een beoordeling wilt maken, gaat u naar de pagina voor het maken van API **[-](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** verwijzing en selecteert u de knop voor uw sleutel regio (u vindt deze in de URL van het eind punt op de pagina **referenties** van het [hulp programma beoordeling](https://contentmoderator.cognitive.microsoft.com/)). Hiermee wordt de API-console gestart, waar u eenvoudig REST API-aanroepen kunt maken en uitvoeren.
 
-![Evaluatie - Get-regio selecteren](images/test-drive-region.png)
+![Beoordeling: de selectie van regio's ophalen](images/test-drive-region.png)
 
-### <a name="enter-rest-call-parameters"></a>REST-aanroep parameters invoeren
+### <a name="enter-rest-call-parameters"></a>REST Call-para meters invoeren
 
-Voer waarden in voor **teamName**, en **Ocp-Apim-Subscription-Key**:
+Voer waarden in voor teamnaam en **OCP-APIM-Subscription-Key**:
 
-- **teamName**: Het team-ID die u hebt gemaakt bij het instellen van uw [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) account (gevonden in de **Id** veld op het scherm van uw beoordelingsprogramma referenties).
-- **Ocp-Apim-Subscription-Key**: Uw Content Moderator-sleutel. U kunt dit vinden op de **instellingen** tabblad van de [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com).
+- **teamnaam**: De team-ID die u hebt gemaakt bij het instellen van het account voor het [beoordelings programma](https://contentmoderator.cognitive.microsoft.com/) (gevonden in het veld **id** op het scherm met referenties van het controle programma).
+- **Ocp-Apim-Subscription-Key**: Uw Content Moderator sleutel. U vindt dit op het tabblad **instellingen** van het [hulp programma voor beoordeling](https://contentmoderator.cognitive.microsoft.com).
 
-### <a name="enter-a-review-definition"></a>Geef een definitie controleren
+### <a name="enter-a-review-definition"></a>Voer een beoordelings definitie in
 
-Bewerk de **aanvraagtekst** vak in te voeren van de JSON-aanvraag met de volgende velden:
+Bewerk het vak **hoofd tekst** van de aanvraag om de JSON-aanvraag in te voeren met de volgende velden:
 
-- **Metadata**: Aangepaste sleutel / waarde-paren moeten worden geretourneerd naar de callback-eindpunt. Als de sleutel een korte code die is gedefinieerd is in de [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com), wordt dit weergegeven als een label.
-- **Inhoud**: Dit is een URL-tekenreeks die verwijst naar de inhoud in het geval van afbeeldings- en Video-inhoud. Dit is de daadwerkelijke tekenreeks voor tekstinhoud.
-- **ContentId**: Een aangepaste id-reeks. Deze reeks wordt doorgegeven aan de API en die zijn geretourneerd via de callback. Dit is handig voor het koppelen van interne id's of metagegevens met de resultaten van een taak voor beheer.
-- **CallbackEndpoint**: (Optioneel) De URL voor terugbellen informatie ontvangen wanneer de beoordeling is voltooid.
+- **Meta gegevens**: Aangepaste sleutel-waardeparen die moeten worden geretourneerd naar uw call back-eind punt. Als de sleutel een korte code is die in het beoordelings [programma](https://contentmoderator.cognitive.microsoft.com)is gedefinieerd, wordt deze weer gegeven als een tag.
+- **Inhoud**: In het geval van afbeeldings-en video-inhoud is dit een URL-teken reeks die verwijst naar de inhoud. Voor tekst inhoud is dit de werkelijke tekst teken reeks.
+- **ContentId**: Een teken reeks met aangepaste ID. Deze teken reeks wordt door gegeven aan de API en geretourneerd door de retour aanroep. Het is handig om interne id's of meta gegevens te koppelen aan de resultaten van een toezicht taak.
+- **CallbackEndpoint**: Beschrijving De URL voor het ontvangen van Terugbel informatie wanneer de controle is voltooid.
 
-De aanvraagtekst standaard ziet u voorbeelden van de verschillende typen beoordelingen die u kunt maken:
+De standaard tekst van de aanvraag bevat voor beelden van de verschillende soorten beoordelingen die u kunt maken:
 
 ```json
 [Image]
@@ -127,29 +127,29 @@ De aanvraagtekst standaard ziet u voorbeelden van de verschillende typen beoorde
 ]
 ```
 
-### <a name="submit-your-request"></a>Uw aanvraag hebt ingediend
+### <a name="submit-your-request"></a>Uw aanvraag verzenden
   
-Selecteer **Verzenden**. Als de bewerking is geslaagd, de **antwoordstatus** is `200 OK`, en de **antwoordinhoud** verschijnt een ID voor de beoordeling. Kopieer deze ID in de volgende stappen gebruiken.
+Selecteer **Verzenden**. Als de bewerking is geslaagd, is `200 OK`de **reactie status** en wordt in het vak **antwoord inhoud** een id voor de beoordeling weer gegeven. Kopieer deze ID voor gebruik in de volgende stappen.
 
-![Controleren - console antwoord inhoud vak geeft de revisie-ID maken](images/test-drive-review-2.PNG)
+![Beoordeling: inhoud van het dialoog venster voor het maken van een console-antwoord wordt weer gegeven](images/test-drive-review-2.PNG)
 
-### <a name="examine-the-new-review"></a>Bekijk de nieuwe revisie
+### <a name="examine-the-new-review"></a>Bekijk de nieuwe beoordeling
 
-In de [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com), selecteer **revisie** > **installatiekopie**/**tekst** / **Video** (afhankelijk van welke inhoud u gebruikt). De inhoud die u hebt geüpload wordt weergegeven, gereed voor menselijke beoordeling.
+Selecteer in het [hulp programma beoordeling](https://contentmoderator.cognitive.microsoft.com)de optie**afbeeldings**/**tekst**/**video** **bekijken** > (afhankelijk van de inhoud die u hebt gebruikt). De inhoud die u hebt geüpload, moet worden weer gegeven, gereed voor menselijke beoordeling.
 
-![Controleren of hulpprogramma installatiekopie van een voetbal](images/test-drive-review-5.PNG)
+![De afbeelding van een voetbal bekijken](images/test-drive-review-5.PNG)
 
-## <a name="get-review-details"></a>Lees meer informatie
+## <a name="get-review-details"></a>Details van controle ophalen
 
-Als u wilt meer informatie over een bestaande revisie ophalen, gaat u naar de [bekijken: ophalen](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2) API verwijzen naar pagina en selecteer de knop voor uw regio (de regio waarin uw sleutel wordt beheerd).
+Als u details over een bestaande beoordeling wilt ophalen, gaat u naar de pagina [controleren-API-](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2) verwijzing en selecteert u de knop voor uw regio (de regio waarin uw sleutel wordt beheerd).
 
-![Werkstroom - Get-regio selecteren](images/test-drive-region.png)
+![Werk stroom-selectie van regio ophalen](images/test-drive-region.png)
 
-Voer de REST-aanroep parameters zoals in de bovenstaande sectie. Voor deze stap **reviewId** is de unieke id-tekenreeks die u hebt ontvangen tijdens het maken van de beoordeling.
+Voer de para meters voor REST-aanroep in, zoals in de bovenstaande sectie. Voor deze stap is **reviewId** de unieke id-teken reeks die u hebt ontvangen tijdens het maken van de beoordeling.
 
-![Controleren - console Get resultaten maken](images/test-drive-review-3.PNG)
+![Beoordeling: maken van resultaten van console ophalen](images/test-drive-review-3.PNG)
   
-Selecteer **Verzenden**. Als de bewerking is geslaagd, de **antwoordstatus** is `200 OK`, en de **antwoordinhoud** in de details van toegangsbeoordeling in JSON-indeling, zoals hieronder weergegeven:
+Selecteer **Verzenden**. Als de bewerking is geslaagd, is `200 OK`de **antwoord status** en in het vak met de **antwoord inhoud** de details van de controle in JSON-indeling, zoals in het volgende:
 
 ```json
 {  
@@ -184,12 +184,12 @@ Selecteer **Verzenden**. Als de bewerking is geslaagd, de **antwoordstatus** is 
 }
 ```
 
-Let op de volgende velden in het antwoord:
+Noteer de volgende velden in het antwoord:
 
 - **status**
-- **reviewerResultTags**: Dit wordt weergegeven als labels zijn handmatig toegevoegd door het team voor menselijke beoordeling (die wordt weergegeven de **createdBy** veld).
-- **metadata**: U ziet de labels die oorspronkelijk zijn toegevoegd aan de beoordeling, voordat de wijzigingen worden aangebracht team menselijke beoordeling.
+- **reviewerResultTags**: Dit wordt weer gegeven als labels hand matig zijn toegevoegd door het team voor menselijke beoordeling (weer gegeven het **CreatedBy** -veld).
+- **meta gegevens**: Hier ziet u de tags die in eerste instantie werden toegevoegd aan de beoordeling voordat het personeels team wijzigingen heeft aangebracht.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze handleiding, hebt u geleerd over het maken van inhoudstoezicht beoordelingen met behulp van de REST-API. Vervolgens worden geïntegreerd beoordelingen in een scenario voor end-to-end-beheer, zoals de [toezicht op E-commerce](./ecommerce-retail-catalog-moderation.md) zelfstudie.
+In deze hand leiding hebt u geleerd hoe u toezicht op inhouds restricties kunt maken met behulp van de REST API. Vervolgens integreert u beoordelingen in een end-to-end-beheer scenario, zoals de zelf studie voor [E-commerce toezicht](./ecommerce-retail-catalog-moderation.md) .

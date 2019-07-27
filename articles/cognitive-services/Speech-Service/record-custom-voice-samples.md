@@ -1,5 +1,5 @@
 ---
-title: Voorbeelden van aangepaste spraak - spraakservices opnemen
+title: Aangepaste spraak voorbeelden vastleggen-spraak service
 titleSuffix: Azure Cognitive Services
 description: Maak een aangepaste gesproken productiekwaliteit door voorbereiden van een robuuste script, verhuur goede stem talent en professioneel op te nemen.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ad2a3cd73fe97415f0d6835d70e15bf90349696c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 47e1f8bf178723a5d4be323f24724214a67499e2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604907"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559190"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Record stem voorbeelden voor het maken van een aangepaste spraak
 
@@ -52,7 +52,7 @@ Kies stem talent waarvan natuurlijke stem u graag. Het is mogelijk te maken van 
 
 De enkele van de belangrijkste factor voor het kiezen van spraak talent is consistentie. Uw opnamen moeten alle geluid zoals ze zijn gemaakt op dezelfde dag in één ruimte. U kunt deze ideaal via goed opname procedures en engineering benaderen.
 
-Uw stem talent is de andere helft van de vergelijking. Ze moeten mogelijk met consistente snelheid, volumeniveau, inspiratie en toon te spreken. Schakel diction is een moet. Er moet ook de talent kunnen strikt hun inspiratie variatie, emotionele invloed en spraak gebaren.
+Uw stem talent is de andere helft van de vergelijking. Ze moeten kunnen praten met een consistent tempo, volume niveau, Toon hoogte en Toon. Schakel diction is een moet. De talen moeten ook hun pitch-variatie, emotioneel effect en spraak mannerisms kunnen beheren.
 
 Aangepaste spraak-voorbeelden op te nemen kan meer vermoeiend dan andere soorten stem werk zijn. De meeste stem talent kunt vastleggen voor twee of drie uur per dag. Sessies tot drie of vier per week, met een dag uit middenweg kiest indien mogelijk beperken.
 
@@ -108,7 +108,7 @@ Gelukkig is het mogelijk om volledig te voorkomen dat deze problemen. Er zijn ve
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|Over 1100 zinnen hebt geselecteerd in out-van-copyright werkt specifiek voor gebruik in spraak synthese projecten. Een uitstekend uitgangspunt.|
 |Werkt niet meer<br>onder het auteursrecht|Doorgaans werkt gepubliceerd voordat 1923. Voor Engels, [Project Gutenberg](https://www.gutenberg.org/) biedt tienduizenden dergelijke werken. Kunt u zich kunt richten op nieuwere werkt als de taal die dichter bij moderne Engels.|
-|Government&nbsp;werkt|Werkt die zijn gemaakt door de Amerikaanse overheid zijn niet onder het auteursrecht vallen in de Verenigde Staten, hoewel de overheid kan claim copyright in andere landen/regio's.|
+|Government&nbsp;werkt|De door de Verenigde Staten overheid gemaakte werkzaamheden worden niet in het Verenigde Staten auteurs rechtelijk beschermd, hoewel de overheid copyright kan doen in andere landen/regio's.|
 |Openbare domein|Werkt voor welke copyright expliciet is afgewezen of die is toegewezen aan het openbare domein. Het niet mogelijk om af te wijken copyright volledig in sommige rechtsgebieden.|
 |Permissively licentie werkt|Werkt onder een licentie is gedistribueerd, zoals Creative Commons of de GNU gratis documentatie-licentie (GFDL). Wikipedia maakt gebruik van de GFDL. Aantal licenties echter kunnen leggen beperkingen op de prestaties van de gelicentieerde inhoud die mogelijk van invloed op het maken van een model voor aangepaste spraak, dus Lees de licentie zorgvuldig.|
 
@@ -116,7 +116,7 @@ Gelukkig is het mogelijk om volledig te voorkomen dat deze problemen. Er zijn ve
 
 Het script op een professionele opname-studio die is gespecialiseerd in spraak werk vastleggen. Ze hebben een tolloket opnemen, de juiste apparatuur en de juiste mensen werken. Het loont niet te ruim opnemen.
 
-Bespreek uw project met opname-engineer van de studio en luister naar hun advies. De opname hebt weinig of geen dynamisch bereik compressie (maximaal 4:1). Het is essentieel dat de audio consistente volume en de verhouding van een hoge signaal ruis, terwijl deze gratis ongewenste geluiden hebben.
+Bespreek uw project met de registratie technicus van Studio en luister naar advies. De opname hebt weinig of geen dynamisch bereik compressie (maximaal 4:1). Het is essentieel dat de audio consistente volume en de verhouding van een hoge signaal ruis, terwijl deze gratis ongewenste geluiden hebben.
 
 ### <a name="do-it-yourself"></a>Zelf doen
 
@@ -130,7 +130,7 @@ U kunt ook een analoge microfoon. Veel verhuur huizen bieden "Superieur" microfo
 
 De microfoon installeert op een zelfstandige of tijdperk en een pop-filter voor de microfoon te elimineren ruis van "plosive" medeklinkers, zoals "p" en "b". Sommige microfoons worden geleverd met een onderbreking koppeling waarmee ze worden geïsoleerd van trillingen in de zelfstandige, wat nuttig is.
 
-De spraak-talent moet blijven op een consistente afstand van de microfoon. Tape markeren waar ze moeten staan op de verdieping gebruiken. Als de talent liever bevinden zich, erop letten mic afstand bewaken en te voorkomen dat stoel ruis.
+De spraak-talent moet blijven op een consistente afstand van de microfoon. Gebruik tape op de vloer om te markeren waar ze zich bevinden. Als de talent liever bevinden zich, erop letten mic afstand bewaken en te voorkomen dat stoel ruis.
 
 Gebruik een zelfstandige voor het opslaan van het script. Vermijd de zelfstandige sportvisserij zodat geluid richting van de microfoon kan worden weergegeven.
 
@@ -157,12 +157,12 @@ In het ideale geval hebben verschillende mensen in de rollen van director, engin
 
 ### <a name="before-the-session"></a>Voordat de sessie
 
-Om te voorkomen dat ze studio tijd heeft verspild, doorloopt u het script met uw stem talent voordat de opnamesessie. Terwijl de stem-talent bekend zijn met de tekst verandert, kunnen ze de uitspraak van woorden die niet bekend maken duidelijk.
+Om te voorkomen dat ze studio tijd heeft verspild, doorloopt u het script met uw stem talent voordat de opnamesessie. Hoewel de stem talen bekend zijn met de tekst, kunnen ze de uitspraak van onbekende woorden verduidelijken.
 
 > [!NOTE]
 > De meeste opname studios bieden elektronische weergave van scripts in de stand opnemen. In dit geval, typ de opmerkingen bij de uitzending rechtstreeks in document van het script. U nog steeds wilt papier aantekeningen op tijdens de sessie, maar. De meeste engineers wilt een kopie harde te. En zult u nog steeds dat een derde afgedrukt kopiëren als een back-up voor de talent als de computer niet actief is.
 
-Uw stem talent vragen die u wilt dat word FDA in een utterance '(het woord op de kracht'). Ze vertellen dat u wilt dat een natuurlijke lezen met geen nadruk. Nadruk kan worden toegevoegd wanneer spraak is gemaakt; het mag geen onderdeel van de oorspronkelijke opname.
+Uw stem talent vragen die u wilt dat word FDA in een utterance '(het woord op de kracht'). Vertel hen dat u een natuurlijke Lees bewerking zonder een bepaalde nadruk wilt geven. Nadruk kan worden toegevoegd wanneer spraak is gemaakt; het mag geen onderdeel van de oorspronkelijke opname.
 
 De talent moet worden uitgesproken woorden wachtwoorddelen afzonderlijk sturen. Elk woord in het script moet worden verergerd geschreven. Geluiden moeten niet worden weggelaten of samen komt veel voor bij alledaagse spraak, slurred *, tenzij ze op die manier zijn geschreven in het script*.
 
@@ -195,7 +195,7 @@ Luister goed, hoofdtelefoon, om de prestaties van de stem-talent te gebruiken. U
 
 Houd er rekening mee de getal of de code op uw script tijd voor elke utterance. Vraag de engineer elke utterance in de metagegevens van de opname of hint blad ook markeren.
 
-Reguliere einden nemen en een drank om uw stem talent in goede staat houden van hun stem te bieden.
+Maak regel matig pauzes en bied een drank waarmee u uw stem in goede vorm kunt houden.
 
 ### <a name="after-the-session"></a>Na de sessie
 

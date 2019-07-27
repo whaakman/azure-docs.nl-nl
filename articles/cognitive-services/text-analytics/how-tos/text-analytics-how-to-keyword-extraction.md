@@ -1,5 +1,6 @@
 ---
-title: Sleuteluitdrukkingen extraheren met behulp van de Text Analytics REST API | Microsoft Docs
+title: Extractie van sleutel zinnen met behulp van de Text Analytics REST API
+titleSuffix: Azure Cognitive Services
 description: Sleuteluitdrukkingen extraheren met de Text Analytics REST API van Azure Cognitive Services.
 services: cognitive-services
 author: aahill
@@ -9,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 06/05/2019
 ms.author: raymondl
-ms.openlocfilehash: c803c85a0900a09b18909e2c81d52915a12cff1a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 58bfb889662a58aa02286c41a2e242e6a0e9a75c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304061"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562651"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Voorbeeld: Sleuteltermen extraheren met behulp van Text Analytics
 
@@ -22,7 +23,7 @@ De [Sleuteltermextractie API](https://westcentralus.dev.cognitive.microsoft.com/
 
 Deze functie is handig als u snel de belangrijkste punten moet identificeren van een verzameling documenten. Bijvoorbeeld, bij de invoertekst "het eten was heerlijk en de bediening fantastisch", retourneert de service de belangrijkste gespreksonderwerpen: 'eten' en "bediening fantastisch".
 
-Zie de [ondersteunde talen](../text-analytics-supported-languages.md) artikel voor meer informatie. 
+Zie het artikel [ondersteunde talen](../text-analytics-supported-languages.md) voor meer informatie. 
 
 > [!TIP]
 > Text Analytics biedt ook een Docker-containerinstallatiekopie op basis van Linux voor sleuteltermextractie. U kunt de [Text Analytics-container dus dicht bij uw gegevens installeren en uitvoeren](text-analytics-how-to-install-containers.md).
@@ -84,7 +85,7 @@ Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Anal
 
 ## <a name="step-2-post-the-request"></a>Stap 2: Plaats de aanvraag
 
-Analyse wordt uitgevoerd na ontvangst van de aanvraag. Zie de [gegevenslimieten](../overview.md#data-limits) sectie in het overzicht voor informatie over de grootte en het aantal aanvragen kunt verzenden per minuut en seconde.
+Analyse wordt uitgevoerd na ontvangst van de aanvraag. Zie de sectie [gegevens limieten](../overview.md#data-limits) in het overzicht voor informatie over de grootte en het aantal aanvragen dat u per minuut en seconde kunt verzenden.
 
 Terughalen als de service staatloos is. Er worden geen gegevens opgeslagen in uw account. Resultaten worden onmiddellijk in het antwoord geretourneerd.
 

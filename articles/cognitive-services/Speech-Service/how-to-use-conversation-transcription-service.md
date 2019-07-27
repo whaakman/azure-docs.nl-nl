@@ -1,7 +1,7 @@
 ---
-title: Meerdere deelnemers gesprekken met de spraak-SDK - spraakservices transcriberen
+title: Uitwisseling van meerdere deel nemers transcriberen met de Speech SDK-Speech-Service
 titleSuffix: Azure Cognitive Services
-description: Informatie over het gesprek transcriptie gebruiken met de spraak-SDK. Beschikbaar voor C++, C#, en Java.
+description: Meer informatie over het gebruik van de conversatie-transcriptie met de spraak-SDK. Beschikbaar voor C++, C#en Java.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -10,40 +10,40 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 215209a5b8e3ed46b25fbfa492c305785a9a0070
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8c4ecc017d058900297f2220173e064700e7051b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606470"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559463"
 ---
-# <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Transcriberen meerdere deelnemers gesprekken met de spraak-SDK
+# <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Uitwisseling van meerdere deel nemers transcriberen met de Speech SDK
 
-De spraak-SDK **ConversationTranscriber** -API kunt u vergaderingen/gesprekken transcriberen met de mogelijkheid om toevoegen, verwijderen en deelnemers identificeren door het streamen van audio voor het gebruik van de spraakservices `PullStream` of `PushStream`.
+Met de **ConversationTranscriber** API van de Speech SDK kunt u vergaderingen/gesp rekken transcriberen met de mogelijkheid om deel nemers toe te voegen, te verwijderen en te identificeren `PullStream` door audio te streamen naar de spraak Services met of. `PushStream`
 
 ## <a name="limitations"></a>Beperkingen
 
-* Conversatie transcriber wordt ondersteund voor C++, C#, en Java in Windows, Linux- en Android.
-* De DevKit ROOBO is de ondersteunde hardware-omgeving voor het maken van de conversatie transcripties die efficiënt circulaire meerdere microfoon matrix die kan worden gebruikt biedt voor de sprekerherkenning-identificatie. [Zie voor meer informatie, spraak Devices SDK](speech-devices-sdk.md).
-* Spraak SDK-ondersteuning voor transcriptie van de conversatie is beperkt tot gebruik voor pull-audio en push-modus-streams met acht kanalen van 16-bits 16 kHz PCM audio.
-* Conversatie transcriptie is momenteel beschikbaar in 'en-US' en 'zh-CN' talen in de volgende regio's: centralus en Oost-Aziatische.
+* De conversatie-transcriber wordt C++ondersteund C#voor, en Java op Windows, Linux en Android.
+* De ROOBO DevKit is de ondersteunde hardware-omgeving voor het maken van de conversatie transcripties, omdat deze een circulaire multi-microfoon matrix biedt die efficiënt kan worden gebruikt voor de identificatie van de spreker. [Zie speech apparaten SDK (Engelstalig) voor meer informatie](speech-devices-sdk.md).
+* Speech SDK-ondersteuning voor Conversation transcriptie is beperkt tot het gebruik van audio pull-en push-modus stromen met acht kanalen van 16-bits 16 kHz PCM-audio.
+* De conversatie transcriptie is momenteel beschikbaar in de talen ' nl-US ' en ' zh-CN ' in de volgende regio's: centralus en EastAsia.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [Informatie over het gebruik van spraak-naar-tekst met de spraak-SDK.](quickstart-csharp-dotnet-windows.md)
-* [Uw proefabonnement voor spraak ophalen.](https://azure.microsoft.com/try/cognitive-services/)
-* Spraak SDK-versie 1.5.1 of hoger is vereist.
+* [Meer informatie over het gebruik van spraak naar tekst met de spraak-SDK.](quickstart-csharp-dotnet-windows.md)
+* [Uw proef abonnement voor spraak downloaden.](https://azure.microsoft.com/try/cognitive-services/)
+* Speech SDK-versie 1.5.1 of hoger is vereist.
 
-## <a name="create-voice-signatures-for-participants"></a>Stem handtekeningen voor deelnemers maken
+## <a name="create-voice-signatures-for-participants"></a>Spraak handtekeningen maken voor deel nemers
 
-De eerste stap is het maken van spraak handtekeningen voor de conversatie-deelnemers. Het maken van spraak handtekeningen is vereist voor efficiënte sprekeridentificatie.
+De eerste stap is het maken van spraak handtekeningen voor de deel nemers aan de conversatie. Het maken van spraak handtekeningen is vereist voor een efficiënte luidspreker-identificatie.
 
-### <a name="requirements-for-input-wave-file"></a>Vereisten voor invoer wave-bestand
+### <a name="requirements-for-input-wave-file"></a>Vereisten voor Wave-invoer bestand
 
-* Het wavebestand audio-invoer voor het maken van spraak handtekeningen worden in voorbeelden van 16-bits, 16 kHz samplefrequentie en een één-(Mono)-kanaalindeling.
-* De lengte van de aanbevolen voor elk audio voorbeeld ligt tussen 30 seconden en twee minuten.
+* Het Wave-invoer bestand voor het maken van spraak handtekeningen moet in 16-bits voor beelden, een sample frequentie van 16 kHz en een indeling met één kanaal (mono) zijn.
+* De aanbevolen lengte voor elk audio sample ligt tussen 30 seconden en twee minuten.
 
-Het volgende voorbeeld ziet u twee verschillende manieren om te maken van stem-ondertekening door [met behulp van de REST-API](https://aka.ms/cts/signaturegenservice) van C#:
+In het volgende voor beeld ziet u twee verschillende manieren om een spraak handtekening te maken C#met behulp van [de rest API](https://aka.ms/cts/signaturegenservice) van:
 
 ```csharp
 class Program
@@ -85,11 +85,11 @@ class Program
 }
 ```
 
-## <a name="transcribing-conversations"></a>Te transcriberen gesprekken
+## <a name="transcribing-conversations"></a>Transcriberen van discussies
 
-Om te transcriberen gesprekken met meerdere deelnemers, maken de `ConversationTranscriber` -object dat gekoppeld aan de `AudioConfig` object gemaakt voor de conversatie-sessie en stream audio met behulp van `PullAudioInputStream` of `PushAudioInputStream`.
+Als u conversaties met meerdere deel nemers wilt `ConversationTranscriber` transcriberen, maakt u het `AudioConfig` object dat is gekoppeld aan het object dat is gemaakt `PullAudioInputStream` voor `PushAudioInputStream`de gespreks sessie en streamen van audio met of.
 
-Stel dat u een ConversationTranscriber klasse genaamd hebt `MyConversationTranscriber`. Uw code ziet er als volgt:
+We gaan ervan uit dat u een ConversationTranscriber-klasse `MyConversationTranscriber`met de naam hebt. Uw code kan er als volgt uitzien:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;

@@ -1,6 +1,6 @@
 ---
-title: Voorbeeld van PowerShell back-up terugzetten-Geo - Azure SQL Database | Microsoft Docs
-description: Azure PowerShell-voorbeeldscript voor het herstellen van een Azure SQL beheerd exemplaar in de Database vanaf een geografisch redundante back-up.
+title: Power shell-voor beeld geo-backup herstellen-Azure SQL Database | Microsoft Docs
+description: Azure PowerShell voorbeeld script om een Azure SQL Managed instance-data base te herstellen vanuit een geografisch redundante back-up.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -10,24 +10,23 @@ ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 07/03/2019
-ms.openlocfilehash: 7459c4a6d5c949889a19e506420b779d3c5f2ebf
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: b6ad93d3b711726edd6891e5f6da2c8eef99d531
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712011"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569706"
 ---
-# <a name="use-powershell-to-restore-a-managed-instance-database-to-another-geo-region"></a>PowerShell gebruiken voor een Managed Instance-database herstellen naar een andere geografische regio
+# <a name="use-powershell-to-restore-a-managed-instance-database-to-another-geo-region"></a>Power shell gebruiken om een Data Base van een beheerd exemplaar te herstellen naar een andere geo-regio
 
-Met dit PowerShell-voorbeeldscript wordt een Azure SQL Managed Instance-database teruggezet vanuit een externe geo-regio (geo-herstel).  
+In dit voor beeld van een Power shell-script wordt een Data Base van Azure SQL Managed instance teruggezet vanuit een externe geografische regio (geo-Restore).  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van PowerShell lokaal, deze zelfstudie vereist AZ PowerShell 1.4.0 of hoger. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u Power shell lokaal wilt installeren en gebruiken, is voor deze zelf studie AZ Power shell 1.4.0 of later vereist. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
@@ -62,7 +61,7 @@ $backup | Restore-AzSqlInstanceDatabase -FromGeoBackup `
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Gebruik de volgende opdracht om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Gebruik de volgende opdracht om de resource groep en alle bijbehorende resources te verwijderen.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -ResourceGroupName $TargetResourceGroupName
@@ -74,13 +73,13 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/New-AzResourceGroup) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
-| [Get-AzSqlInstanceDatabaseGeoBackup](/powershell/module/az.sql/Get-AzSqlInstanceDatabaseGeoBackup) | Hiermee maakt u een geografisch redundante back-up van een beheerd exemplaar in de Database. |
-| [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/Restore-AzSqlInstanceDatabase) | Hiermee maakt een database op een beheerd exemplaar van geo-back-up. |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/New-AzResourceGroup) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [Get-AzSqlInstanceDatabaseGeoBackup](/powershell/module/az.sql/Get-AzSqlInstanceDatabaseGeoBackup) | Hiermee maakt u een geografisch redundante back-up van de data base van het beheerde exemplaar. |
+| [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/Restore-AzSqlInstanceDatabase) | Hiermee maakt u een Data Base op een beheerd exemplaar van geo-back-up. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over PowerShell [documentatie over Azure PowerShell](/powershell/azure/overview).
+Zie [Azure PowerShell-documentatie](/powershell/azure/overview)voor meer informatie over Power shell.
 
 Aanvullende voorbeelden van SQL Database PowerShell-scripts vindt u in [Azure SQL Database PowerShell-scripts](../sql-database-powershell-samples.md).

@@ -10,14 +10,13 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 173e54dc6cf24676a8bf9833b0b6152a5fd89748
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 166643231e9f98cc3b8205bf0e9a8bb949ffbc3b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447863"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569878"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Een Azure SQL-database verplaatsen naar een elastische SQL-groep met de CLI
 
@@ -35,7 +34,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Gebruik de volgende opdracht om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Gebruik de volgende opdracht om de resource groep en alle bijbehorende resources te verwijderen.
 
 ```azurecli-interactive
 az group delete --name $resourceGroupName

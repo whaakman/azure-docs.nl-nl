@@ -1,6 +1,6 @@
 ---
-title: Knowledge base publiceren, REST, Python
-titleSuffix: QnA Maker - Azure Cognitive Services
+title: 'Quickstart: Knowledge Base publiceren, REST, python-QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Deze Python REST-snelstartgids helpt u bij het publiceren van uw knowledge base, waarbij de meest recente versie van de geteste knowledge base naar een specifieke Azure Search-index wordt gepusht die de gepubliceerde knowledge base vertegenwoordigt. Hiermee wordt ook een eindpunt gemaakt dat kan worden aangeroepen in uw toepassing of chatbot.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 60c5e24baf9062f6d7da3bf6f477c2b64101670e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a2db22334bace43cd29584c5931a5a7d08afaf78
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787881"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559760"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Snelstartgids: Een knowledge base in QnA Maker publiceren met behulp van Python
 

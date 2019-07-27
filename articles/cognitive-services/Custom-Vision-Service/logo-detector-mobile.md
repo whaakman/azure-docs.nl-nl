@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Aangepaste logodetector gebruiken om Azure-services te herkennen - Custom Vision'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: In deze zelfstudie werkt u met een voorbeeld-app die gebruikmaakt van Azure Custom Vision als onderdeel van een scenario voor logodetectie. Leer hoe Custom Vision wordt gebruikt met andere onderdelen om een end-to-end-toepassing te bieden.
 services: cognitive-services
 author: PatrickFarley
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: ab3dc89b90636c90564803c6a91350a75c3181cd
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: b0a5b110951d7b13110fab935d5ca1333f7f8c1e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517077"
+ms.locfileid: "68564204"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Zelfstudie: Azure-servicelogo’s herkennen in camera-afbeeldingen
 

@@ -8,14 +8,13 @@ ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
-manager: craigg-msft
 ms.date: 02/08/2019
-ms.openlocfilehash: 31246f44be5645715c5c7041d0cf9bcff9c0fa52
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: f6f0160e06ac10a6f1e4e51c93bfa133818117c8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303289"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568964"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Zelfstudie: Een relationele database in een individuele database ontwerpen in Azure SQL Database C&#x23; en ADO.NET
 
@@ -50,7 +49,7 @@ Volg deze stappen om een lege individuele database te maken.
 
     | Instelling       | Voorgestelde waarde | Beschrijving |
     | ------------ | ------------------ | ------------------------------------------------- |
-    | **Databasenaam** | *yourDatabase* | Zie [Database-id's](/sql/relational-databases/databases/database-identifiers) voor geldige databasenamen. |
+    | **De naam van database** | *yourDatabase* | Zie [Database-id's](/sql/relational-databases/databases/database-identifiers) voor geldige databasenamen. |
     | **Abonnement** | *yourSubscription*  | Zie [Abonnementen](https://account.windowsazure.com/Subscriptions) voor meer informatie over uw abonnementen. |
     | **Resourcegroep** | *yourResourceGroup* | Zie [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen. |
     | **Bron selecteren** | Lege database | Hiermee geeft u aan dat er een lege database moet worden gemaakt. |
@@ -62,7 +61,7 @@ Volg deze stappen om een lege individuele database te maken.
     | **Servernaam** | Een wereldwijd unieke naam | Zie [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige servernamen. |
     | **Aanmeldgegevens van serverbeheerder** | Een geldige naam | Zie [Database-id's](/sql/relational-databases/databases/database-identifiers) voor geldige aanmeldingsnamen. |
     | **Wachtwoord** | Een geldig wachtwoord | Uw wachtwoord moet uit minstens acht tekens bestaan en moet tekens bevatten uit drie van de volgende categorieën: hoofdletters, kleine letters, cijfers en niet-alfanumerieke tekens. |
-    | **Locatie** | Een geldige locatie | Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's. |
+    | **Location** | Een geldige locatie | Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's. |
 
     ![database-server maken](./media/sql-database-design-first-database/create-database-server.png)
 

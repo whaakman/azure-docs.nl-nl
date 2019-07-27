@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9046af82388f99cfdd82c8cb816d4cda1e5f8237
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: f7387b210c1499ff0a19fe17667090be0c2c0933
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206865"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561396"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Quickstart: Een Android-app maken met Azure Spatial Anchors
 
@@ -32,20 +32,34 @@ U leert het volgende:
 
 Zorg ervoor dat u over het volgende beschikt om deze snelstart te voltooien:
 
-- Een Windows- of macOS-machine met <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3 +</a>.
-  - Indien uitgevoerd op Windows, u moet ook <a href="https://git-scm.com/download/win" target="_blank">Git voor Windows</a>.
-  - Als het wordt uitgevoerd op macOS, krijgt u Git geïnstalleerd via HomeBrew. Voer de volgende opdracht in een enkele regel van de Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Voer `brew install git`.
-  - Om het NDK-voorbeeld te bouwen, moet u ook de NDK en CMake 3.6 SDK-hulpprogramma’s in Android Studio installeren.
+- Een Windows-of macOS-computer met <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4 +</a>.
+  - Als u werkt met Windows, hebt u ook <a href="https://git-scm.com/download/win" target="_blank">Git nodig voor Windows</a>.
+  - Als u op macOS werkt, kunt u git installeren via HomeBrew. Voer de volgende opdracht in op één regel van de terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Voer vervolgens uit `brew install git`.
+  - Als u het NDK-voor beeld wilt maken, moet u ook de Hulpprogram Ma's voor NDK en CMake 3,6 of hoger installeren in Android Studio.
 - Een <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">door een ontwikkelaar geactiveerd</a> en <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">voor ARCore geschikt</a> Android-apparaat.
-- Uw app moet gericht zijn ARCore 1.7.
+- Uw app moet gericht zijn op ARCore **1,8**.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## <a name="open-the-sample-project"></a>Voorbeeldproject openen
 
+# <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
+
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Als u het Android NDK-voorbeeld aan het bouwen bent, moet u `arcore_c_api.h` vanaf [hier](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.7.0/libraries/include/arcore_c_api.h) downloaden en in `Android\NDK\libraries\include` plaatsen.
+# <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
+Down `arcore_c_api.h` load [hier](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.8.0/libraries/include/arcore_c_api.h) en plaats het in `Android\NDK\libraries\include`.
+
+Initialiseer vanuit de zojuist gekloonde opslag plaats submodules door de volgende opdracht uit te voeren:
+
+```console
+git submodule update --init --recursive
+```
+
+---
 
 Open Android Studio.
 
@@ -61,7 +75,7 @@ Selecteer **Een bestaand Android Studio-project openen** en selecteer het projec
 
 ## <a name="configure-account-identifier-and-key"></a>Account-id en -sleutel configureren
 
-De volgende stap is het configureren van de app voor het gebruik van uw account-id en de accountsleutel. U ze hebt gekopieerd in een teksteditor als [instellen van de bron van ruimtelijke ankers](#create-a-spatial-anchors-resource).
+De volgende stap is het configureren van de app voor het gebruik van uw account-id en de account sleutel. U hebt deze in een tekst editor gekopieerd bij [het instellen van de bron voor ruimtelijke ankers](#create-a-spatial-anchors-resource).
 
 # <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 

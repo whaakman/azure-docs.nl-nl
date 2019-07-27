@@ -1,7 +1,7 @@
 ---
-title: 'Gemiddeld installatiekopieën met de API-Console: Content Moderator'
-titlesuffix: Azure Cognitive Services
-description: De afbeeldingen-API voor beheer in Azure Content Moderator gebruiken om te scannen en revisie toezicht werkstromen voor de inhoud van initiëren.
+title: Gematige installatie kopieën met de API-console-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Gebruik de afbeeldings toezicht-API in azure Content Moderator voor het initiëren van scan-en revisie werk stromen voor afbeeldings inhoud.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,96 +10,96 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1e4efa5e06525194bfdc7d1932fcfec5ec9f8c6b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 20353d488cba255925d21017b77d1def2d06b30b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607483"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561254"
 ---
-# <a name="moderate-images-from-the-api-console"></a>Gemiddeld installatiekopieën uit de API-console
+# <a name="moderate-images-from-the-api-console"></a>Gematige installatie kopieën van de API-console
 
-Gebruik de [afbeeldingen-API voor beheer van](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) in Azure Content Moderator om te scannen en revisie toezicht werkstromen voor de inhoud van initiëren. De beheer-taak scant uw taalgebruik en vergelijkt die met de aangepaste en gedeelde zwarte lijsten.
+Gebruik de [afbeeldings toezicht-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) in azure content moderator voor het initiëren van scan-en revisie werk stromen voor afbeeldings inhoud. Met de taak toezicht wordt uw inhoud gescand op onrecht matigheid en vergelijkt deze met aangepaste en gedeelde Blacks.
 
 ## <a name="use-the-api-console"></a>De API-console gebruiken
-Voordat u de API in de online-console uitproberen kan, moet u de abonnementssleutel van uw. Dit bevindt zich op de **instellingen** tabblad, in de **Ocp-Apim-Subscription-Key** vak. Zie [Overzicht](overview.md) voor meer informatie.
+Voordat u de API in de online console kunt testen, moet u uw abonnements sleutel hebben. Dit bevindt zich op het tabblad **instellingen** in het vak **OCP-APIM-Subscription-Key** . Zie [Overzicht](overview.md) voor meer informatie.
 
-1. Ga naar [installatiekopie Afbeeldingstoezicht-API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
+1. Ga naar de [afbeeldings toezicht-API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 
-   De **afbeelding: Evalueer** image toezicht op pagina wordt geopend.
+   De pagina **installatie kopie-** toezicht controle op afbeelding wordt geopend.
 
-2. Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie. 
+2. Voor **open API-test console**selecteert u de regio die uw locatie het meest beschrijft. 
 
-   ![Probeer de installatiekopie - evalueren van de selectie van de regio](images/test-drive-region.png)
+   ![Afbeelding proberen: selectie van het pagina-gebied evalueren](images/test-drive-region.png)
   
-   De **afbeelding: Evalueer** API-console wordt geopend.
+   De **afbeelding-evalueren** van de API-console wordt geopend.
 
-3. In de **Ocp-Apim-Subscription-Key** voert u de abonnementssleutel van uw.
+3. Voer in het vak **OCP-APIM-Subscription-Key** uw abonnements sleutel in.
 
-   ![Probeer de installatiekopie - console-abonnementssleutel evalueren](images/try-image-api-1.PNG)
+   ![Afbeelding uitproberen-sleutel van console abonnement evalueren](images/try-image-api-1.PNG)
 
-4. In de **aanvraagtekst** vak, de standaardinstallatiekopie van het voorbeeld te gebruiken of geef een afbeelding te scannen. U kunt de afbeelding zelf als binair indienen bit-gegevens of een openbaar toegankelijke URL voor een afbeelding opgeven. 
+4. Gebruik de standaard voorbeeld afbeelding in het vak **hoofd tekst van aanvraag** of geef een afbeelding op die u wilt scannen. U kunt de installatie kopie zelf als binaire-bits gegevens verzenden of een openbaar toegankelijke URL voor een installatie kopie opgeven. 
 
-   In dit voorbeeld gebruikt u het pad dat in de **aanvraagtekst** vak en selecteer vervolgens **verzenden**. 
+   Voor dit voor beeld gebruikt u het pad in het vak **hoofd tekst van aanvraag** en selecteert u **verzenden**. 
 
-   ![Probeer installatiekopie - console-aanvraagtekst evalueren](images/try-image-api-2.PNG)
+   ![Afbeelding proberen: de hoofd tekst van de console evalueren](images/try-image-api-2.PNG)
 
-   Dit is de installatiekopie via deze URL:
+   Dit is de installatie kopie op die URL:
 
-   ![Probeer de installatiekopie - console voorbeeldafbeelding evalueren](images/sample-image.jpg) 
+   ![Afbeelding proberen-voorbeeld installatie kopie van console evalueren](images/sample-image.jpg) 
 
 5. Selecteer **Verzenden**.
 
-6. De API retourneert een kans score voor elke classificatie. Retourneert ook een bepaling van de vraag of de installatiekopie voldoet aan de voorwaarden (**waar** of **false**). 
+6. De API retourneert een waarschijnlijkheids score voor elke classificatie. Er wordt ook een bepalen of de installatie kopie voldoet aan de voor waarden (**True** of **False**). 
 
-   ![Probeer de installatiekopie - console kans score evalueren en bepaling van voorwaarde](images/try-image-api-3.PNG)
+   ![Afbeelding uitproberen-test-en voorwaarde bepaling van de console evalueren](images/try-image-api-3.PNG)
 
 ## <a name="face-detection"></a>Gezichtsdetectie
 
-De Afbeeldingstoezicht-API kunt u gezichten zoeken in een afbeelding. Deze optie kan nuttig zijn wanneer u vragen over privacy leiden hebt en wilt voorkomen dat een bepaald gezicht wordt geplaatst op uw platform. 
+U kunt de afbeeldings toezicht-API gebruiken om gezichten te vinden in een afbeelding. Deze optie kan nuttig zijn wanneer u privacy-problemen hebt en u wilt voor komen dat een specifiek gezicht wordt gepost op uw platform. 
 
-1. In de [installatiekopie Afbeeldingstoezicht-API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), in het menu links onder **installatiekopie**, selecteer **gezichten zoeken**. 
+1. Selecteer in de [afbeeldings toezicht-API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)in het linkermenu onder **afbeelding** **zoeken naar gezichten**. 
 
-   De **afbeelding - gezichten zoeken** pagina wordt geopend.
+   De pagina **gezichten zoeken** wordt geopend.
 
-2. Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie. 
+2. Voor **open API-test console**selecteert u de regio die uw locatie het meest beschrijft. 
 
-   ![Probeer installatiekopie - selectie van gezichten pagina regio zoeken](images/test-drive-region.png)
+   ![Afbeelding proberen: gezichten zoeken pagina regio selecteren](images/test-drive-region.png)
 
-   De **afbeelding - gezichten zoeken** API-console wordt geopend.
+   De **afbeelding-gezichten vindt** u de API-console wordt geopend.
 
-3. Geef een afbeelding te scannen. U kunt de afbeelding zelf als binair indienen bit-gegevens, of een openbaar toegankelijke URL naar een afbeelding opgeven. Dit voorbeeld bevat koppelingen naar een afbeelding die wordt gebruikt in een artikel CNN.
+3. Geef een afbeelding op die moet worden gescand. U kunt de installatie kopie zelf als binaire-bits gegevens verzenden of een openbaar toegankelijke URL naar een afbeelding opgeven. Dit voor beeld is een koppeling naar een afbeelding die wordt gebruikt in een CNN-artikel.
 
-   ![Probeer de installatiekopie - voorbeeldafbeelding gezichten zoeken](images/try-image-api-face-image.jpg)
+   ![Afbeelding van voor beeld van gezichten zoeken](images/try-image-api-face-image.jpg)
 
-   ![Probeer installatiekopie - voorbeeld van een aanvraag gezichten zoeken](images/try-image-api-face-request.png)
+   ![Afbeelding van voor beeld van gezichten zoeken](images/try-image-api-face-request.png)
 
-4. Selecteer **Verzenden**. In dit voorbeeld de API vindt twee gezichten en retourneert de coördinaten in de afbeelding.
+4. Selecteer **Verzenden**. In dit voor beeld vindt de API twee gezichten en worden de coördinaten ervan in de afbeelding geretourneerd.
 
-   ![Probeer de installatiekopie - vak met gezichten voorbeeld antwoord inhoud zoeken](images/try-image-api-face-response.png)
+   ![Afbeelding proberen: voor beeld van gezichten zoeken](images/try-image-api-face-response.png)
 
-## <a name="text-detection-via-ocr-capability"></a>Detectie van tekst via OCR-mogelijkheid
+## <a name="text-detection-via-ocr-capability"></a>Tekst detectie via de OCR-mogelijkheid
 
-U kunt de Content Moderator OCR-mogelijkheid gebruiken voor het detecteren van tekst in afbeeldingen.
+U kunt de Content Moderator OCR-mogelijkheid gebruiken om tekst in afbeeldingen te detecteren.
 
-1. In de [installatiekopie Afbeeldingstoezicht-API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), in het menu links onder **installatiekopie**, selecteer **OCR**. 
+1. Selecteer in de [afbeeldings toezicht-API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)in het linkermenu, onder **afbeelding**, **OCR**. 
 
-   De **afbeelding - OCR** pagina wordt geopend.
+   De pagina **afbeelding-OCR** wordt geopend.
 
-2. Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie. 
+2. Voor **open API-test console**selecteert u de regio die uw locatie het meest beschrijft. 
 
-   ![Installatiekopie - OCR pagina regio selecteren](images/test-drive-region.png)
+   ![Afbeelding: selectie OCR-pagina regio](images/test-drive-region.png)
 
-   De **afbeelding - OCR** API-console wordt geopend.
+   De **afbeelding: OCR API-** console wordt geopend.
 
-3. In de **Ocp-Apim-Subscription-Key** voert u de abonnementssleutel van uw.
+3. Voer in het vak **OCP-APIM-Subscription-Key** uw abonnements sleutel in.
 
-4. In de **aanvraagtekst** vak, gebruikt u de standaardinstallatiekopie van het voorbeeld. Dit is dezelfde installatiekopie die wordt gebruikt in de vorige sectie.
+4. Gebruik de standaard voorbeeld afbeelding in het vak **hoofd tekst van aanvraag** . Dit is de afbeelding die wordt gebruikt in de vorige sectie.
 
-5. Selecteer **Verzenden**. Geëxtraheerde tekst wordt weergegeven in JSON:
+5. Selecteer **Verzenden**. De geëxtraheerde tekst wordt weer gegeven in JSON:
 
-   ![Installatiekopie - vak van OCR voorbeeld antwoord inhoud](images/try-image-api-ocr.PNG)
+   ![Afbeelding: vak voor beeld van OCR-voorbeeld reactie](images/try-image-api-ocr.PNG)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De REST-API in uw code te gebruiken of beginnen met de [installatiekopie toezicht .NET snelstartgids](image-moderation-quickstart-dotnet.md) om te integreren in uw toepassing.
+Gebruik de REST API in uw code of start met behulp van de knop voor het beheer van de [installatie kopie van .net](image-moderation-quickstart-dotnet.md) om te integreren met uw toepassing.

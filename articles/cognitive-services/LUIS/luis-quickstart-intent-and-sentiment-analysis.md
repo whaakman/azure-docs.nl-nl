@@ -1,5 +1,5 @@
 ---
-title: Sentimentanalyse
+title: Sentiment-analyse-LUIS
 titleSuffix: Azure Cognitive Services
 description: In deze zelfstudie maakt u een app die laat zien hoe u positieve, negatieve en neutrale gevoelens kunt ophalen uit uitingen. Het gevoel wordt bepaald op basis van de gehele uiting.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 1408e29793fdac77b89e3f0cc0a7be525f7fa1d2
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: ad1dba3c35c0f1fa5640e484319b584731843dd8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479805"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563574"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Zelfstudie:  Het gevoel achter een uiting ophalen
 
@@ -54,7 +54,7 @@ Omdat dit een publicatie-instelling is, wordt deze niet weergegeven op de intent
 
 ## <a name="add-personname-prebuilt-entity"></a>Vooraf gemaakte entiteit PersonName toevoegen 
 
-1. Selecteer **bouwen** in het navigatiemenu.
+1. Selecteer **Build** in het navigatie menu.
 
 1. Selecteer **Entities** in het navigatiemenu aan de linkerkant.
 
@@ -91,7 +91,7 @@ Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf beho
     |Mark Mathews deed het fantastisch tijdens zijn verkooppraatje voor Harvard|
     |Walter Williams heeft een geweldige presentatie gegeven voor Stanford|
 
-    Selecteer de **opties weergeven**, selecteer **entiteitswaarden weergeven** om de namen weer.
+    Selecteer de **weergave opties**, selecteer **entiteits waarden weer geven** om de namen weer te geven.
 
     [![Schermopname van de LUIS-app met voorbeelden van uitingen in de intentie EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
@@ -107,7 +107,7 @@ Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf beho
 
 1. Selecteer **Beheren** in het navigatievenster rechtsboven en selecteer in het menu links de optie **Publicatie-instellingen**.
 
-1. Selecteer **sentimentanalyse gebruiken om te bepalen of een gebruiker utterance positief, negatief of neutrale.** Deze instelling wilt inschakelen. 
+1. Selecteer **sentiment analyse gebruiken om te bepalen of de utterance van een gebruiker positief, negatief of neutraal is.** om deze instelling in te scha kelen. 
 
     ![Sentimentanalyse als publicatie-instelling inschakelen](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
@@ -119,7 +119,7 @@ Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf beho
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. Ga naar het einde van de URL in het adres en voer de volgende utterance:
+1. Ga naar het einde van de URL in het adres en voer de volgende utterance in:
 
     `Jill Jones work with the media team on the public portal was amazing` 
 
@@ -159,7 +159,7 @@ Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf beho
 
     SentimentAnalysis is positief met een score van 86%. 
 
-    Probeer een andere utterance door het verwijderen van de waarde voor `q` in de adresbalk van de browser: `William Jones did a terrible job presenting his ideas.` De gevoelsscore geeft een negatieve stemming aan met een lage score retourneren `0.18597582`.
+    Probeer een andere utterance door de waarde voor `q` te verwijderen in de adres balk van de browser: `William Jones did a terrible job presenting his ideas.`De sentiment-score geeft een negatieve sentiment aan door een lage `0.18597582`score te retour neren.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

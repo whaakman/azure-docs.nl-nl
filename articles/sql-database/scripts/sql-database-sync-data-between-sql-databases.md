@@ -10,14 +10,13 @@ ms.topic: sample
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 11b76374843743d3308b352c054ce9e8995f3543
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: db81238ca3622c0a45d5af567f9899701c068178
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729221"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569780"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Synchroniseren van meerdere SQL-databases met PowerShell
  
@@ -27,7 +26,7 @@ In dit voorbeeld van PowerShell wordt Data Sync geconfigureerd voor het synchron
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om te installeren en lokaal gebruik van PowerShell, voor deze zelfstudie vereist AZ PowerShell 1.4.0 of hoger. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u ervoor kiest om Power shell lokaal te installeren en te gebruiken, hebt u voor deze zelf studie AZ Power shell 1.4.0 of hoger nodig. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](../sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
 
@@ -375,7 +374,7 @@ Zie de volgende onderwerpen voor meer informatie over SQL Data Sync:
         -  [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](sql-database-sync-data-between-azure-onprem.md)
 -   Data Sync-agent: [Data Sync-agent voor Azure SQL Data Sync](../sql-database-data-sync-agent.md)
 -   Best practices: [Best practices voor Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
--   Monitor - [SQL Data Sync bewaken met Azure Monitor-Logboeken](../sql-database-sync-monitor-oms.md)
+-   SQL Data Sync controleren [met Azure monitor](../sql-database-sync-monitor-oms.md) -logboeken
 -   Problemen oplossen: [Problemen met Azure SQL Data Sync oplossen](../sql-database-troubleshoot-data-sync.md)
 -   Het synchronisatieschema bijwerken
     -   Met Transact-SQL: [De replicatie van schemawijzigingen in Azure SQL Data Sync automatiseren](../sql-database-update-sync-schema.md)

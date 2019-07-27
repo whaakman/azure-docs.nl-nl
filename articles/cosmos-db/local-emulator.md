@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
-ms.date: 07/16/2019
-ms.openlocfilehash: 3a03829c39deb954a8baa908de63b9ff6f31238e
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.date: 07/26/2019
+ms.openlocfilehash: 626f71c3938b944cb705dfea4a964c6c33c42164
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297853"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565451"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>De Azure Cosmos-emulator gebruiken voor lokale ontwikkeling en tests
 
@@ -122,7 +122,7 @@ DocumentClient client = new DocumentClient(
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB-API voor MongoDB
 
-Als u de [API van Azure Cosmos DB gebruikt voor MongoDb](mongodb-introduction.md), gebruikt u de volgende Connection String:
+Zodra u de Azure Cosmos-emulator hebt die op uw bureau blad wordt uitgevoerd, kunt u de [API van de Azure Cosmos DB voor MongoDb](mongodb-introduction.md) gebruiken om met de emulator te communiceren. Start Emulator vanaf de opdracht prompt als beheerder met '/EnableMongoDbEndpoint '. Gebruik vervolgens de volgende connection string om verbinding te maken met het MongoDB-API-account:
 
 ```bash
 mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
@@ -254,7 +254,7 @@ Typ `CosmosDB.Emulator.exe /?` bij de opdrachtprompt om een lijst met opties te 
 |EnableTableEndpoint | Hiermee schakelt u Azure Table-API | CosmosDB. emulator. exe/EnableTableEndpoint | |
 |TablePort | Het poort nummer dat moet worden gebruikt voor het Azure-tabel eindpunt. De standaard waarde is 8902. | CosmosDB. emulator. exe/TablePort =\<poort\> | \<poort\>: Enkel poortnummer|
 | KeyFile | Lees de autorisatie sleutel van het opgegeven bestand. De/GenKeyFile-optie gebruiken om een keyfile te genereren | CosmosDB. emulator. exe/keyfile =\<bestands naam\> | \<bestands\>naam: Pad naar het bestand |
-| ResetDataPath | Verwijdert recursief alle bestanden in het opgegeven pad. Als u geen pad opgeeft, wordt standaard%LOCALAPPDATA%\CosmosDbEmulator | CosmosDB. emulator. exe/ResetDataPath [=\<pad >] | \<pad\>: Bestandspad  |
+| ResetDataPath | Verwijdert recursief alle bestanden in het opgegeven pad. Als u geen pad opgeeft, wordt standaard%LOCALAPPDATA%\CosmosDbEmulator | CosmosDB. emulator. exe/ResetDataPath [=\<pad >] | \<pad\>: Pad naar bestand  |
 | StartTraces  |  Verzamelen van traceer logboeken voor fout opsporing starten. | CosmosDB. emulator. exe/StartTraces | |
 | StopTraces     | Stoppen met het verzamelen van traceer logboeken voor fout opsporing. | CosmosDB. emulator. exe/StopTraces  | |
 |FailOnSslCertificateNameMismatch | Standaard genereert de emulator het zelfondertekende SSL-certificaat opnieuw als het SAN van het certificaat niet de domein naam van de emulator host, het lokale IPv4-adres, ' localhost ' en ' 127.0.0.1 ' bevat. Als deze optie is ingeschakeld, mislukt de emulator bij het opstarten. Vervolgens moet u de/GenCert-optie gebruiken om een nieuw zelfondertekend SSL-certificaat te maken en te installeren. | CosmosDB. emulator. exe/FailOnSslCertificateNameMismatch  | |

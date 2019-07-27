@@ -1,6 +1,6 @@
 ---
-title: 'Snelstartgids: Een app maken'
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Quick Start: app maken-LUIS'
+titleSuffix: Azure Cognitive Services
 description: Maak een LUIS-app die gebruikmaakt van het vooraf gemaakte domein `HomeAutomation` voor het in- en uitschakelen van lichten en apparaten. Dit vooraf gemaakte domein biedt u intenties, entiteiten voorbeelden van utterances. Wanneer u klaar bent, hebt u een LUIS-eindpunt in de cloud.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6d3b4d23ae1ad04142b0dec01a1abccbd2f81942
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e53f8d6e08b345d417ce54deacd658275cb1cd00
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150173"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563922"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snelstartgids: Een vooraf gemaakte app voor huisautomatisering gebruiken
 
@@ -58,7 +58,7 @@ Wanneer het vooraf gemaakte domein is toegevoegd, wordt in het vak met vooraf ge
 
 Selecteer **Intents** in het navigatiedeelvenster aan de linkerkant om de intenties van het domein 'Home Automation' te controleren. Elke intentie bevat voorbeelden van utterances.
 
-![Schermafbeelding van HomeAutomation intents lijst](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot van HomeAutomation intents lijst")]
+![Scherm opname van de lijst met HomeAutomation intentie](media/luis-quickstart-new-app/home-automation-intents.png "Scherm afbeelding van de lijst HomeAutomation")intenties]
 
 > [!NOTE]
 > **None** is een intentie die door alle LUIS-apps wordt geboden. U kunt deze gebruiken voor het afhandelen van utterances die niet overeenkomen met de functionaliteit die uw app biedt. 

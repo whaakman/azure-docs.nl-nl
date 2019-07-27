@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
-manager: craigg
 ms.date: 07/11/2019
-ms.openlocfilehash: c2a468507c598c38b0b6b3b9f9c6a58a6ef4eff2
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 97f7393622311103d94d3067205f902e3eec6843
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67826968"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567342"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Aan de slag met beheerd exemplaar voor Azure SQL Database
 
@@ -33,14 +32,14 @@ Als eerste stap moet u uw eerste beheerde exemplaar maken met de netwerkomgeving
 
 - [Create a managed instance using the Azure portal](sql-database-managed-instance-get-started.md) (Een beheerd exemplaar maken via de Azure-portal). In de Azure-portal configureert u de noodzakelijke parameters (gebruikersnaam/wachtwoord, aantal kernen en maximale hoeveelheid opslagruimte), en maakt u automatisch een Azure-netwerkomgeving zonder de netwerkdetails en infrastructuurvereisten te hoeven kennen. Zorg ervoor dat u een [abonnementstype](sql-database-managed-instance-resource-limits.md#supported-subscription-types) hebt waarmee het beheerde exemplaar momenteel mag worden gemaakt. Als u uw eigen netwerk wilt gebruiken of het netwerk wilt aanpassen, raadpleegt u [configure an existing virtual network for Azure SQL Database managed instance](sql-database-managed-instance-configure-vnet-subnet.md) (Een bestaand virtueel netwerk voor beheerde exemplaren van Azure SQL Database configureren) of [create a virtual network for Azure SQL Database managed instance](sql-database-managed-instance-create-vnet-subnet.md) (Een virtueel netwerk voor beheerde exemplaren van Azure SQL Database maken).
 - Een beheerd exemplaar wordt gemaakt in een eigen VNet zonder openbaar eindpunt. Voor toegang tot clienttoepassingen kunt u met behulp van een van deze quickstarts **een VM maken in hetzelfde VNet (ander subnet)** of **vanaf uw clientcomputer een punt-naar-site-VPN-verbinding maken naar het VNET**:
-  - Schakel [openbaar eindpunt](sql-database-managed-instance-public-endpoint-configure.md) op uw beheerde exemplaar voor toegang tot uw gegevens rechtstreeks vanuit uw omgeving.
+  - Schakel het [open bare eind punt](sql-database-managed-instance-public-endpoint-configure.md) in voor uw beheerde exemplaar zodat u uw gegevens rechtstreeks vanuit uw omgeving kunt openen.
   - Ga naar [Azure Virtual Machine in the managed instance VNet](sql-database-managed-instance-configure-vm.md) (Virtuele Azure-machine maken in het VNet van het beheerde exemplaar) om de Azure-VM te maken voor connectiviteit van de clienttoepassing, waaronder SQL Server Management Studio.
   - Stel [point-to-site VPN connection to your managed instance](sql-database-managed-instance-configure-p2s.md) (punt-naar-site-VPN-verbinding voor uw beheerde exemplaar) in vanaf uw clientcomputer met SQL Server Management Studio en andere clienttoepassingen voor connectiviteit. Dit is de andere van twee opties voor connectiviteit met uw beheerde exemplaar en met het desbetreffende VNet.
 
   > [!NOTE]
   > U kunt ook een ExpressRoute- of site-naar-site-verbinding van uw lokale netwerk gebruiken. Deze methoden worden echter niet besproken in deze quickstarts.
 
-Als alternatief voor het handmatig maken van een beheerd exemplaar, kunt u [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), [PowerShell gebruiken met Resource Manager-sjabloon](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md), of [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) script en automatiseren Dit proces.
+Als alternatief voor het hand matig maken van een beheerd exemplaar, kunt u [Power shell](scripts/sql-database-create-configure-managed-instance-powershell.md), [Power shell met Resource Manager-sjabloon](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)of [Azure cli](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) gebruiken om dit proces te automatiseren.
 
 ### <a name="migrate-your-databases"></a>Uw databases migreren
 
@@ -61,21 +60,21 @@ Als alternatief kunt u [PowerShell-script](https://www.powershellmagazine.com/20
 
 Als alternatief kunt u ook dit [PowerShell-script](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) gebruiken om het netwerk automatisch te laten maken.
 
-Als u al een VNet en subnet hebt waar u uw beheerde exemplaar wilt implementeren, dan moet u er zeker van zijn dat uw VNet en subnet aan de [netwerkvereisten](sql-database-managed-instance-connectivity-architecture.md#network-requirements) voldoen. Gebruik dit [PowerShell-script om te controleren of uw subnet correct is geconfigureerd](sql-database-managed-instance-configure-vnet-subnet.md). Dit script valideert het netwerk en rapporteert problemen. Het laat u ook weten wat er moet worden gewijzigd en stelt voor deze noodzakelijke wijzigingen aan uw VNet/subnet uit te voeren. Voer dit script uit als u uw VNet/subnet niet handmatig wilt configureren. U kunt het ook uitvoeren als uw netwerkinfrastructuur een belangrijke herconfiguratie heeft ondergaan. Als u wilt maken en configureren uw eigen netwerk, leest u [connectiviteitsarchitectuur](sql-database-managed-instance-connectivity-architecture.md) en deze [ultieme gids voor het maken en configureren van de omgeving van een beheerd exemplaar](https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01).
+Als u al een VNet en subnet hebt waar u uw beheerde exemplaar wilt implementeren, dan moet u er zeker van zijn dat uw VNet en subnet aan de [netwerkvereisten](sql-database-managed-instance-connectivity-architecture.md#network-requirements) voldoen. Gebruik dit [PowerShell-script om te controleren of uw subnet correct is geconfigureerd](sql-database-managed-instance-configure-vnet-subnet.md). Dit script valideert het netwerk en rapporteert problemen. Het laat u ook weten wat er moet worden gewijzigd en stelt voor deze noodzakelijke wijzigingen aan uw VNet/subnet uit te voeren. Voer dit script uit als u uw VNet/subnet niet handmatig wilt configureren. U kunt het ook uitvoeren als uw netwerkinfrastructuur een belangrijke herconfiguratie heeft ondergaan. Als u uw eigen netwerk wilt maken en configureren, lees dan de [connectiviteits architectuur](sql-database-managed-instance-connectivity-architecture.md) en deze [ultieme hand leiding voor het maken en configureren van een beheerde-instantie omgeving](https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01).
 
 ## <a name="migrate-to-a-managed-instance"></a>Migreren naar een beheerd exemplaar
 
-Met de artikelen in deze quickstarts kunt u snel een beheerd exemplaar instellen en uw databases verplaatsen met de systeemeigen `RESTORE`-functie. Dit is een goed uitgangspunt als u wilt snel testen van concepten voltooid en controleer of dat uw oplossing op Managed Instance kunt werken. 
+Met de artikelen in deze quickstarts kunt u snel een beheerd exemplaar instellen en uw databases verplaatsen met de systeemeigen `RESTORE`-functie. Dit is een goed uitgangs punt als u de snelle proef versie van concepten wilt volt ooien en te controleren of uw oplossing kan werken op een beheerd exemplaar. 
 
-Als u wilt uw productiedatabase of zelfs dev/test-databases die u wilt gebruiken voor sommige prestatietest migreren, moet u zou echter rekening houden met enkele aanvullende technieken, zoals:
-- Prestatietesten - u moet meten van basislijnprestaties op de bron-SQL Server-exemplaar en deze te vergelijken met de prestaties van de bestemming voor het beheerde exemplaar waar u de database hebt gemigreerd. Meer informatie over de [aanbevolen procedures voor prestaties vergelijking](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
-- Online migratie - met de native `RESTORE` in dit artikel wordt beschreven, hebt u na afloop van de databases worden hersteld (en gekopieerd naar Azure Blob-opslag als het niet al opgeslagen). Dit heeft downtime voor uw toepassing ten gevolge, met name voor grote databases. Als u de productiedatabase wilt verplaatsen, gebruikt u de [Database Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) om uw database met minimale downtime te migreren. Dit wordt bereikt doordat DMS de aan de brondatabase aangebrachte wijzigingen stapsgewijs pusht naar de database met de beheerde exemplaardatabase die wordt teruggezet. Op deze manier kunt u snel uw toepassing van de bron- naar de doeldatabase overzetten met minimale downtime.
+Als u uw productie database of zelfs data bases voor ontwikkelen en testen die u wilt gebruiken voor een bepaalde prestatie test, echter wilt migreren, moet u overwegen om een aantal extra technieken te gebruiken, zoals:
+- Prestaties testen: u moet de basislijn prestaties van uw bron SQL Server-exemplaar meten en deze vergelijken met de prestaties van het beheerde exemplaar van de bestemming waar u de Data Base hebt gemigreerd. Meer informatie over de [Aanbevolen procedures voor het vergelijken van prestaties](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
+- Online migratie: met de native `RESTORE` die in dit artikel wordt beschreven, moet u wachten tot de data bases zijn hersteld (en naar Azure Blob-opslag worden gekopieerd als deze nog niet is opgeslagen). Dit heeft downtime voor uw toepassing ten gevolge, met name voor grote databases. Als u de productiedatabase wilt verplaatsen, gebruikt u de [Database Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) om uw database met minimale downtime te migreren. Dit wordt bereikt doordat DMS de aan de brondatabase aangebrachte wijzigingen stapsgewijs pusht naar de database met de beheerde exemplaardatabase die wordt teruggezet. Op deze manier kunt u snel uw toepassing van de bron- naar de doeldatabase overzetten met minimale downtime.
 
-Meer informatie over de [aanbevolen migratieproces](sql-database-managed-instance-migrate.md).
+Meer informatie over het [Aanbevolen migratie proces](sql-database-managed-instance-migrate.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Vind [hier een lijst met ondersteunde functies in het beheerde exemplaar](sql-database-features.md) en [hier details en bekende problemen](sql-database-managed-instance-transact-sql-information.md).
 - Meer informatie over de [technische kenmerken van het beheerde exemplaar](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
 - U vindt meer uitgebreide informatie in [Beheerd exemplaar gebruiken in Azure SQL Database](sql-database-howto-managed-instance.md).
-- [Identificeren van de juiste Azure SQL Database/Managed Instance SKU voor uw on-premises database](/sql/dma/dma-sku-recommend-sql-db/).
+- [Bepaal het juiste Azure SQL database/Managed instance SKU voor uw on-premises data base](/sql/dma/dma-sku-recommend-sql-db/).

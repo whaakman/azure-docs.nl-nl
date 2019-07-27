@@ -1,6 +1,6 @@
 ---
-title: Intents toevoegen
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Intenties toevoegen-LUIS
+titleSuffix: Azure Cognitive Services
 description: Intents toevoegen aan uw LUIS-app voor het identificeren van groepen van vragen of de opdrachten die het hetzelfde doel hebben.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 639079a43e75741d78496939f90324b076b164d5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148172"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563693"
 ---
-# <a name="add-intents-to-determine-user-intention-of-utterances"></a>Intents om te bepalen van de gebruiker de bedoeling uitingen toevoegen
+# <a name="add-intents-to-determine-user-intention-of-utterances"></a>Intenties toevoegen om te bepalen wat de gebruikers intentie van uitingen zijn
 
 Voeg [intents](luis-concept-intent.md) naar uw LUIS-app en het identificeren van vragen of opdrachten die hetzelfde doel hebben. 
 
@@ -44,23 +44,23 @@ Voorbeeld uitingen zijn voorbeelden van de tekst van de gebruiker vragen of opdr
 
 <a name="#intent-prediction-discrepancy-errors"></a>
 
-## <a name="intent-prediction-errors"></a>Voorspelling van intentie-fouten 
+## <a name="intent-prediction-errors"></a>Voorspellings fouten in intentie 
 
-Een voorbeeld utterance in een doel kan een voorspelling van intentie-fout tussen de bedoeling die de voorbeeld-utterance is momenteel in en de voorspelling intentie bepaald tijdens de training hebben. 
+Een voor beeld van een utterance in een intentie heeft mogelijk een intentie Voorspellings fout tussen de bedoeling van het voor beeld utterance is op dit moment en de Voorspellings intentie die tijdens de training is bepaald. 
 
-Utterance voorspelling fouten gevonden en corrigeren, gebruikt u de **Filter** van optie **evaluatie** opties van onjuist en Unclear in combinatie met de **weergave** optie van **Gedetailleerde weergave**. 
+Als u utterance-Voorspellings fouten wilt vinden en deze wilt corrigeren, gebruikt u de **evaluatie** opties van de **filter** optie onjuist en onduidelijk gecombineerd met de **weergave** optie van **gedetailleerde weer gave**. 
 
-![Als u wilt zoeken utterance voorspelling fouten en los ze, gebruik de filteroptie.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+![Gebruik de filter optie om utterance Voorspellings fouten te vinden en deze op te lossen.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-Wanneer de filters en de weergave worden toegepast en er voorbeeld uitingen met fouten zijn, wordt de lijst van de utterance voorbeeld bevat de uitingen en de problemen.
+Wanneer de filters en weer gave worden toegepast en er voorbeeld uitingen zijn met fouten, worden de uitingen en de problemen weer gegeven in de lijst voor beeld utterance.
 
-![! [Wanneer de filters en de weergave worden toegepast, en er voorbeeld uitingen met fouten, de lijst met voorbeelden utterance toont de uitingen en de problemen.] (. / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+![! [Wanneer de filters en weer gave worden toegepast en er voorbeeld uitingen zijn met fouten, worden de uitingen en de problemen weer gegeven in de lijst voor beeld utterance.] (./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
 
-Elke rij bevat de huidige training voorspelling score voor de voorbeeld-utterance, de dichtstbijzijnde rivaal score, die het verschil in deze twee scores is. 
+Elke rij toont de huidige Voorspellings Score van de training voor het voor beeld utterance, het dichtstbijzijnde aantal punten, het verschil in deze twee scores. 
 
-### <a name="fixing-intents"></a>Intents oplossen
+### <a name="fixing-intents"></a>Intenties herstellen
 
-Voor meer informatie over het oplossen van fouten van de intentie voorspelling, gebruikt de [Dashboard samenvatting van](luis-how-to-use-dashboard.md). Het dashboard samenvatting bevat een analyse voor de actieve versie laatste training en biedt de hoogste suggesties om op te lossen van uw model.  
+Gebruik het [dash board samen vatting](luis-how-to-use-dashboard.md)voor meer informatie over het oplossen van problemen met het Voorspellings beleid. Het dash board samen vatting bevat een analyse voor de laatste training van de actieve versie en biedt de beste suggesties voor het oplossen van uw model.  
 
 ## <a name="add-a-custom-entity"></a>Een aangepaste entiteit toevoegen
 
@@ -82,7 +82,7 @@ Zie voor meer informatie, [vooraf gedefinieerde entiteit](luis-how-to-add-entiti
 
 ## <a name="using-the-contextual-toolbar"></a>Met behulp van de contextuele werkbalk
 
-Wanneer u een of meer voorbeeld uitingen hebt geselecteerd in de lijst het selectievakje aan de linkerkant van een utterance wordt de werkbalk boven de lijst met utterance kunt u de volgende acties uitvoeren:
+Wanneer een of meer voor beeld-uitingen in de lijst zijn geselecteerd door het selectie vakje links van een utterance in te scha kelen, kunt u op de werk balk boven de lijst utterance de volgende acties uitvoeren:
 
 * Opnieuw toewijzen van doel: utterance(s) verplaatsen naar een ander doel
 * Utterance(s) verwijderen
@@ -97,7 +97,7 @@ De volgende acties kunnen worden uitgevoerd op een afzonderlijke utterance in he
 
 * Bewerken: de tekst van de utterance wijzigen
 * Verwijderen: Verwijder de utterance uit het doel. Als u nog steeds de utterance wilt, een betere methode is om te verplaatsen naar de **geen** intentie. 
-* Voeg een patroon: Een patroon kunt u een algemene utterance en markeren replaceable en ignorable tekst, waardoor de noodzaak van meer uitingen in het doel. 
+* Een patroon toevoegen: Een patroon biedt u de mogelijkheid om een gemeen schappelijk utterance te maken en vervang bare tekst te markeren en tekst te vervangen, waardoor de nood zaak van meer uitingen in de intentie wordt verkleind. 
 
 De **met het label bedoeling** kolom kunt u het doel van de utterance wijzigen.
 

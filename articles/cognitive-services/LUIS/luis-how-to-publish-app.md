@@ -1,5 +1,5 @@
 ---
-title: App publiceren
+title: App publiceren-LUIS
 titleSuffix: Azure Cognitive Services
 description: Wanneer u klaar bent met het ontwikkelen en testen van uw actieve LUIS-app, het beschikbaar stellen aan uw clienttoepassing door deze te publiceren naar het eindpunt.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: diberry
-ms.openlocfilehash: 22bed877d853c7023f8efe6bfb3dd21b4aa4c8df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fdbdb2cd13d131019c4230aa369af31240d25f0d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60194424"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563649"
 ---
-# <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Uw app actief, getrainde publiceren naar een fasering of productie-eindpunt
+# <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Uw actieve, getrainde app publiceren naar een staging-of productie-eind punt
 
 Wanneer u klaar bent met het ontwikkelen en testen van uw actieve LUIS-app, het beschikbaar stellen aan uw clienttoepassing door deze te publiceren naar het eindpunt. 
 
@@ -38,7 +38,7 @@ De app wordt gepubliceerd naar alle regio's die zijn gekoppeld aan de LUIS-resou
 
 Wanneer uw app is gepubliceerd, wordt een groen geslaagd-melding weergegeven aan de bovenkant van de browser. De groene meldingsbalk bevat ook een koppeling naar de eindpunten. 
 
-![Pop-upvenster met koppeling publiceren naar eindpunt](./media/luis-how-to-publish-app/publish-success.png)
+![Pop-upvenster publiceren met koppeling naar eind punt](./media/luis-how-to-publish-app/publish-success.png)
 
 Als u de eindpunt-URL nodig hebt, selecteert u de koppeling. U kunt ook naar de eindpunt-URL's ophalen door het selecteren van **beheren** in het bovenste menu, schakelt u vervolgens **sleutels en eindpunten** in het menu links. 
 
@@ -56,7 +56,7 @@ Sentimentanalyse kunt LUIS integreren met [Tekstanalyse](https://azure.microsoft
 
 U hebt geen een Text Analytics-sleutel opgeven en er zijn geen facturering kosten voor deze service kunt u uw Azure-account. Nadat u deze instelling inschakelt, is het permanent. 
 
-Sentimentsgegevens is een score tussen 1 en 0 waarmee wordt aangegeven welke positieve (dichter bij 1) of een negatieve (dichter bij 0) gevoel van de gegevens. Het label voor stemming van `positive`, `neutral`, en `negative` per ondersteunde cultuur. Op dit moment ondersteunt alleen Engels sentiment labels. 
+Sentimentsgegevens is een score tussen 1 en 0 waarmee wordt aangegeven welke positieve (dichter bij 1) of een negatieve (dichter bij 0) gevoel van de gegevens. Het sentiment-label `positive`van `neutral`, en `negative` is per ondersteunde cultuur. Op dit moment worden alleen sentiment-labels in het Engels ondersteund. 
 
 Zie voor meer informatie over de JSON-eindpunt-antwoord met sentimentanalyse, [sentimentanalyse](luis-concept-data-extraction.md#sentiment-analysis)
 

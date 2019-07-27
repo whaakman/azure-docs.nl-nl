@@ -1,6 +1,6 @@
 ---
-title: Telefoon aantal vooraf gemaakte entiteiten
-titleSuffix: Azure
+title: Vooraf gemaakte telefoon nummers-LUIS
+titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat vooraf gedefinieerde entiteit telefoonnummergegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 43d0b855c25ed10b074d99b247ee56dc2ba7769b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a640412fb98fb1d4215bd34c205d4fba253cd7e0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146184"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560169"
 ---
-# <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Telefoon aantal vooraf gedefinieerde entiteit voor een LUIS-app
+# <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Op telefoon nummer vooraf gebouwde entiteit voor een LUIS-app
 De `phonenumber` entiteit extraheert tal van telefoonnummers, inclusief landcode. Omdat deze entiteit wordt al getraind, hoeft u geen voorbeeld uitingen toevoegen aan de toepassing. De `phonenumber` entiteit wordt ondersteund in `en-us` alleen de cultuur. 
 
-## <a name="types-of-a-phone-number"></a>Typen van een telefoonnummer
-`Phonenumber` wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) GitHub-opslagplaats
+## <a name="types-of-a-phone-number"></a>Typen van een telefoon nummer
+`Phonenumber`wordt beheerd vanuit de map [recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) github
 
-## <a name="resolution-for-this-prebuilt-entity"></a>Oplossing voor deze vooraf gedefinieerde entiteit
+## <a name="resolution-for-this-prebuilt-entity"></a>Oplossing voor deze vooraf gebouwde entiteit
 
-### <a name="api-version-2x"></a>API-versie 2.x
+### <a name="api-version-2x"></a>API-versie 2. x
 
 Het volgende voorbeeld ziet u de resolutie van de **builtin.phonenumber** entiteit.
 
@@ -58,9 +58,9 @@ Het volgende voorbeeld ziet u de resolutie van de **builtin.phonenumber** entite
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Preview-API-versie 3.x
+### <a name="preview-api-version-3x"></a>Preview-API versie 3. x
 
-De volgende JSON is met de `verbose` parameter ingesteld op `false`:
+De volgende JSON is met de `verbose` para meter ingesteld `false`op:
 
 ```json
 {
@@ -82,7 +82,7 @@ De volgende JSON is met de `verbose` parameter ingesteld op `false`:
 }
 ```
 
-De volgende JSON is met de `verbose` parameter ingesteld op `true`:
+De volgende JSON is met de `verbose` para meter ingesteld `true`op:
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Een afbeeldingsclassificatieproject maken met de Custom Vision-SDK voor Java'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Maak een project, voeg tags toe, upload afbeeldingen, train uw project en doe een voorspelling met behulp van de Java-SDK.
 services: cognitive-services
 author: areddish
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: 62f60e0a143bee7e8392792719b30aca1d629880
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: fd1f7be5a098151793bd919cb84243564c9c4841
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606859"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564191"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Quickstart: Een afbeeldingsclassificatieproject maken met de Custom Vision-SDK voor Java
 
@@ -29,7 +29,7 @@ Dit artikel biedt informatie en voorbeeldcode om u op weg te helpen met de Custo
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>De Custom Vision-SDK en voorbeeldcode ophalen
 
-Als u een Java-app wilt schrijven die gebruikmaakt van Custom Vision, hebt u de Maven-pakketten van Custom Vision nodig. Deze pakketten zijn opgenomen in het voorbeeldproject u downloadt, maar u kunt toegang tot deze afzonderlijk hier.
+Als u een Java-app wilt schrijven die gebruikmaakt van Custom Vision, hebt u de Maven-pakketten van Custom Vision nodig. Deze pakketten zijn opgenomen in het voorbeeld project dat u wilt downloaden, maar u kunt deze afzonderlijk openen.
 
 U kunt de Custom Vision-SDK uit de centrale maven-opslagplaats installeren:
 
@@ -51,7 +51,7 @@ $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 
 ## <a name="understand-the-code"></a>De code begrijpen
 
-Laad het `Vision/CustomVision`-project in uw Java IDE en open het bestand _CustomVisionSamples.java_. Zoek de **runSample** methode en uitcommentarieer de **ObjectDetection_Sample** methodeaanroep&mdash;deze methode voert u het scenario voor het detecteren van object, die niet wordt behandeld in deze handleiding. De methode **ImageClassification_Sample** implementeert de primaire functie van dit voorbeeld, namelijk het navigeren naar de definitie ervan en het inspecteren van de code.
+Laad het `Vision/CustomVision`-project in uw Java IDE en open het bestand _CustomVisionSamples.java_. De methode **runSample** zoeken en de methode voor  het aanroepen&mdash;van de ObjectDetection_Sample aanwijzen met deze methode wordt het object detectie scenario uitgevoerd, dat niet in deze hand leiding wordt besproken. De methode **ImageClassification_Sample** implementeert de primaire functie van dit voorbeeld, namelijk het navigeren naar de definitie ervan en het inspecteren van de code.
 
 ### <a name="create-a-custom-vision-service-project"></a>Een Custom Vision Service-project maken
 
@@ -73,9 +73,9 @@ Het vorige codefragment maakt gebruik van twee hulpfuncties die de afbeeldingen 
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=277-314)]
 
-### <a name="train-the-classifier-and-publish"></a>De classificatie te trainen en publiceren
+### <a name="train-the-classifier-and-publish"></a>De classificatie trainen en publiceren
 
-Deze code wordt de eerste versie in het project wordt gemaakt en vervolgens publiceert dat iteratie naar het eindpunt van de voorspelling. De naam van de gepubliceerde iteratie kan worden gebruikt om voorspelling aanvragen te verzenden. Een iteratie is niet beschikbaar in de voorspelling eindpunt totdat deze is gepubliceerd.
+Deze code maakt de eerste iteratie in het project en publiceert die iteratie vervolgens naar het Voorspellings eindpunt. De naam die is opgegeven voor de gepubliceerde herhaling kan worden gebruikt voor het verzenden van voorspellings aanvragen. Er is geen iteratie beschikbaar in het Voorspellings eindpunt totdat het is gepubliceerd.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=89-99)]
 

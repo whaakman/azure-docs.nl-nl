@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
-manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: 5cf9046a26edae3e6076ee1effe32930f15f4569
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a3a325cbfced13b6e2ac4cb842b5d5f4f764750
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60700339"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567467"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Quickstart: Een database herstellen naar een beheerd exemplaar
 

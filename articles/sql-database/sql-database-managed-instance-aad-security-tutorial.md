@@ -8,14 +8,13 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87bd22ec4f2cfae62d1f80284ad8346ca292d016
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60702178"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567669"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Zelfstudie: Beveiliging van een beheerd exemplaar in Azure SQL Database met behulp van Azure AD-server-principals (aanmeldingen)
 
@@ -56,7 +55,7 @@ Zorg dat u over het volgende beschikt als u de zelfstudie wilt uitvoeren:
 
 ## <a name="limiting-access-to-your-managed-instance"></a>De toegang tot uw beheerde exemplaar beperken
 
-Beheerde exemplaren kunnen alleen worden geopend via een particulier IP-adres. Er zijn geen service-eindpunten beschikbaar om verbinding te maken met een beheerd exemplaar buiten het Managed Instance-netwerk. Zoals een geïsoleerd SQL Server on-premises omgeving, toepassingen of gebruikers moet toegang tot het beheerde exemplaar-netwerk (VNet) voordat u een verbinding kan worden gemaakt. Zie het volgende artikel [Uw toepassing verbinden met een beheerd exemplaar](sql-database-managed-instance-connect-app.md) voor meer informatie.
+Beheerde exemplaren kunnen alleen worden geopend via een particulier IP-adres. Er zijn geen service-eindpunten beschikbaar om verbinding te maken met een beheerd exemplaar buiten het Managed Instance-netwerk. Net als bij een geïsoleerd SQL Server on-premises omgeving, moeten toepassingen of gebruikers toegang hebben tot het beheerde exemplaar van het netwerk (VNet) voordat een verbinding tot stand kan worden gebracht. Zie het volgende artikel [Uw toepassing verbinden met een beheerd exemplaar](sql-database-managed-instance-connect-app.md) voor meer informatie.
 
 > [!NOTE] 
 > Omdat beheerde exemplaren alleen kunnen worden geopend binnen het eigen VNET, zijn [firewallregels voor SQL Database](sql-database-firewall-configure.md) niet van toepassing. Managed Instance heeft zijn eigen [ingebouwde firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
@@ -172,7 +171,7 @@ Nadat de Azure AD-server-principal (aanmelding) is gemaakt en is voorzien van `s
 
     In dit voorbeeld maakt u een aanmelding voor de Azure AD-gebruiker bob@aadsqlmi.net, wiens domein aadsqlmi.net is gefedereerd met de Azure AD aadsqlmi.onmicrosoft.com.
 
-    Voer de volgende T-SQL-opdracht uit. Gefedereerd Azure AD-accounts zijn de vervangingen beheerd exemplaar voor on-premises Windows-aanmeldingen en gebruikers.
+    Voer de volgende T-SQL-opdracht uit. Federatieve Azure AD-accounts zijn de beheerde instantie vervangingen voor on-premises Windows-aanmeldingen en-gebruikers.
 
     ```sql
     USE master
@@ -360,7 +359,7 @@ Managed Instance biedt ondersteuning voor het imiteren van principals op Azure A
     GO
     ```
 
-1. Gebruik de volgende opdracht om te zien dat de gebruiker die u bij het uitvoeren van de opgeslagen procedure bent imiteren **bob\@aadsqlmi.net**.
+1. Gebruik de volgende opdracht om te zien dat de gebruiker die u imiteert bij het uitvoeren van de opgeslagen **procedure\@Bob aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo

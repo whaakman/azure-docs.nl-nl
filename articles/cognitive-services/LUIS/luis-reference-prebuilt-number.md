@@ -1,6 +1,6 @@
 ---
-title: Aantal vooraf gedefinieerde entiteit
-titleSuffix: Azure
+title: Aantal vooraf samengestelde entiteit-LUIS
+titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat een aantal vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: d4f707d4bf9bac5e2208eadb94983af368b9f521
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88f36fb6d73e2ec88940e7eb53d982824e194074
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072248"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560191"
 ---
-# <a name="number-prebuilt-entity-for-a-luis-app"></a>Aantal vooraf gedefinieerde entiteit voor een LUIS-app
+# <a name="number-prebuilt-entity-for-a-luis-app"></a>Aantal vooraf samengestelde entiteiten voor een LUIS-app
 Er zijn veel manieren waarin numerieke waarden te kwantificeren, express en beschrijven stukjes informatie worden gebruikt. Dit artikel behandelt alleen enkele van de mogelijke voorbeelden. LUIS interpreteert de variaties faciliteren voor de gebruiker uitingen en consistente numerieke waarden als resultaat. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen voorbeeld uitingen met getal tot de toepassing intents. 
 
 ## <a name="types-of-number"></a>Typen van getal
-Aantal wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) GitHub-opslagplaats
+Nummer wordt beheerd vanuit de map [recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) github
 
 ## <a name="examples-of-number-resolution"></a>Voorbeelden van het aantal resolutie
 
@@ -43,7 +43,7 @@ LUIS omvat de herkende waarde van een **`builtin.number`** entiteit in de `resol
 ## <a name="resolution-for-prebuilt-number"></a>Oplossing voor vooraf gedefinieerde getal
 
 
-### <a name="api-version-2x"></a>API-versie 2.x
+### <a name="api-version-2x"></a>API-versie 2. x
 
 Het volgende voorbeeld ziet een JSON-antwoord van LUIS, die de resolutie van de waarde van 24 uur per dag, voor de utterance "tientallen" bevat.
 
@@ -83,9 +83,9 @@ Het volgende voorbeeld ziet een JSON-antwoord van LUIS, die de resolutie van de 
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Preview-API-versie 3.x
+### <a name="preview-api-version-3x"></a>Preview-API versie 3. x
 
-De volgende JSON is met de `verbose` parameter ingesteld op `false`:
+De volgende JSON is met de `verbose` para meter ingesteld `false`op:
 
 ```json
 {
@@ -107,7 +107,7 @@ De volgende JSON is met de `verbose` parameter ingesteld op `false`:
 }
 ```
 
-De volgende JSON is met de `verbose` parameter ingesteld op `true`:
+De volgende JSON is met de `verbose` para meter ingesteld `true`op:
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
-title: Knowledge base publiceren, REST, Go
-titleSuffix: QnA Maker - Azure Cognitive Services
+title: 'Quickstart: Knowledge Base publiceren, REST, go-QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Deze REST-snelstartgids voor Go helpt u bij het publiceren van uw knowledge base, waarbij de meest recente versie van de geteste knowledge base naar een specifieke Azure Search-index wordt gepusht die de gepubliceerde knowledge base vertegenwoordigt. Hiermee wordt ook een eindpunt gemaakt dat kan worden aangeroepen in uw toepassing of chatbot.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 5c0d3c5d33d41ddd01b9d0c0ccf4f468d52f6a9e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c752a0ef4a908ba9a3771a0e0fb4f5f034f97707
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790803"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562958"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Snelstartgids: Een knowledge base publiceren in QnA Maker met behulp van Go
 

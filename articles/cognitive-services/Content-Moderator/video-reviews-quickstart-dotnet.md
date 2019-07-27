@@ -1,7 +1,7 @@
 ---
-title: Video beoordelingen met behulp van .NET - Content Moderator maken
-titlesuffix: Azure Cognitive Services
-description: In dit artikel vindt u informatie en voorbeelden van code om u te helpen snel aan de slag met de Content Moderator-SDK met C# video beoordelingen maken.
+title: Video beoordelingen maken met behulp van .NET-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: In dit artikel vindt u informatie en code voorbeelden waarmee u snel aan de slag kunt gaan met C# behulp van de content moderator SDK met om video beoordelingen te maken.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: c8572e6bc7fdedb68527cad4e7ea4109838089b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74b0ad4b5d8a16c8d46fcf6de67c46dab29ba51d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726846"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564293"
 ---
-# <a name="create-video-reviews-using-net"></a>Maak video beoordelingen met behulp van .NET
+# <a name="create-video-reviews-using-net"></a>Video beoordelingen maken met .NET
 
-In dit artikel vindt u informatie en voorbeelden van code om u te helpen snel aan de slag met de [Content Moderator-SDK met C#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) aan:
+In dit artikel vindt u informatie en code voorbeelden waarmee u snel aan de slag kunt met de [Content moderator SDK C# ](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) voor het volgende:
 
-- Maken van een video bekijken voor menselijke moderators
+- Een video-beoordeling maken voor menselijke moderators
 - Frames toevoegen aan een beoordeling
-- De frames ophalen voor de beoordeling
-- De status en details van de beoordeling
-- Publiceren van de beoordeling
+- De frames voor de beoordeling ophalen
+- De status en Details van de beoordeling ophalen
+- De beoordeling publiceren
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Meld u aan of maak een account op de Content Moderator [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) site.
-- In dit artikel wordt ervan uitgegaan dat u hebt [onder toezicht van de video (Zie de snelstart)](video-moderation-api.md) en beschikt over de antwoordgegevens. U hebt deze nodig voor het maken van beoordelingen op basis van een kader voor menselijke moderators.
+- Meld u aan of maak een account op de site van het Content Moderator [controle programma](https://contentmoderator.cognitive.microsoft.com/) .
+- In dit artikel wordt ervan uitgegaan dat u [de video hebt gematigd (zie Quick Start)](video-moderation-api.md) en de antwoord gegevens bevat. U hebt deze nodig voor het maken van op frames gebaseerde Beoordelingen voor menselijke moderators.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Instellen dat uw API-sleutel de beoordelings-API kan aanroepen voor het maken van de beoordeling
 
@@ -40,36 +40,36 @@ Als u van plan bent de door Azure verstrekte API-sleutel in uw SDK-voorbeeld te 
 
 Als u de gratis proefversie van de sleutel gebruikt die wordt gegenereerd door het beoordelingsprogramma, is uw account van het beoordelingsprogramma al op de hoogte van de sleutel, zodat er geen extra stappen zijn vereist.
 
-### <a name="prepare-your-video-and-the-video-frames-for-review"></a>Uw video en de videoframes voorbereiden voor controle
+### <a name="prepare-your-video-and-the-video-frames-for-review"></a>Uw video en video frames voorbereiden voor beoordeling
 
-De video en voorbeeldgegevens videoframes om te controleren moeten online zijn gepubliceerd omdat u de URL's nodig hebt.
+De video-en voorbeeld video frames die moeten worden beoordeeld, moeten online worden gepubliceerd omdat u hun Url's nodig hebt.
 
 > [!NOTE]
-> Het programma gebruikt handmatig opgeslagen schermafbeeldingen van de video met willekeurige volwassene gebruik scores ter illustratie van het gebruik van de API controleren. In een situatie praktijk, gebruikt u de [beheer van video-uitvoer](video-moderation-api.md#run-the-program-and-review-the-output) installatiekopieën maken en toewijzen van scores. 
+> Het programma gebruikt hand matig opgeslagen scherm opnamen van de video met wille keurige volgroeide/ongepaste-scores om het gebruik van de beoordelings-API te illustreren. In een praktijk situatie gebruikt u de uitvoer van de [video-moderator](video-moderation-api.md#run-the-program-and-review-the-output) om afbeeldingen te maken en scores toe te wijzen. 
 
-Voor de video moet u een streaming-eindpunt, zodat het beoordelingsprogramma wordt de video afgespeeld in de weergave van de speler.
+Voor de video hebt u een streaming-eind punt nodig zodat het hulp programma voor het controleren de video in de weer gave speler speelt.
 
-![Videodemo miniatuur](images/ams-video-demo-view.PNG)
+![Miniatuur van video demo](images/ams-video-demo-view.PNG)
 
-- Kopieer de **URL** op deze [demo van Azure Media Services](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) -pagina voor de manifest-URL.
+- Kopieer de **URL** op deze [Azure Media Services demo](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) pagina voor de manifest-URL.
 
-Gebruik de volgende afbeeldingen voor de videoframes (installatiekopieën):
+Gebruik de volgende installatie kopieën voor de video frames (afbeeldingen):
 
-![Miniatuur van video frame 1](images/ams-video-frame-thumbnails-1.PNG) | ![Miniatuur van video kader 2](images/ams-video-frame-thumbnails-2.PNG) | ![Miniatuur van video kader 3](images/ams-video-frame-thumbnails-3.PNG) |
+![Video frame miniatuur 1](images/ams-video-frame-thumbnails-1.PNG) | ![Video frame miniatuur 2](images/ams-video-frame-thumbnails-2.PNG) | ![Video frame miniatuur 3](images/ams-video-frame-thumbnails-3.PNG) |
 | :---: | :---: | :---: |
-[Frame 1](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG) | [Frame 2](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-2-01-04.PNG) | [Frame 3](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-3-02-24.PNG) |
+[Frame 1](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG) | [Kader 2](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-2-01-04.PNG) | [Kader 3](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-3-02-24.PNG) |
 
 ## <a name="create-your-visual-studio-project"></a>Het Visual Studio-project maken
 
 1. Voeg een nieuw project van het type **Console app (.NET Framework)** toe aan uw oplossing.
 
-1. Noem het project **VideoReviews**.
+1. Geef het project de naam **VideoReviews**.
 
 1. Selecteer dit project als het enige opstartproject voor de oplossing.
 
 ### <a name="install-required-packages"></a>De vereiste pakketten installeren
 
-Installeer de volgende NuGet-pakketten voor het project TermLists.
+Installeer de volgende NuGet-pakketten voor het TermLists-project.
 
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
@@ -78,7 +78,7 @@ Installeer de volgende NuGet-pakketten voor het project TermLists.
 
 ### <a name="update-the-programs-using-statements"></a>De using-instructies van het programma bijwerken
 
-Wijzig het programma de using-instructies toe als volgt.
+Wijzig de using-instructies van het programma als volgt.
 
 ```csharp
 using System;
@@ -93,9 +93,9 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>Private-eigenschappen toevoegen
 
-De volgende persoonlijke eigenschappen toevoegen aan de naamruimte VideoReviews, klasse Program.
+Voeg de volgende persoonlijke eigenschappen toe aan naam ruimte VideoReviews, class Program.
 
-Indien vermeld, vervang de voorbeeldwaarden voor deze eigenschappen.
+Als u dit hebt aangegeven, vervangt u de voorbeeld waarden voor deze eigenschappen.
 
 ```csharp
 namespace VideoReviews
@@ -138,9 +138,9 @@ namespace VideoReviews
         private const int throttleRate = 2000;
 ```
 
-### <a name="create-content-moderator-client-object"></a>Content Moderator-clientobject maken
+### <a name="create-content-moderator-client-object"></a>Content Moderator-client object maken
 
-De methodedefinitie van de volgende aan naamruimte VideoReviews, klasse programma toevoegen.
+Voeg de volgende methode definitie toe aan de naam ruimte VideoReviews, het programma class.
 
 ```csharp
 /// <summary>
@@ -159,24 +159,24 @@ public static ContentModeratorClient NewClient()
 }
 ```
 
-## <a name="create-a-video-review"></a>Maken van een video beoordeling
+## <a name="create-a-video-review"></a>Een video beoordeling maken
 
-Maken van een video bekijken met **ContentModeratorClient.Reviews.CreateVideoReviews**. Zie voor meer informatie de [API-naslaghandleiding](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+Maak een video beoordeling met **ContentModeratorClient. revisies. CreateVideoReviews**. Zie voor meer informatie de [API-naslaghandleiding](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
-**CreateVideoReviews** heeft de volgende vereiste parameters:
-1. Een tekenreeks met een MIME-type moet ' application/json'. 
-1. De naam van uw Content Moderator-team.
-1. Een **IList\<CreateVideoReviewsBodyItem >** object. Elke **CreateVideoReviewsBodyItem** object vertegenwoordigt een video beoordeling. In deze Quick Start maakt een beoordeling op een tijdstip.
+**CreateVideoReviews** heeft de volgende vereiste para meters:
+1. Een teken reeks die een MIME-type bevat, dat ' application/json ' moet zijn. 
+1. De naam van uw Content Moderator team.
+1. Een **IList\<CreateVideoReviewsBodyItem >** -object. Elk **CreateVideoReviewsBodyItem** -object vertegenwoordigt een video-beoordeling. Deze Quick Start maakt één beoordeling per keer.
 
-**CreateVideoReviewsBodyItem** heeft een aantal eigenschappen. Ten minste, moet u de volgende eigenschappen instellen:
-- **Inhoud**. De URL van de video moet worden gecontroleerd.
-- **ContentId**. Een ID om toe te wijzen aan de video beoordeling.
-- **Status**. Stel de waarde "Unpublished." Als u deze niet instelt, wordt de standaardwaarde op 'In behandeling', wat betekent dat de video beoordeling is gepubliceerd en in afwachting van menselijke beoordeling. Zodra een beoordeling van de video is gepubliceerd, kunt u niet langer videoframes, een transcript of een transcript toezicht resultaat aan toevoegen.
+**CreateVideoReviewsBodyItem** heeft verschillende eigenschappen. U kunt ten minste de volgende eigenschappen instellen:
+- **Inhoud**. De URL van de video die moet worden gecontroleerd.
+- **ContentId**. Een ID die aan de video beoordeling moet worden toegewezen.
+- **Status**. Stel de waarde in op ' unpublished '. Als u deze niet instelt, wordt de standaard waarde ' in behandeling ' gebruikt, wat betekent dat de video beoordeling wordt gepubliceerd en de beoordeling van de mens in behandeling is. Zodra een video controle is gepubliceerd, kunt u geen video frames, transcripten of afschrift resultaten meer toevoegen.
 
 > [!NOTE]
-> **CreateVideoReviews** retourneert een IList\<string >. Deze tekenreeksen bevat een ID voor een video beoordeling. Deze id's zijn GUID's en zijn niet hetzelfde als de waarde van de **ContentId** eigenschap. 
+> **CreateVideoReviews** retourneert een IList\<-teken reeks >. Elk van deze teken reeksen bevat een ID voor een video beoordeling. Deze Id's zijn GUID'S en zijn niet hetzelfde als de waarde van de eigenschap **ContentId** . 
 
-De methodedefinitie van de volgende aan naamruimte VideoReviews, klasse programma toevoegen.
+Voeg de volgende methode definitie toe aan de naam ruimte VideoReviews, het programma class.
 
 ```csharp
 /// <summary>
@@ -216,31 +216,31 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 >
 > Een sleutel voor de gratis laag heeft een limiet van één RPS.
 
-## <a name="add-video-frames-to-the-video-review"></a>Videoframes voor de video revisie toevoegen
+## <a name="add-video-frames-to-the-video-review"></a>Video frames toevoegen aan de video beoordeling
 
-U videoframes toevoegen aan een video bekijken met **ContentModeratorClient.Reviews.AddVideoFrameUrl** (als uw videoframes online worden gehost) of **ContentModeratorClient.Reviews.AddVideoFrameStream** () Als uw videoframes worden gehost lokaal). In deze snelstartgids wordt ervan uitgegaan dat uw videoframes online worden gehost en gebruikt dus **AddVideoFrameUrl**. Zie voor meer informatie de [API-naslaghandleiding](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b76ae7151f0b10d451fd).
+U voegt video frames toe aan een video beoordeling met **ContentModeratorClient. revisies. AddVideoFrameUrl** (als uw video frames online worden gehost) of **ContentModeratorClient. revisies. AddVideoFrameStream** (als uw video frames lokaal worden gehost). In deze Quick Start wordt ervan uitgegaan dat uw video frames online worden gehost, waardoor **AddVideoFrameUrl**wordt gebruikt. Zie voor meer informatie de [API-naslaghandleiding](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b76ae7151f0b10d451fd).
 
-**AddVideoFrameUrl** heeft de volgende vereiste parameters:
-1. Een tekenreeks met een MIME-type moet ' application/json'.
-1. De naam van uw Content Moderator-team.
-1. De video revisie-ID die wordt geretourneerd door **CreateVideoReviews**.
-1. Een **IList\<VideoFrameBodyItem >** object. Elke **VideoFrameBodyItem** object vertegenwoordigt een video frame.
+**AddVideoFrameUrl** heeft de volgende vereiste para meters:
+1. Een teken reeks die een MIME-type bevat, dat ' application/json ' moet zijn.
+1. De naam van uw Content Moderator team.
+1. De ID van de video controle die door **CreateVideoReviews**wordt geretourneerd.
+1. Een **IList\<VideoFrameBodyItem >** -object. Elk **VideoFrameBodyItem** -object vertegenwoordigt een video frame.
 
 **VideoFrameBodyItem** heeft de volgende eigenschappen:
-- **Tijdstempel**. Een tekenreeks is die bevat, in seconden, de tijd in de video van waaruit u de video-frame gehaald.
-- **FrameImage**. De URL van de video-frame.
-- **Metadata**. An IList\<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** is gewoon een sleutel/waarde-paar. Geldige sleutels zijn onder andere:
-- **reviewRecommended**. Waar, als een menselijke beoordeling van het kader van de video wordt aanbevolen.
-- **adultScore**. Een waarde tussen 0 en 1 die tarieven van de ernst van inhoud voor volwassenen in het kader van de video.
-- **a**. True als de video inhoud voor volwassenen bevat.
-- **racyScore**. Een waarde tussen 0 en 1 die tarieven van de ernst van ongepaste inhoud in de video-frame.
-- **r**. Waar als de video-frame ongepaste inhoud bevat.
-- **ReviewerResultTags**. An IList\<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** is gewoon een sleutel/waarde-paar. Een toepassing kan deze tags gebruiken om te organiseren videoframes.
+- **Tijds tempel**. Een teken reeks die, in seconden, de tijd in de video van waaruit het video frame is gemaakt.
+- **FrameImage**. De URL van het video frame.
+- **Meta gegevens**. An IList\<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** is gewoon een sleutel/waarde-paar. Geldige sleutels zijn onder andere:
+- **reviewRecommended**. Waar als een menselijke beoordeling van het video frame wordt aanbevolen.
+- **adultScore**. Een waarde tussen 0 en 1 waarmee de ernst van inhoud voor volwassenen in het video frame wordt geclassificeerd.
+- **a**. Waar als de video inhoud voor volwassenen bevat.
+- **racyScore**. Een waarde tussen 0 en 1 waarmee de ernst van de ongepaste-inhoud in het video frame wordt geclassificeerd.
+- **r**. Waar als het video frame ongepaste inhoud bevat.
+- **ReviewerResultTags**. An IList\<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** is gewoon een sleutel/waarde-paar. Een toepassing kan deze tags gebruiken om video frames te organiseren.
 
 > [!NOTE]
-> In deze snelstartgids genereert willekeurige waarden voor de **adultScore** en **racyScore** eigenschappen. In een productietoepassing, zou u deze waarden uit de [service voor videotoezicht](video-moderation-api.md)geïmplementeerde als een Azure Media Service.
+> Deze Quick Start genereert wille keurige waarden voor de eigenschappen **adultScore** en **racyScore** . In een productie toepassing zou u deze waarden verkrijgen van de [video-moderator service](video-moderation-api.md), geïmplementeerd als een Azure media-service.
 
-De volgende methodedefinities aan de naamruimte VideoReviews, klasse programma toevoegen.
+Voeg de volgende methode definities toe aan naam ruimte VideoReviews, class Program.
 
 ```csharp
 <summary>
@@ -300,15 +300,15 @@ static void AddFrame(ContentModeratorClient client, string review_id, string url
     Thread.Sleep(throttleRate);
 ```
 
-## <a name="get-video-frames-for-video-review"></a>Videoframes ophalen voor video controleren
+## <a name="get-video-frames-for-video-review"></a>Video frames voor video beoordeling ophalen
 
-U kunt de videoframes ophalen voor een video bekijken met **ContentModeratorClient.Reviews.GetVideoFrames**. **GetVideoFrames** heeft de volgende vereiste parameters:
-1. De naam van uw Content Moderator-team.
-1. De video revisie-ID die wordt geretourneerd door **CreateVideoReviews**.
-1. De op nul gebaseerde index van het eerste video kader om op te halen.
-1. Het aantal videoframes om op te halen.
+U kunt de video frames voor een video beoordeling ontvangen met **ContentModeratorClient. revisies. GetVideoFrames**. **GetVideoFrames** heeft de volgende vereiste para meters:
+1. De naam van uw Content Moderator team.
+1. De ID van de video controle die door **CreateVideoReviews**wordt geretourneerd.
+1. De op nul gebaseerde index van het eerste video frame dat moet worden opgehaald.
+1. Het aantal video frames dat moet worden opgehaald.
 
-De methodedefinitie van de volgende aan naamruimte VideoReviews, klasse programma toevoegen.
+Voeg de volgende methode definitie toe aan de naam ruimte VideoReviews, het programma class.
 
 ```csharp
 /// <summary>
@@ -328,13 +328,13 @@ static void GetFrames(ContentModeratorClient client, string review_id)
 }
 ```
 
-## <a name="get-video-review-information"></a>Ophalen van informatie over video weergeven
+## <a name="get-video-review-information"></a>Informatie over video controle ophalen
 
-Ophalen van gegevens voor een video bekijken met **ContentModeratorClient.Reviews.GetReview**. **GetReview** heeft de volgende vereiste parameters:
-1. De naam van uw Content Moderator-team.
-1. De video revisie-ID die wordt geretourneerd door **CreateVideoReviews**.
+U krijgt informatie over een video beoordeling met **ContentModeratorClient. recensies. GetReview**. **GetReview** heeft de volgende vereiste para meters:
+1. De naam van uw Content Moderator team.
+1. De ID van de video controle die door **CreateVideoReviews**wordt geretourneerd.
 
-De methodedefinitie van de volgende aan naamruimte VideoReviews, klasse programma toevoegen.
+Voeg de volgende methode definitie toe aan de naam ruimte VideoReviews, het programma class.
 
 ```csharp
 /// <summary>
@@ -354,13 +354,13 @@ private static void GetReview(ContentModeratorClient client, string review_id)
 }
 ```
 
-## <a name="publish-video-review"></a>Bekijk video publiceren
+## <a name="publish-video-review"></a>Video beoordeling publiceren
 
-Publiceren van een video bekijken met **ContentModeratorClient.Reviews.PublishVideoReview**. **PublishVideoReview** heeft de volgende vereiste parameters:
-1. De naam van uw Content Moderator-team.
-1. De video revisie-ID die wordt geretourneerd door **CreateVideoReviews**.
+U publiceert een video beoordeling met **ContentModeratorClient. revisies. PublishVideoReview**. **PublishVideoReview** heeft de volgende vereiste para meters:
+1. De naam van uw Content Moderator team.
+1. De ID van de video controle die door **CreateVideoReviews**wordt geretourneerd.
 
-De methodedefinitie van de volgende aan naamruimte VideoReviews, klasse programma toevoegen.
+Voeg de volgende methode definitie toe aan de naam ruimte VideoReviews, het programma class.
 
 ```csharp
 /// <summary>
@@ -379,7 +379,7 @@ private static void PublishReview(ContentModeratorClient client, string review_i
 
 ## <a name="putting-it-all-together"></a>Alles samenvoegen
 
-Voeg de **Main** methodedefinitie naamruimte VideoReviews, klasse programma. Tot slot sluit de klasse Program en de VideoReviews-naamruimte.
+Voeg de definitie van de **hoofd** methode toe aan naam ruimte VideoReviews, class-programma. Sluit ten slotte de programma klasse en de VideoReviews-naam ruimte.
 
 ```csharp
 static void Main(string[] args)
@@ -414,7 +414,7 @@ static void Main(string[] args)
 ```
 
 ## <a name="run-the-program-and-review-the-output"></a>Het programma uitvoeren en de uitvoer controleren
-Als u de toepassing uitvoert, ziet u uitvoer op de volgende regels:
+Wanneer u de toepassing uitvoert, ziet u een uitvoer op de volgende regels:
 
 ```json
 Creating a video review.
@@ -548,16 +548,16 @@ Open your Content Moderator Dashboard and select Review > Video to see the revie
 Press any key to close the application.
 ```
 
-## <a name="check-out-your-video-review"></a>Bekijk de video revisie
+## <a name="check-out-your-video-review"></a>Bekijk uw video-beoordeling
 
-Ten slotte ziet u de video controle in uw Content Moderator hulpprogramma account bekijken op de **bekijken**>**Video** scherm.
+Ten slotte ziet u de video-beoordeling in uw content moderator controle programma-account op het scherm**video** **bekijken**>.
 
-![Video beoordeling van menselijke moderators](images/ams-video-review.PNG)
+![Video beoordeling voor menselijke moderators](images/ams-video-review.PNG)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Krijgen de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere Content Moderator-snelstartgidsen voor .NET.
+Down load de [Content moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere content moderator Quick starts voor .net.
 
-Informatie over het toevoegen [transcript toezicht](video-transcript-moderation-review-tutorial-dotnet.md) naar de video-overzicht. 
+Meer informatie over het toevoegen van [transcriptieve toezicht](video-transcript-moderation-review-tutorial-dotnet.md) aan de video beoordeling. 
 
-Bekijk de gedetailleerde zelfstudie over het ontwikkelen van een [videotoezicht oplossing voltooien](video-transcript-moderation-review-tutorial-dotnet.md).
+Bekijk de gedetailleerde zelf studie over het ontwikkelen van een [complete oplossing voor video toezicht](video-transcript-moderation-review-tutorial-dotnet.md).

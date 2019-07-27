@@ -1,6 +1,6 @@
 ---
-title: Woordgroepenlijsten
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Woordgroepen lijsten-LUIS
+titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) gebruiken om toe te voegen van app-functies ter verbetering van de detectie of de voorspelling van intenties en entiteiten die categorieën en -patronen
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: 0723c3730ca0ae6325d828fbb5f41698cb807dd3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 75764fd0a3f862157d9377d7dc886334ef1231db
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195908"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563719"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Gebruik woordgroep lijsten moeten worden boost signaal van de lijst met woorden
 
@@ -28,7 +28,7 @@ Een woordgroepenlijst wordt toegevoegd aan het vocabulaire van het domein van de
 
 ## <a name="add-phrase-list"></a>Woordgroepenlijst toevoegen
 
-LUIS kunt u maximaal 10 woordgroep lijsten per app. 
+LUIS biedt Maxi maal tien woordgroepen lijsten per app. 
 
 1. Open uw app door te klikken op de naam ervan op **mijn Apps** pagina en klik vervolgens op **bouwen**, klikt u vervolgens op **lijsten woordgroep** in het linkerdeelvenster van uw app. 
 
@@ -40,11 +40,11 @@ LUIS kunt u maximaal 10 woordgroep lijsten per app.
 
 4. LUIS kunt gerelateerde waarden toe te voegen aan uw woordgroepenlijst met voorstellen. Klik op **raden** om op te halen van een groep van de voorgestelde waarden die zijn semantisch met betrekking tot de added value(s). U kunt op elk van de voorgestelde waarden of op **alle toevoegen** om toe te voegen ze alle.
 
-    ![Lijst met voorgestelde waarden woordgroep - Alles toevoegen](./media/luis-add-features/related-values.png)
+    ![Voorgestelde waarden van de woordgroepen lijst-alles toevoegen](./media/luis-add-features/related-values.png)
 
 5. Klik op **deze waarden zijn verwisselbaar** als de waarden van de lijst met toegevoegde woordgroep alternatieven die door elkaar kunnen worden gebruikt.
 
-    ![Lijst met voorgestelde waarden woordgroep - uitwisselbaar box selecteren](./media/luis-add-features/interchangeable.png)
+    ![Woordgroepen lijst voorgestelde waarden: Selecteer een verwisselbaar vak](./media/luis-add-features/interchangeable.png)
 
 6. Klik op **Opslaan**. De woordgroep "Steden" lijst wordt toegevoegd aan de **lijsten woordgroep** pagina.
 

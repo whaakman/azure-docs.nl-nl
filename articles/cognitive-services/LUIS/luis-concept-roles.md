@@ -1,5 +1,5 @@
 ---
-title: Rollen voor entiteiten
+title: Rollen voor entiteiten-LUIS
 titleSuffix: Azure Cognitive Services
 description: Rollen zijn met de naam, contextuele subtypen van een entiteit die alleen in de patronen gebruikt. Bijvoorbeeld, in de utterance `buy a ticket from New York to London`, New York zowel Londen zijn steden, maar elk een andere betekenis heeft in de zin. New York is de plaats van de oorsprong en Londen is de plaats van bestemming.
 services: cognitive-services
@@ -11,23 +11,23 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 318e71b68bbabeeef34c75a412f9fdd5b6db754a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c437450ead6f05a36725588215ac03b83790373
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073013"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563936"
 ---
-# <a name="entity-roles-for-contextual-subtypes"></a>Entiteit rollen voor contextuele subtypen
+# <a name="entity-roles-for-contextual-subtypes"></a>Entiteits rollen voor contextuele subtypen
 
-Rollen kunnen entiteiten zijn met de naam subtypen. Een rol kan worden gebruikt met een vooraf gedefinieerde of aangepaste entiteit, en worden gebruikt in zowel voorbeeld uitingen en patronen. 
+Met rollen kunnen entiteiten benoemde subtypen hebben. Een rol kan worden gebruikt met een vooraf samengesteld of aangepast entiteits type en wordt gebruikt in beide voor beelden van uitingen en patronen. 
 
 <a name="example-role-for-entities"></a>
 <a name="roles-with-prebuilt-entities"></a>
 
-## <a name="machine-learned-entity-example-of-roles"></a>Voorbeeld van de entiteit machine geleerd van rollen
+## <a name="machine-learned-entity-example-of-roles"></a>Voor beeld van een door de machine geleerde entiteit van rollen
 
-In de utterance "kopen van een ticket van de **New York** naar **Londen**, New York zowel Londen zijn steden, maar elk een andere betekenis heeft in de zin. New York is de plaats van de oorsprong en Londen is de plaats van bestemming. 
+In het utterance ' Koop een ticket van **New York** voor **Londen**, zijn zowel New York als Londen steden, maar elk heeft een andere betekenis in de zin. New York is de plaats van de oorsprong en Londen is de plaats van bestemming. 
 
 ```
 buy a ticket from New York to London
@@ -35,14 +35,14 @@ buy a ticket from New York to London
 
 Functies bieden een naam op die verschillen:
 
-|Entiteitstype|Naam van de entiteit|Rol|Doel|
+|Entiteitstype|Naam van de entiteit|Role|Doel|
 |--|--|--|--|
-|Eenvoudig|Locatie|Oorsprong|waar het vlak van verlaat|
-|Eenvoudig|Locatie|destination|waar het vlak van terechtkomt|
+|Simpel|Location|Oorsprong|waar het vlak van verlaat|
+|Simpel|Location|destination|waar het vlak van terechtkomt|
 
-## <a name="non-machine-learned-entity-example-of-roles"></a>Voorbeeld van de entiteit niet machine geleerd van rollen
+## <a name="non-machine-learned-entity-example-of-roles"></a>Voor beeld van rollen die niet voor machines zijn geleerd
 
-In de utterance 'Plannen de vergadering uit 8 tot en met 9', zowel de getallen geven een tijd, maar telkens wanneer een andere betekenis heeft in de utterance. Rollen bieden de naam van de verschillen. 
+In de utterance ' de vergadering plannen van 8 tot 9 ' geven beide cijfers een tijd aan, maar elke keer heeft een andere betekenis in de utterance. Rollen geven de naam voor de verschillen. 
 
 ```
 Schedule the meeting from 8 to 9
@@ -51,34 +51,34 @@ Schedule the meeting from 8 to 9
 |Entiteitstype|Rolnaam|Value|
 |--|--|--|
 |Vooraf gedefinieerde datetimeV2|StartTime|8|
-|Vooraf gedefinieerde datetimeV2|Eindtijd|9|
+|Vooraf gedefinieerde datetimeV2|Tijd|9|
 
-## <a name="are-multiple-entities-in-an-utterance-the-same-thing-as-roles"></a>Meerdere entiteiten in een utterance hetzelfde als rollen zijn? 
+## <a name="are-multiple-entities-in-an-utterance-the-same-thing-as-roles"></a>Zijn er meerdere entiteiten in een utterance hetzelfde als rollen? 
 
-Meerdere entiteiten kunnen bestaan in een utterance en zonder gebruik van rollen kunnen worden geëxtraheerd. Als de context van de zin geeft aan met dat de versie van de entiteit heeft een waarde, wordt een rol moet worden gebruikt. 
+Er kunnen meerdere entiteiten in een utterance bestaan en kunnen worden geëxtraheerd zonder gebruik van rollen. Als de context van de zin aangeeft dat de versie van de entiteit een waarde heeft, dan moet een rol worden gebruikt. 
 
-### <a name="dont-use-roles-for-duplicates-without-meaning"></a>Gebruik geen functies voor duplicaten zonder betekenis
+### <a name="dont-use-roles-for-duplicates-without-meaning"></a>Gebruik geen rollen voor dubbele waarden zonder betekenis
 
-Als de utterance een lijst met locaties bevat, `I want to travel to Seattle, Cairo, and London.`, dit is een lijst waarin elk item een extra betekenis niet hebben. 
+Als de utterance een lijst met locaties bevat, `I want to travel to Seattle, Cairo, and London.`is dit een lijst waarin elk item geen extra betekenis heeft. 
 
-### <a name="use-roles-if-duplicates-indicate-meaning"></a>Rollen gebruiken als de duplicaten aangeven betekenis
+### <a name="use-roles-if-duplicates-indicate-meaning"></a>Rollen gebruiken als dubbele waarden duiden op betekenis
 
-Als de utterance een lijst met locaties met betekenis bevat, `I want to travel from Seattle, with a layover in Londen, landing in Cairo.`, deze betekenis van de oorsprong, layover en de bestemming moet worden vastgelegd met de rol.
+Als de utterance een lijst met locaties bevat met de betekenis `I want to travel from Seattle, with a layover in Londen, landing in Cairo.`, moet deze betekenis van Origin, Layover en Destination worden vastgelegd met rollen.
 
-### <a name="roles-can-indicate-order"></a>Rollen kunnen duiden op volgorde
+### <a name="roles-can-indicate-order"></a>Rollen kunnen de volg orde aangeven
 
-Als de utterance gewijzigd om aan te geven die u extraheren wilt, `I want to first start with Seattle, second London, then third Cairo`, kunt u in een aantal manieren uitpakken. U kunt de tokens die wijzen op de rol labelen `first start with`, `second`, `third`. U kunt ook de vooraf gedefinieerde entiteit **rangtelwoord** en de **GeographyV2** vooraf gemaakte entiteiten in een samengestelde entiteit om vast te leggen van het idee van de volgorde en plaats. 
+Als de utterance is gewijzigd om de volg orde aan te geven die `I want to first start with Seattle, second London, then third Cairo`u wilde ophalen, kunt u op een aantal manieren extra heren ophalen. U kunt de tokens die de rol aangeven, `first start with`, `second`,, `third`labelen. U kunt ook het vooraf gedefinieerde entiteits **rangtelwoord** en de **GeographyV2** vooraf gebouwde entiteit in een samengestelde entiteit gebruiken om het idee van order en Place vast te leggen. 
 
-## <a name="how-are-roles-used-in-example-utterances"></a>Hoe worden de rollen in voorbeeld-uitingen gebruikt?
+## <a name="how-are-roles-used-in-example-utterances"></a>Hoe worden rollen gebruikt in voor beeld-uitingen?
 
-Wanneer een entiteit een rol is, en de entiteit is gemarkeerd als in een voorbeeld-utterance, hebt u de keuze van alleen de entiteit selecteren of de entiteit en de rol selecteren. 
+Wanneer een entiteit een rol heeft en de entiteit is gemarkeerd in een voor beeld utterance, kunt u kiezen alleen de entiteit selecteren of de entiteit en rol selecteren. 
 
-Het volgende voorbeeld-uitingen entiteiten en functies gebruiken:
+In het volgende voor beeld uitingen worden de entiteiten en rollen gebruikt:
 
-|Token weergeven|Entiteit weergeven|
+|Token weergave|Entiteits weergave|
 |--|--|
-|Ik ben interessante meer te weten over **Seattle**|Ik wil graag meer weten over {Location}|
-|Kopen van een ticket van Seattle naar New York|Kopen van een ticket bij {locatie: oorsprong} naar {locatie: Destination}|
+|Ik ben geïnteresseerd in meer informatie over **Seattle**|Ik wil graag meer weten over {location}|
+|Een ticket kopen van Seattle naar New York|Een ticket van {Location: Origin} kopen op {Location: Destination}|
 
 ## <a name="how-are-roles-used-in-patterns"></a>Hoe worden de rollen in patronen gebruikt?
 Rollen worden gebruikt in een patroon van sjabloon utterance, binnen de utterance: 
@@ -91,13 +91,13 @@ Rollen worden gebruikt in een patroon van sjabloon utterance, binnen de utteranc
 ## <a name="role-syntax-in-patterns"></a>Syntaxis van de rol van patronen
 De entiteit en de rol worden tussen haakjes, `{}`. De entiteit en de rol worden gescheiden door een dubbele punt. 
 
-## <a name="entity-roles-versus-collaborator-roles"></a>Entiteit functies ten opzichte van de samenwerker rollen
+## <a name="entity-roles-versus-collaborator-roles"></a>Entiteits rollen versus samenwerkings rollen
 
-Entiteit rollen toepassen op het gegevensmodel van de LUIS-app. [De samenwerker](luis-concept-collaborator.md) rollen toepassen op niveaus van het ontwerpen van toegang. 
+Entiteits rollen zijn van toepassing op het gegevens model van de LUIS-app. Rollen voor [samen](luis-concept-collaborator.md) werkingen zijn van toepassing op niveaus van toegang tot ontwerpen. 
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Gebruik een [praktische zelfstudie](tutorial-entity-roles.md) gebruik van entiteit met niet-machine-geleerde entiteiten
+* Een [praktische zelf studie](tutorial-entity-roles.md) gebruiken met entiteits rollen met niet door machines geleerde entiteiten
 * Informatie over het toevoegen [rollen](luis-how-to-add-entities.md#add-a-role-to-pattern-based-entity)

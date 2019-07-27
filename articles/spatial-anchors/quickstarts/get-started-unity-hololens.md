@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: maken van een Unity HoloLens-app met Azure ruimtelijke ankers | Microsoft Docs'
+title: 'Quick Start: een app voor het maken van een Unitruimte met behulp van ruimtelijke Azure-ankers | Microsoft Docs'
 description: In deze quickstart leert u een HoloLens-app maken met Unity en met behulp van Spatial Anchors.
 author: craigktreasure
 manager: aliemami
@@ -8,24 +8,24 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c29819d817138f2512420584947763247837a9ea
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 56f9901a1468207a295f8223e990f7a926b2d76e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "67135205"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561428"
 ---
-# <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Quickstart: Maken van een Unity HoloLens-app die gebruikmaakt van Azure ruimtelijke ankers
+# <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Quickstart: Een unit HoloLens-app maken die gebruikmaakt van ruimtelijke-ankers van Azure
 
-In deze snelstartgids maakt u een Unity HoloLens-app die gebruikmaakt van [Azure ruimtelijke ankers](../overview.md). Ruimtelijke ankers is een platformoverschrijdende developer-service waarmee u het maken van gemengde realiteit ervaringen met objecten die hun locatie opslaan op apparaten na verloop van tijd. Als u klaar bent, hebt u een HoloLens-app met Unity gemaakt waarmee een ruimtelijk anker kan worden opgeslagen en teruggehaald.
+In deze Quick Start maakt u een unit HoloLens-app die gebruikmaakt van [Azure spatiale ankers](../overview.md). Ruimtelijke ankers is een platformoverschrijdende ontwikkelaars service die u in staat stelt om toepassingen met gemengde realiteit te maken met objecten die hun locatie in de loop van de tijd op verschillende apparaten blijven zetten. Als u klaar bent, hebt u een HoloLens-app met Unity gemaakt waarmee een ruimtelijk anker kan worden opgeslagen en teruggehaald.
 
 U leert het volgende:
 
-- Maak een account ruimtelijke ankers.
-- Instellingen voor het bouwen van Unity voorbereiden.
-- Configureer de ruimtelijke ankers account-id en de accountsleutel.
-- Exporteer het HoloLens Visual Studio-project.
-- De app implementeren en uitvoeren op een apparaat HoloLens.
+- Maak een ruimtelijke ankers-account.
+- Bereid instellingen voor eenheids constructie voor.
+- Configureer de account-id en de account sleutel van de ruimtelijke ankers.
+- Exporteer het project HoloLens Visual Studio.
+- Implementeer de app en voer deze uit op een HoloLens-apparaat.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -33,15 +33,14 @@ U leert het volgende:
 
 Dit zijn de vereisten voor het voltooien van deze snelstart:
 
-
-- U moet een Windows-computer waarop <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> of hoger en <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> of later zijn geïnstalleerd. Uw Visual Studio-installatie omvat de **universele Windows-platformontwikkeling** werkbelasting. Installeer <a href="https://git-scm.com/download/win" target="_blank">Git voor Windows</a>.
-- U moet een HoloLens-apparaat waarop [modus voor ontwikkelaars](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) ingeschakeld. [Update voor Windows 10 oktober 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (ook wel bekend als RS5) moet worden geïnstalleerd op het apparaat. Als u wilt bijwerken naar de nieuwste release op HoloLens, opent u de **instellingen** app, gaat u naar **bijwerken en beveiliging**, en selecteer vervolgens **controleren op updates**.
-- Op uw app, moet u inschakelen de **SpatialPerception** mogelijkheid. Deze instelling is in **Build Settings** > **Player Settings** > **publicatie-instellingen**  >   **Mogelijkheden**.
-- Op uw app, moet u inschakelen **Virtual Reality ondersteund** met **Windows Mixed Reality SDK**. Deze instelling is in **Build Settings** > **Player Settings** > **XR instellingen**.
+- U hebt een Windows-computer nodig waarop <a href="https://unity3d.com/get-unity/download" target="_blank">eenheid 2019,1</a> of hoger en <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> of hoger zijn geïnstalleerd. Uw Visual Studio-installatie moet de **universeel Windows-platform Development** -werk belasting en het onderdeel **Windows 10 SDK (10.0.18362.0 of recenter)** bevatten. U moet ook <a href="https://git-scm.com/download/win" target="_blank">git voor Windows</a>installeren.
+- U hebt een HoloLens-apparaat nodig waarop de [ontwikkelaars modus](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) is ingeschakeld. [Update voor Windows 10 oktober 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (ook wel bekend als RS5) moet op het apparaat zijn geïnstalleerd. Als u wilt bijwerken naar de nieuwste versie van HoloLens, opent u de app **instellingen** , gaat u naar **Update & Security**en selecteert u vervolgens **controleren op updates**.
+- In uw app moet u de **SpatialPerception** -mogelijkheid inschakelen. Deze instelling bevindt zich in instellingen voor het >  **maken** > van instellingen voor de**publicatie** > -**instellingen.**
+- In uw app moet u **Virtual Reality** inschakelen die wordt ondersteund met de **SDK voor Windows Mixed Reality**. Deze instelling bevindt zich in instellingen voor **Build Settings** >  > **XR Settings**.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="download-and-open-the-unity-sample-project"></a>Downloaden en openen van het voorbeeldproject Unity
+## <a name="download-and-open-the-unity-sample-project"></a>Het unit-voorbeeld project downloaden en openen
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
@@ -49,17 +48,17 @@ Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 Open **Build Settings** door **File** > **Build Settings** te selecteren.
 
-in de sectie **Platform** selecteert u **Universeel Windows-platform**. Wijzig de **doelapparaat** naar **HoloLens**.
+in de sectie **Platform** selecteert u **Universeel Windows-platform**. Wijzig het **doel apparaat** in **HoloLens**.
 
-Selecteer **Switch Platform** om het platform te wijzigen in **Universeel Windows-platform**. Unity vraagt u mogelijk UWP-ondersteuning om onderdelen te installeren als ze ontbreekt.
+Selecteer **Switch Platform** om het platform te wijzigen in **Universeel Windows-platform**. Unit-eenheid vraagt u mogelijk UWP-ondersteunings onderdelen te installeren als deze ontbreken.
 
-![Unity Build Settings venster](./media/get-started-unity-hololens/unity-build-settings.png)
+![Venster instellingen voor eenheids opbouw](./media/get-started-unity-hololens/unity-build-settings.png)
 
 Sluit het venster **Build Settings**.
 
-## <a name="configure-the-account-identifier-and-key"></a>De account-id en sleutel configureren
+## <a name="configure-the-account-identifier-and-key"></a>De account-id en-sleutel configureren
 
-In de **Project** deelvenster, Ga naar `Assets/AzureSpatialAnchorsPlugin/Examples` en open de `AzureSpatialAnchorsBasicDemo.unity` scène-bestand.
+`AzureSpatialAnchorsBasicDemo.unity`  Ga`Assets/AzureSpatialAnchors.Examples/Scenes` in het deel venster Project naar het scène bestand en open het.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
@@ -69,27 +68,27 @@ Sla de scène op door **Bestand** > **Opslaan** te selecteren.
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-Selecteer **bouwen**. Selecteer een map waarin u voor het exporteren van het HoloLens Visual Studio-project in het dialoogvenster.
+Selecteer **Build**. Selecteer in het dialoog venster een map waarnaar u het project van HoloLens Visual Studio wilt exporteren.
 
-Wanneer de export voltooid is, verschijnt er een map met de geëxporteerde HoloLens-project.
+Wanneer het exporteren is voltooid, wordt er een map met het geëxporteerde HoloLens-project weer gegeven.
 
 ## <a name="deploy-the-hololens-application"></a>HoloLens-toepassing implementeren
 
-Dubbelklik in de map **HelloAR U3D.sln** aan het project openen in Visual Studio.
+Dubbel klik in de map op **HELLOAR U3D. SLN** om het project te openen in Visual Studio.
 
-Wijzigt de **oplossingsconfiguratie** te **Release**, wijzigen de **Oplossingsplatform** te **x86**, en selecteer **apparaat**  van de doel-implementatieopties.
+Wijzig de **oplossings configuratie** in **release**, wijzig het platform van de **oplossing** in **x86**en selecteer **apparaat** in de doel opties voor de implementatie.
 
-Als u HoloLens 2, gebruikt u **ARM** als de **Oplossingsplatform**, in plaats van **x86**.
+Als u HoloLens 2 gebruikt, gebruikt u **arm** als het **oplossings platform**in plaats van **x86**.
 
    ![Visual Studio-configuratie](./media/get-started-unity-hololens/visual-studio-configuration.png)
 
-Schakel het apparaat HoloLens, meld u aan en verbind het apparaat met de PC met behulp van een USB-kabel.
+Schakel het apparaat HoloLens in, Meld u aan en verbind het apparaat met de PC met behulp van een USB-kabel.
 
 Selecteer **Debug** > **Start debugging** om de app te implementeren en de foutopsporing te starten.
 
 Volg de instructies in de app om een anker te plaatsen en terug te halen.
 
-In Visual Studio, stopt u de app erin **Stop Debugging** of Shift + F5.
+In Visual Studio stopt u de app door **fout opsporing** of SHIFT + F5 te selecteren.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

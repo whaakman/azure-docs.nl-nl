@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Water, C# (.NET Core) - spraakservices'
+title: 'Quickstart: Speech herkennen, C# (.net core)-Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Meer informatie over het herkennen van gesproken tekst in C# onder .NET Core in Windows of macOS met behulp van de spraak-SDK
+description: Meer informatie over het herkennen van C# spraak in onder .net core in Windows of macOS met behulp van de Speech SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 9c445ea685518cec77089ce644a79305ff7f3e9e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 3ba82f2bb3d8325b7cf77f357471dc4f25382ff6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606588"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559519"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Quickstart: Spraak herkennen met de Speech-SDK voor .NET Core
 
-Snelstartgidsen zijn ook beschikbaar voor [tekst naar spraak](quickstart-text-to-speech-dotnetcore.md) en [spraakomzetting](quickstart-translate-speech-dotnetcore-windows.md).
+Quick starts zijn ook beschikbaar voor [tekst naar spraak](quickstart-text-to-speech-dotnetcore.md) en [spraak omzetting](quickstart-translate-speech-dotnetcore-windows.md).
 
-Indien gewenst, kies een andere programmeertaal en/of de omgeving:<br/>
+Kies indien gewenst een andere programmeer taal en/of-omgeving:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel maakt u een C# consoletoepassing voor .NET Core in Windows of macOS met behulp van de Cognitive Services [spraak SDK](speech-sdk.md). Doel is om realtime spraak naar tekst om te zetten vanuit de microfoon van uw pc. De toepassing is gemaakt met het [NuGet-pakket van de Speech SDK](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
+In dit artikel maakt u een C# console toepassing voor .net core in Windows of macOS met behulp van de [SDK](speech-sdk.md)van Cognitive Services speech. Doel is om realtime spraak naar tekst om te zetten vanuit de microfoon van uw pc. De toepassing is gemaakt met het [NuGet-pakket van de Speech SDK](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
 
 > [!NOTE]
 > .NET Core is een open-source, platformoverschrijdend .NET-platform waarmee de [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard)-specificatie wordt geïmplementeerd.
 
-U moet een abonnementssleutel Speech Services voor het voltooien van deze Quickstart. U kunt er gratis een krijgen. Zie [de Speech Services gratis uitproberen](get-started.md) voor meer informatie.
+U hebt een abonnement op spraak services nodig om deze Quick Start te volt ooien. U kunt er gratis een krijgen. Zie [de spraak services gratis uitproberen](get-started.md) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -65,7 +65,7 @@ Voor deze snelstart zijn de volgende zaken vereist:
 
     ![Schermafbeelding van Visual Studio-toepassing met optie Foutopsporing starten gemarkeerd](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Start foutopsporing voor de app")
 
-1. Een consolevenster wordt weergegeven, waarin u wordt gevraagd iets te zeggen. Spreek een Engelse woordgroep of zin in. Uw stem is verzonden naar de Services voor spraak en getranscribeerde tekst, die in hetzelfde venster wordt weergegeven.
+1. Een consolevenster wordt weergegeven, waarin u wordt gevraagd iets te zeggen. Spreek een Engelse woordgroep of zin in. Uw spraak wordt verzonden naar de spraak Services en getranscribeerd naar tekst, die in hetzelfde venster wordt weer gegeven.
 
     ![Schermafbeelding van console-uitvoer na geslaagde herkenning](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Console-uitvoer na geslaagde herkenning")
 

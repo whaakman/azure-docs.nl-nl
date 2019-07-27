@@ -1,5 +1,5 @@
 ---
-title: Gebruiken met Kubernetes en Helm
+title: Gebruiken met Kubernetes en helm-Speech Service
 titleSuffix: Azure Cognitive Services
 description: Door Kubernetes en helm te gebruiken om de installatie kopieën van het spraak naar tekst-en tekst-naar-spraak-container te definiëren, maken we een Kubernetes-pakket. Dit pakket wordt on-premises geïmplementeerd op een Kubernetes-cluster.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 7/16/2019
 ms.author: dapine
-ms.openlocfilehash: ba292a7d3bdf58ff78764bc2095fdf4a8c486070
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 06f2db708385c4c3fbf8d005b701b633ac52776a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326212"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559140"
 ---
 # <a name="use-with-kubernetes-and-helm"></a>Gebruiken met Kubernetes en Helm
 
@@ -25,12 +25,12 @@ Een optie voor het on-premises beheren van uw spraak containers is het gebruik v
 
 De volgende vereisten voordat u een on-premises spraak container gebruikt:
 
-|Verplicht|Doel|
+|Vereist|Doel|
 |--|--|
 | Azure-Account | Als u nog geen abonnement op Azure hebt, maak dan een [gratis account][free-azure-account] aan voordat u begint. |
 | Toegang Container Registry | Om ervoor te zorgen dat Kubernetes de docker-installatie kopieën in het cluster kan ophalen, moet u toegang hebben tot het container register. U moet eerst [toegang aanvragen tot het container register][speech-preview-access] . |
 | Kubernetes CLI | De [KUBERNETES cli][kubernetes-cli] is vereist voor het beheren van de gedeelde referenties in het container register. Kubernetes is ook vereist voordat helm, de Kubernetes Package Manager. |
-| Helm CLI | Als onderdeel van de [helm cli][helm-install] install, you'll also need to initialize Helm, which will install [Tiller][tiller-install]. |
+| Helm CLI | Als onderdeel van de [helm cli][helm-install] -installatie moet u ook helm initialiseren, waarmee [Tiller][tiller-install]wordt geïnstalleerd. |
 |Spraak resource |Als u deze containers wilt gebruiken, hebt u het volgende nodig:<br><br>Een _spraak_ -Azure-resource om de gekoppelde facturerings sleutel en de URI van het facturerings eindpunt op te halen. Beide waarden zijn beschikbaar op het **spraak** overzicht van de Azure Portal en de pagina sleutels en zijn vereist om de container te starten.<br><br>**{API_KEY}** : resource sleutel<br><br>**{ENDPOINT_URI}** : voor beeld van een eind punt-URI is:`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>De aanbevolen configuratie van de hostcomputer

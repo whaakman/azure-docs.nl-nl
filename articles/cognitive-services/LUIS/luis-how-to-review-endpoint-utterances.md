@@ -1,7 +1,7 @@
 ---
-title: Gebruiker uitingen bekijken
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Actief leren legt eindpunt query's en van de gebruiker eindpunt uitingen die het niet zeker weet is geselecteerd. U bekijken deze uitingen voor het selecteren van het doel en markeren van entiteiten voor deze lezen-wereld-uitingen. Deze wijzigingen in uw voorbeeld-uitingen accepteren en vervolgens trainen en publiceren. LUIS identificeert dan uitingen nauwkeuriger.
+title: Gebruikers uitingen bekijken-LUIS
+titleSuffix: Azure Cognitive Services
+description: Met het actieve leer proces worden eindpunt query's vastgelegd en wordt het uitingen van de gebruiker geselecteerd. U kunt deze uitingen bekijken om de intentie te selecteren en entiteiten te markeren voor deze uitingen met lees-of-wereld. Ga akkoord met deze wijzigingen in uw voor beeld uitingen en klik vervolgens op publiceren. LUIS identificeert uitingen nauw keuriger.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,25 +11,25 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: 8fac360682ef11c438cdec333fac21d6f8cfc117
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c2f49d4bf573cc2dc2e1a3b8fc13413a738df8ba
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195078"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560459"
 ---
-# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Over het bekijken van de eindpunt-uitingen in portal LUIS, actief leren
+# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Endpoint uitingen in LUIS-Portal controleren voor actief leren
 
-[Actief leren](luis-concept-review-endpoint-utterances.md) vastgelegd eindpunt query's en van de gebruiker eindpunt uitingen die het niet zeker weet is geselecteerd. U bekijken deze uitingen voor het selecteren van het doel en markeren van entiteiten voor deze lezen-wereld-uitingen. Deze wijzigingen in uw voorbeeld-uitingen accepteren en vervolgens trainen en publiceren. LUIS identificeert dan uitingen nauwkeuriger.
+Met het [actieve leer proces](luis-concept-review-endpoint-utterances.md) worden eindpunt query's vastgelegd en wordt het uitingen van de gebruiker geselecteerd. U kunt deze uitingen bekijken om de intentie te selecteren en entiteiten te markeren voor deze uitingen met lees-of-wereld. Ga akkoord met deze wijzigingen in uw voor beeld uitingen en klik vervolgens op publiceren. LUIS identificeert uitingen nauw keuriger.
 
 
 ## <a name="enable-active-learning"></a>Actief leren inschakelen
 
-Om in te schakelen actief leren, meld u query's van gebruikers. Dit wordt bereikt door het instellen van de [eindpunt query](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) met de `log=true` querystring-parameter en waarde.
+Meld gebruikers query's om actief leren in te scha kelen. Dit wordt bereikt door de [eindpunt query](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) in te stellen `log=true` met de para meter en waarde van de query.
 
 ## <a name="disable-active-learning"></a>Actief leren uitschakelen
 
-Als u wilt uitschakelen actief leren, meld u niet query's van gebruikers. Dit wordt bereikt door het instellen van de [eindpunt query](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) met de `log=false` querystring-parameter en waarde.
+Als u actief leren wilt uitschakelen, moet u geen gebruikers query's registreren. Dit wordt bereikt door de [eindpunt query](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) in te stellen `log=false` met de para meter en waarde van de query.
 
 ## <a name="filter-utterances"></a>Uitingen filteren
 

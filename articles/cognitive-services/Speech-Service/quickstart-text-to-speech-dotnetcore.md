@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Spraak, nabootsen C# (.NET Core) - spraakservices'
+title: 'Quickstart: Bewaak spraak, C# (.net core)-Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Meer informatie over het nabootsen van gesproken tekst in C# onder .NET Core in Windows met behulp van de spraak-SDK
+description: Meer informatie over het met behulp C# van de spraak-SDK voor het maken van spraak in .net core in Windows
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: 7b4a018e38ca625e38dc1658a95d3ce0e677f711
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: b298e66674753e33a28fb3404e36e63b5baa8dff
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467423"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559236"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-core"></a>Quickstart: Bootsen spraak met de spraak-SDK voor .NET Core
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-core"></a>Quickstart: Spraak op de spraak-SDK voor .NET core
 
-Snelstartgidsen zijn ook beschikbaar voor [spraakherkenning](quickstart-csharp-dotnetcore-windows.md) en [spraakomzetting](quickstart-translate-speech-dotnetcore-windows.md).
+Quick starts zijn ook beschikbaar voor [spraak herkenning](quickstart-csharp-dotnetcore-windows.md) en [spraak omzetting](quickstart-translate-speech-dotnetcore-windows.md).
 
-In dit artikel maakt u een C#-consoletoepassing voor .NET Core op Windows met behulp van de [Speech SDK](speech-sdk.md) van Cognitive Services. U bootsen spraak vanuit tekst in realtime op uw PC's spreker. De toepassing is gemaakt met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
+In dit artikel maakt u een C#-consoletoepassing voor .NET Core op Windows met behulp van de [Speech SDK](speech-sdk.md) van Cognitive Services. U kunt spraak van tekst in realtime op de spreker van uw PC aansluiten. De toepassing is gemaakt met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
 
 > [!NOTE]
 > .NET Core is een open-source, platformoverschrijdend .NET-platform waarmee de [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard)-specificatie wordt geïmplementeerd.
 
-U moet een abonnementssleutel Speech Services voor het voltooien van deze Quickstart. U kunt er gratis een krijgen. Zie [de Speech Services gratis uitproberen](get-started.md) voor meer informatie.
+U hebt een abonnement op spraak services nodig om deze Quick Start te volt ooien. U kunt er gratis een krijgen. Zie [de spraak services gratis uitproberen](get-started.md) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -62,18 +62,18 @@ Voor deze snelstart zijn de volgende zaken vereist:
 
     ![Schermafbeelding van Visual Studio-toepassing met de optie Start Debugging gemarkeerd](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Start foutopsporing van de app")
 
-1. Een consolevenster wordt weergegeven, waarin u naar het type tekst wordt gevraagd. Typ een paar woorden of een zin. De tekst die u hebt getypt, is verzonden naar de Services voor spraak en gemaakt naar-spraak, die op de spreker afgespeeld.
+1. Er wordt een console venster weer gegeven waarin u wordt gevraagd om tekst te typen. Typ enkele woorden of een zin. De tekst die u hebt getypt, wordt verzonden naar de spraak Services en gesynthesizerd op spraak, die op uw spreker wordt afgespeeld.
 
-    ![Schermopname van console-uitvoer na geslaagde synthese](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Console-uitvoer na geslaagde synthese")
+    ![Scherm opname van de console-uitvoer na een geslaagde synthese](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Console-uitvoer na geslaagde synthese")
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Aanvullende voorbeelden, zoals het nabootsen van spraak-naar-een geluidsbestand, zijn beschikbaar op GitHub.
+Aanvullende voor beelden, zoals het maken van spraak op een audio bestand, zijn beschikbaar op GitHub.
 
 > [!div class="nextstepaction"]
 > [C#-voorbeelden op GitHub bekijken](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Zie ook
 
-- [Spraakstijlen aanpassen](how-to-customize-voice-font.md)
-- [Record voice-voorbeelden](record-custom-voice-samples.md)
+- [Spraak lettertypen aanpassen](how-to-customize-voice-font.md)
+- [Spraak voorbeelden vastleggen](record-custom-voice-samples.md)

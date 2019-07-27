@@ -1,6 +1,6 @@
 ---
 title: Probleemoplossing - QnAMaker
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: QnAMaker bestaat uit onderdelen die worden gehost in Azure-account van de gebruiker. Foutopsporing kan vereisen dat gebruikers wijzigingen aanbrengen in de QnAMaker-Azure-resources of QnAMaker-ondersteuningsteam bieden met aanvullende informatie over de installatie.
 services: cognitive-services
 author: diberry
@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5b65a121e895b4855c7c69d2b67e7055c88ddd08
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 94a3dfd9a3560321d7e2753ccd385fb1a5323107
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466045"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559924"
 ---
 # <a name="troubleshooting-tips-to-support-the-qna-maker-service-and-runtime"></a>Tips voor probleemoplossing voor de ondersteuning van de QnA Maker-service en runtime
 QnAMaker bestaat uit onderdelen die worden gehost in Azure-account van de gebruiker. Foutopsporing kan vereisen dat gebruikers wijzigingen aanbrengen in de QnAMaker-Azure-resources of QnAMaker-ondersteuningsteam bieden met aanvullende informatie over de installatie.
 
 ## <a name="how-to-get-latest-qnamaker-runtime-updates"></a>Over het verkrijgen van de meest recente updates voor QnAMaker-runtime
-QnAMaker runtime maakt deel uit van de Azure App Service geïmplementeerd wanneer u [maken van een service QnAMaker](./set-up-qnamaker-service-azure.md) in Azure portal. Updates worden periodiek gesteld in de runtime. QnA Maker App Service is op automatische update modus post onze release in april 2019 site-extensie (versie 5 +). Dit is al ontworpen om te zorgen voor van uitvaltijd tijdens upgrades. U kunt uw huidige versie op controleren https://www.qnamaker.ai/UserSettings. Als uw versie ouder dan versie is 5.x, moet u de App Service om toe te passen van de meest recente updates worden toegepast op de QnAMaker-configuratie opnieuw.
+QnAMaker runtime maakt deel uit van de Azure App Service geïmplementeerd wanneer u [maken van een service QnAMaker](./set-up-qnamaker-service-azure.md) in Azure portal. Updates worden periodiek gesteld in de runtime. QnA Maker App Service zich in de modus automatisch bijwerken bevindt, wordt de implementatie van de site-uitbrei ding van apr 2019 (versie 5 +) post. Dit is al zo ontworpen dat er tijdens upgrades geen uitval tijd in rekening wordt gehouden. U kunt uw huidige versie controleren op https://www.qnamaker.ai/UserSettings. Als uw versie ouder is dan versie 5. x, moet u de App Service opnieuw opstarten om de meest recente updates toe te passen op de installatie van uw QnAMaker.
 
 1. Ga naar uw QnAMaker-service (resourcegroep) in de [Azure-portal](https://portal.azure.com)
 
@@ -55,4 +55,4 @@ Hostnaam van de QnAMaker-service is handig voor de foutopsporing als u contact o
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Verbetering van knowledge base-vragen met actief leren](./improve-knowledge-base.md)
+> [Knowledge Base-vragen verbeteren met actief leren](./improve-knowledge-base.md)

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Een afbeeldingsclassificatieproject maken met de Custom Vision-SDK voor Go'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Maak een project, voeg tags toe, upload afbeeldingen, train uw project en doe een voorspelling met behulp van de Go-SDK.
 services: cognitive-services
 author: areddish
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: areddish
-ms.openlocfilehash: f2b43349b1060739b44ab34f463300dd62569252
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: f21ab53b3beeead8cbd4ba781cd54b23420661f0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276464"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561008"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>Quickstart: Een afbeeldingsclassificatieproject maken met de Custom Vision Go-SDK
 
-Dit artikel biedt informatie en voorbeeldcode om u op weg te helpen met de Custom Vision-SDK met Go een afbeeldingsclassificatiemodel te maken. Nadat deze gemaakt, kunt u labels toevoegen, afbeeldingen uploaden, trainen van het project, verkrijgen van het project gepubliceerde voorspelling eindpunt-URL en het eindpunt voor het testen van een installatiekopie van een via een programma gebruiken. Gebruik dit voorbeeld als een sjabloon om uw eigen Go-toepassing te maken. Zie de [handleiding voor browsers](getting-started-build-a-classifier.md) als u het ontwikkelproces wilt doorlopen en een classificatiemodel wilt gebruiken _zonder_ code.
+Dit artikel biedt informatie en voorbeeldcode om u op weg te helpen met de Custom Vision-SDK met Go een afbeeldingsclassificatiemodel te maken. Nadat de app is gemaakt, kunt u Tags toevoegen, afbeeldingen uploaden, het project trainen, de gepubliceerde voor spelling-eind punt-URL van het project ophalen en het eind punt gebruiken om een afbeelding programmatisch te testen. Gebruik dit voorbeeld als een sjabloon om uw eigen Go-toepassing te maken. Zie de [handleiding voor browsers](getting-started-build-a-classifier.md) als u het ontwikkelproces wilt doorlopen en een classificatiemodel wilt gebruiken _zonder_ code.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,7 +33,7 @@ Als u de Custom Vision Service-SDK voor Go wilt installeren, voert u de volgende
 go get -u github.com/Azure/azure-sdk-for-go/...
 ```
 
-of als u `dep`, in uw opslagplaats uitvoeren:
+u kunt `dep`ook in uw opslag plaats uitvoeren:
 ```shell
 dep ensure -add github.com/Azure/azure-sdk-for-go
 ```
@@ -129,9 +129,9 @@ for _, file := range japaneseCherryImages {
 }
 ```
 
-### <a name="train-the-classifier-and-publish"></a>De classificatie te trainen en publiceren
+### <a name="train-the-classifier-and-publish"></a>De classificatie trainen en publiceren
 
-Deze code wordt de eerste versie in het project wordt gemaakt en vervolgens publiceert dat iteratie naar het eindpunt van de voorspelling. De naam van de gepubliceerde iteratie kan worden gebruikt om voorspelling aanvragen te verzenden. Een iteratie is niet beschikbaar in de voorspelling eindpunt totdat deze is gepubliceerd.
+Deze code maakt de eerste iteratie in het project en publiceert die iteratie vervolgens naar het Voorspellings eindpunt. De naam die is opgegeven voor de gepubliceerde herhaling kan worden gebruikt voor het verzenden van voorspellings aanvragen. Er is geen iteratie beschikbaar in het Voorspellings eindpunt totdat het is gepubliceerd.
 
 ```go
 fmt.Println("Training...")
@@ -149,7 +149,7 @@ fmt.Println("Training status: " + *iteration.Status)
 trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Halen en gebruik de gepubliceerde iteratie op het eindpunt voor de voorspelling
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>De gepubliceerde iteratie op het Voorspellings eindpunt ophalen en gebruiken
 
 Als u een afbeelding naar het voorspellingseindpunt wilt verzenden en de voorspelling wilt ophalen, voegt u de volgende code toe aan het einde van het bestand:
 

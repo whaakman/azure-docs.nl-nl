@@ -1,7 +1,7 @@
 ---
 title: V1, v2 API-migratie
 titleSuffix: Azure Cognitive Services
-description: Het eindpunt van de versie 1 en ontwerpen van Language Understanding-API's zijn afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2-eindpunt en API's ontwerpen.
+description: De Api's voor het versie 1-eind punt en de ontwerp-Language Understanding zijn afgeschaft. Gebruik deze hand leiding om te begrijpen hoe u kunt migreren naar versie 2-eind punt-en ontwerp-Api's.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab42ee29e508bfa62e2dba7a6e6a06baa0da2489
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522369"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560313"
 ---
-# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1, v2-Migratiehandleiding LUIS-apps
-De versie 1 [eindpunt](https://aka.ms/v1-endpoint-api-docs) en [ontwerpen](https://aka.ms/v1-authoring-api-docs) API's zijn afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2 [eindpunt](https://go.microsoft.com/fwlink/?linkid=2092356) en [ontwerpen](https://go.microsoft.com/fwlink/?linkid=2092087) API's. 
+# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 naar v2-migratie handleiding voor LUIS-apps
+De api's voor het versie 1- [eind punt](https://aka.ms/v1-endpoint-api-docs) en het [ontwerp](https://aka.ms/v1-authoring-api-docs) zijn afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2 [eindpunt](https://go.microsoft.com/fwlink/?linkid=2092356) en [ontwerpen](https://go.microsoft.com/fwlink/?linkid=2092087) API's. 
 
 ## <a name="new-azure-regions"></a>Nieuwe Azure-regio 's
-LUIS heeft nieuwe [regio's](https://aka.ms/LUIS-regions) opgegeven voor de APIs LUIS. LUIS, biedt een andere portal voor regiogroepen. De toepassing moet worden gemaakt in dezelfde regio die u verwacht te vragen. Toepassingen kunnen de regio's niet automatisch gemigreerd. U exporteert de app vanuit één regio en vervolgens importeren in een andere waarde voor deze beschikbaar zijn in een nieuwe regio.
+LUIS heeft nieuwe [regio's](https://aka.ms/LUIS-regions) opgegeven voor de APIs LUIS. LUIS biedt een andere portal voor regio groepen. De toepassing moet worden gemaakt in dezelfde regio die u verwacht te vragen. Toepassingen kunnen de regio's niet automatisch gemigreerd. U exporteert de app vanuit één regio en vervolgens importeren in een andere waarde voor deze beschikbaar zijn in een nieuwe regio.
 
 ## <a name="authoring-route-changes"></a>Routewijzigingen ontwerpen
 De ontwerphandleiding API-route gewijzigd via de **prog** route voor het gebruik van de **api** route.
@@ -35,7 +35,7 @@ De ontwerphandleiding API-route gewijzigd via de **prog** route voor het gebruik
 
 
 ## <a name="endpoint-route-changes"></a>Eindpunt Routewijzigingen
-Het API-eindpunt heeft nieuwe queryreeksparameters, evenals een andere reactie. Als de uitgebreide vlag op true is ingesteld, worden alle intents, ongeacht de score, worden geretourneerd in een matrix met de naam intents, naast de topScoringIntent.
+De eindpunt-API heeft nieuwe query reeks parameters en een ander antwoord. Als de uitgebreide vlag op true is ingesteld, worden alle intents, ongeacht de score, worden geretourneerd in een matrix met de naam intents, naast de topScoringIntent.
 
 | versie | Route ophalen |
 |--|--|
@@ -153,7 +153,7 @@ LUIS stelt uitingen van bestaande [eindpunt uitingen](luis-how-to-review-endpoin
 |/ luis/api/v2.0/apps/customprebuiltdomains/{culture}  |Toevoegen|
 
 ## <a name="importing-1x-app-into-2x"></a>Importeren van 1.x-app in 2.x
-De geëxporteerde 1.x van app-JSON heeft bepaalde gebieden die u nodig hebt om te wijzigen voordat u importeert in [LUIS] [ LUIS] 2.0. 
+De geëxporteerde JSON van de 1. x-app heeft enkele gebieden die u moet wijzigen voordat u deze importeert in [LUIS][LUIS] 2,0. 
 
 ### <a name="prebuilt-entities"></a>Vooraf gemaakte entiteiten 
 De [vooraf gemaakte entiteiten](luis-prebuilt-entities.md) zijn gewijzigd. Zorg ervoor dat u met behulp van de V2 vooraf gemaakte entiteiten. Dit omvat het gebruik [datetimeV2](luis-reference-prebuilt-datetimev2.md), in plaats van datum/tijd. 

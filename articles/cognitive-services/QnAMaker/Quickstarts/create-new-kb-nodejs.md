@@ -1,5 +1,6 @@
 ---
 title: 'Snelstartgids: Een knowledge base maken - REST, Node.js - QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: In deze op REST gebaseerde snelstart wordt stapsgewijs uitgelegd hoe u, met behulp van een programma, een voorbeeldexemplaar van een knowledge base in QnA Maker kunt maken, dat wordt weergegeven op het Azure-dashboard van uw account voor de Cognitive Services-API.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 02ef954ba19b7d750f1b76c2e4f8643ed74cc82b
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 4d9766a0147dfc88f440bf5f44e94405aab018f3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68254134"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563040"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-nodejs"></a>Snelstartgids: Een knowledge base maken in QnA Maker met behulp van Node.js
 

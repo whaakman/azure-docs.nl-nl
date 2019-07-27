@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: een objectdetectieproject maken met de Custom Vision SDK voor Node.js'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Maak een project, voeg labels toe, upload afbeeldingen, train uw project en detecteer objecten met de SDK voor Node.js.
 services: cognitive-services
 author: areddish
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: areddish
-ms.openlocfilehash: 45fce7a8b02f8613b666ed08d4755b0deb46cbca
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 306f812ab10c0ef247fdc1201e7df2a23b949a54
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276452"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564179"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Quickstart: een objectdetectieproject maken met de Custom Vision SDK voor Node.js
 
-Dit artikel biedt informatie en voorbeeldcode om u op weg te helpen met de Custom Vision SDK voor Node.js om een objectdetectiemodel te maken. Nadat deze gemaakt, kunt u gecodeerde regio's toevoegen, afbeeldingen uploaden, trainen van het project, verkrijgen van het project gepubliceerde voorspelling eindpunt-URL en het eindpunt voor het testen van een installatiekopie van een via een programma gebruiken. Gebruik dit voorbeeld als een sjabloon om uw eigen Node.js-toepassing te maken.
+Dit artikel biedt informatie en voorbeeldcode om u op weg te helpen met de Custom Vision SDK voor Node.js om een objectdetectiemodel te maken. Nadat u deze hebt gemaakt, kunt u gelabelde regio's toevoegen, afbeeldingen uploaden, het project trainen, de gepubliceerde voor spelling-eind punt-URL van het project ophalen en het eind punt gebruiken om een afbeelding programmatisch te testen. Gebruik dit voorbeeld als een sjabloon om uw eigen Node.js-toepassing te maken.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -184,9 +184,9 @@ scissorsFiles.forEach(file => {
 await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-project-and-publish"></a>Het project te trainen en publiceren
+### <a name="train-the-project-and-publish"></a>Het project trainen en publiceren
 
-Deze code wordt de eerste versie in het project wordt gemaakt en vervolgens publiceert dat iteratie naar het eindpunt van de voorspelling. De naam van de gepubliceerde iteratie kan worden gebruikt om voorspelling aanvragen te verzenden. Een iteratie is niet beschikbaar in de voorspelling eindpunt totdat deze is gepubliceerd.
+Deze code maakt de eerste iteratie in het project en publiceert die iteratie vervolgens naar het Voorspellings eindpunt. De naam die is opgegeven voor de gepubliceerde herhaling kan worden gebruikt voor het verzenden van voorspellings aanvragen. Er is geen iteratie beschikbaar in het Voorspellings eindpunt totdat het is gepubliceerd.
 
 ```javascript
 console.log("Training...");
@@ -205,7 +205,7 @@ console.log("Training status: " + trainingIteration.status);
 await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Halen en gebruik de gepubliceerde iteratie op het eindpunt voor de voorspelling
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>De gepubliceerde iteratie op het Voorspellings eindpunt ophalen en gebruiken
 
 Als u een afbeelding naar het voorspellingseindpunt wilt verzenden en de voorspelling wilt ophalen, voegt u de volgende code toe aan het einde van het bestand:
 

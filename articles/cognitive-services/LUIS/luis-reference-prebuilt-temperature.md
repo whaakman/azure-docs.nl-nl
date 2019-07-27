@@ -1,6 +1,6 @@
 ---
-title: Vooraf gedefinieerde temperatuur-entiteit
-titleSuffix: Azure
+title: Preconstrueerde temperatuur eenheid-LUIS
+titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat temperatuur vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 8d5e10a7a4fe7fb12bc4140690fcabffa16b32be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ecf977e1a477eb4b9178a6259fbe26ef18a9ec2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072097"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560141"
 ---
-# <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Temperatuur vooraf gedefinieerde entiteit voor een LUIS-app
+# <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Preconstrueerde temperatuur eenheid voor een LUIS-app
 Temperatuur extraheert verschillende typen temperatuur. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met temperatuur tot de toepassing. Temperatuur entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-temperature"></a>Typen temperatuur
-Temperatuur wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) GitHub-opslagplaats
+De Tempe ratuur wordt beheerd vanuit de [recognizers-tekst github-](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) opslag plaats
 
 ## <a name="resolution-for-prebuilt-temperature-entity"></a>Oplossing voor vooraf gedefinieerde temperatuur entiteit
 
-### <a name="api-version-2x"></a>API-versie 2.x
+### <a name="api-version-2x"></a>API-versie 2. x
 
 Het volgende voorbeeld ziet u de resolutie van de **builtin.temperature** entiteit.
 
@@ -58,9 +58,9 @@ Het volgende voorbeeld ziet u de resolutie van de **builtin.temperature** entite
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Preview-API-versie 3.x
+### <a name="preview-api-version-3x"></a>Preview-API versie 3. x
 
-De volgende JSON is met de `verbose` parameter ingesteld op `false`:
+De volgende JSON is met de `verbose` para meter ingesteld `false`op:
 
 ```json
 {
@@ -85,7 +85,7 @@ De volgende JSON is met de `verbose` parameter ingesteld op `false`:
 }
 ```
 
-De volgende JSON is met de `verbose` parameter ingesteld op `true`:
+De volgende JSON is met de `verbose` para meter ingesteld `true`op:
 
 ```json
 {

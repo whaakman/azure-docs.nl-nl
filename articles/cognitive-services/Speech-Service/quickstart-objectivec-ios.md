@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Spraak herkennen, Objective-C - Speech Services'
+title: 'Quickstart: Spraak, doel-C-spraak service herkennen'
 titleSuffix: Azure Cognitive Services
 description: Informatie over het herkennen van gesproken tekst in Objective-C in iOS met behulp van de Speech SDK
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 55b442b74847ccbc0dcc944eada7b33ccd368bed
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 01a2b9d5bad7d490f5ee9f6a21af5bc1308bdab1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605064"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553656"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Quickstart: Gesproken tekst herkennen in Objective-C in iOS met behulp van de Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel leert u hoe u een iOS-app maken in Objective-C met behulp van de Cognitive Services Speech SDK transcriberen spraak naar tekst van de microfoon of van een bestand met de opgenomen audio.
+In dit artikel leert u hoe u een iOS-app maakt in doel-C met behulp van de SDK van Cognitive Services speech om spraak naar tekst van een microfoon of van een bestand met opgenomen audio te transcriberen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,7 +29,7 @@ Voordat u begint, bekijkt u de lijst vereisten:
 
 * Een [abonnementssleutel](get-started.md) voor Speech Service
 * Een macOS-computer met [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) of hoger
-* Het doel ingesteld op iOS-versie 9.3 of hoger
+* De doel ingesteld op iOS-versie 9,3 of hoger
 
 ## <a name="get-the-speech-sdk-for-ios"></a>De Speech-SDK voor iOS ophalen
 
@@ -37,8 +37,8 @@ Voordat u begint, bekijkt u de lijst vereisten:
 
 De huidige versie van de Speech SDK van Cognitive Services is `1.6.0`.
 
-De Cognitive Services spraak-SDK voor iOS wordt gedistribueerd als een Cocoa-Framework.
-Deze kan worden gedownload vanaf [hier](https://aka.ms/csspeech/iosbinary). Download het bestand naar uw basismap.
+De Cognitive Services Speech SDK voor iOS wordt momenteel gedistribueerd als een cacao-Framework.
+Dit kan [hier](https://aka.ms/csspeech/iosbinary)worden gedownload. Download het bestand naar uw basismap.
 
 ## <a name="create-an-xcode-project"></a>Een Xcode-project maken
 
@@ -90,7 +90,7 @@ Vervang de automatisch gegenereerde XML door deze code:
 ## <a name="building-and-running-the-sample"></a>De voorbeeldtoepassing bouwen en uitvoeren
 
 1. Maak de foutopsporingsuitvoer zichtbaar (**View** > **Debug Area** > **Activate Console**).
-1. Kies de iOS-simulator of een iOS-apparaat dat is verbonden met uw ontwikkelcomputer als bestemming voor de app uit de lijst in de **Product** > **bestemming** menu.
+1. Kies de IOS-simulator of een IOS-apparaat dat is verbonden met uw ontwikkel computer als bestemming voor de app uit de lijst in het menu van de **product** > **bestemming** .
 1. Bouw de voorbeeldcode en voer deze uit in de iOS-simulator door **Product** > **Run** in het menu te selecteren of op de knop **Play** te klikken.
 1. Nadat u op de knop 'Recognize (File)' in de app hebt geklikt, ziet u de inhoud van het audiobestand 'What's the weather like?' in het onderste gedeelte van het scherm.
 

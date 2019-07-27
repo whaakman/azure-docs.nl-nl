@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Antwoord uit knowledge base ophalen - REST, Python - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Deze Python REST-quickstart begeleidt u bij het programmatisch ophalen van een antwoord uit een knowledge base.
 services: cognitive-services
 author: diberry
@@ -10,16 +10,16 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/24/2019
 ms.author: diberry
-ms.openlocfilehash: 0f40ed3d0b77662e23e4042f568b8241cef130c6
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 71f2cc3ef028d66be7049cf85003d51e6b4baef3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256612"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559803"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Antwoorden vinden op vragen met behulp van een knowledge base met Python
 
-In deze quickstart wordt beschreven hoe u programmatisch een antwoord uit een gepubliceerde QnA Maker-knowledge base kunt ophalen. De knowledge base bevat vragen en antwoorden uit [gegevensbronnen](../Concepts/data-sources-supported.md) zoals veelgestelde vragen over. De [vraag](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) wordt verzonden naar de QnA Maker-service. De [antwoord](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) bevat het antwoord boven voorspeld. 
+In deze quickstart wordt beschreven hoe u programmatisch een antwoord uit een gepubliceerde QnA Maker-knowledge base kunt ophalen. De Knowledge Base bevat vragen en antwoorden van [gegevens bronnen](../Concepts/data-sources-supported.md) , zoals Veelgestelde vragen. De [vraag](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) wordt verzonden naar de QnA Maker-service. Het [antwoord](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) bevat het meest voorspelde antwoord. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -72,7 +72,7 @@ python get-answer-3x.py
 
 [!INCLUDE [JSON request and response](../../../../includes/cognitive-services-qnamaker-quickstart-get-answer-json.md)] 
 
-Meer informatie over de [aanvraag](../how-to/metadata-generateanswer-usage.md#generateanswer-request) en [antwoord](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
+Meer informatie over de [aanvraag](../how-to/metadata-generateanswer-usage.md#generateanswer-request) en het [antwoord](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
 
 [!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 

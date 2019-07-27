@@ -9,14 +9,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 8d050fe92af7b22363b0a9207201412bc12d9082
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4a99acaaae0c0efee61d97605a81d74549e02509
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792187"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569206"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Quickstart: Node.js gebruiken om een query uit te voeren voor een Azure SQL-database
 
@@ -36,7 +35,7 @@ Zorg dat u aan de volgende vereisten voldoet als u dit voorbeeld wilt uitvoeren:
   | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| [Connectiviteit vanaf een VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connectiviteit vanaf locatie](sql-database-managed-instance-configure-p2s.md)
   |Gegevens laden|Adventure Works geladen volgens de quickstart|[Wide World Importers herstellen](sql-database-managed-instance-get-started-restore.md)
-  |||Herstellen of importeren van Adventure Works van [BACPAC](sql-database-import.md) -bestand uit [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Adventure Works herstellen of importeren vanuit [BACPAC](sql-database-import.md) -bestand vanuit [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]

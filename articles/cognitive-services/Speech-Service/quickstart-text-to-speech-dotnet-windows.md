@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Spraak, .NET Framework (Windows) - spraakservices bootsen'
+title: 'Quickstart: Bewaak spraak, .NET Framework (Windows)-Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Deze handleiding gebruiken om een Text to Speech-consoletoepassing met behulp van .NET framework voor Windows en de SDK van de spraakherkenning te maken. Wanneer u klaar bent, kunt u bootsen spraak vanuit tekst en de stem van de spreker in realtime hoort.
+description: Gebruik deze hand leiding voor het maken van een tekst-naar-spraak-console toepassing met behulp van .NET Framework voor Windows en de spraak-SDK. Wanneer u klaar bent, kunt u spraak van tekst verwerken en de spraak op uw spreker in realtime belui Steren.
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: 352d3f5f34bd46d8ee1ba2ed45dcc28af2b430ef
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 3c925e0160a4c57f7e43c3463fc1db7098a6e606
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605017"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553605"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Quickstart: Bootsen spraak met de spraak-SDK voor .NET Framework (Windows)
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Quickstart: Stem de spraak met de Speech SDK voor .NET Framework (Windows)
 
-Snelstartgidsen zijn ook beschikbaar voor [spraakherkenning](quickstart-csharp-dotnet-windows.md) en [spraakomzetting](quickstart-translate-speech-dotnetframework-windows.md).
+Quick starts zijn ook beschikbaar voor [spraak herkenning](quickstart-csharp-dotnet-windows.md) en [spraak omzetting](quickstart-translate-speech-dotnetframework-windows.md).
 
-Deze handleiding gebruiken om een Text to Speech-consoletoepassing met behulp van .NET framework voor Windows en de SDK van de spraakherkenning te maken. Wanneer u klaar bent, kunt u bootsen spraak vanuit tekst en de stem van de spreker in realtime hoort.
+Gebruik deze hand leiding voor het maken van een tekst-naar-spraak-console toepassing met behulp van .NET Framework voor Windows en de spraak-SDK. Wanneer u klaar bent, kunt u spraak van tekst verwerken en de spraak op uw spreker in realtime belui Steren.
 
-Voor een snelle demonstratie (zonder het bouwen van de Visual Studio-project zelf, zoals hieronder weergegeven):
+Voor een snelle demonstratie (zonder het Visual Studio-project zelf te bouwen zoals hieronder wordt weer gegeven):
 
-De nieuwste [Cognitive Services Speech SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-speech-sdk) vanuit GitHub.
+Down load de nieuwste [Cognitive Services Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk) -voor beelden van github.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,7 +33,7 @@ Als u dit project wilt voltooien, hebt u het volgende nodig:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * Een abonnementssleutel voor de Speech Service. [Gratis downloaden](get-started.md).
-* Een spreker (of een headset) beschikbaar.
+* Er is een spreker (of headset) beschikbaar.
 
 ## <a name="create-a-visual-studio-project"></a>Een Visual Studio-project maken
 
@@ -45,7 +45,7 @@ Als u dit project wilt voltooien, hebt u het volgende nodig:
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. Zoek en vervang de tekenreeks `YourSubscriptionKey` met uw abonnementssleutel Speech Services.
+1. Zoek de teken reeks `YourSubscriptionKey` en vervang deze door uw abonnement sleutel voor spraak Services.
 
 1. Vervang de tekenreeks `YourServiceRegion` door de [regio](regions.md) die aan uw abonnement is gekoppeld. Als u bijvoorbeeld gebruikmaakt van de gratis proefversie, dan is `westus` de regio.
 
@@ -61,7 +61,7 @@ Als u dit project wilt voltooien, hebt u het volgende nodig:
 
     ![Schermafbeelding van Visual Studio-toepassing met de optie Start Debugging gemarkeerd](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Start foutopsporing van de app")
 
-1. Een consolevenster wordt weergegeven, waarin u naar het type tekst wordt gevraagd. Typ een paar woorden of een zin. De tekst die u hebt getypt, is verzonden naar de Services voor spraak en gemaakt naar-spraak, die op de spreker afgespeeld.
+1. Er wordt een console venster weer gegeven waarin u wordt gevraagd om tekst te typen. Typ enkele woorden of een zin. De tekst die u hebt getypt, wordt verzonden naar de spraak Services en gesynthesizerd op spraak, die op uw spreker wordt afgespeeld.
 
     ![Schermafbeelding van console-uitvoer na geslaagde herkenning](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Console-uitvoer na geslaagde herkenning")
 
@@ -72,5 +72,5 @@ Als u dit project wilt voltooien, hebt u het volgende nodig:
 
 ## <a name="see-also"></a>Zie ook
 
-- [Spraakstijlen aanpassen](how-to-customize-voice-font.md)
-- [Record voice-voorbeelden](record-custom-voice-samples.md)
+- [Spraak lettertypen aanpassen](how-to-customize-voice-font.md)
+- [Spraak voorbeelden vastleggen](record-custom-voice-samples.md)

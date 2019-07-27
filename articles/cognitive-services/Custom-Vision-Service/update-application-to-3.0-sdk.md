@@ -1,7 +1,7 @@
 ---
-title: Migreren van uw project naar het 3.0 API
-titlesuffix: Azure Cognitive Services
-description: Informatie over het migreren van Custom Vision projecten uit de vorige versie van de API in de 3.0 API.
+title: Uw project migreren naar de 3,0-API
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over het migreren van Custom Vision projecten van de vorige versie van de API naar de 3,0-API.
 services: cognitive-services
 author: areddish
 manager: nitinme
@@ -10,57 +10,57 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
-ms.openlocfilehash: 9dd473aadd7123cafc27209f5c34322fdbcffb71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 353fc0a2d8396def17b8e23d9a1c685c755349c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816449"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560891"
 ---
-# <a name="migrate-to-the-30-api"></a>Migreren naar de 3.0 API
+# <a name="migrate-to-the-30-api"></a>Migreren naar de 3,0-API
 
-Custom Vision nu service algemeen beschikbaar is geworden en is onderworpen aan een API-update.
-Deze update bevat een aantal nieuwe functies en, belangrijker is, een paar belangrijke wijzigingen:
+Custom Vision heeft nu de algemene Beschik baarheid bereikt en heeft een API-update ondergaan.
+Deze update bevat enkele nieuwe functies en belang rijke wijzigingen:
 
-* De Voorspellings-API is nu splitsen in twee op basis van het project.
-* De optie voor het exporteren van Vision AI Developer Kit (VAIDK) vereist een project maken in een specifieke manier.
-* Standaard-iteraties zijn verwijderd en vervangen door een publiceren / publicatie ongedaan maken van een benoemde iteratie.
+* De Voorspellings-API is nu onderverdeeld in twee op basis van het project type.
+* Voor de export optie VAIDK (Vision AI Developer Kit) moet een project op een specifieke manier worden gemaakt.
+* Er zijn standaard herhalingen verwijderd in het voor deel van het publiceren/ongedaan maken van de publicatie van een benoemde iteratie.
 
-Deze handleiding wordt beschreven hoe uw projecten werkt met de nieuwe API-versie bijwerken. Zie de [opmerkingen bij de Release](release-notes.md) voor een volledige lijst van de wijzigingen.
+In deze hand leiding wordt uitgelegd hoe u uw projecten bijwerkt om te werken met de nieuwe API-versie. Zie de [release opmerkingen](release-notes.md) voor een volledige lijst met de wijzigingen.
 
-## <a name="use-the-updated-prediction-api"></a>De bijgewerkte voorspelling API gebruiken
+## <a name="use-the-updated-prediction-api"></a>De bijgewerkte Voorspellings-API gebruiken
 
-De 2.x API's gebruikt dezelfde voorspelling aanroep voor zowel beeldclassificeerders en object detector projecten. Beide projecttypen zijn aanvaardbaar is voor de **PredictImage** en **PredictImageUrl** aanroepen. Beginnen met 3.0, hebben we deze API splitsen zodat u moet overeenkomen met het type voor de aanroep:
+De 2. x-Api's hebben dezelfde Voorspellings aanroep gebruikt voor zowel afbeeldings classificaties als object detector projecten. Beide project typen zijn acceptabel voor de aanroepen van **PredictImage** en **PredictImageUrl** . Vanaf 3,0 hebben we deze API gesplitst zodat u het project type moet overeenkomen met de aanroep:
 
-* Gebruik **[ClassifyImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)** en **[ClassifyImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c14)** voorspellingen voor installatiekopie classificatie projecten ophalen.
-* Gebruik **[DetectImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c19)** en **[DetectImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c18)** voorspellingen voor projecten met detectie van een object ophalen.
+* Gebruik **[ClassifyImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)** en **[ClassifyImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c14)** om voor spellingen te ontvangen voor afbeeldings classificatie projecten.
+* Gebruik **[DetectImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c19)** en **[DetectImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c18)** om voor spellingen te ontvangen voor object detectie projecten.
 
-## <a name="use-the-new-iteration-publishing-workflow"></a>De nieuwe werkstroom voor het publiceren van iteratie gebruikt
+## <a name="use-the-new-iteration-publishing-workflow"></a>De nieuwe werk stroom voor het publiceren van iteraties gebruiken
 
-De 2.x API's gebruikt de standaard-iteratie of een opgegeven herhaling-ID voor het kiezen van de iteratie moet worden gebruikt voor de voorspelling. 3\.0 vanaf biedt hebben we vastgesteld dat een publishing stroom Gegevensbeheerders, waarin u eerst een iteratie onder de naam van een opgegeven van de training-API hebt gepubliceerd. Vervolgens geeft u de naam voor de voorspelling methoden om op te geven welke iteratie te gebruiken.
+De 2. x-Api's hebben de standaard herhaling of een opgegeven iteratie-ID gebruikt om te kiezen welke herhaling moet worden gebruikt voor de voor spelling. Vanaf 3,0 hebben we een publicatie stroom aangenomen waarbij u eerst een iteratie onder een opgegeven naam publiceert vanuit de trainings-API. Vervolgens geeft u de naam door aan de Voorspellings methoden om op te geven welke iteratie moet worden gebruikt.
 
 > [!IMPORTANT]
-> De 3.0 API's gebruik niet de standaard iteratie-functie. Totdat we de oudere API's afschaffen, kunt u echter ook doorgaan met de 2.x API's in een iteratie als de standaard-of uitschakelen. Deze API's voor een bepaalde periode worden onderhouden en roept u de **[UpdateIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b818)** methode voor het markeren van een iteratie als standaard.
+> De 3,0-Api's maken geen gebruik van de standaard herhalings functie. Totdat we de oudere Api's hebben overgezet, kunt u de 2. x-Api's blijven gebruiken om een herhaling als de standaard waarde te scha kelen. Deze Api's worden gedurende een bepaalde tijd onderhouden en u kunt de methode **[UpdateIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b818)** aanroepen om een herhaling als standaard te markeren.
 
-### <a name="publish-an-iteration"></a>Een iteratie publiceren
+### <a name="publish-an-iteration"></a>Een herhaling publiceren
 
-Zodra een iteratie wordt getraind, kunt u deze beschikbaar zijn voor het gebruik van de voorspelling van de **[PublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c82db28bf6a2b11a8247bbc)** methode. Als u wilt een iteratie publiceren, moet u de voorspelling van resource-ID, die beschikbaar is op de pagina instellingen van de website van de CustomVision.
+Zodra een iteratie is getraind, kunt u deze beschikbaar stellen voor voor spellingen met behulp van de methode **[PublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c82db28bf6a2b11a8247bbc)** . Als u een iteratie wilt publiceren, hebt u de resource-ID voor de voor spelling nodig, die beschikbaar is op de instellingen pagina van de CustomVision-website.
 
-![De Custom Vision website-instellingen-pagina met de voorspelling van resource-ID die worden beschreven.](./media/update-application-to-3.0-sdk/prediction-id.png)
+![De pagina met de Custom Vision website-instellingen met de Voorspellings Resource-ID wordt beschreven.](./media/update-application-to-3.0-sdk/prediction-id.png)
 
 > [!TIP]
-> U krijgt ook deze informatie uit de [Azure Portal](https://portal.azure.com) door te gaan naar de resource Custom Vision voorspelling en selecteren **eigenschappen**.
+> U kunt deze informatie ook ophalen via de [Azure-Portal](https://portal.azure.com) door naar de Custom Vision Voorspellings bron te gaan en **Eigenschappen**te selecteren.
 
-Zodra uw iteratie is gepubliceerd, kunnen apps deze gebruiken voor voorspelling door de naam op te geven in de voorspellings-API-oproep. Als u een iteratie niet beschikbaar voor het aanroepen van de productie, gebruikt u de **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** API.
+Zodra de herhaling is gepubliceerd, kunnen apps deze gebruiken voor voor spelling door de naam op te geven in de API-aanroep voor de voor spelling. Als u een iteratie niet beschikbaar wilt maken voor Voorspellings aanroepen, gebruikt u de **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** -API.
 
-## <a name="additional-export-options"></a>Opties voor extra exporteren
+## <a name="additional-export-options"></a>Aanvullende export opties
 
-Met de 3.0 wordt weergegeven twee extra API's exporteren doelen: ARM-architectuur en Vision AI Developer Kit.
+Met de 3,0-Api's worden twee extra export doelen beschikbaar: ARM-architectuur en Vision AI Developer Kit.
 
-* Voor het gebruik van ARM, moet u alleen een compacte domein kiezen en kies vervolgens de docker-bestand en vervolgens ARM als de opties voor exporteren.
-* Vision AI Dev Kit, het project moet worden gemaakt met de __Algemeen (cd)__ domein, evenals VAIDK op te geven in de doel-platforms argument exporteren.
+* Als u ARM wilt gebruiken, hoeft u alleen een compact domein te kiezen en vervolgens DockerFile en vervolgens ARM als export opties te selecteren.
+* Voor de Vision AI dev kit moet het project worden gemaakt met het __algemene domein (compact)__ , maar ook VAIDK opgeven in het argument doel export platformen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Training API-referentiedocumentatie (REST)](https://go.microsoft.com/fwlink/?linkid=865446)
-* [Documentatie voor productie-API reference (REST)](https://go.microsoft.com/fwlink/?linkid=865445)
+* [Naslag documentatie voor trainings-API (REST)](https://go.microsoft.com/fwlink/?linkid=865446)
+* [Naslag documentatie voor de voor Spellings-API (REST)](https://go.microsoft.com/fwlink/?linkid=865445)

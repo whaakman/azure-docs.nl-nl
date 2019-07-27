@@ -1,6 +1,6 @@
 ---
 title: Het testen van een knowledge base - QnA Maker
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Testen van uw kennisdatabase QnA Maker is een belangrijk onderdeel van een iteratief proces voor het verbeteren van de nauwkeurigheid van de antwoorden die worden geretourneerd. De knowledge base via een verbeterde chat-interface waarmee ook kunt dat u wijzigingen aanbrengen, kunt u testen.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4d9c00c4ea7fd0494d00551dc37b186e1a357037
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6a512098d5dfda47b7755e24b286aabf83aa7e69
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439724"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563068"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Test uw knowledge base interactief in QnA Maker
 
@@ -24,28 +24,28 @@ Testen van uw kennisdatabase QnA Maker is een belangrijk onderdeel van een itera
 
 ## <a name="test-answer-matching"></a>Test antwoorden vergelijken
 
-1. Toegang tot uw knowledge base door het selecteren van de naam ervan op de **mijn knowledge bases** pagina.
-1. Voor toegang tot het deelvenster van de dia-out Test, selecteer **Test** in het bovenste gedeelte van uw toepassing.
+1. Open uw kennis database door de naam ervan te selecteren op de pagina **mijn Knowledge bases** .
+1. Als u toegang wilt krijgen tot het toetsen paneel testen, selecteert u **testen** in het bovenste paneel van de toepassing.
 1. Voer een query in het tekstvak in en selecteer Enter.
 1. De best overeenkomende antwoord in de kennisdatabase wordt geretourneerd als antwoord.
 
 ## <a name="clear-test-panel"></a>Deelvenster wissen testen
 
-Schakel alle ingevoerde test-query's en de resultaten van de testconsole, selecteert u **beginnen** in de linkerbovenhoek van het paneel Test.
+Als u alle ingevoerde test query's en de bijbehorende resultaten wilt wissen uit de test console, selecteert u **opnieuw beginnen** in de linkerbovenhoek van het test paneel.
 
 ## <a name="close-test-panel"></a>Deelvenster sluiten testen
 
-Als u wilt het Test-deelvenster sluiten, selecteert u de **Test** knop opnieuw. Tijdens de Test-deelvenster geopend is, kunt u de Knowledge Base-inhoud niet bewerken.
+Als u het test paneel wilt sluiten, selecteert u de knop **testen** opnieuw. Tijdens de Test-deelvenster geopend is, kunt u de Knowledge Base-inhoud niet bewerken.
 
 ## <a name="inspect-score"></a>Controleren van score
 
-U inspecteren details van de testresultaten in het deelvenster inspecteren.
+U kunt de details van het test resultaat bekijken in het deel venster inspecteren.
 
-1.  Met behulp van de Test dia-out deelvenster geopend, selecteert u **inspecteren** voor meer informatie over de respons.
+1.  Selecteer in het deel venster voor het testen van de schuif regelaar op **controleren** voor meer informatie over die reactie.
 
     ![Antwoorden controleren](../media/qnamaker-how-to-test-kb/inspect.png)
 
-2.  Het deelvenster controle wordt weergegeven. Het deelvenster bevat de scoring-doel, evenals de geïdentificeerde entiteiten boven. Het deelvenster toont het resultaat van de geselecteerde utterance.
+2.  Het deel venster inspectie wordt weer gegeven. Het deelvenster bevat de scoring-doel, evenals de geïdentificeerde entiteiten boven. Het deelvenster toont het resultaat van de geselecteerde utterance.
 
 ## <a name="correct-the-top-scoring-answer"></a>Corrigeer de bovenkant scoring-antwoord
 
@@ -63,16 +63,16 @@ U kunt andere vormen van een vraag toevoegen aan een bepaald antwoord. Typ de al
 
 U kunt een nieuw antwoord toevoegen als een van de bestaande antwoorden die zijn afgestemd onjuist zijn of het antwoord niet in het knowledge base bestaat (geen goede overeenkomst gevonden in de KB). 
 
-Aan de onderkant van de lijst met antwoorden in het tekstvak in te voeren van een nieuw antwoord gebruiken en druk op enter om deze te voegen. 
+Klik aan de onderkant van de lijst met antwoorden op het tekstvak om een nieuw antwoord in te voeren en druk op ENTER om het te voegen. 
 
 Selecteer **opslaan en trainen** om vast te leggen dit antwoord. Een nieuwe set met vraag-antwoord is nu is toegevoegd aan uw knowledge base. 
 
 > [!NOTE]
 > Alleen alle wijzigingen aan uw knowledge base opgeslagen wanneer u op de **opslaan en trainen** knop.
 
-## <a name="test-the-published-knowledge-base"></a>De gepubliceerde knowledge base testen
+## <a name="test-the-published-knowledge-base"></a>De gepubliceerde kennis database testen
 
-In het deelvenster kunt u de gepubliceerde versie van het knowledge base testen. Nadat u de KB hebt gepubliceerd, selecteert u de **gepubliceerd KB** vak en verzenden van een query voor het ophalen van resultaten van de gepubliceerde KB.
+U kunt de gepubliceerde versie van de Knowledge Base testen in het test venster. Zodra u de KB hebt gepubliceerd, selecteert u het vak **gepubliceerde KB** en verzendt u een query om de resultaten van de gepubliceerde KB op te halen.
 
 ![Testen op basis van een gepubliceerde KB](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 

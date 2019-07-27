@@ -1,5 +1,5 @@
 ---
-title: Maak een woord aangepaste wake - spraakservices
+title: Een aangepaste Wake Word-speech-service maken
 titleSuffix: Azure Cognitive Services
 description: Uw apparaat is altijd beschikbaar voor een wake (of meer woorden). Wanneer de gebruiker aangeeft het woord wake dat, verzendt het apparaat alle volgende audio naar de cloud, totdat de gebruiker niet meer spreken. Aanpassen van uw word wake is een effectieve manier om onderscheid maken tussen uw apparaat en Versterk uw huisstijl.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: f43cbedc633b26a3a7fcbfb5f6a75da514bf0c45
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 2bc1a6cbbf1e0d790326849a41b0788e332daa31
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604868"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553106"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Een aangepaste wake-woord maken met behulp van de Speech-service
 
@@ -46,26 +46,26 @@ Houd rekening met de volgende richtlijnen wanneer u een woord wake kiest:
 
 ## <a name="create-your-wake-word"></a>Maken van de wake-woord
 
-Voordat u een aangepaste wake word met uw apparaat gebruiken kunt, moet u een woord wake maken met de aangepaste Wake Word generatie Microsoft-service. Nadat u een woord wake, de service produceert een bestandsnaam die opgeven implementeert u uw development kit om in te schakelen van het woord wake op uw apparaat.
+Voordat u een aangepast Ontwaak woord kunt gebruiken met uw apparaat, moet u een Ontwaak woord maken met de micro soft Custom Wake-service voor het genereren van woorden. Nadat u een Ontwaak woord hebt geleverd, produceert de service een bestand dat u implementeert in uw Development Kit om het Ontwaak woord op uw apparaat in te scha kelen.
 
-1. Ga naar de [Custom Speech Service Portal](https://aka.ms/sdsdk-speechportal) en **aanmelden** of als u geen een spraak-abonnement kiezen [ **een abonnement maken**](https://go.microsoft.com/fwlink/?linkid=2086754)
+1. Ga naar de [Custom Speech Service-Portal](https://aka.ms/sdsdk-speechportal) en **Meld** u aan of als u geen spraak abonnement hebt, kiest u [**een abonnement maken**](https://go.microsoft.com/fwlink/?linkid=2086754)
 
-    ![De Custom Speech serviceportal](media/speech-devices-sdk/wake-word-4.png)
+    ![De Custom Speech Service Portal](media/speech-devices-sdk/wake-word-4.png)
 
-1. Op de [aangepaste Wake Word](https://aka.ms/sdsdk-wakewordportal) typt u het woord wake van uw keuze en klik op pagina **toevoegen wake word**. We hebben enkele [richtlijnen](#choose-an-effective-wake-word) om u te helpen bij het kiezen van een doeltreffende trefwoord. We ondersteunen momenteel alleen en-US-taal.
+1. Typ op het [aangepaste Ontwaak woord](https://aka.ms/sdsdk-wakewordportal) pagina in het Ontwaak woord van uw keuze en klik op **Wake Word toevoegen**. Er zijn enkele [richt lijnen](#choose-an-effective-wake-word) die u helpen bij het kiezen van een effectief tref woord. Momenteel wordt alleen de taal en-US ondersteund.
 
     ![Voer uw wake-woord](media/speech-devices-sdk/wake-word-5.png)
 
-1. Drie alternatieve uitspraak van de wake-woord wordt gemaakt. U kunt de uitspraak die u bevalt. Selecteer vervolgens **indienen** voor het genereren van het woord wake. Als u wijzigen het woord wake Verwijder het bestaande bestand eerst wilt, wanneer u de muisaanwijzer op de regel uitspraak van wordt het verwijderpictogram weergegeven.
+1. Er worden drie alternatieve uitspraak van uw Ontwaak woord gemaakt. U kunt alle uitspraaken kiezen die u wilt. Selecteer vervolgens **verzenden** om het Ontwaak woord te genereren. Als u het Ontwaak woord wilt wijzigen, verwijdert u eerst het bestaande item, wanneer u op de uitspraak lijn klikt, wordt het pictogram verwijderen weer gegeven.
 
-    ![Controleer uw wake-woord](media/speech-devices-sdk/wake-word-6.png)
+    ![Uw Ontwaak woord controleren](media/speech-devices-sdk/wake-word-6.png)
 
-1. Het duurt maximaal één minuut voor het model moet worden gegenereerd. U wordt gevraagd om het bestand te downloaden.
+1. Het kan een minuut duren voordat het model is gegenereerd. U wordt gevraagd het bestand te downloaden.
 
-    ![Downloaden van de wake-woord](media/speech-devices-sdk/wake-word-7.png)
+    ![Het Wake-woord downloaden](media/speech-devices-sdk/wake-word-7.png)
 
-1. Sla het ZIP-bestand op uw computer. U moet dit bestand op het implementeren van uw aangepaste wake word development kit.
+1. Sla het ZIP-bestand op uw computer. U hebt dit bestand nodig om uw aangepaste Wake-woord te implementeren in de Development Kit.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Testen van uw aangepaste wake word met [Quick Start de SDK van de spraakherkenning apparaten](https://aka.ms/sdsdk-quickstart).
+Test uw aangepaste Wake-woord met [Speech-apparaten SDK Quick](https://aka.ms/sdsdk-quickstart)start.

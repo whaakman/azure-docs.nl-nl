@@ -1,5 +1,5 @@
 ---
-title: Alle vooraf gemaakte entiteiten
+title: Alle vooraf gemaakte entiteiten-LUIS
 titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat een lijst met de vooraf gemaakte entiteiten die zijn opgenomen in Language Understanding (LUIS).
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 082ebaef9a2497899cf91c24435dea6e626f0041
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9ce6d33f6f8be844877067163630e5a7909183f6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485141"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563438"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entiteiten per cultuur in uw LUIS-model
 
@@ -34,7 +34,7 @@ Language Understanding (LUIS) biedt vooraf gemaakte entiteiten. Wanneer een voor
 |Koreaans|[ko-KR](#korean-entity-support)||
 |Portugees|[pt-BR (Brazilië)](#portuguese-brazil-entity-support)||
 |Spaans|[es-ES (Spanje)](#spanish-spain-entity-support), [es-MX (Mexico)](#spanish-mexico-entity-support)||
-|Turks|[Turks](#turkish-entity-support)|Er is geen vooraf gemaakte entiteiten worden ondersteund in Turks|
+|Turks|[Turks](#turkish-entity-support)|Geen vooraf gemaakte entiteiten die in Turks worden ondersteund|
 
 ## <a name="chinese-entity-support"></a>Ondersteuning voor Chinese entiteit
 
@@ -66,7 +66,7 @@ De volgende entiteiten worden ondersteund:
 ------|:------:|
 [Leeftijd](luis-reference-prebuilt-age.md):<br>jaar<br>maand<br>week<br>dag   |    ✔   |
 [Valuta](luis-reference-prebuilt-currency.md):<br>dollar<br>decimale eenheid (ex: afronding)  |    ✔   |
-[Datum/tijd](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensie](luis-reference-prebuilt-dimension.md):<br>volume<br>gebied<br>gewicht<br>informatie (ex: bits/byte)<br>de lengte (ex: meter)<br>snelheid (ex: mijl per uur)  |    ✔   | 
 [E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -176,7 +176,7 @@ De volgende entiteiten worden ondersteund:
 ------|:------:|
 [Leeftijd](luis-reference-prebuilt-age.md):<br>jaar<br>maand<br>week<br>dag   |    ✔   |
 [Valuta](luis-reference-prebuilt-currency.md):<br>dollar<br>decimale eenheid (ex: afronding)  |    ✔   |
-[Datum/tijd](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensie](luis-reference-prebuilt-dimension.md):<br>volume<br>gebied<br>gewicht<br>informatie (ex: bits/byte)<br>de lengte (ex: meter)<br>snelheid (ex: mijl per uur)  |    ✔   | 
 [E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -198,7 +198,7 @@ De volgende entiteiten worden ondersteund:
 ------|:------:|
 [Leeftijd](luis-reference-prebuilt-age.md):<br>jaar<br>maand<br>week<br>dag   |    ✔   |
 [Valuta](luis-reference-prebuilt-currency.md):<br>dollar<br>decimale eenheid (ex: afronding)  |    ✔   |
-[Datum/tijd](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensie](luis-reference-prebuilt-dimension.md):<br>volume<br>gebied<br>gewicht<br>informatie (ex: bits/byte)<br>de lengte (ex: meter)<br>snelheid (ex: mijl per uur)  |    ✔   | 
 [E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -220,7 +220,7 @@ De volgende entiteiten worden ondersteund:
 ------|:------:|
 [Leeftijd](luis-reference-prebuilt-age.md):<br>jaar<br>maand<br>week<br>dag   |    -   |
 [Valuta](luis-reference-prebuilt-currency.md):<br>dollar<br>decimale eenheid (ex: afronding)  |    -   |
-[Datum/tijd](luis-reference-prebuilt-deprecated.md)   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensie](luis-reference-prebuilt-dimension.md):<br>volume<br>gebied<br>gewicht<br>informatie (ex: bits/byte)<br>de lengte (ex: meter)<br>snelheid (ex: mijl per uur)  |    -   | 
 [E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -304,9 +304,9 @@ Zie Opmerkingen op [afgeschaft vooraf gemaakte entiteiten](luis-reference-prebui
 
 KeyPhrase is niet beschikbaar in alle overenting Portugees (Brazilië) - ```pt-BR```.
 
-## <a name="turkish-entity-support"></a>Ondersteuning voor de Turkse entiteit
+## <a name="turkish-entity-support"></a>Turkse entiteit ondersteuning
 
-**Er zijn geen vooraf gemaakte entiteiten die worden ondersteund in het Turks.** 
+**Er zijn geen vooraf gemaakte entiteiten die in Turks worden ondersteund.** 
 
 <!--
 

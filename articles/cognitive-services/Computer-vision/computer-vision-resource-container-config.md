@@ -1,6 +1,6 @@
 ---
 title: Containers configureren-Computer Vision
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Configureer verschillende instellingen voor Tekst herkennen containers in Computer Vision.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 90358d54077a0c320e8d3186e806b8a61d951c82
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3e1dc68ec67e8a7a24c3459519df80a8faf2fc01
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321345"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565649"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Tekst herkennen docker-containers configureren
 
@@ -51,7 +51,7 @@ Deze instelling bevindt zich op de volgende locatie:
 
 Vergeet niet om de `vision/v1.0` route ring toe te voegen aan de URI van het eind punt, zoals wordt weer gegeven in de volgende tabel. 
 
-|Verplicht| Name | Gegevenstype | Description |
+|Vereist| Name | Gegevenstype | Description |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Reeks | URI van de facturering-eindpunt<br><br>Voorbeeld:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -82,7 +82,7 @@ De exacte syntaxis van de locatie van de host koppelen, is afhankelijk van het h
 |Optioneel| Name | Gegevenstype | Description |
 |-------|------|-----------|-------------|
 |Niet toegestaan| `Input` | Tekenreeks | Computer Vision containers gebruiken deze niet.|
-|Optioneel| `Output` | Tekenreeks | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`. Dit is de locatie van de logboeken. Dit omvat container Logboeken. <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Optioneel| `Output` | Reeks | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`. Dit is de locatie van de logboeken. Dit omvat container Logboeken. <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Voorbeeld van de docker-opdrachten uitvoeren 
 

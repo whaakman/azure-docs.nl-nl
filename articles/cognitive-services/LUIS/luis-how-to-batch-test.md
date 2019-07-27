@@ -1,6 +1,6 @@
 ---
-title: Batch-test
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Batch-test-LUIS
+titleSuffix: Azure Cognitive Services
 description: Met Language Understanding (LUIS) batch testsets te uitingen met onjuiste intenties en entiteiten.
 services: cognitive-services
 author: diberry
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: d615eb2a23b953bad5e41859357d9ae9e9be2ba6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd0910fedc9fd27af198f6a2b94b34daf57c050f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60197609"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563681"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testen met een set van voorbeeld-uitingen batch
 
- Testen van de batch is een uitgebreide test op uw huidige, getrainde model voor het meten van de prestaties van LUIS. De gegevens die wordt gebruikt voor het testen van de batch mag niet voorbeeld uitingen bevatten in de intents of uitingen ontvangen van het eindpunt van de runtime voorspelling. 
+ Testen van de batch is een uitgebreide test op uw huidige, getrainde model voor het meten van de prestaties van LUIS. De gegevens sets die worden gebruikt voor batch tests mogen geen voor beeld-uitingen bevatten in de intenties of uitingen die worden ontvangen van het voor spelling runtime-eind punt. 
 
 <a name="batch-testing"></a>
 

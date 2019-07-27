@@ -10,14 +10,13 @@ ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 863f7fdcc083c5c6f24ce441268aea1b38e15650
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 4319a393382375b080c9d4c0d3c80aa3782c6afd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729270"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569809"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>PowerShell gebruiken voor het configureren van actieve geo-replicatie voor een enkele database in Azure SQL Database
 
@@ -27,7 +26,7 @@ In dit voorbeeld van een PowerShell-script configureert u actieve geo-replicatie
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om te installeren en lokaal gebruik van PowerShell, voor deze zelfstudie vereist AZ PowerShell 1.4.0 of hoger. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u ervoor kiest om Power shell lokaal te installeren en te gebruiken, hebt u voor deze zelf studie AZ Power shell 1.4.0 of hoger nodig. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="sample-scripts"></a>Voorbeeldscripts
 
@@ -35,7 +34,7 @@ Als u ervoor kiest om te installeren en lokaal gebruik van PowerShell, voor deze
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Gebruik de volgende opdracht om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Gebruik de volgende opdracht om de resource groep en alle bijbehorende resources te verwijderen.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $primaryresourcegroupname

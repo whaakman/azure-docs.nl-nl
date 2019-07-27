@@ -1,7 +1,7 @@
 ---
-title: Webhooks - spraakservices
-titlesuffix: Azure Cognitive Services
-description: Webhooks zijn ideaal voor het optimaliseren van uw oplossing tijdens het afhandelen van langdurige HTTP terugbellen actieve processen, zoals invoer, aanpassing, nauwkeurigheidstests of transcripties van langlopende bestanden.
+title: Webhooks-spraak service
+titleSuffix: Azure Cognitive Services
+description: Webhooks zijn HTTP-aanroepen die ideaal zijn voor het optimaliseren van uw oplossing bij het verwerken van langlopende processen, zoals het importeren, aanpassen, nauw keurig testen of transcripties van langlopende bestanden.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: a100049ddfc9d4859e303546c1b10e814cf96ebb
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 3d07e540bf88c956f61b5d3b2a98702cad616985
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606210"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558794"
 ---
-# <a name="webhooks-for-speech-services"></a>Webhooks voor spraakservices
+# <a name="webhooks-for-speech-services"></a>Webhooks voor spraak Services
 
-Webhooks zijn HTTP callbacks waarmee uw toepassing voor de acceptatie van gegevens van de spraakservices wanneer deze beschikbaar. Met behulp van webhooks, kunt u uw gebruik van onze REST API's optimaliseren door hoeft u niet steeds te peilen op een reactie. In de volgende gedeelten leert u hoe u webhooks gebruiken met de Speech Services.
+Webhooks zijn net als HTTP-Call backs waarmee uw toepassing gegevens van de spraak Services kan accepteren wanneer deze beschikbaar wordt. Met webhooks kunt u uw gebruik van de REST-Api's optimaliseren door te elimineren dat er voortdurend moet worden gereageerd op een reactie. In de volgende gedeelten leert u hoe u webhooks gebruikt met de spraak Services.
 
 ## <a name="supported-operations"></a>Ondersteunde bewerkingen
 
-Webhooks ondersteuning de spraakservices voor alle langlopende bewerkingen. Elk van de hieronder vermelde bewerkingen kan resulteren in een HTTP-terugbeloproep na voltooiing.
+De spraak Services ondersteunen webhooks voor alle langlopende bewerkingen. Met elk van de onderstaande bewerkingen kan een HTTP-call back worden geactiveerd na voltooiing.
 
 * DataImportCompletion
 * ModelAdaptationCompletion
@@ -32,15 +32,15 @@ Webhooks ondersteuning de spraakservices voor alle langlopende bewerkingen. Elk 
 * EndpointDeploymentCompletion
 * EndpointDataCollectionCompletion
 
-Vervolgens maken we een webhook.
+Vervolgens gaan we een webhook maken.
 
 ## <a name="create-a-webhook"></a>Een webhook maken
 
-Laten we een webhook voor een offline transcriptie maken. Het scenario: een gebruiker heeft een lange actief audiobestand die ze graag asynchroon met de Batch-API voor transcriptie transcriberen.
+We gaan een webhook maken voor een offline-transcriptie. Het scenario: een gebruiker beschikt over een lang actief audio bestand dat ze asynchroon willen transcriberen met de batch transcriptie-API.
 
-Webhooks kunnen worden gemaakt met het maken van een POST-aanvraag naar https://\<regio\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks.
+Webhooks kunnen worden gemaakt door een post-aanvraag naar https://\<Region\>. Cris.ai/API/speechtotext/v2.1/Transcriptions/hooks te maken.
 
-Parameters voor de configuratie voor de aanvraag worden gegeven als JSON:
+Configuratie parameters voor de aanvraag worden opgegeven als JSON:
 
 ```json
 {
@@ -60,17 +60,17 @@ Parameters voor de configuratie voor de aanvraag worden gegeven als JSON:
 
 }
 ```
-Alle POST-verzoeken naar de Batch-API voor transcriptie vereisen een `name`. De `description` en `properties` parameters zijn optioneel.
+Alle POST-aanvragen voor de batch-transcriptie- `name`API vereisen een. De `description` para `properties` meters en zijn optioneel.
 
-De `Active` eigenschap wordt gebruikt om over te schakelen zonder te verwijderen en opnieuw maken van de webhookregistratie terug naar de URL in of uit aanroepen. Als u alleen voor de terugbelfunctie eenmaal moet nadat het proces is voltooid, verwijdert de webhook en de switch de `Active` eigenschap in op onwaar.
+De `Active` eigenschap wordt gebruikt om te scha kelen naar uw URL in-of uitschakelen zonder dat u de webhook-registratie hoeft te verwijderen en opnieuw te maken. Als u slechts één keer hoeft te bellen nadat het proces is voltooid, verwijdert u de webhook en schakelt u `Active` de eigenschap over naar onwaar.
 
-Het gebeurtenistype `TranscriptionCompletion` is opgegeven in de matrix gebeurtenissen. Deze wordt aangeroepen terug naar het eindpunt wanneer een transcriptie opgehaald in een definitieve status heeft (`Succeeded` of `Failed`). Bij het aanroepen van terug naar de geregistreerde URL, de aanvraag bevat een `X-MicrosoftSpeechServices-Event` koptekst met een van de geregistreerde gebeurtenis-typen. Er is één aanvraag per geregistreerde gebeurtenistype.
+Het gebeurtenis type `TranscriptionCompletion` wordt gegeven in de matrix Events. Er wordt teruggebeld naar uw eind punt wanneer een transcriptie wordt opgehaald in een Terminal`Succeeded` status `Failed`(of). De aanvraag bevat een `X-MicrosoftSpeechServices-Event` header met een van de geregistreerde gebeurtenis typen wanneer u terugkeert naar de geregistreerde URL. Er is één aanvraag per geregistreerd gebeurtenis type.
 
-Er is een gebeurtenistype dat u zich niet abonneren op. Het is de `Ping` gebeurtenistype. Een aanvraag met dit type wordt verzonden naar de URL wanneer u klaar bent het maken van een webhook bij het gebruik van de ping-URL (Zie hieronder).  
+Er is één gebeurtenis type waarop u zich niet kunt abonneren. Het is het `Ping` gebeurtenis type. Er wordt een aanvraag met dit type verzonden naar de URL wanneer u klaar bent met het maken van een webhook bij het gebruik van de ping-URL (zie hieronder).  
 
-In de configuratie, de `url` eigenschap is vereist. POST-aanvragen worden verzonden naar deze URL. De `secret` wordt gebruikt om u te maken van een SHA256-hash van de nettolading aan de geheime sleutel als een HMAC-sleutel. De hash is ingesteld als de `X-MicrosoftSpeechServices-Signature` header bij het aanroepen van terug naar de geregistreerde URL. Deze header is Base64-gecodeerd.
+In de configuratie is de `url` eigenschap vereist. POST-aanvragen worden verzonden naar deze URL. De `secret` wordt gebruikt voor het maken van een sha256-hash van de payload, met het geheim als een HMAC-sleutel. De hash wordt ingesteld als de `X-MicrosoftSpeechServices-Signature` header bij het aanroepen van de geregistreerde URL. Deze header is base64-gecodeerd.
 
-In dit voorbeeld laat zien hoe u een nettolading met valideren C#:
+In dit voor beeld ziet u hoe u een Payload C#kunt valideren met:
 
 ```csharp
 
@@ -110,32 +110,32 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
 }
 
 ```
-In dit codefragment de `secret` wordt ontsleuteld en gevalideerd. U ziet ook dat de webhook-gebeurtenistype is overgeschakeld. Er is momenteel één gebeurtenis per voltooide transcriptie. De code nieuwe pogingen vijf keer voor elke gebeurtenis (met een vertraging van één seconde) voordat geeft.
+In dit code fragment wordt de `secret` code gedecodeerd en gevalideerd. U ziet ook dat het gebeurtenis type webhook is geswitcheerd. Er is momenteel één gebeurtenis per voltooide transcriptie. De code wordt vijf keer opnieuw geprobeerd voor elke gebeurtenis (met een vertraging van één seconde) voordat deze wordt opgeteld.
 
-### <a name="other-webhook-operations"></a>Andere bewerkingen webhook
+### <a name="other-webhook-operations"></a>Andere webhook-bewerkingen
 
 Alle geregistreerde webhooks ophalen: TOEVOEGEN https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
 
 Een specifieke webhook ophalen: TOEVOEGEN https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
-Een specifieke webhook verwijderen: VERWIJDEREN https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
+Eén specifieke webhook verwijderen: VERWIJDERD https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
 > [!Note]
-> In het bovenstaande voorbeeld is de regio 'westus'. Dit moet worden vervangen door de regio waar u uw resource Speech Services in Azure portal hebt gemaakt.
+> In het bovenstaande voor beeld is de regio westus. Dit moet worden vervangen door de regio waar u uw speech Services-resource hebt gemaakt in de Azure Portal.
 
-POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping hoofdtekst: leeg zijn
+https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping Hoofd tekst: leeg
 
-Een POST-aanvraag verzendt naar de geregistreerde URL. De aanvraag bevat een `X-MicrosoftSpeechServices-Event` -header met een waarde-ping. Als de webhook is geregistreerd met een geheim, bevat deze een `X-MicrosoftSpeechServices-Signature` -header met een SHA256-hash van de nettolading aan de geheime sleutel als HMAC-sleutel. De hash is Base64-gecodeerd.
+Verzendt een POST-aanvraag naar de geregistreerde URL. De aanvraag bevat een `X-MicrosoftSpeechServices-Event` header met de waarde ping. Als de webhook is geregistreerd met een geheim, bevat deze een `X-MicrosoftSpeechServices-Signature` header met een sha256-hash van de payload met het geheim als HMAC-sleutel. De hash is base64-gecodeerd.
 
-POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test hoofdtekst: leeg zijn
+https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test Hoofd tekst: leeg
 
-Een POST-aanvraag verzendt naar de geregistreerde URL als een entiteit voor het geabonneerde gebeurtenistype (transcriptie) aanwezig in het systeem is en de juiste status heeft. De nettolading wordt worden gegenereerd op basis van de laatste entiteit die de webhook zou hebben aangeroepen. Als er is geen entiteit aanwezig is, wordt het bericht reageren met 204. Als een testaanvraag kan worden gemaakt, wordt deze reageren met 200. De aanvraagtekst is van de dezelfde vorm zoals in de GET-aanvraag voor een specifieke entiteit dat de webhook is geabonneerd voor (bijvoorbeeld transcriptie). De aanvraag heeft de `X-MicrosoftSpeechServices-Event` en `X-MicrosoftSpeechServices-Signature` headers zoals hierboven beschreven.
+Verzendt een POST-aanvraag naar de geregistreerde URL als een entiteit voor het gebeurtenis type geabonneerd (transcriptie) aanwezig is in het systeem en de juiste status heeft. De payload wordt gegenereerd op basis van de laatste entiteit die de webhook zou hebben aangeroepen. Als er geen entiteit aanwezig is, reageert het bericht met 204. Als er een test aanvraag kan worden gedaan, reageert deze met 200. De aanvraag tekst bevindt zich op dezelfde vorm als in de GET-aanvraag voor een specifieke entiteit waarop de webhook is geabonneerd (transcriptie). De aanvraag bevat de `X-MicrosoftSpeechServices-Event` en `X-MicrosoftSpeechServices-Signature` -headers zoals hierboven wordt beschreven.
 
 ### <a name="run-a-test"></a>Een test uitvoeren
 
-Een snelle test kan worden gedaan met behulp van de website https://bin.webhookrelay.com. Van daaruit kunt u aanroep back-URL's worden doorgegeven als parameter aan de HTTP-POST voor het maken van een webhook die eerder in het document wordt beschreven.
+Een snelle test kan worden uitgevoerd met behulp https://bin.webhookrelay.com van de website. Van daaruit kunt u aanroepen van Url's voor door geven als para meter naar het HTTP POST-bericht voor het maken van een webhook dat eerder in het document is beschreven.
 
-Klik op 'Bucket maken' en volg de aanwijzingen op het scherm instructies voor het verkrijgen van een hook. Gebruik vervolgens de informatie in deze pagina de hook registreren met de Speech-service. De nettolading van een bericht relay – in reactie op de voltooiing van een transcriptie – ziet er als volgt uit:
+Klik op Bucket maken en volg de instructies op het scherm om een hook te verkrijgen. Gebruik vervolgens de informatie die op deze pagina wordt weer gegeven om de Hook bij de spraak service te registreren. De payload van een doorstuur bericht: als reactie op het volt ooien van een transcriptie – ziet er als volgt uit:
 
 ```json
 {
@@ -177,7 +177,7 @@ Klik op 'Bucket maken' en volg de aanwijzingen op het scherm instructies voor he
     }
 }
 ```
-Het bericht bevat de opname-URL en de modellen die worden gebruikt dat de opname te transcriberen.
+Het bericht bevat de opname-URL en modellen die worden gebruikt voor het transcriberen van die opname.
 
 ## <a name="next-steps"></a>Volgende stappen
 

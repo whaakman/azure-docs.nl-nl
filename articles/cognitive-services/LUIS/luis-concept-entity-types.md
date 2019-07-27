@@ -1,6 +1,6 @@
 ---
-title: Entiteitstypen
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Entiteits typen-LUIS
+titleSuffix: Azure Cognitive Services
 description: 'Entiteiten halen gegevens op uit de utterance. Entiteits typen bieden u voorspel bare extractie van gegevens. Er zijn twee typen entiteiten: door de machine geleerd en niet-machine geleerde. Het is belang rijk om te weten met welk type entiteit u werkt in uitingen.'
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: a5a3ba8c25107317e7c47ee358f9a6ebe7d4556f
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 9919b6d07e874bd306bdba9da2cd3357bedc48f0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479119"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564011"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entiteits typen en hun doel einden in LUIS
 

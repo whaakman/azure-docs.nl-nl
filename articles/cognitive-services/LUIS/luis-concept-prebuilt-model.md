@@ -1,6 +1,6 @@
 ---
-title: Vooraf gemaakte modellen
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Preconstrueerde modellen-LUIS
+titleSuffix: Azure Cognitive Services
 description: Vooraf gemaakte modellen bieden domeinen, intents uitingen en entiteiten. U kunt uw app te starten met een vooraf gedefinieerde domein of later een relevante domein toevoegen aan uw app.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 5d2ea9d971eff22ddeed4122c9697ca3096697b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be0ac73b1e225612fedb93c59a90380d67c6de92
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813877"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560713"
 ---
 # <a name="prebuilt-domain-intent-and-entity-models"></a>Vooraf gemaakte modellen voor domein, kunt u lezen wat en entiteit
 

@@ -9,15 +9,15 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 09eaf9465ec3912dea6e1f3ee1693f6bfed50abc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67176591"
 ---
 ## <a name="push-image-to-registry"></a>Installatiekopie pushen naar register
 
-Als u een installatiekopie naar een Azure Container Registry wilt pushen, moet u eerst over een installatiekopie beschikken. Als u nog geen lokale containerinstallatiekopieën hebt, voert u de volgende [docker pull][docker-pull]-opdracht uit om een bestaande installatiekopie op te halen uit Docker Hub. Haal voor dit voorbeeld de installatiekopie `hello-world` op.
+Als u een installatiekopie naar een Azure Container Registry wilt pushen, moet u eerst over een installatiekopie beschikken. Als u nog geen lokale container installatie kopieën hebt, voert u de volgende opdracht [docker pull][docker-pull] uit om een bestaande installatie kopie van docker hub te halen. Haal voor dit voorbeeld de installatiekopie `hello-world` op.
 
 ```
 docker pull hello-world
@@ -37,7 +37,7 @@ Gebruik ten slotte [docker push][docker-push] om de installatiekopie naar de ACR
 docker push <acrLoginServer>/hello-world:v1
 ```
 
-Nadat u de installatiekopie naar uw containerregister hebt gepusht, verwijdert u de `hello-world:v1`-installatiekopie uit uw lokale Docker-omgeving. (Merk op dat deze [docker rmi][docker-rmi]-opdracht de installatiekopie niet verwijdert uit de **hello-world**-opslagplaats in uw Azure-containerregister.)
+Nadat u de installatiekopie naar uw containerregister hebt gepusht, verwijdert u de `hello-world:v1`-installatiekopie uit uw lokale Docker-omgeving. (Houd er rekening mee dat met deze [docker RMI][docker-rmi] -opdracht de installatie kopie niet wordt verwijderd uit de opslag plaats **Hallo wereld** in uw Azure container Registry.)
 
 ```
 docker rmi <acrLoginServer>/hello-world:v1

@@ -1,6 +1,6 @@
 ---
 title: 'Gebruik een voorspellingseindpunt om afbeeldingen programmatisch te testen met classificatie: Custom Vision'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Lees hoe u de API gebruikt om afbeeldingen programmatisch te testen met uw Custom Vision Service-classificatie.
 services: cognitive-services
 author: anrothMSFT
@@ -10,48 +10,48 @@ ms.subservice: custom-vision
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8564095cc84a3f124ca41efd2e19787cd16902ab
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816745"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564121"
 ---
-# <a name="use-your-model-with-the-prediction-api"></a>Het Model met de Voorspellings-API gebruiken
+# <a name="use-your-model-with-the-prediction-api"></a>Uw model gebruiken met de Voorspellings-API
 
-Nadat u hebt uw model te trainen, kunt u installatiekopieën programmatisch testen door indienen bij de voorspelling API-eindpunt.
+Nadat u uw model hebt getraind, kunt u afbeeldingen testen via een programma door deze te verzenden naar het API-eind punt.
 
 > [!NOTE]
-> In dit document ziet u hoe u een afbeelding bij de voorspellings-API kunt indienen met behulp van C#. Zie voor meer informatie en voorbeelden, de [voorspelling API-verwijzing](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
+> In dit document ziet u hoe u een afbeelding bij de voorspellings-API kunt indienen met behulp van C#. Zie voor meer informatie en voor beelden de voor Spellings- [API-referentie](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
 
 ## <a name="publish-your-trained-iteration"></a>Uw getrainde iteratie publiceren
 
 Op de [Custom Vision-webpagina](https://customvision.ai) selecteert u uw project en vervolgens selecteert u het tabblad __Prestaties__.
 
-Om in te dienen afbeeldingen voor de voorspelling API, moet u eerst uw iteratie voor voorspelling, die kan worden uitgevoerd door het selecteren van publiceren __publiceren__ en een naam op voor de gepubliceerde iteratie op te geven. Dit maakt het model toegankelijk is voor de voorspelling API van uw aangepaste Vision Azure-resource.
+Als u installatie kopieën wilt verzenden naar de Voorspellings-API, moet u eerst uw iteratie voor de voor spelling publiceren, die u kunt doen door __publiceren__ te selecteren en een naam op te geven voor de gepubliceerde iteratie. Hiermee wordt uw model toegankelijk gemaakt voor de Voorspellings-API van uw Custom Vision Azure-resource.
 
-![Het tabblad prestaties wordt weergegeven, met een rode rechthoek rond de knop publiceren.](./media/use-prediction-api/unpublished-iteration.png)
+![Het tabblad prestaties wordt weer gegeven, met een rode rechthoek rondom de knop publiceren.](./media/use-prediction-api/unpublished-iteration.png)
 
-Zodra het model is gepubliceerd, ziet u een 'Gepubliceerd' label weergegeven naast uw iteratie in de zijbalk links en de naam wordt weergegeven in de beschrijving van de iteratie.
+Zodra uw model is gepubliceerd, wordt het label "gepubliceerd" weer gegeven naast uw iteratie in de zijbalk aan de linkerkant. de naam wordt weer gegeven in de beschrijving van de iteratie.
 
-![Het tabblad prestaties wordt weergegeven, met een rode rechthoek rond het label is gepubliceerd en de naam van de gepubliceerde iteratie.](./media/use-prediction-api/published-iteration.png)
+![Het tabblad prestaties wordt weer gegeven, met een rode rechthoek rondom het gepubliceerde label en de naam van de gepubliceerde iteratie.](./media/use-prediction-api/published-iteration.png)
 
 ## <a name="get-the-url-and-prediction-key"></a>De URL en voorspellingssleutel ophalen
 
-Zodra het model is gepubliceerd, kunt u de vereiste gegevens ophalen door het selecteren van __voorspelling URL__. Hiermee opent u een dialoogvenster met informatie over het gebruik van de Voorspellings-API, met inbegrip van de __voorspelling URL__ en __voorspelling-sleutel__.
+Zodra uw model is gepubliceerd, kunt u de vereiste gegevens ophalen door de URL voor de voor __Spelling__te selecteren. Hiermee opent u een dialoog venster met informatie over het gebruik van de Voorspellings-API, met inbegrip van de Voorspellings- __URL__ en de Voorspellings __sleutel__.
 
-![Het tabblad prestaties wordt weergegeven met een rode rechthoek rond de voorspelling van URL-knop.](./media/use-prediction-api/published-iteration-prediction-url.png)
+![Het tabblad prestaties wordt weer gegeven met een rode rechthoek rondom de knop voor de Voorspellings-URL.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
-![Het tabblad prestaties wordt weergegeven met een rode rechthoek rond de voorspelling van URL-waarde voor het gebruik van een afbeeldingsbestand en de voorspelling-sleutel-waarde.](./media/use-prediction-api/prediction-api-info.png)
+![Het tabblad prestaties wordt weer gegeven met een rode rechthoek rondom de waarde van de Voorspellings-URL voor het gebruik van een afbeeldings bestand en de waarde voor de voor Spellings sleutel.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> Uw __voorspelling-sleutel__ ook te vinden de [Azure-portal](https://portal.azure.com) pagina voor de aangepaste Vision Azure-Resource die is gekoppeld aan uw project, onder de __sleutels__ blade.
+> De __Voorspellings sleutel__ kan ook worden gevonden op de [Azure Portal](https://portal.azure.com) pagina voor de Custom Vision Azure-resource die aan uw project is gekoppeld, onder de Blade __sleutels__ .
 
-In deze handleiding vindt u een lokale installatiekopie gebruiken, dus kopieer de URL onder **hebt u een afbeeldingsbestand** naar een tijdelijke locatie. Kopieer de bijbehorende __voorspelling-sleutel__ waarde ook.
+In deze hand leiding maakt u gebruik van een lokale installatie kopie en kopieert u de URL onder **Als u een afbeeldings bestand** op een tijdelijke locatie hebt. Kopieer ook de bijbehorende Voorspellings __sleutel__ waarde.
 
 ## <a name="create-the-application"></a>De toepassing maken
 
-1. In Visual Studio, maak een nieuwe C# consoletoepassing.
+1. Maak in Visual Studio een nieuwe C# console toepassing.
 
 1. Gebruik de volgende code als de hoofdtekst van het bestand __Program.cs__.
 
@@ -111,13 +111,13 @@ In deze handleiding vindt u een lokale installatiekopie gebruiken, dus kopieer d
     ```
 
 1. Voer de volgende informatie in:
-   * Stel de `namespace` veld de naam van uw project.
-   * Vervang de tijdelijke aanduiding `<Your prediction key>` met de waarde van de sleutel die u eerder hebt opgehaald.
-   * Vervang de tijdelijke aanduiding `<Your prediction URL>` met de URL die u eerder hebt opgehaald.
+   * Stel het `namespace` veld in op de naam van uw project.
+   * Vervang de tijdelijke `<Your prediction key>` aanduiding door de sleutel waarde die u eerder hebt opgehaald.
+   * Vervang de tijdelijke `<Your prediction URL>` aanduiding door de URL die u eerder hebt opgehaald.
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-Wanneer u de toepassing uitvoert, wordt u gevraagd om in te voeren van een pad naar een afbeelding in de console. De afbeelding wordt vervolgens verzonden naar de Voorspellings-API en de voorspellingsresultaten worden geretourneerd als een tekenreeks in JSON-indeling. Hier volgt een voorbeeld van de reactie.
+Wanneer u de toepassing uitvoert, wordt u gevraagd om een pad naar een afbeeldings bestand in de-console in te voeren. De installatie kopie wordt vervolgens verzonden naar de Voorspellings-API en de Voorspellings resultaten worden geretourneerd als een JSON-indelings teken reeks. Hier volgt een voor beeld van een antwoord.
 
 ```json
 {
@@ -134,10 +134,10 @@ Wanneer u de toepassing uitvoert, wordt u gevraagd om in te voeren van een pad n
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze handleiding, hebt u geleerd hoe u om in te dienen afbeeldingen aan uw aangepaste installatiekopie classificatie/detector en een antwoord via een programma met de C# SDK. Hierna leert hoe u end-to-end scenario's met C#, of aan de slag met een andere taal SDK.
+In deze hand leiding hebt u geleerd hoe u installatie kopieën kunt verzenden naar de classificatie/detectie van uw aangepaste installatie kopie en hoe C# u via een programma een antwoord ontvangt met de SDK. Leer vervolgens hoe u end-to-end-scenario's kunt volt C#ooien met of aan de slag kunt met een andere taal-SDK.
 
 * [Snelstartgids: .NET SDK](csharp-tutorial.md)
 * [Snelstart: Python-SDK](python-tutorial.md)
-* [Snelstart: Java SDK](java-tutorial.md)
+* [Snelstart: Java-SDK](java-tutorial.md)
 * [Snelstart: Node-SDK](node-tutorial.md)
-* [Snelstart: Go SDK](go-tutorial.md)
+* [Snelstart: Go-SDK](go-tutorial.md)

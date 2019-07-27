@@ -1,5 +1,5 @@
 ---
-title: Entiteit Simple, woordgroepenlijst
+title: Eenvoudige entiteit, woordgroepen lijst-LUIS
 titleSuffix: Azure Cognitive Services
 description: In deze zelfstudie haalt u via machine learning verkregen gegevens over een functienaam op uit een utterance met behulp van de entiteit Simple. Als u de nauwkeurigheid van het extraheren wilt vergroten, voegt u een woordenlijst toe met termen die specifiek gekoppeld zijn aan de Simple-entiteit.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: a03a1224451411617f38c8cecafbef008aa08916
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 786c5725046885a0321696e95703c53081e96979
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276215"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560332"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Zelfstudie: namen extraheren met de entiteit Simple en een woordenlijst
 
@@ -48,7 +48,7 @@ Een Simple-entiteit is een goede keuze voor dit type gegevens wanneer:
 * Gegevens niet goed zijn opgemaakt als een reguliere expressie.
 * Gegevens niet van algemene aard zijn zoals een vooraf gedefinieerde entiteit van een telefoonnummer of gegevens.
 * Gegevens niet precies overeenkomen met een lijst van bekende woorden, zoals een lijstentiteit.
-* Gegevens bevat geen andere gegevensitems, zoals een samengestelde entiteiten of contextuele rollen.
+* Gegevens bevatten geen andere gegevens items, zoals een samengestelde entiteit of contextuele rollen.
 
 Laten we de volgende utterances uit een chatbot als voorbeeld nemen:
 
@@ -237,7 +237,7 @@ Open [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-
 
     Zorg ervoor dat **Deze waarden zijn verwisselbaar** aangevinkt is, omdat deze waarden allemaal als synoniemen voor taken moeten worden behandeld. Meer informatie over uitwisselbare en niet-uitwisselbare [Woordenlijstconcepten](luis-concept-feature.md#how-to-use-phrase-lists).
 
-1. Selecteer **gedaan** om de woordgroepenlijst te activeren.
+1. Selecteer **gereed** om de lijst met zinsdelen te activeren.
 
     [![Schermopname van het pop-upvenster voor het maken van een nieuwe woordgroepenlijst met woorden in het vak voor woordgroepenlijstwaarden](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Schermopname van het pop-upvenster voor het maken van een nieuwe woordgroepenlijst met woorden in het vak voor woordgroepenlijstwaarden")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 

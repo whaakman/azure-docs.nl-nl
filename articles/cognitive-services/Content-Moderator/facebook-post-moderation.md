@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Beheren van inhoud van de Facebook - Content Moderator'
-titlesuffix: Azure Cognitive Services
+title: 'Zelfstudie: Gemiddeld Facebook-inhoud-Content Moderator'
+titleSuffix: Azure Cognitive Services
 description: In deze zelfstudie leert u hoe u met behulp van machine learning en Content Moderator berichten en opmerkingen voor Facebook kunt controleren.
 services: cognitive-services
 author: PatrickFarley
@@ -10,32 +10,32 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: dd06330e82850cc44bc0f4d36ba7caf596ace939
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: bd2ed09294ad122b7e8af045f01d3c6f63fcc510
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603505"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564940"
 ---
-# <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Zelfstudie: Gemiddeld Facebook-berichten en opdrachten met Azure Content Moderator
+# <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Zelfstudie: Gematige Facebook-berichten en-opdrachten met Azure Content Moderator
 
-In deze zelfstudie leert u hoe u Azure Content Moderator om u te helpen met het gemiddelde van de berichten en opmerkingen op een Facebook-pagina. Facebook wordt de inhoud die wordt gepost door bezoekers van de Content Moderator-service verzonden. Vervolgens wordt uw Content Moderator-werkstromen de inhoud publiceren of beoordelingen binnen het beoordelingsprogramma, afhankelijk van de drempelwaarden en scores die inhoud maken. Zie de [Build 2017 demovideo](https://channel9.msdn.com/Events/Build/2017/T6033) voor een voorbeeld van een werkende van dit scenario.
+In deze zelf studie leert u hoe u Azure Content Moderator kunt gebruiken om de berichten en opmerkingen op een Facebook-pagina te lezen. Facebook verzendt de inhoud die wordt Gepost door bezoekers naar de Content Moderator-service. Vervolgens worden de inhoud door uw Content Moderator-werk stromen gepubliceerd of worden er in het beoordelings programma beoordelingen gemaakt, afhankelijk van de scores en drempel waarden van de inhoud. Raadpleeg de [video Build 2017-demo](https://channel9.msdn.com/Events/Build/2017/T6033) voor een werkend voor beeld van dit scenario.
 
 In deze zelfstudie ontdekt u hoe u:
 
 > [!div class="checklist"]
 > * Een Content Moderator-team samenstellen.
 > * Azure-functies maken die luisteren naar HTTP-gebeurtenissen van Content Moderator en Facebook.
-> * Koppel een Facebook-pagina aan de Content Moderator met behulp van een Facebook-toepassing.
+> * Een Facebook-pagina koppelen aan Content Moderator met behulp van een Facebook-toepassing.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Het volgende diagram illustreert elk onderdeel van dit scenario:
+Dit diagram illustreert elk onderdeel van dit scenario:
 
-![Diagram van Content Moderator ontvangen van gegevens uit Facebook via 'FBListener' en het verzenden van gegevens via "CMListener"](images/tutorial-facebook-moderation.png)
+![Diagram van Content Moderator het ontvangen van informatie van Facebook via ' FBListener ' en het verzenden van informatie via ' CMListener '](images/tutorial-facebook-moderation.png)
 
 > [!IMPORTANT]
-> In 2018, Facebook geïmplementeerd een meer strikt gaan van Facebook-Apps. Niet mogelijk voor het voltooien van de stappen in deze zelfstudie als uw app is niet gecontroleerd en goedgekeurd door het team van de beoordeling Facebook.
+> In 2018 heeft Facebook een strengere hebben Facebook-apps geïmplementeerd. U kunt de stappen van deze zelf studie niet volt ooien als uw app niet is gecontroleerd en goedgekeurd door het Facebook Review-team.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -44,55 +44,55 @@ Het volgende diagram illustreert elk onderdeel van dit scenario:
 
 ## <a name="create-a-review-team"></a>Een beoordelingsteam maken
 
-Verwijzen naar de [Content Moderator proberen op het web](quick-start.md) Quick Start voor instructies over hoe u zich aanmelden voor de [Content Moderator bekijken hulpprogramma](https://contentmoderator.cognitive.microsoft.com/) en maken van een beoordelingsteam. Noteer de waarde voor **Team Id** op de pagina **Create review team**.
+Raadpleeg de Snelstartgids [Content moderator op het web](quick-start.md) voor instructies over hoe u zich kunt registreren voor het [hulp programma content moderator beoordeling](https://contentmoderator.cognitive.microsoft.com/) en maak een beoordelings team. Noteer de waarde voor **Team Id** op de pagina **Create review team**.
 
-## <a name="configure-image-moderation-workflow"></a>Afbeeldingstoezicht werkstroom configureren
+## <a name="configure-image-moderation-workflow"></a>Werk stroom voor afbeeldings toezicht configureren
 
-Raadpleeg de [definiëren, test en gebruik werkstromen](review-tool-user-guide/workflows.md) handleiding voor het maken van een aangepaste installatiekopie-werkstroom. Content Moderator gebruikt deze werkstroom automatisch controleren van installatiekopieën op Facebook en sommige aan het beoordelingsprogramma verstuurt. Noteer de werkstroom **naam**.
+Raadpleeg de hand leiding voor het [definiëren, testen en gebruiken van werk stromen](review-tool-user-guide/workflows.md) om een werk stroom voor aangepaste afbeeldingen te maken. Content Moderator gebruikt deze werk stroom om automatisch afbeeldingen op Facebook te controleren en enkele berichten naar het beoordelings programma te verzenden. Noteer de **naam**van de werk stroom.
 
-## <a name="configure-text-moderation-workflow"></a>Tekst toezicht werkstroom configureren
+## <a name="configure-text-moderation-workflow"></a>Werk stroom voor tekst toezicht configureren
 
-Nogmaals, verwijzen naar de [definiëren, test en gebruik werkstromen](review-tool-user-guide/workflows.md) handleiding; dit keer, maakt u een aangepaste tekst-werkstroom. Content Moderator gebruikt deze werkstroom automatisch controleren op tekst. Noteer de werkstroom **naam**.
+Raadpleeg de hand leiding voor het [definiëren, testen en gebruiken van werk stromen](review-tool-user-guide/workflows.md) . op deze tijd maakt u een werk stroom voor aangepaste tekst. Content Moderator maakt gebruik van deze werk stroom om automatisch tekst inhoud te controleren. Noteer de **naam**van de werk stroom.
 
 ![Tekstwerkstroom configureren](images/text-workflow-configure.PNG)
 
-Test uw werkstroom met behulp van de **werkstroom uitvoeren** knop.
+Test uw werk stroom met behulp van de knop **werk stroom uitvoeren** .
 
 ![Tekstwerkstroom testen](images/text-workflow-test.PNG)
 
 ## <a name="create-azure-functions"></a>Azure-functies maken
 
-Aanmelden bij de [Azure-portal](https://portal.azure.com/) en volg deze stappen:
+Meld u aan bij de [Azure Portal](https://portal.azure.com/) en voer de volgende stappen uit:
 
 1. Maak een Azure-functie-app zoals wordt weergegeven op de pagina [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal).
-1. Ga naar de zojuist gemaakte functie-App.
-1. In de App, gaat u naar de **platformfuncties** tabblad en selecteer **configuratie**. In de **toepassingsinstellingen** sectie van de volgende pagina, selecteer **nieuwe toepassingsinstelling** om toe te voegen van de volgende sleutel/waarde-paren:
+1. Ga naar de zojuist gemaakte functie-app.
+1. Ga in de app naar het tabblad **platform functies** en selecteer **configuratie**. Selecteer in de sectie **Toepassings instellingen** van de volgende pagina de optie **nieuwe toepassing** om de volgende sleutel/waarde-paren toe te voegen:
     
-    | Naam van de App-instelling | value   | 
+    | Naam van app-instelling | value   | 
     | -------------------- |-------------|
     | cm:TeamId   | De id van het Content Moderator-team  | 
     | cm:SubscriptionKey | Uw abonnementssleutel voor Content Moderator: zie [Referenties](review-tool-user-guide/credentials.md) |
     | cm:Region | De naam van uw Content Moderator-regio, zonder de spaties. |
     | cm:ImageWorkflow | De naam van de werkstroom om uit te voeren voor afbeeldingen |
     | cm:TextWorkflow | De naam van de werkstroom om uit te voeren voor tekst |
-    | cm:CallbackEndpoint | URL voor de CMListener functie-App die u verderop in deze handleiding maken gaat |
-    | fb:VerificationToken | Een token voor geheim dat u hebt gemaakt, gebruikt om u te abonneren op de gebeurtenissen feed Facebook |
+    | cm:CallbackEndpoint | De URL voor de CMListener-functie-app die u later in deze hand leiding gaat maken |
+    | fb:VerificationToken | Een geheim token dat u maakt, dat wordt gebruikt voor het abonneren op Facebook-feeds gebeurtenissen |
     | fb:PageAccessToken | Het toegangstoken voor de Facebook Graph-API verloopt niet en maakt het mogelijk de functie voor het verbergen/verwijderen van berichten namens u uit te voeren. U ontvangt dit token in een latere stap. |
 
-    Klik op de **opslaan** knop aan de bovenkant van de pagina.
+    Klik boven aan de pagina op de knop **Opslaan** .
 
-1. Ga terug naar de **platformfuncties** tabblad. Gebruik de **+** knop in het linkerdeelvenster om de **nieuwe functie** deelvenster. De functie die u gaat maken, worden gebeurtenissen ontvangen van Facebook.
+1. Ga terug naar het tabblad **platform functies** . Gebruik de **+** knop in het linkerdeel venster om het deel venster **nieuwe functie** weer te geven. De functie die u gaat maken, ontvangt gebeurtenissen van Facebook.
 
-    ![Azure Functions-deelvenster met de knop van de functie toevoegen gemarkeerd.](images/new-function.png)
+    ![Azure Functions deel venster met de knop functie toevoegen gemarkeerd.](images/new-function.png)
 
-    1. Klik op de tegel met de melding dat **Http-trigger**.
+    1. Klik op de tegel met de melding **http-trigger**.
     1. Voer de naam **FBListener** in. Stel **Autorisatieniveau** in op **Functie**.
     1. Klik op **Create**.
-    1. Vervang de inhoud van de **run.csx** met de inhoud van **FbListener/run.csx**
+    1. Vervang de inhoud van het **Run. CSX** door de inhoud van **FbListener/run. CSX**
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
 
-1. Maak een nieuwe **Http-trigger** functie met de naam **CMListener**. Deze functie ontvangt gebeurtenissen van Content Moderator. Vervang de inhoud van de **run.csx** met de inhoud van **CMListener/run.csx**
+1. Maak een nieuwe **http-trigger** functie met de naam **CMListener**. Deze functie ontvangt gebeurtenissen van Content Moderator. Vervang de inhoud van het **Run. CSX** door de inhoud van **CMListener/run. CSX**
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-110)]
 
@@ -102,22 +102,22 @@ Aanmelden bij de [Azure-portal](https://portal.azure.com/) en volg deze stappen:
 
 1. Maak een Facebook-app.
 
-    ![Facebook-pagina voor ontwikkelaars](images/facebook-developer-app.png)
+    ![Facebook-ontwikkelaars pagina](images/facebook-developer-app.png)
 
     1. Navigeer naar de [site voor Facebook-ontwikkelaars](https://developers.facebook.com/)
     1. Klik op **My Apps**.
     1. Voeg een nieuw app toe.
-    1. een andere naam
-    1. Selecteer **Webhooks -> Set Up**
-    1. Selecteer **pagina** in de vervolgkeuzelijst en selecteer **abonneren op dit object**
+    1. Geef deze een naam
+    1. Webhooks selecteren **-> instellen**
+    1. Selecteer **pagina** in het vervolg keuzemenu en selecteer **Abonneren op dit object**
     1. Geef **FBListener Url** op als de Callback URL en het **Verify Token** dat u hebt geconfigureerd onder **Function App Settings**
     1. Als u zich hebt geabonneerd, bladert u omlaag naar de feed en selecteert u **subscribe**.
-    1. Klik op de **testen** knop van de **feed** rij voor het verzenden van een testbericht naar uw Azure-functie FBListener in, klik op de **verzenden naar MijnServer** knop. Hier ziet u de aanvraag wordt ontvangen op uw FBListener.
+    1. Klik op de knop **testen** van de rij **invoer** om een test bericht naar de Azure-functie FBListener te verzenden en vervolgens op de knop **verzenden naar mijn server** te drukken. U ziet dat de aanvraag wordt ontvangen op uw FBListener.
 
 1. Maak een Facebook-pagina.
 
     > [!IMPORTANT]
-    > In 2018, Facebook geïmplementeerd een meer strikt gaan van Facebook-apps. Niet mogelijk om uit te voeren secties 2, 3 en 4 als uw app is niet gecontroleerd en goedgekeurd door het team van de beoordeling Facebook.
+    > In 2018 heeft Facebook een strengere hebben Facebook-apps geïmplementeerd. Het is niet mogelijk om secties 2, 3 en 4 uit te voeren als uw app niet is gecontroleerd en goedgekeurd door het Facebook Review-team.
 
     1. Navigeer naar [Facebook](https://www.facebook.com/bookmarks/pages) en maak een **nieuwe Facebook-pagina**.
     1. Volg deze stappen om toe te staan dat de Facebook-app toegang heeft tot deze pagina:
@@ -155,7 +155,7 @@ Aanmelden bij de [Azure-portal](https://portal.azure.com/) en volg deze stappen:
         3. Selecteer **Get Permanent Page Access Token** en klik op **Send**.
     5. Kopieer de waarde van **access_token** in het antwoord en wijs deze toe aan de app-instelling, **fb:PageAccessToken**.
 
-De oplossing verzendt alle afbeeldingen en tekst die op uw Facebook-pagina worden geplaatst naar Content Moderator. Vervolgens worden de werkstromen die u eerder hebt geconfigureerd, worden aangeroepen. De inhoud die niet met uw criteria die zijn gedefinieerd in de werkstromen wordt doorgegeven aan de beoordelingen binnen het beoordelingsprogramma. De rest van de inhoud wordt automatisch gepubliceerd.
+De oplossing verzendt alle afbeeldingen en tekst die op uw Facebook-pagina worden geplaatst naar Content Moderator. Vervolgens worden de werk stromen aangeroepen die u eerder hebt geconfigureerd. De inhoud die niet voldoet aan de criteria die zijn gedefinieerd in de werk stromen, wordt door gegeven aan beoordelingen binnen het beoordelings programma. De rest van de inhoud wordt automatisch gepubliceerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

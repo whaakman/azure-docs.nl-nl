@@ -10,10 +10,10 @@ ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: f99b4ee6dd11a109d1c563c84debc2157cb03337
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309499"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Snelstartgids: Een privé-containerregister maken met Azure PowerShell
@@ -26,7 +26,7 @@ Azure Container Registry is een beheerde service voor Docker-containerregisters 
 
 Voor deze quickstart is de Azure PowerShell-module vereist. Voer `Get-Module -ListAvailable Az` uit om uw geïnstalleerde versie te bepalen. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps).
 
-Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten voor [macOS][docker-mac], [Windows][docker-windows]en [Linux][docker-Linux-] systemen.
+Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten voor [macOS][docker-mac]-, [Windows][docker-windows]-en [Linux][docker-linux] -systemen.
 
 Omdat Azure Cloud-Shell niet alle vereiste Docker-onderdelen bevat (de `dockerd`-daemon), kunt u de Cloud Shell niet voor deze snelstart gebruiken.
 

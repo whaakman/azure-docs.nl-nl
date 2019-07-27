@@ -4,7 +4,7 @@ description: Belangrijke analysescenario's en componenten voor Windows en Linux 
 keywords: hulpprogramma's voor datatechnologie, virtuele machine voor datatechnologie, hulpprogramma voor datatechnologie, linux-datatechnologie
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
@@ -14,57 +14,57 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 384cb274496670e0b0b5a33e001e78a0babed3f0
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.author: vijetaj
+ms.openlocfilehash: 5816f53115f3ec54cbd9784894a5262b68dd6e95
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427793"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565186"
 ---
-# <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Inleiding tot Azure Data Science Virtual Machine voor Linux en Windows
+# <a name="what-is-azure-data-science-virtual-machine-for-linux-and-windows"></a>Wat is Azure Data Science Virtual Machine voor Linux en Windows?
 
 Data Science Virtual Machine (DSVM) is een aangepaste VM-installatiekopie in de Azure-cloud van Microsoft, die speciaal is gebouwd voor datatechnologie. DSVM bevat veel populaire gegevenswetenschap- en andere hulpprogramma's die vooraf zijn geïnstalleerd en geconfigureerd voor het snel ontwikkelen van intelligente toepassingen voor geavanceerde analyses. Deze is beschikbaar op Windows Server en Linux. We bieden de Windows-editie van DSVM op Server 2016 en Server 2012. We bieden Linux-edities van de DSVM op Ubuntu 16.04 LTS en CentOS 7.4.
 
-In dit artikel wordt beschreven wat u kunt doen met de Data Science VM. Het bevat een overzicht van enkele van de belangrijkste scenario's voor het gebruik van de virtuele machine en de belangrijkste functies die beschikbaar is op de Windows- en Linux-versies vindt u een specificatie. Het artikel bevat ook instructies over hoe u aan de slag met behulp van deze.
+In dit artikel wordt beschreven wat u met de Data Science VM kunt doen. Het overzicht bevat enkele van de belangrijkste scenario's voor het gebruik van de virtuele machine en de specificatie van de belangrijkste functies die beschikbaar zijn in de versies van Windows en Linux. Het artikel bevat ook instructies om aan de slag te gaan met behulp van deze.
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>Wat kan ik doen met de Data Science Virtual Machine?
 Het doel van de Data Science Virtual Machine (DSVM) is om dataprofessionals van allerlei vaardigheidsniveaus en in allerlei branches te voorzien van een probleemloze, vooraf geconfigureerde en volledig geïntegreerde datatechnologieomgeving. In plaats van zelf een vergelijkbare werkruimte uit te rollen, kunt u een DSVM inrichten. Zo bespaart u dagen of zelfs _weken_ aan installatie-, configuratie- en pakketbeheerprocessen. Nadat uw DSVM is toegewezen, kunt u meteen aan uw datatechnologieproject gaan werken.
 
-De Data Science VM is ontworpen en geconfigureerd om met een breed scala aan gebruiksscenario's te kunnen werken. U kunt uw omgeving omhoog of omlaag schalen als uw project worden gewijzigd. U kunt ook uw voorkeurstaal gebruiken datatechnologietaken te programmeren en installeren van andere hulpprogramma's voor het aanpassen van het systeem voor uw exacte behoeften.
+De Data Science VM is ontworpen en geconfigureerd om met een breed scala aan gebruiksscenario's te kunnen werken. U kunt uw omgeving omhoog of omlaag schalen naarmate de project vereisten veranderen. U kunt ook uw voorkeurs taal gebruiken voor het Program meren van data Science-taken en andere hulpprogram ma's installeren om het systeem aan te passen aan uw exacte behoeften.
 
 ## <a name="key-scenarios"></a>Belangrijke scenario's
 In deze sectie wordt een aantal belangrijke scenario's besproken waarvoor de Data Science VM kan worden geïmplementeerd.
 
 ### <a name="preconfigured-analytics-desktop-in-the-cloud"></a>Vooraf geconfigureerd analysebureaublad in de cloud
-De Data Science VM biedt een basisconfiguratie voor datatechnologieteams die hun lokale bureaublad willen vervangen door een beheerd bureaublad in de cloud. Deze basisconfiguratie zorgt ervoor dat alle datawetenschappers in een team een consistente installatie hebben, zodat ze experimenten kunnen verifiëren en de samenwerking kunnen bevorderen. Ook verlaagt de kosten door ontlast sysadmin. Deze verlaging zelf hoeft te worden opgeslagen op de tijd die nodig is om te evalueren, installeren en onderhouden van de verschillende software-updatepakketten die nodig zijn voor het uitvoeren van geavanceerde analyses.
+De Data Science VM biedt een basisconfiguratie voor datatechnologieteams die hun lokale bureaublad willen vervangen door een beheerd bureaublad in de cloud. Deze basisconfiguratie zorgt ervoor dat alle datawetenschappers in een team een consistente installatie hebben, zodat ze experimenten kunnen verifiëren en de samenwerking kunnen bevorderen. De kosten worden ook verlaagd door de overhead van sysadmin te verminderen. Deze last reductie bespaart op tijd die nodig is om de diverse software pakketten te evalueren, te installeren en te onderhouden die nodig zijn om geavanceerde analyses uit te voeren.
 
 ### <a name="data-science-training-and-education"></a>Training en onderwijs voor datatechnologie
-Zakelijke trainers en docenten die meestal leren van data science klassen bieden de installatiekopie van een virtuele machine. Ze bieden de afbeelding om ervoor te zorgen dat hun studenten een consistente configuratie hebben en de voorbeelden werken zoals verwacht. De Data Science VM maakt een omgeving op aanvraag met een consistente configuratie, waardoor zich minder problemen met ondersteuning en incompatibiliteit voordoen. In gevallen waarin deze omgevingen vaak moeten worden gemaakt, met name voor kortere trainingen, levert dit veel voordelen op.
+Enter prise trainers en docenten die data Science branches leren, bieden doorgaans een installatie kopie van een virtuele machine. Ze bieden de installatie kopie om ervoor te zorgen dat hun studenten een consistente installatie hebben en dat de voor beelden werken zoals verwacht. De Data Science VM maakt een omgeving op aanvraag met een consistente configuratie, waardoor zich minder problemen met ondersteuning en incompatibiliteit voordoen. In gevallen waarin deze omgevingen vaak moeten worden gemaakt, met name voor kortere trainingen, levert dit veel voordelen op.
 
 ### <a name="on-demand-elastic-capacity-for-large-scale-projects"></a>Flexibele capaciteit op aanvraag voor grootschalige projecten
-Datatechnologie-hackathons/-wedstrijden of grootschalige gegevensmodellen en grootschalig dataonderzoek vereisen uitgebreide hardwarecapaciteit, doorgaans voor een korte duur. De Data Science VM kan helpen bij het repliceren van de data science-omgeving snel op aanvraag of op geschaalde servers waarop experimenten die krachtige computerbronnen om te worden uitgevoerd.
+Datatechnologie-hackathons/-wedstrijden of grootschalige gegevensmodellen en grootschalig dataonderzoek vereisen uitgebreide hardwarecapaciteit, doorgaans voor een korte duur. De Data Science VM kan helpen om de data Science-omgeving snel op aanvraag te repliceren, op geschaalde servers die experimenten toestaan dat IT-bronnen met een hoge voeding worden uitgevoerd.
 
-### <a name="custom-compute-power-for-azure-notebooks"></a>Aangepaste compute-kracht voor Azure-laptops
+### <a name="custom-compute-power-for-azure-notebooks"></a>Aangepaste reken kracht voor Azure Notebooks
 
-[Azure-notitieblokken](/azure/notebooks/azure-notebooks-overview) is een gratis gehoste service voor het ontwikkelen, uitvoeren en delen van Jupyter notebooks onder in de cloud met geen installatie. De laag gratis service, is echter beperkt tot 4GB geheugen en 1GB aan gegevens. Als u wilt vrijgeven alle limieten, kunt u vervolgens een project notitieblokken koppelen aan een Data Science VM of andere VM's met Jupyter-server. Als u zich aanmeldt bij Azure-laptops met een account met behulp van Azure Active Directory (zoals een bedrijfsaccount), laptops Data Science-VM's automatisch weergegeven in alle abonnementen die zijn gekoppeld aan dat account. Zie [Manage and configure projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) (Projecten beheren en configureren - Compute-laag) voor meer informatie.
+[Azure notebooks](../../notebooks/azure-notebooks-overview.md) is een gratis gehoste service voor het ontwikkelen, uitvoeren en delen van Jupyter-notebooks in de Cloud zonder installatie. De gratis servicelaag is echter beperkt tot 4 GB geheugen en 1 GB aan gegevens. Als u alle limieten wilt vrijgeven, kunt u een notitieblok project koppelen aan een Data Science VM of een andere virtuele machine waarop Jupyter server wordt uitgevoerd. Als u zich aanmeldt bij Azure Notebooks met een account met behulp van Azure Active Directory (zoals een bedrijfs account), worden in notitie blokken automatisch virtuele machines met gegevens wetenschap weer gegeven in de abonnementen die aan dat account zijn gekoppeld. Zie [Manage and configure projects - Compute tier](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) (Projecten beheren en configureren - Compute-laag) voor meer informatie.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Experimenten en evaluatie op korte termijn
-De Data Science VM kan worden gebruikt om hulpprogramma's als Microsoft ML Server, SQL Server, Visual Studio-hulpprogramma's, Jupyter, deep learning-/ML-toolkits en nieuwe hulpprogramma's die populair zijn in de community met minimale installatie-inspanningen te evalueren en ermee te gaan werken. Omdat de Data Science VM kan snel worden ingesteld, kan deze worden toegepast in andere gebruiksscenario's voor de korte termijn. Deze scenario's omvatten het repliceren van gepubliceerde experimenten, uitvoeren van demo's, de volgende procedures in online sessies en zelfstudies voor vergaderingen.
+De Data Science VM kan worden gebruikt om hulpprogramma's als Microsoft ML Server, SQL Server, Visual Studio-hulpprogramma's, Jupyter, deep learning-/ML-toolkits en nieuwe hulpprogramma's die populair zijn in de community met minimale installatie-inspanningen te evalueren en ermee te gaan werken. Aangezien de Data Science VM snel kan worden ingesteld, kan deze worden toegepast in andere gebruiks scenario's voor de korte termijn. Deze scenario's zijn onder andere het repliceren van gepubliceerde experimenten, het uitvoeren van demo's, de volgende scenario's in online sessies en zelf studies voor vergaderingen.
 
 ### <a name="deep-learning"></a>Deep learning
-De Data Science VM kan worden gebruikt voor trainingsmodellen die gebruik maken van deep-learningalgoritmen op GPU-hardware (Graphics Processing Unit). DVSM maakt gebruik van de VM-schalingsmogelijkheden van Azure Cloud zodat u naar behoefte GPU-hardware in de cloud kunt gebruiken. Wanneer u grote modellen traint of snelle berekeningen nodig hebt, kunt u met behoud van dezelfde besturingssysteemschijf overschakelen naar een GPU-VM.  De Windows Server 2016-editie van DSVM wordt geleverd met vooraf geïnstalleerde GPU-stuurprogramma's, frameworks en GPU-versies van frameworks voor deep learning. In de Linux-editie is deep learning met behulp van de GPU ingeschakeld op zowel de CentOS- als de Ubuntu-DSVM. U kunt de Ubuntu-, CentOS- of Windows 2016-editie van Data Science VM implementeren met een niet-op basis van GPU Azure-machine. In dit geval wordt alle deep learning-frameworks terugvallen op de CPU-modus.
+De Data Science VM kan worden gebruikt voor trainingsmodellen die gebruik maken van deep-learningalgoritmen op GPU-hardware (Graphics Processing Unit). DVSM maakt gebruik van de VM-schalingsmogelijkheden van Azure Cloud zodat u naar behoefte GPU-hardware in de cloud kunt gebruiken. Wanneer u grote modellen traint of snelle berekeningen nodig hebt, kunt u met behoud van dezelfde besturingssysteemschijf overschakelen naar een GPU-VM.  De Windows Server 2016-editie van DSVM wordt geleverd met vooraf geïnstalleerde GPU-stuurprogramma's, frameworks en GPU-versies van frameworks voor deep learning. In de Linux-editie is deep learning met behulp van de GPU ingeschakeld op zowel de CentOS- als de Ubuntu-DSVM. U kunt de Ubuntu-, CentOS-of Windows 2016-versie van Data Science VM implementeren op een virtuele machine op basis van een niet-GPU. In dit geval worden alle diepe leer raamwerken terugvallen op de CPU-modus.
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Wat is opgenomen in de Data Science VM?
-In de Data Science VM zijn vele populaire hulpprogramma's voor datatechnologie en deep learning vooraf geïnstalleerd en geconfigureerd. Hiertoe behoren ook hulpprogramma's die het werken vergemakkelijken met verschillende Azure-gegevens- en analyseproducten, zoals Microsoft ML Server (R, Python) voor het bouwen van voorspellende modellen of SQL Server 2017 voor het verkennen van grootschalige gegevenssets. De Data Science VM bevat een groot aantal andere hulpprogramma's van de open-source-community en van Microsoft, evenals voorbeeldcode en notebooks. In de volgende tabel vindt u een specificatie en vergelijking van de belangrijkste componenten die zijn opgenomen in de Windows- en Linux-editie van de Data Science Virtual Machine.
+In de Data Science VM zijn vele populaire hulpprogramma's voor datatechnologie en deep learning vooraf geïnstalleerd en geconfigureerd. Hiertoe behoren ook hulpprogramma's die het werken vergemakkelijken met verschillende Azure-gegevens- en analyseproducten, zoals Microsoft ML Server (R, Python) voor het bouwen van voorspellende modellen of SQL Server 2017 voor het verkennen van grootschalige gegevenssets. De Data Science VM bevat een host van andere hulpprogram ma's van de open-source community en van micro soft, evenals voorbeeld code en notebooks. In de volgende tabel vindt u een specificatie en vergelijking van de belangrijkste componenten die zijn opgenomen in de Windows- en Linux-editie van de Data Science Virtual Machine.
 
 
 | **Hulpprogramma**                                                           | **Windows-editie** | **Linux-editie** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | [Microsoft R Open](https://mran.microsoft.com/open/) met populaire pakketten die vooraf zijn geïnstalleerd   |J                      | J             |
 | [Microsoft ML Server (R, Python)](https://docs.microsoft.com/machine-learning-server/) Developer-editie bevat, <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) parallel en gedistribueerd high-performance framework (R & Python)<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package) - nieuwe geavanceerde algoritmen van Microsoft <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [R- en Python-operationalisering](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |J                      | J |
-| [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) transactievolumes Plus met gedeelde activering - Excel, Word en PowerPoint   |J                      |N              |
+| [Microsoft Office](https://products.office.com/business/office-365-proplus-business-software) Pro-Plus met gedeelde activering: Excel, Word en Power Point   |J                      |N              |
 | [Anaconda Python](https://www.continuum.io/) 2.7, 3.5 met populaire pakketten die vooraf zijn geïnstalleerd    |J                      |J              |
 | [JuliaPro](https://juliacomputing.com/products/juliapro.html) met populaire pakketten voor Julia-taal vooraf geïnstalleerd                         |J                      |J              |
 | Relationele databases                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition (Ubuntu) |
@@ -79,8 +79,8 @@ In de Data Science VM zijn vele populaire hulpprogramma's voor datatechnologie e
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | N | J |
 | JupyterHub (notebookserver voor meerdere gebruikers)| N | J |
 | JupyterLab (notebookserver voor meerdere gebruikers) | N | Y (alleen Ubuntu) |
-| **Ontwikkelhulpprogramma's, IDE's en Code editors**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2019 (Community Edition)](https://www.visualstudio.com/community/) met Git Plugin, Azure HDInsight (Hadoop), Data Lake, SQL Server Data tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs), en [R Tools voor Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) | J | N |
+| **Ontwikkel hulpprogramma's, Ide's en code-editors**| | |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual studio 2019 (Community Edition)](https://www.visualstudio.com/community/) met git-invoeg toepassing, Azure HDInsight (Hadoop), Data Lake, SQL Server Data tools, [node. js](https://github.com/Microsoft/nodejstools), [python](https://aka.ms/ptvs)en [R tools for Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) | J | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | J |

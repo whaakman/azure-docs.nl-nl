@@ -11,14 +11,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 8901855ad68a5edb4710853dcde9311216fa2d61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8f12e699c17787d897a7f5ed23eccdbf3659921
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60862128"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569141"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Snelstartgids: Visual Studio Code gebruiken om verbinding te maken met en query's uit te voeren voor een Azure SQL-database
 
@@ -36,7 +35,7 @@ ms.locfileid: "60862128"
   | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| [Connectiviteit vanaf een VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connectiviteit vanaf locatie](sql-database-managed-instance-configure-p2s.md)
   |Gegevens laden|Adventure Works geladen volgens de quickstart|[Wide World Importers herstellen](sql-database-managed-instance-get-started-restore.md)
-  |||Herstellen of importeren van Adventure Works van [BACPAC](sql-database-import.md) -bestand uit [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Adventure Works herstellen of importeren vanuit [BACPAC](sql-database-import.md) -bestand vanuit [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -50,7 +49,7 @@ Zorg ervoor dat u de nieuwste versie van [Visual Studio Code](https://code.visua
 
 ### <a name="mac-os"></a>**Mac OS**
 
-Voor macOS moet u OpenSSL, dit is een vereiste voor .NET Core die gebruikmaakt van de mssql-extensie installeren. Open de terminal en voer de volgende opdrachten in om **brew** en **OpenSSL** te installeren.
+Voor macOS moet u OpenSSL installeren. Dit is een vereiste voor .NET core die wordt gebruikt door de MSSQL-extensie. Open de terminal en voer de volgende opdrachten in om **brew** en **OpenSSL** te installeren.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -109,7 +108,7 @@ Gebruik Visual Studio Code om verbinding te maken met uw Azure SQL Database-serv
    | Eigenschap       | Voorgestelde waarde | Beschrijving |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Servernaam** | De volledig gekwalificeerde servernaam | Dit moet er ongeveer als volgt uitzien: **mijnnieuweserver20170313.database.windows.net**. |
-   | **Databasenaam** | mySampleDatabase | De database waarmee verbinding moet worden gemaakt. |
+   | **De naam van database** | mySampleDatabase | De database waarmee verbinding moet worden gemaakt. |
    | **Verificatie** | SQL-aanmelding| In deze zelfstudie wordt gebruik gemaakt van SQL-verificatie. |
    | **Gebruikersnaam** | Gebruikersnaam | De gebruikersnaam van het serverbeheerdersaccount dat wordt gebruikt voor het maken van de server. |
    | **Wachtwoord (SQL-aanmelding)** | Wachtwoord | Het wachtwoord van het serverbeheerdersaccount dat wordt gebruikt voor het maken van de server. |

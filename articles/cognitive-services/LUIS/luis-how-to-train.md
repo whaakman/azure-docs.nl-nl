@@ -1,6 +1,6 @@
 ---
-title: App trainen
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: App-LUIS trainen
+titleSuffix: Azure Cognitive Services
 description: Training is het proces van uw app-versie van de Language Understanding (LUIS) voor het verbeteren van de natuurlijke taal begrijpen lessen. Uw LUIS-app na updates voor het model zoals toevoegen, bewerken, labels of verwijderen van entiteiten, intents of uitingen trainen.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/07/2019
 ms.author: diberry
-ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 70c29769da2ec092b2b27b83f2f83200d4e727af
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195847"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560369"
 ---
-# <a name="train-your-active-version-of-the-luis-app"></a>Trainen van uw actieve versie van de LUIS-app 
+# <a name="train-your-active-version-of-the-luis-app"></a>Train uw actieve versie van de LUIS-app 
 
 Training is het proces van uw app Language Understanding (LUIS) voor het verbeteren van de natuurlijke taal begrijpen lessen. Uw LUIS-app na updates voor het model zoals toevoegen, bewerken, labels of verwijderen van entiteiten, intents of uitingen trainen. 
 
@@ -44,9 +44,9 @@ De iteratief proces gestart in de [LUIS portal](https://www.luis.ai), moet u eer
 >[!NOTE]
 >Als u een of meer intents in uw app die geen voorbeeld uitingen bevatten hebt, kunt u uw app kan niet trainen. Utterances voor alle uw intents toevoegen. Zie voor meer informatie, [voorbeeld utterances toevoegen](luis-how-to-add-example-utterances.md).
 
-## <a name="training-date-and-time"></a>Trainingsdatum en tijd
+## <a name="training-date-and-time"></a>Datum en tijd van training
 
-Trainingsdatum en tijd is GMT + 2. 
+De trainings datum en-tijd zijn GMT + 2. 
 
 ## <a name="train-with-all-data"></a>Met alle gegevens van de trein
 

@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Spraak herkennen, C++ (Linux) - Spraakservices'
+title: 'Quickstart: Speech herkennen, C++ (Linux)-spraak service'
 titleSuffix: Azure Cognitive Services
 description: Informatie over het herkennen van gesproken tekst in C++ onder Linux met behulp van de Speech SDK
 services: cognitive-services
@@ -10,25 +10,25 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: e7838fb2560cb51b2b50bbca0c89c5261df30b56
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: dfbf40ef422903069352e64340fe5e3cb960a105
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606431"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559448"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Quickstart: Gesproken tekst herkennen in C++ onder Linux met behulp van de Speech-SDK
 
-Snelstartgidsen zijn ook beschikbaar voor [tekst naar spraak](quickstart-text-to-speech-cpp-linux.md).
+Quick starts zijn ook beschikbaar voor [tekst naar spraak](quickstart-text-to-speech-cpp-linux.md).
 
-Indien gewenst, kunt u overschakelen naar een andere programmeertaal en/of de omgeving:<br/>
+Als dat gewenst is, schakelt u over naar een andere programmeer taal en/of-omgeving:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel maakt u een C++ console-toepassing voor Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9). U gebruikt de [Speech SDK](speech-sdk.md) van Cognitive Services om in realtime spraak te transcriberen naar tekst via de microfoon van uw pc. De toepassing is gemaakt met de [Speech SDK voor Linux](https://aka.ms/csspeech/linuxbinary) en de C++ compiler van uw Linux-distributie (bijvoorbeeld `g++`).
+In dit artikel maakt u een C++ console toepassing voor Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9). U gebruikt de [Speech SDK](speech-sdk.md) van Cognitive Services om in realtime spraak te transcriberen naar tekst via de microfoon van uw pc. De toepassing is gemaakt met de [Speech SDK voor Linux](https://aka.ms/csspeech/linuxbinary) en de C++ compiler van uw Linux-distributie (bijvoorbeeld `g++`).
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet een abonnementssleutel Speech Services voor het voltooien van deze Quickstart. U kunt er gratis een krijgen. Zie [de Speech Services gratis uitproberen](get-started.md) voor meer informatie.
+U hebt een abonnement op spraak services nodig om deze Quick Start te volt ooien. U kunt er gratis een krijgen. Zie [de spraak services gratis uitproberen](get-started.md) voor meer informatie.
 
 ## <a name="install-speech-sdk"></a>Speech SDK installeren
 
@@ -91,7 +91,7 @@ Download en installeer de SDK als volgt:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
 
-1. Vervang de tekenreeks in dit nieuwe bestand `YourSubscriptionKey` met uw abonnementssleutel Speech Services.
+1. Vervang in dit nieuwe bestand de teken reeks `YourSubscriptionKey` door de sleutel van uw speech Services-abonnement.
 
 1. Vervang de tekenreeks `YourServiceRegion` door de [regio](regions.md) die aan uw abonnement is gekoppeld (bijvoorbeeld `westus` voor het gratis proefabonnement).
 
@@ -134,7 +134,7 @@ Download en installeer de SDK als volgt:
    ./helloworld
    ```
 
-1. In het consolevenster wordt een prompt weergegeven waarin u wordt gevraagd om iets te zeggen. Spreek een Engelse woordgroep of zin in. Uw stem is verzonden naar de Services voor spraak en getranscribeerde tekst, die in hetzelfde venster wordt weergegeven.
+1. In het consolevenster wordt een prompt weergegeven waarin u wordt gevraagd om iets te zeggen. Spreek een Engelse woordgroep of zin in. Uw spraak wordt verzonden naar de spraak Services en getranscribeerd naar tekst, die in hetzelfde venster wordt weer gegeven.
 
    ```text
    Say something...

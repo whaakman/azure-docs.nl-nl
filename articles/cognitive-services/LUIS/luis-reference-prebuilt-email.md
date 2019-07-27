@@ -1,6 +1,6 @@
 ---
-title: LUIS vooraf gemaakte entiteiten e-referentie - Azure | Microsoft Docs
-titleSuffix: Azure
+title: Naslag informatie voor LUIS-vooraf gemaakte entiteiten
+titleSuffix: Azure Cognitive Services
 description: In dit artikel e-mailbericht bevat vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2b11446c84ede0e8ecfce23eda1026919777fc66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c9c7b373f820dd23c70a67a1de8545935a1d93c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072085"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560245"
 ---
-# <a name="email-prebuilt-entity-for-a-luis-app"></a>E-vooraf gedefinieerde entiteit voor een LUIS-app
+# <a name="email-prebuilt-entity-for-a-luis-app"></a>E-mail vooraf gebouwde entiteit voor een LUIS-app
 Extractie van e-mailbericht bevat het volledige e-mailadres van een utterance. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met e-mailbericht naar de toepassing intents. E-entiteit wordt ondersteund in `en-us` alleen de cultuur. 
 
 ## <a name="resolution-for-prebuilt-email"></a>Oplossing voor vooraf gemaakte e-mailadres
 
-### <a name="api-version-2x"></a>API-versie 2.x
+### <a name="api-version-2x"></a>API-versie 2. x
 
 Het volgende voorbeeld ziet u de resolutie van de **builtin.email** entiteit.
 
@@ -54,9 +54,9 @@ Het volgende voorbeeld ziet u de resolutie van de **builtin.email** entiteit.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Preview-API-versie 3.x
+### <a name="preview-api-version-3x"></a>Preview-API versie 3. x
 
-De volgende JSON is met de `verbose` parameter ingesteld op `false`:
+De volgende JSON is met de `verbose` para meter ingesteld `false`op:
 
 ```json
 {
@@ -79,7 +79,7 @@ De volgende JSON is met de `verbose` parameter ingesteld op `false`:
 ```
 
 
-De volgende JSON is met de `verbose` parameter ingesteld op `true`:
+De volgende JSON is met de `verbose` para meter ingesteld `true`op:
 
 ```json
 {

@@ -1,5 +1,5 @@
 ---
-title: Exacte tekstovereenkomst
+title: Exacte tekst overeenkomst-LUIS
 titleSuffix: Azure Cognitive Services
 description: Leer hoe u gegevens ophaalt die overeenkomen met een vooraf gedefinieerde lijst met items. Elk item in de lijst kan synoniemen hebben die ook exact overeenkomen
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: df37e7aad2420d0bc280121634d49675ae29ee5a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: a5aeeb74d26ce633beb0e9feef20a2315bc0ff1d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236419"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560402"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Zelfstudie: Gegevens met exacte tekstovereenkomst ophalen uit een utterance
 
@@ -181,5 +181,5 @@ In deze zelfstudie hebt u een nieuwe intentie gemaakt, voorbeelden van utterance
 Ga door met deze app en [voeg een samengestelde entiteit toe](luis-tutorial-composite-entity.md).
 
 > [!div class="nextstepaction"]
-> [Vooraf gedefinieerde entiteit met een functie toevoegen aan de app.](tutorial-entity-roles.md)
+> [Een vooraf samengestelde entiteit met een rol aan de app toevoegen](tutorial-entity-roles.md)
 

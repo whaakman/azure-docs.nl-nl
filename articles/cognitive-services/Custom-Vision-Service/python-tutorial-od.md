@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Een objectdetectieproject maken met de Custom Vision SDK voor Python'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Maak een project, voeg labels toe, upload afbeeldingen, train uw project en detecteer objecten met de Python-SDK.
 services: cognitive-services
 author: areddish
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: 623bf0b054544d2c25f3542043afe20d778fdd24
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 2994d696f463c32ed05fd42b694f29fa2035b9d2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603486"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564159"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Quickstart: Een objectdetectieproject maken met de Custom Vision Python SDK
 
-Dit artikel biedt informatie en voorbeeldcode om u op weg te helpen met de Custom Vision-SDK voor Python om een objectdetectiemodel te maken. Nadat deze gemaakt, kunt u gecodeerde regio's toevoegen, afbeeldingen uploaden, trainen van het project, verkrijgen van het project gepubliceerde voorspelling eindpunt-URL en het eindpunt voor het testen van een installatiekopie van een via een programma gebruiken. Gebruik dit voorbeeld als een sjabloon om uw eigen Python-toepassing te maken.
+Dit artikel biedt informatie en voorbeeldcode om u op weg te helpen met de Custom Vision-SDK voor Python om een objectdetectiemodel te maken. Nadat u deze hebt gemaakt, kunt u gelabelde regio's toevoegen, afbeeldingen uploaden, het project trainen, de gepubliceerde voor spelling-eind punt-URL van het project ophalen en het eind punt gebruiken om een afbeelding programmatisch te testen. Gebruik dit voorbeeld als een sjabloon om uw eigen Python-toepassing te maken.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -46,7 +46,7 @@ Maak een nieuw bestand met de naam *sample.py* in uw projectmap.
 
 ### <a name="create-the-custom-vision-service-project"></a>Het Custom Vision Service-project maken
 
-Als u een nieuw Custom Vision Service-project wilt maken, voegt u de volgende code aan uw script toe. Voeg uw abonnementssleutels in de juiste definities in. Het verschil tussen het maken van een object-detectie- en afbeeldingsbestanden classificatie-project is het domein dat is opgegeven in de **create_project** aanroepen.
+Als u een nieuw Custom Vision Service-project wilt maken, voegt u de volgende code aan uw script toe. Voeg uw abonnementssleutels in de juiste definities in. Het verschil tussen het maken van een object detectie-en afbeeldings classificatie project is het domein dat is opgegeven in de **create_project** -aanroep.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -73,7 +73,7 @@ project = trainer.create_project("My Detection Project", domain_id=obj_detection
 
 ### <a name="create-tags-in-the-project"></a>Labels maken in het project
 
-Voor het maken van object-codes in uw project, voeg de volgende code toe aan het einde van *sample.py*:
+Als u object Tags in uw project wilt maken, voegt u de volgende code toe aan het einde van *sample.py*:
 
 ```Python
 # Make two tags in the new project
@@ -85,7 +85,7 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 
 Als u afbeeldingen labelt in objectdetectieprojecten, dient u de regio van elk gelabeld object op te geven met behulp van genormaliseerde coördinaten.
 
-Als u de afbeeldingen, labels en regio's aan het project wilt toevoegen, voegt u de volgende code in nadat u het label hebt gemaakt. Voor deze zelfstudie zijn de regio's vastgelegd inline met de code. Door de regio's wordt het begrenzingsvak opgegeven in genormaliseerde coördinaten. De coördinaten worden gegeven in de volgorde links, boven, breedte, hoogte.
+Als u de afbeeldingen, labels en regio's aan het project wilt toevoegen, voegt u de volgende code in nadat u het label hebt gemaakt. Voor deze zelf studie zijn de regio's hardcoded inline met de code. Door de regio's wordt het begrenzingsvak opgegeven in genormaliseerde coördinaten. De coördinaten worden gegeven in de volgorde links, boven, breedte, hoogte.
 
 ```Python
 fork_image_regions = {
@@ -167,9 +167,9 @@ if not upload_result.is_batch_successful:
     exit(-1)
 ```
 
-### <a name="train-the-project-and-publish"></a>Het project te trainen en publiceren
+### <a name="train-the-project-and-publish"></a>Het project trainen en publiceren
 
-Deze code wordt de eerste versie in het project wordt gemaakt en vervolgens publiceert dat iteratie naar het eindpunt van de voorspelling. De naam van de gepubliceerde iteratie kan worden gebruikt om voorspelling aanvragen te verzenden. Een iteratie is niet beschikbaar in de voorspelling eindpunt totdat deze is gepubliceerd.
+Deze code maakt de eerste iteratie in het project en publiceert die iteratie vervolgens naar het Voorspellings eindpunt. De naam die is opgegeven voor de gepubliceerde herhaling kan worden gebruikt voor het verzenden van voorspellings aanvragen. Er is geen iteratie beschikbaar in het Voorspellings eindpunt totdat het is gepubliceerd.
 
 ```Python
 import time
@@ -186,7 +186,7 @@ trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, pred
 print ("Done!")
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Halen en gebruik de gepubliceerde iteratie op het eindpunt voor de voorspelling
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>De gepubliceerde iteratie op het Voorspellings eindpunt ophalen en gebruiken
 
 Als u een afbeelding naar het voorspellingseindpunt wilt verzenden en de voorspelling wilt ophalen, voegt u de volgende code toe aan het einde van het bestand:
 

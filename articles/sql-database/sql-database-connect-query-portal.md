@@ -11,14 +11,13 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/28/2019
-ms.openlocfilehash: 52041ba3c057e871b60f283f293dd79a18f3b21e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3702c88d0a5cdc7aa1f854f71e3aee8a42d9c22c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508754"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569172"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Snelstartgids: Gebruik de SQL-queryeditor van Azure Portal om verbinding te maken en query's op gegevens uit te voeren
 
@@ -39,7 +38,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
   |||
 
 > [!NOTE]
-> De query-editor maakt gebruik van poort 443 en 1443 om te communiceren.  Controleer of dat u uitgaande HTTPS-verkeer op deze poorten zijn ingeschakeld. U moet ook uw uitgaande IP-adres toevoegen aan de toegestane firewallregels van de server voor toegang tot uw databases en datawarehouses.
+> De query-editor gebruikt de poorten 443 en 1443 om te communiceren.  Controleer of u het uitgaande HTTPS-verkeer op deze poorten hebt ingeschakeld. U moet ook uw uitgaande IP-adres toevoegen aan de toegestane firewall regels van de server om toegang te krijgen tot uw data bases en data warehouses.
 
 ## <a name="sign-in-the-azure-portal"></a>Meld u aan bij Azure Portal
 
@@ -160,7 +159,7 @@ Gebruik de volgende Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms1
 
 U moet enkele dingen weten voordat u met de queryeditor gaat werken.
 
-* De query-editor maakt gebruik van poort 443 en 1443 om te communiceren.  Controleer of dat u uitgaande HTTPS-verkeer op deze poorten zijn ingeschakeld. U moet ook uw uitgaande IP-adres toevoegen aan de toegestane firewallregels van de server voor toegang tot uw databases en datawarehouses.
+* De query-editor gebruikt de poorten 443 en 1443 om te communiceren.  Controleer of u het uitgaande HTTPS-verkeer op deze poorten hebt ingeschakeld. U moet ook uw uitgaande IP-adres toevoegen aan de toegestane firewall regels van de server om toegang te krijgen tot uw data bases en data warehouses.
 
 * Wanneer u op F5 drukt, wordt de pagina van de queryeditor vernieuwd en gaan query's waaraan wordt gewerkt, verloren.
 

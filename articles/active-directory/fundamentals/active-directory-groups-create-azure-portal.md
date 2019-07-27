@@ -2,23 +2,23 @@
 title: Een basisgroep maken en leden toevoegen - Azure Active Directory | Microsoft Docs
 description: Instructies over het maken van een basisgroep met behulp van Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 03/01/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d47c742e4f6d2ba8a96e9897f43231e509e8aa63
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 011f49596550ef4d515e0261419ab81c990e23cd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476070"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561939"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Een basisgroep maken en leden toevoegen met Azure Active Directory
 U kunt een basisgroep maken met behulp van de portal Azure Active Directory (Azure AD). Voor de toepassing van dit artikel wordt een basisgroep toegevoegd aan één resource door de resource-eigenaar (administrator) en deze bevat specifieke leden (werknemers) die toegang nodig hebben tot die resource. Voor complexere scenario's, met inbegrip van dynamische lidmaatschappen en regels maken, zie de [Azure Active Directory gebruiker beheerdocumentatie](../users-groups-roles/index.yml).
@@ -31,7 +31,7 @@ U kunt op hetzelfde moment een basisgroep maken en leden toevoegen.
 
 2. Selecteer **Azure Active Directory**, **Groepen** en vervolgens **Nieuwe groep**.
 
-    ![Azure AD-pagina, met groepen weergeven](media/active-directory-groups-create-azure-portal/group-full-screen.png)
+    ![Azure AD-pagina, met groepen die worden weer gegeven](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
 3. In de pagina **Groep**, vult u de vereiste gegevens in.
 
@@ -43,7 +43,7 @@ U kunt op hetzelfde moment een basisgroep maken en leden toevoegen.
         
        - **Office 365**. Biedt mogelijkheden voor samenwerking door leden toegang te geven tot een gedeeld postvak, agenda, bestanden, SharePoint-site en meer. Deze optie geeft u ook de mogelijkheid om mensen buiten uw organisatie toegang te geven tot de groep. Zie voor meer informatie over Office 365-groepen [Informatie over Office 365-groepen](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
-   - **Groepsnaam (vereist).** Voeg een naam voor de groep toe, iets wat u moet onthouden en dat klinkt logisch. Een controle uitgevoerd om te bepalen of de naam al wordt gebruikt voor een andere groep. Als de naam al gebruikt wordt, om te voorkomen dat dubbele geven u gevraagd om te wijzigen van de naam van uw groep.
+   - **Groepsnaam (vereist).** Voeg een naam voor de groep toe, iets wat u moet onthouden en dat klinkt logisch. Er wordt een controle uitgevoerd om te bepalen of de naam al wordt gebruikt voor een andere groep. Als de naam al in gebruik is, wordt u gevraagd de naam van uw groep te wijzigen om te voor komen dat er dubbele namen worden gebruikt.
 
    - **Groepsbeschrijving.** Voeg een optionele beschrijving toe aan uw groep.
 
@@ -51,7 +51,7 @@ U kunt op hetzelfde moment een basisgroep maken en leden toevoegen.
 
      - **Toegewezen.** Hiermee kunt u specifieke gebruikers lid maken van deze groep en hen unieke machtigingen geven. Voor de doeleinden van dit artikel gebruiken we deze optie.
 
-     - **Dynamische gebruiker.** Kunt u dynamisch-lidmaatschapregels gebruiken om automatisch toevoegen en verwijderen van leden. Als de kenmerken van een lid wijzigen, controleert het systeem de dynamische groepsregels voor de map om te zien of het lid aan de regelvereisten voldoet (wordt toegevoegd) of niet langer voldoet aan de regelvereisten (wordt verwijderd).
+     - **Dynamische gebruiker.** Met kunt u dynamische lidmaatschaps regels gebruiken om leden automatisch toe te voegen en te verwijderen. Als de kenmerken van een lid wijzigen, controleert het systeem de dynamische groepsregels voor de map om te zien of het lid aan de regelvereisten voldoet (wordt toegevoegd) of niet langer voldoet aan de regelvereisten (wordt verwijderd).
 
      - **Dynamisch apparaat.** Hiermee kunt u dynamische groepsregels gebruiken voor automatisch toevoegen en verwijderen van apparaten. Als de kenmerken van een apparaat wijzigen, controleert het systeem de dynamische groepsregels voor de map om te zien of het apparaat aan de regelvereisten voldoet (wordt toegevoegd) of niet langer voldoet aan de regelvereisten (wordt verwijderd).
 
@@ -72,9 +72,9 @@ U kunt op hetzelfde moment een basisgroep maken en leden toevoegen.
 
     ![Pagina Groepsoverzicht met aantal leden gemarkeerd](media/active-directory-groups-create-azure-portal/group-overview-blade-number-highlight.png)
 
-## <a name="turn-on-or-off-welcome-email"></a>Schakel in of uit de verwelkomingse-mail
+## <a name="turn-on-or-off-welcome-email"></a>Welkomst bericht in-of uitschakelen
 
-Wanneer een nieuwe Office 365-groep is gemaakt, of met dynamisch of statisch lidmaatschap heeft, wordt een Welkom melding verzonden naar alle gebruikers die zijn toegevoegd aan de groep. Wanneer kenmerken van een gebruiker of apparaat wijzigt, worden alle dynamische groepsregels in de organisatie worden verwerkt voor mogelijke wijzigingen in het lidmaatschap. Gebruikers die zijn toegevoegd vervolgens ook de Welkom melding ontvangen. U kunt dit gedrag uitschakelen [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+Wanneer een nieuwe Office 365-groep wordt gemaakt, of het nu een dynamisch of statisch lidmaatschap is, wordt een welkomst melding verzonden naar alle gebruikers die zijn toegevoegd aan de groep. Wanneer een van de kenmerken van een gebruiker of apparaat wordt gewijzigd, worden alle regels voor de dynamische groep in de organisatie verwerkt voor mogelijke lidmaatschaps wijzigingen. Gebruikers die zijn toegevoegd, ontvangen ook de welkomst melding. U kunt dit gedrag uitschakelen in [Exchange Power shell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u een groep en ten minste één gebruiker hebt toegevoegd, kunt u het volgende doen:

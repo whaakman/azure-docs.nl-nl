@@ -11,18 +11,17 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: b060c971218561f285dbd2292529e01a0069d357
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 0a08ee9d38065b0dff13f68a7b5473aa93787cf5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147744"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569189"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snelstartgids: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren op een Azure SQL-database
 
-In deze quickstart gaat u [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) gebruiken om een verbinding tot stand te brengen met een SQL-database in Azure. Vervolgens gaat u Transact-SQL-instructies uitvoeren om gegevens op te vragen, in te voegen, bij te werken en te verwijderen. U kunt SSMS gebruiken voor het beheren van een SQL-infrastructuur, van SQL Server tot SQL Database voor Microsoft Windows.  
+In deze Quick Start gebruikt u [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) om verbinding te maken met een Azure SQL database. Vervolgens gaat u Transact-SQL-instructies uitvoeren om gegevens op te vragen, in te voegen, bij te werken en te verwijderen. U kunt SSMS gebruiken voor het beheren van een SQL-infrastructuur, van SQL Server tot SQL Database voor Microsoft Windows.  
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -36,14 +35,14 @@ Een Azure SQL-database. U kunt een van deze quickstarts gebruiken om een databas
   | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| [Connectiviteit vanaf een VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connectiviteit vanaf locatie](sql-database-managed-instance-configure-p2s.md)
   |Gegevens laden|Adventure Works geladen volgens de quickstart|[Wide World Importers herstellen](sql-database-managed-instance-get-started-restore.md)
-  |||Herstellen of importeren van Adventure Works van [BACPAC](sql-database-import.md) -bestand uit [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Adventure Works herstellen of importeren vanuit [BACPAC](sql-database-import.md) -bestand vanuit [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
 
   > [!IMPORTANT]
   > De scripts in dit artikel zijn geschreven voor gebruik met de Adventure Works-database. Met een beheerd exemplaar moet u de Adventure Works-database importeren in een exemplaardatabase of de scripts in dit artikel wijzigen zodat deze de Wide World Importers-database gebruiken.
 
 ## <a name="install-the-latest-ssms"></a>De nieuwste SSMS installeren
 
-Voordat u begint, controleert u of u de meest recente [SSMS][ssms-install-latest-84g] hebt geïnstalleerd.
+Voordat u begint, moet u ervoor zorgen dat u de laatste [SSMS][ssms-install-latest-84g]hebt geïnstalleerd.
 
 ## <a name="get-sql-server-connection-information"></a>SQL Server-verbindingsgegevens ophalen
 
@@ -105,7 +104,7 @@ Voer deze Transact-SQL \[SELECT](https://msdn.microsoft.com/library/ms189499.asp
 
 3. Selecteer op de werkbalk **Uitvoeren** om gegevens op te halen uit de tabellen `Product` en `ProductCategory`.
 
-    ![query voor het ophalen van gegevens uit de tabel Product en ProductCategory](./media/sql-database-connect-query-ssms/query2.png)
+    ![query om gegevens op te halen uit tabel product en ProductCategory](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Gegevens invoegen
 
@@ -143,13 +142,13 @@ Voer deze Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx
    WHERE Name='myNewProduct'
    ```
 
-2. Selecteer **Uitvoeren**. Het volgende resultaat weergegeven.
+2. Selecteer **Uitvoeren**. Het volgende resultaat wordt weer gegeven.
 
-   ![resultaat van het Product tabelquery](./media/sql-database-connect-query-ssms/result.png)
+   ![resultaat van query van product tabel](./media/sql-database-connect-query-ssms/result.png)
 
 ## <a name="update-data"></a>Gegevens bijwerken
 
-Voer deze [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-code voor het wijzigen van het nieuwe product.
+Voer deze [Update](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-code uit om het nieuwe product te wijzigen.
 
 1. Vervang de vorige query door deze.
 

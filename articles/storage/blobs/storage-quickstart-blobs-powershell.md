@@ -8,16 +8,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: tamram
-ms.openlocfilehash: c0a5f7271628e11dbc8fa8b18b21358923f567cc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4ffa4319fa2691469899ff038eeedc7ef30ccebe
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149408"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565014"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Snelstartgids: Blobs uploaden, downloaden en vermelden met behulp van Azure PowerShell
 
 Gebruik de Azure PowerShell-module om Azure-resources te maken en beheren. Azure-resources kunnen vanaf de PowerShell-opdrachtregel of met scripts worden gemaakt of beheerd. In deze handleiding wordt beschreven hoe PowerShell kan worden gebruikt om bestanden over te dragen tussen de lokale schijf en Azure Blob Storage.
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 

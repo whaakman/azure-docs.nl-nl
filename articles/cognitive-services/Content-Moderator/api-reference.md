@@ -1,7 +1,7 @@
 ---
-title: API-referentie - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Meer informatie over de verschillende inhoudstoezicht en bekijkt u API's voor Content Moderator.
+title: API-verwijzing-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over de verschillende inhouds toezicht-en controle-Api's voor Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,37 +10,37 @@ ms.subservice: content-moderator
 ms.topic: reference
 ms.date: 05/29/2019
 ms.author: sajagtap
-ms.openlocfilehash: f802c64e141e8757f633d82ad577fa50f7d076fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ad911a95dbe6209fcf55adcac3cf2937b06d1ff
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688882"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565614"
 ---
-# <a name="content-moderator-api-reference"></a>Content Moderator-API-verwijzing
+# <a name="content-moderator-api-reference"></a>Referentie voor de Content Moderator-API
 
-U kunt aan de slag met Azure Content Moderator API's in de volgende manieren:
+U kunt op de volgende manieren aan de slag met Azure Content Moderator-Api's:
 
-- In de Azure-portal [abonneren op de Content Moderator-API](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
-- Zie [Content Moderator proberen op het web](quick-start.md) aan te melden met de [Content Moderator-controlehulpprogramma](https://contentmoderator.cognitive.microsoft.com/).
+- Abonneer u op de [Content moderator-API](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)In de Azure Portal.
+- Zie [Content moderator op internet proberen](quick-start.md) om u aan te melden met het [hulp programma content moderator beoordeling](https://contentmoderator.cognitive.microsoft.com/).
 
 ## <a name="moderation-apis"></a>Beheer-API's
 
-U kunt de volgende Content Moderator API's gebruiken voor het instellen van uw werkstromen na toezicht.
+U kunt de volgende Content Moderator-Api's gebruiken voor het instellen van uw werk stromen na toezicht.
 
 | Description | Referentie |
 | -------------------- |-------------|
-| **Afbeeldingstoezicht-API**<br /><br />Scan afbeeldingen en detecteren van mogelijke erotische en ongepaste inhoud met behulp van tags, vertrouwen scores en andere opgehaalde gegevens. <br /><br />Gebruik deze informatie te publiceren, weigeren of Controleer de inhoud die u in uw werkstroom na toezicht. <br /><br />| [Afbeelding van toezicht-API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "installatiekopie Afbeeldingstoezicht-API-verwijzing")   |
-| **Teksttoezicht-API**<br /><br />Tekstinhoud scannen. Grof taalgebruik voorwaarden en persoonlijke gegevens worden geretourneerd. <br /><br />Gebruik deze informatie te publiceren, weigeren of Controleer de inhoud die u in uw werkstroom na toezicht.<br /><br /> | [Tekst toezicht-API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "tekst Afbeeldingstoezicht-API-verwijzing")   |
-| **Videotoezicht-API**<br /><br />Video's scannen en mogelijke erotische en ongepaste inhoud detecteren. <br /><br />Gebruik deze informatie te publiceren, weigeren of Controleer de inhoud die u in uw werkstroom na toezicht.<br /><br /> | [Video toezicht-API-overzicht](video-moderation-api.md "toezicht-API voor Video-overzicht")   |
-| **Lijst met Management-API**<br /><br />Maken en beheren van aangepaste uitsluitings- of insluitingsfilters lijsten met tekst en afbeeldingen. Indien ingeschakeld, de **afbeelding: overeenkomen met** en **tekst - scherm** bewerkingen uitvoeren zoeken bij benadering die overeenkomt met de ingediende inhoud op basis van uw aangepaste lijsten. <br /><br />Voor efficiëntie, kunt u de machine learning gebaseerde beheer stap overslaan.<br /><br /> | [Lijst van Management API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "lijst Management API-verwijzing")   |
+| **Afbeeldings toezicht-API**<br /><br />Scan afbeeldingen en Detecteer potentiële inhoud voor volwassenen en ongepaste met behulp van tags, betrouwbaarheids scores en andere geëxtraheerde informatie. <br /><br />Gebruik deze informatie om de inhoud in uw werk stroom na toezicht te publiceren, af te wijzen of te controleren. <br /><br />| [API-verwijzing voor afbeeldings toezicht] (https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "API-verwijzing voor afbeeldings toezicht")   |
+| **Tekst toezicht-API**<br /><br />Tekst inhoud scannen. Voor waarden voor scheld woorden en persoonlijke gegevens worden geretourneerd. <br /><br />Gebruik deze informatie om de inhoud in uw werk stroom na toezicht te publiceren, af te wijzen of te controleren.<br /><br /> | [Naslag informatie voor de API voor tekst toezicht] (https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Naslag informatie voor de API voor tekst toezicht")   |
+| **Video toezicht-API**<br /><br />Scan Video's en spoor potentiële inhoud voor volwassenen en ongepaste op. <br /><br />Gebruik deze informatie om de inhoud in uw werk stroom na toezicht te publiceren, af te wijzen of te controleren.<br /><br /> | [Video toezicht API-overzicht] (video-moderation-api.md "Video toezicht API-overzicht")   |
+| **Lijst beheer-API**<br /><br />Aangepaste uitsluitings-of insluitings lijsten met afbeeldingen en tekst maken en beheren. Als deze functie is ingeschakeld, worden de bewerkingen voor **afbeeldings overeenkomsten** en **tekst schermen** bij benadering vergeleken met de verzonden inhoud op basis van uw aangepaste lijsten. <br /><br />Voor efficiëntie kunt u de op machine learning gebaseerde toezicht stap overs Laan.<br /><br /> | [Naslag informatie voor List Management API] (https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "Naslag informatie voor List Management API")   |
 
 ## <a name="review-apis"></a>Beoordelings-API's
 
-De beoordeling-API's hebben de volgende onderdelen:
+De beoordelings-Api's hebben de volgende onderdelen:
 
 | Description | Referentie |
 | -------------------- |-------------|
-| **Taken**<br /><br /> Start beheer van de scan en revisie werkstromen voor zowel afbeeldingen en tekst inhoud. Een beheer-taak scant uw inhoud met behulp van de afbeeldingen-API voor beheer en de tekst toezicht-API. Toezicht op taken met de gedefinieerde en werkstromen voor het genereren van beoordelingen standaard. <br /><br />Nadat een menselijke moderator heeft de labels automatisch toegewezen en voorspellingsgegevens beoordeeld en een beslissing inhoudstoezicht verzonden, verzendt de API controleren alle gegevens naar uw API-eindpunt.<br /><br /> | [Naslaginformatie over de taak](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "taak-verwijzing")   |
-| **Beoordelingen**<br /><br />Gebruik het beoordelingsprogramma rechtstreeks afbeelding of tekst beoordelingen voor menselijke moderators maken.<br /><br /> Nadat een menselijke moderator heeft de labels automatisch toegewezen en voorspellingsgegevens beoordeeld en een beslissing inhoudstoezicht verzonden, verzendt de API controleren alle gegevens naar uw API-eindpunt.<br /><br /> | [Verwijzing bekijken](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 "verwijzing bekijken")   |
-| **Werkstromen**<br /><br />Maken, bijwerken en meer informatie over de aangepaste werkstromen die uw team maakt. U kunt werkstromen definiëren met behulp van het beoordelingsprogramma. <br /> <br />Werkstromen doorgaans Content Moderator gebruiken, maar kunnen ook bepaalde andere API's die beschikbaar als connectors in het beoordelingsprogramma zijn gebruiken.<br /><br /> | [Werkstroom verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59 "werkstroom-verwijzing")   |
+| **Taken**<br /><br /> Scan-en revisie werk stromen initiëren voor zowel afbeeldings-als tekst inhoud. Een moderator taak scant uw inhoud met behulp van de afbeeldings toezicht-API en de tekst toezicht-API. Toezicht taken maken gebruik van de gedefinieerde en standaard werk stromen om beoordelingen te genereren. <br /><br />Nadat een Human toezicht houder de automatisch toegewezen tags en Voorspellings gegevens heeft gecontroleerd en een beslissing voor inhouds toezicht heeft ingediend, verzendt de beoordelings-API alle informatie naar uw API-eind punt.<br /><br /> | [Taak verwijzing] (https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "Taak verwijzing")   |
+| **Evaluatie**<br /><br />Gebruik het hulp programma voor controle om rechtstreeks afbeeldings-of tekst beoordelingen te maken voor menselijke moderators.<br /><br /> Nadat een Human toezicht houder de automatisch toegewezen tags en Voorspellings gegevens heeft gecontroleerd en een beslissing voor inhouds toezicht heeft ingediend, verzendt de beoordelings-API alle informatie naar uw API-eind punt.<br /><br /> | [Verwijzing controleren] (https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 "Verwijzing controleren")   |
+| **Werkstromen**<br /><br />Maak, werk en ontvang Details over de aangepaste werk stromen die uw team maakt. U definieert werk stromen met behulp van het hulp programma beoordeling. <br /> <br />Werk stromen gebruiken meestal Content Moderator, maar kunnen ook bepaalde andere Api's gebruiken die beschikbaar zijn als connectors in het beoordelings programma.<br /><br /> | [Werk stroom referentie] (https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59 "Werk stroom referentie")   |

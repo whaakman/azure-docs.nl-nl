@@ -1,6 +1,6 @@
 ---
-title: Containers installeren en uitvoeren
-titlesuffix: Face - Azure Cognitive Services
+title: Containers installeren en uitvoeren-FACE-API
+titleSuffix: Azure Cognitive Services
 description: Down load, installeer en uitvoer containers voor een gezicht in deze walkthrough zelf studie.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: f4abf17c774fb75a0314c8890f5f4383058e37fd
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 93a6d0a42d6d7f07dd8947ce9f8ae99a39d44475
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321382"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564138"
 ---
 # <a name="install-and-run-face-containers"></a>Face-containers installeren en uitvoeren
 
@@ -28,7 +28,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 U moet voldoen aan de volgende vereisten voordat u de Face-API-containers gebruikt.
 
-|Verplicht|Doel|
+|Vereist|Doel|
 |--|--|
 |Docker-engine| De docker-engine moet zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten voor het configureren van de docker-omgeving op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> In Windows moet docker ook worden geconfigureerd voor de ondersteuning van Linux-containers.<br><br>|
 |Vertrouwd met docker | U hebt een basis informatie nodig over docker-concepten, zoals registers, opslag plaatsen, containers en container installatie kopieën. U hebt ook kennis nodig van `docker` basis opdrachten.| 

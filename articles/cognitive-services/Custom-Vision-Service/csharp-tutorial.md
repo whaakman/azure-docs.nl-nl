@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Een afbeeldingsclassificatieproject maken met de Custom Vision-SDK voor C#'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Maak een project, voeg tags toe, upload afbeeldingen, train uw project en doe een voorspelling met behulp van de .NET-SDK met C#.
 services: cognitive-services
 author: anrothMSFT
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: anroth
-ms.openlocfilehash: 28ea62ffa7a2b163b984c089649c1cd99d5e4556
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: e79dcef1bdf415c13dafe31e925b08a4bd0f0cbf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827557"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564260"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Quickstart: Een afbeeldingsclassificatieproject maken met de .NET-SDK van Custom Vision
 
@@ -27,7 +27,7 @@ Dit artikel biedt informatie en voorbeeldcode om u op weg te helpen met de Custo
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>De Custom Vision-SDK en voorbeeldcode ophalen
 
-Als u een .NET-app wilt schrijven die gebruikmaakt van Custom Vision, hebt u de NuGet-pakketten van Custom Vision nodig. Deze pakketten zijn opgenomen in het voorbeeldproject dat wordt gedownload, maar u kunt toegang tot deze afzonderlijk hier.
+Als u een .NET-app wilt schrijven die gebruikmaakt van Custom Vision, hebt u de NuGet-pakketten van Custom Vision nodig. Deze pakketten zijn opgenomen in het voorbeeld project dat u wilt downloaden, maar u kunt ze hier afzonderlijk openen.
 
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
@@ -44,7 +44,7 @@ Open het bestand _Program.cs_ en inspecteer de code. Voeg uw abonnementssleutels
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=21-30)]
 
-De parameter Endpoint moet verwijzen naar de regio waarin de Azure-resourcegroep met de Custom Vision-resources is gemaakt. In dit voorbeeld wordt ervan uitgegaan dat de regio Zuid-centraal VS we en gebruiken:
+De parameter Endpoint moet verwijzen naar de regio waarin de Azure-resourcegroep met de Custom Vision-resources is gemaakt. Voor dit voor beeld gaan we uit van de regio Zuid-Centraal VS en gebruiken:
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
 
@@ -66,9 +66,9 @@ De afbeeldingen voor dit project zijn bijgevoegd. Er wordt naar verwezen in de m
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=40-55)]
 
-### <a name="train-the-classifier-and-publish"></a>De classificatie te trainen en publiceren
+### <a name="train-the-classifier-and-publish"></a>De classificatie trainen en publiceren
 
-Deze code wordt de eerste versie in het project wordt gemaakt en vervolgens publiceert dat iteratie naar het eindpunt van de voorspelling. De naam van de gepubliceerde iteratie kan worden gebruikt om voorspelling aanvragen te verzenden. Een iteratie is niet beschikbaar in de voorspelling eindpunt totdat deze is gepubliceerd.
+Deze code maakt de eerste iteratie in het project en publiceert die iteratie vervolgens naar het Voorspellings eindpunt. De naam die is opgegeven voor de gepubliceerde herhaling kan worden gebruikt voor het verzenden van voorspellings aanvragen. Er is geen iteratie beschikbaar in het Voorspellings eindpunt totdat het is gepubliceerd.
 
 ```csharp
 var iteration = trainingApi.TrainProject(project.Id);

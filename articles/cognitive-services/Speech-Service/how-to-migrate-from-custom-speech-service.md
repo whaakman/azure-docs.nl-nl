@@ -1,7 +1,7 @@
 ---
-title: Migreren van Custom Speech Service naar spraakservices
-titlesuffix: Azure Cognitive Services
-description: De Custom Speech Service maakt nu deel uit van de spraakservices. Schakel over naar de Speech Services om te profiteren van de meest recente kwaliteit en functie-updates.
+title: Migreren van Custom Speech Service naar de speech-service
+titleSuffix: Azure Cognitive Services
+description: De Custom Speech Service maakt nu deel uit van de Speech-Service. Schakel over naar de Speech-Service om te profiteren van de meest recente kwaliteit en functie-updates.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 8a2c149faa0ec9d135713a123a33d7c220522496
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01b853c59723a8ed79cb32b0ee9c245c9c3ffb3f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60995617"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562771"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migreren van de Custom Speech Service naar de Speech-Service
 
 Gebruik dit artikel voor het migreren van uw toepassingen uit de Custom Speech Service met de spraak-Service.
 
-De Custom Speech Service maakt nu deel uit van de Speech-Service. Schakel over naar de Speech Services om te profiteren van de meest recente kwaliteit en functie-updates.
+De Custom Speech Service maakt nu deel uit van de Speech-Service. Schakel over naar de spraak Services om te profiteren van de nieuwste updates voor kwaliteit en onderdelen.
 
 ## <a name="migration-for-new-customers"></a>Migratie voor nieuwe klanten
 
@@ -39,11 +39,11 @@ Het prijsmodel is eenvoudiger, met behulp van een prijsmodel op basis van een uu
 
 3. Volg de snelstartgidsen en de SDK-voorbeelden voor het gebruik van de juiste API's. Als u de REST API's gebruikt, moet u ook de juiste eindpunten en resource-sleutels gebruiken.
 
-4. De clienttoepassing Speech Services en API's gebruiken voor bijwerken.
+4. Werk de client toepassing bij om de spraak Services en Api's te gebruiken.
 
 ## <a name="migration-for-existing-customers"></a>Migratie voor bestaande klanten
 
-Uw bestaande resource sleutels naar de spraakservices in de portal Speech Services migreren. Voer de volgende stappen uit:
+Migreer uw bestaande bron sleutels naar de spraak Services in de speech Services-portal. Voer de volgende stappen uit:
 
 > [!NOTE]
 > Resource-sleutels kunnen alleen worden gemigreerd binnen dezelfde regio.
@@ -56,10 +56,10 @@ Uw bestaande resource sleutels naar de spraakservices in de portal Speech Servic
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Speech Services gratis uitproberen](get-started.md).
+* [Probeer spraak services gratis uit](get-started.md).
 * Informatie over [spraak naar tekst](./speech-to-text.md) concepten.
 
 ## <a name="see-also"></a>Zie ook
 
 * [Wat is de Speech-Service](overview.md)
-* [Speech Services en spraak SDK-documentatie](speech-sdk.md#get-the-sdk)
+* [Documentatie voor spraak Services en Speech SDK](speech-sdk.md#get-the-sdk)

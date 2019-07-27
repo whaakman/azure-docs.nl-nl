@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Spraak herkennen, Javascript (browser) - Speech Services'
+title: 'Quickstart: Speech herkennen, java script (browser)-spraak service'
 titleSuffix: Azure Cognitive Services
 description: Informatie over het herkennen van gesproken tekst in JavaScript in een browser met behulp van de Speech SDK
 services: cognitive-services
@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: a2884b43268b4c067e6e739f67d2253f8c45a408
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 69ec6062d0dba1f1044f9a7dcfbe75924887d2b4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603059"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559419"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Quickstart: gesproken tekst in JavaScript herkennen in een browser met behulp van de Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In dit artikel leert u hoe u een website maakt met behulp van de JavaScript binding van de Cognitive Services Speech SDK om spraak om te zetten naar tekst.
-De toepassing is op basis van de spraak-SDK voor JavaScript ([downloaden versie 1.5.0](https://aka.ms/csspeech/jsbrowserpackage)).
+De toepassing is gebaseerd op de Speech SDK voor Java script ([down load version 1.5.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een abonnementssleutel voor de Speech-service. Zie [de Speech Services gratis uitproberen](get-started.md).
+* Een abonnementssleutel voor de Speech-service. Zie [de spraak services gratis uitproberen](get-started.md).
 * Een pc of Mac, met een werkende microfoon.
 * Een teksteditor.
-* Een actuele versie van Chrome, Microsoft Edge of Safari.
+* Een huidige versie van Chrome, micro soft Edge of Safari.
 * Een webserver die het hosten van PHP-scripts ondersteunt (optioneel).
 
 ## <a name="create-a-new-website-folder"></a>Een nieuwe websitemap maken
@@ -100,8 +100,8 @@ Op die manier verlaat uw abonnementssleutel nooit uw server en is het gebruikers
 Om de app te starten, dubbelklikt u op het bestand index.html of opent u index.html met uw favoriete webbrowser. Er wordt een eenvoudige grafische gebruikersinterface weergegeven waarin u uw abonnementssleutel en [regio](regions.md) kunt invoeren spraakherkenning met behulp van de microfoon kunt activeren.
 
 > [!NOTE]
-> Deze methode werkt niet op de Safari-browser.
-> Op Safari moet de voorbeeldwebpagina worden gehost op een webserver. Safari kan geen websites geladen uit een lokaal bestand naar het gebruik van de microfoon.
+> Deze methode werkt niet in de Safari-browser.
+> Op Safari moet de voorbeeld webpagina worden gehost op een webserver. Met Safari kunnen websites die zijn geladen uit een lokaal bestand niet worden gebruikt voor het gebruik van de microfoon.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>De voorbeeldtoepassing bouwen en uitvoeren via een webserver
 

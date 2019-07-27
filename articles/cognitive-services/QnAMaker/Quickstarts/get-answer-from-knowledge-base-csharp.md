@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Antwoord uit knowledge base ophalen - REST, C# - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Deze C# REST-quickstart begeleidt u bij het programmatisch ophalen van een antwoord uit een knowledge base.
 services: cognitive-services
 author: diberry
@@ -10,16 +10,16 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 020403268665633bf3d71cf43258ced87b4f837d
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: ba128f5ad87083f8d57c33011969756f3b3a8c93
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249719"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559830"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Antwoorden vinden op vragen met behulp van een knowledge base met C#
 
-In deze quickstart wordt beschreven hoe u programmatisch een antwoord uit een gepubliceerde QnA Maker-knowledge base kunt ophalen. De knowledge base bevat vragen en antwoorden uit [gegevensbronnen](../Concepts/data-sources-supported.md) zoals veelgestelde vragen over. De [vraag](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) wordt verzonden naar de QnA Maker-service. De [antwoord](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) bevat het antwoord boven voorspeld. 
+In deze quickstart wordt beschreven hoe u programmatisch een antwoord uit een gepubliceerde QnA Maker-knowledge base kunt ophalen. De Knowledge Base bevat vragen en antwoorden van [gegevens bronnen](../Concepts/data-sources-supported.md) , zoals Veelgestelde vragen. De [vraag](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) wordt verzonden naar de QnA Maker-service. Het [antwoord](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) bevat het meest voorspelde antwoord. 
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -36,8 +36,8 @@ De code voor deze quickstart bevindt zich in de opslagplaats [https://github.com
 
 ## <a name="create-a-knowledge-base-project"></a>Een project met knowledge base maken
 
-1. Open Visual Studio 2019 Community-editie.
-1. Maak een nieuw project-consoletoepassing (.NET Core) en de naam van het project QnaMakerQuickstart. Accepteer de standaardwaarden voor de overige instellingen.
+1. Open Visual Studio 2019 Community Edition.
+1. Maak een nieuw console-app (.NET core)-project en geef het project de naam QnaMakerQuickstart. Accepteer de standaardwaarden voor de overige instellingen.
 
 ## <a name="add-the-required-dependencies"></a>De vereiste afhankelijkheden toevoegen
 
@@ -59,7 +59,7 @@ Met de volgende code wordt een HTTPS-aanvraag naar de QnA Maker-API verzonden om
 
 De waarde van de header van `Authorization` bevat de tekenreeks `EndpointKey`. 
 
-Meer informatie over de [aanvraag](../how-to/metadata-generateanswer-usage.md#generateanswer-request) en [antwoord](../how-to/metadata-generateanswer-usage.md#generateanswer-response). 
+Meer informatie over de [aanvraag](../how-to/metadata-generateanswer-usage.md#generateanswer-request) en het [antwoord](../how-to/metadata-generateanswer-usage.md#generateanswer-response). 
 
 ## <a name="build-and-run-the-program"></a>Het programma bouwen en uitvoeren
 

@@ -1,6 +1,6 @@
 ---
-title: Een nieuwe app maken
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Een nieuwe app maken-LUIS
+titleSuffix: Azure Cognitive Services
 description: Maken en beheren van uw toepassingen op de webpagina van de Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b8b0cebf4ba47f875caacfcfbf89b84551b41333
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 7f9809fde088a03d4b20b5c739253f446c7a84b6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341864"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563607"
 ---
-# <a name="create-a-new-luis-app-in-the-luis-portal"></a>Een nieuwe LUIS-app maken in de portal LUIS
+# <a name="create-a-new-luis-app-in-the-luis-portal"></a>Een nieuwe LUIS-app maken in de LUIS-Portal
 Er zijn een aantal manieren om een LUIS-app te maken. U kunt een LUIS-app in de [LUIS](https://www.luis.ai) portal of via het ontwerpen van LUIS [API's](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
 ## <a name="using-the-luis-portal"></a>Met behulp van de portal LUIS
@@ -56,36 +56,36 @@ U kunt een nieuwe app maken met de authoring API's in een aantal manieren:
     > [!NOTE]
     > De cultuur kan niet worden gewijzigd nadat de toepassing is gemaakt. 
 
-## <a name="import-an-app-from-file"></a>Een app importeren vanuit bestand
+## <a name="import-an-app-from-file"></a>Een app importeren uit een bestand
 
-1. Op **mijn Apps** weergeeft, schakelt **importeren nieuwe app**.
-1. Selecteer een geldige app JSON-bestand en selecteer vervolgens in het pop-updialoogvenster **gedaan**.
+1. Selecteer **nieuwe app importeren**op **de pagina mijn apps** .
+1. Selecteer in het pop-updialoogvenster een geldig JSON-bestand voor de app en selecteer vervolgens **gereed**.
 
-### <a name="import-errors"></a>Fouten bij het importeren
+### <a name="import-errors"></a>Fouten importeren
 
 Mogelijke fouten zijn: 
 
-* Er bestaat al een app met die naam. U kunt dit verhelpen, importeer de app en stel de **optionele naam** naar een nieuwe naam. 
+* Er bestaat al een app met die naam. U kunt dit probleem verhelpen door de app opnieuw te importeren en de **optionele naam** in te stellen op een nieuwe naam. 
 
-## <a name="export-app-for-backup"></a>Uitvoer-app voor back-up
+## <a name="export-app-for-backup"></a>App voor back-up exporteren
 
-1. Op **mijn Apps** weergeeft, schakelt **exporteren**.
-1. Selecteer **exporteren als JSON**. De browser de actieve versie van de app is gedownload.
-1. Dit bestand toevoegen aan uw back-upsysteem voor het archiveren van het model.
+1. Selecteer op **de pagina mijn apps** **exporteren**.
+1. Selecteer **exporteren als JSON**. Uw browser downloadt de actieve versie van de app.
+1. Voeg dit bestand toe aan het back-upsysteem om het model te archiveren.
 
-## <a name="export-app-for-containers"></a>Uitvoer-app voor containers
+## <a name="export-app-for-containers"></a>App voor containers exporteren
 
-1. Op **mijn Apps** weergeeft, schakelt **exporteren**.
-1. Selecteer **exporteren als container** Selecteer welke gepubliceerde sleuf (productie- of fase) die u wilt exporteren.
-1. Gebruik dit bestand met uw [LUIS container](luis-container-howto.md). 
+1. Selecteer op **de pagina mijn apps** **exporteren**.
+1. Selecteer **exporteren als container** en selecteer vervolgens welke gepubliceerde sleuf (productie of fase) u wilt exporteren.
+1. Gebruik dit bestand met uw [Luis-container](luis-container-howto.md). 
 
-    Als u geïnteresseerd in een getraind, maar niet exporteren nog gepubliceerde model bent te gebruiken met de container LUIS, gaat u naar de **versies** pagina en van daaruit exporteren. 
+    Als u geïnteresseerd bent in het exporteren van een getraind maar nog niet gepubliceerd model dat u wilt gebruiken met de LUIS-container, gaat u naar de pagina **versies** en exporteert u daar naartoe. 
 
 ## <a name="delete-app"></a>App verwijderen
 
-1. Op **mijn Apps** pagina, selecteert u de drie puntjes (...) aan het einde van de rij met Apps.
+1. Selecteer op de pagina **mijn apps** de drie puntjes (...) aan het einde van de rij van de app.
 1. Selecteer **verwijderen** in het menu.
-1. Selecteer **Ok** in het bevestigingsvenster.
+1. Selecteer **OK** in het bevestigings venster.
 
 ## <a name="next-steps"></a>Volgende stappen
 

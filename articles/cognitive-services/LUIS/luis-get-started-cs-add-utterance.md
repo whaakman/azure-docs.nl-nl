@@ -1,6 +1,6 @@
 ---
-title: Wijzigen, app trainen, C#
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Wijzigen, app trainen, C# -Luis
+titleSuffix: Azure Cognitive Services
 description: Voeg in deze C#-snelstart voorbeeldutterances toe aan een Home Automation-app en train de app.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: d44877e35687745ddba51d4d015729e62106c9ca
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 58ec78f0c20d6a2d5d86a60c69cc934c8f3076c8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348447"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560646"
 ---
 # <a name="quickstart-change-model-using-c"></a>Snelstartgids: Model wijzigen met behulp van C#
 

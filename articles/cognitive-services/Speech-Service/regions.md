@@ -1,6 +1,6 @@
 ---
-title: Regio - spraakservices
-titlesuffix: Azure Cognitive Services
+title: Regio's-spraak service
+titleSuffix: Azure Cognitive Services
 description: Verwijzing voor regio's van de Speech-Service.
 services: cognitive-services
 author: mahilleb-msft
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1ad618e9eb70fd75f433030584c0f6538532928f
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: c0414277b4851891911908ba4f42e92abedc86e4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466996"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553193"
 ---
 # <a name="speech-service-supported-regions"></a>Speech Service ondersteunde regio 's
 
@@ -26,17 +26,17 @@ Zorg ervoor dat u het eindpunt dat overeenkomt met de regio voor uw abonnement.
 
 ## <a name="speech-sdk"></a>Speech-SDK
 
-In de [spraak SDK](speech-sdk.md), regio's zijn opgegeven als een tekenreeks (bijvoorbeeld, als een parameter voor `SpeechConfig.FromSubscription` in de spraak-SDK voor C#).
+In de [Speech SDK](speech-sdk.md)worden regio's opgegeven als een teken reeks (bijvoorbeeld als een para meter `SpeechConfig.FromSubscription` voor in de Speech-SDK voor C#).
 
-### <a name="speech-to-text-text-to-speech-and-translation"></a>Spraak-naar-tekst, tekst naar spraak en vertaling
+### <a name="speech-to-text-text-to-speech-and-translation"></a>Spraak naar tekst, tekst-naar-spraak en omzetting
 
-De spraak-SDK is beschikbaar in deze regio's voor **spraakherkenning**, **tekst naar spraak**, en **vertaling**:
+De Speech SDK is beschikbaar in deze regio's voor **spraak herkenning**, **tekst naar spraak**en **vertaling**:
 
   Regio | Parameter voor spraak-SDK | Spraak aanpassing Portal
  ------|-------|--------
  US - west | `westus` | https://westus.cris.ai
  US - west 2 | `westus2` | https://westus2.cris.ai
- US - oost | `eastus` | https://eastus.cris.ai
+ East US | `eastus` | https://eastus.cris.ai
  US - oost 2 | `eastus2` | https://eastus2.cris.ai
  US - centraal | `centralus` | https://centralus.cris.ai
  US - noord-centraal | `northcentralus` | https://northcentralus.cris.ai
@@ -55,7 +55,7 @@ De spraak-SDK is beschikbaar in deze regio's voor **spraakherkenning**, **tekst 
 
 ### <a name="intent-recognition"></a>Intentieherkenning
 
-Beschikbare regio's voor **intentieherkenning** via de spraak-SDK worden de volgende:
+Beschik bare regio's voor **intentie herkenning** via de Speech SDK zijn de volgende:
 
  Globale regio | Regio | Parameter voor spraak-SDK
  ------|-------|--------
@@ -64,7 +64,7 @@ Beschikbare regio's voor **intentieherkenning** via de spraak-SDK worden de volg
  Australië | Australië - oost | `australiaeast`
  Europa | Europa - noord | `northeurope`
  Europa | Europa -west | `westeurope`
- Noord-Amerika | US - oost | `eastus`
+ Noord-Amerika | East US | `eastus`
  Noord-Amerika | US - oost 2 | `eastus2`
  Noord-Amerika | US - zuid-centraal | `southcentralus`
  Noord-Amerika | US - west-centraal | `westcentralus`
@@ -72,17 +72,17 @@ Beschikbare regio's voor **intentieherkenning** via de spraak-SDK worden de volg
  Noord-Amerika | US - west 2 | `westus2`
  Zuid-Amerika | Brazilië - zuid | `brazilsouth`
 
-Dit is een subset van de publicatie regio's ondersteund door de [Language Understanding-service (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+Dit is een subset van de publicatie regio's die worden ondersteund door de [Language Understanding-service (Luis)](/azure/cognitive-services/luis/luis-reference-regions).
 
-### <a name="voice-first-virtual-assistants"></a>Stem op de eerste virtuele assistent
+### <a name="voice-first-virtual-assistants"></a>Virtuele assistenten voor spraak
 
-De [spraak SDK](speech-sdk.md) ondersteunt **stem op de eerste virtuele assistent** mogelijkheden in deze regio's:
+De [Speech-SDK](speech-sdk.md) biedt ondersteuning voor de mogelijkheden van de functie **voor spraak-eerste virtuele assistent** in deze regio's:
 
 Regio | Parameter voor spraak-SDK
 -------|---------------------
 US - west | `westus`
 US - west 2 | `westus2`
-US - oost | `eastus`
+East US | `eastus`
 US - oost 2 | `eastus2`
 Europa -west | `westeurope`
 Europa - noord | `northeurope`
@@ -94,12 +94,12 @@ De spraak-service wordt ook aangegeven REST-eindpunten voor spraak-naar-tekst en
 
 ### <a name="speech-to-text"></a>Spraak-naar-tekst
 
-Zie voor spraak-naar-tekst naslagdocumentatie [REST-API voor spraak-naar-tekst](rest-speech-to-text.md).
+Zie [spraak-naar-tekst-rest API](rest-speech-to-text.md)voor naslag informatie over spraak naar tekst.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 ### <a name="text-to-speech"></a>Tekst naar spraak
 
-Zie voor de Text to Speech naslagdocumentatie [REST-API voor tekst naar spraak](rest-text-to-speech.md).
+Zie [tekst-naar-spraak-rest API](rest-text-to-speech.md)voor naslag informatie over tekst naar spraak.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

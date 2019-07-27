@@ -1,7 +1,7 @@
 ---
-title: Testgegevens voorbereiden voor de aangepaste spraak - spraakservices
-titlesuffix: Azure Cognitive Services
-description: Of u test om te zien hoe nauwkeurig Microsoft-spraakherkenning is of uw eigen modellen trainen, moet u gegevens (in de vorm van audio en/of tekst). Op deze pagina behandelen we de typen gegevens, hoe ze worden gebruikt en hoe deze te beheren.
+title: Test gegevens voorbereiden voor de Custom Speech-Speech-Service
+titleSuffix: Azure Cognitive Services
+description: Of u nu test om te zien hoe nauw keurige spraak herkenning van micro soft is of uw eigen modellen trainen, u hebt gegevens nodig (in de vorm van audio en/of tekst). Op deze pagina hebben we betrekking op de typen gegevens, hoe ze worden gebruikt en hoe ze kunnen worden beheerd.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,80 +10,80 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6e1ffa11456fc6a021e370d674624d297463ac73
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8821ce46c65ac8bca36f006ef77bcaf475b0573d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603181"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559624"
 ---
-# <a name="prepare-data-for-custom-speech"></a>Gegevens voorbereiden voor de aangepaste spraak
+# <a name="prepare-data-for-custom-speech"></a>Gegevens voorbereiden voor Custom Speech
 
-Of u test om te zien hoe nauwkeurig Microsoft-spraakherkenning is of uw eigen modellen trainen, moet u gegevens in de vorm van audio en tekst. Op deze pagina behandelen we de typen gegevens, hoe ze worden gebruikt en hoe deze te beheren.
+Of u nu test om te zien hoe nauw keurige spraak herkenning van micro soft is of uw eigen modellen trainen, u hebt gegevens nodig in de vorm van audio en tekst. Op deze pagina hebben we betrekking op de typen gegevens, hoe ze worden gebruikt en hoe ze kunnen worden beheerd.
 
 ## <a name="data-types"></a>Gegevenstypen
 
-Deze tabel bevat de geaccepteerde gegevenstypen, wanneer elk gegevenstype moet worden gebruikt en de aanbevolen hoeveelheid. Niet alle gegevens van het type is vereist om een model te maken. Vereisten voor gegevens varieert afhankelijk van of u een test maakt of een model te trainen.
+In deze tabel worden de geaccepteerde gegevens typen vermeld, wanneer elk gegevens type moet worden gebruikt en de aanbevolen hoeveelheid. Niet elk gegevens type is vereist voor het maken van een model. De gegevens vereisten variëren, afhankelijk van het feit of u een model maakt of een training uitvoert.
 
-| Gegevenstype | Gebruikt van testen | Aantal | Gebruikt voor training | Aantal |
+| Gegevenstype | Testen gebruiken | Hoeveelheid | Gebruikt voor training | Hoeveelheid |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Ja<br>Gebruikt voor visueel inspecteren | 5 + audiobestanden | Nee | N/a |
-| [Audio + Human etiket transcripties](#audio--human-labeled-transcript-data-for-testingtraining) | Ja<br>Gebruikt voor het evalueren van nauwkeurigheid | 0,5 - 5 uur audio | Ja | 1 - 1000 uur aan audio |
-| [Tekst](##related-text-data-for-training) | Nee | N/a | Ja | 1-200 MB van tekst |
+| [Audio](#audio-data-for-testing) | Ja<br>Gebruikt voor visuele inspectie | 5 + audio bestanden | Nee | N.v.t. |
+| [Audio en Transcripten met menselijke labels](#audio--human-labeled-transcript-data-for-testingtraining) | Ja<br>Wordt gebruikt om de nauw keurigheid te evalueren | 0,5-5 uur audio | Ja | 1-1.000 uur audio |
+| [Gerelateerde tekst](##related-text-data-for-training) | Nee | N.v.t. | Ja | 1-200 MB aan Verwante tekst |
 
-Bestanden moeten worden gegroepeerd op type naar een gegevensset en geüpload als een zip-bestand. Elke gegevensset kan slechts één gegevenstype bevatten.
+Bestanden moeten worden gegroepeerd door te typen in een gegevensset en worden geüpload als een zip-bestand. Elke gegevensset kan slechts één gegevens type bevatten.
 
 ## <a name="upload-data"></a>Gegevens uploaden
 
-Wanneer u klaar om uw gegevens te uploaden bent, klikt u op **gegevens uploaden** om te starten van de wizard en maken van uw eerste gegevensset. U wordt gevraagd een spraak-gegevenstype voor uw gegevensset selecteren voordat u uw gegevens te uploaden.
+Wanneer u klaar bent om uw gegevens te uploaden, klikt u op **gegevens uploaden** om de wizard te starten en uw eerste gegevensset te maken. U wordt gevraagd een type spraak gegevens voor uw gegevensset te selecteren voordat u uw gegevens kunt uploaden.
 
-![Selecteer audio van de spraak-Portal](./media/custom-speech/custom-speech-select-audio.png)
+![Audio selecteren in de spraak Portal](./media/custom-speech/custom-speech-select-audio.png)
 
-Elke gegevensset die u uploadt, moet voldoen aan de vereisten voor het gegevenstype dat u kiest. Het is belangrijk om correct uw gegevens voordat deze wordt geüpload. Dit zorgt ervoor dat de gegevens nauwkeurig wordt verwerkt door de Custom Speech service. Vereisten worden vermeld in de volgende secties.
+Elke gegevensset die u uploadt, moet voldoen aan de vereisten voor het gegevens type dat u kiest. Het is belang rijk dat u uw gegevens op de juiste wijze opmaakt voordat deze worden geüpload. Dit zorgt ervoor dat de gegevens correct worden verwerkt door de Custom Speech-Service. De vereisten worden weer gegeven in de volgende secties.
 
-Nadat uw gegevensset is geüpload, hebt u enkele opties:
+Nadat uw gegevensset is geüpload, hebt u een aantal opties:
 
-* U kunt navigeren naar de **testen** tabblad en visueel inspecteren alleen audio- of audio + human etiket transcriptie gegevens.
-* U kunt navigeren naar de **Training** tabblad en audio + menselijke transcriptie gegevens of tekst met een aangepast model te trainen.
+* U kunt naar het tabblad **testen** navigeren en alleen audio visueel controleren of audio + Transcriptie-gegevens met menselijke labels.
+* U kunt naar het tabblad **training** gaan en audio en gegevens van menselijk transcriptie of gerelateerde tekst gegevens gebruiken om een aangepast model te trainen.
 
-## <a name="audio-data-for-testing"></a>Audiogegevens voor het testen
+## <a name="audio-data-for-testing"></a>Audio gegevens voor testen
 
-Audiogegevens is geoptimaliseerd voor het testen van de nauwkeurigheid van de Microsoft baseline spraak-naar-tekst model of een aangepast model. Houd er rekening mee, audiogegevens is gebruikt om de nauwkeurigheid van de spraakherkenning met betrekking tot een specifiek model prestaties controleren. Als u de nauwkeurigheid van een model kwantificeren wilt, gebruikt u [audio + human etiket transcriptie gegevens](#audio--human-labeled-transcript-data-for-testingtraining).
+Audio gegevens zijn optimaal voor het testen van de nauw keurigheid van het spraak-naar-tekst model van micro soft of een aangepast model. Houd er rekening mee dat audio gegevens worden gebruikt voor het inspecteren van de nauw keurigheid van spraak met betrekking tot de prestaties van een specifiek model. Als u wilt weten wat de nauw keurigheid van een model is, gebruik dan [audio + met Human labels transcriptie-gegevens](#audio--human-labeled-transcript-data-for-testingtraining).
 
-Deze tabel gebruiken om ervoor te zorgen dat uw audio-bestanden zijn ingedeeld voor gebruik met aangepaste spraak:
+Gebruik deze tabel om ervoor te zorgen dat uw audio bestanden correct zijn ingedeeld voor gebruik met Custom Speech:
 
 | Eigenschap | Value |
 |----------|-------|
-| Bestandsindeling | RIFF (WAV) |
-| Samplefrequentie | 8000 Hz of 16.000 Hz |
+| Bestands indeling | RIFF (WAV) |
+| Steekproeffrequentie | 8\.000 Hz of 16.000 Hz |
 | Kanalen | 1 (mono) |
-| Maximale lengte per audio | 2 uur |
-| Voorbeeldindeling | PCM, 16-bits |
-| Indeling archiveren | .zip |
-| Grootte van maximaal archiveren | 2 GB |
+| Maximum lengte per audio | 2 uur |
+| Voorbeeld indeling | PCM, 16-bits |
+| Archief indeling | .zip |
+| Maximale archief grootte | 2 GB |
 
-Als uw audio niet voldoet aan deze eigenschappen of als u controleren wilt als dit het geval is, het is raadzaam downloaden [sox](http://sox.sourceforge.net) om te controleren of de audio converteren. Hieronder volgen enkele voorbeelden van hoe elk van deze activiteiten kan worden uitgevoerd via de opdrachtregel:
+Als uw audio niet voldoet aan deze eigenschappen of als u wilt controleren of dit het geval is, wordt u aangeraden [Sox](http://sox.sourceforge.net) te downloaden om de audio te controleren of te converteren. Hieronder ziet u enkele voor beelden van de manier waarop elk van deze activiteiten kan worden uitgevoerd via de opdracht regel:
 
-| Activiteit | Description | SOx opdracht |
+| Activiteit | Description | Sox-opdracht |
 |----------|-------------|-------------|
-| Controleer de audio-indeling | Deze opdracht gebruiken om te controleren of de audio-indeling. | `sox --i <filename>` |
-| Audio-indeling converteren | Met deze opdracht kunt u het audio bestand converteren naar één kanaal, 16-bits, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
+| Audio-indeling controleren | Gebruik deze opdracht om de indeling van het audio bestand te controleren. | `sox --i <filename>` |
+| Audio-indeling converteren | Gebruik deze opdracht om het audio bestand te converteren naar één kanaal, 16-bits, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
 
-## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Audio + human etiket transcript gegevens voor testen/training
+## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Audio en transcriptie gegevens met menselijke labels voor testen/training
 
-Als u wilt meten de nauwkeurigheid van de nauwkeurigheid van de spraak-naar-tekst van Microsoft bij het verwerken van uw audio-bestanden, moet u human etiket transcripties (-per-woord) voor vergelijking opgeven. Hoewel transcriptie human etiket vaak tijdrovend is, is het nodig zijn om te evalueren nauwkeurigheid en met het trainen van het model voor uw use-cases. Houd er rekening mee, is de verbeteringen in de opname alleen nuttig als de gegevens die zijn opgegeven. Om die reden is het belangrijk dat alleen hoogwaardige Transcripten worden geüpload.  
+Als u de nauw keurigheid van de spraak-naar-tekst nauwkeurigheid van micro soft tijdens het verwerken van uw audio bestanden wilt meten, moet u transcripties (woord voor woord) van de mens voorzien voor vergelijking. Hoewel menselijke labels transcriptie vaak tijdrovend zijn, is het nood zakelijk om nauw keurigheid te evalueren en het model te trainen voor uw gebruiks voorbeelden. Houd er rekening mee dat de verbeteringen in de herkenning alleen van belang zijn voor de gegevens. Daarom is het belang rijk dat alleen transcripten van hoogwaardige kwaliteit worden geüpload.  
 
-| Eigenschap | Value |
+| Eigenschap | Waarde |
 |----------|-------|
-| Bestandsindeling | RIFF (WAV) |
-| Samplefrequentie | 8000 Hz of 16.000 Hz |
+| Bestands indeling | RIFF (WAV) |
+| Steekproeffrequentie | 8\.000 Hz of 16.000 Hz |
 | Kanalen | 1 (mono) |
-| Maximale lengte per audio | 60 s |
-| Voorbeeldindeling | PCM, 16-bits |
-| Indeling archiveren | .zip |
-| Maximale zip-grootte | 2 GB |
+| Maximum lengte per audio | 60 s |
+| Voorbeeld indeling | PCM, 16-bits |
+| Archief indeling | .zip |
+| Maximale grootte van zip | 2 GB |
 
-Om problemen te verhelpen, zoals word verwijderen of vervangen, een aanzienlijke hoeveelheid gegevens is vereist om te verbeteren. Over het algemeen is het raadzaam voor per woord transcripties van ongeveer 10-1000 uur aan audio. De transcripties voor alle WAV-bestanden moeten worden opgenomen in één bestand met tekst zonder opmaak. Elke regel van het transcriptiebestand moet de naam van een van de audiobestanden bevatten, gevolgd door de bijbehorende transcriptie. De bestandsnaam en transcriptie moeten worden gescheiden door een tab (\t).
+Voor het oplossen van problemen zoals het verwijderen of vervangen van woorden, is een aanzienlijke hoeveelheid gegevens vereist om de herkenning te verbeteren. Over het algemeen is het raadzaam om per woord transcripties te bieden voor ongeveer 10 tot 1.000 uur aan audio. De transcripties voor alle WAV-bestanden moeten worden opgenomen in één bestand met tekst zonder opmaak. Elke regel van het transcriptiebestand moet de naam van een van de audiobestanden bevatten, gevolgd door de bijbehorende transcriptie. De bestandsnaam en transcriptie moeten worden gescheiden door een tab (\t).
 
   Bijvoorbeeld:
 ```
@@ -94,28 +94,28 @@ Om problemen te verhelpen, zoals word verwijderen of vervangen, een aanzienlijke
 > [!NOTE]
 > Transcriptie moet worden gecodeerd als UTF-8 BOM (Byte Order Mark).
 
-De tekst van de transcripties wordt genormaliseerd zodat ze door het systeem kunnen worden verwerkt. Er zijn echter enkele belangrijke normalisaties die door de gebruiker moeten worden uitgevoerd _voordat_ de gegevens worden geüpload naar de Custom Speech Service. Zie voor de juiste taal moet worden gebruikt bij het voorbereiden van uw transcripties [over het maken van een transcriptie human etiket](how-to-custom-speech-human-labeled-transcriptions.md)
+De tekst van de transcripties wordt genormaliseerd zodat ze door het systeem kunnen worden verwerkt. Er zijn echter enkele belangrijke normalisaties die door de gebruiker moeten worden uitgevoerd _voordat_ de gegevens worden geüpload naar de Custom Speech Service. Voor de juiste taal die moet worden gebruikt wanneer u uw transcripties voorbereidt, Zie [How to Create a Human-gelabeld transcriptie](how-to-custom-speech-human-labeled-transcriptions.md)
 
-Nadat u uw audio-bestanden en de bijbehorende transcripties hebt verzameld, moeten ze voordat u uploadt naar de portal voor aangepaste spraak als één ZIP-bestand worden verpakt. Dit is een voorbeeld van de gegevensset met drie audio-bestanden en een bestand transcriptie human gelabeld:
+Nadat u de audio bestanden en de bijbehorende transcripties hebt verzameld, moeten ze worden ingepakt als één ZIP-bestand voordat ze naar de Custom Speech-portal kunnen worden geüpload. Dit is een voor beeld van een gegevensset met drie audio bestanden en een transcriptie-bestand met menselijke Labels:
 
-![Selecteer audio van de spraak-Portal](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
+![Audio selecteren in de spraak Portal](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
-## <a name="related-text-data-for-training"></a>Gerelateerde tekstgegevens voor training
+## <a name="related-text-data-for-training"></a>Gerelateerde tekst gegevens voor training
 
-Als u beschikt over productnamen of functies die uniek zijn en u wilt controleren of dat ze goed worden herkend, is het belangrijk om gerelateerde gegevens voor de training. Twee typen verwante tekstgegevens kunnen worden opgegeven voor het verbeteren van opname:
+Als u product namen of-onderdelen hebt die uniek zijn, en u ervoor wilt zorgen dat ze correct worden herkend, is het belang rijk om gerelateerde tekst gegevens op te nemen voor training. Er kunnen twee typen gerelateerde tekst gegevens worden gegeven om de herkenning te verbeteren:
 
-| Gegevenstype | Hoe deze gegevens verbetert de opname |
+| Gegevenstype | Hoe deze gegevens de herkenning verbeteren |
 |-----------|------------------------------------|
-| Uitingen en/of zinnen | Deze kunnen nauwkeurigheid verbeteren bij het herkennen van productnamen of branchespecifieke vocabulaire binnen de context van een zin. |
-| Uitspraak | Deze kunnen uitspraak van ongebruikelijke termen, acroniemen of andere woorden met niet-gedefinieerde uitspraak verbeteren. |
+| Uitingen en/of zinnen | Deze kunnen nauw keuriger worden bij het herkennen van product namen of branchespecifieke vocabulaire in de context van een zin. |
+| Uitspraak | Dit kan de uitspraak van ongebruikelijke termen, acroniemen of andere woorden met niet-gedefinieerde uitspraak verbeteren. |
 
-Uitingen kunnen worden opgegeven als een of meerdere tekstbestanden. Hoe dichter de tekst van de gegevens zijn voor wat wordt gesproken kan worden, des te groter de kans dat de nauwkeurigheid is verbeterd. Uitspraak moeten worden opgegeven als een enkele tekst-bestand. Alles kan worden geleverd als een enkel zip-bestand en geüpload naar de portal voor aangepaste spraak.
+Uitingen kan worden gegeven als één of meer tekst bestanden. Hoe dichter de tekst gegevens zijn voor wat wordt gesp roken, des te groter is de kans dat de nauw keurigheid is verbeterd. Uitspraak moet worden gegeven als één tekst bestand. Alles kan worden verpakt als één ZIP-bestand en worden geüpload naar de Custom Speech Portal.
 
-### <a name="guidelines-to-create-an-utterances-file"></a>Richtlijnen voor het maken van een bestand uitingen
+### <a name="guidelines-to-create-an-utterances-file"></a>Richt lijnen voor het maken van een uitingen-bestand
 
-Voor het maken van een aangepast model met behulp van tekst, moet u een lijst van voorbeeld-uitingen opgeven. Deze uitingen hoeft te worden van volledige zinnen of grammaticaal corrigeren, maar ze moeten de gesproken invoer die u in productie verwacht nauwkeurig weergeven. Als u wilt dat bepaalde voorwaarden meer gewicht, kunt u meerdere zinnen kunt toevoegen aan het bestand gerelateerde gegevens die deze specifieke termen bevatten.
+Als u een aangepast model met behulp van gerelateerde tekst wilt maken, moet u een lijst met voorbeeld uitingen opgeven. Deze uitingen hoeven niet te worden ingevuld of moeten grammaticaal correct zijn, maar ze moeten nauw keurig overeenkomen met de gesp roken invoer die u verwacht tijdens de productie. Als u wilt dat bepaalde voor waarden meer gewicht hebben, kunt u verschillende zinnen toevoegen aan het gerelateerde gegevens bestand dat deze specifieke voor waarden bevat.
 
-Deze tabel gebruiken om ervoor te zorgen dat uw gerelateerde gegevensbestand voor uitingen correct is ingedeeld:
+Gebruik deze tabel om ervoor te zorgen dat het gerelateerde gegevens bestand voor uitingen correct is ingedeeld:
 
 | Eigenschap | Value |
 |----------|-------|
@@ -123,47 +123,47 @@ Deze tabel gebruiken om ervoor te zorgen dat uw gerelateerde gegevensbestand voo
 | Aantal utterances per regel | 1 |
 | Maximale bestandsgrootte | 200 MB |
 
-Bovendien moet u rekening voor de volgende beperkingen:
+Daarnaast wilt u rekening met de volgende beperkingen:
 
-* Vermijd tekens meer dan vier keer herhalen. Bijvoorbeeld: "aaaa" of 'uuuu'.
-* Gebruik geen speciale tekens of UTF-8 tekens boven U + 00A1.
-* URI's worden geweigerd.
+* Vermijd meer dan vier keer herhaalde tekens. Bijvoorbeeld: ' AAAA ' of ' UUUU '.
+* Gebruik geen speciale tekens of UTF-8 tekens boven U en 00A1.
+* Uri's worden geweigerd.
 
-### <a name="guidelines-to-create-a-pronunciation-file"></a>Richtlijnen voor het maken van een uitspraak van bestand
+### <a name="guidelines-to-create-a-pronunciation-file"></a>Richt lijnen voor het maken van een uitspraak bestand
 
-Als er ongewone voorwaarden zonder standard uitspraak die uw gebruikers ondervinden of gebruiken, kunt u een aangepaste uitspraak van bestand ter verbetering van spraakherkenning kunt opgeven.
+Als er ongebruikelijke voor waarden zijn zonder standaard uitspraak dat uw gebruikers zich kunnen voordoen of gebruiken, kunt u een aangepast uitspraak bestand opgeven om de herkenning te verbeteren.
 
 > [!IMPORTANT]
-> Het wordt niet aanbevolen deze functie wilt gebruiken om te wijzigen van de uitspraak van veelvoorkomende woorden.
+> Het is niet raadzaam om deze functie te gebruiken om de uitspraak van veelvoorkomende woorden te wijzigen.
 
-Dit bevat voorbeelden van een gesproken utterance en een aangepaste uitspraak van voor elke:
+Dit omvat voor beelden van een gesp roken utterance en een aangepaste uitspraak voor elk:
 
-| Formulier herkend/weergegeven | Gesproken formulier |
+| Herkend/weer gegeven formulier | Gesproken formulier |
 |--------------|--------------------------|
-| 3CPO | drie c-p-o |  
+| 3CPO | drie c p |  
 | CNTK | c n t k |
-| IEEE | ik drievoudige e |
+| IEEE | drievoudige e |
 
-Het formulier gesproken is de fonetische reeks voluit geschreven. Het kan bestaan uit letters, woorden, lettergrepen of een combinatie van alle drie.
+Het gesp roken formulier is de fonetische volg orde die is gespeld. Het kan bestaan uit letter, woorden, letter grepen of een combi natie van alle drie.
 
-Aangepaste uitspraak is beschikbaar in het Engels (en-US) en Duits (nl-nl). Deze tabel ziet u ondersteunde tekens per taal:
+Aangepaste uitspraak is beschikbaar in het Engels (nl-nl) en Duits (de-DE). In deze tabel worden de ondersteunde tekens per taal weer gegeven:
 
 | Taal | Landinstelling | Tekens |
 |----------|--------|------------|
-| Nederlands | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
-| Duits | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, "j", k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Engels | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Duits | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 
-Deze tabel gebruiken om ervoor te zorgen dat uw gerelateerde gegevensbestand voor uitspraak correct is ingedeeld. Uitspraak van bestanden klein zijn en mag niet meer dan een paar kB's.
+Gebruik deze tabel om ervoor te zorgen dat het gerelateerde gegevens bestand voor uitspraak juist is ingedeeld. De uitspraak bestanden zijn klein en mogen niet meer dan een paar Kb's overschrijden.
 
 | Eigenschap | Value |
 |----------|-------|
-| Tekstcodering | Stuklijst UTF-8 (ANSI wordt ook ondersteund voor het Engels) |
-| Totaal aantal uitspraken per regel | 1 |
-| Maximale bestandsgrootte | 1 MB (1 KB voor de laag gratis) |
+| Tekstcodering | UTF-8-stuk lijst (ANSI wordt ook ondersteund voor Engels) |
+| aantal uitspraakingen per regel | 1 |
+| Maximale bestandsgrootte | 1 MB (1 KB voor gratis laag) |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Controleer uw gegevens](how-to-custom-speech-inspect-data.md)
-* [Evalueren van uw gegevens](how-to-custom-speech-evaluate-data.md)
-* [Uw model te trainen](how-to-custom-speech-train-model.md)
+* [Uw gegevens controleren](how-to-custom-speech-inspect-data.md)
+* [Uw gegevens evalueren](how-to-custom-speech-evaluate-data.md)
+* [Uw model trainen](how-to-custom-speech-train-model.md)
 * [Uw model implementeren](how-to-custom-speech-deploy-model.md)

@@ -1,5 +1,5 @@
 ---
-title: Vooraf gemaakte intenties en entiteiten
+title: Preconstrueerde intenties en entiteiten-LUIS
 titleSuffix: Azure Cognitive Services
 description: In deze zelfstudie voegt u vooraf gemaakte intenties en entiteiten toe aan een app om snel intenties te kunnen voorspellen en gegevens te extraheren. U hoeft utterances niet te labelen met vooraf gedefinieerde entiteiten. De entiteit wordt automatisch gedetecteerd.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2018
 ms.author: diberry
-ms.openlocfilehash: 189514c51451dedfaab7b07f28d79f674b32f83a
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 8c3fa2a68018e0eb45f37b54b16b6e7797cfa7c4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277533"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560039"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Zelfstudie: Algemene intenties en entiteiten identificeren
 
@@ -61,7 +61,7 @@ LUIS biedt verschillende vooraf gemaakte intenties om u te helpen met algemene g
    * Utilities.StartOver
    * Utilities.Help
 
-     Deze intenties zijn handig om te bepalen waar de gebruiker zich bevindt in de conversatie en wat ze willen doen. Deze intents omvatten het gebruik van entiteiten. Deze entiteiten worden automatisch toegevoegd aan de LUIS-app: aantal, het rangtelwoord voor de en Utilities.DirectionalReference. 
+     Deze intenties zijn handig om te bepalen waar de gebruiker zich bevindt in de conversatie en wat ze willen doen. Deze doel einden omvatten het gebruik van entiteiten. Deze entiteiten worden automatisch toegevoegd aan de LUIS-app: Number, ordinal en utilities. DirectionalReference. 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Vooraf gemaakte entiteiten toevoegen om te helpen met het ophalen van algemene gegevens

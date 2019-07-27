@@ -1,7 +1,7 @@
 ---
-title: Woordgroep lijsten - spraakservices
-titlesuffix: Azure Cognitive Services
-description: Meer informatie over het opgeven van de Speech Services met een lijst met woorden met de `PhraseListGrammar` object voor het verbeteren van de resultaten van spraak-naar-tekst.
+title: Woordgroepen lijsten-spraak service
+titleSuffix: Azure Cognitive Services
+description: Informatie over het leveren van de spraak Services met een woordgroepen lijst `PhraseListGrammar` met behulp van het object om herkennings resultaten voor spraak naar tekst te verbeteren.
 services: cognitive-services
 author: rhurey
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: d73a63a8f58e14149121d0860268fc23930001bf
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 0e552d502184d1b537263c2c1f6b2a8562cdf791
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226348"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562781"
 ---
-# <a name="phrase-lists-for-speech-to-text"></a>Woordgroep lijsten voor spraak-naar-tekst
+# <a name="phrase-lists-for-speech-to-text"></a>Woordgroepen lijsten voor spraak naar tekst
 
-Door op te geven de Speech Services met een woordgroep-lijst, kunt u de nauwkeurigheid van de spraakherkenning verbeteren. Een lijst met woorden worden gebruikt voor identificatie van bekende zinnen in audiogegevens, zoals de naam van een persoon of een specifieke locatie.
+Door de spraak Services met een woordgroepen lijst te bieden, kunt u de nauw keurigheid van spraak herkenning verbeteren. Woordgroepen lijsten worden gebruikt voor het identificeren van bekende woord groepen in audio gegevens, zoals de naam van een persoon of een specifieke locatie.
 
-Een voorbeeld: als u een opdracht 'Naar' en een mogelijke doel van 'Ward"die kan worden uitgesproken, kunt u een vermelding van 'Verplaatsen naar Ward' toevoegen. Een wachtwoordzin toe te voegen, wordt de kans groter dat wanneer de audio wordt herkend dat "Verplaatsen naar Ward" in plaats van "Verplaatsen naar" wordt herkend.
+Als u bijvoorbeeld een opdracht ' verplaatsen naar ' en een mogelijke bestemming van ' naar onder ' hebt, kunt u een vermelding van ' verplaatsen naar binnen ' toevoegen. Als u een woord groep toevoegt, wordt de kans groter dat wanneer de audio wordt herkend dat ' naar binnen verplaatsen ' wordt herkend.
 
-Enkele woorden of volledige zinnen kunnen worden toegevoegd aan een woordgroep-lijst. Tijdens de opname, een vermelding in een woordgroepenlijst met gebruikt als een exacte overeenkomst is opgenomen in de audio. Bouwen op het vorige voorbeeld, als de lijst met woorden bevat 'Verplaatsen naar Ward' en de woordgroep vastgelegd is "Verplaatsen naar langzaam" en vervolgens het herkenningsresultaat worden 'Verplaatsen naar Ward langzaam'.
+Enkele woorden of volledige woord groepen kunnen worden toegevoegd aan een woordgroepen lijst. Tijdens de herkenning wordt een vermelding in een woordgroepen lijst gebruikt als de audio een exacte overeenkomst bevat. Als de woordgroepen lijst in het vorige voor beeld is opgenomen, wordt ' verplaatsen naar de andere ' weer geven en de vastgelegde woord groep ' langzaam verplaatsen naar de andere '.
 
 >[!Note]
-> Geeft een lijst van woordgroep ondersteunt momenteel alleen Engels voor spraak-naar-tekst.
+> Op dit moment ondersteunt een woordgroepen lijst alleen het Engels voor spraak naar tekst.
 
-## <a name="how-to-use-phrase-lists"></a>Het gebruik van woorden bevat
+## <a name="how-to-use-phrase-lists"></a>Woordgroepen lijsten gebruiken
 
-De onderstaande voorbeelden laten zien over het bouwen van een woordgroepenlijst met met de `PhraseListGrammar` object.
+In de onderstaande voor beelden ziet u hoe u een woordgroepen lijst `PhraseListGrammar` maakt met behulp van het object.
 
 ```C++
 auto phraselist = PhraseListGrammar::FromRecognizer(recognizer);
@@ -68,9 +68,9 @@ phraseListGrammar.addPhrase("Move to Ted");
 ```
 
 >[!Note]
-> Het maximum aantal woordgroep lijsten die de spraak-Service wordt gebruikt zodat deze overeenkomen met spraak is 1024 zinnen.
+> Het maximum aantal woordgroepen lijsten dat door de spraak service wordt gebruikt om te voldoen aan spraak is 1024 zinsdelen.
 
-U kunt ook schakelt u de items die zijn gekoppeld aan de `PhraseListGrammar` door aanroepen clear().
+U kunt ook de zinsdelen wissen die zijn gekoppeld `PhraseListGrammar` aan de door het aanroepen van Clear ().
 
 ```C++
 phraselist->Clear();
@@ -93,8 +93,8 @@ phraseListGrammar.clear();
 ```
 
 > [!NOTE]
-> Wijzigingen in een `PhraseListGrammar` nemen van invloed op de volgende opname of na een opnieuw verbinding maken met de Speech Services-object.
+> Wijzigingen in een `PhraseListGrammar` object worden van invloed op de volgende herkenning of na het opnieuw verbinden met de spraak Services.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Spraak SDK-referentiedocumentatie](speech-sdk.md)
+* [Naslag documentatie voor Speech SDK](speech-sdk.md)

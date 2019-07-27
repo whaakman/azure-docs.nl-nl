@@ -1,6 +1,6 @@
 ---
-title: Percentage vooraf gemaakte entiteiten
-titleSuffix: Azure
+title: Percentage vooraf samengestelde entiteit-LUIS
+titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat percentage vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 75538519b7d43aa702e15ce3c22ea4acc73ade87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9daaa78003b3d789c3c7b746e6c0689b96e89428
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072205"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563398"
 ---
-# <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Percentage vooraf gedefinieerde entiteit voor een LUIS-app
+# <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Percentage vooraf samengestelde entiteit voor een LUIS-app
 Percentage getallen kunnen worden weergegeven als delen, `3 1/2`, of als percentage, `2%`. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met percentage van de toepassing intents. Percentage entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-percentage"></a>Typen percentage
-Percentage wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114) GitHub-opslagplaats
+Percentage wordt beheerd vanuit de map [recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114) github
 
 ## <a name="resolution-for-prebuilt-percentage-entity"></a>Oplossing voor vooraf gedefinieerde percentage entiteit
 
-### <a name="api-version-2x"></a>API-versie 2.x
+### <a name="api-version-2x"></a>API-versie 2. x
 
 Het volgende voorbeeld ziet u de resolutie van de **builtin.percentage** entiteit.
 
@@ -57,9 +57,9 @@ Het volgende voorbeeld ziet u de resolutie van de **builtin.percentage** entitei
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Preview-API-versie 3.x
+### <a name="preview-api-version-3x"></a>Preview-API versie 3. x
 
-De volgende JSON is met de `verbose` parameter ingesteld op `false`:
+De volgende JSON is met de `verbose` para meter ingesteld `false`op:
 
 ```json
 {
@@ -81,7 +81,7 @@ De volgende JSON is met de `verbose` parameter ingesteld op `false`:
 }
 ```
 
-De volgende JSON is met de `verbose` parameter ingesteld op `true`:
+De volgende JSON is met de `verbose` para meter ingesteld `true`op:
 
 ```json
 {

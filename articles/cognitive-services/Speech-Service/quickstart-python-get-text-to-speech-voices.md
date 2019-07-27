@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Lijst met tekst naar spraak stemmen, Python - spraakservices'
+title: 'Quickstart: Lijst met tekst-naar-spraak-stemmen, python-Speech-Service'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstartgids leert u hoe u de volledige lijst met standaard- en neurale stemmen voor een regio/het eindpunt met behulp van Python. De lijst wordt geretourneerd als JSON en stem beschikbaarheid kan variëren per regio.
+description: In deze Quick Start leert u hoe u de volledige lijst met standaard-en Neural-stemmen kunt verkrijgen voor een regio/eind punt met behulp van python. De lijst wordt geretourneerd als JSON en de beschik baarheid van de spraak varieert per regio.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 46595cdf665158d019c9b6def19ff6609db803bc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: ac96c3ce3924b8b2fe834e2b350e95ce23c52e1f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602977"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559350"
 ---
-# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Quickstart: De lijst met tekst naar spraak met behulp van Python-stemmen
+# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Quickstart: De lijst met tekst-naar-spraak-stemmen ophalen met behulp van python
 
-In deze snelstartgids leert u hoe u de volledige lijst met standaard- en neurale stemmen voor een regio/het eindpunt met behulp van Python. De lijst wordt geretourneerd als JSON en stem beschikbaarheid kan variëren per regio. Zie voor een lijst met ondersteunde regio's, [regio's](regions.md).
+In deze Quick Start leert u hoe u de volledige lijst met standaard-en Neural-stemmen kunt verkrijgen voor een regio/eind punt met behulp van python. De lijst wordt geretourneerd als JSON en de beschik baarheid van de spraak varieert per regio. Zie [regio's](regions.md)voor een lijst met ondersteunde regio's.
 
-Deze snelstartgids moet een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een resource Speech Services. Als u geen account hebt, kunt u de [gratis proefversie](get-started.md) gebruiken om een abonnementssleutel op te halen.
+Voor deze Snelstartgids is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) vereist met een speech Services-resource. Als u geen account hebt, kunt u de [gratis proefversie](get-started.md) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,7 +29,7 @@ Voor deze snelstart zijn de volgende zaken vereist:
 
 * Python 2.7.x of 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) of uw favoriete teksteditor
-* De sleutel van een Azure-abonnement voor de spraakservices
+* Een sleutel van een Azure-abonnement voor de spraak Services
 
 ## <a name="create-a-project-and-import-required-modules"></a>Een project maken en de vereiste modules importeren
 
@@ -42,7 +42,7 @@ import requests
 > [!NOTE]
 > Als u deze modules nog niet hebt gebruikt, moet u ze installeren voordat u het programma uitvoert. Voer voor het installeren van deze pakketten voert u `pip install requests` uit.
 
-Aanvragen voor HTTP-aanvragen voor de Text to Speech-service wordt gebruikt.
+Aanvragen worden gebruikt voor HTTP-aanvragen voor de tekst naar spraak-service.
 
 ## <a name="set-the-subscription-key-and-create-a-prompt-for-tts"></a>Stel de abonnementssleutel en een prompt voor TTS maken
 
@@ -59,9 +59,9 @@ De `subscription_key` is de unieke sleutel vanuit de Azure-portal.
 
 ## <a name="get-an-access-token"></a>Een toegangstoken opvragen
 
-Dit eindpunt moet een toegangstoken voor verificatie. Als u een toegangstoken, is een exchange vereist. In dit voorbeeld uitwisselt uw abonnementssleutel Speech Services voor een access token met de `issueToken` eindpunt.
+Voor dit eind punt is een toegangs token voor verificatie vereist. Als u een toegangstoken, is een exchange vereist. In dit voor beeld wordt uw abonnements sleutel voor spraak Services voor een toegangs `issueToken` token met behulp van het eind punt uitgewisseld.
 
-In dit voorbeeld wordt ervan uitgegaan dat uw abonnement spraakservices in de regio VS-West. Als u een andere regio, werk de waarde voor `fetch_token_url`. Zie voor een volledige lijst [regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+In dit voor beeld wordt ervan uitgegaan dat uw speech Services-abonnement zich in de regio vs-West bevindt. Als u een andere regio, werk de waarde voor `fetch_token_url`. Zie voor een volledige lijst [regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Kopieer deze code in de `GetVoices` klasse:
 
@@ -76,13 +76,13 @@ def get_token(self):
 ```
 
 > [!NOTE]
-> Zie voor meer informatie over verificatie [verifiëren met een toegangstoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
+> Zie [verifiëren met een toegangs token](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token)voor meer informatie over verificatie.
 
 ## <a name="make-a-request-and-save-the-response"></a>Een aanvraag indienen en het antwoord opslaan
 
-Hier gaat u naar de aanvraag voor het samenstellen en opslaan van de lijst met geretourneerde stemmen. Eerst moet u om in te stellen de `base_url` en `path`. In dit voorbeeld wordt ervan uitgegaan dat u het eindpunt van de VS-West. Als de bron naar een andere regio is geregistreerd, moet u bijwerken de `base_url`. Zie voor meer informatie, [Speech Services-regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Hier gaat u de aanvraag maken en de lijst met geretourneerde stemmen opslaan. Eerst moet u om in te stellen de `base_url` en `path`. In dit voorbeeld wordt ervan uitgegaan dat u het eindpunt van de VS-West. Als de bron naar een andere regio is geregistreerd, moet u bijwerken de `base_url`. Zie voor meer informatie [spraak Services regio's](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Voeg vervolgens de vereiste headers voor de aanvraag. Ten slotte maakt u een aanvraag naar de service. Als de aanvraag geslaagd is, en een 200-statuscode is geretourneerd, wordt het antwoord wordt geschreven naar het bestand.
+Voeg vervolgens de vereiste headers voor de aanvraag toe. Ten slotte maakt u een aanvraag naar de service. Als de aanvraag is gelukt en er een 200-status code wordt geretourneerd, wordt het antwoord naar het bestand geschreven.
 
 Kopieer deze code in de `GetVoices` klasse:
 
@@ -119,7 +119,7 @@ if __name__ == "__main__":
 
 ## <a name="run-the-sample-app"></a>De voorbeeld-app uitvoeren
 
-Dat is alles, u kunt het voorbeeld uitvoert. Ga vanaf de opdrachtregel (of terminalsessie) naar de projectmap en voer het volgende uit:
+Dat is alles. u bent klaar om het voor beeld uit te voeren. Ga vanaf de opdrachtregel (of terminalsessie) naar de projectmap en voer het volgende uit:
 
 ```console
 python get-voices.py

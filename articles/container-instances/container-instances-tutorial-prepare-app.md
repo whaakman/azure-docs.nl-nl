@@ -10,10 +10,10 @@ ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 719237f63d387cf56ab7947f8f168e0aa4351376
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325571"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Zelfstudie: een containerinstallatiekopie voor implementatie in Azure Container Instances maken
@@ -49,7 +49,7 @@ U kunt [het zip-archief][aci-helloworld-zip] ook rechtstreeks downloaden vanuit 
 
 ## <a name="build-the-container-image"></a>De containerinstallatiekopie bouwen
 
-Het Dockerfile in de voorbeeldtoepassing laat zien hoe de container wordt gebouwd. Het wordt gestart vanuit een [officiële node. js-afbeelding][docker-hub-nodeimage] based on [Alpine Linux][alpine-linux], een kleine distributie die geschikt is voor gebruik met containers. Vervolgens worden de toepassingsbestanden naar de container gekopieerd, afhankelijkheden geïnstalleerd met behulp van de Node Package Manager, en wordt ten slotte de toepassing gestart.
+Het Dockerfile in de voorbeeldtoepassing laat zien hoe de container wordt gebouwd. Het wordt gestart vanuit een [officiële node. js-installatie kopie][docker-hub-nodeimage] op basis van [Alpine Linux][alpine-linux], een kleine distributie die zeer geschikt is voor gebruik met containers. Vervolgens worden de toepassingsbestanden naar de container gekopieerd, afhankelijkheden geïnstalleerd met behulp van de Node Package Manager, en wordt ten slotte de toepassing gestart.
 
 ```Dockerfile
 FROM node:8.9.3-alpine

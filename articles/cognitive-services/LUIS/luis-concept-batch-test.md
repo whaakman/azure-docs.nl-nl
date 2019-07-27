@@ -1,6 +1,6 @@
 ---
-title: Batchgewijs testen
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Batch testen-LUIS
+titleSuffix: Azure Cognitive Services
 description: Gebruik batch testen om te werken continu op uw toepassing het verfijnen en verbeteren van de taal begrijpen.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: acb561970b6a8576d1219fc15758e21a3032c9e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9a6e7ae48a51ab10e6ba2e5d3996e61938c6f3a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813288"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560836"
 ---
-# <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Batch testen met 1000 uitingen in LUIS-portal
+# <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Batch testen met 1000 uitingen in LUIS-Portal
 
 Batch testen valideert uw [active](luis-concept-version.md#active-version) getrainde model voor het meten van de nauwkeurigheid. Een batch-test, kunt u de nauwkeurigheid van de intentie en de entiteit in uw huidige, getrainde model in een grafiek weergeven. De resultaten van de batch voor de passende maatregelen nemen om de nauwkeurigheid, zoals het toevoegen van meer voorbeeld uitingen aan een doel als uw app vaak mislukt voor het identificeren van de juiste intentie te bekijken.
 
@@ -48,7 +48,7 @@ Alle aangepaste entiteiten in het model worden weergegeven in het filter entitei
 
 De batch-bestand bestaat uit uitingen. Elke utterance ze beschikken over een verwachte intentie voorspelling samen met een [machine geleerde entiteiten](luis-concept-entity-types.md#types-of-entities) u verwacht te worden gedetecteerd. 
 
-## <a name="batch-syntax-template-for-intents-with-entities"></a>Batch syntaxis van de sjabloon voor intents met entiteiten
+## <a name="batch-syntax-template-for-intents-with-entities"></a>Sjabloon voor batch-syntaxis voor intentiesen met entiteiten
 
 Gebruik de volgende sjabloon om te starten van uw batch-bestand:
 
@@ -78,9 +78,9 @@ De batch-bestand maakt gebruik van de **startPos** en **endPos** eigenschappen o
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
-## <a name="batch-syntax-template-for-intents-without-entities"></a>Batch syntaxis van de sjabloon voor intents zonder entiteiten
+## <a name="batch-syntax-template-for-intents-without-entities"></a>Sjabloon voor batch-syntaxis voor intentiesen zonder entiteiten
 
-Gebruik de volgende sjabloon om te starten van uw batch-bestand zonder entiteiten:
+Gebruik de volgende sjabloon om uw batch-bestand te starten zonder entiteiten:
 
 ```JSON
 [
@@ -92,7 +92,7 @@ Gebruik de volgende sjabloon om te starten van uw batch-bestand zonder entiteite
 ]
 ```
 
-Als u niet testen van entiteiten wilt, bevatten de `entities` eigenschap en stel de waarde als een lege matrix `[]`.
+Als u geen entiteiten wilt testen, neemt u de `entities` eigenschap op en stelt u de waarde in als een lege `[]`matrix.
 
 
 ## <a name="common-errors-importing-a-batch"></a>Veelvoorkomende fouten in een batch importeren

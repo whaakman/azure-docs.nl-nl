@@ -1,6 +1,6 @@
 ---
 title: Beoordelingen maken met behulp van .NET - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Beoordelingen maken met behulp van de Azure Content Moderator SDK voor .NET.
 services: cognitive-services
 author: sanjeev3
@@ -10,23 +10,23 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 153d42bf4ce4322536d6837be3058d1f9bfb49a2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9938c79c2ba1b2f80c8f147fafe6ce79e247df43
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607168"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564468"
 ---
-# <a name="create-human-reviews-net"></a>Create human reviews (.NET)
+# <a name="create-human-reviews-net"></a>Mensen beoordelingen maken (.NET)
 
-Beoordelingen opslaan en weergeven van inhoud voor menselijke moderators om vast te stellen. Wanneer een gebruiker is een beoordeling voltooid, worden de resultaten verzonden naar een opgegeven retouraanroep-eindpunt. Deze handleiding vindt u informatie en voorbeelden van code om u te helpen aan de slag met de [Content Moderator-SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) aan:
+Beoordelingen van de winkel en de weer gave van inhoud voor menselijke moderators om te beoordelen. Wanneer een gebruiker een beoordeling voltooit, worden de resultaten verzonden naar een opgegeven eind punt voor terugbellen. Deze hand leiding bevat informatie en code voorbeelden waarmee u aan de slag kunt met de [Content moderator SDK voor .net voor](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) het volgende:
 
 - Een set beoordelingen voor menselijke moderators maken
 - De status van bestaande beoordelingen voor menselijke moderators ophalen
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Meld u aan of maak een account op de Content Moderator [beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) site.
+- Meld u aan of maak een account op de site van het Content Moderator [controle programma](https://contentmoderator.cognitive.microsoft.com/) .
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Instellen dat uw API-sleutel de beoordelings-API kan aanroepen voor het maken van de beoordeling
 
@@ -159,7 +159,7 @@ Voeg de volgende klasse toe aan de klasse **Program**. Met deze klasse kunt u de
 >
 > Een sleutel voor de gratis laag heeft een limiet van één RPS.
 
-#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Voeg de volgende constanten toe aan de **programma** klasse in Program.cs
+#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Voeg de volgende constanten toe aan de klasse **Program** in Program.cs
 
 ```csharp
 /// <summary>
@@ -181,7 +181,7 @@ Voeg de volgende klasse toe aan de klasse **Program**. Met deze klasse kunt u de
     private const string OutputFile = "OutputLog.txt";
 ```
 
-#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Voeg de volgende constanten en statische velden die u wilt de **programma** klasse in Program.cs
+#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Voeg de volgende constanten en statische velden toe aan de klasse **Program** in Program.cs
 
 Werk deze waarden bij met informatie die specifiek is voor uw abonnement en team.
 
@@ -238,7 +238,7 @@ private const string MetadataKey = "sc";
 private const string MetadataValue = "true";
 ```
 
-#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>De volgende statische velden toevoegen aan de **programma** klasse in Program.cs
+#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Voeg de volgende statische velden toe aan de klasse **Program** in Program.cs
 
 Gebruik deze velden voor het volgen van de status van de toepassing.
 
@@ -382,7 +382,7 @@ Voeg de volgende methode toe aan de klasse **Program**.
 
 Voeg de volgende code aan de methode **Main**.
 
-Deze code simuleert veel van de bewerkingen die u uitvoert bij het definiëren en beheren van de lijst en bij het gebruik van de lijst voor schermafbeeldingen. De functies voor logboekregistratie kunnen u zien dat de antwoordobjecten die worden gegenereerd door de SDK-aanroepen naar de inhoud mModerator-service.
+Deze code simuleert veel van de bewerkingen die u uitvoert bij het definiëren en beheren van de lijst en bij het gebruik van de lijst voor schermafbeeldingen. Met de functie voor logboek registratie kunt u de reactie objecten zien die zijn gegenereerd door de SDK-aanroepen naar de content mModerator-service.
 
 ```csharp
 using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
@@ -536,4 +536,4 @@ U ziet een reactie zoals in het volgende voorbeeld:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Krijgen de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en download de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere Content Moderator-snelstartgidsen voor .NET, en aan de slag met uw integratie.
+Haal de [Content moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) op en down load de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere content moderator Snelstartgids voor .net, en ga aan de slag met uw integratie.

@@ -1,46 +1,46 @@
 ---
-title: 'Quickstart: Detecteer afwijkingen in uw time series-gegevens met de REST API voor Afwijkingsdetectie Detector enC#'
+title: 'Quickstart: Detecteer afwijkingen in uw time series-gegevens met behulp van de anomalie detectie REST API enC#'
 titleSuffix: Azure Cognitive Services
-description: Gebruik de API van de detectie van afwijkingen voor het detecteren van afwijkingen in de reeks als een batch of voor streaming-gegevens.
+description: Gebruik de anomalie detectie-API om afwijkingen in uw gegevens reeksen op te sporen als een batch of gegevens stromen.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 03/26/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 1b3ed38e7ce8738a0e92775915e894c6e0bbd52a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 97efa5cd91646809178d685ca51e29ef2fda7c0d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721562"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564734"
 ---
-# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Quickstart: Detecteer afwijkingen in uw time series-gegevens met de REST API voor Afwijkingsdetectie Detector enC# 
+# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Quickstart: Detecteer afwijkingen in uw time series-gegevens met behulp van de anomalie detectie REST API enC# 
 
-Gebruik deze Quick Start om te starten met behulp van twee modi voor detectie van afwijkingen Detector-API's voor het detecteren van afwijkingen in uw time series-gegevens. Dit C# toepassing twee API-aanvragen met JSON-indeling time series-gegevens verzendt en de antwoorden opgehaald.
+Gebruik deze Quick Start om de twee detectie modi van de anomalie detectie-API te gebruiken voor het detecteren van afwijkingen in uw time series-gegevens. Met C# deze toepassing worden twee API-aanvragen verzonden met tijdreeks gegevens in JSON-indeling en worden de antwoorden opgehaald.
 
 | API-aanvraag                                        | Toepassingsuitvoer                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Detecteer afwijkingen als batch                        | De JSON-antwoord met de anomaliedetectie-status (en andere gegevens) voor elk gegevenspunt in de time series-gegevens en de posities van alle gedetecteerde afwijkingen. |
-| De status van afwijkingen van de meest recente gegevenspunt detecteren | De JSON-antwoord met de anomaliedetectie-status (en andere gegevens) voor de meest recente gegevenspunt in de time series-gegevens.                                                                                                                                         |
+| Afwijkingen als een batch detecteren                        | Het JSON-antwoord met de afwijkings status (en andere gegevens) voor elk gegevens punt in de tijdreeks gegevens en de posities van gedetecteerde afwijkingen. |
+| De afwijkings status van het laatste gegevens punt detecteren | Het JSON-antwoord met de afwijkings status (en andere gegevens) voor het laatste gegevens punt in de time series-gegevens.                                                                                                                                         |
 
  Hoewel deze toepassing in C# is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een versie van [Visual Studio 2017 of later](https://visualstudio.microsoft.com/downloads/),
+- Elke versie van [Visual Studio 2017 of hoger](https://visualstudio.microsoft.com/downloads/),
 
-- Het [Json.NET](https://www.newtonsoft.com/json)-framework, beschikbaar als NuGet-pakket. Newtonsoft.Json installeren als een NuGet-pakket in Visual Studio:
+- Het [Json.NET](https://www.newtonsoft.com/json)-framework, beschikbaar als NuGet-pakket. Newton soft. json installeren als een NuGet-pakket in Visual Studio:
     
-    1. Klik met de rechtermuisknop op uw project in **Solution Explorer**.
+    1. Klik met de rechter muisknop op uw project in **Solution Explorer**.
     2. Selecteer **NuGet-pakketten beheren**.
-    3. Zoeken naar *Newtonsoft.Json* en installeer het pakket.
+    3. Zoek naar *Newton soft. json* en installeer het pakket.
 
-- Als u Linux/MacOS, deze toepassing kan worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).
+- Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [mono](https://www.mono-project.com/).
 
-- Een JSON-bestand met time series-gegevens verwijst. De voorbeeldgegevens voor deze Quick Start kunt u vinden op [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+- Een JSON-bestand met gegevens punten van de tijd reeks. De voorbeeld gegevens voor deze Quick Start vindt u op [github](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
@@ -48,7 +48,7 @@ Gebruik deze Quick Start om te starten met behulp van twee modi voor detectie va
 
 ## <a name="create-a-new-application"></a>Een nieuwe toepassing maken
 
-1. In Visual Studio, een nieuwe console-oplossing maken en voeg de volgende pakketten. 
+1. Maak in Visual Studio een nieuwe console oplossing en voeg de volgende pakketten toe. 
 
     ```csharp
     using System;
@@ -60,12 +60,12 @@ Gebruik deze Quick Start om te starten met behulp van twee modi voor detectie va
     using System.Threading.Tasks;
     ```
 
-2. Variabelen voor de abonnementssleutel van uw en uw eindpunt maken. Hieronder vindt u de URI's die u voor detectie van afwijkingen gebruiken kunt. Deze worden toegevoegd aan uw service-eindpunt later het maken van de API aanvraag-URL's.
+2. Maak variabelen voor uw abonnements sleutel en uw eind punt. Hieronder vindt u de Uri's die u voor anomalie detectie kunt gebruiken. Deze worden later toegevoegd aan uw service-eind punt om de API-aanvraag-Url's te maken.
 
-    |Detectiemethode  |URI  |
+    |Detectie methode  |URI  |
     |---------|---------|
-    |Detectie van batch    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
-    |Detectie op de meest recente gegevenspunt     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    |Batch detectie    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
+    |Detectie op het laatste gegevens punt     | `/anomalydetector/v1.0/timeseries/last/detect`        |
     
     ```csharp
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -79,13 +79,13 @@ Gebruik deze Quick Start om te starten met behulp van twee modi voor detectie va
     const string batchDetectionUrl = "/anomalydetector/v1.0/timeseries/entire/detect";
     ```
 
-## <a name="create-a-function-to-send-requests"></a>Maak een functie voor het verzenden van aanvragen
+## <a name="create-a-function-to-send-requests"></a>Een functie maken om aanvragen te verzenden
 
-1. Maak een nieuwe async-functie met de naam `Request` waarmee de variabelen die eerder is gemaakt.
+1. Maak een nieuwe async-functie `Request` met de naam die de hierboven gemaakte variabelen accepteert.
 
-2. Instellen van de client security-protocol en header-informatie met een `HttpClient` object. Zorg ervoor dat u uw abonnementssleutel toevoegen aan de `Ocp-Apim-Subscription-Key` header. Maak vervolgens een `StringContent` -object voor de aanvraag.
+2. Het beveiligings protocol en de header gegevens van de client instellen `HttpClient` met behulp van een-object. Zorg ervoor dat u uw abonnements sleutel aan de `Ocp-Apim-Subscription-Key` koptekst toevoegt. Maak vervolgens een `StringContent` object voor de aanvraag.
 
-3. De aanvraag met verzenden `PostAsync()`, en vervolgens het antwoord terug te keren.
+3. Verzend de aanvraag met `PostAsync()`en retour neer het antwoord.
 
 ```csharp
 static async Task<string> Request(string apiAddress, string endpoint, string subscriptionKey, string requestData){
@@ -101,15 +101,15 @@ static async Task<string> Request(string apiAddress, string endpoint, string sub
 }
 ```
 
-## <a name="detect-anomalies-as-a-batch"></a>Detecteer afwijkingen als batch
+## <a name="detect-anomalies-as-a-batch"></a>Afwijkingen als een batch detecteren
 
-1. Maak een nieuwe functie met de naam `detectAnomaliesBatch()`. De aanvraag te maken en te verzenden door het aanroepen van de `Request()` functie met uw eindpunt, abonnementssleutel, de URL voor batch-anomaliedetectie en de time series-gegevens.
+1. Maak een nieuwe functie met `detectAnomaliesBatch()`de naam. Maak de aanvraag en verzend deze door de `Request()` functie aan te roepen met het eind punt, de abonnements sleutel, de URL voor de batch afwijkings detectie en de tijdreeks gegevens.
 
-2. Het JSON-object te deserialiseren en schrijven naar de console.
+2. Deserialiseren van het JSON-object en schrijf het naar de-console.
 
-3. Als het antwoord bevat `code` veld, wordt de code als een foutbericht afgedrukt. 
+3. Als het antwoord veld `code` bevat, drukt u de fout code en het fout bericht af. 
 
-4. Anders wordt de posities van afwijkingen vinden in de gegevensset. Van het antwoord `isAnomaly` veld bevat een matrix van Booleaanse waarden, die elk geeft aan of een gegevenspunt een afwijking. Dit account converteren naar een string-matrix met de antwoordobject `ToObject<bool[]>()` functie. Doorlopen van de matrix en afdrukken van de index van een `true` waarden. Deze waarden overeenkomen met de index van afwijkende gegevenspunten, als deze zijn gevonden.
+4. Als dat niet het geval is, kunt u de positie van afwijkingen vinden in de gegevensset. Het `isAnomaly` veld van de reactie bevat een matrix met Boole-waarden, die elk aangeeft of een gegevens punt een afwijkend is. Converteer deze naar een teken reeks matrix met de functie van `ToObject<bool[]>()` het Response-object. Herhaal de matrix en druk de index van alle `true` waarden af. Deze waarden komen overeen met de index van afwijkende gegevens punten, als deze zijn gevonden.
 
 ```csharp
 static void detectAnomaliesBatch(string requestData){
@@ -140,11 +140,11 @@ static void detectAnomaliesBatch(string requestData){
 }
 ```
 
-## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>De status van afwijkingen van de meest recente gegevenspunt detecteren
+## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>De afwijkings status van het laatste gegevens punt detecteren
 
-1. Maak een nieuwe functie met de naam `detectAnomaliesLatest()`. De aanvraag te maken en te verzenden door het aanroepen van de `Request()` functie met uw eindpunt, abonnementssleutel, de URL voor de meest recente herstelpunt voor de detectie van afwijkingen en de time series-gegevens.
+1. Maak een nieuwe functie met `detectAnomaliesLatest()`de naam. Maak de aanvraag en verzend deze door de `Request()` functie aan te roepen met uw eind punt, abonnements sleutel, de URL voor de laatste detectie van punt afwijkingen en de tijdreeks gegevens.
 
-2. Het JSON-object te deserialiseren en schrijven naar de console.
+2. Deserialiseren van het JSON-object en schrijf het naar de-console.
 
 ```csharp
 static void detectAnomaliesLatest(string requestData){
@@ -160,11 +160,11 @@ static void detectAnomaliesLatest(string requestData){
 }
 ```
 
-## <a name="load-your-time-series-data-and-send-the-request"></a>Uw time series-gegevens laden en de aanvraag verzenden
+## <a name="load-your-time-series-data-and-send-the-request"></a>Laad uw time series-gegevens en verzend de aanvraag
 
-1. In de belangrijkste methode van uw toepassing laden uw JSON time series-gegevens met `File.ReadAllText()`. 
+1. In de hoofd methode van uw toepassing laadt u uw JSON Time Series- `File.ReadAllText()`gegevens met. 
 
-2. Roep de anomaliedetectie-detectie-functies die eerder is gemaakt. Gebruik `System.Console.ReadKey()` in het consolevenster om open te houden na het uitvoeren van de toepassing.
+2. Roep de hierboven gemaakte anomalie detectie functies aan. Gebruiken `System.Console.ReadKey()` om te voor komen dat het console venster wordt geopend nadat de toepassing is uitgevoerd.
 
 ```csharp
 static void Main(string[] args){
@@ -180,9 +180,9 @@ static void Main(string[] args){
 
 ### <a name="example-response"></a>Voorbeeld van een antwoord
 
-Een geslaagde respons wordt geretourneerd in JSON-indeling. Klik op de onderstaande koppelingen voor het weergeven van het JSON-antwoord op GitHub:
-* [Voorbeeld van een antwoord voor de detectie van batch](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
-* [Voorbeeld van de laatste punt detectie antwoord](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+Een geslaagde reactie wordt geretourneerd in JSON-indeling. Klik op de onderstaande koppelingen om het JSON-antwoord op GitHub weer te geven:
+* [Voor beeld van een antwoord op een batch detectie](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
+* [Voor beeld van laatste punt detectie respons](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
 ## <a name="next-steps"></a>Volgende stappen
 

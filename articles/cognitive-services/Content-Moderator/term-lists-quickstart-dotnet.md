@@ -1,6 +1,6 @@
 ---
 title: Tekst controleren aan de hand van een aangepaste termenlijst in C# - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Leer hoe u tekst kunt beheren met aangepaste termenlijsten met de Content Moderator-SDK voor C#.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 0ab11d8ef9fd481d2b3ea7029664a1ec2778cf4b
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 144137109f97a8c2049430ed1e05117ea6c95d7f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604090"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564408"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Tekst controleren aan de hand van een aangepaste termenlijst in C#
 
@@ -415,7 +415,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>De toepassing uitvoeren om de uitvoer te bekijken
 
-Uw console-uitvoer ziet er als volgt uit:
+De uitvoer van de console ziet er als volgt uit:
 
 ```console
 Creating term list.

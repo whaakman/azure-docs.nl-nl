@@ -1,7 +1,7 @@
 ---
-title: Text to Speech API reference (REST) - spraakservices
+title: Naslag informatie voor de tekst-naar-spraak-API (REST)-Speech Service
 titleSuffix: Azure Cognitive Services
-description: Informatie over het gebruik van de Text to Speech REST-API. In dit artikel leert u over de opties voor autorisatie, opties voor query's, het structureren van een aanvraag en antwoord heeft ontvangen.
+description: Meer informatie over het gebruik van de tekst-naar-spraak-REST API. In dit artikel leert u over de opties voor autorisatie, opties voor query's, het structureren van een aanvraag en antwoord heeft ontvangen.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,34 +10,34 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 684ddcd49d3cd3c3d4f0a8d6f4675e1e27bdb7b9
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b0a0d788c9fadd13b9a37f541a81945c86b37c29
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604887"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559172"
 ---
-# <a name="text-to-speech-rest-api"></a>Text to Speech REST-API
+# <a name="text-to-speech-rest-api"></a>REST API van tekst naar spraak
 
-De spraak-Services kunt u [tekst converteren naar kunstmatige spraak](#convert-text-to-speech) en [ophalen van een lijst met ondersteunde stemmen](#get-a-list-of-voices) voor een regio met behulp van een set REST-API's. Elk beschikbaar eindpunt is gekoppeld aan een regio. Er is een abonnementssleutel voor het eindpunt/de regio die u van plan bent te gebruiken vereist.
+Met de spraak Services kunt u [tekst omzetten in gesynthesizerde spraak](#convert-text-to-speech) en [een lijst met ondersteunde stemmen](#get-a-list-of-voices) voor een regio ophalen met behulp van een set rest-api's. Elk beschikbaar eind punt is gekoppeld aan een regio. Er is een abonnements sleutel vereist voor het eind punt/de regio die u wilt gebruiken.
 
-De Text to Speech REST-API biedt ondersteuning voor neurale en standard-naar-spraak stemmen, die ondersteuning biedt voor een specifieke taal en een dialect, geïdentificeerd door de landinstelling.
+De tekst-naar-spraak-REST API ondersteunt Neural-en standaard tekst-naar-spraak-stemmen, die elk een specifieke taal en dialect ondersteunen, geïdentificeerd door land instellingen.
 
-* Zie voor een volledige lijst van stemmen, [taalondersteuning](language-support.md#text-to-speech).
-* Zie voor meer informatie over regionale beschikbaarheid [regio's](regions.md#text-to-speech).
+* Zie [taal ondersteuning](language-support.md#text-to-speech)voor een volledige lijst met stemmen.
+* Zie [regio's](regions.md#text-to-speech)voor meer informatie over regionale Beschik baarheid.
 
 > [!IMPORTANT]
-> Kosten variëren voor standaard, aangepaste en neurale stemmen. Zie voor meer informatie, [prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> De kosten variëren per standaard, aangepast en Neural stemmen. Zie [prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)voor meer informatie.
 
-Voordat u deze API gebruikt, begrijpt:
+Voordat u deze API gebruikt, moet u het volgende weten:
 
 * De Text to Speech REST-API vereist autorisatie-header. Dit betekent dat u voltooien van de uitwisseling van een token moet voor toegang tot de service. Zie [Verificatie](#authentication) voor meer informatie.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="get-a-list-of-voices"></a>Een lijst van stemmen
+## <a name="get-a-list-of-voices"></a>Een lijst met stemmen ophalen
 
-De `voices/list` eindpunt kunt u een volledige lijst van stemmen voor een specifieke regio/het eindpunt.
+Met `voices/list` het eind punt kunt u een volledige lijst met stemmen voor een specifieke regio/eind punt ophalen.
 
 ### <a name="regions-and-endpoints"></a>Regio's en -eindpunten
 
@@ -65,7 +65,7 @@ De `voices/list` eindpunt kunt u een volledige lijst van stemmen voor een specif
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Deze tabel bevat de vereiste en optionele headers voor Text to Speech-aanvragen.
+In deze tabel vindt u de vereiste en optionele kopteksten voor tekst-naar-spraak-aanvragen.
 
 | Header | Description | Vereiste / optioneel |
 |--------|-------------|---------------------|
@@ -73,11 +73,11 @@ Deze tabel bevat de vereiste en optionele headers voor Text to Speech-aanvragen.
 
 ### <a name="request-body"></a>Aanvraagbody
 
-Er is een instantie niet vereist voor `GET` aanvragen naar dit eindpunt.
+Een hoofd tekst is niet `GET` vereist voor aanvragen voor dit eind punt.
 
 ### <a name="sample-request"></a>Voorbeeld van een aanvraag
 
-Deze aanvraag is alleen vereist voor een autorisatie-header.
+Voor deze aanvraag is alleen een autorisatie-header vereist.
 
 ```http
 GET /cognitiveservices/voices/list HTTP/1.1
@@ -88,10 +88,10 @@ Authorization: Bearer [Base64 access_token]
 
 ### <a name="sample-response"></a>Voorbeeldantwoord
 
-Deze reactie is ingekort ter illustratie van de structuur van een reactie.
+Dit antwoord is afgekapt om de structuur van een antwoord te illustreren.
 
 > [!NOTE]
-> Stem beschikbaarheid varieert per regio/het eindpunt.
+> De beschik baarheid van de Voice varieert per regio/eind punt.
 
 ```json
 [
@@ -146,7 +146,7 @@ De HTTP-statuscode voor elke reactie geeft aan dat het slagen of veelvoorkomende
 
 ## <a name="convert-text-to-speech"></a>Tekst naar spraak converteren
 
-De `v1` eindpunt kunt u converteren met behulp van tekst naar spraak [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md).
+Met `v1` het eind punt kunt u tekst naar spraak converteren met behulp van [SSML (Speech synthese Markup Language)](speech-synthesis-markup.md).
 
 ### <a name="regions-and-endpoints"></a>Regio's en -eindpunten
 
@@ -156,18 +156,18 @@ Deze regio's worden ondersteund voor tekst naar spraak met behulp van de REST-AP
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
-Deze tabel bevat de vereiste en optionele headers voor Text to Speech-aanvragen.
+In deze tabel vindt u de vereiste en optionele kopteksten voor tekst-naar-spraak-aanvragen.
 
 | Header | Description | Vereiste / optioneel |
 |--------|-------------|---------------------|
 | `Authorization` | Een verificatietoken voorafgegaan door het woord `Bearer`. Zie [Verificatie](#authentication) voor meer informatie. | Vereist |
 | `Content-Type` | Hiermee geeft u het type inhoud voor de opgegeven tekst. Waarde geaccepteerd: `application/ssml+xml`. | Vereist |
 | `X-Microsoft-OutputFormat` | Hiermee geeft u de indeling van de audio-uitvoer. Zie voor een volledige lijst met geaccepteerde waarden [audio-uitvoer](#audio-outputs). | Vereist |
-| `User-Agent` | De naam van de toepassing. De opgegeven waarde moet minder dan 255 tekens. | Vereist |
+| `User-Agent` | De naam van de toepassing. De gegeven waarde moet kleiner zijn dan 255 tekens. | Vereist |
 
 ### <a name="audio-outputs"></a>Audio-uitvoer
 
-Dit is een lijst met ondersteunde audio-indelingen die worden verzonden in elke aanvraag als de `X-Microsoft-OutputFormat` header. Elk omvat een bitrate en type codering. De Speech Services biedt ondersteuning voor 24 kHz, 16 kHz en 8 kHz audio weergeeft.
+Dit is een lijst met ondersteunde audio-indelingen die worden verzonden in elke aanvraag als de `X-Microsoft-OutputFormat` header. Elk omvat een bitrate en type codering. De spraak services bieden ondersteuning voor 24 kHz, 16 kHz en 8 kHz audio-uitvoer.
 
 |||
 |-|-|
@@ -180,14 +180,14 @@ Dit is een lijst met ondersteunde audio-indelingen die worden verzonden in elke 
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> Als uw geselecteerde spraak- en de indeling van uitvoer hebt verschillende bitsnelheden, de audio nieuw voorbeeld wordt gemaakt zo nodig. Echter, 24 kHz stemmen bieden geen ondersteuning voor `audio-16khz-16kbps-mono-siren` en `riff-16khz-16kbps-mono-siren` uitvoerindelingen.
+> Als uw geselecteerde spraak- en de indeling van uitvoer hebt verschillende bitsnelheden, de audio nieuw voorbeeld wordt gemaakt zo nodig. 24 kHz stemmen bieden echter geen ondersteuning `audio-16khz-16kbps-mono-siren` voor en `riff-16khz-16kbps-mono-siren` uitvoer indelingen.
 
 ### <a name="request-body"></a>Aanvraagbody
 
-De hoofdtekst van elk `POST` aanvraag wordt verzonden als [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md). SSML kunt u de spraak- en taal van de kunstmatige spraak geretourneerd door de Text to Speech-service kiezen. Zie voor een volledige lijst van ondersteunde stemmen, [taalondersteuning](language-support.md#text-to-speech).
+De hoofd tekst van `POST` elke aanvraag wordt verzonden als [SSML (Speech synthese Markup Language)](speech-synthesis-markup.md). Met SSML kunt u de stem en taal kiezen van de gesynthesizerde spraak die wordt geretourneerd door de service tekst naar spraak. Zie [taal ondersteuning](language-support.md#text-to-speech)voor een volledige lijst met ondersteunde stemmen.
 
 > [!NOTE]
-> Als u een aangepaste spraak, kan de hoofdtekst van een aanvraag kan worden verzonden als tekst zonder opmaak (ASCII- of UTF-8).
+> Als u een aangepaste stem gebruikt, kan de hoofd tekst van een aanvraag worden verzonden als tekst zonder opmaak (ASCII of UTF-8).
 
 ### <a name="sample-request"></a>Voorbeeld van een aanvraag
 
@@ -208,7 +208,7 @@ Authorization: Bearer [Base64 access_token]
 </voice></speak>
 ```
 
-Zie onze snelstartgidsen om snel voor taal-specifieke voorbeelden:
+Bekijk onze Quick starts voor taalspecifieke voor beelden:
 
 * [.NET Core, C#](quickstart-dotnet-text-to-speech.md)
 * [Python](quickstart-python-text-to-speech.md)
@@ -224,7 +224,7 @@ De HTTP-statuscode voor elke reactie geeft aan dat het slagen of veelvoorkomende
 | 400 | Onjuiste aanvraag | Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn. Of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Een veelvoorkomend probleem is een header die te lang is. |
 | 401 | Niet geautoriseerd | De aanvraag is niet gemachtigd. Controleer of dat uw abonnementssleutel of token geldig is en in de juiste regio. |
 | 413 | Aanvraagentiteit te groot | De invoer SSML is langer dan 1024 tekens. |
-| 415 | Niet-ondersteund mediatype | Het is mogelijk dat de verkeerde `Content-Type` is opgegeven. `Content-Type` moet worden ingesteld op `application/ssml+xml`. |
+| 415 | Niet-ondersteund media type | Het is mogelijk dat de verkeerde `Content-Type` naam is gegeven. `Content-Type`moet worden ingesteld op `application/ssml+xml`. |
 | 429 | Te veel aanvragen | U hebt het quotum of het aantal aanvragen dat is toegestaan voor uw abonnement overschreden. |
 | 502 | Ongeldige gateway | Netwerk- of serverzijde probleem. Kan ook duiden op ongeldige kopteksten. |
 

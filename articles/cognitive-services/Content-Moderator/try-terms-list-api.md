@@ -1,7 +1,7 @@
 ---
-title: Gemiddeld tekst met aangepaste terminologielijsten - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Gebruik de lijst met Management-API om aangepaste lijsten van voorwaarden voor gebruik met de tekst Afbeeldingstoezicht-API te maken.
+title: Gemiddelde tekst met aangepaste termen lijsten-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Gebruik de lijst beheer-API om aangepaste lijsten met termen te maken voor gebruik met de API voor tekst toezicht.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,24 +10,24 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 28029fe92a207dba85e2ab5a22c08879b7172925
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a4e9b7925c2309a9682156934e9d94fa83c0d4b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62097943"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564395"
 ---
-# <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Gemiddelde met aangepaste terminologielijsten in de API-console
+# <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Gemiddeld met aangepaste termen lijsten in de API-console
 
 De standaardlijst met algemene termen van Azure Content Moderator is voldoende voor de meeste moderatietaken voor inhoudsbeheer. Het is echter mogelijk dat u inhoud moet controleren op termen die specifiek zijn voor uw organisatie. Zo is het bijvoorbeeld mogelijk dat u namen van concurrenten wilt taggen voor nader onderzoek. 
 
-Gebruik de [lijst Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) om aangepaste lijsten van voorwaarden voor gebruik met de tekst Afbeeldingstoezicht-API te maken. De **tekst - scherm** bewerking scant uw tekst taalgebruik en ook vergelijkt tekst tegen aangepaste en gedeelde zwarte lijsten.
+Gebruik de [lijst beheer-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) om aangepaste lijsten met termen te maken voor gebruik met de API voor tekst toezicht. De tekst **scherm** bewerking scant uw tekst voor scheld woorden en vergelijkt ook tekst met aangepaste en gedeelde Blacks.
 
 > [!NOTE]
 > Er is een maximumlimiet van **5 terminologielijsten** waarbij elke lijst **niet meer dan 10.000 termen mag bevatten**.
 >
 
-De lijst met Management-API kunt u de volgende taken uitvoeren:
+U kunt de lijst beheer-API gebruiken om de volgende taken uit te voeren:
 - Een lijst maken.
 - Termen toevoegen aan een lijst.
 - Termen vergelijken met de termen in een lijst.
@@ -38,44 +38,44 @@ De lijst met Management-API kunt u de volgende taken uitvoeren:
 
 ## <a name="use-the-api-console"></a>De API-console gebruiken
 
-Voordat u de API in de online-console uitproberen kan, moet u de abonnementssleutel van uw. Deze sleutel bevindt zich op de **instellingen** tabblad, in de **Ocp-Apim-Subscription-Key** vak. Zie [Overzicht](overview.md) voor meer informatie.
+Voordat u de API in de online console kunt testen, moet u uw abonnements sleutel hebben. Deze sleutel bevindt zich op het tabblad **instellingen** in het vak **OCP-APIM-Subscription-Key** . Zie [Overzicht](overview.md) voor meer informatie.
 
-## <a name="refresh-search-index"></a>Search-index vernieuwen
+## <a name="refresh-search-index"></a>Zoek index vernieuwen
 
-Nadat u wijzigingen aan een terminologielijst met aanbrengt, moet u de index voor de wijzigingen moeten worden opgenomen in toekomstige scans vernieuwen. Deze stap is vergelijkbaar met hoe een zoekmachine op het bureaublad (indien ingeschakeld) of een zoekmachine voortdurend Hiermee vernieuwt u de index zodanig dat nieuwe bestanden of pagina's.
+Nadat u wijzigingen in een lijst met termen hebt aangebracht, moet u de index vernieuwen zodat wijzigingen worden opgenomen in toekomstige scans. Deze stap is vergelijkbaar met de manier waarop een zoek machine op het bureau blad (indien ingeschakeld) of een zoek machine op Internet de index doorlopend vernieuwt om nieuwe bestanden of pagina's te bevatten.
 
-1. In de [Term lijst Management API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), selecteer in het menu links **geeft een lijst van Term**, en selecteer vervolgens **zoekindex vernieuwen**. 
+1. Selecteer in de [termen lijst beheer API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)in het menu links de optie **termen lijsten**en selecteer vervolgens **zoek index vernieuwen**. 
 
-   De **Term bevat - zoekindex vernieuwen** pagina wordt geopend.
+   De **lijst met termen-pagina zoek index vernieuwen** wordt geopend.
 
-2. Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie. 
+2. Voor **open API-test console**selecteert u de regio die uw locatie het meest beschrijft. 
 
-   ![Terminologielijsten - zoekindex vernieuwen pagina regio selecteren](images/test-drive-region.png)
+   ![Termen lijsten-zoek index pagina regio selectie vernieuwen](images/test-drive-region.png)
 
-   De **Term bevat - zoekindex vernieuwen** API-console wordt geopend.
+   De **lijst met termen-de API-console zoek index vernieuwen** wordt geopend.
 
-3. In de **listId** voert u de lijst-ID. Voer de abonnementssleutel van uw en selecteer vervolgens **verzenden**.
+3. Voer in het vak **listId** de lijst-ID in. Voer uw abonnements sleutel in en selecteer vervolgens **verzenden**.
 
-   ![Terminologielijsten API - vak met de Search-Index vernieuwen console antwoord inhoud](images/try-terms-list-refresh-1.png)
+   ![Term lists-API-inhoud van zoek index-console antwoord vernieuwen](images/try-terms-list-refresh-1.png)
 
 ## <a name="create-a-term-list"></a>Een termenlijst maken
-1. Ga naar de [Term lijst Management API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
+1. Ga naar de API-verwijzing voor het beheer van de [termen lijst](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
 
-   De **Term bevat - maken** pagina wordt geopend.
+   De pagina **termen lijst-maken** wordt geopend.
 
-2. Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie. 
+2. Voor **open API-test console**selecteert u de regio die uw locatie het meest beschrijft. 
 
-   ![Lijsten termijn: de selectie van de regio maken](images/test-drive-region.png)
+   ![Termen lijsten-selectie van pagina regio maken](images/test-drive-region.png)
 
-   De **Term bevat - maken** API-console wordt geopend.
+   De **lijst met termen-API-console maken** wordt geopend.
  
-3. In de **Ocp-Apim-Subscription-Key** voert u de abonnementssleutel van uw.
+3. Voer in het vak **OCP-APIM-Subscription-Key** uw abonnements sleutel in.
 
-4. In de **aanvraagtekst** vak, voer waarden in voor **naam** (bijvoorbeeld MyList) en **beschrijving**.
+4. Voer in het vak **hoofd tekst van aanvraag** waarden in voor **naam** (bijvoorbeeld myList) en **Beschrijving**.
 
-   ![Lijsten termijn: maken van de console aanvraag hoofdtekst van de naam en beschrijving](images/try-terms-list-create-1.png)
+   ![Termen lijsten-naam en beschrijving van de hoofd tekst van de console maken](images/try-terms-list-create-1.png)
 
-5. Sleutel / waarde-paar tijdelijke aanduidingen gebruiken meer beschrijvende metagegevens toewijzen aan uw lijst.
+5. Gebruik tijdelijke aanduidingen voor sleutel waarden paar om beschrijvende meta gegevens aan uw lijst toe te wijzen.
 
        {
           "Name": "MyExclusionList",
@@ -87,89 +87,89 @@ Nadat u wijzigingen aan een terminologielijst met aanbrengt, moet u de index voo
           }
        }
 
-   Metagegevens van de lijst als sleutel-waardeparen en geen voorwaarden toevoegen.
+   Voeg Meta gegevens van lijsten toe als sleutel-waardeparen en niet de werkelijke voor waarden.
  
-6. Selecteer **Verzenden**. De lijst wordt gemaakt. Houd er rekening mee de **ID** waarde die is gekoppeld aan de nieuwe lijst. In dat geval moet u deze ID in voor de beheerfuncties van andere term-lijst.
+6. Selecteer **Verzenden**. De lijst wordt gemaakt. Noteer de **id-** waarde die is gekoppeld aan de nieuwe lijst. U hebt deze ID nodig voor andere beheer functies voor termen lijsten.
 
-   ![Lijsten termijn - console antwoord maken en de inhoud in de lijst-ID wordt weergegeven](images/try-terms-list-create-2.png)
+   ![Termen lijsten-inhouds vakje voor het maken van een console-antwoord bevat de lijst-ID](images/try-terms-list-create-2.png)
  
-7. Voorwaarden toevoegen aan MyList. In het menu links onder **Term**, selecteer **begrip toevoegen**. 
+7. Termen toevoegen aan MyList. Selecteer in het linkermenu onder **term**de optie **term toevoegen**. 
 
-   De **termijn - Term toevoegen** pagina wordt geopend. 
+   De pagina term **-toevoegen** wordt geopend. 
 
-8. Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie. 
+8. Voor **open API-test console**selecteert u de regio die uw locatie het meest beschrijft. 
 
-   ![Termijn: regio de selectie van Term toevoegen](images/test-drive-region.png)
+   ![Term-selectie voor term pagina regio toevoegen](images/test-drive-region.png)
 
-   De **termijn - Term toevoegen** API-console wordt geopend.
+   De **term-API-** console voor toevoegen wordt geopend.
  
-9. In de **listId** vak, voer de lijst-ID die u hebt gegenereerd en selecteer een waarde voor **taal**. Voer de abonnementssleutel van uw en selecteer vervolgens **verzenden**.
+9. Voer in het vak **listId** de lijst-ID in die u hebt gegenereerd en selecteer een waarde voor de **taal**. Voer uw abonnements sleutel in en selecteer vervolgens **verzenden**.
 
-   ![Termijn: Term console queryparameters toevoegen](images/try-terms-list-create-3.png)
+   ![Term-query parameters voor term console toevoegen](images/try-terms-list-create-3.png)
  
-10. Selecteer om te controleren dat de term is toegevoegd aan de lijst, in het menu links **Term**, en selecteer vervolgens **krijgen alle voorwaarden**. 
+10. Als u wilt controleren of de term is toegevoegd aan de lijst, selecteert u in het linkermenu **term**en selecteert u **alle voor waarden ophalen**. 
 
-    De **Term - alle voorwaarden ophalen** API-console wordt geopend.
+    De **term-API-console alle termen ophalen** wordt geopend.
 
-11. In de **listId** vak, voer de lijst-ID en voer vervolgens de abonnementssleutel van uw. Selecteer **Verzenden**.
+11. Voer in het vak **listId** de lijst-ID in en voer vervolgens uw abonnements sleutel in. Selecteer **Verzenden**.
 
-12. In de **antwoordinhoud** controleert u de voorwaarden die u hebt ingevoerd.
+12. Controleer in het vak **reactie inhoud** de voor waarden die u hebt ingevoerd.
 
-    ![Term - Get alle voorwaarden console antwoord vak inhoud een lijst met de voorwaarden die u hebt ingevoerd](images/try-terms-list-create-4.png)
+    ![Term: alle termen ophalen console antwoord inhoud bevat een lijst met de voor waarden die u hebt ingevoerd](images/try-terms-list-create-4.png)
  
-13. Een paar meer voorwaarden toevoegen. Nu u een aangepaste lijst met voorwaarden hebt gemaakt, kunt u proberen [tekst scannen](try-text-api.md) met behulp van de lijst van de aangepaste periode. 
+13. Voeg nog een aantal voor waarden toe. Nu u een aangepaste lijst met voor waarden hebt gemaakt, kunt u [tekst scannen](try-text-api.md) met behulp van de lijst met aangepaste termen. 
 
 ## <a name="delete-terms-and-lists"></a>Termen en lijsten verwijderen
 
-U kunt eenvoudig term of lijsten verwijderen. U de API gebruiken om de volgende taken uitvoeren:
+U kunt eenvoudig term of lijsten verwijderen. U gebruikt de API om de volgende taken uit te voeren:
 
-- Een term verwijderen. (**Termijn - verwijderen**)
-- Alle termen in een lijst verwijderen zonder de lijst te verwijderen. (**Termijn: verwijderen van alle voorwaarden**)
-- Een lijst en alle inhoud verwijderen. (**Terminologielijsten - verwijderen**)
+- Een term verwijderen. (**Term-verwijderen**)
+- Alle termen in een lijst verwijderen zonder de lijst te verwijderen. (**Term-alle voor waarden verwijderen**)
+- Een lijst en alle inhoud verwijderen. (**Termen lijsten-verwijderen**)
 
-In dit voorbeeld wordt een termijn van één verwijderd.
+In dit voor beeld wordt één term verwijderd.
 
-1. In de [Term lijst Management API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), selecteert u in het menu links **Term**, en selecteer vervolgens **verwijderen**. 
+1. Selecteer in de [termen lijst beheer-API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)in het linkermenu **term**en selecteer vervolgens **verwijderen**. 
 
-   De **termijn - verwijderen** wordt geopend.
+   De **term-verwijderen** wordt geopend.
 
-2. Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie. 
+2. Voor **open API-test console**selecteert u de regio die uw locatie het meest beschrijft. 
 
-   ![Term - selectie verwijderen pagina-regio](images/test-drive-region.png)
+   ![Term-pagina regio selectie verwijderen](images/test-drive-region.png)
 
-   De **termijn - verwijderen** API-console wordt geopend.
+   De **term-delete API-** console wordt geopend.
   
-3. In de **listId** voert u de ID van de lijst die u wilt verwijderen van een term uit. Deze ID is het getal (in ons voorbeeld **122**) die wordt geretourneerd in de **Term bevat - Details ophalen** console voor MyList. Voer de term in en selecteer een taal.
+3. Voer in het vak **listId** de id in van de lijst waaruit u een term wilt verwijderen. Deze ID is het aantal (in het voor beeld **122**) dat wordt geretourneerd in de **lijst met termen-Details** van de console ophalen voor myList. Voer de term in en selecteer een taal.
  
-   ![Term - verwijderen-console queryparameters](images/try-terms-list-delete-1.png)
+   ![Term-console query parameters verwijderen](images/try-terms-list-delete-1.png)
 
-4. Voer de abonnementssleutel van uw en selecteer vervolgens **verzenden**.
+4. Voer uw abonnements sleutel in en selecteer vervolgens **verzenden**.
 
-5. Om te controleren of de term is verwijderd, gebruikt u de **Term bevat - u alle** console.
+5. Als u wilt controleren of de term is verwijderd, gebruikt u de **lijst met termen-alle console ophalen** .
 
-   ![Een lijst met termijn: alle console antwoord inhoud vak ziet u dat de term is verwijderd ophalen](images/try-terms-list-delete-2.png)
+   ![Lijst met termen: alle inhoud van het console-antwoord ophalen geeft aan dat de term is verwijderd](images/try-terms-list-delete-2.png)
  
-## <a name="change-list-information"></a>Lijst met gegevens wijzigen
+## <a name="change-list-information"></a>Lijst gegevens wijzigen
 
-U kunt een lijst met de naam en beschrijving bewerken en metagegevensitems toevoegen.
+U kunt de naam en beschrijving van een lijst bewerken en meta gegevens items toevoegen.
 
-1. In de [Term lijst Management API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), selecteert u in het menu links **geeft een lijst van Term**, en selecteer vervolgens **Details van de Update**. 
+1. Selecteer in de [termen lijst beheer API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)in het menu links de optie **termen lijsten**en selecteer vervolgens **Details bijwerken**. 
 
-   De **Term bevat - Details van de Update** pagina wordt geopend.
+   De **lijst met termen-pagina Details bijwerken** wordt geopend.
 
-2. Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie. 
+2. Voor **open API-test console**selecteert u de regio die uw locatie het meest beschrijft. 
 
-   ![Terminologielijsten - Details van de Update pagina regio selecteren](images/test-drive-region.png)
+   ![Termen lijsten-pagina regio Details bijwerken](images/test-drive-region.png)
 
-   De **Term bevat - Details van de Update** API-console wordt geopend.
+   De **lijst met termen-update Details** API-console wordt geopend.
 
-3. In de **listId** vak, voer de lijst-ID en voer vervolgens de abonnementssleutel van uw.
+3. Voer in het vak **listId** de lijst-ID in en voer vervolgens uw abonnements sleutel in.
 
-4. In de **aanvraagtekst** vak, voer de benodigde aanpassingen en selecteer vervolgens **verzenden**.
+4. Breng in het vak **hoofd tekst van aanvraag** de gewenste wijzigingen aan en selecteer vervolgens **verzenden**.
 
-   ![Terminologielijsten - Details van de Update-console aanvraag hoofdtekst bewerkingen](images/try-terms-list-change-1.png)
+   ![Termen lijsten-aanvraag tekst bewerkingen update Details](images/try-terms-list-change-1.png)
  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De REST-API in uw code te gebruiken of beginnen met de [Term geeft een lijst van de Snelstartgids voor .NET](term-lists-quickstart-dotnet.md) om te integreren in uw toepassing.
+Gebruik de REST API in uw code of begin met de [term lijsten .net Quick](term-lists-quickstart-dotnet.md) start om te integreren met uw toepassing.

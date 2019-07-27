@@ -1,6 +1,6 @@
 ---
 title: Test-app in de portal van LUIS
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Met Language Understanding (LUIS) kunt werken continu op uw toepassing het verfijnen en verbeteren van de taal begrijpen.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1a0afc909aa7ef16fa54b931e1601c2ce7304cc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199068"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560410"
 ---
-# <a name="test-your-luis-app-in-the-luis-portal"></a>Test uw LUIS-app in de portal LUIS
+# <a name="test-your-luis-app-in-the-luis-portal"></a>Uw LUIS-app testen in de LUIS-Portal
 <a name="train-your-app"></a>
 [Testen](luis-concept-test.md) een app is een iteratief proces. Na het trainen van uw LUIS-app, door deze te testen met voorbeeldgegevens uitingen om te controleren of de intenties en entiteiten correct worden herkend. Als ze niet zijn, moet u opnieuw updates voor de LUIS-app, trainen en testen. 
 
@@ -47,7 +47,7 @@ Controleren van details van de testresultaten in het **inspecteren** deelvenster
  
 1. Met de **Test** dia-out Configuratiescherm openen, selecteer **inspecteren** voor een utterance die u wilt vergelijken. 
 
-    ![Selecteer de knop controleren voor meer informatie over de resultaten van de](./media/luis-how-to-interactive-test/inspect.png)
+    ![Selecteer de knop controleren om meer informatie over de test resultaten weer te geven](./media/luis-how-to-interactive-test/inspect.png)
 
 2. De **inspectie** deelvenster wordt weergegeven. Het deelvenster bevat de scoring-doel, evenals de geïdentificeerde entiteiten boven. Het deelvenster toont het resultaat van de geselecteerde utterance.
 

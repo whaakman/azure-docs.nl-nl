@@ -10,10 +10,10 @@ ms.date: 06/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 496aa065b3b10eac546dbe41f5a2650acc112d29
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68310506"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Zelfstudie: Builds van containerinstallatiekopieën automatiseren wanneer een basisinstallatiekopie wordt bijgewerkt in een Azure-containerregister 
@@ -62,7 +62,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 ## <a name="base-images"></a>Basisinstallatiekopieën
 
-Dockerfiles waarmee de meeste containerinstallatiekopieën worden gedefinieerd, geven een bovenliggende installatiekopie aan waarop de containerinstallatiekopie is gebaseerd. Deze bovenliggende installatiekopie wordt vaak aangeduid als de *basisinstallatiekopie*. Basis installatie kopieën bevatten doorgaans het besturings systeem, bijvoorbeeld [Alpine Linux][base-alpine] or [Windows Nano Server][base-windows], waarop de rest van de lagen van de container wordt toegepast. Ze kunnen ook toepassings raamwerken zoals [node. js][Base-node] of [.net core][base-dotnet]omvatten.
+Dockerfiles waarmee de meeste containerinstallatiekopieën worden gedefinieerd, geven een bovenliggende installatiekopie aan waarop de containerinstallatiekopie is gebaseerd. Deze bovenliggende installatiekopie wordt vaak aangeduid als de *basisinstallatiekopie*. Basis installatie kopieën bevatten doorgaans het besturings systeem, bijvoorbeeld [Alpine Linux][base-alpine] of [Windows nano server][base-windows], waarop de rest van de lagen van de container wordt toegepast. Ze kunnen ook toepassings raamwerken zoals [node. js][base-node] of [.net core][base-dotnet]omvatten.
 
 ### <a name="base-image-updates"></a>Updates van basisinstallatiekopieën
 

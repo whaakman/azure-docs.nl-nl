@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Een afbeeldingsclassificatieproject maken met de Custom Vision-SDK voor Python'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Maak een project, voeg tags toe, upload afbeeldingen, train uw project en doe een voorspelling met behulp van de Python-SDK.
 services: cognitive-services
 author: areddish
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: 44d9c7fcaf855a52234ba851792440b805fa93b0
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 25ee212bbcabb1697de1611cc67c5bfdf615c617
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606826"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561001"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Quickstart: Een afbeeldingsclassificatieproject maken met de Custom Vision-SDK met Python
 
-Dit artikel biedt informatie en voorbeeldcode om u te helpen om met de Custom Vision-SDK met Python een afbeeldingsclassificatiemodel te maken. Nadat deze gemaakt, kunt u labels toevoegen, afbeeldingen uploaden, trainen van het project, verkrijgen van het project gepubliceerde voorspelling eindpunt-URL en het eindpunt voor het testen van een installatiekopie van een via een programma gebruiken. Gebruik dit voorbeeld als een sjabloon om uw eigen Python-toepassing te maken. Zie de [handleiding voor browsers](getting-started-build-a-classifier.md) als u het ontwikkelproces wilt doorlopen en een classificatiemodel wilt gebruiken _zonder_ code.
+Dit artikel biedt informatie en voorbeeldcode om u te helpen om met de Custom Vision-SDK met Python een afbeeldingsclassificatiemodel te maken. Nadat de app is gemaakt, kunt u Tags toevoegen, afbeeldingen uploaden, het project trainen, de gepubliceerde voor spelling-eind punt-URL van het project ophalen en het eind punt gebruiken om een afbeelding programmatisch te testen. Gebruik dit voorbeeld als een sjabloon om uw eigen Python-toepassing te maken. Zie de [handleiding voor browsers](getting-started-build-a-classifier.md) als u het ontwikkelproces wilt doorlopen en een classificatiemodel wilt gebruiken _zonder_ code.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -109,9 +109,9 @@ if not upload_result.is_batch_successful:
     exit(-1)
 ```
 
-### <a name="train-the-classifier-and-publish"></a>De classificatie te trainen en publiceren
+### <a name="train-the-classifier-and-publish"></a>De classificatie trainen en publiceren
 
-Deze code wordt de eerste versie in het project wordt gemaakt en vervolgens publiceert dat iteratie naar het eindpunt van de voorspelling. De naam van de gepubliceerde iteratie kan worden gebruikt om voorspelling aanvragen te verzenden. Een iteratie is niet beschikbaar in de voorspelling eindpunt totdat deze is gepubliceerd.
+Deze code maakt de eerste iteratie in het project en publiceert die iteratie vervolgens naar het Voorspellings eindpunt. De naam die is opgegeven voor de gepubliceerde herhaling kan worden gebruikt voor het verzenden van voorspellings aanvragen. Er is geen iteratie beschikbaar in het Voorspellings eindpunt totdat het is gepubliceerd.
 
 ```Python
 import time
@@ -128,7 +128,7 @@ trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, pred
 print ("Done!")
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Halen en gebruik de gepubliceerde iteratie op het eindpunt voor de voorspelling
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>De gepubliceerde iteratie op het Voorspellings eindpunt ophalen en gebruiken
 
 Als u een afbeelding naar het voorspellingseindpunt wilt verzenden en de voorspelling wilt ophalen, voegt u de volgende code toe aan het einde van het bestand:
 

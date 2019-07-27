@@ -1,6 +1,6 @@
 ---
-title: DatetimeV2 vooraf gemaakte entiteiten
-titleSuffix: Azure
+title: DatetimeV2 prebuiled entities-LUIS
+titleSuffix: Azure Cognitive Services
 description: Dit artikel vindt u datetimeV2 vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e7577dcf4859b1192121fe0406d0efb63a9f5990
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a19ab6e02249bad689f1a05c5761150b7a817df
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148641"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560280"
 ---
-# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2 vooraf gedefinieerde entiteit voor een LUIS-app
+# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2 prebuiled-entiteit voor een LUIS-app
 
 De **datetimeV2** vooraf gedefinieerde entiteit haalt de waarden voor datum en tijd. Deze waarden omzetten in een gestandaardiseerde indeling voor client-programma's te gebruiken. Wanneer een utterance heeft een datum of tijd die is niet voltooid, LUIS bevat _zowel afgelopen en toekomstige waarden_ in het antwoord van het eindpunt. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen voorbeeld uitingen met datetimeV2 naar de toepassing intents. 
 
 ## <a name="types-of-datetimev2"></a>Typen datetimeV2
-DatetimeV2 wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) GitHub-opslagplaats
+DatetimeV2 wordt beheerd vanuit de map [recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) github
 
 ## <a name="example-json"></a>Voorbeeld van JSON 
 Het volgende voorbeeld-JSON-antwoord heeft een `datetimeV2` entiteit met een subtype van `datetime`. Zie voor meer voorbeelden van andere typen entiteiten datetimeV2 [subtypen van datetimeV2](#subtypes-of-datetimev2)</a>.
@@ -82,7 +82,7 @@ Elk element van de `values` matrix mogelijk de volgende velden:
 |Naam van eigenschap|Beschrijving van de eigenschap|
 |--|--|
 |Timex|tijd, datum of datumbereik uitgedrukt in TIMEX-indeling die volgt op de [ISO 8601-norm](https://en.wikipedia.org/wiki/ISO_8601) en de kenmerken TIMEX3 van aantekening met behulp van de taal TimeML. Deze aantekening wordt beschreven in de [TIMEX richtlijnen](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
-|type|Het subtype, dit kan een van de volgende items: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
+|type|Het subtype, dat een van de volgende items kan zijn: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
 |value|**Optioneel.** Een datum/tijd-object in de indeling yyyy:MM:dd (datum), uu: mm: (tijd) yyyy:MM:dd uu: mm: (datetime). Als `type` is `duration`, de waarde is het aantal seconden (duur) <br/> Alleen gebruikt als `type` is `datetime` of `date`, `time`, of ' duur.|
 
 ## <a name="valid-date-values"></a>Geldige date-waarden
@@ -206,15 +206,15 @@ Het volgende voorbeeld laat zien hoe LUIS gebruikt **datetimeV2** om op te losse
   ]
 ```
 
-## <a name="preview-api-version-3x"></a>Preview-API-versie 3.x
+## <a name="preview-api-version-3x"></a>Preview-API versie 3. x
 
-DatetimeV2 JSON-antwoord is gewijzigd in de API V3. 
+DatetimeV2 JSON-antwoord is gewijzigd in de API v3. 
 
-Wijzigingen van de API V2:
-* `datetimeV2.timex.type` de eigenschap niet meer wordt geretourneerd omdat deze wordt geretourneerd op het niveau van bovenliggende `datetimev2.type`. 
-* De `datetimeV2.timex` eigenschap is gewijzigd in `datetimeV2.value`.
+Wijzigingen van API v2:
+* `datetimeV2.timex.type`de eigenschap wordt niet meer geretourneerd omdat deze wordt geretourneerd op het bovenliggende niveau `datetimev2.type`. 
+* De `datetimeV2.timex` naam van de eigenschap is gewijzigd in `datetimeV2.value`.
 
-Voor de utterance `8am on may 2nd 2017`, de V3-versie van DatetimeV2 is:
+Voor de utterance `8am on may 2nd 2017`is de V3-versie van DatetimeV2:
 
 ```JSON
 {
@@ -244,7 +244,7 @@ Voor de utterance `8am on may 2nd 2017`, de V3-versie van DatetimeV2 is:
 }
 ```
 
-De volgende JSON is met de `verbose` parameter ingesteld op `false`:
+De volgende JSON is met de `verbose` para meter ingesteld `false`op:
 
 ```json
 {

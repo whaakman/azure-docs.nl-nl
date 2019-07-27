@@ -1,6 +1,6 @@
 ---
 title: Containers installeren en uitvoeren-Computer Vision
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Het downloaden, installeren en uitvoeren van containers voor Computer Vision in deze zelfstudie met stapsgewijze instructies.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: efde223061a873a57595bc4a577b7de55b1d8a46
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: afccce5ca9101ed1e30f69264abae7ad85b4902b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321469"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564578"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Tekst herkennen containers installeren en uitvoeren
 
@@ -30,7 +30,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 U moet voldoen aan de volgende vereisten voordat u Tekst herkennen containers gebruikt:
 
-|Verplicht|Doel|
+|Vereist|Doel|
 |--|--|
 |Docker-engine| De docker-engine moet zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten voor het configureren van de docker-omgeving op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **In Windows**moet docker ook worden geconfigureerd voor de ondersteuning van Linux-containers.<br><br>|
 |Vertrouwd met docker | U moet een basis kennis hebben van docker-concepten, zoals registers, opslag plaatsen, containers en container installatie kopieën, en kennis van basis `docker` opdrachten.| 
@@ -87,7 +87,7 @@ Wanneer de container zich op de [hostcomputer](#the-host-computer)bevindt, gebru
 
 Gebruik de opdracht [docker run](https://docs.docker.com/engine/reference/commandline/run/) om de container uit te voeren. De opdracht maakt gebruik van de volgende para meters:
 
-| Tijdelijke aanduiding | Waarde |
+| Tijdelijke aanduiding | Value |
 |-------------|-------|
 |{API_KEY} | Deze sleutel wordt gebruikt om de container te starten en is beschikbaar op de pagina `Cognitive Services` met Azure-sleutels.  |
 |{ENDPOINT_URI} | De URI-waarde van het facturerings eindpunt. Voor beeld:`https://westus.api.cognitive.microsoft.com/vision/v2.0`|

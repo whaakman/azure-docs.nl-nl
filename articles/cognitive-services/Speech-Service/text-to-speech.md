@@ -1,7 +1,7 @@
 ---
-title: Tekst naar spraak met Azure Speech Services
+title: Tekst-naar-spraak-spraak service
 titleSuffix: Azure Cognitive Services
-description: Tekst naar spraak vanuit Azure Speech Services is een service waarmee u uw toepassingen, hulpprogramma's of apparaten naar tekst converteren naar natuurlijke menselijke kunstmatige spraak. Kiezen uit de standard- en neurale stemmen of maak uw eigen aangepaste gesproken uniek is voor uw product of een merk. 75 + standard stemmen zijn beschikbaar in meer dan 45 talen en landinstellingen en 5 neurale stemmen zijn beschikbaar in 4 talen of landinstellingen.
+description: De functie voor tekst naar spraak in de speech-service is een functie waarmee u uw toepassingen, hulpprogram ma's of apparaten tekst kunt converteren naar natuurlijke menselijke-achtige gesynthesizerde spraak. Kies uit standaard-en Neural stemmen of maak uw eigen aangepaste spraak die uniek is voor uw product of merk. 75 + standaard stemmen zijn verkrijgbaar in meer dan 45 talen en land instellingen en vijf Neural stemmen zijn beschikbaar in vier talen en land instellingen.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,114 +10,114 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: da7259585ad66ac9b58131ce834d82e7b3d4bcf2
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 3d2c3e2bf693f763db13d90961a31e871aa25235
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466950"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558872"
 ---
-# <a name="what-is-text-to-speech"></a>Wat is voor tekst naar spraak?
+# <a name="what-is-text-to-speech"></a>Wat is tekst-naar-spraak?
 
-Tekst naar spraak vanuit Azure Speech Services is een service waarmee u uw toepassingen, hulpprogramma's of apparaten naar tekst converteren naar natuurlijke menselijke kunstmatige spraak. Kiezen uit de standard- en neurale stemmen of maak uw eigen aangepaste gesproken uniek is voor uw product of een merk. 75 + standard stemmen zijn beschikbaar in meer dan 45 talen en landinstellingen en 5 neurale stemmen zijn beschikbaar in 4 talen of landinstellingen. Zie voor een volledige lijst [ondersteunde talen](language-support.md#text-to-speech).
+Tekst-naar-spraak van Azure speech Services is een service waarmee u uw toepassingen, hulpprogram ma's of apparaten tekst kunt converteren naar natuurlijke menselijke-achtige, gesynthesizerde spraak. Kies uit standaard-en Neural stemmen of maak uw eigen aangepaste spraak die uniek is voor uw product of merk. 75 + standaard stemmen zijn verkrijgbaar in meer dan 45 talen en land instellingen en vijf Neural stemmen zijn beschikbaar in vier talen en land instellingen. Zie [ondersteunde talen](language-support.md#text-to-speech)voor een volledige lijst.
 
-Text to Speech-technologie kunnen makers van inhoud om te communiceren met hun gebruikers op verschillende manieren. Text to Speech kan toegankelijkheid verbeteren door gebruikers met de mogelijkheid om te communiceren met inhoud hoorbaar. Of de gebruiker een gezichtsvermogen, een achterstand learning heeft of navigatie-gegevens en tot vereist, kunnen de Text to Speech een bestaande ervaring kan verbeteren. Tekst naar spraak is ook een waardevolle-invoegtoepassing voor spraak bots en virtual Assistant.
+Met de tekst-naar-spraak-technologie kunnen makers van inhoud op verschillende manieren communiceren met hun gebruikers. Tekst-naar-spraak kan de toegankelijkheid verbeteren door gebruikers de mogelijkheid te bieden om te communiceren met inhoud audibly. Of de gebruiker een visuele waardevermindering, een leer bare handicap of navigatie-informatie vereist tijdens het besturings element, tekst-naar-spraak, een bestaande ervaring kan verbeteren. Tekst-naar-spraak is ook een waardevolle invoeg toepassing voor spraak bots en virtuele assistenten.
 
 
-Gebruik te maken van spraak synthese Markup Language (SSML), een opmaaktaal op basis van een XML-, ontwikkelaars die gebruikmaken van de Text to Speech-service kunnen opgeven hoe invoertekst wordt omgezet in kunstmatige spraak. Met SSML, kunt u inspiratie, uitspraak, aanpassen spreken snelheid, volume en meer. Zie voor meer informatie, [SSML](#speech-synthesis-markup-language-ssml).
+Door gebruik te maken van SSML (Speech synthese Markup Language), een op XML gebaseerde Markup-taal, kunnen ontwikkel aars die de tekst naar spraak-service gebruiken, opgeven hoe invoer tekst wordt omgezet in gesynthesizerde spraak. Met SSML kunt u de hoogte, de uitspraak, de spreek snelheid, het volume en meer aanpassen. Zie [SSML](#speech-synthesis-markup-language-ssml)voor meer informatie.
 
-### <a name="standard-voices"></a>Standard stemmen
+### <a name="standard-voices"></a>Standaard stemmen
 
-Standard stemmen worden gemaakt met behulp van statistische parametrische synthese en/of samenvoeging synthese technieken. Deze stemmen zijn zeer begrijpelijke en geluid natuurlijke. U kunt eenvoudig uw toepassingen te spreken in meer dan 45 talen, met een breed scala aan Spraakopties voor inschakelen. Deze stemmen bieden hoge uitspraak van nauwkeurigheid, inclusief ondersteuning voor afkortingen, acroniem uitbreidingen, datum/tijd interpretaties, polyphones en meer. Standard stem gebruiken voor het verbeteren van toegankelijkheid voor uw toepassingen en services doordat gebruikers kunnen communiceren met de inhoud van uw hoorbaar.
+Standaard stemmen worden gemaakt met behulp van statistische parametrische synthese en/of samenvoeg synthese technieken. Deze stemmen zijn zeer begrijpelijk en klinkt natuurlijk. U kunt uw toepassingen eenvoudig laten spreken in meer dan 45 talen, met een breed scala aan spraak opties. Deze stemmen bieden een hoge nauw keurigheid van de uitspraak, inclusief ondersteuning voor afkortingen, acroniem uitbrei dingen, datum-en tijd interpretaties, telefoons en meer. Gebruik standaard stem om de toegankelijkheid van uw toepassingen en services te verbeteren door gebruikers toe te staan te communiceren met uw inhouds audibly.
 
-### <a name="neural-voices"></a>Neurale stemmen
+### <a name="neural-voices"></a>Neural stemmen
 
-Stemmen neurale deep neural networks te strijden tegen de beperkingen van traditionele Text to Speech systemen in die overeenkomen met de patronen van stress en intonation in gesproken taal en in de stof de eenheden van spraak in de stem van een computer voor de synthese gebruiken Standard tekst naar spraak een uitsplitsing van prosody in afzonderlijke linguïstische analyse- en akoestische voorspelling stappen die onafhankelijk modellen, dit in spellen gesproken synthese resulteren kunnen gelden. Onze mogelijkheid voor neurale biedt prosody voorspelling en toon synthese tegelijkertijd, wat resulteert in een meer vloeiende en natuurlijk klinkende spraak.
+Neural stemmen gebruiken diepe Neural-netwerken om de limieten van traditionele tekst-naar-spraak-systemen te verruimen in het vergelijken van de patronen van stress en intonation in gesp roken taal en bij het samen werken aan de spraak eenheden in een computer spraak. Standaard tekst-naar-spraak onderbreekt prosody in afzonderlijke linguïstische analyse en akoestische Voorspellings stappen die worden geregeld door onafhankelijke modellen, wat kan leiden tot muffled-spraak synthese. Onze Neural-functie biedt prosody voor spellingen en spraak synthese, wat leidt tot een meer vloeistof-en natuurlijk-geluids spraak.
 
-Neurale stemmen kunnen worden gebruikt voor interactie met chatbots en virtuele assistenten natuurlijker maken en aantrekkelijke digitale teksten, zoals e-books converteren naar audiobooks en in de auto-navigatiesystemen te verbeteren. Met de menselijke natuurlijke prosody en duidelijke afbakening van woorden verkorten neural stemmen aanzienlijk luisterende intensief gebruik wanneer u met AI-systemen communiceren.
+Neural stemmen kunnen worden gebruikt om interacties uit te voeren met chat bots uitbreiden en virtuele assistenten die natuurlijk en aantrekkelijker zijn, en om digitale teksten, zoals e-books, te converteren naar Audiobooks en in-car navigatie systemen te verbeteren. Met het menselijke net zoals natuurlijke prosody en heldere afbakening van woorden, verlaagt Neural stemmen veel luister intensief wanneer u met AI-systemen communiceert.
 
-Neurale stemmen ondersteuning voor verschillende stijlen, zoals neutraal en vrolijke. De stem Jessa (en-US) kan bijvoorbeeld cheerfully, die is geoptimaliseerd voor warme, blij conversatie spreken. U kunt de uitvoer van de gesproken zoals toon, verkopen, aanpassen en versnellen met behulp van [spraak synthese Markup Language](speech-synthesis-markup.md). Zie voor een volledige lijst van beschikbare stemmen, [ondersteunde talen](language-support.md#text-to-speech).
+Neural stemmen ondersteunen verschillende stijlen, zoals Neutral en cheerful. Zo kan de Jessa (en-US) Voice cheerfully spreken, die is geoptimaliseerd voor warme, blije gesprek. U kunt de spraak uitvoer aanpassen, zoals Toon, Toon hoogte en snelheid, met behulp van de taal voor het [opmaken van spraak synthese](speech-synthesis-markup.md). Zie [ondersteunde talen](language-support.md#text-to-speech)voor een volledige lijst met beschik bare stemmen.
 
-Zie voor meer informatie over de voordelen van neurale stemmen, [van Microsoft nieuwe neurale Text to Speech service kunt machines spreken zoals mensen](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/).
+Ga voor meer informatie over de voor delen van Neural stemmen naar [de nieuwe Neural-tekst naar-speech-service van micro soft, waarmee computers kunnen spreken zoals mensen](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/).
 
 ### <a name="custom-voices"></a>Aangepaste stemmen
 
-Stem aanpassingen kunt u een herkenbare, één van een unieke stem voor uw merk maken. Voor het maken van uw aangepaste spraakstijl, moet u een studio-opname maken en uploaden van de bijbehorende scripts als de trainingsgegevens. De service maakt vervolgens een unieke stem-model dat is afgestemd op de opname. U kunt deze aangepaste spraakstijl gebruiken om na te bootsen spraak. Zie voor meer informatie, [aangepaste stemmen](how-to-customize-voice-font.md).
+Met stem aanpassing kunt u een herken bare, eenzijdige stem voor uw merk maken. Als u uw aangepaste spraak letter type wilt maken, maakt u een studio-opname en uploadt u de bijbehorende scripts als de trainings gegevens. De service maakt vervolgens een uniek spraak model dat is afgestemd op uw opname. U kunt dit aangepaste spraak lettertype gebruiken om spraak te vervormen. Zie [aangepaste stemmen](how-to-customize-voice-font.md)voor meer informatie.
 
 ## <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
-Spraak synthese Markup Language (SSML) is een op XML gebaseerde opmaakcodetaal waarmee ontwikkelaars opgeven hoe invoertekst wordt omgezet in kunstmatige spraak met behulp van de Text to Speech-service. Vergeleken met de tekst zonder opmaak, kan SSML ontwikkelaars voor het afstemmen van de presentatie, uitspraak, spreken snelheid, volume en meer van de Text to Speech-uitvoer. Normale interpunctie, zoals na een periode onderbreken of met behulp van de juiste intonation wanneer een zin met een vraagteken eindigt worden automatisch verwerkt.
+SSML (Speech synthese Markup Language) is een op XML gebaseerde Markup-taal waarmee ontwikkel aars kunnen opgeven hoe invoer tekst wordt omgezet in gesynthesizerde spraak met behulp van de tekst-naar-spraak-service. Vergeleken met onbewerkte tekst kunnen ontwikkel aars met SSML de hoogte, de uitspraak, de spreek snelheid, het volume en meer van de tekst-naar-spraak-uitvoer nauw keuriger instellen. Normale Lees tekens, zoals het onderbreken na een periode, of het gebruik van de juiste intonation wanneer een zin eindigt met een vraag teken, worden automatisch afgehandeld.
 
-Alle tekst-invoer voor verzonden naar de Text to Speech-service moeten worden gestructureerd als SSML. Zie voor meer informatie, [spraak synthese Markup Language](speech-synthesis-markup.md).
+Alle tekst invoer die wordt verzonden naar de service tekst naar spraak moet zijn gestructureerd als SSML. Zie voor meer informatie [taal voor opmaak van spraak synthese](speech-synthesis-markup.md).
 
-### <a name="pricing-note"></a>Houd er rekening mee prijzen
+### <a name="pricing-note"></a>Prijs notitie
 
-Wanneer u de Text to Speech-service gebruikt, worden in rekening gebracht voor elk teken dat wordt geconverteerd naar spraak, met inbegrip van leestekens. Hoewel het document SSML zelf niet te factureren, worden optionele elementen die worden gebruikt om aan te passen hoe de tekst wordt geconverteerd naar spraak, zoals Fonemen en verkopen, gerekend als factureerbare tekens. Hier volgt een lijst van wat gefactureerd wordt:
+Wanneer u de service tekst naar spraak gebruikt, wordt u gefactureerd voor elk teken dat naar spraak wordt geconverteerd, inclusief Lees tekens. Hoewel het SSML-document zelf niet factureerbaar is, worden optionele elementen die worden gebruikt voor het aanpassen van de manier waarop de tekst naar spraak wordt geconverteerd, zoals fonemen en pitch, geteld als factureer bare tekens. Hier volgt een lijst met wat factureerbaar is:
 
-* Tekst die wordt doorgegeven aan de Text to Speech-service in de hoofdtekst SSML van de aanvraag
-* Alle aantekeningen in het tekstveld van de hoofdtekst van de aanvraag in de indeling SSML, met uitzondering van `<speak>` en `<voice>` tags
-* Letters, interpunctie, spaties, tabs, aantekeningen en alle spatietekens
-* Elk codepunt is gedefinieerd in Unicode
+* Tekst die wordt door gegeven aan de service tekst naar spraak in de SSML-hoofd tekst van de aanvraag
+* Alle opmaak in het tekst veld van de aanvraag tekst in de SSML-indeling, met `<speak>` uitzonde ring van de tags en `<voice>`
+* Letters, lees tekens, spaties, tabs, opmaak en alle spatie tekens
+* Elk code punt dat in Unicode is gedefinieerd
 
-Zie voor gedetailleerde informatie [prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+Zie [prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)voor gedetailleerde informatie.
 
 > [!IMPORTANT]
-> Elke taal Chinese, Japans en Koreaanse teken wordt geteld als twee tekens voor facturering.
+> Elk Chinees, Japans en Koreaans teken worden als twee tekens beschouwd voor facturering.
 
-## <a name="core-features"></a>Belangrijkste functies
+## <a name="core-features"></a>Kern functies
 
-Deze tabel bevat de kernfuncties voor tekst naar spraak:
+In deze tabel worden de belangrijkste functies voor tekst naar spraak weer gegeven:
 
 | Use-case | SDK | REST |
 |----------|-----|------|
-| Converteert tekst naar spraak. | Ja | Ja |
-| Gegevenssets voor de toon aanpassing uploaden. | Nee | Ja\* |
-| Maken en beheren van spraak lettertype modellen. | Nee | Ja\* |
-| Maken en beheren van implementaties van spraak lettertype. | Nee | Ja\* |
-| Maken en beheren van spraak lettertype tests. | Nee | Ja\* |
-| Abonnementen beheren. | Nee | Ja\* |
+| Zet tekst om in spraak. | Ja | Ja |
+| Upload gegevens sets voor stem aanpassing. | Nee | Klikt\* |
+| Spraak lettertype modellen maken en beheren. | Nee | Klikt\* |
+| Implementaties van spraak lettertype maken en beheren. | Nee | Klikt\* |
+| Stem lettertype testen maken en beheren. | Nee | Klikt\* |
+| Abonnementen beheren. | Nee | Klikt\* |
 
-\* *Deze services zijn beschikbaar met behulp van het eindpunt cris.ai. Zie [Swagger verwijzing](https://westus.cris.ai/swagger/ui/index). Deze aangepaste gesproken training en beheer-API's implementeren dat aanvragen van de limieten voor 25 per 5 seconden, terwijl de spraaksynthese API zelf wordt geïmplementeerd die beperking kunt 200 aanvragen per seconde met de hoogste beperking. Wanneer bandbreedtebeperking optreedt, moet u een melding via berichtkoppen.*
+\**Deze services zijn beschikbaar via het CRIS.ai-eind punt. Zie [Swagger-verwijzing](https://westus.cris.ai/swagger/ui/index). Deze aangepaste spraak training en beheer-Api's implementeren beperking waarbij aanvragen worden beperkt tot 25 per vijf seconden, terwijl de spraakherkennings-API zelf de beperking implementeert, waardoor er Maxi maal 200 aanvragen per seconde worden toegestaan. Wanneer er een beperking optreedt, wordt u gewaarschuwd via bericht headers.*
 
-## <a name="get-started-with-text-to-speech"></a>Aan de slag met tekst naar spraak
+## <a name="get-started-with-text-to-speech"></a>Aan de slag met tekst-naar-spraak
 
-We bieden snelstartgidsen ontworpen dat u de uitvoering van code in minder dan 10 minuten. Deze tabel bevat een lijst met tekst naar spraak snelstartgidsen ingedeeld per taal.
+We bieden Quick starts die zijn ontworpen om code in minder dan 10 minuten uit te voeren. Deze tabel bevat een lijst met Quick starts voor tekst naar spraak, geordend op taal.
 
-### <a name="sdk-quickstarts"></a>SDK-snelstartgidsen
+### <a name="sdk-quickstarts"></a>SDK-Quick starts
 
-| Quickstart (SDK) | Platform | API-verwijzing |
+| Quick Start (SDK) | Platform | API-verwijzing |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-text-to-speech-dotnetcore.md) | Windows | [Bladeren](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Bladeren](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](quickstart-text-to-speech-csharp-uwp.md) | Windows | [Bladeren](https://aka.ms/csspeech/csharpref) |
-| [C#, Unity](quickstart-text-to-speech-csharp-unity.md) | Windows, Android | [Bladeren](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Bladeren](https://aka.ms/csspeech/cppref) |
-| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Bladeren](https://aka.ms/csspeech/cppref) |
+| [C#, .NET Core](quickstart-text-to-speech-dotnetcore.md) | Windows | [Door](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Door](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-text-to-speech-csharp-uwp.md) | Windows | [Door](https://aka.ms/csspeech/csharpref) |
+| [C#, Eenheid](quickstart-text-to-speech-csharp-unity.md) | Windows, Android | [Door](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Door](https://aka.ms/csspeech/cppref) |
+| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Door](https://aka.ms/csspeech/cppref) |
 
-### <a name="rest-quickstarts"></a>REST-snelstartgidsen
+### <a name="rest-quickstarts"></a>REST-Quick starts
 
-| Quickstart (REST) | Platform | API-verwijzing |
+| Snelstartgids (REST) | Platform | API-verwijzing |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Bladeren](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Window, macOS, Linux | [Bladeren](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Window, macOS, Linux | [Bladeren](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Door](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Venster, macOS, Linux | [Door](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Venster, macOS, Linux | [Door](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
 ## <a name="sample-code"></a>Voorbeeldcode
 
-Voorbeeldcode voor tekst naar spraak is beschikbaar op GitHub. Deze voorbeelden omvatten tekst naar spraak converteren in de populairste programmeertalen.
+Voorbeeld code voor tekst-naar-spraak is beschikbaar op GitHub. Deze voor beelden hebben betrekking op conversie van tekst naar spraak in de populairste programmeer talen.
 
-* [Text to Speech-voorbeelden (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [Text to Speech-voorbeelden (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Voor beelden van tekst naar spraak (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Voor beelden van tekst naar spraak (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## <a name="reference-docs"></a>Referentiedocumenten
 
 * [Speech-SDK](speech-sdk-reference.md)
-* [Spraak apparaten SDK](speech-devices-sdk.md)
-* [REST API: Spraak-naar-tekst](rest-speech-to-text.md)
-* [REST API: Text-to-speech](rest-text-to-speech.md)
-* [REST API: Batch transcriptie en aanpassen](https://westus.cris.ai/swagger/ui/index)
+* [SDK voor spraak apparaten](speech-devices-sdk.md)
+* [REST API: Spraak naar tekst](rest-speech-to-text.md)
+* [REST API: Tekst-naar-spraak](rest-text-to-speech.md)
+* [REST API: Batch-transcriptie en-aanpassing](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Neem een abonnement op spraak-gratis Services](get-started.md)
+* [Een gratis abonnement op spraak Services ontvangen](get-started.md)
 * [Aangepaste spraakstijlen maken](how-to-customize-voice-font.md)

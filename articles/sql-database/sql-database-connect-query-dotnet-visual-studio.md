@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 7870322746d8cb647547e5c85036579611ac3292
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 4472ff10c42cd9163693e7316b6bdaef50258db6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303310"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569243"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Snelstartgids: Gebruik .NET (C#) en C# in Visual Studio om verbinding te maken met, en query's uit te voeren op, een Azure SQL-database
 
@@ -37,13 +36,13 @@ U hebt het volgende nodig om deze quickstart te voltooien:
   | Configureren | [IP-firewallregel op serverniveau](sql-database-server-level-firewall-rule.md)| [Connectiviteit vanaf een VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connectiviteit vanaf locatie](sql-database-managed-instance-configure-p2s.md)
   |Gegevens laden|Adventure Works geladen volgens de quickstart|[Wide World Importers herstellen](sql-database-managed-instance-get-started-restore.md)
-  |||Herstellen of importeren van Adventure Works van [BACPAC](sql-database-import.md) -bestand uit [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Adventure Works herstellen of importeren vanuit [BACPAC](sql-database-import.md) -bestand vanuit [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
   > De scripts in dit artikel zijn geschreven voor gebruik met de Adventure Works-database. Met een beheerd exemplaar moet u de Adventure Works-database in een exemplaardatabase importeren of de scripts in dit artikel wijzigen zodat deze de Wide World Importers-database gebruiken.
 
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/) Community, Professional, or Enterprise edition.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) Community, Professional of ENTER prise Edition.
 
 ## <a name="get-sql-server-connection-information"></a>SQL Server-verbindingsgegevens ophalen
 
@@ -73,7 +72,7 @@ Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Az
    
 1. Wanneer de installatie is voltooid, kunt u **NuGet Package Manager** sluiten. 
    
-1. Vervang in de code-editor de inhoud **Program.cs** door de volgende code. Vervang de waarden voor `<server>`, `<username>`, `<password>`, en `<database>`.
+1. Vervang in de code-editor de inhoud **Program.cs** door de volgende code. Vervang uw waarden voor `<server>`, `<username>`, `<password>` `<database>`en.
    
    >[!IMPORTANT]
    >Voor de code in dit voorbeeld worden de voorbeeldgegevens gebruikt van AdventureWorksLT, die u als bron kunt kiezen bij het maken van uw database. Als in uw database andere gegevens staan, kunt u tabellen uit uw eigen database gebruiken in de SELECT-query. 
@@ -143,7 +142,7 @@ Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Az
 - Meer informatie over [Aan de slag met .NET Core in Windows/Linux/macOS met behulp van de opdrachtregel](/dotnet/core/tutorials/using-with-xplat-cli).
 - Meer informatie over [Uw eerste Azure SQL-database ontwerpen met behulp van SSMS](sql-database-design-first-database.md) of [Uw eerste Azure SQL-database ontwerpen met behulp van .NET](sql-database-design-first-database-csharp.md).
 - Raadpleeg de [.NET-documentatie](https://docs.microsoft.com/dotnet/) voor meer informatie over .NET.
-- Voorbeeld van pogingslogica: [Flexibel verbinding maken met SQL via ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
+- Voorbeeld van pogingslogica: [Maak robuuste verbinding met SQL met ADO.net][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 
 
 <!-- Link references. -->

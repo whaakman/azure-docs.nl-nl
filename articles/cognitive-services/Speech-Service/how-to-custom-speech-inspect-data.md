@@ -1,7 +1,7 @@
 ---
-title: Inspecteer de kwaliteit van de gegevens voor aangepaste spraak - spraakservices
-titlesuffix: Azure Cognitive Services
-description: Aangepaste spraak biedt hulpprogramma's waarmee u kunt de kwaliteit van de herkenning van een model visueel inspecteren door het vergelijken van audiogegevens met het bijbehorende resultaat voor de opname. U kunt vanuit de portal voor aangepaste spraak geüploade geluid af te spelen en te bepalen of het opgegeven herkenningsresultaat juist is.  Dit hulpprogramma kunt u snel kwaliteit van de Microsoft baseline spraak-naar-tekst model of model is getraind aangepaste controleren zonder dat u hoeft audiogegevens transcriberen.
+title: De gegevens kwaliteit van de Custom Speech speech-service controleren
+titleSuffix: Azure Cognitive Services
+description: Custom Speech biedt hulp middelen waarmee u de herkennings kwaliteit van een model visueel kunt controleren door audio gegevens te vergelijken met het bijbehorende herkennings resultaat. Vanuit de Custom Speech Portal kunt u geüploade audio afspelen en bepalen of het gegeven herkennings resultaat juist is.  Met dit hulp programma kunt u snel de kwaliteit van het spraak-naar-tekst model van uw basis lijn of een getraind aangepast model controleren zonder dat u audio gegevens hoeft te transcriberen.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,50 +10,50 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 900d9b032b4ed121589d904a8ad18059b3283661
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b58f9c17995128091b5c4badd228356dbacc6ae9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603144"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562851"
 ---
-# <a name="inspect-custom-speech-data"></a>Aangepaste spraak-gegevens controleren
+# <a name="inspect-custom-speech-data"></a>Custom Speech gegevens controleren
 
 > [!NOTE]
-> Deze pagina wordt ervan uitgegaan dat u hebt gelezen [testgegevens voorbereiden voor aangepaste spraak](how-to-custom-speech-test-data.md) en een gegevensset voor inspectie hebt geüpload.
+> Op deze pagina wordt ervan uitgegaan dat u [test gegevens voorbereiden voor Custom speech](how-to-custom-speech-test-data.md) hebt gelezen en een gegevensset hebt geüpload voor inspectie.
 
-Aangepaste spraak biedt hulpprogramma's waarmee u kunt de kwaliteit van de herkenning van een model visueel inspecteren door het vergelijken van audiogegevens met het bijbehorende resultaat voor de opname. U kunt vanuit de portal voor aangepaste spraak geüploade geluid af te spelen en te bepalen of het opgegeven herkenningsresultaat juist is. Dit hulpprogramma kunt u snel kwaliteit van de Microsoft baseline spraak-naar-tekst model of model is getraind aangepaste controleren zonder dat u hoeft audiogegevens transcriberen.
+Custom Speech biedt hulp middelen waarmee u de herkennings kwaliteit van een model visueel kunt controleren door audio gegevens te vergelijken met het bijbehorende herkennings resultaat. Vanuit de Custom Speech Portal kunt u geüploade audio afspelen en bepalen of het gegeven herkennings resultaat juist is. Met dit hulp programma kunt u snel de kwaliteit van het spraak-naar-tekst model van micro soft of een getraind aangepast model controleren zonder dat u audio gegevens hoeft te transcriberen.
 
-In dit document leert u hoe u visueel controleren en de kwaliteit van een model met behulp van de trainingsgegevens die u eerder hebt geüpload.
+In dit document leert u hoe u de kwaliteit van een model visueel kunt controleren met behulp van de trainings gegevens die u eerder hebt geüpload.
 
-Op deze pagina leert u hoe u de kwaliteit van de Microsoft baseline spraak-naar-tekst model en/of een aangepast model dat u hebt getraind, visueel te controleren. U gebruikt de gegevens die u hebt geüpload naar de **gegevens** tabblad voor het testen.
+Op deze pagina leert u hoe u de kwaliteit van het spraak-naar-tekst model van micro soft en/of een aangepast model dat u hebt getraind, visueel kunt controleren. U gebruikt de gegevens die u hebt geüpload naar het tabblad **gegevens** om te testen.
 
 ## <a name="create-a-test"></a>Een test maken
 
-Volg deze instructies voor het maken van een test:
+Volg deze instructies om een test te maken:
 
-1. Navigeer naar **spraak-naar-tekst > aangepaste spraak > testen**.
-2. Klik op **Test toevoegen**.
-3. Selecteer **inspecteren kwaliteit (alleen Audio-gegevens)** . Geef de test een naam en beschrijving, en selecteer uw audio-gegevensset.
-4. Selecteer maximaal twee modellen die u wilt testen.
+1. Navigeer naar **> voor spraak naar tekst Custom Speech > tests**uit te voeren.
+2. Klik op **test toevoegen**.
+3. Selecteer **kwaliteit controleren (alleen audio gegevens)** . Geef de test een naam, beschrijving en selecteer uw audio gegevensset.
+4. Selecteer Maxi maal twee modellen die u wilt testen.
 5. Klik op **Create**.
 
-Nadat een test is gemaakt, kunt u de modellen naast elkaar kunt vergelijken.
+Nadat een test is gemaakt, kunt u de modellen naast elkaar vergelijken.
 
-## <a name="side-by-side-model-comparisons"></a>Side-by-side-model vergelijkingen
+## <a name="side-by-side-model-comparisons"></a>Vergelijking van modellen naast elkaar
 
-Wanneer de status van de test is *geslaagd*, klikt u in de naam van het test-item om details van de test te bekijken. Deze pagina geeft een lijst van alle uitingen in uw gegevensset, die wijzen op de resultaten van de twee modellen naast de transcriptie uit de opgegeven gegevensset.
+Wanneer de test status is *geslaagd*, klikt u op de naam van het test item om de details van de test te bekijken. Deze detail pagina bevat een lijst met alle uitingen in uw gegevensset, waarmee de herkennings resultaten van de twee modellen naast de transcriptie van de verzonden gegevensset worden aangegeven.
 
-Om te controleren van de side-by-side-vergelijking, kunt u verschillende fouttypen, inclusief invoegen, verwijderen en vervangen van kunt schakelen. Door te luisteren naar de audio en vergelijken herkenningsresultaten in elke kolom (met human etiket transcriptie en de resultaten van de twee modellen met spraak naar tekst), kunt u bepalen welk model u voldoet aan uw behoeften en waar verbeteringen nodig zijn.
+Als u de gelijktijdige vergelijking wilt controleren, kunt u verschillende fout typen met inbegrip van invoegen, verwijderen en vervangen. Als u naar de audio luistert en de herkennings resultaten in elke kolom vergelijkt (met transcriptie en de resultaten van twee spraak-naar-tekst modellen), kunt u bepalen welk model aan uw behoeften voldoet en waar verbeteringen nodig zijn.
 
-Inspecteren kwaliteitstests is handig om te controleren of de kwaliteit van een spraakherkenningseindpunt voldoende voor een toepassing is.  Voor een objectieve meting van de nauwkeurigheid vereisen getranscribeerde audio, volgt u de instructies in [evalueren nauwkeurigheid](how-to-custom-speech-evaluate-data.md).
+Het inspecteren van kwaliteits testen is nuttig om te controleren of de kwaliteit van een spraakherkennings eindpunt voldoende is voor een toepassing.  Volg de instructies in [evalueren nauw keurigheid](how-to-custom-speech-evaluate-data.md)voor een objectieve maat regel voor nauw keurigheid, voor het vereisen van getranscribeerde audio.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Evalueren van uw gegevens](how-to-custom-speech-evaluate-data.md)
-* [Uw model te trainen](how-to-custom-speech-train-model.md)
+* [Uw gegevens evalueren](how-to-custom-speech-evaluate-data.md)
+* [Uw model trainen](how-to-custom-speech-train-model.md)
 * [Uw model implementeren](how-to-custom-speech-deploy-model.md)
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Testgegevens voorbereiden voor de aangepaste spraak](how-to-custom-speech-test-data.md)
+* [Test gegevens voorbereiden voor Custom Speech](how-to-custom-speech-test-data.md)

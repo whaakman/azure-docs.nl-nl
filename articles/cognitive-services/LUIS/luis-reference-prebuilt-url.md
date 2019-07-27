@@ -1,6 +1,6 @@
 ---
-title: URL van vooraf gemaakte entiteiten
-titleSuffix: Azure
+title: URL-preconstrueerde entiteiten-LUIS
+titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat een url vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: d59020eb45f7dcced5ea8da04b3b908def34fb70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4b2db4accb638e6e4147a19d94d0a323cfe7c81
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072232"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560116"
 ---
-# <a name="url-prebuilt-entity-for-a-luis-app"></a>URL van vooraf gedefinieerde entiteit voor een LUIS-app
+# <a name="url-prebuilt-entity-for-a-luis-app"></a>URL preconstrueerde entiteit voor een LUIS-app
 URL-entiteit extraheert URL's met domeinnamen of IP-adressen. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met URL's naar de toepassing. URL-entiteit wordt ondersteund in `en-us` alleen de cultuur. 
 
 ## <a name="types-of-urls"></a>Typen van URL 's
-URL wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) GitHub-opslagplaats
+URL wordt beheerd vanuit de map [recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) github
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>Oplossing voor vooraf gedefinieerde URL-entiteit
 
-### <a name="api-version-2x"></a>API-versie 2.x
+### <a name="api-version-2x"></a>API-versie 2. x
 
 Het volgende voorbeeld ziet u de resolutie van de **builtin.url** entiteit.
 
@@ -54,9 +54,9 @@ Het volgende voorbeeld ziet u de resolutie van de **builtin.url** entiteit.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Preview-API-versie 3.x
+### <a name="preview-api-version-3x"></a>Preview-API versie 3. x
 
-De volgende JSON is met de `verbose` parameter ingesteld op `false`:
+De volgende JSON is met de `verbose` para meter ingesteld `false`op:
 
 ```json
 {
@@ -78,7 +78,7 @@ De volgende JSON is met de `verbose` parameter ingesteld op `false`:
 }
 ```
 
-De volgende JSON is met de `verbose` parameter ingesteld op `true`:
+De volgende JSON is met de `verbose` para meter ingesteld `true`op:
 
 ```json
 {

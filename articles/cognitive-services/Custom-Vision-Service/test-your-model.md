@@ -1,7 +1,7 @@
 ---
-title: Testen en opnieuw trainen van een model - Custom Vision Service
-titlesuffix: Azure Cognitive Services
-description: Leer hoe u een installatiekopie testen en vervolgens het model trainen worden gebruikt.
+title: Een model Custom Vision Service testen en opnieuw trainen
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over het testen van een installatie kopie en het gebruik ervan om het model te trainen.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,53 +10,53 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: d516cee81aef66ec58399cb5ff23c89db16bf2ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f78f0b992581a44b030387f1bd0e37664df4cfd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816668"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560906"
 ---
-# <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Testen en opnieuw trainen van een model met Custom Vision Service
+# <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Een model testen en opnieuw trainen met Custom Vision Service
 
-Nadat u uw model te trainen, kunt u snel testen met behulp van een lokaal opgeslagen afbeelding of een online-installatiekopie. De test maakt gebruik van de meest recent getrainde iteratie.
+Nadat u uw model hebt getraind, kunt u het snel testen met een lokaal opgeslagen installatie kopie of een online-installatie kopie. De test maakt gebruik van de meest recent getrainde iteratie.
 
 ## <a name="test-your-model"></a>Uw model testen
 
-1. Uit de [Custom Vision webpagina](https://customvision.ai), selecteert u uw project. Selecteer **snelle Test** aan de rechterkant van de bovenste menubalk. Deze actie opent u een venster met het label **snelle Test**.
+1. Selecteer uw project op de [webpagina Custom Vision](https://customvision.ai). Selecteer **snelle test** aan de rechter kant van de bovenste menu balk. Met deze actie wordt een venster met de naam **snelle test**geopend.
 
-    ![De knop snel testen wordt weergegeven in de rechterbovenhoek van het venster.](./media/test-your-model/quick-test-button.png)
+    ![De knop voor snelle test wordt weer gegeven in de rechter bovenhoek van het venster.](./media/test-your-model/quick-test-button.png)
 
-2. In de **snelle Test** venster, klikt u in de **afbeelding verzenden** veld en voer de URL van de installatiekopie die u wilt gebruiken voor de test. Als u een lokaal opgeslagen afbeelding in plaats daarvan gebruiken wilt, klikt u op de **door lokale bestanden bladeren** en selecteer een bestand van de lokale installatiekopie.
+2. Klik in het venster **snelle test** op het veld **installatie kopie verzenden** en voer de URL in van de afbeelding die u voor de test wilt gebruiken. Als u in plaats daarvan een lokaal opgeslagen installatie kopie wilt gebruiken, klikt u op de knop **Bladeren door lokale bestanden** en selecteert u een lokaal installatie kopie bestand.
 
-    ![Afbeelding van de installatiekopie-pagina verzenden](./media/test-your-model/submit-image.png)
+    ![Afbeelding van de pagina afbeelding verzenden](./media/test-your-model/submit-image.png)
 
-De installatiekopie die u selecteert, wordt weergegeven in het midden van de pagina. En vervolgens de resultaten worden weergegeven onder de afbeelding in de vorm van een tabel met twee kolommen, met het label **Tags** en **vertrouwen**. Nadat u de resultaten bekijkt, kunt u sluiten de **snelle Test** venster.
+De afbeelding die u selecteert, wordt in het midden van de pagina weer gegeven. Vervolgens worden de resultaten weer gegeven onder de afbeelding in de vorm van een tabel met twee kolommen, **labels** met labels en **vertrouwen**. Nadat u de resultaten hebt bekeken, kunt u het venster voor **snelle test** sluiten.
 
-U kunt nu deze testafbeelding toevoegen aan uw model en vervolgens opnieuw uw model te trainen.
+U kunt deze test installatie kopie nu toevoegen aan uw model en vervolgens uw model opnieuw trainen.
 
-## <a name="use-the-predicted-image-for-training"></a>De installatiekopie van het voorspelde gebruiken voor training
+## <a name="use-the-predicted-image-for-training"></a>De voorspelde afbeelding voor training gebruiken
 
-Gebruik de volgende stappen voor het gebruik van de installatiekopie van het eerder verzonden voor training:
+Gebruik de volgende stappen om de installatie kopie te gebruiken die u eerder voor de training hebt ingediend:
 
-1. Voor installatiekopieën die worden verzonden naar de classificatie opent de [Custom Vision webpagina](https://customvision.ai) en selecteer de __voorspellingen__ tabblad.
+1. Als u afbeeldingen wilt weer geven die zijn verzonden naar de classificatie, opent u de  [webpagina Custom Vision](https://customvision.ai) en selecteert u het tabblad voor spellingen.
 
-    ![Afbeelding van het tabblad voorspellingen](./media/test-your-model/predictions-tab.png)
-
-    > [!TIP]
-    > De standaardweergave ziet u afbeeldingen van de huidige iteratie. U kunt de __iteratie__ vervolgkeuzelijst veld om installatiekopieën verzonden tijdens de vorige iteraties weer te geven.
-
-2. Beweeg de muisaanwijzer over een afbeelding om te zien van de labels die door de classificatie zijn voorspeld.
+    ![Afbeelding van het tabblad voor spellingen](./media/test-your-model/predictions-tab.png)
 
     > [!TIP]
-    > Afbeeldingen worden gerangschikt, zodat de afbeeldingen die de meeste winst aan de classificatie bieden kunnen aan de bovenkant zijn. Selecteer een andere sortering, gebruikt u de __sorteren__ sectie.
+    > In de standaard weergave worden afbeeldingen van de huidige herhaling weer gegeven. U kunt het veld vervolg keuzelijst __iteratie__ gebruiken om afbeeldingen weer te geven die zijn verzonden tijdens vorige iteraties.
 
-    Als u wilt een afbeelding toevoegen aan uw trainingsgegevens, selecteer de installatiekopie, selecteert u het label en selecteer vervolgens __opslaan en sluiten__. De installatiekopie wordt verwijderd uit __voorspellingen__ en toegevoegd aan de training-installatiekopieën. U kunt deze weergeven door de __Trainingsafbeeldingen__ tabblad.
+2. Beweeg de muis aanwijzer over een afbeelding om de labels te zien die zijn voor speld door de classificatie.
 
-    ![Afbeelding van de labels pagina](./media/test-your-model/tag-image.png)
+    > [!TIP]
+    > Installatie kopieën worden gerangschikt, zodat de installatie kopieën die de meeste winst naar de classificatie kunnen halen bovenaan staan. Als u een andere sorteer volgorde wilt selecteren, gebruikt u de sectie __sorteren__ .
 
-3. Gebruik de __Train__ knop de classificatie te trainen.
+    Als u een afbeelding wilt toevoegen aan uw trainings gegevens, selecteert u de afbeelding, selecteert u het label en selecteert u vervolgens __opslaan en sluiten__. De afbeelding wordt verwijderd uit  de voor spellingen en toegevoegd aan de trainings afbeeldingen. U kunt deze weer geven door het tabblad __trainings afbeeldingen__ te selecteren.
+
+    ![Afbeelding van de pagina labelen](./media/test-your-model/tag-image.png)
+
+3. Gebruik de knop __trainen__ om de classificatie opnieuw te trainen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[De classificatie verbeteren](getting-started-improving-your-classifier.md)
+[Uw classificatie verbeteren](getting-started-improving-your-classifier.md)

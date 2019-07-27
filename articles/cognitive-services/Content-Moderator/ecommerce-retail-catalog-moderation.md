@@ -1,7 +1,7 @@
 ---
 title: 'Zelfstudie: E-commerce-productafbeeldingen beheren - Content Moderator'
-titlesuffix: Azure Cognitive Services
-description: Instellen van een toepassing om te analyseren en productafbeeldingen classificeren met de opgegeven labels (met behulp van Azure Computer Vision en aangepaste Vision). Tag ongewenste afbeeldingen verder kunnen worden gecontroleerd (met behulp van Azure Content Moderator).
+titleSuffix: Azure Cognitive Services
+description: Stel een toepassing in om product afbeeldingen met opgegeven labels te analyseren en te classificeren (met behulp van Azure Computer Vision en Custom Vision). Label ongewenste afbeeldingen die verder moeten worden gecontroleerd (met behulp van Azure Content Moderator).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: ec17f9f0206ef639bd47d694880c064a012ea1cf
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b118a509f72af2146abf854b881fa34d8de302a1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604196"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564914"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Zelfstudie: E-commerce-productafbeeldingen beheren met Azure Content Moderator
 
-In deze zelfstudie leert u hoe u Azure Cognitive Services, met inbegrip van Content Moderator, om te classificeren en gemiddeld productafbeeldingen voor een e-commerce-scenario. U Computer Vision en aangepaste Vision tags (labels) op afbeeldingen wilt toepassen en vervolgens maakt u een revisie door het team, dat op basis van machine-learning-technologieën voor Content Moderator met teams voor menselijke beoordeling combineert voor een systeem intelligent beheer.
+In deze zelf studie leert u hoe u Azure Cognitive Services, met inbegrip van Content Moderator, kunt gebruiken om product afbeeldingen te classificeren en te vertragen voor een e-commerce scenario. U gebruikt Computer Vision en Custom Vision voor het Toep assen van tags (labels) op afbeeldingen en vervolgens maakt u een team beoordeling, waarin u de op de machine learning gebaseerde technologieën van Content Moderator combineert met mede beoordelings teams om een intelligent toezicht systeem te bieden.
 
 In deze zelfstudie ontdekt u hoe u:
 
@@ -43,11 +43,11 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="create-a-review-team"></a>Een beoordelingsteam maken
 
-Verwijzen naar de [Content Moderator proberen op het web](quick-start.md) Quick Start voor instructies over hoe u zich aanmelden voor de [Content Moderator bekijken hulpprogramma](https://contentmoderator.cognitive.microsoft.com/) en maken van een beoordelingsteam. Noteer de waarde voor **Team Id** op de pagina **Create review team**.
+Raadpleeg de Snelstartgids [Content moderator op het web](quick-start.md) voor instructies over hoe u zich kunt registreren voor het [hulp programma content moderator beoordeling](https://contentmoderator.cognitive.microsoft.com/) en maak een beoordelings team. Noteer de waarde voor **Team Id** op de pagina **Create review team**.
 
 ## <a name="create-custom-moderation-tags"></a>Aangepaste controletags maken
 
-Maak vervolgens aangepaste labels in het beoordelingsprogramma (Zie de [Tags](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) artikel als u hulp nodig met dit proces). In dit geval voegen we deze tags toe: **celebrity**, **USA**, **flag**, **toy** en **pen**. Niet alle labels moeten worden opgespoord categorieën in Computer Vision (zoals **beroemdheid**); u kunt uw eigen aangepaste tags toevoegen als u de classificatie Custom Vision voor het detecteren van deze later trainen.
+Maak vervolgens aangepaste labels in het hulp programma voor beoordeling (Zie het artikel [Tags](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) als u hulp nodig hebt bij dit proces). In dit geval voegen we deze tags toe: **celebrity**, **USA**, **flag**, **toy** en **pen**. Niet alle labels moeten Detecteer bare categorieën zijn in Computer Vision (zoals **beroemdheden**). u kunt uw eigen aangepaste Tags toevoegen zolang u de classificatie van de Custom Vision traint om ze later te detecteren.
 
 ![Aangepaste tags configureren](images/tutorial-ecommerce-tags2.PNG)
 
@@ -55,27 +55,27 @@ Maak vervolgens aangepaste labels in het beoordelingsprogramma (Zie de [Tags](ht
 
 1. Open het dialoogvenster Nieuw project in Visual Studio. Vouw **Geïnstalleerd** en vervolgens **Visual C#** uit en selecteer **Console App (.NET Framework)** .
 1. Geef de toepassing de naam **EcommerceModeration** en klik op **OK**.
-1. Als u dit project aan een bestaande oplossing toevoegt, selecteert u dit project als opstartproject één.
+1. Als u dit project aan een bestaande oplossing toevoegt, selecteert u dit project als één opstart project.
 
-In deze zelfstudie leest de code die centraal staat in het project, maar deze wordt niet betrekking hebben op elke regel code. Kopieer de volledige inhoud van _Program.cs_ uit het voorbeeldproject ([Samples eCommerce Catalog Moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)) naar het bestand _Program.cs_ van het nieuwe project. Neem vervolgens de onderstaande gedeelten door voor meer informatie over de werking van het project en hoe u dit zelf kunt gebruiken.
+In deze zelf studie wordt de code voor het project gemarkeerd, maar niet elke regel code. Kopieer de volledige inhoud van _Program.cs_ uit het voorbeeldproject ([Samples eCommerce Catalog Moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)) naar het bestand _Program.cs_ van het nieuwe project. Neem vervolgens de onderstaande gedeelten door voor meer informatie over de werking van het project en hoe u dit zelf kunt gebruiken.
 
 ## <a name="define-api-keys-and-endpoints"></a>API-sleutels en -eindpunten definiëren
 
-Deze zelfstudie wordt gebruikgemaakt van drie cognitive services. Daarom vereist drie bijbehorende sleutels en API-eindpunten. Bekijk de volgende velden in de klasse **Program**:
+In deze zelf studie worden drie cognitieve Services gebruikt. Daarom zijn drie overeenkomstige sleutels en API-eind punten vereist. Bekijk de volgende velden in de klasse **Program**:
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
-Moet u bijwerken de `___Key` velden met de waarden van de abonnementssleutels van uw (u krijgt de `CustomVisionKey` later), en u wilt wijzigen de `___Uri` velden, zodat ze de juiste regio-id's bevatten. Voer in het gedeelte `YOURTEAMID` van het veld `ReviewUri` de id in van het beoordelingsteam dat u eerder hebt gemaakt. U kunt vullen in het laatste gedeelte van de `CustomVisionUri` veld later op.
+U moet de `___Key` velden bijwerken met de waarden van uw abonnements sleutels (u gaat `CustomVisionKey` later aan de slag). `___Uri` mogelijk moet u de velden wijzigen zodat deze de juiste regio-id's bevatten. Voer in het gedeelte `YOURTEAMID` van het veld `ReviewUri` de id in van het beoordelingsteam dat u eerder hebt gemaakt. U vult het laatste deel van het `CustomVisionUri` veld later in.
 
 ## <a name="primary-method-calls"></a>Aanroepen van primaire methode
 
-Bekijk de volgende code in de methode **Main**, waarmee een lijst met afbeeldings-URL's wordt doorlopen. Deze analyseert elke installatiekopie met de drie verschillende services, registreert de toegepaste labels in de **ReviewTags** matrix en maakt vervolgens een beoordeling voor menselijke moderators door afbeeldingen te sturen naar het Content Moderator controleren-hulpprogramma. Deze methoden gaan we in de volgende gedeelten bespreken. Als u wilt, kunt u bepalen welke installatiekopieën worden verzonden om te controleren, met behulp van de **ReviewTags** -matrix in een voorwaarde om te controleren welke labels zijn toegepast.
+Bekijk de volgende code in de methode **Main**, waarmee een lijst met afbeeldings-URL's wordt doorlopen. Elke installatie kopie wordt geanalyseerd met de drie verschillende services, registreert de toegepaste Tags in de **ReviewTags** -matrix en maakt vervolgens een beoordeling voor menselijke moderators door de installatie kopieën naar het hulp programma content moderator beoordeling te verzenden. Deze methoden gaan we in de volgende gedeelten bespreken. Als u wilt, kunt u bepalen welke installatie kopieën worden verzonden om te bekijken, met behulp van de **ReviewTags** -matrix in een voorwaardelijke instructie om te controleren welke tags zijn toegepast.
 
 [!code-csharp[Main: evaluate each image and create review](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=53-70)]
 
 ## <a name="evaluateadultracy-method"></a>EvaluateAdultRacy-methode
 
-Bekijk de methode **EvaluateAdultRacy** in de klasse **Program**. Deze methode accepteert een afbeeldings-URL en een matrix van sleutel-waardeparen als parameters. De methode roept de Image API van Content Moderator aan (met behulp van REST) om de waarden voor AdultScore en RacyScore op te vragen voor de afbeelding. Als de score voor een groter is dan 0.4 (het bereik ligt tussen 0 en 1), wordt de overeenkomstige waarde in de **ReviewTags** naar een matrix **waar**.
+Bekijk de methode **EvaluateAdultRacy** in de klasse **Program**. Deze methode accepteert een afbeeldings-URL en een matrix van sleutel-waardeparen als parameters. De methode roept de Image API van Content Moderator aan (met behulp van REST) om de waarden voor AdultScore en RacyScore op te vragen voor de afbeelding. Als de score voor een groter is dan 0,4 (het bereik ligt tussen 0 en 1), wordt de overeenkomstige waarde in de **ReviewTags** -matrix ingesteld op **True**.
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
@@ -87,17 +87,17 @@ De volgende methode verwerkt een afbeeldings-URL en de gegevens van uw Computer 
 
 ## <a name="evaluatecustomvisiontags-method"></a>EvaluateComputerVisionTags-methode
 
-Bekijk nu de methode **EvaluateCustomVisionTags**, waarmee de daadwerkelijke producten worden geclassificeerd&mdash;in dit geval vlaggen, speelgoed en pennen. Volg de instructies in de [over het bouwen van een classificatie](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) handleiding voor het bouwen van uw eigen aangepaste installatiekopie-classificatie en vlaggen, toys, en pennen (of die u hebt gekozen als uw aangepaste labels) in afbeeldingen detecteren. U kunt de afbeeldingen in de **voorbeeldafbeeldingen** map van de [GitHub-opslagplaats](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) te trainen snel enkele van de categorieën in dit voorbeeld.
+Bekijk nu de methode **EvaluateCustomVisionTags**, waarmee de daadwerkelijke producten worden geclassificeerd&mdash;in dit geval vlaggen, speelgoed en pennen. Volg de instructies in de hand leiding [een classificatie maken](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) om uw eigen aangepaste afbeeldings classificatie te bouwen en vlaggen, speel goed en pennen te detecteren (of wat u hebt gekozen als uw aangepaste Tags) in afbeeldingen. U kunt de installatie kopieën in de map voor **beeld-installatie kopieën** van de [github-opslag plaats](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) gebruiken om snel enkele categorieën in dit voor beeld te trainen.
 
 ![Webpagina van Custom Vision met trainingsafbeeldingen van pennen, speelgoed en vlaggen](images/tutorial-ecommerce-custom-vision.PNG)
 
-Nadat u uw classificatie hebt getraind, worden de voorspelling van sleutel en de voorspelling eindpunt-URL ophalen (Zie [ophalen van de sleutel-URL en voorspelling](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) als u hulp nodig bij het ophalen van deze), en het toewijzen van deze waarden aan uw `CustomVisionKey` en `CustomVisionUri` de velden, respectievelijk. De methode gebruikt deze waarden om query's uit te voeren op de classificatie. Als de classificatie een of meer van de aangepaste tags vindt in de afbeelding, worden de bijbehorende waarden in de matrix **ReviewTags** ingesteld op **True**.
+Zodra u de classificatie hebt getraind, haalt u de Voorspellings sleutel en de eind punt-URL van de prediction op (Zie [de URL en de Voorspellings sleutel ophalen](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) als u hulp nodig hebt bij `CustomVisionKey` het `CustomVisionUri` ophalen van deze waarden), en u kunt ze aan uw en velden toewijzen. De methode gebruikt deze waarden om query's uit te voeren op de classificatie. Als de classificatie een of meer van de aangepaste tags vindt in de afbeelding, worden de bijbehorende waarden in de matrix **ReviewTags** ingesteld op **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 
 ## <a name="create-reviews-for-review-tool"></a>Beoordelingen maken voor het beoordelingsprogramma
 
-In de vorige secties, kunt u verkend hoe binnenkomende afbeeldingen voor erotische en ongepaste inhoud (Content Moderator), beroemdheden (Computer-Vision) en verschillende andere objecten (Custom Vision) in de app worden gescand. Hieronder staan de **CreateReview** methode uploadt hij de installatiekopieën met al hun toegepaste labels (doorgegeven als _metagegevens_) naar de Content Moderator-controlehulpprogramma.
+In de vorige gedeelten hebt u bekeken hoe de app binnenkomende installatie kopieën voor volwassenen en ongepaste-inhoud (Content Moderator), beroemdheden (Computer Vision) en diverse andere objecten (Custom Vision) scant. Bekijk vervolgens de methode **CreateReview** , die de afbeeldingen uploadt met alle toegepaste labels (door gegeven als _meta gegevens_) naar het content moderator controle programma.
 
 [!code-csharp[define CreateReview method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=173-196)]
 
@@ -107,17 +107,17 @@ De afbeeldingen worden weergegeven op het tabblad Review van het [beoordelingspr
 
 ## <a name="submit-a-list-of-test-images"></a>Een lijst met testafbeeldingen aanbieden
 
-Zoals u kunt zien in de methode **Main**, zoekt dit programma naar een map 'C:Test' met daarin een bestand _Urls.txt_ dat een lijst met afbeeldings-URL's bevat. Deze bestanden en mappen maken, of wijzig het pad om te verwijzen naar het tekstbestand. Vul dit bestand met de URL's van installatiekopieën die u wilt testen.
+Zoals u kunt zien in de methode **Main**, zoekt dit programma naar een map 'C:Test' met daarin een bestand _Urls.txt_ dat een lijst met afbeeldings-URL's bevat. Maak dit bestand en deze map, of wijzig het pad zodat het naar uw tekst bestand verwijst. Vul dit bestand vervolgens in met de Url's van de installatie kopieën die u wilt testen.
 
 [!code-csharp[Main: set up test directory, read lines](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=38-51)]
 
 ## <a name="run-the-program"></a>Het programma uitvoeren
 
-Als u alle bovenstaande stappen hebt gevolgd, moet het programma voor het verwerken van elke afbeelding (alle drie de services voor hun betreffende labels uitvoeren van query's) en vervolgens de installatiekopieën met informatie over de assettag uploaden naar de Content Moderator-controlehulpprogramma.
+Als u alle bovenstaande stappen hebt gevolgd, moet het programma elke installatie kopie verwerken (query's uitvoeren op alle drie de services voor hun relevante tags) en vervolgens de installatie kopieën uploaden met label gegevens naar het hulp programma Content Moderator beoordeling.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt u een programma instellen voor het analyseren van productafbeeldingen, ze te labelen door producttype en een beoordelingsteam om geïnformeerde beslissingen over inhoudstoezicht toestaan. In de volgende zelfstudie wordt meer aandacht besteed aan het beoordelen van gecontroleerde afbeeldingen.
+In deze zelf studie stelt u een programma in om product afbeeldingen te analyseren, ze te labelen op product type en een beoordelings team toe te staan om weloverwogen beslissingen te nemen over de toezicht op inhoud. In de volgende zelfstudie wordt meer aandacht besteed aan het beoordelen van gecontroleerde afbeeldingen.
 
 > [!div class="nextstepaction"]
 > [Gecontroleerde afbeeldingen beoordelen](./review-tool-user-guide/review-moderated-images.md)

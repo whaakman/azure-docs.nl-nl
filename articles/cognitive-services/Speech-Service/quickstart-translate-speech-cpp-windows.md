@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Spraak omzetten, C++ (Windows) - Speech Services'
+title: 'Quickstart: Vertaal spraak, C++ (Windows)-Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart maakt u een eenvoudige C++-toepassing om spraak van gebruikers vast te leggen, deze om te zetten in een andere taal en de tekst uit te voeren naar de opdrachtregel. Deze handleiding is bedoeld voor Windows-gebruikers.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ff577bc0fe7db05c71aab04f0aaa5525f30b255c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 099d167e14d58f2239b4e86cb01bf0ab3621daa7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602893"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553559"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Quickstart: Spraak omzetten met de Speech SDK voor C++
 
-Snelstartgidsen zijn ook beschikbaar voor [spraakherkenning](quickstart-cpp-windows.md) en [tekst naar spraak](quickstart-text-to-speech-cpp-windows.md).
+Quick starts zijn ook beschikbaar voor [spraak herkenning](quickstart-cpp-windows.md) en [tekst naar spraak](quickstart-text-to-speech-cpp-windows.md).
 
 In deze quickstart maakt u een eenvoudige C++-toepassing waarmee spraak van gebruikers via de microfoon van de computer wordt vastgelegd, waarna de spraak wordt omgezet en de omgezette tekst in realtime wordt getranscribeerd naar de opdrachtregel. Deze toepassing is bedoeld om te worden uitgevoerd op Windows 64-bits en is gemaakt met het [Speech-SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
 

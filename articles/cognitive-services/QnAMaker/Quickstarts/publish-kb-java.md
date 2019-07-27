@@ -1,6 +1,6 @@
 ---
-title: Knowledge base publiceren, REST, Java
-titleSuffix: QnA Maker - Azure Cognitive Services
+title: 'Quickstart: Knowledge Base publiceren, REST, Java QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Deze REST-snelstartgids voor Java helpt u bij het publiceren van uw knowledge base, waarbij de meest recente versie van de geteste knowledge base naar een specifieke Azure Search-index wordt gepusht die de gepubliceerde knowledge base vertegenwoordigt. Hiermee wordt ook een eindpunt gemaakt dat kan worden aangeroepen in uw toepassing of chatbot.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: ae94d02b93880b7c81d359e5b2606b720b38b554
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4252ce3e0dfdaf9033221d86b0aacc728783b75b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787930"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559770"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Snelstartgids: Een knowledge base publiceren in QnA Maker met behulp van Java
 

@@ -1,7 +1,7 @@
 ---
-title: Azure Container Instances uitvoeren
+title: Azure Container Instances uitvoeren-Text Analytics
 titleSuffix: Azure Cognitive Services
-description: De text analytics-containers met de installatiekopie van het sentiment-analyse implementeren voor de Azure Container Instances en test in een webbrowser.
+description: Implementeer de tekst analyse-containers met de sentiment-analyse afbeelding, naar de Azure-container instantie en test deze in een webbrowser.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: 9f174d54fcc74eed613eb69412bc0e515f15897b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9ef529c9d505e5b305602c80a8dbef906f52269c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711723"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552532"
 ---
-# <a name="deploy-a-sentiment-analysis-container-to-azure-container-instances"></a>Een Sentimentanalyse-container implementeren in Azure Container Instances
+# <a name="deploy-a-sentiment-analysis-container-to-azure-container-instances"></a>Een Sentimentanalyse-container implementeren op Azure Container Instances
 
-Informatie over het implementeren van de Cognitive Services [Tekstanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) container met de installatiekopie van het Sentimentanalyse naar Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). Deze procedure verklaart het maken van een Text Analytics-resource, het maken van een bijbehorende Sentimentanalyse-installatiekopie en de mogelijkheid om uit te oefenen deze indeling van de twee vanuit een browser. Met behulp van containers, kan de ontwikkelaar aandacht weg van beheer van infrastructuur in plaats daarvan gericht op de ontwikkeling van toepassingen verplaatsen.
+Meer informatie over het implementeren van de Cognitive Services [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) -container met de sentimentanalyse installatie kopie naar Azure [container instances](https://docs.microsoft.com/azure/container-instances/). Met deze procedure wordt het maken van een Text Analytics resource, het maken van een gekoppelde Sentimentanalyse installatie kopie en de mogelijkheid om deze indeling van de twee vanuit een browser uit te kunnen oefenen, exemplifies. Door gebruik te maken van containers kan de aandacht van de ontwikkel aars van de infra structuur afnemen in plaats van de ontwikkeling van toepassingen te richten.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Gebruik een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
+* Een Azure-abonnement gebruiken. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
@@ -33,5 +33,5 @@ Informatie over het implementeren van de Cognitive Services [Tekstanalyse](https
 
 ## <a name="next-steps"></a>Volgende stappen 
 
-* Meer [Cognitive Services-Containers](../../cognitive-services-container-support.md)
-* Gebruik de [Tekstanalyse verbonden Service](../vs-text-connected-service.md)
+* Meer [Cognitive Services containers](../../cognitive-services-container-support.md) gebruiken
+* De [Text Analytics verbonden service](../vs-text-connected-service.md) gebruiken

@@ -1,7 +1,7 @@
 ---
-title: Patronen toevoegen nauwkeurigheid
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Patroon sjablonen ter verbetering van nauwkeurigheid in Language Understanding (LUIS)-toepassingen toevoegen.
+title: Nauw keurigheid van patronen toevoegen-LUIS
+titleSuffix: Azure Cognitive Services
+description: Voeg patroon sjablonen toe om de nauw keurigheid van de voor spellingen te verbeteren in Language Understanding-toepassingen (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0e801afde240d8b2d6e0798e6894b2e83f9c5cb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60196660"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560436"
 ---
-# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Patronen voor het verbeteren van nauwkeurigheid toevoegen
-Nadat een LUIS-app eindpunt uitingen ontvangt, gebruikt u een [patroon](luis-concept-patterns.md) voor het verbeteren van nauwkeurigheid voor uitingen dat een patroon in de woordvolgorde en word keuze. Patronen gebruiken specifieke [syntaxis](luis-concept-patterns.md#pattern-syntax) om aan te geven van de locatie van: [entiteiten](luis-concept-entity-types.md), entiteit [rollen](luis-concept-roles.md), en optionele tekst.
+# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Patronen toevoegen om de nauw keurigheid van de voor spelling te verbeteren
+Nadat een LUIS-app eind punt uitingen ontvangt, gebruikt u een [patroon](luis-concept-patterns.md) om de nauw keurigheid van de voor spelling te verbeteren voor uitingen die een patroon onthult in de woord volgorde en woord keuze. Patronen gebruiken specifieke [syntaxis](luis-concept-patterns.md#pattern-syntax) om de locatie van: [entiteiten](luis-concept-entity-types.md), entiteits [rollen](luis-concept-roles.md)en optionele tekst aan te geven.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Sjabloon utterance voor het maken van patroon toevoegen
 1. Open uw app door het selecteren van de naam ervan op **mijn Apps** pagina en selecteer vervolgens **patronen** in het linkerdeelvenster onder **verbeterde app-prestaties**.
@@ -34,7 +34,7 @@ Nadat een LUIS-app eindpunt uitingen ontvangt, gebruikt u een [patroon](luis-con
 
     ![Schermafbeelding van de entiteit voor het patroon](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Als uw entiteit bevat een [rol](luis-concept-roles.md), geven de rol met een één dubbele punt, `:`, nadat de entiteit-naam, zoals `{Location:Origin}`. De lijst met functies voor de entiteiten in een lijst weergegeven. Selecteer de rol en selecteer vervolgens Enter. 
+    Als uw entiteit een [rol](luis-concept-roles.md)bevat, geeft u de rol op met één dubbele `:`punt, achter de `{Location:Origin}`naam van de entiteit, zoals. De lijst met functies voor de entiteiten in een lijst weergegeven. Selecteer de rol en selecteer vervolgens Enter. 
 
     ![Schermafbeelding van de entiteit met de rol](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 
@@ -56,22 +56,22 @@ Nadat u toevoegen, bewerken, verwijderen of opnieuw toewijzen van een patroon [t
 <a name="remove-entity-or-intent-filter"></a>
 <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>
 
-## <a name="use-contextual-toolbar"></a>Contextuele werkbalk gebruiken
+## <a name="use-contextual-toolbar"></a>Contextuele werk balk gebruiken
 
-De contextuele werkbalk boven de lijst met patronen kunt u:
+Met de contextuele werk balk boven de lijst met patronen kunt u het volgende doen:
 
-* Zoeken naar patronen
+* Patronen zoeken
 * Een patroon bewerken
 * Opnieuw toewijzen van afzonderlijke patroon naar een ander doel
 * Opnieuw toewijzen van verschillende patronen naar een ander doel
-* Delete a single patroon
+* Delete-a-enkel patroon
 * Verschillende patronen verwijderen
 * Patroon lijst filteren door entiteit
-* Filter-pattern-list-by-intent
+* Filter-pattern-list-by-intentie
 * Entiteit of intentie filter verwijderen
 * Patroon van bestaande utterance op de pagina kunt u lezen wat of entiteit toevoegen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het [bouwen van een patroon](luis-tutorial-pattern.md) met een pattern.any en rollen met een zelfstudie.
+* Meer informatie over het [bouwen van een patroon](luis-tutorial-pattern.md) met een patroon. alle en rollen met een zelf studie.
 * Meer informatie over het [trainen](luis-how-to-train.md) uw app.

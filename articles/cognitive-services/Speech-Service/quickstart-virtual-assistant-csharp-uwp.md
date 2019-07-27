@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Aangepaste spraak op de eerste virtuele assistent (Preview), C# (UWP) - spraakservices'
+title: 'Quickstart: Aangepaste spraak-eerste virtuele assistent (preview), C# (UWP)-spraak service'
 titleSuffix: Azure Cognitive Services
-description: In dit artikel maakt u een C# Universal Windows Platform (UWP)-toepassing met behulp van de Cognitive Services spraak Software Development Kit (SDK). Verbindt u uw clienttoepassing naar een eerder gemaakte Bot Framework-bot geconfigureerd voor het gebruik van het kanaal directe regel spraak. De toepassing is gemaakt met het Speech-SDK NuGet-pakket en Microsoft Visual Studio 2017.
+description: In dit artikel maakt u een C# universeel Windows-platform-toepassing (UWP) met behulp van de Cognitive Services speech Software Development Kit (SDK). U verbindt uw client toepassing met een eerder gemaakte bot-Framework-bot die is geconfigureerd voor gebruik van het directe lijn spraak kanaal. De toepassing is gemaakt met het Speech-SDK NuGet-pakket en Microsoft Visual Studio 2017.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 22c18b573e7107163f858c79956ca6f5380f6834
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: d61040e740c06fc336e3764a0d972640443a6de5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604979"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553380"
 ---
-# <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Quickstart: Maken van een stem op de eerste virtuele assistent met de SDK-spraak, UWP
+# <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Quickstart: Maak een virtuele assistent met spraak-eerste met de spraak-SDK, UWP
 
-Snelstartgidsen zijn ook beschikbaar voor [spraak-naar-tekst](quickstart-csharp-uwp.md), [tekst naar spraak](quickstart-text-to-speech-csharp-uwp.md) en [spraakomzetting](quickstart-translate-speech-uwp.md).
+Quick starts zijn ook beschikbaar voor [spraak naar tekst](quickstart-csharp-uwp.md), [tekst naar spraak](quickstart-text-to-speech-csharp-uwp.md) en [spraak omzetting](quickstart-translate-speech-uwp.md).
 
-In dit artikel, zult u ontwikkelt een C# Universal Windows Platform (UWP)-toepassing met behulp van de [spraak SDK](speech-sdk.md). Het programma maakt verbinding met een bot eerder hebt gemaakt en geconfigureerd om in te schakelen van een virtuele assistent stem op de eerste ervaring van de clienttoepassing. De toepassing is gemaakt met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
+In dit artikel ontwikkelt u een C# universeel Windows-platform-toepassing (UWP) met behulp van de spraak- [SDK](speech-sdk.md). Het programma maakt verbinding met een eerder bestemde en geconfigureerde bot om in te scha kelen op het maken van een virtuele assistent van de eerste plaats van de client toepassing. De toepassing is gemaakt met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
 
 > [!NOTE]
 > Het Universal Windows Platform stelt u in staat om apps te ontwikkelen die kunnen worden uitgevoerd op elk apparaat dat ondersteuning biedt voor Windows 10, met inbegrip van pc's, Xbox, Surface Hub en andere apparaten.
@@ -31,15 +31,15 @@ In dit artikel, zult u ontwikkelt een C# Universal Windows Platform (UWP)-toepas
 Voor deze snelstart zijn de volgende zaken vereist:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* De sleutel van een Azure-abonnement voor Speech Services. [Vraag een gratis](get-started.md) of maken door op de [Azure-portal](https://portal.azure.com).
-* Een eerder gemaakte bot geconfigureerd met de [channel voor directe regel spraak](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+* Een Azure-abonnements sleutel voor spraak Services. [Ontvang een gratis versie](get-started.md) of maak deze op de [Azure Portal](https://portal.azure.com).
+* Een eerder gemaakte bot die is geconfigureerd met het [directe lijn spraak kanaal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
     > [!NOTE]
-    > Directe regel spraak (Preview) is momenteel beschikbaar in een subset van Services voor spraak-regio's. Raadpleeg [de lijst met ondersteunde regio's voor virtuele voice-first-assistenten](regions.md#voice-first-virtual-assistants) en zorg ervoor dat uw resources worden geïmplementeerd in een van deze regio's.
+    > Direct line Speech (preview) is momenteel beschikbaar in een subset van de regio's met spraak Services. Raadpleeg [de lijst met ondersteunde regio's voor de eerste virtuele assistenten voor spraak](regions.md#voice-first-virtual-assistants) en zorg ervoor dat uw resources in een van deze regio's worden geïmplementeerd.
 
 ## <a name="optional-get-started-fast"></a>Optioneel: Snel aan de slag
 
-In deze Quick Start wordt beschreven, stap voor stap het maken van een eenvoudige clienttoepassing die verbinding maken met uw bot spraak ingeschakeld. Als u liever meteen in de volledige, klaar om te compileren broncode gebruikt in deze snelstartgids is beschikbaar in de [spraak SDK voorbeelden](https://aka.ms/csspeech/samples) onder de `quickstart` map.
+In deze Snelstartgids wordt stapsgewijs beschreven hoe u een eenvoudige client toepassing kunt maken om verbinding te maken met uw op spraak ingeschakelde bot. Als u voor het eerst wilt beginnen, is de volledige, kant-en-assembly-bron code die wordt gebruikt in deze Quick Start, beschikbaar in `quickstart` de voor [beelden van Speech SDK](https://aka.ms/csspeech/samples) onder de-map.
 
 ## <a name="create-a-visual-studio-project"></a>Een Visual Studio-project maken
 
@@ -47,7 +47,7 @@ In deze Quick Start wordt beschreven, stap voor stap het maken van een eenvoudig
 
 ## <a name="add-sample-code"></a>Voorbeeldcode toevoegen
 
-1. De gebruikersinterface van de toepassing wordt gedefinieerd met behulp van XAML. Open `MainPage.xaml` in Solution Explorer. Vervang in de weergave van de ontwerpfunctie XAML, de volledige inhoud met de hieronder.
+1. De gebruikersinterface van de toepassing wordt gedefinieerd met behulp van XAML. Open `MainPage.xaml` in Solution Explorer. Vervang in de XAML-weer gave van de ontwerp functie de volledige inhoud door de onderstaande.
 
     ```xml
     <Page
@@ -80,14 +80,14 @@ In deze Quick Start wordt beschreven, stap voor stap het maken van een eenvoudig
     </Page>
     ```
 
-1. Open het code-behind-bronbestand `MainPage.xaml.cs`. U vindt deze gegroepeerd onder `MainPage.xaml`. Vervang de inhoud door de onderstaande code. Dit is wat in dit voorbeeld bevat informatie over:
+1. Open het bron bestand `MainPage.xaml.cs`voor de code achter. U vindt deze gegroepeerd onder `MainPage.xaml`. Vervang de inhoud door de onderstaande code. Dit voor beeld omvat het volgende:
 
-    * Met behulp van instructies voor de spraak- en Speech.Dialog naamruimten
-    * Een eenvoudige implementatie om te controleren of de toegang tot de microfoon, kabels verbonden met een knop-handler
-    * Basic UI-hulpprogramma's om weer te geven van berichten en fouten in de toepassing
-    * Een punt landingspagina voor de initialisatie van codepad die later worden ingevuld
-    * Een hulpprogramma om af te spelen terug Text to Speech (zonder ondersteuning voor streaming)
-    * Een lege knop handler beginnen met luisteren die later worden ingevuld
+    * Instructies gebruiken voor de naam ruimten speech en speech. dialoog ruimtes
+    * Een eenvoudige implementatie om toegang tot de microfoon te garanderen, bekabeld tot een knop-handler
+    * Helpers van de Basic-gebruikers interface om berichten en fouten in de toepassing weer te geven
+    * Een overloop punt voor het pad van de initialisatie code dat later wordt ingevuld
+    * Een helper voor het afspelen van tekst naar spraak (zonder streaming-ondersteuning)
+    * Een lege knop-handler om te Luis teren die later wordt ingevuld
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
@@ -239,13 +239,13 @@ In deze Quick Start wordt beschreven, stap voor stap het maken van een eenvoudig
     }
     ```
 
-1. Vervolgens maakt u de `DialogServiceConnector` met gegevens van uw abonnement. Voeg het volgende toe aan de hoofdtekst van de methode van `InitializeDialogServiceConnector`, de tekenreeksen vervangen `YourChannelSecret`, `YourSpeechSubscriptionKey`, en `YourServiceRegion` door uw eigen waarden voor uw bot, spraak-abonnement en [regio](regions.md).
+1. Vervolgens maakt u de `DialogServiceConnector` met uw abonnements gegevens. Voeg het volgende toe aan de methode hoofd `InitializeDialogServiceConnector`tekst van, vervang `YourChannelSecret`de `YourSpeechSubscriptionKey`teken reeksen `YourServiceRegion` , en met uw eigen waarden voor uw bot, spraak abonnement en [regio](regions.md).
 
     > [!NOTE]
-    > Directe regel spraak (Preview) is momenteel beschikbaar in een subset van Services voor spraak-regio's. Raadpleeg [de lijst met ondersteunde regio's voor virtuele voice-first-assistenten](regions.md#voice-first-virtual-assistants) en zorg ervoor dat uw resources worden geïmplementeerd in een van deze regio's.
+    > Direct line Speech (preview) is momenteel beschikbaar in een subset van de regio's met spraak Services. Raadpleeg [de lijst met ondersteunde regio's voor de eerste virtuele assistenten voor spraak](regions.md#voice-first-virtual-assistants) en zorg ervoor dat uw resources in een van deze regio's worden geïmplementeerd.
 
     > [!NOTE]
-    > Zie voor informatie over het configureren van uw bot en bij het ophalen van een geheim kanaal de Bot Framework-documentatie voor [het kanaal directe regel spraak](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+    > Voor informatie over het configureren van uw bot en het ophalen van een kanaal geheim raadpleegt u de bot Framework-documentatie voor [het directe lijn spraak kanaal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
     ```csharp
     // create a DialogServiceConfig by providing a bot secret key and Cognitive Services subscription key
@@ -259,7 +259,7 @@ In deze Quick Start wordt beschreven, stap voor stap het maken van een eenvoudig
     connector = new DialogServiceConnector(botConfig);
     ```
 
-1. `DialogServiceConnector` afhankelijk van diverse gebeurtenissen om te communiceren de bot-activiteiten, herkenningsresultaten spraak en andere informatie. Toevoegen van handlers voor deze gebeurtenissen, het volgende toe te voegen aan het einde van de hoofdtekst van de methode van `InitializeDialogServiceConnector`.
+1. `DialogServiceConnector`is afhankelijk van verschillende gebeurtenissen om de bot-activiteiten, de resultaten van spraak herkenning en andere informatie te communiceren. U kunt handlers voor deze gebeurtenissen toevoegen door het volgende toe te voegen aan het einde van `InitializeDialogServiceConnector`de methode hoofd tekst van.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities
@@ -303,7 +303,7 @@ In deze Quick Start wordt beschreven, stap voor stap het maken van een eenvoudig
     };
     ```
 
-1. Met de configuratie tot stand gebracht en de gebeurtenis-handlers die is geregistreerd, de `DialogServiceConnector` moet nu net om te luisteren. Voeg het volgende toe aan de hoofdtekst van de `ListenButton_ButtonClicked` methode in de `MainPage` klasse.
+1. Met de configuratie die is ingesteld en de gebeurtenis-handlers `DialogServiceConnector` die zijn geregistreerd, hoeft nu alleen te worden geluisterd. Voeg het volgende toe aan de hoofd tekst `ListenButton_ButtonClicked` van de methode `MainPage` in de klasse.
 
     ```csharp
     private async void ListenButton_ButtonClicked(object sender, RoutedEventArgs e)
@@ -336,31 +336,31 @@ In deze Quick Start wordt beschreven, stap voor stap het maken van een eenvoudig
 
 ## <a name="build-and-run-the-app"></a>De app bouwen en uitvoeren
 
-1. Compileer de toepassing. In het menu-balk van Visual Studio, selecteer **bouwen** > **Build Solution**. De code moet nu zonder fouten worden gecompileerd.
+1. Compileer de toepassing. Selecteer in de menu balk van Visual Studio **Build** > **Build Solution**. De code moet nu zonder fouten worden gecompileerd.
 
     ![Schermafbeelding van Visual Studio-toepassing met de optie Build Solution gemarkeerd](media/sdk/qs-csharp-uwp-08-build.png "Geslaagde build")
 
-1. Start de toepassing. In het menu-balk van Visual Studio, selecteer **Debug** > **Start Debugging**, of druk op **F5**.
+1. Start de toepassing. Selecteer in de menu balk van Visual Studio **fout** > **opsporing starten**of druk op **F5**.
 
     ![Schermafbeelding van Visual Studio-toepassing met de optie Start Debugging gemarkeerd](media/sdk/qs-csharp-uwp-09-start-debugging.png "Start foutopsporing van de app")
 
-1. Er verschijnt een venster. Selecteer in uw toepassing, **microfoon inschakelen**, en te bevestigen van de machtiging-aanvraag die wordt weergegeven.
+1. Er verschijnt een venster. Selecteer in uw toepassing **microfoon inschakelen**en bevestig de machtigings aanvraag die wordt weer gegeven.
 
     ![Schermafbeelding van verzoek om toegang](media/sdk/qs-csharp-uwp-10-access-prompt.png "Start foutopsporing van de app")
 
-1. Selecteer **Neem contact op met uw bot**, en spreek een Engelse woordgroep of zin in de microfoon van uw apparaat. Uw stem is verzonden naar het kanaal directe regel spraak en getranscribeerde tekst, die in het venster wordt weergegeven.
+1. Selecteer **praten met uw bot**en spreek een Engelse zin of zin in op de microfoon van uw apparaat. Uw spraak wordt verzonden naar het directe lijn spraak kanaal en naar tekst getranscribeerd, die wordt weer gegeven in het venster.
 
-    ![Schermopname van geslaagde bot inschakelen](media/voice-first-virtual-assistants/quickstart-cs-uwp-bot-successful-turn.png "een geslaagde bot inschakelen")
+    ![Scherm opname van een geslaagde bot](media/voice-first-virtual-assistants/quickstart-cs-uwp-bot-successful-turn.png "Een geslaagde bot draaien")
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Maken en implementeren van een basic-bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+> [Een basisbot maken en implementeren](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>Zie ook
 
-- [Over stem op de eerste virtuele assistent](voice-first-virtual-assistants.md)
-- [Ontvangt u een abonnementssleutel Speech Services gratis](get-started.md)
-- [Aangepaste wake woorden](speech-devices-sdk-create-kws.md)
-- [Directe regel spraak verbinden met uw bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Over de spraak-eerste virtuele assistenten](voice-first-virtual-assistants.md)
+- [Gratis een abonnements sleutel voor spraak Services aanschaffen](get-started.md)
+- [Aangepaste Ontwaak woorden](speech-devices-sdk-create-kws.md)
+- [Directe lijn spraak op uw bot aansluiten](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [C#-voorbeelden op GitHub bekijken](https://aka.ms/csspeech/samples)

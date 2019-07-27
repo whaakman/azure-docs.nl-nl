@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Omzetten van spraak, Java (Windows, Linux) - Speech Services'
+title: 'Quickstart: Vertaal spraak, java (Windows, Linux)-Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart maakt u een eenvoudige Java-toepassing om spraak van gebruikers vast te leggen, deze om te zetten in een andere taal en de tekst uit te voeren naar de opdrachtregel. Deze handleiding is bedoeld voor Windows- en Linux-gebruikers.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 68567e673cf6fb53b8d9b6f7b9ef96aee691ac3a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cbb86dd4b24cb325b8ea6708ebc2ffc89a697757
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604953"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553390"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Quickstart: Omzetten van spraak met de spraak-SDK voor Java
 
-Snelstartgidsen zijn ook beschikbaar voor [spraak-naar-tekst](quickstart-java-jre.md) en [stem op de eerste virtuele assistent](quickstart-virtual-assistant-java-jre.md).
+Quick starts zijn ook beschikbaar voor de virtuele assistent [spraak naar tekst](quickstart-java-jre.md) en [Voice-First](quickstart-virtual-assistant-java-jre.md).
 
-In deze quickstart maakt u een eenvoudige Java-toepassing waarmee spraak van gebruikers via de microfoon van de computer wordt vastgelegd, waarna de spraak wordt omgezet en de omgezette tekst in realtime wordt getranscribeerd naar de opdrachtregel. Deze toepassing is ontworpen om uit te voeren op Windows 64-bits of 64-bits Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9), of op macOS 10.13 of hoger. Deze is gebouwd met de Speech SDK Maven-pakket en de Eclipse IDE voor Java.
+In deze quickstart maakt u een eenvoudige Java-toepassing waarmee spraak van gebruikers via de microfoon van de computer wordt vastgelegd, waarna de spraak wordt omgezet en de omgezette tekst in realtime wordt getranscribeerd naar de opdrachtregel. Deze toepassing is ontworpen om te worden uitgevoerd op 64-bits Windows-of 64-bits Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9) of op macOS 10,13 of hoger. Het is gebouwd met het Speech SDK maven-pakket en de eclips Java IDE.
 
 Zie [Taalondersteuning](language-support.md) voor een volledige lijst met talen die voor spraakomzetting beschikbaar zijn.
 
@@ -29,12 +29,12 @@ Zie [Taalondersteuning](language-support.md) voor een volledige lijst met talen 
 
 Voor deze snelstart zijn de volgende zaken vereist:
 
-* Besturingssysteem: 64-bits Windows, 64-bits Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9) of macOS 10.13 of hoger
+* Besturingssysteem: 64-bits Windows, 64-bits Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9) of macOS 10,13 of hoger
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) of [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Een Azure-abonnementssleutel voor de Spraakservice. [Gratis downloaden](get-started.md).
 
-Als u Linux uitvoert, zorg er dan voor dat deze afhankelijkheden zijn geïnstalleerd voordat u begint met Eclipse.
+Als u Linux uitvoert, moet u ervoor zorgen dat deze afhankelijkheden zijn geïnstalleerd voordat u een eclips start.
 
  * Op Ubuntu:
 

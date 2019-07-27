@@ -1,7 +1,7 @@
 ---
-title: Toepassingsinstellingen
+title: Toepassings instellingen-LUIS
 titleSuffix: Azure Cognitive Services
-description: Toepassingsinstellingen voor apps van Language understanding begrijpen.
+description: Inzicht in toepassings instellingen voor language-informatie over apps.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,25 +11,25 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3682b9e0c38344be1522440290b46f8c10bd5607
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 7dec738fca6991cbcbd822c192b96bf6b1cc6d87
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275912"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563512"
 ---
 # <a name="application-settings"></a>Toepassingsinstellingen
 
-Instellingen voor deze toepassing worden opgeslagen in de [geëxporteerd](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) app en [bijgewerkt](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) met de REST API's. Wijzigen van de instellingen van uw app-versie Hiermee stelt u de status van uw app-training op ongetrainde.
+Deze toepassings instellingen worden opgeslagen in de [geëxporteerde](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) app en [bijgewerkt](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) met de rest api's. Als u de instellingen van uw app-versie wijzigt, wordt uw app-trainings status opnieuw ingesteld op untraind.
 
 |Instelling|Standaardwaarde|Opmerkingen|
 |--|--|--|
-|NormalizePunctuation|Waar|Hiermee verwijdert u leestekens.|
-|NormalizeDiacritics|Waar|Hiermee verwijdert u diakritische tekens.|
+|NormalizePunctuation|Waar|Hiermee verwijdert u interpunctie.|
+|NormalizeDiacritics|Waar|Diakritische tekens worden verwijderd.|
 
-## <a name="diacritics-normalization"></a>Diakritische tekens normalisering 
+## <a name="diacritics-normalization"></a>Normalisatie van diakritische tekens 
 
-Schakel utterance normalisering voor diakritische tekens naar uw LUIS-JSON-app-bestand in de `settings` parameter.
+Schakel utterance normalisatie voor diakritische tekens in voor het JSON-app-bestand van uw `settings` Luis in de para meter.
 
 ```JSON
 "settings": [
@@ -37,18 +37,18 @@ Schakel utterance normalisering voor diakritische tekens naar uw LUIS-JSON-app-b
 ] 
 ```
 
-De volgende uitingen laten zien hoe diakritische tekens normalisering van invloed is op uitingen:
+In de volgende uitingen ziet u hoe diakritische tekens worden genormaliseerd uitingen:
 
-|Met diakritische tekens ingesteld op false|Met diakritische tekens ingesteld op true|
+|Waarbij diakritische tekens zijn ingesteld op False|Als diakritische tekens zijn ingesteld op True|
 |--|--|
 |`quiero tomar una piña colada`|`quiero tomar una pina colada`|
 |||
 
-### <a name="language-support-for-diacritics"></a>Taalondersteuning voor diakritische tekens
+### <a name="language-support-for-diacritics"></a>Taal ondersteuning voor diakritische tekens
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Portugees (Brazilië) `pt-br` diakritische tekens
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Braziliaanse Portugees `pt-br` -diakritische tekens
 
-|Diakritische tekens ingesteld op false|Diakritische tekens is ingesteld op true|
+|Diakritische tekens ingesteld op ONWAAR|Diakritische tekens ingesteld op True|
 |-|-|
 |`á`|`a`|
 |`â`|`a`|
@@ -64,9 +64,9 @@ De volgende uitingen laten zien hoe diakritische tekens normalisering van invloe
 |`ú`|`u`| 
 |||
 
-#### <a name="dutch-nl-nl-diacritics"></a>Nederlands `nl-nl` diakritische tekens
+#### <a name="dutch-nl-nl-diacritics"></a>Nederlandstalige `nl-nl` diakritische tekens
 
-|Diakritische tekens ingesteld op false|Diakritische tekens is ingesteld op true|
+|Diakritische tekens ingesteld op ONWAAR|Diakritische tekens ingesteld op True|
 |-|-|
 |`á`|`a`|
 |`à`|`a`|
@@ -81,11 +81,11 @@ De volgende uitingen laten zien hoe diakritische tekens normalisering van invloe
 |`ü`|`u`|
 |||
 
-#### <a name="french-fr--diacritics"></a>Frans `fr-` diakritische tekens
+#### <a name="french-fr--diacritics"></a>Franse `fr-` diakritische tekens
 
-Dit omvat zowel Franse en Canadese overenting.
+Dit omvat zowel Franse als Canadese subcultuuren.
 
-|Diakritische tekens ingesteld op false|Diakritische tekens is ingesteld op true|
+|Diakritische tekens ingesteld op ONWAAR|Diakritische tekens ingesteld op True|
 |--|--|
 |`é`|`e`|
 |`à`|`a`|
@@ -102,17 +102,17 @@ Dit omvat zowel Franse en Canadese overenting.
 |`ü`|`u`| 
 |`ÿ`|`y`| 
 
-#### <a name="german-de-de-diacritics"></a>Duits `de-de` diakritische tekens
+#### <a name="german-de-de-diacritics"></a>Duitse `de-de` diakritische tekens
 
-|Diakritische tekens ingesteld op false|Diakritische tekens is ingesteld op true|
+|Diakritische tekens ingesteld op ONWAAR|Diakritische tekens ingesteld op True|
 |--|--|
 |`ä`|`a`|
 |`ö`|`o`| 
 |`ü`|`u`| 
 
-#### <a name="italian-it-it-diacritics"></a>Italiaans `it-it` diakritische tekens
+#### <a name="italian-it-it-diacritics"></a>Italiaanse `it-it` diakritische tekens
 
-|Diakritische tekens ingesteld op false|Diakritische tekens is ingesteld op true|
+|Diakritische tekens ingesteld op ONWAAR|Diakritische tekens ingesteld op True|
 |--|--|
 |`à`|`a`|
 |`è`|`e`|
@@ -125,11 +125,11 @@ Dit omvat zowel Franse en Canadese overenting.
 |`ù`|`u`|
 |`ú`|`u`|
 
-#### <a name="spanish-es--diacritics"></a>Spaans `es-` diakritische tekens
+#### <a name="spanish-es--diacritics"></a>Spaanse `es-` diakritische tekens
 
-Dit omvat zowel Spaanse en Canadese Mexicaanse.
+Dit omvat zowel de Spaanse als de Canadese Mexicaanse.
 
-|Diakritische tekens ingesteld op false|Diakritische tekens is ingesteld op true|
+|Diakritische tekens ingesteld op ONWAAR|Diakritische tekens ingesteld op True|
 |-|-|
 |`á`|`a`|
 |`é`|`e`|
@@ -140,9 +140,9 @@ Dit omvat zowel Spaanse en Canadese Mexicaanse.
 |`ñ`|`u`|
 
 
-## <a name="punctuation-normalization"></a>Leestekens normalisering
+## <a name="punctuation-normalization"></a>Normalisatie van interpunctie
 
-Schakel utterance normalisering voor leestekens naar uw LUIS-JSON-app-bestand in de `settings` parameter.
+Schakel utterance normalisatie in voor interpunctie naar het JSON-app-bestand van `settings` uw Luis in de para meter.
 
 ```JSON
 "settings": [
@@ -150,16 +150,16 @@ Schakel utterance normalisering voor leestekens naar uw LUIS-JSON-app-bestand in
 ] 
 ```
 
-De volgende uitingen laten zien hoe diakritische tekens heeft gevolgen voor uitingen:
+In de volgende uitingen ziet u hoe diakritische items uitingen:
 
-|Met diakritische tekens ingesteld op False|Met diakritische tekens ingesteld op True|
+|Waarbij diakritische tekens zijn ingesteld op False|Als diakritische tekens zijn ingesteld op True|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||
 
-### <a name="punctuation-removed"></a>Interpunctie
+### <a name="punctuation-removed"></a>Verwijderde interpunctie
 
-De volgende leestekens is verwijderd met `NormalizePunctuation` is ingesteld op true.
+De volgende interpunctie is verwijderd `NormalizePunctuation` met is ingesteld op waar.
 
 |Leestekens|
 |--|

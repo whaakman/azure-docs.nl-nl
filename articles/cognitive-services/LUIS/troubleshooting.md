@@ -1,5 +1,5 @@
 ---
-title: Veelgestelde vragen
+title: Veelgestelde vragen (FAQ)-LUIS
 titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat antwoorden op veelgestelde vragen over Language Understanding (LUIS).
 author: diberry
@@ -11,20 +11,20 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7e1e61d96b066c395668ce1dd9cdba4cb4ecb2be
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: bccdcce52b9e62048d7eb307a4783abda0f9d17c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204104"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563168"
 ---
-# <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding Frequently Asked Questions (FAQ)
+# <a name="language-understanding-frequently-asked-questions-faq"></a>Veelgestelde vragen over Language Understanding
 
 In dit artikel bevat antwoorden op veelgestelde vragen over Language Understanding (LUIS).
 
 ## <a name="whats-new"></a>Nieuwe functies
 
-[Meer informatie](whats-new.md) over wat er nieuw in Language Understanding.
+Meer [informatie](whats-new.md) over wat er nieuw is in language Understanding.
 
 <a name="luis-authoring"></a>
 
@@ -68,21 +68,21 @@ Cortana vooraf gebouwde apps zijn afgeschaft in 2017. Ze worden niet meer onders
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Hoe ik het eigendom overdraagt van een LUIS-app?
 Als u wilt een LUIS-app overzetten naar een ander Azure-abonnement, de LUIS-app exporteren en importeren met behulp van een nieuw account. Werk de LUIS-app-ID in de clienttoepassing die wordt aangeroepen. De nieuwe app mogelijk enigszins LUIS scores geretourneerd uit de oorspronkelijke app.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Een vooraf gedefinieerde entiteit is gemarkeerd in een voorbeeld utterance in plaats van mijn aangepaste entiteit. Hoe kan ik dit oplossen? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Een vooraf samengestelde entiteit is gelabeld in een voor beeld-utterance in plaats van mijn aangepaste entiteit. Hoe kan ik dit oplossen? 
 
-Zie [het oplossen van vooraf gemaakte entiteiten](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+Zie [problemen met vooraf gemaakte entiteiten oplossen](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
 
-### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Ik heb geprobeerd om een app of versie-bestand te importeren, maar er treedt een fout, wat is er gebeurd? 
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Ik heb geprobeerd een app of versie bestand te importeren, maar ik kreeg een fout melding. Wat is er gebeurd? 
 
-Meer informatie over [versie Importfouten](luis-how-to-manage-versions.md#import-errors) en [app Importfouten](luis-how-to-start-new-app.md#import-errors).
+Lees meer over fouten bij het [importeren van versies](luis-how-to-manage-versions.md#import-errors) en fouten bij het [importeren van apps](luis-how-to-start-new-app.md#import-errors).
 
 <a name="luis-collaborating"></a>
 
-## <a name="collaborating"></a>Samenwerken
+## <a name="collaborating"></a>Samen werken
 
-### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Hoe geef ik de medewerkers toegang aan LUIS met Azure Active Directory (Azure AD) of op rollen gebaseerd toegangsbeheer (RBAC)?
+### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Hoe kan ik deel nemers toegang geven tot LUIS met Azure Active Directory (Azure AD) of op rollen gebaseerd toegangs beheer (RBAC)?
 
-Zie [Azure Active Directory-resources](luis-how-to-collaborate.md#azure-active-directory-resources) en [Azure Active Directory-tenant gebruiker](luis-how-to-collaborate.md#azure-active-directory-tenant-user) voor meer informatie over de medewerkers toegang te geven. 
+Zie [Azure Active Directory resources](luis-how-to-collaborate.md#azure-active-directory-resources) en [Azure Active Directory Tenant gebruiker](luis-how-to-collaborate.md#azure-active-directory-tenant-user) voor meer informatie over hoe u samen werkers toegang kunt verlenen. 
 
 <a name="luis-endpoint"></a>
 
@@ -90,7 +90,7 @@ Zie [Azure Active Directory-resources](luis-how-to-collaborate.md#azure-active-d
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Mijn query eindpunt heeft onverwachte resultaten geretourneerd. Wat moet ik doen?
 
-Onverwachte query voorspellingsresultaten zijn gebaseerd op de status van het gepubliceerde model. Om op te lossen het model, u mogelijk moet wijzigen van het model trainen en opnieuw publiceren. 
+Onverwachte query voorspellingsresultaten zijn gebaseerd op de status van het gepubliceerde model. Als u het model wilt corrigeren, moet u mogelijk het model, de training en de publicatie opnieuw wijzigen. 
 
 Bezig met het herstellen van het model begint met [actief leren](luis-how-to-review-endpoint-utterances.md).
 
@@ -110,13 +110,13 @@ Uw systeem moet de hoogste score intentie, ongeacht de waarde ervan gebruiken. B
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Waarom zie ik geen mijn treffers eindpunt in het Dashboard van mijn app?
 De totale eindpunt treffers in uw app Dashboard worden regelmatig bijgewerkt, maar de metrische gegevens die zijn gekoppeld aan uw LUIS-eindpuntsleutel in Azure portal vaker worden bijgewerkt.
 
-Als er geen bijgewerkte eindpunt treffers in het Dashboard, zich aanmelden bij de Azure-portal en de resource die is gekoppeld aan de eindpuntsleutel LUIS zoeken en openen **metrische gegevens** selecteren de **totaal aantal aanroepen** metrische gegevens. Als de eindpuntsleutel wordt gebruikt voor meer dan één LUIS-app, ziet u de metrische gegevens in Azure portal het cumulatieve aantal aanroepen van alle LUIS-apps die worden gebruikt.
+Als er geen bijgewerkte eindpunt treffers in het dash board worden weer gegeven, meldt u zich aan bij de Azure Portal, zoekt u de resource die is gekoppeld aan uw LUIS-eindpunt sleutel en opent u **metrische gegevens** om het **totale aantal aanroepen** te selecteren. Als de eindpuntsleutel wordt gebruikt voor meer dan één LUIS-app, ziet u de metrische gegevens in Azure portal het cumulatieve aantal aanroepen van alle LUIS-apps die worden gebruikt.
 
-### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>Is er een opdracht ophalen voor het eindpunt contingent PowerShell?
+### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>Is er een Power shell-opdracht die naar het eindpunt quotum gaat?
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-U kunt een PowerShell-opdracht gebruiken om te zien van het quotum van het eindpunt:
+U kunt een Power shell-opdracht gebruiken om het eind punt quotum te bekijken:
 
 ```powershell
 Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
@@ -183,17 +183,17 @@ Als uw app bestond voordat LUIS is algemeen beschikbaar (GA), worden automatisch
 
 ## <a name="key-management"></a>Sleutelbeheer
 
-### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Hoe weet ik welke sleutel die ik nodig heb, waar ik krijgen, en wat kan ik ermee doen? 
+### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Hoe kan ik weet welke sleutel ik nodig heb, waar ik deze vind? 
 
-Zie [ontwerpen en query voorspelling endpoint-sleutels in LUIS](luis-concept-keys.md) voor meer informatie over de verschillen tussen de [ontwerpen sleutel](luis-how-to-account-settings.md) en de [voorspelling eindpuntsleutel](luis-how-to-azure-subscription.md). 
+Zie [ontwerp-en query Voorspellings eindpunt sleutels in Luis](luis-concept-keys.md) voor meer informatie over de verschillen tussen de [ontwerp sleutel](luis-how-to-account-settings.md) en de [eindpunt Voorspellings sleutel](luis-how-to-azure-subscription.md). 
 
-### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Er treedt een fout over te weinig quotum. Hoe herstel ik deze? 
+### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Ik heb een fout melding ontvangen over het verlopen van het quotum. Hoe herstel ik deze? 
 
-Zie, [oplossen HTTP-statuscode 403 en 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) voor meer informatie.
+Zie [HTTP-status code 403 en 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) voor meer informatie.
 
-### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Ik wil meer endpoint-query's worden afgehandeld. Hoe doe ik dat? 
+### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Ik moet meer eindpunt query's verwerken. Hoe kan ik doet u dat? 
 
-Zie, [oplossen HTTP-statuscode 403 en 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) voor meer informatie.
+Zie [HTTP-status code 403 en 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) voor meer informatie.
 
 
 
@@ -239,30 +239,30 @@ Uw sleutel ontwerpen/starter is alleen toegestaan voor 1000 eindpunt query's per
 
 ### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Mijn LUIS-bot werkt niet. Wat moet ik doen?
 
-De eerste vraag is voor het isoleren van als het probleem is gerelateerd aan LUIS of buiten de LUIS-middleware gebeurt. 
+De eerste fout is het isoleren als het probleem betrekking heeft op LUIS of zich buiten de LUIS-middleware bevindt. 
 
-#### <a name="resolve-issue-in-luis"></a>Los het probleem in LUIS
-De dezelfde utterance doorgeven aan LUIS uit de [LUIS eindpunt](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance). Als u een foutbericht ontvangt, los het probleem in LUIS totdat de fout niet meer wordt geretourneerd. Veelvoorkomende fouten zijn onder andere:
+#### <a name="resolve-issue-in-luis"></a>Probleem oplossen in LUIS
+Geef dezelfde utterance door aan LUIS van het [Luis-eind punt](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance). Als u een fout bericht ontvangt, lost u het probleem op in LUIS totdat de fout niet meer wordt geretourneerd. Veelvoorkomende fouten zijn onder andere:
 
-* `Out of call volume quota. Quota will be replenished in <time>.` -Dit probleem wordt aangegeven dat een van beide hoeft te wijzigen van een sleutel schrijven naar een [eindpuntsleutel](luis-how-to-azure-subscription.md) of u wilt wijzigen [Servicelagen](luis-how-to-azure-subscription.md#change-pricing-tier). 
+* `Out of call volume quota. Quota will be replenished in <time>.`: Dit probleem geeft aan dat u moet overschakelen van een ontwerp sleutel naar een [eindpunt sleutel](luis-how-to-azure-subscription.md) of dat u de [service lagen](luis-how-to-azure-subscription.md#change-pricing-tier)moet wijzigen. 
 
-#### <a name="resolve-issue-in-azure-bot-service"></a>Los het probleem in de Azure Bot Service
+#### <a name="resolve-issue-in-azure-bot-service"></a>Probleem in Azure Bot Service oplossen
 
-Als u met behulp van de Azure Bot Service en het probleem dat is de **Test in Web Chat** retourneert `Sorry, my bot code is having an issue`, Raadpleeg de logboeken:
+Als u de Azure bot service gebruikt en het probleem is dat de **test in Web Chat** als resultaat `Sorry, my bot code is having an issue`wordt gegeven, controleert u de logboeken:
 
-1. In de Azure-portal voor uw bot, uit de **Bot management** sectie, selecteer **bouwen**.
+1. In de Azure Portal, voor uw bot, in de sectie **bot Management** , selecteert u **Build**.
 1. Open de online code-editor. 
-1. Selecteer in de bovenste, blauwe navigatiebalk, de botnaam van de (het tweede item aan de rechterkant).
-1. Selecteer in de vervolgkeuzelijst resulterende **Kudu-Console openen**.
-1. Selecteer **logboekbestanden**en selecteer vervolgens **toepassing**. Bekijk alle logboekbestanden. Als u de fout in de map niet ziet, controleert u alle logboekbestanden onder **logboekbestanden**. 
-1. Houd er rekening mee te bouwen van uw project als u een gecompileerde taal, zoals C#.
+1. Selecteer in de bovenste blauwe navigatie balk de naam van de bot (het tweede item aan de rechter kant).
+1. Selecteer in de vervolg keuzelijst resulterende **kudu-console openen**.
+1. Selecteer **Logboeken**en selecteer vervolgens **toepassing**. Controleer alle logboek bestanden. Als u de fout niet in de toepassingsmap ziet, controleert u alle logboek bestanden onder **Logboeken**. 
+1. Vergeet niet om uw project opnieuw samen te stellen als u een gecompileerde taal C#gebruikt, zoals.
 
 > [!Tip] 
 > De console kan ook pakketten installeren. 
 
-#### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Probleem opgelost bij het opsporen van fouten op de lokale computer met Bot Framework. 
+#### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Los het probleem op bij het opsporen van fouten op een lokale computer met bot Framework. 
 
-Zie voor meer informatie over lokale foutopsporing van een bot, [fouten opsporen in een bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+Zie [fouten opsporen in een bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0)voor meer informatie over de lokale fout opsporing van een bot.
 
 ## <a name="integrating-luis"></a>LUIS integreren
 
@@ -274,11 +274,11 @@ Als u een LUIS-sjabloon selecteren en selecteer de **Selecteer** knop in het dee
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>In welke regio LUIS ondersteuning voor Bot Framework spraak voorbereiden?
 [Spraak voorbereiden](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) wordt alleen ondersteund voor LUIS-apps in het centrale (VS)-exemplaar.
 
-## <a name="api-programming-strategies"></a>Strategieën voor het programmeren van API
+## <a name="api-programming-strategies"></a>API-programmeer strategieën
 
-### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>Hoe ontvang ik via een programma de LUIS-regio van een resource? 
+### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>Hoe kan ik de regio LUIS van een resource programmatisch ophalen? 
 
-Gebruik het voorbeeld LUIS naar [regio zoeken](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) via een programma met C# of Node.Js. 
+Gebruik het LUIS-voor beeld om de [regio](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) programmatisch C# te zoeken met of node. js. 
 
 ## <a name="luis-service"></a>LUIS-service
 
@@ -288,23 +288,23 @@ Ja, u kunt de LUIS [container](luis-container-howto.md) voor deze scenario's heb
 
 ## <a name="migrating-to-the-next-version"></a>Migreren naar de volgende versie
 
-### <a name="how-do-i-migrate-to-preview-v3-api"></a>Hoe Migreer ik preview van V3 API? 
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>Hoe kan ik migreren naar Preview v3 API? 
 
-Zie [-API v2 naar v3 migratie-handleiding voor LUIS-apps](luis-migration-api-v3.md)
+Zie [API v2 naar v3 migratie handleiding voor Luis-apps](luis-migration-api-v3.md)
 
-## <a name="build-2019-conference-announcements"></a>Build-Conferentie voor 2019 aankondigingen
+## <a name="build-2019-conference-announcements"></a>Build 2019-conferentie aankondigingen
 
-De volgende functies zijn op de Build-conferentie 2019 vrijgegeven:
+De volgende functies zijn uitgebracht op de build 2019-conferentie:
 
-* [Preview van V3 API-Migratiehandleiding](luis-migration-api-v3.md)
-* [Verbeterde analytics-dashboard](luis-how-to-use-dashboard.md)
-* [Verbeterde vooraf gemaakte domeinen](luis-reference-prebuilt-domains.md) 
-* [Lijst met dynamische entiteiten](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
+* [Preview van de V3 API-migratie handleiding](luis-migration-api-v3.md)
+* [Verbeterd analyse dashboard](luis-how-to-use-dashboard.md)
+* [Verbeterde, vooraf ontwikkelde domeinen](luis-reference-prebuilt-domains.md) 
+* [Dynamische lijst entiteiten](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [Externe entiteiten](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 Video's:
 
-* [Hoe u Azure communicerende AI gebruiken om te schalen van uw bedrijf voor de volgende generatie](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+* [Azure-conversatie AI gebruiken om uw bedrijf te schalen voor de volgende generatie](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Volgende stappen
 

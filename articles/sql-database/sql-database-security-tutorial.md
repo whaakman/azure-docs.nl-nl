@@ -1,6 +1,6 @@
 ---
 title: Een enkelvoudige of pooldatabase beveiligen in Azure SQL Database | Microsoft Docs
-description: Een zelfstudie waarin u leert u hoe de informatie over technieken en functies voor het beveiligen van een enkele of gegroepeerde database in Azure SQL Database.
+description: Een zelf studie waarin u leert hoe u een enkele of gegroepeerde Data base in Azure SQL Database kunt beveiligen met betips over technieken en functies.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -8,15 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce9ba7c197bb604b9d71e2bf501ca67d32865f38
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582573"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566867"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Zelfstudie: Een enkelvoudige of pooldatabase beveiligen
 
@@ -91,7 +90,7 @@ U kunt nu verbinding maken met elke database op de server met het opgegeven IP-a
 
 ### <a name="setup-database-firewall-rules"></a>Database-firewallregels instellen
 
-Firewallregels op databaseniveau zijn alleen van toepassing op afzonderlijke databases. De database, deze regels worden behouden tijdens een serverfailover. Firewallregels op databaseniveau kunnen alleen worden geconfigureerd met behulp van T-SQL-instructies (Transact-SQL) en alleen nadat u een firewallregel op serverniveau hebt geconfigureerd.
+Firewallregels op databaseniveau zijn alleen van toepassing op afzonderlijke databases. Deze regels worden tijdens een failover van de server bewaard in de data base. Firewallregels op databaseniveau kunnen alleen worden geconfigureerd met behulp van T-SQL-instructies (Transact-SQL) en alleen nadat u een firewallregel op serverniveau hebt geconfigureerd.
 
 Firewallregel op databaseniveau instellen:
 
@@ -251,7 +250,7 @@ U schakelt Advanced Data Security als volgt in:
 
    1. Selecteer **AAN** onder **Advanced Data Security** om de functie in te schakelen. Kies een opslagaccount om de evaluaties van beveiligingsproblemen in op te slaan. Selecteer vervolgens **Opslaan**.
 
-      ![Navigatievenster](./media/sql-database-security-tutorial/threat-settings.png)
+      ![Navigatiedeelvenster](./media/sql-database-security-tutorial/threat-settings.png)
 
       U kunt ook e-mailberichten configureren voor het ontvangen van beveiligingswaarschuwingen, opslaggegevens en detectie van typen bedreigingen.
 
@@ -265,7 +264,7 @@ Als er afwijkende activiteiten worden gedetecteerd, ontvangt u een e-mailbericht
 
 ### <a name="auditing"></a>Controleren
 
-De controlefunctie databasegebeurtenissen bijgehouden en gebeurtenissen schrijft naar een auditlogboek in de Azure-opslag, Azure Monitor-Logboeken, of naar een event hub. Controles helpen u zorgen voor naleving van wet- en regelgeving, de activiteit in uw database te begrijpen en inzicht te krijgen in afwijkingen en discrepanties die kunnen wijzen op mogelijke schendingen van de beveiliging.
+De controle functie houdt database gebeurtenissen bij en schrijft gebeurtenissen naar een audit logboek in azure Storage, Azure Monitor-Logboeken of naar een Event Hub. Controles helpen u zorgen voor naleving van wet- en regelgeving, de activiteit in uw database te begrijpen en inzicht te krijgen in afwijkingen en discrepanties die kunnen wijzen op mogelijke schendingen van de beveiliging.
 
 Controle inschakelen:
 
@@ -287,7 +286,7 @@ Controle inschakelen:
        - **Log Analytics**, waarin gebeurtenissen automatisch worden opgeslagen voor het uitvoeren query’s of verdere analyse
 
            > [!NOTE]
-           > Een **Log Analytics-werkruimte** is vereist voor de ondersteuning van geavanceerde functies zoals analyses, aangepaste waarschuwingsregels en Excel of Power BI-uitvoer. Zonder een werkruimte is alleen de query-editor beschikbaar.
+           > Een **log Analytics-werk ruimte** is vereist voor de ondersteuning van geavanceerde functies, zoals analyses, aangepaste waarschuwings regels en Excel of het exporteren van Power bi. Zonder een werkruimte is alleen de query-editor beschikbaar.
 
        - **Event Hub**, waarmee gebeurtenissen kunnen worden gerouteerd voor gebruik in andere toepassingen
 

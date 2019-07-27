@@ -1,6 +1,6 @@
 ---
-title: Type eenvoudig entiteit
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Type eenvoudige entiteit-LUIS
+titleSuffix: Azure Cognitive Services
 description: Een eenvoudige entiteit is een generieke entiteit die één concept beschrijft en die wordt geleerd van de door de computer geleerde context. Omdat eenvoudige entiteiten doorgaans namen zijn zoals bedrijfs namen, product namen of andere categorieën namen, voegt u een woordgroepen lijst toe wanneer u een eenvoudige entiteit gebruikt om het signaal van de gebruikte namen te verhogen.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: 3f03b33f685bb5c7c9ba8f2267b8556c5dadade4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: c1514b6cd512924a162a524d11e888055fa06514
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480218"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563198"
 ---
 # <a name="simple-entity"></a>Eenvoudige entiteit 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Spraak herkennen, Java (Android) - Speech Services'
+title: 'Quickstart: Speech, java (Android)-spraak service herkennen'
 titleSuffix: Azure Cognitive Services
 description: Leer gesproken tekst herkennen in Java onder Android met behulp van de Speech SDK
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 22970eb58dc244405e522d46fcaa380151076062
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c9b63685ae73fb4e056c72a640d6c4049e98b8b8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603099"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559492"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Quickstart: Gesproken tekst herkennen in Java onder Android met behulp van de Speech-SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In dit artikel leert u hoe u een Java-toepassing voor Android kunt ontwikkelen met behulp van de Cognitive Services Speech SDK om spraak om te zetten in tekst.
-De toepassing is op basis van de Maven-pakket voor spraak-SDK, versie 1.6.0 en Android Studio 3.3.
+De toepassing is gebaseerd op het Speech SDK maven-pakket, versie 1.6.0 en Android Studio 3,3.
 De Speech SDK is op dit moment compatibel met Android-apparaten met 32/64-bits ARM- en Intel x86/x64-compatibele processors.
 
 > [!NOTE]
@@ -30,7 +30,7 @@ De Speech SDK is op dit moment compatibel met Android-apparaten met 32/64-bits A
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet een abonnementssleutel Speech Services voor het voltooien van deze Quickstart. U kunt er gratis een krijgen. Zie [de Speech Services gratis uitproberen](get-started.md) voor meer informatie.
+U hebt een abonnement op spraak services nodig om deze Quick Start te volt ooien. U kunt er gratis een krijgen. Zie [de spraak services gratis uitproberen](get-started.md) voor meer informatie.
 
 ## <a name="create-and-configure-a-project"></a>Een project maken en configureren
 
@@ -82,7 +82,7 @@ De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeve
 
    ![Schermafbeelding van het venster Select Deployment Target](media/sdk/qs-java-android-12-deploy.png)
 
-Klik op de knop in de toepassing om een sectie voor spraakherkenning te starten. De volgende 15 seconden van de Engelse spraak worden verzonden naar de spraakservices en getranscribeerde. Het resultaat wordt weergegeven in de Android-toepassing, en in het logcat-venster in Android Studio.
+Klik op de knop in de toepassing om een sectie voor spraakherkenning te starten. De volgende 15 seconden Engelse spraak wordt verzonden naar de spraak Services en getranscribeerd. Het resultaat wordt weergegeven in de Android-toepassing, en in het logcat-venster in Android Studio.
 
 ![Schermafbeelding van de Android-toepassing](media/sdk/qs-java-android-13-gui-on-device.png)
 

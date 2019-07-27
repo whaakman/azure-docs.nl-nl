@@ -10,20 +10,19 @@ ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
-manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 53e10636535c553ac5fa17b5f4aac1000cd138bc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 064d55b96c8817f4b7ccc5f0925eeecfaf310424
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445372"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68550520"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Een elastische-taakagent maken met behulp van PowerShell
 
 [Elastisc Jobs](sql-database-job-automation-overview.md#elastic-database-jobs) maken het mogelijk om één of meerdere T-SQL-scripts (Transact-SQL) parallel in veel databases uit te voeren.
 
-In deze zelfstudie leert u de stappen die nodig zijn voor een query uitvoeren voor meerdere databases:
+In deze zelf studie leert u de stappen die nodig zijn om een query uit te voeren voor meerdere data bases:
 
 > [!div class="checklist"]
 > * Een Elastic Jobs-agent maken
@@ -37,13 +36,13 @@ In deze zelfstudie leert u de stappen die nodig zijn voor een query uitvoeren vo
 
 ## <a name="prerequisites"></a>Vereisten
 
-De bijgewerkte versie van de taken voor Elastic Database heeft een nieuwe set PowerShell-cmdlets voor gebruik tijdens de migratie. Deze nieuwe cmdlets dragen alle van de taakreferenties van uw bestaande, gericht op (met inbegrip van databases, servers en aangepaste verzamelingen), taak triggers, taakschema's, de inhoud van de taak en taken naar een nieuwe agent voor elastische taken.
+De bijgewerkte versie van taak voor Elastic Database heeft een nieuwe set Power shell-cmdlets voor gebruik tijdens de migratie. Met deze nieuwe cmdlets kunt u al uw bestaande taak referenties, doelen (inclusief data bases, servers, aangepaste verzamelingen), taak triggers, taak planningen, taak inhoud en taken naar een nieuwe elastische taak agent overdragen.
 
-### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installeer de meest recente cmdlets voor elastische taken
+### <a name="install-the-latest-elastic-jobs-cmdlets"></a>De meest recente cmdlets voor elastische taken installeren
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
-Installeer de **Az.Sql** 1.1.1-preview-module om op te halen van de meest recente elastische taak-cmdlets. Voer de volgende opdrachten met beheerderstoegang uit in PowerShell.
+Installeer de module **AZ. SQL** 1.1.1-Preview om de meest recente elastische taak-cmdlets te verkrijgen. Voer de volgende opdrachten met beheerderstoegang uit in PowerShell.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
@@ -64,14 +63,14 @@ Import-Module Az.Sql -RequiredVersion 1.1.1
 Get-Module Az.Sql
 ```
 
-- Naast de **Az.Sql** 1.1.1-preview-module, in deze zelfstudie is ook vereist de *sqlserver* PowerShell-module. Zie [SQL Server PowerShell-module installeren](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) voor meer informatie.
+- Naast de module **AZ. SQL** 1.1.1-Preview is in deze zelf studie ook de *sqlserver* Power shell-module vereist. Zie [SQL Server PowerShell-module installeren](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) voor meer informatie.
 
 
 ## <a name="create-required-resources"></a>Vereiste resources maken
 
 Voor het maken van een Elastic Jobs-agent is een database (S0 of hoger) vereist om te gebruiken als [taakdatabase](sql-database-job-automation-overview.md#job-database). 
 
-*Het onderstaande script maakt een nieuwe resourcegroep, server en database voor gebruik als de taakdatabase. Het onderstaande script maakt ook een tweede server met twee lege databases voor het uitvoeren van taken op basis van.*
+*Het onderstaande script maakt een nieuwe resourcegroep, server en database voor gebruik als de taakdatabase. In het onderstaande script wordt ook een tweede server met twee lege data bases gemaakt om taken uit te voeren.*
 
 Elastic Jobs heeft geen specifieke naamgevingsvereisten, zodat u elke naamgevingsconventie kunt gebruiken die u wilt, zolang deze maar voldoet aan de [Azure-vereisten](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
@@ -129,7 +128,7 @@ $Db2
 
 ## <a name="enable-the-elastic-jobs-preview-for-your-subscription"></a>De Elastic Jobs-preview inschakelen voor uw abonnement
 
-Voor het gebruik van elastische taken, de functie in uw Azure-abonnement te registreren met de volgende opdracht. Deze opdracht één keer voor het abonnement waarin u van plan bent voor het inrichten van de agent voor elastische taken uitvoeren. Abonnementen die alleen databases die taak doelen bevatten hoeft te worden geregistreerd.
+Als u elastische taken wilt gebruiken, moet u de functie in uw Azure-abonnement registreren door de volgende opdracht uit te voeren. Voer deze opdracht eenmaal uit voor het abonnement waarin u de elastische taak agent wilt inrichten. Abonnementen die alleen bestaan uit data bases die taak doelen bevatten, hoeven niet te worden geregistreerd.
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
@@ -139,7 +138,7 @@ Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Mic
 
 Een Elastic Jobs-agent is een Azure-resource voor het maken, uitvoeren en beheren van taken. De agent voert taken uit op basis van een planning of als eenmalige taak.
 
-De **New-AzSqlElasticJobAgent** cmdlet is vereist voor een Azure SQL-database moeten al bestaan, waardoor de *ResourceGroupName*, *ServerName*, en  *DatabaseName* parameters moeten allemaal verwijzen naar bestaande resources.
+De cmdlet **New-AzSqlElasticJobAgent** vereist dat er al een Azure-SQL database bestaat. de para meters *ResourceGroupName*, *servername*en *DATABASENAME* moeten allemaal verwijzen naar bestaande resources.
 
 ```powershell
 Write-Output "Creating job agent..."
@@ -286,22 +285,22 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
 
-### <a name="job-execution-states"></a>Taak uitvoeren-statussen
+### <a name="job-execution-states"></a>Status van taak uitvoeringen
 
-De volgende tabel bevat de statussen van de uitvoering van mogelijke taak:
+De volgende tabel bevat de mogelijke statussen voor taak uitvoering:
 
 |Status|Description|
 |:---|:---|
-|**Gemaakt** | Het uitvoeren van de taak is gemaakt en is niet nog bezig.|
-|**InProgress** | Het uitvoeren van de taak wordt momenteel uitgevoerd.|
-|**WaitingForRetry** | Het uitvoeren van de taak niet kunt voltooien van de bijbehorende actie is en is in afwachting opnieuw uit te voeren.|
-|**Geslaagd** | Het uitvoeren van de taak is voltooid.|
-|**SucceededWithSkipped** | Het uitvoeren van de taak is voltooid, maar sommige van de onderliggende items zijn overgeslagen.|
-|**Mislukt** | Het uitvoeren van de taak heeft is mislukt en de nieuwe pogingen bereikt.|
-|**TimedOut** | Is een time-out opgetreden bij het uitvoeren van taak.|
-|**Geannuleerd** | Het uitvoeren van de taak is geannuleerd.|
-|**Overgeslagen** | Het uitvoeren van de taak is overgeslagen omdat een andere uitvoering van de dezelfde taakstap al wordt uitgevoerd op hetzelfde doel.|
-|**WaitingForChildJobExecutions** | Het uitvoeren van de taak wacht op de onderliggende uitvoeringen om te voltooien.|
+|**Toegevoegd** | De taak uitvoering is zojuist gemaakt en wordt nog niet uitgevoerd.|
+|**InProgress** | De taak wordt momenteel uitgevoerd.|
+|**WaitingForRetry** | De uitvoering van de taak is niet voltooid en er wordt gewacht op het opnieuw proberen.|
+|**Geslaagd** | De taak uitvoering is voltooid.|
+|**SucceededWithSkipped** | De taak uitvoering is voltooid, maar sommige onderliggende items zijn overgeslagen.|
+|**Mislukt** | De taak uitvoering is mislukt en de pogingen zijn uitgeput.|
+|**TimedOut** | Er is een time-out opgetreden voor de taak uitvoering.|
+|**Geannuleerd** | De taak uitvoering is geannuleerd.|
+|**Overgeslagen** | De taak uitvoering is overgeslagen omdat een andere uitvoering van dezelfde taak stap al werd uitgevoerd op hetzelfde doel.|
+|**WaitingForChildJobExecutions** | De uitvoering van de taak wacht op het volt ooien van de onderliggende uitvoeringen.|
 
 ## <a name="schedule-the-job-to-run-later"></a>De taak plannen om later uit te voeren
 

@@ -10,10 +10,10 @@ ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 87746bd39e624699612bf5221258ad757cd462b3
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309572"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Zelfstudie: Een Azure-containerregister met geo-replicatie voorbereiden
@@ -115,7 +115,7 @@ Als u niet hebt `git` geïnstalleerd, kunt u [het zip-archief rechtstreeks downl
 
 ## <a name="update-dockerfile"></a>Dockerfile bijwerken
 
-Het Dockerfile dat deel uitmaakt van de voorbeeldopslagplaats laat zien hoe de container wordt gebouwd. Het start van een officiële [aspnetcore][dockerhub-aspnetcore] image, copies the application files into the container, installs dependencies, compiles the output using the official [aspnetcore-build][dockerhub-aspnetcore-build] -installatie kopie en tot slot een geoptimaliseerde aspnetcore-installatie kopie bouwt.
+Het Dockerfile dat deel uitmaakt van de voorbeeldopslagplaats laat zien hoe de container wordt gebouwd. Het begint met een officiële [aspnetcore][dockerhub-aspnetcore]-installatiekopie, kopieert de toepassingsbestanden naar de container, installeert afhankelijkheden, compileert de uitvoer met behulp van de officiële [aspnetcore-build][dockerhub-aspnetcore-build]-installatiekopie en maakt tot slot een geoptimaliseerde aspnetcore-installatiekopie.
 
 De [Dockerfile][dockerfile] bevindt `./AcrHelloworld/Dockerfile` zich in de gekloonde bron.
 

@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: De spraak-apparaten SDK worden uitgevoerd op Android - spraakservices'
+title: 'Quickstart: De speech apparaten SDK uitvoeren op de Android-Speech-Service'
 titleSuffix: Azure Cognitive Services
-description: Vereisten en instructies voor het aan de slag met een spraak-SDK voor Android-apparaten.
+description: Vereisten en instructies voor het aan de slag gaan met een Android-SDK voor spraak apparaten.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,42 +10,42 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 7eea978456ed565f8fc58647dc548d1a7bc76b27
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: f7039b525cf0d52670b8d76a24d8ec3ea5115772
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606364"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559114"
 ---
-# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Quickstart: De voorbeeld-app SDK voor spraak-apparaten worden uitgevoerd op Android
+# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Quickstart: De voor beeld-app voor de speech-apparaten SDK uitvoeren op Android
 
-In deze snelstartgids leert u hoe u de spraak-apparaten-SDK voor Android gebruiken om te maken van een product spraak ingeschakeld of worden gebruikt als een [conversatie transcriptie](conversation-transcription-service.md) apparaat.
+In deze Quick Start leert u hoe u de speech apparaten SDK voor Android kunt gebruiken om een product met spraak herkenning te bouwen of dit te gebruiken als een [conversatie transcriptie](conversation-transcription-service.md) -apparaat.
 
-Deze handleiding is vereist een [Azure Cognitive Services](get-started.md) -account met een resource Speech Services. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
+Voor deze hand leiding is een [Azure Cognitive Services](get-started.md) -account vereist met een speech Services-resource. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 De broncode voor de voorbeeldtoepassing is opgenomen in de SDK van de apparaten spraak. Het is ook [beschikbaar op GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u met de SDK van de apparaten spraak begint, moet u naar:
+Voordat u begint met het gebruik van de speech apparaten SDK, moet u het volgende doen:
 
-* Volg de instructies met uw [development kit](get-speech-devices-sdk.md) voor het inschakelen van het apparaat.
+* Volg de instructies in uw [Development Kit](get-speech-devices-sdk.md) om het apparaat in te scha kelen.
 
-* Download de nieuwste versie van de [spraak Devices SDK](https://aka.ms/sdsdk-download), en pak het ZIP naar uw werkmap.
+* Down load de nieuwste versie van de [Speech apparaten SDK](https://aka.ms/sdsdk-download)en pak het. zip-bestand uit in uw werkmap.
    > [!NOTE]
-   > Het Android-voorbeeld-Release.zip-bestand bevat de Android-voorbeeld-app en deze snelstartgids wordt ervan uitgegaan dat de app wordt uitgepakt naar C:\SDSDK\Android-Sample-Release
+   > Het bestand Android-Sample-Release. zip bevat de voor beeld-app Android en er wordt ervan uitgegaan dat de app is geëxtraheerd naar C:\SDSDK\Android-Sample-Release
 
-* Om op te halen een [sleutel van de Azure-abonnement voor spraakservices](get-started.md)
+* Een Azure- [abonnements sleutel voor spraak Services](get-started.md) ophalen
 
-* Als u van plan bent te gebruiken van de conversatie transcriptie moet u een [circulaire microfoon apparaat](get-speech-devices-sdk.md) en deze functie is momenteel alleen beschikbaar voor 'en-US' en 'zh-CN' in de regio's, "centralus" en 'Oost-Aziatische'. U moet een spraak-sleutel in een van deze regio's te gebruiken van de conversatie transcriptie hebben.
+* Als u van plan bent om de conversatie transcriptie te gebruiken, moet u een [circulair microfoon apparaat](get-speech-devices-sdk.md) gebruiken en deze functie is momenteel alleen beschikbaar voor "en-US" en "zh-cn" in regio's, "centraalus" en "EastAsia". U moet een spraak sleutel hebben in een van deze regio's om conversatie transcriptie te kunnen gebruiken.
 
-* Als u van plan bent de Speech Services gebruiken om te identificeren van intents (of acties) van de gebruiker uitingen, moet u een [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) abonnement. Zie voor meer informatie over LUIS en intentieherkenning [spraak intents met LUIS, herkent C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
+* Als u van plan bent om de spraak services te gebruiken om de intenties (of acties) te identificeren van de gebruiker uitingen, hebt u een [Luis-abonnement (Language Understanding service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) nodig. Zie voor meer informatie over LUIS en intentie herkenning [spraak intentie herkennen met Luis, C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
     U kunt [maken een eenvoudige LUIS-model](https://docs.microsoft.com/azure/cognitive-services/luis/) of gebruik het voorbeeld LUIS-model, LUIS-example.json. Het voorbeeld LUIS-model beschikbaar via is de [site voor het downloaden van spraak Devices SDK](https://aka.ms/sdsdk-luis). Voor het uploaden van uw model JSON-bestand naar de [LUIS portal](https://www.luis.ai/home), selecteer **importeren nieuwe app**, en selecteer vervolgens het JSON-bestand.
 
 * Installeer [Android Studio](https://developer.android.com/studio/) en [Vysor](https://vysor.io/download/) op uw PC.
 
-## <a name="set-up-the-device"></a>Instellen van het apparaat
+## <a name="set-up-the-device"></a>Het apparaat instellen
 
 1. Vysor op uw computer starten.
 
@@ -72,7 +72,7 @@ Voordat u met de SDK van de apparaten spraak begint, moet u naar:
 
 ## <a name="run-the-sample-application"></a>De voorbeeldtoepassing uitvoeren
 
-Als u wilt uw valideren development kit, bouwen en de voorbeeld-App installeren:
+Als u de Setup van de Development Kit wilt valideren, bouwt en installeert u de voorbeeld toepassing:
 
 1. Android Studio starten.
 
@@ -82,9 +82,9 @@ Als u wilt uw valideren development kit, bouwen en de voorbeeld-App installeren:
 
 1. Ga naar C:\SDSDK\Android-Sample-Release\example. Selecteer **OK** om de voorbeeldproject te openen.
 
-1. Uw abonnementssleutel spraak toevoegen aan de broncode. Als u proberen intentieherkenning wilt, voegt u ook uw [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) abonnementssleutel en de toepassing-id.
+1. Voeg uw spraak abonnee sleutel toe aan de bron code. Als u proberen intentieherkenning wilt, voegt u ook uw [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) abonnementssleutel en de toepassing-id.
 
-   Voor spraak en LUIS, worden uw gegevens in MainActivity.java gaat:
+   Voor spraak-en LUIS gaat uw informatie over op MainActivity. java:
 
    ```java
     // Subscription
@@ -95,7 +95,7 @@ Als u wilt uw valideren development kit, bouwen en de voorbeeld-App installeren:
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Als u gebruikmaakt van conversatie transcriptie, zijn ook uw sleutel en de regio spraakgegevens in conversation.java nodig:
+    Als u gesprek transcriptie gebruikt, zijn uw spraak sleutel en regio-informatie ook vereist in conversatie. java:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -107,10 +107,10 @@ Als u wilt uw valideren development kit, bouwen en de voorbeeld-App installeren:
    > [!TIP]
    > U kunt ook [maken van een aangepaste wake-woord](speech-devices-sdk-create-kws.md).
 
-    Voor het gebruik van een nieuwe wake-woord, werk de volgende twee regels in `MainActivity.java`, en het woord wake pakket kopiëren naar uw app. Bijvoorbeeld, u het wake-woord 'Computer' van de wake word pakket kws-machine.zip:
+    Als u een nieuw Ontwaak woord wilt gebruiken, werkt u de `MainActivity.java`volgende twee regels in en kopieert u het Ontwaak woord pakket naar uw app. Als u bijvoorbeeld het Ontwaak woord ' machine ' wilt gebruiken vanuit het Ontwaak woord package KWS-machine. zip:
 
-   * Kopieer het wake word-pakket naar de map 'C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\'.
-   * Update de `MainActivity.java` met het sleutelwoord en naam van het pakket:
+   * Kopieer het Ontwaak woord pakket naar de map "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
+   * Werk de `MainActivity.java` met het sleutel woord en de pakket naam bij:
 
      ```java
      private static final String Keyword = "Machine";
@@ -124,7 +124,7 @@ Als u wilt uw valideren development kit, bouwen en de voorbeeld-App installeren:
    private static final String SelectedGeometry = "Circular6+1";
    ```
 
-   Deze tabel bevat de ondersteunde waarden:
+   Deze tabel geeft een lijst van ondersteunde waarden:
 
    |Variabele|Betekenis|Beschikbare waarden|
    |--------|-------|----------------|
@@ -145,24 +145,24 @@ Als u wilt uw valideren development kit, bouwen en de voorbeeld-App installeren:
 
    ![Voorbeeld van de voorbeeldtoepassing spraak Devices SDK en opties](media/speech-devices-sdk/qsg-8.png)
 
-1. Probeer de nieuwe conversatie transcriptie demo. Start te transcriberen met sessie starten. Iedereen is standaard een gast. Echter, als u van deelnemer stem handtekeningen hebben ze kunnen worden geplaatst in een bestand `/video/participants.properties` op het apparaat. Voor het genereren van de handtekening gesproken kijken [(SDK) gesprekken transcriberen](how-to-use-conversation-transcription-service.md).
+1. Probeer de nieuwe transcriptie-demo van de conversatie. Begin met transcriberen met ' sessie starten '. Standaard is iedereen een gast. Als u echter spraak handtekeningen van een deel nemer hebt, kunnen ze in een bestand `/video/participants.properties` op het apparaat worden geplaatst. Als u de spraak handtekening wilt genereren, kijkt u naar Transcribe- [gesprekken (SDK)](how-to-use-conversation-transcription-service.md).
 
-   ![Conversatie transcriptie demotoepassing](media/speech-devices-sdk/qsg-15.png)
+   ![Transcriptie-toepassing voor demo gesprekken](media/speech-devices-sdk/qsg-15.png)
 
 1. Experiment!
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-   Als u geen verbinding met de spraak-apparaat maken. Typ de volgende opdracht in een opdrachtpromptvenster. Een lijst met apparaten wordt geretourneerd:
+   Als u geen verbinding kunt maken met het spraak apparaat. Typ de volgende opdracht in een opdracht prompt venster. Er wordt een lijst met apparaten geretourneerd:
 
    ```powershell
     adb devices
    ```
 
    > [!NOTE]
-   > Met deze opdracht maakt gebruik van de Android-Debug-brug, `adb.exe`, deze maakt deel uit van de Android Studio-installatie. Dit hulpprogramma bevindt zich in C:\Users\[gebruikersnaam] \AppData\Local\Android\Sdk\platform-hulpprogramma's. U kunt deze map toevoegen aan het pad naar het eenvoudig om aan te roepen kunnen `adb`. Anders moet u het volledige pad naar uw installatie van adb.exe in elke opdracht die wordt aangeroepen `adb`.
+   > Deze opdracht maakt gebruik van de Android Debug `adb.exe`Bridge, die deel uitmaakt van de Android Studio-installatie. Dit hulpprogramma bevindt zich in C:\Users\[gebruikersnaam] \AppData\Local\Android\Sdk\platform-hulpprogramma's. U kunt deze map toevoegen aan het pad naar het eenvoudig om aan te roepen kunnen `adb`. Anders moet u het volledige pad naar uw installatie van adb.exe in elke opdracht die wordt aangeroepen `adb`.
    >
-   > Als er een fout `no devices/emulators found` en controleer uw USB-kabel is verbonden en controleer of de kabel van een hoge kwaliteit wordt gebruikt.
+   > Als er een fout optreedt `no devices/emulators found` , controleer dan of de USB-kabel is aangesloten en of er een kabel met een hoge kwaliteit wordt gebruikt.
    >
 
 ## <a name="next-steps"></a>Volgende stappen

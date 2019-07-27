@@ -1,5 +1,5 @@
 ---
-title: Intenties voorspellen
+title: Voor spel bedoelingen-LUIS
 titleSuffix: Azure Cognitive Services
 description: In deze zelfstudie maakt u een aangepaste app waarmee de intentie van een gebruiker wordt voorspeld. Deze app is het eenvoudigste type LUIS-app omdat de app geen verschillende gegevenselementen uit de utterancetekst extraheert, zoals e-mailadressen of datums.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 534aa678df69a4ef71296005922fa59bbe7bbcfa
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 249ac689f855d175fa5df7cc5fed9438c0873289
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277567"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560381"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Zelfstudie: LUIS-app bouwen om gebruikersintenties te bepalen
 

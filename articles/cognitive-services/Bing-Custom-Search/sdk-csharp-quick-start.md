@@ -1,21 +1,21 @@
 ---
 title: 'Quickstart: Aanroepen van uw Bing Custom Search-eindpunt met de C# SDK | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Gebruik de Bing aangepaste zoekopdrachten SDK voor C# om te zoeken naar uw exemplaar voor aangepast zoeken.
+description: Gebruik deze Quick Start om te beginnen met het aanvragen van zoek resultaten van C# uw Bing aangepaste zoekopdrachten-exemplaar met behulp van de SDK.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 07/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 0381df439d0c0904e8741bb1f31b179566c72ec5
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c7ac6d051c8333a6329a3c2ed238d78fb9da4a30
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206176"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565713"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Quickstart: Aanroepen van uw Bing Custom Search-eindpunt met de C# SDK 
 
@@ -25,10 +25,10 @@ Gebruik deze quickstart om te beginnen met het opvragen van zoekresultaten van u
 
 - Een Bing Custom Search-exemplaar. Zie [Quickstart: Uw eerste Bing Custom Search-exemplaar maken](quick-start.md) voor meer informatie.
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
-- Een versie van [Visual Studio 2017 of later](https://www.visualstudio.com/downloads/)
+- Elke versie van [Visual Studio 2017 of hoger](https://www.visualstudio.com/downloads/)
 - Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).
-- De [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) NuGet-pakket. 
-    - Van **Solution Explorer** in Visual Studio met de rechtermuisknop op uw project en selecteer **NuGet-pakketten beheren** in het menu. Installeer het `Microsoft.Azure.CognitiveServices.Search.CustomSearch`-pakket. Met de installatie van het NuGet-pakket Custom Search worden ook de volgende assembly's geïnstalleerd:
+- Het NuGet-pakket van [Bing aangepaste zoekopdrachten](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) . 
+    - Klik vanuit **Solution Explorer** in Visual Studio met de rechter muisknop op het project en selecteer **NuGet-pakketten beheren** in het menu. Installeer het `Microsoft.Azure.CognitiveServices.Search.CustomSearch`-pakket. Met de installatie van het NuGet-pakket Custom Search worden ook de volgende assembly's geïnstalleerd:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json

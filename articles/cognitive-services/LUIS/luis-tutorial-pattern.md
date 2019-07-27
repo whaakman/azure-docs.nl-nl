@@ -1,5 +1,5 @@
 ---
-title: Patronen
+title: Patronen-LUIS
 titleSuffix: Azure Cognitive Services
 description: Gebruik patronen voor het verhogen van intent- en entiteitsvoorspelling terwijl er minder voorbeeld-utterances nodig zijn. Het patroon wordt geleverd via een voorbeeld van een sjabloon-utterance, met de syntaxis voor het identificeren van entiteiten en te negeren tekst.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: e559d4a3366c45bd054cbf3a235805e048de3493
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 96c58e18abce85354db0d3bdf579600506cf2d86
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276050"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563311"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Zelfstudie: Indelingen voor sjabloon-utterances van algemene patronen toevoegen
 
@@ -221,7 +221,7 @@ Om ervoor te zorgen dat een patroon overeenkomt met een utterance, moeten eerst 
 
 **Hoewel u voor patronen minder voorbeeld-utterances hoeft op te geven, komt het patroon niet overeen als de entiteiten niet worden gedetecteerd.**
 
-## <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>De patronen voor het doel organigram-Manager toevoegen
+## <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>De patronen voor het organigram toevoegen-Manager intentie
 
 1. Selecteer **Build** in het bovenste menu.
 
@@ -244,7 +244,7 @@ Om ervoor te zorgen dat een patroon overeenkomt met een utterance, moeten eerst 
 
     [![Schermafbeelding van het invoeren van sjabloon-utterances voor intent](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. Terwijl u nog op de pagina patronen, selecteer de **organigram-rapporten** doel, voert u de volgende sjabloon uitingen:
+4. Terwijl u nog steeds op de pagina patronen klikt, selecteert u het **organigram-rapporten** opzet en voert u de volgende sjabloon uitingen in:
 
     |Sjabloon-utterances|
     |:--|
@@ -257,7 +257,7 @@ Om ervoor te zorgen dat een patroon overeenkomt met een utterance, moeten eerst 
 
 ## <a name="query-endpoint-when-patterns-are-used"></a>Query uitvoeren op eindpunt wanneer patronen worden gebruikt
 
-Nu dat de patronen zijn toegevoegd aan de app, trainen, publiceren en query uitvoeren op de app op het eindpunt van de runtime voorspelling.
+Nu de patronen worden toegevoegd aan de app, Train, publiceert u de app op het moment van de voor spelling runtime.
 
 1. De app opnieuw trainen en publiceren.
 
@@ -349,11 +349,11 @@ Nu dat de patronen zijn toegevoegd aan de app, trainen, publiceren en query uitv
     }
     ```
 
-De intentie voorspelling is nu aanzienlijk meer vertrouwen hebben.
+De intentie voorspelling is nu aanzienlijk meer vertrouwen.
 
 ## <a name="working-with-optional-text-and-prebuilt-entities"></a>Werken met optionele tekst en voorafgemaakte entiteiten
 
-De vorige patroonsjabloon-utterances in deze zelfstudie hadden enkele voorbeelden van optionele tekst `'s`, zoals het gebruik van het vraagteken, `?`. Stel dat u wilt toestaan voor de huidige en toekomstige datums in het tekstvak utterance.
+De vorige patroonsjabloon-utterances in deze zelfstudie hadden enkele voorbeelden van optionele tekst `'s`, zoals het gebruik van het vraagteken, `?`. Stel dat u huidige en toekomstige datums wilt toestaan in de utterance-tekst.
 
 Voorbeelden van utterances zijn:
 
@@ -366,7 +366,7 @@ Voorbeelden van utterances zijn:
 
 In elk van deze voorbeelden wordt gebruikgemaakt van een werkwoordsvorm, `was`, `is`, `will be`, evenals een datum, `March 3`, `now`, en `in a month`, die LUIS correct moet voorspellen. U ziet dat in de laatste twee voorbeelden bijna dezelfde tekst wordt gebruikt, behalve voor `in` en `on`.
 
-Voorbeeld van de sjabloon-uitingen die voor deze optionele informatie zorgen: 
+Voorbeeld sjabloon uitingen die deze optionele informatie toestaan: 
 
 |Intentie|Voorbeeld-utterances met optionele tekst en voorafgemaakte entiteiten|
 |:--|:--|
@@ -381,7 +381,7 @@ Dankzij het gebruik van de optionele syntaxis met vierkante haken, `[]`, kan dez
 
 **Vraag: Waarom maakt het vooraf gemaakte getal geen deel uit van de sjabloon-utterance als 3 maart wordt voorspeld als het getal `3` en als de datum `March 3`?** De sjabloon-utterance maakt contextueel gebruik van een datum, letterlijk zoals in `March 3`, of figuurlijk zoals `in a month`. Een datum kan een waarde bevatten, maar een getal hoeft niet per se als een datum te worden beschouwd. Gebruik altijd de entiteit die het beste het type aangeeft dat u wilt laten retourneren in de JSON-voorspellingsresultaten.  
 
-**Vraag: Hoe zit het met slecht geformuleerde utterances zoals `Who will {Employee}['s] manager be on March 3?`.** Grammaticaal verschillende werkwoordsvormen, zoals deze waarbij `will` en `be` van elkaar zijn gescheiden, moeten als een nieuwe sjabloon-utterance worden ingesteld. De bestaande sjabloon-utterance zal een dergelijke werkwoordsvorm niet herkennen. Het doel van de utterance is weliswaar niet veranderd, maar dat geldt wel voor de woordplaatsing in de utterance. Deze wijziging heeft gevolgen voor de voorspelling in LUIS. U kunt [groep en of](#use-the-or-operator-and-groups) werkwoordtijden deze uitingen combineren. 
+**Vraag: Hoe zit het met slecht geformuleerde utterances zoals `Who will {Employee}['s] manager be on March 3?`.** Grammaticaal verschillende werkwoordsvormen, zoals deze waarbij `will` en `be` van elkaar zijn gescheiden, moeten als een nieuwe sjabloon-utterance worden ingesteld. De bestaande sjabloon-utterance zal een dergelijke werkwoordsvorm niet herkennen. Het doel van de utterance is weliswaar niet veranderd, maar dat geldt wel voor de woordplaatsing in de utterance. Deze wijziging heeft gevolgen voor de voorspelling in LUIS. U kunt de [groep en of](#use-the-or-operator-and-groups) het werk woord tien tallen om deze uitingen te combi neren. 
 
 **Houd er rekening mee dat als eerste entiteiten worden gevonden, waarna het patroon wordt vergeleken.**
 
@@ -389,7 +389,7 @@ Dankzij het gebruik van de optionele syntaxis met vierkante haken, `[]`, kan dez
 
 1. Selecteer op de website LUIS de optie **Build** in het bovenste menu en selecteer **Patterns** in het menu links. 
 
-1. Zoek naar de bestaande sjabloon utterance, `Who is {Employee}['s] manager[?]`, en selecteer het weglatingsteken (***...*** ) aan de rechterkant, selecteert u vervolgens **bewerken** in het pop-upmenu. 
+1. Zoek de bestaande sjabloon utterance, `Who is {Employee}['s] manager[?]`, en selecteer het beletsel teken (***...***) aan de rechter kant en selecteer vervolgens **bewerken** in het pop-upmenu. 
 
 1. Wijzig de sjabloon-utterance in: `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
@@ -409,7 +409,7 @@ Dankzij het gebruik van de optionele syntaxis met vierkante haken, `[]`, kan dez
 
 4. Voer verschillende test-utterances in om te controleren of het patroon overeenkomt en de intentiescore hoog genoeg is. 
 
-    Nadat u de eerste utterance hebt ingevoerd, selecteert u **Inspect** onder het resultaat zodat u alle voorspellingsresultaten kunt zien. Elke utterance moet de **organigram-Manager** doel en de waarden voor de entiteiten van de werknemer en datetimeV2 moet ophalen.
+    Nadat u de eerste utterance hebt ingevoerd, selecteert u **Inspect** onder het resultaat zodat u alle voorspellingsresultaten kunt zien. Elk utterance moet het **organigram-Manager** intentie hebben en de waarden voor de entiteiten van werk nemers en datetimeV2 ophalen.
 
     |Utterance|
     |--|
@@ -422,38 +422,38 @@ Dankzij het gebruik van de optionele syntaxis met vierkante haken, `[]`, kan dez
 
 Voor al deze utterances zijn de daarin opgenomen entiteiten gevonden en daarom komen ze overeen met hetzelfde patroon en hebben ze een hoge voorspellingsscore.
 
-## <a name="use-the-or-operator-and-groups"></a>Gebruik de OR-operator en groepen
+## <a name="use-the-or-operator-and-groups"></a>De operator OR en groepen gebruiken
 
-Aantal van de vorige sjabloon uitingen zijn zeer sluiten. Gebruik de **groep** `()` en **of** `|` syntaxis voor het verminderen van de sjabloon-uitingen. 
+Enkele van de vorige sjabloon uitingens worden bijna gesloten. Gebruik de **groep** `()` en **of** `|` syntaxis om de sjabloon uitingen te reduceren. 
 
-De volgende 2 patronen kunnen combineren in een enkel patroon met behulp van de groep `()` en `|` syntaxis.
+De volgende twee patronen kunnen in één patroon worden gecombineerd met behulp `()` van de `|` groep en of syntaxis.
 
 |Intentie|Voorbeeld-utterances met optionele tekst en voorafgemaakte entiteiten|
 |--|--|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
-De nieuwe sjabloon utterance zijn: 
+Het nieuwe sjabloon utterance is: 
 
 `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. 
 
-Dit maakt gebruik van een **groep** rond de tijd van de vereiste bewerking en de optionele `in` en `on` met een **of** pipe tussen beide. 
+Dit maakt gebruik van een **groep** rond de vereiste term tien tallen `in` en `on` de optionele en met een **or** -pipe ertussen. 
 
-1. Op de **patronen** weergeeft, schakelt de **organigram-Manager** filter. De lijst verfijnen door te zoeken naar `manager`. 
+1. Selecteer op de pagina **patronen** het filter **organigram-Manager** . Verfijn de lijst door te zoeken `manager`. 
 
-    ![Zoek term 'manager' in de intentie patronen organigram-Manager](./media/luis-tutorial-pattern/search-patterns.png)
+    ![Zoeken in het organigram-Manager intentie patronen voor term ' Manager '](./media/luis-tutorial-pattern/search-patterns.png)
 
-1. Behoud één versie van de sjabloon utterance (om te bewerken in de volgende stap) en de andere variaties verwijderen. 
+1. Behoud één versie van de sjabloon utterance (om in de volgende stap te bewerken) en verwijder de andere variaties. 
 
-1. De sjabloon utterance te wijzigen: 
+1. Wijzig de sjabloon utterance in: 
 
     `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
 
 1. Train de app.
 
-1. Gebruik het testvenster versies van de utterance testen:
+1. Gebruik het test venster om versies van de utterance te testen:
 
-    |Uitingen in te voeren in testvenster|
+    |Uitingen invoeren in het test venster|
     |--|
     |`Who is Jill Jones manager this month`|
     |`Who is Jill Jones manager on July 5th`|
@@ -463,9 +463,9 @@ Dit maakt gebruik van een **groep** rond de tijd van de vereiste bewerking en de
     |`Who will be Jill Jones manager on July 5th`|
 
 
-## <a name="use-the-utterance-beginning-and-ending-anchors"></a>Gebruik de utterance begint en eindigt ankers
+## <a name="use-the-utterance-beginning-and-ending-anchors"></a>De utterance begin-en eind ankerpunten gebruiken
 
-De syntaxis van de patroon biedt begint en eindigt utterance anker syntaxis van een caret-teken, `^`. Het begin en einde utterance ankers kunnen samen worden gebruikt voor doel zeer specifieke en mogelijk letterlijke utterance of apart gebruikt voor het doel intents. 
+De syntaxis van het patroon biedt het begin-en eind utterance-anker `^`syntaxis van een caret,. De begin-en eind utterance-ankers kunnen samen worden gebruikt om een zeer specifieke en mogelijk letterlijke utterance te bereiken of om afzonderlijk te worden gebruikt voor doel intentie. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

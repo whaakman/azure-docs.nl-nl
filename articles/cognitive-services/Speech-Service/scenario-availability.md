@@ -1,6 +1,6 @@
 ---
-title: Scenario-beschikbaarheid - spraakservices
-titlesuffix: Azure Cognitive Services
+title: Beschik baarheid van scenario-spraak service
+titleSuffix: Azure Cognitive Services
 description: Verwijzing voor regio's van de Speech-Service.
 services: cognitive-services
 author: chrisbasoglu
@@ -10,40 +10,40 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 7aa2c72a01f1887ea9680f8d5706b825a49039a1
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 94fd415909e86a43916ee2f510732a6a6d9c5ed3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561291"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552955"
 ---
-# <a name="scenario-availability"></a>Scenario-beschikbaarheid
+# <a name="scenario-availability"></a>Beschik baarheid scenario
 
-De spraak-service-SDK biedt veel scenario's voor een groot aantal programmeertalen en omgevingen.  Er zijn nog niet in alle scenario's die momenteel beschikbaar in alle programmeertalen of alle omgevingen.  Hieronder ziet u de beschikbaarheid van elk scenario.
+De Speech Service SDK bevat verschillende scenario's voor een groot aantal programmeer talen en omgevingen.  Niet alle scenario's zijn momenteel beschikbaar in alle programmeer talen of in alle omgevingen.  Hieronder vindt u de beschik baarheid van elk scenario.
 
-- **Speech-Recognition (SR), Phrase List, Intent, Translation, and On-premises containers**
-  - Alle talen/programmeeromgevingen waarbij er een pijlkoppeling <img src="media/index/link.jpg" height="15" width="15"></img> in de Quick Start-tabel [hier](https://aka.ms/csspeech).
-- **Spraak**
-  - C++/ Windows en Linux
-  - C#/ Windows & UWP & Unity
-  - TTS REST-API kan worden gebruikt in elke andere situatie.
-- **Wake Word (Keyword Spotter/KWS)**
-  - C++/ Windows en Linux
+- **Spraak herkenning (SR), woordgroepen lijst, intentie, vertaling en on-premises containers**
+  - Alle programmeer talen/omgevingen met een pijl koppeling <img src="media/index/link.jpg" height="15" width="15"></img> in de tabel Quick Start [hier](https://aka.ms/csspeech).
+- **Tekst-naar-spraak (TTS)**
+  - C++/Windows & Linux
+  - C#/Windows & UWP & eenheid
+  - TTS-REST API kunnen worden gebruikt in elke andere situatie.
+- **Wake woord (Keyword Spotter/KWS)**
+  - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
-  - Java/Windows- en Linux- en Android (spraak apparaten SDK)
-  - Wake Word (sleutelwoord Spotter/KWS)-functionaliteit mogelijk werken met elk type zijn microfoon, officiële KWS, maar ondersteunen is momenteel beperkt tot de microfoon matrices worden gevonden in de Azure Kinect DK-hardware of de SDK van de apparaten spraak
-- **Stem op de eerste virtuele assistent**
-  - C++/ Windows & Linux en macOS
+  - Java/Windows & Linux & Android (Speech-apparaten SDK)
+  - De functionaliteit van het Wake-woord (Keyword Spotter/KWS) kan worden gebruikt voor elk type microfoon, maar de ondersteuning van officiële KWS is momenteel beperkt tot de microfoon matrices die zijn gevonden in de Azure Kinect DK-hardware of de speech-apparaten SDK
+- **De televoice-eerste virtuele assistent**
+  - C++/Windows & Linux & macOS
   - C#/Windows
-  - Java/Windows & Linux, Mac OS & Android (spraak apparaten SDK)
-- **Conversatie transcriptie**
-  - C++/ Windows en Linux
-  - C# (Framework & .NET Core)/Windows & UWP & Linux
-  - Java/Windows- en Linux- en Android (spraak apparaten SDK)
-- **Callcenter transcriptie**
-  - De REST-API en kan worden gebruikt in een situatie
-- **Codec gecomprimeerd Audio-invoer**
+  - Java/Windows & Linux & macOS & Android (Speech apparaten SDK)
+- **Gesprek transcriptie**
+  - C++/Windows & Linux
+  - C#(Framework & .NET core)/Windows & UWP & Linux
+  - Java/Windows & Linux & Android (Speech-apparaten SDK)
+- **Call Center transcriptie**
+  - REST API en kunnen in elke situatie worden gebruikt
+- **Door codec gecomprimeerde audio-invoer**
   - C++/Linux
   - C#/Linux
-  - Java-/ Linux- en Android
+  - Java/Linux & Android

@@ -1,6 +1,6 @@
 ---
-title: Vooraf gedefinieerde valuta-eenheid
-titleSuffix: Azure
+title: Valuta vooraf samengestelde entiteit-LUIS
+titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat valuta vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 7e882a66ae5a090e1fd3a0850ff35281dc4e692d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 369e8f94a4733a7c9e21fee98c72aa447802e943
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072012"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563491"
 ---
-# <a name="currency-prebuilt-entity-for-a-luis-app"></a>Valuta vooraf gedefinieerde entiteit voor een LUIS-app
-De vooraf gedefinieerde valuta-eenheid detecteert valuta in veel nominale waarden en landen/regio's, ongeacht de cultuur van LUIS-app. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen voorbeeld uitingen met valuta voor de toepassing intents. Valuta entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
+# <a name="currency-prebuilt-entity-for-a-luis-app"></a>Voor de valuta vooraf samengestelde entiteit voor een LUIS-app
+De vooraf samengestelde valuta-entiteit detecteert valuta in veel coupures en landen/regio's, ongeacht de LUIS-app-cultuur. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen voorbeeld uitingen met valuta voor de toepassing intents. Valuta entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-currency"></a>Typen valuta
-Valuta wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26) GitHub-opslagplaats
+Valuta wordt beheerd vanuit de map [recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26) github
 
 ## <a name="resolution-for-currency-entity"></a>Oplossing voor de valuta-eenheid
 
-### <a name="api-version-2x"></a>API-versie 2.x
+### <a name="api-version-2x"></a>API-versie 2. x
 
 Het volgende voorbeeld ziet u de resolutie van de **builtin.currency** entiteit.
 
@@ -64,9 +64,9 @@ Het volgende voorbeeld ziet u de resolutie van de **builtin.currency** entiteit.
 
 
 
-### <a name="preview-api-version-3x"></a>Preview-API-versie 3.x
+### <a name="preview-api-version-3x"></a>Preview-API versie 3. x
 
-De volgende JSON is met de `verbose` parameter ingesteld op `false`:
+De volgende JSON is met de `verbose` para meter ingesteld `false`op:
 
 ```json
 {
@@ -91,7 +91,7 @@ De volgende JSON is met de `verbose` parameter ingesteld op `false`:
 }
 ```
 
-De volgende JSON is met de `verbose` parameter ingesteld op `true`:
+De volgende JSON is met de `verbose` para meter ingesteld `true`op:
 
 ```json
 {
