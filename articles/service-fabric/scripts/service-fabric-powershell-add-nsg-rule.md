@@ -1,9 +1,9 @@
 ---
-title: 'Azure PowerShell-Script voorbeeld: een regel voor netwerkbeveiligingsgroep toevoegen | Microsoft Docs'
-description: Voorbeeld van Azure PowerShell-Script - voegt een netwerkbeveiligingsgroep waarmee binnenkomend verkeer op een specifieke poort toe.
+title: Azure PowerShell-voorbeeld script-een regel voor een netwerk beveiligings groep toevoegen | Microsoft Docs
+description: 'Azure PowerShell script-voor beeld: Hiermee wordt een netwerk beveiligings groep toegevoegd om binnenkomend verkeer op een specifieke poort toe te staan.'
 services: service-fabric
 documentationcenter: ''
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,18 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 11/28/2017
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 92efd6c4e63959b6098829892c5cbbaeeabe9f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1418b85bfa2579ed2dee5211a79a75adf14f1547
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66159984"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592290"
 ---
-# <a name="add-an-inbound-network-security-group-rule"></a>Een inkomende regel voor de netwerkbeveiligingsgroep toevoegen
+# <a name="add-an-inbound-network-security-group-rule"></a>Een regel voor een inkomende netwerk beveiligings groep toevoegen
 
-Met dit voorbeeldscript maakt een regel voor netwerkbeveiligingsgroep om binnenkomend verkeer op poort 8081 toestaan.  Het script haalt de `Microsoft.Network/networkSecurityGroups` resource waarin het cluster zich bevindt, maakt u een nieuwe configuratie voor netwerkbeveiligingsregel en werkt de netwerkbeveiligingsgroep. Pas de parameters zo nodig aan.
+Met dit voorbeeld script maakt u een regel voor de netwerk beveiligings groep om binnenkomend verkeer op poort 8081 toe te staan.  Met het script wordt `Microsoft.Network/networkSecurityGroups` de bron opgehaald waarin het cluster zich bevindt, wordt er een nieuwe netwerk beveiligings configuratie regel gemaakt en wordt de netwerk beveiligings groep bijgewerkt. Pas de parameters zo nodig aan.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -41,9 +41,9 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 | Opdracht | Opmerkingen |
 |---|---|
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Haalt de `Microsoft.Network/networkSecurityGroups`-resource op. |
-|[Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)| Hiermee wordt de netwerkbeveiligingsgroep opgehaald met de naam.|
-|[Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| Voegt een regelconfiguratie voor netwerk-beveiliging toe aan een netwerkbeveiligingsgroep. |
-|[Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup)| Stelt de doelstatus voor een netwerkbeveiligingsgroep.|
+|[Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)| Hiermee wordt de netwerk beveiligings groep op naam opgehaald.|
+|[Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| Hiermee voegt u een configuratie van een netwerk beveiligings regel toe aan een netwerk beveiligings groep. |
+|[Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup)| Hiermee stelt u de doel status voor een netwerk beveiligings groep in.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

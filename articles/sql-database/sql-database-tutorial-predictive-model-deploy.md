@@ -1,7 +1,7 @@
 ---
-title: 'Zelfstudie: Implementeren van een Voorspellend model R'
+title: 'Zelfstudie: Een voorspellend model implementeren in R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: In deel drie van deze driedelige zelfstudie implementeert u een Voorspellend model R met Machine Learning Services (preview) van Azure SQL Database.
+description: In deel drie van deze zelf studie met drie delen implementeert u een voorspellend model in R met Azure SQL Database Machine Learning Services (preview).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -12,43 +12,43 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 17b68f71f4034e5eb637d40b975cc22d94438fb7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.date: 07/26/2019
+ms.openlocfilehash: 9fa816b2a8e736f03c99b66b898f48bd2a483b31
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978694"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596767"
 ---
-# <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Zelfstudie: Een Voorspellend model R met Machine Learning Services (preview) van Azure SQL Database implementeren
+# <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Zelfstudie: Een voorspellend model implementeren in R met Azure SQL Database Machine Learning Services (preview)
 
-In deel drie van deze driedelige zelfstudie implementeert u een Voorspellend model R met Machine Learning Services (preview) van Azure SQL Database.
+In deel drie van deze zelf studie in drie delen implementeert u een voorspellend model, ontwikkeld in R, in een SQL database met behulp van Azure SQL Database Machine Learning Services (preview).
 
-Met een ingesloten R-script die Hiermee worden voorspellingen gedaan met behulp van het model maakt u een opgeslagen procedure. Omdat het model wordt uitgevoerd in de Azure SQL database, kan deze eenvoudig worden getraind op basis van gegevens die zijn opgeslagen in de database.
+U maakt een opgeslagen procedure met een Inge sloten R-script waarmee voor spellingen worden gemaakt met behulp van het model. Omdat uw model wordt uitgevoerd in Azure SQL database, kan het eenvoudig worden getraind op basis van gegevens die zijn opgeslagen in de data base.
 
-In dit artikel leert u hoe u:
+In dit artikel wordt beschreven hoe u de R-scripts gebruikt die u in de delen één en twee hebt ontwikkeld, kunt u het volgende doen:
 
 > [!div class="checklist"]
-> * Voorspellend model Store in een databasetabel
-> * Een opgeslagen procedure die wordt gegenereerd van het model maken
-> * Een opgeslagen procedure die Hiermee worden voorspellingen gedaan met behulp van het model maken
-> * Het model met nieuwe gegevens worden uitgevoerd
+> * Een opgeslagen procedure maken waarmee het machine learning model wordt gegenereerd
+> * Het model opslaan in een database tabel
+> * Een opgeslagen procedure maken die voor spellingen maakt met behulp van het model
+> * Het model uitvoeren met nieuwe gegevens
 
-In [deel één](sql-database-tutorial-predictive-model-prepare-data.md), hebt u geleerd hoe u een voorbeelddatabase importeren in een Azure SQL database en vervolgens de gegevens moet worden gebruikt voor het trainen van een Voorspellend model R. voorbereiden
+In [deel één](sql-database-tutorial-predictive-model-prepare-data.md)hebt u geleerd hoe u een voorbeeld database importeert en vervolgens de gegevens voorbereidt die moeten worden gebruikt voor het trainen van een voorspellend model in R.
 
-In [deel twee](sql-database-tutorial-predictive-model-build-compare.md), hebt u geleerd hoe u kunt maken en meerdere modellen trainen en vervolgens kiest u de meest nauwkeurige.
+In [deel twee](sql-database-tutorial-predictive-model-build-compare.md)hebt u geleerd hoe u meerdere machine learning modellen maakt en traint in R. vervolgens kiest u de meest nauw keurige versie.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Deel 3 van deze zelfstudie wordt ervan uitgegaan dat u hebt [ **deel één** ](sql-database-tutorial-predictive-model-prepare-data.md) en [ **deel twee**](sql-database-tutorial-predictive-model-build-compare.md).
+* In deel drie van deze zelf studie wordt ervan uitgegaan dat u [**deel één**](sql-database-tutorial-predictive-model-prepare-data.md) en [**deel twee**](sql-database-tutorial-predictive-model-build-compare.md)hebt voltooid.
 
-## <a name="create-a-stored-procedure-that-generates-the-model"></a>Een opgeslagen procedure die wordt gegenereerd van het model maken
+## <a name="create-a-stored-procedure-that-generates-the-model"></a>Een opgeslagen procedure maken waarmee het model wordt gegenereerd
 
-In deel twee van deze zelfstudie, kunt u besloten dat een decision tree (dtree)-model de meest nauwkeurige is. Maak nu een opgeslagen procedure (`generate_rental_rx_model`) die traint en genereert de dtree-model met behulp van rxDTree van het pakket RevoScaleR.
+In deel twee van deze reeks zelf studies hebt u besloten dat een beslissings structuur model (dTree) het nauwkeurigst is. Maak nu met behulp van de R-scripts die u hebt ontwikkeld`generate_rental_rx_model`, een opgeslagen procedure () die het dTree-model met rxDTree in het RevoScaleR-pakket contraint en genereert.
 
-Voer de volgende opdrachten in Azure Data Studio of in SSMS.
+Voer de volgende opdrachten uit in Azure Data Studio of SSMS.
 
 ```sql
 -- Stored procedure that trains and generates an R model using the rental_data and a decision tree algorithm
@@ -88,11 +88,11 @@ END;
 GO
 ```
 
-## <a name="store-the-model-in-a-database-table"></a>Het model in een databasetabel Store
+## <a name="store-the-model-in-a-database-table"></a>Het model opslaan in een database tabel
 
-Een tabel in de database TutorialDB maakt en sla het model aan de tabel.
+Maak een tabel in de Tutorialdb maakt-data base en sla het model vervolgens op in de tabel.
 
-1. Een tabel maken (`rental_rx_models`) voor het opslaan van het model.
+1. Maak een tabel (`rental_rx_models`) voor het opslaan van het model.
 
     ```sql
     USE TutorialDB;
@@ -105,7 +105,7 @@ Een tabel in de database TutorialDB maakt en sla het model aan de tabel.
     GO
     ```
 
-1. Sla het model aan de tabel als een binaire-object met de model-naam 'rxDTree'.
+1. Sla het model op in de tabel als een binair object met de naam van het model "rxDTree".
 
     ```sql
     -- Save model to table
@@ -128,9 +128,9 @@ Een tabel in de database TutorialDB maakt en sla het model aan de tabel.
     FROM rental_rx_models;
     ```
 
-## <a name="create-a-stored-procedure-that-makes-predictions"></a>Een opgeslagen procedure waarmee voorspellingen maken
+## <a name="create-a-stored-procedure-that-makes-predictions"></a>Een opgeslagen procedure maken die voor spellingen doet
 
-Een opgeslagen procedure maken (`predict_rentalcount_new`) die Hiermee worden voorspellingen gedaan met behulp van het getrainde model en een set met nieuwe gegevens.
+Maak een opgeslagen procedure (`predict_rentalcount_new`) die voor spellingen maakt met behulp van het getrainde model en een set nieuwe gegevens.
 
 ```sql
 -- Stored procedure that takes model name and new data as input parameters and predicts the rental count for the new data
@@ -173,9 +173,9 @@ END;
 GO
 ```
 
-## <a name="execute-the-model-with-new-data"></a>Het model met nieuwe gegevens worden uitgevoerd
+## <a name="execute-the-model-with-new-data"></a>Het model uitvoeren met nieuwe gegevens
 
-Nu kunt u de opgeslagen procedure `predict_rentalcount_new` om te voorspellen van het aantal verhuur van nieuwe gegevens.
+Nu kunt u de opgeslagen procedure `predict_rentalcount_new` gebruiken om het aantal huren van nieuwe gegevens te voors pellen.
 
 ```sql
 -- Use the predict_rentalcount_new stored procedure with the model name and a set of features to predict the rental count
@@ -190,37 +190,37 @@ EXECUTE dbo.predict_rentalcount_new @model_name = 'rxDTree'
 GO
 ```
 
-U ziet een resultaat vergelijkbaar met de volgende.
+Er wordt een resultaat weer gegeven dat er ongeveer als volgt uitziet.
 
 ```results
 RentalCount_Predicted
 332.571428571429
 ```
 
-U hebt gemaakt, getraind, en een model in een Azure SQL database geïmplementeerd. Vervolgens gebruikt u dit model in een opgeslagen procedure om te voorspellen op basis van waarden op nieuwe gegevens.
+U hebt een model gemaakt, getraind en geïmplementeerd in een Azure-SQL database. Vervolgens gebruikt u dat model in een opgeslagen procedure om waarden te voors pellen op basis van nieuwe gegevens.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u klaar bent met het gebruik van de TutorialDB-database, verwijdert u deze uit uw Azure SQL Database-server.
+Wanneer u klaar bent met het gebruik van de Tutorialdb maakt-data base, verwijdert u deze van uw Azure SQL Database-Server.
 
-Voer de volgende stappen uit vanuit de Azure-portal:
+Voer de volgende stappen uit op de Azure Portal:
 
-1. Selecteer in het menu links in Azure portal **alle resources** of **SQL-databases**.
-1. In de **filteren op naam...**  veld **TutorialDB**, en selecteer uw abonnement.
-1. Selecteer uw database TutorialDB.
+1. Selecteer in het menu aan de linkerkant in het Azure Portal **alle resources** of **SQL-data bases**.
+1. Typ **tutorialdb maakt**in het veld **filteren op naam...** en selecteer uw abonnement.
+1. Selecteer uw Tutorialdb maakt-data base.
 1. Selecteer **Verwijderen** op de pagina **Overzicht**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deel drie van deze zelfstudie, moet u deze stappen voltooid:
+In deel drie van deze reeks zelf studies hebt u de volgende stappen uitgevoerd:
 
-* Voorspellend model Store in een databasetabel
-* Een opgeslagen procedure die wordt gegenereerd van het model maken
-* Een opgeslagen procedure die Hiermee worden voorspellingen gedaan met behulp van het model maken
-* Het model met nieuwe gegevens worden uitgevoerd
+* Een opgeslagen procedure maken waarmee het machine learning model wordt gegenereerd
+* Het model opslaan in een database tabel
+* Een opgeslagen procedure maken die voor spellingen maakt met behulp van het model
+* Het model uitvoeren met nieuwe gegevens
 
-Zie voor meer informatie over het gebruik van R in Machine Learning Services (preview) voor Azure SQL Database:
+Zie voor meer informatie over het gebruik van R in Azure SQL Database Machine Learning Services (preview):
 
-* [Schrijven van geavanceerde R-functies in Azure SQL Database met behulp van Machine Learning-Services (preview)](sql-database-machine-learning-services-functions.md)
-* [Werken met R- en SQL-gegevens in Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-data-issues.md)
-* [Een R-pakket toevoegen aan Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-add-r-packages.md)
+* [Geavanceerde R-functies schrijven in Azure SQL Database met behulp van Machine Learning Services (preview)](sql-database-machine-learning-services-functions.md)
+* [Werken met R-en SQL-gegevens in Azure SQL Database Machine Learning Services (preview-versie)](sql-database-machine-learning-services-data-issues.md)
+* [Een R-pakket toevoegen aan Azure SQL Database Machine Learning Services (preview-versie)](sql-database-machine-learning-services-add-r-packages.md)

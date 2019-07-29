@@ -3,7 +3,7 @@ title: Een .NET-toepassing in een container implementeren in Azure Service Fabri
 description: Informatie over hoe u een bestaande .NET-toepassing in een container plaatst met behulp van Visual Studio en lokaal fouten opspoort in containers in Service Fabric. De in een container geplaatste toepassing wordt naar een Azure-containerregister gepusht en geïmplementeerd in een Service Fabric-cluster. Wanneer de toepassing is geïmplementeerd in Azure, gebruikt deze Azure SQL DB voor het persistent maken van gegevens.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/08/2019
-ms.author: aljo
-ms.openlocfilehash: 6c479553dcb6debe47a2b37ef85b6f3930e135c8
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.author: atsenthi
+ms.openlocfilehash: 66d668821c47854d006f2efa425d38f9bf1df7d0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228125"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599512"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Zelfstudie: Een .NET-toepassing in een Windows-container implementeren in Azure Service Fabric
 
@@ -41,14 +41,14 @@ In deze zelfstudie leert u het volgende:
 1. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Installeer [Docker CE voor Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) zodat u containers op Windows 10 kunt uitvoeren.
 3. Installeer [Service Fabric-runtime versie 6.2 of hoger](service-fabric-get-started.md) en de [Service Fabric SDK versie 3.1](service-fabric-get-started.md) of hoger.
-4. Installeer [Visual Studio 2019 versie 16,1](https://www.visualstudio.com/) of hoger met de **Azure-ontwikkeling** en **ASP.NET en webontwikkeling** werkbelastingen.
-5. Installeer [Azure PowerShell][link-azure-powershell-install]
+4. Installeer [Visual Studio 2019 versie 16,1](https://www.visualstudio.com/) of hoger met de werk belasting **Azure Development** en **ASP.net en Web Development** .
+5. [Azure PowerShell][link-azure-powershell-install] installeren
  
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Fabrikam Fiber CallCenter downloaden en uitvoeren
-Download de [Fabrikam Fiber CallCenter][link-fabrikam-github] voorbeeldtoepassing.  Klik op de koppeling **Archief downloaden**.  Extraheer vanuit de map *sourceCode* in het bestand *fabrikam.zip* het bestand *sourceCode.zip* en extraheer de map *VS2015* vervolgens op uw computer.
+Down load de voorbeeld toepassing voor [fabrikam Fiber callcenter][link-fabrikam-github] .  Klik op de koppeling **Archief downloaden**.  Extraheer vanuit de map *sourceCode* in het bestand *fabrikam.zip* het bestand *sourceCode.zip* en extraheer de map *VS2015* vervolgens op uw computer.
 
-Controleer of de toepassing Fabrikam Fiber CallCenter wordt opgebouwd en zonder fouten wordt uitgevoerd.  Start Visual Studio als een **beheerder** en open de [FabrikamFiber.CallCenter.sln][link-fabrikam-github] bestand.  Druk op F5 om fouten op te sporen in de toepassing en de toepassing uit te voeren.
+Controleer of de toepassing Fabrikam Fiber CallCenter wordt opgebouwd en zonder fouten wordt uitgevoerd.  Start Visual Studio als **beheerder** en open het bestand [project fabrikamfiber. callcenter. SLN][link-fabrikam-github] .  Druk op F5 om fouten op te sporen in de toepassing en de toepassing uit te voeren.
 
 ![Fabrikam-webvoorbeeld][fabrikam-web-page]
 
@@ -235,7 +235,7 @@ Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio impleme
 
 ![Uw toepassing publiceren][publish-app]
 
-Volg de voortgang van de implementatie in het uitvoervenster.  Wanneer de toepassing is geïmplementeerd, opent u een browser en typt u het clusteradres en de toepassingspoort. Bijvoorbeeld: http:\//fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
+Volg de voortgang van de implementatie in het uitvoervenster.  Wanneer de toepassing is geïmplementeerd, opent u een browser en typt u het clusteradres en de toepassingspoort. Bijvoorbeeld http:\//fabrikamfibercallcenter.southcentralus.cloudapp.Azure.com:8659/.
 
 ![Fabrikam-webvoorbeeld][fabrikam-web-page-deployed]
 

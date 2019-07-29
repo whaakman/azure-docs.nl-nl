@@ -1,9 +1,9 @@
 ---
-title: Azure PowerShell-Script voorbeeld - App in een cluster implementeren | Microsoft Docs
-description: Azure PowerShell-Script voorbeeld - een toepassing implementeren in een Service Fabric-cluster.
+title: Voor beeld van Azure PowerShell script-toepassing implementeren in een cluster | Microsoft Docs
+description: Azure PowerShell-voorbeeld script-een toepassing implementeren op een Service Fabric cluster.
 services: service-fabric
 documentationcenter: ''
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,18 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/18/2018
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 6de7a721a5042a20537d3f09ea9b8de1cc0e7169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 53c4d3c18072f2644c472e5b78f144faba4dce50
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622030"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597729"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Een toepassing implementeren naar een Service Fabric-cluster
 
-Met dit voorbeeldscript een toepassingspakket worden gekopieerd naar de installatiekopieopslag van een cluster, het toepassingstype registreert in het cluster, verwijdert u het pakket onnodige toepassingen en exemplaar van een toepassing maakt van het toepassingstype.  Als alle services die standaard zijn gedefinieerd in het toepassingsmanifest van het type doeltoepassing, worden deze services gemaakt op dit moment. Pas de parameters zo nodig aan. 
+Met dit voorbeeld script wordt een toepassings pakket gekopieerd naar een cluster installatie kopie archief, wordt het toepassings type geregistreerd in het cluster, wordt het overbodige toepassings pakket verwijderd en wordt er een toepassings exemplaar van het toepassings type gemaakt.  Als er standaard services zijn gedefinieerd in het toepassings manifest van het type doel toepassing, worden deze services op dit moment gemaakt. Pas de parameters zo nodig aan. 
 
 Installeer indien nodig de Service Fabric PowerShell-module met de [Service Fabric-SDK](../service-fabric-get-started.md). 
 
@@ -34,7 +34,7 @@ Installeer indien nodig de Service Fabric PowerShell-module met de [Service Fabr
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
 
-Nadat het voorbeeldscript is uitgevoerd, het script in [verwijderen van een toepassing](service-fabric-powershell-remove-application.md) kan worden gebruikt om het toepassingsexemplaar te verwijderen en het toepassingspakket verwijderen uit de installatiekopieopslag registratie van het toepassingstype.
+Nadat het voorbeeld script is uitgevoerd, kan het script voor het [verwijderen van een toepassing](service-fabric-powershell-remove-application.md) worden gebruikt om het toepassings exemplaar te verwijderen, de registratie van het toepassings type op te heffen en het toepassings pakket te verwijderen uit het archief met installatie kopieën.
 
 ## <a name="script-explanation"></a>Uitleg van het script
 
@@ -42,14 +42,14 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-|[Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)| Hiermee maakt u een verbinding met een Service Fabric-cluster. |
-|[Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Kopieën opgeslagen voor een toepassingspakket op de installatiekopie van het cluster.  |
-|[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| Registreert een toepassingstype en de versie op het cluster. |
-|[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| Hiermee maakt u een toepassing van een geregistreerde toepassing. |
-| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Hiermee verwijdert u een Service Fabric-toepassingspakket uit de installatiekopieopslag.|
+|[Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)| Hiermee maakt u een verbinding met een Service Fabric cluster. |
+|[Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Kopieert een toepassings pakket naar het cluster installatie kopie archief.  |
+|[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| Registreert een toepassings type en-versie op het cluster. |
+|[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| Hiermee maakt u een toepassing van een geregistreerd toepassings type. |
+| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Hiermee verwijdert u een Service Fabric toepassings pakket uit het archief met installatie kopieën.|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Service Fabric PowerShell-module [documentatie over Azure PowerShell](/powershell/azure/service-fabric/?view=azureservicefabricps).
+Zie [Azure PowerShell-documentatie](/powershell/azure/service-fabric/?view=azureservicefabricps)voor meer informatie over de service Fabric Power shell-module.
 
 Meer PowerShell-voorbeelden voor Azure Service Fabric vindt u in de [voorbeelden van Azure PowerShell](../service-fabric-powershell-samples.md).

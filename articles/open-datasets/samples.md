@@ -1,45 +1,45 @@
 ---
-title: Voorbeeld van de Jupyter-notebooks met behulp van een NOAA openen gegevensset
+title: Voor beelden van Jupyter-notebooks met behulp van een NOAA-geopende gegevensset
 titleSuffix: Azure Open Datasets
-description: Voorbeeld van de Jupyter-notebooks voor Azure Open gegevenssets voor informatie over het open gegevenssets laden en ze gebruiken om te verrijken demogegevens gebruiken. Technieken zijn onder meer gebruik van Spark en Pandas om gegevens te verwerken.
+description: Gebruik voor beelden van Jupyter-notebooks voor Azure open-gegevens sets voor meer informatie over het laden van open gegevens sets en het gebruik ervan om voorbeeld gegevens te verrijken. Technieken zijn het gebruik van Spark en Pandas voor het verwerken van gegevens.
 ms.service: open-datasets
 ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: b62a2690e5879e45a14d0b06a38e8c5171dda14e
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 6991b641bc85a8944bfd12a43f9b049e44ea88d8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442327"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598973"
 ---
-# <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Voorbeeld van de Jupyter-notebooks laten zien hoe u gegevens met Open gegevenssets duidelijker maken 
-Het voorbeeld van de Jupyter-notebooks voor gegevenssets die Azure Open laten zien hoe u open gegevenssets laden en gebruik ze voor de demogegevens duidelijker maken. Technieken zijn onder meer gebruik van Apache Spark en Pandas om gegevens te verwerken.
+# <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Voor beelden van Jupyter-notebooks laten zien hoe gegevens kunnen worden verrijkt met open gegevens sets 
+In het voor beeld Jupyter-notebooks voor Azure open gegevens sets kunt u zien hoe u open gegevens sets laadt en hoe u deze gebruikt voor het verrijken van demo gegevens Technieken zijn het gebruik van Apache Spark en Pandas voor het verwerken van gegevens.
 
 >[!IMPORTANT]
->Als u werkt in een niet-Spark-omgeving, kunt openen gegevenssets slechts één maand van gegevens op een tijdstip met bepaalde klassen downloaden om te voorkomen dat MemoryError met grote gegevenssets.
+>Wanneer u in een niet-Spark-omgeving werkt, kunt u met data sets een gegevens verzameling van slechts één maand met bepaalde klassen downloaden om MemoryError te voor komen met grote gegevens sets.
 
-## <a name="load-noaa-integrated-surface-database-isd-data"></a>Laden van gegevens van NOAA geïntegreerde Surface Database (RBD) 
+## <a name="load-noaa-integrated-surface-database-isd-data"></a>ISD-gegevens (NOAA Integrated Surface data base) laden 
 |Notebook        | Description                                    |
 |----------------|------------------------------------------------|
-|[Een recente maand van Weergegevens laden in een Pandas dataframe](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/02-weather-to-pandas-dataframe.ipynb) | Informatie over het laden van historische weergegevens in uw favoriete Pandas dataframe. |
-|[Een recente maand van weergegevens in Spark dataframe te laden](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/01-weather-to-spark-dataframe.ipynb) | Leer hoe u historische weergegevens in uw favoriete Spark dataframe te laden.  |
+|[Eén recente maand van weer gegevens laden in een Panda data frame](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/02-weather-to-pandas-dataframe.ipynb) | Meer informatie over het laden van historische weers gegevens in uw favoriete Panda data frame. |
+|[Eén recente maand van weer gegevens in een Spark-data frame laden](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/01-weather-to-spark-dataframe.ipynb) | Meer informatie over het laden van historische weer gegevens in uw favoriete Spark-data frame.  |
 
-## <a name="join-demo-data-with-noaa-isd-data"></a>Demogegevens met NOAA RBD gegevens samenvoegen 
+## <a name="join-demo-data-with-noaa-isd-data"></a>Demo gegevens samen voegen met NOAA ISD-gegevens 
 |Notebook        | Description                                    |
 |----------------|------------------------------------------------|
-|[Demogegevens met weergegevens - Pandas samenvoegen](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Neem deel aan een gegevensset 1 maand demo van sensor locaties met, serverlogs, weer in een Pandas dataframe.  |
-|[Demogegevens met weergegevens: Spark samenvoegen](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Neem deel aan een gegevensset demo van sensor locaties met, serverlogs, weer in een Spark dataframe. |
+|[Demo gegevens samen voegen met weer gegevens-Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Neem een demo-gegevensset van 1 maand van sensor locaties met weers-lezen in een Panda data frame.  |
+|[Demo gegevens samen voegen met weer gegevens: Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Voeg een demo-gegevensset van sensor locaties toe met weers leesingen in een Spark-data frame. |
 
-## <a name="join-nyc-taxi-data-with-noaa-isd-data"></a>Gegevens van de NYC taxi met NOAA RBD gegevens samenvoegen 
+## <a name="join-nyc-taxi-data-with-noaa-isd-data"></a>NYC taxi-gegevens samen voegen met NOAA ISD-gegevens 
 |Notebook        | Description                                    |
 |----------------|------------------------------------------------|
-|[De gegevens van de fietstocht taxi verrijkt met weergegevens - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) | Laden van gegevens van de groene taxi NYC (meer dan 1 maand) en het verrijken met weergegevens in een Pandas dataframe. In dit voorbeeld vervangt u de methode `get_pandas_limit` en geeft een balans tussen prestaties van de gegevens laden met de hoeveelheid gegevens.|
-|[De gegevens van de fietstocht taxi verrijkt met weergegevens: Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/03-nyc-taxi-join-weather-in-spark.ipynb) | NYC groen taxi gegevens laden en het verrijken met weergegevens in Spark dataframe.  |
+|[Gegevens over de taxi-reis worden verrijkt met weer gegevens-Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) | Laad NYC groene taxi gegevens (meer dan 1 maand) en Verrijk deze met weer gegevens in een Panda data frame. In dit voor beeld wordt de methode `get_pandas_limit` overschreven en worden de prestaties van gegevens belasting met de hoeveelheid gegevens gebalanceerd.|
+|[Gegevens over de taxi-reis verrijken met weer gegevens-Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/03-nyc-taxi-join-weather-in-spark.ipynb) | Laad NYC groene taxi gegevens en verrijkt deze met weer gegevens in Spark data frame.  |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Zelfstudie: Regressie modelleren met geautomatiseerde machine learning en een open-gegevensset](tutorial-opendatasets-automl.md)
-* [Python-SDK voor gegevenssets die worden geopend](https://aka.ms/open-datasets-api)
-* [Azure Open gegevenssets catalogus](https://azure.microsoft.com/services/open-datasets/catalog/)
+* [Zelfstudie: Regressie modellen met automatische machine learning en een open gegevensset](tutorial-opendatasets-automl.md)
+* [Python-SDK voor open gegevens sets](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
+* [Azure open data sets Catalog](https://azure.microsoft.com/services/open-datasets/catalog/)

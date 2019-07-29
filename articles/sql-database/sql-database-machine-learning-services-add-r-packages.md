@@ -1,7 +1,7 @@
 ---
-title: Een R-pakket toevoegen aan Azure SQL Database Machine Learning Services (preview)
+title: Een R-pakket toevoegen aan Azure SQL Database Machine Learning Services (preview-versie)
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: In dit artikel wordt uitgelegd hoe u een R-pakket dat niet is al geïnstalleerd in Azure SQL Database Machine Learning-Services (preview) installeren.
+description: In dit artikel wordt uitgelegd hoe u een R-pakket installeert dat nog niet is geïnstalleerd in Azure SQL Database Machine Learning Services (preview).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -13,32 +13,32 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
-ms.openlocfilehash: 4e7145570cbc906ea540c9d8f95f6c3cbde1c610
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: f82408a6aaa7cf3a492f3036a6db5d8666b6f160
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927098"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598049"
 ---
-# <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Een R-pakket toevoegen aan Azure SQL Database Machine Learning Services (preview)
+# <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Een R-pakket toevoegen aan Azure SQL Database Machine Learning Services (preview-versie)
 
-In dit artikel wordt uitgelegd hoe u een R-pakket toevoegen aan Azure SQL Database Machine Learning Services (preview).
+In dit artikel wordt uitgelegd hoe u een R-pakket toevoegt aan Azure SQL Database Machine Learning Services (preview).
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Installeer [R](https://www.r-project.org) en [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) op uw lokale computer. R is beschikbaar voor Windows, MacOS en Linux. In dit artikel wordt ervan uitgegaan dat u gebruikmaakt van Windows.
+- Installeer [R](https://www.r-project.org) en [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) op uw lokale computer. R is beschikbaar voor Windows, MacOS en Linux. In dit artikel wordt ervan uitgegaan dat u Windows gebruikt.
 
-- Dit artikel bevat een voorbeeld van het gebruik van [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) om uit te voeren van een R-script in Azure SQL Database. U kunt R-scripts met behulp van het beheer van andere databases of hulpmiddelen voor query's uitvoeren, maar in dit voorbeeld wordt ervan uitgegaan dat Azure Data Studio of SSMS.
+- Dit artikel bevat een voor beeld van het gebruik van [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) om een R-script in Azure SQL database uit te voeren. U kunt R-scripts uitvoeren met andere database beheer-of query hulpprogramma's, maar in dit voor beeld wordt ervan uitgegaan dat Azure Data Studio of SSMS.
    
 > [!NOTE]
-> U kunt een pakket niet installeren door het uitvoeren van een R-script met **sp_execute_external_script** in Azure Data Studio of in SSMS. U kunt alleen installeren en verwijderen van pakketten met behulp van de opdrachtregel voor R en RStudio, zoals beschreven in dit artikel. Wanneer het pakket is geïnstalleerd, kunt u toegang tot de pakket-functies in een R-script met **sp_execute_external_script**.
+> U kunt een pakket niet installeren door een R-script uit te voeren met behulp van **sp_execute_external_script** in azure Data Studio of SSMS. U kunt alleen pakketten installeren en verwijderen met de R-opdracht regel en RStudio zoals beschreven in dit artikel. Zodra het pakket is geïnstalleerd, kunt u met behulp van **sp_execute_external_script**toegang krijgen tot de pakket functies in een R-script.
 
 ## <a name="list-r-packages"></a>R-pakketten vermelden
 
-Microsoft biedt een aantal R-pakketten vooraf geïnstalleerd met Machine Learning-Services in uw Azure SQL database.
-U ziet een lijst met geïnstalleerde R-pakketten door het uitvoeren van de volgende opdracht uit in Azure Data Studio of in SSMS.
+Micro soft biedt een aantal R-pakketten die vooraf zijn geïnstalleerd met Machine Learning Services in uw Azure SQL database.
+U kunt een lijst met geïnstalleerde R-pakketten weer geven door de volgende opdracht uit te voeren in Azure Data Studio of SSMS.
 
 1. Open Azure Data Studio of SSMS en maak verbinding met uw Azure SQL Database.
 
@@ -56,7 +56,7 @@ WITH RESULT SETS((
             ));
 ```
 
-De uitvoer moet eruitzien als de volgende.
+De uitvoer moet er ongeveer als volgt uitzien.
 
 **Results**
 
@@ -64,22 +64,22 @@ De uitvoer moet eruitzien als de volgende.
 
 ## <a name="add-a-package-with-sqlmlutils"></a>Een pakket met sqlmlutils toevoegen
 
-Als u een pakket gebruiken dat al in uw Azure SQL Database is niet geïnstalleerd wilt, kunt u installeren met behulp van [sqlmlutils](https://github.com/Microsoft/sqlmlutils). **sqlmlutils** is een pakket dat is ontworpen om u te helpen gebruikers communiceren met de SQL-databases (SQL Server en Azure SQL Database) en uitvoeren van R of Python-code in SQL van een R of Python-client. Op dit moment alleen de R-versie van **sqlmlutils** wordt ondersteund in Azure SQL Database.
+Als u een pakket moet gebruiken dat nog niet in uw Azure SQL Database is geïnstalleerd, kunt u het installeren met behulp van [sqlmlutils](https://github.com/Microsoft/sqlmlutils). **sqlmlutils** is een pakket dat is ontworpen om gebruikers te helpen bij het werken met SQL-data bases (SQL Server en Azure SQL database) en om r-of python-code uit te voeren in SQL vanuit een R-of python-client. Op dit moment wordt alleen de R-versie van **sqlmlutils** ondersteund in Azure SQL database.
 
-In het volgende voorbeeld, installeert u de **[lijm](https://cran.r-project.org/web/packages/glue/)** pakket kunt opmaken en interpoleren tekenreeksen. Installeren van deze stappen **sqlmlutils** en **RODBCext** (een vereiste voor **sqlmlutils**), en voeg de **lijm** pakket.
+In het volgende voor beeld installeert u het **[lijm](https://cran.r-project.org/web/packages/glue/)** pakket dat teken reeksen kan Format teren en interpoleren. Met deze stappen installeert u **sqlmlutils** en **RODBCext** (een vereiste voor **sqlmlutils**) en voegt u het **lijm** pakket toe.
 
-### <a name="install-sqlmlutils"></a>Installeer **sqlmlutils**
+### <a name="install-sqlmlutils"></a>**Sqlmlutils** installeren
 
-1. Download de meest recente **sqlmlutils** zip-bestand van https://github.com/Microsoft/sqlmlutils/tree/master/R/dist naar uw lokale computer. U hoeft niet te Decomprimeer het bestand.
+1. Down load het meest recente **sqlmlutils** zip https://github.com/Microsoft/sqlmlutils/tree/master/R/dist -bestand van op de lokale computer. U hoeft het bestand niet uit te pakken.
 
-1. Open een **opdrachtprompt** en voer de volgende opdrachten voor het installeren van **RODBCext** en **sqlmlutils** op uw lokale computer. Vervang het volledige pad naar de **sqlmlutils** zip-bestand u gedownloade (in het voorbeeld wordt ervan uitgegaan dat het bestand is in de map documenten).
+1. Open een **opdracht prompt** en voer de volgende opdrachten uit om **RODBCext** en **sqlmlutils** te installeren op uw lokale computer. Vervang het volledige pad naar het **sqlmlutils** zip-bestand dat u hebt gedownload (in het voor beeld wordt ervan uitgegaan dat het bestand zich in de map documenten bevindt).
     
     ```console
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
     R CMD INSTALL %UserProfile%\Documents\sqlmlutils_0.5.1.zip
     ```
 
-    De uitvoer u ziet moet er ongeveer als volgt.
+    De uitvoer die u ziet, moet er ongeveer als volgt uitzien.
 
     ```text
     In R CMD INSTALL
@@ -88,13 +88,13 @@ In het volgende voorbeeld, installeert u de **[lijm](https://cran.r-project.org/
     ```
 
     > [!TIP]
-    > Als u de fout optreedt, '' R' wordt niet herkend als een interne of externe opdracht, programma of batch-bestand', betekent dit waarschijnlijk dat het pad naar R.exe niet is opgenomen uw **pad** omgevingsvariabele op Windows. U kunt het pad toevoegen aan de omgevingsvariabele of gaat u naar de map in de opdrachtprompt (bijvoorbeeld `cd C:\Program Files\R\R-3.5.3\bin`) en voer de opdracht vervolgens opnieuw uit.
+    > Als u de fout melding krijgt, wordt ' R ' niet herkend als een interne of externe opdracht, programma of batch bestand '. Dit betekent waarschijnlijk dat het pad naar R. exe niet is opgenomen in de omgevings variabele **Path** in Windows. U kunt het pad toevoegen aan de omgevings variabele of naar de map in de opdracht prompt gaan (bijvoorbeeld `cd C:\Program Files\R\R-3.5.3\bin`) en de opdracht vervolgens opnieuw proberen.
 
 ### <a name="add-the-package"></a>Het pakket toevoegen
 
-1. RStudio openen en maak een nieuwe **R-Script** bestand. 
+1. Open RStudio en maak een nieuw **R-script** bestand. 
 
-1. Gebruik de volgende R-code voor het installeren van de **lijm** met behulp van het pakket **sqlmlutils**. Vervangen door uw eigen Azure SQL Database-verbindingsgegevens.
+1. Gebruik de volgende R-code om het **lijm** pakket te installeren met behulp van **sqlmlutils**. Vervang uw eigen Azure SQL Database verbindings gegevens.
 
     ```R
     library(sqlmlutils)
@@ -108,11 +108,11 @@ In het volgende voorbeeld, installeert u de **[lijm](https://cran.r-project.org/
     ```
 
     > [!TIP]
-    > De **bereik** kan **openbare** of **persoonlijke**. Een openbaar bereik is handig voor de databasebeheerder om pakketten te installeren die alle gebruikers kunnen gebruiken. Persoonlijke scope maakt het pakket beschikbaar alleen voor de gebruiker die deze installeert. Als u het bereik niet opgeeft, is het standaardbereik **PRIVATE**.
+    > Het **bereik** kan **openbaar** of **privé**zijn. Een openbaar bereik is handig voor de databasebeheerder om pakketten te installeren die alle gebruikers kunnen gebruiken. Met een persoonlijk bereik is het pakket alleen beschikbaar voor de gebruiker die de app installeert. Als u het bereik niet opgeeft, is het standaardbereik **PRIVATE**.
 
-### <a name="verify-the-package"></a>Controleer of het pakket
+### <a name="verify-the-package"></a>Het pakket verifiëren
 
-Controleer de **lijm** pakket is geïnstalleerd door het uitvoeren van de volgende R-script in RStudio. Gebruik dezelfde **verbinding** u hebt gedefinieerd in de vorige stap.
+Controleer of het **lijm** pakket is geïnstalleerd door het volgende R-script uit te voeren in RStudio. Gebruik dezelfde **verbinding** die u in de vorige stap hebt gedefinieerd.
 
 ```R
 r<-sql_installed.packages(connectionString = connection, fields=c("Package", "Version", "Depends", "License"))
@@ -123,9 +123,9 @@ View(r)
 
 ![Inhoud van de RTestData-tabel](./media/sql-database-machine-learning-services-add-r-packages/r-verify-package-install.png)
 
-### <a name="use-the-package"></a>Het pakket wordt gebruikt
+### <a name="use-the-package"></a>Het pakket gebruiken
 
-Wanneer het pakket is geïnstalleerd, kunt u deze in een R-script via **sp_execute_external_script**.
+Zodra het pakket is geïnstalleerd, kunt u het gebruiken in een R-script via **sp_execute_external_script**.
 
 1. Open Azure Data Studio of SSMS en maak verbinding met uw Azure SQL Database.
 
@@ -147,7 +147,7 @@ Wanneer het pakket is geïnstalleerd, kunt u deze in een R-script via **sp_execu
     ';
     ```
 
-    U ziet het volgende resultaat in de **berichten** tabblad.
+    U ziet het volgende resultaat op het tabblad **berichten** .
 
     **Results**
 
@@ -155,21 +155,21 @@ Wanneer het pakket is geïnstalleerd, kunt u deze in een R-script via **sp_execu
     My name is Fred, my age next year is 51, my anniversary is Sunday, June 14, 2020.
     ```
 
-### <a name="remove-the-package"></a>Verwijder het pakket
+### <a name="remove-the-package"></a>Het pakket verwijderen
 
-Als u wilt het pakket te verwijderen, moet u de volgende R-script uitvoeren in RStudio. Gebruik dezelfde **verbinding** u eerder hebt gedefinieerd.
+Als u het pakket wilt verwijderen, voert u het volgende R-script uit in RStudio. Gebruik dezelfde **verbinding** die u eerder hebt gedefinieerd.
 
 ```R
 sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLIC")
 ```
 
 > [!TIP]
-> Een andere manier voor het installeren van een R-pakket aan uw Azure SQL database is voor het uploaden van het R-pakket vanuit een byte stream met de **CREATE EXTERNAL LIBRARY** T-SQL-instructie. Zie [maken van een bibliotheek van een bytestream](/sql/t-sql/statements/create-external-library-transact-sql#c-create-a-library-from-a-byte-stream) in de [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) verwijzen naar documentatie.
+> Een andere manier om een R-pakket te installeren op uw Azure-SQL database is het verzenden van het R-pakket vanuit een byte stroom met behulp van de T-SQL-instructie **Create External Library** . Zie [een bibliotheek maken op basis van een byte stroom](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) in de referentie documentatie voor het [maken van externe bibliotheken](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) .
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende artikelen voor meer informatie over Azure SQL Database Machine Learning-Services met R (preview).
+Zie de volgende artikelen voor meer informatie over Azure SQL Database Machine Learning Services met R (preview).
 
-- [Azure SQL Database Machine Learning-Services met R (preview)](sql-database-machine-learning-services-overview.md)
-- [Schrijven van geavanceerde R-functies in Azure SQL Database met behulp van Machine Learning-Services (preview)](sql-database-machine-learning-services-functions.md)
-- [Werken met R- en SQL-gegevens in Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-data-issues.md)
+- [Azure SQL Database Machine Learning Services met R (preview-versie)](sql-database-machine-learning-services-overview.md)
+- [Geavanceerde R-functies schrijven in Azure SQL Database met behulp van Machine Learning Services (preview)](sql-database-machine-learning-services-functions.md)
+- [Werken met R-en SQL-gegevens in Azure SQL Database Machine Learning Services (preview-versie)](sql-database-machine-learning-services-data-issues.md)

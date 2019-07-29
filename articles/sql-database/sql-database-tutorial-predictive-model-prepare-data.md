@@ -1,7 +1,7 @@
 ---
-title: 'Zelfstudie: Voorbereiden van gegevens met het trainen van een Voorspellend model R'
+title: 'Zelfstudie: Gegevens voorbereiden voor het trainen van een voorspellend model in R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: In deel één van deze driedelige reeks zelfstudies, zult u de gegevens uit een Azure SQL-database met het trainen van een Voorspellend model R met Machine Learning Services (preview) van Azure SQL Database voorbereiden.
+description: In deel één van deze reeks met drie zelf studies gaat u de gegevens voorbereiden van een Azure-SQL database om een voorspellend model in R te trainen met Azure SQL Database Machine Learning Services (preview).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -12,66 +12,68 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: aa9c41ee34a50ab9b1409357bfe7d123166601bf
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.date: 07/26/2019
+ms.openlocfilehash: c1271d5b63fa796fe44b7a40c364953464a87539
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978731"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596662"
 ---
-# <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Zelfstudie: Gegevens met het trainen van een Voorspellend model R met Machine Learning Services (preview) van Azure SQL Database voorbereiden
+# <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Zelfstudie: Gegevens voorbereiden voor het trainen van een voorspellend model in R met Azure SQL Database Machine Learning Services (preview)
 
-In deel één van deze driedelige reeks zelfstudies, zult u de gegevens uit een Azure SQL-database met het trainen van een Voorspellend model R met Machine Learning Services (preview) van Azure SQL Database voorbereiden.
+In deel één van deze reeks met drie delen zelf studies kunt u gegevens uit een Azure-SQL database importeren en voorbereiden met behulp van R. Verderop in deze reeks gebruikt u deze gegevens om een voorspellend machine learning model in R te trainen en te implementeren met Azure SQL Database Machine Learning Services (preview).
 
-Voor deze reeks zelfstudies Stel dat u een ski verhuur bedrijf de eigenaar bent en u wilt het aantal fietsen verhuurd die u op een datum in de toekomst hebt te voorspellen. Deze informatie helpt u bereid u voor uw voorraad, personeel en faciliteiten.
+Stel dat u voor deze reeks zelf studies eigenaar bent van een ski-huur bedrijf en u het aantal huren wilt voors pellen dat u in een toekomstige datum hebt. Deze informatie helpt u bij het voorbereiden van uw voor Raad, personeel en faciliteiten.
 
-In dit artikel leert u hoe u:
+In delen één en twee van deze reeksen ontwikkelt u enkele R-scripts in RStudio om uw gegevens voor te bereiden en een machine learning model te trainen. In deel drie voert u de R-scripts in een SQL database uit met behulp van opgeslagen procedures.
+
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
-> * Een voorbeelddatabase importeren in een Azure SQL database
-> * De gegevens uit de Azure SQL database laden in een gegevensframe met R
-> * De gegevens door te identificeren van sommige kolommen als categorische voorbereiden
+> * Een voorbeeld database importeren in een Azure-SQL database met R
+> * De gegevens van de Azure-SQL database in een R-gegevens frame laden
+> * De gegevens voorbereiden in R door bepaalde kolommen te identificeren als categorische
 
-In [deel twee](sql-database-tutorial-predictive-model-build-compare.md), leert u hoe u maken en meerdere modellen trainen en vervolgens kiest u de meest nauwkeurige.
+In [deel twee](sql-database-tutorial-predictive-model-build-compare.md)leert u hoe u meerdere machine learning modellen maakt en traint in R. vervolgens kiest u de meest nauw keurige versie.
 
-In [deel drie](sql-database-tutorial-predictive-model-deploy.md), leert u hoe u het model opslaan in een database en maak vervolgens een opgeslagen procedure die voorspellingen op basis van nieuwe gegevens kunt maken.
+In [deel drie](sql-database-tutorial-predictive-model-deploy.md)leert u hoe u het model opslaat in een Data Base en vervolgens opgeslagen procedures maakt vanuit de R-scripts die u hebt ontwikkeld in delen één en twee. De opgeslagen procedures worden in een SQL database uitgevoerd om voor spellingen te maken op basis van nieuwe gegevens.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Azure-abonnement: als u een Azure-abonnement geen [maken van een account](https://azure.microsoft.com/free/) voordat u begint.
+* Azure-abonnement: als u nog geen abonnement op Azure hebt, moet u [een account maken](https://azure.microsoft.com/free/) voordat u begint.
 
-* Azure SQL Database-Server met Machine Learning-Services ingeschakeld - tijdens de openbare preview, onboarding Microsoft zal u en machine-learning inschakelen voor uw bestaande of nieuwe databases. Volg de stappen in [Meld u aan voor de preview-versie](sql-database-machine-learning-services-overview.md#signup).
+* Azure SQL Database-Server met Machine Learning Services ingeschakeld: tijdens de open bare preview kunt u met micro soft machine learning voor uw bestaande of nieuwe data bases onbeschikbaar maken. Volg de stappen in [Meld u aan voor de preview-versie](sql-database-machine-learning-services-overview.md#signup).
 
-* RevoScaleR package - Zie [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) voor opties om dit pakket lokaal te installeren.
+* RevoScaleR-pakket: Zie [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) voor opties om dit pakket lokaal te installeren.
 
-* Deze zelfstudie wordt gebruikgemaakt van R IDE - [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/).
+* R IDE: in deze zelf studie wordt [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/)gebruikt.
 
-* Hulpprogramma voor SQL-query - in deze zelfstudie wordt ervan uitgegaan dat u [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).
+* Hulp programma voor SQL-query's-in deze zelf studie wordt ervan uitgegaan dat u [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) gebruikt.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-## <a name="import-the-sample-database"></a>De voorbeelddatabase importeren
+## <a name="import-the-sample-database"></a>De voorbeeld database importeren
 
-De voorbeeldgegevensset gebruikt in deze zelfstudie is opgeslagen in een **.bacpac** back-upbestand van de database voor u om te downloaden en gebruiken.
+De voor beeld-gegevensset die in deze zelf studie wordt gebruikt, is opgeslagen in een **. Bacpac** -back-upbestand dat u kunt downloaden en gebruiken.
 
-1. Download het bestand [TutorialDB.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/TutorialDB.bacpac).
+1. Down load het bestand [tutorialdb maakt. Bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/TutorialDB.bacpac).
 
-1. Volg de aanwijzingen in [een BACPAC-bestand voor het maken van een Azure SQL-database importeren](https://docs.microsoft.com/azure/sql-database/sql-database-import), met behulp van deze gegevens:
+1. Volg de instructies in [een BACPAC-bestand importeren om een Azure SQL database te maken](https://docs.microsoft.com/azure/sql-database/sql-database-import)met behulp van de volgende gegevens:
 
-   * Importeren uit de **TutorialDB.bacpac** dat u hebt gedownload
-   * Tijdens de openbare preview kunnen ervoor kiezen de **Gen5/vCore** configuratie voor de nieuwe database
-   * Naam van de nieuwe database "TutorialDB"
+   * Importeren uit het **tutorialdb maakt. Bacpac** -bestand dat u hebt gedownload
+   * Kies tijdens de open bare Preview de configuratie van de **GEN5-vCore** voor de nieuwe data base
+   * Naam van de nieuwe data base ' Tutorialdb maakt '
 
-## <a name="load-the-data-into-a-data-frame"></a>De gegevens in een gegevensframe laden
+## <a name="load-the-data-into-a-data-frame"></a>De gegevens in een gegevens frame laden
 
-Voor het gebruik van de gegevens in R, zult u de gegevens laden in Azure SQL-database in een gegevensframe (`rentaldata`).
+Als u de gegevens in R wilt gebruiken, laadt u de gegevens van de Azure-SQL database in een`rentaldata`gegevens frame ().
 
-Maak een nieuwe RScript-bestand in RStudio en voer het volgende script. Vervang **Server**, **UID**, en **PWD** met uw eigen verbindingsgegevens.
+Maak een nieuw RScript-bestand in RStudio en voer het volgende script uit. Vervang **Server**, **UID**en **pwd** door uw eigen verbindings gegevens.
 
 ```r
 #Define the connection string to connect to the TutorialDB database
@@ -93,7 +95,7 @@ head(rentaldata);
 str(rentaldata);
 ```
 
-U ziet het resultaat is vergelijkbaar met de volgende.
+De resultaten moeten er ongeveer als volgt uitzien.
 
 ```results
    Year  Month  Day  RentalCount  WeekDay  Holiday  Snow
@@ -115,8 +117,8 @@ $ Snow       : num  0 0 0 0 0 0 0 0 0 0 ...
 
 ## <a name="prepare-the-data"></a>De gegevens voorbereiden
 
-In deze database, de meeste van de voorbereiding van het al is uitgevoerd, maar, doet u hier een meer voorbereiding.
-De volgende R-script gebruiken om te identificeren van drie kolommen als *categorieën* door het veranderen van de gegevens die u wilt *factor*.
+In deze voorbeeld database is het grootste deel van de voor bereiding al gedaan, maar u kunt hier nog een voor bereiding doen.
+Gebruik het volgende R-script om drie kolommen als *Categorieën* te identificeren door de gegevens typen te wijzigen in *factor*.
 
 ```r
 #Changing the three factor columns to factor types
@@ -128,7 +130,7 @@ rentaldata$WeekDay <- factor(rentaldata$WeekDay);
 str(rentaldata);
 ```
 
-U ziet het resultaat is vergelijkbaar met de volgende.
+De resultaten moeten er ongeveer als volgt uitzien.
 
 ```results
 data.frame':      453 obs. of  7 variables:
@@ -141,28 +143,28 @@ $ Holiday    : Factor w/ 2 levels "0","1": 2 1 1 1 1 1 1 1 1 1 ...
 $ Snow       : Factor w/ 2 levels "0","1": 1 1 1 1 1 1 1 1 1 1 ...
 ```
 
-De gegevens is nu klaar voor de training.
+De gegevens worden nu voor bereid voor de training.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u niet verder om door te gaan met deze zelfstudie, moet u de TutorialDB-database verwijderen uit uw Azure SQL Database-server.
+Als u niet verder gaat met deze zelf studie, verwijdert u de Tutorialdb maakt-data base van uw Azure SQL Database-Server.
 
-Voer de volgende stappen uit vanuit de Azure-portal:
+Voer de volgende stappen uit op de Azure Portal:
 
-1. Selecteer in het menu links in Azure portal **alle resources** of **SQL-databases**.
-1. In de **filteren op naam...**  veld **TutorialDB**, en selecteer uw abonnement.
-1. Selecteer uw database TutorialDB.
+1. Selecteer in het menu aan de linkerkant in het Azure Portal **alle resources** of **SQL-data bases**.
+1. Typ **tutorialdb maakt**in het veld **filteren op naam...** en selecteer uw abonnement.
+1. Selecteer uw Tutorialdb maakt-data base.
 1. Selecteer **Verwijderen** op de pagina **Overzicht**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deel één van deze zelfstudie, moet u deze stappen voltooid:
+In deel één van deze reeks zelf studies hebt u de volgende stappen uitgevoerd:
 
-* Een back-upbestand van de database importeren in een Azure SQL database
-* De gegevens uit de Azure SQL database laden in een gegevensframe met R
-* De gegevens voorbereiden met het vaststellen van sommige kolommen als categorieën
+* Een voorbeeld database importeren in een Azure-SQL database met R
+* De gegevens van de Azure-SQL database in een R-gegevens frame laden
+* De gegevens voorbereiden in R door bepaalde kolommen te identificeren als categorische
 
-Ga als volgt deel twee van deze serie zelfstudies voor het maken van een machine learning-model dat gebruikmaakt van gegevens uit de database TutorialDB:
+Als u een machine learning model wilt maken dat gebruikmaakt van gegevens uit de Tutorialdb maakt-data base, volgt u deel twee van deze reeks zelf studies:
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Maken van een Voorspellend model in R met Azure SQL Database Machine Learning Services (preview)](sql-database-tutorial-predictive-model-build-compare.md)
+> [Zelfstudie: Een voorspellend model maken in R met Azure SQL Database Machine Learning Services (preview)](sql-database-tutorial-predictive-model-build-compare.md)

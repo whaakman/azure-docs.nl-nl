@@ -1,7 +1,7 @@
 ---
-title: 'Zelfstudie: Trainen en te vergelijken van voorspellende modellen in R'
+title: 'Zelfstudie: Voorspellende modellen trainen en vergelijken in R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: In deel twee van deze driedelige reeks zelfstudies hebt u twee voorspellende modellen maken in R met Machine Learning Services (preview) van Azure SQL Database en selecteer vervolgens de meest nauwkeurige model.
+description: In deel twee van deze reeks met drie zelf studies maakt u twee voorspellende modellen in R met Azure SQL Database Machine Learning Services (preview) en selecteert u vervolgens het meest nauw keurige model.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -12,38 +12,38 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 3d336d6a53b6d234048c56d8492d278bef6fed64
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 07/26/2019
+ms.openlocfilehash: 2c85a378dc219e8af1b6458344ee4dba0fa73e68
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957608"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596808"
 ---
-# <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Zelfstudie: Maken van een Voorspellend model in R met Azure SQL Database Machine Learning Services (preview)
+# <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Zelfstudie: Een voorspellend model maken in R met Azure SQL Database Machine Learning Services (preview)
 
-In deel twee van deze driedelige reeks zelfstudies hebt u twee voorspellende modellen maken in R met Machine Learning Services (preview) van Azure SQL Database en selecteer vervolgens de meest nauwkeurige model.
+In deel twee van deze reeks met drie zelf studies maakt u twee voorspellende modellen in R en selecteert u het meest nauw keurige model. In het volgende deel van deze reeks implementeert u dit model in een SQL database met Azure SQL Database Machine Learning Services (preview).
 
-In dit artikel leert u hoe u:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
-> * Twee machine learning-modellen trainen
-> * Voorspellingen op basis van beide modellen maken
-> * Vergelijk de resultaten voor de meest nauwkeurige model kiezen
+> * Twee machine learning modellen trainen
+> * Voor spellingen van beide modellen maken
+> * De resultaten vergelijken om het meest nauw keurige model te kiezen
 
-In [deel één](sql-database-tutorial-predictive-model-prepare-data.md), hebt u geleerd hoe u een voorbeelddatabase importeren in een Azure SQL database en vervolgens de gegevens moet worden gebruikt voor het trainen van een Voorspellend model R. voorbereiden
+In [deel één](sql-database-tutorial-predictive-model-prepare-data.md)hebt u geleerd hoe u een voorbeeld database importeert en vervolgens de gegevens voorbereidt die moeten worden gebruikt voor het trainen van een voorspellend model in R.
 
-In [deel drie](sql-database-tutorial-predictive-model-deploy.md), leert u hoe u het model opslaan in een database en maak vervolgens een opgeslagen procedure die voorspellingen op basis van nieuwe gegevens kunt maken.
+In [deel drie](sql-database-tutorial-predictive-model-deploy.md)leert u hoe u het model opslaat in een Data Base en vervolgens opgeslagen procedures maakt vanuit de R-scripts die u hebt ontwikkeld in delen één en twee. De opgeslagen procedures worden in een SQL database uitgevoerd om voor spellingen te maken op basis van nieuwe gegevens.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Deel twee van deze zelfstudie wordt ervan uitgegaan dat u hebt [ **deel één** ](sql-database-tutorial-predictive-model-prepare-data.md) en de vereisten.
+* In deel twee van deze zelf studie wordt ervan uitgegaan dat u [**deel één**](sql-database-tutorial-predictive-model-prepare-data.md) en de bijbehorende vereisten hebt voltooid.
 
 ## <a name="train-two-models"></a>Twee modellen trainen
 
-Als u het beste model voor de ski-fietsverhuurgegevens zoekt, maken van twee verschillende modellen (lineaire regressie en beslissingsstructuur) en zien welke nauwkeuriger is voorspellen. U gebruikt de gegevensframe `rentaldata` dat u hebt gemaakt in deel één van deze serie.
+Als u het beste model voor de Ski-Huur gegevens wilt vinden, maakt u twee verschillende modellen (lineaire regressie en beslissings structuur) en ziet u hoe nauw keuriger een voor spelling wordt gemaakt. U gebruikt het gegevens frame `rentaldata` dat u in deel één van deze reeks hebt gemaakt.
 
 ```r
 #First, split the dataset into two different sets:
@@ -61,9 +61,9 @@ model_linmod <- rxLinMod(RentalCount ~  Month + Day + WeekDay + Snow + Holiday, 
 model_dtree  <- rxDTree(RentalCount ~ Month + Day + WeekDay + Snow + Holiday, data = train_data);
 ```
 
-## <a name="make-predictions-from-both-models"></a>Voorspellingen op basis van beide modellen maken
+## <a name="make-predictions-from-both-models"></a>Voor spellingen van beide modellen maken
 
-Gebruik een functie predict predict die de verhuur telt elke getrainde model gebruiken.
+Gebruik een voor spel functie om het huur aantal te voors pellen met behulp van elk getraind model.
 
 ```r
 #Use both models to make predictions using the test data set.
@@ -93,9 +93,9 @@ head(predict_dtree);
 6          40.0000          38       1     12     2      1       0
 ```
 
-## <a name="compare-the-results"></a>Vergelijk de resultaten
+## <a name="compare-the-results"></a>De resultaten vergelijken
 
-Nu wilt u zien welke van de modellen biedt de beste voorspellingen. Een snelle en eenvoudige manier om dit te doen is het gebruik van een basisfunctie die door plotting om het verschil tussen de werkelijke waarden in uw trainingsgegevens en de voorspelde waarden weer te geven.
+Nu wilt u zien welke modellen de beste voor spellingen bieden. Een snelle en eenvoudige manier om dit te doen, is door een eenvoudige uitzet functie te gebruiken om het verschil tussen de werkelijke waarden in uw trainings gegevens en de voorspelde waarden weer te geven.
 
 ```r
 #Use the plotting functionality in R to visualize the results from the predictions
@@ -104,30 +104,30 @@ plot(predict_linmod$RentalCount_Pred - predict_linmod$RentalCount, main = "Diffe
 plot(predict_dtree$RentalCount_Pred  - predict_dtree$RentalCount,  main = "Difference between actual and predicted. rxDTree");
 ```
 
-![Vergelijking van de twee modellen](./media/sql-database-tutorial-predictive-model-build-compare/compare-models.png)
+![De twee modellen vergelijken](./media/sql-database-tutorial-predictive-model-build-compare/compare-models.png)
 
-Het lijkt erop dat de boomstructuur van de beslissing van de twee modellen de nauwkeuriger is.
+Het lijkt alsof het model van de beslissings structuur de nauw keurigste van de twee modellen is.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u niet verder om door te gaan met deze zelfstudie, moet u de TutorialDB-database verwijderen uit uw Azure SQL Database-server.
+Als u niet verder gaat met deze zelf studie, verwijdert u de Tutorialdb maakt-data base van uw Azure SQL Database-Server.
 
-Voer de volgende stappen uit vanuit de Azure-portal:
+Voer de volgende stappen uit op de Azure Portal:
 
-1. Selecteer in het menu links in Azure portal **alle resources** of **SQL-databases**.
-1. In de **filteren op naam...**  veld **TutorialDB**, en selecteer uw abonnement.
-1. Selecteer uw database TutorialDB.
+1. Selecteer in het menu aan de linkerkant in het Azure Portal **alle resources** of **SQL-data bases**.
+1. Typ **tutorialdb maakt**in het veld **filteren op naam...** en selecteer uw abonnement.
+1. Selecteer uw Tutorialdb maakt-data base.
 1. Selecteer **Verwijderen** op de pagina **Overzicht**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deel twee van deze zelfstudie, moet u deze stappen voltooid:
+In deel twee van deze reeks zelf studies hebt u de volgende stappen uitgevoerd:
 
-* Twee machine learning-modellen trainen
-* Voorspellingen op basis van beide modellen maken
-* Vergelijk de resultaten voor de meest nauwkeurige model kiezen
+* Twee machine learning modellen trainen
+* Voor spellingen van beide modellen maken
+* De resultaten vergelijken om het meest nauw keurige model te kiezen
 
-Volg deel drie van deze serie zelfstudies voor het implementeren van de machine learning-model dat u hebt gemaakt:
+Voor het implementeren van het machine learning model dat u hebt gemaakt, volgt u deel drie van deze reeks zelf studies:
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Een Voorspellend model R met Machine Learning Services (preview) van Azure SQL Database implementeren](sql-database-tutorial-predictive-model-deploy.md)
+> [Zelfstudie: Een voorspellend model implementeren in R met Azure SQL Database Machine Learning Services (preview)](sql-database-tutorial-predictive-model-deploy.md)

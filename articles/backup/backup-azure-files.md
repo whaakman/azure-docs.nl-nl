@@ -1,18 +1,18 @@
 ---
 title: Een back-up maken van Azure-bestandsshares
 description: In dit artikel wordt uitgelegd hoe u een back-up maakt van uw Azure-bestandsshares en deze herstelt. Ook wordt er uitleg gegeven over beheertaken.
-author: rayne-wiselman
-ms.author: raynew
-ms.date: 01/31/2019
+author: dcurwin
+ms.author: dacurwin
+ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 7233db1e685c3edcdbd6a97bc2ae23706ad6f767
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 9cb0150efcb4860af98b47aa5da4cfd24d2e9de9
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466551"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602011"
 ---
 # <a name="back-up-azure-file-shares"></a>Een back-up maken van Azure-bestandsshares
 In dit artikel wordt uitgelegd hoe u met Azure Portal back-ups kunt maken van [Azure-bestandsshares](../storage/files/storage-files-introduction.md) en deze kunt herstellen.
@@ -34,6 +34,7 @@ Back-up voor Azure-bestandsshares is in preview. Azure-bestandsshares worden ond
 - Ondersteuning voor het maken van back-ups van Azure-bestands shares in opslag accounts met [zone redundant Storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replicatie is momenteel beperkt tot [deze regio's](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-).
 - U kunt Azure-bestandsshares niet beveiligen in opslagaccounts waarvoor virtuele netwerken zijn of een firewall is ingeschakeld.
 - Er is geen CLI beschikbaar voor het beveiligen van Azure Files met behulp van Azure Backup.
+- Azure Backup ondersteunt momenteel het configureren van geplande eenmalige back-ups van Azure-bestands shares.
 - Het maximumaantal geplande back-ups per dag is één.
 - Het maximumaantal on-demand back-ups per dag is vier.
 - Gebruik [resourcevergrendelingen](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) voor het opslagaccount om per ongeluk verwijderen van back-ups uit de Recovery Services-kluis te voorkomen.
@@ -49,7 +50,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u al een Azure-bestandsshare hebt g
 
     ![Kies Azure-bestandsshare als back-updoel](./media/backup-file-shares/overview-backup-page.png)
 
-2. Kies in het menu **Doel van de back-up**, bij **Waarvan wilt u een back-up maken?** , de optie Azure-bestandsshare.
+2. Kies in het menu doel van de **back-up** van waaruit wilt **u een back-up maken?** de optie Azure-bestands share.
 
     ![Kies Azure-bestandsshare als back-updoel](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
@@ -65,7 +66,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u al een Azure-bestandsshare hebt g
 
    ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/discover-file-shares.png)
 
-5. Selecteer in de lijst **Bestandsshares** een of meer bestandsshares waarvan u een back-up wilt maken en klik op **OK**.
+5. Selecteer in de lijst **Bestands shares** een of meer van de bestands shares waarvan u een back-up wilt maken en klik op **OK**.
 
 6. Nadat u de bestandsshares hebt geselecteerd, schakelt het menu Back-up over naar het **Back-upbeleid**. In dit menu selecteert u een bestaand back-upbeleid of maakt u een nieuwe. Vervolgens klikt u op **Back-up inschakelen**.
 
@@ -192,6 +193,6 @@ U kunt de back-up van een bestandsshare verwijderen tijdens de taak Back-up stop
 Bij de volgende procedure wordt ervan uitgegaan dat de back-uptaak voor de virtuele machine is gestopt. Nadat de back-uptaak is gestopt, zijn de opties Back-up hervatten en Back-upgegevens verwijderen beschikbaar in het dashboard Back-upitem. Klik op Back-upgegevens verwijderen en typ de naam van de bestandsshare om het verwijderen te bevestigen. Geef desgewenst een reden voor verwijdering of een opmerking op.
 
 ## <a name="see-also"></a>Zie ook
-Voor meer informatie over Azure-bestandsshares raadpleegt u
+Zie voor meer informatie over Azure-bestands shares.
 - [Vragen over back-ups maken van Azure-bestandsshares](backup-azure-files-faq.md)
 - [Problemen oplossen met back-ups maken van Azure-bestandsshares](troubleshoot-azure-files.md)

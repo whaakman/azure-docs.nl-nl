@@ -3,16 +3,16 @@ title: Veelgestelde vragen over het maken van een back-up van Azure-bestanden
 description: Dit artikel bevat informatie over het beveiligen van uw Azure-bestandsshares.
 author: dcurwin
 ms.author: dacurwin
-ms.date: 01/31/2019
+ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: e3f94badb3af2e3f26a857f27f0b68a78338db92
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 35a41abb156326612c2d60829980f73457cde881
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466315"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601766"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Vragen over het maken back-ups van Azure-bestanden
 In dit artikel vindt u antwoorden op veelgestelde vragen over het maken back-ups van Azure-bestanden. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -33,7 +33,7 @@ Ja. De beveiliging van Azure-bestandsshares die zijn verbonden met synchronisati
 ### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-did-not-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Ik wilde een back-up van bestandsshares maken, en ik klikte op een opslagaccount om de bestandsshares daarin te detecteren. Ik heb ze echter niet beveiligt. Hoe kan ik deze bestandsshares met een andere kluis beveiligen?
 Als u een back-up gaat maken en het opslagaccount selecteert waarin u bestandsshares wit detecteren, wordt het opslagaccount geregistreerd bij de kluis waarin dit wordt gedaan. Als u de bestandsshares wilt beveiligen met een andere kluis, moet u de [registratie ongedaan maken](troubleshoot-azure-files.md#configuring-backup) van het betreffende opslagaccount voor deze kluis.
 
-### <a name="can-i-change-the-vault-to-which-i-backup-my-file-shares"></a>Kan ik de kluis waarnaar ik back-ups van mijn bestandsshares maak wijzigen?
+### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Kan ik de kluis wijzigen waarnaar ik een back-up van mijn bestands shares Maak?
 Ja. U moet echter wel de [beveiliging stoppen](backup-azure-files.md#stop-protecting-an-azure-file-share) vanuit de gekoppelde kluis, de [registratie ongedaan maken](troubleshoot-azure-files.md#configuring-backup) van dit opslagaccount, en het account vervolgens met een andere kluis beveiligen.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>In welke geografische gebieden kan ik back-ups maken van Azure-bestandsshares? <br/>
@@ -75,7 +75,10 @@ Met de preview-versie kunt u Azure-bestandsshares van maximaal 50 opslagaccounts
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Kan ik twee verschillende bestandsshares van hetzelfde opslagaccount in verschillende kluizen beveiligen?
 Nee. Alle bestandsshares in een opslagaccount kunnen alleen in dezelfde kluis worden beveiligd.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Back-up
+
+### <a name="how-many-scheduled-backups-can-i-configure-per-file-share"></a>Hoeveel geplande back-ups kan ik per bestands share configureren?
+Azure Backup ondersteunt momenteel het configureren van geplande eenmalige back-ups van Azure-bestands shares. 
 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>Hoeveel back-ups op aanvraag kan ik maken per bestandsshare? <br/>
 U kunt op elk moment maximaal 200 momentopnamen voor een bestandsshare hebben. Deze limiet is inclusief momentopnamen die zijn gemaakt met Azure Backup zoals gedefinieerd in uw beleid. Als uw back-ups mislukken nadat de limiet is bereikt, verwijdert u herstelpunten op aanvraag om ervoor te zorgen dat toekomstige back-ups slagen.

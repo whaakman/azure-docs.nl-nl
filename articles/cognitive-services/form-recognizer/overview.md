@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: e910f2733a5485d50ad387a1e82ce27e0ba8fdea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b07201556f08bde4ef8c7a7904c6619a126d7765
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562698"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594540"
 ---
 # <a name="what-is-form-recognizer"></a>Wat is Form Recognizer?
 
@@ -28,7 +28,7 @@ Leerprocessen zonder supervisie stellen het model in staat om de lay-out en rela
 
 ## <a name="prebuilt-receipt-model"></a>Gebaseerd ontvangst model
 
-Formulier herkenning bevat ook een model voor het lezen van verkoop ontvangsten. Dit model extraheert belang rijke informatie zoals de tijd en datum van de trans actie, zakelijke informatie, bedragen van belastingen en totalen en meer. Daarnaast wordt het vooraf gegenereerde ontvangst model getraind om alle tekst op een kwitantie te herkennen en te retour neren.
+Formulier herkenning bevat ook een model voor het lezen van verkoop ontvangsten. Dit model extraheert belang rijke informatie zoals de tijd en datum van de trans actie, zakelijke informatie, bedragen van belastingen en totalen en meer. Daarnaast wordt het vooraf gedefinieerde ontvangstbewijs model getraind om alle tekst op een kwitantie te herkennen en te retour neren.
 
 ## <a name="what-it-includes"></a>Samenstelling van Content Moderator
 

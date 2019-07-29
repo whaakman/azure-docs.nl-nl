@@ -9,37 +9,37 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4ed66e3a0237eced852c806e78a8af6bdf8d8579
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: b8c8d1a867f6872c5e3ec9e1b48dac8f80c84950
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417822"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602137"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Noodherstelanalyse uitvoeren in Azure
 
-In dit artikel wordt beschreven hoe u een Dr-herstelanalyse voor een on-premises machine worden uitgevoerd naar Azure met de [Azure Site Recovery](site-recovery-overview.md) service. Tijdens een dergelijke analyse wordt uw replicatiestrategie gevalideerd zonder dat er kans op gegevensverlies is.
+In dit artikel wordt beschreven hoe u een nood herstel analyse uitvoert voor een on-premises machine naar Azure met behulp van de [Azure site Recovery](site-recovery-overview.md) -service. Tijdens een dergelijke analyse wordt uw replicatiestrategie gevalideerd zonder dat er kans op gegevensverlies is.
 
 
-Dit is de vierde zelfstudie in een serie die laat hoe zien het instellen van herstel na noodgevallen naar Azure voor on-premises machines u.
+Dit is de vierde zelf studie in een serie die laat zien hoe u herstel na nood gevallen naar Azure instelt voor on-premises machines.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een geïsoleerd netwerk instellen voor de failovertest
 > * Voorbereiden om verbinding te maken met de virtuele Azure-machine na de failover
-> * Een testfailover voor één machine uitvoeren.
+> * Voer een testfailover voor één computer uit.
 
 > [!NOTE]
-> Zelfstudies ziet u het meest eenvoudige implementatie-pad voor een scenario. Waar mogelijk wordt gebruikgemaakt van standaardopties en niet alle mogelijke instellingen en paden worden weergegeven. Als u wilt meer informatie over de stappen voor inzoomen herstel na noodgevallen in meer detail [raadpleegt u dit artikel](site-recovery-test-failover-to-azure.md).
+> Zelf studies laten u de eenvoudigste implementatie traject voor een scenario zien. Waar mogelijk wordt gebruikgemaakt van standaardopties en niet alle mogelijke instellingen en paden worden weergegeven. [Raadpleeg dit artikel](site-recovery-test-failover-to-azure.md)als u meer informatie wilt over de stappen voor herstel na nood gevallen.
 
 ## <a name="before-you-start"></a>Voordat u begint
 
-Voltooi de vorige zelfstudies:
+Voltooi de vorige zelf studies:
 
-1. Zorg ervoor dat u hebt [Azure instellen](tutorial-prepare-azure.md) voor on-premises herstel na noodgeval VMware-VM's, Hyper-V-machines en fysieke machines naar Azure.
-2. Voorbereiden van uw on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) of [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) omgeving voor herstel na noodgevallen. Als het instellen van herstel na noodgevallen voor fysieke servers, raadpleegt u de [ondersteuningsmatrix](vmware-physical-secondary-support-matrix.md).
-3. Instellen van herstel na noodgevallen voor [virtuele VMware-machines](vmware-azure-tutorial.md), [Hyper-V-machines](hyper-v-azure-tutorial.md), of [fysieke machines](physical-azure-disaster-recovery.md).
+1. Zorg ervoor dat u [Azure hebt ingesteld](tutorial-prepare-azure.md) voor on-premises herstel na nood gevallen van virtuele VMware-machines, Hyper-V-vm's en fysieke machines naar Azure.
+2. Bereid uw on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) [-of Hyper-V-](hyper-v-prepare-on-premises-tutorial.md) omgeving voor op herstel na nood geval. Als u herstel na nood gevallen instelt voor fysieke servers, raadpleegt u de ondersteunings [matrix](vmware-physical-secondary-support-matrix.md).
+3. Herstel na nood gevallen instellen voor [VMware-vm's](vmware-azure-tutorial.md), [Hyper-V-vm's](hyper-v-azure-tutorial.md)of [fysieke machines](physical-azure-disaster-recovery.md).
  
 
 ## <a name="verify-vm-properties"></a>VM-eigenschappen verifiëren
@@ -81,13 +81,13 @@ Voer de failovertest als volgt uit:
 
 In sommige scenario's vereist de failover extra verwerking die circa acht tot tien minuten duurt. U zou langere failover-tijden kunnen waarnemen voor VMware Linux-computers, VMware-VM's waarop de DHCP-service niet is ingeschakeld, en VMware-VM's die niet de volgende opstartstuurprogramma’s hebben: storvsc, vmbus, storflt, intelide, atapi.
 
-## <a name="connect-after-failover"></a>Verbinding maken na failover
+## <a name="connect-after-failover"></a>Verbinden na failover
 
-Als u wilt verbinding maken met virtuele Azure-machines na een failover met behulp van RDP/SSH [voorbereiden om verbinding te](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover). Als u eventuele problemen met de netwerkverbinding na een failover ondervindt, volgt u de [probleemoplossing](site-recovery-failover-to-azure-troubleshoot.md) handleiding.
+Als u na een failover verbinding wilt maken met virtuele Azure-machines met behulp van RDP/SSH, [moet u verbinding maken](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover). Als u na de failover problemen ondervindt met de verbinding, volgt u de hand leiding voor het [oplossen van problemen](site-recovery-failover-to-azure-troubleshoot.md) .
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Een failover en failback uitvoeren voor virtuele VMware-machines](vmware-azure-tutorial-failover-failback.md).
-> [Een failover en failback uitvoeren voor Hyper-V-machines](hyper-v-azure-failover-failback-tutorial.md).
-> [Een failover en failback voor fysieke computers uitvoeren](physical-to-azure-failover-failback.md)
+> [Een failover en failback uitvoeren voor VMware](vmware-azure-tutorial-failover-failback.md)
+> [-vm's een failover en failback uitvoeren voor virtuele](hyper-v-azure-failover-failback-tutorial.md)
+> Hyper-V-machines[een failover en failback uitvoeren voor fysieke machines](physical-to-azure-failover-failback.md)

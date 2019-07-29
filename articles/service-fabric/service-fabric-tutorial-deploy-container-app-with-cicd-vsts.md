@@ -3,7 +3,7 @@ title: Een containertoepassing met CI/CD implementeren in een Azure Service Fabr
 description: In deze zelfstudie leert u continue integratie en implementatie in te stellen voor een Azure Service Fabric-containertoepassing met behulp van Visual Studio Azure DevOps.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/29/2018
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 37305f27203986ce2e3d06276b5169ffd9b41287
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b686ceace3679d1541e8f1a74bca7e99b81ba932
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60720574"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598890"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Zelfstudie: Een containertoepassing met CI/CD implementeren in een Service Fabric-cluster
 
@@ -43,7 +43,7 @@ Voor u met deze zelfstudie begint:
 
 ## <a name="prepare-a-publish-profile"></a>Een publicatieprofiel voorbereiden
 
-Nu u een [containertoepassing hebt geïmplementeerd](service-fabric-host-app-in-a-container.md), bent u klaar om continue integratie in te stellen.  Bereid eerst een publicatieprofiel binnen uw toepassing voor, dat kan worden gebruikt door het implementatieproces dat in Azure DevOps wordt uitgevoerd.  Het publicatieprofiel moet worden geconfigureerd zodat het cluster dat u eerder hebt gemaakt als doel kan dienen.  Start Visual Studio en open een bestaand Service Fabric-toepassingsproject.  Klik in **Solution Explorer** met de rechtermuisknop op de toepassing en selecteer **Publish...**.
+Nu u een [containertoepassing hebt geïmplementeerd](service-fabric-host-app-in-a-container.md), bent u klaar om continue integratie in te stellen.  Bereid eerst een publicatieprofiel binnen uw toepassing voor, dat kan worden gebruikt door het implementatieproces dat in Azure DevOps wordt uitgevoerd.  Het publicatieprofiel moet worden geconfigureerd zodat het cluster dat u eerder hebt gemaakt als doel kan dienen.  Start Visual Studio en open een bestaand Service Fabric-toepassingsproject.  Klik in **Solution Explorer** met de rechtermuisknop op de toepassing en selecteer **Publish...** .
 
 Kies een doelprofiel in het toepassingsproject, dat voor de werkstroom voor continue integratie kan worden gebruikt, bijvoorbeeld Cloud.  Geef het eindpunt voor de clusterverbinding op.  Schakel het selectievakje bij **Upgrade the Application** in, zodat voor elke implementatie in Azure DevOps een upgrade voor de toepassing wordt uitgevoerd.  Klik op de hyperlink **Save** om de instellingen op te slaan in het publicatieprofiel. Klik vervolgens op **Cancel** om het dialoogvenster te sluiten.
 
@@ -137,7 +137,7 @@ Klik op **Docker Settings** en klik vervolgens op **Configure Docker settings**.
 
 ![Agent voor release-pijplijn][release-pipeline-agent]
 
-Voeg vervolgens een build-artefact toe aan de pijplijn, zodat met de releasedefinitie de uitvoer van de build kan worden gevonden. Selecteer **Pipeline** en **Artifacts**->**+Add**.  Selecteer in **Source (Build definition)** de build-definitie die u eerder hebt gemaakt.  Klik op **Add** om het build-artefact op te slaan.
+Voeg vervolgens een build-artefact toe aan de pijplijn, zodat met de releasedefinitie de uitvoer van de build kan worden gevonden. Selecteer **Pipeline** en **Artifacts**-> **+Add**.  Selecteer in **Source (Build definition)** de build-definitie die u eerder hebt gemaakt.  Klik op **Add** om het build-artefact op te slaan.
 
 ![Artefact toevoegen][add-artifact]
 

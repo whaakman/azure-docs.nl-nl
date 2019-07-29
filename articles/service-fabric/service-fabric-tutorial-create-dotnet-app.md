@@ -3,7 +3,7 @@ title: Een .NET-Linux-toepassing maken voor Service Fabric in Azure | Microsoft 
 description: In deze zelfstudie vindt u informatie over het maken van een toepassing met een ASP.NET Core front-end en een betrouwbare stateful back-endservice en het implementeren van de toepassing in een cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,20 +13,20 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/10/2019
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 4c73fe170d0b2cb6f12534de2ccc43bfc7b530f0
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b5acee47a13e0faa538c5d8464835297088d03e8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228164"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598912"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Zelfstudie: Een toepassing met een ASP.NET Core web-API front-end service en een stateful back-endservice maken en implementeren
 
 Deze zelfstudie is deel één van een serie.  U leert hoe u een Azure Service Fabric-toepassing met een front-end van ASP.NET Core web-API en een stateful back-endservice maakt voor het opslaan van uw gegevens. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core-web-front-end die stemresultaten opslaat in een stateful back-endservice in het cluster. Als u de stemtoepassing niet handmatig wilt maken, kunt u [de broncode downloaden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing en verdergaan met [Het voorbeeld van een stemtoepassing doorlopen](#walkthrough_anchor).  Als u dat liever doet, kunt u ook een [video](https://channel9.msdn.com/Events/Connect/2017/E100) van deze zelfstudie bekijken.
 
-![AngularJS+ASP.NET API Front-End, verbinding maken met een stateful back-endservice in Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![AngularJS + ASP. NET API front-end, verbinding maken met een stateful back-end-service op Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 In deel 1 van de reeks leert u het volgende:
 
@@ -47,7 +47,7 @@ In deze zelfstudiereeks leert u het volgende:
 
 Voor u met deze zelfstudie begint:
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installeer Visual Studio 2019](https://www.visualstudio.com/) versie 15.5 of hoger met de **Azure-ontwikkeling** en **ASP.NET en webontwikkeling** werkbelastingen.
+* [Installeer Visual Studio 2019](https://www.visualstudio.com/) versie 15,5 of hoger met de werk belasting **Azure Development** en **ASP.net en Web Development** .
 * [Installeer de Service Fabric-SDK](service-fabric-get-started.md).
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Een ASP.NET web-API-service als een betrouwbare service maken
@@ -466,7 +466,7 @@ In deze zelfstudie worden [ASP.NET Core Web API](service-fabric-reliable-service
         ],
 ```
 Als u de omgekeerde proxy-poort wilt zoeken die wordt gebruikt in uw lokale ontwikkelcluster, raadpleegt u het element **HttpApplicationGatewayEndpoint** in het manifest van het lokale Service Fabric-cluster:
-1. Open een browservenster en navigeer naar http:\//localhost:19080 naar open het hulpprogramma voor Service Fabric Explorer.
+1. Open een browser venster en navigeer naar http:\//localhost: 19080 om het service Fabric Explorer-hulp programma te openen.
 2. Selecteer **Cluster -> Manifest**.
 3. Noteer de poort van het element HttpApplicationGatewayEndpoint. Deze is standaard 19081. Als de poort niet 19081 is, moet u de poort in de methode GetProxyAddress van de volgende VotesController.cs-code wijzigen.
 

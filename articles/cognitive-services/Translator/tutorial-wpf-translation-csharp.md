@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 36d85e11133e7197212ae1b37609628689b68a13
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: b929d0c0da2a812a1c8595536f09931e4edd0fd9
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657930"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594917"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Zelfstudie: Een vertaal-app maken met WPF
 
@@ -48,7 +48,7 @@ Deze lijst bevat de Cognitive Services in deze zelfstudie worden gebruikt. Klik 
 
 Voordat u doorgaat, zorgt u voor de volgende zaken:
 
-* Een Azure Cognitive Services-abonnement. [Haal een Cognitive Services-toegangssleutel op](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-subscription).
+* Een Azure Cognitive Services-abonnement. [Haal een Cognitive Services-toegangssleutel op](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-resource).
 * Een Windows-machine
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) - Community of Enterprise
 
@@ -62,7 +62,7 @@ Om te beginnen moet u een project opzetten in Visual Studio.
 1. Open Visual Studio. Selecteer vervolgens **Bestand > Nieuw > Project**.
 2. In het linkerdeelvenster selecteert u **Visual C#** . Selecteer dan **WPF-app (.NET Framework)** in het middelste venster.
    ![Een WPF-app maken in Visual Studio](media/create-wpf-project-visual-studio.png)
-3. Geef uw project de naam `MSTranslatorTextDemo`, de framework-versie ingesteld op **.NET Framework 4.5.2 of hoger**, klikt u vervolgens op **OK**.
+3. Geef uw project `MSTranslatorTextDemo`een naam, stel de Framework-versie in op **.NET Framework 4.5.2 of hoger**en klik vervolgens op **OK**.
 4. Uw project is gemaakt. Er worden twee tabbladen geopend: `MainWindow.xaml` en `MainWindow.xaml.cs`. In deze zelfstudie wordt er code toegevoegd aan deze twee bestanden. Het eerste bestand is voor de gebruikersinterface van de app en het tweede wordt gebruikt voor aanroepen naar Translator Text en Bing Spellingcontrole.
    ![Uw omgeving controleren](media/blank-wpf-project.png)
 
@@ -82,7 +82,7 @@ We gaan assembly's toevoegen aan het project om objecten te serialiseren en dese
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
    * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
    * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
-   * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
+   * [System. Windows](https://docs.microsoft.com/dotnet/api/system.windows)
 3. Wanneer u deze verwijzingen hebt toegevoegd aan uw project, klikt u op **OK** om **Reference Manager** te sluiten.
 
 > [!NOTE]
@@ -113,7 +113,7 @@ De gebruikersinterface bevat de volgende onderdelen:
 |------|------|-------------|
 | `FromLanguageComboBox` | ComboBox | Hiermee wordt een lijst weergegeven met alle talen die door Microsoft Translator worden ondersteund voor het vertalen van tekst. De gebruiker selecteert de taal waaruit hij vertaalt. |
 | `ToLanguageComboBox` | ComboBox | Hiermee wordt dezelfde lijst met talen weergegeven als met `FromComboBox`, maar dit element wordt gebruikt om de taal te selecteren waarin de gebruiker vertaalt. |
-| `TextToTranslate` | Tekstvak | Hiermee kan de gebruiker tekst invoeren die moet worden vertaald. |
+| `TextToTranslate` | TextBox | Hiermee kan de gebruiker tekst invoeren die moet worden vertaald. |
 | `TranslateButton` | Knop | Gebruik deze knop om tekst te vertalen. |
 | `TranslatedTextLabel` | Label | Hiermee wordt de vertaling weergegeven. |
 | `DetectedLanguageLabel` | Label | Hiermee wordt weergegeven welke taal de tekst heeft die u wilt vertalen (`TextToTranslate`). |
@@ -245,7 +245,7 @@ Het volledige project bevindt zich in de klasse `MainWindow : Window`. We beginn
 
 In dit codeblok hebben we twee variabelen opgegeven die informatie bevatten over de talen die beschikbaar zijn voor vertaling:
 
-| Variabele | Type | Description |
+| Variabele | type | Description |
 |----------|------|-------------|
 |`languageCodes` | Matrix van tekenreeksen |Hiermee worden de taalcodes opgeslagen in de cache. De Translator-service gebruikt korte codes om talen te identificeren, bijvoorbeeld `en` voor Engels. |
 |`languageCodesAndTitles` | Gesorteerde woordenlijst | Hiermee worden de beschrijvende namen in de gebruikersinterface terugverwezen naar de korte codes die in de API worden gebruikt. Ze worden op alfabetische volgorde gesorteerd, zonder rekening te houden met het gebruik van hoofdletters. |

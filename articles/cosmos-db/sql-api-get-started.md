@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: kirankk
-ms.openlocfilehash: 36d172daed487372401691c7046215fb6c4a63ee
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 37b6a9947d3cabe1f566f842e321229efe9d03b6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384940"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598530"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Een .NET-console-app maken voor het beheren van gegevens in Azure Cosmos DB SQL-API-account
 
@@ -261,7 +261,7 @@ Gefeliciteerd! U hebt een Azure Cosmos DB-database gemaakt.
 >
 >
 
-U kunt een container maken met behulp van de functie [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) of [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) in de klasse **CosmosDatabase** . Een container bestaat uit items (JSON-documenten als SQL-API) en de bijbehorende toepassings logica aan de server zijde in Java script, bijvoorbeeld opgeslagen procedures, door de gebruiker gedefinieerde functies en triggers.
+U kunt een container maken met behulp van de functie [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerIfNotExistsAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) of [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) in de klasse **CosmosDatabase** . Een container bestaat uit items (JSON-documenten als SQL-API) en de bijbehorende toepassings logica aan de server zijde in Java script, bijvoorbeeld opgeslagen procedures, door de gebruiker gedefinieerde functies en triggers.
 
 1. Kopieer en plak de methode **CreateContainerAsync** onder de methode **CreateDatabaseAsync** . Met **CreateContainerAsync** wordt een nieuwe container met de ``FamilyContainer`` id gemaakt als deze nog niet bestaat, met de id die is opgegeven in het veld ``LastName`` dat is gepartitioneerd door de ``containerId`` eigenschap.
 
@@ -286,7 +286,7 @@ U kunt een container maken met behulp van de functie [**CreateContainerIfNotExis
 Gefeliciteerd! U hebt nu een Azure Cosmos DB-container gemaakt.  
 
 ## <a id="CreateDoc"></a>Stap 6: Items toevoegen aan de container
-Een item kan worden gemaakt met behulp van de functie [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainer) van de klasse **CosmosContainer** . Als u de SQL-API gebruikt, worden items als documenten geprojecteerd. Deze zijn door de gebruiker gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een item invoegen in uw Azure Cosmos DB-container.
+Een item kan worden gemaakt met behulp van de functie [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) van de klasse **CosmosContainer** . Als u de SQL-API gebruikt, worden items als documenten geprojecteerd. Deze zijn door de gebruiker gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een item invoegen in uw Azure Cosmos DB-container.
 
 Eerst gaan we een **familie** klasse maken die objecten vertegenwoordigt die zijn opgeslagen in azure Cosmos db in dit voor beeld. Daarnaast moeten de subklassen **Parent**, **Child**, **Pet** en **Address** worden gemaakt die in de klasse **Family** worden gebruikt. Opmerking item moet een **id-** eigenschap hebben die is geserialiseerd als **id** in JSON.
 

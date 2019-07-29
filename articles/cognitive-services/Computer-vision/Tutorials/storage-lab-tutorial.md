@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Metagegevens voor Azure-installatiekopieën genereren'
+title: 'Zelfstudie: Meta gegevens voor Azure-installatie kopieën genereren'
 titleSuffix: Azure Cognitive Services
 description: In deze zelfstudie leert u hoe u de Azure Computer Vision-service integreert in een web-app om metagegevens voor afbeeldingen te genereren.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 75e52398386e7ef1b338d13a8cfe8f20c06abcc6
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 00cca0cbf500ea4e884a9f9334896a18fe7b0978
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541531"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597867"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Zelfstudie: Computer Vision gebruiken voor het genereren van afbeeldingsmetagegevens te genereren in Azure Storage
 
@@ -42,15 +42,15 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 U moet een Computer Vision-resource maken voor uw Azure-account. Deze resource beheert uw toegang tot de Azure Computer Vision-service. 
 
-1. Volg de instructies in [maken van een Azure Cognitive Services-resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) om een Computer Vision-resource te maken.
+1. Volg de instructies in [een Azure Cognitive Services-resource maken](../../cognitive-services-apis-create-account.md#single-service-resource) om een computer vision resource te maken.
 
-1. Vervolgens gaat u naar het menu voor de resourcegroep en klik op de Computer Vision-API-abonnement dat u zojuist hebt gemaakt. Kopieer de URL onder **Eindpunt** naar een plaats waar u de URL eenvoudig en snel weer kunt ophalen. Klik vervolgens op **Toegangssleutels weergeven**.
+1. Ga vervolgens naar het menu voor de resource groep en klik op het Computer Vision-API abonnement dat u zojuist hebt gemaakt. Kopieer de URL onder **Eindpunt** naar een plaats waar u de URL eenvoudig en snel weer kunt ophalen. Klik vervolgens op **Toegangssleutels weergeven**.
 
-    ![Azure portal op de pagina met de eindpunt-URL en toegang tot sleutels koppeling-die worden beschreven](../Images/copy-vision-endpoint.png)
+    ![Azure Portal pagina met de koppeling naar de eind punt-URL en toegangs sleutels](../Images/copy-vision-endpoint.png)
 
 1. In het volgende venster kopieert u de waarde van **sleutel 1** naar het klembord.
 
-    ![Dialoogvenster sleutels beheren met de knop kopiëren die worden beschreven](../Images/copy-vision-key.png)
+    ![Het dialoog venster sleutels beheren met de knop kopiëren](../Images/copy-vision-key.png)
 
 ## <a name="add-computer-vision-credentials"></a>Computer Vision-referenties toevoegen
 
@@ -130,7 +130,7 @@ Sla de wijzigingen in Visual Studio op en druk op **Ctrl+F5** om de toepassing i
 
 Als u alle gekoppelde metagegevens wilt bekijken, gebruikt u Azure Storage Explorer om de opslagcontainer te gebruiken die u voor afbeeldingen gebruikt. Klik met de rechtermuisknop op een van de blobs in de container en selecteer **Eigenschappen**. In het dialoogvenster ziet u een lijst met sleutel-waardeparen. De door de computer gegenereerde afbeeldingsbeschrijving wordt opgeslagen in het item Bijschrift en de zoektrefwoorden worden opgeslagen in Tag0, Tag1, enzovoort. Wanneer u klaar bent, klikt u op **Annuleren** om het dialoogvenster te sluiten.
 
-![Afbeelding dialoogvenster eigenschappenvenster met metagegevenstags vermeld](../Images/blob-metadata.png)
+![Dialoog venster Eigenschappen van afbeelding, met de opgegeven labels voor meta gegevens](../Images/blob-metadata.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
