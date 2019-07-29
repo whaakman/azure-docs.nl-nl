@@ -163,7 +163,7 @@ Stel nu wat metrische gegevens in om naar te kijken wanneer berichten naar hub w
 
 1. Klik in het deelvenster met instellingen voor de IoT-hub op de optie **Metrische gegevens** in de sectie **Bewaking**.
 
-2. Klik bovenaan het scherm op **Afgelopen 24 uur (automatisch)**. Selecteer in de vervolgkeuzelijst die wordt weergegeven **Afgelopen 4 uur** in bij **Tijdsbereik**, en stel **Tijdgranulatie** in op **1 minuut**, lokale tijd. Klik op **Toepassen** om deze instellingen op te slaan. 
+2. Klik bovenaan het scherm op **Afgelopen 24 uur (automatisch)** . Selecteer in de vervolgkeuzelijst die wordt weergegeven **Afgelopen 4 uur** in bij **Tijdsbereik**, en stel **Tijdgranulatie** in op **1 minuut**, lokale tijd. Klik op **Toepassen** om deze instellingen op te slaan. 
 
    ![Schermafbeelding van de tijdinstellingen voor de metrische gegevens.](./media/tutorial-use-metrics-and-diags/06-metrics-set-time-range.png)
 

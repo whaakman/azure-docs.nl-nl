@@ -49,7 +49,7 @@ Instelling | Voorbeeldwaarde | Description
 ---|---|---
 naam | **mydemoserver** | Voer een unieke naam in ter identificatie van de Azure Database for MariaDB-server. De servernaam mag alleen kleine letters, cijfers en het koppelteken (-) bevatten. Dit wachtwoord moet tussen 3 en 63 tekens bevatten.
 resource-group | **myresourcegroup** | Voer de naam van de Azure-resourcegroep in.
-sku-name | **GP_Gen5_2** | De naam van de SKU. Volgt de verkorte notatie voor conventie *{prijscategorie}*\_*{compute-bewerking}*\_*{vCores}*. Zie de sectie onder deze tabel voor meer informatie over de parameter **sku-name**.
+sku-name | **GP_Gen5_2** | De naam van de SKU. Volgt de verkorte notatie voor conventie *{prijscategorie}* \_ *{compute-bewerking}* \_ *{vCores}* . Zie de sectie onder deze tabel voor meer informatie over de parameter **sku-name**.
 backup-retention | **7** | Hoe lang een back-up moet worden bewaard. De eenheid is dagen. Bereik: 7 tot 35. 
 geo-redundant-backup | **Uitgeschakeld** | Of geografisch redundante back-ups moeten worden ingeschakeld voor deze server. Toegestane waarden: **Ingeschakeld**, **Uitgeschakeld**.
 location | **westus** | De Azure-locatie voor de server.

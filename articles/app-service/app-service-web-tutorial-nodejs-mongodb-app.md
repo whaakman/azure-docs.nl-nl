@@ -195,7 +195,7 @@ Kopieer de waarde van `primaryMasterKey`. U hebt deze informatie nodig voor de v
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configureer de verbindingsreeks in uw Node.js-toepassing
 
-Maak in de lokale MEAN.js-opslagplaats, in de map _config/env/_, een bestand met de naam _lokale-productie.js_. _.gitignore_ is standaard geconfigureerd om dit bestand buiten de opslagplaats te houden. 
+Maak in de lokale MEAN.js-opslagplaats, in de map _config/env/_ , een bestand met de naam _lokale-productie.js_. _.gitignore_ is standaard geconfigureerd om dit bestand buiten de opslagplaats te houden. 
 
 Kopieer er de volgende code naartoe. Vervang de twee tijdelijke aanduidingen *\<cosmosdb_name>* door de naam van de Cosmos DB-database en vervang de tijdelijke aanduiding *\<primary_master_key>* door de sleutel die u in de vorige stap hebt gekopieerd.
 
@@ -272,7 +272,7 @@ Standaard houdt het MEAN.js-project _config/env/local-production.js_ buiten de G
 
 Gebruik de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell om de app-instellingen te definiëren. 
 
-In het volgende voorbeeld wordt de app-instelling `MONGODB_URI` in de Azure-app geconfigureerd. Vervang de tijdelijke aanduidingen *\<app_name>*, *\<cosmosdb_name>* en *\<primary_master_key>*.
+In het volgende voorbeeld wordt de app-instelling `MONGODB_URI` in de Azure-app geconfigureerd. Vervang de tijdelijke aanduidingen *\<app_name>* , *\<cosmosdb_name>* en *\<primary_master_key>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -447,7 +447,7 @@ node server.js
 
 Ga in een browser naar `http://localhost:8443` en zorg dat u bent aangemeld.
 
-Selecteer **Admin > Manage Articles** en voeg een artikel toe door de **+**-knop te selecteren.
+Selecteer **Admin > Manage Articles** en voeg een artikel toe door de **+** -knop te selecteren.
 
 U ziet nu het nieuwe tekstvak `Comment`.
 

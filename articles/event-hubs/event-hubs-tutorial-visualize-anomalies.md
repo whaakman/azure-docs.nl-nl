@@ -54,7 +54,7 @@ In de volgende secties wordt beschreven hoe u deze vereiste stappen kunt uitvoer
 3. Maak een Event Hub.
 
 > [!NOTE]
-> Er worden in elk script variabelen ingesteld die u later in de zelfstudie nodig hebt. Dit zijn de naam van de resourcegroep ($resourceGroup), de naamruimte van de Event Hub (**$eventHubNamespace**) en de naam van de Event Hub (**$eventHubName** ). Hier wordt later in dit artikel naar verwezen met hun dollartekenvoorvoegsel ($), zodat u weet dat ze zijn ingesteld in het script.
+> Er worden in elk script variabelen ingesteld die u later in de zelfstudie nodig hebt. Dit zijn de naam van de resourcegroep ($resourceGroup), de naamruimte van de Event Hub ( **$eventHubNamespace**) en de naam van de Event Hub ( **$eventHubName** ). Hier wordt later in dit artikel naar verwezen met hun dollartekenvoorvoegsel ($), zodat u weet dat ze zijn ingesteld in het script.
 
 <!-- some day they will approve the tab control; 
   When that happens, put CLI and PSH in tabs. -->

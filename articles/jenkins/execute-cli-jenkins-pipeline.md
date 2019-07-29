@@ -49,7 +49,7 @@ sudo apt-get install -y maven
 
 Azure-referenties zijn nodig om de Azure CLI uit te voeren.
 
-* Klik in het dashboard van Jenkins op **Referenties -> Systeem ->**. Klik op **Algemene referenties (onbeperkt)**.
+* Klik in het dashboard van Jenkins op **Referenties -> Systeem ->** . Klik op **Algemene referenties (onbeperkt)** .
 * Klik op **Referenties toevoegen** als u een [Microsoft Azure-service-principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) wilt toevoegen door Abonnements-id, Client-id, Clientgeheim en OAuth 2.0 Token-eindpunt in te vullen. Geef een id op voor gebruik in de volgende stap.
 
 ![Referenties toevoegen](./media/execute-cli-jenkins-pipeline/add-credentials.png)

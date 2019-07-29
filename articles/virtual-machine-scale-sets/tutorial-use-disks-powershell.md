@@ -85,8 +85,8 @@ Premium-schijven worden ondersteund door hoogwaardige SSD-schijven met een lage 
 ### <a name="premium-disk-performance"></a>Prestaties Premium-schijf
 |Schijftype voor Premium Storage | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Schijfgrootte (afronden) | 32 GB | 64 GB | 128 GB | 512 GB | 1.024 GB (1 TB) | 2.048 GB (2 TB) | 4.095 GB (4 TB) |
-| Max. aantal IOP's per schijf | 120 | 240 | 500 | 2,300 | 5.000 | 7.500 | 7,500 |
+| Schijfgrootte (afronden) | 32 GB | 64 GB | 128 GB | 512 GB | 1\.024 GB (1 TB) | 2\.048 GB (2 TB) | 4\.095 GB (4 TB) |
+| Max. aantal IOP's per schijf | 120 | 240 | 500 | 2,300 | 5\.000 | 7\.500 | 7,500 |
 Doorvoer per schijf | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 In de bovenstaande tabel wordt het max. IOP's per schijf aangegeven, maar er kan een hoger prestatieniveau worden bereikt door striping van meerdere gegevensschijven. Een virtuele machine van het type Standard_GS5 kan bijvoorbeeld maximaal 80.000 IOPS bereiken. Zie [Windows VM-grootten](../virtual-machines/windows/sizes.md) voor gedetailleerde informatie over het maximum aantal IOP's per VM.

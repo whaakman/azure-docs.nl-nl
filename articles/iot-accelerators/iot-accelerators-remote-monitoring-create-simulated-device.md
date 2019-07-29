@@ -66,7 +66,7 @@ De volgende tabel ziet u de oorspronkelijke status van het apparaat:
 | ------------------------ | -------|
 | Eerste kleur            | Wit  |
 | Eerste helderheid       | 75     |
-| Eerste resterende levensduur   | 10\.000 |
+| Eerste resterende levensduur   | 10.000 |
 | Status van de eerste telemetrie | 'aan'   |
 | Eerste telemetrie temperatuur | 200   |
 
