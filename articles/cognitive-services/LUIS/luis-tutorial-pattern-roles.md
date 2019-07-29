@@ -1,7 +1,7 @@
 ---
-title: Patroonrollen
+title: Patroon rollen-LUIS
 titleSuffix: Azure Cognitive Services
-description: Patronen Extraheer gegevens uit de juiste opmaak sjabloon uitingen. De sjabloon-utterance maakt gebruik van een enkele entiteit en rollen om verwante gegevens te extraheren, zoals de locatie van de oorsprong en die van het doel.
+description: Patronen halen gegevens op uit goed opgemaakte sjabloon uitingen. De sjabloon-utterance maakt gebruik van een enkele entiteit en rollen om verwante gegevens te extraheren, zoals de locatie van de oorsprong en die van het doel.
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: c0e3ac1d53cda2afb2184b92b0fd0afd662101bb
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 7586a81eac95a2e4a08b045b3a2826132d9919f7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277507"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560018"
 ---
-# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Zelfstudie: Ophalen van context gerelateerde patronen met behulp van rollen
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Zelfstudie: Context afhankelijke gerelateerde patronen extra heren met behulp van rollen
 
-In deze zelfstudie gebruikt u een patroon om gegevens te extraheren uit een correct opgemaakte sjabloon-utterance. Maakt gebruik van de sjabloon utterance een [eenvoudige entiteit](luis-concept-entity-types.md#simple-entity) en [rollen](luis-concept-roles.md) om gerelateerde gegevens zoals de oorspronkelijke locatie- en doellocatie te extraheren.  Met patronen zijn er minder voorbeeld-utterances nodig voor de intentie.
+In deze zelfstudie gebruikt u een patroon om gegevens te extraheren uit een correct opgemaakte sjabloon-utterance. De sjabloon utterance maakt gebruik van een [eenvoudige entiteit](luis-concept-entity-types.md#simple-entity) en [rollen](luis-concept-roles.md) voor het extra heren van gerelateerde gegevens, zoals de bron locatie en de doel locatie.  Met patronen zijn er minder voorbeeld-utterances nodig voor de intentie.
 
 
 **In deze zelfstudie leert u het volgende:**
@@ -40,7 +40,7 @@ In deze zelfstudie gebruikt u een patroon om gegevens te extraheren uit een corr
 
 ## <a name="using-roles-in-patterns"></a>Met behulp van rollen in patronen
 
-Het doel van de rollen is om op te halen contextueel gerelateerde entiteiten in een utterance. In de utterance `Move new employee Robert Williams from Sacramento and San Francisco` zijn de waarden voor de plaats van de oorsprong en de plaats van de bestemming aan elkaar gerelateerd en wordt algemene taal gebruikt om elke locatie op te geven. 
+Het doel van rollen is het extra heren van context afhankelijke gerelateerde entiteiten in een utterance. In de utterance `Move new employee Robert Williams from Sacramento and San Francisco` zijn de waarden voor de plaats van de oorsprong en de plaats van de bestemming aan elkaar gerelateerd en wordt algemene taal gebruikt om elke locatie op te geven. 
 
 
 De naam van de nieuwe werknemer, Billy Patterson, maakt nog geen deel uit van de lijstentiteit **Werknemer**. De naam van de nieuwe werknemer wordt eerst geëxtraheerd om de naam te kunnen verzenden naar een extern systeem dat de bedrijfsreferenties maakt. Nadat de bedrijfsreferenties zijn gemaakt, worden de referenties van de werknemer toegevoegd aan de lijstentiteit **Werknemer**.

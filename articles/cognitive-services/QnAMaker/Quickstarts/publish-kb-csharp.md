@@ -1,6 +1,6 @@
 ---
-title: Knowledge base publiceren, REST, C#
-titleSuffix: QnA Maker- Azure Cognitive Services
+title: 'Quickstart: Knowledge Base publiceren, REST, C# -QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Deze REST-snelstartgids voor C# helpt u bij het publiceren van uw knowledge base, waarbij de meest recente versie van de geteste knowledge base naar een specifieke Azure Search-index wordt gepusht die de gepubliceerde knowledge base vertegenwoordigt. Hiermee wordt ook een eindpunt gemaakt dat kan worden aangeroepen in uw toepassing of chatbot.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 3460424a8d80baef92eb8b29a3be4de5686027c6
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0ce0f3673a297964932f3b97dfd1d49d7c1e55e5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827578"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559791"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Snelstartgids: Een knowledge base publiceren in QnA Maker met behulp van C#
 
@@ -40,8 +40,8 @@ In deze snelstart worden QnA Maker-API's aangeroepen:
 
 ## <a name="create-knowledge-base-project"></a>Een project met knowledge base maken
 
-1. Open Visual Studio 2019 Community-editie.
-1. Maak een nieuwe **Console-App (.NET Core)** project en noem het project `QnaMakerQuickstart`. Accepteer de standaardwaarden voor de overige instellingen.
+1. Open Visual Studio 2019 Community Edition.
+1. Maak een nieuw **console-app (.net core)-** project en noem `QnaMakerQuickstart`het project. Accepteer de standaardwaarden voor de overige instellingen.
 
 ## <a name="add-required-dependencies"></a>Vereiste afhankelijkheden toevoegen
 

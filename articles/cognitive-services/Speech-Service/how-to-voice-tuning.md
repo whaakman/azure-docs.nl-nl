@@ -1,7 +1,7 @@
 ---
-title: Text to Speech uitvoer - Speech Services aanpassen
+title: Tekst-naar-spraak-uitvoer voor spraak service nauw keurig afstemmen
 titleSuffix: Azure Cognitive Services
-description: Schakel logboekregistratie in de spraak-SDK.
+description: Schakel logboek registratie in de Speech SDK in.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,66 +10,66 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 94b58279b1a9fd4d9acdb4183f59b0a8579c17fd
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 4cf2338d76ce31f44eaf3fb235e5f8796602d819
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606451"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562750"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Uitvoer tekst-naar-spraak afstellen
 
-Azure Speech Services kunt u aan te passen van de snelheid, uitspraak van volume, inspiratie en omtrek van tekst naar spraak uitvoer met behulp van [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md). SSML is een op XML gebaseerde opmaakcodetaal die gebruikmaakt van labels aan de service te informeren over welke functie afstemmen vereist. Het bericht SSML wordt verzonden in de hoofdtekst van elke aanvraag naar de Text to Speech-service. Ter vereenvoudiging van het aanpassingsproces voor, bieden de Speech Services nu een [stem afstemmen](https://aka.ms/voicetuning) hulpprogramma waarmee u visueel inspecteren en afstemmen van de Text to Speech uitvoer in realtime.
+Met Azure speech Services kunt u de snelheid, de uitspraak, het volume, de Toon en de contour van tekst-naar-spraak-uitvoer aanpassen met behulp van [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md). SSML is een op XML gebaseerde Markup-taal die gebruikmaakt van tags om de service te informeren over welke functie moet worden afgestemd. Het SSML-bericht wordt vervolgens in de hoofd tekst van elke aanvraag verzonden naar de service tekst naar spraak. Om het aanpassings proces te vereenvoudigen, bieden de spraak Services nu een hulp programma voor [stem afstemming](https://aka.ms/voicetuning) waarmee u tekst-naar-spraak-uitvoer in realtime visueel kunt controleren en verfijnen.
 
-Het hulpprogramma voor spraak afstemmen ondersteunt Microsofts [standard](language-support.md#standard-voices), [neurale](language-support.md#text-to-speech), en [aangepaste stemmen](how-to-customize-voice-font.md).
+Het hulp programma stem tuning ondersteunt de [standaard](language-support.md#standard-voices)-, [Neural](language-support.md#text-to-speech)-en [aangepaste stemmen](how-to-customize-voice-font.md)van micro soft.
 
-## <a name="get-started-with-the-voice-tuning-tool"></a>Aan de slag met het hulpprogramma voor spraak afstemmen
+## <a name="get-started-with-the-voice-tuning-tool"></a>Aan de slag met het hulp programma stem tuning
 
-Voordat u de Text to Speech uitvoer met het hulpprogramma voor het afstemmen van stem aan te passen begint, moet u deze stappen uitvoeren:
+Voordat u kunt beginnen met het verfijnen van de tekst-naar-spraak-uitvoer met het hulp programma stem afstemmen, moet u deze stappen uitvoeren:
 
 1. Maak een [gratis Microsoft-account](https://account.microsoft.com/account) als u er nog geen hebt.
-2. Maak een [gratis Azure-account](https://azure.microsoft.com/free/) als u er nog geen hebt. Klik op **gratis starten**, en maak een nieuwe Azure-account met behulp van uw Microsoft-account.
+2. Maak een [gratis Azure-account](https://azure.microsoft.com/free/) als u er nog geen hebt. Klik op **gratis starten**en maak een nieuw Azure-account met behulp van uw Microsoft-account.
 
-3. Een abonnement Speech Services maken in Azure portal. Stapsgewijze instructies voor het [over het maken van een resource spraak](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) beschikbaar zijn.
+3. Maak een abonnement voor spraak Services in de Azure Portal. Stapsgewijze instructies voor [het maken van een spraak bron](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) zijn beschikbaar.
    >[!NOTE]
-   >Wanneer u een spraak-resource in Azure portal maakt, moet de Azure-locatie-informatie komt overeen met de TTS voice-regio. Neurale TTS-stem biedt ondersteuning voor een set sub van Azure-locaties. Zie voor een volledige lijst met ondersteuning, [regio's](regions.md#text-to-speech).
+   >Wanneer u een spraak bron maakt in de Azure Portal, moet de locatie-informatie van Azure overeenkomen met de TTS-spraak regio. Neural TTS Voice ondersteunt een verzameling Azure-locaties. Zie [regio's](regions.md#text-to-speech)voor een volledige lijst met ondersteuning.
 
    >[!NOTE]
-   >U moet een F0 of een S0-sleutel in de Azure-portal hebt gemaakt voordat u de service kunt gebruiken. Stem afstemmen **niet** ondersteuning voor de [30 dagen gratis proefversie sleutel](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
+   >U moet een F0 of een S0-sleutel maken in de Azure Portal voordat u de service kunt gebruiken. Stem afstemmen biedt **geen** ondersteuning voor de [gratis proef versie van 30 dagen](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
 
-4. Aanmelden bij de [stem afstemmen](https://aka.ms/voicetuning) portal, en verbinding maken met uw abonnement Speech Services. Kies één spraakservices abonnement en maak vervolgens een project.
-5. Selecteer **nieuwe afstemmen**. Volg deze stappen:
+4. Meld u aan bij de portal voor [stem afstemming](https://aka.ms/voicetuning) en verbind uw speech Services-abonnement. Kies een enkel spraak Services-abonnement en maak vervolgens een project.
+5. Selecteer **nieuwe afstemming**. Voer vervolgens de volgende stappen uit:
 
    * Zoek en selecteer **alle abonnementen**.  
    * Selecteer **verbinding maken met bestaande abonnement**.  
-     ![Verbinding maken met een bestaand abonnement](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Geef uw abonnementssleutel Azure Speech Services, en selecteer vervolgens **toevoegen**. Uw abonnementssleutels zijn beschikbaar in de portal van de spraakherkenning aanpassen van de [pagina abonnement](https://go.microsoft.com/fwlink/?linkid=2090458). U kunt de sleutels ook krijgen in het deelvenster Beheer van Resource in de [Azure-portal](https://portal.azure.com/).
-   * Hebt u meer dan één Speech Services-abonnement dat u wilt gebruiken, Herhaal deze stappen voor elk abonnement.
+     ![Verbinding maken met een](./media/custom-voice/custom-voice-connect-subscription.png)bestaand abonnement.
+   * Voer uw abonnements sleutel voor uw Azure speech Services in en selecteer vervolgens **toevoegen**. Uw abonnements sleutels zijn beschikbaar in de portal voor het aanpassen van spraak op de [pagina abonnement](https://go.microsoft.com/fwlink/?linkid=2090458). U kunt de sleutels ook ophalen via het deel venster Resource beheer in de [Azure Portal](https://portal.azure.com/).
+   * Als u meer dan één spraak Services-abonnement hebt dat u wilt gebruiken, herhaalt u deze stappen voor elk abonnement.
 
-## <a name="customize-the-text-to-speech-output"></a>De Text to Speech uitvoer aanpassen
+## <a name="customize-the-text-to-speech-output"></a>De tekst-naar-spraak-uitvoer aanpassen
 
-Nu dat u hebt gemaakt van accounts en uw abonnement is gekoppeld, kunt u beginnen met het afstemmen van de Text to Speech uitvoer.
+Nu u accounts hebt gemaakt en uw abonnement hebt gekoppeld, kunt u beginnen met het afstemmen van de tekst-naar-spraak-uitvoer.
 
 1. Kies een stem.
-2. Voer de tekst die u wilt bewerken.
-3. Voordat u bewerkingen uitvoeren, moet u de audio om een idee voor de uitvoer afspelen.
-4. Selecteer de word/zin dat u wilt verfijnen en ga experimenteren met verschillende SSML op basis van functies.
+2. Voer de tekst in die u wilt bewerken.
+3. Voordat u begint met bewerken, moet u de audio afspelen om de uitvoer te laten zien.
+4. Selecteer het woord/de zin dat u wilt verfijnen en begin met experimenteren met verschillende SSML-functies.
 
 >[!TIP]
-> Zie voor gedetailleerde informatie over SSML aanpassen en het afstemmen van de stem-uitvoer, [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md).
+> Zie voor gedetailleerde informatie over het aanpassen van SSML en het afstemmen van de spraak uitvoer de [SSML (Speech synthese Markup Language)](speech-synthesis-markup.md).
 
 ## <a name="limitations"></a>Beperkingen
 
-Neurale stem afstemmen verschilt enigszins afstemming voor Standard- en aangepaste stemmen.
+Neural stem tuning wijkt enigszins af van de afstemming voor standaard-en aangepaste stemmen.
 
-* Intonation wordt niet ondersteund voor Neurale stemmen.
-* Presentatie en volume functies werken alleen met volledige zinnen. Deze functies zijn niet beschikbaar op de word-niveau.
-* Voor de frequentie, kunnen sommige Neurale stemmen worden afgestemd op basis van woorden, terwijl andere vereisen dat u volledige zinnen selecteren.
+* Intonation wordt niet ondersteund voor Neural stemmen.
+* De functies Pitch en volume werken alleen met volledige zinnen. Deze functies zijn niet beschikbaar op woord niveau.
+* Sommige Neural stemmen kunnen worden afgestemd op basis van woorden, terwijl anderen u verplichten om hele zinnen te selecteren.
 
 > [!TIP]
-> Het hulpprogramma stem afstemmen biedt contextuele informatie over functies en afstemmen.
+> Het hulp programma voor stem afstemming biedt contextuele informatie over functies en het afstemmen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Een spraak-resource maken in Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
-* [Start stem afstemmen](https://speech.microsoft.com/app.html#/VoiceTuning)
-* [Spraak synthese Markup Language (SSML)](speech-synthesis-markup.md)
+* [Een spraak bron maken in azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
+* [Stem fijnafstelling starten](https://speech.microsoft.com/app.html#/VoiceTuning)
+* [Markup Language voor spraak synthese (SSML)](speech-synthesis-markup.md)

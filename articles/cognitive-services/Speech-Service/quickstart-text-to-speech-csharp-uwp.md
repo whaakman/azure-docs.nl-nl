@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Spraak, nabootsen C# (UWP) - spraakservices'
+title: 'Quickstart: UWP C# (Speech)-Speech Service'
 titleSuffix: Azure Cognitive Services
-description: In dit artikel maakt u in C# een UWP-app (Universal Windows Platform) met behulp van de Speech-SDK van Cognitive Services. U bootsen spraak vanuit tekst in realtime op de spreker van uw apparaat. De toepassing is gemaakt met het Speech-SDK NuGet-pakket en Microsoft Visual Studio 2017.
+description: In dit artikel maakt u in C# een UWP-app (Universal Windows Platform) met behulp van de Speech-SDK van Cognitive Services. U kunt spraak van tekst in realtime op de spreker van uw apparaat. De toepassing is gemaakt met het Speech-SDK NuGet-pakket en Microsoft Visual Studio 2017.
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: c11fbff883d2699bdd0a107fc462524d92ee410d
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 3d5bc1e9cc27fd3c40c15ba55f577779c65e6851
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467444"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559324"
 ---
-# <a name="quickstart-synthesize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Quickstart: Nabootsen van gesproken tekst in een UWP-app met behulp van de spraak-SDK
+# <a name="quickstart-synthesize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Quickstart: Spraak in een UWP-app met behulp van de Speech SDK
 
-Snelstartgidsen zijn ook beschikbaar voor [spraakherkenning](quickstart-csharp-uwp.md), [spraakomzetting](quickstart-translate-speech-uwp.md) en [stem op de eerste virtuele assistent](quickstart-virtual-assistant-csharp-uwp.md).
+Quick starts zijn ook beschikbaar voor de [spraak herkenning](quickstart-csharp-uwp.md), [spraak-Vertaal](quickstart-translate-speech-uwp.md) functie en de [spraak-eerste virtuele assistent](quickstart-virtual-assistant-csharp-uwp.md).
 
-In dit artikel ontwikkelt u in C# een UWP-app (Universal Windows Platform, Windows-versie 1709 of hoger) met behulp van de [Speech-SDK](speech-sdk.md) van Cognitive Services. Het programma wordt spraak vanuit tekst in realtime op van uw apparaat spreker bootsen. De toepassing is gemaakt met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
+In dit artikel ontwikkelt u in C# een UWP-app (Universal Windows Platform, Windows-versie 1709 of hoger) met behulp van de [Speech-SDK](speech-sdk.md) van Cognitive Services. Het programma verstuurt de spraak van tekst in realtime naar de spreker van uw apparaat. De toepassing is gemaakt met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
 
 > [!NOTE]
 > Het Universal Windows Platform stelt u in staat om apps te ontwikkelen die kunnen worden uitgevoerd op elk apparaat dat ondersteuning biedt voor Windows 10, met inbegrip van pc's, Xbox, Surface Hub en andere apparaten.
@@ -63,9 +63,9 @@ Voor deze snelstart zijn de volgende zaken vereist:
 
     ![Schermafbeelding van Visual Studio-toepassing met de optie Start Debugging gemarkeerd](media/sdk/qs-csharp-uwp-09-start-debugging.png "Start foutopsporing van de app")
 
-1. Voer tekst in het tekstvak en klikt u op **Speak**. De tekst is verzonden naar de Services spraak en gemaakt naar-spraak, die op de spreker afgespeeld.
+1. Voer tekst in het tekstvak in en klik op **spreken**. Uw tekst wordt verzonden naar de spraak Services en gesynthesizerd op spraak, die op uw spreker wordt afgespeeld.
 
-    ![Schermopname van gebruikersinterface van spraak synthese](media/sdk/qs-tts-csharp-uwp-ui-result.png)
+    ![Scherm opname van de gebruikers interface van spraak synthese](media/sdk/qs-tts-csharp-uwp-ui-result.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -74,5 +74,5 @@ Voor deze snelstart zijn de volgende zaken vereist:
 
 ## <a name="see-also"></a>Zie ook
 
-- [Spraakstijlen aanpassen](how-to-customize-voice-font.md)
-- [Record voice-voorbeelden](record-custom-voice-samples.md)
+- [Spraak lettertypen aanpassen](how-to-customize-voice-font.md)
+- [Spraak voorbeelden vastleggen](record-custom-voice-samples.md)

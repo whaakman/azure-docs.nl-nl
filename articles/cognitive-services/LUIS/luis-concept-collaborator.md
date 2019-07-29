@@ -1,6 +1,6 @@
 ---
-title: Samenwerking
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Samen werking-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS-apps moeten de eigenaar van een enkele en optionele deelnemers toestaan dat meerdere mensen schrijven voor één app.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e53ba9f24e40837a823e6012340358113d490f46
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473527"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560785"
 ---
 # <a name="collaborating-with-other-authors"></a>Samenwerken met andere auteurs
 
@@ -31,7 +31,7 @@ Zie [Azure Active Directory-tenant gebruiker](luis-how-to-collaborate.md#azure-a
 
 ## <a name="luis-app-owner"></a>LUIS-app-eigenaar
 
-Het account dat wordt gemaakt van een app is eigenaar van de en elke app heeft één eigenaar. De eigenaar wordt weergegeven op de app **[instellingen](luis-how-to-collaborate.md)** pagina. De eigenaar van het ontvangt e-mailbericht wanneer het quotum eindpunt 75% van de maandelijkse limiet is bereikt. 
+Het account waarmee een app wordt gemaakt, is de eigenaar en elke app heeft één eigenaar. De eigenaar wordt weer gegeven op de pagina app- **[instellingen](luis-how-to-collaborate.md)** . De eigenaar ontvangt een e-mail wanneer het quotum van het eind punt 75% van de maandelijkse limiet bereikt. 
 
 ## <a name="authorization-roles"></a>Autorisatie-rollen
 LUIS biedt geen ondersteuning voor verschillende rollen voor eigenaren en samenwerkers met één uitzondering. De eigenaar is het enige account dat de app kunt verwijderen.
@@ -63,9 +63,9 @@ Deze methode kunt u een actieve versie, één fase-versie en een gepubliceerde v
 
 Geëxporteerde apps zijn JSON-indeling bestanden, die kunnen worden vergeleken met de basis exporteren voor wijzigingen. Combineer de bestanden voor het maken van een enkel JSON-bestand van de nieuwe versie. Wijzig de **versionId** eigenschap in de JSON om de nieuwe versie van de samengevoegde aan te geven. Die versie importeren in de oorspronkelijke app.
 
-## <a name="collaborator-roles-vs-entity-roles"></a>De samenwerker rollen vs entiteit rollen
+## <a name="collaborator-roles-vs-entity-roles"></a>Rollen van samen werkers versus entiteits rollen
 
-[Entiteit rollen](luis-concept-roles.md) zijn van toepassing op het gegevensmodel van de LUIS-app. De samenwerker rollen toepassen op niveaus van het ontwerpen van toegang. 
+[Entiteits rollen](luis-concept-roles.md) zijn van toepassing op het gegevens model van de Luis-app. Rollen voor samen werkingen zijn van toepassing op niveaus van toegang tot ontwerpen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

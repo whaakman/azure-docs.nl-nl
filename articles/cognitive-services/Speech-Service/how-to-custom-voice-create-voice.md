@@ -1,7 +1,7 @@
 ---
-title: Maak een aangepaste spraak - spraakservices
-titlesuffix: Azure Cognitive Services
-description: Wanneer u klaar om uw gegevens te uploaden bent, gaat u naar de portal voor aangepaste spraak. Maak of Selecteer een aangepaste spraak-project. Het project moet delen geslacht eigenschappen als de gegevens en de juiste taal/landinstelling doel te gebruiken voor uw stemtraining.
+title: Een aangepaste Voice-speech-service maken
+titleSuffix: Azure Cognitive Services
+description: Wanneer u klaar bent om uw gegevens te uploaden, gaat u naar de aangepaste Voice Portal. Een aangepast spraak project maken of selecteren. Het project moet de juiste taal-en land instellingen en de gender eigenschappen delen als de gegevens die u wilt gebruiken voor uw spraak training.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,138 +10,138 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 0c2889cef01345f00d1669e7549a2fe25ac07b97
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0fdc58ba54c63ba7dd6b74f56aa91e9c2b3c0936
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603132"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562839"
 ---
-# <a name="create-a-custom-voice"></a>Maken van een aangepaste spraak
+# <a name="create-a-custom-voice"></a>Een aangepaste stem maken
 
-In [gegevens voorbereiden voor aangepaste spraak](how-to-custom-voice-prepare-data.md), we de verschillende gegevenstypen die u gebruiken kunt voor het trainen van een aangepaste spraak- en de verschillende vereisten die worden beschreven. Als u uw gegevens hebt voorbereid, kunt u beginnen met uploaden ze naar de [aangepaste spraak portal](https://aka.ms/custom-voice-portal), of via de API voor aangepaste spraak training. Hier beschrijven we de stappen voor het trainen van een aangepaste gesproken via de portal.
+In [gegevens voorbereiden voor aangepaste spraak](how-to-custom-voice-prepare-data.md), worden de verschillende gegevens typen beschreven die u kunt gebruiken voor het trainen van een aangepaste stem en de verschillende indelings vereisten. Wanneer u uw gegevens hebt voor bereid, kunt u deze uploaden naar de [aangepaste Voice Portal](https://aka.ms/custom-voice-portal)of via de aangepaste training-API voor spraak. Hier worden de stappen beschreven voor het trainen van een aangepaste stem via de portal.
 
 > [!NOTE]
-> Deze pagina wordt ervan uitgegaan dat u hebt gelezen [aan de slag met aangepaste spraak](how-to-custom-voice.md) en [gegevens voorbereiden voor aangepaste spraak](how-to-custom-voice-prepare-data.md), en een aangepaste spraak-project hebt gemaakt.
+> Op deze pagina wordt ervan uitgegaan dat u aan de [slag gaat met aangepaste stem](how-to-custom-voice.md) en [gegevens voorbereidt voor aangepaste spraak](how-to-custom-voice-prepare-data.md)en een aangepast spraak project hebt gemaakt.
 
 Controleer de talen die worden ondersteund voor aangepaste spraak: [taal voor aanpassing](language-support.md#customization).
 
-## <a name="upload-your-datasets"></a>Uw gegevenssets uploaden
+## <a name="upload-your-datasets"></a>Uw gegevens sets uploaden
 
-Als u klaar om uw gegevens te uploaden bent, gaat u naar de [aangepaste spraak portal](https://aka.ms/custom-voice-portal). Maak of Selecteer een aangepaste spraak-project. Het project moet delen geslacht eigenschappen als de gegevens en de juiste taal/landinstelling doel te gebruiken voor uw stemtraining. Selecteer bijvoorbeeld `en-GB` als de audio-opnamen hebt gedaan met een groot-Brittannië accent in het Engels.
+Wanneer u klaar bent om uw gegevens te uploaden, gaat u naar de [aangepaste Voice Portal](https://aka.ms/custom-voice-portal). Een aangepast spraak project maken of selecteren. Het project moet de juiste taal-en land instellingen en de gender eigenschappen delen als de gegevens die u wilt gebruiken voor uw spraak training. Selecteer `en-GB` bijvoorbeeld als de audio-opnames in het Engels met een UK-accent zijn gedaan.
 
-Ga naar de **gegevens** tabblad en klik op **gegevens uploaden**. Selecteer het juiste gegevenstype die overeenkomt met wat u hebt voorbereid in de wizard.
+Ga naar het tabblad **gegevens** en klik op **gegevens uploaden**. Selecteer in de wizard het juiste gegevens type dat overeenkomt met wat u hebt voor bereid.
 
-Elke gegevensset die u uploadt, moet voldoen aan de vereisten voor het gegevenstype dat u kiest. Het is belangrijk om correct uw gegevens voordat deze wordt geüpload. Dit zorgt ervoor dat de gegevens nauwkeurig wordt verwerkt door de aangepaste spraak-service. Ga naar [gegevens voorbereiden voor aangepaste spraak](how-to-custom-voice-prepare-data.md) en zorg ervoor dat uw gegevens terecht is geformatteerd.
-
-> [!NOTE]
-> Gratis abonnement (F0) gebruikers kunnen tegelijkertijd twee gegevenssets uploaden. Standard-(S0) abonnementsgebruikers kunnen tegelijkertijd vijf gegevenssets uploaden. Als u de limiet is bereikt, wacht u totdat ten minste één van uw gegevenssets geïmporteerd is. Probeer het opnieuw.
+Elke gegevensset die u uploadt, moet voldoen aan de vereisten voor het gegevens type dat u kiest. Het is belang rijk dat u uw gegevens op de juiste wijze opmaakt voordat deze worden geüpload. Dit zorgt ervoor dat de gegevens correct worden verwerkt door de aangepaste Voice-service. Ga naar [voor bereide gegevens voor aangepaste spraak](how-to-custom-voice-prepare-data.md) en zorg ervoor dat uw gegevens timen zijn opgemaakt.
 
 > [!NOTE]
-> Het maximum aantal gegevenssets kunnen worden geïmporteerd per abonnement is 10 .zip bestanden gratis abonnementsgebruikers (F0) en 500 voor abonnementsgebruikers van de standard-(S0).
+> Gebruikers met een gratis abonnement (F0) kunnen twee gegevens sets tegelijk uploaden. Gebruikers met een standaard abonnement (S0) kunnen vijf gegevens sets tegelijk uploaden. Als u de limiet bereikt, wacht u totdat ten minste één van de gegevens sets is geïmporteerd. Probeer het opnieuw.
 
-Gegevenssets worden automatisch gecontroleerd zodra u de knop voor uploaden bereikt. Gegevensvalidatie bevat een reeks controles op de audio-bestanden om te controleren of de bestandsindeling, de grootte en de samplingfrequentie. Corrigeer de fouten indien van toepassing en verzend opnieuw. Wanneer de aanvraag voor het importeren van gegevens is gestart, ziet u een vermelding in de tabel die overeenkomt met de gegevensset die u zojuist hebt geüpload.
+> [!NOTE]
+> Het maximum aantal gegevens sets dat per abonnement mag worden geïmporteerd is 10. zip-bestanden voor gratis abonnement (F0) gebruikers en 500 voor Standard Subscription (S0)-gebruikers.
 
-De volgende tabel ziet u de verwerking van statussen voor geïmporteerde gegevenssets:
+Gegevens sets worden automatisch gevalideerd zodra u op de knop uploaden hebt geklikt. De gegevens validatie omvat de serie controles van de audio bestanden om de bestands indeling, grootte en sampling frequentie te controleren. Los de fouten op en verzend deze opnieuw. Wanneer de aanvraag voor het importeren van gegevens is gestart, ziet u een vermelding in de gegevens tabel die overeenkomt met de gegevensset die u zojuist hebt geüpload.
+
+De volgende tabel toont de verwerkings statussen voor geïmporteerde gegevens sets:
 
 | Status | Betekenis |
 | ----- | ------- |
 | Verwerken | Uw gegevensset is ontvangen en wordt verwerkt. |
-| Geslaagd | Uw gegevensset is gevalideerd en kan nu worden gebruikt om een stem-model bouwen. |
-| Mislukt | Uw gegevensset is tijdens de verwerking van vanwege verschillende redenen, bijvoorbeeld bestandsfouten, problemen met gegevens of netwerkproblemen is mislukt. |
+| Geslaagd | Uw gegevensset is gevalideerd en kan nu worden gebruikt voor het bouwen van een spraak model. |
+| Mislukt | De gegevensset is tijdens de verwerking mislukt omdat er veel redenen zijn, bijvoorbeeld bestands fouten, gegevens problemen of netwerk problemen. |
 
-Nadat de validatie is voltooid, ziet u het totale aantal overeenkomende uitingen voor elk van uw gegevenssets in de **uitingen** kolom. Als het gegevenstype dat u hebt geselecteerd lange-audio segmentering vereist, geeft deze kolom alleen de uitingen die we hebben gesegmenteerd voor u die een op basis van uw Transcripten of via de service transcriptie van spraak. Verder kunt u downloaden van de gegevensset die is gevalideerd om de resultaten van de details van de uitingen die zijn geïmporteerd en hun toewijzing Transcripten weer te geven. Hint: lange-audio segmentatie kan meer dan een uur gegevensverwerking duren.
+Nadat de validatie is voltooid, ziet u het totale aantal overeenkomende uitingen voor elk van de gegevens sets in de kolom **uitingen** . Als het gegevens type dat u hebt geselecteerd lange-audio segmentatie vereist, bevat deze kolom alleen de uitingen die we voor u hebben gesegmenteerd op basis van uw transcripten of via de speech transcriptie-service. U kunt de gegevensset die is gevalideerd, verder downloaden om de details weer te geven van de uitingen die zijn geïmporteerd en de transcripten van de toewijzing. Hint: de segmentering van lange audio kan meer dan een uur duren om de gegevens verwerking te volt ooien.
 
-Voor gegevenssets en-US en zh-CN, kunt u een rapport om te controleren of de uitspraak van scores en het niveau van de ruis voor elk van de opnamen verder te downloaden. De uitspraak van score varieert van 0 tot 100. Een score lager 70 geeft doorgaans aan dat de spraak-fout of script niet overeenkomen. Een zware accent vermindert uw score uitspraak en van invloed zijn op de gegenereerde digitale stem.
+Voor de gegevens sets en-US en zh-CN kunt u een rapport verder downloaden om de uitspraak cijfers en het geluids niveau voor elk van uw opnamen te controleren. De uitspraak punten variëren van 0 tot en met 100. Een score onder 70 duidt doorgaans op een probleem met de spraak of het script komt niet overeen. Een zwaar accent kan uw uitspraak score verlagen en invloed hebben op de gegenereerde digitale stem.
 
-Een hogere signaal ruis snelheid (signaal) geeft aan dat lagere ruis in uw audio. Doorgaans kunt u een signaal meer dan 50 bereiken door de opname op professionele studios. Audio met een signaal hieronder 20 kan resulteren in voor de hand liggende ruis in uw gegenereerde stem.
+Een hogere signaal-naar-ruis verhouding (SNR) duidt op een lagere ruis in uw audio. U kunt normaal gesp roken een 50 + SNR bereiken door op professionele Studios te registreren. Audio met een SNR lager dan 20 kan leiden tot duidelijk ruis in uw gegenereerde stem.
 
-Houd rekening met alle uitingen met lage uitspraak van scores of slechte signaal ruis ratio's opnieuw op te nemen. Als u kan niet opnieuw registreert, kunt u die uitingen uitsluiten van uw gegevensset.
+U kunt een uitingen met lage uitspraak scores of slecht signaal-naar-ruis-verhouding opnieuw opnemen. Als u niet opnieuw kunt vastleggen, kunt u deze uitingen uitsluiten van uw gegevensset.
 
-## <a name="build-your-custom-voice-model"></a>Uw aangepaste spraak-model bouwt.
+## <a name="build-your-custom-voice-model"></a>Uw aangepaste spraak model bouwen
 
-Nadat uw gegevensset is gevalideerd, kunt u deze kunt gebruiken om uw aangepaste spraak-model te bouwen.
+Nadat uw gegevensset is gevalideerd, kunt u deze gebruiken om uw aangepaste spraak model te maken.
 
-1.  Navigeer naar **tekst naar spraak > aangepaste gesproken > Training**.
+1.  Navigeer naar **tekst-naar-spraak > aangepaste spraak > training**.
 
-2.  Klik op **Train model**.
+2.  Klik op **model trainen**.
 
-3.  Voer vervolgens een **naam** en **beschrijving** zodat u kunt dit model herkennen.
+3.  Voer vervolgens een **naam** en **Beschrijving** in die u helpen bij het identificeren van dit model.
 
-    Kies een naam zorgvuldig. De naam die u hier opgeeft, worden de naam die u gebruikt om op te geven van de toon in uw aanvraag voor spraaksynthese als onderdeel van de SSML invoer. Alleen letters, cijfers en enkele leestekens zoals - \_, en (',') zijn toegestaan. Gebruik verschillende namen voor andere stem-modellen.
+    Kies een naam zorgvuldig. De naam die u hier opgeeft, is de naam die u gebruikt om de stem in uw aanvraag voor spraak synthese op te geven als onderdeel van de SSML-invoer. Alleen letters, cijfers en enkele Lees tekens zoals-, \_en (', ') zijn toegestaan. Gebruik verschillende namen voor verschillende spraak modellen.
 
-    Een algemene gebruik van de **beschrijving** veld, is het vastleggen van de namen van de gegevenssets die zijn gebruikt voor het maken van het model.
+    Een veelvoorkomend gebruik van het veld **Beschrijving** bestaat uit het vastleggen van de namen van de gegevens sets die zijn gebruikt voor het maken van het model.
 
-4.  Uit de **Selecteer trainingsgegevens** pagina, kies een of meer gegevenssets die u wilt gebruiken voor training. Controleer het aantal uitingen voordat u ze verzendt. U kunt beginnen met een willekeurig aantal uitingen voor en-US- en zh-CN voice-modellen. Voor andere landinstellingen, moet u meer dan 2000 uitingen kunnen met het trainen van een stem selecteren.
+4.  Kies op de pagina **Selecteer een trainings gegevens** een of meer gegevens sets die u wilt gebruiken voor de training. Controleer het aantal uitingen voordat u deze verzendt. U kunt beginnen met een wille keurig aantal uitingen voor en-US-en zh-CN-Voice-modellen. Voor andere landen moet u meer dan 2.000 uitingen selecteren om een stem te kunnen trainen.
 
     > [!NOTE]
-    > Dubbele namen van de audio wordt verwijderd uit de training. Zorg ervoor dat de gegevenssets die u selecteert hebben niet de dezelfde namen van de audio in meerdere ZIP-bestanden.
+    > Dubbele audio namen worden verwijderd uit de training. Zorg ervoor dat de gegevens sets die u selecteert niet dezelfde audio namen bevatten voor meerdere zip-bestanden.
 
     > [!TIP]
-    > Met behulp van de gegevenssets van de dezelfde spreker is vereist voor kwaliteitsresultaten. Wanneer de gegevenssets die u hebt verzonden voor training een totaalaantal van minder dan 6000 afzonderlijke uitingen bevat, wordt u het model van uw stem via de techniek statistische parametrische synthese trainen. In het geval waarin uw trainingsgegevens groter is dan een totaal aantal 6000 afzonderlijke uitingen, wordt u een trainingsproces met de techniek samenvoeging synthese gestart. Normaal gesproken kan de samenvoeging technologie resulteren in meer natuurlijke en hogere kwaliteit van zowel spraak resultaten. [Neem contact op met het team voor aangepaste spraak](mailto:speechsupport@microsoft.com) als u wilt een model trainen met de meest recente Neurale TTS-technologie die een digitale stem gelijk is aan de openbaar beschikbare kan opleveren [neurale stemmen](language-support.md#neural-voices).
+    > Het gebruik van de gegevens sets uit dezelfde spreker is vereist voor kwaliteits resultaten. Wanneer de gegevens sets die u hebt ingediend voor training, een totaal aantal van minder dan 6.000 afzonderlijke uitingen bevatten, traint u uw spraak model via de statistische methode voor parametrische synthese. Als uw trainings gegevens een totaal aantal van 6.000 afzonderlijke uitingen overschrijden, kunt u een trainings proces met de methode voor het samen voegen van de synthese starten. Normaal gesp roken kan de samenvoegings technologie leiden tot meer natuurlijke en kwalitatief hoogwaardige stem resultaten. [Neem contact op met het aangepaste spraak team](mailto:speechsupport@microsoft.com) als u een model wilt trainen met de nieuwste Neural TTS-technologie die een digitale stem kan produceren die gelijk is aan de openbaar beschik bare [Neural stemmen](language-support.md#neural-voices).
 
-5.  Klik op **Train** om te beginnen met het maken van uw stem-model.
+5.  Klik op **trainen** om te beginnen met het maken van uw spraak model.
 
-Een nieuwe vermelding die overeenkomt met bevat de Training-tabel naar de zojuist gemaakte model. De tabel wordt de status ook weergegeven: Verwerking is voltooid, is mislukt.
+In de tabel training wordt een nieuw item weer gegeven dat overeenkomt met dit nieuwe model. In de tabel wordt ook de status weer gegeven: De verwerking is voltooid, is mislukt.
 
-De status die wordt weergegeven, geeft het proces van het converteren van uw gegevensset naar een model spraak, zoals hier wordt weergegeven.
+De status die wordt weer gegeven, weerspiegelt het proces van het converteren van uw gegevensset naar een spraak model, zoals hier wordt weer gegeven.
 
 | Status | Betekenis |
 | ----- | ------- |
-| Verwerken | Uw stem-model wordt gemaakt. |
-| Geslaagd | Het model van uw stem is gemaakt en kan worden geïmplementeerd. |
-| Mislukt | Het model van uw stem is uitgevoerd in training vanwege verschillende redenen, bijvoorbeeld niet waren herkend problemen of netwerkproblemen. |
+| Verwerken | Uw spraak model wordt gemaakt. |
+| Geslaagd | Uw spraak model is gemaakt en kan worden geïmplementeerd. |
+| Mislukt | Uw spraak model is niet in de cursus opgetreden omdat er veel redenen zijn, bijvoorbeeld ongevraagde gegevens problemen of netwerk problemen. |
 
-Tijd training, is afhankelijk van het volume van audiogegevens verwerkt. Typische tijden variëren van informatie over-30 minuten voor honderden uitingen tot 20.000 uitingen 40 uur. Als uw modeltraining is voltooid, kunt u starten om deze te testen.
-
-> [!NOTE]
-> Gratis abonnement (F0) gebruikers kunnen tegelijkertijd een spraakstijl trainen. Standard-(S0) abonnementsgebruikers kunnen tegelijkertijd drie stemmen trainen. Als u de limiet is bereikt, wacht totdat ten minste één van uw spraakstijlen training is voltooid en probeer het vervolgens opnieuw.
+De opleidings tijd is afhankelijk van het volume van de verwerkte audio gegevens. Typische tijden variëren van ongeveer 30 minuten voor honderden uitingen tot 40 uur voor 20.000 uitingen. Zodra uw model training is voltooid, kunt u beginnen met testen.
 
 > [!NOTE]
-> Het maximum aantal voice-modellen kunnen worden getraind per abonnement is 10 modellen voor gebruikers van gratis abonnement (F0) en 100 voor abonnementsgebruikers van de standard-(S0).
+> Gebruikers met een gratis abonnement (F0) kunnen tegelijkertijd één spraak lettertype trainen. Gebruikers met een standaard abonnement (S0) kunnen drie stemmen tegelijk trainen. Als u de limiet bereikt, wacht u tot ten minste één van de spraak lettertypen is voltooid en probeert u het opnieuw.
 
-## <a name="test-your-voice-model"></a>Uw stem-model testen
+> [!NOTE]
+> Het maximum aantal spraak modellen dat per abonnement mag worden getraind, is 10 modellen voor gebruikers met een gratis abonnement (F0) en 100 voor Standard Subscription (S0)-gebruikers.
 
-Nadat uw spraakstijl is is gebouwd, kunt u deze testen voordat u deze implementeert voor gebruik.
+## <a name="test-your-voice-model"></a>Uw spraak model testen
 
-1.  Navigeer naar **tekst naar spraak > aangepaste gesproken > testen**.
+Nadat het letter type is gemaakt, kunt u het testen voordat u het voor gebruik implementeert.
 
-2.  Klik op **toevoegen test**.
+1.  Navigeer naar **tekst-naar-spraak > aangepaste spraak > testen**.
 
-3.  Selecteer een of meerdere modellen die u wilt testen.
+2.  Klik op **test toevoegen**.
 
-4.  Geef de tekst die u de voice(s) wilt te spreken. Als u voor het testen van meerdere modellen in één keer hebt geselecteerd, wordt dezelfde tekst worden gebruikt voor het testen van verschillende modellen.
+3.  Selecteer een of meer modellen die u wilt testen.
+
+4.  Geef de tekst op die de stem (en) moet spreken. Als u ervoor hebt gekozen om meerdere modellen tegelijk te testen, wordt dezelfde tekst gebruikt voor het testen van verschillende modellen.
 
     > [!NOTE]
-    > De taal van de tekst moet hetzelfde zijn als de taal van uw spraakstijl. Alleen met succes getrainde modellen kunnen worden getest. Alleen tekst zonder opmaak wordt ondersteund in deze stap.
+    > De taal van de tekst moet hetzelfde zijn als de taal van uw spraak lettertype. Alleen goed getrainde modellen kunnen worden getest. In deze stap wordt alleen tekst zonder opmaak ondersteund.
 
 5.  Klik op **Create**.
 
-Nadat u uw testaanvraag hebt ingediend, gaat u terug naar de testpagina. De tabel bevat nu een vermelding die overeenkomt met uw nieuwe aanvraag en de statuskolom. Het kan enkele minuten om na te bootsen spraak duren. Als de statuskolom zegt **geslaagd**, u kunt het geluid afspelen of de tekstinvoer (een txt-bestand) downloaden en audio-uitvoer (een bestand met de indeling .wav), en verder beluisteren voor kwaliteit.
+Zodra u uw test aanvraag hebt verzonden, keert u terug naar de pagina test. De tabel bevat nu een vermelding die overeenkomt met uw nieuwe aanvraag en de kolom Status. Het kan een paar minuten duren om spraak te maken. Wanneer de kolom status **is geslaagd**, kunt u de audio afspelen of de tekst invoer (een. txt-bestand) en audio-uitvoer (een. wav-bestand) downloaden en de Audition voor kwaliteit verder afstemmen.
 
-U kunt ook de resultaten van de vinden op de detailpagina met van elke modellen die u hebt geselecteerd voor het testen. Ga naar de **Training** tabblad en klik op de naam van het model in te voeren, de detailpagina van het model.
+U kunt ook de test resultaten vinden op de detail pagina van de modellen die u hebt geselecteerd voor het testen. Ga naar het tabblad **training** en klik op de naam van het model om de detail pagina van het model in te voeren.
 
-## <a name="create-and-use-a-custom-voice-endpoint"></a>Maken en gebruiken van een aangepaste spraak-eindpunt
+## <a name="create-and-use-a-custom-voice-endpoint"></a>Een aangepast spraak eindpunt maken en gebruiken
 
-Nadat u hebt met succes gemaakt en het model van uw stem getest, kunt u deze implementeren in een aangepast Text to Speech-eindpunt. Vervolgens gebruikt u dit eindpunt in plaats van het eindpunt van de gebruikelijke bij het maken van tekst naar spraak aanvragen via de REST-API. Uw aangepaste eindpunt kan worden aangeroepen door het abonnement dat u hebt gebruikt voor het implementeren van het lettertype.
+Nadat u uw spraak model hebt gemaakt en getest, implementeert u het in een aangepast tekst-naar-spraak-eind punt. Vervolgens gebruikt u dit eind punt in plaats van het gebruikelijke eind punt bij het maken van tekst-naar-spraak-aanvragen via de REST API. Uw aangepaste eind punt kan alleen worden aangeroepen door het abonnement dat u hebt gebruikt voor het implementeren van het letter type.
 
-Voor het maken van een nieuwe aangepaste spraak-eindpunt, gaat u naar **tekst naar spraak > aangepaste gesproken > implementatie**. Selecteer **eindpunt toevoegen** en voer een **naam** en **beschrijving** voor uw aangepast eindpunt. Selecteer vervolgens het aangepaste spraak-model dat u wilt koppelen aan dit eindpunt.
+Als u een nieuw aangepast spraak eindpunt wilt maken, gaat u naar **tekst-naar-spraak > aangepaste spraak >-implementatie**. Selecteer **eind punt toevoegen** en voer een **naam** en **Beschrijving** in voor het aangepaste eind punt. Selecteer vervolgens het aangepaste spraak model dat u wilt koppelen aan dit eind punt.
 
-Nadat u hebt geklikt op de **toevoegen** knop in de tabel-eindpunt, ziet u een vermelding voor het nieuwe eindpunt voor. Het duurt een paar minuten voor het starten van een nieuw eindpunt. Wanneer de status van de implementatie is **geslaagd**, het eindpunt is gereed voor gebruik.
-
-> [!NOTE]
-> Gratis abonnement (F0) gebruikers kunnen slechts één model geïmplementeerd hebben. Standard-(S0) abonnementsgebruikers kunnen maximaal 50 eindpunten, elk met een eigen aangepaste gesproken maken.
+Nadat u op de knop **toevoegen** hebt geklikt, ziet u in de tabel van het eind punt een vermelding voor het nieuwe eind punt. Het kan een paar minuten duren voordat een nieuw eind punt wordt gemaakt. Wanneer de status van de implementatie is **voltooid**, is het eind punt klaar voor gebruik.
 
 > [!NOTE]
-> Voor het gebruik van uw aangepaste spraak, moet u opgeven de naam van het stem-model, gebruikt u de aangepaste URI rechtstreeks in een HTTP-aanvraag en hetzelfde abonnement worden gebruikt om door te geven via de verificatie van TTS-service.
+> Gratis abonnement (F0) gebruikers kunnen slechts één model implementeren. Gebruikers met een standaard abonnement (S0) kunnen Maxi maal 50 eind punten maken, elk met een eigen aangepaste stem.
 
-Nadat het eindpunt is geïmplementeerd, wordt de naam van het eindpunt als een koppeling weergegeven. Klik op de koppeling om specifieke informatie aan uw eindpunt, zoals de eindpuntsleutel, de eindpunt-URL en de voorbeeldcode weer te geven.
+> [!NOTE]
+> Als u uw aangepaste stem wilt gebruiken, moet u de naam van het spraak model opgeven, de aangepaste URI rechtstreeks in een HTTP-aanvraag gebruiken en hetzelfde abonnement gebruiken om de verificatie van de TTS-Service door te geven.
 
-Online testen van het eindpunt is ook beschikbaar via de portal voor aangepaste gesproken. Als u wilt testen op uw eindpunt, kies **controleren op endpoint** uit de **Endpoint details** pagina. Het eindpunt testen van de pagina wordt weergegeven. Voer de tekst die moet worden uitgesproken (hetzij als tekst zonder opmaak of [SSML indeling](speech-synthesis-markup.md) in het tekstvak in. Als u wilt de tekst die in uw aangepaste spraakstijl gesproken horen, selecteer **afspelen**. Deze functie testen wordt in rekening gebracht op basis van uw aangepaste spraak synthese gebruik.
+Nadat het eind punt is geïmplementeerd, wordt de naam van het eind punt weer gegeven als een koppeling. Klik op de koppeling om informatie weer te geven die specifiek is voor uw eind punt, zoals de eindpunt sleutel, eind punt-URL en voorbeeld code.
 
-Het eindpunt van de aangepaste is identiek aan de standard-eindpunt dat wordt gebruikt voor de Text to Speech-aanvragen. Zie [REST-API](rest-text-to-speech.md) voor meer informatie.
+Online testen van het eind punt is ook beschikbaar via de aangepaste Voice Portal. Kies **eind punt controleren** op de detail pagina van het **eind** punt om uw eind punt te testen. De pagina eindpunt test wordt weer gegeven. Voer de tekst in die moet worden gesp roken (in de [indeling](speech-synthesis-markup.md) onbewerkte tekst of SSML in het tekstvak. Selecteer **afspelen**om de tekst te belui Steren die in uw aangepaste spraak letter type wordt gesp roken. Deze test functie wordt in rekening gebracht op basis van het gebruik van uw aangepaste spraak synthese.
+
+Het aangepaste eind punt is functioneel identiek aan het standaard eindpunt dat wordt gebruikt voor tekst-naar-spraak-aanvragen. Zie [rest API](rest-text-to-speech.md) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Handleiding voor het: Registreren van uw stem-voorbeelden](record-custom-voice-samples.md)
-* [Text to Speech-API-verwijzing](rest-text-to-speech.md)
+* [Begeleiden Uw stem voorbeelden vastleggen](record-custom-voice-samples.md)
+* [Naslag informatie over de tekst-naar-spraak-API](rest-text-to-speech.md)

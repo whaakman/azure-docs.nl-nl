@@ -1,5 +1,6 @@
 ---
-title: Wat is Language Understanding (LUIS) - Azure Cognitive Services | Microsoft Docs
+title: Wat is Language Understanding (LUIS)?
+titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) is een API-cloudservice die aangepaste machine-learning-intelligence toepast op tekst in natuurlijke spreektaal van een gebruiker om daar de algemene betekenis en relevante detailinformatie uit te destilleren.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 569b33d299f52f0da50d8a8992420754aa85b533
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41c5e2f01678996406c586eb20043516beaf2184
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062166"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563186"
 ---
 # <a name="what-is-language-understanding-luis"></a>Wat is Language Understanding (LUIS)?
 
@@ -28,12 +29,12 @@ Een clienttoepassing voor LUIS is een gesprekstoepassing waarin een gebruiker in
 
 <a name="Accessing-LUIS"></a>
 
-Als de LUIS-app is gepubliceerd, worden uitingen (tekst) door een clienttoepassing verzonden naar de [API][endpoint-apis] van het eindpunt voor verwerking van natuurlijke taal in LUIS en worden de resultaten ontvangen als JSON-antwoorden. Een algemene clienttoepassing voor LUIS is een chatbot.
+Zodra de LUIS-app is gepubliceerd, verzendt een client toepassing uitingen (tekst) naar de LUIS natuurlijke taal verwerkings eindpunt- [API][endpoint-apis] en ontvangt de resultaten als JSON-antwoorden. Een algemene clienttoepassing voor LUIS is een chatbot.
 
 
 ![Conceptafbeeldingen van de werking van LUIS met een chatbot om tekst van de gebruiker te voorspellen met behulp van natuurlijke taalverwerking (NLP)](./media/luis-overview/luis-overview-process-2.png "Conceptafbeeldingen van de werking van LUIS met een chatbot om tekst van de gebruiker te voorspellen met behulp van natuurlijke taalverwerking (NLP)")
 
-|Stap|Bewerking|
+|Stap|Action|
 |:--|:--|
 |1|De clienttoepassing verzendt een _uiting_ van de gebruiker (tekst in eigen woorden), zoals "Ik wil mijn contactpersoon van de afdeling HR bellen", naar het eindpunt van LUIS als een HTTP-aanvraag.|
 |2|LUIS past het leermodel toe op de tekst in natuurlijke taal en levert intelligente kennis over de invoer van de gebruiker. LUIS retourneert een antwoord in JSON-indeling, met 'HRContact' (HR-contactpersoon) als belangrijkste intentie. Het minimale JSON-antwoord van het eindpunt bevat de query-uiting en de belangrijkste score-intentie. Ook andere gegevens, zoals de entiteit Type contactpersoon, kunnen worden geëxtraheerd.|
@@ -101,16 +102,16 @@ LUIS biedt hulpprogramma's, versiebeheer en samenwerking met andere LUIS-auteurs
 LUIS kan als REST-API worden geïntegreerd met elk product, elke service en elk framework waarmee een HTTP-aanvraag wordt gemaakt. De volgende lijst bevat de belangrijkste Microsoft-producten en services die gebruikmaken van LUIS.
 
 De populairste clienttoepassing voor LUIS is:
-* [Web-app-bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) - hiermee maakt u snel een met LUIS compatibele chatbot voor communicatie met een gebruiker via tekstinvoer. Maakt gebruik van [Bot Framework] [ bot-framework] versie [4.x](https://github.com/Microsoft/botbuilder-dotnet) voor een complete bot-ervaring.
+* [Web-app-bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) - hiermee maakt u snel een met LUIS compatibele chatbot voor communicatie met een gebruiker via tekstinvoer. Maakt gebruik van [bot Framework][bot-framework] versie [4. x](https://github.com/Microsoft/botbuilder-dotnet) voor een complete bot-ervaring.
 
 Hulpprogramma's om LUIS snel en eenvoudig met een bot te gebruiken:
-* [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) de NPM-pakket biedt ontwerpen en voorspelling met als een zelfstandige vanaf de opdrachtregel-hulpprogramma of importeren. 
+* [Luis cli](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) Het NPM-pakket biedt ontwerpen en voor spellingen met als een zelfstandig opdracht regel programma of als import. 
 * [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) LUISGen is een hulpprogramma voor het genereren van sterk getypeerde broncode voor C# en TypeScript op basis van een geëxporteerd LUIS-model.
 * [Dispatcher](https://aka.ms/dispatch-tool) - met behulp van het verdeelprogrammamodel kunnen verschillende LUIS- en QnA Maker-apps worden gebruikt vanuit een bovenliggende app.
 * [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) LUDown is een opdrachtregelprogramma dat helpt om taalmodellen voor uw bot te beheren.
 
 Andere cognitieve services die kunnen worden gebruikt in combinatie met LUIS:
-* [QnA Maker] [ qnamaker] - hiermee kunnen verschillende soorten tekst worden gecombineerd in een kennisdatabase met vragen en antwoorden.
+* Met [QnA Maker][qnamaker] kunt u verschillende typen tekst combi neren in een vraag-en antwoord Knowledge Base.
 * [Spellingcontrole-API voor Bing](../bing-spell-check/proof-text.md) - hiermee kunt u tekst corrigeren vóór het maken van voorspellingen. 
 * [Spraakservice](../Speech-Service/overview.md) - hiermee kunt u gesproken taalaanvragen converteren naar tekst. 
 * [Conversation Learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) - hiermee kunt u sneller bot-gesprekken met LUIS bouwen.
