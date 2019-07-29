@@ -148,6 +148,8 @@
               href: stream-analytics-scale-jobs.md
         - name: Schaal aanpassen met ML-functies
           href: stream-analytics-scale-with-machine-learning-functions.md
+        - name: Schaal aanpassen door opnieuw te partitioneren
+          href: repartition.md
     - name: Automatiseren
       items:
         - name: .NET SDK gebruiken
