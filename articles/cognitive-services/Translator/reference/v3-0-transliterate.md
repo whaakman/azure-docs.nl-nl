@@ -1,7 +1,7 @@
 ---
-title: Translator Text-API transliteratie methode
-titlesuffix: Azure Cognitive Services
-description: Gebruik de methode transliteratie van Translator Text-API.
+title: Translator Text-API methode voor trans-tele-tele-iseren
+titleSuffix: Azure Cognitive Services
+description: Gebruik de Translator Text-API methode voor trans-iseren.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: ddf4ca1939e09f5f63999657e7a751c9e53693e2
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 0be56bbd421bcd12e3c494a671db2f322e07c575
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357665"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594940"
 ---
-# <a name="translator-text-api-30-transliterate"></a>Translator Text-API 3.0: Transliterate
+# <a name="translator-text-api-30-transliterate"></a>Translator Text-API 3,0: Transliterate
 
-Converteert tekst in één taal van één script naar een ander script.
+Hiermee wordt tekst in één taal van het ene script naar een ander script geconverteerd.
 
 ## <a name="request-url"></a>Aanvraag-URL
 
-Verzendt een `POST` aanvragen:
+Een `POST` aanvraag verzenden naar:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
@@ -31,55 +31,55 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 ## <a name="request-parameters"></a>Aanvraagparameters
 
-Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
+Aanvraag parameters die zijn door gegeven voor de query reeks zijn:
 
 <table width="100%">
   <th width="20%">Queryparameter</th>
   <th>Description</th>
   <tr>
     <td>api-version</td>
-    <td>*Vereiste parameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
+    <td>*Vereiste para meter*.<br/>De versie van de API die door de client is aangevraagd. Waarde moet zijn `3.0`.</td>
   </tr>
   <tr>
     <td>language</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de tekst die moet worden geconverteerd van een script naar een andere. Mogelijke talen worden vermeld in de `transliteration` bereik verkregen door het opvragen van de service voor de [ondersteunde talen](./v3-0-languages.md).</td>
+    <td>*Vereiste para meter*.<br/>Hiermee wordt de taal van de tekst opgegeven die van het ene naar het andere script moet worden geconverteerd. Mogelijke talen worden weer gegeven in `transliteration` het bereik dat wordt verkregen door de service te doorzoeken op de [ondersteunde talen](./v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u het script dat wordt gebruikt door de invoertekst. Opzoeken [ondersteunde talen](./v3-0-languages.md) met behulp van de `transliteration` bereik, zoeken invoer scripts beschikbaar voor de geselecteerde taal.</td>
+    <td>*Vereiste para meter*.<br/>Hiermee geeft u het script op dat wordt gebruikt door de invoer tekst. Zoek naar [ondersteunde talen](./v3-0-languages.md) met behulp van het `transliteration` bereik om beschik bare invoer scripts te vinden voor de geselecteerde taal.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u het uitvoerscript. Opzoeken [ondersteunde talen](./v3-0-languages.md) met behulp van de `transliteration` bereik, zoeken naar uitvoer-scripts die beschikbaar zijn voor de geselecteerde combinatie van taal- en invoer-script.</td>
+    <td>*Vereiste para meter*.<br/>Hiermee geeft u het uitvoer script op. Zoek naar [ondersteunde talen](./v3-0-languages.md) met behulp van het `transliteration` bereik om uitvoer scripts te vinden die beschikbaar zijn voor de geselecteerde combi natie van invoer taal en invoer script.</td>
   </tr>
 </table> 
 
-Aanvraagheaders zijn onder andere:
+Aanvraag headers zijn onder andere:
 
 <table width="100%">
   <th width="20%">Headers</th>
   <th>Description</th>
   <tr>
-    <td>Verificatie of meerdere berichtkoppen</td>
-    <td><em>Vereiste aanvraagheader</em>.<br/>Zie <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">beschikbare opties voor verificatie</a>.</td>
+    <td>Verificatie header (s)</td>
+    <td>De <em>vereiste aanvraag header</em>.<br/>Bekijk de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">beschik bare opties voor authenticatie</a>.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
-    <td>*Vereiste aanvraagheader*.<br/>Hiermee geeft u het type inhoud van de nettolading. Mogelijke waarden zijn: `application/json`.</td>
+    <td>Inhoudstype</td>
+    <td>De *vereiste aanvraag header*.<br/>Hiermee geeft u het inhouds type van de payload op. Mogelijke waarden zijn: `application/json`.</td>
   </tr>
   <tr>
-    <td>Content-Length</td>
-    <td>*Vereiste aanvraagheader*.<br/>De lengte van de aanvraagtekst.</td>
+    <td>Content-length</td>
+    <td>De *vereiste aanvraag header*.<br/>De lengte van de aanvraag tekst.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Optioneel*.<br/>Een client gegenereerde GUID voor het aanduiden van de aanvraag. Houd er rekening mee dat u deze header weglaten kunt als u de trace-ID opnemen in de querytekenreeks met behulp van een queryparameter met de naam `ClientTraceId`.</td>
+    <td>*Optioneel*.<br/>Een door de client gegenereerde GUID om de aanvraag uniek te identificeren. Houd er rekening mee dat u deze koptekst kunt weglaten als u de trace-ID in de query reeks opneemt met behulp van een query parameter met de naam `ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Aanvraagbody
 
-De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-object met de tekenreekseigenschap van een met de naam `Text`, die staat voor de tekenreeks moet worden geconverteerd.
+De hoofd tekst van de aanvraag is een JSON-matrix. Elk matrix element is een JSON-object met een teken reeks `Text`eigenschap met de naam, die de teken reeks vertegenwoordigt die moet worden geconverteerd.
 
 ```json
 [
@@ -88,21 +88,21 @@ De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-
 ]
 ```
 
-Er gelden de volgende beperkingen:
+De volgende beperkingen zijn van toepassing:
 
-* De matrix kan maximaal 10 elementen hebben.
-* De tekstwaarde van een element van de matrix niet langer zijn dan 1000 tekens inclusief spaties.
-* De volledige tekst is opgenomen in de aanvraag kan niet langer zijn dan 5000 tekens inclusief spaties.
+* De matrix kan Maxi maal 10 elementen bevatten.
+* De tekst waarde van een matrix element mag niet langer zijn dan 1.000 tekens, inclusief spaties.
+* De volledige tekst die in de aanvraag is opgenomen, mag niet langer zijn dan 5.000 tekens, inclusief spaties.
 
-## <a name="response-body"></a>De hoofdtekst van antwoord
+## <a name="response-body"></a>Antwoord tekst
 
-Een geslaagde reactie is een JSON-matrix met één resultaat voor elk element in de invoermatrix. Een resultaatobject bevat de volgende eigenschappen:
+Een geslaagde reactie is een JSON-matrix met één resultaat voor elk element in de invoer matrix. Een resultaat object bevat de volgende eigenschappen:
 
-  * `text`: Een tekenreeks. dit het resultaat is van het converteren van de ingevoerde tekenreeks voor het uitvoerscript.
+  * `text`: Een teken reeks die het resultaat is van de conversie van de invoer teken reeks naar het uitvoer script.
   
-  * `script`: Een tekenreeks die het script dat wordt gebruikt in de uitvoer op te geven.
+  * `script`: Een teken reeks waarmee het script wordt opgegeven dat wordt gebruikt in de uitvoer.
 
-Een voorbeeld-JSON-antwoord is:
+Een voor beeld van een JSON-antwoord is:
 
 ```json
 [
@@ -118,62 +118,62 @@ Een voorbeeld-JSON-antwoord is:
   <th>Description</th>
   <tr>
     <td>X-RequestId</td>
-    <td>De waarde die wordt gegenereerd door de service voor het identificeren van de aanvraag. Het wordt gebruikt voor het oplossen van problemen.</td>
+    <td>De waarde die door de service is gegenereerd om de aanvraag te identificeren. Dit wordt gebruikt voor het oplossen van problemen.</td>
   </tr>
 </table> 
 
-## <a name="response-status-codes"></a>Antwoord-statuscodes
+## <a name="response-status-codes"></a>Antwoord status codes
 
-Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert. 
+Hier volgen de mogelijke HTTP-status codes die een aanvraag retourneert. 
 
 <table width="100%">
   <th width="20%">Statuscode</th>
   <th>Description</th>
   <tr>
     <td>200</td>
-    <td>Geslaagd.</td>
+    <td>Voltooid.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>Een van de queryparameters is ontbreekt of is ongeldig. De parameters van de juiste aanvraag voordat opnieuw wordt geprobeerd.</td>
+    <td>Een van de query parameters ontbreekt of is ongeldig. Corrigeer de aanvraag parameters voordat u het opnieuw probeert.</td>
   </tr>
   <tr>
     <td>401</td>
-    <td>De aanvraag kan niet worden geverifieerd. Controleer of de referenties opgegeven en is geldig zijn.</td>
+    <td>De aanvraag kan niet worden geverifieerd. Controleer of de referenties zijn opgegeven en geldig zijn.</td>
   </tr>
   <tr>
     <td>403</td>
-    <td>De aanvraag is niet gemachtigd. Controleer het foutbericht voor meer informatie. Dit betekent meestal dat alle gratis vertalingen voorzien van een proefabonnement zijn verbruikt.</td>
+    <td>De aanvraag is niet gemachtigd. Controleer het fout bericht Details. Dit betekent vaak dat alle gratis vertalingen van een proef abonnement zijn gebruikt.</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>De server heeft de aanvraag geweigerd omdat de client aanvraaglimieten heeft overschreden.</td>
+    <td>De server heeft de aanvraag geweigerd omdat de aanvraag limieten voor de client is overschreden.</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>Er is een onverwachte fout opgetreden. Als de fout zich blijft voordoen, rapporteren met: datum en tijd van de fout, aanvraag-id van de reactieheader `X-RequestId`, en de client-id van aanvraagheader `X-ClientTraceId`.</td>
+    <td>Er is een onverwachte fout opgetreden. Als de fout zich blijft voordoen, meldt u deze met: datum en tijd van de fout, aanvraag `X-RequestId`-id van antwoord header en client `X-ClientTraceId`-id uit aanvraag header.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>De server is tijdelijk niet beschikbaar. De aanvraag opnieuw. Als de fout zich blijft voordoen, rapporteren met: datum en tijd van de fout, aanvraag-id van de reactieheader `X-RequestId`, en de client-id van aanvraagheader `X-ClientTraceId`.</td>
+    <td>De server is tijdelijk niet beschikbaar. Voer de aanvraag opnieuw uit. Als de fout zich blijft voordoen, meldt u deze met: datum en tijd van de fout, aanvraag `X-RequestId`-id van antwoord header en client `X-ClientTraceId`-id uit aanvraag header.</td>
   </tr>
 </table> 
 
-Als er een fout optreedt, wordt de aanvraag ook een JSON-fout antwoord retourneren. De foutcode is een 6-cijferige numerieke combineren het 3-cijferige HTTP-statuscode gevolgd door een getal 3 cijfers en verder categoriseren van de fout. Veelvoorkomende foutcodes kunnen u vinden op de [v3 Translator Text-API-verwijzingspagina](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Als er een fout optreedt, wordt door de aanvraag ook een JSON-fout bericht geretourneerd. De fout code is een getal van 6 cijfers, waarbij de HTTP-status code van 3 cijfers wordt gevolgd door een getal van drie cijfers om de fout verder te categoriseren. Algemene fout codes vindt u op de [pagina v3-Translator text-API-referentie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Voorbeelden
 
-Het volgende voorbeeld ziet hoe u twee Japanse tekenreeksen omzetten in Japanse Romanized.
+In het volgende voor beeld ziet u hoe u twee Japanse teken reeksen omzet in geromeins Japans.
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
-De JSON-nettolading voor de aanvraag in dit voorbeeld:
+De JSON-nettolading voor de aanvraag in dit voor beeld:
 
 ```
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
-Als u van cURL in een opdrachtregelvenster die geen ondersteuning biedt voor Unicode-tekens gebruikmaakt, worden de volgende JSON-nettolading en sla deze op in een bestand met de naam `request.txt`. Zorg ervoor dat u het bestand met de `UTF-8` codering.
+Als u krul gebruikt in een opdracht regel venster dat geen Unicode-tekens ondersteunt, neemt u de volgende JSON-nettolading op en slaat u deze op in `request.txt`een bestand met de naam. Zorg ervoor dat u het bestand opslaat `UTF-8` met code ring.
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt

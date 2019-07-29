@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: 6936d8f93221402fca9b250d09a842ce753e0e12
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fdc5e540dd7e84d47aa139768fbfc2614f38b376
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559313"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607713"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Quickstart: Spraak maken in C++ Windows met behulp van de Speech SDK
 
 Quick starts zijn ook beschikbaar voor [spraak herkenning](quickstart-cpp-windows.md) en [spraak omzetting](quickstart-translate-speech-cpp-windows.md).
 
-In dit artikel maakt u een C++-consoletoepassing voor Windows. U gebruikt de Cognitive Services [Speech SDK](speech-sdk.md) om spraak van tekst in realtime te synthesizeren en de spraak op de spreker van uw PC af te spelen. De toepassing is gemaakt met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
+In dit artikel maakt u een C++-consoletoepassing voor Windows. U gebruikt de Cognitive Services [Speech SDK](speech-sdk.md) om spraak van tekst in realtime te synthesizeren en de spraak op de spreker van uw PC af te spelen. De toepassing is gebouwd met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en micro soft Visual Studio 2017 of hoger (alle edities).
 
 De functie die in dit artikel wordt beschreven, is beschikbaar via [Speech SDK 1.5.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0).
 

@@ -5,14 +5,12 @@ metadata:
   title: Documentatie voor Azure Container Registry - zelfstudies | Microsoft Docs
   description: 'Met Azure Container Registry kunt u installatiekopieën compileren, opslaan en beheren voor alle typen containerimplementaties. Ontdek met deze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Container Registry gebruikt.'
   services: container-registry
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-registry
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Met Azure Container Registry kunt u installatiekopieën compileren, opslaan en beheren voor alle typen containerimplementaties. Ontdek met deze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Container Registry gebruikt.'
 sections:

@@ -1,107 +1,107 @@
 ---
-title: De resultaten van systeem en implementatie - aangepaste Translator weergeven
+title: Resultaten van systeem testen en implementatie-aangepaste vertaler weer geven
 titleSuffix: Azure Cognitive Services
-description: Wanneer uw training is voltooid, controleert u systeemtests voor het analyseren van de resultaten van uw training. Als u tevreden met de resultaten van de training bent, plaatst u een implementatieaanvraag voor het getrainde model.
+description: Wanneer uw training is geslaagd, controleert u de systeem tests om uw trainings resultaten te analyseren. Als u tevreden bent met de resultaten van de training, plaatst u een implementatie aanvraag voor het getrainde model.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ec15851ae7ff59a752fbf0d823d87aa6e68f10e9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442487"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595599"
 ---
 # <a name="view-system-test-results"></a>Testresultaten voor systeem weergeven
 
-Wanneer uw training is voltooid, controleert u systeemtests voor het analyseren van de resultaten van uw training. Als u tevreden met de resultaten van de training bent, plaatst u een implementatieaanvraag voor het getrainde model.
+Wanneer uw training is geslaagd, controleert u de systeem tests om uw trainings resultaten te analyseren. Als u tevreden bent met de resultaten van de training, plaatst u een implementatie aanvraag voor het getrainde model.
 
-## <a name="system-test-results-page"></a>Pagina met zoekresultaten systeem testen
+## <a name="system-test-results-page"></a>Pagina resultaten van systeem test
 
-Selecteer een project en selecteer vervolgens het tabblad modellen van het project, zoekt u het model dat u wilt gebruiken en tot slot selecteert u het tabblad testen.
+Selecteer een project en selecteer vervolgens het tabblad modellen van het project, zoek het model dat u wilt gebruiken en selecteer ten slotte het tabblad testen.
 
-De test-tabblad ziet u:
+Op het tabblad test ziet u het volgende:
 
-1.  **De resultaten van systeem:** Het resultaat van het testproces in de trainingen. Het testproces produceert de score BLEU.
+1.  **Systeem Testresultaten:** Het resultaat van het test proces in de training. Het test proces produceert de BLEU-Score.
 
-    **Aantal zin:** Het aantal parallelle zinnen zijn gebruikt in de testset.
+    **Aantal zinnen:** Hoeveel parallelle zinnen er zijn gebruikt in de testset.
 
-     **BLEU Score:** BLEU score gegenereerd voor een model na voltooiing van de training.
+     **BLEU Score:** BLEU Score gegenereerd voor een model na voltooiing van de training.
 
-    **Status:** Geeft aan of de test voltooid is of wordt uitgevoerd.
+    **Hebben** Hiermee wordt aangegeven of het test proces is voltooid of wordt uitgevoerd.
 
-    ![De resultaten van systeem](media/how-to/how-to-system-test-results.png)
+    ![Resultaten van systeem test](media/how-to/how-to-system-test-results.png)
 
-2.  Klik op de resultaten van het systeem en dat gaat u naar de pagina met details van resultaat testen. Deze pagina bevat het vertalen van zinnen die deel van de testgegevensset uitmaken.
+2.  Klik op de resultaten van de systeem test en u gaat dan naar de pagina resultaat Details testen. Op deze pagina wordt de automatische vertaling van zinnen weer gegeven die deel uitmaakten van de test gegevensset.
 
-3.  De tabel op de detailpagina van de test-resultaat heeft twee kolommen: één voor elke taal in het paar. De kolom voor de source-taal geeft de zin worden omgezet. De kolom voor de doeltaal bevat twee zinnen in elke rij.
+3.  De tabel op de pagina resultaten Details van test heeft twee kolommen: één voor elke taal in de set. De kolom voor de bron taal bevat de zin die moet worden vertaald. De kolom voor de doel taal bevat twee zinnen in elke rij.
 
-    **REF:** Deze zin is de omzetting van de referentie van de bron-zin zoals vermeld in de testgegevensset.
+    **Verwijzing** Deze zin is de referentie vertaling van de bron zin zoals opgegeven in de test gegevensset.
 
-    **MT:** Deze zin is de automatische omzetting van de bron-zin gedaan door het model gebouwd na de training werd uitgevoerd.
+    **MT:** Deze zin is de automatische vertaling van de bron zin die is gemaakt door het model dat is gebouwd nadat de training is uitgevoerd.
 
-    ![Systeem test resultaten vergelijken](media/how-to/how-to-system-test-results-2.png)
+    ![Resultaten van de systeem test worden vergeleken](media/how-to/how-to-system-test-results-2.png)
 
 ## <a name="download-test"></a>Test downloaden
 
-Klik op de koppeling vertalingen downloaden als een zipbestand wilt downloaden. Het ZIP-bestand bevat de machine vertalingen van bron zinnen in de test-gegevensset.
+Klik op de koppeling vertalingen downloaden om een zip-bestand te downloaden. De zip bevat de computer vertalingen van bron zinnen in de test gegevensset.
 
 ![Test downloaden](media/how-to/how-to-system-test-download.png)
 
-Deze gedownloade zip-archief bevat drie bestanden.
+Dit gedownloade zip-archief bevat drie bestanden.
 
-1.  **custom.mt.txt:** Dit bestand bevat automatische vertalingen van zinnen source-taal in de doeltaal gedaan door het model is getraind met gegevens van de gebruiker.
+1.  **custom.mt.txt:** Dit bestand bevat machine vertalingen van bron taal zinnen in de doel taal die worden uitgevoerd door het model dat is getraind met de gegevens van de gebruiker.
 
-2.  **ref.txt:** Dit bestand bevat door de gebruiker opgegeven vertalingen van zinnen source-taal in de doel-taal.
+2.  **Ref. txt:** Dit bestand bevat de door de gebruiker verschafte vertalingen van bron taal zinnen in de doel taal.
 
-3.  **source.txt:** Dit bestand bevat zinnen in de source-taal.
+3.  **Bron. txt:** Dit bestand bevat zinnen in de bron taal.
 
-    ![De resultaten van gedownloade system](media/how-to/how-to-download-system-test.png)
+    ![Resultaten van gedownloade systeem test](media/how-to/how-to-download-system-test.png)
 
 ## <a name="deploy-a-model"></a>Een model implementeren
 
-Om aan te vragen een implementatie:
+Een implementatie aanvragen:
 
-1.  Selecteer een project, gaat u naar het tabblad modellen.
+1.  Selecteer een project, ga naar het tabblad modellen.
 
-2. Voor een model is getraind, deze ziet u de knop 'Implementeren' als dit niet geïmplementeerd.
+2. Voor een goed opgeleid model wordt de knop implementeren weer gegeven als deze niet is geïmplementeerd.
 
     ![Model implementeren](media/how-to/how-to-deploy-model.png)
 
 3.  Klik op implementeren.
-4.  Selecteer **geïmplementeerd** voor de regio('s) waar u uw model om te worden geïmplementeerd en klik op opslaan. U kunt selecteren **geïmplementeerd** voor meerdere regio's.
+4.  Selecteer **geïmplementeerd** voor de regio (s) waar u het model wilt implementeren en klik op opslaan. U kunt **geïmplementeerde** voor meerdere regio's selecteren.
 
     ![Model implementeren](media/how-to/how-to-deploy-model-regions.png)
 
-5.  U kunt de status van uw model bekijken in de kolom 'Status'.
+5.  U kunt de status van uw model weer geven in de kolom Status.
 
 >[!Note]
->Aangepaste Translator ondersteunt 10 geïmplementeerde modellen in een werkruimte op elk gewenst moment in-time.
+>Custom Translator ondersteunt 10 geïmplementeerde modellen binnen een werk ruimte op elk gewenst moment.
 
 ## <a name="update-deployment-settings"></a>Implementatie-instellingen bijwerken
 
 Implementatie-instellingen bijwerken:
 
-1.  Selecteer een project en Ga naar de **modellen** tabblad.
+1.  Selecteer een project en ga naar het tabblad **modellen** .
 
-2. Voor een model is geïmplementeerd, wordt een **Update** knop.
+2. Voor een correct geïmplementeerd model wordt een knop **bijwerken** weer gegeven.
 
     ![Model implementeren](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Selecteer **Update**.
-4.  Selecteer **geïmplementeerd** of **Undeployed** van de regio('s) waar u uw model geïmplementeerd of uitgeschakeld, en klik op **opslaan**.
+4.  Selecteer **geïmplementeerd** of niet- **geïmplementeerd** voor de regio's waar u uw model wilt implementeren of niet wilt implementeren en klik vervolgens op **Opslaan**.
 
     ![Model implementeren](media/how-to/how-to-undeploy-model.png)
 
 >[!Note]
->Als u selecteert **Undeployed** voor alle regio's, het model is uitgeschakeld in alle regio's, en in een niet-geïmplementeerde status geplaatst. Het is nu niet beschikbaar voor gebruik.
+>Als u niet  -geïmplementeerde voor alle regio's selecteert, wordt het model uit alle regio's ongeïmplementeerd en wordt de status niet-geïmplementeerd. Het is nu niet beschikbaar voor gebruik.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Start met behulp van het model van uw geïmplementeerde aangepaste vertaling via [Microsoft Translator Text-API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
-- Informatie over [over het beheren van instellingen](how-to-manage-settings.md) beheren abonnementssleutel voor het delen van uw werkruimte.
-- Informatie over [over het migreren van uw werkruimte en het project](how-to-migrate.md) van [Microsoft Translator-Hub](https://hub.microsofttranslator.com)
+- Meer informatie [over het beheren van instellingen](how-to-manage-settings.md) voor het delen van uw werk ruimte, het beheren van de abonnements sleutel.
+- Meer informatie [over het migreren van uw werk ruimte en project](how-to-migrate.md) van [micro soft Translator hub](https://hub.microsofttranslator.com)

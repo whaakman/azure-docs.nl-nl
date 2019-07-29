@@ -1,36 +1,36 @@
 ---
-title: Wat is een score BLEU? -Aangepaste Translator
+title: Wat is een BLEU-Score? -Aangepaste Translator
 titleSuffix: Azure Cognitive Services
-description: BLEU is een meting van de verschillen tussen een automatische vertaling en een of meer mens gemaakte referentie vertalingen van dezelfde bron zin. Het algoritme BLEU vergelijkt opeenvolgende zinnen van de automatische vertaling met de opeenvolgende items in de vertaling verwijzing gezocht en telt het aantal komt overeen met een gewogen besturingsaanvraag.
+description: BLEU is een meting van de verschillen tussen een automatische vertaling en een of meer door de mens gemaakte referentie vertalingen van dezelfde bron zin. Het BLEU-algoritme vergelijkt opeenvolgende zinnen van de automatische vertaling met de opeenvolgende woord groepen die worden gevonden in de referentie conversie en telt het aantal overeenkomsten op een gewogen manier.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: swmachan
-ms.openlocfilehash: a77fd1a84c1ffc18a1e0c74000c72db5cdbb00e1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1993819ad227d7e9aa5ef899045e00447a6740b8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447384"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595413"
 ---
-# <a name="what-is-a-bleu-score"></a>Wat is een score BLEU?
+# <a name="what-is-a-bleu-score"></a>Wat is een BLEU-Score?
 
-[BLEU (tweetalige evaluatie Understudy)](https://en.wikipedia.org/wiki/BLEU) is een meting van de verschillen tussen een automatische vertaling en een of meer mens gemaakte referentie vertalingen van dezelfde bron zin.
+[Bleu (tweetalige evaluatie-onderstudie)](https://en.wikipedia.org/wiki/BLEU) is een meting van de verschillen tussen een automatische vertaling en een of meer door de mens gemaakte referentie vertalingen van dezelfde bron zin.
 
-## <a name="scoring-process"></a>Scoring-proces
+## <a name="scoring-process"></a>Score proces
 
-Het algoritme BLEU vergelijkt opeenvolgende zinnen van de automatische vertaling met de opeenvolgende items in de vertaling verwijzing gezocht en telt het aantal komt overeen met een gewogen besturingsaanvraag. Deze overeenkomsten zijn positie onafhankelijk. Een hogere mate van de overeenkomst geeft aan dat een hogere mate van vergelijkbaar zijn met de verwijzing vertaling en hogere score. Leesbaarheid en grammaticale zijn niet in aanmerking genomen.
+Het BLEU-algoritme vergelijkt opeenvolgende zinnen van de automatische vertaling met de opeenvolgende woord groepen die worden gevonden in de referentie conversie en telt het aantal overeenkomsten op een gewogen manier. Deze overeenkomst is onafhankelijk van positie. Een hogere nauw keurigheid duidt op een hogere mate van gelijkenis met de referentie vertaling en een hogere score. Er wordt geen rekening gehouden met intelligibility en grammatica correctie.
 
-## <a name="how-bleu-works"></a>Hoe werkt de BLEU?
+## <a name="how-bleu-works"></a>Hoe BLEU werkt?
 
-BLEU van kracht is dat deze met menselijke beslissing goed correleert door gemiddelde afzonderlijke zin beslissing fouten over een corpus testen, in plaats van bij het ontwerpen van de exacte menselijke beslissing voor elke zin het.
+De sterkte van BLEU is dat deze goed wordt afgestemd op de beslissing van de mens door het berekenen van de afzonderlijke beslissings fouten van de zinnen ten opzichte van een test verzameling, in plaats van dat er wordt geprobeerd om voor elke zin de exacte menselijke beslissing te nemen.
 
-Is een uitgebreidere bespreking van BLEU scores [hier](https://youtu.be/-UqDljMymMg).
+[Hier volgt](https://youtu.be/-UqDljMymMg)een uitgebreidere bespreking van Bleu-scores.
 
-BLEU resultaten sterk afhankelijk zijn van de breedte van uw domein, de consistentie van de testgegevens met de training en -gegevens, afstemmen en hoeveel gegevens er beschikbaar zijn om te trainen. Als uw modellen zijn getraind op een klein domein en is uw trainingsgegevens consistent zijn met de testgegevens van uw, kunt u een hoge BLEU score verwachten.
+BLEU resultaten zijn sterk afhankelijk van de breedte van uw domein, de consistentie van de test gegevens met de training en het afstemmen van gegevens en de hoeveelheid gegevens die u beschikbaar hebt om te trainen. Als uw modellen zijn getraind op een beperkt domein en uw trainings gegevens consistent zijn met uw test gegevens, kunt u een hoge BLEU-Score verwachten.
 
 >[!NOTE]
->Een vergelijking tussen BLEU scores is alleen verantwoord BLEU resultaten zijn vergeleken met dezelfde set Test, de dezelfde combinatie van taal en dezelfde MT-engine. Een score BLEU uit een andere test-set is gebonden aan afwijken.
+>Een vergelijking tussen BLEU-scores is alleen verantwoord wanneer BLEU-resultaten worden vergeleken met dezelfde testset, hetzelfde taal paar en dezelfde MT-engine. Een BLEU-Score van een andere testset is gebonden aan een andere set.

@@ -1,7 +1,7 @@
 ---
-title: Teken aantallen - Translator Text-API
-titlesuffix: Azure Cognitive Services
-description: De tekst-API van Translator telt hoe tekens.
+title: Aantal tekens-Translator Text-API
+titleSuffix: Azure Cognitive Services
+description: Hoe de Translator Text-API tekens telt.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,34 +10,34 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cfd5823009b66b6b525c7add1fb56953d3c1a507
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e3a16d9272e75f9a94f5381c1681c036d177e0f6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445268"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595984"
 ---
-# <a name="how-the-translator-text-api-counts-characters"></a>Hoe de tekst-API van Translator telt tekens
+# <a name="how-the-translator-text-api-counts-characters"></a>Hoe de Translator Text-API tekens telt
 
-De tekst-API van Translator telt elke codepunt voor Unicode van invoertekst als een teken. Elke omzetting van een tekst naar een andere taal telt als een afzonderlijke vertaling, zelfs als de aanvraag is gedaan in een enkele API aanroep vertalen naar meerdere talen. De lengte van het antwoord niet van belang.
+Het Translator Text-API telt elk Unicode-code punt van invoer tekst als een teken. Elke vertaling van een tekst naar een taal telt als een afzonderlijke vertaling, zelfs als de aanvraag is gedaan in één API-aanroep die naar meerdere talen vertaalt. De lengte van het antwoord is niet van belang.
 
-Wat telt is:
+Wat is het aantal:
 
-* Tekst die wordt doorgegeven naar de Translator Text-API in de hoofdtekst van de aanvraag
-   * `Text` bij het gebruik van de methoden vertalen, Transliterate en woordenboek
-   * `Text` en `Translation` bij het gebruik van de methode Dictionary-voorbeelden
-* Alle aantekeningen: HTML, XML-tags, enz. in het tekstveld van de aanvraagtekst. JSON-notatie gebruikt voor het bouwen van de aanvraag (bijvoorbeeld ' tekst: ') wordt niet meegerekend.
-* Een afzonderlijke letter
+* Tekst die wordt door gegeven aan de Translator Text-API in de hoofd tekst van de aanvraag
+   * `Text`bij gebruik van de opzoek methoden vertalen, trans actie en Dictionary
+   * `Text`en `Translation` wanneer u de voor beelden van de woordenlijst methode gebruikt
+* Alle markeringen: HTML-, XML-tags, enzovoort, in het tekst veld van de hoofd tekst van de aanvraag. De JSON-notatie die wordt gebruikt om de aanvraag te maken (bijvoorbeeld ' Text: '), wordt niet meegerekend.
+* Een afzonderlijke brief
 * Leestekens
-* Een spatie, tab, aantekeningen en elk soort spatie
-* Elk codepunt is gedefinieerd in Unicode
-* Een herhaalde vertaling, zelfs als u dezelfde tekst eerder zijn vertaald
+* Een spatie, tab, opmaak en elk soort spatie teken
+* Elk code punt dat in Unicode is gedefinieerd
+* Een herhaalde vertaling, zelfs als u dezelfde tekst eerder hebt vertaald
 
-Voor scripts op basis van weer te geven ideogrammen zoals Chinees en Japans Kanji, telt de Translator Text-API nog steeds het aantal codepunten Unicode, één teken per ideogram. Uitzondering: Unicode vervangende aantal tekens als twee tekens.
+Voor scripts die zijn gebaseerd op ideograms zoals Chinees en Japans Kanji, telt het Translator Text-API nog steeds het aantal Unicode-code punten, één teken per Ideogram. Uitzondering: Unicode-surrogaten tellen als twee tekens.
 
-Het aantal aanvragen, woorden, bytes of zinnen is niet van belang in het aantal tekens.
+Het aantal aanvragen, woorden, bytes of zinnen is irrelevant in het aantal tekens.
 
-Aanroepen van de analyse en BreakSentence methoden worden niet meegeteld in het verbruik van het teken. Echter, we verwachten dat de aanroepen van de analyse en BreakSentence methoden zijn in een redelijke verhouding tot het gebruik van andere functies die worden geteld. Als het aantal detecteren of BreakSentence aanroepen die u aanbrengt groter is dan het aantal getelde methoden door 100 keer Microsoft behoudt zich het recht om uw gebruik van de analyse en BreakSentence methoden te beperken.
+Aanroepen naar de methoden detect en BreakSentence worden niet meegerekend in het teken gebruik. We verwachten echter dat de aanroepen naar de methoden detect en BreakSentence een redelijk deel uitmaken van het gebruik van andere functies die worden geteld. Als het aantal gedetecteerde of BreakSentence-aanroepen dat u maakt, groter is dan het aantal andere methoden dat door 100 maal is geteld, behoudt micro soft het recht om uw gebruik van de methoden detect en BreakSentence te beperken.
 
 
-Meer informatie over het aantal tekens is in de [Veelgestelde vragen over Microsoft Translator](https://www.microsoft.com/en-us/translator/faq.aspx).
+Meer informatie over teken tellingen vindt u in de [Veelgestelde vragen over micro soft Translator](https://www.microsoft.com/en-us/translator/faq.aspx).

@@ -1,7 +1,7 @@
 ---
-title: Naslaginformatie Translator Text-API-V3.0
-titlesuffix: Azure Cognitive Services
-description: Referentiedocumentatie voor de V3.0 Translator Text-API.
+title: Naslag informatie over Translator Text-API V 3.0
+titleSuffix: Azure Cognitive Services
+description: Referentie documentatie voor de Translator Text-API V 3.0.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,40 +10,40 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 8956aff86777e2a2570c6a555a9bd0882f328a77
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ad619ad965cf4b7d94b781818c658152f71250a7
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868401"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594999"
 ---
-# <a name="translator-text-api-v30"></a>Translator Text-API v3.0
+# <a name="translator-text-api-v30"></a>Translator Text-API v 3.0
 
 ## <a name="whats-new"></a>Wat is nieuw?
 
-Versie 3 van de Translator Text-API biedt een moderne JSON gebaseerde Web-API. Het verbetert de gebruiksvriendelijkheid en prestaties door te consolideren van bestaande functies in minder bewerkingen en het beschikt over nieuwe functies.
+Versie 3 van de Translator Text-API biedt een moderne op JSON gebaseerde web-API. Het verbetert de bruikbaarheid en prestaties door bestaande functies te consolideren in minder bewerkingen en biedt nieuwe functies.
 
- * Vele converteren van tekst in één taal van één script naar een ander script.
- * De vertaling voor meerdere talen in één aanvraag.
- * Taaldetectie, vertaling en vele in één aanvraag.
- * Woordenlijst voor alternatieve vertalingen opzoeken van een term zoeken naar back-vertalingen en voorbeelden die laten zien termen die in de context worden gebruikt.
- * Taal meer informatieve resultaten.
+ * Vele voor het converteren van tekst in één taal van het ene script naar een ander script.
+ * Vertaling naar meerdere talen in één aanvraag.
+ * Taal detectie, vertaling en vele in één aanvraag.
+ * Woorden lijst voor het opzoeken van alternatieve vertalingen van een term om back-vertalingen en voor beelden te vinden die in de context worden gebruikt.
+ * Meer informatieve resultaten voor de detectie van talen.
 
-## <a name="base-urls"></a>Basis-URL 's
+## <a name="base-urls"></a>Basis-Url's
 
-Microsoft Translator is geleverd vanuit meerdere datacenter-locaties. Op dit moment ze bevinden zich op 10 [Azure-geografieën](https://azure.microsoft.com/global-infrastructure/regions):
+Micro soft Translator wordt uit meerdere datacenter locaties verzonden. Ze bevinden zich momenteel in de volgende tien [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions):
 
-* **Amerika:** VS-Oost, Zuid-centraal VS, West-Centraal VS en VS-West 2 
-* **Azië en Stille Oceaan:** Korea-Zuid, Japan-Oost, Zuidoost-Azië en Australië-Oost
-* **Europa:** Noord-Europa en West-Europa
+* **Amerikaanse** VS-Oost, Zuid-Centraal VS, West-Centraal VS en VS-West 2 
+* **Azië en Stille Oceaan:** Korea-zuid, Japan-Oost, Zuidoost-Azië en Australië-oost
+* **Europa** Europa-noord en Europa-west
 
-Aanvragen voor de Microsoft Translator Text-API zijn in de meeste gevallen door het datacenter die zich het dichtst bij de oorsprong van de aanvraag verwerkt. In het geval van een datacenter-fout optreedt, kan de aanvraag buiten de Azure-Geografie worden gerouteerd.
+Aanvragen voor de micro soft-Translator Text-API worden in de meeste gevallen verwerkt door het Data Center dat zich het dichtst bij de oorspronkelijke bestemming bevindt. In het geval van een storing in een Data Center kan de aanvraag buiten de regio van Azure worden gerouteerd.
 
-Om af te dwingen de aanvraag moet worden verwerkt door een specifieke Azure-Geografie, wijzigt u de globaal eindpunt voor in de API-aanvraag naar de gewenste regionale eindpunt:
+Als u wilt afdwingen dat de aanvraag wordt verwerkt door een specifieke Azure-geografie, wijzigt u het globale eind punt in de API-aanvraag naar het gewenste regionale eind punt:
 
 |Description|Azure-Geografie|Basis-URL|
 |:--|:--|:--|
-|Azure|Algemene (niet-regionaal)|   api.cognitive.microsofttranslator.com|
+|Azure|Algemeen (niet-regionaal)|   api.cognitive.microsofttranslator.com|
 |Azure|Verenigde Staten|   api-nam.cognitive.microsofttranslator.com|
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Azië en Stille Oceaan|    api-apc.cognitive.microsofttranslator.com|
@@ -51,27 +51,27 @@ Om af te dwingen de aanvraag moet worden verwerkt door een specifieke Azure-Geog
 
 ## <a name="authentication"></a>Authentication
 
-Abonneren op Translator Text-API of [meerdere Cognitive Services-service](https://azure.microsoft.com/pricing/details/cognitive-services/) op Microsoft Cognitive Services, en uw abonnement sleutel (beschikbaar in Azure portal) om te verifiëren. 
+Abonneer u op Translator Text-API of [Cognitive Services meerdere services](https://azure.microsoft.com/pricing/details/cognitive-services/) in Microsoft Cognitive Services en gebruik uw abonnements sleutel (beschikbaar in de Azure Portal) om te verifiëren. 
 
-Er zijn drie kopteksten die u gebruiken kunt om te verifiëren van uw abonnement. Deze tabel bevat wordt beschreven hoe deze worden gebruikt:
+Er zijn drie kopteksten die u kunt gebruiken om uw abonnement te verifiëren. Deze tabel bevat een beschrijving van de manier waarop deze worden gebruikt:
 
 |Headers|Description|
 |:----|:----|
-|OCP-Apim-Subscription-Key|*Gebruiken met Cognitive Services-abonnement als u de geheime sleutel doorgeeft*.<br/>De waarde is de Azure geheime sleutel voor uw abonnement op Translator Text-API.|
-|Authorization|*Met Cognitive Services-abonnement gebruiken als u een verificatietoken doorgeeft.*<br/>De waarde is het Bearer-token: `Bearer <token>`.|
-|Ocp-Apim-Subscription-Region|*Met Cognitive Services met meerdere service-abonnement gebruiken als u een geheime sleutel van meerdere services doorgeeft.*<br/>De waarde is de regio van het abonnement op meerdere services. Deze waarde is optioneel wanneer een abonnement op meerdere services niet wordt gebruikt.|
+|OCP-Apim-Subscription-Key|*Gebruik with Cognitive Services-abonnement als u uw geheime sleutel door geven*.<br/>De waarde is de geheime Azure-sleutel voor uw abonnement Translator Text-API.|
+|Authorization|*Gebruik with Cognitive Services-abonnement als u een verificatie token doorgeeft.*<br/>De waarde is de Bearer-token `Bearer <token>`:.|
+|Ocp-Apim-Subscription-Region|*Gebruik met met Cognitive Services abonnement voor meerdere services als u een geheime sleutel van meerdere services doorgeeft.*<br/>De waarde is de regio van het multi-service abonnement. Deze waarde is optioneel wanneer u geen multi-service-abonnement gebruikt.|
 
 ###  <a name="secret-key"></a>Geheime sleutel
-De eerste optie is om te verifiëren met behulp van de `Ocp-Apim-Subscription-Key` header. Voeg de `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` header op uw aanvraag.
+De eerste optie is om te verifiëren met `Ocp-Apim-Subscription-Key` behulp van de header. Voeg de `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` header gewoon toe aan uw aanvraag.
 
 ### <a name="authorization-token"></a>Autorisatietoken
-U kunt ook de geheime sleutel voor een toegangstoken uitwisselen. Dit token is opgenomen in elke aanvraag als de `Authorization` header. Als u wilt een verificatietoken hebt verkregen, moet u een `POST` aanvraag voor de volgende URL:
+U kunt ook uw geheime sleutel voor een toegangs token uitwisselen. Dit token is opgenomen in elke aanvraag als de `Authorization` header. Als u een autorisatie token wilt verkrijgen, `POST` moet u een aanvraag indienen bij de volgende URL:
 
-| Omgeving     | Service-URL webverificatie                                |
+| Omgeving     | URL van verificatie service                                |
 |-----------------|-----------------------------------------------------------|
 | Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
-Hier vindt u voorbeeld verzoeken voor het verkrijgen van een token krijgen een geheime sleutel:
+Hier vindt u voor beelden van aanvragen voor het verkrijgen van een token aan de hand van een geheime sleutel:
 
 ```
 // Pass secret key using header
@@ -81,40 +81,40 @@ curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cog
 curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
 ```
 
-Een geslaagde aanvraag retourneert het gecodeerde toegangstoken als tekst zonder opmaak in de hoofdtekst van de reactie. De geldige token wordt doorgegeven aan de Translator-service als een bearer-token in de autorisatie.
+Een succes volle aanvraag retourneert het gecodeerde toegangs token als tekst zonder opmaak in de hoofd tekst van het antwoord. Het geldige token wordt door gegeven aan de Translator-service als Bearer-token in de autorisatie.
 
 ```
 Authorization: Bearer <Base64-access_token>
 ```
 
-Een verificatietoken is geldig voor 10 minuten. Het token moet opnieuw worden gebruikt bij het maken van meerdere aanroepen naar de Translator-API's. Echter, als uw programma aanvragen naar de API van Translator gedurende een lange periode maakt, vervolgens uw programma moet aanvragen een nieuw toegangstoken op gezette tijden (bijvoorbeeld elke 8 minuten).
+Een verificatie token is 10 minuten geldig. Het token moet opnieuw worden gebruikt bij het maken van meerdere aanroepen naar de Translator-Api's. Als uw programma echter gedurende lange tijd aanvragen voor de API Translator maakt, moet uw programma regel matig een nieuw toegangs token aanvragen (bijvoorbeeld elke 8 minuten).
 
-### <a name="multi-service-subscription"></a>Meerdere service-abonnement
+### <a name="multi-service-subscription"></a>Abonnement op meerdere services
 
-De laatste optie voor de verificatie is het gebruik van meerdere services een Cognitive Service-abonnement. Hiermee kunt u één geheime sleutel gebruiken om te verifiëren van aanvragen voor meerdere services. 
+De laatste verificatie optie is het gebruik van het multi-service-abonnement van een cognitieve service. Zo kunt u een enkele geheime sleutel gebruiken om aanvragen voor meerdere services te verifiëren. 
 
-Wanneer u een geheime sleutel van meerdere services gebruikt, moet u twee verificatieheaders opnemen met uw aanvraag. De eerste de geheime sleutel wordt doorgegeven, de tweede Hiermee geeft u de regio die is gekoppeld aan uw abonnement. 
+Wanneer u een geheime sleutel van meerdere services gebruikt, moet u twee verificatie headers met uw aanvraag toevoegen. In de eerste fase wordt de geheime sleutel door gegeven, de tweede geeft de regio aan die aan uw abonnement is gekoppeld. 
 * `Ocp-Apim-Subscription-Key`
 * `Ocp-Apim-Subscription-Region`
 
-De regio is vereist voor het abonnement met meerdere services Text-API. De regio die u selecteert, is de enige regio die u voor tekstvertaling gebruiken kunt bij het gebruik van de abonnementssleutel met meerdere service-, en moet de dezelfde regio die u hebt geselecteerd toen u zich hebt geregistreerd voor uw abonnement op meerdere services via de Azure-portal.
+De regio is vereist voor het multi-service-tekst-API-abonnement. De regio die u selecteert, is de enige regio die u voor tekst omzetting kunt gebruiken wanneer u de sleutel voor meerdere services gebruikt en moet dezelfde regio zijn die u hebt geselecteerd toen u zich registreerde voor uw abonnement op meerdere services via de Azure Portal.
 
-Beschikbare regio's zijn `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, en `westus2`.
+Beschik bare `australiaeast`regio's `brazilsouth`zijn `canadacentral`, `centralindia`, `centraluseuap`,,, `eastasia`, ,,,`japaneast`,, ,`southeastasia` `northeurope` `eastus2` `eastus` `southcentralus` `uksouth`, `westcentralus`, ,en.`westus` `westeurope` `westus2`
 
-Als u de geheime sleutel in de query-tekenreeks met de parameter doorgeven `Subscription-Key`, en vervolgens moet u de regio met queryparameter `Subscription-Region`.
+Als u de geheime sleutel in de query teken reeks doorgeeft met `Subscription-Key`de para meter, moet u de regio met de `Subscription-Region`query parameter opgeven.
 
-Als u een bearer-token hebt gebruikt, moet u het token verkrijgen van het eindpunt regio: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+Als u een Bearer-token gebruikt, moet u het token ophalen uit het gebied eind `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`punt:.
 
 
 ## <a name="errors"></a>Fouten
 
-Een reactie van de standaardfout is een JSON-object met de naam/waarde-paar met de naam `error`. De waarde is ook een JSON-object met eigenschappen:
+Een standaardfout bericht is een JSON-object met een naam/waardepaar `error`met de naam. De waarde is ook een JSON-object met eigenschappen:
 
-  * `code`: Een server gedefinieerde foutcode.
+  * `code`: Een fout code die door de server is gedefinieerd.
 
-  * `message`: Een tekenreeks die een leesbare weergave van de fout.
+  * `message`: Een teken reeks met een door de mens lees bare weer gave van de fout.
 
-Een klant met een gratis proefabonnement zou bijvoorbeeld het volgende foutbericht krijgt, zodra het gratis quotum is bereikt:
+Zo kan een klant met een gratis proef abonnement de volgende fout melding ontvangen wanneer het gratis quotum is uitgeput:
 
 ```
 {
@@ -124,46 +124,46 @@ Een klant met een gratis proefabonnement zou bijvoorbeeld het volgende foutberic
     }
 }
 ```
-De foutcode is een 6-cijferige numerieke combineren het 3-cijferige HTTP-statuscode gevolgd door een getal 3 cijfers en verder categoriseren van de fout. Veelvoorkomende foutcodes zijn:
+De fout code is een getal van 6 cijfers, waarbij de HTTP-status code van 3 cijfers wordt gevolgd door een getal van drie cijfers om de fout verder te categoriseren. Veelvoorkomende fout codes zijn:
 
 | Code | Description |
 |:----|:-----|
-| 400000| Een van de invoer van de aanvraag is niet geldig.|
-| 400001| De bereikparameter '' is ongeldig.|
-| 400002| De parameter 'categorie' is ongeldig.|
-| 400003| Een taal-id is ongeldig of ontbreekt.|
-| 400004| Een aanduiding van de doel-script ('naar script') is ongeldig of ontbreekt.|
-| 400005| Een invoertekst is ongeldig of ontbreekt.|
-| 400006| De combinatie van taal en het script is niet geldig.|
-| 400018| Een aanduiding van de bron-script ("van script') is ongeldig of ontbreekt.|
+| 400000| Een van de aanvraag invoer is ongeldig.|
+| 400001| De para meter "scope" is ongeldig.|
+| 400002| De para meter "Category" is ongeldig.|
+| 400003| De taal aanduiding ontbreekt of is ongeldig.|
+| 400004| Er ontbreekt een doel script aanduiding (' naar script ') of is ongeldig.|
+| 400005| Er ontbreekt een invoer tekst of deze is ongeldig.|
+| 400006| De combi natie van taal en script is niet geldig.|
+| 400018| Er ontbreekt een bron script aanduiding ("van script") of is ongeldig.|
 | 400019| Een van de opgegeven taal wordt niet ondersteund.|
-| 400020| Een van de elementen in de matrix van invoertekst is niet geldig.|
-| 400021| De API-versie-parameter is ongeldig of ontbreekt.|
-| 400023| Een van de combinatie van de opgegeven taal is niet geldig.|
-| 400035| De source-taal ('van' veld) is niet geldig.|
-| 400036| De doeltaal ("voor" veld) is ongeldig of ontbreekt.|
-| 400042| Een van de opties opgegeven ('Opties') is niet geldig.|
-| 400043| De client traceer-ID (ClientTraceId veld of de header X-ClientTranceId) is ongeldig of ontbreekt.|
-| 400050| De ingevoerde tekst is te lang. Weergave [aanvraaglimieten](../request-limits.md).|
-| 400064| De parameter 'translation' is ongeldig of ontbreekt.|
-| 400070| Het aantal doel-scripts (ToScript parameter) komt niet overeen met het aantal doel talen (parameter).|
-| 400071| De waarde is niet geldig voor teksttype.|
-| 400072| De matrix van de ingevoerde tekst heeft te veel elementen.|
-| 400073| De scriptparameter is niet geldig.|
-| 400074| De hoofdtekst van de aanvraag is geen geldige JSON.|
-| 400075| De combinatie van taal paar en categorie is niet geldig.|
-| 400077| Grootte van de maximale aanvraag is overschreden. Weergave [aanvraaglimieten](../request-limits.md).|
-| 400079| Het aangepaste systeem aangevraagd voor de omzetting van van en naar taal bestaat niet.|
+| 400020| Een van de elementen in de matrix met invoer tekst is ongeldig.|
+| 400021| De para meter van de API-versie ontbreekt of is ongeldig.|
+| 400023| Een van de opgegeven taal paren is niet geldig.|
+| 400035| Het bron taal veld (' van ') is niet geldig.|
+| 400036| Het doel taal veld ("aan") ontbreekt of is ongeldig.|
+| 400042| Een van de opgegeven opties (het veld ' opties ') is niet geldig.|
+| 400043| De tracerings-ID van de client (ClientTraceId-veld of X-ClientTranceId-header) ontbreekt of is ongeldig.|
+| 400050| De invoer tekst is te lang. [Aanvraag limieten](../request-limits.md)weer geven.|
+| 400064| De para meter "Translation" ontbreekt of is ongeldig.|
+| 400070| Het aantal doel scripts (ToScript para meter) komt niet overeen met het aantal doel talen (op para meter).|
+| 400071| De waarde is niet geldig voor TextType.|
+| 400072| De matrix met invoer tekst heeft te veel elementen.|
+| 400073| De script parameter is niet geldig.|
+| 400074| De hoofd tekst van de aanvraag is geen geldige JSON.|
+| 400075| Het taal paar en de combi natie van categorie zijn niet geldig.|
+| 400077| De maximale aanvraag grootte is overschreden. [Aanvraag limieten](../request-limits.md)weer geven.|
+| 400079| Het aangepaste systeem dat is aangevraagd voor vertaling tussen van en naar taal bestaat niet.|
 | 400080| Vele wordt niet ondersteund voor de taal of het script.|
-| 401000| De aanvraag is niet toegestaan omdat de referenties zijn ontbreekt of is ongeldig.|
-| 401015| "De opgegeven referenties zijn voor de spraak-API. Deze aanvraag moet referenties voor de Text-API. Gebruik een abonnement op Translator Text-API."|
+| 401000| De aanvraag is niet geautoriseerd omdat de referenties ontbreken of ongeldig zijn.|
+| 401015| "De gegeven referenties gelden voor de spraak-API. Voor deze aanvraag zijn referenties vereist voor de tekst-API. Gebruik een abonnement op Translator Text-API.|
 | 403000| De bewerking is niet toegestaan.|
-| 403001| De bewerking is niet toegestaan omdat het abonnement het gratis quotum is overschreden.|
-| 405000| De aanvraagmethode wordt niet ondersteund voor de aangevraagde resource.|
-| 408001| De aangevraagde vertaalsysteem wordt voorbereid. Probeer het opnieuw over een paar minuten.|
-| 408002| De aanvraag wacht op inkomende gegevensstroom is een time-out. De client heeft een aanvraag niet binnen de tijd dat de server moet worden gewacht is voorbereid produceren. De client moet mogelijk herhalen voor de aanvraag zonder wijzigingen op een later tijdstip.|
-| 415000| De header Content-Type is ongeldig of ontbreekt.|
-| 429000, 429001, 429002| De server heeft de aanvraag geweigerd omdat de client aanvraaglimieten heeft overschreden.|
-| 500000| Er is een onverwachte fout opgetreden. Als de fout zich blijft voordoen, die rapporteren aan de datum/tijd van de fout, aanvraag-id van response-header X-RequestId en client-id van de aanvraagheader X-ClientTraceId.|
-| 503000| Service is tijdelijk niet beschikbaar. Probeer het opnieuw. Als de fout zich blijft voordoen, die rapporteren aan de datum/tijd van de fout, aanvraag-id van response-header X-RequestId en client-id van de aanvraagheader X-ClientTraceId.|
+| 403001| De bewerking is niet toegestaan omdat het abonnement het gratis quotum heeft overschreden.|
+| 405000| De aanvraag methode wordt niet ondersteund voor de aangevraagde resource.|
+| 408001| Het aangevraagde Vertaal systeem wordt voor bereid. Probeer het over enkele minuten opnieuw.|
+| 408002| Time-out bij het wachten op de inkomende stroom. De client heeft geen aanvraag gegenereerd binnen het tijdstip dat de server is voor bereid om te wachten. De client kan de aanvraag op een later tijdstip zonder wijzigingen herhalen.|
+| 415000| De content-type-header ontbreekt of is ongeldig.|
+| 429000, 429001, 429002| De server heeft de aanvraag geweigerd omdat de aanvraag limieten voor de client is overschreden.|
+| 500000| Er is een onverwachte fout opgetreden. Als de fout zich blijft voordoen, meldt u deze met de datum/tijd van de fout, verzoekt u de aanvraag-id van de antwoord header X-id-aanvraag en de client-id van de aanvraag header X-ClientTraceId.|
+| 503000| Service is tijdelijk niet beschikbaar. Probeer het opnieuw. Als de fout zich blijft voordoen, meldt u deze met de datum/tijd van de fout, verzoekt u de aanvraag-id van de antwoord header X-id-aanvraag en de client-id van de aanvraag header X-ClientTraceId.|
 

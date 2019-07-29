@@ -5,14 +5,12 @@ metadata:
   title: Documentatie voor Azure Container Instances - zelfstudies | Microsoft Docs
   description: 'Azure Container Instances biedt u een zeer snelle en eenvoudige methode voor het uitvoeren van een container in Azure, waarbij het niet nodig is om virtuele machines in te richten of het serviceniveau te verhogen.'
   services: container-instances
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-instances
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Azure Container Instances biedt u een zeer snelle en eenvoudige methode voor het uitvoeren van een container in Azure, waarbij het niet nodig is om virtuele machines in te richten of het serviceniveau te verhogen. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u containers maakt en beheert.<p>Als u een volledige oplossing voor het inrichten van containers nodig hebt, raadpleegt u de <a href="/azure/aks/">documentatie voor Azure Kubernetes Service (AKS)</a>.</p>'
 sections:

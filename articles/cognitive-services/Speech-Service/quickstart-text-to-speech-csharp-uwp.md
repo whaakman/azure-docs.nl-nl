@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: 3d5bc1e9cc27fd3c40c15ba55f577779c65e6851
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5e1f8aea1b00cbba7fec6c7ca416a965458ab526
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559324"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607753"
 ---
 # <a name="quickstart-synthesize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Quickstart: Spraak in een UWP-app met behulp van de Speech SDK
 
 Quick starts zijn ook beschikbaar voor de [spraak herkenning](quickstart-csharp-uwp.md), [spraak-Vertaal](quickstart-translate-speech-uwp.md) functie en de [spraak-eerste virtuele assistent](quickstart-virtual-assistant-csharp-uwp.md).
 
-In dit artikel ontwikkelt u in C# een UWP-app (Universal Windows Platform, Windows-versie 1709 of hoger) met behulp van de [Speech-SDK](speech-sdk.md) van Cognitive Services. Het programma verstuurt de spraak van tekst in realtime naar de spreker van uw apparaat. De toepassing is gemaakt met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
+In dit artikel ontwikkelt u in C# een UWP-app (Universal Windows Platform, Windows-versie 1709 of hoger) met behulp van de [Speech-SDK](speech-sdk.md) van Cognitive Services. Het programma verstuurt de spraak van tekst in realtime naar de spreker van uw apparaat. De toepassing is gebouwd met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en micro soft Visual Studio 2017 of hoger (alle edities).
 
 > [!NOTE]
 > Het Universal Windows Platform stelt u in staat om apps te ontwikkelen die kunnen worden uitgevoerd op elk apparaat dat ondersteuning biedt voor Windows 10, met inbegrip van pc's, Xbox, Surface Hub en andere apparaten.
@@ -30,7 +30,7 @@ In dit artikel ontwikkelt u in C# een UWP-app (Universal Windows Platform, Windo
 
 Voor deze snelstart zijn de volgende zaken vereist:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) of hoger
 * Een Azure-abonnementssleutel voor de Spraakservice. [Gratis downloaden](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Een Visual Studio-project maken

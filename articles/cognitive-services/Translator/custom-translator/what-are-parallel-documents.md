@@ -1,49 +1,49 @@
 ---
 title: Wat zijn parallelle documenten? -Aangepaste Translator
 titleSuffix: Azure Cognitive Services
-description: Parallelle documenten bestaan uit paren van documenten is, de vertaling van de andere. Een document in het paar zinnen in de source-taal bevat en het andere document bevat deze zinnen vertaald naar de doel-taal.
+description: Parallelle documenten zijn paren van documenten waarbij de ene vertaling van de andere is. Een document in het paar bevat zinnen in de bron taal en het andere document bevat de volgende zinnen die in de doel taal worden vertaald.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 3b7997adfa38fa24bdf41f22c99f06e9a0ba1bf0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fb54df2e1eb89d30e62ae80355635356343994ee
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447398"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595443"
 ---
 # <a name="what-are-parallel-documents"></a>Wat zijn parallelle documenten?
 
-Parallelle documenten bestaan uit paren van documenten is, de vertaling van de andere. Een document in het paar zinnen in de source-taal bevat en het andere document bevat deze zinnen vertaald naar de doel-taal.
-Het maakt niet uit welke taal is gemarkeerd als 'bron' en welke taal is gemarkeerd als 'target': een parallelle document kan worden gebruikt voor het trainen van een vertaalsysteem in beide richtingen.
+Parallelle documenten zijn paren van documenten waarbij de ene vertaling van de andere is. Een document in het paar bevat zinnen in de bron taal en het andere document bevat de volgende zinnen die in de doel taal worden vertaald.
+Het maakt niet uit welke taal is gemarkeerd als ' Bron ' en welke taal is gemarkeerd als ' doel ': een parallel document kan worden gebruikt om een Vertaal systeem te trainen in een van beide richtingen.
 
 ## <a name="requirements"></a>Vereisten
 
-U moet minimaal 10.000 unieke parallelle zinnen met het trainen van een systeem. Als een best practice, kunt u continu meer parallelle inhoud toevoegen en retrain, voor het verbeteren van de kwaliteit van uw vertaalsysteem.
+U hebt mini maal 10.000 unieke parallelle zinnen nodig om een systeem te trainen. Als best practice kunt u voortdurend meer parallelle inhoud toevoegen en opnieuw trainen, om de kwaliteit van uw Vertaal systeem te verbeteren.
 
-Microsoft vereist dat documenten die zijn geüpload naar de Translator aangepaste eigenschappen voor het auteursrecht of intellectueel eigendom van een derde partij niet schenden. Zie voor meer informatie de [gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
-Uploaden van een document met behulp van de portal, wordt het eigendom van het intellectueel eigendom in het document zelf niet gewijzigd.
+Micro soft vereist dat documenten die zijn geüpload naar de aangepaste vertaler geen inbreuk maken op de copyright-of intellectuele eigenschappen van derden. Voor meer informatie raadpleegt u de [gebruiks voorwaarden](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
+Het uploaden van een document via de portal heeft geen invloed op het eigendom van het intellectueel eigendom in het document zelf.
 
 ## <a name="use-of-parallel-documents"></a>Gebruik van parallelle documenten
 
 Parallelle documenten worden gebruikt door het systeem:
 
-1.  Voor meer informatie over hoe woorden, zinnen en zinnen vaak worden toegewezen tussen de twee talen.
+1.  Voor meer informatie over hoe woorden, zinsdelen en zinnen worden vaak tussen de twee talen toegewezen.
 
-2.  Voor informatie over het verwerken van de juiste context, afhankelijk van de omringende zinnen. Een woord mogelijk niet altijd vertalen naar de exacte hetzelfde woord in de andere taal.
+2.  Voor meer informatie over het verwerken van de juiste context, afhankelijk van de omliggende woord groepen. Een woord wordt mogelijk niet altijd omgezet in exact hetzelfde woord in de andere taal.
 
-Als een best practice, zorg ervoor dat er een zin 1:1-correspondentie tussen de bron en doel taalversies van de documenten.
+Zorg er als best practice voor dat er 1:1 een overeenkomst is tussen de bron-en doel taal versies van de documenten.
 
-Als uw project domein (categorie), moeten uw documenten in de terminologie binnen die categorie consistent zijn. De kwaliteit van de resulterende vertaalsysteem, is afhankelijk van het aantal zinnen in uw document instellen en de kwaliteit van de zinnen. Meer voorbeelden uw documenten met diverse toepassingen voor een specifiek zijn voor de categorie woord bevatten, de betere taak het systeem kunt doen tijdens de conversie.
+Als uw project specifiek is voor een domein (categorie), moeten uw documenten in de terminologie in die categorie consistent zijn. De kwaliteit van het resulterende Vertaal systeem is afhankelijk van het aantal zinnen in uw documentenset en de kwaliteit van de zinnen. De meer voor beelden van uw documenten bevatten diverse gebruiks mogelijkheden voor een specifiek woord voor uw categorie, de betere taak die het systeem tijdens de omzetting kan doen.
 
-Documenten uploaden zijn exclusief zijn voor elke werkruimte en kunnen worden gebruikt in zo veel projecten of u kunt als u wilt. Zinnen geëxtraheerd uit uw documenten afzonderlijk worden opgeslagen in uw opslagplaats als gewone Unicode-tekstbestanden en zijn beschikbaar voor u verwijderen. Gebruik de aangepaste Translator niet als een document-opslagplaats, kunt u zich niet kunnen downloaden van de documenten die u hebt geüpload in de indeling u deze hebt geüpload.
+Geüploade documenten zijn privé voor elke werk ruimte en kunnen worden gebruikt voor zoveel projecten of trainingen als u wilt. Zinnen die uit uw documenten zijn geëxtraheerd, worden afzonderlijk in uw opslag plaats opgeslagen als tekst bestanden zonder opmaak en kunnen worden verwijderd. Gebruik het aangepaste conversie programma niet als document opslagplaats. u kunt de documenten die u hebt geüpload, niet downloaden in de indeling die u hebt geüpload.
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het gebruik van een [woordenlijst](what-is-dictionary.md) in aangepaste Translator.
+- Meer informatie over het gebruik van een [woorden lijst](what-is-dictionary.md) in Custom Translator.

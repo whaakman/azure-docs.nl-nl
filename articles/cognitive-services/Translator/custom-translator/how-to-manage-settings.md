@@ -1,106 +1,106 @@
 ---
-title: Over het beheren van instellingen? -Aangepaste Translator
+title: Hoe kunt u instellingen beheren? -Aangepaste Translator
 titleSuffix: Azure Cognitive Services
-description: Het beheren van instellingen, -werkruimte maken, delen van de werkruimte en abonnementssleutel in aangepaste Translator beheren.
+description: Het beheren van instellingen, het maken van de werk ruimte, het delen van de werk ruimte en het beheren van de abonnements sleutel in Custom Translator.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d141b5dea8b0b12889559e6c80770379a6afac63
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448345"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595764"
 ---
-# <a name="how-to-manage-settings"></a>Over het beheren van instellingen
+# <a name="how-to-manage-settings"></a>Instellingen beheren
 
-Binnen de pagina aangepaste Translator-instellingen kunt u een nieuwe werkruimte maken, delen van uw werkruimte en toevoegen of wijzigen van uw abonnementssleutel Microsoft Translation.
+U kunt op de pagina aangepaste Vertaal instellingen een nieuwe werk ruimte maken, uw werk ruimte delen en uw micro soft-Vertaal abonnements sleutel toevoegen of wijzigen.
 
-Voor toegang tot de instellingenpagina:
+Toegang krijgen tot de pagina instellingen:
 
-1. Aanmelden bij de [aangepaste Translator](https://portal.customtranslator.azure.ai/) portal.
-2. Klik op het tandwielpictogram in de zijbalk op aangepaste Translator-portal.
+1. Meld u aan bij de portal voor [aangepaste vertalers](https://portal.customtranslator.azure.ai/) .
+2. Klik in de aangepaste Vertaal Portal op het tandwiel pictogram in de zijbalk.
 
     ![Koppeling instellen](media/how-to/how-to-settings.png)
 
-## <a name="associating-microsoft-translator-subscription"></a>Microsoft Translator-abonnement koppelen
+## <a name="associating-microsoft-translator-subscription"></a>Micro soft Translator-abonnement koppelen
 
-U moet een Microsoft Translator Text-API-abonnementssleutel die zijn gekoppeld aan uw werkruimte te trainen of implementeren van modellen.
+U moet beschikken over een micro soft Translator Text-API Subscription-sleutel die is gekoppeld aan uw werk ruimte om modellen te trainen of implementeren.
 
-Als u geen abonnement hebt, volgt u de volgende stappen uit:
+Als u geen abonnement hebt, volgt u de onderstaande stappen:
 
-1. Abonneer u op de Microsoft Translator Text-API. Dit artikel leest hoe u zich abonneren op de Microsoft Translator Text-API.
-2. Noteer de sleutel voor uw abonnement op translator. Een van de Key1 of Key2 worden geaccepteerd.
-3. Ga terug naar de aangepaste Translator-portal.
+1. Abonneer u op de micro soft-Translator Text-API. In dit artikel wordt beschreven hoe u zich kunt abonneren op de micro soft-Translator Text-API.
+2. Let op de sleutel voor uw Vertaal abonnement. Een van de Key1 of Key2 is acceptabel.
+3. Ga terug naar de portal voor aangepaste vertalers.
 
 ### <a name="add-existing-key"></a>Bestaande sleutel toevoegen
 
-1.  Ga naar de pagina 'Instellingen' voor uw werkruimte.
+1.  Ga naar de pagina instellingen voor uw werk ruimte.
 2.  Klik op sleutel toevoegen
 
-    ![Abonnementssleutel toevoegen](media/how-to/how-to-add-subscription-key.png)
+    ![Abonnements sleutel toevoegen](media/how-to/how-to-add-subscription-key.png)
 
-3. Voer de sleutel voor uw abonnement op translator in het dialoogvenster en klik op de knop 'Toevoegen'.
+3. Voer in het dialoog venster de sleutel voor uw Vertaal abonnement in en klik vervolgens op de knop toevoegen.
 
-    ![Abonnementssleutel toevoegen](media/how-to/how-to-add-subscription-key-dialog.png)
-4.  Nadat u een sleutel hebt toegevoegd, kunt u wijzigen of verwijderen van de sleutel op elk gewenst moment.
+    ![Abonnements sleutel toevoegen](media/how-to/how-to-add-subscription-key-dialog.png)
+4.  Nadat u een sleutel hebt toegevoegd, kunt u de sleutel op elk gewenst moment wijzigen of verwijderen.
 
-    ![Abonnementssleutel na toevoegen](media/how-to/subscription-key-after-add.png)
+    ![Abonnements sleutel na toevoegen](media/how-to/subscription-key-after-add.png)
 
-## <a name="manage-your-workspace"></a>Uw werkruimte beheren
+## <a name="manage-your-workspace"></a>Uw werk ruimte beheren
 
-Een werkruimte is een werkgebied voor samenstellen en het bouwen van uw aangepaste vertaalsysteem. Een werkruimte kan bevatten meerdere projecten, modellen en documenten.
+Een werk ruimte is een werk ruimte voor het opstellen en bouwen van uw aangepaste Vertaal systeem. Een werk ruimte kan meerdere projecten, modellen en documenten bevatten.
 
-Als ander deel van uw werk worden gedeeld met andere mensen moet, kan het maken van meerdere werkruimten nuttig zijn.
+Als een ander deel van uw werk moet worden gedeeld met andere personen, kan het handig zijn om meerdere werk ruimten te maken.
 
 ## <a name="create-a-new-workspace"></a>Een nieuwe werkruimte maken
 
-1.  Navigeer naar de pagina van de werkruimte 'Instellingen'.
-2.  Klik op de 'nieuwe werkruimte"knop in de sectie 'Nieuwe werkruimte maken'.
+1.  Navigeer naar de pagina instellingen van de werk ruimte.
+2.  Klik op de knop nieuwe werk ruimte in de sectie ' nieuwe werk ruimte maken '.
 
     ![Nieuwe werkruimte maken](media/how-to/create-new-workspace.png)
 
-4.  Voer de naam van de nieuwe werkruimte in het dialoogvenster.
-5.  Klik op 'Maken'.
+4.  Voer in het dialoog venster de naam van de nieuwe werk ruimte in.
+5.  Klik op maken.
 
-    ![Dialoogvenster voor een nieuwe werkruimte maken](media/how-to/create-new-workspace-dialog.png)
+    ![Dialoog venster nieuwe werk ruimte maken](media/how-to/create-new-workspace-dialog.png)
 
-## <a name="share-your-workspace"></a>Delen van uw werkruimte
+## <a name="share-your-workspace"></a>Uw werk ruimte delen
 
-In aangepaste Translator kunt u uw werkruimte delen met anderen, als ander deel van uw werk moet worden gedeeld met andere mensen.
+In aangepaste vertaler kunt u uw werk ruimte delen met anderen, als een ander deel van uw werk moet worden gedeeld met andere personen.
 
-1.  Navigeer naar de pagina van de werkruimte 'Instellingen'.
-2.  Klik op de knop 'Delen' in de sectie 'Instellingen voor delen'.
+1.  Navigeer naar de pagina instellingen van de werk ruimte.
+2.  Klik op de knop delen in de sectie instellingen voor delen.
 
-    ![Werkruimte voor delen](media/how-to/share-workspace.png)
+    ![Werk ruimte delen](media/how-to/share-workspace.png)
 
-3.  Voer een door komma's gescheiden lijst met e-mailadressen die u wilt dat deze werkruimte gedeeld met in het dialoogvenster. Zorg ervoor dat u wilt delen met het e-mailadres dat deze persoon zich aanmeldt bij aangepaste Translator met gebruikt. Selecteer vervolgens het juiste niveau van de machtiging voor delen.
+3.  Voer in het dialoog venster een door komma's gescheiden lijst met e-mail adressen in die met deze werk ruimte moeten worden gedeeld. Zorg ervoor dat u deelt met het e-mail adres dat wordt gebruikt om u aan te melden bij een aangepaste vertaler met. Selecteer vervolgens het juiste niveau van de machtiging voor delen.
 
-4.  Als uw werkruimte heeft nog steeds de standaardnaam 'Mijn werkruimte', moet u om dit te wijzigen voordat u deelt uw werkruimte.
-5.  Klik op 'Opslaan'.
+4.  Als uw werk ruimte nog steeds de standaard naam mijn werk ruimte heeft, moet u deze wijzigen voordat u uw werk ruimte deelt.
+5.  Klik op opslaan.
 
 ## <a name="sharing-permissions"></a>Machtigingen voor delen
 
-1.  **Lezer:** Een lezer in de werkruimte is mogelijk om alle gegevens in de werkruimte weer te geven.
+1.  **Gelezen** Met een lezer in de werk ruimte kunnen alle gegevens in de werk ruimte worden weer gegeven.
 
-2.  **Editor:** Een editor in de werkruimte zich documenten toevoegen, het trainen van modellen en het verwijderen van documenten en projecten. Ze kunnen een abonnementssleutel toevoegen, maar kan niet wijzigen die de werkruimte wordt gedeeld met, verwijderen van de werkruimte of wijzig de Werkruimtenaam van de.
+2.  **Editors** Met een editor in de werk ruimte kunnen documenten worden toegevoegd, modellen worden getraind en documenten en projecten worden verwijderd. Ze kunnen een abonnements sleutel toevoegen, maar kunnen niet wijzigen met wie de werk ruimte wordt gedeeld, de werk ruimte verwijderen of de naam van de werk ruimte wijzigen.
 
-3.  **Eigenaar:** Een eigenaar heeft volledige machtigingen tot de werkruimte.
+3.  **Bent** Een eigenaar heeft volledige machtigingen voor de werk ruimte.
 
 ## <a name="change-sharing-permission"></a>Machtiging voor delen wijzigen
 
-Wanneer een werkruimte wordt gedeeld, toont de sectie 'Instellingen voor delen' alle e-mailadressen die deze werkruimte wordt gedeeld met. U kunt bestaande machtiging voor elk e-mailadres delen als u eigenaar toegang tot de werkruimte hebben.
+Wanneer een werk ruimte wordt gedeeld, worden in de sectie instellingen delen alle e-mail adressen weer gegeven waarop deze werk ruimte is gedeeld. U kunt de bestaande machtiging voor delen voor elk e-mail adres wijzigen als u de eigenaar toegang tot de werk ruimte hebt.
 
-1.  In de sectie 'Instellingen voor delen' voor elk e-mailbericht bevat een vervolgkeuzelijst het huidige machtigingsniveau.
+1.  In de sectie instellingen voor delen voor elk e-mail bericht wordt het huidige machtigings niveau weer gegeven.
 
-2.  Klik op de vervolgkeuzelijst en selecteert u het nieuwe machtigingsniveau die u wilt toewijzen aan dit e-mailadres.
+2.  Klik op het vervolg keuzemenu en selecteer het nieuwe machtigings niveau dat u wilt toewijzen aan het e-mail adres.
 
-    ![Machtigingsinstellingen voor delen](media/how-to/sharing-permission-settings.png)
+    ![Instellingen voor delen van machtigingen](media/how-to/sharing-permission-settings.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Informatie over [over het migreren van uw werkruimte en het project](how-to-migrate.md) van [Microsoft Translator-Hub](https://hub.microsofttranslator.com)
+- Meer informatie [over het migreren van uw werk ruimte en project](how-to-migrate.md) van [micro soft Translator hub](https://hub.microsofttranslator.com)

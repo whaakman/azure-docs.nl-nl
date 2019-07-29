@@ -5,14 +5,12 @@ metadata:
   title: 'Documentatie voor Azure API Management - zelfstudies, API-verwijzing | Microsoft Docs'
   description: 'Leer hoe u API Management kunt gebruiken voor het veilig en op schaal publiceren van API''s naar externe, partner- en werknemerontwikkelaars. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u moderne API-gateways voor bestaande back-endservices kunt maken en beheren die overal ter wereld worden gehost.'
   services: api-management
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: api-management
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/15/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Leer hoe u API Management kunt gebruiken voor het veilig en op schaal publiceren van API''s naar externe, partner- en werknemerontwikkelaars. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u moderne API-gateways voor bestaande back-endservices kunt maken en beheren die overal ter wereld worden gehost.'
 sections:

@@ -1,56 +1,56 @@
 ---
-title: De opmaak van documenten en naamgevingsregels - aangepaste Translator
+title: Document indelingen en naam conventies-aangepaste Translator
 titleSuffix: Azure Cognitive Services
-description: Dit is een handleiding voor de opmaak van documenten en naamgeving in aangepaste Translator. Dit concept helpt bij het beheren van documenten namen betere abd naamgevingsconflicten voorkomen.
+description: Dit is een hand leiding voor document indelingen en naam conventies in Custom Translator. Dit concept helpt bij het beheren van namen van documenten beter Abd naam conflicten te voor komen.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 2f7a83be510e608bb3f630a2fb1860502d8e4475
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 41b15cc998a7bacd033ef2fe083fc99f1bff0286
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443413"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595846"
 ---
-# <a name="document-formats-and-naming-convention-guidance"></a>Documenteer indelingen en naming convention-richtlijnen
+# <a name="document-formats-and-naming-convention-guidance"></a>Richt lijnen voor document indelingen en naamgevings regels
 
-Elk bestand dat wordt gebruikt voor aangepaste vertaling moet ten minste **vier** tekens bestaan.
+Elk bestand dat wordt gebruikt voor aangepaste vertaling moet ten minste **vier** tekens lang zijn.
 
-Deze tabel bevat alle ondersteunde bestandsindelingen die u gebruiken kunt voor het bouwen van uw systeem vertaling:
+Deze tabel bevat alle ondersteunde bestands indelingen die u kunt gebruiken om uw Vertaal systeem te bouwen:
 
 | Indeling            | Extensies   | Description                                                                                                                                                                                                                                                                    |
 |-------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| XLIFF             | . XLF. XLIFF | Een parallelle documentindeling exporteren van het geheugen van de vertaling systemen. De talen die worden gebruikt zijn in het bestand gedefinieerd.                                                                                                                                                              |
-| TMX               | .TMX         | Een parallelle documentindeling exporteren van het geheugen van de vertaling systemen. De talen die worden gebruikt zijn in het bestand gedefinieerd.                                                                                                                                                              |
-| ZIP               | .ZIP         | ZIP wordt een archiefbestand.                                                                                                                                                                                                        |
-| Locstudio         | .LCL         | Een Microsoft-indeling voor parallelle documenten                                                                                                                                                                                                                                      |
-| Microsoft Word    | .DOCX        | Microsoft Word-document                                                                                                                                                                                                                                                        |
-| Adobe Acrobat     | .PDF         | Adobe Acrobat portable document                                                                                                                                                                                                                                                |
-| HTML-CODE              | . HTML-CODE. HTM  | HTML-document                                                                                                                                                                                                                                                                  |
-| Tekstbestand         | .TXT         | UTF-16- of UTF-8 gecodeerde tekstbestanden. De bestandsnaam mag geen Japanse tekens bevatten.                                                                                                                                                                                        |
-| Uitgelijnde tekstbestand | . UITLIJNEN       | De extensie `.ALIGN` is een speciale uitbreiding die u gebruiken kunt als u weet dat de zinnen in het document paar perfect zijn uitgelijnd. Als u een `.ALIGN` zinnen wordt niet in overeenstemming gebracht aangepaste Translator-bestand voor u. |
-| Excel-bestand        | .XLSX        | Excel-bestand (2013 of later). Eerste regel / rij van het werkblad de taalcode die moet worden.                                                                                                                                                                                                                                                      |
+| XLIFF             | . XLF, . XLIFF | Een parallelle document indeling, export van Vertaal geheugen systemen. De gebruikte talen worden in het bestand gedefinieerd.                                                                                                                                                              |
+| TMX               | .TMX         | Een parallelle document indeling, export van Vertaal geheugen systemen. De gebruikte talen worden in het bestand gedefinieerd.                                                                                                                                                              |
+| TELEFOON               | .ZIP         | ZIP is een archief bestands indeling.                                                                                                                                                                                                        |
+| Locstudio         | .LCL         | Een micro soft-indeling voor parallelle documenten                                                                                                                                                                                                                                      |
+| Microsoft Word    | .DOCX        | Micro soft Word-document                                                                                                                                                                                                                                                        |
+| Adobe Acrobat     | .PDF         | Adobe Acrobat Portable Document                                                                                                                                                                                                                                                |
+| HTML-CODE              | . HTML,. HTM  | HTML-document                                                                                                                                                                                                                                                                  |
+| Tekst bestand         | .TXT         | Tekst bestanden met UTF-16-of UTF-8-code ring. De bestands naam mag geen Japanse tekens bevatten.                                                                                                                                                                                        |
+| Uitgelijnd tekst bestand | . ALIGN       | De uitbrei ding `.ALIGN` is een speciale extensie die u kunt gebruiken als u weet dat de zinnen in het document paar perfect zijn uitgelijnd. Als u een `.ALIGN` bestand opgeeft, worden de zinnen door aangepaste vertalers niet voor u uitgelijnd. |
+| Excel-bestand        | .XLSX        | Excel-bestand (2013 of hoger). De eerste regel of rij van het werk blad moet taal code zijn.                                                                                                                                                                                                                                                      |
 
-## <a name="dictionary-formats"></a>Woordenlijst indelingen
+## <a name="dictionary-formats"></a>Woordenboek indelingen
 
-Woordenboeken ondersteuning aangepaste Translator voor alle bestandsindelingen die worden ondersteund voor het trainen van sets. Als u van een Excel-woordenlijst, de eerste regel gebruikmaakt / rij van het werkblad taalcodes moet.
+Voor woorden lijsten ondersteunt aangepaste vertaler alle bestands indelingen die worden ondersteund voor trainings sets. Als u een Excel-woorden lijst gebruikt, moet de eerste regel of rij van het werk blad taal codes zijn.
 
-## <a name="zip-file-formats"></a>ZIP-bestandsindelingen
+## <a name="zip-file-formats"></a>Zip-bestands indelingen
 
-Documenten kunnen worden gegroepeerd in één zip-bestand en geüpload. De aangepaste Translator ondersteunt zip-indelingen (ZIP GZ en TGZ).
+Documenten kunnen worden gegroepeerd in één ZIP-bestand en worden geüpload. De aangepaste vertaler ondersteunt zip-bestands indelingen (ZIP, GZ en TGZ).
 
-Elk document in het zip-bestand met de extensie, TXT, HTML, HTM, PDF, DOCX, uitlijnen moet volgen deze naamconventie:
+Elk document in het zip-bestand met de extensie TXT, HTML, HTM, PDF, DOCX, ALIGN moet voldoen aan deze naamgevings Conventie:
 
-{documentnaam} \_{taalcode} wanneer {document name} de naam van uw document is, {taalcode} is de ISO-LanguageID (twee tekens), die aangeeft dat het document zinnen in die taal bevat. Er moet een onderstrepingsteken (_) voordat de taalcode.
+{document naam} \_{taal code} waarbij {document naam} de naam van uw document is, {taal code} de ISO LanguageID (twee tekens) is, waarmee wordt aangegeven dat het document zinnen bevat in die taal. Er moet een onderstrepings teken (_) voor de taal code zijn.
 
-Bijvoorbeeld, als u wilt uploaden twee parallelle documenten in een zip voor een Engels, Spaans systeem, de bestanden moeten de naam 'data_en' en 'data_es'.
+Als u bijvoorbeeld twee parallelle documenten in een zip wilt uploaden naar een Engels-naar-Spaans systeem, moeten de bestanden ' data_en ' en ' data_es ' worden genoemd.
 
-Vertaalbestanden van geheugen (TMX, XLF, XLIFF, LCL, XLSX) hoeven niet te volgen de naamconventie voor een specifieke taal.  
+Vertaal geheugen bestanden (TMX, XLF, XLIFF, LCL, XLSX) hoeven niet te voldoen aan de specifieke taal naam Conventie.  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [project](workspace-and-project.md#what-is-a-custom-translator-project) maken en deze beheren.
+- Meer informatie over het [project](workspace-and-project.md#what-is-a-custom-translator-project) om ze te maken en te beheren.

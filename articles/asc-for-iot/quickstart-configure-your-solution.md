@@ -1,6 +1,6 @@
 ---
-title: Configureren van uw Azure Security Center voor IoT-oplossing Preview | Microsoft Docs
-description: Informatie over het configureren van uw end-to-end-IoT-oplossing met behulp van Azure Security Center voor IoT.
+title: Uw Azure Security Center configureren voor IoT-oplossing | Microsoft Docs
+description: Meer informatie over het configureren van uw end-to-end IoT-oplossing met behulp van Azure Security Center voor IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,53 +13,49 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f90dba899651b677740e9ceb88bdd579ebb073c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 15c8aabbcb19d009bb202d111dc7f80da4cebff1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616645"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597026"
 ---
-# <a name="quickstart-configure-your-iot-solution"></a>Quickstart: Configureren van uw IoT-oplossing
+# <a name="quickstart-configure-your-iot-solution"></a>Quickstart: Uw IoT-oplossing configureren
 
-> [!IMPORTANT]
-> Azure Security Center voor IoT is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+Dit artikel bevat een uitleg over het uitvoeren van de eerste configuratie van uw IoT-beveiligings oplossing met behulp van Azure Security Center voor IoT. 
 
-In dit artikel bevat een uitleg van het uitvoeren van de oorspronkelijke configuratie van uw IoT-beveiliging-oplossing met behulp van ASC voor IoT. 
+## <a name="azure-security-center-for-iot"></a>Azure Security Center voor IoT
 
-## <a name="azure-security-center-asc-for-iot"></a>Azure Security Center (ASC) voor IoT
+Azure Security Center voor IoT biedt uitgebreide end-to-end beveiliging voor IoT-oplossingen op basis van Azure.
 
-ASC voor IoT biedt volledige end-to-end beveiliging voor op basis van Azure IoT-oplossingen.
+Met Azure Security Center voor IoT kunt u uw volledige IoT-oplossing in één dash board bewaken, halen u al uw IoT-apparaten, IoT-platformen en back-end-resources in Azure.
 
-Met ASC voor IoT, kunt u uw volledige IoT-oplossing in één dashboard, bewaken zichtbaar te maken van al uw IoT-apparaten, IoT-platformen en back-endresources in Azure.
+Zodra de IoT Hub is ingeschakeld, identificeert Azure Security Center voor IoT automatisch andere Azure-Services, die ook zijn verbonden met uw IoT-hub en verband houden met uw IoT-oplossing.
 
-Eenmaal is ingeschakeld op uw IoT-Hub, identificeert ASC voor IoT automatisch andere Azure-services ook verbonden met uw IoT-hub en die betrekking hebben op uw IoT-oplossing.
+Naast automatische relatie detectie kunt u ook kiezen welke andere Azure-resource groepen u wilt labelen als onderdeel van uw IoT-oplossing.
 
-Naast de automatische relatiedetectie, kunt u ook kiezen en kiezen welke andere Azure-resources op tag als onderdeel van uw IoT-oplossing.
-Uw selecties kunnen u volledige abonnementen, resourcegroepen of afzonderlijke resources toe te voegen.
+Met uw selecties kunt u volledige abonnementen, resource groepen of afzonderlijke resources toevoegen.
 
-Na het definiëren van alle van de resource-relaties, ASC voor IoT maakt gebruik van Azure Security Center zodat u aanbevelingen voor beveiliging en waarschuwingen voor deze resources.
+Nadat u alle resource relaties hebt gedefinieerd, Azure Security Center voor IoT maakt gebruik van Azure Security Center om u te voorzien in beveiligings aanbevelingen en waarschuwingen voor deze resources.
 
 ## <a name="add-azure-resources-to-your-iot-solution"></a>Azure-resources toevoegen aan uw IoT-oplossing
 
-Nieuwe resource toevoegen aan uw IoT-oplossing, het volgende doen: 
+Ga als volgt te werk om een nieuwe resource toe te voegen aan uw IoT-oplossing: 
 
-1. Open uw **IoT-Hub** in Azure portal. 
-2. Selecteer en open **Resources** onder **Security** in het menu links. 
-3. Selecteer **resources toevoegen**.
-4. Kies de resources die deel uitmaken van uw IoT-oplossing.
+1. Open uw **IOT hub** in azure Portal. 
+2. Selecteer en open **resources** onder **beveiliging** in het menu links. 
+3. Selecteer **bewerken** en kies de resource groepen die deel uitmaken van uw IOT-oplossing.
 5. Klik op **Toevoegen**. 
 
-Gefeliciteerd! U hebt een nieuwe resource toegevoegd aan uw IoT-oplossing.
+Gefeliciteerd! U hebt een nieuwe resource groep toegevoegd aan uw IoT-oplossing.
 
-ASC voor IoT nu monitors die u zojuist hebt toegevoegd resources, en de relevante beveiligingsaanbevelingen oppervlakken en waarschuwingen als onderdeel van uw IoT-oplossing.
+Azure Security Center voor IoT bewaakt u nu nieuwe resource groepen en Opper vlakken van relevante beveiligings aanbevelingen en-waarschuwingen als onderdeel van uw IoT-oplossing.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar het volgende artikel voor meer informatie over het maken van de beveiligingsmodules...
+Ga naar het volgende artikel voor meer informatie over het maken van beveiligings modules...
 
 > [!div class="nextstepaction"]
-> [Beveiligingsmodules maken](quickstart-create-security-twin.md)
+> [Beveiligings modules maken](quickstart-create-security-twin.md)

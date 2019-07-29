@@ -3,31 +3,31 @@ title: Microsoft Translator Hub werkruimte en projecten migreren? -Aangepaste Tr
 titleSuffix: Azure Cognitive Services
 description: Migreer uw Hub-werkruimte en projecten naar aangepaste Translator.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ce81c23a42895f72545a8241d2e002d9798fec05
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cd821ad8fce813d269ace8fb4945cb796c2ae758
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447990"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595734"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Hub-werkruimte en projecten migreren naar aangepaste Translator
 
 U kunt eenvoudig migreren uw [Microsoft Translator Hub](https://hub.microsofttranslator.com/) werkruimte en projecten met aangepaste Translator. Migratie wordt gestart vanuit Microsoft Hub door een werkruimte of -project te selecteren en vervolgens een werkruimte selecteren in aangepaste Translator en vervolgens te klikken op de trainingen die u wilt overdragen. Nadat de migratie is gestart, wordt de geselecteerde training-instellingen met alle relevante documenten worden overgedragen. Geïmplementeerde modellen kunnen worden getraind en autodeployed na voltooiing.
 
 Deze acties worden uitgevoerd tijdens de migratie:
-* Alle documenten en project definities hebben hun namen met de toevoeging van 'hub_' als voorvoegsel toegevoegd aan de naam van de overgedragen. Automatisch gegenereerde test- en afstemmen van gegevens wordt de naam hub_systemtune_\<modelid > of hub_systemtest_\<modelid >.
+* Alle documenten en project definities hebben hun namen met de toevoeging van 'hub_' als voorvoegsel toegevoegd aan de naam van de overgedragen. Automatisch gegenereerde test-en afstemmings gegevens krijgen\<de naam hub_systemtune_ modelid\<> of hub_systemtest_ modelid >.
 * Als u kunt de status geïmplementeerd zijn wanneer de migratie plaatsvindt wordt automatisch wordt bijvoorbeeld getraind met behulp van de documenten van de Hub-training. Deze training wordt niet in rekening gebracht aan uw abonnement. Als automatisch wordt geïmplementeerd is geselecteerd voor de migratie, het getrainde model na voltooiing wordt geïmplementeerd. Normale die als host fungeert voor de kosten worden toegepast.
 * Alle gemigreerde trainingen die eerder niet in de status van de geïmplementeerde waren wordt in de gemigreerde conceptfase worden geplaatst. In deze staat, hebt u de mogelijkheid van een model met de definitie van de gemigreerde training, maar regelmatig training wordt in rekening gebracht.
 * Op elk gewenst moment de score BLEU gemigreerd van de training u op de pagina TrainingDetails van het model in de 'Bleu score in MT Hub vindt' Hub kop.
 
 > [!Note]
-> Voor een training te voltooien, aangepaste Translator minimaal 10.000 unieke uitgepakte zinnen is vereist. Aangepaste Translator kan niet geeft u een training met minder dan de [voorgestelde minimale](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
+> Voor een succes volle training vereist een aangepast Vertaal programma mini maal 10.000 unieke geëxtraheerde zinnen. Aangepaste Translator kan geen training uitvoeren met minder dan het [voorgestelde minimum](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Aangepaste Translator werkruimte-ID vinden
 
@@ -80,9 +80,9 @@ Voor het migreren van een werkruimte:
 
 4. Selecteer een van deze twee opties op de volgende pagina:
 
-    a. Alleen geïmplementeerde trainingen: Als u deze optie selecteert, wordt alleen uw geïmplementeerde systemen en gerelateerde documenten migreren.
+    a. Alleen geïmplementeerde trainingen: Als u deze optie selecteert, worden alleen de geïmplementeerde systemen en gerelateerde documenten gemigreerd.
 
-    b. U kunt alle geslaagde: Als u deze optie selecteert, worden alle geslaagde trainingen en gerelateerde documenten gemigreerd.
+    b. Alle geslaagde trainingen: Als u deze optie selecteert, worden alle succes volle trainingen en gerelateerde documenten gemigreerd.
 
     c. Voer uw bestemming werkruimte-ID in aangepaste Translator.
 
@@ -104,27 +104,27 @@ Als u de migratiegeschiedenis, de volgende stappen uit:
 
 Migratie geschiedenispagina bevat de volgende informatie als overzicht voor elke migratie die u hebt aangevraagd.
 
-1. Gemigreerd door: Naam en e-mailadres van de gebruiker deze migratieaanvraag heeft ingediend
+1. Gemigreerd door: De naam en het e-mail adres van de gebruiker die de migratie aanvraag heeft ingediend
 
-2. Op gemigreerd: Datum en een tijdstempel van de migratie
+2. Gemigreerd op: De datum en het tijds tempel van de migratie
 
-3. Projecten: Aantal projecten aangevraagd voor migratie v/s aantal projecten is gemigreerd.
+3. Projecten: Aantal aangevraagde projecten voor de migratie van het aantal projecten dat is gemigreerd.
 
-4. Trainings: Het aantal trainingen aangevraagd voor migratie v/s aantal trainingen gemigreerd.
+4. Trainingen Aantal trainingen dat is aangevraagd voor de migratie van het aantal opleidingen dat is gemigreerd.
 
-5. Documents: Het aantal documenten die zijn aangevraagd voor migratie v/s aantal documenten is gemigreerd.
+5. Faxdocumenten Het aantal documenten dat is aangevraagd voor de migratie van het aantal documenten dat is gemigreerd.
 
     ![Details van migratie](media/how-to/how-to-migration-history-details.png)
 
 Als u dat meer gedetailleerde migratierapport over uw projecten, trainingen en documenten wilt, hebt u de optie exporteren als CSV-bestand.
 
 ## <a name="implementation-notes"></a>Opmerkingen bij de implementatie
-* Systemen met de taal paren nog niet beschikbaar in aangepaste Translator is alleen beschikbaar voor toegang tot gegevens of via aangepaste Translator worden geïmplementeerd. Deze projecten worden gemarkeerd als 'Niet beschikbaar' op de pagina projecten. Als we een nieuwe taal paren met aangepaste Translator inschakelt, worden de projecten actief te trainen en te implementeren. 
+* Systemen met taal paren die nog niet beschikbaar zijn in het aangepaste conversie programma, zijn alleen beschikbaar voor toegang tot gegevens of het ontoegankelijk maken van de implementatie via een aangepaste vertaler. Deze projecten worden gemarkeerd als ' niet beschikbaar ' op de pagina projecten. Wanneer we nieuwe taal paren met aangepaste Translator inschakelen, worden de projecten actief voor Train en implementatie. 
 * Migreren van een project van de Hub met aangepaste Translator hebben geen invloed op uw Hub trainingen of projecten. We niet verwijderen-projecten of documenten van Hub tijdens een migratie en we modellen kan niet worden geïmplementeerd.
 * Alleen is toegestaan voor het migreren van één keer per project. Als u herhalen van een migratie van een project wilt, neem dan contact met ons.
-* Aangepaste Translator ondersteunt NMT taal paren van en naar het Engels. [De volledige lijst van ondersteunde talen weergeven](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). Hub vereist geen basislijn modellen en daarom enkele duizenden talen worden ondersteund. Maar we alleen de migratie van documenten en definities van project, kunt u een sleutelpaar met een niet-ondersteunde taal migreren. Er is niet mogelijk naar het nieuwe model te trainen. Bovendien deze documenten en projecten worden weergegeven als inactief om aan te geven dat ze op dit moment niet worden gebruikt. Als er is ondersteuning toegevoegd voor deze projecten en/of de documenten, worden ze actief is en trainable.
+* Aangepaste Translator ondersteunt NMT taal paren van en naar het Engels. [Bekijk de volledige lijst met ondersteunde talen](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). Hub vereist geen basislijn modellen en daarom enkele duizenden talen worden ondersteund. Maar we alleen de migratie van documenten en definities van project, kunt u een sleutelpaar met een niet-ondersteunde taal migreren. Er is niet mogelijk naar het nieuwe model te trainen. Bovendien deze documenten en projecten worden weergegeven als inactief om aan te geven dat ze op dit moment niet worden gebruikt. Als er is ondersteuning toegevoegd voor deze projecten en/of de documenten, worden ze actief is en trainable.
 * Aangepaste Translator ondersteunt momenteel geen ééntalig trainingsgegevens. Als niet-ondersteunde taal paren, kunt u ééntalig documenten migreren, maar ze worden weergegeven als inactief totdat ééntalig wordt ondersteund.
-* Aangepaste Translator vereist 10 k parallelle zinnen om te kunnen trainen. Microsoft Hub kunnen trainen op een kleiner aantal gegevens. Als een training is gemigreerd die niet aan deze vereiste voldoet, wordt deze niet getraind.
+* Aangepaste Translator vereist 10 k parallelle zinnen om te kunnen trainen. Microsoft Hub kunnen trainen op een kleiner aantal gegevens. Als een training wordt gemigreerd die niet aan deze vereiste voldoet, wordt deze niet getraind.
 
 ## <a name="custom-translator-versus-hub"></a>Aangepaste Translator ten opzichte van de Hub
 
@@ -141,7 +141,7 @@ Deze tabel vergelijkt de functies tussen Microsoft Translator-Hub en aangepaste 
 
 ## <a name="new-languages"></a>Nieuwe talen
 
-Als u een community of organisatie Bezig met het maken van een nieuwe taal voor Microsoft Translator, contact op met [ custommt@microsoft.com ](mailto:custommt@microsoft.com) voor meer informatie.
+Als u een community of organisatie bent die bezig is met het maken van een nieuw taal systeem voor micro soft [custommt@microsoft.com](mailto:custommt@microsoft.com) Translator, neem dan contact op met voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

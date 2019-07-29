@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: d61040e740c06fc336e3764a0d972640443a6de5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6d88bcc6d9d2c2e46ef3a3cb841c9268a544e37c
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553380"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609685"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Quickstart: Maak een virtuele assistent met spraak-eerste met de spraak-SDK, UWP
 
 Quick starts zijn ook beschikbaar voor [spraak naar tekst](quickstart-csharp-uwp.md), [tekst naar spraak](quickstart-text-to-speech-csharp-uwp.md) en [spraak omzetting](quickstart-translate-speech-uwp.md).
 
-In dit artikel ontwikkelt u een C# universeel Windows-platform-toepassing (UWP) met behulp van de spraak- [SDK](speech-sdk.md). Het programma maakt verbinding met een eerder bestemde en geconfigureerde bot om in te scha kelen op het maken van een virtuele assistent van de eerste plaats van de client toepassing. De toepassing is gemaakt met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
+In dit artikel ontwikkelt u een C# universeel Windows-platform-toepassing (UWP) met behulp van de spraak- [SDK](speech-sdk.md). Het programma maakt verbinding met een eerder bestemde en geconfigureerde bot om in te scha kelen op het maken van een virtuele assistent van de eerste plaats van de client toepassing. De toepassing is gebouwd met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en micro soft Visual Studio 2017 of hoger (alle edities).
 
 > [!NOTE]
 > Het Universal Windows Platform stelt u in staat om apps te ontwikkelen die kunnen worden uitgevoerd op elk apparaat dat ondersteuning biedt voor Windows 10, met inbegrip van pc's, Xbox, Surface Hub en andere apparaten.
@@ -30,7 +30,7 @@ In dit artikel ontwikkelt u een C# universeel Windows-platform-toepassing (UWP) 
 
 Voor deze snelstart zijn de volgende zaken vereist:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) of hoger
 * Een Azure-abonnements sleutel voor spraak Services. [Ontvang een gratis versie](get-started.md) of maak deze op de [Azure Portal](https://portal.azure.com).
 * Een eerder gemaakte bot die is geconfigureerd met het [directe lijn spraak kanaal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 

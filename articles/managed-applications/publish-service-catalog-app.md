@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc86943924cd0c47c465e9d3bac4ca91b73a3ff5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf6ae32a61504dc344e140a0e27c5a17b5422073
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171554"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609871"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>De definitie van een beheerde toepassing maken en publiceren
 
@@ -85,20 +85,20 @@ Voeg de volgende JSON-code toe aan uw bestand. Hiermee definieert u de parameter
 
 Sla het bestand mainTemplate.json op.
 
-## <a name="create-the-user-interface-definition"></a>Definitie van gebruikersinterface maken
+## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>Uw Maak ervaring definiëren met behulp van CreateUiDefinition. json
 
-Azure Portal gebruikt het bestand **createUiDefinition.json** om de gebruikersinterface te genereren voor gebruikers die de beheerde toepassing maken. U definieert hoe gebruikers invoer opgeven voor elke parameter. U kunt opties gebruiken zoals een vervolgkeuzelijst, tekstvak, wachtwoordvak en andere invoermethoden. Zie [Aan de slag met CreateUiDefinition](create-uidefinition-overview.md) voor meer informatie over het maken van een UI-definitiebestand voor een beheerde toepassing.
+Als uitgever definieert u uw Maak ervaring met behulp van het bestand **createUiDefinition. json** , waarmee de interface wordt gegenereerd voor gebruikers die beheerde toepassingen maken. U definieert hoe gebruikers invoer opgeven voor elke para meter met behulp van [Control Elements] (create-uidefinition-elements.md), met inbegrip van vervolg keuzelijsten, tekst vakken en wachtwoord vakken.
 
-Maak een bestand met de naam **createUiDefinition.json**. De naam is hoofdlettergevoelig.
+Maak een bestand met de naam **createUiDefinition. json** (deze naam is hoofdletter gevoelig)
 
-Voeg de volgende JSON-code toe aan het bestand.
+Voeg de volgende starter-JSON toe aan het bestand en sla het op.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-    "handler": "Microsoft.Compute.MultiVm",
-    "version": "0.1.2-preview",
-    "parameters": {
+   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+   "handler": "Microsoft.Azure.CreateUIDef",
+   "version": "0.1.2-preview",
+   "parameters": {
         "basics": [
             {}
         ],
@@ -139,10 +139,9 @@ Voeg de volgende JSON-code toe aan het bestand.
             "location": "[location()]"
         }
     }
-}
 ```
 
-Sla het bestand createUiDefinition.json op.
+Zie aan de [slag met CreateUiDefinition](create-uidefinition-overview.md)voor meer informatie.
 
 ## <a name="package-the-files"></a>De bestanden verpakken
 

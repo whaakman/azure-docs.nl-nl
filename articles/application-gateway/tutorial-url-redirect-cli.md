@@ -3,19 +3,17 @@ title: 'Zelfstudie: Een toepassingsgateway maken met een omleiding op basis van 
 description: In deze zelfstudie leert u hoe u een toepassingsgateway kunt maken met verkeer dat is omgeleid op basis van een URL-pad, met behulp van Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 7/30/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e0b7995a8234ddb5927c4ef3e1ddd31fab9a00b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8453c236f83c4501587789e96545599f1e976eea
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60233099"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608054"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Zelfstudie: Een toepassingsgateway maken met een omleiding op basis van een URL-pad met behulp van Azure CLI
 
@@ -39,7 +37,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie de Azure CLI (versie 2.0.4 of hoger) uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -72,7 +70,9 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
@@ -87,7 +87,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -155,9 +155,9 @@ az network application-gateway http-listener create \
   --gateway-name myAppGateway
 ```
 
-### <a name="add-the-default-url-path-map"></a>Toewijzing voor standaard-URL-pad toevoegen
+### <a name="add-the-default-url-path-map"></a>De standaardtoewijzing voor het URL-pad toevoegen
 
-URL-padtoewijzingen zorgen ervoor dat bepaalde URL's naar bepaalde back-endpools worden omgeleid. U kunt de URL-padtoewijzingen *imagePathRule* en *videoPathRule* maken met [az network application-gateway url-path-map create](/cli/azure/network/application-gateway/url-path-map) en [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)
+URL-paden zorgen ervoor dat specifieke Url's worden doorgestuurd naar specifieke back-endservers. U kunt de URL-padtoewijzingen *imagePathRule* en *videoPathRule* maken met [az network application-gateway url-path-map create](/cli/azure/network/application-gateway/url-path-map) en [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -283,7 +283,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-Gebruik [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Zoals `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm`, of `http://40.121.222.19:8081/images/test.htm`.
+Gebruik [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. `http://40.121.222.19`Zoals, `http://40.121.222.19:8080/images/test.htm`,, `http://40.121.222.19:8080/video/test.htm`of. `http://40.121.222.19:8081/images/test.htm`
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -295,22 +295,22 @@ az network public-ip show \
 
 ![Basis-URL testen in de toepassingsgateway](./media/tutorial-url-redirect-cli/application-gateway-nginx.png)
 
-Wijzig de URL in http://&lt;ip-address&gt;: 8080/images/test.html, waarbij u &lt;ip-address&gt; vervangt door uw eigen IP-adres. U krijgt nu iets te zien zoals in het volgende voorbeeld:
+Wijzig de URL in http://&lt;IP-adres&gt;: 8080/images/test.html, waarbij u het IP- &lt;adres voor het&gt;IP-adres vervangt. het volgende voor beeld zou er als volgt moeten uitzien:
 
-![Afbeeldingen-URL testen in een toepassingsgateway](./media/tutorial-url-redirect-cli/application-gateway-nginx-images.png)
+![Afbeeldingen-URL in toepassingsgateway testen](./media/tutorial-url-redirect-cli/application-gateway-nginx-images.png)
 
-Wijzig de URL in http://&lt;ip-address&gt;: 8080/video/test.html, waarbij u &lt;ip-address&gt; vervangt door uw eigen IP-adres. U krijgt nu iets te zien zoals in het volgende voorbeeld:
+Wijzig de URL in http://&lt;IP-adres&gt;: 8080/video/test.html, waarbij u het IP- &lt;adres voor het&gt;IP-adres vervangt. het volgende voor beeld zou er als volgt moeten uitzien:
 
 ![Video-URL testen in de toepassingsgateway](./media/tutorial-url-redirect-cli/application-gateway-nginx-video.png)
 
-Wijzig nu de URL in http://&lt;IP-adres&gt;:8081/images/test.htm, waarbij u &lt;IP-adres&gt; vervangt door uw eigen IP-adres. U ziet dat het verkeer terug wordt omgeleid naar de back-endpool met afbeeldingen op http://&lt;IP-adres&gt;:8080/images.
+Wijzig nu&lt;de URL in http://IP-adres&gt;: 8081/images/test.htm, waarbij u het IP-adres &lt;voor het IP&gt;-adres vervangt, en u ziet dat verkeer teruggeleid naar de back-end van de installatie kopieën op http://&lt;IP-adres&gt;: 8080/afbeeldingen.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 U kunt de resourcegroep, de toepassingsgateway en alle gerelateerde resources verwijderen als u deze niet meer nodig hebt.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 ## <a name="next-steps"></a>Volgende stappen
 

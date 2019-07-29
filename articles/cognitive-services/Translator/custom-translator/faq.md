@@ -1,54 +1,54 @@
 ---
-title: Veelgestelde vragen - aangepaste Translator
+title: Veelgestelde vragen-aangepaste vertaler
 titleSuffix: Azure Cognitive Services
-description: Vindt u antwoorden op veelgestelde vragen over de Translator aangepast.
+description: Biedt antwoorden op veelgestelde vragen over de aangepaste vertaler.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 00921eeb9f966ed62d1a2d7605419432a9fa50f5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 25b7e7015b32609356eb138c86fbe537a87a7a22
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443404"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595816"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-In dit artikel bevat antwoorden op veelgestelde vragen over [aangepaste Translator](https://portal.customtranslator.azure.ai).
+In dit artikel vindt u antwoorden op veelgestelde vragen over [aangepaste vertalers](https://portal.customtranslator.azure.ai).
 
-## <a name="what-are-the-current-restrictions-in-custom-translator"></a>Wat zijn de huidige beperkingen in aangepaste Translator?
+## <a name="what-are-the-current-restrictions-in-custom-translator"></a>Wat zijn de huidige beperkingen in het aangepaste conversie programma?
 
-Er zijn beperkingen en beperkingen met betrekking tot de bestandsgrootte, modeltraining en implementeren van modellen. Houd er rekening mee met deze beperkingen bij het instellen van uw training om een model in aangepaste Translator te bouwen.
+Er gelden beperkingen en beperkingen ten aanzien van de bestands grootte, model training en model implementatie. Houd bij het instellen van uw training de volgende beperkingen in acht wanneer u een model in Custom Translator wilt maken.
 
-- Ingediende bestanden moet kleiner zijn dan 100 MB groot zijn.
-- Ééntalig gegevens wordt niet ondersteund.
+- Verzonden bestanden moeten kleiner zijn dan 100 MB.
+- Monolingual-gegevens worden niet ondersteund.
 
-## <a name="when-should-i-request-deployment-for-a-translation-system-that-has-been-trained"></a>Wanneer moet ik implementatie voor een NAT-systeem dat is getraind aanvragen?
+## <a name="when-should-i-request-deployment-for-a-translation-system-that-has-been-trained"></a>Wanneer moet ik de implementatie aanvragen voor een getraind Vertaal systeem?
 
-Het duurt enkele trainingen te maken van de optimale vertaalsysteem voor uw project. U kunt om te proberen met behulp van meer trainingsgegevens of meer zorgvuldig gefilterde gegevens als de score BLEU en / of de resultaten van de zijn niet voldoende. U moet strikte en zorg ervoor dat bij uw afstemmen instellen en uw test ingesteld, op volledig representatief zijn voor de terminologie en stijl van materiaal dat u wilt converteren. U kunt bij het schrijven van uw trainingsgegevens hoeverre en Experimenteer met verschillende opties. De systeemimplementatie van een aanvragen wanneer u tevreden met de vertalingen in uw testresultaten systeem bent niet meer gegevens toevoegen aan de training voor het verbeteren van uw getrainde systeem hebt en u wilt toegang krijgen tot het getrainde model via API's.
+Het kan een aantal trainingen nemen om het beste Vertaal systeem voor uw project te maken. U kunt proberen meer trainings gegevens of meer zorgvuldig gefilterde gegevens te gebruiken als de BLEU-Score en/of de test resultaten niet bevredigend zijn. Het is raadzaam om uw afstemmings en uw testset zo goed mogelijk te ontwerpen en zo een volledig representatief te maken voor de terminologie en de stijl van materiaal dat u wilt vertalen. U kunt meer vrijelijk zijn bij het opstellen van uw trainings gegevens en experimenteren met verschillende opties. Vraag een systeem implementatie aan wanneer u tevreden bent met de vertalingen in de test resultaten van uw systeem. u hoeft geen gegevens meer toe te voegen aan de training om uw getrainde systeem te verbeteren en u wilt toegang krijgen tot het getrainde model via Api's.
 
-## <a name="how-many-trained-systems-can-be-deployed-in-a-project"></a>Hoeveel getrainde systemen kunnen worden geïmplementeerd in een project?
+## <a name="how-many-trained-systems-can-be-deployed-in-a-project"></a>Hoeveel getrainde systemen kunnen in een project worden geïmplementeerd?
 
-Slechts één getrainde systeem kan worden geïmplementeerd per project. Het duurt enkele trainingen te maken van een systeem geschikte vertaling voor uw project en we raden u aan de implementatie van een training waarmee u kunt het beste resultaat aanvragen. U kunt de kwaliteit van de training bepalen door de score BLEU (hoger is beter), en door overleg met revisoren voordat u besluit dat de kwaliteit van vertalingen geschikt voor implementatie is.
+Er kan slechts één getraind systeem per project worden geïmplementeerd. Het kan enkele trainingen nemen om een geschikt Vertaal systeem te maken voor uw project en wij raden u aan de implementatie van een training aan te vragen die u het beste resultaat geeft. U kunt de kwaliteit van de training bepalen door de BLEU-Score (hoger is beter) en door te adviseren bij de controleurs voordat u besluit dat de kwaliteit van vertalingen geschikt is voor implementatie.
 
-## <a name="when-can-i-expect-my-trainings-to-be-deployed"></a>Wanneer kan ik verwachten van Mijn trainingen om te worden geïmplementeerd?
+## <a name="when-can-i-expect-my-trainings-to-be-deployed"></a>Wanneer kan ik verwachten dat mijn trainingen worden geïmplementeerd?
 
-De implementatie duurt meestal minder dan een uur.
+De implementatie duurt over het algemeen minder dan een uur.
 
-## <a name="how-do-you-access-a-deployed-system"></a>Hoe opent u een geïmplementeerde systeem?
+## <a name="how-do-you-access-a-deployed-system"></a>Hoe krijgt u toegang tot een geïmplementeerd systeem?
 
-Geïmplementeerde systemen kunnen worden geopend via de Microsoft Translator Text-API V3 door de categorie-id op te geven. Meer informatie over de Translator Text-API kan worden gevonden de [API-verwijzing](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) webpagina.
+Via de micro soft Translator Text-API v3 kunnen geïmplementeerde systemen worden geopend door het CategoryID op te geven. Meer informatie over de Translator Text-API vindt u in de [API Reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) -webpagina.
 
-## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Hoe ik uitlijning en zin belangrijke als mijn gegevens nog zin uitgelijnd overslaan?
+## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Hoe kan ik de uitlijning en de zin niet overs Laan als er al een zin van mijn gegevens is uitgelijnd?
 
-De aangepaste-vertaler wordt overgeslagen zin uitlijning en zin belangrijke voor TMX bestanden en tekstbestanden met de `.align` extensie. `.align` bestanden geeft gebruikers een optie voor het overslaan van aangepaste Translator-zin te analyseren en uitlijning van proces voor de bestanden die zijn perfect uitgelijnd en er is geen verdere verwerking. Wordt u aangeraden `.align` -extensie alleen voor bestanden die zijn perfect uitgelijnd.
+De aangepaste vertaler slaat de uitlijning van de zin en de zin van zinnen voor TMX-bestanden en `.align` tekst bestanden met de extensie over. `.align`bestanden geven gebruikers een optie voor het overs laan van het afbreken en uitlijn proces van zinnen van de aangepaste vertaler voor de bestanden die perfect zijn uitgelijnd en waarvoor geen verdere verwerking nodig is. U wordt aangeraden alleen extensie te gebruiken `.align` voor bestanden die perfect zijn uitgelijnd.
 
-Als het aantal opgehaalde zinnen komt niet overeen met de twee bestanden met dezelfde basisnaam, aangepaste Translator nog steeds de zin aligner wordt uitgevoerd op `.align` bestanden.
+Als het aantal geëxtraheerde zinnen niet overeenkomt met de twee bestanden met dezelfde basis naam, wordt de zin door aangepaste vertaler nog steeds uitgevoerd op `.align` bestanden.
 
-## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>Ik heb geprobeerd mijn TMX uploaden, maar de status 'verwerking van documenten is mislukt'.
+## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>Ik heb geprobeerd mijn TMX te uploaden, maar dit betekent dat de verwerking van documenten is mislukt.
 
-Zorg ervoor dat de TMX aan de TMX 1.4b voldoet specificatie op <https://www.gala-global.org/tmx-14b>.
+Zorg ervoor dat de TMX voldoet aan de TMX 1.4 b-specificatie <https://www.gala-global.org/tmx-14b>op.

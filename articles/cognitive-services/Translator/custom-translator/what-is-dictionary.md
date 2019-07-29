@@ -1,47 +1,47 @@
 ---
-title: Wat is een woordenlijst? -Aangepaste Translator
+title: Wat is een woorden lijst? -Aangepaste Translator
 titleSuffix: Azure Cognitive Services
-description: Een woordenlijst is een uitgelijnde document een lijst van zinnen of zinnen (en de vertalingen) die u wilt dat altijd Microsoft Translator geeft op dezelfde manier te vertalen. Woordenboeken worden soms ook wel glossaria of term bases.
+description: Een woorden lijst is een uitgelijnd document waarin een lijst met zinsdelen of zinnen (en de bijbehorende vertalingen) wordt opgegeven die u altijd wilt laten vertalen met micro soft Translator. Woorden lijsten worden soms ook wel Glossaries of term bases genoemd.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: c837399778723b0b084c26422b7bea762f0e7709
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5103526956b5041771a1d8e4abb5e8800b971059
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447366"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595385"
 ---
-# <a name="what-is-a-dictionary"></a>Wat is een woordenlijst?
+# <a name="what-is-a-dictionary"></a>Wat is een woorden lijst?
 
-Een woordenlijst is een uitgelijnde twee documenten die Hiermee geeft u een lijst van zinnen of zinnen en de bijbehorende vertalingen. Gebruik een woordenlijst in uw training, als u wilt dat Microsoft Translator altijd alle exemplaren van de bron woordgroep of zin vertalen met behulp van de vertaling die u hebt opgegeven in de woordenlijst. Woordenboeken worden soms glossaria of term bases genoemd. U kunt de woordenlijst zien als een brute force 'kopiëren en vervang' voor alle bepalingen in de lijst.
+Een woorden lijst is een uitgelijnd paar documenten waarin een lijst met zinsdelen of zinnen en de bijbehorende vertalingen wordt opgegeven. Gebruik een woorden lijst in uw training als u wilt dat micro soft Translator altijd alle exemplaren van de bron woord groep of zin moet vertalen met behulp van de vertaling die u in de woorden lijst hebt gegeven. Woorden lijsten worden soms Glossaries of term bases genoemd. U kunt de woorden lijst beschouwen als een brute kracht ' kopiëren en vervangen ' voor alle termen die u vermeldt.
 
-Woordenboeken kan uitsluitend worden gebruikt voor projecten in de taal-paren die beschikken over een volledig ondersteunde Microsoft neurale machinevertalingen (NMT) achter deze. [De volledige lijst met talen weergeven](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
+Woorden boeken werken alleen voor projecten in taal paren met een volledig ondersteund NMT-systeem (micro soft Neural Machine Translation) achter de computers. [Bekijk de volledige lijst met talen](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
-## <a name="phrase-dictionary"></a>Woordgroep woordenlijst
-Wanneer u een woordenlijst woordgroep opneemt in uw model te trainen, wordt een woord of zinsdeel vermeld omgezet in de manier waarop die u hebt opgegeven. De rest van de zin wordt zoals gewoonlijk omgezet. U kunt een woordgroep-woordenlijst gebruiken om op te geven die mag niet worden vertaald door te geven van de dezelfde niet-vertaalde zin in de bron en doel-bestand in de woordenlijst.
+## <a name="phrase-dictionary"></a>Woordgroepen lijst
+Wanneer u een woordgroepen lijst in uw model hebt opgenomen, wordt een wille keurig woord of zinsdeel omgezet in de manier die u hebt opgegeven. De rest van de zin wordt op de gebruikelijke manier vertaald. U kunt een woordgroepen woordenlijst gebruiken om woord groepen op te geven die niet moeten worden vertaald door dezelfde niet-vertaalde woord groep te bieden in het bron-en doel bestand in de woorden lijst.
 
-## <a name="sentence-dictionary"></a>Zin woordenlijst
-De woordenlijst zin kunt u een exacte doel vertaling voor een zin bron opgeven. De hele ingediende zin moet overeenkomen met de bron dictionary-vermelding voor een overeenkomst van de woordenlijst zin optreden.  Als er slechts een deel van de zin overeenkomt met, niet overeen met de vermelding is.  Wanneer een overeenkomst wordt gedetecteerd, wordt de vermelding van het doel van de woordenlijst zin worden geretourneerd.
+## <a name="sentence-dictionary"></a>Woorden lijst voor zinnen
+Met de woorden lijst voor zinnen kunt u een exacte doel omzetting voor een bron zin opgeven. Voor een zin die overeenkomt met de woorden lijst, moet de gehele verzonden zin overeenkomen met de vermelding van de bron woordenlijst.  Als slechts een deel van de zin overeenkomt, komt de invoer niet overeen.  Wanneer een overeenkomst wordt gedetecteerd, wordt de doel vermelding van de woorden lijst geretourneerd.
 
-## <a name="dictionary-only-trainings"></a>U kunt alleen-woordenlijst
-U kunt een model met behulp van alleen de gegevens van de woordenlijst trainen. Om dit te doen, selecteert u alleen de woordenlijst-document (of meerdere woordenlijst documenten) die u wilt opnemen en tik op model maken. Omdat dit een alleen-woordenlijst training is, is er geen minimum aantal training zinnen vereist. Uw model wordt meestal veel sneller dan een standaard training training voltooid.  De resulterende modellen gebruikt de Microsoft baseline modellen voor vertaling met de toevoeging van de woordenlijsten die u hebt toegevoegd.  U krijgt een controlelijst.
+## <a name="dictionary-only-trainings"></a>Alleen-woordenlijst trainingen
+U kunt een model trainen met alleen woordenlijst gegevens. Als u dit wilt doen, selecteert u alleen het woordenlijst document (of meerdere woordenlijst documenten) die u wilt opnemen en tikt u op model maken. Aangezien dit een alleen-woordenlijst training is, is er geen minimum aantal trainings zinnen vereist. Het model voert doorgaans veel sneller training uit dan een standaard training.  De resulterende modellen gebruiken de micro soft Baseline-modellen voor vertaling, waarbij de toegevoegde woorden lijsten worden toegevoegd.  Het is niet mogelijk om een test rapport op te halen.
 
 >[!Note]
->Aangepaste Translator heeft geen zin uitlijnen woordenlijstbestanden, het is dus belangrijk dat er een gelijk aantal bron- en zinnen zijn / zinnen in de woordenlijst documenten en dat ze exact zijn uitgelijnd.
+>Aangepaste vertaler heeft geen zin om woordenlijst bestanden uit te lijnen. het is dus belang rijk dat er een gelijk aantal bron-en doel zinnen/zinnen in uw woordenlijst documenten staat en dat ze nauw keurig zijn uitgelijnd.
 
 ## <a name="recommendations"></a>Aanbevelingen
 
-- Woordenboeken zijn geen vervanging voor een getraind model met trainingsgegevens.  Woordenboeken wordt in feite zoeken en vervangen woorden of zinnen.  Laat het systeem meer uit uw trainingsmateriaal in volledige zinnen is doorgaans een betere keuze dan het gebruik van een woordenlijst.
-- De woordgroep woordenlijst moet spaarzaam worden gebruikt. Als een woord in een zin wordt vervangen, wordt de context in die zin verloren gaan of die beperkt zijn voor het omzetten van de rest van de zin. Het resultaat is dat terwijl de woordgroep of woord in de zin op basis van de woordenlijst woordgroep wordt vertaald, vaak heeft nadelige gevolgen voor de kwaliteit van de algehele vertaling van de zin.
-- De woordgroep woordenlijst werkt goed voor samenstellingen zoals productnamen ('Microsoft SQL Server'), juiste namen ("plaats van Hamburg") of functies van het product ("Draaitabel'). Werkt niet net zo goed voor termen of bijvoeglijke naamwoorden omdat deze zijn meestal sterk verbogen in de bron of in de doel-taal. Vermijd woordgroep dictionary-vermeldingen voor andere waarde dan samenstellingen.
-- Wanneer u een woordenlijst, weer hoofdletters en leestekens in uw vertalingen hoofdlettergebruik en leestekens die zijn opgegeven in het doelbestand. Gebruik van hoofdletters en leestekens worden genegeerd bij het identificeren van overeenkomsten tussen uw invoer zin en de bron-zinnen in de woordenlijstbestand. Stel dat we een Engels, Spaans systeem waarmee een woordenlijst getraind die opgegeven "plaats Hamburg" in het bronbestand en "Ciudad de hamburg" in het doelbestand. Als ik de vertaling van een zin die de zin "plaats Hamburg" opgenomen aangevraagd, vervolgens "plaats Hamburg" wordt gezocht naar Mijn woordenlijstbestand voor de vermelding "Plaats Hamburg", en zou toewijzen aan "Ciudad de hamburg" in de laatste vertaling.
-- Als een woord wordt meer dan één keer in een woordenlijstbestand weergegeven, gebruik het systeem altijd de laatste post opgegeven. De woordenlijst mag niet meerdere vertalingen van hetzelfde woord bevatten.
+- Woorden boeken vormen geen vervanging voor een getraind model met trainings gegevens.  Woorden boeken en vervangen woorden of zinnen in wezen.  Het systeem leren van uw trainings materiaal in volledige zinnen is over het algemeen een betere keuze dan het gebruik van een woorden lijst.
+- De woorden lijst woordgroepen moet spaarzaam worden gebruikt. Wanneer een woord groep in een zin wordt vervangen, gaat de context in die zin verloren of is deze beperkt voor het vertalen van de rest van de zin. Het resultaat is dat als de woord groep of het woord in de zin volgens de woorden lijst van de woord groep wordt vertaald, de algehele Vertaal kwaliteit van de zin vaak in orde is.
+- De woorden lijst woordgroepen werkt goed voor samengestelde naam woorden, zoals product namen ("Microsoft SQL Server"), juiste namen ("City of Hamburg") of functies van het product ("Pivot Table"). Deze werkt niet gelijk aan woorden of bijvoegingen, omdat deze doorgaans zeer verbuigd zijn in de bron of in de doel taal. Vermijd vermeldingen van woordgroepen woordenlijst voor alle, maar samengestelde samen stellingen.
+- Wanneer u een woorden boek gebruikt, wordt het hoofdletter gebruik en interpunctie in uw doel bestand weer gegeven. Hoofdletter gebruik en interpunctie worden genegeerd bij het identificeren van overeenkomsten tussen de invoer zinnen en de bron zinnen in het woordenlijst bestand. Stel dat we een Engels aan het Spaanse systeem hebben getraind dat een woorden lijst gebruikt die ' City of Hamburg ' in het bron bestand heeft opgegeven, en ' Ciudad de Hamburg ' in het doel bestand. Als ik de vertaling van een zin met de zinsnede ' City of Hamburg ' heeft aangevraagd, komt ' City of Hamburg ' overeen met mijn woordenlijst bestand voor de vermelding ' City of Hamburg ' en zou deze worden toegewezen aan ' Ciudad de Hamburg ' in de definitieve vertaling.
+- Als een woord meermaals wordt weer gegeven in een woordenlijst bestand, gebruikt het systeem altijd de laatste vermelding die is opgegeven. De woorden lijst mag niet meerdere vertalingen van hetzelfde woord bevatten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [richtlijnen voor het documentindelingen](document-formats-naming-convention.md).
+- Meer informatie over [richt lijnen voor document indelingen](document-formats-naming-convention.md).

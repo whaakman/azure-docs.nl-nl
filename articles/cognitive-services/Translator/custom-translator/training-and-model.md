@@ -1,56 +1,56 @@
 ---
-title: Wat is training en het model? -Aangepaste Translator
+title: Wat is training en model? -Aangepaste Translator
 titleSuffix: Azure Cognitive Services
-description: Een model is het systeem, waarmee u vertaling voor een paar specifieke taal. Het resultaat van een geslaagde training is een model. Bij het trainen van een model, zijn drie sluiten elkaar wederzijds uit gegevenssets vereist gegevensset training, afstemmen van de gegevensset en het testen van de gegevensset.
+description: Een model is het systeem, dat vertalingen biedt voor een specifiek taal paar. Het resultaat van een geslaagde training is een model. Bij het trainen van een model zijn drie wederzijds exclusieve gegevens sets vereist voor de trainings gegevensset, het afstemmen van de gegevensset en het testen van de gegevensset.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: swmachan
-ms.openlocfilehash: 5d82baf3e7458a42429df9dafc9c8d5e16744716
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: af3f795dc5036b23b82562e7af4582bd90b44f47
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436119"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595426"
 ---
-# <a name="what-are-trainings-and-models"></a>Wat zijn trainingen en -modellen?
+# <a name="what-are-trainings-and-models"></a>Wat zijn trainingen en modellen?
 
-Een model is het systeem, waarmee u vertaling voor een paar specifieke taal.
-Het resultaat van een geslaagde training is een model. Bij het trainen van een model, drie sluiten elkaar wederzijds uit gegevenssets zijn vereist: training gegevensset, afstemmen van de gegevensset en het testen van de gegevensset. Woordenlijst gegevens kunnen ook worden opgegeven.
+Een model is het systeem, dat vertalingen biedt voor een specifiek taal paar.
+Het resultaat van een geslaagde training is een model. Bij het trainen van een model zijn drie wederzijds exclusieve gegevens sets vereist: trainings gegevensset, afstemmen gegevensset en gegevensset testen. Er kunnen ook woordenlijst gegevens worden gegeven.
 
-Als er slechts trainingsgegevens wordt opgegeven als een training queuing, samen aangepaste Translator automatisch afstemmen- en testsets. Hiermee worden 5000 zinnen uitsluiten van de trainingsgegevens en gebruikt 2.500 elke voor het samenstellen van een afstemmen en tests wordt ingesteld.
+Als er alleen trainings gegevens worden weer gegeven bij het in de wachtrij plaatsen van een training, zullen aangepaste vertalers automatisch afstemmings-en test gegevens sets verzamelen. Er worden geen 5.000-zinnen uit uw trainings gegevens uitgesloten en er wordt 2.500 elk gebruikt voor het samen stellen van een afstemmings-en test sets.
 
-## <a name="training-dataset-for-custom-translator"></a>Training-gegevensset voor aangepaste Translator
+## <a name="training-dataset-for-custom-translator"></a>Trainings gegevensset voor aangepaste vertaler
 
-Documenten die zijn opgenomen in de trainingset worden gebruikt door de aangepaste Translator als basis voor het bouwen van uw model. Tijdens het uitvoeren van de training, worden zinnen die aanwezig in deze documenten zijn uitgelijnd (of gekoppeld). U kunt vrijheden bij het schrijven van de verzameling van Trainingsdocumenten op te nemen. U kunt opnemen documenten die u denkt dat ze zijn van raakt relevantie in één model. Sluit u deze opnieuw in de andere het effect in [BLEU (tweetalige evaluatie Understudy) score](what-is-bleu-score.md). Als u de afstemmen set en test set constante wilt behouden, gerust om te experimenteren met de samenstelling van de trainingsset. Deze aanpak is een effectieve manier om te wijzigen van de kwaliteit van uw vertaalsysteem.
+Documenten die zijn opgenomen in de Trainingsset, worden door de aangepaste vertaler gebruikt als basis voor het bouwen van uw model. Tijdens het uitvoeren van de training worden zinnen die aanwezig zijn in deze documenten uitgelijnd (of gekoppeld). U kunt Liberties nemen bij het opstellen van uw set trainings documenten. U kunt documenten toevoegen waarvan u denkt dat ze in één model relevant zijn voor de relevantie. Sluit ze opnieuw uit om de impact van de [Bleu (tweetalige evaluatie-onderstudie)](what-is-bleu-score.md)te bekijken. Als u de afstemmings set en de test constante constant houdt, kunt u experimenteren met de samen stelling van de Trainingsset. Deze aanpak is een efficiënte manier om de kwaliteit van uw Vertaal systeem te wijzigen.
 
-U kunt uitvoeren van meerdere trainingen in een project en vergelijk de [BLEU scores](what-is-bleu-score.md) voor alle cursussen uitvoert. Wanneer u meerdere trainingen voor vergelijking worden uitgevoerd, zorg ervoor dat dezelfde afstemmen / testgegevens telkens is opgegeven. Controleer ook of te inspecteren ook de resultaten handmatig in de ['Test'](how-to-view-system-test-results.md) tabblad.
+U kunt meerdere trainingen binnen een project uitvoeren en de Bleu- [scores](what-is-bleu-score.md) voor alle trainings runs vergelijken. Wanneer u meerdere trainingen uitvoert om te vergelijken, moet u ervoor zorgen dat dezelfde afstemmings-en test gegevens elke keer worden opgegeven. Zorg er ook voor dat u de resultaten hand matig controleert op het tabblad [testen](how-to-view-system-test-results.md) .
 
-## <a name="tuning-dataset-for-custom-translator"></a>Gegevensset voor aangepaste Translator afstemmen
+## <a name="tuning-dataset-for-custom-translator"></a>Gegevensset voor aangepaste vertaler afstemmen
 
-Parallelle documenten die zijn opgenomen in deze groep worden gebruikt door de aangepaste Translator om af te stemmen van het systeem vertaling voor optimale resultaten.
+Parallelle documenten die zijn opgenomen in deze set, worden door de aangepaste vertaler gebruikt om het Vertaal systeem te optimaliseren voor optimale resultaten.
 
-De afstemmen set wordt gebruikt tijdens de training alle parameters en het gewicht van het systeem converteren naar de optimale waarden aan te passen. Kies uw afstemmen moet zorgvuldig instellen: de afstemmen set moet een vertegenwoordiger van de inhoud van de documenten die u van plan bent om te vertalen in de toekomst. De afstemmen set heeft een grote invloed hebben op de kwaliteit van de vertaling die wordt geproduceerd. Afstemmen, kunt het systeem vertaling voor de vertaling op die zich het dichtst bij de voorbeelden die u in de gegevensset afstemmen opgeeft. U hoeft niet meer dan 2500 zinnen als set afstemmen. Voor optimale vertaalkwaliteit, is het aanbevolen om te selecteren van de afstemmen set handmatig door het kiezen van de meest vooraanstaande selectie van zinnen.
+De afstemmings set wordt gebruikt tijdens de training om alle para meters en wegingen van het Vertaal systeem aan de optimale waarden aan te passen. Kies uw afstemmings set zorgvuldig: de afstemmings moet representatief zijn voor de inhoud van de documenten die u in de toekomst wilt vertalen. De afstemmings reeks heeft een grote invloed op de kwaliteit van de geproduceerde vertalingen. Met afstemming kan het Vertaal systeem vertalingen bieden die het dichtst bij de voor beelden vallen die u in de gegevensset voor afstemmen opgeeft. U hebt niet meer dan 2500 zinnen nodig als afstemmings instelling. Voor een optimale Vertaal kwaliteit kunt u het beste de afstemmings hand matig selecteren door de meest representatieve selectie van zinnen te kiezen.
 
-Bij het maken van uw afstemmen instellen, kiest u zinnen die een betekenis en representatieve lengte van de toekomstige zinnen die u verwacht te vertalen. U moet ook zinnen met woorden en zinnen die u van plan bent om te vertalen in de geschatte distributie die u in de toekomst vertalingen verwacht kiezen. In de praktijk, wordt een zinlengte van 8 tot en met 18 woorden de beste resultaten produceren omdat deze zinnen voldoende context om te laten zien belangrijk en bieden van een woordgroep lengte die belangrijk is, zonder dat erg complex bevatten.
+Wanneer u uw afstemmings maakt, kiest u zinnen die een zinvolle en representatieve lengte vormen van de toekomstige zinnen die u verwacht te vertalen. U moet ook zinnen met woorden en zinsdelen kiezen die u wilt vertalen in de geschatte distributie die u verwacht in uw toekomstige vertalingen. In de praktijk levert een zin van 8 tot 18 woorden de beste resultaten op, omdat deze zinnen voldoende context bevatten voor het weer geven van de verbuiging en een woord lengte hebben die significant is, zonder dat dit complex is.
 
-Een goede beschrijving van het type van zinnen om te gebruiken in de afstemmen set is prose: werkelijke fluent zinnen. Geen cellen in de tabel, niet gedichten, niet een lijst met dingen, niet alleen interpunctie of getallen in een zin - reguliere taal.
+Een goede beschrijving van het type zinnen dat in de afstemmings moet worden gebruikt, is Prose: de werkelijke Fluent-zinnen. Geen tabel cellen, geen Poems, geen lijsten met dingen, niet alleen lees tekens of getallen in een normale taal van de zin.
 
-Als u handmatig uw afstemmen gegevensset selecteert, moet er een van de dezelfde zinnen als uw gegevens training en testen. De afstemmen set heeft een aanzienlijke invloed op de kwaliteit van de vertalingen - zinnen zorgvuldig te kiezen.
+Als u uw afstel gegevensset hand matig selecteert, mag deze niet dezelfde zinnen bevatten als uw trainings-en test gegevens. De afstemmings reeks heeft een grote invloed op de kwaliteit van de vertalingen. Kies de zinnen zorgvuldig.
 
-Als u niet zeker weet wat u moet kiezen voor de verzameling afstemmen, selecteer de training en aangepaste Translator Selecteer uw afstemmen voor u laten. Wanneer u de aangepaste Translator automatisch kiezen van de afstemmen set brengt, wordt het gebruik van een willekeurige subset van zinnen uit uw Trainingsdocumenten tweetalige en deze zinnen uitsluiten van het trainingsmateriaal zelf.
+Als u niet zeker weet wat u moet kiezen voor uw afstemmings, selecteert u de Trainingsset en laat u aangepaste Translator uw afstemmings voor u selecteren. Wanneer u de aangepaste vertaler de automatische afstemmings laat kiezen, gebruikt deze een wille keurige subset van zinnen uit uw documenten voor tweetalige trainingen en worden deze zinnen niet in het trainings materiaal zelf opgenomen.
 
 ## <a name="testing-dataset-for-custom-translator"></a>Gegevensset voor aangepaste Translator testen
 
-Parallelle documenten die zijn opgenomen in de set met tests worden gebruikt voor het berekenen van de score BLEU (tweetalige evaluatie Understudy). Deze score geeft aan dat de kwaliteit van uw vertaalsysteem. Deze score daadwerkelijk kunt u zien hoe de vertalingen gedaan door de vertaling-systeem die voortvloeien uit deze training overeenkomen met de zinnen verwijzing in de test-gegevensset.
+Parallelle documenten die zijn opgenomen in de testset, worden gebruikt voor het berekenen van de Score van de BLEU (tweetalige evaluatie). Deze score geeft de kwaliteit van het Vertaal systeem aan. Deze score vertelt u eigenlijk hoe nauw keurige vertalingen van het Vertaal systeem die het resultaat zijn van deze training overeenkomen met de referentie zinnen in de test gegevensset.
 
-De score BLEU is een meting van de verschillen tussen de automatische vertaling en de omzetting van de referentie. De waarde varieert van 0 tot 100. Een score van 0 geeft aan dat één woord van de verwijzing wordt weergegeven in de vertaling. Een score van 100 geeft aan dat de automatische vertaling exact overeenkomt met de verwijzing: hetzelfde woord is op exact dezelfde positie. De score is het gemiddelde van de score BLEU voor alle zinnen van testset.
+De BLEU-Score is een meting van de Delta tussen de automatische vertaling en de referentie-omzetting. De waarde ligt tussen 0 en 100. Een Score van 0 geeft aan dat er geen enkel woord van de verwijzing wordt weer gegeven in de vertaling. Een Score van 100 geeft aan dat de automatische vertaling precies overeenkomt met de verwijzing: hetzelfde woord bevindt zich op exact dezelfde positie. De score die u ontvangt, is het gemiddelde van de BLEUe score voor alle zinnen van de testset.
 
-De test moet parallelle documenten waar de doeltaal zinnen de meest wenselijk vertalingen van de bijbehorende zinnen source-taal in het paar zijn bevat. U wilt gebruiken dezelfde criteria die u hebt gebruikt voor het opstellen van de set afstemmen. Testset heeft echter geen invloed op de kwaliteit van de NAT-systeem. Exclusief voor het genereren van de score BLEU voor u en niets anders wordt gebruikt.
+De testset moet parallelle documenten bevatten waarbij de doel taal zinnen de meest wenselijkste vertalingen zijn van de bijbehorende bron zinnen in het paar. U kunt ook de criteria gebruiken die u hebt gebruikt om de afstemmings samen te stellen. De testset heeft echter geen invloed op de kwaliteit van het Vertaal systeem. Het wordt uitsluitend gebruikt voor het genereren van de BLEU-score voor u en voor niets anders.
 
-U hoeft niet meer dan 2500 zinnen als testset. Wanneer u het systeem automatisch de testset kiezen brengt, wordt het gebruik van een willekeurige subset van zinnen uit uw Trainingsdocumenten tweetalige en deze zinnen uitsluiten van het trainingsmateriaal zelf.
+U hebt niet meer dan 2.500 zinnen nodig als testset. Wanneer u ervoor kiest om het systeem automatisch te testen, wordt een wille keurige subset van zinnen uit uw tweetalige trainings documenten gebruikt en worden deze zinnen niet in het trainings materiaal zelf opgenomen.
 
-U kunt de aangepaste vertalingen van testset weergeven en deze vergelijken met de opgegeven in uw testset door te navigeren naar het tabblad testen in een model vertalingen.
+U kunt de aangepaste vertalingen van de testset bekijken en deze vergelijken met de vertalingen die zijn opgegeven in de testset door te navigeren naar het tabblad test in een model.

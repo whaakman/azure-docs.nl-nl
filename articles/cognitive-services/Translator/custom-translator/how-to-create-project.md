@@ -1,68 +1,68 @@
 ---
-title: Hoe kunt u een project maken? -Aangepaste Translator
+title: Hoe kan ik een project maken? -Aangepaste Translator
 titleSuffix: Azure Cognitive Services
-description: Over het maken van een project in aangepaste Translator?
+description: Hoe maak ik een project in een aangepast Translator?
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 6c8b46c35c03b472863bdc71d29552198dbb0d77
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a62cc6133fe01bf7478166c526e32b3215ceebf1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448333"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595748"
 ---
 # <a name="create-a-project"></a>Een project maken
 
-Een project is een container voor een modellen, documenten, en test. Elk project omvat automatisch alle documenten die in deze werkruimte zijn geüpload met de combinatie van de juiste taal.
+Een project is een container voor een model, documenten en tests. Elk project bevat automatisch alle documenten die naar die werk ruimte worden geüpload die het juiste taal paar hebben.
 
-Project maakt, wordt de eerste stap voor het bouwen van een model.
+Het maken van een project is de eerste stap voor het bouwen van een model.
 
-## <a name="create-a-project"></a>Maak een project:
+## <a name="create-a-project"></a>Een project maken:
 
-1.  In de [aangepaste Translator](https://portal.customtranslator.azure.ai) portal, klik op maken project.
+1.  Klik in de portal voor [aangepaste vertalers](https://portal.customtranslator.azure.ai) op project maken.
 
     ![Project maken](media/how-to/how-to-create-project.png)
 
-2.  Voer de volgende gegevens over uw project in het dialoogvenster:
+2.  Voer de volgende gegevens over uw project in het dialoog venster in:
 
-    a.  De projectnaam (vereist): Geef uw project een unieke, betekenisvolle naam. Het is niet nodig zijn om te vermelden de talen in de titel.
+    a.  Project naam (vereist): Geef uw project een unieke, herken bare naam. Het is niet nodig om de talen in de titel te vermelden.
 
-    b.  Beschrijving: Een kort overzicht van het project. Deze beschrijving heeft geen invloed op de werking van de aangepaste Translator of uw resulterende aangepaste systeem, maar kunt u onderscheid maken tussen verschillende projecten.
+    b.  Beschrijving: Een korte samen vatting van het project. Deze beschrijving heeft geen invloed op het gedrag van de aangepaste vertaler of uw resulterende aangepaste systeem, maar kan u helpen om onderscheid te maken tussen verschillende projecten.
 
-    c.  Taalpaar (vereist): Selecteer de taal waarin u bezig bent met het converteren van en naar.
+    c.  Taal paar (vereist): Selecteer de taal die u wilt vertalen van en naar.
 
-    d.  Categorie (vereist): Selecteer de categorie die het meest geschikt is voor uw project. De categorie beschrijft de terminologie en stijl van de documenten die u van plan bent om te vertalen.
+    d.  Categorie (vereist): Selecteer de categorie die het meest geschikt is voor uw project. De categorie beschrijft de terminologie en de stijl van de documenten die u wilt vertalen.
 
-    e.  Categoriebeschrijving: Dit veld gebruiken om te beschrijven beter het bepaalde veld of de branche waarin u werkt. Bijvoorbeeld, als uw categorie arts, kunt u toevoegen een bepaald document, zoals een chirurgie of pediatrics. De beschrijving heeft geen invloed op over de werking van de aangepaste Translator of uw resulterende aangepaste systeem.
+    e.  Categorie Beschrijving: Gebruik dit veld om het specifieke veld of de branche waarin u werkt beter te beschrijven. Als uw categorie bijvoorbeeld medicijnen is, kunt u een bepaald document, zoals een chirurgische of Pediatrics, toevoegen. De beschrijving heeft geen invloed op het gedrag van de aangepaste vertaler of het resulterende aangepaste systeem.
 
-    f.  Project-label: De [project label](workspace-and-project.md#project-labels) wordt onderscheid gemaakt tussen projecten met dezelfde combinatie van taal en categorie. Als een best practice wordt gebruikgemaakt van een label *alleen* als u van plan bent voor het bouwen van meerdere projecten voor de dezelfde combinatie van taal en dezelfde categorie en toegang kunt krijgen tot deze projecten met een andere categorie-id. Gebruik dit veld niet als u bij het bouwen van systemen voor slechts één categorie. Een label project is niet vereist en niet nuttig onderscheid maken tussen taal paren. U kunt hetzelfde label gebruiken voor meerdere projecten.
+    f.  Project label: Het [project label](workspace-and-project.md#project-labels) onderscheidt tussen projecten met hetzelfde taal paar en dezelfde-categorie. Gebruik als best practice een label *alleen* als u van plan bent om meerdere projecten te bouwen voor hetzelfde taal paar en dezelfde categorie, en u toegang wilt krijgen tot deze projecten met een andere CategoryID. Gebruik dit veld niet als u systemen alleen voor één categorie wilt maken. Een project label is niet vereist en niet handig om onderscheid te maken tussen taal paren. U kunt hetzelfde label voor meerdere projecten gebruiken.
 
-    ![Dialoogvenster project maken](media/how-to/how-to-create-project-dialog.png)
+    ![Dialoog venster project maken](media/how-to/how-to-create-project-dialog.png)
 
 3.  Klik op Maken
 
-## <a name="view-project-details"></a>Project-details weergeven
+## <a name="view-project-details"></a>Projectgegevens weergeven
 
-De startpagina van de aangepaste Translator ziet u de eerste 10 projecten in uw werkruimte. De naam van het project, taalpaar, categorie, status en BLEU score wordt weergegeven.
+De landings pagina van het aangepaste conversie programma toont de eerste 10 projecten in uw werk ruimte. De project naam, taal paar, categorie, status en BLEU-Score worden weer gegeven.
 
-Na het selecteren van een project, ziet u het volgende op de projectpagina:
+Nadat u een project hebt geselecteerd, ziet u het volgende op de pagina project:
 
-- CategoryID: Een categorie-id wordt gemaakt door het samenvoegen van de werkruimte-id, de project-label en de categoriecode. Gebruikt u de categorie-id met de Translator Text-API voor aangepaste vertalingen ophalen.
+- Gegroepeerd Een CategoryID wordt gemaakt door het samen voegen van de WorkspaceID, het project label en de categorie code. U gebruikt de CategoryID met de Text Translator API om aangepaste vertalingen op te halen.
 
-- Knop van de trein: Gebruik deze knop om te beginnen een [trainen van een model](how-to-train-model.md).
+- Trein knop: Gebruik deze knop om een [model training](how-to-train-model.md)te starten.
 
-- Knop documenten toevoegen: Gebruik deze knop om [documenten uploaden](how-to-upload-document.md).
+- Knop documenten toevoegen: Gebruik deze knop om [documenten te uploaden](how-to-upload-document.md).
 
-- Documenten knop filteren: Gebruik deze knop om te filteren en zoeken naar specifieke documenten.
+- Knop documenten filteren: Met deze knop kunt u een specifiek (e) document (en) filteren en zoeken.
 
-    ![Project-details weergeven](media/how-to/how-to-view-project.png)
+    ![Projectgegevens weergeven](media/how-to/how-to-view-project.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Informatie over [hoe om te zoeken, bewerken en verwijderen van project](how-to-search-edit-delete-projects.md).
-- Informatie over [document uploaden](how-to-upload-document.md) om NAT-modellen te bouwen.
+- Meer informatie [over het zoeken, bewerken en verwijderen van het project](how-to-search-edit-delete-projects.md).
+- Meer informatie [over het uploaden van documenten](how-to-upload-document.md) om Vertaal modellen te maken.

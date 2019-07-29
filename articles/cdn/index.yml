@@ -5,14 +5,12 @@ metadata:
   title: 'Documentatie voor Azure CDN - zelfstudies, API-verwijzing | Microsoft Docs'
   description: 'Azure Content Delivery Network (CDN) is een wereldwijde CDN-oplossing voor het leveren van inhoud met een hoge bandbreedte. Deze oplossing kan worden gehost in Azure of op een andere locatie. Met Azure CDN kunt u statische objecten die zijn geladen uit Azure Blob-opslag, een webtoepassing of een openbaar toegankelijke webserver, in de cache opslaan met behulp van de dichtstbijzijnde POP-server (Point of Presence-server). Azure CDN kan ook dynamische inhoud versnellen die niet in de cache kan worden opgeslagen. Hiervoor wordt gebruikgemaakt van diverse netwerk- en routeringsoptimalisaties.'
   services: cdn
-  author: czeumault
-  manager: carolz
+  author: twooley
+  manager: twooley
   ms.service: azure-cdn
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 06/08/2018
-  ms.author: carolz
+  ms.author: twooley
 abstract:
   description: 'Azure Content Delivery Network (CDN) is een wereldwijde CDN-oplossing voor het leveren van inhoud met een hoge bandbreedte. Deze oplossing kan worden gehost in Azure of op een andere locatie. Met Azure CDN kunt u statische objecten die zijn geladen uit Azure Blob-opslag, een webtoepassing of een openbaar toegankelijke webserver, in de cache opslaan met behulp van de dichtstbijzijnde POP-server (Point of Presence-server). Azure CDN kan ook dynamische inhoud versnellen die niet in de cache kan worden opgeslagen. Hiervoor wordt gebruikgemaakt van diverse netwerk- en routeringsoptimalisaties.'
 sections:

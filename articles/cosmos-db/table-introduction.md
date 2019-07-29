@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: bd86b230d801f5fff8a9fb0de85f9f3025527382
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: be6a402673fd2d3ba01451c6ea04e723cbdfa292
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953450"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597505"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Inleiding tot Azure Cosmos DB: Tabel-API
 
@@ -22,26 +22,26 @@ ms.locfileid: "65953450"
 * [Speciale doorvoer](partition-data.md) overal ter wereld.
 * Latentie van slechts enkele milliseconden op het 99e percentiel.
 * Gegarandeerde hoge beschikbaarheid.
-* [Automatische secundaire indexering](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+* Automatische secundaire indexering.
 
 Toepassingen die zijn geschreven voor Azure Table-opslag kunnen met behulp van de Table-API zonder codeaanpassingen worden gemigreerd naar Azure Cosmos DB en zo gebruikmaken van premium-mogelijkheden. In Table-API zijn client-SDK's beschikbaar voor .NET, Java, Python en Node.js.
 
 > [!IMPORTANT]
-> De .NET Framework SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) is in onderhoud modus en binnenkort worden afgeschaft. Voer een upgrade naar de nieuwe .NET Standard-bibliotheek [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) om door te gaan om op te halen van de nieuwste functies die worden ondersteund door de Table-API.
+> De .NET Framework SDK [micro soft. Azure. CosmosDB. table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) bevindt zich in de onderhouds modus en zal binnenkort worden afgeschaft. Voer een upgrade uit naar de nieuwe .NET Standard-bibliotheek [micro soft. Azure. Cosmos. table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) om door te gaan met de nieuwste functies die worden ondersteund door de Table-API.
 
 ## <a name="table-offerings"></a>Aanbiedingen voor Table
 Als u momenteel gebruikmaakt van Azure Table-opslag, levert overstappen naar de Azure Cosmos DB Table-API de volgende voordelen op:
 
 | | Azure Table Storage | Azure Cosmos DB Table-API |
 | --- | --- | --- |
-| Latentie | Snel, maar geen bovengrens voor latentie. | Latentie van slechts enkele milliseconden voor lees- en schrijfbewerkingen, ondersteund door <10 ms latentie voor leesbewerkingen en <15 ms latentie voor schrijfbewerkingen in het 99e percentiel, op elke schaal, overal ter wereld. |
+| Latentie | Snel, maar geen bovengrens voor latentie. | Latentie in milliseconden voor lees-en schrijf bewerkingen, ondersteund met < 10 MS latentie voor lees-en schrijf bewerkingen in het 99e percentiel, op elke schaal, overal ter wereld. |
 | Doorvoer | Model voor variabele doorvoersnelheid. Tabellen hebben een schaalbaarheidslimiet van 20.000 bewerkingen/sec. | Zeer schaalbaar met [toegewezen gereserveerde doorvoer per tabel](request-units.md), op basis van serviceovereenkomsten. Accounts hebben geen bovengrens voor doorvoer en bieden ondersteuning voor > 10 miljoen bewerkingen/sec per tabel. |
-| Wereldwijde distributie | Eén regio met één optioneel leesbaar secundair leesgebied voor hoge beschikbaarheid. U kunt geen failover starten. | [Kant en klare wereldwijde distributie](distribute-data-globally.md) tussen 1 tot 30+ regio's. Ondersteuning voor [kant en klare wereldwijde distributie](high-availability.md), op elk moment en overal ter wereld. |
-| Indexeren | Alleen primaire index op PartitionKey en RowKey. Geen secundaire indexen. | Automatische en volledige indexering voor alle eigenschappen, geen indexbeheer. |
-| Query | Voor de queryuitvoering wordt een index gebruikt als primaire sleutel. In andere gevallen wordt er gescand. | Query's kunnen profiteren van de automatische indexering van eigenschappen voor een snelle uitvoertijden van query's. |
+| Wereldwijde distributie | Eén regio met één optioneel leesbaar secundair leesgebied voor hoge beschikbaarheid. U kunt geen failover starten. | Kant-en- [klare wereld wijde distributie](distribute-data-globally.md) van één naar een wille keurig aantal regio's. Ondersteuning voor [kant en klare wereldwijde distributie](high-availability.md), op elk moment en overal ter wereld. Mogelijkheden voor meerdere masters om elke regio schrijf bewerkingen te laten accepteren. |
+| Indexeren | Alleen primaire index op PartitionKey en RowKey. Geen secundaire indexen. | Automatische en volledige indexering voor alle eigenschappen standaard zonder index beheer. |
+| Query’s uitvoeren | Voor de queryuitvoering wordt een index gebruikt als primaire sleutel. In andere gevallen wordt er gescand. | Query's kunnen profiteren van de automatische indexering van eigenschappen voor een snelle uitvoertijden van query's. |
 | Consistentie | Sterke in primaire regio. Mogelijk in secundaire regio. | [Vijf goed gedefinieerde consistentieniveaus](consistency-levels.md) voor een wisselwerking tussen beschikbaarheid, latentie, doorvoer en consistentie op basis van uw toepassingsvereisten. |
-| Prijs | Geoptimaliseerd voor opslag. | Geoptimaliseerd voor doorvoer. |
-| SLA's | 99,99% beschikbaarheid. | SLA voor een beschikbaarheid van 99,99% voor alle accounts voor één regio en alle accounts voor meerdere regio's met soepele consistentie en leesbeschikbaarheid van 99,999% voor alle databaseaccounts voor meerdere regio's [Toonaangevende uitgebreide serviceovereenkomsten](https://azure.microsoft.com/support/legal/sla/cosmos-db/) voor algemene beschikbaarheid. |
+| Prijzen | Geoptimaliseerd voor opslag. | Geoptimaliseerd voor doorvoer. |
+| SLA's | 99,9% tot 99,99% Beschik baarheid, afhankelijk van de replicatie strategie. | 99,999% Lees beschikbaarheid, 99,99% Beschik baarheid van een account met één regio en 99,999% schrijf Beschik baarheid voor accounts met meerdere regio's. [Uitgebreide sla's](https://azure.microsoft.com/support/legal/sla/cosmos-db/) die betrekking hebben op Beschik baarheid, latentie, door Voer en consistentie. |
 
 ## <a name="get-started"></a>Aan de slag
 

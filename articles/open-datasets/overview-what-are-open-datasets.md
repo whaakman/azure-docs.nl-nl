@@ -1,61 +1,61 @@
 ---
-title: Wat zijn open gegevenssets? Samengestelde openbare gegevenssets
+title: Wat zijn open gegevens sets? Gecuratore open bare gegevens sets
 titleSuffix: Azure Open Datasets (preview)
-description: Meer informatie over Azure Open gegevenssets (preview), gecureerde gegevenssets uit het publieke domein die klaar zijn voor gebruik in machine learning en analyse-oplossingen. Gegevenssets omvatten openbare gegevens zoals weer, telling, feestdagen en locatie kunt u voorspellende oplossingen te verrijken.
+description: Meer informatie over Azure open gegevens sets (preview), gegevens sets met curator van het open bare domein die klaar zijn voor gebruik in machine learning-en analyse oplossingen. Data sets bevatten open bare gegevens zoals weer, telling, feest dagen en locatie om u te helpen bij het verrijken van voorspellende oplossingen.
 ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: b01ad5a4fd8808c1e841ba2fb47ea06ece011010
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7fa8562c466c81ebc05360bf06cdde1ee29bed9e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051036"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598984"
 ---
-# <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>Wat zijn Azure Open-gegevenssets (preview) en hoe u ze kunt gebruiken?
+# <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>Wat zijn Azure open gegevens sets (preview) en hoe kunt u deze gebruiken?
 
-[Azure Open gegevenssets](https://azure.microsoft.com/services/open-datasets/) zijn samengestelde openbare gegevenssets die u extra scenario-specifieke functies toegevoegd aan machine learning-oplossingen voor nauwkeurigere modellen kunt gebruiken. Open gegevenssets zijn in de cloud op Microsoft Azure en zijn direct beschikbaar voor Azure Databricks, Machine Learning-service en Machine Learning Studio. U kunt ook toegang tot de gegevenssets via API's en deze gebruiken in andere producten, zoals Power BI en Azure Data Factory.
+[Azure open gegevens sets](https://azure.microsoft.com/services/open-datasets/) zijn alle open bare gegevens sets die u kunt gebruiken om scenario's met specifieke functies toe te voegen aan Machine Learning oplossingen voor nauw keurigere modellen. Open gegevens sets bevinden zich in de Cloud op Microsoft Azure en zijn direct beschikbaar voor Azure Databricks, Machine Learning service en Machine Learning Studio. U kunt de gegevens sets ook openen via Api's en deze gebruiken in andere producten, zoals Power BI en Azure Data Factory.
 
-Gegevenssets omvatten openbaredomein gegevens voor de weersomstandigheden, telling, feestdagen, openbare veiligheid en locatie die u helpen bij machine learning-modellen trainen en voorspellende oplossingen te verrijken. U kunt ook uw openbare gegevenssets voor Azure Open gegevenssets delen. 
+Gegevens sets bevatten informatie over openbaar domein voor weer, telling, feest dagen, open bare veiligheid en locatie die u helpen bij het trainen van machine learning modellen en verrijkende voorspellende oplossingen. U kunt ook uw open bare gegevens sets delen in azure open-gegevens sets. 
 
-![Azure Open gegevenssets-onderdelen](./media/overview-what-are-open-datasets/open-datasets-components.png)
+![Onderdelen van Azure open gegevens sets](./media/overview-what-are-open-datasets/open-datasets-components.png)
 
-## <a name="curated-prepared-datasets"></a>Samengestelde, voorbereid gegevenssets
-Samengestelde open openbare gegevenssets in Azure opent gegevenssets zijn geoptimaliseerd voor gebruik in machine learning-werkstromen. 
+## <a name="curated-prepared-datasets"></a>Met curator gekweekte gegevens sets
+Met de openstaande open bare gegevens sets in azure kunnen gegevens sets worden geoptimaliseerd voor gebruik in machine learning werk stromen. 
 
-Gegevenswetenschappers merendeel vaak het van de tijd opschonen en voorbereiden van gegevens voor geavanceerde analyses. Open gegevenssets zijn gekopieerd naar de Azure-cloud en voorverwerkte u bespaart u tijd. Met regelmatige tussenpozen gegevens opgehaald uit de bronnen, zoals geparseerd door een FTP-verbinding met de National Oceanic and Atmospheric Administration (NOAA), in een gestructureerde indeling en vervolgens worden uitgebreid zo nodig met functies zoals ZIP-Code of de locatie van de dichtstbijzijnde weerstation.
+Gegevens wetenschappers best Eden vaak het meren deel van hun tijd over het schoonmaken en voorbereiden van gegevens voor geavanceerde analyses. Open gegevens sets worden gekopieerd naar de Azure-Cloud en worden voor het eerst geverwerkt om tijd te besparen. Met regel matige intervallen worden gegevens uit de bronnen opgehaald, zoals een FTP-verbinding met het National Oceanic and atmosferisch Administration (NOAA), geparseerd in een gestructureerde indeling en vervolgens verrijkt met functies zoals post code of locatie van de dichtstbijgelegen weer station.
 
-Gegevenssets zijn cohosted met cloud computing in Azure die de toegang en manipulatie eenvoudiger.  
+Gegevens sets worden meegehost met Cloud Compute in azure, waardoor u eenvoudiger toegang en manipulaties kunt maken.  
 
-Hieronder vindt u voorbeelden van beschikbare gegevenssets. 
+Hieronder vindt u voor beelden van gegevens sets die beschikbaar zijn. 
 
-### <a name="weather-data"></a>Weergegevens
+### <a name="weather-data"></a>Weer gegevens
  
 |Gegevensset         | Notebooks     | Description                                    |
 |----------------|---------------|------------------------------------------------|
-|[Surface-gegevens van NOAA geïntegreerd (RBD)](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureDatabricks) | Over de hele wereld per uur weergegevens van NOAA met de beste ruimtelijke dekking in Noord-Amerika, Europa, Australië en delen van Azië. Dagelijks bijgewerkt. |
-|[Globale NOAA prognose-systeem (algemene)](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureDatabricks) | per uur weer van 15 dagen VS prognose van de gegevens van NOAA. Dagelijks bijgewerkt. |
+|[NOAA Integrated Surface data (ISD)](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureDatabricks) | Wereld wijd per uur weer gegevens van NOAA met de beste ruimtelijke dekking in Noord-Amerika, Europa, Australië en delen van Azië. Dagelijks bijgewerkt. |
+|[NOAA Global-prognose systeem (GFS)](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureDatabricks) | 15 dagen van de Amerikaanse weers verwachting van de gegevens van NOAA. Dagelijks bijgewerkt. |
 
-### <a name="calendar-data"></a>Agendagegevens
+### <a name="calendar-data"></a>Agenda gegevens
 
 |Gegevensset         | Notebooks     | Description                                    |
 |----------------|---------------|------------------------------------------------|
-|[Feestdagen](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureDatabricks) | Gegevens over de hele wereld feestdag, die betrekking hebben op 41 landen of regio's vanaf 1970 naar 2099. Land/regio en of de meeste mensen tijd uitgeschakeld hebben betaald bevat. |
+|[Open bare feest dagen](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureDatabricks) | Wereld wijde gegevens over de open bare feestdag, met betrekking tot 41 landen of regio's van 1970 tot 2099. Inclusief land en of de meeste mensen een betaalde time-out hebben. |
 
-## <a name="access-to-datasets"></a>Toegang tot gegevenssets  
-Met een Azure-account, kunt u toegang tot open gegevenssets met behulp van code of via de Azure service-interface. De gegevens zijn geplaatst met Azure-cloud-rekenresources voor gebruik in uw machine learning-oplossing.  
+## <a name="access-to-datasets"></a>Toegang tot gegevens sets  
+Met een Azure-account kunt u toegang krijgen tot open gegevens sets met behulp van code of via de Azure-service-interface. De gegevens worden samen met Azure Cloud Compute-resources gebruikt voor gebruik in uw machine learning-oplossing.  
 
-Open gegevenssets biedt Azure-notitieblokken en Azure Databricks notebooks, die u gebruiken kunt om gegevens met Azure Machine Learning-service en Azure Databricks. Gegevenssets kunnen ook worden geopend via een Python-SDK. 
+Gegevens sets openen biedt Azure Notebooks en Azure Databricks notitie blokken die u kunt gebruiken om verbinding te maken met Azure Machine Learning service en Azure Databricks. Gegevens sets kunnen ook worden geopend via een python-SDK. 
 
-U kunt een Azure-account voor toegang tot Open gegevenssets; echter niet nodig u kunt ze openen uit een Python-omgeving zonder of zonder Spark.
+U hebt echter geen Azure-account nodig om toegang te krijgen tot open gegevens sets; u kunt deze vanuit elke python-omgeving openen zonder of zonder Spark.
 
-## <a name="request-or-contribute-datasets"></a>Vragen of bij te dragen gegevenssets
+## <a name="request-or-contribute-datasets"></a>Gegevens sets voor aanvragen of bijdragen
 
-Als u de gegevens niet vinden u wilt, een e-mail verzenden naar [aanvragen van een gegevensset](mailto:aod@microsoft.com?Subject=Request%20dataset%3A%20%3Creplace%20with%20dataset%20name%3E&Body=%0AYour%20name%20and%20institution%3A%20%0A%0ADataset%20name%3A%0A%20%0ADataset%20description%3A%20%0A%3Cfill%20in%20a%20brief%20description%20and%20share%20any%20web%20links%20of%20the%20dataset%3E%20%0A%0ADataset%20size%3A%20%0A%3Chow%20much%20space%20does%20the%20dataset%20need%20today%20and%20how%20much%20is%20it%20expected%20to%20grow%20each%20year%3E%20%0A%0ADataset%20file%20formats%3A%20%0A%3Ccurrent%20dataset%20file%20formats%2C%20and%20optionally%2C%20any%20formats%20that%20the%20dataset%20must%20be%20transformed%20to%20for%20easy%20access%3E%0A%0ALicense%3A%20%0A%3Cwhat%20is%20the%20license%20or%20terms%20and%20conditions%20governing%20the%20distribution%20of%20this%20dataset%3E%0A%0AUse%20cases%3A%20%0A%3CExplain%20some%20common%20use%20of%20the%20dataset.%20E.g.%20weather%20dataset%20can%20be%20useful%20in%20demand%20forecasting%20and%20predictive%20maintenance%20scenarios%3E%20%0A%0AAny%20additional%20information%20you%20want%20us%20to%20know%3A%0A) of [bijdragen van een gegevensset](mailto:aod@microsoft.com?Subject=Contribute%20dataset%3A%20%3Creplace%20with%20dataset%20name%3E&Body=%0AYour%20name%20and%20institution%3A%20%0A%0ADataset%20name%3A%0A%20%0ADataset%20description%3A%20%0A%3Cfill%20in%20a%20brief%20description%20and%20share%20any%20web%20links%20of%20the%20dataset%3E%20%0A%0ADataset%20size%3A%20%0A%3Chow%20much%20space%20does%20the%20dataset%20need%20today%20and%20how%20much%20is%20it%20expected%20to%20grow%20each%20year%3E%20%0A%0ADataset%20file%20formats%3A%20%0A%3Ccurrent%20dataset%20file%20formats%2C%20and%20optionally%2C%20any%20formats%20that%20the%20dataset%20must%20be%20transformed%20to%20for%20easy%20access%3E%0A%0ALicense%3A%20%0A%3Cwhat%20is%20the%20license%20or%20terms%20and%20conditions%20governing%20the%20distribution%20of%20this%20dataset%3E%0A%0AUse%20cases%3A%20%0A%3CExplain%20some%20common%20use%20of%20the%20dataset.%20E.g.%20weather%20dataset%20can%20be%20useful%20in%20demand%20forecasting%20and%20predictive%20maintenance%20scenarios%3E%20%0A%0AAny%20additional%20information%20you%20want%20us%20to%20know%3A%0A). 
+Als u de gewenste gegevens niet kunt vinden, kunt u een e-mail sturen naar een [gegevensset](mailto:aod@microsoft.com?Subject=Request%20dataset%3A%20%3Creplace%20with%20dataset%20name%3E&Body=%0AYour%20name%20and%20institution%3A%20%0A%0ADataset%20name%3A%0A%20%0ADataset%20description%3A%20%0A%3Cfill%20in%20a%20brief%20description%20and%20share%20any%20web%20links%20of%20the%20dataset%3E%20%0A%0ADataset%20size%3A%20%0A%3Chow%20much%20space%20does%20the%20dataset%20need%20today%20and%20how%20much%20is%20it%20expected%20to%20grow%20each%20year%3E%20%0A%0ADataset%20file%20formats%3A%20%0A%3Ccurrent%20dataset%20file%20formats%2C%20and%20optionally%2C%20any%20formats%20that%20the%20dataset%20must%20be%20transformed%20to%20for%20easy%20access%3E%0A%0ALicense%3A%20%0A%3Cwhat%20is%20the%20license%20or%20terms%20and%20conditions%20governing%20the%20distribution%20of%20this%20dataset%3E%0A%0AUse%20cases%3A%20%0A%3CExplain%20some%20common%20use%20of%20the%20dataset.%20E.g.%20weather%20dataset%20can%20be%20useful%20in%20demand%20forecasting%20and%20predictive%20maintenance%20scenarios%3E%20%0A%0AAny%20additional%20information%20you%20want%20us%20to%20know%3A%0A) of [een gegevensset bijdragen](mailto:aod@microsoft.com?Subject=Contribute%20dataset%3A%20%3Creplace%20with%20dataset%20name%3E&Body=%0AYour%20name%20and%20institution%3A%20%0A%0ADataset%20name%3A%0A%20%0ADataset%20description%3A%20%0A%3Cfill%20in%20a%20brief%20description%20and%20share%20any%20web%20links%20of%20the%20dataset%3E%20%0A%0ADataset%20size%3A%20%0A%3Chow%20much%20space%20does%20the%20dataset%20need%20today%20and%20how%20much%20is%20it%20expected%20to%20grow%20each%20year%3E%20%0A%0ADataset%20file%20formats%3A%20%0A%3Ccurrent%20dataset%20file%20formats%2C%20and%20optionally%2C%20any%20formats%20that%20the%20dataset%20must%20be%20transformed%20to%20for%20easy%20access%3E%0A%0ALicense%3A%20%0A%3Cwhat%20is%20the%20license%20or%20terms%20and%20conditions%20governing%20the%20distribution%20of%20this%20dataset%3E%0A%0AUse%20cases%3A%20%0A%3CExplain%20some%20common%20use%20of%20the%20dataset.%20E.g.%20weather%20dataset%20can%20be%20useful%20in%20demand%20forecasting%20and%20predictive%20maintenance%20scenarios%3E%20%0A%0AAny%20additional%20information%20you%20want%20us%20to%20know%3A%0A). 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Voorbeeld-notebook](samples.md)
-* [Zelfstudie: Regressie met NY taxi gegevens modelleren](tutorial-opendatasets-automl.md)
-* [Python-SDK voor gegevenssets die worden geopend](https://aka.ms/open-datasets-api)
+* [Voorbeeld notitieblok](samples.md)
+* [Zelfstudie: Regressie modellen met NY-taxi gegevens](tutorial-opendatasets-automl.md)
+* [Python-SDK voor open gegevens sets](/python/api/azureml-opendatasets/?view=azure-ml-py)

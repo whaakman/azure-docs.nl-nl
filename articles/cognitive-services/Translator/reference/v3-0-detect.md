@@ -1,7 +1,7 @@
 ---
-title: Translator Text-API detecteren methode
-titlesuffix: Azure Cognitive Services
-description: Gebruik de methode voor het detecteren van Translator Text-API.
+title: Detectie methode Translator Text-API
+titleSuffix: Azure Cognitive Services
+description: Gebruik de Translator Text-API-detectie methode.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 6e90626759b3c78d98c8c0f6e32d37c1440385cd
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: ed4a57a791c88ae7df0337a0c1cc74dde14a13d8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357741"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595088"
 ---
-# <a name="translator-text-api-30-detect"></a>Translator Text-API 3.0: Detect
+# <a name="translator-text-api-30-detect"></a>Translator Text-API 3,0: Detect
 
-Hiermee geeft u de taal van een stuk tekst.
+Hiermee wordt de taal van een stuk tekst bepaald.
 
 ## <a name="request-url"></a>Aanvraag-URL
 
-Verzendt een `POST` aanvragen:
+Een `POST` aanvraag verzenden naar:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
@@ -31,43 +31,43 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 ## <a name="request-parameters"></a>Aanvraagparameters
 
-Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
+Aanvraag parameters die zijn door gegeven voor de query reeks zijn:
 
 <table width="100%">
   <th width="20%">Queryparameter</th>
   <th>Description</th>
   <tr>
     <td>api-version</td>
-    <td>*Vereiste parameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
+    <td>*Vereiste para meter*.<br/>De versie van de API die door de client is aangevraagd. Waarde moet zijn `3.0`.</td>
   </tr>
 </table> 
 
-Aanvraagheaders zijn onder andere:
+Aanvraag headers zijn onder andere:
 
 <table width="100%">
   <th width="20%">Headers</th>
   <th>Description</th>
   <tr>
-    <td>Verificatie of meerdere berichtkoppen</td>
-    <td><em>Vereiste aanvraagheader</em>.<br/>Zie <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">beschikbare opties voor verificatie</a>.</td>
+    <td>Verificatie header (s)</td>
+    <td>De <em>vereiste aanvraag header</em>.<br/>Bekijk de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">beschik bare opties voor authenticatie</a>.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
-    <td>*Vereiste aanvraagheader*.<br/>Hiermee geeft u het type inhoud van de nettolading. Mogelijke waarden zijn: `application/json`.</td>
+    <td>Inhoudstype</td>
+    <td>De *vereiste aanvraag header*.<br/>Hiermee geeft u het inhouds type van de payload op. Mogelijke waarden zijn: `application/json`.</td>
   </tr>
   <tr>
-    <td>Content-Length</td>
-    <td>*Vereiste aanvraagheader*.<br/>De lengte van de aanvraagtekst.</td>
+    <td>Content-length</td>
+    <td>De *vereiste aanvraag header*.<br/>De lengte van de aanvraag tekst.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Optioneel*.<br/>Een client gegenereerde GUID voor het aanduiden van de aanvraag. Houd er rekening mee dat u deze header weglaten kunt als u de trace-ID opnemen in de querytekenreeks met behulp van een queryparameter met de naam `ClientTraceId`.</td>
+    <td>*Optioneel*.<br/>Een door de client gegenereerde GUID om de aanvraag uniek te identificeren. Houd er rekening mee dat u deze koptekst kunt weglaten als u de trace-ID in de query reeks opneemt met behulp van een query parameter met de naam `ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Aanvraagbody
 
-De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-object met de tekenreekseigenschap van een met de naam `Text`. Taaldetectie wordt toegepast op de waarde van de `Text` eigenschap. Aanvraagtekst voorbeeld ziet er zo uit:
+De hoofd tekst van de aanvraag is een JSON-matrix. Elk matrix element is een JSON-object met een teken reeks `Text`eigenschap met de naam. Taal detectie wordt toegepast op de waarde van de `Text` eigenschap. Een voor beeld van een aanvraag tekst ziet er als volgt uit:
 
 ```json
 [
@@ -75,27 +75,27 @@ De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-
 ]
 ```
 
-Er gelden de volgende beperkingen:
+De volgende beperkingen zijn van toepassing:
 
-* De matrix kan maximaal 100 elementen hebben.
-* De tekstwaarde van een element van de matrix niet langer zijn dan 10.000 tekens inclusief spaties.
-* De volledige tekst is opgenomen in de aanvraag kan niet langer zijn dan 50.000 tekens inclusief spaties.
+* De matrix kan Maxi maal 100 elementen bevatten.
+* De tekst waarde van een matrix element mag niet langer zijn dan 10.000 tekens, inclusief spaties.
+* De volledige tekst die in de aanvraag is opgenomen, mag niet langer zijn dan 50.000 tekens, inclusief spaties.
 
-## <a name="response-body"></a>De hoofdtekst van antwoord
+## <a name="response-body"></a>Antwoord tekst
 
-Een geslaagde reactie is een JSON-matrix met één resultaat voor elke tekenreeks in de invoermatrix. Een resultaatobject bevat de volgende eigenschappen:
+Een geslaagde reactie is een JSON-matrix met één resultaat voor elke teken reeks in de invoer matrix. Een resultaat object bevat de volgende eigenschappen:
 
-  * `language`: De code van de gedetecteerde taal.
+  * `language`: Code van de gedetecteerde taal.
 
-  * `score`: Een float-waarde die aangeeft van het vertrouwen in het resultaat. De score tussen 0 en een en een lage score geeft aan dat een lage vertrouwen.
+  * `score`: Een drijvende-komma waarde waarmee het vertrouwen in het resultaat wordt aangegeven. De Score ligt tussen nul en een en een lage score geeft een lage betrouw baarheid aan.
 
-  * `isTranslationSupported`: Een Booleaanse waarde die ingesteld op true is als de gedetecteerde taal een van de talen die worden ondersteund voor tekstomzetting is.
+  * `isTranslationSupported`: Een Booleaanse waarde die waar is als de gedetecteerde taal een van de talen is die voor tekst omzetting wordt ondersteund.
 
-  * `isTransliterationSupported`: Een Booleaanse waarde die ingesteld op true is als de gedetecteerde taal een van de ondersteunde voor vele talen is.
+  * `isTransliterationSupported`: Een Booleaanse waarde die waar is als de gedetecteerde taal een van de talen die worden ondersteund voor vele.
   
-  * `alternatives`: Een matrix met andere mogelijke talen. Elk element van de matrix is een ander object met dezelfde eigenschappen die hierboven worden vermeld: `language`, `score`, `isTranslationSupported` en `isTransliterationSupported`.
+  * `alternatives`: Een matrix met andere mogelijke talen. Elk element van de matrix is een ander object met dezelfde eigenschappen die hierboven worden `language`vermeld `score`: `isTranslationSupported` , `isTransliterationSupported`en.
 
-Een voorbeeld-JSON-antwoord is:
+Een voor beeld van een JSON-antwoord is:
 
 ```json
 [
@@ -129,52 +129,52 @@ Een voorbeeld-JSON-antwoord is:
   <th>Description</th>
   <tr>
     <td>X-RequestId</td>
-    <td>De waarde die wordt gegenereerd door de service voor het identificeren van de aanvraag. Het wordt gebruikt voor het oplossen van problemen.</td>
+    <td>De waarde die door de service is gegenereerd om de aanvraag te identificeren. Dit wordt gebruikt voor het oplossen van problemen.</td>
   </tr>
 </table> 
 
-## <a name="response-status-codes"></a>Antwoord-statuscodes
+## <a name="response-status-codes"></a>Antwoord status codes
 
-Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert. 
+Hier volgen de mogelijke HTTP-status codes die een aanvraag retourneert. 
 
 <table width="100%">
   <th width="20%">Statuscode</th>
   <th>Description</th>
   <tr>
     <td>200</td>
-    <td>Geslaagd.</td>
+    <td>Voltooid.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>Een van de queryparameters is ontbreekt of is ongeldig. De parameters van de juiste aanvraag voordat opnieuw wordt geprobeerd.</td>
+    <td>Een van de query parameters ontbreekt of is ongeldig. Corrigeer de aanvraag parameters voordat u het opnieuw probeert.</td>
   </tr>
   <tr>
     <td>401</td>
-    <td>De aanvraag kan niet worden geverifieerd. Controleer of de referenties opgegeven en is geldig zijn.</td>
+    <td>De aanvraag kan niet worden geverifieerd. Controleer of de referenties zijn opgegeven en geldig zijn.</td>
   </tr>
   <tr>
     <td>403</td>
-    <td>De aanvraag is niet gemachtigd. Controleer het foutbericht voor meer informatie. Dit betekent meestal dat alle gratis vertalingen voorzien van een proefabonnement zijn verbruikt.</td>
+    <td>De aanvraag is niet gemachtigd. Controleer het fout bericht Details. Dit betekent vaak dat alle gratis vertalingen van een proef abonnement zijn gebruikt.</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>De server heeft de aanvraag geweigerd omdat de client aanvraaglimieten heeft overschreden.</td>
+    <td>De server heeft de aanvraag geweigerd omdat de aanvraag limieten voor de client is overschreden.</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>Er is een onverwachte fout opgetreden. Als de fout zich blijft voordoen, rapporteren met: datum en tijd van de fout, aanvraag-id van de reactieheader `X-RequestId`, en de client-id van aanvraagheader `X-ClientTraceId`.</td>
+    <td>Er is een onverwachte fout opgetreden. Als de fout zich blijft voordoen, meldt u deze met: datum en tijd van de fout, aanvraag `X-RequestId`-id van antwoord header en client `X-ClientTraceId`-id uit aanvraag header.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>De server is tijdelijk niet beschikbaar. De aanvraag opnieuw. Als de fout zich blijft voordoen, rapporteren met: datum en tijd van de fout, aanvraag-id van de reactieheader `X-RequestId`, en de client-id van aanvraagheader `X-ClientTraceId`.</td>
+    <td>De server is tijdelijk niet beschikbaar. Voer de aanvraag opnieuw uit. Als de fout zich blijft voordoen, meldt u deze met: datum en tijd van de fout, aanvraag `X-RequestId`-id van antwoord header en client `X-ClientTraceId`-id uit aanvraag header.</td>
   </tr>
 </table> 
 
-Als er een fout optreedt, wordt de aanvraag ook een JSON-fout antwoord retourneren. De foutcode is een 6-cijferige numerieke combineren het 3-cijferige HTTP-statuscode gevolgd door een getal 3 cijfers en verder categoriseren van de fout. Veelvoorkomende foutcodes kunnen u vinden op de [v3 Translator Text-API-verwijzingspagina](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Als er een fout optreedt, wordt door de aanvraag ook een JSON-fout bericht geretourneerd. De fout code is een getal van 6 cijfers, waarbij de HTTP-status code van 3 cijfers wordt gevolgd door een getal van drie cijfers om de fout verder te categoriseren. Algemene fout codes vindt u op de [pagina v3-Translator text-API-referentie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Voorbeelden
 
-Het volgende voorbeeld ziet hoe u talen die worden ondersteund voor tekstvertaling ophaalt.
+In het volgende voor beeld ziet u hoe u talen kunt ophalen die worden ondersteund voor tekst vertaling.
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 

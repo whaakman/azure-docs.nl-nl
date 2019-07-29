@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6023e4bd4028cf1679051b6665297afd00b1eba7
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: f1ebfce2b96da51b9c33646c1626495d280d7b8a
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482662"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592246"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snelstartgids: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een Android-app
 
@@ -30,7 +30,7 @@ ms.locfileid: "67482662"
 
 Als u een Android-toepassing ontwikkelt, maakt Microsoft het voor u eenvoudig om Azure Active Directory (Azure AD) gebruikers in te laten loggen. Met Azure Active Directory heeft uw toepassing toegang tot gebruikergegevens via Microsoft Graph of uw eigen beschermde web-API.
 
-De Azure AD Authentication Library (ADAL) Android biblioheek geeft uw app de mogelijkheid om de [Microsoft Azure Cloud](https://cloud.microsoft.com) en [Microsoft Graph API](https://developer.microsoft.com/graph) te gebruiken door [Microsoft Azure Active Directory-accounts](https://azure.microsoft.com/services/active-directory/) te ondersteunen die de industriestandaard OAuth 2.0 en OpenID Connect gebruiken.
+De Azure AD Authentication Library (ADAL) Android biblioheek geeft uw app de mogelijkheid om de [Microsoft Azure Cloud](https://azure.microsoft.com/free/cloud-services/) en [Microsoft Graph API](https://developer.microsoft.com/graph) te gebruiken door [Microsoft Azure Active Directory-accounts](https://azure.microsoft.com/services/active-directory/) te ondersteunen die de industriestandaard OAuth 2.0 en OpenID Connect gebruiken.
 
 In deze snelstart leert u het volgende:
 
@@ -45,7 +45,7 @@ U hebt een Azure Active Directory tenant nodig om van start te gaan waar u gebru
 
 ## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Scenario: Gebruikers aanmelden en Microsoft Graph aanroepen
 
-![Toont de Azure AD- en Android-topologie](./media/quickstart-v1-android/active-directory-android-topology.png)
+![Toont de Azure AD-en Android-topologie](./media/quickstart-v1-android/active-directory-android-topology.png)
 
 U kunt deze app gebruiken voor alle Azure Active Directory accounts. Het ondersteunt single-tenant en multi-tenant scenario’s (wordt in stappen besproken). Het laat zien hoe u apps kunt bouwen om met enterprise-gebruikers in contact te komen en toegang te krijgen tot hun Azure + O365-gegevens via de Microsoft Graph. Tijdens de auth-flow, dienen eindgebruikers in te loggen en akkoord te gaan met de machtigingen van de toepassing, en in sommige gevallen dient een beheerder met de app akkoord te gaan. Het merendeel van de logica in dit voorbeeld laat zien hoe een eindgebruiker te autoriseren en een basisaanroep uit te voeren naar de Microsoft Graph.
 
@@ -85,18 +85,18 @@ U dient een native client-toepassing geregistreerd te hebben bij Microsoft via h
     - Selecteer ***Azure Active Directory*** > ***App-registraties***.
 
 2. De app maken
-    - Selecteer **registratie van nieuwe**.
+    - Selecteer **nieuwe registratie**.
     - Voer een app-naam in het veld **Naam** in.
     - Selecteer onder **Ondersteunde accounttypen** de optie **Accounts in een organisatieadreslijst en persoonlijke Microsoft-account**.
-    - In **omleidings-URI**, selecteer **openbare client (mobiele en bureaubladtoepassingen)** in de vervolgkeuzelijst en voer `http://localhost`.
+    - Selecteer in de omleidings- **URI** **open bare client (mobiel en bureau blad)** in de vervolg keuzelijst en voer `http://localhost`in.
     - Klik op **registreren**.
 
 3. Microsoft Graph configureren
     - Selecteer **API-machtigingen**.
-    - Selecteer **toevoegen van een machtiging**, in **Select an API** Selecteer ***Microsoft Graph***.
-    - Onder **overgedragen machtigingen**, selecteer de machtiging **User.Read**, drukt u op **toevoegen** om op te slaan.        
+    - Selecteer **een machtiging toevoegen**en selecteer in **een API** selecteren ***Microsoft Graph***.
+    - Selecteer onder **gedelegeerde machtigingen**de machtiging **gebruiker. Lees**en druk vervolgens op **toevoegen** om op te slaan.        
     
-4. Gefeliciteerd! Uw app is geconfigureerd. In het volgende deel dient u:
+4. Gefeliciteerd. Uw app is geconfigureerd. In het volgende deel dient u:
     - `Application ID`
     - `Redirect URI`
 

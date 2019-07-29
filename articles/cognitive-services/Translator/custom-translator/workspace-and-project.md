@@ -1,50 +1,50 @@
 ---
-title: Wat is een werkruimte en het project? -Aangepaste Translator
+title: Wat is een werk ruimte en project? -Aangepaste Translator
 titleSuffix: Azure Cognitive Services
-description: Een werkruimte is een werkgebied voor samenstellen en het bouwen van uw aangepaste vertaalsysteem. Een werkruimte kan bevatten meerdere projecten, modellen en documenten. Een project is een wrapper voor een model, documenten en tests. Elk project omvat automatisch alle documenten die in deze werkruimte zijn geüpload met de combinatie van de juiste taal.
+description: Een werk ruimte is een werk ruimte voor het opstellen en bouwen van uw aangepaste Vertaal systeem. Een werk ruimte kan meerdere projecten, modellen en documenten bevatten. Een project is een wrapper voor een model, documenten en tests. Elk project bevat automatisch alle documenten die naar die werk ruimte worden geüpload die het juiste taal paar hebben.
 services: cognitive-services
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: c35f3911b591a0d9adccdc48dbdc17f8afb5ea00
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 23db27ba7b51b0f5a312498dbcb1d0f2741245bb
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447345"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595341"
 ---
-# <a name="what-is-a-custom-translator-workspace"></a>Wat is een aangepaste Translator-werkruimte?
+# <a name="what-is-a-custom-translator-workspace"></a>Wat is een aangepaste Translator-werk ruimte?
 
-Een werkruimte is een werkgebied voor samenstellen en het bouwen van uw aangepaste vertaalsysteem. Een werkruimte kan bevatten meerdere projecten, modellen en documenten. Er is al het werk u in aangepaste Translator doet binnen een specifieke werkruimte.
+Een werk ruimte is een werk ruimte voor het opstellen en bouwen van uw aangepaste Vertaal systeem. Een werk ruimte kan meerdere projecten, modellen en documenten bevatten. Alle werkzaamheden in het aangepaste conversie programma bevinden zich in een specifieke werk ruimte.
 
-Werkruimte is exclusief voor u en de mensen die u in uw werkruimte uitnodigen. Ingetrokken gebruikers geen toegang tot de inhoud van uw werkruimte. U kunt zo veel mensen als u in uw werkruimte wilt en wijzigen of verwijderen van de toegang op elk gewenst moment uitnodigen. U kunt ook een nieuwe werkruimte maken. Een werkruimte wordt niet standaard bevatten alle projecten of documenten die binnen uw andere werkruimten.
+De werk ruimte is persoonlijk voor u en de personen die u uitnodigt in uw werk ruimte. Niet-uitgenodigde personen hebben geen toegang tot de inhoud van uw werk ruimte. U kunt zoveel mensen uitnodigen als u wilt in uw werk ruimte en de toegang op elk gewenst moment wijzigen of verwijderen. U kunt ook een nieuwe werk ruimte maken. Een werk ruimte bevat standaard geen projecten of documenten die zich in uw andere werk ruimten bevinden.
 
-## <a name="what-is-a-custom-translator-project"></a>Wat is een aangepaste Translator-project?
+## <a name="what-is-a-custom-translator-project"></a>Wat is een aangepast Vertaal project?
 
-Een project is een wrapper voor een model, documenten en tests. Elk project omvat automatisch alle documenten die in deze werkruimte zijn geüpload met de combinatie van de juiste taal. Als u een Engels naar het Spaans-project en een Spaans-Engels-project hebt, worden er bijvoorbeeld dezelfde documenten worden opgenomen in beide projecten. Elk project heeft een categorie-id die is gekoppeld aan deze die wordt gebruikt bij het opvragen van de [V3 API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) voor vertalingen. Categorie-id is de parameter die wordt gebruikt om op te halen van vertalingen van een aangepast systeem die zijn gebouwd met aangepaste Translator.
+Een project is een wrapper voor een model, documenten en tests. Elk project bevat automatisch alle documenten die naar die werk ruimte worden geüpload die het juiste taal paar hebben. Als u bijvoorbeeld zowel een Engels naar een Spaans project als een Spaans naar Engels project hebt, worden dezelfde documenten in beide projecten opgenomen. Aan elk project is een CategoryID gekoppeld die wordt gebruikt bij het uitvoeren van een query op de [v3 API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) voor vertalingen. CategoryID is de para meter die wordt gebruikt voor het ophalen van vertalingen van een aangepast systeem dat is gebouwd met aangepaste vertaler.
 
-## <a name="project-categories"></a>Projectcategorieën
+## <a name="project-categories"></a>Project Categorieën
 
-De categorie geeft het domein: het gebied van de terminologie en stijl die u wilt gebruiken: voor uw project. Kies het meest relevant voor uw documenten categorie. In sommige gevallen van uw keuze van de categorie rechtstreeks invloed op het gedrag van de aangepaste Translator.
+De categorie identificeert het domein: het gebied met de terminologie en de stijl die u wilt gebruiken: voor uw project. Kies de categorie die het meest relevant is voor uw documenten. In sommige gevallen is uw keuze van de categorie rechtstreeks van invloed op het gedrag van de aangepaste vertaler.
 
-We hebben twee sets basislijn modellen. Ze zijn algemeen en technologie. Als de categorie **technologie** is geselecteerd, worden de modellen van de basislijn technologie gebruikt. Voor een andere categorieselectie, worden de algemene basislijn-modellen gebruikt. Het model van de basislijn technologie wordt ook in de technologie-domein, maar lagere kwaliteit en u ziet als de zinnen die wordt gebruikt voor de vertaling niet binnen het domein van de technologie vallen. We raden klanten om te selecteren van categorie technologie alleen als zinnen strikt binnen het domein van de technologie vallen.
+Er zijn twee sets basis lijn modellen. Ze zijn algemeen en technologie. Als de categorie **technologie** is geselecteerd, worden de technologie basislijn modellen gebruikt. Voor een andere categorie selectie worden de algemene basis lijn modellen gebruikt. Het technologie basis model is goed in het technologie domein, maar de lagere kwaliteit wordt weer gegeven als de zinnen die voor de vertaling worden gebruikt, niet binnen het technologie domein vallen. We suggereren dat klanten categorie technologie alleen willen selecteren als zinnen strikt binnen het technologie domein vallen.
 
-U kunt in dezelfde werkruimte en projecten voor de dezelfde combinatie van taal in verschillende categorieën maken. Aangepaste Translator wordt voorkomen dat het maken van een dubbele project met de dezelfde combinatie van taal en categorie. Een label toe te passen aan uw project, kunt u om te voorkomen dat deze beperking. Gebruik de labels niet, tenzij u automatische vertalingssystemen voor meerdere clients toe te voegen dat aan uw project een unieke label, worden weergegeven in uw projecten CategoryID bouwt.
+In dezelfde werk ruimte kunt u projecten maken voor hetzelfde taal paar in verschillende categorieën. Aangepaste vertaler voor komt het maken van een dubbel project met dezelfde taal paar en categorie. Als u een label toepast op uw project, kunt u deze beperking vermijden. Gebruik geen labels tenzij u Vertaal systemen voor meerdere clients bouwt, omdat het toevoegen van een uniek label aan uw project wordt weer gegeven in de CategorieId van uw projecten.
 
-## <a name="project-labels"></a>Project-labels
+## <a name="project-labels"></a>Project etiketten
 
-Aangepaste Translator kunt u een project-label toewijzen aan uw project. Het label van het project wordt onderscheid gemaakt tussen meerdere projecten met dezelfde combinatie van taal en categorie. Als een best practice, Vermijd het gebruik van project labels, tenzij die nodig zijn.
+Met aangepaste vertaler kunt u een project label toewijzen aan uw project. Het project label onderscheidt tussen meerdere projecten met hetzelfde taal paar en dezelfde-categorie. Vermijd het gebruik van project etiketten als best practice, tenzij dat nodig is.
 
-Het label van het project wordt gebruikt als onderdeel van de categorie-id. Als het label project niet-ingestelde blijft of identiek in projecten die is ingesteld, klikt u vervolgens voor projecten met dezelfde categorie en *verschillende* taal paren delen de dezelfde categorie-id. Deze aanpak is nuttig omdat u Hiermee u of uw klant om over te schakelen tussen talen bij het gebruik van de tekst-API van Translator zonder dat u een categorie-id die uniek is voor elk project.
+Het project label wordt gebruikt als onderdeel van de CategoryID. Als het project label wordt in-of uitgesteld op hetzelfde niveau is ingesteld voor projecten, delen projecten met dezelfde categorie en *verschillende* taal paren hetzelfde CategoryID. Deze methode is handig omdat u of uw klant kunt overschakelen tussen talen wanneer u de Text Translator-API gebruikt zonder dat u zich zorgen hoeft te maken over een CategoryID dat uniek is voor elk project.
 
-Als ik wil inschakelen vertalingen in de technologie domein van het Engels Frans en naar Frans naar het Engels, zou ik bijvoorbeeld twee projecten maken: één voor Engels -\> Frans en één voor Frans -\> Engels. Ik zou de dezelfde categorie (technologie) opgeven voor zowel en het label project leeg laten. De categorie-id voor beide projecten wordt er gezocht, zodat ik de API voor Engelse en Franse vertalingen zoeken kan zonder mijn CategoryID wijzigen.
+Als ik bijvoorbeeld vertalingen in het technologie domein wil inschakelen van Engels naar Frans en van Frans naar Engels, zou ik twee projecten maken: één voor Engels-\> Frans en één voor Frans-\> Engels. Ik zou dezelfde categorie (technologie) voor beide opgeven en het project label leeg laten. De CategoryID voor beide projecten zou overeenkomen, dus kan ik de API voor zowel Engelse als Franse vertalingen opvragen zonder mijn categorie nummer te wijzigen.
 
-Als u een taal-serviceprovider en meerdere klanten van dienst met verschillende modellen die de dezelfde categorie en de combinatie van taal behouden wilt, zou klikt u vervolgens met behulp van een label project onderscheid maken tussen de klanten een verstandig besluit zijn.
+Als u een taal serviceprovider bent en meerdere klanten wilt voorzien van verschillende modellen die hetzelfde categorie-en taal paar behouden, kunt u een project label gebruiken om onderscheid te maken tussen klanten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [Training en het model](training-and-model.md) te weten over het bouwen van een objectmodel vertaling efficiënt.
+- Lees meer over [training en model](training-and-model.md) om te weten hoe u efficiënt een omzettings model bouwt.

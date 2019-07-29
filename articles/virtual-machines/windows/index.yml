@@ -6,14 +6,12 @@ metadata:
   title: 'Documentatie voor virtuele Windows-machines in Azure - zelfstudies, API-verwijzing'
   meta.description: 'Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.'
   services: virtual-machines\windows
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: virtual-machines-windows
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Virtuele Azure Windows-machines bieden beveiligde, gevirtualiseerde infrastructuur met een hoge schaalbaarheid op aanvraag met Windows Server. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u virtuele Windows-machines maakt, configureert, beheert en schaalt.'
   aside:

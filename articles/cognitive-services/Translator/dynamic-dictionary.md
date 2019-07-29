@@ -1,7 +1,7 @@
 ---
-title: Dynamische Dictionary - Translator Text-API
-titlesuffix: Azure Cognitive Services
-description: Het gebruik van de functie dynamische woordenlijst van de Translator Text-API.
+title: Dynamische woorden lijst-Translator Text-API
+titleSuffix: Azure Cognitive Services
+description: De functie voor dynamische woorden lijsten van het Translator Text-API gebruiken.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,32 +10,32 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: a815434cb8797acf6b92a8fe4a4f1ff69508975d
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: f586702350b38c6d546767f64a8e2f6115b59817
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839224"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595288"
 ---
-# <a name="how-to-use-a-dynamic-dictionary"></a>Het gebruik van een dynamische woordenlijst
+# <a name="how-to-use-a-dynamic-dictionary"></a>Een dynamische woorden lijst gebruiken
 
-Als u de vertaling die u wilt toepassen op een woord of woordgroep al kent, kunt u deze opgeven als aantekeningen in de aanvraag. Alleen is de dynamische-woordenlijst voor samenstellingen, zoals de namen van de juiste en product veilig.
+Als u al weet wat de vertaling is die u wilt Toep assen op een woord of een woord groep, kunt u deze als aantekeningen opgeven in de aanvraag. De dynamische woorden lijst is alleen veilig voor samengestelde samen stellingen, zoals eigen namen en product namen.
 
-**Syntaxis:**
+**Syntaxis**
 
-< mstrans:dictionary vertaling = "vertalingen van woorden" > woordgroep < / mstrans:dictionary >
+< msTrans: Dictionary Translator = "vertaling van woord groep" > frase </msTrans: Dictionary >
 
-**Vereisten:**
+**Vereiste**
 
-* De `From` en `To` talen moet anders zijn. 
-* U moet bevatten de `From` -parameter in uw API-aanvraag voor vertalingen in plaats van de functie auto-detect. 
+* De `From` talen `To` en moeten verschillend zijn. 
+* U moet de `From` para meter in uw API-Vertaal aanvraag toevoegen in plaats van de functie voor automatische detectie te gebruiken. 
 
-**Voorbeeld: nl-nl:**
+**Voor beeld: nl-de:**
 
-Invoer van de bron: Het woord < mstrans:dictionary vertaling =\"wordomatic\"> woord of woordgroep < / mstrans:dictionary > is een dictionary-vermelding.
+Bron invoer: Het woord < msTrans: woorden lijst vertaling\"=\"wordomatic > woord of zin </msTrans: Dictionary > een vermelding van een woorden lijst is.
 
-Doeluitvoer: DAS Wort "wordomatic" is een Wörterbucheintrag.
+Doel uitvoer: Das Wort "wordomatic" ist Wörterbucheintrag.
 
 Deze functie werkt op dezelfde manier met en zonder HTML-modus.
 
-De functie moet spaarzaam worden gebruikt. De juiste en veel beter manier voor het aanpassen van de vertaling is met behulp van aangepaste Translator. Aangepaste Translator maakt volledig gebruik van context en statistische kansen. Als u hebt of trainingsgegevens waarin uw werk- of woordgroep in context kunt maken, kunt u veel betere resultaten krijgt. U vindt meer informatie over aangepaste Translator op [ https://aka.ms/CustomTranslator ](https://aka.ms/CustomTranslator).
+De functie moet spaarzaam worden gebruikt. De juiste en veel betere manier om de vertaling aan te passen, is door aangepaste Translator te gebruiken. Aangepaste vertaler maakt volledig gebruik van context-en statistische kansen. Als u trainings gegevens hebt of kunt maken waarin uw werk of zin in de context wordt weer gegeven, krijgt u veel betere resultaten. Meer informatie over Custom Translator vindt u op [https://aka.ms/CustomTranslator](https://aka.ms/CustomTranslator).

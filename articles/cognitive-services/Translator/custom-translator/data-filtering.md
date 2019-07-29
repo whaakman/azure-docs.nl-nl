@@ -1,61 +1,61 @@
 ---
-title: Gegevens filteren - aangepaste Translator
+title: Gegevens filtering-aangepaste vertaler
 titleSuffix: Azure Cognitive Services
-description: Wanneer u documenten kunnen worden gebruikt voor het trainen van een aangepast systeem verzendt, is de documenten worden onderworpen aan een reeks verwerken en filteren van de stappen om voor te bereiden voor training.
+description: Wanneer u documenten indient die moeten worden gebruikt voor het trainen van een aangepast systeem, worden de documenten een reeks verwerkings-en filter stappen voor het voorbereiden op training.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: a224a30114d03468c5764528e6c7472572a93f1c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1028443eaaf6c483cd7cd57289b0dcf2a9f11902
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443440"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595904"
 ---
 # <a name="data-filtering"></a>Gegevens filteren
 
-Wanneer u documenten kunnen worden gebruikt voor het trainen van een aangepast systeem verzendt, is de documenten worden onderworpen aan een reeks verwerken en filteren van de stappen om voor te bereiden voor training. Deze stappen worden hier beschreven. Met behulp van de kennis van de filters kunt u inzicht in de zin aantal weergegeven in de aangepaste translator, evenals de stappen die u zelf het voorbereiden van de documenten voor training met aangepaste Translator kan uitvoeren.
+Wanneer u documenten indient die moeten worden gebruikt voor het trainen van een aangepast systeem, worden de documenten een reeks verwerkings-en filter stappen voor het voorbereiden op training. Deze stappen worden hier beschreven. De kennis van het filteren kan u helpen inzicht te krijgen in het aantal zinnen dat wordt weer gegeven in aangepaste Vertaler en de stappen die u kunt nemen om de documenten voor te bereiden voor de training met aangepaste vertaler.
 
 ## <a name="sentence-alignment"></a>Uitlijning van zinnen
-Als het document niet in XLIFF, TMX of uitlijnen-indeling, wordt de zinnen van uw bron- en -documenten met elkaar, per zin door aangepaste Translator uitgelijnd. Translator document uitlijning niet uitvoeren: volgt de naamgeving van de documenten te vinden van de overeenkomende document van de andere taal. In het document, aangepaste Translator gezocht naar de bijbehorende zin in de andere taal. Hierbij document markeringen, zoals ingesloten HTML-codes om te helpen bij de uitlijning.  
+Als uw document zich niet in een XLIFF-, TMX-of ALIGN-vorm bevindt, worden de zinnen van de bron-en doel documenten door aangepaste vertalers op zin uitgelijnd. Het conversie programma voert geen document uitlijning uit. het volgt de naam van de documenten om het overeenkomende document van de andere taal te vinden. In het document probeert aangepaste vertaler de overeenkomstige zin in de andere taal te vinden. Het maakt gebruik van document aantekeningen zoals Inge sloten HTML-tags om u te helpen bij het uitlijnen.  
 
-Als u een groot verschil tussen het aantal zinnen in de bron ziet en doel aan documenten, het document kan niet zijn parallelle in de eerste plaats, of om andere redenen niet kan worden afgestemd. Het document paren met een groot verschil (> 10%) garandeert een tweede bekijken om te controleren of ze inderdaad parallelle van zinnen op elke zijde. Aangepaste Translator ziet u een waarschuwing naast het document als het aantal zin verdacht gedraagt verschilt.  
+Als u een grote discrepantie ziet tussen het aantal zinnen in de bron-en doel documenten, is het mogelijk dat uw document niet parallel is in de eerste plaats of om andere redenen niet kan worden uitgelijnd. De document paren met een groot verschil (> 10%) van de zinnen aan elke zijde geven een tweede blik om er zeker van te zijn dat ze inderdaad parallel zijn. Er wordt een waarschuwing weer gegeven naast het document als het aantal zinnen verdacht is.  
 
 
 ## <a name="deduplication"></a>Ontdubbeling
-Aangepaste Translator Hiermee verwijdert u de zinnen die aanwezig zijn in de test- en documenten van trainingsgegevens afstemmen. Het verwijderen gebeurt dynamisch binnen de training, niet in de stap gegevensverwerking worden uitgevoerd. Aangepaste Translator rapporteert het aantal zin aan u in het projectoverzicht van het voordat u deze verwijderen.  
+Aangepaste Translator verwijdert de zinnen die aanwezig zijn bij het testen en het afstemmen van documenten uit de trainings gegevens. Het verwijderen vindt dynamisch plaats in de uitvoering van de training, niet in de stap voor gegevens verwerking. Aangepaste Translator rapporteert het aantal zinnen aan u in het project overzicht voordat deze worden verwijderd.  
 
-## <a name="length-filter"></a>Lengte van filter
-* Zinnen met slechts één woord aan beide kanten verwijderen.
-* Zinnen met meer dan 100 woorden aan beide kanten verwijderen.  Chinese, Japans, Koreaans, zijn uitgesloten.
-* Verwijder zinnen met minder dan 3 tekens. Chinese, Japans, Koreaans, zijn uitgesloten.
-* Zinnen met meer dan 2000 tekens voor Chinese, Japans, Koreaans verwijderen.
+## <a name="length-filter"></a>Filter lengte
+* Zinnen met slechts één woord aan beide zijden verwijderen.
+* Verwijder zinnen met meer dan 100 woorden aan beide zijden.  Chinees, Japans, Koreaans, zijn uitgezonderd.
+* Zinnen met minder dan drie tekens verwijderen. Chinees, Japans, Koreaans, zijn uitgezonderd.
+* Verwijder zinnen met meer dan 2000 tekens voor Chinees, Japans, Koreaans.
 * Verwijder zinnen met minder dan 1% alfanumerieke tekens.
-* Met meer dan 50 woorden dictionary-vermeldingen te verwijderen.
+* Verwijder woordenlijst vermeldingen die meer dan 50 woorden bevatten.
 
 ## <a name="white-space"></a>Witruimte
-* Vervangen door een reeks spatietekens bevatten, met inbegrip van tabbladen en CR/LF reeksen met een spatie-teken.
-* Voorloop-of volgspaties verwijderen uit de zin
+* Vervang een wille keurige reeks witruimte tekens, inclusief tabbladen en CR/LF-reeksen met één spatie.
+* Voor loop-of volg spaties verwijderen uit de zin
 
-## <a name="sentence-end-punctuation"></a>Zin end interpunctie
-Meerdere zin end-leestekens vervangen door één exemplaar.  
+## <a name="sentence-end-punctuation"></a>Interpunctie van zin
+Meerdere interpunctie tekens voor zinnen vervangen door één exemplaar.  
 
-## <a name="japanese-character-normalization"></a>Japans teken normalisering
-Volledige breedte letters en cijfers converteren naar halve breedte tekens.
+## <a name="japanese-character-normalization"></a>Japanse teken normalisatie
+Letters en cijfers met volledige breedte converteren naar tekens met halve breedte.
 
-## <a name="unescaped-xml-tags"></a>Unescaped XML-tags
-Transformaties unescaped tags met escape-teken tags filteren:
-* `&lt;` wordt `&amp;lt;`
-* `&gt;` wordt `&amp;gt;`
-* `&amp;` wordt `&amp;amp;`
+## <a name="unescaped-xml-tags"></a>XML-tags zonder escape-teken
+Met filters worden niet-verescapede Tags getransformeerd in Tags met escape-teken:
+* `&lt;`steeds`&amp;lt;`
+* `&gt;`steeds`&amp;gt;`
+* `&amp;`steeds`&amp;amp;`
 
 ## <a name="invalid-characters"></a>Ongeldige tekens
-Aangepaste Translator verwijdert zinnen die U + FFFD voor Unicode-tekens bevatten. Het teken dat U + FFFD geeft aan dat de conversie van een mislukte codering.
+Aangepaste Translator verwijdert zinnen die Unicode-teken U en FFFD bevatten. Het teken U + FFFD geeft aan dat de conversie is mislukt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een model te trainen](how-to-train-model.md) in aangepaste Translator.
+- [Train een model](how-to-train-model.md) in Custom Translator.

@@ -1,7 +1,7 @@
 ---
-title: Cognitive Services en machine learning
-titlesuffix: Azure Cognitive Services
-description: Ontdek waar Azure Cognitive Services past in met andere Azure-aanbiedingen voor machine learning.
+title: Cognitive Services en Machine Learning
+titleSuffix: Azure Cognitive Services
+description: Ontdek hoe Azure Cognitive Services past bij andere Azure-aanbiedingen voor machine learning.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: diberry
-ms.openlocfilehash: 15faacccfa1e0f7dd759f719c02e106918d735bb
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: bae772e9fcc9f275fcf593cfd5bf9d0506a89f7c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414687"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594688"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services en machine learning
 

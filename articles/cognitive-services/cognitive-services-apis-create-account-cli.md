@@ -1,6 +1,6 @@
 ---
 title: Een Cognitive Services resource maken met behulp van de Azure CLI
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Ga aan de slag met Azure Cognitive Services door met de Azure-opdracht regel interface een abonnement te maken op een resource.
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: aahi
-ms.openlocfilehash: 05b679fd969dc766d697070979416312c3bad622
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c0a89a61f50d245389c9cdbd8a0aa9ba09eec004
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334262"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594618"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Een Cognitive Services resource maken met behulp van de Azure-opdracht regel interface (CLI)
 
@@ -79,7 +79,7 @@ Wanneer u een nieuwe resource maakt, moet u weten wat de soort service is die u 
 
 ### <a name="vision"></a>Vision
 
-| Service                    | Type                      |
+| Service                    | Soort                      |
 |----------------------------|---------------------------|
 | Computer Vision            | `ComputerVision`          |
 | Custom Vision-voor spelling | `CustomVision.Prediction` |
@@ -90,34 +90,34 @@ Wanneer u een nieuwe resource maakt, moet u weten wat de soort service is die u 
 
 ### <a name="search"></a>Search
 
-| Service            | Type                  |
+| Service            | Soort                  |
 |--------------------|-----------------------|
 | Bing Automatische suggesties   | `Bing.Autosuggest.v7` |
 | Bing Aangepaste zoekopdrachten | `Bing.CustomSearch`   |
-| Bing Entiteiten zoeken | `Bing.EntitySearch`   |
+| Bing Entity Search | `Bing.EntitySearch`   |
 | Bing Zoeken        | `Bing.Search.v7`      |
 | Bing Spellingcontrole   | `Bing.SpellCheck.v7`  |
 
 ### <a name="speech"></a>Speech
 
-| Service            | Type                 |
+| Service            | Soort                 |
 |--------------------|----------------------|
 | Spraakservices    | `SpeechServices`     |
 | Spraakherkenning | `SpeakerRecognition` |
 
 ### <a name="language"></a>Taal
 
-| Service            | Type                |
+| Service            | Soort                |
 |--------------------|---------------------|
 | Formulier uitleg | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
 | QnA Maker          | `QnAMaker`          |
 | Tekstanalyse     | `TextAnalytics`     |
-| Tekstomzetting   | `TextTranslation`   |
+| Text Translation   | `TextTranslation`   |
 
 ### <a name="decision"></a>Besluit
 
-| Service           | Type               |
+| Service           | Soort               |
 |-------------------|--------------------|
 | Anomaly Detector  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |

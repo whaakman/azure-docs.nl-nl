@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center inschakelen voor IoT-service in de Preview-fase van IoT Hub | Microsoft Docs
-description: Leer hoe u Azure Security Center inschakelen voor IoT-service in uw IoT-Hub.
+title: Azure Security Center inschakelen voor IoT-service in IoT Hub | Microsoft Docs
+description: Meer informatie over het inschakelen van Azure Security Center voor IoT-service in uw IoT Hub.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,54 +15,63 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/16/2019
 ms.author: mlottner
-ms.openlocfilehash: f81fb7aeed1b704ebdd82c1f5b83c33a4b05e9ca
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a794ccea13323f38b20906458e216f85652bfc3e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618006"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596960"
 ---
-# <a name="quickstart-enable-service-in-iot-hub"></a>Quickstart: In IoT Hub-service inschakelen
+# <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Quickstart: Onboard Azure Security Center voor IoT-service in IoT Hub
 
-> [!IMPORTANT]
-> Azure Security Center voor IoT is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
-
-In dit artikel bevat een uitleg over het inschakelen van de Azure Security Center (ASC) voor IoT preview-service op uw IoT-Hub.  
+Dit artikel bevat een uitleg over het inschakelen van de Azure Security Center voor IoT-service op uw bestaande IoT Hub. Als u momenteel geen IoT Hub hebt, raadpleegt u [een IOT hub maken met behulp van de Azure Portal](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) om aan de slag te gaan. 
 
 > [!NOTE]
-> Azure Security Center voor IoT op dit moment biedt alleen ondersteuning voor standard-laag IoT-Hubs.
-> Azure Security Center voor IoT is een één-hub-oplossing. Als u meerdere hubs vereist, moeten er meerdere oplossingen. 
+> Azure Security Center voor IoT biedt momenteel alleen ondersteuning voor IoT-hubs met Standard-laag.
+> Azure Security Center voor IoT is een oplossing voor één hub. Als u meerdere hubs nodig hebt, zijn er meerdere Azure Security Center voor IoT-oplossingen vereist. 
 
 ## <a name="prerequisites-for-enabling-the-service"></a>Vereisten voor het inschakelen van de service
 
 - Log Analytics-werkruimte
-  - Twee typen gegevens worden opgeslagen in uw Log Analytics-werkruimte door ASC standaard voor IoT; **beveiligingswaarschuwingen** en **aanbevelingen**. 
-  - U kunt opslag van een type aanvullende informatie toevoegen **ruwe gebeurtenissen**. Houd er rekening mee dat opslaan **ruwe gebeurtenissen** in Log Analytics voert u de kosten voor extra opslag. 
-- IoT Hub (standard-laag)
-- Voldoen aan alle [vereisten-service](service-prerequisites.md) 
-- Ondersteunde regio 's
-  - US - centraal
-  - Noord-Europa
-  - Azië - zuidoost
+  - Twee soorten informatie worden standaard opgeslagen in uw Log Analytics-werk ruimte door Azure Security Center voor IoT. **beveiligings waarschuwingen** en **aanbevelingen**. 
+  - U kunt ervoor kiezen om opslag ruimte toe te voegen voor een extra gegevens type, onbewerkte **gebeurtenissen**. Houd er rekening mee dat bij het opslaan van onbewerkte **gebeurtenissen** in log Analytics extra opslag kosten worden uitgevoerd. 
+- IoT Hub (Standard-laag)
+- Aan alle [service vereisten](service-prerequisites.md) voldoen 
 
-## <a name="enable-asc-for-iot-on-your-iot-hub"></a>ASC inschakelen voor IoT op uw IoT-Hub 
+|Ondersteunde Azure-service regio's | ||
+|---|---|---|
+| US - centraal |East US |US - oost 2 |
+| US - west-centraal |US - west |VS - west 2 |
+| VS Zuid-Centraal|US - noord-centraal | Canada - midden|
+| Canada - oost| Europa - noord|Brazilië - zuid|
+| Frankrijk - centraal| Verenigd Koninkrijk West|Verenigd Koninkrijk Zuid|
+|Europa -west|Noord-Europa| Japan - west|
+|Japan - oost | Australië - zuidoost|Australië - oost|
+|Azië - oost| Azië - zuidoost| Korea - centraal|
+|Korea - zuid| India - centraal| India - zuid|
+|
 
-Schakel beveiliging van uw IoT-Hub door het volgende doen: 
+## <a name="enable-azure-security-center-for-iot-on-your-iot-hub"></a>Azure Security Center voor IoT op uw IoT Hub inschakelen 
 
-1. Open uw **IoT-Hub** in Azure portal. 
-2. Onder de **Security** menu, klikt u op **overzicht**, klikt u vervolgens op **Start preview**. 
-3. Kies **IoT-beveiliging inschakelen**. 
-4. Geef de details van uw Log Analytics-werkruimte. 
-   - Er ook voor kiezen om op te slaan **ruwe gebeurtenissen** naast de standaard-gegevenstypen van opslag door te laten de **onbewerkte gebeurtenis** in-/ uitschakelen **op**. 
-   - Er ook voor kiezen om in te schakelen **twin verzameling** door over te laten de **twin verzameling** in-/ uitschakelen **op**. 
-5. Klik op **Opslaan**. 
+Ga als volgt te werk om beveiliging in te scha kelen op uw IoT Hub: 
 
-Gefeliciteerd! U hebt voltooid ASC inschakelen voor IoT op uw IoT-Hub. 
+1. Open uw **IOT hub** in azure Portal. 
+1. Klik in het menu **beveiliging** op **uw IOT-oplossing beveiligen**
+1. Schakel het selectie vakje inschakelen als standaard **in** . 
+1. Selecteer uw log Analytics-werk ruimte.
+1. Geef uw Log Analytics werkruimte Details op. 
+   - Kies voor het inschakelen van een **dubbele verzameling** door de **dubbele verzameling** in **-/uitschakelen te**laten staan.
+   - Kies voor het opslaan van onbewerkte **gebeurtenissen** naast de standaard gegevens typen opslag door de **beveiligings gebeurtenissen** voor onbewerkte apparaten in log Analytics op te slaan. Wijzig de **Onbewerkte gebeurtenis** **in**-/uitschakelen. 
+    
+1. Klik op **Opslaan**. 
+
+Gefeliciteerd! Het inschakelen van Azure Security Center voor IoT op uw IoT Hub is voltooid. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar het volgende artikel voor meer informatie over het configureren van uw oplossing...
+Ga naar het volgende artikel om uw oplossing te configureren...
 
 > [!div class="nextstepaction"]
 > [Uw oplossing configureren](quickstart-configure-your-solution.md)
+
+
