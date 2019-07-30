@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentatie voor Azure Security Center voor IoT Preview
+title: Documentatie voor Azure Security Center for IoT
 metadata:
-  title: 'Documentatie voor Azure Security Center voor IoT Preview - zelfstudies, quickstarts | Microsoft Docs'
-  meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
+  title: 'Documentatie voor Azure Security Center for IoT - zelfstudies, quickstarts | Microsoft Docs'
+  meta.description: Azure Security Center for IoT unifies your device security management and enables advanced threat detection and security posture management across your IoT solution.
   services: asc-for-iot
   author: mlottner
   manager: rkarlin
@@ -11,25 +11,25 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/26/19
+  ms.date: 07/23/19
   ms.author: rkarlin
 abstract:
-  description: "Azure Security Center (ASC) voor IoT Preview gebruiken om uw bestaande cyberbeveiligingsweergave uit te breiden naar uw volledige IoT-oplossing. Krijg een echt panorama-overzicht van de beveiliging van al uw Azure-gerelateerde resources. Door de mogelijkheden voor snelle implementatie en volledige integratie met IoT Hub-moduledubbels hebt u de beschikking over een breed scala aan aanpassingsopties en eenvoudige integratie met uw huidige hulpprogramma's voor apparaatbeheer.\_"
+  description: "Azure Security Center for IoT gebruiken om uw bestaande cyberbeveiligingsweergave uit te breiden naar uw volledige IoT-oplossing. Krijg een echt panorama-overzicht van de beveiliging van al uw Azure-gerelateerde resources. Door de mogelijkheden voor snelle implementatie en volledige integratie met IoT Hub-moduledubbels hebt u de beschikking over een breed scala aan aanpassingsopties en eenvoudige integratie met uw huidige hulpprogramma's voor apparaatbeheer.\_"
 sections:
   - title: QuickStarts van vijf minuten
     items:
       - type: paragraph
-        text: 'Leer hoe u uw IoT Hub geschikt kunt maken voor ASC voor IoT, ASC voor IoT-agents kunt installeren en inzicht kunt krijgen in uw gegevens en mogelijke bedreigingen.'
+        text: 'Leer hoe u uw IoT Hub geschikt kunt maken voor Azure Security Center for IoT, security-agents kunt installeren en inzicht kunt krijgen in uw mogelijke bedreigingen.'
       - type: list
         style: icon48
         items:
           - image:
               src: media/index/deploy.svg
-            text: ASC voor IoT inschakelen
+            text: Azure Security Center for IoT inschakelen
             href: /azure/asc-for-iot/quickstart-onboard-iot-hub
           - image:
               src: media/index/get-started.svg
-            text: Aan de slag met ASC voor IoT
+            text: Aan de slag met Azure Security for IoT
             href: /azure/asc-for-iot/getting-started
   - title: Handleidingen
     items:
@@ -38,7 +38,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Bedreigingen detecteren met ASC voor IoT</a>
+          - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Bedreigingen aanpakken met Azure Security Center for IoT</a>
   - title: Uw vaardigheden ontwikkelen met Microsoft Learn
     items:
       - type: list
@@ -50,8 +50,17 @@ sections:
             image:
               src: media/index/tutorial.svg
               href: 'https://docs.microsoft.com/learn/azure'
-      - type: paragraph
-        text: <a href="/learn/browse/?term=security">Meer interactief leren...</a>
+  - title: Video's over Azure Security Center for IoT
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Microsoft Azure Security Center for IoT - overzicht
+            href: 'https://youtu.be/pq5uSp9u_x0'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_video.svg'
+              href: 'https://youtu.be/pq5uSp9u_x0'
   - title: Naslaginformatie
     items:
       - type: list

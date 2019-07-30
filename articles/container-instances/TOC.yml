@@ -61,7 +61,7 @@
           href: container-instances-restart-policy.md
         - name: Omgevingsvariabelen instellen (env)
           href: container-instances-environment-variables.md
-        - name: Container-entrypoint overschrijven
+        - name: Opdracht voor opstarten voor de container instellen (entrypoint)
           href: container-instances-start-command.md
         - name: Een opdracht uitvoeren (exec)
           href: container-instances-exec.md

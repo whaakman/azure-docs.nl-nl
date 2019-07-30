@@ -253,6 +253,9 @@
         - name: DSC-configuraties compileren
           href: automation-dsc-compile.md
           displayName: 'state configuration, composite resources, configurationData'
+        - name: Niet-compatibele DSC-servers herstellen
+          href: automation-dsc-remediate.md
+          displayName: 'state configuration, DSC, remediate'
         - name: DSC-configuraties compileren met behulp van samengestelde resources
           href: compose-configurationwithcompositeresources.md
         - name: Doorlopende implementatie met Chocolatey

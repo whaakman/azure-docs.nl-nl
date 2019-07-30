@@ -47,6 +47,8 @@
           href: functions-integrate-storage-queue-output-binding.md
         - name: Opslag - Visual Studio Code
           href: functions-add-output-binding-storage-queue-vs-code.md
+        - name: Opslag - Visual Studio
+          href: functions-add-output-binding-storage-queue-vs.md
 - name: Zelfstudies
   items:
     - name: Functions met Logic Apps

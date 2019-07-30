@@ -7,22 +7,22 @@
 - name: Snelstartgidsen
   expaned: true
   items:
-    - name: Aangepast model trainen en gegevens extraheren
+    - name: Met behulp van de REST API
       items:
-        - name: Met behulp van de REST API
+        - name: Aangepast model trainen en gegevens extraheren
           items:
             - name: cURL
               href: quickstarts/curl-train-extract.md
             - name: Python
               href: quickstarts/python-train-extract.md
-    - name: Vooraf gebouwd ontvangstmodel gebruiken
-      items:
-        - name: Met behulp van de REST API
+        - name: Vooraf gebouwd ontvangstmodel gebruiken
           items:
             - name: cURL
               href: quickstarts/curl-receipts.md
             - name: Python
               href: quickstarts/python-receipts.md
+    - name: De .NET SDK gebruiken
+      href: quickstarts/dotnet-sdk.md
 - name: Handleidingen
   items:
     - name: Een set met trainingsgegevens samenstellen

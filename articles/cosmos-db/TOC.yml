@@ -738,6 +738,12 @@
           maintainContext: true
         - name: ODBC-stuurprogramma
           href: odbc-driver.md
+    - name: Gegevens migreren naar Cosmos DB
+      items:
+        - name: Migreren naar SQL-API met behulp van Striim
+          href: cosmosdb-sql-api-migrate-data-striim.md
+        - name: Migreren naar Cassandra-API met behulp van Striim
+          href: cosmosdb-cassandra-api-migrate-data-striim.md
     - name: Bibliotheek voor bulksgewijs uitvoeren
       items:
         - name: Over de bibliotheek voor bulkuitvoering

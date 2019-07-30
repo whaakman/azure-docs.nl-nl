@@ -77,6 +77,8 @@
       items:
         - name: Toegang beperken met een virtueel netwerk (preview)
           href: container-registry-vnet.md
+        - name: Toegang achter een firewall
+          href: container-registry-firewall-access-rules.md
         - name: Verificatie
           items:
             - name: Verificatieoverzicht

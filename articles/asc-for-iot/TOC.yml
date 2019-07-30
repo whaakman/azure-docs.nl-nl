@@ -1,4 +1,4 @@
-- name: Documentatie voor Azure Security Center (ASC) voor IoT Preview
+- name: Documentatie voor Azure Security Center for IoT
   href: index.yml
 - name: Overzicht
   href: overview.md
@@ -11,16 +11,21 @@
       href: security-edge-architecture.md
     - name: Servicevereisten
       href: service-prerequisites.md
-    - name: Aan de slag met ASC voor IoT
+    - name: Aan de slag met Azure Security Center for IoT
       href: getting-started.md
+      items:
+        - name: IoT Hub
+          href: iot-hub-integration.md
+        - name: Beveiligingsagents
+          href: security-agents.md
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: ASC voor IoT inschakelen in IoT Hub
+    - name: Azure Security Center for IoT inschakelen in IoT Hub
       href: quickstart-onboard-iot-hub.md
     - name: De oplossing configureren
       href: quickstart-configure-your-solution.md
-    - name: Een ASC voor IoT-moduledubbel maken
+    - name: Een moduledubbel maken voor Azure Security Center for IoT
       href: quickstart-create-security-twin.md
     - name: Aangepaste beveiligingswaarschuwingen maken
       href: quickstart-create-custom-alerts.md
@@ -34,6 +39,8 @@
       href: concept-security-alerts.md
     - name: Aanbevelingen voor beveiliging
       href: concept-recommendations.md
+    - name: Aggregatie van gebeurtenissen
+      href: event-aggregation.md
     - name: Prijs en bijbehorende kosten
       href: concept-pricing.md
 - name: Handleidingen
@@ -48,6 +55,14 @@
           href: how-to-deploy-linux-cs.md
         - name: Een beveiligingsagent op basis van C implementeren op een Linux-apparaat
           href: how-to-deploy-linux-c.md
+    - name: Problemen met een beveiligingsagent oplossen
+      items:
+        - name: Problemen met een Linux-beveiligingsagent voor Azure Security Center for IoT oplossen
+          href: troubleshoot-agent.md
+        - name: C in lokale configuratie
+          href: azure-iot-security-local-configuration-c.md
+        - name: 'C# in lokale configuratie'
+          href: azure-iot-security-local-configuration-csharp.md
     - name: Edge-beveiligingsmodule implementeren
       href: how-to-deploy-edge.md
     - name: Beveiligingsagents configureren
