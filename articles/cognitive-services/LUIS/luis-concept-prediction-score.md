@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: ccbdb60687bd81de57ff675634f9d124f10784e1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 34ec5588a510574f4ea9f01bd23c6f6487e288da
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563949"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638352"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Voorspellings scores geven de nauw keurigheid van de voor spelling voor intentie en entiteiten aan
 
@@ -69,7 +69,7 @@ Voorspelling scores kunt exponent notatie *weergegeven* boven de 0-1 bereik, zoa
 
 ## <a name="punctuation"></a>Leestekens
 
-Interpunctie is een afzonderlijke token in LUIS. Een utterance die een punt bevat aan het einde en een utterance die geen punt aan het einde bevatten, zijn twee afzonderlijke uitingen en kunnen twee verschillende voor spellingen ontvangen. Zorg ervoor dat het model interpunctie ofwel worden verwerkt in de [voorbeeld uitingen](luis-concept-utterance.md) (met en niet met leestekens) of in de [patronen](luis-concept-patterns.md) waar is het eenvoudiger om interpunctie met de syntaxis van de speciale negeren: `I am applying for the {Job} position[.]`
+Meer [informatie](luis-concept-utterance.md#punctuation-marks) over het gebruik of negeren van interpunctie. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

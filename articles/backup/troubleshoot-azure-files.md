@@ -2,17 +2,17 @@
 title: Problemen met het maken van back-ups van Azure-bestandsshares oplossen
 description: Dit artikel gaat over het oplossen van problemen die optreden bij het beveiligen van uw Azure-bestandsshares.
 ms.service: backup
-author: rayne-wiselman
-ms.author: raynew
+author: dcurwin
+ms.author: dacurwin
 ms.date: 07/22/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: c44819bfda2f48195c25ad6be7608383162f3c61
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 486c0ae674f1549206b7aa3110faf31132c22f2a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467116"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639392"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Problemen bij het maken van back-ups van Azure-bestanden oplossen
 U kunt met behulp van de informatie in de volgende tabellen problemen en fouten oplossen die optreden tijdens het maken van back-ups van Azure-bestandsshares.

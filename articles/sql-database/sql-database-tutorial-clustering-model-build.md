@@ -1,7 +1,7 @@
 ---
-title: 'Zelfstudie: Clustering-model in R bouwen'
+title: 'Zelfstudie: Een clustering-model in R bouwen'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: In deel twee van deze driedelige zelfstudie bouwt u een model K-Means om uit te voeren clustering in R met Machine Learning Services (preview) van Azure SQL Database.
+description: In deel twee van deze reeks met drie zelf studies bouwt u een model van K-it voor het uitvoeren van clusters in R met Azure SQL Database Machine Learning Services (preview).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -12,44 +12,44 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/17/2019
-ms.openlocfilehash: 12738b63be92420c5f3afea6c133522cbd97f849
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.date: 07/29/2019
+ms.openlocfilehash: 9f16ebc5acff7bbccc9de28e2fab0d223c6e244b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66419760"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640009"
 ---
-# <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Zelfstudie: Clustering-model in R met Machine Learning Services (preview) van Azure SQL Database maken
+# <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Zelfstudie: Een cluster model bouwen in R met Azure SQL Database Machine Learning Services (preview)
 
-In deel twee van deze driedelige zelfstudie bouwt u een model K-Means om uit te voeren clustering in R met Machine Learning Services (preview) van Azure SQL Database.
+In deel twee van deze reeks met drie zelf studies bouwt u een model van K-it in R om clustering uit te voeren. In het volgende deel van deze reeks implementeert u dit model in een SQL database met Azure SQL Database Machine Learning Services (preview).
 
-In dit artikel leert u hoe u:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
-> * Het aantal clusters voor een algoritme K-Means definiëren
+> * Definieer het aantal clusters voor een K-betekent-algoritme
 > * Clustering uitvoeren
-> * Analyseer de resultaten
+> * De resultaten analyseren
 
-In [deel één](sql-database-tutorial-clustering-model-prepare-data.md), hebt u geleerd hoe u het voorbereiden van de gegevens van een Azure SQL-database om uit te voeren clustering in R.
+In [deel één](sql-database-tutorial-clustering-model-prepare-data.md)hebt u geleerd hoe u de gegevens van een Azure-SQL database voorbereidt voor het uitvoeren van een cluster.
 
-In [deel drie](sql-database-tutorial-clustering-model-deploy.md), leert u hoe u een opgeslagen procedure maken in een Azure SQL-database die clustering op basis van nieuwe gegevens kunt uitvoeren.
+In [deel drie](sql-database-tutorial-clustering-model-deploy.md)leert u hoe u een opgeslagen procedure maakt in een Azure-SQL database die clustering in R kan uitvoeren op basis van nieuwe gegevens.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Deel twee van deze zelfstudie wordt ervan uitgegaan dat u hebt [ **deel één** ](sql-database-tutorial-clustering-model-prepare-data.md) en de vereisten.
+* In deel twee van deze zelf studie wordt ervan uitgegaan dat u [**deel één**](sql-database-tutorial-clustering-model-prepare-data.md) en de bijbehorende vereisten hebt voltooid.
 
 ## <a name="define-the-number-of-clusters"></a>Het aantal clusters definiëren
 
-Als u wilt clusteren uw klantgegevens, gebruikt u de **K-Means** clustering-algoritme, de eenvoudigste en meest bekende manieren gegevens te groeperen.
-U kunt meer lezen over K-Means in [een volledige handleiding voor het K-means clustering-algoritme](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html).
+Als u uw klant gegevens wilt clusteren, gebruikt u het cluster algoritme **K-betekent** , een van de eenvoudigste en meest bekende manieren om gegevens te groeperen.
+Meer informatie over K-u vindt u in [een volledige hand leiding tot k: Clustering-algoritme](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html).
 
-Het algoritme accepteert twee invoeren: De gegevens zelf, en een vooraf gedefinieerd aantal '*k*' het aantal clusters te genereren.
-De uitvoer is *k* clusters met de ingevoerde gegevens tussen de clusters gepartitioneerd.
+Het algoritme accepteert twee invoer: De gegevens zelf en een vooraf gedefinieerd nummer "*k*" vertegenwoordigen het aantal clusters dat moet worden gegenereerd.
+De uitvoer is een *k* -cluster met de invoer gegevens die zijn gepartitioneerd tussen de clusters.
 
-Om te bepalen het aantal clusters voor de algoritme te gebruiken, gebruikt u een diagram van de binnen groepen som van de kwadraten, door het aantal clusters die zijn geëxtraheerd. Het juiste aantal clusters te gebruiken is bij de buigen of 'hoek' van de grafiek.
+Om het aantal clusters te bepalen voor het algoritme dat moet worden gebruikt, gebruikt u een plot van de som van de kwadraten van de groepen, op basis van het aantal uitgepakte clusters. Het juiste aantal clusters dat moet worden gebruikt, bevindt zich op de bocht of ' Elle ' hoek van het plot.
 
 ```r
 # Determine number of clusters by using a plot of the within groups sum of squares,
@@ -60,13 +60,13 @@ for (i in 2:20)
 plot(1:20, wss, type = "b", xlab = "Number of Clusters", ylab = "Within groups sum of squares")
 ```
 
-![Hoek graph](./media/sql-database-tutorial-clustering-model-build/elbow-graph.png)
+![Grafiek, gebogen](./media/sql-database-tutorial-clustering-model-build/elbow-graph.png)
 
-Op basis van de grafiek, het ziet eruit als *k = 4* zou zijn een goede waarde om te proberen. Dat *k* waarde de klanten in vier clusters worden gegroepeerd.
+Op basis van de grafiek ziet het eruit als *k = 4* een goede waarde om te proberen. Met de waarde *k* worden de klanten gegroepeerd in vier clusters.
 
 ## <a name="perform-clustering"></a>Clustering uitvoeren
 
-In het volgende R-script, gebruikt u de functie **rxKmeans**, dit is de functie K-Means in het pakket RevoScaleR.
+In het volgende R-script gebruikt u de functie **rxKmeans**, die de functie K-houdt in het RevoScaleR-pakket is.
 
 ```r
 # Output table to hold the customer group mappings.
@@ -88,11 +88,11 @@ clust <- rxKmeans( ~ orderRatio + itemsRatio + monetaryRatio + frequency,
 customer_cluster <- rxDataStep(return_cluster);
 ```
 
-## <a name="analyze-the-results"></a>Analyseer de resultaten
+## <a name="analyze-the-results"></a>De resultaten analyseren
 
-Nu dat u hebt gedaan de K-Means met clustering, wordt de volgende stap is het resultaat analyseren en kijk of u geen bruikbare informatie kunt vinden.
+Nu u klaar bent met het clusteren met behulp van K, is de volgende stap het resultaat te analyseren en te zien of u informatie kunt vinden die kan worden gebruikt.
 
-De **clust** -object bevat de resultaten van de K-Means clustering.
+Het **clust** -object bevat de resultaten van de K: Clustering.
 
 ```r
 #Look at the clustering details to analyze results
@@ -122,39 +122,39 @@ Within cluster sum of squares by cluster:
     0.0000  1329.0160 18561.3157   363.2188
 ```
 
-De middelen vier cluster zijn opgegeven met behulp van de variabelen gedefinieerd in [deel één](sql-database-tutorial-clustering-model-prepare-data.md#separate-customers):
+De vier clusters worden aangegeven met behulp van de variabelen die zijn gedefinieerd in [deel één](sql-database-tutorial-clustering-model-prepare-data.md#separate-customers):
 
-* *orderRatio* geretourneerde volgorde verhouding (totaal aantal orders volledig of gedeeltelijk geretourneerd ten opzichte van het totale aantal orders) =
-* *itemsRatio* = geretourneerde item verhouding (totaal aantal items geretourneerd ten opzichte van het aantal items die zijn gekocht)
-* *monetaryRatio* = retourbedrag verhouding (totale monetaire hoeveelheid geretourneerde ten opzichte van de hoeveelheid aangeschafte items)
-* *frequentie* terugkeerfrequentie =
+* *orderRatio* = verhouding van retour orders (het totale aantal orders is gedeeltelijk of volledig geretourneerd versus het totale aantal orders)
+* *itemsRatio* = geretourneerde item verhouding (het totale aantal geretourneerde items versus het aantal gekochte items)
+* *monetaryRatio* = verhouding retour bedrag (totale monetaire hoeveelheid items die wordt geretourneerd versus het aangeschafte bedrag)
+* *frequentie* = retour frequentie
 
-Gegevensanalyse met behulp van de K-Means vaak vereist verdere analyse van de resultaten en verdere stappen voor meer informatie over elk cluster, maar enkele goede leads kan bieden.
-Hier volgen een aantal manieren u deze resultaten kan interpreteren:
+Gegevens analyse met behulp van K: vereist vaak verdere analyse van de resultaten en verdere stappen voor een beter inzicht in elk cluster, maar het kan ook een goede lead bieden.
+Hier volgen enkele manieren waarop u deze resultaten kunt interpreteren:
 
-* Cluster 1 (de grootste cluster) lijkt te zijn van een groep klanten die niet actief (alle waarden zijn nul).
-* Cluster 3 lijkt te zijn van een groep die in termen van geretourneerde gedrag opvallen.
+* Cluster 1 (het grootste cluster) lijkt een groep klanten te zijn die niet actief zijn (alle waarden zijn nul).
+* Cluster 3 lijkt een groep te zijn die in termen van retour gedrag opvalt.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-***Als u niet verder te gaan met deze zelfstudie om***, de database tpcxbb_1gb verwijderen uit uw Azure SQL Database-server.
+***Als u niet verder gaat met deze zelf studie***, verwijdert u de tpcxbb_1gb-data base van uw Azure SQL database-server.
 
-Voer de volgende stappen uit vanuit de Azure-portal:
+Voer de volgende stappen uit op de Azure Portal:
 
-1. Selecteer in het menu links in Azure portal **alle resources** of **SQL-databases**.
-1. In de **filteren op naam...**  veld **tpcxbb_1gb**, en selecteer uw abonnement.
-1. Selecteer uw **tpcxbb_1gb** database.
+1. Selecteer in het menu aan de linkerkant in het Azure Portal **alle resources** of **SQL-data bases**.
+1. Typ **tpcxbb_1gb**in het veld **filteren op naam...** en selecteer uw abonnement.
+1. Selecteer uw **tpcxbb_1gb** -data base.
 1. Selecteer **Verwijderen** op de pagina **Overzicht**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deel twee van deze zelfstudie, moet u deze stappen voltooid:
+In deel twee van deze reeks zelf studies hebt u de volgende stappen uitgevoerd:
 
-* Het aantal clusters voor een algoritme K-Means definiëren
+* Definieer het aantal clusters voor een K-betekent-algoritme
 * Clustering uitvoeren
-* Analyseer de resultaten
+* De resultaten analyseren
 
-Volg deel drie van deze serie zelfstudies voor het implementeren van de machine learning-model dat u hebt gemaakt:
+Voor het implementeren van het machine learning model dat u hebt gemaakt, volgt u deel drie van deze reeks zelf studies:
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Clustering-model in R met Machine Learning Services (preview) van Azure SQL Database implementeren](sql-database-tutorial-clustering-model-deploy.md)
+> [Zelfstudie: Een cluster model in R implementeren met Azure SQL Database Machine Learning Services (preview-versie)](sql-database-tutorial-clustering-model-deploy.md)

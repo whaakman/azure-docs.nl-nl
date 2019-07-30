@@ -7,26 +7,26 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/23/2019
+ms.topic: reference
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 595a835018475ed3aa915971f5ff2b78981e7bdf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0bf7fe649a5a604c610307b9be0717dce01cb238
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560496"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638291"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Taal informatie over woorden lijst met veelgestelde woorden en concepten
 De Language Understanding (LUIS) verklarende woordenlijst wordt uitgelegd dat de voorwaarden die u kunt tegenkomen wanneer u met de LUIS-API-Service werkt.
 
 ## <a name="active-version"></a>Actieve versie
 
-De actieve LUIS-versie is de versie die wijzigingen in het model ontvangt. In de [LUIS](luis-reference-regions.md) website, als u wijzigingen wilt aanbrengen in een versie die is niet de versie van het actieve, moet u eerst die versie instellen als actief.
+De actieve LUIS-versie is de versie die wijzigingen in het model ontvangt. Als u in de [Luis](luis-reference-regions.md) -Portal wijzigingen wilt aanbrengen in een versie die niet de actieve versie is, moet u deze versie eerst instellen als actief.
 
 ## <a name="authoring"></a>Ontwerpen
 
-Schrijven is de mogelijkheid om te maken, beheren en implementeren van een [LUIS-app](#luis-app), mogelijk maken via de [LUIS](luis-reference-regions.md) website of de [API's ontwerpen](https://go.microsoft.com/fwlink/?linkid=2092087).
+Ontwerpen is de mogelijkheid om een [Luis-app](#luis-app)te maken, te beheren en te implementeren met behulp van de [Luis](luis-reference-regions.md) -portal of de [ontwerp-api's](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="authoring-key"></a>Sleutel ontwerpen
 
@@ -34,30 +34,12 @@ Eerder met de naam "Programmatic" sleutel. Gebruikt voor het maken van de app. N
 
 ## <a name="batch-test-json-file"></a>Batch tekst JSON-bestand
 
-De batch-bestand is een JSON-matrix. Elk element in de matrix heeft drie eigenschappen: `text`, `intent`, en `entities`. De `entities` eigenschap is een matrix. De matrix kan niet leeg zijn. Als de `entities` matrix is niet leeg zijn, moet dit de entiteiten nauwkeurig te identificeren.
+Batch tests is de mogelijkheid om een huidige model van de LUIS-app te valideren met een consistente en bekende testset van gebruikers uitingen. De batch test is gedefinieerd in een [JSON-bestand](luis-concept-batch-test.md#batch-file-format).
 
-```JSON
-[
-    {
-        "text": "drive me home",
-        "intent": "None",
-        "entities": []
-    },
-    {
-        "text": "book a flight to orlando on the 25th",
-        "intent": "BookFlight",
-        "entities": [
-            {
-                "entity": "orlando",
-                "type": "Location",
-                "startIndex": 18,
-                "endIndex": 25
-            }
-        ]
-    }
-]
-
-```
+Zie ook: 
+* [Concepten](luis-concept-batch-test.md)
+* [Instructies](luis-how-to-batch-test.md)
+* [Zelf studie] Luis-zelf studie-batch-testing.md)
 
 
 ## <a name="collaborator"></a>De samenwerker
@@ -114,7 +96,7 @@ Een [bedoeling](luis-concept-intent.md) vertegenwoordigt een taak of een actie d
 
 ## <a name="labeling"></a>Labels
 
-Labels is het proces van het koppelen van een woord of zinsdeel in van een doel [utterance](#utterance) met een [entiteit](#entity) (gegevenstype).
+Labelen of markeren is het proces van het koppelen van een woord of woord groep in een [utterance](#utterance) met een [entiteit](#entity) (data type).
 
 ## <a name="luis-app"></a>LUIS-app
 

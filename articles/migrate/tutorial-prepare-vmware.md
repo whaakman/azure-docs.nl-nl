@@ -1,167 +1,167 @@
 ---
-title: Virtuele VMware-machines voor evaluatie en migratie naar Azure met Azure Migrate voorbereiden | Microsoft Docs
-description: Beschrijft hoe u om voor te bereiden voor evaluatie en migratie van on-premises VMware-machines naar Azure met Azure Migrate.
+title: VMware-Vm's voorbereiden voor evaluatie en migratie naar Azure met Azure Migrate | Microsoft Docs
+description: Hierin wordt beschreven hoe u de evaluatie en migratie van on-premises virtuele VMware-machines naar Azure voorbereidt met behulp van Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 10f559295ff0598dea26fb30b089f020e2985889
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 286223e091ab0fe8521c29de12e37f5a112240dc
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840345"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640764"
 ---
-# <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Virtuele VMware-machines voorbereiden voor evaluatie en migratie naar Azure
+# <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>VMware-Vm's voorbereiden voor evaluatie en migratie naar Azure
 
-In dit artikel wordt beschreven hoe u om voor te bereiden voor evaluatie en migratie van on-premises VMware-machines naar Azure, met behulp van [Azure Migrate](migrate-services-overview.md).
+In dit artikel wordt beschreven hoe u de evaluatie en migratie van on-premises virtuele VMware-machines naar Azure voorbereidt met behulp van [Azure migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-overview.md) biedt een hub van hulpprogramma's die u helpen te detecteren, beoordelen en apps, infrastructuur en workloads migreren naar Microsoft Azure. De hub bevat Azure Migrate-hulpprogramma's en aanbiedingen van derden independent software vendor (ISV). 
+[Azure migrate](migrate-overview.md) biedt een hub aan hulpprogram ma's waarmee u apps, infra structuur en werk belastingen op Microsoft Azure kunt detecteren, evalueren en migreren. De hub bevat Azure Migrate-hulpprogram ma's en ISV-aanbiedingen (Independent Software Vendor) van derden. 
 
 
-In deze zelfstudie is de eerste in een serie die laat zien u hoe evalueren en migreren van virtuele VMware-machines. In deze zelfstudie leert u het volgende:
+Deze zelf studie is de eerste in een serie die laat zien hoe u virtuele VMware-machines kunt beoordelen en migreren. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Azure voorbereiden. Instellen van machtigingen voor uw Azure-account en resources voor het werken met Azure Migrate.
-> * On-premises VMware-servers en virtuele machines voorbereiden voor de evaluatie van de virtuele machine.
-> * On-premises VMware-servers en virtuele machines voorbereiden voor VM-migratie.
+> * Azure voorbereiden. Stel machtigingen in voor uw Azure-account en-resources om met Azure Migrate te werken.
+> * On-premises VMware-servers en virtuele machines voorbereiden voor de VM-evaluatie.
+> * On-premises VMware-servers en virtuele machines voorbereiden voor de migratie van vm's.
 
 > [!NOTE]
-> Zelfstudies ziet u het meest eenvoudige implementatie-pad voor een scenario, zodat u snel een proof-of-concept kunt instellen. Zelfstudies standaardopties gebruik waar mogelijk, en niet alle mogelijke instellingen en paden weergeven. Lees de instructies voor VMware-evaluatie en migratie voor gedetailleerde instructies.
+> In zelf studies ziet u het eenvoudigste installatiepad voor een scenario, zodat u snel een haalbaarheids test kunt instellen. Zelf studies gebruiken waar mogelijk standaard opties en worden niet alle mogelijke instellingen en paden weer gegeven. Raadpleeg de uitleg bij VMware-evaluatie en-migratie voor gedetailleerde instructies.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/pricing/free-trial/) aan voordat u begint.
 
 
 ## <a name="prepare-azure"></a>Azure voorbereiden
 
-U hebt deze Azure-machtigingen nodig:
+U hebt de volgende Azure-machtigingen nodig:
 
-- Uw Azure-account moet machtigingen voor het maken van een Azure Migrate-project voor evaluatie en migratie. 
-- Voor evaluatie en zonder agents migratie van virtuele VMware-machines voert Azure Migrate een lichtgewicht apparaat dat VM's worden gedetecteerd en de gegevens van de metagegevens en prestaties van de virtuele machine naar Azure Migrate wordt verzonden. In Azure moet u machtigingen voor het registreren van het apparaat Azure Migrate.
-- Voor het migreren van virtuele VMware-machines met behulp van Azure Migrate-servermigratie, maakt Azure Migrate een Key Vault in de resourcegroep, om toegang tot sleutels naar de replicatie-storage-account in uw abonnement te beheren. Voor het maken van de kluis, moet u machtigingen voor capaciteitstoewijzingen rol maken voor de resourcegroep waarin de Azure Migrate-project zich bevindt. 
-
-
-### <a name="assign-permissions-to-create-project"></a>Machtigingen toewijzen aan het project maken
-
-1. In de Azure-portal, opent u het abonnement en selecteer **toegangsbeheer (IAM)** .
-2. In **toegang controleren**, het relevante account zoeken en klikt u erop om machtigingen weer te geven.
-3. U moet beschikken over **Inzender** of **eigenaar** machtigingen.
-    - Als u een gratis Azure-account hebt gemaakt, u kunt de eigenaar van uw abonnement.
-    - Als u niet de eigenaar bent, werkt u met de eigenaar van de rol toewijzen.
-
-### <a name="assign-permissions-to-register-the-appliance"></a>Machtigingen toewijzen aan het apparaat registreren
-
-Als u het apparaat Azure Migrate beoordelen of het uitvoeren van een zonder agent migratie van virtuele machines implementeert, moet u deze te registreren.
-
-- Tijdens de registratie van het toestel maakt Azure Migrate twee apps in Azure Active Directory (Azure AD) die unieke identificatie van het apparaat
-    - De eerste app communiceert met Azure Migrate-service-eindpunten.
-    - De tweede app toegang heeft tot een Azure Key Vault gemaakt tijdens de registratie voor het opslaan van Azure AD-app-info en toestel configuratie-instellingen.
-- U kunt machtigingen voor Azure Migrate te maken van deze Azure AD-apps met behulp van een van de volgende methoden:
-    - Een tenant/globale beheerder kan machtigingen verlenen aan gebruikers in de tenant, maken en registreren van Azure AD-apps.
-    - Een tenant/globale beheerder kan de rol van ontwikkelaar van toepassing (met de machtigingen) toewijzen aan het account.
-
-Is het vermelden waard dat:
-
-- De apps hebt geen andere toegangsmachtigingen voor het abonnement dan de hierboven beschreven.
-- Deze machtigingen hoeft u alleen een nieuw apparaat te registreren. Nadat het apparaat is ingesteld, kunt u de machtigingen verwijderen. 
+- Uw Azure-account moet machtigingen hebben om een Azure Migrate project te maken voor evaluatie en migratie. 
+- Voor evaluatie en agentloze migratie van virtuele VMware-machines voert Azure Migrate een licht gewicht-apparaat uit dat Vm's detecteert en de meta gegevens en prestatie gegevens van de virtuele machine naar Azure Migrate verzendt. In azure hebt u machtigingen nodig om het Azure Migrate apparaat te registreren.
+- Als u virtuele VMware-machines wilt migreren met Azure Migrate server migratie, maakt Azure Migrate een Key Vault in de resource groep, om toegangs sleutels te beheren voor het opslag account voor replicatie in uw abonnement. Als u de kluis wilt maken, moet u machtigingen voor roltoewijzing hebben voor de resource groep waarin het Azure Migrate-project zich bevindt. 
 
 
-#### <a name="grant-account-permissions"></a>Accountmachtigingen verlenen
+### <a name="assign-permissions-to-create-project"></a>Machtigingen toewijzen voor het maken van een project
 
-De tenant/globale beheerder kan als volgt machtigingen verlenen
+1. Open in het Azure Portal het abonnement en selecteer **toegangs beheer (IAM)** .
+2. Zoek in **toegang controleren**het relevante account en klik erop om de machtigingen weer te geven.
+3. U moet machtigingen voor **Inzender** of **eigenaar** hebben.
+    - Als u zojuist een gratis Azure-account hebt gemaakt, bent u de eigenaar van uw abonnement.
+    - Als u niet de eigenaar van het abonnement bent, kunt u met de eigenaar samen werken om de rol toe te wijzen.
 
-1. De tenant/globale beheerder moet in Azure AD, navigeer naar **Azure Active Directory** > **gebruikers** > **gebruikersinstellingen**.
-2. De beheerder moet ingesteld **App-registraties** naar **Ja**.
+### <a name="assign-permissions-to-register-the-appliance"></a>Machtigingen toewijzen om het apparaat te registreren
+
+Als u het Azure Migrate apparaat implementeert om een migratie van Vm's zonder agent te evalueren of uit te voeren, moet u dit registreren.
+
+- Tijdens de registratie van het apparaat maakt Azure Migrate twee Azure Active Directory (Azure AD)-apps waarmee het apparaat op unieke wijze wordt geïdentificeerd
+    - De eerste app communiceert met Azure Migrate service-eind punten.
+    - De tweede app heeft toegang tot een Azure Key Vault die tijdens de registratie is gemaakt voor het opslaan van Azure AD-App-gegevens en configuratie-instellingen voor het apparaat.
+- U kunt machtigingen voor Azure Migrate toewijzen om deze Azure AD-apps te maken met behulp van een van de volgende methoden:
+    - Een Tenant/globale beheerder kan machtigingen verlenen aan gebruikers in de Tenant om Azure AD-apps te maken en registreren.
+    - Een Tenant/globale beheerder kan de rol van toepassings ontwikkelaar (die de machtigingen heeft) toewijzen aan het account.
+
+Het is een goed idee dat:
+
+- De apps hebben geen andere toegangs machtigingen voor het abonnement dan de hierboven beschreven.
+- U hebt deze machtigingen alleen nodig wanneer u een nieuw apparaat registreert. U kunt de machtigingen verwijderen nadat het apparaat is ingesteld. 
+
+
+#### <a name="grant-account-permissions"></a>Account machtigingen verlenen
+
+De Tenant/globale beheerder kan machtigingen als volgt verlenen
+
+1. In azure AD moet de Tenant/globale beheerder navigeren naar **Azure Active Directory** > **gebruikers** > **instellingen**.
+2. De beheerder moet **app-registraties** instellen op **Ja**.
 
     ![Azure AD-machtigingen](./media/tutorial-prepare-vmware/aad.png)
 
 > [!NOTE]
-> Dit is een standaardinstelling die gevoelige niet. [Meer informatie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> Dit is een standaard instelling die niet gevoelig is. [Meer informatie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 
 
-#### <a name="assign-application-developer-role"></a>Toepassingsontwikkelaar rol toewijzen 
+#### <a name="assign-application-developer-role"></a>Rol toepassings ontwikkelaar toewijzen 
 
-De tenant/globale beheerder kan de rol van ontwikkelaar toewijzen aan een account. [Meer informatie](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+De Tenant/globale beheerder kan de rol van toepassings ontwikkelaar toewijzen aan een account. [Meer informatie](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
-## <a name="assign-role-assignment-permissions"></a>Machtigingen voor capaciteitstoewijzingen rol toewijzen
+## <a name="assign-role-assignment-permissions"></a>Toewijzings machtigingen voor rollen toewijzen
 
-Rolmachtigingen-toewijzing voor de resourcegroep waarin de Azure Migrate-project zich, als volgt bevindt toewijzen:
+Wijs als volgt machtigingen voor roltoewijzing toe voor de resource groep waarin het Azure Migrate project zich bevindt:
 
-1. Selecteer in de resourcegroep in Azure portal, **toegangsbeheer (IAM)** .
-2. In **toegang controleren**, het relevante account zoeken en klikt u erop om machtigingen weer te geven.
+1. Selecteer in de resource groep in de Azure Portal **toegangs beheer (IAM)** .
+2. Zoek in **toegang controleren**het relevante account en klik erop om de machtigingen weer te geven.
 
-    - Om uit te voeren van server-evaluatie, **Inzender** machtigingen zijn voldoende.
-    - Om uit te voeren zonder agent servermigratie, hebt u **eigenaar** (of **Inzender** en **Administrator voor gebruikerstoegang**) machtigingen.
+    - Voor het uitvoeren van server evaluatie zijn **Inzender** machtigingen voldoende.
+    - Als u migratie zonder agent wilt uitvoeren, moet u de machtigingen **eigenaar** (of **Inzender** en **gebruikers toegang beheerder**) hebben.
 
-3. Als u niet de vereiste machtigingen hebt, kunt u deze van de eigenaar van de resource-groep aanvragen. 
-
-
-
-## <a name="prepare-for-vmware-vm-assessment"></a>Voorbereiden voor de evaluatie van VMware-VM
-
-Om voor te bereiden voor de evaluatie van VMware-VM, moet u controleren of Hyper-V-host en VM-instellingen en controleer de instellingen voor de implementatie van het apparaat.
-
-### <a name="verify-vmware-settings"></a>Controleer de instellingen voor VMware
-
-1. [Controleer of](migrate-support-matrix-vmware.md#assessment-vmware-server-requirements) VMware-serververeisten voor evaluatie van de virtuele machine.
-2. [Zorg ervoor dat](migrate-support-matrix-vmware.md#assessment-port-requirements) dat de vereiste poorten geopend op de vCenter-servers zijn.
+3. Als u niet over de vereiste machtigingen beschikt, vraagt u deze aan bij de eigenaar van de resource groep. 
 
 
-### <a name="set-up-an-account-for-assessment"></a>Instellen van een account voor de beoordeling
 
-Azure Migrate moet toegang hebben tot de vCenter-Server voor het detecteren van virtuele machines voor evaluatie en migratie zonder agent. Voor evaluatie moet u een alleen-lezen-account voor de vCenter-Server.
+## <a name="prepare-for-vmware-vm-assessment"></a>Voor bereiding voor VMware VM-evaluatie
 
-Als u een URL-gebaseerde firewall.proxy, toegang tot de vereiste toestaan [Azure-URL's](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
+Voor de voor bereiding op de implementatie van een VMware-VM moet u de instellingen voor de Hyper-V-host en de virtuele machine controleren en de instellingen voor de configuratie van het apparaat controleren.
 
-Zorg ervoor dat de proxy wordt omgezet een CNAME-records hebt ontvangen tijdens het opzoeken van de URL's.
+### <a name="verify-vmware-settings"></a>VMware-instellingen verifiëren
 
-
-### <a name="verify-appliance-settings-for-assessment"></a>Controleer of de instellingen voor evaluatie van het toestel
-
-Voordat het instellen van het apparaat Azure Migrate en evaluatie van het begin in de volgende zelfstudie, bereid u voor de implementatie van het apparaat.
-
-1. Controleer of [controleren](migrate-support-matrix-vmware.md#assessment-appliance-requirements) vereisten voor het instellen van het apparaat Azure Migrate in VMware.
-2. [Beoordeling](migrate-support-matrix-vmware.md#assessment-url-access-requirements) de Azure-URL's die het apparaat toegang nodig hebben.
-3. Controleer de gegevens waarmee het apparaat worden verzameld tijdens de detectie en evaluatie.
-4. [Houd er rekening mee](migrate-support-matrix-vmware.md#assessment-port-requirements) poort toegangsvereisten voor het apparaat.
-5. U kunt het apparaat Azure Migrate implementeren als een VMware-VM met behulp van een OVA-bestand. Controleer of uw account heeft machtigingen voor het maken van een virtuele machine met behulp van een OVA-bestand op de vCenter-Server.
+1. [Verifiëren](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements) Vereisten voor de VMware-Server voor de VM-evaluatie.
+2. [Zorg ervoor](migrate-support-matrix-vmware.md#assessment-port-requirements) dat de vereiste poorten zijn geopend op vCenter-servers.
 
 
-## <a name="prepare-for-agentless-vmware-migration"></a>Voorbereiden voor zonder agent VMware-migratie
+### <a name="set-up-an-account-for-assessment"></a>Een account instellen voor evaluatie
 
-Bekijk de vereisten voor de zonder agent migratie van virtuele VMware-machines.
+Azure Migrate moet toegang hebben tot de vCenter Server om Vm's te ontdekken voor de evaluatie en migratie zonder agent. Alleen voor beoordeling hebt u een alleen-lezen-account nodig voor de vCenter Server.
 
-1. [Beoordeling](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) VMware-serververeisten voor migratie zonder agent.
-2. Instellen van een account voor toegang tot de vCenter-Server met de [vereiste machtigingen](migrate-support-matrix-vmware.md#agentless-migration-vcenter-server-permissions) voor migratie zonder agent.
-3. [Houd er rekening mee](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements) de vereisten voor VMware-VM's die u wilt migreren naar Azure met behulp van de migratie van de zonder agent.
-4. [Beoordeling](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements) toestel vereisten voor migratie zonder agent.]
-5. Houd er rekening mee toestel [tot URL's](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) en [toegang tot poort](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) vereisten voor migratie zonder agent.
+Als u een firewall op basis van een URL gebruikt, verleent u toegang tot de vereiste [Azure-url's](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
+
+Zorg ervoor dat de proxy alle CNAME-records die zijn ontvangen, verhelpt tijdens het opzoeken van de Url's.
 
 
-## <a name="prepare-for-agent-based-vmware-migration"></a>Voorbereiden voor migratie van VMware op basis van een agent
+### <a name="verify-appliance-settings-for-assessment"></a>De instellingen van het toestel controleren op evaluatie
 
-Bekijk de vereisten voor migratie van virtuele VMware-machines op basis van een agent.
+Voordat u het Azure Migrate apparaat instelt en de evaluatie begint in de volgende zelf studie, moet u de implementatie van het apparaat voorbereiden.
 
-1. [Beoordeling](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) VMware-serververeisten voor migratie zonder agent. 
-2. Instellen van een account voor toegang tot de vCenter-Server met de [vereiste machtigingen](migrate-support-matrix-vmware.md#agent-based-migration-vcenter-server-permissions) voor migratie zonder agent.
-3. [Houd er rekening mee](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) de vereisten voor VMware-VM's die u migreren naar Azure met behulp van de migratie op basis van een agent wilt, inclusief de installatie van de Mobility-service op elke virtuele machine die u wilt migreren.
-4. Houd er rekening mee [tot URL's](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements).
-5. Beoordeling [toegang tot poort](migrate-support-matrix-vmware.md#agent-based-migration-port-requirements) vereisten voor de Mobility-service die wordt uitgevoerd op elke virtuele machine, en de configuratieserver Azure Migrate.
+1. Controleer [de vereisten voor](migrate-support-matrix-vmware.md#assessment-appliance-requirements) het instellen van het Azure migrate apparaat in VMware.
+2. [Bekijk](migrate-support-matrix-vmware.md#assessment-url-access-requirements) de Azure-url's die het apparaat nodig heeft om toegang te krijgen.
+3. Bekijk de gegevens die door het apparaat worden verzameld tijdens de detectie en evaluatie.
+4. [Noteer](migrate-support-matrix-vmware.md#assessment-port-requirements) de toegangs vereisten voor poorten voor het apparaat.
+5. U implementeert het Azure Migrate-apparaat als een virtuele VMware-machine met behulp van een bestand van de eicellen. Zorg er op vCenter Server voor dat uw account machtigingen heeft voor het maken van een virtuele machine met behulp van een bestand met eicellen.
+
+
+## <a name="prepare-for-agentless-vmware-migration"></a>Voorbereiden van VMware-migratie zonder agent
+
+Bekijk de vereisten voor de migratie van virtuele VMware-machines in agents.
+
+1. [Controleren](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) VMware-Server vereisten voor migratie zonder agent.
+2. Stel een account in voor toegang tot de vCenter Server met de [vereiste machtigingen](migrate-support-matrix-vmware.md#agentless-migration-vcenter-server-permissions) voor de migratie zonder agent.
+3. [Let](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements) op de vereisten voor VMware-vm's die u wilt migreren naar Azure met migratie zonder agent.
+4. [Controleer](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements) de vereisten voor apparaten voor migratie zonder agent.]
+5. Opmerking toegang tot de toestel- [URL](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) en toegangs vereisten voor [poorten](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) voor migratie zonder agent.
+
+
+## <a name="prepare-for-agent-based-vmware-migration"></a>Voorbereiden voor VMware-migratie op basis van agents
+
+Bekijk de vereisten voor de migratie van virtuele VMware-machines op basis van een agent.
+
+1. [Controleren](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) VMware-Server vereisten voor migratie zonder agent. 
+2. Stel een account in voor toegang tot de vCenter Server met de [vereiste machtigingen](migrate-support-matrix-vmware.md#agent-based-migration-vcenter-server-permissions) voor de migratie zonder agent.
+3. [Let](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) op de vereisten voor VMware-vm's die u wilt migreren naar Azure met migratie op basis van een agent, inclusief de installatie van de Mobility-service op elke virtuele machine die u wilt migreren.
+4. Let op [URL-toegang](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements).
+5. Controleer de toegangs vereisten voor de [poort](migrate-support-matrix-vmware.md#agent-based-migration-port-requirements) voor de Mobility-service die wordt uitgevoerd op elke virtuele machine en voor de Azure migrate configuratie server.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u:
  
 > [!div class="checklist"] 
-> * Azure-machtigingen instellen.
-> * VMware voorbereid voor evaluatie en migratie.
+> * Stel Azure-machtigingen in.
+> * VMware is voor bereid voor evaluatie en migratie.
 
 
-Ga verder met de tweede zelfstudie voor het instellen van een Azure Migrate-project en VMware-VM's beoordelen voor migratie naar Azure.
+Ga door naar de tweede zelf studie voor het instellen van een Azure Migrate project en evalueer VMware-Vm's voor migratie naar Azure.
 
 > [!div class="nextstepaction"] 
-> [VMware-VM's beoordelen](./tutorial-migrate-vmware.md) 
+> [Virtuele VMware-machines beoordelen](./tutorial-migrate-vmware.md) 
 

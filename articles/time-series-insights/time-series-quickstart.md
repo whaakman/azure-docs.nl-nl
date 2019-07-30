@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Azure Time Series Insights-verkenner | Microsoft Docs'
-description: In deze Quick Start laat zien hoe u aan de slag met de Azure Time Series Insights explorer in uw webbrowser grote hoeveelheden IoT-gegevens visualiseren. In dit artikel worden de belangrijkste functies van de verkenner van Azure Time Series Insights behandeld via een rondleiding in een demo-omgeving.
+description: In deze Snelstartgids ziet u hoe u aan de slag kunt gaan met de Azure Time Series Insights Explorer in uw webbrowser om grote hoeveel heden IoT-gegevens te visualiseren. In dit artikel worden de belangrijkste functies van de verkenner van Azure Time Series Insights behandeld via een rondleiding in een demo-omgeving.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -10,53 +10,53 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/22/2019
-ms.openlocfilehash: 415ce28a7cab77c538a7dfb8f387900ff515dd0e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 07/29/2019
+ms.openlocfilehash: 94402953a7168b6518d0a50f81f75ee63da8c902
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164550"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638875"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Snelstartgids: Azure Time Series Insights verkennen
 
-Deze quickstart van Azure Time Series Insights explorer kunt u aan de slag met Time Series Insights in een gratis demo-omgeving. Via deze leert u hoe u uw webbrowser gebruiken voor het visualiseren van grote hoeveelheden IoT gegevens en rondleiding door de belangrijkste functies die nu algemeen beschikbaar.
+Met de Snelstartgids van Azure Time Series Insights Explorer kunt u aan de slag met Time Series Insights in een gratis demonstratie omgeving. U leert hoe u uw webbrowser kunt gebruiken om grote hoeveel heden IoT-gegevens en-Tour functies te visualiseren die nu algemeen beschikbaar zijn.
 
-Azure Time Series Insights is een volledig beheerde analyse-, opslag- en visualisatie-service die hoe vereenvoudigt te verkennen en analyseren van miljarden IoT-gebeurtenissen tegelijkertijd. Dit biedt u een algemeen overzicht van uw gegevens zodat u snel uw IoT-oplossing te valideren en kostbare stilstand van essentiële apparaten te vermijden. Azure Time Series Insights helpt u bij het detecteren van verborgen trends, anomalieën te herkennen en oorzaak-gevolganalyses bijna in realtime uitvoeren.
+Azure Time Series Insights is een volledig beheerde analyse-, opslag-en visualisatie service die het eenvoudiger maakt om miljarden IoT-gebeurtenissen tegelijkertijd te verkennen en te analyseren. Het biedt u een wereld wijde weer gave van uw gegevens, zodat u uw IoT-oplossing snel kunt valideren en kost bare downtime van essentiële apparaten te voor komen. Azure Time Series Insights helpt u bij het ontdekken van verborgen trends, afwijkings afwijkingen en het uitvoeren van analyses in de buurt van de hoofd oorzaak.
 
-Voor meer flexibiliteit, kunt u Azure Time Series Insights toevoegen aan een bestaande toepassing via de krachtige [REST-API's](./time-series-insights-update-tsq.md) en [client-SDK](./tutorial-create-tsi-sample-spa.md). De API's kunt u opslaat, query, en gebruiken van time series-gegevens in een clienttoepassing van uw keuze. U kunt ook de client-SDK gebruiken UI-onderdelen toevoegen aan uw bestaande toepassing.
+Voor extra flexibiliteit kunt u Azure Time Series Insights toevoegen aan een bestaande toepassing via de krachtige [rest api's](./time-series-insights-update-tsq.md) en de [client-SDK](./tutorial-create-tsi-sample-spa.md). U kunt de Api's gebruiken voor het opslaan, opvragen en gebruiken van Time Series-gegevens in een client toepassing naar keuze. U kunt ook de client-SDK gebruiken om UI-onderdelen toe te voegen aan uw bestaande toepassing.
 
-In deze snelstartgids van Time Series Insights explorer biedt een rondleiding van functies die nu algemeen beschikbaar.
+Deze Quick Start van Time Series Insights Explorer biedt een rond leiding door functies die nu algemeen beschikbaar zijn.
 
-## <a name="prepare-the-demo-environment"></a>De demo-omgeving voorbereiden
+## <a name="prepare-the-demo-environment"></a>De demo omgeving voorbereiden
 
-1. Maak een [gratis Azure-account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) als u een al hebt gemaakt.
+1. Maak een [gratis Azure-account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) als u er nog geen hebt gemaakt.
 
-1. Ga in uw browser naar de [demo voor algemene beschikbaarheid](https://insights.timeseries.azure.com/demo).
+1. Ga in uw browser naar de [demo over algemene Beschik baarheid](https://insights.timeseries.azure.com/demo).
 
-1. Als u hierom wordt gevraagd, aanmelden bij de Verkenner van Time Series Insights met behulp van de referenties van uw Azure-account.
+1. Meld u bij de Time Series Insights Explorer aan met de referenties van uw Azure-account als u hierom wordt gevraagd.
 
-1. De Time Series Insights korte Tour langs de pagina wordt weergegeven. Selecteer **volgende** om te beginnen met de rondleiding.
+1. De pagina met Time Series Insights snelle rond leiding wordt weer gegeven. Selecteer **volgende** om de rond leiding te starten.
 
-   [![Klik op volgende](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
+   [![Selecteer volgende](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
 
-## <a name="explore-the-demo-environment"></a>De demo-omgeving verkennen
+## <a name="explore-the-demo-environment"></a>De demo omgeving verkennen
 
-1. De **deelvenster tijd selecteren** wordt weergegeven. Gebruik dit venster om het tijdsbestek te selecteren dat u wilt visualiseren.
+1. Het **deel venster tijd selecteren** wordt weer gegeven. Gebruik dit venster om het tijdsbestek te selecteren dat u wilt visualiseren.
 
-   [![Deelvenster tijd selecteren](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
+   [![Deel venster tijd selectie](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
 
-1. Selecteer een bepaalde periode en sleept u deze in de regio. Selecteer vervolgens **zoeken**.
+1. Selecteer een tijds bestek en sleep dit in de regio. Selecteer vervolgens **zoeken**.
 
-   [![Een tijdsbestek selecteren](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
+   [![Een tijds bestek selecteren](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
 
-   U ziet in Time Series Insights een grafiek met een visualisatie voor het opgegeven tijdsbestek. U kunt verschillende bewerkingen uitvoeren in het lijndiagram doen. U kunt bijvoorbeeld filteren, vastmaken, sorteren en stapelen.
+   U ziet in Time Series Insights een grafiek met een visualisatie voor het opgegeven tijdsbestek. U kunt verschillende acties uitvoeren in het lijn diagram. U kunt bijvoorbeeld filteren, vastmaken, sorteren en stapelen.
 
-   Om terug te keren naar de **deelvenster tijd selecteren**, selecteer de pijl-omlaag, zoals wordt weergegeven:
+   Als u wilt terugkeren naar het **deel venster tijd**selecteren, selecteert u de pijl-omlaag zoals weer gegeven:
 
    [![Grafiek](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
 
-1. Selecteer **toevoegen** in de **deelvenster termen** om toe te voegen een nieuwe zoekterm.
+1. Selecteer **toevoegen** in het **deel venster voor waarden** om een nieuwe zoek term toe te voegen.
 
    [![Item toevoegen](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
 
@@ -64,24 +64,31 @@ In deze snelstartgids van Time Series Insights explorer biedt een rondleiding va
 
    [![Gebeurtenissen verkennen](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
 
-   Een raster met de onbewerkte gegevens die worden weergegeven in de regio die u verkent.
+   Een raster van uw onbewerkte gegevens wordt weer gegeven in de regio die u wilt verkennen.
 
-   [![Rasterweergave](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
+   [![Raster weergave](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
 
-## <a name="select-and-filter-data"></a>Selecteren en filteren van gegevens
+## <a name="select-and-filter-data"></a>Gegevens selecteren en filteren
 
-1. Bewerk uw voorwaarden om de waarden in de grafiek te wijzigen. Voeg een andere term om kruislings te correleren verschillende soorten waarden.
+1. Bewerk uw voor waarden om de waarden in de grafiek te wijzigen. Voeg een andere term toe om verschillende soorten waarden kruislings te correleren.
 
    [![Een term toevoegen](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
 
-1. Typ een filterterm in de **reeks filteren** vak voor het filteren van geïmproviseerde reeks. Voor deze quickstart voeren we **Station5** in om de temperatuur- en drukwaarden voor dat station kruislings te correleren.
+1. Geef een filter term op in het vak **filter reeksen** voor filteren op Improvised-serie. Voor deze quickstart voeren we **Station5** in om de temperatuur- en drukwaarden voor dat station kruislings te correleren.
 
    [![Reeks filteren](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
 
 Als u klaar bent met de quickstart, kunt u experimenteren met de set voorbeeldgegevens om verschillende visualisaties te maken.
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Nu u de zelf studie hebt voltooid, kunt u de resources die u hebt gemaakt opschonen:
+
+1. Selecteer in het menu links in het [Azure Portal](https://portal.azure.com) **alle resources**, zoek de Azure time series Insights resource groep.
+1. Verwijder de hele resource groep (en alle resources erin) door elke resource afzonderlijk **verwijderen** of verwijderen te selecteren.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Bent u klaar om uw eigen Time Series Insights-omgeving te maken:
+U bent klaar om uw eigen Time Series Insights-omgeving te maken:
 > [!div class="nextstepaction"]
 > [Uw Time Series Insights-omgeving plannen](time-series-insights-environment-planning.md)

@@ -6,104 +6,99 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 05/10/2019
-ms.openlocfilehash: e79f2924448b69989cc563b7b3b30bca0540533f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9c2096f94f38d13288c6ce3742252bc6d576835a
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067200"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854231"
 ---
-# <a name="azure-resource-health-overview"></a>Overzicht van Azure Resource Health
+# <a name="resource-health-overview"></a>Overzicht van Resource Health
  
-Azure Resource Health helpt u bij het diagnosticeren en ondersteuning krijgen wanneer een probleem met de Azure-service is van invloed op uw resources. U informeren te over de huidige en eerdere status van uw resources. En het biedt technische ondersteuning om te helpen u bij het beperken van problemen.
+Azure Resource Health helpt u bij het vaststellen en verkrijgen van ondersteuning voor service problemen die van invloed zijn op uw Azure-resources. Het rapporteert over de huidige en eerdere status van uw resources.
 
-Terwijl [Azure Status](https://status.azure.com) u wordt geïnformeerd over problemen die invloed hebben op een breed scala aan Azure-klanten, Resource Health biedt u een gepersonaliseerd dashboard van de status van uw resources. Resource Health geeft alle momenten weer waarop uw resources in het verleden niet beschikbaar waren vanwege Azure-serviceproblemen. Vervolgens wordt het eenvoudig voor u te begrijpen als een SLA wordt geschonden. 
+[Azure-status](https://status.azure.com) rapporten over Service problemen die van invloed zijn op een groot aantal Azure-klanten. Resource Health geeft u een aangepast dash board van de status van uw resources. Resource Health toont de tijden dat uw resources niet beschikbaar zijn vanwege Azure-Service problemen. Met deze gegevens kunt u eenvoudig zien of een SLA is geschonden.
 
-## <a name="resource-definition-and-health-assessment"></a>De evaluatie van de definitie en de status van de resource
+## <a name="resource-definition-and-health-assessment"></a>Resource definitie en status evaluatie
 
-Een resource is een specifiek exemplaar van een Azure-service: bijvoorbeeld een virtuele machine, een web-app of een SQL-database.
+Een *resource* is een specifiek exemplaar van een Azure-service, zoals een virtuele machine, Web-app of SQL database. Resource Health is afhankelijk van signalen van verschillende Azure-Services om te beoordelen of een resource in orde is. Als een resource een slechte status heeft, Resource Health analyseert u aanvullende informatie om de oorzaak van het probleem vast te stellen. Er wordt ook gerapporteerd over acties die micro soft onderneemt om het probleem op te lossen en identificeert dingen die u kunt doen om deze te verhelpen.
 
-Resource Health is afhankelijk van signalen verzonden door de verschillende Azure-services om te beoordelen of een resource of niet in orde is. Als een resource niet in orde is, analyseert Resource Health aanvullende informatie om de oorzaak van het probleem vast te stellen. Het identificeert ook acties Microsoft is dat het probleem op te lossen of de acties die u ondernemen kunt om de oorzaak van het probleem. 
+Zie de lijst met resource typen en status controles op [Azure resource Health](resource-health-checks-resource-types.md)voor meer informatie over de beoordeling van de status.
 
-Voor meer informatie over hoe status wordt beoordeeld, bekijk de volledige lijst met resourcetypen en statuscontroles in [Azure Resource Health](resource-health-checks-resource-types.md).
+## <a name="health-status"></a>Integriteits status
 
-## <a name="health-status"></a>De integriteitsstatus van de
-
-De status van een resource wordt weergegeven als een van de volgende statussen.
+De status van een resource wordt weer gegeven als een van de volgende statussen.
 
 ### <a name="available"></a>Beschikbaar
 
-De status van **beschikbaar** betekent dat de service alle gebeurtenissen die invloed hebben op de status van de resource is niet gevonden. In gevallen waarin de resource is hersteld van niet-geplande uitvaltijd tijdens de afgelopen 24 uur, ziet u de **recent opgeloste problemen met** melding.
+*Beschikbaar* betekent dat er geen gebeurtenissen zijn gedetecteerd die van invloed zijn op de status van de resource. In gevallen waarin de resource is hersteld tijdens de afgelopen 24 uur van ongeplande downtime, wordt de melding ' onlangs opgelost ' weer geven.
 
-![Status van 'Beschikbaar' voor een virtuele machine met een 'Recent opgeloste problemen' melding](./media/resource-health-overview/Available.png)
+![Status van * beschikbaar * voor een virtuele machine met een melding die onlangs is opgelost](./media/resource-health-overview/Available.png)
 
 ### <a name="unavailable"></a>Niet beschikbaar
 
-De status van **niet beschikbaar** betekent dat de service een lopende of een gebeurtenis voor niet-platform die van invloed is op de status van de resource heeft gedetecteerd.
+*Niet beschikbaar* betekent dat de service een voortdurende platform of een niet-platform gebeurtenis heeft gedetecteerd die van invloed is op de status van de resource.
 
-#### <a name="platform-events"></a>Platform-gebeurtenissen
+#### <a name="platform-events"></a>Platform gebeurtenissen
 
-Platform-gebeurtenissen worden geactiveerd door meerdere onderdelen van de Azure-infrastructuur. Ze bevatten zowel geplande acties (bijvoorbeeld: gepland onderhoud) en onverwachte incidenten (bijvoorbeeld een niet-geplande host opnieuw opstarten).
+Platform gebeurtenissen worden geactiveerd door meerdere onderdelen van de Azure-infra structuur. Ze omvatten zowel geplande acties (bijvoorbeeld gepland onderhoud) als onverwachte incidenten (bijvoorbeeld een niet-geplande host opnieuw opstarten).
 
-Resource Health biedt extra informatie over de gebeurtenis en het herstelproces. Ook kunt u contact op met ondersteuning, zelfs als u geen een actieve Microsoft ondersteuning voor overeenkomst.
+Resource Health biedt aanvullende informatie over de gebeurtenis en het herstel proces. U kunt ook contact opnemen met Microsoft Ondersteuning, zelfs als u geen actieve ondersteunings overeenkomst hebt.
 
-![Status van 'Niet beschikbaar' voor een virtuele machine vanwege een platformgebeurtenis](./media/resource-health-overview/Unavailable.png)
+![Status van * niet beschikbaar * voor een virtuele machine vanwege een platform gebeurtenis](./media/resource-health-overview/Unavailable.png)
 
-#### <a name="non-platform-events"></a>Niet-platform-gebeurtenissen
+#### <a name="non-platform-events"></a>Niet-platform gebeurtenissen
 
-Niet-platform gebeurtenissen worden geactiveerd door de acties van gebruikers. Voorbeelden zijn een virtuele machine stoppen of het maximum aantal verbindingen met een Azure-Cache voor Redis bereikt.
+Niet-platform gebeurtenissen worden geactiveerd door gebruikers acties. Voor beelden hiervan zijn het stoppen van een virtuele machine of het bereiken van het maximum aantal verbindingen met Azure cache voor redis.
 
-![Status van 'Niet beschikbaar' voor een virtuele machine vanwege een niet-platformgebeurtenis](./media/resource-health-overview/Unavailable_NonPlatform.png)
+![Status van ' niet beschikbaar ' voor een virtuele machine vanwege een niet-platform gebeurtenis](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
 ### <a name="unknown"></a>Onbekend
 
-De status van **onbekende** geeft aan dat Resource Health informatie over deze bron voor meer dan 10 minuten nog niet ontvangen. Deze status is niet een definitieve indicatie van de status van de resource, is maar het een belangrijk gegevenspunt in het proces voor het oplossen van problemen.
+*Onbekend* betekent dat resource Health meer dan tien minuten geen informatie over de resource heeft ontvangen. Hoewel deze status geen definitieve indicatie is van de status van de resource, is het een belang rijk gegevens punt voor het oplossen van problemen.
 
-Als de resource wordt uitgevoerd zoals verwacht, de status van de resource wordt gewijzigd in **beschikbaar** na een paar minuten.
+Als de resource op de verwachte manier wordt uitgevoerd, wordt de status van de resource na een paar minuten gewijzigd in *beschikbaar* .
 
-Als u problemen met de resource ondervindt, de **onbekende** integriteitsstatus kan wijzen dat een gebeurtenis in het platform is die betrekking hebben op de resource.
+Als u problemen ondervindt met de resource, kan de *onbekende* status ervan betekenen dat een gebeurtenis in het platform van invloed is op de resource.
 
-![Status van "Onbekend" voor een virtuele machine](./media/resource-health-overview/Unknown.png)
+![Status van * Unknown * voor een virtuele machine](./media/resource-health-overview/Unknown.png)
 
 ### <a name="degraded"></a>Verminderd
 
-De status van **gedegradeerd** geeft aan dat de resource een verlies is gedetecteerd in de prestaties, maar dit nog steeds beschikbaar voor gebruik is.
-Andere bronnen hebben hun eigen criteria voor wanneer ze opgeeft dat een resource is gedegradeerd.
+Gedegradeerd betekent dat uw resource een verlies van prestaties heeft gedetecteerd, hoewel het nog steeds beschikbaar is voor gebruik.
 
-![Status van 'Gedegradeerd' voor een virtuele machine](./media/resource-health-overview/degraded.png)
+Verschillende resources hebben hun eigen criteria voor wanneer ze rapporteren dat ze worden gedegradeerd.
 
-## <a name="reporting-an-incorrect-status"></a>Een onjuiste status rapporteren
+![Status van * gedegradeerd * voor een virtuele machine](./media/resource-health-overview/degraded.png)
 
-Als u denkt dat de huidige integriteitsstatus van onjuist is, kunt u ons laten weten door te selecteren **rapporteren onjuiste integriteitsstatus**. In gevallen waarbij een Azure-probleem gevolgen u heeft, raden we u aan contact op met ondersteuning van Resource Health. 
+## <a name="reporting-an-incorrect-status"></a>Rapportage van een onjuiste status
 
-![Vak voor het verzenden van informatie over een onjuiste status](./media/resource-health-overview/incorrect-status.png)
+Als u denkt dat de huidige status onjuist is, kunt u ons vertellen door de **onjuiste status**van het rapport te selecteren. In gevallen waarin een Azure-probleem van invloed is op u, raden we u aan om contact op te nemen met de ondersteuning van Resource Health.
 
-## <a name="historical-information"></a>Historische gegevens
+![Formulier voor het verzenden van informatie over een onjuiste status](./media/resource-health-overview/incorrect-status.png)
 
-U hebt toegang tot maximaal 14 dagen van de geschiedenis van in de **statusgeschiedenis** sectie van de Resource Health. 
+## <a name="history-information"></a>Geschiedenis informatie
 
-![Lijst met Resource Health-gebeurtenissen in de afgelopen twee weken](./media/resource-health-overview/history-blade.png)
+U kunt de geschiedenis van 14 dagen openen in het gedeelte **status geschiedenis** van resource Health.
 
-## <a name="getting-started"></a>Aan de slag
+![Lijst met Resource Health gebeurtenissen in de afgelopen twee weken](./media/resource-health-overview/history-blade.png)
+
+## <a name="get-started"></a>Aan de slag
 
 Resource Health openen voor een resource:
 
 1. Meld u aan bij Azure Portal.
 2. Blader naar de resource.
-3. Selecteer op het resourcemenu in het linkerdeelvenster **resourcestatus**.
+3. Selecteer in het menu resource in het linkerdeel venster de optie **resource status**.
 
-![Resource Health openen vanuit de weergave van resources](./media/resource-health-overview/from-resource-blade.png)
+![Resource Health openen vanuit de resource weergave](./media/resource-health-overview/from-resource-blade.png)
 
-U kunt ook toegang tot Resource Health hiervoor **alle services** en typen **resourcestatus** in het filtertekstvak. In de **Help en ondersteuning** venster [resourcestatus](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
+U kunt ook toegang krijgen tot Resource Health door **alle services** te selecteren en de **resource status** te typen in het tekstvak filter. Selecteer [resource status](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth)in het deel venster **Help en ondersteuning** .
 
-![Resource Health uit 'Alle services' openen](./media/resource-health-overview/FromOtherServices.png)
+![Resource Health openen vanuit alle services](./media/resource-health-overview/FromOtherServices.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk deze bronnen voor meer informatie over Resource Health:
--  [Resourcetypen en statuscontroles in Azure Resource Health](resource-health-checks-resource-types.md)
+Bekijk deze verwijzingen voor meer informatie over Resource Health:
+-  [Resource typen en status controles in Azure Resource Health](resource-health-checks-resource-types.md)
 -  [Veelgestelde vragen over Azure Resource Health](resource-health-faq.md)
-
-
-
-

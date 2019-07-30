@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 1aed6f9a0ceec18ca800e5030ec09bbb8d98cb76
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e85f9a90af778a7e68bf761d8d2159e808cf122d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560722"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639207"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Woordgroepen lijst functies in uw LUIS-app
 
@@ -35,7 +35,7 @@ Woordgroepen lijsten zijn niet gekoppeld aan een specifieke intentie of entiteit
 
 ## <a name="how-to-use-phrase-lists"></a>Het gebruik van een lijst met woorden
 
-Maak een woordgroepen lijst als uw app woorden of zinsdelen bevat die belang rijk zijn voor de app, zoals:
+[Maak een woordgroepen](luis-how-to-add-features.md) lijst als uw app woorden of zinsdelen bevat die belang rijk zijn voor de app, zoals:
 
 * branche voorwaarden
 * slang
@@ -53,7 +53,7 @@ Wanneer u enkele woorden of zinsdelen hebt ingevoerd, gebruikt u de functie **Aa
 
 ### <a name="interchangeable-lists"></a>Verwissel bare lijsten
 
-Een  lijst met verwisselbaar woordgroepen is voor waarden die synoniemen zijn. Bijvoorbeeld, als u wilt dat alle water lichamen worden gevonden en u bijvoorbeeld uitingen hebt zoals: 
+Een lijst met verwisselbaar woordgroepen is voor waarden die synoniemen zijn. Bijvoorbeeld, als u wilt dat alle water lichamen worden gevonden en u bijvoorbeeld uitingen hebt zoals: 
 
 * Welke steden bevinden zich dicht bij de fantastische meren? 
 * Wat is de weg van meer dan Lake Havasu?
@@ -79,7 +79,7 @@ Wanneer de lijst met zinsdelen langer duurt, zijn er mogelijk enkele formulieren
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Woordgroep geeft een lijst van de help eenvoudige uitwisselbaar entiteiten identificeren
+## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Woordgroepen lijsten helpen bij het identificeren van eenvoudige, verwissel bare entiteiten
 Verwisselbaar woordgroep lijsten zijn een goede manier om af te stemmen van de prestaties van uw LUIS-app. Als uw app problemen bij het voorspellen van uitingen met de juiste intent of entiteiten herkennen heeft, moet u bedenken dat de uitingen ongebruikelijke woorden of woorden die mogelijk niet-eenduidige in betekenis bevatten. Deze woorden zijn goede kandidaten om op te nemen in een woordgroepenlijst met.
 
 ## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>Woordgroep geeft een lijst van de help intents identificeren door beter inzicht in context
@@ -88,7 +88,7 @@ Een woordgroepenlijst is niet een instructie aan LUIS uit te voeren strikte die 
 Toevoegen van een woordgroepenlijst vormt een alternatief voor het toevoegen van meer voorbeeld uitingen aan een doel. 
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Wanneer u lijsten woordgroep ten opzichte van de lijst met entiteiten
-Zowel een woordgroep en lijst met entiteiten kunnen uitingen over alle intents beïnvloeden, elk gebeurt op een andere manier. Een woordgroepenlijst met gebruiken om te bepalen van intentie voorspelling score. Een lijst met entiteit gebruiken voor het extraheren van entiteiten af voor een overeenkomst exact overeenkomende tekst van invloed zijn op. 
+Hoewel zowel een woordgroepen lijst als [lijst-entiteiten](reference-entity-list.md) van invloed kunnen zijn op uitingen in alle intenties, gebeurt dit op een andere manier. Een woordgroepenlijst met gebruiken om te bepalen van intentie voorspelling score. Een lijst met entiteit gebruiken voor het extraheren van entiteiten af voor een overeenkomst exact overeenkomende tekst van invloed zijn op. 
 
 ### <a name="use-a-phrase-list"></a>Gebruik een zin-lijst
 LUIS kunt nog steeds met een woordgroepenlijst rekening gehouden met context en generaliseren voor het identificeren van items die vergelijkbaar zijn met, maar niet een exacte overeenkomst als items in een lijst. Als u uw LUIS-app moet kunnen generaliseren en nieuwe items in een categorie te identificeren, gebruikt u een woordgroepenlijst met. 

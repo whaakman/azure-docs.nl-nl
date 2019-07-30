@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: f02f50eef971e774236f534c0d664dfcf090dcae
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 04f0944173df59989745ee9167984b493f202b14
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563737"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638229"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Een entiteit toevoegen aan de voorbeeld-uitingen 
 
 Voorbeeld uitingen zijn voorbeelden van de tekst van de gebruiker vragen of opdrachten. Om te leren Language Understanding (LUIS), die u nodig hebt om toe te voegen [voorbeeld uitingen](luis-concept-utterance.md) naar een [bedoeling](luis-concept-intent.md).
 
-Normaal gesp roken voegt u eerst een voor beeld-utterance toe aan een intentie en vervolgens maakt u entiteiten en label uitingen  op de pagina intenties. Als u entiteiten in plaats daarvan eerst maakt, Zie [entiteiten toevoegen](luis-how-to-add-entities.md).
+Normaal gesp roken voegt u eerst een voor beeld-utterance toe aan een intentie en vervolgens maakt u entiteiten en label uitingen op de pagina intenties. Als u entiteiten in plaats daarvan eerst maakt, Zie [entiteiten toevoegen](luis-how-to-add-entities.md).
 
 ## <a name="marking-entities-in-example-utterances"></a>Entiteiten in de voorbeeld-uitingen markeren
 
@@ -32,7 +32,7 @@ Bepaalde Entiteitstypen, zoals de vooraf gemaakte entiteiten en entiteiten regul
 
 ## <a name="add-a-simple-entity"></a>Een eenvoudige entiteit toevoegen
 
-In de volgende procedure maakt en labelt u een aangepaste entiteit in de volgende utterance op de  pagina intenties:
+In de volgende procedure maakt en labelt u een aangepaste entiteit in de volgende utterance op de pagina intenties:
 
 ```text
 Are there any SQL server jobs?
@@ -57,7 +57,7 @@ Lijst entiteiten vertegenwoordigen een set exacte tekst overeenkomsten met verwa
 
 Lijst van de afdeling van een bedrijf, u kunt hebben genormaliseerd waarden: `Accounting` en `Human Resources`. De naam van elke genormaliseerde heeft synoniemen. Voor een afdeling, kunnen deze synoniemen elke afdeling acroniemen, getallen of slang bevatten. U hoeft niet te weten van alle waarden bij het maken van de entiteit. U kunt meer toevoegen nadat u hebt bekeken real-user-uitingen door synoniemen.
 
-1. Selecteer in een voor beeld-  utterance op de pagina intenties het woord of de woord groep die u in de nieuwe lijst wilt opnemen. Wanneer de vervolg keuzelijst entiteit wordt weer gegeven, voert u de naam voor de nieuwe entiteit lijst in het tekstvak boven in en selecteert u **nieuwe entiteit maken**.   
+1. Selecteer in een voor beeld- utterance op de pagina intenties het woord of de woord groep die u in de nieuwe lijst wilt opnemen. Wanneer de vervolg keuzelijst entiteit wordt weer gegeven, voert u de naam voor de nieuwe entiteit lijst in het tekstvak boven in en selecteert u **nieuwe entiteit maken**.   
 
 1. In de **welk type entiteit wilt u maken?** pop-, de naam van de entiteit en selecteert u **lijst** als het type. Synoniemen van dit item in de lijst toevoegen, en selecteer vervolgens **gedaan**. 
 

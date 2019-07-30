@@ -7,6 +7,7 @@
     - name: End-to-end-oplossingspatronen
       href: stream-analytics-solution-patterns.md
 - name: Snelstartgidsen
+  expanded: true
   items:
     - name: Een taak maken - Azure Portal
       href: stream-analytics-quick-create-portal.md

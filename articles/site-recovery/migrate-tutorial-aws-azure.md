@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6d2b9c8dd8fb89e201cff5155b1dec0857204752
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: bb60fa216c10b11b6a47c029fbef3698c6f7bd6d
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400056"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663504"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS-VM’s (Amazon Web Services) migreren naar Azure
 
@@ -96,8 +96,10 @@ Wanneer Azure-VM’s zijn gemaakt na de migratie (failover), worden ze gekoppeld
 6. Selecteer bij **Resourcegroep** de optie **Bestaande gebruiken** en selecteer vervolgens **migrationRG**.
 7. Selecteer bij **Locatie** de optie **Europa - west**.
 8. Laat onder **Subnet** de standaardwaarden staan bij **Naam** en **IP-bereik**.
-9. Laat de optie **Service-eindpunten** uitgeschakeld.
-10. Als u gereed bent, selecteert u **Maken**.
+9. Voeg instructies toe voor DDoS-beveiligings instellingen.
+10. Laat de optie **Service-eindpunten** uitgeschakeld.
+11. Instructies toevoegen voor Firewall instellingen.
+12. Als u gereed bent, selecteert u **Maken**.
 
 ## <a name="prepare-the-infrastructure"></a>De infrastructuur voorbereiden
 
@@ -131,7 +133,7 @@ Selecteer op de pagina **Bron voorbereiden** de optie **+ Configuratieserver**.
 
     1. Selecteer onder **Voordat u begint** de optie **De configuratieserver en processerver installeren**. Selecteer vervolgens **Volgende**.
     2. Selecteer in **Softwarelicentie van derden** de optie **Ik ga akkoord met de licentieovereenkomst van de derde partij**, en selecteer vervolgens **Volgende**.
-    3. Selecteer in **Registratie** de optie **Bladeren** en ga naar de locatie waar u het registratiesleutelbestand voor de kluis hebt opgeslagen. Selecteer **Next**.
+    3. Selecteer in **Registratie** de optie **Bladeren** en ga naar de locatie waar u het registratiesleutelbestand voor de kluis hebt opgeslagen. Selecteer **Volgende**.
     4. Selecteer in **Internetinstellingen** de optie **Rechtstreeks verbinding maken met Azure Site Recovery zonder proxyserver**. Selecteer vervolgens **Volgende**.
     5. Op de pagina **Controle op vereisten** worden controles voor verschillende items uitgevoerd. Wanneer dit is voltooid, selecteert u **Volgende**.
     6. Geef in **MySQL-configuratie** de vereiste wachtwoorden op. Selecteer vervolgens **Volgende**.
@@ -157,7 +159,7 @@ In deze sectie voert u gegevens in over de resources die u eerder in deze zelfst
 
 Voordat u replicatie kunt inschakelen, moet u replicatiebeleid maken.
 
-1. Selecteer **Repliceren en koppelen**.
+1. Selecteer **maken en koppelen**.
 2. Voer bij **Naam** in **myReplicationPolicy**.
 3. Laat de rest van de standaardinstellingen ongewijzigd en selecteer **OK** om het beleid te maken. Het nieuwe beleid wordt automatisch gekoppeld aan de configuratieserver.
 

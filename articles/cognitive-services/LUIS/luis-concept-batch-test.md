@@ -9,26 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: a9a6e7ae48a51ab10e6ba2e5d3996e61938c6f3a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b962fc32cdcde0509cfa60d105022bb208633ae3
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560836"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639301"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Batch testen met 1000 uitingen in LUIS-Portal
 
-Batch testen valideert uw [active](luis-concept-version.md#active-version) getrainde model voor het meten van de nauwkeurigheid. Een batch-test, kunt u de nauwkeurigheid van de intentie en de entiteit in uw huidige, getrainde model in een grafiek weergeven. De resultaten van de batch voor de passende maatregelen nemen om de nauwkeurigheid, zoals het toevoegen van meer voorbeeld uitingen aan een doel als uw app vaak mislukt voor het identificeren van de juiste intentie te bekijken.
+Batch testen valideert uw [active](luis-concept-version.md#active-version) getrainde model voor het meten van de nauwkeurigheid. Met een batch test kunt u de nauw keurigheid van elke intentie en entiteit in uw huidige getrainde model weer geven en de resultaten weer geven met een grafiek. De resultaten van de batch voor de passende maatregelen nemen om de nauwkeurigheid, zoals het toevoegen van meer voorbeeld uitingen aan een doel als uw app vaak mislukt voor het identificeren van de juiste intentie te bekijken.
 
 ## <a name="group-data-for-batch-test"></a>Groepsgegevens voor batch-test
 
-Het is belangrijk dat uitingen die wordt gebruikt voor het testen van de batch niet bekend bent met LUIS. Als u een gegevensset van uitingen hebt, waardoor de uitingen in drie groepen: uitingen toegevoegd aan een doel en uitingen ontvangen van het eindpunt van de gepubliceerde uitingen gebruikt voor het batch-test LUIS nadat deze is getraind. 
+Het is belangrijk dat uitingen die wordt gebruikt voor het testen van de batch niet bekend bent met LUIS. Als u een gegevensset van uitingen hebt, moet u de uitingen in drie sets delen: voor beeld-uitingen die zijn toegevoegd aan een intentie, uitingen ontvangen van het gepubliceerde eind punt, en uitingen gebruikt voor batch test-LUIS nadat deze is getraind. 
 
-## <a name="a-dataset-of-utterances"></a>Een gegevensset van uitingen
+## <a name="a-data-set-of-utterances"></a>Een gegevensset van uitingen
 
-Indienen van een batch-bestand van uitingen, ook wel een *gegevensset*, voor het testen van batch. De gegevensset is een JSON-indeling bestand met maximaal 1000 met het label **unieke** uitingen. U kunt maximaal 10 gegevenssets testen in een app. Als u nodig hebt voor het testen van meer, een gegevensset verwijdert en vervolgens een nieuwe toevoegen.
+Verzend een batch-bestand van uitingen, ook wel een *gegevensset*genoemd, voor batch tests. De gegevensset is een bestand met JSON-indeling met een maximum van 1.000 gelabelde **niet-dubbele** uitingen. U kunt Maxi maal 10 gegevens sets testen in een app. Als u meer wilt testen, verwijdert u een gegevensset en voegt u een nieuwe toe.
 
 |**Regels**|
 |--|
@@ -106,7 +106,7 @@ Veelvoorkomende fouten zijn onder andere:
 
 ## <a name="batch-test-state"></a>Status van de batch-test
 
-LUIS houdt de status van de laatste test van elke gegevensset. Dit omvat de grootte (aantal uitingen in de batch), voor het laatst uitgevoerd datum en de laatste resultaat (aantal is voorspelde uitingen).
+LUIS houdt de status van de laatste test van elke gegevensset bij. Dit omvat de grootte (aantal uitingen in de batch), voor het laatst uitgevoerd datum en de laatste resultaat (aantal is voorspelde uitingen).
 
 <a name="sections-of-the-results-chart"></a>
 
@@ -114,7 +114,7 @@ LUIS houdt de status van de laatste test van elke gegevensset. Dit omvat de groo
 
 Het resultaat van de test batch is een spreidingsgrafiek bekend als een matrix van de fout. Deze grafiek bevat een vergelijking 4-weg van de uitingen in de batch-bestand en het huidige model voorspelde intentie en entiteiten. 
 
-Gegevenspunten op de **ONWAAR positief** en **False negatieve** secties duiden op fouten, die moeten worden onderzocht. Als u alle gegevenspunten zijn op de **waar positieve** en **waar negatieve** secties, en vervolgens de nauwkeurigheid van uw app is bij uitstek geschikt voor deze gegevensset.
+Gegevenspunten op de **ONWAAR positief** en **False negatieve** secties duiden op fouten, die moeten worden onderzocht. Als alle gegevens punten zich op de **echte positieve** en **echte negatieve** secties bevinden, is de nauw keurigheid van uw app perfect voor deze gegevens verzameling.
 
 ![Vier secties van grafiek](./media/luis-concept-batch-test/chart-sections.png)
 

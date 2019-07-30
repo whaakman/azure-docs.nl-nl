@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-ms.date: 02/08/2019
-ms.openlocfilehash: bbd009d127eecc4df357fc1073ba4055d13a8b2c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 07/29/2019
+ms.openlocfilehash: c6ad1cd7af02f281c53ece23a018f8b5ec0c7da9
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569023"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640951"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Zelfstudie: Een relationele database in een individuele database in Azure SQL Database ontwerpen met behulp van SQL Server Management Studio
 
@@ -30,6 +30,8 @@ Azure SQL-database is een relationele DBaaS (database-as-a-service) in Microsoft
 
 *Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
+> [!TIP]
+> De volgende Microsoft Learn module helpt u gratis te leren hoe u [een ASP.NET-toepassing kunt ontwikkelen en configureren die een query uitvoert op een Azure SQL database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), inclusief het maken van een eenvoudige data base.
 > [!NOTE]
 > Voor deze zelfstudie wordt gebruikgemaakt van een individuele database. U kunt ook een gepoolde database in een elastische pool of een exemplaardatabase in een beheerd exemplaar gebruiken. Zie voor connectiviteit naar een beheerd exemplaar deze quickstarts over beheerde exemplaren: [Snelstart: Azure VM configureren om verbinding te maken met een Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) en [quickstart: Een punt-naar-site-verbinding configureren naar een beheerd exemplaar voor Azure SQL Database van on-premises](sql-database-managed-instance-configure-p2s.md).
 

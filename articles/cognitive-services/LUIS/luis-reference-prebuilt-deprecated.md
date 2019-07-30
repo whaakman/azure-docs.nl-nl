@@ -9,21 +9,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 17693b7dff1df1d538f2f4a180be025e0de67c82
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bbd86ab2ffa55903715da05b0120442f300a1702
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563482"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637849"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Afgeschafte vooraf gemaakte entiteiten in een LUIS-app
 De volgende vooraf gemaakte entiteiten zijn afgeschaft en kunnen niet worden toegevoegd aan de nieuwe LUIS-apps.
 
 * **Datum tijd**: Bestaande LUIS-apps die gebruikmaken van **DateTime** , moeten worden gemigreerd naar **datetimeV2**, hoewel de datetime-entiteit blijft functioneren in reeds bestaande apps die deze gebruiken.
 * **Geografie**: Bestaande LUIS-apps die gebruikmaken van **geografie** , worden ondersteund tot december 2018.
-* **Encyclopedie**: Bestaande LUIS-apps die  gebruikmaken van encyclopedie, worden ondersteund tot december 2018.
+* **Encyclopedie**: Bestaande LUIS-apps die gebruikmaken van encyclopedie, worden ondersteund tot december 2018.
 
 ## <a name="geography-culture"></a>Geografie cultuur
 **Geografie** is alleen beschikbaar in de `en-us` landinstelling.

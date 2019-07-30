@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 5cbdf94ef1899c4963f6ebe0149024baed4916a7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7a2802bd4daa1a009c610688120c9a56583b054f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564040"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639271"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Aanbevolen procedures voor het bouwen van een language understanding-app met Cognitive Services
-Gebruik Apps kunt maken om uw LUIS-app te bouwen. 
+Gebruik het ontwerp proces voor apps om uw LUIS-app te bouwen: 
 
 * Taalmodel bouwen
 * Een paar training voorbeeld utterances (10-15 per bedoeling) toevoegen
@@ -27,7 +27,7 @@ Gebruik Apps kunt maken om uw LUIS-app te bouwen.
 * Testen van eindpunt 
 * Functies toevoegen
 
-Zodra uw app is [gepubliceerd](luis-how-to-publish-app.md), gebruikt u de authoring cyclus van onderdelen toevoegen, publiceren en testen van eindpunt. De volgende cyclus authoring niet beginnen met het toevoegen van meer voorbeeld uitingen. Die kunt niet meer van uw model met echte gebruiker uitingen LUIS. 
+Als uw app is [gepubliceerd](luis-how-to-publish-app.md), gebruikt u de ontwerp cyclus om functies toe te voegen, te publiceren en te testen vanaf het eind punt. De volgende cyclus authoring niet beginnen met het toevoegen van meer voorbeeld uitingen. Die kunt niet meer van uw model met echte gebruiker uitingen LUIS. 
 
 Opdat LUIS efficiënt aan de taak van de training, niet uitbreiden de uitingen totdat de huidige set met zowel voorbeeld als eindpunt uitingen vertrouwen, hoge voorspelling scores zijn geretourneerd. Verbeter scores met behulp van [actieve](luis-concept-review-endpoint-utterances.md)overzichten, [patronen](luis-concept-patterns.md)en [woordgroepen lijsten](luis-concept-feature.md). 
 
@@ -78,7 +78,7 @@ Voor meer informatie:
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Voeg woordgroep lijsten en -patronen in de volgende herhalingen
 
-Een best practice is deze procedures niet toe te passen voordat uw app is getest. U moet weten hoe de app zich gedraagt voordat woordgroepen lijsten en patronen worden toegevoegd, omdat deze functies meer sterk worden gewogen dan bijvoorbeeld uitingen en het vertrouwen wordt schuingetrokken. 
+Een best practice is deze procedures niet toe te passen voordat uw app is getest. U moet weten hoe de app zich gedraagt voordat [woordgroepen lijsten](luis-concept-feature.md) en [patronen](luis-concept-patterns.md) worden toegevoegd, omdat deze functies meer sterk worden gewogen dan bijvoorbeeld uitingen en het vertrouwen wordt schuingetrokken. 
 
 Wanneer u begrijpt hoe uw app zich gedraagt zonder deze, voegt u elk van deze functies toe die van toepassing zijn op uw app. U hoeft deze functies niet aan elke [herhaling](luis-concept-app-iteration.md) toe te voegen of de functies te wijzigen met elke versie. 
 

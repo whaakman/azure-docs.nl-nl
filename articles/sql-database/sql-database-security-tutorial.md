@@ -8,14 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 02/08/2019
+ms.date: 07/29/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ce9ba7c197bb604b9d71e2bf501ca67d32865f38
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9850285482db4f5981c183b51152ba1a3ac4975c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566867"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640124"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Zelfstudie: Een enkelvoudige of pooldatabase beveiligen
 
@@ -38,6 +38,9 @@ Azure SQL Database beveiligt gegevens in een enkelvoudige of pooldatabase door:
 > Een Azure SQL-database op een beheerd exemplaar wordt beveiligd met behulp van netwerkbeveiligingsregels en privé-eindpunten, zoals beschreven in [Beheerd exemplaar voor Azure SQL Database](sql-database-managed-instance-index.yml) en [connectiviteitsarchitectuur](sql-database-managed-instance-connectivity-architecture.md).
 
 Zie voor meer informatie de artikelen [Overzicht van Azure SQL Database-beveiliging](/azure/sql-database/sql-database-security-index) en [-mogelijkheden](sql-database-security-overview.md).
+
+> [!TIP]
+> De volgende Microsoft Learn module helpt u gratis te leren hoe u [uw Azure SQL database kunt beveiligen](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## <a name="prerequisites"></a>Vereisten
 

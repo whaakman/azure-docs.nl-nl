@@ -1,74 +1,74 @@
 ---
-title: 'Quickstart: Maak een feedback-lus - Personalizer'
+title: 'Quickstart: Een feedback-lus maken-persoonlijker'
 titleSuffix: Azure Cognitive Services
-description: Personaliseren van inhoud in deze C# Quick Start met de Personalizer-service.
+description: Persoonlijke inhoud in deze C# Snelstartgids met de personaler-service.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 06/11/2019
-ms.author: edjez
-ms.openlocfilehash: 0b856b8d134cc160b8bb759fce0408204cf0ba61
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: 54aa23071fef09058a1702218d6b7fc920363518
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722434"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662802"
 ---
-# <a name="quickstart-personalize-content-using-c"></a>Quickstart: Aan persoonlijke voorkeuren aanpassen met behulp van inhoudC# 
+# <a name="quickstart-personalize-content-using-c"></a>Quickstart: Inhoud personaliseren metC# 
 
-Gepersonaliseerde inhoud weergeven in dit C# Quick Start met de Personalizer-service.
+Persoonlijke inhoud in deze C# Quick Start weer geven met de personaler service.
 
-In dit voorbeeld ziet u hoe u de Personalizer-clientbibliotheek voor C# naar de volgende acties uitvoeren: 
+In dit voor C# beeld wordt gedemonstreerd hoe u de personaler-client bibliotheek kunt gebruiken om de volgende acties uit te voeren: 
 
- * Een lijst met acties voor persoonlijke instellingen rangschikken.
- * Rapport beloning om toe te wijzen aan het begin gerangschikt op basis van de selectie van de gebruiker voor de opgegeven gebeurtenis actie.
+ * Rang schikking van een lijst met acties voor persoonlijke instellingen.
+ * Rapport beloning om toe te wijzen aan de geclassificeerde actie op basis van de selectie van de gebruiker voor de opgegeven gebeurtenis.
 
-Aan de slag met Personalizer omvat de volgende stappen:
+Aan de slag met Personaler bestaat uit de volgende stappen:
 
-1. Verwijzing naar de SDK 
-1. Code schrijven voor de rangschikking van de acties die u wilt weergeven voor uw gebruikers
-1. Schrijven van code voor het verzenden van beloningen met het trainen van de lus.
+1. Verwijzen naar de SDK 
+1. Schrijven van code voor het rangschikken van de acties die u wilt weer geven aan uw gebruikers,
+1. Schrijven van code voor het verzenden van beloningen voor het trainen van de lus.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* U moet een [Personalizer service](how-to-settings.md) om uw abonnement-sleutel en het eindpunt service-url te achterhalen. 
+* U hebt een [personaler service](how-to-settings.md) nodig om uw abonnements sleutel en URL voor de eind punt-service op te halen. 
 * [Visual Studio 2015 of 2017](https://visualstudio.microsoft.com/downloads/).
-* De [Microsoft.Azure.CognitiveServices.Personalizer](https://go.microsoft.com/fwlink/?linkid=2092272) SDK NuGet-pakket. Hieronder vindt u de installatie-instructies.
+* Het [micro soft. Azure. CognitiveServices. personaler](https://go.microsoft.com/fwlink/?linkid=2092272) SDK NuGet-pakket. Hieronder vindt u de installatie-instructies.
 
-## <a name="change-the-model-update-frequency"></a>De model-updatefrequentie wijzigen
+## <a name="change-the-model-update-frequency"></a>De update frequentie van het model wijzigen
 
-In de Personalizer-resource in Azure portal, wijzigt u de **Model updatefrequentie** 10 seconden. Hiermee wordt de service snel, trainen zodat u kunt zien hoe de eerste actie voor elke herhaling verandert.
+Wijzig de **Update frequentie** van het model in de Azure Portal persoonlijker in de resource in 10 seconden. Hiermee wordt de service snel getraind, zodat u kunt zien hoe de belangrijkste actie voor elke herhaling wordt gewijzigd.
 
-Wanneer een lus Personalizer eerst wordt gestart, is er geen model omdat er geen vergoeding API-aanroepen naar het trainen van is. Aanroepen van de positie, wordt gelijk kansen voor elk item geretourneerd. Uw toepassing moet nog altijd inhoud met behulp van de uitvoer van RewardActionId rangschikken.
+Wanneer een aangepaste lus voor het eerst wordt geïnstantieerd, is er geen model, omdat er geen belonings-API-aanroepen zijn voor de trein van. Rang gesprekken retour neren een gelijke kansen voor elk item. Uw toepassing moet toch altijd inhoud plaatsen met de uitvoer van RewardActionId.
 
-![Model updatefrequentie wijzigen](./media/settings/configure-model-update-frequency-settings.png)
+![Update frequentie van het model wijzigen](./media/settings/configure-model-update-frequency-settings.png)
 
-## <a name="creating-a-new-console-app-and-referencing-the-personalizer-sdk"></a>Het maken van een nieuwe consoletoepassing en verwijzen naar de SDK Personalizer 
+## <a name="creating-a-new-console-app-and-referencing-the-personalizer-sdk"></a>Een nieuwe console-app maken en verwijzen naar de Personaler SDK 
 
 <!--
 Get the latest code as a Visual Studio solution from [GitHub] (add link).
 -->
 
 1. Maak in Visual Studio een nieuwe Visual C#-console-app.
-1. Installeer het Personalizer client-bibliotheek NuGet-pakket. Selecteer in het menu **extra**, selecteer **Nuget package Manager**, klikt u vervolgens **NuGet-pakketten beheren voor oplossing**.
-1. Controleer **Include prerelease**.
-1. Selecteer de **Bladeren** tabblad, en klik in de **zoeken** vak `Microsoft.Azure.CognitiveServices.Personalizer`.
-1. Selecteer **Microsoft.Azure.CognitiveServices.Personalizer** wanneer deze wordt weergegeven.
-1. Schakel het selectievakje naast de projectnaam van uw en selecteer **installeren**.
+1. Installeer het NuGet-pakket voor de Personaler-client bibliotheek. Selecteer in het menu **extra**, selecteer **Nuget package manager**en vervolgens **Nuget-pakketten beheren voor oplossing**.
+1. Controleer **include Prerelease**.
+1. Selecteer het tabblad **Bladeren** en typ `Microsoft.Azure.CognitiveServices.Personalizer`in het **zoekvak** .
+1. Selecteer **micro soft. Azure. CognitiveServices. personaler** wanneer het wordt weer gegeven.
+1. Schakel het selectie vakje in naast de naam van uw project en selecteer **installeren**.
 
-## <a name="add-the-code-and-put-in-your-personalizer-and-azure-keys"></a>Voeg de code toe en plaats in uw sleutels Personalizer en Azure
+## <a name="add-the-code-and-put-in-your-personalizer-and-azure-keys"></a>Voeg de code toe en plaats deze in uw persoonlijke voor keuren en Azure-sleutels
 
 1. Vervang Program.cs door de code hieronder. 
-1. Vervang `serviceKey` waarde met uw geldige Personalizer-abonnementssleutel.
-1. Vervang `serviceEndpoint` met uw service-eindpunt. Een voorbeeld is `https://westus2.api.cognitive.microsoft.com/`.
+1. Vervang `serviceKey` de waarde door uw geldige abonnements sleutel voor persoonlijker.
+1. Vervang `serviceEndpoint` door uw service-eind punt. Een voorbeeld is `https://westus2.api.cognitive.microsoft.com/`.
 1. Voer het programma uit.
 
-## <a name="add-code-to-rank-the-actions-you-want-to-show-to-your-users"></a>Code toevoegen om te rangschikken van de acties die u wilt weergeven voor uw gebruikers
+## <a name="add-code-to-rank-the-actions-you-want-to-show-to-your-users"></a>Voeg code toe om de acties te rangschikken die u wilt weer geven aan uw gebruikers
 
-De volgende C# code is een volledig overzicht te geven van gebruikersgegevens, _features en informatie over uw inhoud _acties_, naar Personalizer met behulp van de SDK. Personalizer retourneert de bovenkant gerangschikt actie om de gebruiker weer te geven.  
+De volgende C# code is een volledige lijst voor het door geven van gebruikers gegevens, _features en informatie over uw inhoud, _acties_, naar persoonlijke voor keuren met behulp van de SDK. Persoonlijker retourneert de bovenste geclassificeerde actie om uw gebruiker weer te geven.  
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Personalizer;
@@ -256,15 +256,15 @@ namespace PersonalizerExample
 
 ## <a name="run-the-program"></a>Het programma uitvoeren
 
-Bouw het programma en voer het uit. Quick Start wordt u gevraagd een aantal vragen voor het verzamelen van gebruikersvoorkeuren, functies, ook wel geeft vervolgens de bovenste actie.
+Bouw het programma en voer het uit. In het Quick Start-programma wordt een aantal vragen gesteld om gebruikers voorkeuren, ook wel bekend als-functies, te verzamelen en de meest voorkomende actie te bieden.
 
-![Quick Start wordt u gevraagd een aantal vragen voor het verzamelen van gebruikersvoorkeuren, functies, ook wel geeft vervolgens de bovenste actie.](media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
+![In het Quick Start-programma wordt een aantal vragen gesteld om gebruikers voorkeuren, ook wel bekend als-functies, te verzamelen en de meest voorkomende actie te bieden.](media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 Verwijder wanneer u klaar bent met de snelstart alle bestanden die in de snelstart zijn gemaakt. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[De werking van Personalizer](how-personalizer-works.md)
+[Hoe Personaler werkt](how-personalizer-works.md)
 
 

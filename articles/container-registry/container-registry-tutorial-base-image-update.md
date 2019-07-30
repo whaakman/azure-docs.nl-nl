@@ -10,10 +10,10 @@ ms.date: 06/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 496aa065b3b10eac546dbe41f5a2650acc112d29
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 07/30/2019
 ms.locfileid: "68310506"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Zelfstudie: Builds van containerinstallatiekopieën automatiseren wanneer een basisinstallatiekopie wordt bijgewerkt in een Azure-containerregister 
@@ -82,7 +82,7 @@ Wanneer een basisinstallatiekopie wordt bijgewerkt, is het noodzakelijk dat u op
 
 * Als u een ACR-taak wilt inschakelen om de afhankelijkheden van een container installatie kopie te bepalen en bij te houden, zoals de basis installatie kopie, moet u de taak eerst **ten minste één keer**activeren. Activeer de taak bijvoorbeeld hand matig met behulp van de opdracht [AZ ACR Task run][az-acr-task-run] .
 
-* Voor het activeren van een taak bij het bijwerken van de basis installatie kopie moet  de basis installatie kopie een `node:9-alpine`stabiele tag hebben, zoals. Deze code ring is gebruikelijk voor een basis installatie kopie die wordt bijgewerkt met OS-en Framework patches naar een laatste stabiele release. Als de basis installatie kopie wordt bijgewerkt met een nieuwe versie label, wordt er geen taak geactiveerd. Zie de [Best practices-richt lijnen](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/)voor meer informatie over afbeeldings codes. 
+* Voor het activeren van een taak bij het bijwerken van de basis installatie kopie moet de basis installatie kopie een `node:9-alpine`stabiele tag hebben, zoals. Deze code ring is gebruikelijk voor een basis installatie kopie die wordt bijgewerkt met OS-en Framework patches naar een laatste stabiele release. Als de basis installatie kopie wordt bijgewerkt met een nieuwe versie label, wordt er geen taak geactiveerd. Zie de [Best practices-richt lijnen](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/)voor meer informatie over afbeeldings codes. 
 
 ### <a name="base-image-update-scenario"></a>Bijwerkscenario van basisinstallatiekopieën
 

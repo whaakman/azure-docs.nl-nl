@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 8821ce46c65ac8bca36f006ef77bcaf475b0573d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fad0fada4d9dd888b0b2a37b59e4eac1e016aec4
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559624"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663600"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Gegevens voorbereiden voor Custom Speech
 
@@ -29,7 +29,7 @@ In deze tabel worden de geaccepteerde gegevens typen vermeld, wanneer elk gegeve
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Ja<br>Gebruikt voor visuele inspectie | 5 + audio bestanden | Nee | N.v.t. |
 | [Audio en Transcripten met menselijke labels](#audio--human-labeled-transcript-data-for-testingtraining) | Ja<br>Wordt gebruikt om de nauw keurigheid te evalueren | 0,5-5 uur audio | Ja | 1-1.000 uur audio |
-| [Gerelateerde tekst](##related-text-data-for-training) | Nee | N.v.t. | Ja | 1-200 MB aan Verwante tekst |
+| [Gerelateerde tekst](#related-text-data-for-training) | Nee | N.v.t. | Ja | 1-200 MB aan Verwante tekst |
 
 Bestanden moeten worden gegroepeerd door te typen in een gegevensset en worden geüpload als een zip-bestand. Elke gegevensset kan slechts één gegevens type bevatten.
 

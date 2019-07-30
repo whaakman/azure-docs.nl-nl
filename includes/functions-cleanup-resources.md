@@ -4,18 +4,18 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 51c0d6dcb2ebc6bec567fee84b88d7bba8a873bf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 35bbef698bdb676774d9863ca1bd2306857b4a0f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175813"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639141"
 ---
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan bent om door te gaan met andere Quick Starts of met de zelfstudies, verwijdert u de resources die u in deze Quick Start hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende opdracht om alle resources die via deze Quick Start zijn gemaakt, te verwijderen:
+Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan bent om verder te gaan met de volgende Quick starts of met de zelf studies, kunt u de resources die u in deze Quick Start hebt gemaakt, niet opschonen. Als u niet wilt door gaan, gebruikt u de volgende opdracht om alle resources te verwijderen die u in deze Quick Start hebt gemaakt:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
-Typ `y` wanneer u daarom wordt gevraagd.
+Selecteer `y` wanneer hierom wordt gevraagd.

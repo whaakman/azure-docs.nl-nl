@@ -5,22 +5,21 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 7/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5c9d02cf1bfb9b8226328d1923859dd97ba2b79d
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: a936a7f7eff60d5875b917c7957211d70b325e89
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502043"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663112"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Een toepassingsgateway maken waarop meerdere websites worden gehost met behulp van Azure PowerShell
 
-U kunt Azure Powershell gebruiken om [het hosten van meerdere websites te configureren](multiple-site-overview.md) als u een [toepassingsgateway](overview.md) maakt. In deze zelfstudie definieert u back-endadresgroepen met behulp van schaalsets voor virtuele machines. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. In deze zelfstudie wordt ervan uitgegaan dat u eigenaar bent van meerdere domeinen en voorbeelden gebruikt van *www.contoso.com* en *www.fabrikam.com*.
+U kunt Azure Powershell gebruiken om [het hosten van meerdere websites te configureren](multiple-site-overview.md) als u een [toepassingsgateway](overview.md) maakt. In dit artikel definieert u back-end-adres groepen met behulp van virtuele machines met schaal sets. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. In dit artikel wordt ervan uitgegaan dat u over meerdere domeinen beschikt en gebruikmaakt van voor beelden van *www.contoso.com* en *www.fabrikam.com*.
 
-In deze zelfstudie leert u het volgende:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Het netwerk instellen
@@ -38,11 +37,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de PowerShell lokaal, in deze zelfstudie is vereist voor de Azure PowerShell-moduleversie 1.0.0 of hoger. Voer `Get-Module -ListAvailable Az` uit om de versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u ervoor kiest om Power shell lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van de Azure PowerShell module versie 1.0.0 of hoger. Voer `Get-Module -ListAvailable Az` uit om de versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een Azure-resource-groep met [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
+Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een Azure-resource groep met behulp van [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -50,7 +49,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Netwerkbronnen maken
 
-Maak de subnetconfiguraties met behulp van [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Maken van het virtuele netwerk met [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) met de subnetconfiguraties. En maak ten slotte het openbare IP-adres met [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Deze resources worden gebruikt om de netwerkverbinding naar de toepassingsgateway en de bijbehorende bronnen te leveren.
+Maak de subnet-configuraties met behulp van [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Maak het virtuele netwerk met behulp van [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) met de subnet-configuraties. En ten slotte maakt u het open bare IP-adres met behulp van [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Deze resources worden gebruikt om de netwerkverbinding naar de toepassingsgateway en de bijbehorende bronnen te leveren.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -79,7 +78,7 @@ $pip = New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP-configuraties en front-endpoort maken
 
-Koppelen van het subnet dat u eerder hebt gemaakt met de application gateway via [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Het openbare IP-adres toewijzen aan de application gateway met [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
+Koppel het subnet dat u eerder hebt gemaakt met [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)aan de toepassings gateway. Wijs het open bare IP-adres toe aan de toepassings gateway met behulp van [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -103,7 +102,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pools-and-settings"></a>Back-endpools en instellingen maken
 
-Maken van de eerste back-end-adresgroep voor de application gateway met [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configureer de instellingen voor de groep van toepassingen met [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
+Maak de eerste back-end-adres groep voor de toepassings gateway met behulp van [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configureer de instellingen voor de pool met behulp van [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $contosoPool = New-AzApplicationGatewayBackendAddressPool `
@@ -122,9 +121,9 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-listeners-and-rules"></a>Listeners en regels maken
 
-Listeners zijn vereist om de toepassingsgateway verkeer op de juiste manier naar de back-endadresgroepen te kunnen laten doorsturen. In deze zelfstudie maakt u twee listeners voor de twee domeinen. In dit voorbeeld worden listeners gemaakt voor de domeinen van *www.contoso.com* en *www.fabrikam.com*.
+Listeners zijn vereist om de toepassingsgateway verkeer op de juiste manier naar de back-endadresgroepen te kunnen laten doorsturen. In dit artikel maakt u twee listeners voor uw twee domeinen. Listeners worden gemaakt voor de domeinen *contoso.com* en *fabrikam.com* .
 
-Maken van de eerste listener met behulp van [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) met de front-end-configuratie en de frontend-poort die u eerder hebt gemaakt. Er is een regel vereist, zodat de listener weet welke back-endpool moet worden gebruikt voor binnenkomend verkeer. Maak een eenvoudige regel met de naam *contosoRule* met behulp van [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Maak de eerste listener met behulp van [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) met de front-end-configuratie en de frontend-poort die u eerder hebt gemaakt. Er is een regel vereist, zodat de listener weet welke back-endpool moet worden gebruikt voor binnenkomend verkeer. Maak een basis regel met de naam *contosoRule* met behulp van [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `
@@ -158,7 +157,7 @@ $fabrikamRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-Nu dat u de benodigde ondersteunende netwerkbronnen gemaakt, Geef parameters op voor de application gateway met [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku), en maak vervolgens met behulp van [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
+Nu u de nodige ondersteunende resources hebt gemaakt, geeft u para meters op voor de toepassings gateway met behulp van [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)en maakt u deze met behulp van [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -276,13 +275,13 @@ for ($i=1; $i -le 2; $i++)
 
 ## <a name="create-cname-record-in-your-domain"></a>CNAME-record in uw domein maken
 
-Als de toepassingsgateway met het bijbehorende openbare IP-adres is gemaakt, kunt u het DNS-adres ophalen en dit gebruiken om een CNAME-record in uw domein te maken. U kunt [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) om op te halen van de DNS-adres van de toepassingsgateway. Kopieer de waarde *fqdn* van DNSSettings en gebruik deze als de waarde van de CNAME-record die u maakt. Het gebruik van A-records wordt niet aanbevolen, omdat de VIP kan veranderen wanneer de toepassingsgateway opnieuw wordt gestart.
+Als de toepassingsgateway met het bijbehorende openbare IP-adres is gemaakt, kunt u het DNS-adres ophalen en dit gebruiken om een CNAME-record in uw domein te maken. U kunt [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) gebruiken om het DNS-adres van de toepassings gateway op te halen. Kopieer de waarde *fqdn* van DNSSettings en gebruik deze als de waarde van de CNAME-record die u maakt. Het gebruik van A-records wordt niet aanbevolen, omdat het VIP kan worden gewijzigd wanneer de toepassings Gateway opnieuw wordt gestart.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-## <a name="test-the-application-gateway"></a>Toepassingsgateway testen
+## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
 Voer uw domeinnaam in de adresbalk van de browser in. Zoals http:\//www.contoso.com.
 
@@ -294,7 +293,7 @@ Wijzig het adres in uw andere domein. U krijgt iets te zien zoals in het volgend
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u niet meer nodig hebt, verwijdert u de resourcegroep, application-gateway en alle gerelateerde resources met behulp van [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+Als u deze niet meer nodig hebt, verwijdert u de resource groep, toepassings gateway en alle gerelateerde resources met [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroupAG
@@ -302,15 +301,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Het netwerk instellen
-> * Een toepassingsgateway maken
-> * Back-endlisteners maken
-> * Routeringsregels maken
-> * Schaalsets voor virtuele machines maken met de back-endpools
-> * Een CNAME-record in uw domein maken
-
-> [!div class="nextstepaction"]
-> [Een toepassingsgateway maken met omleidingsregels op basis van een URL-pad](./tutorial-url-route-powershell.md)
+[Een toepassingsgateway maken met omleidingsregels op basis van een URL-pad](./tutorial-url-route-powershell.md)

@@ -1,20 +1,20 @@
 ---
 title: Azure Quick Start-een back-up van een VM maken met een resource manager-sjabloon
 description: Meer informatie over het maken van een back-up van uw virtuele machines met Azure Resource Manager-sjabloon
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 643ae23ef566cb433bd3890e6ab2f38050cb1f47
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 7075e127192635c08aa2da2b4798dea6d6abb13b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467136"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639408"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>Een back-up maken van een virtuele machine in azure met Resource Manager-sjabloon
 

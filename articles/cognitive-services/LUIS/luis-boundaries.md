@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5dd49035414c7e717c3d60ab9bc185f42dcac408
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6d4991a0a05bbdd7143987bfa227cc40732cda35
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560866"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639245"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Grenzen voor uw LUIS-model en-sleutels
 LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#model-boundaries), welke besturingselementen intents, entiteiten en functies van LUIS. Het tweede gedeelte [quotalimieten](#key-limits) op basis van het type sleutel. Is van een derde deel van de grenzen van de [combinatie op het toetsenbord](#keyboard-controls) voor het beheren van de website van LUIS. Een vierde gebied is de [world regiotoewijzing](luis-reference-regions.md) tussen de LUIS website ontwerpen en de LUIS [eindpunt](luis-glossary.md#endpoint) API's. 
@@ -76,7 +76,7 @@ De ontwerphandleiding sleutel heeft verschillende beperkingen bij het ontwerpen 
 |Language Understanding [abonnement][pricing] : S0-Basic-laag|ongeldig|50 per seconde|Uitvoeren van query's uw LUIS-eindpunt|
 |Cognitieve service- [abonnement][pricing] -S0-Standard-laag|ongeldig|50 per seconde|Uitvoeren van query's uw LUIS-eindpunt|
 |[Integratie van sentiment-analyse](luis-how-to-publish-app.md#enable-sentiment-analysis)|ongeldig|Er zijn geen kosten in rekening gebracht|Sentiment informatie, inclusief gegevens sleuteltermextractie toe te voegen |
-|Spraak-integratie|ongeldig|$5,50 USD/1 duizend eindpunt aanvragen|Gesproken utterance converteren naar tekst utterance en LUIS resultaten geretourneerd|
+|[Spraak integratie](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|ongeldig|$5,50 USD/1 duizend eindpunt aanvragen|Gesproken utterance converteren naar tekst utterance en LUIS resultaten geretourneerd|
 
 ## <a name="keyboard-controls"></a>Toetsenbord
 
@@ -84,7 +84,7 @@ De ontwerphandleiding sleutel heeft verschillende beperkingen bij het ontwerpen 
 |--|--|
 |Besturingselement + E|Hiermee schakelt u tussen tokens en entiteiten in de lijst met uitingen|
 
-## <a name="website-sign-in-time-period"></a>Website zich in een tijdsperiode
+## <a name="website-sign-in-time-period"></a>Tijds periode website aanmelding
 
 Uw aanmelding toegang wordt toegestaan voor **60 minuten**. Na deze periode ontvangt u deze fout. U moet zich opnieuw aanmelden.
 

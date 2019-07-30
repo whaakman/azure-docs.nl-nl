@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 553e87cacf407da2333da3105647719679feaabf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a4d5941091c3cf6516380c4d6384951d886e0e7f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60624730"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640336"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Gegevens kopiëren van Azure Blob Storage naar een SQL-database met behulp van het hulpprogramma Copy Data
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Huidige versie](tutorial-copy-data-tool.md)
 
@@ -72,9 +72,9 @@ Bereid uw Blob-opslag en de SQL-database voor voor gebruik tijdens de zelfstudie
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Geef Azure-services toegang tot de SQL-server. Controleer of de instelling **Toegang tot Azure-services toestaan** is ingeschakeld voor uw server waarop SQL Database wordt uitgevoerd. Met deze instelling kan Data Factory gegevens naar uw database-instantie schrijven. Om deze instelling te controleren en in te schakelen, gaat u naar uw Azure SQL-server > **Beveiliging** > **Firewalls en virtuele netwerken** > zet **Toegang tot Azure-services toestaan** op **AAN**.
+2. Geef Azure-services toegang tot de SQL-server. Controleer of de instelling **Toegang tot Azure-services toestaan** is ingeschakeld voor uw server waarop SQL Database wordt uitgevoerd. Met deze instelling kan Data Factory gegevens naar uw database-instantie schrijven. Om deze instelling te controleren en in te scha kelen, gaat u naar de > overzicht van Azure SQL Server > Set Server Firewall > Stel de optie **toegang tot Azure-Services toestaan** **in op aan**.
 
-## <a name="create-a-data-factory"></a>Een gegevensfactory maken
+## <a name="create-a-data-factory"></a>Data factory maken
 
 1. Selecteer in het linkermenu **+ Nieuw** > **Gegevens en analyses** > **Data Factory**:
     
@@ -87,7 +87,7 @@ Bereid uw Blob-opslag en de SQL-database voor voor gebruik tijdens de zelfstudie
     
     ![Foutbericht nieuwe data factory](./media/tutorial-copy-data-tool/name-not-available-error.png)
 
-    Als u een foutbericht ontvangt dat betrekking heeft op de waarde die bij de naam is ingevuld, voert u een andere naam in voor de data factory. Gebruik bijvoorbeeld de naam _**uwnaam**_**ADFTutorialDataFactory**. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+    Als u een foutbericht ontvangt dat betrekking heeft op de waarde die bij de naam is ingevuld, voert u een andere naam in voor de data factory. Gebruik bijvoorbeeld de naam _**uwnaam**_ **ADFTutorialDataFactory**. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
 1. Selecteer het Azure-**abonnement** waarin u de nieuwe data factory wilt maken.
 1. Voer een van de volgende stappen uit voor **Resourcegroep**:
     
@@ -143,7 +143,7 @@ Bereid uw Blob-opslag en de SQL-database voor voor gebruik tijdens de zelfstudie
 
     b. Klik op **Volgende** om verder te gaan met de volgende stap.
 
-1. Op de pagina **Instellingen bestandsindelingen** ziet u dat het hulpprogramma automatisch de scheidingstekens voor kolommen en rijen detecteert. Selecteer **Next**. U kunt ook een voorbeeld van gegevens en het schema van de ingevoerde gegevens op deze pagina bekijken.
+1. Op de pagina **Instellingen bestandsindelingen** ziet u dat het hulpprogramma automatisch de scheidingstekens voor kolommen en rijen detecteert. Selecteer **Volgende**. U kunt ook een voorbeeld van gegevens en het schema van de ingevoerde gegevens op deze pagina bekijken.
 
     ![Pagina Instellingen bestandsindelingen](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 1. Voltooi op de pagina **Doelgegevensarchief** de volgende stappen:
@@ -167,7 +167,7 @@ Bereid uw Blob-opslag en de SQL-database voor voor gebruik tijdens de zelfstudie
 1. Selecteer op de pagina **Tabeltoewijzing** de tabel **[dbo].[emp]** en selecteer vervolgens **Volgende**.
 
     ![Tabeltoewijzing](./media/tutorial-copy-data-tool/table-mapping.png)
-1. Op de pagina **Schematoewijzing** ziet u dat de eerste en tweede kolom in het invoerbestand zijn toegewezen aan de kolommen **FirstName** en **LastName** van de tabel **emp**. Selecteer **Next**.
+1. Op de pagina **Schematoewijzing** ziet u dat de eerste en tweede kolom in het invoerbestand zijn toegewezen aan de kolommen **FirstName** en **LastName** van de tabel **emp**. Selecteer **Volgende**.
 
     ![De pagina Schematoewijzing](./media/tutorial-copy-data-tool/schema-mapping.png)
 1. Selecteer op de pagina **Instellingen** de optie **Volgende**.

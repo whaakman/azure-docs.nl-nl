@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 121423682bbd9bbb32f2ab1d02e48d3237ee830d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dc648b30dc1236080be06044f510557ae0ce9476
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563759"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638311"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Uw LUIS-app plannen met het onderwerp domein, intenties en entiteiten
 
-Het is belangrijk voor het plannen van uw app. Identificeer uw domein, met inbegrip van mogelijke intenties en entiteiten die relevant voor uw toepassing zijn.  
+Als u uw app wilt plannen, identificeert u het domein van het onderwerp. Dit omvat mogelijk intenties en entiteiten die relevant zijn voor uw toepassing.  
 
 ## <a name="identify-your-domain"></a>Identificeren van uw domein
 
@@ -39,11 +39,13 @@ Denk aan de [intents](luis-concept-intent.md) die belangrijk zijn voor de taak v
 
 ## <a name="create-example-utterances-for-each-intent"></a>Voorbeeld-uitingen voor elk doel maken
 
-Nadat u hebt vastgesteld dat de intenties, maakt u 10 of 15 voorbeeld uitingen voor elk doel. Te beginnen met minder dan dit aantal of niet veel uitingen voor elk doel maken. Elke utterance moet verschillen van de vorige utterance. Goede verschillende in de uitingen bevat algemene woordentelling, word keuze term tegenwoordige en leestekens. 
+Wanneer u de intenties hebt bepaald, maakt u voor elke intentie 15 tot 30 voor beeld uitingen. Als u met wilt beginnen, hoeft u niet minder dan dit aantal te hebben of te veel uitingen voor elke intentie te maken. Elke utterance moet verschillen van de vorige utterance. Goede verschillende in de uitingen bevat algemene woordentelling, word keuze term tegenwoordige en leestekens. 
+
+Raadpleeg [uitingen](luis-concept-utterance.md) voor meer informatie.
 
 ## <a name="identify-your-entities"></a>Uw entiteiten identificeren
 
-In de voorbeeld-uitingen identificeren de entiteiten die u wilt dat opgehaald. Als u wilt een vlucht reserveren, kunt u enkele gegevens, zoals de bestemming, datum, luchtvaartmaatschappij, ticket categorie en klasse reizen. U maakt entiteiten voor deze gegevenstypen en markeert vervolgens de [entiteiten](luis-concept-entity-types.md) in de voorbeeld-uitingen omdat ze belangrijk zijn voor het uitvoeren van een doel. 
+In de voorbeeld-uitingen identificeren de entiteiten die u wilt dat opgehaald. Als u een vlucht wilt boeken, hebt u informatie nodig zoals de doel-, datum-, vlieg tickets-, ticket categorie-en reis klasse. Maak entiteiten voor deze gegevens typen en markeer vervolgens de [entiteiten](luis-concept-entity-types.md) in het voor beeld uitingen omdat ze belang rijk zijn om een intentie te bereiken. 
 
 Wanneer u welke entiteiten om te gebruiken in uw app bepaalt, houd er rekening mee dat er verschillende soorten entiteiten zijn voor het vastleggen van relaties tussen verschillende typen objecten. [Entiteiten in LUIS](luis-concept-entity-types.md) biedt meer informatie over de verschillende typen.
 

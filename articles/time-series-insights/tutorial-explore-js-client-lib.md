@@ -6,149 +6,153 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 07/29/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: c6cfd2069851138d738b1533eaab74d9d7aedda6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1ae37636a2caf108221be2240a9517a547945096
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243990"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638844"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Zelfstudie: De JavaScript-clientbibliotheek van Azure Time Series Insights ontdekken
 
-De clientbibliotheek voor JavaScript D3 op basis van Azure Time Series Insights is ontwikkeld om te helpen web ontwikkelaars query en visualiseren van gegevens die zijn opgeslagen in Time Series Insights. In deze zelfstudie leidt u door de Time Series Insights-clientbibliotheek en programmeermodel met behulp van een gehoste voorbeeld-app.
+De Azure Time Series Insights-client bibliotheek van Java script D3 is ontwikkeld om webontwikkelaars in te helpen bij het opvragen en visualiseren van gegevens die zijn opgeslagen in Time Series Insights. In deze zelf studie wordt u begeleid bij de Time Series Insights-client bibliotheek en het programmeer model met behulp van een gehoste voor beeld-app.
 
-De zelfstudie wordt uitgelegd hoe u werkt met de bibliotheek, toegang krijgen tot Time Series Insights-gegevens en hoe u besturingselementen kolomdiagram gebruiken om te genereren en visualiseren van gegevens. U leert ook hoe u om te experimenteren met verschillende soorten grafieken om gegevens te visualiseren. Aan het einde van de zelfstudie, kunt u zult de clientbibliotheek gebruiken om op te nemen van Time Series Insights-functies in uw eigen web-app.
+In de zelf studie wordt beschreven hoe u met de bibliotheek werkt, hoe u toegang krijgt tot Time Series Insights gegevens en hoe u grafiek besturings elementen kunt gebruiken om gegevens weer te geven en te visualiseren. U leert ook hoe u kunt experimenteren met verschillende soorten grafieken om gegevens te visualiseren. Aan het einde van de zelf studie kunt u de client bibliotheek gebruiken om Time Series Insights-functies in uw eigen web-app op te nemen.
 
-Specifiek, vindt u meer over:
+Meer informatie over:
 
 > [!div class="checklist"]
-> * De Time Series Insights-voorbeeldtoepassing
-> * De Time Series Insights JavaScript-clientbibliotheek
-> * Hoe de voorbeeldtoepassing maakt gebruik van de bibliotheek om Time Series Insights-gegevens te visualiseren
+> * De voorbeeld toepassing Time Series Insights
+> * De Time Series Insights java script-client bibliotheek
+> * Hoe de voorbeeld toepassing de bibliotheek gebruikt om Time Series Insights gegevens te visualiseren
 
 > [!NOTE]
-> * De zelfstudie wordt gebruikgemaakt van een gratis, gehoste [Time Series Insights web demo](https://insights.timeseries.azure.com/clientsample).
-> * De bronbestanden van de Time Series Insights-voorbeeld-app vindt u in de [voorbeeldopslagplaats in GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
-> * Lees de [Time Series Insights-client-referentiedocumentatie](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
+> * De zelf studie maakt gebruik van een gratis, gehoste [Time Series Insights Webdemo](https://insights.timeseries.azure.com/clientsample).
+> * De bron bestanden voor de Time Series Insights-voor beeld-app zijn opgenomen in de [github-voorbeeld opslagplaats](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
+> * Lees de [documentatie over de time series Insights-client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
+
+## <a name="prerequisites"></a>Vereisten
+
+* Meld u aan voor een [gratis Azure-abonnement](https://azure.microsoft.com/free/) als u er nog geen hebt.
+
+* In deze zelf studie wordt de functie **Ontwikkelhulpprogramma's** van uw browser gebruikt. Moderne webbrowsers ([micro soft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/)en anderen) bieden doorgaans toegang tot de **weer gave weboverzicht** via de F12-sneltoets op het toetsen bord. Een andere manier om de weer gave te openen, is door met de rechter muisknop op een webpagina te klikken en vervolgens **element controleren**te selecteren.
 
 ## <a name="video"></a>Video
 
-In deze video stellen we de open-source Time Series Insights JavaScript SDK:
+In deze video introduceren we de open source Time Series Insights java script SDK:
 <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
-## <a name="prerequisites"></a>Vereisten
 
-Deze zelfstudie wordt gebruikgemaakt van uw browser **hulpprogramma's voor ontwikkelaars** functie. Moderne webbrowsers ([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), enzovoort) worden meestal aangeboden aan toegang tot de **Inspector Webweergave** via de sneltoets F12 op het toetsenbord. Een andere manier toegang tot de weergave is met de rechtermuisknop op een webpagina en selecteer vervolgens **inspecteren Element**.
 
 ## <a name="time-series-insights-sample-application"></a>Time Series Insights-voorbeeldtoepassing
 
-In deze zelfstudie gebruiken we een gratis, gehoste voorbeeldapp van Time Series Insights verkennen van de broncode achter de toepassing en de Time Series Insights JavaScript-clientbibliotheek verkennen. Met behulp van de voorbeeld-app, leert u hoe u werken met Time Series Insights in JavaScript en visualiseren van gegevens via de diagrammen en grafieken.
+In deze zelf studie gebruiken we een gratis, gehoste Time Series Insights voor beeld-app om de bron code achter de toepassing te verkennen en de Time Series Insights java script-client bibliotheek te verkennen. Als u de voor beeld-app gebruikt, leert u hoe u kunt communiceren met Time Series Insights in Java script en gegevens kunt visualiseren via grafieken en grafieken.
 
-1. Ga naar de [Time Series Insights-voorbeeldtoepassing](https://insights.timeseries.azure.com/clientsample). Het volgende bericht aanmelden wordt weergegeven:
+1. Ga naar de [voorbeeld toepassing time series Insights](https://insights.timeseries.azure.com/clientsample). De volgende aanmeldings prompt wordt weer gegeven:
 
-   [![Time Series Insights client voorbeeld aanmeldingsprompt](media/tutorial-explore-js-client-lib/tcs-sign-in.png)](media/tutorial-explore-js-client-lib/tcs-sign-in.png#lightbox)
+   [![Aanmeldings prompt voor client voorbeeld Time Series Insights](media/tutorial-explore-js-client-lib/tcs-sign-in.png)](media/tutorial-explore-js-client-lib/tcs-sign-in.png#lightbox)
 
-1. Selecteer **aanmelden** invoeren of selecteren van uw referenties. Gebruik een enterprise-organisatie-account (Azure Active Directory) of een persoonlijk account (Microsoft-account).
+1. Selecteer **Aanmelden** om uw referenties in te voeren of te selecteren. Gebruik een organisatie account (Azure Active Directory) voor ondernemingen of een persoonlijk account (Microsoft-account).
 
-   [![Time Series Insights-clientreferenties voorbeeld vragen](media/tutorial-explore-js-client-lib/tcs-sign-in-enter-account.png)](media/tutorial-explore-js-client-lib/tcs-sign-in-enter-account.png#lightbox)
+   [![Vragen om Time Series Insights client voorbeeld referenties](media/tutorial-explore-js-client-lib/tcs-sign-in-enter-account.png)](media/tutorial-explore-js-client-lib/tcs-sign-in-enter-account.png#lightbox)
 
-1. Nadat u zich hebt aangemeld, wordt een pagina met grafieken gevuld met Time Series Insights-gegevens weergegeven. Uw gebruikersaccount en de optie **Afmelden** worden in de rechterbovenhoek weergegeven:
+1. Nadat u zich hebt aangemeld, wordt een pagina weer gegeven met grafieken die zijn gevuld met Time Series Insights gegevens. Uw gebruikersaccount en de optie **Afmelden** worden in de rechterbovenhoek weergegeven:
 
-   [![Time Series Insights client voorbeeld hoofdpagina na het aanmelden](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png)](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png#lightbox)
+   [![Time Series Insights client voor beeld van hoofd pagina na aanmelden](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png)](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png#lightbox)
 
 ### <a name="page-source-and-structure"></a>Paginabron en -structuur
 
-Eerst gaan we bekijken de [HTML en JavaScript-broncode](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) van de webpagina van de weergegeven:
+Eerst gaan we de [HTML-en Java script-bron code](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) van de gerenderde webpagina bekijken:
 
 1. Open **Ontwikkelhulpprogramma's** in uw browser. Bekijk de HTML-elementen waaruit de huidige pagina bestaat, ook wel de HTML- of DOM-structuur genoemd.
 
-1. Vouw de `<head>` en `<body>` elementen en houd rekening met de volgende secties:
+1. Vouw de `<head>` elementen `<body>` en uit en houd rekening met de volgende secties:
 
-   * Onder de `<head>` -element, vindt u de metagegevens van de pagina en afhankelijkheden waarmee de app wordt uitgevoerd:
-     * Een `<script>` element dat wordt gebruikt om te verwijzen naar de Azure Active Directory Authentication Library (ADAL)-bestand *adal.min.js*. ADAL is een JavaScript-bibliotheek die zorgt voor OAuth 2.0-verificatie (aanmelding) en het verkrijgen van een token voor toegang tot API's.
-     * Meerdere `<link>` -elementen voor opmaakmodellen (ook wel bekend als *CSS*), zoals *sampleStyles.css* en *tsiclient.css*. De opmaakmodellen beheren pagina visuele stijl details, zoals kleuren, lettertypen en afstand.
-     * Een `<script>` element dat wordt gebruikt om te verwijzen naar de Time Series Insights JavaScript-clientbibliotheek *tsiclient.js*. De pagina maakt gebruik van de bibliotheek om aan te roepen van Time Series Insights service-API's en grafiekbesturingselementen op de pagina weergeven.
+   * Onder het `<head>` -element vindt u meta gegevens en afhankelijkheden van de pagina waarmee de app kan worden uitgevoerd:
+     * Een `<script>` element dat wordt gebruikt om te verwijzen naar het ADAL-bestand (Azure Active Directory Authentication Library) *ADAL. min. js*. ADAL is een JavaScript-bibliotheek die zorgt voor OAuth 2.0-verificatie (aanmelding) en het verkrijgen van een token voor toegang tot API's.
+     * Meerdere `<link>` elementen voor Style Sheets (ook wel *CSS*genoemd), zoals *sampleStyles. CSS* en *tsiclient. CSS*. Het opmaak model bepaalt de opmaak Details van de visuele pagina, zoals kleuren, letter typen en afstand.
+     * Een `<script>` element dat wordt gebruikt om te verwijzen naar de time series Insights java script-client bibliotheek *tsiclient. js*. De pagina gebruikt de-bibliotheek voor het aanroepen van Time Series Insights-service-Api's en voor het weer geven van grafiek besturings elementen op de pagina.
 
      >[!NOTE]
-     > * De broncode voor de ADAL JavaScript-bibliotheek is beschikbaar in de [azure-activedirectory-bibliotheek-voor-js-opslagplaats](https://github.com/AzureAD/azure-activedirectory-library-for-js).
-     > * De broncode voor de Time Series Insights JavaScript-clientbibliotheek is beschikbaar in de [tsiclient opslagplaats](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
+     > * De bron code voor de Java script-bibliotheek ADAL is beschikbaar in de [opslag plaats Azure-ActiveDirectory-library-for-js](https://github.com/AzureAD/azure-activedirectory-library-for-js).
+     > * De bron code voor de Time Series Insights java script-client bibliotheek is beschikbaar in de [tsiclient-opslag plaats](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 
-   * Onder de `<body>` -element, vindt u `<div>` elementen, die het definiëren van de indeling van de items op de pagina, en een andere `<script>` element:
-     * De eerste `<div>` element Hiermee geeft u de **aanmelden** in het dialoogvenster (`id="loginModal"`).
+   * Onder het `<body>` -element vindt `<div>` u elementen, waarmee u de indeling van items op de pagina en een ander `<script>` element kunt definiëren:
+     * Met het `<div>` eerste element wordt het dialoog venster **Aanmelden** (`id="loginModal"`) opgegeven.
      * Het tweede `<div>`-element fungeert als een bovenliggend item voor:
        * Een koptekst-`<div>`-element, dat wordt gebruikt voor statusberichten en aanmeldingsgegevens aan de bovenkant van de pagina (`class="header"`).
-       * Een `<div>` -element voor de rest van de pagina instantie-elementen, met inbegrip van de grafieken (`class="chartsWrapper"`).
-       * Een `<script>` sectie waarin het JavaScript dat wordt gebruikt voor het beheren van de pagina.
+       * Een `<div>` element voor de rest van de hoofd elementen van de pagina, met inbegrip van de grafieken (`class="chartsWrapper"`).
+       * Een `<script>` sectie met het Java script dat wordt gebruikt voor het beheren van de pagina.
 
-   [![Time Series Insights Client voorbeeld met hulpprogramma's voor ontwikkelaars](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
+   [![Time Series Insights client-voor beeld met Ontwikkelhulpprogramma's](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
 
-1. Vouw de `<div class="chartsWrapper">` -element en u vindt meer onderliggende `<div>` elementen. Deze elementen worden gebruikt voor het plaatsen van alle voorbeelden van grafiekbesturingselementen. Er zijn verschillende sets `<div>` elementen, één voor elke grafiek-voorbeeld:
+1. Vouw het `<div class="chartsWrapper">` element uit en u vindt meer onderliggende `<div>` elementen. Deze elementen worden gebruikt voor het plaatsen van alle voorbeelden van grafiekbesturingselementen. Er zijn verschillende paren `<div>` elementen, één voor elk grafiek voorbeeld:
 
    * Het eerste element (`class="rowOfCardsTitle"`) bevat een beschrijvende titel om samen te vatten wat de grafiek(en) laten zien. Bijvoorbeeld: `Static Line Charts With Full-Size Legends.`
-   * De tweede (`class="rowOfCards"`)-element is een bovenliggende met aanvullende onderliggende `<div>` elementen die de werkelijke grafiekbesturingselementen in een rij te plaatsen.
+   * Het tweede element`class="rowOfCards"`() is een bovenliggend item dat aanvullende onderliggende `<div>` elementen bevat die de werkelijke grafiek besturings elementen binnen een rij positioneren.
 
-   [![Div-berichttekstonderdelen](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png#lightbox)
+   [![Div-elementen van Body](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png#lightbox)
 
-1. Vouw de `<script type="text/javascript">` element dat direct onder de `<div class="chartsWrapper">` element. Het begin van de JavaScript-sectie op paginaniveau wordt gebruikt voor het afhandelen van alle van de pagina logica (verificatie, aanroepen van API's, het weergeven van de besturingselementen kolomdiagram en meer van de Time Series Insights-service):
+1. Vouw het `<script type="text/javascript">` element uit dat direct onder het `<div class="chartsWrapper">` -element ligt. Het begin van de Java script-sectie op pagina niveau wordt gebruikt voor het verwerken van alle pagina logica (verificatie, het aanroepen van Time Series Insights service-Api's, het samen stellen van de grafiek besturings elementen en meer):
 
-   [![Hoofdtekst script](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png#lightbox)
+   [![Hoofd script](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png#lightbox)
 
-## <a name="time-series-insights-javascript-client-library-concepts"></a>Time Series Insights JavaScript-client-bibliotheek concepten
+## <a name="time-series-insights-javascript-client-library-concepts"></a>Concepten van Time Series Insights java script-client bibliotheek
 
-De Time Series Insights-clientbibliotheek (*tsclient.js*) abstracties voor twee belangrijke JavaScript-functies biedt:
+De Time Series Insights-client bibliotheek (*tsclient. js*) biedt abstracties voor twee belang rijke java script-functies:
 
-* **Wrapper methoden voor het aanroepen van de API's van tijd Series Insights Query**: REST API's die kunt u gegevens op te vragen voor Time Series Insights met behulp van statistische expressies. De methoden zijn ingedeeld in de naamruimte TsiClient.Server van de bibliotheek.
+* **Wrapper-methoden voor het aanroepen van de time series Insights query-api's**: REST-Api's die u kunt gebruiken om Time Series Insights gegevens op te vragen met behulp van statistische expressies. De methoden zijn ingedeeld onder de TsiClient. server-naam ruimte van de bibliotheek.
 
-* **Methoden voor het maken en vullen van verschillende typen grafiekbesturingselementen**: Methoden om weer te geven van de Time Series Insights kunt u de gegevens in een webpagina samenvoegen. De methoden zijn ingedeeld in de naamruimte TsiClient.UX van de bibliotheek.
+* **Methoden voor het maken en vullen van verschillende typen grafiekbesturingselementen**: Methoden die u kunt gebruiken om de Time Series Insights statistische gegevens op een webpagina weer te geven. De methoden zijn ingedeeld onder de naam ruimte TsiClient. UX van de-bibliotheek.
 
-Ontwikkelaars kunnen via deze vereenvoudigen UI graph en grafiek-onderdelen die zijn uitgerust met Time Series Insights-gegevens eenvoudiger bouwen.
+Dankzij deze vereenvoudiging kunnen ontwikkel aars eenvoudiger gebruikers interface grafieken en-grafiek onderdelen bouwen die worden ingeschakeld met Time Series Insights gegevens.
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authentication
 
-De [Time Series Insights-voorbeeldtoepassing](https://insights.timeseries.azure.com/clientsample) is een app met één pagina met ondersteuning voor verificatie van ADAL OAuth 2.0 gebruiker:
+De [voorbeeld toepassing time series Insights](https://insights.timeseries.azure.com/clientsample) is een app met één pagina die ADAL OAuth 2,0-gebruikers verificatie ondersteunt:
 
-1. Wanneer u ADAL voor verificatie gebruikt, moet u de client-app geregistreerd in Azure Active Directory (Azure AD). In feite de app met één pagina is geregistreerd voor het gebruik van de [OAuth 2.0-impliciete stroom verlenen](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-implicit-grant-flow).
-1. De toepassing moet opgeven dat een aantal van de registratie-eigenschappen tijdens runtime. De eigenschappen omvatten het client-GUID (`clientId`) en de omleidings-URI (`postLogoutRedirectUri`).
-1. Later, de app verzoekt een *toegangstoken* van Azure AD. Het toegangstoken is uitgegeven voor een beperkte set machtigingen voor een bepaalde service of de API-id (https:\//api.timeseries.azure.com). De tokenmachtigingen worden namens de aangemelde gebruiker uitgegeven. De id voor de service of de API is een andere eigenschap die opgenomen in de Azure AD-registratie van de app.
-1. Het toegangstoken ADAL stuurt naar de app, wordt doorgegeven als een *bearer-token* wanneer deze toegang heeft tot de API's van de Time Series Insights-service.
+1. Wanneer u ADAL gebruikt voor verificatie, moet de client-app zijn geregistreerd in Azure Active Directory (Azure AD). De app met één pagina is in feite geregistreerd voor gebruik van de [OAuth 2,0 impliciete toekennings stroom](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-implicit-grant-flow).
+1. De toepassing moet sommige registratie-eigenschappen tijdens runtime opgeven. De eigenschappen omvatten de client-GUID`clientId`() en de omleidings-URI (`postLogoutRedirectUri`).
+1. Later vraagt de app een *toegangs token* aan bij Azure AD. Het toegangs token wordt uitgegeven voor een eindige set machtigingen voor een specifieke service of API-id (https\/:/API.timeseries.Azure.com). De tokenmachtigingen worden namens de aangemelde gebruiker uitgegeven. De id voor de service of API is een andere eigenschap die deel uitmaakt van de Azure AD-registratie van de app.
+1. Nadat ADAL het toegangs token naar de app heeft geretourneerd, wordt het door gegeven als Bearer- *token* wanneer het toegang heeft tot de time series Insights service-api's.
 
    [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=3-7,34-37)]
 
 > [!TIP]
-> Zie voor meer informatie over ondersteunde Microsoft Azure AD-verificatiebibliotheken, de [naslagdocumentatie voor Azure Active Directory Authentication Library](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries#microsoft-supported-client-libraries).
+> Voor meer informatie over Azure AD-verificatie bibliotheken die door micro soft worden ondersteund, raadpleegt u de documentatie over de [Azure Active Directory-verificatie bibliotheek](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries#microsoft-supported-client-libraries).
 
 ### <a name="control-identification"></a>Identificatie van besturingselementen
 
-In het opgegeven voorbeeld `<div>` elementen zijn gerangschikt in de bovenliggende `<body>` element voor een praktische indeling voor de grafiek dat render op de pagina bepaalt.
+In het gegeven voor beeld `<div>` worden elementen gerangschikt in het bovenliggende `<body>` element om een overzichtelijke indeling te bieden voor de grafiek besturings elementen die op de pagina worden weer gegeven.
 
-Elke `<div>` element Hiermee geeft u de eigenschappen voor de plaatsing en visuele kenmerken van besturingselementen kolomdiagram. HTML-element `id` eigenschappen dienen als unieke id's verbinding maken met specifieke eisen voor weergeven en bijwerken van de gegevens gevisualiseerd.
+Elk `<div>` element bevat eigenschappen voor de plaatsing en visuele kenmerken van grafiek besturings elementen. Eigenschappen van `id` HTML-elementen fungeren als unieke id's om te verbinden met specifieke besturings elementen om gevisualiseerde gegevens weer te geven en bij te werken.
 
 ### <a name="aggregate-expressions"></a>Samenvoegingsexpressies
 
-De Time Series Insights-clientbibliotheek API's statistische expressies gebruiken:
+De Time Series Insights-client bibliotheek-Api's gebruiken geaggregeerde expressies:
 
-* Een statistische expressie biedt de mogelijkheid om te maken van een of meer *zoektermen*.
+* Een statistische expressie biedt de mogelijkheid om een of meer *zoek termen*samen te stellen.
 
-* De client API's zijn ontworpen om te bieden vergelijkbare functionaliteit als een andere demo-app (de [Verkenner van Time Series Insights](https://insights.timeseries.azure.com/demo)), die maakt gebruik van bereik, zoeken naar `where` predikaten, metingen, en `splitBy` waarden.
+* De client-api's zijn ontworpen om Vergelijk bare functionaliteit te bieden aan een andere demo-app (de [Time Series Insights Explorer](https://insights.timeseries.azure.com/demo)), `where` die gebruikmaakt van een zoek reeks `splitBy` , predikaten, metingen en waarden.
 
-* De meeste clientbibliotheek API's krijgen een matrix van statistische expressies die de service gebruikt voor het maken van een query op een Time Series Insights.
+* De meeste Api's van de client bibliotheek maken gebruik van een matrix met statistische expressies die de service gebruikt om een Time Series Insights gegevens query samen te stellen.
 
 ### <a name="call-pattern"></a>Aanroeppatroon
 
-Invullen en rendering van besturingselementen kolomdiagram kunt u een algemeen patroon. U ziet het algemene patroon in de voorbeeld-app en u kan helpen bij het gebruik van de clientbibliotheek:
+Het vullen en rendering van grafiek besturings elementen volgt een algemeen patroon. U kunt het algemene patroon in de voor beeld-app bekijken en u kan u helpen bij het gebruik van de client bibliotheek:
 
-1. Declareer een `array` voor het opslaan van een of meer Time Series Insights statistische expressies:
+1. Declareer `array` een om een of meer time series Insights statistische expressies te bevatten:
 
    ```javascript
    var aes =  [];
    ```
 
-1. Bouw *1* naar *n* statistische expressie objecten. Ze vervolgens toevoegen aan de matrix statistische expressie:
+1. Build *1* tot *n* samengevoegde expressie-objecten. Voeg ze vervolgens toe aan de matrix voor samengevoegde expressies:
 
    ```javascript
    var ae = new tsiClient.ux.aggregateExpression(predicateObject, measureObject, measureTypes, searchSpan, splitByObject, color, alias, contextMenuActions);
@@ -159,16 +163,16 @@ Invullen en rendering van besturingselementen kolomdiagram kunt u een algemeen p
 
    | Parameter | Description | Voorbeeld |
    | --------- | ----------- | ------- |
-   | `predicateObject` | De filterexpressie van gegevens |`{predicateString: "Factory = 'Factory3'"}` |
+   | `predicateObject` | De expressie voor gegevens filtering |`{predicateString: "Factory = 'Factory3'"}` |
    | `measureObject`   | De naam van de eigenschap van de meting die wordt gebruikt | `{property: 'Temperature', type: "Double"}` |
-   | `measureTypes`    | De aggregaties van de meting-eigenschap die u wilt | `['avg', 'min']` |
-   | `searchSpan`      | De duur en het interval grootte van de statistische expressie | `{from: startDate, to: endDate, bucketSize: '2m'}` |
-   | `splitByObject`   | De tekenreekseigenschap die u splitsen wilt op (optioneel: kan niet null zijn) | `{property: 'Station', type: 'String'}` |
-   | `color`         | De kleur van de objecten die u wilt renderen | `'pink'` |
+   | `measureTypes`    | De aggregaties van de eigenschap maat eenheid die u wilt | `['avg', 'min']` |
+   | `searchSpan`      | De duur en interval grootte van de statistische expressie | `{from: startDate, to: endDate, bucketSize: '2m'}` |
+   | `splitByObject`   | De eigenschap van de teken reeks die u wilt splitsen (optioneel: kan null zijn) | `{property: 'Station', type: 'String'}` |
+   | `color`         | De kleur van de objecten die u wilt weer geven | `'pink'` |
    | `alias`           | Een beschrijvende naam voor de statistische expressie | `'Factory3Temperature'` |
-   | `contextMenuActions` | Een matrix van acties die moeten worden gekoppeld aan de time series-objecten in een visualisatie (optioneel) | Zie voor meer informatie, [pop-contextmenu](#pop-up-context-menus). |
+   | `contextMenuActions` | Een matrix met acties die moeten worden gebonden aan de tijd reeks objecten in een visualisatie (optioneel) | Zie [pop-upcontext menu's](#pop-up-context-menus)voor meer informatie. |
 
-1. Een Time Series Insights-query aanroepen met behulp van de APIs TsiClient.Server om aan te vragen van de verzamelde gegevens:
+1. Roep een Time Series Insights query aan met behulp van de TsiClient. server-Api's om de cumulatieve gegevens aan te vragen:
 
    ```javascript
    tsiClient.server.getAggregates(token, envFQDN, aeTsxArray);
@@ -178,50 +182,50 @@ Invullen en rendering van besturingselementen kolomdiagram kunt u een algemeen p
 
    | Parameter | Description | Voorbeeld |
    | --------- | ----------- | ------- |
-   | `token`     | Het toegangstoken voor de Time Series Insights-API |  `authContext.getTsiToken()`<br />Zie [Verificatie](#authentication) voor meer informatie. |
-   | `envFQDN`   | De volledig gekwalificeerde domeinnaam (FQDN) voor de Time Series Insights-omgeving | Vanuit de Azure-portal. Bijvoorbeeld: `10000000-0000-0000-0000-100000000108.env.timeseries.azure.com`. |
-   | `aeTsxArray` | Een matrix van Time Series Insights-query-expressies | Gebruik de `aes` variabele, zoals eerder beschreven: `aes.map(function(ae){return ae.toTsx()}`. |
+   | `token`     | Het toegangs token voor de Time Series Insights-API |  `authContext.getTsiToken()`<br />Zie [Verificatie](#authentication) voor meer informatie. |
+   | `envFQDN`   | De Fully Qualified Domain Name (FQDN) voor de Time Series Insights omgeving | Van de Azure Portal. Bijvoorbeeld: `10000000-0000-0000-0000-100000000108.env.timeseries.azure.com`. |
+   | `aeTsxArray` | Een matrix met Time Series Insights query-expressies | Gebruik de `aes` variabele zoals eerder beschreven: `aes.map(function(ae){return ae.toTsx()}`. |
 
-1. Het gecomprimeerde resultaat dat voor visualisatie van de Time Series Insights-query wordt geretourneerd in JSON transformeren:
+1. Het gecomprimeerde resultaat dat wordt geretourneerd van de Time Series Insights query transformeren naar JSON voor visualisatie:
 
    ```javascript
    var transformedResult = tsiClient.ux.transformAggregatesForVisualization(result, aes);
    ```
 
-1. Een grafiekbesturingselement maken met behulp van de APIs TsiClient.UX. Binden aan een van de `<div>` elementen op de pagina:
+1. Een grafiek besturings element maken met behulp van de TsiClient. UX-Api's. Koppel deze aan een van de `<div>` elementen op de pagina:
 
    ```javascript
    var barChart = new tsiClient.ux.BarChart(document.getElementById('chart3'));
    ```
 
-1. Vullen van het grafiekbesturingselement met de JSON-objecten voor getransformeerde gegevens en het besturingselement op de pagina weer te geven:
+1. Vul het besturings element grafiek met de getransformeerde JSON-gegevens objecten in en Genereer het besturings element op de pagina:
 
    ```javascript
    barChart.render(transformedResult, {grid: true, legend: 'compact', theme: 'light'}, aes);
    ```
 
-## <a name="render-controls"></a>Besturingselementen weergeven
+## <a name="render-controls"></a>Besturings elementen weer geven
 
-De Time Series Insights-clientbibliotheek biedt acht unieke, out-of-the-box analytics besturingselementen:
+De Time Series Insights-client bibliotheek bevat acht unieke, out-of-the-box Analytics-besturings elementen:
 
-* **Lijndiagram**
-* **Cirkeldiagram**
-* **Staafdiagram**
+* **lijn diagram**
+* **cirkel diagram**
+* **staaf diagram**
 * **heatmap**
-* **hiërarchie van besturingselementen**
+* **Besturings elementen voor hiërarchie**
 * **toegankelijk raster**
-* **discrete gebeurtenis tijdlijnen**
-* **status overgang tijdlijnen**
+* **afzonderlijke gebeurtenis tijdlijnen**
+* **status overgang tijd lijnen**
 
-### <a name="line-chart-bar-chart-and-pie-chart-examples"></a>Lijndiagram en staafdiagram cirkeldiagram-voorbeelden
+### <a name="line-chart-bar-chart-and-pie-chart-examples"></a>Voor beelden van lijn diagram, staaf diagram en cirkel diagram
 
-Bekijk de demo-code die wordt gebruikt om enkele van de grafiekbesturingselementen standaard weer te geven. Houd er rekening mee de programmeermodel en patronen voor het maken van deze besturingselementen. Specifiek, onderzoekt de HTML-code onder de `// Example 3/4/5` opmerking die besturingselementen met de HTML-code weergegeven `id` waarden `chart3`, `chart4`, en `chart5`.
+Bekijk de demo code die wordt gebruikt voor het weer geven van enkele van de standaard besturings elementen voor grafieken. Let op het programmeer model en de patronen voor het maken van deze besturings elementen. Bekijk in het bijzonder de HTML onder `// Example 3/4/5` de opmerking, waarmee besturings elementen worden weer gegeven `id` met de `chart4`HTML- `chart5`waarden `chart3`, en.
 
-Intrekken van stap 3 van de [pagina van de bron- en structuur sectie](#page-source-and-structure) dat grafiekbesturingselementen zijn gerangschikt in rijen op de pagina. Elk grafiekbesturingselement heeft een rij beschrijvende titel. In dit voorbeeld wordt de drie grafieken worden ingevuld onder de `Multiple Chart Types From the Same Data` titel `<div>` -element en zijn afhankelijk van de drie `<div>` elementen die onder de titel:
+Terughalen uit stap 3 van de [sectie pagina bron en-structuur](#page-source-and-structure) , waarmee grafiek besturings elementen in rijen op de pagina worden gerangschikt. Elk grafiek besturings element heeft een beschrijvende titel rij. In dit voor beeld worden de drie grafieken gevuld onder het `Multiple Chart Types From the Same Data` element title `<div>` en zijn ze gebonden aan de drie `<div>` elementen onder de titel:
 
 [!code-html[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
-De volgende sectie van de JavaScript-code maakt gebruik van patronen die eerder zijn beschreven: Time Series Insights statistische expressies bouwen, gebruiken ze om te vragen voor Time Series Insights-gegevens en vervolgens de drie grafieken weergegeven. Drie grafiektypen worden gebruikt vanuit de naamruimte tsiClient.ux: `LineChart`, `BarChart`, en `PieChart`. De grafiektypen worden gebruikt voor het maken en de respectieve grafieken weergegeven. Alle drie grafieken kunt dezelfde statistische expressiegegevens `transformedResult`:
+De volgende sectie van Java script-code maakt gebruik van patronen die eerder zijn beschreven: bouw Time Series Insights samengestelde expressies, gebruik ze om te zoeken naar Time Series Insights gegevens en vervolgens de drie grafieken weer te geven. Er worden drie grafiek typen gebruikt uit de tsiClient. UX- `LineChart`naam `BarChart`ruimte: `PieChart`, en. De grafiek typen worden gebruikt om de respectieve grafieken te maken en weer te geven. Alle drie de grafieken kunnen dezelfde statistische-expressie gegevens `transformedResult`gebruiken:
 
 [!code-javascript[code-sample2-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=241-262&highlight=13-14,16-17,19-20)]
 
@@ -231,44 +235,44 @@ De drie grafieken worden als volgt weergegeven:
 
 ## <a name="advanced-features"></a>Geavanceerde functies
 
-De Time Series Insights-clientbibliotheek bevat verschillende aanvullende functies die u gebruiken kunt voor het implementeren van visualisaties van zoekgegevens creatief.
+De Time Series Insights-client bibliotheek heeft verschillende aanvullende functies die u kunt gebruiken om gegevens visualisaties op een creatieve wijze te implementeren.
 
 ### <a name="states-and-events"></a>Statussen en gebeurtenissen
 
-Een geavanceerde functies is de mogelijkheid om toe te voegen statusovergangen en afzonderlijke gebeurtenissen aan grafieken. Deze functie is handig voor het markeren van incidenten, waarschuwingen en het maken van status-switches (in/uit-switches, bijvoorbeeld).
+Een geavanceerde functionaliteit is de mogelijkheid om status overgangen en discrete gebeurtenissen toe te voegen aan grafieken. Deze functie is handig voor het markeren van incidenten, waarschuwingen en het maken van status switches (bijvoorbeeld aan/uit-switches).
 
-Bekijk de code in rond de `// Example 10` opmerking. De code wordt weergegeven onder de titel lijnbesturingselement `Line Charts with Multiple Series Types` en bindt aan de `<div>` element met de HTML-code `id` waarde `chart10`.
+Bekijk de code rond de `// Example 10` opmerking. De code geeft een regel besturings element weer onder de `Line Charts with Multiple Series Types` titel en verbindt dit `<div>` met het-element met de `id` HTML `chart10`-waarde.
 
-De volgende stappen beschrijven het proces:
+In de volgende stappen wordt het proces beschreven:
 
-1. Een structuur met de naam `events4` is gedefinieerd voor het opslaan van de statuswijziging elementen om bij te houden. De structuur bevat:
+1. Een structuur met `events4` de naam is gedefinieerd voor de status-wijzigings elementen die moeten worden gevolgd. De structuur bevat:
 
    * Een tekenreekssleutel met de naam `Component States`.
    * Een matrix van waardeobjecten die de statussen voorstellen. Elk object omvat:
      * Een tekenreekssleutel die een ISO-tijdstempel in JavaScript bevat.
      * Een matrix die de kenmerken van de status bevat: een kleur en een beschrijving.
 
-1. De `events5` structuur wordt gedefinieerd voor `Incidents`, dat bevat een matrix van de gebeurteniselementen om bij te houden. De matrixstructuur heeft dezelfde vorm als de structuur die is beschreven voor `events4`.
+1. De `events5` structuur is gedefinieerd voor `Incidents`, die een matrix bevat met de gebeurtenis elementen die moeten worden gevolgd. De matrixstructuur heeft dezelfde vorm als de structuur die is beschreven voor `events4`.
 
-1. Het lijndiagram wordt weergegeven en wordt doorgegeven in de twee structuren met de grafiekopties parameters: `events:` en `states:`. Houd er rekening mee de andere optie-parameters voor het opgeven van een `tooltip:`, `theme:`, of `grid:`.
+1. Het lijn diagram wordt gerenderd en wordt door gegeven in de twee structuren met de para `events:` meters van de grafiek opties: en. `states:` Let op de andere optie parameters voor het `tooltip:`opgeven `theme:`van een `grid:`, of.
 
 [!code-javascript[code-sample-states-events](~/samples-javascript/pages/tutorial/index.html?range=337-389&highlight=5,26,51)]
 
-De reeks met een ruit markeringen/pop-van windows die worden gebruikt om aan te geven van incidenten en de gekleurde balken/pop-van windows langs de tijdschaal geven aan de statuswijzigingen:
+De ruit vormige markeringen/pop-upvensters die worden gebruikt om incidenten op te geven en de gekleurde balken/pop-upvensters op de tijd schaal geven de status wijzigingen aan:
 
-[![Lijndiagrammen met meerdere reeksen](media/tutorial-explore-js-client-lib/tcs-line-charts-with-multiple-series-types.png)](media/tutorial-explore-js-client-lib/tcs-line-charts-with-multiple-series-types.png#lightbox)
+[![Lijn diagrammen met meerdere reeks typen](media/tutorial-explore-js-client-lib/tcs-line-charts-with-multiple-series-types.png)](media/tutorial-explore-js-client-lib/tcs-line-charts-with-multiple-series-types.png#lightbox)
 
 ### <a name="pop-up-context-menus"></a>Pop-upcontextmenu's
 
-Een andere geavanceerde functies is de mogelijkheid om te maken van aangepaste contextmenu (Klik met de rechtermuisknop pop-upmenu's). Aangepaste contextmenu's zijn handig voor het inschakelen van acties en logische vervolgstappen binnen het bereik van uw toepassing.
+Een andere geavanceerde functionaliteit is de mogelijkheid om aangepaste context menu's te maken (Klik met de rechter muisknop op pop-upmenu's). Aangepaste contextmenu's zijn handig voor het inschakelen van acties en logische vervolgstappen binnen het bereik van uw toepassing.
 
-Bekijk de code in rond de `// Example 13/14/15` opmerking. Deze code geeft in eerste instantie een lijndiagram onder de titel `Line Chart with Context Menu to Create Pie/Bar Chart`. De grafiek is gebonden aan de `<div>` element met de HTML-code `id` waarde `chart13`.
+Bekijk de code rondom de `// Example 13/14/15` opmerking. Deze code geeft in eerste instantie een lijn diagram weer onder `Line Chart with Context Menu to Create Pie/Bar Chart`de titel. De grafiek is gebonden aan het `<div>` element met de HTML `id` - `chart13`waarde.
 
-Met behulp van contextmenu's biedt het lijndiagram de mogelijkheid om dynamisch een cirkel- en staafdiagram te maken, die worden gekoppeld aan `<div>`-elementen met de id's `chart14` en `chart15`. De cirkeldiagram in zowel het staafdiagram ook contextmenu's gebruiken om in te schakelen van hun eigen functies: de mogelijkheid om gegevens te kopiëren van de cirkeldiagram in het staafdiagram en om respectievelijk de staafdiagramgegevens naar het browservenster console af te drukken.
+Met behulp van contextmenu's biedt het lijndiagram de mogelijkheid om dynamisch een cirkel- en staafdiagram te maken, die worden gekoppeld aan `<div>`-elementen met de id's `chart14` en `chart15`. Zowel in het cirkel diagram als in het staaf diagram worden ook context menu's gebruikt om hun eigen functies in te scha kelen: de mogelijkheid om gegevens van het cirkel diagram naar het staaf diagram te kopiëren en de staaf diagram gegevens af te drukken naar het browser console venster.
 
-De volgende stappen beschrijven het proces:
+In de volgende stappen wordt het proces beschreven:
 
-1. Een reeks van aangepaste acties worden gedefinieerd. Elke actie bevat een matrix met een of meer elementen. Elk element definieert één contextmenuopdracht:
+1. Er wordt een reeks aangepaste acties gedefinieerd. Elke actie bevat een matrix met een of meer elementen. Elk element definieert één contextmenuopdracht:
 
    * `barChartActions`: Deze actie definieert het contextmenu voor het cirkeldiagram, met één element voor het definiëren van één menuopdracht:
      * `name`: De tekst die wordt gebruikt voor de menuopdracht: Parameters afdrukken naar console.
@@ -277,57 +281,64 @@ De volgende stappen beschrijven het proces:
        * `splitBy`: De `splitBy` waarde.
        * `timestamp`: Het tijdstempel.
 
-   * `pieChartActions`: Deze actie definieert het contextmenu voor het staafdiagram, dat één element bevat voor het definiëren van één menuopdracht. De vorm en het schema is hetzelfde als de `barChartActions` element eerder beschreven, maar de `action` functie aanzienlijk verschilt: het instantieert en het staafdiagram wordt weergegeven. De `ae` argument wordt gebruikt om op te geven van de matrix statistische expressie die wordt doorgegeven tijdens runtime als in het menu-item wordt geopend. Met de functie wordt ook de eigenschap `ae.contextMenu` ingesteld met het contextmenu `barChartActions`.
-   * `contextMenuActions`: Deze actie definieert het contextmenu voor het lijndiagram, dat drie elementen bevat voor het definiëren van drie menuopdrachten. De vorm en het schema voor elk element is hetzelfde als de elementen die eerder zijn beschreven. Net als bij het `barChartActions`-element, worden met de eerste opdracht drie functieargumenten weggeschreven naar het consolevenster van de browser. Vergelijkbaar met de `pieChartActions` -element de volgende twee items instantiëren en respectievelijk de cirkeldiagram en staafdiagram weer te geven. Met de volgende twee items worden ook hun eigenschappen `ae.contextMenu` ingesteld met respectievelijk de contextmenu's `pieChartActions` en `barChartActions`.
+   * `pieChartActions`: Deze actie definieert het contextmenu voor het staafdiagram, dat één element bevat voor het definiëren van één menuopdracht. De vorm en het schema zijn hetzelfde als die `barChartActions` van het element dat eerder is `action` beschreven, maar de functie is aanzienlijk anders: er wordt een instantie gemaakt en weer gegeven in het staaf diagram. Het `ae` argument wordt gebruikt om de samengevoegde expressie matrix op te geven die tijdens runtime wordt door gegeven wanneer de menu opdracht wordt geopend. Met de functie wordt ook de eigenschap `ae.contextMenu` ingesteld met het contextmenu `barChartActions`.
+   * `contextMenuActions`: Deze actie definieert het contextmenu voor het lijndiagram, dat drie elementen bevat voor het definiëren van drie menuopdrachten. De vorm en het schema voor elk element zijn hetzelfde als de elementen die eerder zijn beschreven. Net als bij het `barChartActions`-element, worden met de eerste opdracht drie functieargumenten weggeschreven naar het consolevenster van de browser. Net als bij `pieChartActions` het element worden de tweede twee items geïnstantieerd en wordt respectievelijk het cirkel diagram en staaf diagram weer gegeven. Met de volgende twee items worden ook hun eigenschappen `ae.contextMenu` ingesteld met respectievelijk de contextmenu's `pieChartActions` en `barChartActions`.
 
-1. Twee statistische expressies worden gepusht naar de `aes` statistische expressie matrix. Ze geven de `contextMenuActions` matrix voor elk item. Deze expressies worden gebruikt met het besturingselement voor het lijndiagram.
+1. Twee geaggregeerde expressies worden gepusht `aes` naar de geaggregeerde Expression-matrix. Hiermee wordt de `contextMenuActions` matrix voor elk item opgegeven. Deze expressies worden gebruikt met het besturingselement voor het lijndiagram.
 
-1. Alleen het lijndiagram wordt in eerste instantie weergegeven, waarin de cirkeldiagram in zowel het staafdiagram tijdens runtime kunnen worden gerenderd.
+1. Alleen het lijn diagram wordt in eerste instantie weer gegeven, waarbij zowel het cirkel diagram als het staaf diagram tijdens runtime kunnen worden weer gegeven.
 
 [!code-javascript[code-sample-context-menus](~/samples-javascript/pages/tutorial/index.html?range=461-540&highlight=7,16,29,61-64,78)]
 
-De volgende schermafbeelding ziet u de grafieken met hun respectieve pop-contextmenu's. De cirkeldiagram en staafdiagram zijn dynamisch gemaakt met behulp van de regel grafiek context menu-opties.
+De volgende scherm afbeelding toont de grafieken met hun respectievelijke pop-upcontext menu's. Het cirkel diagram en het staaf diagram zijn dynamisch gemaakt met behulp van de opties in het context menu van het lijn diagram.
 
-[![Lijndiagram met contextmenu cirkeldiagram en staafdiagram maken](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart.png)](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart.png#lightbox)
+[![Lijn diagram met context menu voor het maken van een cirkel diagram en staaf diagram](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart.png)](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart.png#lightbox)
 
 ### <a name="brushes"></a>Kwasten
 
-U kunt penselen gebruiken als bereik voor een tijdsbereik voor het definiëren van acties zoals zoomen en verkennen.
+U kunt penselen gebruiken om een tijds bereik te bereiken voor het definiëren van acties zoals zoomen en verkennen.
 
-De code die wordt gebruikt om te illustreren penselen wordt weergegeven in de `Line Chart with Context Menu to Create Pie/Bar Chart` voorbeeld waarin wordt beschreven pop-contextmenu's.
+De code die wordt gebruikt voor het illustreren van penselen wordt weer `Line Chart with Context Menu to Create Pie/Bar Chart` gegeven in het voor beeld waarin pop-upcontext menu's worden beschreven.
 
 * Kwastacties lijken erg op een contextmenu, in zoverre dat hiermee een reeks aangepaste acties voor de kwast kan worden gedefinieerd. Elke actie bevat een matrix met een of meer elementen. Elk element definieert één contextmenuopdracht:
    * `name`: De tekst die wordt gebruikt voor de menuopdracht: Parameters afdrukken naar console.
    * `action`: De actie die is gekoppeld aan de menuopdracht, die altijd een anonieme functie is die twee argumenten accepteert. In dit geval worden de argumenten weggeschreven naar het consolevenster van de browser:
-     * `fromTime`: De `from` tijdstempel van de kwast selectie.
-     * `toTime`: De `to` tijdstempel van de kwast selectie.
+     * `fromTime`: De `from` tijds tempel van de kwast selectie.
+     * `toTime`: De `to` tijds tempel van de kwast selectie.
 
-* Kwastacties worden toegevoegd als een eigenschap voor grafiekopties. De `brushContextMenuActions: brushActions` eigenschap wordt doorgegeven aan de `linechart.Render` aanroepen.
+* Kwastacties worden toegevoegd als een eigenschap voor grafiekopties. De `brushContextMenuActions: brushActions` eigenschap wordt door gegeven aan `linechart.Render` de aanroep.
 
 [!code-javascript[code-sample-brushes](~/samples-javascript/pages/tutorial/index.html?range=526-540&highlight=1,13)]
 
-[![Lijndiagram met contextmenu cirkeldiagram en staafdiagram maken met behulp van penselen](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png#lightbox)
+[![Lijn diagram met context menu om een cirkel diagram en een staaf diagram te maken met behulp van penselen](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png#lightbox)
+
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Nu u de zelf studie hebt voltooid, kunt u de resources die u hebt gemaakt opschonen:
+
+1. Selecteer in het menu links in het [Azure Portal](https://portal.azure.com) **alle resources**, zoek de Azure time series Insights resource groep.
+1. Verwijder de hele resource groep (en alle resources erin) door elke resource afzonderlijk **verwijderen** of verwijderen te selecteren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Meld u aan en bekijk de Time Series Insights-voorbeeldtoepassing en de bron
-> * API's in de Time Series Insights JavaScript-clientbibliotheek gebruiken
-> * JavaScript gebruiken om te maken en vullen grafiekbesturingselementen met Time Series Insights-gegevens
+> * Meld u aan en verken de Time Series Insights voorbeeld toepassing en de bijbehorende bron
+> * Api's gebruiken in de Time Series Insights java script-client bibliotheek
+> * Java script gebruiken om grafiek besturings elementen te maken en vullen met Time Series Insights gegevens
 
-De voorbeeldtoepassing Time Series Insights maakt gebruik van een demo-gegevensset. Als u wilt weten hoe u uw eigen Time Series Insights-omgeving en de gegevensset kunt maken, lees het volgende artikel:
+De voorbeeld toepassing Time Series Insights maakt gebruik van een demo-gegevensset. Lees het volgende artikel voor meer informatie over het maken van uw eigen Time Series Insights omgeving en gegevensset:
 
 > [!div class="nextstepaction"]
 > [Zelfstudie: Een Azure Time Series Insights-omgeving maken](tutorial-create-populate-tsi-environment.md)
 
-Of weergeven van de bronbestanden van de Time Series Insights-voorbeeld-toepassing:
+U kunt ook de bron bestanden van de Time Series Insights-voorbeeld toepassing bekijken:
 
 > [!div class="nextstepaction"]
-> [Opslagplaats voor Time Series Insights-voorbeeld-app](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)
+> [Opslag plaats van Time Series Insights voor beeld-app](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)
 
-Lees de Time Series Insights-API-referentiedocumentatie voor client:
+Lees de documentatie voor de Time Series Insights-client-API-referentie:
 
 > [!div class="nextstepaction"]
-> [Time Series Insights-API-referentiedocumentatie](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)
+> [Referentie documentatie voor Time Series Insights-API](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)

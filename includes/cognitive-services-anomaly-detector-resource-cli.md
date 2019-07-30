@@ -4,47 +4,14 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/20/2019
-ms.openlocfilehash: 1ea0b01997d3d5cecff73f951c51de5898c2f07a
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: e64363c39675305c94557515e54db53c722c6a5f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503467"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639352"
 ---
-De volgende Azure CLI-opdrachten, een resource detectie van afwijkingen in de gratis prijscategorie wordt ingericht. Klik op de **uitproberen** knop, plak de code en druk op enter om uit te voeren deze in de Azure cloudshell. De sleutels voor het verifiëren van uw toepassing wordt afgedrukt. Nadat deze is voltooid, [maken van een omgevingsvariabele](../articles/cognitive-services/cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) voor uw een van de sleutels, met de naam `ANOMALY_DETECTOR_KEY`.
+Azure-Cognitive Services worden vertegenwoordigd door Azure-resources waarop u zich abonneert. Maak een bron voor anomalie detectie met behulp van de [Azure Portal](../articles/cognitive-services/cognitive-services-apis-create-account.md) of [Azure cli](../articles/cognitive-services/cognitive-services-apis-create-account-cli.md) op uw lokale machine. U kunt ook het volgende doen:
 
-> [!NOTE]
-> * U kunt eventueel het volgende doen:
->    * Maak een resource met de [Azure-portal](../articles/cognitive-services/cognitive-services-apis-create-account.md), of [Azure CLI](../articles/cognitive-services/cognitive-services-apis-create-account.md) op uw lokale computer.
->    * krijgen een [proefversie sleutel](https://azure.microsoft.com/try/cognitive-services/#decision) geldig voor zeven dagen gratis. Nadat het aanmelden beschikbaar zullen zijn op de [Azure-website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
->    * deze resource weergeven op de [Azure-portal](https://portal.azure.com/). 
-
-Cognitive Services worden vertegenwoordigd door de Azure-resources die u inricht. Alle Cognitive Services-account (en de bijbehorende Azure-resource) moeten behoren tot een Azure-resourcegroep.
-
-1. Een Azure-resourcegroep maken
-
-    ```azurecli-interactive
-    az group create \
-        --name example-anomaly-detector-resource-group \
-        --location westus2
-    ```
-
-2. Maken van een bron voor de detectie van afwijkingen in de gratis laag
-
-    ```azurecli-interactive
-    az cognitiveservices account create \
-        --name example-anomaly-detector-resource \
-        --resource-group example-anomaly-detector-resource-group \
-        --kind AnomalyDetector \
-        --sku F0 \
-        --location westus2 \
-        --yes
-    ```
-
-3. De sleutels voor uw resource weergeven
-
-    ```azurecli-interactive
-    az cognitiveservices account keys list \
-        --name example-anomaly-detector-resource \
-        --resource-group example-anomaly-detector-resource-group
-    ```
+* Ontvang een [proef sleutel](https://azure.microsoft.com/try/cognitive-services/#decision) die zeven dagen gratis geldig is. Nadat u zich hebt aangemeld, is deze beschikbaar op de [Azure-website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Bekijk uw resource op het [Azure Portal](https://portal.azure.com/)

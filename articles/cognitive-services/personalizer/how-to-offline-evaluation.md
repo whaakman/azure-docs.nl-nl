@@ -1,65 +1,65 @@
 ---
-title: Offline evaluatie - Personalizer
+title: Offline-evaluatie-persoonlijker
 titleSuffix: Azure Cognitive Services
-description: Informatie over het analyseren van uw lus learning in een offline-evaluatie
+description: Meer informatie over het analyseren van uw leer proces met een offline-evaluatie
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: b719e6e693471415350007a4f4fabed917b8e12d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: f14403422e2c783d75634bb929d8c2130bd505b6
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722324"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663878"
 ---
-# <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>Over het analyseren van uw lus learning in een offline-evaluatie
+# <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>Uw leer proces analyseren met een offline-evaluatie
 
 
-Leer hoe u een offline-evaluatie voltooid en de resultaten te begrijpen.
+Meer informatie over het volt ooien van een offline-evaluatie en het begrijpen van de resultaten.
 
-Offline evaluaties kunnen u meten hoe effectief Personalizer wordt vergeleken met het standaardgedrag van uw toepassing, informatie over welke functies zijn die bijdragen aan de meeste tot persoonlijke instellingen en ontdek nieuwe machine learning-instellingen automatisch.
+Met offline-evaluaties kunt u meten hoe effectief Personaler wordt vergeleken met het standaard gedrag van uw toepassing, hoe functies het meest aan persoonlijke voor keur hebben en nieuwe machine learning-instellingen automatisch detecteren.
 
-Meer informatie over [Offline evaluaties](concepts-offline-evaluation.md) voor meer informatie.
+Lees meer over [offline](concepts-offline-evaluation.md) -evaluaties voor meer informatie.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-1. Hebt u een lus Personalizer is geconfigureerd
-1. De lus Personalizer moet ten minste 50.000 gebeurtenissen in de logboeken voor de van betekenisvolle evaluatieresultaten hebben.
+1. U moet een aangepaste lus hebben geconfigureerd
+1. De Personaler-lus moet ten minste 50.000 gebeurtenissen in de logboeken bevatten voor zinvolle evaluatie resultaten.
 
-(Optioneel) u mogelijk ook eerder geëxporteerd _leren werken met beleid_ bestanden die u kunt vergelijken en testen in de dezelfde evaluatie.
+U kunt eventueel ook eerder de _Learning-beleids_ bestanden hebben geëxporteerd die u in dezelfde evaluatie wilt vergelijken en testen.
 
-## <a name="steps-to-start-a-new-offline-evaluation"></a>Stappen voor het starten van een nieuwe evaluatie van het Offline
+## <a name="steps-to-start-a-new-offline-evaluation"></a>Stappen voor het starten van een nieuwe offline-evaluatie
 
-1. Zoek de resource van uw persoonlijke instellingen lus in Azure portal.
-1. Ga naar de sectie 'Beoordeling'.
+1. Zoek uw resource voor de personalisatie-lus op in het Azure Portal.
+1. Ga naar de sectie ' evaluatie '.
 1. Klik op nieuwe evaluatie
-1. Selecteer een begin- en datum voor de offline evaluatie. Dit zijn de datums in het verleden, geef het bereik van gegevens voor gebruik in de evaluatie. Deze gegevens moet aanwezig zijn in de logboeken, zoals opgegeven in de [Gegevensretentie](how-to-settings.md) instelling.
-1. U kunt desgewenst uw eigen beleid learning uploaden. 
-1. Geef op of Personalizer moet worden gebruikt voor het maken van een geoptimaliseerde Learning-beleid op basis van het gedrag van gebruikers in deze periode is waargenomen.
-1. De evaluatie starten
+1. Selecteer een begin-en eind datum voor de offline-evaluatie. Dit zijn datums in het verleden die het gegevens bereik opgeven dat in de evaluatie moet worden gebruikt. Deze gegevens moeten aanwezig zijn in de logboeken, zoals opgegeven in de instelling voor het [bewaren van gegevens](how-to-settings.md) .
+1. U kunt desgewenst uw eigen leer beleid uploaden. 
+1. Geef op of personalisatie een geoptimaliseerd leer beleid moet maken op basis van het gedrag van de gebruiker in deze tijds periode.
+1. De evaluatie versie starten
 
 ## <a name="results"></a>Resultaten
 
-Evaluaties kunnen lang duren om uit te voeren, afhankelijk van de hoeveelheid gegevens te verwerken en te leren werken met beleid om te vergelijken, aantal en of een optimalisatie is aangevraagd.
+Het uitvoeren van evaluaties kan veel tijd in beslag nemen, afhankelijk van de hoeveelheid gegevens die moet worden verwerkt, het aantal trainings beleid dat moet worden vergeleken en of er een optimalisatie is aangevraagd.
 
-Als voltooid, ziet u de volgende resultaten:
+Zodra het is voltooid, kunt u de volgende resultaten zien:
 
-1. Vergelijkingen van Learning beleid, met inbegrip van:
-    * **Online-beleid**: De huidige Learning beleid gebruikt in Personalizer
-    * **Basislijn**: Van de toepassing standaard (zoals bepaald door de eerste actie in de rang aanroepen verzonden)
-    * **Beleid voor willekeurige**: Een denkbeeldige positie gedrag retourneert die altijd willekeurige keuze van de acties van de opgegeven namen.
-    * **Aangepaste beleidsregels**: Extra Learning beleidsregels geüpload bij het starten van de evaluatie.
-    * **Beleid geoptimaliseerd**: Als de evaluatie is gestart met de optie voor het detecteren van een geoptimaliseerde beleid, wordt ook worden vergeleken en kunt u zich aan het downloaden of wijzig deze in het beleid voor online leren, vervangen de huidige versie.
+1. Vergelijking van het leer beleid, waaronder:
+    * **Online beleid**: Het huidige leer beleid dat wordt gebruikt in Personaler
+    * **Basis lijn**: De standaard waarde van de toepassing (zoals bepaald door de eerste actie die in Rangings aanroepen wordt verzonden),
+    * **Wille keurig beleid**: Een imaginair positie gedrag dat altijd een wille keurige keuze van de acties retourneert uit de opgegeven records.
+    * **Aangepast beleid**: Er zijn extra leer beleid geüpload bij het starten van de evaluatie.
+    * **Geoptimaliseerd beleid**: Als de evaluatie is gestart met de optie om een geoptimaliseerd beleid te detecteren, wordt het ook vergeleken en kunt u het downloaden of het online leer beleid maken, waarbij de huidige wordt vervangen.
 
-1. Effectiviteit van [functies](concepts-features.md) voor acties en Context.
+1. Effectiviteit van [functies](concepts-features.md) voor acties en context.
 
 
 ## <a name="more-information"></a>Meer informatie
 
-* Informatie over [hoe offline evaluaties werken](concepts-offline-evaluation.md).
+* Meer informatie [over het werken met offline](concepts-offline-evaluation.md)-evaluaties.

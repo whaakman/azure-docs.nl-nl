@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: c1a0afc909aa7ef16fa54b931e1601c2ce7304cc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 31d979b92bdf050f28ac5d7549218016dc5e473c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560410"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637999"
 ---
-# <a name="test-your-luis-app-in-the-luis-portal"></a>Uw LUIS-app testen in de LUIS-Portal
 <a name="train-your-app"></a>
-[Testen](luis-concept-test.md) een app is een iteratief proces. Na het trainen van uw LUIS-app, door deze te testen met voorbeeldgegevens uitingen om te controleren of de intenties en entiteiten correct worden herkend. Als ze niet zijn, moet u opnieuw updates voor de LUIS-app, trainen en testen. 
+
+# <a name="test-your-luis-app-in-the-luis-portal"></a>Uw LUIS-app testen in de LUIS-Portal
+
+Het [testen](luis-concept-test.md) van een app is een iteratief proces. Na het trainen van uw LUIS-app, door deze te testen met voorbeeldgegevens uitingen om te controleren of de intenties en entiteiten correct worden herkend. Als ze niet zijn, moet u opnieuw updates voor de LUIS-app, trainen en testen. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>
@@ -31,13 +33,13 @@ ms.locfileid: "68560410"
 
 1. Toegang tot uw app door het selecteren van de naam ervan op de **mijn Apps** pagina. 
 
-2. Toegang krijgen tot de **Test** deelvenster dia-out, selecteer **Test** in het bovenste gedeelte van uw toepassing.
+1. Toegang krijgen tot de **Test** deelvenster dia-out, selecteer **Test** in het bovenste gedeelte van uw toepassing.
 
     ![Pagina Train & Test-App](./media/luis-how-to-interactive-test/test.png)
 
-3. Voer een utterance in het tekstvak in en selecteer Enter. U kunt typen zoals veel uitingen testen als u wilt in de **testen**, maar slechts één utterance tegelijk.
+1. Voer een utterance in het tekstvak in en selecteer Enter. U kunt typen zoals veel uitingen testen als u wilt in de **testen**, maar slechts één utterance tegelijk.
 
-4. De utterance, de belangrijkste doel en de score zijn toegevoegd aan de lijst met uitingen onder het tekstvak.
+1. De utterance, de belangrijkste doel en de score zijn toegevoegd aan de lijst met uitingen onder het tekstvak.
 
     ![Interactieve testen identificeert de verkeerde bedoelingen](./media/luis-how-to-interactive-test/test-weather-1.png)
 
@@ -49,7 +51,7 @@ Controleren van details van de testresultaten in het **inspecteren** deelvenster
 
     ![Selecteer de knop controleren om meer informatie over de test resultaten weer te geven](./media/luis-how-to-interactive-test/inspect.png)
 
-2. De **inspectie** deelvenster wordt weergegeven. Het deelvenster bevat de scoring-doel, evenals de geïdentificeerde entiteiten boven. Het deelvenster toont het resultaat van de geselecteerde utterance.
+1. De **inspectie** deelvenster wordt weergegeven. Het deelvenster bevat de scoring-doel, evenals de geïdentificeerde entiteiten boven. Het deelvenster toont het resultaat van de geselecteerde utterance.
 
     ![Het deelvenster bevat de scoring-doel, evenals de geïdentificeerde entiteiten boven. Het deelvenster toont het resultaat van de geselecteerde utterance.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
@@ -57,7 +59,7 @@ Controleren van details van de testresultaten in het **inspecteren** deelvenster
 
 1. Als boven scoren van intentie onjuist is, selecteert u de **bewerken** knop.
 
-2.  Selecteer in de vervolgkeuzelijst het juiste type voor de utterance.
+1.  Selecteer in de vervolgkeuzelijst het juiste type voor de utterance.
 
     ![Juiste doel selecteren](./media/luis-how-to-interactive-test/intent-select.png)
 
@@ -103,16 +105,14 @@ Gebruik de volgende procedure om op te nemen de [Bing spellingcontrole versie 7]
 
 1. In de **Test** in het deelvenster een utterance invoeren. Wanneer de utterance wordt voorspeld, selecteert u **[inspecteren](#inspect-score)** onder de utterance die u hebt ingevoerd. 
 
-2. Wanneer de **inspecteren** deelvenster wordt geopend, selecteer  **[vergelijken met gepubliceerde](#compare-with-published-version)** . 
+1. Wanneer de **inspecteren** deelvenster wordt geopend, selecteer  **[vergelijken met gepubliceerde](#compare-with-published-version)** . 
 
-3. Wanneer de **gepubliceerd** deelvenster wordt geopend, selecteer  **[extra instellingen](#additional-settings-in-test-panel)** .
+1. Wanneer de **gepubliceerd** deelvenster wordt geopend, selecteer  **[extra instellingen](#additional-settings-in-test-panel)** .
 
-4. Voer in het pop-updialoogvenster uw **Bing spellingcontrole** servicesleutel. 
-    ![Voer de sleutel van de Bing Spell Check-service](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+1. Schakel in het pop-upvenster het selectie vakje **Bing spellingcontrole** in en voer de sleutel in en selecteer vervolgens **gereed**. 
+    ![Voer de sleutel van de Bing Spell Check-service](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
-5. Voer een query met een onjuiste spelling zoals `book flite to seattle` en voert u selecteert. De onjuiste spelling van het woord `flite` wordt vervangen in de query verzonden naar LUIS en de resulterende JSON bevat zowel de oorspronkelijke query als `query`, en de gecorrigeerde spelling in de query als `alteredQuery`.
-
-    ![Gecorrigeerde spelling JSON](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
+1. Voer een query met een onjuiste spelling zoals `book flite to seattle` en voert u selecteert. De onjuiste spelling van het woord `flite` wordt vervangen in de query verzonden naar LUIS en de resulterende JSON bevat zowel de oorspronkelijke query als `query`, en de gecorrigeerde spelling in de query als `alteredQuery`.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>

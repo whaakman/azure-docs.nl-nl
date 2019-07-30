@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 43f4b289bb2d072961eb3dabe6970f11726e0ed3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3c3c54faa882a38fb6c55c9fc0476a569f25cb98
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560610"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638326"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Begrijpen wat goede uitingen zijn voor uw LUIS-app
 
@@ -108,7 +108,11 @@ Norma Lise ring betekent niet dat er geen lees-en diakritische tekens worden wee
 
 ### <a name="punctuation-marks"></a>Lees tekens
 
+Interpunctie is een afzonderlijke token in LUIS. Een utterance die een punt bevat aan het einde en een utterance die geen punt aan het einde bevatten, zijn twee afzonderlijke uitingen en kunnen twee verschillende voor spellingen ontvangen. 
+
 Als interpunctie niet is genormaliseerd, LUIS niet standaard interpunctie markeringen negeren, omdat sommige client toepassingen significant kunnen zijn voor deze markeringen. Zorg ervoor dat uw voor beeld-uitingen zowel interpunctie als geen interpunctie gebruiken voor beide stijlen om dezelfde relatieve scores te retour neren. 
+
+Zorg ervoor dat het model interpunctie ofwel worden verwerkt in de [voorbeeld uitingen](luis-concept-utterance.md) (met en niet met leestekens) of in de [patronen](luis-concept-patterns.md) waar is het eenvoudiger om interpunctie met de syntaxis van de speciale negeren: `I am applying for the {Job} position[.]`
 
 Als interpunctie geen specifieke betekenis heeft in uw client toepassing, kunt u overwegen interpunctie te [negeren](#utterance-normalization) door interpunctie te normaliseren. 
 

@@ -1,36 +1,36 @@
 ---
-title: Hyper-V virtuele machines voor evaluatie en migratie naar Azure met Azure Migrate voorbereiden | Microsoft Docs
-description: Beschrijft hoe u om voor te bereiden voor evaluatie en migratie van Hyper-V-machines naar Azure met behulp van Azure Migrate.
+title: Virtuele Hyper-V-machines voorbereiden voor evaluatie en migratie naar Azure met Azure Migrate | Microsoft Docs
+description: Hierin wordt beschreven hoe u de evaluatie en migratie van Hyper-V-Vm's naar Azure voorbereidt met behulp van Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 07/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9e0d29770aa36f8e79bf08b7c5435ea2dbc4ae38
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 514905bf2db1c0c58faa131eeb916af033b2c830
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840375"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640838"
 ---
-# <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Voorbereiden voor evaluatie en migratie van Hyper-V-machines naar Azure
+# <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Voor bereiding voor de evaluatie en migratie van virtuele Hyper-V-machines naar Azure
 
-In dit artikel wordt beschreven hoe u om voor te bereiden voor evaluatie en migratie van on-premises Hyper-V-machines naar Azure met [Azure Migrate](migrate-services-overview.md).
+In dit artikel wordt beschreven hoe u de evaluatie en migratie van on-premises virtuele Hyper-V-machines naar Azure voorbereidt met [Azure migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-overview.md) biedt een hub van hulpprogramma's die u helpen te detecteren, beoordelen en apps, infrastructuur en workloads migreren naar Microsoft Azure. De hub bevat Azure Migrate-hulpprogramma's en aanbiedingen van derden independent software vendor (ISV). 
+[Azure migrate](migrate-overview.md) biedt een hub aan hulpprogram ma's waarmee u apps, infra structuur en werk belastingen op Microsoft Azure kunt detecteren, evalueren en migreren. De hub bevat Azure Migrate-hulpprogram ma's en ISV-aanbiedingen (Independent Software Vendor) van derden. 
 
-In deze zelfstudie is de eerste van een serie die laat zien u hoe u om te beoordelen en Hyper-V-machines migreren naar Azure. In deze zelfstudie leert u het volgende:
+Deze zelf studie is de eerste in een serie die laat zien hoe u virtuele Hyper-V-machines kunt beoordelen en migreren naar Azure. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Azure voorbereiden. Instellen van machtigingen voor uw Azure-account en resources voor het werken met Azure Migrate.
-> * On-premises Hyper-V-hosts en virtuele machines voorbereiden voor server-evaluatie.
-> * On-premises Hyper-V-hosts en virtuele machines voorbereiden voor servermigratie.
+> * Azure voorbereiden. Stel machtigingen in voor uw Azure-account en-resources om met Azure Migrate te werken.
+> * On-premises Hyper-V-hosts en virtuele machines voorbereiden voor Server evaluatie.
+> * On-premises Hyper-V-hosts en virtuele machines voorbereiden voor server migratie.
 
 
 > [!NOTE]
-> Zelfstudies ziet u het meest eenvoudige implementatie-pad voor een scenario, zodat u snel een proof-of-concept kunt instellen. Zelfstudies standaardopties gebruik waar mogelijk, en niet alle mogelijke instellingen en paden weergeven. Lees de instructies voor Hyper-V-evaluatie en migratie voor gedetailleerde instructies.
+> In zelf studies ziet u het eenvoudigste installatiepad voor een scenario, zodat u snel een haalbaarheids test kunt instellen. Zelf studies gebruiken waar mogelijk standaard opties en worden niet alle mogelijke instellingen en paden weer gegeven. Raadpleeg de procedures voor de evaluatie en migratie van Hyper-V voor meer informatie.
 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/pricing/free-trial/) aan voordat u begint.
@@ -40,83 +40,128 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ### <a name="azure-permissions"></a>Azure-machtigingen
 
-U moet een aantal toestemming voor het implementeren van Azure Migrate:
+U moet machtigingen instellen voor Azure Migrate-implementatie.
 
-- Uw Azure-account moet machtigingen voor het maken van een Azure Migrate-project voor evaluatie en migratie. 
-- Uw Azure-account moet machtigingen voor het registreren van het apparaat Azure Migrate.
-    - Voor evaluatie voert Azure Migrate een lichtgewicht apparaat dat Hyper-V VM's worden gedetecteerd en de gegevens van de metagegevens en prestaties van de virtuele machine naar Azure Migrate wordt verzonden.
-    - Tijdens de registratie van apparaat maakt u twee apps in Azure Active Directory (Azure AD) die unieke identificatie van het apparaat Azure Migrate:
-        - De eerste app communiceert met Azure Migrate-service-eindpunten.
-        - De tweede app toegang heeft tot een Azure Key Vault gemaakt tijdens de registratie voor het opslaan van Azure AD-app-info en toestel configuratie-instellingen.
-    - U kunt machtigingen voor Azure Migrate te maken van deze Azure AD-apps met behulp van een van de volgende methoden:
-        - Een tenant/globale beheerder kan machtigingen verlenen aan gebruikers in de tenant, maken en registreren van Azure AD-apps.
-        - Een tenant/globale beheerder kan de rol van ontwikkelaar van toepassing (met de machtigingen) toewijzen aan het account.
-    - Is het vermelden waard dat:
-        - De apps hebt geen andere toegangsmachtigingen voor het abonnement dan de hierboven beschreven.
-        - Deze machtigingen hoeft u alleen een nieuw apparaat te registreren. Nadat het apparaat is ingesteld, kunt u de machtigingen verwijderen. 
+- Machtigingen voor uw Azure-account om een Azure Migrate project te maken. 
+- Machtigingen voor uw account om het Azure Migrate apparaat te registreren. Het apparaat wordt gebruikt voor Hyper-V-detectie en-migratie. Tijdens de registratie van het apparaat maakt Azure Migrate twee Azure Active Directory (Azure AD)-apps waarmee het apparaat op unieke wijze wordt geïdentificeerd:
+    - De eerste app communiceert met Azure Migrate service-eind punten.
+    - De tweede app heeft toegang tot een Azure Key Vault die tijdens de registratie is gemaakt voor het opslaan van Azure AD-app-informatie en toestel configuratie-instellingen.
 
 
-### <a name="assign-permissions-to-create-project"></a>Machtigingen toewijzen aan het project maken
 
-Controleer machtigingen voor het maken van een Azure Migrate-project.
+### <a name="assign-permissions-to-create-project"></a>Machtigingen toewijzen voor het maken van een project
 
-1. In de Azure-portal, opent u het abonnement en selecteer **toegangsbeheer (IAM)** .
-2. In **toegang controleren**, het relevante account zoeken en klikt u erop om machtigingen weer te geven.
-3. U moet beschikken over **Inzender** of **eigenaar** machtigingen.
-    - Als u een gratis Azure-account hebt gemaakt, u kunt de eigenaar van uw abonnement.
-    - Als u niet de eigenaar bent, werkt u met de eigenaar van de rol toewijzen.
+Controleer of u gemachtigd bent om een Azure Migrate project te maken.
 
-
-### <a name="assign-permissions-to-register-the-appliance"></a>Machtigingen toewijzen aan het apparaat registreren
-
-Als u het apparaat Azure Migrate voor de evaluatie van virtuele machines implementeert, moet u deze te registreren.
-
-- Tijdens de registratie van het toestel maakt Azure Migrate twee apps in Azure Active Directory (Azure AD) die unieke identificatie van het apparaat
-    - De eerste app communiceert met Azure Migrate-service-eindpunten.
-    - De tweede app toegang heeft tot een Azure Key Vault gemaakt tijdens de registratie voor het opslaan van Azure AD-app-info en toestel configuratie-instellingen.
-- U kunt machtigingen voor Azure Migrate te maken van deze Azure AD-apps met behulp van een van de volgende methoden:
-    - Een tenant/globale beheerder kan machtigingen verlenen aan gebruikers in de tenant, maken en registreren van Azure AD-apps.
-    - Een tenant/globale beheerder kan de rol van ontwikkelaar van toepassing (met de machtigingen) toewijzen aan het account.
-
-Is het vermelden waard dat:
-
-- De apps hebt geen andere toegangsmachtigingen voor het abonnement dan de hierboven beschreven.
-- Deze machtigingen hoeft u alleen een nieuw apparaat te registreren. Nadat het apparaat is ingesteld, kunt u de machtigingen verwijderen. 
+1. Open in het Azure Portal het abonnement en selecteer **toegangs beheer (IAM)** .
+2. Zoek in **toegang controleren**het relevante account en klik erop om de machtigingen weer te geven.
+3. U moet machtigingen voor **Inzender** of **eigenaar** hebben.
+    - Als u zojuist een gratis Azure-account hebt gemaakt, bent u de eigenaar van uw abonnement.
+    - Als u niet de eigenaar van het abonnement bent, kunt u met de eigenaar samen werken om de rol toe te wijzen.
 
 
-#### <a name="grant-account-permissions"></a>Accountmachtigingen verlenen
+### <a name="assign-permissions-to-register-the-appliance"></a>Machtigingen toewijzen om het apparaat te registreren
 
-De tenant/globale beheerder kan machtigingen als volgt:
+Met een van de volgende methoden kunt u machtigingen voor Azure Migrate toewijzen om de Azure AD-apps te maken tijdens de registratie van het apparaat:
 
-1. De tenant/globale beheerder moet in Azure AD, navigeer naar **Azure Active Directory** > **gebruikers** > **gebruikersinstellingen**.
-2. De beheerder moet ingesteld **App-registraties** naar **Ja**.
+- Een Tenant/globale beheerder kan machtigingen verlenen aan gebruikers in de Tenant om Azure AD-apps te maken en registreren.
+- Een Tenant/globale beheerder kan de rol van toepassings ontwikkelaar (die de machtigingen heeft) toewijzen aan het account.
+
+Het is een goed idee dat:
+
+- De apps hebben geen andere toegangs machtigingen voor het abonnement dan de hierboven beschreven.
+- U hebt deze machtigingen alleen nodig wanneer u een nieuw apparaat registreert. U kunt de machtigingen verwijderen nadat het apparaat is ingesteld. 
+
+
+#### <a name="grant-account-permissions"></a>Account machtigingen verlenen
+
+De Tenant/globale beheerder kan machtigingen als volgt verlenen:
+
+1. In azure AD moet de Tenant/globale beheerder navigeren naar **Azure Active Directory** > **gebruikers** > **instellingen**.
+2. De beheerder moet **app-registraties** instellen op **Ja**.
 
     ![Azure AD-machtigingen](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> Dit is een standaardinstelling die gevoelige niet. [Meer informatie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> Dit is een standaard instelling die niet gevoelig is. [Meer informatie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 
 
-#### <a name="assign-application-developer-role"></a>Toepassingsontwikkelaar rol toewijzen 
+#### <a name="assign-application-developer-role"></a>Rol toepassings ontwikkelaar toewijzen 
 
-De tenant/globale beheerder kan de rol van ontwikkelaar toewijzen aan een account. [Meer informatie](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+De Tenant/globale beheerder kan de rol van toepassings ontwikkelaar toewijzen aan een account. [Meer informatie](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
 
-## <a name="prepare-for-hyper-v-assessment"></a>Evaluatie van de Hyper-V voorbereiden
+## <a name="prepare-for-hyper-v-assessment"></a>De evaluatie van Hyper-V voorbereiden
 
-Voorbereiden voor de evaluatie van de Hyper-V, controleert u of Hyper-V-host en VM-instellingen en controleer de instellingen voor de implementatie van het apparaat.
+Ga als volgt te werk om de Hyper-V-evaluatie voor te bereiden:
 
-### <a name="verify-hyper-v-host-settings"></a>Controleer de instellingen voor Hyper-V-host
+1. Controleer de instellingen voor de Hyper-V-host.
+2. Externe communicatie van Power shell instellen op elke host, zodat het Azure Migrate apparaat Power shell-opdrachten op de host kan uitvoeren via een WinRM-verbinding.
+3. Als de VM-schijven zich in externe SMB-opslag bevinden, is delegering van referenties nodig. 
+    - Schakel CredSSP-delegering in, zodat het Azure Migrate apparaat kan fungeren als de client, en de referenties voor een host delegeren. D
+    - U schakelt elke host in als gemachtigde voor het apparaat, zoals hieronder wordt beschreven.
+    - Wanneer u het apparaat later instelt, schakelt u delegering op het apparaat in.
+4. Controleer de vereisten van apparaten en de URL/poort toegang die nodig is voor het apparaat.
+5. Stel een account in dat door het apparaat wordt gebruikt voor het detecteren van Vm's.
+6. Stel Hyper-V-integratie Services in op elke virtuele machine die u wilt detecteren en beoordelen.
 
-1. Controleer of [vereisten voor Hyper-V-host](migrate-support-matrix-hyper-v.md#assessment-hyper-v-host-requirements) voor server-evaluatie.
-2. Zorg ervoor dat de [poorten vereist](migrate-support-matrix-hyper-v.md#assessment-port-requirements) op Hyper-V-hosts zijn geopend.
 
-### <a name="enable-powershell-remoting-on-hosts"></a>PowerShell voor externe toegang op hosts inschakelen
+U kunt deze instellingen hand matig configureren met behulp van de onderstaande procedures. U kunt ook het configuratie script voor de vereisten voor Hyper-V uitvoeren.
 
-PowerShell voor externe toegang op elke host als volgt instellen:
+### <a name="hyper-v-prerequisites-configuration-script"></a>Configuratie script voor vereisten voor Hyper-V
 
-1. Open op elke host een PowerShell-console als beheerder.
+Met het script valideert u Hyper-V-hosts en configureert u de instellingen die u nodig hebt om virtuele Hyper-V-machines te detecteren en te evalueren. Dit doet u als volgt:
+
+- Hiermee wordt gecontroleerd of u het script uitvoert op een ondersteunde Power shell-versie.
+- Controleert of u (de gebruiker die het script uitvoert) beheerders bevoegdheden op de Hyper-V-host heeft.
+- Hiermee kunt u een lokaal gebruikers account (geen beheerder) maken dat wordt gebruikt voor de Azure Migrate-service om te communiceren met de Hyper-V-host. Dit gebruikers account wordt toegevoegd aan deze groepen op de host:
+    - Gebruikers van extern beheer
+    - Hyper-V-Administrators
+    - Prestatie meter gebruikers
+- Controleert of op de host een ondersteunde versie van Hyper-V en de Hyper-V-functie wordt uitgevoerd.
+- Hiermee schakelt u de WinRM-service in en opent u poort 5985 (HTTP) en 5986 (HTTPS) op de host (vereist voor de verzameling meta gegevens).
+- Externe communicatie met Power shell is ingeschakeld op de host.
+- Hiermee wordt gecontroleerd of de Hyper-V-integratie service is ingeschakeld op alle Vm's die worden beheerd door de host. 
+- Hiermee schakelt u CredSSP in op de host, indien nodig.
+
+Voer het script als volgt uit:
+
+1. Zorg ervoor dat Power shell-versie 4,0 of hoger is geïnstalleerd op de Hyper-V-host.
+2. Down load het script vanuit het [micro soft Download centrum](https://aka.ms/migrate/script/hyperv). Het script is cryptografisch ondertekend door micro soft.
+3. Valideer de script integriteit met behulp van MD5 of SHA256 hash-bestanden. Voer deze opdracht uit om de hash voor het script te genereren:
+    ```
+    C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
+    ```
+    Voor beeld van gebruik: 
+    ```
+    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1
+    SHA256
+    ```
+    
+    Hash-waarden zijn:
+    Hash | Value
+    --- | ---
+    **MD5-hash** | 0ef418f31915d01f896ac42a80dc414e
+    **SHA256-hash** | 0ef418f31915d01f896ac42a80dc414e0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
+
+
+4.  Nadat u de script integriteit hebt gevalideerd, voert u het script uit op elke Hyper-V-host met de volgende Power shell-opdracht:
+    ```
+    PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
+    ```
+
+
+### <a name="verify-hyper-v-host-settings"></a>Instellingen voor Hyper-V-hosts controleren
+
+1. Controleer de vereisten voor de [Hyper-V-host](migrate-support-matrix-hyper-v.md#assessment-hyper-v-host-requirements) voor Server evaluatie.
+2. Zorg ervoor dat de [vereiste poorten](migrate-support-matrix-hyper-v.md#assessment-port-requirements) zijn geopend op Hyper-V-hosts.
+
+### <a name="enable-powershell-remoting-on-hosts"></a>Externe communicatie van Power shell op hosts inschakelen
+
+Stel als volgt Power shell Remoting in op elke host:
+
+1. Open op elke host een Power shell-console als beheerder.
 2. Voer deze opdracht uit:
 
     ```
@@ -125,63 +170,67 @@ PowerShell voor externe toegang op elke host als volgt instellen:
 
 ### <a name="enable-credssp-on-hosts"></a>CredSSP inschakelen op hosts
 
-Als VM-schijven zich op SMB-shares bevinden, voltooien van deze stap op elke relevante Hyper-V-host. Deze stap wordt gebruikt voor het detecteren van configuratie-informatie voor Hyper-V-machines met schijven op SMB-shares. Als u geen VM-schijven op SMB-shares, kunt u de stap overslaan.
+Als de host Vm's met schijven bevindt op SMB-shares, voert u deze stap uit op de host.
 
-1. Identificeer de Hyper-V-hosts waarop Hyper-V-machines met schijven op SMB-shares.
+- U kunt deze opdracht op afstand uitvoeren op alle Hyper-V-hosts.
+- Als u nieuwe host-knoop punten op een cluster toevoegt, worden deze automatisch toegevoegd voor detectie, maar moet u CredSSP hand matig inschakelen op de nieuwe knoop punten, indien nodig.
+
+Schakel het volgende in:
+
+1. Identificeer Hyper-V-hosts waarop Hyper-V-Vm's worden uitgevoerd met schijven op SMB-shares.
 2. Voer de volgende opdracht uit op elke geïdentificeerde Hyper-V-host:
 
     ```
     Enable-WSManCredSSP -Role Server -Force
     ```
 
-- CredSSP-verificatie kunt de Hyper-V-host om te delegeren referenties namens de client Azure Migrate.
-- U kunt deze opdracht op afstand uitvoeren op alle Hyper-V-hosts.
-- Als u nieuwe hostknooppunten toevoegen op een cluster worden ze automatisch toegevoegd voor detectie, maar moet u handmatig CredSSP inschakelen op de nieuwe knooppunten, indien nodig.
-
-### <a name="verify-appliance-settings"></a>Controleer of de instellingen van het toestel
-
-Voordat het instellen van het apparaat Azure Migrate en evaluatie van het begin in de volgende zelfstudie, bereid u voor de implementatie van het apparaat.
-
-1. [Controleer of](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) toestel vereisten.
-2. [Beoordeling](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) de Azure-URL's die het apparaat toegang nodig hebben.
-3. Controleer de gegevens waarmee het apparaat worden verzameld tijdens de detectie en evaluatie.
-4. [Houd er rekening mee](migrate-support-matrix-hyper-v.md#assessment-port-requirements) poort toegangsvereisten voor het apparaat.
+Wanneer u het apparaat instelt, moet u CredSSP instellen door [het in te scha kelen op het apparaat](tutorial-assess-hyper-v.md#delegate-credentials-for-smb-vhds). Dit wordt beschreven in de volgende zelf studie in deze reeks.
 
 
-### <a name="set-up-an-account-for-vm-discovery"></a>Instellen van een account voor VM-detectie
+### <a name="verify-appliance-settings"></a>Instellingen voor toestellen controleren
 
-Azure Migrate moet toegangsmachtigingen voor het detecteren van on-premises VM's.
+Voordat u het Azure Migrate apparaat instelt en de evaluatie begint in de volgende zelf studie, moet u de implementatie van het apparaat voorbereiden.
 
-- Instellen van een domein of een lokaal gebruikersaccount met beheerdersmachtigingen op de Hyper-V-hosts/het cluster.
+1. [Controleer](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) de vereisten van het apparaat.
+2. [Bekijk](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) de Azure-url's die het apparaat nodig heeft om toegang te krijgen.
+3. Bekijk de gegevens die door het apparaat worden verzameld tijdens de detectie en evaluatie.
+4. [Noteer](migrate-support-matrix-hyper-v.md#assessment-port-requirements) de toegangs vereisten voor poorten voor het apparaat.
 
-    - U hebt één account nodig voor alle hosts en clusters die u wilt opnemen in de detectie.
-    - Het account kan een lokaal account of domeinaccount zijn. Het is raadzaam om de beheerdersmachtigingen op de Hyper-V-hosts of clusters.
-    - U kunt ook als u niet wilt dat de beheerdersmachtigingen toe te wijzen, zijn de volgende machtigingen nodig:
+
+### <a name="set-up-an-account-for-vm-discovery"></a>Een account instellen voor de detectie van VM'S
+
+Azure Migrate heeft machtigingen nodig om on-premises virtuele machines te detecteren.
+
+- Stel een domein-of lokale gebruikers account in met beheerders machtigingen op de Hyper-V-hosts/het cluster.
+
+    - U hebt één account nodig voor alle hosts en clusters die u wilt toevoegen in de detectie.
+    - Het account kan een lokaal of een domein account zijn. Het is raadzaam dat het beheerders machtigingen heeft op de Hyper-V-hosts of-clusters.
+    - Als u geen beheerders machtigingen wilt toewijzen, zijn de volgende machtigingen nodig:
         - Gebruikers van extern beheer
         - Hyper-V-Administrators
-        - Prestatiemetergebruikers
+        - Prestatie meter gebruikers
 
-### <a name="enable-integration-services-on-vms"></a>Integratieservices op virtuele machines inschakelen
+### <a name="enable-integration-services-on-vms"></a>Integratie Services op Vm's inschakelen
 
-Integratieservices moeten zijn ingeschakeld op elke virtuele machine, zodat Azure Migrate kunt u informatie over het besturingssysteem op de virtuele machine vastleggen.
+Integratie Services moet zijn ingeschakeld op elke VM, zodat Azure Migrate informatie over het besturings systeem op de virtuele machine kan vastleggen.
 
-- Schakel op de virtuele machines die u wilt detecteren en evalueren, [Hyper-V-integratieservices](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) op elke virtuele machine. 
+Op Vm's die u wilt detecteren en evalueren, schakelt u de [Hyper-V-integratie Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) in op elke virtuele machine. 
 
-## <a name="prepare-for-hyper-v-migration"></a>Voorbereiden voor migratie van Hyper-V
+## <a name="prepare-for-hyper-v-migration"></a>De migratie van Hyper-V voorbereiden
 
-1. [Beoordeling](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-requirements) Hyper-V-host-vereisten voor migratie.
-2. [Beoordeling](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) de vereisten voor Hyper-V-machines die u wilt migreren naar Azure.
-3. [Houd er rekening mee](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-url-access) de Azure-URL's naar welke Hyper-V-hosts en clusters toegang nodig voor VM-migratie.
+1. [Controleren](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-requirements) Vereisten voor de Hyper-V-host voor migratie.
+2. [Bekijk](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) de vereisten voor virtuele Hyper-V-machines die u naar Azure wilt migreren.
+3. [Noteer](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-url-access) de Azure-Url's waaraan Hyper-V-hosts en-clusters toegang nodig hebben voor VM-migratie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u:
  
 > [!div class="checklist"] 
-> * Instellen van machtigingen voor Azure-account.
-> * Voorbereide Hyper-V-hosts en virtuele machines voor evaluatie en migratie.
+> * Stel de machtigingen voor het Azure-account in.
+> * De Hyper-V-hosts en virtuele machines zijn voor bereid voor evaluatie en migratie.
 
-Doorgaan naar de volgende zelfstudie voor het maken van een Azure Migrate-project, Hyper-V virtuele machines en beoordelen voor migratie naar Azure
+Ga door naar de volgende zelf studie om een Azure Migrate project te maken en de virtuele machines van Hyper-V te evalueren voor migratie naar Azure
 
 > [!div class="nextstepaction"] 
-> [Hyper-V VM's beoordelen](./tutorial-assess-hyper-v.md) 
+> [Virtuele Hyper-V-machines evalueren](./tutorial-assess-hyper-v.md) 

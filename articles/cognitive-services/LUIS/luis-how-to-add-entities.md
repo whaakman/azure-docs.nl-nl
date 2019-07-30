@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: fdf60a454aeb19b83ce455a771b8399c90af3bce
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1b42ab9155f5b9719ef6477934722021e3fbac99
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563741"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638261"
 ---
 # <a name="create-entities-without-utterances"></a>Entiteiten zonder uitingen maken
 
@@ -114,13 +114,13 @@ In de utterance `Where is Request relocation from employee new to the company on
 
 Een rol is een benoemd subtype op basis van de context. Het is beschikbaar in alle entiteiten, inclusief vooraf ontwikkelde en niet-machines geleerde entiteiten. 
 
-De syntaxis voor een rol is **`{Entityname:Rolename}`** waar de naam van de entiteit wordt gevolgd door een dubbele punt en vervolgens de naam van de rol. Bijvoorbeeld `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+De syntaxis voor een rol is **`{Entityname:Rolename}`** waar de naam van de entiteit wordt gevolgd door een dubbele punt en vervolgens de naam van de rol. Bijvoorbeeld `Move {personName} from {Location:Origin} to {Location:Destination}`.
 
 1. Uit de **bouwen** sectie, selecteer **entiteiten** in het linkerpaneel.
 
-1. Selecteer **Create new intent**. Voer de naam van `LocationUsingRoles`. Selecteer het type **eenvoudige** en selecteer **gedaan**. 
+1. Selecteer **Create new intent**. Voer de naam van `Location`. Selecteer het type **eenvoudige** en selecteer **gedaan**. 
 
-1. Selecteer **entiteiten** in het linkerpaneel, selecteer vervolgens de nieuwe entiteit **LocationUsingRoles** in de vorige stap hebt gemaakt.
+1. Selecteer **entiteiten** in het linkerdeel venster en selecteer vervolgens de nieuwe entiteit **locatie** die in de vorige stap is gemaakt.
 
 1. In de **rolnaam** tekstvak, voer de naam van de rol `Origin` en invoeren. Voeg de naam van een tweede functie van `Destination`. 
 

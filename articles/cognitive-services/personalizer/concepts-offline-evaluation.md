@@ -3,19 +3,19 @@ title: Offline-evaluatie-persoonlijker
 titleSuffix: Azure Cognitive Services
 description: Maak een feedback-lus C# in deze Snelstartgids met de personaler service.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: 3d9415a99655c7866c1a6688d0e48fd0b236a63b
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.author: diberry
+ms.openlocfilehash: 5e9e745d73623e03e2530e1712a50e6670ee7ed3
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423260"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662853"
 ---
 # <a name="offline-evaluation"></a>Offline-evaluatie
 

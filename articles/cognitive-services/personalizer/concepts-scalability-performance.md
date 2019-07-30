@@ -1,37 +1,37 @@
 ---
-title: Schaalbaarheids- en - Personalizer
+title: Schaal baarheid en prestaties-persoonlijker
 titleSuffix: Azure Cognitive Services
-description: 'High-performance en drukbezochte websites en toepassingen hebt u twee hoofdfactoren te houden met Personalizer voor schaalbaarheid en prestaties: latentie en doorvoer van de training.'
+description: 'Websites en toepassingen met hoge prestaties en hoog verkeer hebben twee belang rijke factoren om te overwegen met persoonlijke instellingen voor schaal baarheid en prestaties: latentie en trainings doorvoer.'
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
-ms.openlocfilehash: 06c2e65c723e18acc515dd7effc61aae0564f411
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: d116f6bd389b1404ea723c965111cd05880e6c30
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722418"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662821"
 ---
-# <a name="scalability-and-performance"></a>Schaalbaarheid en prestaties
+# <a name="scalability-and-performance"></a>Schaal baarheid en prestaties
 
-High-performance en drukbezochte websites en toepassingen hebt twee hoofdfactoren te houden met Personalizer voor schaalbaarheid en prestaties:
+Websites en toepassingen met hoge prestaties en hoog verkeer hebben twee belang rijke factoren om te kunnen overwegen met persoonlijke instellingen voor schaal baarheid en prestaties:
 
-* Lage latentie te houden bij het maken van positie-API-aanroepen
-* Zorg dat training doorvoer kan voldoen aan de invoer van de gebeurtenis
+* Lage latentie behouden bij het maken van Rank API-aanroepen
+* Zorgen dat de door Voer van de training wordt bijgewerkt met gebeurtenis invoer
 
-Persoonlijke instellingen kan zeer snel een positie retourneren met de meeste van de duur van toegewezen aan communicatie via de REST-API. Azure wordt automatisch geschaald met de mogelijkheid snel reageren op aanvragen.
+Personalisatie kan een absolute positie zeer snel retour neren, met de meeste gespreks duur die is toegewezen aan communicatie via de REST API. Azure schaalt automatisch de mogelijkheid om snel te reageren op aanvragen.
 
 ##  <a name="low-latency-scenarios"></a>Scenario's met lage latentie
 
-Sommige toepassingen vereisen lage latenties bij het retourneren van een positie. Dit is nodig:
+Voor sommige toepassingen is een lage latentie vereist bij het retour neren van een positie. Dit is nodig:
 
-* Beoordeeld om te voorkomen dat de gebruiker nog een merkbare hoeveelheid tijd voordat het weergeven van inhoud.
-* Om een server waarop extreme verkeer voordoet zich te vermijden schaarse compute tijd en de netwerkverbindingen gebruikt.
+* Om te voor komen dat de gebruiker een opvallende hoeveelheid tijd moet wachten voordat geclassificeerde inhoud wordt weer gegeven.
+* Om een server te helpen die extreem veel verkeer ondervindt, vermijdt u het koppelen van schaarse reken tijd en netwerk verbindingen.
 
 <!--
 
@@ -47,21 +47,21 @@ If you require latencies under a millisecond, and have already tested using Pers
 
 -->
 
-## <a name="scalability-and-training-throughput"></a>Schaalbaarheid en training doorvoer
+## <a name="scalability-and-training-throughput"></a>Door Voer voor schaal baarheid en training
 
-Personalizer werkt door het bijwerken van een model dat retrained is gebaseerd op berichten die asynchroon door Personalizer zijn verzonden nadat de positie en API's van derden. Deze berichten worden verzonden met behulp van een Azure Event hub voor de toepassing.
+Personaler werkt door het bijwerken van een model dat opnieuw wordt getraind op basis van berichten die asynchroon worden verzonden door Personaler na de classificatie en belonings-Api's. Deze berichten worden verzonden met behulp van een Azure-EventHub voor de toepassing.
 
- Is het onwaarschijnlijk dat de meeste toepassingen zal contact met u de maximale toevoegen en de doorvoer van Personalizer training. Hoewel dit maximum is bereikt niet de toepassing vertraagt, zou dit impliceren Event Hub wachtrijen ophalen opgevuld intern sneller dan ze kunnen worden opgeschoond.
+ Het is niet waarschijnlijk dat de meeste toepassingen het maximale lidmaatschap en de door Voer van de persoonlijke voor keuren bereiken. Het bereiken van dit maximum zal de toepassing niet vertragen, maar het impliceert dat Event hub-wacht rijen sneller worden gevuld dan ze kunnen worden opgeruimd.
 
-## <a name="how-to-estimate-your-throughput-requirements"></a>Hoe maak een schatting van uw vereisten voor doorvoer
+## <a name="how-to-estimate-your-throughput-requirements"></a>Uw doorvoer vereisten ramen
 
-* Maak een schatting van het gemiddelde aantal bytes per rangorde gebeurtenis toe te voegen de lengte van de context en de actie JSON-documenten.
-* 20MB per seconde door deze geschatte gemiddelde aantal bytes dat delen.
+* Schatting van het gemiddelde aantal bytes per rangorde gebeurtenis waarmee de lengte van de context en de JSON-documenten van de actie worden toegevoegd.
+* Deling 20 MB per seconde door dit geschatte gemiddelde aantal bytes.
 
-Bijvoorbeeld, als uw gemiddelde nettolading 500 functies heeft en elk een geschatte 20 tekens is, klikt u vervolgens elke gebeurtenis is ongeveer 10kb. Met deze schatting 20.000.000 / 10.000 = van 2000 gebeurtenissen per seconde, die ongeveer 173 miljoen gebeurtenissen per dag is. 
+Als uw gemiddelde Payload bijvoorbeeld 500 functies heeft en elk een geschatte 20 tekens is, dan is elke gebeurtenis ongeveer 10 KB. Met deze schattingen 20.000.000/10.000 = 2.000 gebeurtenissen per seconde, die ongeveer 173.000.000 gebeurtenissen per dag zijn. 
 
-Als u deze limieten zijn bereikt, neem contact met ons ondersteuningsteam voor de architectuur van advies.
+Als u deze limieten bereikt, neemt u contact op met ons ondersteunings team voor architectuur advies.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Maken en configureren van Personalizer](how-to-settings.md).
+[Persoonlijker maken en configureren](how-to-settings.md).

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: acbcaa7e5588c0fecf2c20751e69442e1373cbb5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bad3bdc2b4508c082ca50647d5de5e7265c763a1
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563992"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639190"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Patronen verbeteren nauwkeurigheid
 Patronen zijn ontworpen voor betere nauwkeurigheid wanneer verschillende uitingen vergelijkbaar zijn.  Een patroon kunt u meer nauwkeurigheid voor een doel zonder op te geven veel meer uitingen krijgen. 

@@ -5,14 +5,14 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 06/19/2019
 ms.author: mathoma
-ms.openlocfilehash: ae2dd7d88f07d75115eabd6a0069a981936f1b47
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: dd511375c6b007222185f25610aecbd9931a742b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444414"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640047"
 ---
-In deze stap maakt u de resource groep en een Azure SQL Database afzonderlijke data base. 
+In deze stap maakt u de resource groep en een Azure SQL Database afzonderlijke data base.
 
 > [!IMPORTANT]
 > Zorg ervoor dat u firewall regels instelt voor het gebruik van het open bare IP-adres van de computer waarop u de stappen in dit artikel uitvoert. 
@@ -20,7 +20,8 @@ In deze stap maakt u de resource groep en een Azure SQL Database afzonderlijke d
 > Zie voor meer informatie [een firewall regel op database niveau maken](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) of om het IP-adres te bepalen dat wordt gebruikt voor de firewall regel op server niveau voor uw computer Zie [een firewall op server niveau maken](../sql-database-server-level-firewall-rule.md).  
 
 # <a name="azure-portaltabazure-portal"></a>[Azure-portal](#tab/azure-portal)
-Maak uw resource groep en één data base met behulp van de Azure Portal. 
+
+Maak uw resource groep en één data base met behulp van de Azure Portal.
 
 1. Selecteer in de linkerbovenhoek van Azure Portal **Een resource maken**.
 2. Selecteer **data bases** en selecteer vervolgens **SQL database** om de pagina **SQL database maken** te openen.
@@ -47,7 +48,7 @@ Maak uw resource groep en één data base met behulp van de Azure Portal.
 
       > [!IMPORTANT]
       > Vergeet niet de aanmeldgegevens en het wachtwoord van de server te noteren zodat u zich bij de server en databases voor deze en andere quickstarts kunt aanmelden. Als u uw aanmeldgegevens of wachtwoord vergeet, kunt u de aanmeldnaam ophalen of het wachtwoord opnieuw instellen op de pagina **SQL Server**. U kunt de pagina **SQL Server** openen door de servernaam te selecteren op de **Overzichtspagina** van de database nadat u de database hebt gemaakt.
-        
+
    - **Elastische SQL-pool wilt gebruiken**: Selecteer de optie **Nee** .
    - **Reken-en opslag**: Selecteer **Data Base configureren**. 
 
@@ -62,7 +63,7 @@ Maak uw resource groep en één data base met behulp van de Azure Portal.
    - Selecteer **Toepassen**.
 
 5. Selecteer het tabblad **extra instellingen** . 
-6. Selecteer in de sectie **gegevens bron** onder **bestaande gegevens gebruiken**de optie `Sample`. 
+6. Selecteer in de sectie **gegevens bron** onder **bestaande gegevens gebruiken**de optie `Sample`.
 
    ![Aanvullende SQL data base-instellingen](../media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
@@ -78,7 +79,7 @@ Maak uw resource groep en één data base met behulp van de Azure Portal.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Maak uw resource groep en één data base met behulp van Power shell. 
+Maak uw resource groep en één data base met behulp van Power shell.
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -89,8 +90,7 @@ Maak uw resource groep en één data base met behulp van Power shell.
    $password = "PWD27!"+(New-Guid).Guid
    $serverName = "mysqlserver-$(Get-Random)"
    $databaseName = "mySampleDatabase"
-   
-   
+
    # The ip address range that you want to allow to access your server 
    # (leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB)
    $startIp = "0.0.0.0"
@@ -100,18 +100,18 @@ Maak uw resource groep en één data base met behulp van Power shell.
    Write-host "Resource group name is" $resourceGroupName 
    Write-host "Password is" $password  
    Write-host "Server name is" $serverName 
-   
+
    # Connect to Azure
    Connect-AzAccount
 
    # Set subscription ID
    Set-AzContext -SubscriptionId $subscriptionId 
-   
+
    # Create a resource group
    Write-host "Creating resource group..."
    $resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $location -Tag @{Owner="SQLDB-Samples"}
    $resourceGroup
-   
+
    # Create a server with a system wide unique server name
    Write-host "Creating primary logical server..."
    $server = New-AzSqlServer -ResourceGroupName $resourceGroupName `
@@ -120,14 +120,14 @@ Maak uw resource groep en één data base met behulp van Power shell.
       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
       -ArgumentList $adminLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
    $server
-   
+
    # Create a server firewall rule that allows access from the specified IP range
    Write-host "Configuring firewall for primary logical server..."
    $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
    $serverFirewallRule
-   
+
    # Create General Purpose Gen4 database with 1 vCore
    Write-host "Creating a gen5 2 vCore database..."
    $database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
@@ -142,8 +142,8 @@ Maak uw resource groep en één data base met behulp van Power shell.
    ```
 
 # <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
-Maak uw resource groep en één data base met behulp van AZ CLI. 
 
+Maak uw resource groep en één data base met behulp van AZ CLI.
 
    ```azurecli-interactive
    #!/bin/bash
@@ -158,7 +158,7 @@ Maak uw resource groep en één data base met behulp van AZ CLI.
    drLocation=NorthEurope
    drServerName=mysqlsecondary-$RANDOM
    failoverGroupName=failovergrouptutorial-$RANDOM
-   
+
    # The ip address range that you want to allow to access your DB. 
    # Leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB
    startip=0.0.0.0
@@ -169,14 +169,14 @@ Maak uw resource groep en één data base met behulp van AZ CLI.
 
    # Set the subscription context for the Azure account
    az account set -s $subscriptionID
-   
+
    # Create a resource group
    echo "Creating resource group..."
    az group create \
       --name $resourceGroupName \
       --location $location \
       --tags Owner[=SQLDB-Samples]
-   
+
    # Create a logical server in the resource group
    echo "Creating primary logical server..."
    az sql server create \
@@ -185,7 +185,7 @@ Maak uw resource groep en één data base met behulp van AZ CLI.
       --location $location  \
       --admin-user $adminLogin \
       --admin-password $password
-   
+
    # Configure a firewall rule for the server
    echo "Configuring firewall..."
    az sql server firewall-rule create \
@@ -194,7 +194,7 @@ Maak uw resource groep en één data base met behulp van AZ CLI.
       -n AllowYourIp \
       --start-ip-address $startip \
       --end-ip-address $endip
-   
+
    # Create a gen5 1vCore database in the server 
    echo "Creating a gen5 2 vCore database..."
    az sql db create \

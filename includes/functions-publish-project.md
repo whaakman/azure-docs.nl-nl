@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 04/24/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 48bb91b3b2e9a31de63e515edb857bc2a170ea79
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fbb537c9584c948af37694b3bfc77a7c345e084d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175820"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639111"
 ---
 ## <a name="deploy-the-function-app-project-to-azure"></a>Het functie-appproject implementeren in Azure
 
-Nadat de functie-app is gemaakt in Azure, kunt u de [ `func azure functionapp publish` ](../articles/azure-functions/functions-run-local.md#project-file-deployment) Core Tools-opdracht voor het implementeren van de projectcode van uw naar Azure. In de volgende opdracht, vervangt u `<APP_NAME>` met de naam van uw app uit de vorige stap.
+Nadat de functie-app is gemaakt in azure, kunt u de [`func azure functionapp publish`](../articles/azure-functions/functions-run-local.md#project-file-deployment) opdracht kern hulpprogramma's gebruiken om uw project code te implementeren in Azure. Vervang `<APP_NAME>` in de volgende opdracht door de naam van uw app uit de vorige stap.
 
 ```bash
 func azure functionapp publish <APP_NAME>
 ```
 
-Hier ziet u uitvoer die vergelijkbaar is met het volgende voorbeeld, waarin is afgekapt voor de leesbaarheid.
+De uitvoer ziet er ongeveer als volgt uit, die is afgekapt voor de Lees baarheid:
 
 ```output
 Getting site publishing info...
@@ -39,4 +39,4 @@ Functions in myfunctionapp:
         Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
 ```
 
-Kopieer de aanroepen van URL-waarde voor uw HttpTrigger, waarin u nu kunt uw functie testen in Azure. De URL bevat een `code` query string-waarde die is de sleutel van uw functie. Deze sleutel waardoor het lastig is voor anderen om aan te roepen van het eindpunt van uw HTTP-trigger in Azure.
+Kopieer de `Invoke url` waarde voor uw `HttpTrigger`, die u nu kunt gebruiken om uw functie in azure te testen. De URL bevat een `code` query teken reeks waarde die uw functie sleutel is. Met deze sleutel kunnen anderen moeilijk uw HTTP trigger-eind punt aanroepen in Azure.

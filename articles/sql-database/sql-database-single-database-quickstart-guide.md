@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 02/04/2019
-ms.openlocfilehash: b4341cb7d1734cb25aae890cc282c67ef38d67bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 07/29/2019
+ms.openlocfilehash: 45b0b2bc7a2ef5c3cb6ca801668f7b5be7c8ac73
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566476"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639993"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Aan de slag met individuele databases in Azure SQL Database
 
@@ -42,6 +42,14 @@ U kunt PowerShell of Azure CLI gebruiken om uw database te maken, configureren e
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>Migreren naar een individuele database met minimale downtime
 
 Met de artikelen in deze quickstarts kunt u uw database snel maken of importeren in Azure met een `.bacpac`-bestand. `.bacpac`- en `.dacpac`-bestanden zijn echter ontworpen om snel databases te verplaatsen tussen verschillende versies van SQL Server en implementatieopties binnen Azure SQL Database of om continue integratie in uw DevOps-pijplijn te implementeren. Deze methode is echter niet ontworpen voor de migratie van uw productiedatabases met minimale downtime, omdat u moet stoppen met het toevoegen van nieuwe gegevens, wachten tot de export van de brondatabase naar een `.bacpac`-bestand voltooid is en vervolgens wachten totdat het importeren in Azure SQL Database voltooid is. Al dit wachten leidt tot downtime van uw toepassing, met name voor grote databases. Als u uw productiedatabase verplaatst, hebt u waarschijnlijk een betere migratiemethode nodig met minimale downtime. Om de database met minimale downtime te migreren, gebruikt u de [Database Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql?toc=/azure/sql-database/toc.json). Dit wordt bereikt doordat DMS de aan de brondatabase aangebrachte wijzigingen stapsgewijs pusht naar de individuele database die wordt teruggezet. Op deze manier kunt u snel uw toepassing van de bron- naar de doeldatabase overzetten met minimale downtime.
+
+## <a name="hands-on-learning-modules"></a>Praktijk gerichte trainings modules
+
+Met de volgende Microsoft Learn modules kunt u gratis meer informatie over Azure SQL Database.
+
+- [Een Azure SQL database inrichten om toepassings gegevens op te slaan](https://docs.microsoft.com/learn/modules/provision-azure-sql-db/)
+- [Een ASP.NET-toepassing ontwikkelen en configureren die een query uitvoert op een Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+- [Uw Azure SQL Database beveiligen](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
 
 ## <a name="next-steps"></a>Volgende stappen
 
