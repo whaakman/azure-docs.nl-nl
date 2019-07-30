@@ -245,7 +245,7 @@ Een gebeurtenisabonnement geeft aan welke door de provider gegenereerde gebeurte
     | **Eindpunt abonnee** | automatisch gegenereerd | Gebruik de eindpunt-URL die voor u wordt gegenereerd. | 
 4. Open het tabblad **Filters** en voer de volgende acties uit:     
     1. Selecteer de optie **Filteren van onderwerpen inschakelen**.
-    2. Voor **Onderwerp begint met** voert u de volgende waarde in: **/blobServices/default/containers/images/blobs/**.
+    2. Voor **Onderwerp begint met** voert u de volgende waarde in: **/blobServices/default/containers/images/blobs/** .
 
         ![Een filter opgeven voor het gebeurtenisabonnement](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png) 
 2. Selecteer **Maken** om het gebeurtenisabonnement toe te voegen. Er wordt een gebeurtenisabonnement gemaakt die de functie `Thumbnail` activeert op het moment dat er een blob wordt toegevoegd aan de container `images`. De functie past de afbeelding in grootte aan en voegt deze toe aan de container `thumbnails`.

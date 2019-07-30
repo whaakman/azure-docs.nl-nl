@@ -173,7 +173,7 @@ Maak in Cloud Shell verbinding met de Postgres-server in Azure. Gebruik de waard
 psql -U adminuser@<postgres-server-name> -h <postgres-server-name>.postgres.database.azure.com postgres
 ```
 
-Gebruik _My5up3r$tr0ngPa$w0rd!_, dat u hebt opgegeven toen u de database-server maakte, wanneer u wordt gevraagd om een wachtwoord.
+Gebruik _My5up3r$tr0ngPa$w0rd!_ , dat u hebt opgegeven toen u de database-server maakte, wanneer u wordt gevraagd om een wachtwoord.
 
 ### <a name="create-a-production-database"></a>Maak een productiedatabase
 
@@ -302,7 +302,7 @@ In deze stap implementeert u de met Postgres verbonden Rails-toepassing naar Azu
 
 In App Service stelt u omgevingsvariabelen in als _app-instellingen_ met behulp van de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in de Cloud Shell.
 
-De volgende opdracht in de Cloud Shell configureert de app-instellingen `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, en `DB_PASSWORD`. Vervang de tijdelijke aanduidingen  _&lt;appname >_ en  _&lt;postgres-server-naam >_.
+De volgende opdracht in de Cloud Shell configureert de app-instellingen `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, en `DB_PASSWORD`. Vervang de tijdelijke aanduidingen  _&lt;appname >_ en  _&lt;postgres-server-naam >_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<postgres-server-name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<postgres-server-name>" DB_PASSWORD="MyPostgresAzure2017"

@@ -161,7 +161,7 @@ In deze stap maakt u een MySQL-database in [Azure Database for MySQL](/azure/mys
 
 Maak een server in Azure Database for MySQL met de opdracht [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
-Vervang in de volgende opdracht, een unieke naam voor de  *\<mysql-server-naam >* tijdelijke aanduiding, een gebruikersnaam op voor de  *\<gebruiker met beheerdersrechten >*, en een wachtwoord voor de  *\<beheerderswachtwoord >* tijdelijke aanduiding. De servernaam wordt gebruikt als onderdeel van het MySQL-eindpunt (`https://<mysql-server-name>.mysql.database.azure.com`). De naam moet dus uniek zijn voor alle servers in Azure. Zie [Een Azure Database for MySQL-server maken](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server) voor meer informatie over het selecteren van de MySQL DB-SKU.
+Vervang in de volgende opdracht, een unieke naam voor de  *\<mysql-server-naam >* tijdelijke aanduiding, een gebruikersnaam op voor de  *\<gebruiker met beheerdersrechten >* , en een wachtwoord voor de  *\<beheerderswachtwoord >* tijdelijke aanduiding. De servernaam wordt gebruikt als onderdeel van het MySQL-eindpunt (`https://<mysql-server-name>.mysql.database.azure.com`). De naam moet dus uniek zijn voor alle servers in Azure. Zie [Een Azure Database for MySQL-server maken](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server) voor meer informatie over het selecteren van de MySQL DB-SKU.
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
@@ -202,7 +202,7 @@ az mysql server firewall-rule create --name AllowLocalClient --server <mysql-ser
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Lokaal verbinding maken met MySQL-server in productie
 
-Maak in het terminalvenster verbinding met de MySQL-server in Azure. Gebruik de waarde die u eerder hebt opgegeven voor  _&lt;gebruiker met beheerdersrechten >_ en  _&lt;mysql-server-naam >_. Wanneer u wordt gevraagd om een wachtwoord, gebruikt u het wachtwoord dat u hebt opgegeven bij het maken van de database in Azure.
+Maak in het terminalvenster verbinding met de MySQL-server in Azure. Gebruik de waarde die u eerder hebt opgegeven voor  _&lt;gebruiker met beheerdersrechten >_ en  _&lt;mysql-server-naam >_ . Wanneer u wordt gevraagd om een wachtwoord, gebruikt u het wachtwoord dat u hebt opgegeven bij het maken van de database in Azure.
 
 ```bash
 mysql -u <admin-user>@<mysql-server-name> -h <mysql-server-name>.mysql.database.azure.com -P 3306 -p
@@ -239,7 +239,7 @@ In deze stap verbindt u de PHP-toepassing met de MySQL-database die u in Azure D
 
 ### <a name="configure-the-database-connection"></a>Verbinding met de database configureren
 
-Maak in de hoofdmap van de opslagplaats een _. env.production_ -bestand en kopieer de volgende variabelen ernaartoe. Vervang de tijdelijke aanduiding  _&lt;mysql-server-naam >_.
+Maak in de hoofdmap van de opslagplaats een _. env.production_ -bestand en kopieer de volgende variabelen ernaartoe. Vervang de tijdelijke aanduiding  _&lt;mysql-server-naam >_ .
 
 ```txt
 APP_ENV=production
@@ -262,7 +262,7 @@ Sla de wijzigingen op.
 
 ### <a name="configure-ssl-certificate"></a>SSL-certificaat configureren
 
-Azure Database for MySQL dwingt standaard SSL-verbindingen van clients af. Voor verbinding met uw MySQL-database in Azure moet u het [_.pem_-certificaat gebruiken dat is opgegeven door Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
+Azure Database for MySQL dwingt standaard SSL-verbindingen van clients af. Voor verbinding met uw MySQL-database in Azure moet u het [ _.pem_-certificaat gebruiken dat is opgegeven door Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
 
 Open _config/database.php_ en voeg de parameters _sslmode_ en _opties_ toe aan `connections.mysql`, zoals wordt weergegeven in de volgende code.
 
@@ -341,7 +341,7 @@ Zie voor meer informatie, [wijzigen de hoofdmap van site](configure-language-php
 
 In App Service stelt u de omgevingsvariabelen in op _app-instellingen_ met behulp van de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
-De volgende opdracht configureert de app-instellingen `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, en `DB_PASSWORD`. Vervang de tijdelijke aanduidingen  _&lt;appname >_ en  _&lt;mysql-server-naam >_.
+De volgende opdracht configureert de app-instellingen `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, en `DB_PASSWORD`. Vervang de tijdelijke aanduidingen  _&lt;appname >_ en  _&lt;mysql-server-naam >_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql-server-name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
@@ -370,7 +370,7 @@ Gebruik `php artisan` voor het genereren van een nieuwe toepassingssleutel zonde
 php artisan key:generate --show
 ```
 
-Stel de toepassingssleutel in de App Service-app in met behulp van de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Vervang de tijdelijke aanduidingen _&lt;appname>_ en _&lt;outputofphpartisankey:generate>_.
+Stel de toepassingssleutel in de App Service-app in met behulp van de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Vervang de tijdelijke aanduidingen _&lt;appname>_ en _&lt;outputofphpartisankey:generate>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"

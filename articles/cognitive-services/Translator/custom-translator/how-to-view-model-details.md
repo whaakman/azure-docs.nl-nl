@@ -1,96 +1,96 @@
 ---
-title: Details van model - aangepaste Translator weergeven
+title: Model details weer geven-aangepaste vertaler
 titleSuffix: Azure Cognitive Services
-description: Modellen tabblad onder elk project bevat de details van elk model, zoals de modelnaam van het, model de status, BLEU score, training, afstemmen, zin aantal testen.
+description: Op het tabblad modellen onder een project ziet u details van elk model, zoals model naam, model status, BLEU Score, training, afstemming, aantal test zinnen.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 92f5275b85b4a257e8841f43424d356db702cacd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 64f446c3b331c1aa6ddaae9081b7f61943f74ab2
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442475"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595563"
 ---
 # <a name="view-model-details"></a>Modelgegevens weergeven
 
-Het tabblad modellen onder project bevat alle modellen in dat project. Alle modellen die zijn getraind voor dat project wordt vermeld op dit tabblad.
+Op het tabblad modellen onder project worden alle modellen in dat project weer gegeven. Alle modellen die zijn getraind voor dat project, worden op dit tabblad weer gegeven.
 
-Voor elk model in het project, worden deze gegevens worden weergegeven.
+Deze gegevens worden weer gegeven voor elk model in het project.
 
-1.  Modelnaam: Geeft de naam van het model van een bepaald model.
+1.  Model naam: Hier wordt de model naam van een bepaald model weer gegeven.
 
-2.  Status: Geeft de status van een bepaald model. Uw nieuwe training heeft een status ingediend totdat het wordt geaccepteerd. De status wordt gewijzigd in gegevensverwerking, terwijl de service beoordeelt de inhoud van uw documenten wat. Wanneer de evaluatie van uw documenten voltooid is wordt de status gewijzigd aan die wordt uitgevoerd en u ziet het aantal zinnen die deel van de training uitmaken, inclusief de afstemmen en tests wordt ingesteld dat automatisch voor u gemaakt. Hieronder volgt een lijst met model de status die de status van de modellen worden beschreven.
+2.  Status: Hiermee wordt de status van een bepaald model weer gegeven. Uw nieuwe training heeft de status verzonden tot deze is geaccepteerd. De status wordt gewijzigd in gegevens verwerking terwijl de inhoud van uw documenten door de service wordt geëvalueerd. Wanneer de evaluatie van uw documenten is voltooid, wordt de status gewijzigd in actief. u kunt nu het aantal zinnen zien die deel uitmaken van de training, inclusief de afstemmings-en test sets die voor u worden gemaakt. Hieronder ziet u een lijst met model status die de status van de modellen beschrijft.
 
-    -  Verzonden: Hiermee geeft u op dat de documenten voor dit model wordt verwerkt door de back-end.
+    -  Gestelde Hiermee geeft u op dat de back-end de documenten voor dat model verwerkt.
 
-    -  TrainingQueued: Hiermee geeft u op dat de training in de wachtrij MT-systeem voor dit model geplaatst is.
+    -  TrainingQueued: Hiermee geeft u op dat de training in een wachtrij wordt geplaatst voor het MT-systeem voor dat model.
 
-    -  Uitgevoerd: Hiermee geeft u op of de training in MT-systeem voor dit model wordt uitgevoerd.
+    -  Wordt uitgevoerd: Hiermee geeft u op dat de training wordt uitgevoerd in het MT-systeem voor dat model.
 
-    -  Geslaagd: Hiermee geeft u op dat de training is voltooid in MT-systeem en een model beschikbaar is. In deze status wordt een score BLEU weergegeven voor dit model.
+    -  Is voltooid Hiermee geeft u op dat de training is geslaagd in MT-systeem en dat er een model beschikbaar is. In deze status wordt een BLEU-score voor dat model weer gegeven.
 
-    -  Geïmplementeerd: Hiermee geeft u op dat de geslaagde getrainde model wordt verzonden naar MT-systeem voor de implementatie.
+    -  Geïmplementeerd Hiermee geeft u op dat het voltooide getrainde model wordt verzonden naar het MT-systeem voor implementatie.
 
-    -  Uitschakeling: Hiermee geeft u op dat de geïmplementeerd model uitschakeling is.
+    -  Implementatie ongeïmplementeerd: Hiermee geeft u op dat het geïmplementeerde model niet kan worden geïmplementeerd.
 
-    -  Uitgeschakeld: Hiermee geeft u het proces van de uitschakeling van een model met succes is voltooid.
+    -  Geïmplementeerde Hiermee geeft u op dat het installatie proces van een model is voltooid.
 
-    -  Training is mislukt: Hiermee geeft u op dat de training is mislukt. Als een training-fout optreedt, voert u de trainingstaak opnieuw uit. Als de fout zich blijft voordoen, neem contact met ons. Verwijder het mislukte model niet.
+    -  Training mislukt: Hiermee geeft u op dat de training is mislukt. Als er een trainings fout optreedt, voert u de trainings taak opnieuw uit. Als de fout zich blijft voordoen, neemt u contact met ons op. Verwijder het mislukte model niet.
 
-    - DataProcessingFailed: Hiermee geeft u op dat de verwerking van gegevens is mislukt voor een of meer documenten die behoren tot het model.
+    - DataProcessingFailed: Hiermee geeft u op dat het verwerken van gegevens is mislukt voor een of meer documenten die tot het model behoren.
 
-    - Implementatie mislukt: Hiermee geeft u op dat de implementatie van het model is mislukt.
+    - Heeft Hiermee geeft u op dat de implementatie van het model is mislukt.
 
-    - MigratedDraft: Hiermee geeft u op dat het model heeft de status concept na de migratie van de Hub met aangepaste Translator.
+    - MigratedDraft: Hiermee geeft u op dat het model de status concept heeft na de migratie van de hub naar het aangepaste conversie programma.
 
-4.  BLEU Score: toont de score BLEU (tweetalige evaluatie Understudy) van het model, de kwaliteit van uw systeem vertaling waarmee wordt aangegeven. Deze score leest u hoe de vertalingen gedaan door de vertaling-systeem die voortvloeien uit deze training overeenkomen met de zinnen verwijzing in de test-gegevensset. De score BLEU wordt weergegeven als training met succes voltooid is. Als training is niet voltooid / mislukt, kunt u een score BLEU niet weergegeven.
+4.  BLEU Score: toont de Score van de BLEU (tweetalige evaluatie) van het model, wat de kwaliteit van uw Vertaal systeem aangeeft. Deze score vertelt u hoe nauw keurig de vertalingen die door het Vertaal systeem worden uitgevoerd en die het resultaat zijn van deze training overeenkomen met de referentie zinnen in de set test data. De BLEU-score wordt weer gegeven als de training is voltooid. Als training niet is voltooid of mislukt, ziet u geen BLEU Score.
 
-5.  Training zin aantal: Totaal aantal geeft aan gebruikt als de trainingset zinnen.
+5.  Aantal trainings zinnen: Toont het totale aantal zinnen dat als Trainingsset wordt gebruikt.
 
-6.  Afstemmen zin aantal: Bevat het totaal aantal zinnen gebruikt als afstemmen instellen.
+6.  Aantal zinnen afstemmen: Geeft het totale aantal zinnen weer dat wordt gebruikt als afstemmings.
 
-7.  Training zin aantal: Bevat het totaal aantal zinnen gebruikt als testset.
+7.  Aantal trainings zinnen: Geeft het totale aantal zinnen weer dat wordt gebruikt als testset.
 
-8.  Mono zin aantal: Bevat het totaal aantal zinnen gebruikt als mono instellen.
+8.  Aantal mono-zinnen: Geeft het totale aantal zinnen weer dat wordt gebruikt als mono-set.
 
-9.  Actieknop implementeren: Voor een model is getraind, deze ziet u de knop 'Implementeren' als dit niet geïmplementeerd. Als een model is geïmplementeerd, wordt een knop 'Undeploy' weergegeven.
+9.  Actie knop implementeren: Voor een goed opgeleid model wordt de knop implementeren weer gegeven als deze niet is geïmplementeerd. Als er een model wordt geïmplementeerd, wordt de knop ' de implementatie opzeggen ' weer gegeven.
 
-10. Verwijderen: U kunt deze knop gebruiken als u wilt verwijderen van het model. Verwijderen van een model, niet een van de documenten gebruikt voor het maken van dit model verwijderd.
+10. Verwijderd U kunt deze knop gebruiken als u het model wilt verwijderen. Als u een model verwijdert, worden de documenten waarmee het model is gemaakt, niet verwijderd.
 
     ![Modelgegevens weergeven](media/how-to/how-to-view-model-details.png)
 
 >[!Note]
->Als u wilt vergelijken opeenvolgende trainingen voor dezelfde systemen, is het belangrijk is ingesteld dat u de afstemmen en constante testen instellen.
+>Als u opeenvolgende trainingen voor dezelfde systemen wilt vergelijken, is het belang rijk om de afstemmings en de ingestelde constante te testen.
 
-## <a name="view-model-training-details"></a>Details van training model weergeven
+## <a name="view-model-training-details"></a>Details van model training weer geven
 
-Wanneer uw training voltooid is, kunt u meer informatie over de training van de detailpagina te bekijken. Selecteer een project, zoek en selecteer het tabblad modellen en een model kiezen.
+Wanneer uw training is voltooid, kunt u details over de training bekijken op de pagina Details. Selecteer een project, zoek en selecteer het tabblad modellen en kies een model.
 
-De pagina met het model bevat twee tabbladen: Trainingdetails en Test.
+De model pagina heeft twee tabbladen: Trainings Details en testen.
 
-1.  **Trainingdetails van de:** Op dit tabblad bevat een lijst van documenten die worden gebruikt in de training:
+1.  **Cursus Details:** Dit tabblad bevat de lijst met documenten die in de training worden gebruikt:
 
-    -  Naam van de documenten: Dit veld geeft de naam van het document
+    -  Naam van documenten: Dit veld bevat de naam van het document
 
-    -  Document van het Type: Dit veld wordt weergegeven als dit document parallelle / mono.
+    -  Document type: Dit veld geeft aan of dit document parallel/mono is.
 
-    -  Aantal zin in source-taal: Dit veld bevat het aantal zinnen zijn er als onderdeel van source-taal.
+    -  Aantal zinnen in bron taal: In dit veld wordt het aantal zinnen weer gegeven als onderdeel van de bron taal.
 
-    -  Aantal zin in doeltaal: Dit veld bevat het aantal zinnen zijn er als onderdeel van de gewenste taal.
+    -  Aantal zinnen in doel taal: In dit veld wordt het aantal zinnen weer gegeven als onderdeel van de doel taal.
 
-    -  Uitgelijnde zinnen: Dit veld bevat het aantal zinnen heeft zijn uitgelijnd met aangepaste Translator tijdens het proces uitlijnen.
+    -  Uitgelijnde zinnen: In dit veld wordt het aantal zinnen weer gegeven dat is afgestemd op het aangepaste conversie programma tijdens het uitlijnen.
 
-    -  Zinnen gebruikt: Dit veld bevat het aantal zinnen is gebruikt door aangepaste Translator tijdens deze training.
+    -  Gebruikte zinnen: In dit veld wordt het aantal zinnen weer gegeven dat is gebruikt door aangepaste Translator tijdens deze training.
 
-    ![Details van model-training](media/how-to/how-to-model-training-details.png)
+    ![Model trainings Details](media/how-to/how-to-model-training-details.png)
 
-2.  **Test:** Dit tabblad bevat de details van de test voor een geslaagde training.
+2.  **Proeven** Dit tabblad bevat de test gegevens voor een geslaagde training.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Beoordeling [testresultaten](how-to-view-system-test-results.md) en training resultaten te analyseren.
+- Bekijk de [test resultaten](how-to-view-system-test-results.md) en analyseer de resultaten van de training.
