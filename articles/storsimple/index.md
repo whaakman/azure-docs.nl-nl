@@ -2,22 +2,19 @@
 title: Documentatie voor Azure StorSimple - zelfstudies | Microsoft Docs
 description: Meer informatie over het gebruik van Azure StorSimple, een geïntegreerde opslagoplossing voor het beheer van opslagtaken tussen on-premises apparaten en Azure-cloudopslag.
 services: storsimple
-author: czeumault
-manager: carolz
+author: twooley
+manager: twooley
 layout: LandingPage
-ms.assetid: ''
 ms.service: storsimple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 11/01/2018
-ms.author: carolz
-ms.openlocfilehash: b98106d1a440a30345a2f63bf5fa60384c41627e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: twooley
+ms.openlocfilehash: 0c81d4a4eb934fe8268097e3e2dc7ebe25f2e1d4
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929994"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610157"
 ---
 # <a name="storsimple-documentation"></a>Documentatie voor StorSimple
 

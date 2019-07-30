@@ -1,6 +1,6 @@
 ---
-title: Implementatiecenter in Azure App Service gebruiken
-description: Implementatiecenter in Azure DevOps vereenvoudigt het instellen van een robuuste Azure DevOps-pijplijn voor uw toepassing
+title: Implementatie centrum voor Azure Kubernetes
+description: Implementatie centrum in azure DevOps vereenvoudigt het instellen van een robuuste Azure DevOps-pijp lijn voor uw toepassing
 ms.author: puagarw
 ms.manager: douge
 ms.prod: devops
@@ -9,144 +9,138 @@ ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
 monikerRange: vsts
-ms.openlocfilehash: 8d1e467906b74c97c8b4f4e5c14af0814dd098f7
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 35484566890f3bfd964e3fda337bfb3666d1da6c
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854636"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618724"
 ---
-# <a name="deployment-center-launcher"></a>Implementatiecenter starten
+# <a name="deployment-center-for-azure-kubernetes"></a>Implementatie centrum voor Azure Kubernetes
 
-Implementatiecenter in Azure DevOps vereenvoudigt het instellen van een robuuste DevOps-pijplijn voor uw toepassing. Standaard configureert een DevOps-pijplijn voor de implementatie van de toepassingsupdates van uw met de kubernetes-cluster. U kunt de standaard geconfigureerde DevOps-pijplijn en toevoegen van de uitgebreidere mogelijkheden in de DevOps - goedkeuringen voor het implementeren, extra Azure-resources inrichten, uitvoeren van scripts, bijwerken van uw toepassing of extra validatietests ook uitvoeren kunt uitbreiden.
+Implementatie centrum in azure DevOps vereenvoudigt het instellen van een robuuste Azure DevOps-pijp lijn voor uw toepassing. Met het implementatie centrum wordt standaard een Azure DevOps-pijp lijn geconfigureerd om uw toepassings updates te implementeren op het Kubernetes-cluster. U kunt de standaard geconfigureerde Azure DevOps-pijp lijn uitbreiden en ook rijkere mogelijkheden toevoegen: de mogelijkheid om goed keuring te verkrijgen voordat u implementeert, extra Azure-resources te implementeren, scripts uit te voeren, uw toepassing bij te werken en zelfs meer validatie tests uit te voeren.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een DevOps-pijplijn voor de implementatie van uw toepassingsupdates aan het cluster k8s configureren
-> * De CI-pijplijn onderzoeken
-> * De CD-pijplijn onderzoeken
-> * De resources opschonen
+> * Configureer een Azure DevOps-pijp lijn om uw toepassings updates te implementeren op het Kubernetes-cluster.
+> * Controleer de CI-pijp lijn (continue integratie).
+> * Bekijk de pijp lijn voor continue levering (CD).
+> * De resources opschonen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Azure-abonnement. U krijgt een gratis tot [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
+* Een Azure-abonnement. U kunt er een gratis krijgen via [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-* Azure Kubernetes Service (AKS)-cluster
+* Een Azure Kubernetes service-cluster (AKS).
 
-## <a name="create-aks-cluster"></a>AKS-cluster maken
+## <a name="create-an-aks-cluster"></a>Een AKS-cluster maken
 
-1. Meld u aan bij uw [Azure-portal](https://portal.azure.com/)
+1. Meld u aan bij uw [Azure Portal](https://portal.azure.com/).
 
-1. Selecteer de [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) knop in het menu in de rechterbovenhoek van de Azure-portal.
+1. Selecteer de optie [Cloud shell](https://docs.microsoft.com/azure/cloud-shell/overview) aan de rechter kant van de menu balk in de Azure Portal.
 
-1. Voer de volgende opdrachten voor het maken van het AKS-cluster.
+1. Voer de volgende opdrachten uit om het AKS-cluster te maken:
 
     ```cmd
-    # The below command creates Resource Group in the south india location
+    # Create a resource group in the South India location:
 
     az group create --name azooaks --location southindia
 
-    # The below command creates a cluster named azookubectl with one node. 
+    # Create a cluster named azookubectl with one node.
 
     az aks create --resource-group azooaks --name azookubectl --node-count 1 --enable-addons monitoring --generate-ssh-keys
     ```
 
-## <a name="deploy-application-updates-to-k8s-cluster"></a>Updates van toepassingen aan K8s Cluster implementeren
+## <a name="deploy-application-updates-to-a-kubernetes-cluster"></a>Toepassings updates implementeren in een Kubernetes-cluster
 
-1. Navigeer naar de bovenstaande resourcegroep gemaakt.
+1. Ga naar de resource groep die u in de vorige sectie hebt gemaakt.
 
-1. Selecteer het AKS-cluster en klik onder instellingen voor de linkerblade op de **Implementatiecenter (preview)** . Klik op **aan de slag**.
+1. Selecteer het AKS-cluster en selecteer vervolgens **Deployment Center (preview)** op de Blade links. Selecteer **aan de slag**.
 
    ![instellingen](media/deployment-center-launcher/settings.png)
 
-1. Kies de locatie van de code en klik op **volgende**. Op dit moment de opslagplaatsen die ondersteund worden, **[Azure opslagplaatsen](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)** en **GitHub**. U kunt de volgende stappen op basis van de selectie van de opslagplaats.
+1. Kies de locatie van de code en selecteer **volgende**. Selecteer vervolgens een van de momenteel ondersteunde opslag plaatsen: **[Azure opslag plaatsen](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)** of **github**.
 
-    Azure-opslagplaatsen is een set hulpprogramma's besturingselement versie die u gebruiken kunt voor het beheren van uw code. Of je softwareproject groot of klein is, is met behulp van versiebeheer zo snel mogelijk een goed idee.
+    Azure opslag plaatsen is een set hulpprogram ma's voor versie beheer waarmee u uw code kunt beheren. Of uw software project groot of klein is, met behulp van versie beheer zo snel mogelijk is een goed idee.
 
-    - **Azure Repos**: Kies een opslagplaats van uw bestaande Microsoft project en de organisatie.
+    - **Azure-opslag plaatsen**: Kies een opslag plaats in uw bestaande project en organisatie.
 
         ![Azure Repos](media/deployment-center-launcher/azure-repos.gif)
 
-    - **GitHub**: Autoriseren en selecteert u de opslagplaats voor uw GitHub-account.
+    - **GitHub**: Autoriseer en selecteer de opslag plaats voor uw GitHub-account.
 
         ![GitHub](media/deployment-center-launcher/github.gif)
 
 
-1. We gaan opslagplaats analyseren en detecteren van uw docker-bestand. Als u bijwerken wilt, kunt u het geïdentificeerde poortnummer bewerken.
+1. Het implementatie Centrum analyseert de opslag plaats en detecteert uw Dockerfile. Als u de Dockerfile wilt bijwerken, kunt u het geïdentificeerde poort nummer bewerken.
 
     ![Toepassingsinstellingen](media/deployment-center-launcher/application-settings.png)
 
-    Als de opslagplaats het bestand Dockerfile bevat wordt, wordt het systeem een bericht om door te voeren een weergegeven. 
+    Als de opslag plaats de Dockerfile niet bevat, wordt in het systeem een bericht weer gegeven dat er een moet worden doorgevoerd.
 
-    ![Docker-bestand](media/deployment-center-launcher/dockerfile.png)
+    ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
 
-1. Selecteer of maak een bestaande Container Registry en klik op **voltooien**. De pijplijn wordt automatisch gemaakt en een build in de wachtrij [Azure pijplijnen](https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops).
+1. Selecteer een bestaand container register of maak er een, en selecteer vervolgens **volt ooien**. De pijp lijn wordt automatisch gemaakt en wacht op een build in [Azure-pijp lijnen](https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops).
 
-    Azure pijplijnen is een cloudservice waarmee u kunt automatisch samenstellen en testen van uw code van uw project en beschikbaar stellen aan andere gebruikers. Azure-pijplijnen worden gecombineerd voor continue integratie (CI) en continue levering (CD) voortdurend en consistent testen en ontwikkelen van uw code en verzendt deze naar een doel.
+    Azure-pijp lijnen is een Cloud service die u kunt gebruiken om automatisch uw code project te bouwen en te testen en deze beschikbaar te maken voor andere gebruikers. Azure-pijp lijnen combi neren doorlopende integratie en doorlopende levering om voortdurend en consistent te testen en uw code te bouwen en te verzenden naar een doel.
 
     ![Container Registry](media/deployment-center-launcher/container-registry.png)
 
-1. Klik op de koppeling om te zien van de lopende pijplijn.
+1. Selecteer de koppeling om de actieve pijp lijn weer te geven.
 
-1. U ziet de geslaagde logboeken zoals wordt weergegeven wanneer de implementatie voltooid is.
+1. U ziet de geslaagde Logboeken nadat de implementatie is voltooid.
 
     ![Logboeken](media/deployment-center-launcher/logs.png)
 
 ## <a name="examine-the-ci-pipeline"></a>De CI-pijplijn onderzoeken
 
-Implementatiecenter configureert van uw organisatie Azure DevOps-CI / CD-pijplijn automatisch. De pijplijn kan worden verkend en aangepast. 
+Het implementatie centrum configureert automatisch de CI/CD-pijp lijn van uw Azure DevOps-organisatie. De pijp lijn kan worden verkend en aangepast.
 
-1. Ga naar het dashboard van de Center-implementatie.  
+1. Ga naar het dash board van het implementatie centrum.  
 
-1. Klik op de build-nummer in de lijst van geslaagde Logboeken om de pijplijn bouwen voor uw project weer te geven. 
+1. Selecteer het buildnummer in de lijst met geslaagde Logboeken om de build-pijp lijn voor uw project weer te geven.
 
-1. Klik op ellipsis(...) in de rechterbovenhoek. Een menu ziet u verschillende opties, zoals een nieuwe build queuing, behoud van de build en het bewerken van de build-pijplijn. Kies de **bewerken pijplijn**. 
+1. Selecteer in de rechter bovenhoek het beletsel teken (...). Een menu bevat verschillende opties, zoals een nieuwe build in een wachtrij plaatsen, een build behouden en de build-pijp lijn bewerken. Selecteer **pijp lijn bewerken**. 
 
-1. U kunt de verschillende taken controleren voor uw build-pijplijn in dit deelvenster. De build voert verschillende taken, zoals het verzamelen van bronnen van de Git-opslagplaats, het maken van een installatiekopie, een installatiekopie naar het containerregister pushen en publiceren van de uitvoer die worden gebruikt voor implementaties.
+1. In dit deel venster kunt u de verschillende taken voor uw build-pijp lijn onderzoeken. De build voert verschillende taken uit, zoals het verzamelen van bronnen uit de Git-opslag plaats, het maken van een installatie kopie, het pushen van een installatie kopie naar het container register en het publiceren van uitvoer die wordt gebruikt voor implementaties.
 
-1. Selecteer de naam van de build-pijplijn aan de bovenkant van de build-pijplijn.
+1. Selecteer de naam van de build-pijp lijn aan de bovenkant van de pijp lijn.
 
-1. Wijzig de naam van uw build-pijplijn in iets meer beschrijvende, selecteer **opslaan en in de wachtrij**, en selecteer vervolgens **opslaan**.
+1. Wijzig de naam van uw build-pijp lijn in een beschrijvende, selecteer **& wachtrij opslaan**en selecteer vervolgens **Opslaan**.
 
-1. Selecteer **geschiedenis** onder uw build-pijplijn. Dit deelvenster toont een audittrail van recente wijzigingen in uw build. Azure DevOps bewaakt alle wijzigingen aan de build-pijplijn en kunt u versies vergelijken.
+1. Selecteer de optie **geschiedenis**onder uw build-pijp lijn. Dit deel venster toont een audittrail van uw recente wijzigingen in de build. Azure DevOps controleert alle wijzigingen die zijn aangebracht in de build-pijp lijn en maakt het u mogelijk om versies te vergelijken.
 
-1. Kies **Triggers**. Vertakkingen kunnen eventueel worden opgenomen of uitgesloten van de CI-proces.
+1. Selecteer **Triggers**. U kunt vertakkingen opnemen in of uitsluiten van het CI-proces.
 
-1. Kies **retentie**. U kunt beleidsregels als u wilt behouden of verwijderen van een aantal builds afhankelijk van uw scenario.
+1. Selecteer **Retentie**. U kunt beleids regels opgeven om een aantal builds te hand haven of te verwijderen, afhankelijk van uw scenario.
 
 ## <a name="examine-the-cd-pipeline"></a>De CD-pijplijn onderzoeken
 
-Implementatiecenter maakt en configureert automatisch de benodigde stappen van uw organisatie Azure DevOps voor uw Azure-abonnement. Deze stappen omvatten het instellen van een Azure-service-verbinding om te verifiëren van uw Azure-abonnement met Azure DevOps. Er wordt ook automatisch ook een release-pijplijn gemaakt, die de CD levert aan Azure.
+Het implementatie centrum maakt en configureert automatisch de relatie tussen uw Azure DevOps-organisatie en uw Azure-abonnement. De volgende stappen zijn van toepassing op het instellen van een Azure-service verbinding om uw Azure-abonnement te verifiëren met Azure DevOps. Tijdens het geautomatiseerde proces wordt ook een release pijplijn gemaakt die continue levering aan Azure biedt.
 
-1. Kies **pijplijnen**, en kies vervolgens **Releases**.
+1. Selecteer **pijp lijnen**en selecteer vervolgens **releases**.
 
-1. Als u wilt bewerken in de release-pijplijn, klikt u op **bewerken** .
+1. Als u de release pijplijn wilt bewerken, selecteert u **bewerken**.
 
-1. Selecteer **neerzetten** van **artefacten**. In de vorige stappen produceert de bouw pijplijn die u onderzocht de uitvoer die wordt gebruikt voor het artefact. 
+1. Selecteer **neerzetten** in  de lijst artefacten. In de vorige stappen produceert de bouw pijp lijn die u hebt onderzocht de uitvoer die wordt gebruikt voor het artefact. 
 
-1. Selecteer **continue implementatie** trigger aan de rechterkant van de **neerzetten** pictogram. Deze release-pijplijn heeft een ingeschakelde CD-trigger die een implementatie wordt uitgevoerd wanneer een nieuwe build-artefact beschikbaar is. U kunt eventueel de trigger zo nodig handmatig uitvoeren voor uw implementaties uitschakelen.
+1. Selecteer de trigger voor **continue implementatie** aan de rechter kant  van de optie voor neerzetten. Deze release pijplijn heeft een ingeschakelde CD-trigger die een implementatie uitvoert wanneer er een nieuw build-artefact beschikbaar is. U kunt de trigger ook uitschakelen om hand matige uitvoering van uw implementaties te vereisen.
 
-1. Voor het onderzoeken van de taken voor de pijplijn, klikt u op **taken**. De release stelt u de tiller, configureert u de imagePullSecrets, installeert u Helm-hulpprogramma's en implementeert de Helm-grafieken in het cluster K8s.
+1. Selecteer **taken**om alle taken voor de pijp lijn te controleren. De release stelt de Tiller omgeving in, configureert de `imagePullSecrets` para meter, installeert helm-hulpprogram ma's en implementeert de helm-grafieken naar het Kubernetes-cluster.
 
-1. Versies als geschiedenis wilt weergeven, klikt u op **releases weergeven**. 
+1. Selecteer **releases weer geven**om de release geschiedenis weer te geven.
 
-1. Als u wilt zien van de samenvatting, klikt u op de **Release**. Klik op een van de fase verkennen meerdere menu's, zoals een samenvatting, release gekoppelde werkitems en tests. 
+1. Selecteer **vrijgeven**om de samen vatting te bekijken. Selecteer een van de fasen om meerdere menu's te verkennen, zoals een release samenvatting, gekoppelde werk items en tests. 
 
-1. Selecteer **Doorvoeringen**. Deze weergave toont de code doorvoeringen met betrekking tot deze implementatie. Releases om te zien van de commit-verschillen tussen implementaties met elkaar vergelijken.
+1. Selecteer **Doorvoeringen**. In deze weer gave worden code doorvoer bewerkingen weer gegeven die betrekking hebben op deze implementatie. Vergelijkings versies om de doorvoer verschillen tussen implementaties te bekijken.
 
-1. Selecteer **Logboeken**. De logboeken bevatten informatie over de nuttige implementatie. Tijdens en na de implementaties, kunt u ze kunt bekijken.
+1. Selecteer **Logboeken**. De logboeken bevatten nuttige informatie over de implementatie, die u tijdens en na de implementaties kunt bekijken.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt de gerelateerde resources die u hebt gemaakt toen u ze niet meer nodig verwijderen. Gebruik de functionaliteit voor verwijderen op het dashboard DevOps-projecten.
+U kunt de gerelateerde resources die u hebt gemaakt, verwijderen wanneer u ze niet meer nodig hebt. Gebruik de functie verwijderen op het dash board van DevOps Projects.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt de build- en release-pijplijn desgewenst wijzigen in overeenstemming met de behoeften van uw team. U kunt dit CI/CD-patroon ook als een sjabloon voor uw andere pijplijnen gebruiken. In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Een DevOps-pijplijn voor de implementatie van uw toepassingsupdates aan het cluster k8s configureren
-> * De CI-pijplijn onderzoeken
-> * De CD-pijplijn onderzoeken
-> * De resources opschonen
+U kunt deze build- en release-pipelines desgewenst wijzigen in overeenstemming met de behoeften van uw team. U kunt dit CI/CD-model ook gebruiken als een sjabloon voor uw andere pijp lijnen.

@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: a8a216a7d2ce048ed5131997df762942998aaa88
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 66effb095edf7927a38fca53b2ff317e9bad468e
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444135"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619605"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Een functie in Linux maken met behulp van een aangepaste installatie kopie
 
@@ -190,7 +190,7 @@ U kunt nu deze installatiekopie gebruiken als implementatiebron voor een nieuwe 
 
 ## <a name="create-a-premium-plan"></a>Een Premium-abonnement maken
 
-Linux-hosting voor aangepaste functies containers wordt ondersteund op [speciale (app service) plannen](functions-scale.md#app-service-plan) en [Premium-abonnementen](functions-scale.md#premium-plan). In deze zelf studie wordt een Premium-abonnement gebruikt dat naar behoefte kan worden geschaald. Zie [deze vergelijking van hostingabonnementen van Azure Functions](functions-scale.md) voor meer informatie over hosting.
+Linux-hosting voor aangepaste functies containers wordt ondersteund op [speciale (app service) plannen](functions-scale.md#app-service-plan) en [Premium-abonnementen](functions-premium-plan.md#features). In deze zelf studie wordt een Premium-abonnement gebruikt dat naar behoefte kan worden geschaald. Zie [deze vergelijking van hostingabonnementen van Azure Functions](functions-scale.md) voor meer informatie over hosting.
 
 In het volgende voor beeld wordt een Premium `myPremiumPlan` -plan gemaakt met de naam in de`--sku EP1`prijs categorie **elastisch Premium 1** (),`-location WestUS`in de regio vs West () en`--is-linux`in een Linux-container ().
 

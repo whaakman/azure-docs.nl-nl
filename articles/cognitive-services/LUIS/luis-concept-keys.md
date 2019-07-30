@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 0d52445d82965973c2d1e0f4fca2ef463312ad5f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 69b4a92470b33ab6615eead16be044a88436d64e
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560747"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619774"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Bewerkings-en query Voorspellings eindpunt sleutels in LUIS
 LUIS maakt gebruik van twee sleutels: [ontwerpen](#programmatic-key) en [eindpunt](#endpoint-key). De ontwerphandleiding sleutel wordt automatisch voor u gemaakt wanneer u uw LUIS-account maakt. Wanneer u klaar om uw LUIS-app te publiceren bent, moet u [maken van de eindpuntsleutel](luis-how-to-azure-subscription.md), [toewijzen](luis-how-to-azure-subscription.md) aan uw LUIS-app en [gebruiken met de query eindpunt](#use-endpoint-key-in-query). 
@@ -29,6 +29,7 @@ LUIS maakt gebruik van twee sleutels: [ontwerpen](#programmatic-key) en [eindpun
 Het is belangrijk om te maken van LUIS-apps in [regio's](luis-reference-regions.md#publishing-regions) waar u ook wilt publiceren en op te vragen.
 
 <a name="programmatic-key" ></a>
+
 ## <a name="authoring-key"></a>Sleutel ontwerpen
 
 Een authoring sleutel, ook wel bekend als een starter-sleutel, wordt automatisch gemaakt wanneer u een LUIS-account maakt en het is gratis. U beschikt over een authoring sleutel uit al uw LUIS-apps voor elk ontwerpen [regio](luis-reference-regions.md). De authoring sleutel is opgegeven om te maken van uw LUIS-app of het eindpunt query's testen. 

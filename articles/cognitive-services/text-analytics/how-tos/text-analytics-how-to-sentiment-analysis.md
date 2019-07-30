@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 383fdc1eb415b5aa6ae0cfc6eb5dae228ddc5ce2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ccf6756ddfd583b0bc0d23c7f6afecf1f47708f5
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562634"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619649"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Voorbeeld: Sentiment met Text Analytics detecteren
 
@@ -42,7 +42,7 @@ U moet JSON-documenten hebben in deze indeling: ID, tekst en taal.
 
 De document grootte moet kleiner zijn dan 5.120 tekens per document. U kunt Maxi maal 1.000 items per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Het volgende voor beeld is een voor beeld van inhoud die u kunt verzenden voor sentiment-analyse:
 
-```
+```json
     {
         "documents": [
             {
@@ -64,7 +64,7 @@ De document grootte moet kleiner zijn dan 5.120 tekens per document. U kunt Maxi
                 "language": "en",
                 "id": "4",
                 "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
-            },                
+            },
             {
                 "language": "en",
                 "id": "5",
@@ -105,41 +105,41 @@ Uitvoer wordt onmiddellijk geretourneerd. U kunt de resultaten streamen naar een
 In het volgende voor beeld ziet u het antwoord op de document verzameling in dit artikel:
 
 ```json
-{
-    "documents": [
-        {
-            "score": 0.9999237060546875,
-            "id": "1"
-        },
-        {
-            "score": 0.0000540316104888916,
-            "id": "2"
-        },
-        {
-            "score": 0.99990355968475342,
-            "id": "3"
-        },
-        {
-            "score": 0.980544924736023,
-            "id": "4"
-        },
-        {
-            "score": 0.99996328353881836,
-            "id": "5"
-        }
-    ],
-    "errors": []
-}
+    {
+        "documents": [
+            {
+                "score": 0.9999237060546875,
+                "id": "1"
+            },
+            {
+                "score": 0.0000540316104888916,
+                "id": "2"
+            },
+            {
+                "score": 0.99990355968475342,
+                "id": "3"
+            },
+            {
+                "score": 0.980544924736023,
+                "id": "4"
+            },
+            {
+                "score": 0.99996328353881836,
+                "id": "5"
+            }
+        ],
+        "errors": []
+    }
 ```
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>Open bare preview van Sentimentanalyse v3
 
-De [volgende versie van sentimentanalyse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) is nu beschikbaar voor open bare preview. Het biedt aanzienlijke verbeteringen in de nauw keurigheid en Details van de tekst categorisatie en Score van de API. 
+De [volgende versie van sentimentanalyse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) is nu beschikbaar voor open bare preview. Het biedt aanzienlijke verbeteringen in de nauw keurigheid en Details van de tekst categorisatie en Score van de API.
 
 > [!NOTE]
 > * De Sentimentanalyse v3-aanvraag indeling en- [gegevens limieten](../overview.md#data-limits) zijn hetzelfde als de vorige versie.
-> * Op dit moment Sentimentanalyse V3: 
->    * Ondersteunt momenteel alleen de Engelse taal.  
+> * Op dit moment Sentimentanalyse V3:
+>    * Ondersteunt momenteel alleen de Engelse taal.
 >    * Is beschikbaar in de volgende regio's: `Central US`, `Central Canada`en `East Asia`.
 
 |Functie |Description  |
@@ -165,20 +165,20 @@ Sentimentanalyse v3 kan scores en labels in een zin en document niveau retour ne
 De volgende JSON is een voor beeld van een aanvraag voor de nieuwe versie van Sentimentanalyse. De opmaak van de aanvraag is hetzelfde als de vorige versie:
 
 ```json
-{
-  "documents": [
     {
-      "language": "en",
-      "id": "1",
-      "text": "Hello world. This is some input text that I love."
-    },
-    {
-      "language": "en",
-      "id": "2",
-      "text": "It's incredibly sunny outside! I'm so happy."
+        "documents": [
+        {
+            "language": "en",
+            "id": "1",
+            "text": "Hello world. This is some input text that I love."
+        },
+        {
+            "language": "en",
+            "id": "2",
+            "text": "It's incredibly sunny outside! I'm so happy."
+        }
+        ],
     }
-  ]
-}
 ```
 
 ### <a name="sentiment-analysis-v3-example-response"></a>Sentimentanalyse v3-voorbeeld antwoord
@@ -186,73 +186,73 @@ De volgende JSON is een voor beeld van een aanvraag voor de nieuwe versie van Se
 Hoewel de indeling van de aanvraag hetzelfde is als de vorige versie, is de antwoord indeling gewijzigd. De volgende JSON is een voor beeld van een reactie van de nieuwe versie van de API:
 
 ```json
-{
-    "documents": [
-        {
-            "id": "1",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.98570585250854492,
-                "neutral": 0.0001625834556762,
-                "negative": 0.0141316400840878
-            },
-            "sentences": [
-                {
-                    "sentiment": "neutral",
-                    "sentenceScores": {
-                        "positive": 0.0785155147314072,
-                        "neutral": 0.89702343940734863,
-                        "negative": 0.0244610067456961
-                    },
-                    "offset": 0,
-                    "length": 12
+    {
+        "documents": [
+            {
+                "id": "1",
+                "sentiment": "positive",
+                "documentScores": {
+                    "positive": 0.98570585250854492,
+                    "neutral": 0.0001625834556762,
+                    "negative": 0.0141316400840878
                 },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.98570585250854492,
-                        "neutral": 0.0001625834556762,
-                        "negative": 0.0141316400840878
+                "sentences": [
+                    {
+                        "sentiment": "neutral",
+                        "sentenceScores": {
+                            "positive": 0.0785155147314072,
+                            "neutral": 0.89702343940734863,
+                            "negative": 0.0244610067456961
+                        },
+                        "offset": 0,
+                        "length": 12
                     },
-                    "offset": 13,
-                    "length": 36
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.89198976755142212,
-                "neutral": 0.103382371366024,
-                "negative": 0.0046278294175863
+                    {
+                        "sentiment": "positive",
+                        "sentenceScores": {
+                            "positive": 0.98570585250854492,
+                            "neutral": 0.0001625834556762,
+                            "negative": 0.0141316400840878
+                        },
+                        "offset": 13,
+                        "length": 36
+                    }
+                ]
             },
-            "sentences": [
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.78401315212249756,
-                        "neutral": 0.2067587077617645,
-                        "negative": 0.0092281140387058
-                    },
-                    "offset": 0,
-                    "length": 30
+            {
+                "id": "2",
+                "sentiment": "positive",
+                "documentScores": {
+                    "positive": 0.89198976755142212,
+                    "neutral": 0.103382371366024,
+                    "negative": 0.0046278294175863
                 },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.99996638298034668,
-                        "neutral": 0.0000060341349126,
-                        "negative": 0.0000275444017461
+                "sentences": [
+                    {
+                        "sentiment": "positive",
+                        "sentenceScores": {
+                            "positive": 0.78401315212249756,
+                            "neutral": 0.2067587077617645,
+                            "negative": 0.0092281140387058
+                        },
+                        "offset": 0,
+                        "length": 30
                     },
-                    "offset": 31,
-                    "length": 13
-                }
-            ]
-        }
-    ],
-    "errors": []
-}
+                    {
+                        "sentiment": "positive",
+                        "sentenceScores": {
+                            "positive": 0.99996638298034668,
+                            "neutral": 0.0000060341349126,
+                            "negative": 0.0000275444017461
+                        },
+                        "offset": 31,
+                        "length": 13
+                    }
+                ]
+            }
+        ],
+        "errors": []
+    }
 ```
 
 ### <a name="example-c-code"></a>Voorbeeld C# code
@@ -268,11 +268,10 @@ In dit artikel hebt u concepten en werk stromen geleerd voor sentiment analyse m
 + De post-aanvraag is naar `/sentiment` een eind punt met behulp van een aangepaste [toegangs sleutel en een eind punt](text-analytics-how-to-access-key.md) dat geldig is voor uw abonnement.
 + De uitvoer van antwoorden, die bestaat uit een sentiment-score voor elke document-ID, kan worden gestreamd naar elke app die JSON accepteert. Voor beeld-apps zijn Excel en Power BI, om een paar te noemen.
 
-## <a name="see-also"></a>Zie ook 
+## <a name="see-also"></a>Zie ook
 
- [Overzicht van Text Analytics](../overview.md)  
- [Veelgestelde vragen](../text-analytics-resource-faq.md)</br>
- [Text Analytics-productpagina](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Overzicht van Text Analytics](../overview.md) [Veelgestelde vragen](../text-analytics-resource-faq.md)</br>
+ [Text Analytics-productpagina](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>Volgende stappen
 

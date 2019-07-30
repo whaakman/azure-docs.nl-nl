@@ -2,21 +2,19 @@
 title: Documentatie voor Azure SQL Server Stretch Database - zelfstudies | Microsoft Docs
 description: Ontdek hoe u SQL Server Stretch Database gebruikt om weinig gebruikte gegevens ('cold data') veilig naar Azure te migreren zonder query's of toepassingen te wijzigen. Zelfstudies en andere documentatie.
 services: sql-server-stretch-database
-author: czeumault
-manager: carolz
+author: craigg-msft
+manager: craigg
 layout: LandingPage
-ms.assetid: ''
 ms.service: sql-server-stretch-database
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: de0bd85f4d91db494eefee1adf8cbf71243777bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: craigg
+ms.openlocfilehash: ff021c12ccd95684b355b0591b739bb1ad2e17bf
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330596"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610265"
 ---
 # <a name="sql-server-stretch-database-documentation"></a>Documentatie over SQL Server Stretch Database
 

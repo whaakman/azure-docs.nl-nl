@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 98f7ef3e6ce6ce8569e6cf1fba1c939e470d4be7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1ecb4897811e63ea33936f080791f3abce3e0b32
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552471"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618710"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Voorbeeld: Taal met Text Analytics detecteren
 
@@ -36,7 +36,7 @@ U moet JSON-documenten hebben in deze indeling: ID en tekst.
 
 De document grootte moet kleiner zijn dan 5.120 tekens per document. U kunt Maxi maal 1.000 items per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Het volgende voor beeld is een voor beeld van inhoud die u kunt verzenden voor taal detectie:
 
-   ```
+```json
     {
         "documents": [
             {
@@ -54,7 +54,7 @@ De document grootte moet kleiner zijn dan 5.120 tekens per document. U kunt Maxi
             {
                 "id": "4",
                 "text": "本文件为英文"
-            },                
+            },
             {
                 "id": "5",
                 "text": "Этот документ на английском языке."
@@ -95,116 +95,172 @@ Resultaten voor de voorbeeldaanvraag moeten eruitzien als de volgende JSON. U zi
 
 Een positief score van 1.0 staat voor het hoogst mogelijke vertrouwensniveau van de analyse.
 
-
-
-```
-{
-    "documents": [
-        {
-            "id": "1",
-            "detectedLanguages": [
-                {
-                    "name": "English",
-                    "iso6391Name": "en",
-                    "score": 1
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "detectedLanguages": [
-                {
-                    "name": "Spanish",
-                    "iso6391Name": "es",
-                    "score": 1
-                }
-            ]
-        },
-        {
-            "id": "3",
-            "detectedLanguages": [
-                {
-                    "name": "French",
-                    "iso6391Name": "fr",
-                    "score": 1
-                }
-            ]
-        },
-        {
-            "id": "4",
-            "detectedLanguages": [
-                {
-                    "name": "Chinese_Simplified",
-                    "iso6391Name": "zh_chs",
-                    "score": 1
-                }
-            ]
-        },
-        {
-            "id": "5",
-            "detectedLanguages": [
-                {
-                    "name": "Russian",
-                    "iso6391Name": "ru",
-                    "score": 1
-                }
-            ]
-        }
-    ],
+```json
+    {
+        "documents": [
+            {
+                "id": "1",
+                "detectedLanguages": [
+                    {
+                        "name": "English",
+                        "iso6391Name": "en",
+                        "score": 1
+                    }
+                ]
+            },
+            {
+                "id": "2",
+                "detectedLanguages": [
+                    {
+                        "name": "Spanish",
+                        "iso6391Name": "es",
+                        "score": 1
+                    }
+                ]
+            },
+            {
+                "id": "3",
+                "detectedLanguages": [
+                    {
+                        "name": "French",
+                        "iso6391Name": "fr",
+                        "score": 1
+                    }
+                ]
+            },
+            {
+                "id": "4",
+                "detectedLanguages": [
+                    {
+                        "name": "Chinese_Simplified",
+                        "iso6391Name": "zh_chs",
+                        "score": 1
+                    }
+                ]
+            },
+            {
+                "id": "5",
+                "detectedLanguages": [
+                    {
+                        "name": "Russian",
+                        "iso6391Name": "ru",
+                        "score": 1
+                    }
+                ]
+            }
+        ],
+        "errors": []
+    }
 ```
 
 ### <a name="ambiguous-content"></a>Niet-eenduidige inhoud
 
+In sommige gevallen kan het lastig zijn om talen te dubbel zinnigheid op basis van de invoer. U kunt de `countryHint` para meter gebruiken om een land nummer van twee letters op te geven. Standaard gebruikt de API de standaard countryHint om dit gedrag te verwijderen, kunt u deze para meter opnieuw instellen door deze waarde in te stellen op een lege teken reeks `countryHint = ""` .
+
+"Onmogelijk" is bijvoorbeeld gebruikelijk voor Engels en Frans, en als dit wordt gegeven met een beperkte context, wordt het antwoord gebaseerd op de "Amerikaanse" land hint. Als de oorsprong van de tekst afkomstig is uit Frank rijk, die als hint kan worden gegeven.
+
+**Invoer**
+
+```json
+    {
+        "documents": [
+            {
+                "id": "1",
+                "text": "impossible"
+            },
+            {
+                "id": "2",
+                "text": "impossible",
+                "countryHint": "fr"
+            }
+        ]
+    }
+```
+
+De service heeft nu aanvullende context om een betere beslissing te nemen: 
+
+**Uitvoer**
+
+```json
+    {
+        "documents": [
+            {
+                "id": "1",
+                "detectedLanguages": [
+                    {
+                        "name": "English",
+                        "iso6391Name": "en",
+                        "score": 1
+                    }
+                ]
+            },
+            {
+                "id": "2",
+                "detectedLanguages": [
+                    {
+                        "name": "French",
+                        "iso6391Name": "fr",
+                        "score": 1
+                    }
+                ]
+            }
+        ],
+        "errors": []
+    }
+```
+
 Als de analyse functie de invoer niet kan parseren `(Unknown)`, wordt geretourneerd. Een voor beeld is als u een tekst blok verzendt dat uitsluitend uit Arabische cijfers bestaat.
 
-```
+```json
     {
-      "id": "5",
-      "detectedLanguages": [
-        {
-          "name": "(Unknown)",
-          "iso6391Name": "(Unknown)",
-          "score": "NaN"
-        }
-      ]
+        "id": "5",
+        "detectedLanguages": [
+            {
+                "name": "(Unknown)",
+                "iso6391Name": "(Unknown)",
+                "score": "NaN"
+            }
+        ]
+    }
 ```
+
 ### <a name="mixed-language-content"></a>Inhoud in gemengde taal
 
 Gemengde inhoud in hetzelfde document retourneert de taal met de grootste weer gave in de inhoud, maar met een lagere positieve beoordeling. De classificatie weerspiegelt de marginale sterkte van de evaluatie. De invoer in het volgende voorbeeld is een combinatie van Engels, Spaans en Frans. De analyzer telt tekens in elk segment om te bepalen van de overheersende taal.
 
 **Invoer**
 
-```
-{
-  "documents": [
+```json
     {
-      "id": "1",
-      "text": "Hello, I would like to take a class at your University. ¿Se ofrecen clases en español? Es mi primera lengua y más fácil para escribir. Que diriez-vous des cours en français?"
+      "documents": [
+        {
+          "id": "1",
+          "text": "Hello, I would like to take a class at your University. ¿Se ofrecen clases en español? Es mi primera lengua y más fácil para escribir. Que diriez-vous des cours en français?"
+        }
+      ]
     }
-  ]
-}
 ```
 
 **Uitvoer**
 
 De resulterende uitvoer bestaat uit de meest voorkomende taal, met een Score van minder dan 1,0, wat een zwakker vertrouwens niveau aangeeft.
 
-```
-{
-  "documents": [
+```json
     {
-      "id": "1",
-      "detectedLanguages": [
+      "documents": [
         {
-          "name": "Spanish",
-          "iso6391Name": "es",
-          "score": 0.9375
+          "id": "1",
+          "detectedLanguages": [
+            {
+              "name": "Spanish",
+              "iso6391Name": "es",
+              "score": 0.9375
+            }
+          ]
         }
-      ]
+      ],
+      "errors": []
     }
-  ],
-  "errors": []
-}
 ```
 
 ## <a name="summary"></a>Samenvatting
@@ -216,11 +272,10 @@ In dit artikel hebt u concepten en werk stromen geleerd voor taal detectie door 
 + De post-aanvraag is naar `/languages` een eind punt met behulp van een aangepaste [toegangs sleutel en een eind punt](text-analytics-how-to-access-key.md) dat geldig is voor uw abonnement.
 + De reactie-uitvoer bestaat uit taal-id's voor elke document-ID. De uitvoer kan worden gestreamd naar alle apps die JSON accepteren. Voor beeld-apps zijn Excel en Power BI, om een paar te noemen.
 
-## <a name="see-also"></a>Zie ook 
+## <a name="see-also"></a>Zie ook
 
- [Overzicht van Text Analytics](../overview.md)  
- [Veelgestelde vragen](../text-analytics-resource-faq.md)</br>
- [Text Analytics-productpagina](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Overzicht van Text Analytics](../overview.md) [Veelgestelde vragen](../text-analytics-resource-faq.md)</br>
+ [Text Analytics-productpagina](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>Volgende stappen
 

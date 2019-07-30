@@ -9,29 +9,37 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 0d51778473dc033bce3c58b1572f1e514a8b6327
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: efef3faf3cc4ff04235254f0ff6538d92a831196
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560766"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619936"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Enterprise-strategieën voor een LUIS-app
 Bekijk deze ontwerpstrategieën voor uw enterprise-app.
 
 ## <a name="when-you-expect-luis-requests-beyond-the-quota"></a>Wanneer u verwacht dat het quotum LUIS aanvragen
-Als uw aanvraagsnelheid van LUIS-app het toegestane aantal overschrijdt [quotum tarief](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/), de belasting op meer LUIS-apps met verdelen de [dezelfde definitie van de app](#use-multiple-apps-with-same-app-definition) of maak en [meerdere sleutels toewijzen](#assign-multiple-luis-keys-to-same-app) naar de -App. 
+
+LUIS heeft een maandelijks quotum en een quotum per seconde, gebaseerd op de prijs categorie van de Azure-resource. 
+
+Als uw aanvraag frequentie voor de LUIS-app groter is dan het toegestane [quotum](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/), kunt u het volgende doen:
+
+* Breid de belasting naar meer LUIS-apps uit met [dezelfde app-definitie](#use-multiple-apps-with-same-app-definition). Dit omvat, eventueel, het uitvoeren van LUIS uit een [container](luis-container-howto.md). 
+* [Meerdere sleutels](#assign-multiple-luis-keys-to-same-app) maken en toewijzen aan de app. 
 
 ### <a name="use-multiple-apps-with-same-app-definition"></a>Meerdere apps met dezelfde definitie van de app gebruiken
 De oorspronkelijke LUIS-app exporteren en importeren van de app terug in afzonderlijke apps. Elke app heeft een eigen app-ID. Wanneer u publiceert, in plaats van met dezelfde sleutel in alle apps, maakt u een aparte sleutel voor elke app. Verdelen in alle apps zodanig dat geen enkele app wordt overbelast. Voeg [Application Insights](luis-tutorial-bot-csharp-appinsights.md) om het gebruik bewaken. 
 
 Om toegang te krijgen van de dezelfde bovenste intentie tussen alle apps, zorg ervoor dat de intentie voorspelling tussen het eerste en tweede doel is groot genoeg dat LUIS niet worden verward is, die verschillende resultaten oplevert tussen apps voor kleine variaties in uitingen. 
 
+Bij het trainen van deze apps op hetzelfde niveau, moet u ervoor zorgen dat [alle gegevens](luis-how-to-train.md#train-with-all-data)worden getraind.
+
 Een enkele app aanwijzen als de master. Alle uitingen die worden voorgesteld voor controle moeten worden toegevoegd aan de hoofd-app vervolgens verplaatst naar alle andere apps. Dit is een volledige export van de app, of het laden van de gelabelde uitingen van het model aan de onderliggende objecten. Laden kan worden gedaan vanuit de [LUIS](luis-reference-regions.md) website of de API ontwerpen voor een [enkel utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) of voor een [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
 
-Plan een periodieke [uitingen eindpunt voor een nadere](luis-how-to-review-endpoint-utterances.md) voor actief leren, zoals elke twee weken, klikt u vervolgens opnieuw trainen en opnieuw publiceren. 
+Plan een periodieke beoordeling, bijvoorbeeld elke twee weken, van het [eind punt uitingen](luis-how-to-review-endpoint-utterances.md) voor het actieve leer proces en vervolgens opnieuw te trainen en opnieuw te publiceren. 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>Meerdere LUIS sleutels aan dezelfde app toewijzen
 Als uw LUIS-app meer eindpunt treffers dan is toegestaan door uw één sleutel quotum ontvangt, maken en toewijzen van meer sleutels aan de LUIS-app. Maken van een traffic manager of load balancer voor het beheren van de eindpunt-query's in de eindpunt-sleutels. 
@@ -42,10 +50,10 @@ Als uw app is bedoeld om te voorspellen van een groot aantal uitingen van de geb
 Plan een periodieke [uitingen eindpunt voor een nadere](luis-how-to-review-endpoint-utterances.md) voor actief leren, zoals elke twee weken, klikt u vervolgens opnieuw trainen en opnieuw publiceren. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Als u wilt hebben van meer dan 500 intents
-Stel dat u een office-assistent met meer dan 500 intents ontwikkelt. Als 200 intents verwant zijn aan de vergaderingen plannen, 200 herinneringen zijn, 200 zijn over het ophalen van informatie over collega's, en 200 zijn voor het verzenden van e-mailbericht, groep intents zodat elke groep is in een enkele app vervolgens maakt u een op het hoogste niveau app die elk doel. Gebruik de [verzending hulpprogramma en architectuur](#dispatch-tool-and-model) om de app op het hoogste niveau te maken. Wijzig vervolgens uw bot om de trapsgewijze aanroep te gebruiken zoals weer geven in de [Verzend zelf studie][dispatcher-application-tutorial]. 
+Stel dat u een Office-assistent ontwikkelt met meer dan 500 intenties. Als 200 intents verwant zijn aan de vergaderingen plannen, 200 herinneringen zijn, 200 zijn over het ophalen van informatie over collega's, en 200 zijn voor het verzenden van e-mailbericht, groep intents zodat elke groep is in een enkele app vervolgens maakt u een op het hoogste niveau app die elk doel. Gebruik het [Verzend model](#dispatch-tool-and-model) om de app op het hoogste niveau te bouwen. Wijzig vervolgens uw bot om de trapsgewijze oproep te gebruiken, zoals wordt weer gegeven in de [zelf studie over het verzend model](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs). 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>Wanneer u moet verschillende LUIS en QnA maker toepassingen combineren
-Hebt u verschillende LUIS en QnA maker-apps die u nodig hebt om te reageren op een bot, gebruik de [verzending hulpprogramma](#dispatch-tool-and-model) om de app op het hoogste niveau te maken. Wijzig vervolgens uw bot om de trapsgewijze aanroep te gebruiken zoals weer geven in de [Verzend zelf studie][dispatcher-application-tutorial]. 
+Als u meerdere LUIS-en QnA Maker-apps hebt die moeten reageren op een bot, gebruikt u het [Verzend model](#dispatch-tool-and-model) om de app op het hoogste niveau te bouwen.  Wijzig vervolgens uw bot om de trapsgewijze oproep te gebruiken, zoals wordt weer gegeven in de [zelf studie over het verzend model](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs). 
 
 ## <a name="dispatch-tool-and-model"></a>Hulpprogramma voor verzending en het model
 Gebruik het opdracht regel programma voor [verzen ding][dispatch-tool] , gevonden in [BotBuilder-hulpprogram MA'S](https://github.com/Microsoft/botbuilder-tools) om meerdere LUIS en/of QnA Maker apps te combi NEREN in een bovenliggende Luis-app. Deze aanpak kunt u een bovenliggende domein met inbegrip van alle onderwerpen en verschillende onderliggende onderwerpsdomeinen in afzonderlijke apps. 
@@ -54,12 +62,19 @@ Gebruik het opdracht regel programma voor [verzen ding][dispatch-tool] , gevonde
 
 Het bovenliggende domein wordt vermeld in LUIS met een versie met de naam `Dispatch` in de lijst met apps. 
 
-De chatbot ontvangt de utterance en vervolgens verzendt naar de bovenliggende LUIS-app voor voorspelling. De bovenste voorspelde intentie van de bovenliggende app bepaalt welke onderliggende LUIS-app wordt vervolgens genoemd. De chatbot verzendt de utterance naar de onderliggende-app voor een meer specifieke voorspelling.
+De chat-bot ontvangt de utterance en verzendt deze vervolgens naar de bovenliggende LUIS-app voor voor spellingen. De eerste voorspelde intentie van de bovenliggende app bepaalt welke LUIS onderliggende app het volgende wordt genoemd. De chat-bot verzendt de utterance naar de onderliggende app voor een specifiekere voor spelling.
 
-Meer informatie over hoe deze hiërarchie van aanroepen wordt gedaan vanuit de Bot Builder v4 [-verzender-toepassing-zelf studie][dispatcher-application-tutorial].  
+Meer informatie over hoe deze hiërarchie van aanroepen wordt gedaan vanuit de Bot Builder v4 [-verzender-toepassing-zelf studie](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs).  
 
 ### <a name="intent-limits-in-dispatch-model"></a>Intentie limieten in model voor verzending
 Een toepassing verzending heeft 500 verzending bronnen, gelijk aan 500 intents als het maximum. 
+
+## <a name="more-information"></a>Meer informatie
+
+* [Bot Framework SDK](https://github.com/Microsoft/botframework)
+* [Zelf studie over verzend modellen](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)
+* [Verzending CLI](https://github.com/Microsoft/botbuilder-tools)
+* Voor beeld van verspreidings model-bot- [.net](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [node. js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 
 ## <a name="next-steps"></a>Volgende stappen
 

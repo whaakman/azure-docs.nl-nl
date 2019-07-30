@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2b574e0a545091263fce7949f997a3ba2dc8e5a8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bb7fa9d930f4c1ab3c241048804060e17fe5a8e4
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563977"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619915"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Concepten over de intenties in uw LUIS-app
 
@@ -42,12 +42,15 @@ U toewijzen een utterance aan een één doel. Wanneer LUIS een utterance op het 
 ## <a name="intent-compared-to-entity"></a>Kunt u lezen wat ten opzichte van entiteit
 De bedoeling vertegenwoordigt actie de chatbot kunt uitvoeren voor de gebruiker en zijn gebaseerd op de hele utterance. De entiteit vertegenwoordigt woorden of zinsdelen die zich in de utterance. Een utterance kan slechts één boven scoren doel hebben, maar het kan veel entiteiten hebben. 
 
-<a name="how-do-intents-relate-to-entities"></a> Maken van een doel als van de gebruiker _voornemen_ zou een actie in een clienttoepassing, zoals een aanroep naar de functie checkweather() activeren. Vervolgens maakt u een entiteit om weer te geven van de parameters die zijn vereist voor het uitvoeren van de actie. 
+<a name="how-do-intents-relate-to-entities"></a>
+
+Maak een intentie wanneer de _bedoeling_ van de gebruiker een actie in uw client toepassing zou activeren, zoals een aanroep van de functie checkweather (). Vervolgens maakt u een entiteit om weer te geven van de parameters die zijn vereist voor het uitvoeren van de actie. 
 
 |Voorbeeld van doel   | Entiteit | Entiteit in de voorbeeld-uitingen   | 
 |------------------|------------------------------|------------------------------|
 | CheckWeather | {"type": "locatie", "entiteit": "seattle"}<br>{"type": "builtin.datetimeV2.date","entity": 'morgen', 'Oplossing': "2018-05-23"} | Wat het weer, zoals `Seattle` `tomorrow`? |
 | CheckWeather | {"type": "date_range', 'entiteit':"dit weekend"} | De weersvoorspelling voor weergeven `this weekend` | 
+||||
 
 ## <a name="custom-intents"></a>Aangepaste intents
 

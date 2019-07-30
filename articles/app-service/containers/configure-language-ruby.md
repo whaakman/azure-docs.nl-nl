@@ -1,6 +1,6 @@
 ---
-title: Ruby-apps - Azure App Service configureren
-description: In deze zelfstudie beschrijft opties voor het ontwerpen en Ruby-apps configureren voor Azure App Service on Linux.
+title: Ruby-apps configureren-Azure App Service
+description: In deze zelf studie worden opties beschreven voor het ontwerpen en configureren van Ruby-apps voor Azure App Service op Linux.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -16,45 +16,45 @@ ms.date: 03/28/2019
 ms.author: cephalin
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 95a848ff7d74d35203c7e8377405c709f7fc7bd7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 222ded620610957e752e2081bda638d78eba4867
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617395"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619440"
 ---
-# <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Een Linux-Ruby-app configureren voor Azure App Service
+# <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Een Linux ruby-app voor Azure App Service configureren
 
-Dit artikel wordt beschreven hoe [Azure App Service](app-service-linux-intro.md) Ruby-apps en hoe u kunt het gedrag van App Service wanneer dat nodig is uitgevoerd. Ruby-apps moeten worden geïmplementeerd met alle de vereiste [pip](https://pypi.org/project/pip/) modules.
+In dit artikel wordt beschreven hoe [Azure app service](app-service-linux-intro.md) ruby-apps uitvoert en hoe u het gedrag van app service kunt aanpassen wanneer dit nodig is. Ruby-apps moeten worden geïmplementeerd met alle vereiste [PIP](https://pypi.org/project/pip/) -modules.
 
-Deze handleiding bevat de belangrijkste concepten en instructies voor het Ruby-ontwikkelaars die gebruikmaken van een ingebouwde Linux-container in App Service. Als u Azure App Service nog nooit hebt gebruikt, moet u de [Ruby snelstartgids](quickstart-ruby.md) en [Ruby met PostgreSQL zelfstudie](tutorial-ruby-postgres-app.md) eerste.
+Deze hand leiding bevat belang rijke concepten en instructies voor ruby-ontwikkel aars die een ingebouwde Linux-container gebruiken in App Service. Als u Azure App Service nog nooit hebt gebruikt, moet u eerst de [ruby-Snelstartgids](quickstart-ruby.md) en [ruby met postgresql zelf studie](tutorial-ruby-postgres-app.md) volgen.
 
-## <a name="show-ruby-version"></a>Versie van Ruby weergeven
+## <a name="show-ruby-version"></a>Ruby-versie weer geven
 
-Om weer te geven van de huidige versie van Ruby, voert u de volgende opdracht uit de [Cloud Shell](https://shell.azure.com):
+Als u de huidige ruby-versie wilt weer geven, voert u de volgende opdracht uit in de [Cloud shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
-Om weer te geven voor alle ondersteunde versies van Ruby, voert u de volgende opdracht uit de [Cloud Shell](https://shell.azure.com):
+Als u alle ondersteunde ruby-versies wilt weer geven, voert u de volgende opdracht uit in de [Cloud shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes --linux | grep RUBY
 ```
 
-U kunt een niet-ondersteunde versie van Ruby uitvoeren door het bouwen van uw eigen containerinstallatiekopie in plaats daarvan. Voor meer informatie raadpleegt u [Een aangepaste Docker-installatiekopie gebruiken](tutorial-custom-docker-image.md).
+U kunt een niet-ondersteunde versie van Ruby uitvoeren door in plaats daarvan uw eigen container installatie kopie te maken. Voor meer informatie raadpleegt u [Een aangepaste Docker-installatiekopie gebruiken](tutorial-custom-docker-image.md).
 
 ## <a name="set-ruby-version"></a>Ruby-versie instellen
 
-Voer de volgende opdracht uit de [Cloud Shell](https://shell.azure.com) in te stellen van de versie van Ruby op 2.3:
+Voer de volgende opdracht uit in het [Cloud shell](https://shell.azure.com) om de Ruby-versie in te stellen op 2,3:
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "RUBY|2.3"
 ```
 
 > [!NOTE]
-> Als u fouten die vergelijkbaar is met de volgende tijdens de implementatie wordt weergegeven:
+> Als er tijdens de implementatie fouten worden weer gegeven die vergelijkbaar zijn met de volgende:
 > ```
 > Your Ruby version is 2.3.3, but your Gemfile specified 2.3.1
 > ```
@@ -62,11 +62,11 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > ```
 > rbenv: version `2.3.1' is not installed
 > ```
-> Dit betekent dat de versie van Ruby geconfigureerd in uw project is anders dan de versie die geïnstalleerd in de container die u uitvoert (`2.3.3` in het bovenstaande voorbeeld). Schakel in het bovenstaande voorbeeld beide *Gemfile* en *.ruby-versie* en controleer of de versie van Ruby is niet ingesteld of is ingesteld op de versie die geïnstalleerd in de container die u uitvoert (`2.3.3` in de bovenstaande voorbeeld).
+> Dit betekent dat de Ruby-versie die in uw project is geconfigureerd, afwijkt van de versie die is geïnstalleerd in de`2.3.3` container die u gebruikt (in het bovenstaande voor beeld). Controleer in het bovenstaande voor beeld zowel *Gemfile* als *Ruby-versie* en controleer of de Ruby-versie niet is ingesteld, of is ingesteld op de versie die is geïnstalleerd in de container die u gebruikt (`2.3.3` in het bovenstaande voor beeld).
 
 ## <a name="access-environment-variables"></a>Toegang tot omgevingsvariabelen
 
-In App Service, kunt u [app-instellingen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) buiten de app-code. Vervolgens kunt u ze met behulp van de standaard openen [ENV ['\<pad-name >']](https://ruby-doc.org/core-2.3.3/ENV.html) patroon. Voor toegang tot bijvoorbeeld de app-instelling `WEBSITE_SITE_NAME` gebruikt u de volgende code:
+In App Service kunt u de [app-instellingen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) buiten uw app-code instellen. Vervolgens kunt u ze openen met het standaard [env ['\<pad-naam > ']](https://ruby-doc.org/core-2.3.3/ENV.html) -patroon. Voor toegang tot bijvoorbeeld de app-instelling `WEBSITE_SITE_NAME` gebruikt u de volgende code:
 
 ```ruby
 ENV['WEBSITE_SITE_NAME']
@@ -74,77 +74,77 @@ ENV['WEBSITE_SITE_NAME']
 
 ## <a name="customize-deployment"></a>Implementatie aanpassen
 
-Wanneer u implementeert een [Git-opslagplaats](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), of een [Zip-pakket](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) met buildprocessen is ingeschakeld, de implementatie-engine (Kudu) automatisch de volgende stappen na de implementatie wordt standaard uitgevoerd:
+Wanneer u een [Git-opslag plaats](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)implementeert, of een [zip-pakket](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) met Build-processen is ingeschakeld, voert de implementatie-Engine (kudu) automatisch de volgende stappen na de implementatie uit:
 
-1. Controleer of een *Gemfile* bestaat.
+1. Controleer of er een *Gemfile* bestaat.
 1. Voer `bundle clean` uit. 
 1. Voer `bundle install --path "vendor/bundle"` uit.
-1. Voer `bundle package` naar pakket gems naar leverancier/cache-map.
+1. Voer `bundle package` uit om edelstenen te verpakken in de map leverancier/cachemap.
 
-### <a name="use---without-flag"></a>Gebruik--zonder de vlag
+### <a name="use---without-flag"></a>Gebruik--zonder vlag
 
-Om uit te voeren `bundle install` met de [--zonder](https://bundler.io/man/bundle-install.1.html) markeren, stelt u de `BUNDLE_WITHOUT` [app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) naar een door komma's gescheiden lijst met groepen. Bijvoorbeeld, de volgende opdracht wordt het op `development,test`.
+Als u `bundle install` wilt uitvoeren met de [--zonder-](https://bundler.io/man/bundle-install.1.html) vlag `BUNDLE_WITHOUT` , stelt u de [app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) in op een door komma's gescheiden lijst met groepen. Met de volgende opdracht wordt deze bijvoorbeeld ingesteld op `development,test`.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings BUNDLE_WITHOUT="development,test"
 ```
 
-Als deze instelling is gedefinieerd, wordt de implementatie-engine wordt uitgevoerd `bundle install` met `--without $BUNDLE_WITHOUT`.
+Als deze instelling is gedefinieerd, wordt de implementatie-engine `bundle install` uitgevoerd `--without $BUNDLE_WITHOUT`met.
 
-### <a name="precompile-assets"></a>Vooraf compileren van assets
+### <a name="precompile-assets"></a>Activa precompileren
 
-De stappen na de implementatie niet vooraf compileren van assets standaard. Om in te schakelen Precompilatie van de asset, stel de `ASSETS_PRECOMPILE` [app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) naar `true`. Vervolgens de opdracht `bundle exec rake --trace assets:precompile` aan het einde van de stappen na de implementatie wordt uitgevoerd. Bijvoorbeeld:
+Bij de stappen na de implementatie worden assets niet standaard vooraf gecompileerd. Als u de voor-compilatie van activa wilt `ASSETS_PRECOMPILE` inschakelen, stelt `true`u de app- [instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) in op. Vervolgens wordt de `bundle exec rake --trace assets:precompile` opdracht uitgevoerd aan het einde van de stappen na de implementatie. Bijvoorbeeld:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASSETS_PRECOMPILE=true
 ```
 
-Zie voor meer informatie, [leveren van statische assets](#serve-static-assets).
+Zie voor meer informatie [statische assets aanbieden](#serve-static-assets).
 
 ## <a name="customize-start-up"></a>Opstarten aanpassen
 
-De Ruby-container wordt standaard de Rails-server gestart in de volgende reeks (Zie voor meer informatie de [opstarten script](https://github.com/Azure-App-Service/ruby/blob/master/2.3.8/startup.sh)):
+Standaard start de ruby-container de rails-server in de volgende volg orde (Zie voor meer informatie het [opstart script](https://github.com/Azure-App-Service/ruby/blob/master/2.3.8/startup.sh)):
 
-1. Genereren van een [secret_key_base](https://edgeguides.rubyonrails.org/security.html#environmental-security) waarde, als een niet al bestaat. Deze waarde is vereist voor de app wordt uitgevoerd in productiemodus.
-1. Stel de `RAILS_ENV` omgevingsvariabele `production`.
-1. Verwijder *.pid* -bestand in de *tmp/procesnamen* directory alleen nog door een eerder gestarte Rails-server.
-1. Controleer of alle afhankelijkheden zijn geïnstalleerd. Als dit niet het geval is, probeert gems installeren vanaf de lokale *leverancier/cache* directory.
+1. Genereer een [secret_key_base](https://edgeguides.rubyonrails.org/security.html#environmental-security) -waarde als er nog geen bestaat. Deze waarde is vereist voor het uitvoeren van de app in de productie modus.
+1. Stel de `RAILS_ENV` omgevings variabele `production`in op.
+1. Verwijder een wille keurig *PID* -bestand in de map *tmp/pid's* die wordt weer gegeven door een server met een eerder uitgevoerde rails.
+1. Controleer of alle afhankelijkheden zijn geïnstalleerd. Als dat niet het geval is, probeert u edelsteen te installeren vanuit de lokale map *leverancier/cache* .
 1. Voer `rails server -e $RAILS_ENV` uit.
 
-U kunt het proces opstarten in de volgende manieren aanpassen:
+U kunt het opstart proces op de volgende manieren aanpassen:
 
-- [Leveren van statische assets](#serve-static-assets)
-- [Uitvoeren in de modus voor niet-productie](#run-in-non-production-mode)
-- [Secret_key_base handmatig instellen](#set-secret_key_base-manually)
+- [Statische activa leveren](#serve-static-assets)
+- [Uitvoeren in niet-productie modus](#run-in-non-production-mode)
+- [Secret_key_base hand matig instellen](#set-secret_key_base-manually)
 
-### <a name="serve-static-assets"></a>Leveren van statische assets
+### <a name="serve-static-assets"></a>Statische activa leveren
 
-De Rails-server in de Ruby-container wordt uitgevoerd in de productiemodus standaard, en [wordt ervan uitgegaan dat assets vooraf geschreven zijn en worden geleverd door uw webserver](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Voor het leveren van statische elementen uit de Rails-server, moet u twee dingen doen:
+De rails-server in de ruby-container wordt standaard uitgevoerd in de productie modus en er [wordt van uitgegaan dat activa vooraf worden gecompileerd en door de webserver worden verwerkt](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Als u statische activa van de rails-server wilt gebruiken, moet u twee dingen doen:
 
-- **Vooraf compileren van de assets** - [vooraf compileren van de statische assets lokaal](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) en deze handmatig te implementeren. De implementatie-engine verwerkt; het in plaats daarvan ook (Zie [vooraf compileren van assets](#precompile-assets).
-- **Inschakelen voor de statische bestanden** : als u wilt leveren van statische elementen uit de Ruby-container, stelt u de `RAILS_SERVE_STATIC_FILES` [stelt de `RAILS_SERVE_STATIC_FILES` app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) naar `true`. Bijvoorbeeld:
+- **De activa** - precompileren precompileren[de statische activa voor het](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) eerst samen te stellen en hand matig te implementeren. U kunt de implementatie-Engine ook laten afhandelen (Zie [assets](#precompile-assets)voor precompileren.
+- **Inschakelen van statische bestanden** : als u statische assets van de ruby-container wilt gebruiken, [stelt u `RAILS_SERVE_STATIC_FILES` de app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) in op. `true` Bijvoorbeeld:
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true
     ```
 
-### <a name="run-in-non-production-mode"></a>Uitvoeren in de modus voor niet-productie
+### <a name="run-in-non-production-mode"></a>Uitvoeren in niet-productie modus
 
-De Rails-server wordt standaard uitgevoerd in productiemodus. Als u wilt uitvoeren in de Ontwikkelingsmodus, bijvoorbeeld instellen de `RAILS_ENV` [app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) naar `development`.
+De rails-server wordt standaard uitgevoerd in de productie modus. Als u wilt uitvoeren in de ontwikkel modus, stelt u `RAILS_ENV` bijvoorbeeld de app `development`- [instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) in op.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_ENV="development"
 ```
 
-Deze instelling alleen echter zorgt ervoor dat de Rails-server te starten in de Ontwikkelingsmodus die localhost aanvragen alleen accepteert en is niet toegankelijk buiten de container. Voor het accepteren van aanvragen van externe clients, stel de `APP_COMMAND_LINE` [app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) naar `rails server -b 0.0.0.0`. Deze app-instelling kunt u een aangepaste opdracht uitvoeren in de Ruby-container. Bijvoorbeeld:
+Met deze instelling wordt echter alleen de rails-server gestart in de ontwikkelings modus, die alleen localhost-aanvragen accepteert en niet toegankelijk is buiten de container. Als u aanvragen voor externe clients wilt accepteren `APP_COMMAND_LINE` , stelt u `rails server -b 0.0.0.0`de app- [instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) in op. Met deze app-instelling kunt u een aangepaste opdracht uitvoeren in de ruby-container. Bijvoorbeeld:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
 ```
 
-### <a name="set-secret_key_base-manually"></a> Secret_key_base handmatig instellen
+### <a name="set-secret_key_base-manually"></a>Secret_key_base hand matig instellen
 
-Gebruik uw eigen `secret_key_base` waarde in plaats van App Service genereren van een voor u, instellen zodat de `SECRET_KEY_BASE` [app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) met de gewenste waarde. Bijvoorbeeld:
+Als u uw eigen `secret_key_base` waarde wilt gebruiken in plaats van app service een voor u te laten `SECRET_KEY_BASE` genereren, stelt u de [app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) in met de gewenste waarde. Bijvoorbeeld:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"
@@ -161,7 +161,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Rails-app met PostgreSQL](tutorial-ruby-postgres-app.md)
+> [Zelfstudie: Een Rails-app met PostgreSQL](tutorial-ruby-postgres-app.md)
 
 > [!div class="nextstepaction"]
-> [App Service Linux Veelgestelde vragen](app-service-linux-faq.md)
+> [Veelgestelde vragen over App Service Linux](app-service-linux-faq.md)

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 58ec78f0c20d6a2d5d86a60c69cc934c8f3076c8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 55251a553921e947e7c6522677e51e4eb1d3fa5b
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560646"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619952"
 ---
 # <a name="quickstart-change-model-using-c"></a>Snelstartgids: Model wijzigen met behulp van C#
 
@@ -115,7 +115,7 @@ Voeg de main-code toe om opdrachtregelargumenten te beheren. Voeg methode toe aa
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>Kopieer utterances.json naar de uitvoerdirectory
 
-Voeg in de Solution Explorer het `utterances.json` door met de rechter muisknop te klikken in de project naam van de Solution Explorer, selecteer vervolgens **toevoegen**en selecteer vervolgens **bestaand item**. Selecteer het `utterances.json` bestand. Hiermee voegt u het bestand toe aan het project. Vervolgens moet deze worden toegevoegd aan de uitvoer richting. Klik met de rechter `utterances.json` muisknop op de en selecteer **Eigenschappen**. Markeer in de eigenschappenvensters de **Build Action** `Content`en de **Copy to Output Build Directory** `Copy Always`.  
+Voeg in de Solution Explorer het `utterances.json` door met de rechter muisknop te klikken in de project naam van de Solution Explorer, selecteer vervolgens **toevoegen**en selecteer vervolgens **bestaand item**. Selecteer het `utterances.json` bestand. Hiermee voegt u het bestand toe aan het project. Vervolgens moet de map worden toegevoegd aan de uitvoermap. Klik met de rechter `utterances.json` muisknop op de en selecteer **Eigenschappen**. Markeer in de eigenschappenvensters de **Build Action** `Content`en de **Copy to Output Build Directory** `Copy Always`.  
 
 ![Het JSON-bestand markeren als inhoud](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 

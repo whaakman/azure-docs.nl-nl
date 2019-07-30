@@ -5,6 +5,7 @@
     - name: Meer informatie over Time Series Insights
       href: time-series-insights-update-overview.md
 - name: Snelstartgidsen
+  expanded: true
   items:
     - name: Azure Time Series Insights GA
       items:

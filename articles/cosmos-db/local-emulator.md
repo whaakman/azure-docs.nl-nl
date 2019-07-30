@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 626f71c3938b944cb705dfea4a964c6c33c42164
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3e07b448e73bf64a3c1ec257948b3d61415480f0
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565451"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619836"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>De Azure Cosmos-emulator gebruiken voor lokale ontwikkeling en tests
 
@@ -97,7 +97,7 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 > De hoofd sleutel die wordt ondersteund door de Azure Cosmos-emulator is uitsluitend bedoeld voor gebruik met de emulator. U kunt uw productie Azure Cosmos DB-account en-sleutel niet gebruiken met de Azure Cosmos-emulator.
 
 > [!NOTE]
-> Als u de emulator hebt gestart met de optie/Key, gebruikt u vervolgens de gegenereerde sleutel `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`in plaats van. Zie voor meer informatie over de optie/Key de [Naslag Gids opdracht regel Programma's.](#command-line-syntax)
+> Als u de emulator hebt gestart met de optie/Key, gebruikt u vervolgens de gegenereerde sleutel `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`in plaats van. Zie voor meer informatie over de optie/Key de [Naslag Gids opdracht regel Programma's.](#command-line)
 
 Net als bij de Azure Cosmos DB ondersteunt de Azure Cosmos-emulator alleen beveiligde communicatie via SSL.
 

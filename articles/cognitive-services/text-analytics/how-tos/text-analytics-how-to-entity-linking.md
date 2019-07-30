@@ -1,7 +1,7 @@
 ---
-title: Herkenning van entiteit met de Tekstanalyse-API gebruiken
+title: Entiteits herkenning gebruiken met de Text Analytics-API
 titleSuffix: Azure Cognitive Services
-description: Leer hoe u voor het herkennen van entiteiten met behulp van de Text Analytics REST-API.
+description: Meer informatie over het herkennen van entiteiten met behulp van de Text Analytics REST API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,91 +10,95 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: ff4f9af82024e9d39ad89a39bcb2fe4130de9101
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 5a5787504d72259354f9c5eba2e2f4e22402ef0b
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304182"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619730"
 ---
-# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Herkenning van entiteit met de naam in Text Analytics gebruiken
+# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Benoemde entiteits herkenning gebruiken in Text Analytics
 
-De [entiteit Recognition-API met de naam](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) neemt ongestructureerde tekst en voor elk JSON-document, resulteert in een lijst van disambiguated entiteiten met koppelingen naar meer informatie op het web (Wikipedia en Bing). 
+De [benoemde entiteit herkennings-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) maakt ongestructureerde tekst en voor elk JSON-document wordt een lijst met disambiguated-entiteiten geretourneerd met koppelingen naar meer informatie op het web (Wikipedia en Bing).
 
-## <a name="entity-linking-and-named-entity-recognition"></a>Entiteiten koppelen en herkenning van benoemde entiteiten
+## <a name="entity-linking-and-named-entity-recognition"></a>Entiteits koppelingen en benoemde entiteits herkenning
 
-De Text Analytics `entities` eindpunt ondersteunt zowel met de naam van entiteit recognition (NER) en entiteiten koppelen.
+Het `entities` eind punt van de Text Analytics ondersteunt zowel ner (named entity Recognition) als entiteits koppeling.
 
 ### <a name="entity-linking"></a>Entiteiten koppelen
-Entiteiten koppelen, is de mogelijkheid om te bepalen en dubbelzinnigheid van de identiteit van een entiteit in de tekst (bijvoorbeeld, waarmee wordt bepaald of de "Mars ' wordt gebruikt als de planeet of als de Roman overmacht van war) gevonden. Dit proces vereist de aanwezigheid van een knowledge base die herkend entiteiten zijn gekoppeld: Wikipedia wordt gebruikt als de knowledge base voor de `entities` eindpunt Text Analytics.
+Entiteit koppelen is de mogelijkheid om de identiteit van een entiteit te identificeren en dubbel zinnigheid die in tekst is gevonden (bijvoorbeeld om te bepalen of de Mars wordt gebruikt als planeet of als Romeins niet van War). Voor dit proces moet de aanwezigheid van een Knowledge Base waaraan herkende entiteiten zijn gekoppeld, worden gebruikt als de Knowledge Base voor het `entities` eind punt Text Analytics.
 
 ### <a name="named-entity-recognition-ner"></a>Herkenning van benoemde entiteiten (NER)
-Met de naam van entiteit recognition is (NER) de mogelijkheid om te bepalen van de verschillende entiteiten in de tekst en verdeel ze in categorieën in de vooraf gedefinieerde klassen. De ondersteunde klassen van entiteiten worden hieronder vermeld.
+Herkenning van benoemde entiteiten (NER) is de mogelijkheid om verschillende entiteiten in tekst te identificeren en deze te categoriseren in vooraf gedefinieerde klassen. De ondersteunde klassen van entiteiten worden hieronder weer gegeven.
 
-In de Text Analytics [versie 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), entiteiten koppelen en herkenning van benoemde entiteiten (NER) zijn beschikbaar voor verschillende talen. Zie de [taalondersteuning](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) artikel voor meer informatie. 
+In Text Analytics [versie 2,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)zijn zowel entiteits koppelingen als benoemde entiteits herkenning (ner) beschikbaar voor verschillende talen. Zie het artikel [language support (Engelstalig)](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) voor meer informatie.
 
 ### <a name="language-support"></a>Taalondersteuning
 
-Entiteiten koppelen in verschillende talen, moet met behulp van een betreffende knowledge base in elke taal. Voor entiteiten koppelen in Text Analytics, betekent dit dat elke taal die wordt ondersteund door de `entities` eindpunt koppelt aan de bijbehorende Wikipedia corpus in die taal. Omdat de grootte van corpora tussen talen varieert, is het waarschijnlijk dat de entiteit koppelen van de functionaliteit intrekken ook variëren.
+Voor het gebruik van entiteits koppeling in verschillende talen moet u in elke taal een bijbehorende kennis database gebruiken. Voor entiteits koppeling in Text Analytics betekent dit dat elke taal die wordt ondersteund door `entities` het eind punt, wordt gekoppeld aan de bijbehorende Wikipedia-verzameling in die taal. Aangezien de grootte van corpora varieert tussen talen, wordt verwacht dat het intrekken van de entiteits koppelingen ook verschillen.
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Ondersteunde typen voor herkenning van benoemde entiteiten
 
-| Type  | SubType | Voorbeeld |
+| type  | SubType | Voorbeeld |
 |:-----------   |:------------- |:---------|
 | Person        | N.V.T.\*         | "Jeff", "Bill Gates"     |
-| Locatie      | N.V.T.\*         | Redmond, Washington; Parijs  |
+| Location      | N.V.T.\*         | Redmond, Washington; Parijs  |
 | Organisatie  | N.V.T.\*         | "Microsoft"   |
-| Aantal      | Aantal        | "6", "six"     | 
-| Aantal      | Percentage    | 50%, vijftig procent| 
-| Aantal      | Rangtelwoord       | 2e, tweede     | 
-| Aantal      | Nummerbereik   | 4 tot 8     | 
-| Aantal      | Leeftijd           | "90 dagen oud is", "30 jaar oude"    | 
-| Aantal      | Valuta      | $ 10,99     | 
-| Aantal      | Dimensie     | 10 mijl, 40 cm     | 
+| Aantal      | Aantal        | "6", "six"     |
+| Aantal      | Percentage    | 50%, vijftig procent|
+| Aantal      | Rangtelwoord       | 2e, tweede     |
+| Aantal      | Nummerbereik   | 4 tot 8     |
+| Aantal      | Leeftijd           | "90 dag oud", "30 jaar oud"    |
+| Aantal      | Currency      | $ 10,99     |
+| Aantal      | Dimensie     | 10 mijl, 40 cm     |
 | Aantal      | Temperatuur   | 32 graden    |
-| DateTime      | N.V.T.\*         | 18:30 uur, 4 februari 2012      | 
-| DateTime      | Date          | 2 mei 2017, 05-02-2017   | 
-| DateTime      | Time          | "8 am", "8:00"  | 
-| DateTime      | DateRange     | 2 mei tot 5 mei    | 
-| DateTime      | TimeRange     | 18.00 uur tot 19.00 uur     | 
-| DateTime      | Duration      | 1 minuut en 45 seconden   | 
-| DateTime      | Set           | elke dinsdag     | 
-| DateTime      | Tijdzone      |    | 
+| Datetime      | N.V.T.\*         | 18:30 uur, 4 februari 2012      |
+| Datetime      | Date          | 2 mei 2017, 05-02-2017   |
+| Datetime      | Time          | "8 a.m.", "8:00"  |
+| Datetime      | DateRange     | 2 mei tot 5 mei    |
+| Datetime      | TimeRange     | 18.00 uur tot 19.00 uur     |
+| Datetime      | Duration      | 1 minuut en 45 seconden   |
+| Datetime      | Set           | elke dinsdag     |
+| Datetime      | Tijdzone      |    |
 | URL           | N.V.T.\*         | "https:\//www.bing.com"    |
 | Email         | N.V.T.\*         | "support@contoso.com" |
 
-\* Afhankelijk van de invoer- en uitgepakte entiteiten, bepaalde entiteiten kunnen laat de `SubType`.  Alle ondersteunde Entiteitstypen die worden vermeld, zijn alleen beschikbaar voor de Engelse, vereenvoudigd Chinees, Frans, Duits en Spaans-talen.
+\*Afhankelijk van de invoer en geëxtraheerde entiteiten kunnen bepaalde entiteiten de `SubType`niet weglaten.  Alle ondersteunde entiteits typen die worden weer gegeven, zijn alleen beschikbaar voor Engels, vereenvoudigd Chinees, Frans, Duits en Spaans.
 
 
 
 ## <a name="preparation"></a>Voorbereiding
 
-U moet de JSON-documenten in deze indeling hebben: -ID, tekst-, taal
+U moet JSON-documenten hebben in deze indeling: ID, tekst, taal
 
-Zie voor ondersteunde talen, [deze lijst](../text-analytics-supported-languages.md).
+Voor ondersteunde talen raadpleegt u [deze lijst](../text-analytics-supported-languages.md).
 
-De documentgrootte moet minder dan maximaal 5120 tekens per document zijn, en u kunt maximaal 1000 items (id's) per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Het volgende voorbeeld wordt een afbeelding van inhoud die u naar de gekoppelde entiteit-end verzenden kan.
+De documentgrootte moet minder dan maximaal 5120 tekens per document zijn, en u kunt maximaal 1000 items (id's) per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Het volgende voor beeld is een illustratie van inhoud die u kunt verzenden naar het einde van de entiteit koppeling.
 
-```
-{"documents": [{"id": "1",
+```json
+    {
+        "documents": [
+            {
+                "id": "1",
                 "language": "en",
                 "text": "Jeff bought three dozen eggs because there was a 50% discount."
-                },
-               {"id": "2",
+            },
+            {
+                "id": "2",
                 "language": "en",
                 "text": "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%."
-                }
-               ]
-}
-```    
-    
+            }
+        ]
+    }
+```
+
 ## <a name="step-1-structure-the-request"></a>Stap 1: Structureer de aanvraag
 
 Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Analytics-API aanroepen](text-analytics-how-to-call-api.md). De volgende punten zijn voor uw gemak opnieuw geformuleerd:
 
-+ Maak een **POST**-aanvraag. Bekijk de API-documentatie voor deze aanvraag: [Entity Linking API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
++ Maak een **POST**-aanvraag. Bekijk de API-documentatie voor deze aanvraag: [Entiteit koppelings-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ Stel het HTTP-eindpunt voor het ophalen van de entiteit. Deze moet de `/entities`-resource: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities` bevatten
++ Stel het HTTP-eind punt in voor het uitpakken van de entiteit. Deze moet de `/entities`-resource: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities` bevatten
 
 + Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie voor meer informatie [Eindpunten en toegangssleutels zoeken](text-analytics-how-to-access-key.md).
 
@@ -105,7 +109,7 @@ Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Anal
 
 ## <a name="step-2-post-the-request"></a>Stap 2: Plaats de aanvraag
 
-Analyse wordt uitgevoerd na ontvangst van de aanvraag. Zie de [gegevenslimieten](../overview.md#data-limits) sectie in het overzicht voor informatie over de grootte en het aantal aanvragen kunt verzenden per minuut en seconde.
+Analyse wordt uitgevoerd na ontvangst van de aanvraag. Zie de sectie [gegevens limieten](../overview.md#data-limits) in het overzicht voor informatie over de grootte en het aantal aanvragen dat u per minuut en seconde kunt verzenden.
 
 Terughalen als de service staatloos is. Er worden geen gegevens opgeslagen in uw account. Resultaten worden onmiddellijk in het antwoord geretourneerd.
 
@@ -115,179 +119,178 @@ Alle POST-verzoeken retourneren een ingedeeld JSON-antwoord met de id's en gedet
 
 Uitvoer wordt onmiddellijk geretourneerd. U kunt de resultaten streamen naar een toepassing die JSON accepteert of u kunt de uitvoer opslaan als lokaal bestand en vervolgens importeren in een toepassing waarmee u kunt sorteren, zoeken en de gegevens kunt manipuleren.
 
-Een voorbeeld van de uitvoer voor entiteiten koppelen wordt volgende weergegeven:
+Een voor beeld van de uitvoer voor entiteits koppeling wordt volgende weer gegeven:
 
 ```json
-{
-    "Documents": [
-        {
-            "Id": "1",
-            "Entities": [
-                {
-                    "Name": "Jeff",
-                    "Matches": [
-                        {
-                            "Text": "Jeff",
-                            "Offset": 0,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "Person"
-                },
-                {
-                    "Name": "three dozen",
-                    "Matches": [
-                        {
-                            "Text": "three dozen",
-                            "Offset": 12,
-                            "Length": 11
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50",
-                    "Matches": [
-                        {
-                            "Text": "50",
-                            "Offset": 49,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50%",
-                    "Matches": [
-                        {
-                            "Text": "50%",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        },
-        {
-            "Id": "2",
-            "Entities": [
-                {
-                    "Name": "Great Depression",
-                    "Matches": [
-                        {
-                            "Text": "The Great Depression",
-                            "Offset": 0,
-                            "Length": 20
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Great Depression",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
-                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
-                },
-                {
-                    "Name": "1929",
-                    "Matches": [
-                        {
-                            "Text": "1929",
-                            "Offset": 30,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "By 1933",
-                    "Matches": [
-                        {
-                            "Text": "By 1933",
-                            "Offset": 36,
-                            "Length": 7
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "Gross domestic product",
-                    "Matches": [
-                        {
-                            "Text": "GDP",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Gross domestic product",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
-                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
-                },
-                {
-                    "Name": "United States",
-                    "Matches": [
-                        {
-                            "Text": "America",
-                            "Offset": 56,
-                            "Length": 7
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "United States",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
-                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
-                    "Type": "Location"
-                },
-                {
-                    "Name": "25",
-                    "Matches": [
-                        {
-                            "Text": "25",
-                            "Offset": 72,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "25%",
-                    "Matches": [
-                        {
-                            "Text": "25%",
-                            "Offset": 72,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        }
-    ],
-    "Errors": []
-}
+    {
+        "Documents": [
+            {
+                "Id": "1",
+                "Entities": [
+                    {
+                        "Name": "Jeff",
+                        "Matches": [
+                            {
+                                "Text": "Jeff",
+                                "Offset": 0,
+                                "Length": 4
+                            }
+                        ],
+                        "Type": "Person"
+                    },
+                    {
+                        "Name": "three dozen",
+                        "Matches": [
+                            {
+                                "Text": "three dozen",
+                                "Offset": 12,
+                                "Length": 11
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Number"
+                    },
+                    {
+                        "Name": "50",
+                        "Matches": [
+                            {
+                                "Text": "50",
+                                "Offset": 49,
+                                "Length": 2
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Number"
+                    },
+                    {
+                        "Name": "50%",
+                        "Matches": [
+                            {
+                                "Text": "50%",
+                                "Offset": 49,
+                                "Length": 3
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Percentage"
+                    }
+                ]
+            },
+            {
+                "Id": "2",
+                "Entities": [
+                    {
+                        "Name": "Great Depression",
+                        "Matches": [
+                            {
+                                "Text": "The Great Depression",
+                                "Offset": 0,
+                                "Length": 20
+                            }
+                        ],
+                        "WikipediaLanguage": "en",
+                        "WikipediaId": "Great Depression",
+                        "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                        "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                    },
+                    {
+                        "Name": "1929",
+                        "Matches": [
+                            {
+                                "Text": "1929",
+                                "Offset": 30,
+                                "Length": 4
+                            }
+                        ],
+                        "Type": "DateTime",
+                        "SubType": "DateRange"
+                    },
+                    {
+                        "Name": "By 1933",
+                        "Matches": [
+                            {
+                                "Text": "By 1933",
+                                "Offset": 36,
+                                "Length": 7
+                            }
+                        ],
+                        "Type": "DateTime",
+                        "SubType": "DateRange"
+                    },
+                    {
+                        "Name": "Gross domestic product",
+                        "Matches": [
+                            {
+                                "Text": "GDP",
+                                "Offset": 49,
+                                "Length": 3
+                            }
+                        ],
+                        "WikipediaLanguage": "en",
+                        "WikipediaId": "Gross domestic product",
+                        "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                        "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                    },
+                    {
+                        "Name": "United States",
+                        "Matches": [
+                            {
+                                "Text": "America",
+                                "Offset": 56,
+                                "Length": 7
+                            }
+                        ],
+                        "WikipediaLanguage": "en",
+                        "WikipediaId": "United States",
+                        "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                        "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                        "Type": "Location"
+                    },
+                    {
+                        "Name": "25",
+                        "Matches": [
+                            {
+                                "Text": "25",
+                                "Offset": 72,
+                                "Length": 2
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Number"
+                    },
+                    {
+                        "Name": "25%",
+                        "Matches": [
+                            {
+                                "Text": "25%",
+                                "Offset": 72,
+                                "Length": 3
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Percentage"
+                    }
+                ]
+            }
+        ],
+        "Errors": []
+    }
 ```
-
 
 ## <a name="summary"></a>Samenvatting
 
-In dit artikel hebt u geleerd werkstroom voor entiteiten koppelen met behulp van de Text Analytics in Cognitive Services en concepten. Samenvatting:
+In dit artikel hebt u concepten en werk stromen geleerd voor het koppelen van entiteiten met behulp van Text Analytics in Cognitive Services. Samenvatting:
 
-+ [Entiteiten API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) is beschikbaar voor de geselecteerde talen.
-+ JSON-documenten in de aanvraagtekst omvatten een code-ID, tekst en taal.
++ Er is een entiteits- [API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) beschikbaar voor geselecteerde talen.
++ JSON-documenten in de hoofd tekst van de aanvraag bevatten een ID, tekst en taal code.
 + POST-aanvraag is een `/entities`-eindpunt die een persoonlijke [toegangssleutel en een eindpunt](text-analytics-how-to-access-key.md) gebruikt die geldig zijn voor uw abonnement.
-+ Antwoorduitvoer, die uit de gekoppelde entiteiten bestaat (met inbegrip van vertrouwen scores verschuivingen en webkoppelingen, voor elk document-ID) kan worden gebruikt in een toepassing
++ De antwoord uitvoer, die bestaat uit gekoppelde entiteiten (inclusief betrouwbaarheids scores, verschuivingen en webkoppelingen, voor elke document-ID), kan worden gebruikt in elke toepassing
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
 > [Text Analytics-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-* [Overzicht van Text Analytics](../overview.md)  
+* [Overzicht van Text Analytics](../overview.md)
 * [Veelgestelde vragen](../text-analytics-resource-faq.md)</br>
-* [Text Analytics-productpagina](//go.microsoft.com/fwlink/?LinkID=759712) 
+* [Text Analytics-productpagina](//go.microsoft.com/fwlink/?LinkID=759712)
