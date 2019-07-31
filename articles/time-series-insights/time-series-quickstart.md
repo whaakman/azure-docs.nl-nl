@@ -11,26 +11,27 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 07/29/2019
-ms.openlocfilehash: 94402953a7168b6518d0a50f81f75ee63da8c902
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 0a91db15fcf77a936905a68c6b69b507d4e32a78
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638875"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677700"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Snelstartgids: Azure Time Series Insights verkennen
 
-Met de Snelstartgids van Azure Time Series Insights Explorer kunt u aan de slag met Time Series Insights in een gratis demonstratie omgeving. U leert hoe u uw webbrowser kunt gebruiken om grote hoeveel heden IoT-gegevens en-Tour functies te visualiseren die nu algemeen beschikbaar zijn.
+Met de Snelstartgids van Azure Time Series Insights Explorer kunt u aan de slag met Time Series Insights in een gratis demonstratie omgeving. In deze Quick Start leert u hoe u uw webbrowser kunt gebruiken om grote hoeveel heden IoT-gegevens en-Tour functies te visualiseren die nu algemeen beschikbaar zijn.
 
 Azure Time Series Insights is een volledig beheerde analyse-, opslag-en visualisatie service die het eenvoudiger maakt om miljarden IoT-gebeurtenissen tegelijkertijd te verkennen en te analyseren. Het biedt u een wereld wijde weer gave van uw gegevens, zodat u uw IoT-oplossing snel kunt valideren en kost bare downtime van essentiële apparaten te voor komen. Azure Time Series Insights helpt u bij het ontdekken van verborgen trends, afwijkings afwijkingen en het uitvoeren van analyses in de buurt van de hoofd oorzaak.
 
 Voor extra flexibiliteit kunt u Azure Time Series Insights toevoegen aan een bestaande toepassing via de krachtige [rest api's](./time-series-insights-update-tsq.md) en de [client-SDK](./tutorial-create-tsi-sample-spa.md). U kunt de Api's gebruiken voor het opslaan, opvragen en gebruiken van Time Series-gegevens in een client toepassing naar keuze. U kunt ook de client-SDK gebruiken om UI-onderdelen toe te voegen aan uw bestaande toepassing.
 
-Deze Quick Start van Time Series Insights Explorer biedt een rond leiding door functies die nu algemeen beschikbaar zijn.
+Deze Quick Start van Time Series Insights Explorer biedt een rond leiding door de functies die algemeen beschikbaar zijn.
+
+> [!IMPORTANT]
+> Maak een [gratis Azure-account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) als u er nog geen hebt gemaakt.
 
 ## <a name="prepare-the-demo-environment"></a>De demo omgeving voorbereiden
-
-1. Maak een [gratis Azure-account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) als u er nog geen hebt gemaakt.
 
 1. Ga in uw browser naar de [demo over algemene Beschik baarheid](https://insights.timeseries.azure.com/demo).
 

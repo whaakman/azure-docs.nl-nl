@@ -3,34 +3,23 @@ title: Webverkeer beperken met een firewall voor webtoepassingen - Azure PowerSh
 description: Meer informatie over hoe u webverkeer beperkt met een firewall voor webtoepassingen in een toepassingsgateway met Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 03/25/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e962d76bc82edabf750af52c50ec45ed9ed76e17
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 219c2a36d1a241db8361ae1f8f2f74b9a68780ca
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596835"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688266"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Web Application Firewall inschakelen met Azure PowerShell
 
-> [!div class="op_single_selector"]
->
-> - [Azure-portal](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [Azure-CLI](tutorial-restrict-web-traffic-cli.md)
->
-> 
-
 U kunt verkeer op een [toepassingsgateway](overview.md) beperken met een [firewall voor webtoepassingen](waf-overview.md) (WAF; Web Application Firewall). De WAF gebruikt [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project)-regels om uw toepassing te beveiligen. Deze regels omvatten bescherming tegen aanvallen als SQL-injectie, XSS-aanvallen (cross-site scripting) en sessiekapingen. 
 
-In deze zelfstudie leert u het volgende:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Het netwerk instellen
@@ -40,7 +29,7 @@ In deze zelfstudie leert u het volgende:
 
 ![Voorbeeld van een WAF (Web Application Firewall)](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
-U kunt deze zelfstudie desgewenst volgen met de [Azure CLI](tutorial-restrict-web-traffic-cli.md).
+Als u wilt, kunt u dit artikel volt ooien met behulp van de [Azure Portal](application-gateway-web-application-firewall-portal.md) of de [Azure cli](tutorial-restrict-web-traffic-cli.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -48,7 +37,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u Power shell lokaal wilt installeren en gebruiken, is voor deze zelf studie de Azure PowerShell module versie 1.0.0 of hoger vereist. Voer `Get-Module -ListAvailable Az` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u ervoor kiest om Power shell lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van de Azure PowerShell module versie 1.0.0 of hoger. Voer `Get-Module -ListAvailable Az` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -82,12 +71,13 @@ $pip = New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Dynamic
+  -AllocationMethod Static `
+  -Sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-In deze sectie maakt u resources die de toepassingsgateway ondersteunen. Ten slotte gaat u deze gateway en een WAF maken. De resources die u maakt, zijn onder andere:
+In deze sectie maakt u resources die ondersteuning bieden voor de toepassings gateway en maakt u deze vervolgens en een WAF. De resources die u maakt, zijn onder andere:
 
 - *IP-configuraties en front-endpoort*: hiermee koppelt u het subnet dat u eerder hebt gemaakt aan de toepassingsgateway en wijst u een poort toe die u gebruikt om de gateway te openen.
 - *Standaardpool*: alle toepassingsgateways moeten ten minste één back-endpool met servers hebben.
@@ -160,8 +150,8 @@ Nu u de nodige ondersteunende resources hebt gemaakt, geeft u para meters op voo
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
-  -Name WAF_Medium `
-  -Tier WAF `
+  -Name WAF_v2 `
+  -Tier WAF_v2 `
   -Capacity 2
 
 $wafConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration `
@@ -258,7 +248,7 @@ Update-AzVmss `
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Een opslagaccount maken en diagnostische gegevens configureren
 
-In deze zelfstudie gebruikt de toepassingsgateway een opslagaccount voor het opslaan van gegevens voor detectie- en preventiedoeleinden. U kunt ook Azure Monitor-logboeken of Event Hub gebruiken om gegevens vast te leggen.
+In dit artikel maakt de toepassings gateway gebruik van een opslag account voor het opslaan van gegevens voor detectie en preventie. U kunt ook Azure Monitor-logboeken of Event Hub gebruiken om gegevens vast te leggen.
 
 ### <a name="create-the-storage-account"></a>Het opslagaccount maken
 
@@ -314,13 +304,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Het netwerk instellen
-> * Een toepassingsgateway maken met WAF ingeschakeld
-> * Een virtuele-machineschaalset maken
-> * Een opslagaccount maken en diagnostische gegevens configureren
-
-> [!div class="nextstepaction"]
-> [Een toepassingsgateway maken met SSL-beëindiging](./tutorial-ssl-powershell.md)
+[Een toepassingsgateway maken met SSL-beëindiging](./tutorial-ssl-powershell.md)

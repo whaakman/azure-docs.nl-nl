@@ -36,7 +36,6 @@ sections:
         items:
           - html: <a href="quickstart-run-cloud-notebook">Een experiment uitvoeren in de cloud</a> (geen installatie vereist).
           - html: <a href="quickstart-run-local-notebook">Een experiment met behulp van een lokale notebookserver uitvoeren</a> (lokale SDK installeren).
-          - html: <a href="ui-quickstart-run-experiment">Gegevens voorbereiden en visualiseren zonder code te schrijven</a> in de visuele interface.
   - title: Zelfstudies met stapsgewijze instructies
     items:
       - type: paragraph

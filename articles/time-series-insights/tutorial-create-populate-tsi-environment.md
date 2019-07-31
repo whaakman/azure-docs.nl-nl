@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Een Azure Time Series Insights-omgeving maken | Microsoft Docs'
-description: Meer informatie over het maken van een Time Series Insights omgeving die is gevuld met gegevens van gesimuleerde apparaten.
+description: Zelf studie om te leren hoe u een Time Series Insights omgeving kunt maken die wordt gevuld met gegevens van gesimuleerde apparaten.
 services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
@@ -9,12 +9,12 @@ ms.date: 07/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 39226498316de9359394ca7953ab34012b595116
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 921528c50bae03b67800bf3ccab8b5cd9bb704f6
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638901"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677740"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Zelfstudie: Een Azure Time Series Insights-omgeving maken
 
@@ -27,16 +27,18 @@ Deze zelf studie leidt u door het proces van het maken van een Azure Time Series
 > * Voer een apparaat simulatie uit om gegevens in de Time Series Insights omgeving te streamen.
 > * Controleer de gesimuleerde telemetrie-gegevens.
 
+> [!IMPORTANT]
+> Meld u aan voor een [gratis Azure-abonnement](https://azure.microsoft.com/free/) als u er nog geen hebt.
+
+## <a name="prerequisites"></a>Vereisten
+
+* Uw Azure-aanmeldings account moet ook lid zijn van de rol **eigenaar** van het abonnement. Zie [toegang beheren met op rollen gebaseerd toegangs beheer en de Azure Portal](../role-based-access-control/role-assignments-portal.md)voor meer informatie.
+
 ## <a name="video"></a>Video
 
 ### <a name="learn-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-and-get-started-with-time-series-insights-br"></a>Meer informatie over het gebruik van een Azure IoT-oplossings versneller om gegevens te genereren en aan de slag te gaan met Time Series Insights. </br>
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
-
-## <a name="prerequisites"></a>Vereisten
-
-* Als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/).
-* Uw Azure-aanmeldings account moet ook lid zijn van de rol **eigenaar** van het abonnement. Zie [toegang beheren met op rollen gebaseerd toegangs beheer en de Azure Portal](../role-based-access-control/role-assignments-portal.md)voor meer informatie.
 
 ## <a name="overview"></a>Overzicht
 

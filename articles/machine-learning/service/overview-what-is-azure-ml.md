@@ -10,12 +10,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9ebacd8caf992874969106df58531538ea399ed
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: c1ec9db2b026dd1853eceb1f110878d6b2beb4d4
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510435"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678033"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Wat is de Azure Machine Learning-service?
 
@@ -29,69 +29,69 @@ Prognoses of voorspellingen op basis van machine learning kunnen apps en apparat
 
 ## <a name="what-is-azure-machine-learning-service"></a>Wat is de Azure Machine Learning-service?
 
-Azure Machine Learning Service biedt een omgeving in de cloud die u kunt gebruiken om machine learning-modellen te trainen, testen, implementeren, beheren en volgen en er gegevens voor voor te bereiden. Training op uw lokale computer starten en schaal vervolgens naar de cloud. De service biedt volledige ondersteuning voor open-source technologieën zoals PyTorch, TensorFlow en scikit-informatie en kan worden gebruikt voor alle soorten machine learning, van klassieke ml, deep learning, onder supervisie en leren zonder supervisie. 
+Azure Machine Learning Service biedt een omgeving in de cloud die u kunt gebruiken om machine learning-modellen te trainen, testen, implementeren, beheren en volgen en er gegevens voor voor te bereiden. Start training op uw lokale machine en schaal vervolgens naar de Cloud. De service biedt volledige ondersteuning voor open-source technologieën zoals PyTorch, tensor flow en scikit-Learn en kan worden gebruikt voor elk soort machine learning, van klassieke ml tot diep gaande lessen, onder Super visie en zonder toezicht. 
 
-Verkennen en gegevens voorbereiden, trainen en testen van modellen en deze implementeren met behulp van krachtige hulpprogramma's zoals:
-+ Een [visuele interface](ui-quickstart-run-experiment.md) in die u kunt slepen en neerzetten van modules uw experimenten opzetten en vervolgens implementeert modellen
-+ [Jupyter-notebooks](https://jupyter.org) in die u gebruikt de [SDK's](https://docs.microsoft.com/azure/machine-learning/service/#reference) zoals uw eigen code schrijven [deze voorbeeld-notebooks](https://aka.ms/aml-notebooks)
-+ [Visual Studio Code-extensie](how-to-vscode-tools.md)
+Verken en bereid gegevens op, Train en test modellen en implementeer ze met uitgebreide hulpprogram ma's zoals:
++ Een [visuele interface](ui-tutorial-automobile-price-train-score.md) waarin u modules kunt slepen en neerzetten om uw experimenten te ontwikkelen en vervolgens modellen te implementeren
++ [Jupyter](https://jupyter.org) -notebooks waarin u de [sdk's](https://docs.microsoft.com/azure/machine-learning/service/#reference) gebruikt om uw eigen code te schrijven, zoals [deze voor beelden van notitie blokken](https://aka.ms/aml-notebooks)
++ [Visual Studio code-extensie](how-to-vscode-tools.md)
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Wat kan ik doen met de Azure Machine Learning-service?
 
-Gebruik de <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> met open-source Python-pakketten of gebruik de [visuele interface (preview)](ui-quickstart-run-experiment.md) te bouwen en uiterst nauwkeurige machine learning en deep learning-modellen trainen uzelf in de werkruimte van een Azure Machine Learning-service.
+Gebruik de <a href="https://aka.ms/aml-sdk" target="_blank">Azure machine learning PYTHON SDK</a> met open source Python-pakketten, of gebruik de [visuele interface (preview)](ui-tutorial-automobile-price-train-score.md) om een zeer nauw keurige machine learning en diep gaande modellen te bouwen en te trainen in een Azure machine learning service Werk ruimte.
 
-U kunt kiezen uit veel machine learning onderdelen beschikbaar in open-source Python-pakketten, zoals <a href="https://scikit-learn.org/stable/" target="_blank">Scikit meer</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>, en <a href="https://mxnet.io" target="_blank">MXNet</a>.
+U kunt kiezen uit veel machine learning onderdelen die beschikbaar zijn in open source Python-pakketten, zoals <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-Learn</a>, <a href="https://www.tensorflow.org" target="_blank">tensor flow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>en <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
-Of u code schrijven of gebruik de visuele interface, kunt u verschillende runs kunt bijhouden, zoals u kunt experimenteren om uit te vinden van de beste oplossing en de geïmplementeerde modellen beheren.
+Of u code schrijft of de visuele interface gebruikt, u kunt meerdere uitvoeringen bijhouden tijdens het experimenteren om de beste oplossing te vinden en de geïmplementeerde modellen te beheren.
 
-### <a name="code-first-experience"></a>Code op de eerste ervaring
+### <a name="code-first-experience"></a>Code-eerste ervaring
 
-Training starten op uw lokale computer met de <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> en schaal vervolgens naar de cloud. Dankzij de vele beschikbare [rekendoelen](how-to-set-up-training-targets.md) zoals Azure Machine Learning Compute en [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), en [geavanceerde afstemmingsservices van hyperparameters](how-to-tune-hyperparameters.md), kunt u sneller betere modellen bouwen, met de kracht van de cloud.
+Start training op uw lokale machine met behulp van de <a href="https://aka.ms/aml-sdk" target="_blank">Azure machine learning PYTHON SDK</a> en schaal vervolgens naar de Cloud. Dankzij de vele beschikbare [rekendoelen](how-to-set-up-training-targets.md) zoals Azure Machine Learning Compute en [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), en [geavanceerde afstemmingsservices van hyperparameters](how-to-tune-hyperparameters.md), kunt u sneller betere modellen bouwen, met de kracht van de cloud.
 
-U kunt ook [modeltraining en afstemmen automatiseren](tutorial-auto-train-models.md) met behulp van de SDK.
+U kunt [model training en-aanpassing ook automatiseren](tutorial-auto-train-models.md) met de SDK.
 
-### <a name="code-free--low-code-experience"></a>Zonder code / geringe code-ervaring
+### <a name="code-free--low-code-experience"></a>Code-gratis/laag code-ervaring
 
-Voor de training zonder code kunt u in het volgende proberen:
+Voor code-Free training kunt u het volgende proberen:
 
-+ De visuele interface voor slepen en neerzetten te experimenteren en implementatie
++ De visuele interface voor het experimenteren en implementeren met slepen en neerzetten
     
-    ![Visuele interface voor Azure Machine Learning-service](media/overview-what-is-azure-ml/visual-interface.png)
+    ![Visual-Interface voor de Azure Machine Learning-service](media/overview-what-is-azure-ml/visual-interface.png)
 
-+ De optie in de Azure portal voor geautomatiseerde ML experimenten
++ De optie Azure Portal voor automatische ML experimenten
 
 ### <a name="operationalization-mlops"></a>Uitoefening (MLOps)
 
-Wanneer u het juiste model hebt, kunt u deze eenvoudig in een webservice op een IoT-apparaat of vanuit Power BI gebruiken. Zie het artikel [Hoe implementeren en waar](how-to-deploy-and-where.md) voor meer informatie. 
+Wanneer u het juiste model hebt, kunt u het eenvoudig gebruiken in een webservice, op een IoT-apparaat of in Power BI. Zie het artikel [Hoe implementeren en waar](how-to-deploy-and-where.md) voor meer informatie. 
 
 Daarna kunt u uw geïmplementeerde modellen beheren met de [Azure Machine Learning SDK voor Python](https://aka.ms/aml-sdk) of [Azure Portal](https://portal.azure.com/). 
 
-Deze modellen kunnen worden gebruikt en terug te keren voorspellingen in [realtime](how-to-consume-web-service.md) of [asynchroon](how-to-run-batch-predictions.md) op grote hoeveelheden gegevens.
+Deze modellen kunnen worden gebruikt en voor spellingen in [realtime](how-to-consume-web-service.md) of [asynchroon](how-to-run-batch-predictions.md) in grote hoeveel heden gegevens worden geretourneerd.
 
-En met geavanceerde [machine learning-pijplijnen](concept-ml-pipelines.md), kan samenwerken aan elke stap van de gegevens voor te bereiden, modeltraining en evaluatie, tot implementatie.
+En met geavanceerde [machine learning pijp lijnen](concept-ml-pipelines.md)kunt u samen werken aan elke stap van het voorbereiden van gegevens, het model leren en evalueren van een cursus, via implementatie.
 
 Bekijk [Volgende stappen](#next-steps) om te beginnen met de Azure Machine Learning-service.
 
-## <a name="how-does-azure-machine-learning-service-differ-from-studio"></a>Hoe verschilt Azure Machine Learning-service van de Studio?
+## <a name="how-does-azure-machine-learning-service-differ-from-studio"></a>Hoe verschilt Azure Machine Learning service van Studio?
 
-[Machine Learning Studio](../studio/what-is-ml-studio.md) is een samenwerkingsverband, slepen en neerzetten visuele werkruimte waar u kunt bouwen, testen en implementeren van machine learning-oplossingen zonder code te schrijven. Het maakt gebruik van vooraf gedefinieerde en vooraf geconfigureerde machine learning-algoritmen en modules van de verwerking van gegevens, evenals een bedrijfslicentie compute-platform.
+[Machine learning Studio](../studio/what-is-ml-studio.md) is een samen werkende, visuele werk ruimte met slepen en neerzetten, waar u Machine Learning oplossingen kunt bouwen, testen en implementeren zonder dat u code hoeft te schrijven. Hierbij wordt gebruikgemaakt van vooraf gebouwde en vooraf geconfigureerde machine learning-algoritmen en modules voor het verwerken van gegevens, evenals een eigen reken platform.
 
-Azure Machine Learning-service biedt zowel SDK's **- en -** een visual interface(preview), snel klaarmaken voor gegevens, trainen en implementeren van machine learning-modellen. Deze visuele interface (preview) biedt een vergelijkbare ervaring met slepen en neerzetten naar Studio. Echter, in tegenstelling tot de eigen computerplatform van Studio, de visuele interface maakt gebruik van uw eigen rekenresources en is volledig geïntegreerd in Azure Machine Learning-service.
+Azure Machine Learning-service biedt zowel Sdk's **als** een visuele interface (preview) om snel gegevens te kunnen prepen, machine learning modellen te trainen en te implementeren. Deze visuele interface (preview) biedt een vergelijk bare functionaliteit voor slepen en neerzetten in Studio. Maar in tegens telling tot het eigen reken platform van Studio gebruikt de Visual Interface uw eigen reken bronnen en is deze volledig geïntegreerd in Azure Machine Learning service.
 
 Hier volgt een snelle vergelijking.
 
 || Machine Learning Studio | Azure Machine Learning-service:<br/>Visuele interface|
 |---| --- | --- |
-|| In het algemeen beschikbaar is (GA) | In preview|
-|Modules voor interface| Many | Eerste reeks populaire modules|
-|Training compute-doelen| Bedrijfseigen compute-doel, CPU-ondersteuning| Biedt ondersteuning voor Azure Machine Learning-Computing, GPU of CPU.<br/>(Andere berekeningen worden ondersteund in de SDK)|
-|Implementatie van compute-doelen| Eigen web service indeling, die niet aanpasbaar zijn | Enterprise beveiligingsopties & Azure Kubernetes Service. <br/>([Andere berekeningen](how-to-deploy-and-where.md) ondersteund in de SDK) |
-|Geautomatiseerde modeltraining en hyperparameter afstemmen | Nee | Nog niet in de visuele interface. <br/> (Ondersteund in de SDK en Azure-portal.) | 
+|| Algemeen beschikbaar (GA) | In preview|
+|Modules voor Interface| Allerlei | Initiële set populaire modules|
+|Doelen van de trainings compute| Eigen reken doel, alleen CPU-ondersteuning| Ondersteunt Azure Machine Learning compute, GPU of CPU.<br/>(Andere reken processen die worden ondersteund in SDK)|
+|Doelen voor implementatie compute| De indeling van de oorspronkelijke webservice, niet aanpasbaar | Beveiligings opties voor ondernemingen & Azure Kubernetes-service. <br/>([Andere reken](how-to-deploy-and-where.md) processen die worden ondersteund in SDK) |
+|Automatische model training en afstemming tuning | Nee | Nog niet in de visuele interface. <br/> (Ondersteund in de SDK en Azure Portal.) | 
 
-De visuele interface (preview) uitproberen met [Quick Start: Voorbereiden en visualiseren van gegevens zonder code te schrijven](ui-quickstart-run-experiment.md)
+Probeer de Visual Interface (preview) uit met [de zelf studie: Prijs voor auto Mobile voor speld met](ui-tutorial-automobile-price-train-score.md)de visuele interface.
 
 > [!NOTE]
-> Modellen die zijn gemaakt in Studio kunnen niet worden geïmplementeerd of beheerd door Azure Machine Learning-service. Modellen die zijn gemaakt en geïmplementeerd in de visuele interface service kunnen echter worden beheerd via de werkruimte van de Azure Machine Learning-service.
+> Modellen die zijn gemaakt in Studio, kunnen niet worden geïmplementeerd of beheerd door Azure Machine Learning service. Modellen die zijn gemaakt en geïmplementeerd in de service Visual Interface kunnen echter worden beheerd via de werk ruimte van de Azure Machine Learning-service.
 
 ## <a name="free-trial"></a>Gratis proefversie
 
@@ -101,7 +101,7 @@ U ontvangt tegoed wat u kunt uitgeven aan Azure-services. Als uw tegoed op is, k
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Maken van een werkruimte van de service Machine Learning](setup-create-workspace.md) aan de slag.
+- [Maak een machine learning service-werk ruimte](setup-create-workspace.md) om aan de slag te gaan.
 
 - Volg de volledige zelfstudies: 
   + [Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md) 

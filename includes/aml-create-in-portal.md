@@ -8,19 +8,17 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 07/21/2019
-ms.openlocfilehash: 51bd3dfb33b1f445db8672e1b987ee6c6242e09c
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.date: 07/31/2019
+ms.openlocfilehash: 7be5b0dbe4bbfba30ea469eec662877c1ef56c7c
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371008"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689608"
 ---
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) met behulp van de referenties voor het Azure-abonnement dat u gebruikt. 
 
-1. Selecteer in de linkerbovenhoek van de Portal de optie **een resource maken**.
-
-   ![Een resource maken in Azure Portal](./media/aml-create-in-portal/portal-create-a-resource-07-2019.png)
+1. Selecteer in de linkerbovenhoek van Azure Portal **een resource maken**.
 
 1. Gebruik de zoek balk om **machine learning service-werk ruimte**te vinden.
 

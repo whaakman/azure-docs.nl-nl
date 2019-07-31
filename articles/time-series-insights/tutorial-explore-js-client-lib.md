@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: De JavaScript-clientbibliotheek van Azure Time Series Insights ontdekken | Microsoft Docs'
-description: Informatie over de JavaScript-clientbibliotheek en het bijbehorende programmeermodel van Azure Time Series Insights.
+description: Zelf studie voor meer informatie over de Azure Time Series Insights java script-client bibliotheek en het bijbehorende programmeer model.
 author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 1ae37636a2caf108221be2240a9517a547945096
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2c1013829a7e6e94712e22ae235a47490c8c5eaa
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638844"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677663"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Zelfstudie: De JavaScript-clientbibliotheek van Azure Time Series Insights ontdekken
 
@@ -34,9 +34,9 @@ Meer informatie over:
 > * De bron bestanden voor de Time Series Insights-voor beeld-app zijn opgenomen in de [github-voorbeeld opslagplaats](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 > * Lees de [documentatie over de time series Insights-client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
 
-## <a name="prerequisites"></a>Vereisten
+Meld u aan voor een [gratis Azure-abonnement](https://azure.microsoft.com/free/) als u er nog geen hebt.
 
-* Meld u aan voor een [gratis Azure-abonnement](https://azure.microsoft.com/free/) als u er nog geen hebt.
+## <a name="prerequisites"></a>Vereisten
 
 * In deze zelf studie wordt de functie **Ontwikkelhulpprogramma's** van uw browser gebruikt. Moderne webbrowsers ([micro soft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/)en anderen) bieden doorgaans toegang tot de **weer gave weboverzicht** via de F12-sneltoets op het toetsen bord. Een andere manier om de weer gave te openen, is door met de rechter muisknop op een webpagina te klikken en vervolgens **element controleren**te selecteren.
 
@@ -46,8 +46,6 @@ In deze video introduceren we de open source Time Series Insights java script SD
 <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
-
-
 
 ## <a name="time-series-insights-sample-application"></a>Time Series Insights-voorbeeldtoepassing
 
@@ -104,7 +102,7 @@ Eerst gaan we de [HTML-en Java script-bron code](https://github.com/Microsoft/ts
 
 ## <a name="time-series-insights-javascript-client-library-concepts"></a>Concepten van Time Series Insights java script-client bibliotheek
 
-De Time Series Insights-client bibliotheek (*tsclient. js*) biedt abstracties voor twee belang rijke java script-functies:
+De Time Series Insights-client bibliotheek (*tsiclient. js*) biedt abstracties voor twee belang rijke java script-functies:
 
 * **Wrapper-methoden voor het aanroepen van de time series Insights query-api's**: REST-Api's die u kunt gebruiken om Time Series Insights gegevens op te vragen met behulp van statistische expressies. De methoden zijn ingedeeld onder de TsiClient. server-naam ruimte van de bibliotheek.
 

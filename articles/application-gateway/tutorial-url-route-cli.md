@@ -1,23 +1,23 @@
 ---
-title: Webverkeer routeren op basis van de URL - Azure CLI
-description: In dit artikel leert u hoe u voor het routeren van webverkeer te genereren op basis van de URL naar specifieke schaalbare pools van servers met behulp van de Azure CLI.
+title: Webverkeer routeren op basis van de URL-Azure CLI
+description: In dit artikel wordt beschreven hoe u webverkeer routeert op basis van de URL naar specifieke schaal bare Pools van servers met behulp van de Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 5/20/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955520"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688176"
 ---
-# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Webverkeer routeren op basis van de URL met de Azure CLI
+# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Webverkeer routeren op basis van de URL met behulp van de Azure CLI
 
-Als een IT-beheerder die webverkeer beheert, wilt u uw klanten of gebruikers helpen de informatie die ze nodig hebben zo snel mogelijk te verkrijgen. Een manier waarop u hun ervaring kunt optimaliseren is door verschillende soorten webverkeer naar verschillende serverbronnen te routeren. Dit artikel ziet u hoe u Azure CLI gebruiken voor het instellen en configureren van Application Gateway routering voor verschillende soorten verkeer van uw toepassing. De routering stuurt het verkeer vervolgens door naar verschillende servergroepen op basis van de URL.
+Als een IT-beheerder die webverkeer beheert, wilt u uw klanten of gebruikers helpen de informatie die ze nodig hebben zo snel mogelijk te verkrijgen. Een manier waarop u hun ervaring kunt optimaliseren is door verschillende soorten webverkeer naar verschillende serverbronnen te routeren. In dit artikel wordt beschreven hoe u de Azure CLI gebruikt om Application Gateway route ring in te stellen en te configureren voor verschillende soorten verkeer vanuit uw toepassing. De routering stuurt het verkeer vervolgens door naar verschillende servergroepen op basis van de URL.
 
 ![Voorbeeld van URL-routering](./media/tutorial-url-route-cli/scenario.png)
 
@@ -31,13 +31,13 @@ In dit artikel leert u het volgende:
 > * Een schaalset maken voor elke groep, zodat de toepassingen automatisch kunnen worden geschaald
 > * Een test uitvoeren zodat u kunt controleren of de verschillende soorten verkeer naar de juiste groep gaan
 
-Als u liever, kunt u het gebruik van deze procedure te voltooien [Azure PowerShell](tutorial-url-route-powershell.md) of de [Azure-portal](create-url-route-portal.md).
+Als u wilt, kunt u deze procedure volt ooien met behulp van [Azure PowerShell](tutorial-url-route-powershell.md) of de [Azure Portal](create-url-route-portal.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, in dit artikel moet u uitvoeren van de Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel de Azure CLI-versie 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -70,12 +70,14 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-the-app-gateway-with-a-url-map"></a>De app-gateway maken met een URL-toewijzing
 
-Gebruik `az network application-gateway create` om een toepassingsgateway met de naam *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De toepassingsgateway wordt toegewezen aan *myAGSubnet* en *myAGPublicIPAddress*, die u eerder hebt gemaakt.
+Gebruik `az network application-gateway create` om een toepassingsgateway met de naam *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De toepassings gateway is toegewezen aan *myAGSubnet* en *myAGPublicIPAddress*.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -85,7 +87,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -180,9 +182,9 @@ az network application-gateway rule create \
   --address-pool appGatewayBackendPool
 ```
 
-## <a name="create-vm-scale-sets"></a>VM-schaalsets maken
+## <a name="create-virtual-machine-scale-sets"></a>Virtuele-machineschaalset maken
 
-In dit artikel maakt u drie virtuele-machineschaalsets die ondersteuning bieden voor de drie back endadresgroepen die u hebt gemaakt. U maakt schaalsets met de namen *myvmss1*, *myvmss2* en *myvmss3*. Elke schaalset bevat twee exemplaren van virtuele machines waarop u NGINX installeert.
+In dit artikel maakt u drie virtuele-machine schaal sets die ondersteuning bieden voor de drie back-endservers die u hebt gemaakt. U maakt schaalsets met de namen *myvmss1*, *myvmss2* en *myvmss3*. Elke schaalset bevat twee exemplaren van virtuele machines waarop u NGINX installeert.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -234,7 +236,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-Gebruik az network public-ip show om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Zoals `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, of `http://40.121.222.19:8080/video/test.htm`.
+Gebruik az network public-ip show om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Zoals, `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm`, of .`http://40.121.222.19:8080/video/test.htm`
 
 ```azurecli-interactive
 az network public-ip show \
@@ -246,11 +248,11 @@ az network public-ip show \
 
 ![Basis-URL testen in de toepassingsgateway](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-Wijzig de URL in http://&lt;ip-address&gt;: 8080/images/test.html, waarbij u &lt;ip-address&gt; vervangt door uw eigen IP-adres. U krijgt nu iets te zien zoals in het volgende voorbeeld:
+Wijzig de URL in http://&lt;IP-adres&gt;: 8080/images/test.html, waarbij u het IP- &lt;adres voor het&gt;IP-adres vervangt. het volgende voor beeld zou er als volgt moeten uitzien:
 
 ![Afbeeldingen-URL in toepassingsgateway testen](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-Wijzig de URL in http://&lt;ip-address&gt;: 8080/video/test.html, waarbij u &lt;ip-address&gt; vervangt door uw eigen IP-adres. U krijgt nu iets te zien zoals in het volgende voorbeeld.
+Wijzig de URL in http://&lt;IP-adres&gt;: 8080/video/test.html, &lt;waarbij u het IP-adres vervangt door&gt;het IP-adres en het volgende voor beeld wordt weer geven.
 
 ![Video-URL testen in de toepassingsgateway](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
@@ -259,9 +261,9 @@ Wijzig de URL in http://&lt;ip-address&gt;: 8080/video/test.html, waarbij u &lt;
 U kunt de resourcegroep, de toepassingsgateway en alle gerelateerde resources verwijderen als u deze niet meer nodig hebt.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Een toepassingsgateway maken met een omleiding op basis van een URL-pad](./tutorial-url-redirect-cli.md)
+[Een toepassingsgateway maken met een omleiding op basis van een URL-pad](./tutorial-url-redirect-cli.md)

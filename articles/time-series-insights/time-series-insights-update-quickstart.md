@@ -1,6 +1,6 @@
 ---
 title: 'Snelstart: De demo-omgeving van Azure Time Series Insights (preview) verkennen | Microsoft Docs'
-description: Verkrijg inzicht in de demo-omgeving van Azure Time Series Insights (preview).
+description: Quick Start om inzicht te krijgen in de demo omgeving van Azure Time Series Insights preview.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 07/29/2019
-ms.openlocfilehash: 3e93fdc903b8e0d4ee4233e007014bb82ea22b6b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 3d098b1806e4fdf5b45030dfebf3dfe5959b7d5c
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638895"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677720"
 ---
-# <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Snelstart: De demo-omgeving van Azure Time Series Insights (preview) verkennen
+# <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Quickstart: De demo-omgeving van Azure Time Series Insights (preview) verkennen
 
 In deze Snelstartgids kunt u aan de slag met de Azure Time Series Insights preview-omgeving. In de gratis demo bekijkt u de belangrijkste functies die zijn toegevoegd aan Time Series Insights preview.
 
@@ -26,11 +26,12 @@ De Time Series Insights preview-demo omgeving bevat een scenario bedrijf, contos
 
 In deze Quick Start leert u hoe u Time Series Insights kunt gebruiken om inzicht te krijgen in de gegevens van contoso. U voert ook een korte analyse van de hoofd oorzaak uit om kritieke fouten beter te voors pellen en onderhoud uit te voeren.
 
+> [!IMPORTANT]
+> Maak een [gratis Azure-account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) als u er nog geen hebt.
+
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>Verkenner van Time Series Insights nader bekeken in een demo-omgeving
 
 In de Time Series Insights preview Explorer ziet u hoe historische gegevens en basis analyses worden uitgevoerd. Aan de slag:
-
-1. Maak een [gratis Azure-account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) als u er nog geen hebt.
 
 1. Ga naar de [Contoso wikkeling-Farm demo](https://insights.timeseries.azure.com/preview/samples) omgeving.  
 

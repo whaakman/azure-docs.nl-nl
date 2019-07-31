@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 286223e091ab0fe8521c29de12e37f5a112240dc
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 993b0249bdcc8e0e54dbe0c222aa2335c3bf8d4a
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640764"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679143"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>VMware-Vm's voorbereiden voor evaluatie en migratie naar Azure
 
@@ -102,7 +102,7 @@ Wijs als volgt machtigingen voor roltoewijzing toe voor de resource groep waarin
 
 ## <a name="prepare-for-vmware-vm-assessment"></a>Voor bereiding voor VMware VM-evaluatie
 
-Voor de voor bereiding op de implementatie van een VMware-VM moet u de instellingen voor de Hyper-V-host en de virtuele machine controleren en de instellingen voor de configuratie van het apparaat controleren.
+Voor de voor bereiding op de implementatie van een VMware-VM moet u de instellingen voor de VMware-host en de VM controleren en de instellingen voor het apparaat controleren.
 
 ### <a name="verify-vmware-settings"></a>VMware-instellingen verifiëren
 

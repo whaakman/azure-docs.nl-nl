@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 6386c22044483a0ac4a324397cf2f9d22e83b579
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 978b56f5c38a154c79544c7deb5d49396b1deff9
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442861"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688865"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Quickstart: Een web-app maken waarmee de insluitende lezerC#wordt gestart ()
 
 De [insluitende lezer](https://www.onenote.com/learningtools) is een inclusief ontworpen hulp programma waarmee bewezen technieken worden geïmplementeerd om de Lees vaardigheid te verbeteren.
 
-In deze Snelstartgids bouwt u een volledig nieuwe web-app en integreert u de insluitende lezer met behulp van de insluitende lezer-SDK. [Hier](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/quickstart-csharp)vindt u een volledig werkend voor beeld van deze Quick Start.
+In deze Snelstartgids bouwt u een volledig nieuwe web-app en integreert u de insluitende lezer met behulp van de insluitende lezer-SDK. [Hier](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp)vindt u een volledig werkend voor beeld van deze Quick Start.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -224,4 +224,4 @@ Wanneer u op de knop ' insluitende lezer ' klikt, ziet u dat de insluitende leze
 ## <a name="next-steps"></a>Volgende stappen
 
 * Bekijk de [zelf studie](./tutorial.md) om te zien wat u nog meer kunt doen met de SDK voor insluitende lezers
-* Verken de insluitende [Lezer SDK](https://github.com/Microsoft/immersive-reader-sdk) en de referentie voor de insluitende [Lezer SDK](./reference.md)
+* Verken de insluitende [Lezer SDK](https://github.com/microsoft/immersive-reader-sdk) en de referentie voor de insluitende [Lezer SDK](./reference.md)

@@ -3,23 +3,21 @@ title: Een toepassingsgateway maken met SSL-beëindiging - Azure CLI
 description: Leer hoe u een toepassingsgateway maakt en een certificaat voor SSL-beëindiging toevoegt met behulp van de Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 5/20/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d9007b3f1d4eee436452a3fa75b2880b9e5be461
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: d6df504d46a829298d0fff8d69b05019c26baa75
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955697"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688134"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Een toepassingsgateway maken met SSL-beëindiging met behulp van de Azure CLI
 
-U kunt de Azure CLI gebruiken om een ​​[toepassingsgateway](overview.md) te maken met een certificaat voor [SSL-beëindiging](ssl-overview.md) die een [ virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) gebruikt voor back-endservers. In dit voorbeeld bevat de schaalset twee virtuele-machine-instanties die zijn toegevoegd aan de standaard back-endpool van de toepassingsgateway.
+U kunt de Azure CLI gebruiken om een [toepassings gateway](overview.md) te maken met een certificaat voor [SSL-beëindiging](ssl-overview.md). Voor back-endservers kunt u een schaalset voor [virtuele machines](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) gebruiken. In dit voorbeeld bevat de schaalset twee virtuele-machine-instanties die zijn toegevoegd aan de standaard back-endpool van de toepassingsgateway.
 
 In dit artikel leert u het volgende:
 
@@ -29,17 +27,17 @@ In dit artikel leert u het volgende:
 > * Een toepassingsgateway maken met behulp van het certificaat
 > * Een virtuele-machineschaalset maken met de standaard back-endpool
 
-Als u liever, kunt u het gebruik van deze procedure te voltooien [Azure PowerShell](tutorial-ssl-powershell.md).
+Als u wilt, kunt u deze procedure volt ooien met behulp van [Azure PowerShell](tutorial-ssl-powershell.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, in dit artikel moet u uitvoeren van de Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel de Azure CLI-versie 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="create-a-self-signed-certificate"></a>Een zelfondertekend certificaat maken
 
-Voor gebruik in de productie moet u een geldig certificaat importeren dat is ondertekend door een vertrouwde provider. In dit artikel maakt u een zelfondertekend certificaat en pfx-bestand met de openssl-opdracht.
+Voor gebruik in de productie moet u een geldig certificaat importeren dat is ondertekend door een vertrouwde provider. Voor dit artikel maakt u een zelfondertekend certificaat en een pfx-bestand met behulp van de openssl-opdracht.
 
 ```azurecli-interactive
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
@@ -84,7 +82,9 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
@@ -101,7 +101,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 443 \
   --http-settings-port 80 \
@@ -183,4 +183,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Een toepassingsgateway maken waarop meerdere websites worden gehost](./tutorial-multiple-sites-cli.md)
+[Een toepassingsgateway maken waarop meerdere websites worden gehost](./tutorial-multiple-sites-cli.md)

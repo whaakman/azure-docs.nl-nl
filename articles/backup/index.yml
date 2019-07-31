@@ -5,13 +5,13 @@ metadata:
   title: 'Documentatie voor Azure Backup - zelfstudies, API-verwijzing | Microsoft Docs'
   description: 'Met Azure Backup kunt u een back-up maken van de gegevens van on-premises servers, virtuele machines, gevirtualiseerde workloads, SQL-server, SharePoint-server, en meer. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u een back-up maakt van uw gegevens en deze herstelt.'
   services: backup
-  author: rayne-wiselman
+  author: dcurwin
   manager: carmonm
   ms.service: backup
   ms.tgt_pltfrm: na
   ms.topic: landing-page
   ms.date: 05/22/2018
-  ms.author: raynew
+  ms.author: dacurwin
 abstract:
   description: 'Gebruik Azure Backup om de gegevens van on-premises servers, virtuele machines, gevirtualiseerde workloads, SQL-servers, SharePoint-servers en meer te beschermen. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u een back-up maakt van uw gegevens en deze herstelt.'
 sections:

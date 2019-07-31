@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7a592a7d0d8c9d32de83c92b258c4678dc3f8166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d743b53f5ca74299c865d381f0832729fc956f4
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188265"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677599"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Zelfstudie: Een virtuele-machineschaalset automatisch schalen met Azure PowerShell
 
@@ -137,7 +137,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
 ```
 
 
-## <a name="apply-autoscale-rules-to-a-scale-set"></a>Regels voor automatisch schalen toepassen op een schaalset
+## <a name="apply-autoscale-profile-to-a-scale-set"></a>Profiel voor automatisch schalen Toep assen op een schaalset
 De laatste stap is het toepassen van het profiel voor automatisch schalen op uw schaalset. De schaalset kan dan vervolgens automatisch in- of uitschalen op basis van de vraag van de toepassing. U kunt het profiel als volgt toepassen met [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting):
 
 ```azurepowershell-interactive
@@ -188,7 +188,7 @@ IpAddress
 52.168.121.216
 ```
 
-Maak een externe verbinding met uw eerste VM-exemplaar. Geef uw eigen openbare IP-adres en poortnummer van het vereiste VM-exemplaar op, zoals is gedaan in de voorgaande opdrachten. Voer desgevraagd de referenties gebruikt bij het maken van de schaalset (standaard in de voorbeeldopdrachten, zijn ze *azureuser* en *P\@ssw0rd!*). Als u Azure Cloud Shell gebruikt, voert u deze stap uit vanaf een lokale PowerShell-prompt of vanuit de Extern bureaublad-client. In het volgende voorbeeld wordt verbinding gemaakt met het VM-exemplaar *0*:
+Maak een externe verbinding met uw eerste VM-exemplaar. Geef uw eigen openbare IP-adres en poortnummer van het vereiste VM-exemplaar op, zoals is gedaan in de voorgaande opdrachten. Wanneer u hierom wordt gevraagd, geeft u de referenties op die worden gebruikt bij het maken van de schaalset (standaard zijn dit *azureuser* en *\@P ssw0rd!* ). Als u Azure Cloud Shell gebruikt, voert u deze stap uit vanaf een lokale PowerShell-prompt of vanuit de Extern bureaublad-client. In het volgende voorbeeld wordt verbinding gemaakt met het VM-exemplaar *0*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

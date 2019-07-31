@@ -1,61 +1,61 @@
 ---
-title: Gebruik van de Azure Dev spaties-invoegtoepassing voor Jenkins met Azure Kubenetes-Service
-description: Informatie over het gebruik van de invoegtoepassing Azure Dev spaties in een pijplijn voor continue integratie.
+title: De Azure dev Space-invoeg toepassing gebruiken voor Jenkins met de Azure Kubenetes-service
+description: Meer informatie over het gebruik van de Azure dev Spaces-invoeg toepassing in een continue integratie pijplijn.
 author: tomarchermsft
 ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/18/2019
-ms.openlocfilehash: f5f74ebeb803a5c493f1dbedb6501adf3a88c215
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.date: 07/31/2019
+ms.openlocfilehash: 10ff8f4645ee1e7023c96174236243a3b85de938
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785674"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679129"
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
-# <a name="tutorial-using-the-azure-dev-spaces-plugin-for-jenkins-with-azure-kubenetes-service"></a>Zelfstudie: Gebruik van de Azure Dev spaties-invoegtoepassing voor Jenkins met Azure Kubenetes-Service 
+# <a name="tutorial-using-the-azure-dev-spaces-plugin-for-jenkins-with-azure-kubenetes-service"></a>Zelfstudie: De Azure dev Space-invoeg toepassing gebruiken voor Jenkins met de Azure Kubenetes-service 
 
-Azure Dev opslagruimten kunt u om te testen en ontwikkelen van uw microservice-toepassing die wordt uitgevoerd in Azure Kubernetes Service (AKS) zonder de noodzaak om te repliceren of gesimuleerde afhankelijkheden van een iteratief. De Azure Dev spaties-invoegtoepassing voor Jenkins helpt u bij gebruik van Dev spaties in uw continue integratie en levering (CI/CD)-pijplijn.
+Met Azure dev Spaces kunt u de micro service-toepassing die wordt uitgevoerd in azure Kubernetes service (AKS) testen en iteratief ontwikkelen zonder dat u afhankelijkheden hoeft te repliceren of te demodeln. De Azure dev Spaces-invoeg toepassing voor Jenkins helpt u bij het gebruik van ontwikkel ruimten in uw doorlopende integratie-en leverings pijplijn (CI/CD).
 
-In deze zelfstudie maakt ook gebruik van Azure Container Registry (ACR). ACR afbeeldingen opslaat en een ACR-taak bouwt Docker en Helm-artefacten. Met ACR en ACR-taak voor het genereren van het artefact hoeven zich niet voor u extra software, zoals Docker, te installeren op uw Jenkins-server. 
+In deze zelf studie wordt ook gebruikgemaakt van Azure Container Registry (ACR). ACR slaat afbeeldingen op en een ACR-taak bouwt docker-en helm-artefacten. Als u de ACR-en ACR-taak gebruikt voor het genereren van artefacten, verwijdert u de nood zaak om extra software, zoals docker, op uw Jenkins-server te installeren. 
 
 In deze zelfstudie voert u de volgende taken uit:
 
 > [!div class="checklist"]
-> * Een Azure Dev spaties ingeschakelde AKS-cluster maken
-> * Een AKS-toepassing meerdere services implementeren
+> * Een AKS-cluster maken dat is ingeschakeld voor Azure dev Spaces
+> * Een multi-service toepassing implementeren op AKS
 > * Uw Jenkins-server voorbereiden
-> * De invoegtoepassing Azure Dev spaties in een pijplijn met Jenkins gebruiken om een voorbeeld van code hoeft te wijzigen voordat u ze samen te voegen in het project
+> * Gebruik de invoeg toepassing Azure dev Spaces in een Jenkins-pijp lijn om voorbeeld code wijzigingen te bekijken voordat u deze samenvoegt in het project
 
-In deze zelfstudie wordt ervan uitgegaan dat tussenliggende kennis van de belangrijkste Azure-services, AKS, ACR, Azure Dev spaties, Jenkins [pijplijnen](https://jenkins.io/doc/book/pipeline/) en invoegtoepassingen, en GitHub. Het zou mooi met ondersteunende hulpprogramma's zoals kubectl en Helm is handig.
+In deze zelf studie wordt ervan uitgegaan dat de kern kennis van Azure-Services, AKS, ACR, Azure dev Spaces, Jenkins- [pijp lijnen](https://jenkins.io/doc/book/pipeline/) en-invoeg toepassingen en github. Basis kennis met ondersteunende hulpprogram ma's zoals kubectl en helm is nuttig.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een Azure-account. Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-* Een GitHub-account. Als u geen een GitHub-account hebt, maakt u een [gratis account](https://github.com/) voordat u begint.
+* Een GitHub-account. Als u geen GitHub-account hebt, maakt u een [gratis account](https://github.com/) voordat u begint.
 
-* [Visual Studio Code](https://code.visualstudio.com/download) met de [Azure Dev spaties](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) -extensie geïnstalleerd.
+* [Visual Studio code](https://code.visualstudio.com/download) met de [Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) -extensie geïnstalleerd.
 
-* [Azure CLI geïnstalleerd](/cli/azure/install-azure-cli?view=azure-cli-latest), versie 2.0.43 of hoger.
+* [Azure cli is geïnstalleerd](/cli/azure/install-azure-cli?view=azure-cli-latest), versie 2.0.43 of hoger.
 
-* Een Jenkins-masterserver. Als u nog een Jenkins-master hebt, implementeert u [Jenkins](https://aka.ms/jenkins-on-azure) op Azure met de volgende stappen in deze [snelstartgids](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
+* Een Jenkins-masterserver. Als u nog geen Jenkins-master hebt, implementeert u [Jenkins](https://aka.ms/jenkins-on-azure) in azure door de stappen in deze [Snelstartgids](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template)te volgen. 
 
-* De Jenkins-server moet zowel Helm en kubectl geïnstalleerd en beschikbaar zijn voor de Jenkins-account hebben, zoals verderop in deze zelfstudie wordt beschreven.
+* Op de Jenkins-server moeten zowel helm als kubectl zijn geïnstalleerd en beschikbaar zijn voor het Jenkins-account, zoals verderop in deze zelf studie wordt uitgelegd.
 
-* VS Code de Terminal van VS Code of WSL en Bash. 
+* VS code, de VS code terminal of WSL en bash. 
 
 
 ## <a name="create-azure-resources"></a>Azure-resources maken
 
-In deze sectie maakt maken u Azure-resources:
+In deze sectie maakt u Azure-resources:
 
-* Een resourcegroep bevat al de Azure-resources voor deze zelfstudie.
-* Een [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) (AKS)-cluster.
-* Een [Azure-containerregister](https://docs.microsoft.com/azure/container-registry/) (ACR) om te bouwen (met behulp van de ACR-taken) en opslaan van Docker-installatiekopieën.
+* Een resource groep die alle Auzre-resources voor deze zelf studie bevat.
+* Een [Azure Kubernetes service](https://docs.microsoft.com/azure/aks/) -cluster (AKS).
+* Een [Azure container Registry](https://docs.microsoft.com/azure/container-registry/) (ACR) voor het bouwen (met behulp van ACR-taken) en het opslaan van docker-installatie kopieën.
 
 1. Maak een resourcegroep.
 
@@ -63,36 +63,36 @@ In deze sectie maakt maken u Azure-resources:
     az group create --name MyResourceGroup --location westus2
     ```
 
-2. Een AKS-cluster maken. Maken van het AKS-cluster in een [regio die ondersteuning biedt voor opslagruimten Dev](../dev-spaces/about.md#supported-regions-and-configurations).
+2. Maak een AKS-cluster. Maak het AKS-cluster in een [regio die ontwikkel ruimten ondersteunt](../dev-spaces/about.md#supported-regions-and-configurations).
 
     ```bash
     az aks create --resource-group MyResourceGroup --name MyAKS --location westus2 --kubernetes-version 1.11.9 --enable-addons http_application_routing --generate-ssh-keys --node-count 1 --node-vm-size Standard_D1_v2
     ```
 
-3. Configureer AKS gebruik Dev spaties.
+3. Configureer AKS voor het gebruik van dev Spaces.
 
     ```bash
     az aks use-dev-spaces --resource-group MyResourceGroup --name MyAKS
     ```
-    Deze stap installeert de `azds` CLI-extensie.
+    Met deze stap wordt `azds` de CLI-extensie geïnstalleerd.
 
-4. Een containerregister maken.
+4. Maak een container register.
 
     ```bash
     az acr create -n MyACR -g MyResourceGroup --sku Basic --admin-enabled true
     ```
 
-## <a name="deploy-sample-apps-to-the-aks-cluster"></a>Voorbeeld-apps implementeren op het AKS-cluster
+## <a name="deploy-sample-apps-to-the-aks-cluster"></a>Voor beeld-Apps implementeren in het AKS-cluster
 
-In deze sectie instellen van een dev-ruimte en implementeert u een voorbeeld van toepassing op het AKS-cluster dat u in de laatste sectie hebt gemaakt. De toepassing bestaat uit twee delen: *webfrontend* en *mywebapi*. Beide onderdelen worden geïmplementeerd in een dev-ruimte. Verderop in deze zelfstudie hebt u een pull-aanvraag voor mywebapi voor het activeren van de CI-pijplijn in Jenkins indienen.
+In dit gedeelte stelt u een ontwikkelings ruimte in en implementeert u een voorbeeld toepassing naar het AKS-cluster dat u in de laatste sectie hebt gemaakt. De toepassing bestaat uit twee delen: *webfrontend* en *mywebapi*. Beide onderdelen worden geïmplementeerd in een dev-ruimte. Verderop in deze zelf studie verzendt u een pull-aanvraag tegen mywebapi om de CI-pijp lijn in Jenkins te activeren.
 
-Zie voor meer informatie over het gebruik van Azure Dev spaties en de ontwikkeling van meerdere services met Azure Dev spaties [aan de slag met Azure Dev ruimten met behulp van Java](https://docs.microsoft.com/azure/dev-spaces/get-started-java), en [meerdere services ontwikkelen met Azure Dev spaties](https://docs.microsoft.com/azure/dev-spaces/multi-service-java). Deze zelfstudies vindt u aanvullende achtergrondinformatie hier niet zijn opgenomen.
+Voor meer informatie over het gebruik van Azure dev Spaces en multi-service ontwikkeling met Azure dev Spaces, zie aan de [slag met Azure dev Spaces met Java](https://docs.microsoft.com/azure/dev-spaces/get-started-java)en [meerdere services ontwikkelen met Azure dev Spaces](https://docs.microsoft.com/azure/dev-spaces/multi-service-java). Deze zelf studies bevatten aanvullende achtergrond informatie die hier niet is opgenomen.
 
-1. Download de https://github.com/Azure/dev-spaces opslagplaats van GitHub.
+1. Down load https://github.com/Azure/dev-spaces de opslag plaats van github.
 
-2. Open de `samples/java/getting-started/webfrontend` map in VS Code. (U kunt eventuele standaardprompts negeren om foutopsporingsassets toe te voegen of om het project te herstellen.)
+2. Open de `samples/java/getting-started/webfrontend` map in VS code. (U kunt eventuele standaardprompts negeren om foutopsporingsassets toe te voegen of om het project te herstellen.)
 
-3. Update `/src/main/java/com/ms/sample/webfrontend/Application.java` zodat het eruitziet als het volgende:
+3. Update `/src/main/java/com/ms/sample/webfrontend/Application.java` moet er als volgt uitzien:
 
     ```java
     package com.ms.sample.webfrontend;
@@ -122,38 +122,38 @@ Zie voor meer informatie over het gebruik van Azure Dev spaties en de ontwikkeli
     }
     ```
 
-4. Klik op **weergave** vervolgens **Terminal** de geïntegreerde Terminal te openen in VS Code.
+4. Klik op **weer gave** en vervolgens op **Terminal** om de geïntegreerde Terminal te openen in VS code.
 
-5. Voer de `azds prep` opdracht voor het voorbereiden van uw toepassing om uit te voeren in een dev-ruimte. Met deze opdracht moet worden uitgevoerd vanaf `dev-spaces/samples/java/getting-started/webfrontend` correct voorbereiden van uw toepassing:
+5. Voer de `azds prep` opdracht uit om de toepassing voor te bereiden om te worden uitgevoerd in een dev-ruimte. Deze opdracht moet worden uitgevoerd `dev-spaces/samples/java/getting-started/webfrontend` om de toepassing op de juiste wijze voor te bereiden:
 
     ```bash
     azds prep --public
     ```
 
-    De Dev spaties CLI `azds prep` Docker en Kubernetes activa met standaardinstellingen wordt nu gegenereerd. Deze bestanden blijven behouden gedurende de levensduur van het project en ze kunnen worden aangepast:
+    De `azds prep` opdracht dev Spaces cli genereert docker-en Kubernetes-assets met standaard instellingen. Deze bestanden blijven voor de levens duur van het project bestaan en kunnen worden aangepast:
 
-    * `./Dockerfile` en `./Dockerfile.develop` beschrijven van de app container-installatiekopie, en hoe de broncode wordt opgebouwd en wordt uitgevoerd in de container.
+    * `./Dockerfile`en `./Dockerfile.develop` Beschrijf de container installatie kopie van de app en hoe de bron code wordt gebouwd en uitgevoerd in de container.
     * Met een [Helm-grafiek](https://helm.sh/docs/developing_charts/) die zich onder `./charts/webfrontend` bevindt, wordt beschreven hoe de container in Kubernetes moet worden geïmplementeerd.
-    * `./azds.yaml` is het configuratiebestand Azure Dev spaties.
+    * `./azds.yaml`is het configuratie bestand voor de Azure dev Spaces.
 
-    Zie voor meer informatie, [hoe Azure Dev spaties werkt en is geconfigureerd](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works).
+    Zie [hoe Azure dev Spaces werkt en is geconfigureerd](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works)voor meer informatie.
 
-6. Ontwikkelen en uitvoeren van de toepassing in AKS met behulp van de `azds up` opdracht:
+6. Bouw en voer de toepassing uit in AKS met `azds up` behulp van de opdracht:
 
     ```bash
     azds up
     ```
-    <a name="test_endpoint"></a>Scannen van de uitvoer van de console voor meer informatie over de URL die is gemaakt door de `up` opdracht. Het zal in deze vorm te zien zijn:
+    <a name="test_endpoint"></a>Scan de console-uitvoer voor informatie over de URL die is gemaakt met `up` de opdracht. Het zal in deze vorm te zien zijn:
 
     ```bash
     (pending registration) Service 'webfrontend' port 'http' will be available at '<url>'
     Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
     ```
-    Deze URL in een browservenster geopend en ziet u de web-app. Terwijl de container wordt uitgevoerd, wordt `stdout`- en `stderr`-uitvoer naar het terminalvenster gestreamd.
+    Open deze URL in een browser venster en de web-app wordt weer geven. Terwijl de container wordt uitgevoerd, wordt `stdout`- en `stderr`-uitvoer naar het terminalvenster gestreamd.
 
-8. Vervolgens ingesteld en implementeer *mywebapi*:
+8. Vervolgens stelt u *mywebapi*in en implementeert u:
 
-    1. Wijzig de map naar `dev-spaces/samples/java/getting-started/mywebapi`
+    1. Wijzig de map naar`dev-spaces/samples/java/getting-started/mywebapi`
 
     2. Voer
 
@@ -169,45 +169,45 @@ Zie voor meer informatie over het gebruik van Azure Dev spaties en de ontwikkeli
 
 ## <a name="prepare-jenkins-server"></a>Jenkins-server voorbereiden
 
-In deze sectie maakt voorbereiden u de Jenkins-server om uit te voeren van de voorbeeld-CI-pijplijn.
+In deze sectie bereidt u de Jenkins-server voor op het uitvoeren van de voor beeld-CI-pijp lijn.
 
-* Invoegtoepassingen installeren
-* Helm en Kubernetes-CLI installeren
+* Invoeg toepassingen installeren
+* Helm en Kubernetes CLI installeren
 * Referenties toevoegen
 
-### <a name="install-plugins"></a>Invoegtoepassingen installeren
+### <a name="install-plug-ins"></a>Invoeg toepassingen installeren
 
-1. Aanmelden bij uw Jenkins-server. Kies **Jenkins beheren > invoegtoepassingen beheren**.
-2. Op de **beschikbaar** tabblad, selecteert u de volgende invoegtoepassingen:
-    * [Azure Dev-opslagruimten](https://plugins.jenkins.io/azure-dev-spaces)
-    * [Azure Container Registry-taken](https://plugins.jenkins.io/azure-container-registry-tasks)
-    * [Omgeving Injector](https://plugins.jenkins.io/envinject)
+1. Meld u aan bij uw Jenkins-server. Kies **Manage Jenkins > plugins beheren**.
+2. Selecteer de volgende invoeg toepassingen op het tabblad **beschikbaar** :
+    * [Azure dev Spaces](https://plugins.jenkins.io/azure-dev-spaces)
+    * [Azure Container Registry taken](https://plugins.jenkins.io/azure-container-registry-tasks)
+    * [Omgevings injectie](https://plugins.jenkins.io/envinject)
     * [GitHub-integratie](https://plugins.jenkins.io/github-pullrequest)
 
-    Als deze invoegtoepassingen worden niet in de lijst weergegeven, controleert u de **geïnstalleerde** tabblad om te zien als ze al zijn geïnstalleerd.
+    Als deze invoeg toepassingen niet in de lijst worden weer gegeven, gaat u naar het tabblad **geïnstalleerd** om te controleren of ze al zijn geïnstalleerd.
 
-3. Als u wilt installeren van de invoegtoepassingen **nu downloaden en installeren na opnieuw opstarten**.
+3. Als u de invoeg toepassingen wilt installeren, kiest u **nu downloaden en installeren na opnieuw opstarten**.
 
-4. Start opnieuw op uw Jenkins-server om de installatie te voltooien.
+4. Start de Jenkins-server opnieuw op om de installatie te volt ooien.
 
 ### <a name="install-helm-and-kubectl"></a>Helm en kubectl installeren
 
-De voorbeeldpijplijn maakt gebruik van Helm en kubectl om te implementeren op de dev-ruimte. Wanneer u Jenkins is geïnstalleerd, maakt een beheerdersaccount met de naam *jenkins*. Zowel Helm en kubectl moeten toegankelijk zijn voor de jenkins-gebruiker.
+De voorbeeld pijplijn maakt gebruik van helm en kubectl om te implementeren op de dev-ruimte. Wanneer Jenkins is geïnstalleerd, wordt er een beheerders account gemaakt met de naam *Jenkins*. Zowel helm als kubectl moeten toegankelijk zijn voor de Jenkins-gebruiker.
 
-1. Een SSH-verbinding maken met de Jenkins-master. 
+1. Maak een SSH-verbinding met de Jenkins-Master. 
 
-2. Schakel over naar de `jenkins` gebruiker:
+2. Schakel over naar `jenkins` de gebruiker:
     ```bash
     sudo su jenkins
     ```
 
-3. Installeer de Helm CLI. Zie voor meer informatie, [Helm installeren](https://helm.sh/docs/using_helm/#installing-helm).
+3. Installeer de helm CLI. Zie [Installing helm](https://helm.sh/docs/using_helm/#installing-helm)(Engelstalig) voor meer informatie.
 
-4. Kubectl installeren. Zie voor meer informatie, [ **az acs kubernetes install-cli**](https://helm.sh/docs/using_helm/#installing-helm).
+4. Installeer kubectl. Zie [**AZ ACS kubernetes install-cli (** ](https://helm.sh/docs/using_helm/#installing-helm)Engelstalig) voor meer informatie.
 
-### <a name="add-credentials-to-jenkins"></a>Referenties toevoegen met Jenkins
+### <a name="add-credentials-to-jenkins"></a>Referenties toevoegen aan Jenkins
 
-1. Jenkins moet een Azure service-principal voor de verificatie en toegang tot Azure-resources. Voor het maken van de service-principal, verwijzen naar de [service-principal maken](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal) sectie in de implementeren in Azure App Service-zelfstudie. Bewaar een kopie van de uitvoer van `create-for-rbac` omdat u nodig die gegevens hebt voor het voltooien van de volgende stap. De uitvoer ziet er ongeveer als volgt:
+1. Jenkins heeft een Azure-Service-Principal nodig voor de verificatie en toegang tot Azure-resources. Als u de Service-Principal wilt maken, raadpleegt u de sectie [Service-Principal](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal) maken in de zelf studie implementeren naar Azure app service. Zorg ervoor dat u een kopie van de uitvoer `create-for-rbac` opslaat, omdat u deze informatie nodig hebt om de volgende stap te volt ooien. De uitvoer ziet er ongeveer als volgt uit:
 
     ```json
     {
@@ -219,23 +219,23 @@ De voorbeeldpijplijn maakt gebruik van Helm en kubectl om te implementeren op de
     }
     ```
 
-2. Voeg een *Microsoft Azure Service-Principal* referentietype in Jenkins, met behulp van de gegevens uit de vorige stap in de service-principal. De namen in de onderstaande schermafbeelding komen overeen met de uitvoer van `create-for-rbac`.
+2. Voeg een *Microsoft Azure Service-Principal* -referentie type in Jenkins toe met behulp van de Service-Principal-informatie uit de vorige stap. De namen in de onderstaande scherm afbeelding komen overeen met de `create-for-rbac`uitvoer van.
 
-    De **ID** veld is de naam van de Jenkins-referentie voor uw service-principal. Het voorbeeld wordt de waarde van `displayName` (in dit geval `xxxxxxxjenkinssp`), maar u kunt de tekst die u wilt gebruiken. De referentienaam van deze is de waarde voor de omgevingsvariabele AZURE_CRED_ID in de volgende sectie.
+    Het **id-** veld is de referentie naam van de Jenkins voor uw service-principal. In het voor beeld wordt de `displayName` waarde van (in dit `xxxxxxxjenkinssp`exemplaar,) gebruikt, maar u kunt elke gewenste tekst gebruiken. Deze referentie naam is de waarde voor de omgevings variabele AZURE_CRED_ID in de volgende sectie.
 
-    ![Referenties voor service-principal toevoegen aan Jenkins](media/tutorial-jenkins-dev-spaces/add-service-principal-credentials.png)
+    ![Referenties voor Service-Principal toevoegen aan Jenkins](media/tutorial-jenkins-dev-spaces/add-service-principal-credentials.png)
 
-    De **beschrijving** is optioneel. Zie voor meer instructies, [service-principal toevoegen voor Jenkins](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins) sectie in de implementeren in Azure App Service-zelfstudie. 
+    De **Beschrijving** is optioneel. Zie de sectie [Service-Principal toevoegen aan Jenkins](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins) in de zelf studie implementeren in azure app service voor meer gedetailleerde instructies. 
 
 
 
-3. Als u wilt weergeven van uw ACR-referenties, moet u deze opdracht uitvoeren:
+3. Voer de volgende opdracht uit om uw ACR-referenties weer te geven:
 
     ```bash
     az acr credential show -n <yourRegistryName>
     ```
 
-    Maak een kopie van de JSON-uitvoer, die ziet er ongeveer als volgt:
+    Maak een kopie van de JSON-uitvoer, die er ongeveer als volgt uitziet:
 
     ```json
     {
@@ -253,35 +253,35 @@ De voorbeeldpijplijn maakt gebruik van Helm en kubectl om te implementeren op de
     }
     ```
 
-4. Voeg een *gebruikersnaam met wachtwoord* referentietype in Jenkins. De **gebruikersnaam** is de gebruikersnaam van de laatste stap in dit voorbeeld `acr01`. De **wachtwoord** is de waarde voor het eerste wachtwoord, in dit voorbeeld `vGBP=zzzzzzzzzzzzzzzzzzzzzzzzzzz`. De **ID** van deze referentie is de waarde van ACR_CRED_ID.
+4. Voeg een *gebruikers naam met wachtwoord* referentie type toe in Jenkins. De **gebruikers naam** is de gebruikers naam van de laatste stap, in `acr01`dit voor beeld. Het **wacht woord** is de waarde voor het eerste wacht woord, in `vGBP=zzzzzzzzzzzzzzzzzzzzzzzzzzz`dit voor beeld. De **id** van deze referentie is de waarde van ACR_CRED_ID.
 
-5. Instellen van een AKS-referentie. Voeg een *configuratie van het Kubernetes (kubeconfig)* referentietype in Jenkins (Gebruik de optie 'Rechtstreeks Enter'). Als u de referenties voor toegang voor uw AKS-cluster, moet u de volgende opdracht uitvoeren:
+5. Stel een AKS-referentie in. Voeg een *Kubernetes-configuratie (kubeconfig)-* referentie type toe aan Jenkins (gebruik de optie "rechtstreeks invoeren"). Voer de volgende opdracht uit om de toegangs referenties voor uw AKS-cluster op te halen:
 
     ```cmd
     az aks get-credentials -g MyResourceGroup -n <yourAKSName> -f -
     ```
 
-   De **ID** deze referentie is de waarde van KUBE_CONFIG_ID in de volgende sectie.
+   De **id** van deze referentie is de waarde van KUBE_CONFIG_ID in de volgende sectie.
 
 ## <a name="create-a-pipeline"></a>Een pijplijn maken
 
-Het scenario dat is geselecteerd voor de pijplijn voorbeeld is gebaseerd op een echte-patroon: Een pull-aanvraag triggers een CI-pijplijn die bouwt en implementeert dan de door u voorgestelde wijzigingen aan een Azure dev-ruimte voor het testen en controleren. Afhankelijk van het resultaat van de evaluatie, worden de wijzigingen samengevoegd en geïmplementeerd in AKS of verwijderd. Ten slotte is de dev-ruimte verwijderd.
+Het scenario dat is geselecteerd voor de voorbeeld pijplijn is gebaseerd op een echt patroon: Met een pull-aanvraag wordt een CI-pijp lijn geactiveerd waarmee de voorgestelde wijzigingen worden geïmplementeerd in een Azure dev-ruimte voor testen en controleren. Afhankelijk van het resultaat van de beoordeling, worden de wijzigingen samengevoegd en geïmplementeerd op AKS of verwijderd. Ten slotte wordt de ruimte voor ontwikkel aars verwijderd.
 
-De configuratie van de Jenkins-pijplijn en Jenkinsfile definieert de fasen in de CI-pijplijn. Deze stroomdiagram ziet u de pijplijnfasen en certificaattoewijzing gedefinieerd door de Jenkinsfile:
+De Jenkins-pijplijn configuratie en Jenkinsfile definiëren de fasen in de CI-pijp lijn. Dit stroom diagram toont de pijplijn fasen en beslissings punten die zijn gedefinieerd door de Jenkinsfile:
 
-![Stroom van Jenkins-pijplijn](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
+![Stroom diagram Jenkins-pijp lijn](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
 
-1. Download een gewijzigde versie van de *mywebapi* project in https://github.com/azure-devops/mywebapi. Dit project bevat verschillende bestanden die nodig zijn om een pijplijn te maken met inbegrip van de *Jenkinsfile*, *docker-bestanden*, en Helm-diagram.
+1. Down load een gewijzigde versie van het *mywebapi* - https://github.com/azure-devops/mywebapi project van. Dit project bevat verschillende bestanden die nodig zijn om een pijp lijn te maken, met inbegrip van de *Jenkinsfile*-, *Dockerfiles*-en helm-grafiek.
 
-2. Meld u aan bij Jenkins. Selecteer in het menu aan de linkerkant, **Item toevoegen**.
+2. Meld u aan bij Jenkins. Selecteer in het menu aan de linkerkant **item toevoegen**.
 
-3. Selecteer **pijplijn**, en voer een naam in de **Voer een itemnaam in** vak. Selecteer **OK**, en vervolgens het Configuratiescherm van de pijplijn voor het automatisch wordt geopend.
+3. Selecteer **pijp lijn**en voer een naam in het vak **Voer een item naam** in. Selecteer **OK**en vervolgens wordt het venster pijplijn configuratie automatisch geopend.
 
-4. Op de **algemene** tabblad controle **voorbereiden van een omgeving voor de uitvoerbewerking**. 
+4. Schakel op het tabblad **Algemeen** het selectie vakje **een omgeving voorbereiden voor de uitvoering**in. 
 
-5. Controleer **Jenkins omgevingsvariabelen houden** en **houden van de variabelen voor de Jenkins-Build**.
+5. Schakel **Jenkins-omgevings variabelen blijven** in en **behoud Jenkins build-variabelen**.
 
-6. In de **eigenschappen inhoud** voert u de volgende omgevingsvariabelen:
+6. Voer in het vak **Eigenschappen inhoud** de volgende omgevings variabelen in:
 
     ```
     AZURE_CRED_ID=[your credential ID of service principal]
@@ -298,19 +298,19 @@ De configuratie van de Jenkins-pijplijn en Jenkinsfile definieert de fasen in de
     TEST_ENDPOINT=[your web frontend end point for testing. Should be webfrontend.XXXXXXXXXXXXXXXXXXX.xxxxxx.aksapp.io]
     ```
 
-    Met behulp van de voorbeeldwaarden opgegeven in de voorgaande secties, ziet de lijst met omgevingsvariabelen er ongeveer als volgt:
+    De lijst met omgevings variabelen die in de voor gaande secties worden weer gegeven, moet er ongeveer als volgt uitzien:
 
-    ![Omgevingsvariabelen voor Jenkins-pijplijn](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-environment.png)
+    ![Jenkins pijplijn omgevings variabelen](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-environment.png)
 
-7. Kies **Pipeline-script uit SCM** in **pijplijn > definitie**.
-8. In **SCM**, kiest u **Git** en voer de URL van uw opslagplaats.
-9. In **vertakking aanduiding**, voer `refs/remotes/origin/${GITHUB_PR_SOURCE_BRANCH}`.
-10. Vul in de SCM-opslagplaats-URL en het script pad 'Jenkinsfile'.
-11. **Lichtgewicht afhandeling** moeten worden gecontroleerd.
+7. Kies **pijplijn script uit SCM** in **> definitie van de pijp lijn**.
+8. In **SCM**kiest u **Git** en voert u vervolgens uw opslag plaats-URL in.
+9. Voer`refs/remotes/origin/${GITHUB_PR_SOURCE_BRANCH}`in **vertakkings aanduiding**in.
+10. Vul de SCM opslag plaats-URL en het script-pad ' Jenkinsfile ' in.
+11. **Lichtgewicht afhandeling** moet worden gecontroleerd.
 
-## <a name="create-a-pull-request-to-trigger-the-pipeline"></a>Maak een pull-aanvraag voor het activeren van de pijplijn
+## <a name="create-a-pull-request-to-trigger-the-pipeline"></a>Een pull-aanvraag maken om de pijp lijn te activeren
 
-Als u stap 3 in deze sectie, moet u deel uit van de Jenkinsfile opmerking, anders krijgt u een 404-fout wanneer u probeert om de nieuwe en oude versies naast elkaar weer te geven. Standaard, als u kiest om de pull-aanvraag, samen te voegen worden de vorige gedeelde versie van mywebapi verwijderd en vervangen door de nieuwe versie. Breng de volgende wijziging aan de Jenkinsfile voordat u stap 1:
+Als u stap 3 in deze sectie wilt volt ooien, moet u een opmerking toevoegen aan het Jenkinsfile, anders wordt er een fout 404 weer gegeven wanneer u probeert de nieuwe en oude versies naast elkaar te bekijken. Wanneer u ervoor kiest om de PR samen te voegen, wordt de vorige gedeelde versie van mywebapi standaard verwijderd en vervangen door de nieuwe versie. Breng de volgende wijziging aan in de Jenkinsfile voordat u stap 1:
 
 ```Groovy
     if (userInput == true) {
@@ -339,7 +339,7 @@ Als u stap 3 in deze sectie, moet u deel uit van de Jenkinsfile opmerking, ander
     }
 ```
 
-1. Een wijziging aanbrengt `mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java`en maak vervolgens een pull-aanvraag. Bijvoorbeeld:
+1. Breng een wijziging aan `mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java`en maak vervolgens een pull-aanvraag. Bijvoorbeeld:
 
     ```java
     public String index() {
@@ -347,23 +347,23 @@ Als u stap 3 in deze sectie, moet u deel uit van de Jenkinsfile opmerking, ander
     }
     ```
 
-2. Meld u aan bij Jenkins en selecteer de pijplijnnaam van de en kies vervolgens **Build Now**. 
+2. Meld u aan bij Jenkins en selecteer de naam van de pijp lijn en kies **nu bouwen**. 
 
-    U kunt ook instellen van een *webhook* om automatisch de Jenkins-pijplijn. Wanneer een pull-aanvraag wordt ingevoerd, problemen GitHub een bericht met Jenkins, de pijplijn activeren. Zie voor meer informatie over het instellen van een webhook [verbinding maken met Jenkins naar GitHub](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service.md#connect-jenkins-to-github).
+    U kunt ook een webhook instellen om automatisch de Jenkins-pijp lijn te activeren. Wanneer een pull-aanvraag wordt ingevoerd, verzendt GitHub een bericht naar Jenkins, waardoor de pijp lijn wordt geactiveerd. Zie [verbinding maken tussen Jenkins en github](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service.md#connect-jenkins-to-github)voor meer informatie over het instellen van een webhook.
 
-3. Wijzigingen in de huidige versie van de gedeelde vergelijken:
+3. Wijzigingen in de huidige gedeelde versie vergelijken:
 
     1. Open uw browser en navigeer naar de gedeelde versie `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. TEST_ENDPOINT bevat de URL.
 
-    2. Een ander tabblad openen en voer vervolgens de URL van de pull-aanvraag dev-ruimte. Dit is vergelijkbaar met `https://<yourdevspacename>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. U vindt de koppeling in **bouwen geschiedenis >< build # >> Console-uitvoer** voor de Jenkins-taak. Zoeken naar de pagina voor `aksapp`, of als u wilt zien alleen de voorvoegsel, zoek naar `azdsprefix`.
+    2. Open nog een tabblad en voer de URL van de PR dev-ruimte in. Dit is vergelijkbaar met `https://<yourdevspacename>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. U vindt de koppeling in **Build History > < build # > >-console-uitvoer** voor de Jenkins-taak. Zoek op de pagina `aksapp`naar of Bekijk alleen het voor voegsel, `azdsprefix`zoek naar.
 
  
 
-### <a name="constructing-the-url-to-the-child-dev-space"></a>De URL naar de onderliggende dev-ruimte maken
+### <a name="constructing-the-url-to-the-child-dev-space"></a>De URL naar de onderliggende ontwikkel ruimte samen stellen
 
-Als u een pull-aanvraag, wordt Jenkins maakt u een onderliggende dev-ruimte op basis van gedeelde dev-ruimte van het team en voert de code van uw pull-aanvraag in die onderliggende dev-ruimte. De URL naar de onderliggende dev-ruimte heeft de vorm `http://$env.azdsprefix.<test_endpoint>`. 
+Wanneer u een pull-aanvraag bestandeert, maakt Jenkins een onderliggende ontwikkel ruimte op basis van de gedeelde ontwikkel ruimte van het team en voert de code uit van uw pull-aanvraag in die onderliggende ontwikkel ruimte. De URL naar de onderliggende ontwikkel ruimte neemt het formulier `http://$env.azdsprefix.<test_endpoint>`over. 
 
-**$env.azdsprefix** wordt ingesteld tijdens de pijplijnuitvoering door de invoegtoepassing Azure Dev spaties door **devSpacesCreate**:
+**$env. azdsprefix** wordt ingesteld tijdens de uitvoering van de pijp lijn door de invoeg toepassing Azure dev Spaces door **devSpacesCreate**:
 
 ```Groovy
 stage('create dev space') {
@@ -376,9 +376,9 @@ stage('create dev space') {
 }
 ```
 
-De `test_endpoint` is de URL naar de webfrontend-app die u eerder hebt geïmplementeerd met behulp van `azds up`in [voorbeeld-apps implementeren op het AKS-cluster, stap 7](#test_endpoint). De waarde van `$env.TEST_ENDPOINT` is ingesteld in de configuratie van de pijplijn. 
+De `test_endpoint` is de URL naar de Webfront-end-app die `azds up`u eerder hebt geïmplementeerd met in [voor beeld-Apps implementeren naar het AKS-cluster, stap 7](#test_endpoint). De waarde van `$env.TEST_ENDPOINT` wordt ingesteld in de pijplijn configuratie. 
 
-Het volgende codefragment toont hoe de URL van de onderliggende dev-ruimte wordt gebruikt in de `smoketest` fase. De code controleert u of de onderliggende dev ruimte TEST_ENDPOINT beschikbaar is en als dit het geval is, downloadt de begroeting tekst naar de stdout:
+Het volgende code fragment laat zien hoe de URL van de onderliggende ontwikkel ruimte wordt `smoketest` gebruikt in het werk gebied. Met de code wordt gecontroleerd of de TEST_ENDPOINT van de onderliggende ontwikkel ruimte beschikbaar is. als dit het geval is, wordt de begroetings tekst gedownload naar stdout:
 
 ```Groovy
 stage('smoketest') {
@@ -407,7 +407,7 @@ stage('smoketest') {
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u klaar bent met behulp van de voorbeeldtoepassing, opschonen van de Azure-resources door de resourcegroep te verwijderen:
+Wanneer u klaar bent met het gebruik van de voorbeeld toepassing, moet u Azure-resources opschonen door de resource groep te verwijderen:
 
 ```bash
 az group delete -y --no-wait -n MyResourceGroup
@@ -415,16 +415,16 @@ az group delete -y --no-wait -n MyResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe u de Azure Dev spaties-invoegtoepassing voor Jenkins en de invoegtoepassing Azure Container Registry code bouwen en implementeren naar een dev-ruimte.
+In dit artikel hebt u geleerd hoe u de Azure dev Spaces-invoeg toepassing gebruikt voor Jenkins en de Azure Container Registry-invoeg toepassing om code te bouwen en te implementeren op een dev-ruimte.
 
-De volgende lijst van resources bevat meer informatie over Azure Dev spaties, ACR-taken en CI/CD met Jenkins.
+De volgende lijst met resources biedt meer informatie over Azure dev Spaces, ACR-taken en CI/CD met Jenkins.
 
-Azure Dev spaties:
+Azure dev Spaces:
 * [Hoe Azure Dev Spaces werkt en is geconfigureerd](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works)
 
-ACR-taken:
+ACR taken:
 * [OS- en frameworkpatching automatiseren met ACR Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
-* [Automatische build op code doorvoeren](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
+* [Automatische build van code door voeren](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
 
 CI/CD met Jenkins op Azure:
-* [Doorlopende Jenkins-implementatie](https://docs.microsoft.com/azure/aks/jenkins-continuous-deployment)
+* [Jenkins doorlopende implementatie](https://docs.microsoft.com/azure/aks/jenkins-continuous-deployment)

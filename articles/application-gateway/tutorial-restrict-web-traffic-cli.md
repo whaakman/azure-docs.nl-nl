@@ -4,16 +4,16 @@ description: Meer informatie over hoe u webverkeer beperkt met een firewall voor
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 5/20/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1822fe032a7c7a6382dbae2cb9f7095d1d076008
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 698191355ab9e014693b01cfb6546fb764a2b647
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955491"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688190"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Firewall voor webtoepassingen inschakelen met de Azure CLI
 
@@ -29,13 +29,13 @@ In dit artikel leert u het volgende:
 
 ![Voorbeeld van een WAF (Web Application Firewall)](./media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
-Als u liever, kunt u het gebruik van deze procedure te voltooien [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
+Als u wilt, kunt u deze procedure volt ooien met behulp van [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel de Azure CLI-versie 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -47,7 +47,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Netwerkbronnen maken
 
-Deze virtuele netwerken en subnetten worden gebruikt om de netwerkverbinding naar de toepassingsgateway en de bijbehorende bronnen te leveren. Maak het virtuele netwerk *myVNet* en het subnet *myAGSubnet* met [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) en [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Maak een openbaar IP-adres met de naam *myAGPublicIPAddress* met [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
+Deze virtuele netwerken en subnetten worden gebruikt om de netwerkverbinding naar de toepassingsgateway en de bijbehorende bronnen te leveren. Maak een virtueel netwerk met de naam *myVNet* en een subnet met de naam *myAGSubnet*. Maak vervolgens een openbaar IP-adres met de naam *myAGPublicIPAddress*.
 
 ```azurecli-interactive
 az network vnet create \
@@ -66,12 +66,14 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>Een toepassingsgateway maken met een WAF
 
-U kunt [az network application-gateway create](/cli/azure/network/application-gateway) gebruiken om de toepassingsgateway *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De toepassingsgateway wordt toegewezen aan *myAGSubnet* en *myAGPublicIPAddress*, die u zojuist hebt gemaakt.
+U kunt [az network application-gateway create](/cli/azure/network/application-gateway) gebruiken om de toepassingsgateway *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De toepassings gateway is toegewezen aan *myAGSubnet* en *myAGPublicIPAddress*.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -81,7 +83,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGSubnet \
   --capacity 2 \
-  --sku WAF_Medium \
+  --sku WAF_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -138,7 +140,7 @@ az vmss extension set \
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Een opslagaccount maken en diagnostische gegevens configureren
 
-In dit artikel wordt de toepassingsgateway een storage-account gebruikt voor het opslaan van gegevens voor detectie en preventie van toepassing. U kunt ook Azure Monitor-logboeken of Event Hub gebruiken om gegevens vast te leggen. 
+In dit artikel maakt de toepassings gateway gebruik van een opslag account voor het opslaan van gegevens voor detectie en preventie. U kunt ook Azure Monitor-logboeken of Event Hub gebruiken om gegevens vast te leggen. 
 
 ### <a name="create-a-storage-account"></a>Create a storage account
 
@@ -155,7 +157,7 @@ az storage account create \
 
 ### <a name="configure-diagnostics"></a>Diagnostische gegevens configureren
 
-Configureer diagnostische gegevens om gegevens vast te leggen in de logboeken ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog en ApplicationGatewayFirewallLog. Vervang `<subscriptionId>` door uw abonnements-id en configureer vervolgens de diagnostische gegevens met [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
+Configureer diagnostische gegevens om gegevens vast te leggen in de logboeken ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog en ApplicationGatewayFirewallLog. Vervang `<subscriptionId>` door de id van uw abonnement en configureer vervolgens diagnostische gegevens met [AZ monitor Diagnostic-settings Create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
@@ -191,4 +193,4 @@ az group delete --name myResourceGroupAG
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Een toepassingsgateway maken met SSL-beëindiging](./tutorial-ssl-cli.md)
+[Een toepassingsgateway maken met SSL-beëindiging](./tutorial-ssl-cli.md)

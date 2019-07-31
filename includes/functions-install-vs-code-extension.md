@@ -4,20 +4,20 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
-ms.openlocfilehash: 880b9f2610117d40251e7d99690889d1356980e5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 19b754b959a5c78ee2e4b78ced783e81b653b072
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175834"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669612"
 ---
-## <a name="install-the-azure-function-extension"></a>De Azure Function-extensie installeren
+## <a name="install-the-azure-functions-extension"></a>De Azure Functions-extensie installeren
 
-De Azure Functions-extensie wordt gebruikt om functies in Azure te maken, testen en implementeren.
+U kunt de extensie Azure Functions gebruiken om functies te maken en te testen en te implementeren in Azure.
 
-1. Open in Visual Studio Code de optie **Extensions** (Extensies) en zoek `azure functions` of [open deze koppeling in Visual Studio Code](vscode:extension/ms-azuretools.vscode-azurefunctions).
+1. Open in Visual Studio code **extensies** en zoek naar **Azure functions**of [Selecteer deze koppeling in Visual Studio code](vscode:extension/ms-azuretools.vscode-azurefunctions).
 
-1. Selecteer **Install** (Installeren) om de extensie in Visual Studio Code te installeren.
+1. Selecteer **installeren** om de extensie voor Visual Studio code te installeren:
 
     ![De extensie voor Azure Functions installeren](./media/functions-install-vs-code-extension/vscode-install-extension.png)
 

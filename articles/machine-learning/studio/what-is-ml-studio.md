@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/20/2019
-ms.openlocfilehash: ce1e5f349f55074b53cf447126c411a7a1cd3394
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 4ec9cff652bf1badf526d490547ad78de31ac5da
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516913"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678004"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Wat is Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio is een hulpprogramma met functionaliteit op basis van slepen en neerzetten, waarmee u in samenwerkingsverband predictive analytics-oplossingen voor uw gegevens kunt ontwikkelen, testen en implementeren. Machine Learning Studio publiceert modellen als webservices die eenvoudig kunnen worden gebruikt door aangepaste apps of BI-hulpprogramma's zoals Excel.
@@ -44,7 +44,7 @@ Download het diagram **Microsoft Azure Machine Learning Studio Capabilities Over
 ![Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Aan de slag met Machine Learning Studio
-Wanneer u machine learning Studio voor het eerst invoert, https://studio.azureml.net) ] (u ziet de **Start** pagina. Vanaf deze pagina kunt u documentatie, video's en webinars bekijken en andere waardevolle informatie zoeken.
+Wanneer u [machine learning Studio](https://studio.azureml.net)voor het eerst invoert, ziet u de **Start** pagina. Hier kunt u documentatie, Video's en webinars bekijken en andere waardevolle resources vinden.
 
 Klik linksboven op ![Menu](./media/what-is-ml-studio/menu.png) om verschillende opties te bekijken.
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
@@ -123,7 +123,7 @@ Hier volgt een snelle vergelijking.
 |Doelen voor implementatie compute| De indeling van de oorspronkelijke webservice, niet aanpasbaar | Beveiligings opties voor ondernemingen & Azure Kubernetes-service. <br/>([Andere reken](../service/how-to-deploy-and-where.md) processen die worden ondersteund in SDK) |
 |Automatische model training en afstemming tuning | Nee | Nog niet in de visuele interface. <br/> (Ondersteund in de SDK en Azure Portal.) | 
 
-Probeer de visuele interface (preview) uit met [Quick Start: Gegevens voorbereiden en visualiseren zonder code te schrijven](../service/ui-quickstart-run-experiment.md)
+Probeer de Visual Interface (preview) uit met [de zelf studie: Prijs voor auto Mobile voors pellen met de visuele interface](../service/ui-tutorial-automobile-price-train-score.md)
 
 > [!NOTE]
 > Modellen die zijn gemaakt in Studio, kunnen niet worden geïmplementeerd of beheerd door Azure Machine Learning service. Modellen die zijn gemaakt en geïmplementeerd in de service Visual Interface kunnen echter worden beheerd via de werk ruimte van de Azure Machine Learning-service.
