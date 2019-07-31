@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/21/2019
-ms.openlocfilehash: 09d81e281b92b662572cefc220f2227651b69838
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: b0d227b71677db1d6b4ce8386b02cf957ca259f7
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371734"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668413"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Zelfstudie: Prijs voor auto Mobile voors pellen met de visuele interface
 
@@ -93,9 +93,7 @@ Machine learning is afhankelijk van gegevens. Gelukkig, er zijn verschillende vo
 
 ## <a name="run-the-experiment"></a>Het experiment uitvoeren
 
-Klik op elk gewenst moment op de uitvoer poort van een gegevensset of module om te zien hoe de gegevens eruitzien op dat punt in de gegevens stroom. Als de  optie visualiseren is uitgeschakeld, moet u eerst het experiment uitvoeren.
-
-Een experiment wordt uitgevoerd op een compute-doel, een reken resource die aan uw werk ruimte is gekoppeld. Wanneer u een compute-doel hebt gemaakt, kunt u het opnieuw gebruiken voor toekomstige uitvoeringen.
+Klik op elk gewenst moment op de uitvoer poort van een gegevensset of module om te zien hoe de gegevens eruitzien op dat punt in de gegevens stroom. Als de optie visualiseren is uitgeschakeld, moet u eerst het experiment uitvoeren.
 
 [!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
@@ -106,7 +104,7 @@ Nadat het Compute-doel beschikbaar is, wordt het experiment uitgevoerd. Wanneer 
 
 Nu u het eerste experiment hebt uitgevoerd, kunt u de gegevens visualiseren om meer te weten te komen over de gegevensset die u hebt.
 
-1. Selecteer de uitvoer poort aan de onderkant van de **kolommen selecteren in gegevensset** en selecteer vervolgens visualiseren.
+1. Selecteer de uitvoer poort aan de onderkant van de **kolommen selecteren in gegevensset** en selecteervervolgens visualiseren.
 
 1. Klik op verschillende kolommen in het venster gegevens om informatie over die kolom weer te geven.
 
@@ -265,7 +263,7 @@ De experimenten die u in de visuele interface maakt, kunnen worden beheerd vanui
 
     ![Rapport voor gedetailleerde uitvoer van scherm afbeelding](./media/ui-tutorial-automobile-price-train-score/run-details.png)
 
-    Het rapport uitvoeren wordt in realtime bijgewerkt. Als u in uw experiment een **python-script uitvoeren** of de module **R-script uitvoeren** hebt gebruikt, kunt u script logboeken  opgeven voor uitvoer op het tabblad Logboeken.
+    Het rapport uitvoeren wordt in realtime bijgewerkt. Als u in uw experiment een **python-script uitvoeren** of de module **R-script uitvoeren** hebt gebruikt, kunt u script logboeken opgeven voor uitvoer op het tabblad Logboeken.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

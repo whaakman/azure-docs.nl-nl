@@ -8,12 +8,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: heidist
-ms.openlocfilehash: dd1e42b590127362441c99a19e612ddf42bdfa63
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 04b04e8080590aa6e9fe1c17369e83fa5bb6b894
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641172"
+ms.locfileid: "68668217"
 ---
 # <a name="create-an-azure-search-knowledge-store-and-connect-using-power-bi"></a>Een Azure Search Knowledge Store maken en verbinding maken met behulp van Power BI
 
@@ -171,7 +171,7 @@ Nieuwe containers maken in Azure Blob-opslag en elk CSV-bestand uploaden naar ee
 | Free-laag   | [HotelReviews_Free. CSV](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D) |
 | Kleine (500 records) | [HotelReviews_Small. CSV](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Small.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D) |
 | Gemiddeld (6000 records)| [HotelReviews_Medium. CSV](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Medium.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D)
-| Groot (volledige gegevensset 35000 records) | [HotelReviews_Large. CSV](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Large.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D)|
+| Groot (volledige gegevensset 35000 records) | [HotelReviews_Large. CSV](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Large.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). Houd er rekening mee dat zeer grote gegevens sets kostbaar kunnen worden verwerkt. Dit is een kosten van ongeveer $1000 U. S dollar.|
 
 Koppel in de verrijkings stap van de wizard een factureer bare [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) resource, gemaakt in de *s0* -laag, in dezelfde regio als Azure Search om grotere gegevens sets te gebruiken. 
 

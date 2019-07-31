@@ -1,95 +1,95 @@
 ---
-title: Instellingen - Personalizer configureren
+title: Instellingen configureren-persoonlijker
 titleSuffix: Azure Cognitive Services
-description: Configuratie van de service omvat hoe beloningen in de service wordt behandeld, hoe vaak de service worden verkend, hoe vaak het model is retrained en hoeveel gegevens worden opgeslagen.
+description: Service configuratie bevat de manier waarop de service beloningen behandelt, hoe vaak de service bekijkt, hoe vaak het model opnieuw wordt getraind en hoeveel gegevens worden opgeslagen.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: 6f5028f093a9fd8c17928c2167039599d4db897c
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: f0ccf0e480fa57e0ffdfc94ca35cfaceded37a0b
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722333"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663902"
 ---
-# <a name="personalizer-settings"></a>Instellingen voor personalizer
+# <a name="personalizer-settings"></a>Persoonlijke instellingen
 
-Configuratie van de service omvat hoe beloningen in de service wordt behandeld, hoe vaak de service worden verkend, hoe vaak het model is retrained en hoeveel gegevens worden opgeslagen.
+Service configuratie bevat de manier waarop de service beloningen behandelt, hoe vaak de service bekijkt, hoe vaak het model opnieuw wordt getraind en hoeveel gegevens worden opgeslagen.
 
-## <a name="create-personalizer-resource"></a>Personalizer resource maken
+## <a name="create-personalizer-resource"></a>Een persoonlijke resource maken
 
-Maak een resource Personalizer voor elke feedback-lus. 
+Maak een persoonlijke resource voor elke feedback-lus. 
 
-1. Meld u aan bij de [Azure-portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). De vorige koppeling gaat u naar de **maken** pagina voor de service Personalizer. 
-1. Voer de servicenaam van uw, selecteert u een abonnement, locatie, dat is prijscategorie, en resourcegroep.
+1. Meld u aan bij de [Azure-portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). Met de vorige koppeling gaat u naar de pagina **maken** voor de personaler-service. 
+1. Voer uw service naam in, selecteer een abonnement, locatie, prijs categorie en resource groep.
 1. Selecteer de bevestiging en selecteer **maken**.
 
-## <a name="configure-service-settings-in-the-azure-portal"></a>Service-instellingen configureren in Azure portal
+## <a name="configure-service-settings-in-the-azure-portal"></a>Service-instellingen configureren in de Azure Portal
 
 1. Meld u aan bij [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
-1. Uw Personalizer bron vinden. 
-1. In de **resourcebeheer** sectie, selecteer **instellingen**.
+1. Zoek uw persoonlijke resource. 
+1. Selecteer in de sectie **resource management** de optie **instellingen**.
 
-    Voordat u de Azure-portal te verlaten, Kopieer een van de resource-sleutels van de **sleutels** pagina. U moet deze optie om te gebruiken de [Personalizer SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
+    Kopieer voordat u de Azure Portal verlaat een van de bron sleutels van de pagina **sleutels** . U hebt dit nodig om de [personaler SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer)te gebruiken.
 
-### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Instellingen voor de feedback-lus op basis van de use-case beloning configureren
+### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Belonings instellingen voor de feedback-lus configureren op basis van use case
 
-Configureer instellingen voor uw feedback-lus gebruik van de voordelen van de service. Wijzigingen in de volgende instellingen worden opnieuw instellen van het huidige Personalizer-model en het opnieuw trainen met gegevens van de afgelopen 2 dagen:
+Configureer de service-instellingen voor het gebruik van beloningen voor uw feedback-lus. Als u de volgende instellingen wijzigt, wordt het huidige personalisatie model opnieuw ingesteld en wordt het opnieuw getraind met de laatste 2 dagen aan gegevens:
 
-![Configureer de instellingen van de prijs voor de feedback-lus](media/settings/configure-model-reward-settings.png)
+![De belonings instellingen voor de feedback-lus configureren](media/settings/configure-model-reward-settings.png)
 
 |Instelling|Doel|
 |--|--|
-|Wachttijd van derden|Stelt de hoeveelheid tijd gedurende welke Personalizer beloning waarden voor een aanroep van de positie worden verzameld, starten vanaf het moment dat de positie aanroep gebeurt. Deze waarde is ingesteld door vragen te stellen: "Hoe lang moet Personalizer wachten gedurende beloningen aanroepen?" Een beloning nadat dit venster wordt geregistreerd maar niet voor learning gebruikt binnenkomen.|
-|Standaard beloning|Als er zijn geen derden-gesprek wordt ontvangen door Personalizer tijdens de wachttijd van derden die zijn gekoppeld aan een positie aanroepen, Personalizer, de prijs standaard wordt toegewezen. Standaard, en in de meeste scenario's is de prijs standaard nul.|
-|Aggregatie van derden|Als er meerdere beloningen worden ontvangen voor dezelfde positie API aanroepen, deze aggregatiemethode wordt gebruikt: **som** of **vroegste**. Zo spoedig hervat de vroegste score ontvangen en de rest wordt genegeerd. Dit is handig als u wilt dat unieke beloning tussen mogelijk dubbele aanroepen. |
+|Wacht tijd op beloning|Hiermee stelt u de periode in waarin Personaler belonings waarden voor een classificatie oproep verzamelt, vanaf het moment dat de classificatie oproep plaatsvindt. Deze waarde wordt ingesteld door de volgende vraag: "Hoe lang moet Personaler wachten op de aanroepen van beloningen?" Elke beloning die wordt binnengekomen nadat dit venster wordt geregistreerd, wordt vastgelegd, maar niet voor Learning.|
+|Standaard beloning|Als er geen belonings oproep wordt ontvangen door Personaler tijdens het venster belonings wachttijd dat is gekoppeld aan een rang nummer, zal Personaler de standaard beloning toewijzen. In de meeste scenario's is de standaard beloning standaard nul.|
+|Belonings aggregatie|Als er meerdere beloningen worden ontvangen voor dezelfde positie-API-aanroep, wordt deze samenvoegings methode gebruikt: **Sum** of **oudste**. De eerste keer kiest de eerste ontvangen Score en wordt de rest verwijderd. Dit is handig als u een unieke beloning wilt hebben tussen mogelijk dubbele aanroepen. |
 
-Nadat u deze instellingen wijzigt, zorg ervoor dat u selecteert **opslaan**.
+Nadat u deze instellingen hebt gewijzigd, moet u **Opslaan**selecteren.
 
-### <a name="exploration-setting"></a>De instelling verkennen 
+### <a name="exploration-setting"></a>Instelling voor verkennen 
 
-Persoonlijke instellingen kan waarmee nieuwe patronen ontdekken en aangepast aan de gebruiker gedragswijzigingen na verloop van tijd door alternatieven verkennen. De **verkennen** instelling wordt bepaald welk percentage van positie-aanroepen worden beantwoord met verkennen. 
+Personalisatie kan nieuwe patronen ontdekken en de wijzigingen van gebruikers gedrag in de loop van de tijd aanpassen door alternatieven te verkennen. De instellingen voor **verkennen** bepalen welk percentage van de rangings aanroepen met verkennen worden beantwoord. 
 
-Wijzigingen in deze instelling wordt opnieuw instellen van het huidige Personalizer-model en het opnieuw trainen met gegevens van de afgelopen 2 dagen.
+Als u deze instelling wijzigt, wordt het huidige personalisatie model opnieuw ingesteld en wordt het opnieuw getraind met de laatste 2 dagen aan gegevens.
 
-![De instelling van de verkenning bepaalt welk percentage van positie-aanroepen worden beantwoord met verkennen](media/settings/configure-exploration-setting.png)
+![De instelling voor verkennen bepaalt welk percentage van de Rangings aanroepen met verkennen wordt beantwoord](media/settings/configure-exploration-setting.png)
 
-Nadat u deze instelling wijzigt, zorg ervoor dat u selecteert **opslaan**.
+Wanneer u deze instelling hebt gewijzigd, selecteert u **Opslaan**.
 
-### <a name="model-update-frequency"></a>De updatefrequentie model
+### <a name="model-update-frequency"></a>Frequentie van model updates
 
-De nieuwste model, bijvoorbeeld getraind met beloning API-aanroepen van elke actieve gebeurtenis wordt niet automatisch door Personalizer positie aanroep gebruikt. De **Model updatefrequentie** wordt ingesteld hoe vaak het model dat wordt gebruikt door de aanroep van de positie van bijgewerkt. 
+Het meest recente model, dat is getraind vanuit belonings-API-aanroepen van elke actieve gebeurtenis, wordt niet automatisch gebruikt door de rang orde van Personaler. Met de frequentie van de **model updates** wordt ingesteld hoe vaak het model dat wordt gebruikt door de classificatie oproep up-to-date wordt bijgewerkt. 
 
-Model met hoge update frequenties zijn nuttig voor situaties waarin u wilt nauw bijhouden van wijzigingen in gedrag. Voorbeelden zijn onder meer sites die worden uitgevoerd op live nieuws, virale inhoud, of in een live product bieden. U kunt een frequentie van 15 minuten in deze scenario's. Voor de meeste gevallen is een lagere updatefrequentie van kracht. Één minuut update frequenties zijn nuttig bij het opsporen van fouten in de code van een toepassing Personalizer gebruiken, doen demo's of machine learning aspecten interactief te testen.
+High model-update frequenties zijn nuttig voor situaties waarin u de wijzigingen in het gedrag van gebruikers nauw keurig wilt bijhouden. Voor beelden zijn onder andere sites die worden uitgevoerd op Live nieuws, virale inhoud of Live-product biedingen. In deze scenario's kunt u een frequentie van 15 minuten gebruiken. Voor de meeste gebruiks voorbeelden is een lagere update frequentie van kracht. Update frequenties van één minuut zijn handig bij het opsporen van fouten in de code van een toepassing met behulp van Personaler, het uitvoeren van demo's of het interactief testen van machine learning aspecten.
 
-![Model updatefrequentie wordt ingesteld hoe vaak een nieuw model voor Personalizer is retrained.](media/settings/configure-model-update-frequency-settings.png)
+![Met de model update frequentie stelt u in hoe vaak een nieuw Personalr model opnieuw wordt getraind.](media/settings/configure-model-update-frequency-settings.png)
 
-Nadat u deze instelling wijzigt, zorg ervoor dat u selecteert **opslaan**.
+Wanneer u deze instelling hebt gewijzigd, selecteert u **Opslaan**.
 
 ### <a name="data-retention"></a>Bewaartijd van gegevens
 
-**Bewaartermijn voor gegevens** Hiermee stelt u het aantal dagen Personalizer houdt gegevenslogboeken. Afgelopen gegevens logboeken zijn vereist om uit te voeren [offline evaluaties](concepts-offline-evaluation.md), die worden gebruikt voor meet de effectiviteit van Personalizer en optimaliseren van Learning beleid.
+**Gegevens retentie periode** instellen hoeveel dagen persoonlijke gegevens logboeken worden bewaard. Eerdere gegevens logboeken zijn vereist voor het uitvoeren van [offline](concepts-offline-evaluation.md)-evaluaties, die worden gebruikt om de effectiviteit van personaler te meten en het trainings beleid te optimaliseren.
 
-Nadat u deze instelling wijzigt, zorg ervoor dat u selecteert **opslaan**.
+Wanneer u deze instelling hebt gewijzigd, selecteert u **Opslaan**.
 
-## <a name="export-the-personalizer-model"></a>Het model Personalizer exporteren
+## <a name="export-the-personalizer-model"></a>Het Personalr model exporteren
 
-In de sectie het resourcebeheer voor **Model en het beleid**, modelen en Laatst bijgewerkt op controleren en exporteren van het huidige model. U kunt de Azure-portal of de Personalizer API's gebruiken voor het exporteren van een modelbestand voor archiveringsdoeleinden. 
+Bekijk in het gedeelte resource beheer voor **model en beleid**het maken van het model en de datum van de laatste update en exporteer het huidige model. U kunt de Azure Portal of de Personaler-Api's gebruiken voor het exporteren van een model bestand voor archiverings doeleinden. 
 
-![Huidige Personalizer model exporteren](media/settings/export-current-personalizer-model.png)
+![Huidig Personal model exporteren](media/settings/export-current-personalizer-model.png)
 
-## <a name="import-and-export-learning-policy"></a>Importeren en exporteren van learning beleid
+## <a name="import-and-export-learning-policy"></a>Leer beleid importeren en exporteren
 
-In de sectie het resourcebeheer voor **Model en het beleid**, een nieuwe learning-beleid importeren of exporteren van het huidige learning-beleid.
+Importeer vanuit het gedeelte resource beheer voor **model en beleid**een nieuw trainings beleid of Exporteer het huidige leer beleid.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 <!--
 [How to use the Personalizer container](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
 -->
-[Meer informatie over beschikbaarheid in regio 's](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+[Meer informatie over de beschik baarheid van regio's](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

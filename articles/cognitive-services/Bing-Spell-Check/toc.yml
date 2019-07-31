@@ -70,7 +70,8 @@
 - name: Resources
   items:
     - name: Analytische gegevens voor Bing Spellingcontrole-API
-      href: bing-spell-check-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
     - name: Ondersteuning voor taal en regio
       href: language-support.md
     - name: Prijzen
