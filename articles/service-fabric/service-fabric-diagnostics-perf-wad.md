@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - prestaties controleren met de Windows Azure Diagnostics-extensie | Microsoft Docs
-description: Windows Azure Diagnostics gebruiken om te verzamelen van prestatiemeteritems voor uw Azure Service Fabric-clusters.
+title: Azure Service Fabric-prestatie bewaking met de uitbrei ding voor Windows-Azure Diagnostics | Microsoft Docs
+description: Gebruik Windows Azure Diagnostics om prestatie meter items voor uw Azure Service Fabric-clusters te verzamelen.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -15,29 +15,29 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66110308"
 ---
-# <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Prestatiebewaking met de Windows Azure Diagnostics-extensie
+# <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Prestatie bewaking met de uitbrei ding voor Windows-Azure Diagnostics
 
-In dit document bevat informatie over de stappen die nodig zijn voor het instellen van het verzamelen van prestatiemeteritems via de Windows Azure Diagnostics (WAD)-extensie voor Windows-clusters. Voor Linux-clusters, stelt u de [Log Analytics-agent](service-fabric-diagnostics-oms-agent.md) voor het verzamelen van prestatiemeteritems voor uw knooppunten. 
+In dit document worden de stappen beschreven die nodig zijn voor het instellen van het verzamelen van prestatie meter items via de Windows Azure Diagnostics (WAD)-extensie voor Windows-clusters. Voor Linux-clusters stelt u de [log Analytics-agent](service-fabric-diagnostics-oms-agent.md) in voor het verzamelen van prestatie meter items voor uw knoop punten. 
 
  > [!NOTE]
-> De extensie WAD moet worden geïmplementeerd in uw cluster voor deze stappen voor het werk voor u. Als deze is niet ingesteld, Ga naar [gebeurtenis aggregatie en verzameling met Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).  
+> De WAD-extensie moet in uw cluster worden geïmplementeerd om deze stappen te kunnen gebruiken. Als deze niet is ingesteld, gaat u naar [gebeurtenis aggregatie en verzameling met behulp van Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).  
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="collect-performance-counters-via-the-wadcfg"></a>Prestatiemeteritems verzamelen via de WadCfg
+## <a name="collect-performance-counters-via-the-wadcfg"></a>Prestatie meter items verzamelen via de WadCfg
 
-Voor het verzamelen van prestatiemeteritems via WAD, moet u de configuratie op de juiste wijze in van uw cluster Resource Manager-sjabloon wijzigen. Volg deze stappen voor het toevoegen van een prestatiemeteritem dat u wilt verzamelen voor de sjabloon en voer een upgrade van de Resource Manager-resource.
+Als u prestatie meter items wilt verzamelen via WAD, moet u de configuratie op de juiste manier aanpassen in de Resource Manager-sjabloon van uw cluster. Volg deze stappen om een prestatie meter item toe te voegen aan uw sjabloon en een resource manager-resource-upgrade uit te voeren.
 
-1. De configuratie WAD vinden in de sjabloon van de cluster - vinden `WadCfg`. U gaat toevoegen prestatiemeteritems mag innen volgens de `DiagnosticMonitorConfiguration`.
+1. Zoek de WAD- `WadCfg`configuratie in de sjabloon van uw cluster. U voegt prestatie meter items toe om te verzamelen onder `DiagnosticMonitorConfiguration`de.
 
-2. Instellen van uw configuratie voor het verzamelen van prestatiemeteritems door toe te voegen in de volgende sectie voor uw `DiagnosticMonitorConfiguration`. 
+2. Stel uw configuratie in voor het verzamelen van prestatie meter items door de volgende sectie `DiagnosticMonitorConfiguration`toe te voegen aan uw. 
 
     ```json
     "PerformanceCounters": {
@@ -46,11 +46,11 @@ Voor het verzamelen van prestatiemeteritems via WAD, moet u de configuratie op d
     }
     ```
 
-    De `scheduledTransferPeriod` bepaalt hoe vaak de waarden van de items die worden verzameld zijn overgebracht naar uw Azure storage-tabel en naar een geconfigureerde sink. 
+    De `scheduledTransferPeriod` definieert hoe vaak de waarden van de prestatie meter items die worden verzameld, worden overgebracht naar uw Azure Storage-tabel en naar alle geconfigureerde Sinks. 
 
-3. Toevoegen van de prestatiemeteritems die u verzamelen wilt voor de `PerformanceCounterConfiguration` die is gedeclareerd in de vorige stap. Elk item dat u wilt verzamelen is gedefinieerd met een `counterSpecifier`, `sampleRate`, `unit`, `annotation`, en alle relevante `sinks`.
+3. Voeg de prestatie meter items toe die u wilt verzamelen voor `PerformanceCounterConfiguration` de gegevens die in de vorige stap zijn gedeclareerd. Elk item dat u wilt verzamelen, is gedefinieerd met een `counterSpecifier`, `sampleRate`, `unit`, `annotation`en een relevant `sinks`.
 
-Hier volgt een voorbeeld van een configuratie met de teller voor het *totale processortijd* (de hoeveelheid tijd die de CPU werd gebruikt voor het verwerken van bewerkingen) en *Service Fabric-Actor methodeaanroepen per seconde*, een van de aangepaste prestatiemeteritems van Service Fabric. Raadpleeg [Reliable Actor-prestatiemeteritems](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) en [prestatiemeteritems voor betrouwbare Service](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) voor een volledige lijst met aangepaste prestatiemeteritems voor Service Fabric.
+Hier volgt een voor beeld van een configuratie met de teller voor de *totale processor tijd* (de hoeveelheid tijd die de CPU gebruikt voor het verwerken van bewerkingen) en *service Fabric actor-methode aanroepen per seconde*, een van de service Fabric aangepaste prestatie meter items. Raadpleeg [betrouw bare prestatie meter items](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) voor actors en betrouw [bare service prestatie meter items](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) voor een volledige lijst met Service Fabric aangepaste prestatie meter items.
 
  ```json
  "WadCfg": {
@@ -107,9 +107,9 @@ Hier volgt een voorbeeld van een configuratie met de teller voor het *totale pro
        },
   ```
 
- De samplefrequentie voor het item kan worden aangepast aan de hand van uw behoeften. De indeling voor deze is `PT<time><unit>`, dus als u wilt dat de teller die elke seconde verzameld, klikt u vervolgens moet u instellen de `"sampleRate": "PT15S"`.
+ De sampling frequentie voor het prestatie meter item kan worden gewijzigd volgens uw behoeften. De indeling hiervoor is `PT<time><unit>`, dus als u wilt dat de teller elke seconde wordt verzameld, moet u de `"sampleRate": "PT15S"`configureren.
 
- U kunt ook variabelen in de ARM-sjabloon gebruiken voor het verzamelen van een matrix van prestatiemeteritems die kunnen worden geleverd in handig bij het verzamelen van prestatiemeteritems per proces. In het onderstaande voorbeeld, die we verzamelen processortijd en garbagecollector tijd per proces en vervolgens 2 prestatiemeteritems op de knooppunten zelf met behulp van alle variabelen. 
+ U kunt ook variabelen in uw ARM-sjabloon gebruiken om een matrix met prestatie meter items te verzamelen. Dit kan handig zijn wanneer u prestatie meter items per proces verzamelt. In het onderstaande voor beeld verzamelen we de processor tijd en garbage collector tijd per proces en twee prestatie meter items op de knoop punten zelf, allemaal met behulp van variabelen. 
 
  ```json
 "variables": {
@@ -193,17 +193,17 @@ Hier volgt een voorbeeld van een configuratie met de teller voor het *totale pro
 ```
 
  >[!NOTE]
- >Hoewel u kunt `*` als u groepen van prestatiemeteritems die op dezelfde manier worden genoemd, geen prestatiemeteritems verzenden via een sink (naar Application Insights) vereist dat ze afzonderlijk worden gedeclareerd. 
+ >U kunt gebruiken `*` om groepen prestatie meter items op te geven die op vergelijk bare wijze worden verzonden, maar het verzenden van items via een Sink (naar Application Insights) vereist dat ze afzonderlijk zijn gedeclareerd. 
 
-1. Nadat u de juiste prestatiemeteritems die moeten worden verzameld hebt toegevoegd, moet u uw cluster-bron upgraden zodat deze wijzigingen worden doorgevoerd in uw cluster wordt uitgevoerd. Sla uw gewijzigde `template.json` en open PowerShell. U kunt upgraden uw cluster met `New-AzResourceGroupDeployment`. De aanroep van de naam van de resourcegroep, de bijgewerkte sjabloon-bestand en het parameterbestand vereist en wordt gevraagd om Resource Manager kan de benodigde wijzigingen aanbrengen in de resources die u hebt bijgewerkt. Zodra u zich hebt aangemeld bij uw account en het juiste abonnement, gebruikt u de volgende opdracht om uit te voeren van de upgrade:
+1. Wanneer u de juiste prestatie meter items hebt toegevoegd die moeten worden verzameld, moet u de cluster bron upgraden zodat deze wijzigingen worden weer gegeven in het actieve cluster. Sla uw gewijzigde `template.json` op en open Power shell. U kunt uw cluster bijwerken met `New-AzResourceGroupDeployment`. Voor de aanroep zijn de naam van de resource groep, het bijgewerkte sjabloon bestand en het parameter bestand vereist, en wordt u gevraagd om de benodigde wijzigingen aan te brengen in de resources die u hebt bijgewerkt. Wanneer u bent aangemeld bij uw account en zich in het juiste abonnement bevindt, gebruikt u de volgende opdracht om de upgrade uit te voeren:
 
     ```sh
     New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-1. Zodra de upgrade is voltooid moet (duurt tussen 15 tot 45 minuten afhankelijk van of het de eerste implementatie en de grootte van uw resourcegroep), uitrollen met WAD de prestatiemeteritems verzamelen en deze te verzenden naar de tabel met de naam WADPerformanceCountersTable in het opslagaccount dat is gekoppeld aan het cluster. Zie de prestatiemeteritems in Application Insights door [de AI-Sink toe te voegen aan de Resource Manager-sjabloon](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
+1. Wanneer de upgrade is voltooid (tussen 15-45 minuten), afhankelijk van of het de eerste implementatie en de grootte van uw resource groep is, moeten WAD de prestatie meter items verzamelen en verzenden naar de tabel met de naam WADPerformanceCountersTable in het opslag account dat is gekoppeld aan uw cluster. Bekijk de prestatie meter items in Application Insights door [de AI-Sink toe te voegen aan de Resource Manager-sjabloon](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Verzamelen van meer prestatiemeteritems voor uw cluster. Zie [maatstaven voor prestaties](service-fabric-diagnostics-event-generation-perf.md) voor een lijst met items die u moet verzamelen.
-* [Gebruik controle en diagnostische gegevens met een Windows-VM en Azure Resource Manager-sjablonen](../virtual-machines/windows/extensions-diagnostics-template.md) naar verdere wijzigingen aanbrengen in uw `WadCfg`, inclusief het configureren van extra opslagaccounts voor het verzenden van diagnostische gegevens.
-* Ga naar de [WadCfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) bouwen van een sjabloon maken en zorg ervoor dat de syntaxis juist is. () https://azure.github.io/azure-diagnostics-tools/config-builder/) bouwen van een sjabloon maken en zorg ervoor dat de syntaxis juist is.
+* Verzamelen van meer prestatie meter items voor uw cluster. Bekijk [metrische prestatie gegevens](service-fabric-diagnostics-event-generation-perf.md) voor een lijst met prestatie meter items die u moet verzamelen.
+* [Gebruik bewaking en diagnostische gegevens met een Windows-VM en Azure Resource Manager sjablonen](../virtual-machines/windows/extensions-diagnostics-template.md) om uw wijzigingen aan `WadCfg`te brengen, inclusief het configureren van extra opslag accounts voor het verzenden van diagnostische gegevens naar.
+* Ga naar de [WadCfg Builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) om een volledig nieuwe sjabloon te maken en zorg ervoor dat de syntaxis juist is. (https://azure.github.io/azure-diagnostics-tools/config-builder/) als u een volledig nieuwe sjabloon wilt maken, moet u ervoor zorgen dat de syntaxis juist is.

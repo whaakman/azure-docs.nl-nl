@@ -231,7 +231,9 @@
           href: cognitive-search-resources-documentation.md
     - name: Knowledge Store (preview)
       items:
-        - name: Hoe gaat u aan de slag
+        - name: Verbinding maken met behulp van Power BI
+          href: knowledge-store-connect-powerbi.md
+        - name: Maken met behulp van REST en Postman
           href: knowledge-store-howto.md
     - name: Querygegevens
       items:

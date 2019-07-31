@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights telemetrie Data Model - metrische telemetrie | Microsoft Docs
-description: Application Insights-gegevensmodel voor metrische telemetrie
+title: Telemetrie-gegevens model van Azure-toepassing Insights-metrische telemetrie | Microsoft Docs
+description: Application Insights gegevens model voor metrische telemetrie
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,66 +13,66 @@ ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60900457"
 ---
-# <a name="metric-telemetry-application-insights-data-model"></a>Telemetrie van metrische gegevens: Application Insights-gegevensmodel
+# <a name="metric-telemetry-application-insights-data-model"></a>Metrische telemetrie: Application Insights-gegevensmodel
 
-Er zijn twee soorten metrische telemetrie wordt ondersteund door [Application Insights](../../azure-monitor/app/app-insights-overview.md): één meting en vooraf samengevoegde metrische gegevens. Één meting is alleen een naam en waarde. Vooraf samengevoegde metrische gegevens geeft de minimale en maximale waarde van de metrische gegevens in de aggregatie-interval en de standaarddeviatie van deze.
+Er zijn twee soorten metrische telemetriegegevens die worden ondersteund door [Application Insights](../../azure-monitor/app/app-insights-overview.md): single meet en vooraf geaggregeerde metriek. Eén meting is slechts een naam en waarde. Statistische metrische gegevens Hiermee geeft u de minimum-en maximum waarde op van de metriek in het aggregatie-interval en de standaard deviatie van de metriek.
 
-Vooraf samengevoegde metrische telemetrie wordt ervan uitgegaan dat aggregatie-periode is één minuut.
+Bij een vooraf samengestelde metrische telemetriegegevens wordt ervan uitgegaan dat de aggregatie periode één minuut was.
 
-Er zijn enkele bekende metrische namen die door Application Insights worden ondersteund. Deze metrische gegevens in de tabel performanceCounters geplaatst.
+Er zijn verschillende bekende metrische namen die door Application Insights worden ondersteund. Deze metrische gegevens worden in de tabel Performance Counters geplaatst.
 
-Metrische gegevens voor tellers van systeem en proces:
+Metrische waarde waarmee systeem-en proces tellers worden weer gegeven:
 
-| **.NET-naam**             | **Naam van de Platform-agnostische** | **De naam van de REST-API** | **Beschrijving**
+| **.NET-naam**             | **Neutraal naam van het platform** | **REST API naam** | **Beschrijving**
 | ------------------------- | -------------------------- | ----------------- | ---------------- 
-| `\Processor(_Total)\% Processor Time` | Werk in uitvoering... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | totale aantal CPU
-| `\Memory\Available Bytes`                 | Werk in uitvoering... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | Geeft de hoeveelheid fysiek geheugen in bytes, beschikbaar voor processen die op de computer worden uitgevoerd. Dit wordt berekend door de hoeveelheid ruimte op de lijsten zeroed, gratis en stand-by-geheugen op te tellen. Beschikbaar geheugen is gereed voor gebruik; Zeroed geheugen bestaat uit pagina's van het geheugen opgevuld met nullen om te voorkomen dat hoger processen al gegevens die worden gebruikt door een vorige proces. stand-by-geheugen is geheugen dat is verwijderd uit de werkset van een proces (het fysieke geheugen) onderweg naar de schijf, maar is nog steeds beschikbaar om te worden ingetrokken. Zie [geheugenobject](https://msdn.microsoft.com/library/ms804008.aspx)
-| `\Process(??APP_WIN32_PROC??)\% Processor Time` | Werk in uitvoering... | [processCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessCpuPercentage) | CPU van het proces voor het hosten van de toepassing
-| `\Process(??APP_WIN32_PROC??)\Private Bytes`      | Werk in uitvoering... | [processPrivateBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessPrivateBytes) | geheugen dat wordt gebruikt door het proces voor het hosten van de toepassing
-| `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | Werk in uitvoering... | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | het aantal i/o-bewerkingen wordt uitgevoerd door proces die als host fungeert voor de toepassing
-| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec`             | Werk in uitvoering... | [requestsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsPerSecond) | aantal aanvragen dat is verwerkt door toepassing 
-| `\.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec`    | Werk in uitvoering... | [exceptionsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FexceptionsPerSecond) | aantal uitzonderingen die door toepassing
-| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Werk in uitvoering... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | Gemiddeld aantal aanvragen uitvoeringstijd
-| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Werk in uitvoering... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | aantal aanvragen dat wacht voor de verwerking in een wachtrij
+| `\Processor(_Total)\% Processor Time` | Onderhanden werk... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | totale machine-CPU
+| `\Memory\Available Bytes`                 | Onderhanden werk... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | Toont de hoeveelheid fysiek geheugen (in bytes) die beschikbaar is voor processen die op de computer worden uitgevoerd. Het wordt berekend door de hoeveelheid ruimte op de geheugen lijsten met nulwaarden, vrij en stand-by op te tellen. Beschikbaar geheugen is klaar voor gebruik. Zeroed geheugen bestaat uit pagina's van geheugen gevuld met nullen om te voor komen dat latere processen gegevens zien die worden gebruikt door een eerder proces; stand-by geheugen is geheugen dat is verwijderd uit de werkset van een proces (het fysieke geheugen) en de route naar de schijf, maar nog steeds beschikbaar is om te worden ingetrokken. [Geheugen object](https://msdn.microsoft.com/library/ms804008.aspx) weer geven
+| `\Process(??APP_WIN32_PROC??)\% Processor Time` | Onderhanden werk... | [processCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessCpuPercentage) | CPU van het proces dat als host fungeert voor de toepassing
+| `\Process(??APP_WIN32_PROC??)\Private Bytes`      | Onderhanden werk... | [processPrivateBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessPrivateBytes) | geheugen dat wordt gebruikt door het proces dat als host fungeert voor de toepassing
+| `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | Onderhanden werk... | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | het aantal I/O-bewerkingen wordt uitgevoerd door het proces dat als host fungeert voor de toepassing
+| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec`             | Onderhanden werk... | [requestsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsPerSecond) | aantal aanvragen dat is verwerkt door de toepassing 
+| `\.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec`    | Onderhanden werk... | [exceptionsPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FexceptionsPerSecond) | frequentie van uitzonde ringen die worden veroorzaakt door de toepassing
+| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Onderhanden werk... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | gemiddelde uitvoerings tijd van aanvragen
+| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Onderhanden werk... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | aantal aanvragen dat wacht op verwerking in een wachtrij
 
 ## <a name="name"></a>Name
 
-De naam van de metrische gegevens die u graag zou willen zien in Application Insights-portal en gebruikersinterface. 
+De naam van de metrische gegevens die u wilt weer geven in Application Insights Portal en gebruikers interface. 
 
 ## <a name="value"></a>Value
 
-Één waarde voor de meting. Som van de afzonderlijke metingen voor de aggregatie.
+Eén waarde voor meting. Som van afzonderlijke metingen voor de aggregatie.
 
 ## <a name="count"></a>Count
 
-Metrische gewicht van de samengevoegde metrische gegevens. Mag niet worden ingesteld voor een meting.
+Metrieke gewicht van de cumulatieve metriek. Mag niet worden ingesteld voor een meting.
 
 ## <a name="min"></a>Min.
 
-De minimumwaarde van de samengevoegde metrische gegevens. Mag niet worden ingesteld voor een meting.
+Minimum waarde van de cumulatieve metriek. Mag niet worden ingesteld voor een meting.
 
 ## <a name="max"></a>Max.
 
-Maximale waarde van de samengevoegde metrische gegevens. Mag niet worden ingesteld voor een meting.
+De maximum waarde van de cumulatieve metriek. Mag niet worden ingesteld voor een meting.
 
-## <a name="standard-deviation"></a>Standaardafwijking
+## <a name="standard-deviation"></a>Standaarddeviatie
 
-Standaarddeviatie van de samengevoegde metrische gegevens. Mag niet worden ingesteld voor een meting.
+Standaard afwijking van de cumulatieve metriek. Mag niet worden ingesteld voor een meting.
 
 ## <a name="custom-properties"></a>Aangepaste eigenschappen
 
-Metrische waarde met de aangepaste eigenschap `CustomPerfCounter` ingesteld op `true` aangeven dat de metrisch gegeven staat voor de windows-prestatiemeteritem. Deze metrische gegevens in de tabel performanceCounters geplaatst. Niet in customMetrics. Ook wordt de naam van deze metriek geparseerd om uit te pakken categorie, teller en instantienamen.
+Metriek met de aangepaste eigenschap `CustomPerfCounter` ingesteld om `true` aan te geven dat de metrische gegevens het prestatie meter item van Windows vertegenwoordigen. Deze metrische gegevens worden in de tabel Performance Counters geplaatst. Niet in customMetrics. Ook de naam van deze metriek wordt geparseerd om categorie-, teller-en instantie namen op te halen.
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het gebruik van [Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
-- Zie [gegevensmodel](data-model.md) voor Application Insights-typen en -gegevensmodel.
-- Bekijk [platforms](../../azure-monitor/app/platforms.md) ondersteund door Application Insights.
+- Meer informatie over het gebruik [van Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
+- Zie [gegevens model](data-model.md) voor Application Insights typen en gegevens model.
+- Bekijk de [platforms](../../azure-monitor/app/platforms.md) die door Application Insights worden ondersteund.

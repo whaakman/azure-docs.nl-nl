@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Services Def. WorkerRole Schema | Microsoft Docs
+title: Cloud Services def van Azure. WorkerRole-schema | Microsoft Docs
 services: cloud-services
 ms.custom: ''
 ms.date: 04/14/2015
@@ -14,19 +14,19 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 90a11c5bb81a0d29f5f8a1c1696732453aa4b1ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "62095401"
 ---
-# <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure Cloud Services Definition WorkerRole Schema
-De Azure-werkrol is een rol die is handig voor het ontwikkelen van gegeneraliseerde en achtergrondverwerking kan uitvoeren voor een Webrol.
+# <a name="azure-cloud-services-definition-workerrole-schema"></a>WorkerRole-schema voor Azure Cloud Services definition
+De rol Azure Worker is een rol die nuttig is voor algemene ontwikkeling en kan achtergrond verwerking uitvoeren voor een webrole.
 
-De standaardextensie voor het servicedefinitiebestand is .csdef.
+De standaard extensie voor het service definitie bestand is. csdef.
 
-## <a name="basic-service-definition-schema-for-a-worker-role"></a>Definitieschema voor Basic-service voor een werkrol.
-De basisindeling van het servicedefinitiebestand met een werkrol is als volgt.
+## <a name="basic-service-definition-schema-for-a-worker-role"></a>Basis-service definitie schema voor een worker-rol.
+De basis indeling van het service definitie bestand met een werk rollen is als volgt.
 
 ```xml
 <ServiceDefinition …>
@@ -86,7 +86,7 @@ De basisindeling van het servicedefinitiebestand met een werkrol is als volgt.
 ```
 
 ## <a name="schema-elements"></a>Schema-elementen
-Het servicedefinitiebestand bevat deze elementen in detail in de volgende secties in dit onderwerp beschreven:
+Het service definitie bestand bevat deze elementen, zoals beschreven in de volgende secties in dit onderwerp:
 
 [WorkerRole](#WorkerRole)
 
@@ -98,7 +98,7 @@ Het servicedefinitiebestand bevat deze elementen in detail in de volgende sectie
 
 [LocalStorage](#LocalStorage)
 
-[Eindpunten](#Endpoints)
+[Eind punten](#Endpoints)
 
 [InputEndpoint](#InputEndpoint)
 
@@ -116,11 +116,11 @@ Het servicedefinitiebestand bevat deze elementen in detail in de volgende sectie
 
 [Certificaat](#Certificate)
 
-[Invoer](#Imports)
+[Rusland](#Imports)
 
 [Importeren](#Import)
 
-[Runtime](#Runtime)
+[Gezamenlijke](#Runtime)
 
 [Omgeving](#Environment)
 
@@ -130,7 +130,7 @@ Het servicedefinitiebestand bevat deze elementen in detail in de volgende sectie
 
 [ProgramEntryPoint](#ProgramEntryPoint)
 
-[Variable](#Variable)
+[Variabeletype](#Variable)
 
 [RoleInstanceValue](#RoleInstanceValue)
 
@@ -138,283 +138,283 @@ Het servicedefinitiebestand bevat deze elementen in detail in de volgende sectie
 
 [Taak](#Task)
 
-[Inhoud](#Contents)
+[Gehele](#Contents)
 
 [Inhoud](#Content)
 
 [SourceDirectory](#SourceDirectory)
 
 ##  <a name="WorkerRole"></a> WorkerRole
-De `WorkerRole` element beschrijft een rol die is handig voor het ontwikkelen van gegeneraliseerde en achtergrondverwerking kan uitvoeren voor een Webrol. Een service kan nul of meer werkrollen bevatten.
+Het `WorkerRole` element beschrijft een rol die nuttig is voor algemene ontwikkeling en kan achtergrond verwerking uitvoeren voor een webrole. Een service kan nul of meer werk rollen bevatten.
 
-De volgende tabel beschrijft de kenmerken van de `WorkerRole` element.
+In de volgende tabel worden de kenmerken van `WorkerRole` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|name|string|Vereist. De naam voor de werkrol. De naam van de rol moet uniek zijn.|
-|enableNativeCodeExecution|booleaans|Optioneel. De standaardwaarde is `true`; systeemeigen uitvoering van code en volledig vertrouwen zijn standaard ingeschakeld. Dit kenmerk instelt op `false` systeemeigen code uitvoeren voor de werkrol uitschakelen, en gebruik in plaats daarvan Azure gedeeltelijk vertrouwen.|
-|vmsize|string|Optioneel. Stel deze waarde wijzigen van de grootte van de virtuele machine die wordt toegewezen aan deze rol. De standaardwaarde is `Small`. Zie voor een lijst van mogelijke VM-grootten en hun kenmerken, [VM-groottes voor Cloud Services](cloud-services-sizes-specs.md).|
+|name|string|Vereist. De naam voor de worker-rol. De naam van de rol moet uniek zijn.|
+|enableNativeCodeExecution|boolean|Optioneel. De standaard waarde is `true`; systeem eigen code-uitvoering en volledig vertrouwen zijn standaard ingeschakeld. Stel dit kenmerk in `false` op het uitschakelen van systeem eigen code voor de worker-rol en gebruik in plaats daarvan Azure gedeeltelijk vertrouwen.|
+|vmsize|string|Optioneel. Stel deze waarde in om de grootte te wijzigen van de virtuele machine die aan deze rol is toegewezen. De standaardwaarde is `Small`. Zie grootten van [virtuele machines voor Cloud Services](cloud-services-sizes-specs.md)voor een lijst met mogelijke grootten voor virtuele machines en de bijbehorende kenmerken.|
 
-##  <a name="ConfigurationSettings"></a> ConfigurationSettings
-De `ConfigurationSettings` -element worden beschreven voor het verzamelen van configuratie-instellingen voor een werkrol. Dit element is het bovenliggende lid van de `Setting` element.
+##  <a name="ConfigurationSettings"></a>ConfigurationSettings
+Het `ConfigurationSettings` element beschrijft de verzameling configuratie-instellingen voor een werk rollen. Dit element is de bovenliggende elementen van `Setting` het element.
 
-##  <a name="Setting"></a> Instelling
-De `Setting` -element een naam en waarde-paar dat Hiermee geeft u een configuratie-instelling voor een exemplaar van een rol worden beschreven.
+##  <a name="Setting"></a>Stelt
+Het `Setting` element beschrijft een naam en een waardepaar waarmee een configuratie-instelling voor een exemplaar van een rol wordt opgegeven.
 
-De volgende tabel beschrijft de kenmerken van de `Setting` element.
+In de volgende tabel worden de kenmerken van `Setting` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
 |name|string|Vereist. Een unieke naam voor de configuratie-instelling.|
 
-De configuratie-instellingen voor een rol zijn naam / waarde-paren die zijn gedeclareerd in het servicedefinitiebestand en stel in het configuratiebestand van de service.
+De configuratie-instellingen voor een rol zijn naam-en waardeparen die in het service definitie bestand zijn gedeclareerd en in het service configuratie bestand zijn ingesteld.
 
-##  <a name="LocalResources"></a> LocalResources
-De `LocalResources` element beschrijving van de verzameling van resources voor lokale opslag voor een werkrol. Dit element is het bovenliggende lid van de `LocalStorage` element.
+##  <a name="LocalResources"></a>LocalResources
+Het `LocalResources` element beschrijft de verzameling van lokale opslag resources voor een werk rollen. Dit element is de bovenliggende elementen van `LocalStorage` het element.
 
-##  <a name="LocalStorage"></a> LocalStorage
-De `LocalStorage` element identificeert een lokale opslag-resource waarmee de ruimte die bestandssysteem voor de service tijdens runtime. Een rol kan nul of meer resources voor lokale opslag definiëren.
+##  <a name="LocalStorage"></a>LocalStorage
+Het `LocalStorage` element identificeert een lokale opslag resource die bestandssysteem ruimte biedt voor de service tijdens runtime. Een rol kan nul of meer lokale opslag resources definiëren.
 
 > [!NOTE]
->  De `LocalStorage` element kan worden weergegeven als een onderliggende site van de `WorkerRole` element ter ondersteuning van compatibiliteit met eerdere versies van de Azure SDK.
+>  Het `LocalStorage` element kan worden weer gegeven als een onderliggend item van het `WorkerRole` element ter ondersteuning van compatibiliteit met eerdere versies van de Azure SDK.
 
-De volgende tabel beschrijft de kenmerken van de `LocalStorage` element.
+In de volgende tabel worden de kenmerken van `LocalStorage` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
 |name|string|Vereist. Een unieke naam voor het lokale archief.|
-|cleanOnRoleRecycle|booleaans|Optioneel. Geeft aan of het lokale archief moet worden verwijderd wanneer de rol opnieuw wordt opgestart. Standaardwaarde is `true`.|
-|sizeInMb|int|Optioneel. De gewenste hoeveelheid opslagruimte om toe te wijzen voor het lokale archief, in MB. Indien niet opgegeven, is de standaard-opslagruimte toegewezen 100 MB. De minimale hoeveelheid opslagruimte die kan worden toegewezen is 1 MB.<br /><br /> De maximale grootte van de lokale bronnen is afhankelijk van de grootte van de virtuele machine. Zie voor meer informatie, [VM-groottes voor Cloud Services](cloud-services-sizes-specs.md).|
+|cleanOnRoleRecycle|boolean|Optioneel. Hiermee wordt aangegeven of het lokale archief moet worden gereinigd wanneer de rol opnieuw wordt gestart. De standaard waarde `true`is.|
+|sizeInMb|int|Optioneel. De gewenste hoeveelheid opslag ruimte die voor het lokale archief moet worden toegewezen, in MB. Als dat niet is opgegeven, is de standaard toegewezen opslag ruimte 100 MB. De minimale hoeveelheid opslag ruimte die kan worden toegewezen, is 1 MB.<br /><br /> De maximale grootte van de lokale resources is afhankelijk van de grootte van de virtuele machine. Zie [grootten van virtuele machines voor Cloud Services](cloud-services-sizes-specs.md)voor meer informatie.|
 
-De naam van de map die is toegewezen aan de lokale opslag-resource komt overeen met de opgegeven waarde voor het kenmerk name.
+De naam van de map die is toegewezen aan de lokale opslag Resource komt overeen met de waarde die is gegeven voor het naam kenmerk.
 
-##  <a name="Endpoints"></a> Eindpunten
-De `Endpoints` -element worden beschreven voor het verzamelen van invoer (extern), interne en exemplaar invoer-eindpunten voor een rol. Dit element is het bovenliggende lid van de `InputEndpoint`, `InternalEndpoint`, en `InstanceInputEndpoint` elementen.
+##  <a name="Endpoints"></a>Eind punten
+Het `Endpoints` element beschrijft de verzameling invoer-eind punten (extern), intern en exemplaar invoer eindpunten voor een rol. Dit element is het bovenliggende item van `InputEndpoint`de `InternalEndpoint`elementen, `InstanceInputEndpoint` en.
 
-Invoer- en interne eindpunten worden afzonderlijk toegewezen. Een service kan een totaal van 25 invoer, intern, en exemplaar invoer eindpunten die kunnen worden toegewezen voor de 25 rollen toegestaan in een service. Bijvoorbeeld, als 5 rollen hebben u 5 invoereindpunten per rol kunt toewijzen of kunt u 25 invoereindpunten voor één rol toewijzen of kunt u 1 invoereindpunt elke 25 rollen toewijzen.
+De invoer en interne eind punten worden afzonderlijk toegewezen. Een service kan in totaal 25 invoer-, interne en exemplaar invoer-eind punten bevatten die kunnen worden toegewezen in de 25 rollen die in een service zijn toegestaan. Als u bijvoorbeeld vijf rollen hebt, kunt u vijf invoer eindpunten per rol toewijzen, of u kunt 25 invoer eindpunten toewijzen aan één rol, maar u kunt ook één invoer eindpunt toewijzen aan 25 rollen.
 
 > [!NOTE]
->  Elke rol die geïmplementeerd is één exemplaar per rol vereist. De standaardwaarde voor een abonnement ingericht is beperkt tot 20 kernen en dus is beperkt tot 20 exemplaren van een rol. Als uw toepassing meer instanties vereist, dan wordt geleverd door de standaard Zie provisioning [ondersteuning voor facturering, Abonnementsbeheer en Quota](https://azure.microsoft.com/support/options/) voor meer informatie over het vergroten van uw quotum.
+>  Voor elke geïmplementeerde rol is één exemplaar per rol vereist. De standaard inrichting voor een abonnement is beperkt tot 20 kernen en is daarom beperkt tot 20 exemplaren van een rol. Als uw toepassing meer exemplaren vereist dan wordt geleverd door de standaard inrichting, Zie [facturering, abonnements beheer en quotum ondersteuning](https://azure.microsoft.com/support/options/) voor meer informatie over het verhogen van uw quotum.
 
-##  <a name="InputEndpoint"></a> InputEndpoint
-De `InputEndpoint` -element een extern eindpunt naar een werkrol worden beschreven.
+##  <a name="InputEndpoint"></a>InputEndpoint
+Het `InputEndpoint` element beschrijft een extern eind punt voor een worker-rol.
 
-U kunt meerdere eindpunten die zijn een combinatie van HTTP, HTTPS, UDP en TCP-eindpunten definiëren. U kunt een ander poortnummer die u voor een invoereindpunt kiest opgeven, maar de poortnummers die is opgegeven voor elke rol in de service moet uniek zijn. Bijvoorbeeld, als u opgeeft dat een functie maakt gebruik van poort 80 voor HTTP en poort 443 voor HTTPS, kan vervolgens geeft u een tweede functie poort 8080 voor HTTP en poort 8043 gebruikt voor HTTPS.
+U kunt meerdere eind punten definiëren die een combi natie zijn van HTTP-, HTTPS-, UDP-en TCP-eind punten. U kunt elk poort nummer opgeven dat u voor een invoer eindpunt kiest, maar de opgegeven poort nummers voor elke rol in de service moeten uniek zijn. Als u bijvoorbeeld opgeeft dat een rol gebruikmaakt van poort 80 voor HTTP en poort 443 voor HTTPS, kunt u opgeven dat een tweede rol poort 8080 gebruikt voor HTTP en poort 8043 voor HTTPS.
 
-De volgende tabel beschrijft de kenmerken van de `InputEndpoint` element.
+In de volgende tabel worden de kenmerken van `InputEndpoint` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|name|string|Vereist. Een unieke naam voor het externe eindpunt.|
-|protocol|string|Vereist. Het transportprotocol voor het externe eindpunt. Mogelijke waarden zijn voor een werkrol `HTTP`, `HTTPS`, `UDP`, of `TCP`.|
-|port|int|Vereist. De poort voor het externe eindpunt. U kunt opgeven dat een ander poortnummer die u kiest, maar de poortnummers die is opgegeven voor elke rol in de service moet uniek zijn.<br /><br /> Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).|
-|certificaat|string|Vereist voor een HTTPS-eindpunt. De naam van een certificaat dat is gedefinieerd door een `Certificate` element.|
-|localPort|int|Optioneel. Hiermee geeft u een poort die wordt gebruikt voor interne verbindingen op het eindpunt. De `localPort` kenmerk wijst de externe poort op het eindpunt met een interne poort op een rol. Dit is handig in scenario's waarin een rol met een interne onderdeel op een andere poort communiceren moet dat verschilt van de naam die wordt blootgesteld extern.<br /><br /> Indien niet opgegeven, de waarde van `localPort` is hetzelfde als de `port` kenmerk. Stel de waarde van `localPort` naar ' * ' voor het automatisch toewijzen van een niet-toegewezen poort die kan worden gedetecteerd met behulp van de runtime-API.<br /><br /> Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).<br /><br /> De `localPort` kenmerk is alleen beschikbaar via de Azure SDK-versie 1.3 of hoger.|
-|ignoreRoleInstanceStatus|booleaans|Optioneel. Als de waarde van dit kenmerk is ingesteld op `true`, de status van een service wordt genegeerd en het eindpunt niet worden verwijderd door de load balancer. De waarde instelt op `true` handig voor foutopsporing bezet exemplaren van een service. De standaardwaarde is `false`. **Opmerking:** Een eindpunt kan nog steeds verkeer ontvangen, zelfs wanneer de rol niet gereed is.|
-|loadBalancerProbe|string|Optioneel. De naam van de load balancer-test die zijn gekoppeld aan het invoereindpunt. Zie voor meer informatie, [LoadBalancerProbe Schema](schema-csdef-loadbalancerprobe.md).|
+|name|string|Vereist. Een unieke naam voor het externe eind punt.|
+|protocol|string|Vereist. Het transport protocol voor het externe eind punt. Voor een werk `HTTP`rollen zijn mogelijke waarden `UDP`, `HTTPS`, of `TCP`.|
+|port|int|Vereist. De poort voor het externe eind punt. U kunt een wille keurig poort nummer opgeven, maar de poort nummers die voor elke rol in de service zijn opgegeven, moeten uniek zijn.<br /><br /> Mogelijke waarden variëren tussen 1 en 65535, inclusief (Azure SDK-versie 1,7 of hoger).|
+|certificaat|string|Vereist voor een HTTPS-eind punt. De naam van een certificaat dat door een `Certificate` element is gedefinieerd.|
+|localPort|int|Optioneel. Hiermee geeft u een poort op die wordt gebruikt voor interne verbindingen op het eind punt. Het `localPort` kenmerk wijst de externe poort op het eind punt toe aan een interne poort van een rol. Dit is handig in scenario's waarbij een rol moet communiceren met een intern onderdeel op een poort die afwijkt van de functie die extern wordt weer gegeven.<br /><br /> Als dat niet is opgegeven, is `localPort` de waarde van gelijk aan `port` het kenmerk. Stel de waarde van `localPort` in op ' * ' om automatisch een niet-toegewezen poort toe te wijzen die kan worden gedetecteerd met behulp van de runtime-API.<br /><br /> Mogelijke waarden variëren tussen 1 en 65535, inclusief (Azure SDK-versie 1,7 of hoger).<br /><br /> Het `localPort` kenmerk is alleen beschikbaar via de Azure SDK-versie 1,3 of hoger.|
+|ignoreRoleInstanceStatus|boolean|Optioneel. Wanneer de waarde van dit kenmerk is ingesteld op `true`, wordt de status van een service genegeerd en wordt het eind punt niet verwijderd door de Load Balancer. Stel deze waarde in `true` op nuttig voor het opsporen van fouten in de bezette instanties van een service. De standaardwaarde is `false`. **Opmerking:** Een eind punt kan nog steeds verkeer ontvangen, zelfs wanneer de rol niet de status gereed heeft.|
+|loadBalancerProbe|string|Optioneel. De naam van de load balancer-test die is gekoppeld aan het invoer eindpunt. Zie [LoadBalancerProbe-schema](schema-csdef-loadbalancerprobe.md)voor meer informatie.|
 
 ##  <a name="InternalEndpoint"></a> InternalEndpoint
-De `InternalEndpoint` -element een intern eindpunt dat aan een werkrol worden beschreven. Een intern eindpunt dat is alleen beschikbaar voor andere rolinstanties in de service. het is niet beschikbaar is voor clients buiten de service. Een werkrol kan maximaal vijf HTTP, UDP of TCP interne eindpunten hebben.
+Het `InternalEndpoint` element beschrijft een intern eind punt voor een worker-rol. Een intern eind punt is alleen beschikbaar voor andere rolinstanties die in de service worden uitgevoerd. het is niet beschikbaar voor clients buiten de service. Een worker-rol kan Maxi maal vijf HTTP-, UDP-of TCP-eind punten bevatten.
 
-De volgende tabel beschrijft de kenmerken van de `InternalEndpoint` element.
+In de volgende tabel worden de kenmerken van `InternalEndpoint` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|name|string|Vereist. Een unieke naam voor het interne eindpunt.|
-|protocol|string|Vereist. Het transportprotocol voor het interne eindpunt. Mogelijke waarden zijn `HTTP`, `TCP`, `UDP`, of `ANY`.<br /><br /> Een waarde van `ANY` geeft aan dat elk protocol, een willekeurige poort is toegestaan.|
-|port|int|Optioneel. De poort die wordt gebruikt voor interne taakverdeling verbindingen op het eindpunt. Een gelijke taakverdeling eindpunt maakt gebruik van twee poorten. De poort die wordt gebruikt voor het openbare IP-adres en de poort die wordt gebruikt op het privé IP-adres. Deze zijn meestal worden ze ingesteld op dezelfde, maar u kunt kiezen voor het gebruik van verschillende poorten.<br /><br /> Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).<br /><br /> De `Port` kenmerk is alleen beschikbaar via de Azure SDK-versie 1.3 of hoger.|
+|name|string|Vereist. Een unieke naam voor het interne eind punt.|
+|protocol|string|Vereist. Het transport protocol voor het interne eind punt. Mogelijke waarden zijn `HTTP` `TCP` `ANY`,,, of. `UDP`<br /><br /> Een waarde van `ANY` geeft aan dat een protocol, elke poort, is toegestaan.|
+|port|int|Optioneel. De poort die wordt gebruikt voor verbindingen met interne taak verdeling op het eind punt. Een eind punt met taak verdeling gebruikt twee poorten. De poort die wordt gebruikt voor het open bare IP-adres en de poort die wordt gebruikt op het privé-IP-adres. Deze zijn meestal ingesteld op hetzelfde, maar u kunt ervoor kiezen om andere poorten te gebruiken.<br /><br /> Mogelijke waarden variëren tussen 1 en 65535, inclusief (Azure SDK-versie 1,7 of hoger).<br /><br /> Het `Port` kenmerk is alleen beschikbaar via de Azure SDK-versie 1,3 of hoger.|
 
 ##  <a name="InstanceInputEndpoint"></a> InstanceInputEndpoint
-De `InstanceInputEndpoint` -element een invoereindpunt exemplaar naar een werkrol worden beschreven. Een invoereindpunt exemplaar is gekoppeld aan een specifieke rol-exemplaar met behulp van doorsturen via poort in de load balancer. Een invoereindpunt voor elke instantie wordt toegewezen aan een specifieke poort uit een verscheidenheid aan mogelijke poorten. Dit element is het bovenliggende lid van de `AllocatePublicPortFrom` element.
+Het `InstanceInputEndpoint` element beschrijft een invoer eindpunt van een exemplaar aan een werk rollen. Een invoer eindpunt van een instantie wordt gekoppeld aan een specifieke rolinstantie door het gebruik van poort door te sturen in de load balancer. Elk invoer eindpunt van de instantie wordt toegewezen aan een specifieke poort uit een bereik van mogelijke poorten. Dit element is de bovenliggende elementen van `AllocatePublicPortFrom` het element.
 
-De `InstanceInputEndpoint` element is alleen beschikbaar via de Azure SDK-versie 1.7 of hoger.
+Het `InstanceInputEndpoint` element is alleen beschikbaar via de Azure SDK-versie 1,7 of hoger.
 
-De volgende tabel beschrijft de kenmerken van de `InstanceInputEndpoint` element.
+In de volgende tabel worden de kenmerken van `InstanceInputEndpoint` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|name|string|Vereist. Een unieke naam voor het eindpunt.|
-|localPort|int|Vereist. Hiermee geeft u de interne poort die door alle rolinstanties aan om te kunnen ontvangen van binnenkomend verkeer doorgestuurd van de load balancer luistert. Mogelijke waarden liggen tussen 1 en 65535 op.|
-|protocol|string|Vereist. Het transportprotocol voor het interne eindpunt. Mogelijke waarden zijn `udp` en `tcp`. Gebruik `tcp` voor http/https op basis van verkeer.|
+|name|string|Vereist. Een unieke naam voor het eind punt.|
+|localPort|int|Vereist. Hiermee geeft u de interne poort op waarnaar alle rolinstanties worden geluisterd om binnenkomend verkeer te ontvangen dat vanuit het load balancer wordt doorgestuurd. Mogelijke waarden variëren tussen 1 en 65535, inclusief.|
+|protocol|string|Vereist. Het transport protocol voor het interne eind punt. Mogelijke waarden zijn `udp` en `tcp`. Gebruiken `tcp` voor HTTP/HTTPS-verkeer.|
 
 ##  <a name="AllocatePublicPortFrom"></a> AllocatePublicPortFrom
-De `AllocatePublicPortFrom` -element het bereik van openbare poort die door externe klanten kan worden gebruikt voor toegang tot een invoereindpunt voor elke instantie worden beschreven. Het openbare (VIP)-poortnummer dat is toegewezen uit dit bereik en toegewezen aan elke afzonderlijke rol exemplaar eindpunt tijdens de implementatie van de tenant en update. Dit element is het bovenliggende lid van de `FixedPortRange` element.
+Het `AllocatePublicPortFrom` element beschrijft het open bare poort bereik dat door externe klanten kan worden gebruikt voor toegang tot elk invoer eindpunt van het exemplaar. Het open bare (VIP) poort nummer wordt toegewezen vanuit dit bereik en toegewezen aan elk eind punt van de afzonderlijke Role-instantie tijdens de Tenant implementatie en-update. Dit element is de bovenliggende elementen van `FixedPortRange` het element.
 
-De `AllocatePublicPortFrom` element is alleen beschikbaar via de Azure SDK-versie 1.7 of hoger.
+Het `AllocatePublicPortFrom` element is alleen beschikbaar via de Azure SDK-versie 1,7 of hoger.
 
-##  <a name="FixedPort"></a> FixedPort
-De `FixedPort` element Hiermee geeft u de poort voor het interne eindpunt, welke Hiermee wordt de met gelijke taakverdeling verbindingen op het eindpunt.
+##  <a name="FixedPort"></a>FixedPort
+Met `FixedPort` het element wordt de poort voor het interne eind punt opgegeven, waarmee verbindingen met gelijke taak verdeling op het eind punt worden ingeschakeld.
 
-De `FixedPort` element is alleen beschikbaar via de Azure SDK-versie 1.3 of hoger.
+Het `FixedPort` element is alleen beschikbaar via de Azure SDK-versie 1,3 of hoger.
 
-De volgende tabel beschrijft de kenmerken van de `FixedPort` element.
+In de volgende tabel worden de kenmerken van `FixedPort` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|port|int|Vereist. De poort voor het interne eindpunt. Dit heeft hetzelfde effect als de instelling de `FixedPortRange` min en max op dezelfde poort.<br /><br /> Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).|
+|port|int|Vereist. De poort voor het interne eind punt. Dit heeft hetzelfde effect als het instellen van `FixedPortRange` de minimum-en maximum waarde op dezelfde poort.<br /><br /> Mogelijke waarden variëren tussen 1 en 65535, inclusief (Azure SDK-versie 1,7 of hoger).|
 
-##  <a name="FixedPortRange"></a> FixedPortRange
-De `FixedPortRange` element Hiermee geeft u het bereik van poorten die zijn toegewezen aan de interne eindpunt of een invoereindpunt exemplaar en stelt de poort die wordt gebruikt voor load balanced verbindingen op het eindpunt.
+##  <a name="FixedPortRange"></a>FixedPortRange
+Het `FixedPortRange` element geeft het bereik aan van poorten die zijn toegewezen aan het interne eind punt of het invoer eindpunt van het exemplaar en stelt de poort in die wordt gebruikt voor verbindingen met gelijke taak verdeling op het eind punt.
 
 > [!NOTE]
->  De `FixedPortRange` element werkt anders, afhankelijk van het element waarin deze zich bevindt. Wanneer de `FixedPortRange` element heeft de `InternalEndpoint` -element, wordt alle poorten op de load balancer binnen het bereik van de kenmerken min en max voor alle virtuele machines waarop de rol wordt uitgevoerd. Wanneer de `FixedPortRange` element heeft de `InstanceInputEndpoint` -element, wordt slechts één poort binnen het bereik van de kenmerken min en max op elke virtuele machine met de rol.
+>  Het `FixedPortRange` element werkt anders, afhankelijk van het element waarin het zich bevindt. Wanneer het `FixedPortRange` element zich in het `InternalEndpoint` element bevindt, worden alle poorten op de Load Balancer geopend binnen het bereik van de minimum-en maximum kenmerken voor alle virtuele machines waarop de functie wordt uitgevoerd. Wanneer het `FixedPortRange` element zich in het `InstanceInputEndpoint` element bevindt, wordt er slechts één poort geopend binnen het bereik van de minimum-en maximum kenmerken van elke virtuele machine waarop de functie wordt uitgevoerd.
 
-De `FixedPortRange` element is alleen beschikbaar via de Azure SDK-versie 1.3 of hoger.
+Het `FixedPortRange` element is alleen beschikbaar via de Azure SDK-versie 1,3 of hoger.
 
-De volgende tabel beschrijft de kenmerken van de `FixedPortRange` element.
+In de volgende tabel worden de kenmerken van `FixedPortRange` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|min.|int|Vereist. De minimale poort in het bereik. Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).|
-|max|string|Vereist. De maximale poort in het bereik. Mogelijke waarden liggen tussen 1 en 65535, inclusief (Azure SDK versie 1.7 of hoger).|
+|min|int|Vereist. De minimale poort in het bereik. Mogelijke waarden variëren tussen 1 en 65535, inclusief (Azure SDK-versie 1,7 of hoger).|
+|max|string|Vereist. De maximum poort in het bereik. Mogelijke waarden variëren tussen 1 en 65535, inclusief (Azure SDK-versie 1,7 of hoger).|
 
-##  <a name="Certificates"></a> Certificaten
-De `Certificates` -element worden beschreven voor het verzamelen van certificaten voor een werkrol. Dit element is het bovenliggende lid van de `Certificate` element. Een rol kan een onbeperkt aantal gekoppelde certificaten hebben. Zie voor meer informatie over het gebruik van het element certificaten [wijzigen van de definitie van de Service van het bestand met een certificaat](cloud-services-configure-ssl-certificate-portal.md#step-2-modify-the-service-definition-and-configuration-files).
+##  <a name="Certificates"></a>Bewijzen
+Het `Certificates` element beschrijft de verzameling certificaten voor een werk rollen. Dit element is de bovenliggende elementen van `Certificate` het element. Een rol kan bestaan uit een wille keurig aantal gekoppelde certificaten. Zie [het service definitie bestand met een certificaat wijzigen](cloud-services-configure-ssl-certificate-portal.md#step-2-modify-the-service-definition-and-configuration-files)voor meer informatie over het gebruik van het onderdeel certificaten.
 
-##  <a name="Certificate"></a> Certificaat
-De `Certificate` -element een certificaat dat is gekoppeld aan een werkrol worden beschreven.
+##  <a name="Certificate"></a>Certificaat
+Het `Certificate` element beschrijft een certificaat dat is gekoppeld aan een worker-rol.
 
-De volgende tabel beschrijft de kenmerken van de `Certificate` element.
+In de volgende tabel worden de kenmerken van `Certificate` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|name|string|Vereist. Een naam op voor dit certificaat, dat wordt gebruikt om te verwijzen naar deze wanneer deze gekoppeld aan een HTTPS is `InputEndpoint` element.|
-|storeLocation|string|Vereist. De locatie van het certificaatarchief waar dit certificaat kan worden gevonden op de lokale computer. Mogelijke waarden zijn `CurrentUser` en `LocalMachine`.|
-|storeName|string|Vereist. De naam van het certificaatarchief waar dit certificaat bevindt zich op de lokale computer. Mogelijke waarden zijn onder andere de namen van de ingebouwde store `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, of de naam van een aangepast archief. Als de naam van een aangepast archief is opgegeven, wordt de store automatisch gemaakt.|
-|permissionLevel|string|Optioneel. Hiermee geeft u de machtigingen voor toegang krijgen tot de rol-processen. Als u wilt dat alleen met verhoogde bevoegdheden processen kunnen toegang tot de persoonlijke sleutel, geeft u vervolgens `elevated` machtiging. `limitedOrElevated` machtiging is mogelijk alle rol processen voor toegang tot de persoonlijke sleutel. Mogelijke waarden zijn `limitedOrElevated` en `elevated`. De standaardwaarde is `limitedOrElevated`.|
+|name|string|Vereist. Een naam voor dit certificaat, dat wordt gebruikt om ernaar te verwijzen wanneer het is gekoppeld aan een HTTPS `InputEndpoint` -element.|
+|storeLocation|string|Vereist. De locatie van het certificaat archief waar dit certificaat op de lokale computer kan worden gevonden. Mogelijke waarden zijn `CurrentUser` en `LocalMachine`.|
+|storeName|string|Vereist. De naam van het certificaat archief waar dit certificaat zich bevindt op de lokale computer. Mogelijke waarden `My`zijn de ingebouwde winkel namen, `Disallowed` `CA` `Root` `Trust` ,`TrustedPeople`,,,,,, ,ofeenaangepastearchiefnaam.`AddressBook` `TrustedPublisher` `AuthRoot` Als een aangepaste archief naam is opgegeven, wordt het archief automatisch gemaakt.|
+|permissionLevel|string|Optioneel. Hiermee geeft u de toegangs machtigingen op die aan de rollen processen worden gegeven. Als u wilt dat alleen verhoogde processen toegang hebben tot de persoonlijke sleutel, geeft `elevated` u vervolgens een machtiging op. `limitedOrElevated`met machtiging kunnen alle rollen processen toegang krijgen tot de persoonlijke sleutel. Mogelijke waarden zijn `limitedOrElevated` en `elevated`. De standaardwaarde is `limitedOrElevated`.|
 
-##  <a name="Imports"></a> Invoer
-De `Imports` -element een verzameling importeren van modules voor een werkrol die onderdelen aan het gastbesturingssysteem toevoegen worden beschreven. Dit element is het bovenliggende lid van de `Import` element. Dit element is optioneel en een rol kan slechts één runtime-blok hebben.
+##  <a name="Imports"></a>Rusland
+Het `Imports` element beschrijft een verzameling import modules voor een werknemersrol waarmee onderdelen aan het gast besturingssysteem worden toegevoegd. Dit element is de bovenliggende elementen van `Import` het element. Dit element is optioneel en een rol kan slechts één runtime blok hebben.
 
-De `Imports` element is alleen beschikbaar via de Azure SDK-versie 1.3 of hoger.
+Het `Imports` element is alleen beschikbaar via de Azure SDK-versie 1,3 of hoger.
 
-##  <a name="Import"></a> Importeren
-De `Import` element Hiermee geeft u een module toevoegen aan het gastbesturingssysteem.
+##  <a name="Import"></a>Wederinvoer
+Het `Import` element geeft een module op die aan het gast besturingssysteem moet worden toegevoegd.
 
-De `Import` element is alleen beschikbaar via de Azure SDK-versie 1.3 of hoger.
+Het `Import` element is alleen beschikbaar via de Azure SDK-versie 1,3 of hoger.
 
-De volgende tabel beschrijft de kenmerken van de `Import` element.
+In de volgende tabel worden de kenmerken van `Import` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|moduleName|string|Vereist. De naam van de module te importeren. Geldige import-modules zijn:<br /><br /> -   RemoteAccess<br />-RemoteForwarder<br />-Diagnostics<br /><br /> De modules RemoteAccess en RemoteForwarder kunnen u uw rolinstantie voor verbindingen met extern bureaublad configureren. Zie voor meer informatie [verbinding met extern bureaublad inschakelen](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> De module voor diagnostische gegevens kunt u voor het verzamelen van diagnostische gegevens voor een rolinstantie|
+|moduleName|string|Vereist. De naam van de module die u wilt importeren. Geldige import modules zijn:<br /><br /> -   RemoteAccess<br />- RemoteForwarder<br />-Diagnostische gegevens<br /><br /> Met de modules RemoteAccess en RemoteForwarder kunt u uw rolinstantie voor extern bureau blad-verbindingen configureren. Zie [verbinding met extern bureaublad inschakelen](cloud-services-role-enable-remote-desktop-new-portal.md)voor meer informatie.<br /><br /> Met de module diagnostiek kunt u Diagnostische gegevens verzamelen voor een rolinstantie|
 
-##  <a name="Runtime"></a> Runtime
-De `Runtime` element een verzameling van omgeving variabele instellingen voor een werkrol die de runtime-omgeving van het Azure-host-proces bepalen wordt beschreven. Dit element is het bovenliggende lid van de `Environment` element. Dit element is optioneel en een rol kan slechts één runtime-blok hebben.
+##  <a name="Runtime"></a>Gezamenlijke
+Het `Runtime` element beschrijft een verzameling instellingen voor een omgevings variabele voor een werk rollen die de runtime omgeving van het Azure hostproces beheren. Dit element is de bovenliggende elementen van `Environment` het element. Dit element is optioneel en een rol kan slechts één runtime blok hebben.
 
-De `Runtime` element is alleen beschikbaar via de Azure SDK-versie 1.3 of hoger.
+Het `Runtime` element is alleen beschikbaar via de Azure SDK-versie 1,3 of hoger.
 
-De volgende tabel beschrijft de kenmerken van de `Runtime` element:
+In de volgende tabel worden de kenmerken van `Runtime` het element beschreven:
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|executionContext|string|Optioneel. Hiermee geeft u de context waarin het proces van de rol wordt gestart. De standaardcontext is `limited`.<br /><br /> -   `limited` : Het proces wordt gestart zonder Administrator-bevoegdheden.<br />-   `elevated` : Het proces wordt gestart met Administrator-bevoegdheden.|
+|executionContext|string|Optioneel. Hiermee geeft u de context waarin het Role proces wordt gestart. De standaard context is `limited`.<br /><br /> -   `limited`: Het proces wordt gestart zonder beheerders bevoegdheden.<br />-   `elevated`: Het proces wordt gestart met Administrator bevoegdheden.|
 
-##  <a name="Environment"></a> Omgeving
-De `Environment` -element een verzameling van instellingen voor de omgevingsvariabelen voor een werkrol worden beschreven. Dit element is het bovenliggende lid van de `Variable` element. Een rol mogelijk een willekeurig aantal omgevingsvariabelen die worden ingesteld.
+##  <a name="Environment"></a>Variabelen
+Het `Environment` element beschrijft een verzameling instellingen voor een omgevings variabele voor een worker-rol. Dit element is de bovenliggende elementen van `Variable` het element. Er is mogelijk een aantal omgevings variabelen ingesteld voor een rol.
 
-##  <a name="Variable"></a> Variabele
-De `Variable` element Hiermee geeft u een omgevingsvariabele instellen in het gastbesturingssysteem.
+##  <a name="Variable"></a>Variabeletype
+Het `Variable` element geeft een omgevings variabele op die in het gast besturingssysteem moet worden ingesteld.
 
-De `Variable` element is alleen beschikbaar via de Azure SDK-versie 1.3 of hoger.
+Het `Variable` element is alleen beschikbaar via de Azure SDK-versie 1,3 of hoger.
 
-De volgende tabel beschrijft de kenmerken van de `Variable` element:
+In de volgende tabel worden de kenmerken van `Variable` het element beschreven:
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|name|string|Vereist. De naam van de omgevingsvariabele om in te stellen.|
-|value|string|Optioneel. De waarde om in te stellen voor de omgevingsvariabele. U moet een waardekenmerk bevatten of een `RoleInstanceValue` element.|
+|name|string|Vereist. De naam van de omgevings variabele die moet worden ingesteld.|
+|value|string|Optioneel. De waarde die moet worden ingesteld voor de omgevings variabele. U moet een kenmerk value of een `RoleInstanceValue` -element bevatten.|
 
-##  <a name="RoleInstanceValue"></a> RoleInstanceValue
-De `RoleInstanceValue` element Hiermee geeft u het xPath waaruit u wilt ophalen van de waarde van de variabele.
+##  <a name="RoleInstanceValue"></a>RoleInstanceValue
+Het `RoleInstanceValue` element geeft het xPath op waaruit de waarde van de variabele moet worden opgehaald.
 
-De volgende tabel beschrijft de kenmerken van de `RoleInstanceValue` element.
+In de volgende tabel worden de kenmerken van `RoleInstanceValue` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|XPath|string|Optioneel. Pad naar de locatie van de implementatie-instellingen voor het exemplaar. Zie voor meer informatie, [configuratievariabelen met XPath](cloud-services-role-config-xpath.md).<br /><br /> U moet een waardekenmerk bevatten of een `RoleInstanceValue` element.|
+|XPath|string|Optioneel. Locatiepad van de implementatie-instellingen voor het exemplaar. Zie [Configuration Varia bles with XPath](cloud-services-role-config-xpath.md)(Engelstalig) voor meer informatie.<br /><br /> U moet een kenmerk value of een `RoleInstanceValue` -element bevatten.|
 
 ##  <a name="EntryPoint"></a> EntryPoint
-De `EntryPoint` element Hiermee geeft u het toegangspunt voor een rol. Dit element is het bovenliggende lid van de `NetFxEntryPoint` elementen. Deze elementen kunnen u een toepassing dan de standaard WaWorkerHost.exe om te fungeren als de functie-ingangspunt opgeven.
+Het `EntryPoint` element geeft u het toegangs punt voor een rol op. Dit element is de bovenliggende elementen van `NetFxEntryPoint` de onderdelen. Met deze elementen kunt u een andere toepassing dan de standaard WaWorkerHost. exe opgeven om te fungeren als het ingangs punt van de functie.
 
-De `EntryPoint` element is alleen beschikbaar via de Azure SDK-versie 1.5 of hoger.
+Het `EntryPoint` element is alleen beschikbaar via de Azure SDK-versie 1,5 of hoger.
 
 ##  <a name="NetFxEntryPoint"></a> NetFxEntryPoint
-De `NetFxEntryPoint` element Hiermee geeft u het programma voor een rol uit te voeren.
+Het `NetFxEntryPoint` element geeft het programma op dat moet worden uitgevoerd voor een rol.
 
 > [!NOTE]
->  De `NetFxEntryPoint` element is alleen beschikbaar via de Azure SDK-versie 1.5 of hoger.
+>  Het `NetFxEntryPoint` element is alleen beschikbaar via de Azure SDK-versie 1,5 of hoger.
 
-De volgende tabel beschrijft de kenmerken van de `NetFxEntryPoint` element.
+In de volgende tabel worden de kenmerken van `NetFxEntryPoint` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|assemblyName|string|Vereist. Het pad en de naam van de assembly waarin het toegangspunt. Het pad is ten opzichte van de map  **\\%ROLEROOT%\Approot** (Geef geen  **\\%ROLEROOT%\Approot** in `commandLine`, wordt ervan uitgegaan). **% ROLEROOT** wordt een omgevingsvariabele onderhouden door Azure en staat voor de locatie van de basismap voor uw rol. De  **\\%ROLEROOT%\Approot** map vertegenwoordigt de map voor uw rol.|
-|targetFrameworkVersion|string|Vereist. De versie van .NET framework waarop de assembly is gemaakt. Bijvoorbeeld `targetFrameworkVersion="v4.0"`.|
+|assemblyName|string|Vereist. Het pad en de bestands naam van de assembly met het toegangs punt. Het pad is relatief ten opzichte van de map  **\\%ROLEROOT%\Approot** (in `commandLine`wordt aangenomen dat er geen  **\\%ROLEROOT%\Approot** is opgegeven). **% ROLEROOT%** is een omgevings variabele die wordt onderhouden door Azure en vertegenwoordigt de locatie van de hoofdmap voor uw rol. De map%ROLEROOT%\Approot vertegenwoordigt de toepassingsmap voor uw rol.  **\\**|
+|targetFrameworkVersion|string|Vereist. De versie van .NET Framework waarop de assembly is gebouwd. Bijvoorbeeld `targetFrameworkVersion="v4.0"`.|
 
 ##  <a name="ProgramEntryPoint"></a> ProgramEntryPoint
-De `ProgramEntryPoint` element Hiermee geeft u het programma voor een rol uit te voeren. De `ProgramEntryPoint` element kunt u een programma ingangspunt gebruikt dat niet is gebaseerd op een .NET-assembly opgeven.
+Het `ProgramEntryPoint` element geeft het programma op dat moet worden uitgevoerd voor een rol. Met `ProgramEntryPoint` het element kunt u een invoer punt voor een programma opgeven dat niet is gebaseerd op een .NET-assembly.
 
 > [!NOTE]
->  De `ProgramEntryPoint` element is alleen beschikbaar via de Azure SDK-versie 1.5 of hoger.
+>  Het `ProgramEntryPoint` element is alleen beschikbaar via de Azure SDK-versie 1,5 of hoger.
 
-De volgende tabel beschrijft de kenmerken van de `ProgramEntryPoint` element.
+In de volgende tabel worden de kenmerken van `ProgramEntryPoint` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|Opdrachtregel|string|Vereist. Het pad, bestandsnaam en opdrachtregelargumenten op van het programma uit te voeren. Het pad is ten opzichte van de map **%ROLEROOT%\Approot** (Geef geen **%ROLEROOT%\Approot** in de opdrachtregel, wordt ervan uitgegaan). **% ROLEROOT** wordt een omgevingsvariabele onderhouden door Azure en staat voor de locatie van de basismap voor uw rol. De **%ROLEROOT%\Approot** map vertegenwoordigt de map voor uw rol.<br /><br /> Als het programma wordt beëindigd, wordt de rol gerecycled, dus meestal het programma om door te gaan om uit te voeren, in plaats van een programma dat alleen wordt gestart en wordt uitgevoerd een eindige taak instellen.|
-|setReadyOnProcessStart|booleaans|Vereist. Hiermee geeft u op of de rolinstantie wacht tot het programma vanaf de opdrachtregel om aan te geven dat deze is gestart. Deze waarde moet worden ingesteld op `true` op dit moment. Als de waarde instelt op `false` is gereserveerd voor toekomstig gebruik.|
+|commandLine|string|Vereist. Het pad, de bestands naam en eventuele opdracht regel argumenten van het programma dat moet worden uitgevoerd. Het pad is relatief ten opzichte van de map **%ROLEROOT%\Approot** ( **%ROLEROOT%\Approot** niet opgeven bij commandline, wordt aangenomen). **% ROLEROOT%** is een omgevings variabele die wordt onderhouden door Azure en vertegenwoordigt de locatie van de hoofdmap voor uw rol. De map **%ROLEROOT%\Approot** vertegenwoordigt de toepassingsmap voor uw rol.<br /><br /> Als het programma wordt beëindigd, wordt de rol gerecycled en wordt het programma doorgaans ingesteld om te worden uitgevoerd, in plaats van een programma dat zojuist wordt gestart en een eindige taak uitvoert.|
+|setReadyOnProcessStart|boolean|Vereist. Hiermee geeft u op of de rolinstantie wacht totdat het opdracht regel programma een signaal start. Deze waarde moet worden ingesteld op `true` op dit moment. Het instellen van de `false` waarde op is gereserveerd voor toekomstig gebruik.|
 
-##  <a name="Startup"></a> Opstarten
-De `Startup` -element worden beschreven van een verzameling taken die worden uitgevoerd wanneer de rol wordt gestart. Dit element mag het bovenliggende lid van de `Variable` element. Zie voor meer informatie over het gebruik van de rol opstarttaken [opstarttaken configureren](cloud-services-startup-tasks.md). Dit element is optioneel en een rol kan slechts één opstarten blok hebben.
+##  <a name="Startup"></a>Opstarten
+Het `Startup` element beschrijft een verzameling taken die worden uitgevoerd wanneer de rol wordt gestart. Dit element kan de bovenliggende elementen van het `Variable` element zijn. Zie [opstart taken configureren](cloud-services-startup-tasks.md)voor meer informatie over het gebruik van de functie opstart taken. Dit element is optioneel en een rol kan slechts één opstart blok hebben.
 
-De volgende tabel beschrijft het kenmerk van de `Startup` element.
+In de volgende tabel wordt het kenmerk van `Startup` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|prioriteit|int|Alleen voor intern gebruik.|
+|priority|int|Alleen voor intern gebruik.|
 
-##  <a name="Task"></a> Taak
-De `Task` element Hiermee geeft u de opstarttaak die plaatsvindt wanneer de rol wordt gestart. Opstarttaken kunnen worden gebruikt om de taken uitvoeren die voorbereiden van de rol voor deze installatie van software-onderdelen of andere toepassingen worden uitgevoerd. Taken uitvoeren in de volgorde waarin ze worden weergegeven in de `Startup` element blokkeren.
+##  <a name="Task"></a>Takenreeksuitvoeringsengine
+Het `Task` element geeft de opstart taak op die wordt uitgevoerd wanneer de rol wordt gestart. Opstart taken kunnen worden gebruikt om taken uit te voeren die de rol voorbereiden voor het uitvoeren van dergelijke installatie software componenten of het uitvoeren van andere toepassingen. Taken worden uitgevoerd in de volg orde waarin ze worden weer `Startup` gegeven in het element blok.
 
-De `Task` element is alleen beschikbaar via de Azure SDK-versie 1.3 of hoger.
+Het `Task` element is alleen beschikbaar via de Azure SDK-versie 1,3 of hoger.
 
-De volgende tabel beschrijft de kenmerken van de `Task` element.
+In de volgende tabel worden de kenmerken van `Task` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|Opdrachtregel|string|Vereist. Een script, zoals een CMD-bestand met de opdrachten om uit te voeren. Opdracht en batch opstartbestanden moeten worden opgeslagen in de ANSI-indeling. Bestandsindelingen die een markering bytevolgorde die is ingesteld op het begin van het bestand verwerkt niet correct.|
-|executionContext|string|Hiermee geeft u de context waarin het script wordt uitgevoerd.<br /><br /> -   `limited` [Standaard] – uitvoeren met de dezelfde bevoegdheden als de rol die het proces host.<br />-   `elevated` – Uitgevoerd met beheerdersbevoegdheden.|
-|taskType|string|Hiermee geeft u het uitvoeringsgedrag van de opdracht.<br /><br /> -   `simple` [Standaard] – systeem wacht tot de taak om af te sluiten voordat andere taken worden gestart.<br />-   `background` – Systeem wacht niet totdat de taak om af te sluiten.<br />-   `foreground` – Vergelijkbaar met de achtergrond, behalve de rol niet totdat alle taken van voorgrond afsluit opnieuw wordt opgestart.|
+|commandLine|string|Vereist. Een script, zoals een CMD-bestand, dat de opdrachten bevat die moeten worden uitgevoerd. Opstart opdrachten en batch bestanden moeten worden opgeslagen in ANSI-indeling. Bestands indelingen die een byte volgorde markering instellen aan het begin van het bestand, worden niet goed verwerkt.|
+|executionContext|string|Hiermee geeft u de context waarin het script wordt uitgevoerd.<br /><br /> -   `limited`[Standaard]: Voer uit met dezelfde bevoegdheden als voor de rol die het proces host.<br />-   `elevated`– Uitvoeren met beheerders bevoegdheden.|
+|taskType|string|Hiermee geeft u het uitvoerings gedrag van de opdracht op.<br /><br /> -   `simple`[Standaard]: het systeem wacht tot de taak wordt afgesloten voordat andere taken worden gestart.<br />-   `background`– Het systeem wacht niet tot de taak is afgesloten.<br />-   `foreground`– Vergelijkbaar met achtergrond, behalve als de rol niet opnieuw wordt gestart totdat alle voorgrond taken worden afgesloten.|
 
-##  <a name="Contents"></a> Inhoud
-De `Contents` -element worden beschreven voor het verzamelen van inhoud voor een werkrol. Dit element is het bovenliggende lid van de `Content` element.
+##  <a name="Contents"></a>Gehele
+Het `Contents` element beschrijft het verzamelen van inhoud voor een worker-rol. Dit element is de bovenliggende elementen van `Content` het element.
 
-De `Contents` element is alleen beschikbaar via de Azure SDK-versie 1.5 of hoger.
+Het `Contents` element is alleen beschikbaar via de Azure SDK-versie 1,5 of hoger.
 
-##  <a name="Content"></a> Inhoud
-De `Content` element wordt gedefinieerd voor de locatie van inhoud wordt gekopieerd naar de virtuele machine van Azure en het doelpad waarnaar deze is gekopieerd.
+##  <a name="Content"></a>Inhoudbeheer
+Het `Content` element definieert de bron locatie van de inhoud die moet worden gekopieerd naar de virtuele Azure-machine en het doelpad waarnaar deze wordt gekopieerd.
 
-De `Content` element is alleen beschikbaar via de Azure SDK-versie 1.5 of hoger.
+Het `Content` element is alleen beschikbaar via de Azure SDK-versie 1,5 of hoger.
 
-De volgende tabel beschrijft de kenmerken van de `Content` element.
+In de volgende tabel worden de kenmerken van `Content` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|destination|string|Vereist. De locatie op de Azure-machine waarop de inhoud wordt geplaatst. Deze locatie is ten opzichte van de map **%ROLEROOT%\Approot**.|
+|destination|string|Vereist. De locatie op de virtuele Azure-machine waarop de inhoud is geplaatst. Deze locatie is relatief ten opzichte van de map **%ROLEROOT%\Approot**.|
 
-Dit element is het bovenliggende element van de `SourceDirectory` element.
+Dit element is het bovenliggende element van het `SourceDirectory` element.
 
-##  <a name="SourceDirectory"></a> SourceDirectory
-De `SourceDirectory` element wordt gedefinieerd voor de lokale map waarin inhoud wordt gekopieerd. Dit element gebruiken om op te geven van de lokale inhoud kopiëren naar de virtuele machine van Azure.
+##  <a name="SourceDirectory"></a>Source Directory
+Het `SourceDirectory` element definieert de lokale map waaruit inhoud wordt gekopieerd. Gebruik dit element om de lokale inhoud op te geven die moet worden gekopieerd naar de virtuele machine van Azure.
 
-De `SourceDirectory` element is alleen beschikbaar via de Azure SDK-versie 1.5 of hoger.
+Het `SourceDirectory` element is alleen beschikbaar via de Azure SDK-versie 1,5 of hoger.
 
-De volgende tabel beschrijft de kenmerken van de `SourceDirectory` element.
+In de volgende tabel worden de kenmerken van `SourceDirectory` het element beschreven.
 
-| Kenmerk | Type | Description |
+| Kenmerk | type | Description |
 | --------- | ---- | ----------- |
-|pad|string|Vereist. Relatieve of absolute pad van een lokale map waarvan de inhoud wordt gekopieerd naar de virtuele machine van Azure. Uitbreiding van omgevingsvariabelen in het mappad wordt ondersteund.|
+|path|string|Vereist. Relatief of absoluut pad van een lokale map waarvan de inhoud wordt gekopieerd naar de virtuele machine van Azure. De uitbrei ding van omgevings variabelen in het mappad wordt ondersteund.|
 
 ## <a name="see-also"></a>Zie ook
-[(Klassiek) Definitieschema voor cloud Service](schema-csdef-file.md)
+[Schema voor Cloud service (klassiek)](schema-csdef-file.md)

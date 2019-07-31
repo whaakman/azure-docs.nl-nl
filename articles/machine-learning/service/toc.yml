@@ -33,6 +33,12 @@
   items:
     - name: Python-SDK
       items:
+        - name: Uw eerste ML-experiment maken
+          items:
+            - name: 1. Werkruimte en ontwikkelomgeving instellen
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. Uw eerste model trainen
+              href: tutorial-1st-experiment-sdk-train.md
         - name: Afbeeldingsclassificatie (MNIST-gegevens)
           items:
             - name: 1. Een model trainen

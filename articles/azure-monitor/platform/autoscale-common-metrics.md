@@ -1,6 +1,6 @@
 ---
-title: Algemene metrische gegevens voor automatisch schalen
-description: Informatie over welke metrische gegevens worden vaak gebruikt voor automatisch schalen uw Cloudservices, virtuele Machines en Web-Apps.
+title: Algemene metrische gegevens automatisch schalen
+description: Meer informatie over de metrische gegevens die vaak worden gebruikt voor het automatisch schalen van uw Cloud Services, Virtual Machines en Web Apps.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,111 +9,111 @@ ms.date: 12/6/2016
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66129730"
 ---
-# <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor autoscaling common metrics
+# <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor automatisch schalen van algemene metrische gegevens
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Automatisch schalen in Azure Monitor kunt u het aantal actieve instanties omhoog of omlaag schalen op basis van telemetrische gegevens (metrische gegevens). Dit document beschrijft algemene metrische gegevens die u wilt gebruiken. U kunt de metrische gegevens van de resource schalen door te kiezen in de Azure-portal. U kunt echter ook elke meetwaarde kiezen uit een andere resource om te schalen door.
+Azure Monitor automatisch schalen, kunt u het aantal actieve instanties omhoog of omlaag schalen op basis van telemetriegegevens (metrische gegevens). In dit document worden algemene metrische gegevens beschreven die u mogelijk wilt gebruiken. In het Azure Portal kunt u de metriek kiezen van de resource die u wilt schalen. U kunt echter ook een wille keurige metriek kiezen van een andere resource om door te schalen.
 
-Automatisch schalen van Azure Monitor is alleen bedoeld voor [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloudservices](https://azure.microsoft.com/services/cloud-services/), [App Service - Web-Apps](https://azure.microsoft.com/services/app-service/web/), en [API Management-services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Andere Azure-services gebruiken verschillende methoden voor vergroten/verkleinen.
+Azure Monitor automatisch schalen is alleen van toepassing op [Virtual Machine Scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [app service-Web apps](https://azure.microsoft.com/services/app-service/web/)en [API Management Services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Andere Azure-Services gebruiken verschillende schaal methoden.
 
-## <a name="compute-metrics-for-resource-manager-based-vms"></a>Metrische gegevens voor virtuele machines op basis van Resource Manager COMPUTE
-Standaard introduceren Resource Manager gebaseerde virtuele Machines en Virtual Machine Scale Sets basismetriek (host-niveau). Bovendien bij het configureren van verzamelen van diagnostische gegevens voor een virtuele machine van Azure en VMSS verzendt diagnostische Azure-extensie ook Gast-OS-prestatiemeteritems (gewoonlijk bekend als 'Gast-OS metrische gegevens').  U gebruikt deze metrische gegevens in regels voor automatisch schalen.
+## <a name="compute-metrics-for-resource-manager-based-vms"></a>Reken gegevens voor virtuele machines op basis van Resource Manager
+Standaard worden metrische gegevens op basis van Resource Manager Virtual Machines en Virtual Machine Scale Sets basis waarden (op het niveau van de host). Wanneer u de diagnostische gegevens verzameling voor een Azure-VM en VMSS configureert, worden de diagnostische Azure-extensie bovendien ook prestatie meter items van het gast besturingssysteem (meestal ' metrische gegevens van het besturings systeem ' genoemd).  U gebruikt al deze metrische gegevens in regels voor automatisch schalen.
 
-U kunt de `Get MetricDefinitions` API/PoSH/CLI om de metrische gegevens beschikbaar zijn voor uw resource VMSS weer te geven.
+U kunt de `Get MetricDefinitions` API/PoSH/CLI gebruiken om de metrische gegevens weer te geven die beschikbaar zijn voor uw VMSS-resource.
 
-Als u VM-schaalsets en er geen specifieke metrische gegevens die worden vermeld, wordt waarschijnlijk *uitgeschakeld* in uw extensie voor diagnostische gegevens.
+Als u VM-schaal sets gebruikt en er geen specifieke metriek wordt weer gegeven, is deze waarschijnlijk *uitgeschakeld* in de uitbrei ding voor diagnostische gegevens.
 
-Als een bepaalde meetwaarde niet worden verzameld of overgedragen op de gewenste frequentie, kunt u de configuratie van de diagnostische gegevens bijwerken.
+Als een bepaalde metrische waarde niet wordt bemonsterd of overgedragen op de gewenste frequentie, kunt u de diagnostische configuratie bijwerken.
 
-Als geen van beide bovenstaande gevallen waar is, Controleer [PowerShell gebruiken voor het inschakelen van Azure Diagnostics in een virtuele machine met Windows](../../virtual-machines/extensions/diagnostics-windows.md) over PowerShell configureren en bijwerken van uw Azure VM Diagnostics-extensie om in te schakelen van de metrische gegevens. Dit artikel bevat ook een voorbeeldbestand voor de configuratie van diagnostische gegevens.
+Als een van beide voor waarden waar is, raadpleegt u [Power shell gebruiken om Azure Diagnostics in te scha kelen op een virtuele machine met Windows](../../virtual-machines/extensions/diagnostics-windows.md) over Power shell om uw Azure VM Diagnostics-extensie te configureren en bij te werken om de metriek in te scha kelen. Dit artikel bevat ook een voor beeld van een configuratie bestand voor diagnostische gegevens.
 
-### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Metrische gegevens voor hosts voor Resource Manager gebaseerde Windows en Linux-machines
-De volgende hostniveau metrische gegevens worden standaard verzonden voor virtuele Azure-machines en VMSS in zowel Windows als Linux-exemplaren. Deze metrische gegevens over uw Azure-VM wordt beschreven, maar worden verzameld van de Azure VM-host in plaats van via de agent is geïnstalleerd op de Gast-VM. U kunt deze metrische gegevens in de regels voor automatisch schalen.
+### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Metrische gegevens van de host voor Windows-en Linux-Vm's op basis van Resource Manager
+De volgende metrische gegevens op hostniveau worden standaard verzonden voor Azure VM en VMSS in zowel Windows-als Linux-exemplaren. Deze metrische gegevens beschrijven uw Azure VM, maar worden verzameld van de Azure VM-host, in plaats van via een agent die is geïnstalleerd op de gast-VM. U kunt deze metrische gegevens gebruiken in regels voor automatisch schalen.
 
-- [Metrische gegevens voor hosts voor Resource Manager gebaseerde Windows en Linux-machines](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
-- [Metrische gegevens voor hosts voor Resource Manager gebaseerde Windows en Linux VM Scale Sets](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
+- [Metrische gegevens van de host voor Windows-en Linux-Vm's op basis van Resource Manager](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
+- [Metrische gegevens van de host voor Windows-en Linux-VM Scale Sets op basis van Resource Manager](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
-### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Gastbesturingssysteem metrische gegevens over Windows-VM's op basis van Resource Manager
-Wanneer u een virtuele machine in Azure maakt, wordt de diagnostische gegevens ingeschakeld met behulp van de extensie voor diagnostische gegevens. De extensie voor diagnostische gegevens verzendt een set metrische gegevens die zijn overgenomen uit binnen de virtuele machine. Dit betekent dat u kunt automatisch schalen van metrische gegevens die niet standaard worden weergegeven.
+### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Metrische Windows-Vm's op basis van een gast besturingssysteem (op Resource Manager gebaseerde)
+Wanneer u een virtuele machine in azure maakt, wordt Diagnostische gegevens ingeschakeld met behulp van de diagnostische extensie. Met de uitbrei ding voor diagnostische gegevens wordt een set metrische gegevens verzonden die zijn gemaakt van binnen van de virtuele machine. Dit betekent dat u automatisch de metrische gegevens die niet standaard worden verzonden, kunt uitschalen.
 
-U kunt een lijst van de metrische gegevens genereren met behulp van de volgende opdracht uit in PowerShell.
+U kunt een lijst met metrische gegevens genereren met behulp van de volgende opdracht in Power shell.
 
 ```
 Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-U kunt een waarschuwing voor de volgende metrische gegevens maken:
+U kunt een waarschuwing maken voor de volgende metrische gegevens:
 
 | Naam van meetwaarde | Eenheid |
 | --- | --- |
-| \Processor(_Total)\% Processor Time |Procent |
-| \Processor(_Total)\% Privileged Time |Procent |
-| \Processor(_Total)\% tijd in gebruikersmodus |Procent |
-| \Processor Information(_Total)\Processor Frequency |Count |
+| \Processor(_Total)\% Processor Time |Percent |
+| \Processor (_Totaal)\% beschermde tijd |Percent |
+| \Processor (_Totaal)\% tijd van gebruiker |Percent |
+| \Processor Information (_Totaal) \Processor frequentie |Count |
 | \System\Processes |Count |
 | \Process(_Total)\Thread Count |Count |
 | \Process(_Total)\Handle Count |Count |
-| \Memory\% toegewezen Bytes In gebruik |Procent |
+| \Memory\% toegewezen bytes in gebruik |Percent |
 | \Memory\Available Bytes |Bytes |
 | \Memory\Committed bytes |Bytes |
-| \Memory\Commit limiet |Bytes |
+| Limiet voor \Memory\Commit |Bytes |
 | \Memory\Pool Paged Bytes |Bytes |
-| \Memory\Pool Nonpaged Bytes |Bytes |
-| \PhysicalDisk(_Total)\% schijftijd |Procent |
-| \PhysicalDisk(_Total)\% leestijd schijf |Procent |
-| \PhysicalDisk(_Total)\% schrijftijd schijf |Procent |
+| Niet-wisselbaar \Memory\Pool bytes |Bytes |
+| \PhysicalDisk (_Totaal)\% schijf tijd |Percent |
+| \PhysicalDisk (_Totaal)\% Lees tijd schijf |Percent |
+| \PhysicalDisk (_Totaal)\% schrijf tijd schijf |Percent |
 | \PhysicalDisk(_Total)\Disk Transfers/sec |CountPerSecond |
 | \PhysicalDisk(_Total)\Disk Reads/sec |CountPerSecond |
 | \PhysicalDisk(_Total)\Disk Writes/sec |CountPerSecond |
 | \PhysicalDisk(_Total)\Disk Bytes/sec |BytesPerSecond |
-| \PhysicalDisk(_Total)\Disk Read Bytes/sec |BytesPerSecond |
+| \PhysicalDisk (_Totaal) \Gelezen Lees bewerkingen in bytes per seconde |BytesPerSecond |
 | \PhysicalDisk(_Total)\Disk Write Bytes/sec |BytesPerSecond |
-| \PhysicalDisk(_Total)\Avg. Wachtrijlengte voor schijf |Count |
-| \PhysicalDisk(_Total)\Avg. Wachtrijlengte voor schijf lezen |Count |
-| \PhysicalDisk(_Total)\Avg. Wachtrijlengte voor schijf schrijven |Count |
-| \LogicalDisk(_Total)\% vrije ruimte |Procent |
+| \PhysicalDisk(_Total)\Avg. Lengte van de wachtrij voor de schijf |Count |
+| \PhysicalDisk(_Total)\Avg. Wachtrij lengte voor lezen van schijf |Count |
+| \PhysicalDisk(_Total)\Avg. Wachtrij lengte schrijf bewerking schijf |Count |
+| \LogicalDisk (_Totaal)\% beschik bare ruimte |Percent |
 | \LogicalDisk(_Total)\Free Megabytes |Count |
 
-### <a name="guest-os-metrics-linux-vms"></a>Gastbesturingssysteem metrische gegevens over virtuele Linux-machines
-Wanneer u een virtuele machine in Azure maakt, is diagnostische gegevens standaard ingeschakeld met behulp van de extensie voor diagnostische gegevens.
+### <a name="guest-os-metrics-linux-vms"></a>Gegevens van virtuele machines van het gast besturingssysteem Linux-Vm's
+Wanneer u een virtuele machine in azure maakt, wordt de diagnostische gegevens standaard ingeschakeld met behulp van de diagnostische extensie.
 
-U kunt een lijst van de metrische gegevens genereren met behulp van de volgende opdracht uit in PowerShell.
+U kunt een lijst met metrische gegevens genereren met behulp van de volgende opdracht in Power shell.
 
 ```
 Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
- U kunt een waarschuwing voor de volgende metrische gegevens maken:
+ U kunt een waarschuwing maken voor de volgende metrische gegevens:
 
 | Naam van meetwaarde | Eenheid |
 | --- | --- |
 | \Memory\AvailableMemory |Bytes |
-| \Memory\PercentAvailableMemory |Procent |
+| \Memory\PercentAvailableMemory |Percent |
 | \Memory\UsedMemory |Bytes |
-| \Memory\PercentUsedMemory |Procent |
-| \Memory\PercentUsedByCache |Procent |
+| \Memory\PercentUsedMemory |Percent |
+| \Memory\PercentUsedByCache |Percent |
 | \Memory\PagesPerSec |CountPerSecond |
 | \Memory\PagesReadPerSec |CountPerSecond |
 | \Memory\PagesWrittenPerSec |CountPerSecond |
 | \Memory\AvailableSwap |Bytes |
-| \Memory\PercentAvailableSwap |Procent |
+| \Memory\PercentAvailableSwap |Percent |
 | \Memory\UsedSwap |Bytes |
-| \Memory\PercentUsedSwap |Procent |
-| \Processor\PercentIdleTime |Procent |
-| \Processor\PercentUserTime |Procent |
-| \Processor\PercentNiceTime |Procent |
-| \Processor\PercentPrivilegedTime |Procent |
-| \Processor\PercentInterruptTime |Procent |
-| \Processor\PercentDPCTime |Procent |
-| \Processor\PercentProcessorTime |Procent |
-| \Processor\PercentIOWaitTime |Procent |
+| \Memory\PercentUsedSwap |Percent |
+| \Processor\PercentIdleTime |Percent |
+| \Processor\PercentUserTime |Percent |
+| \Processor\PercentNiceTime |Percent |
+| \Processor\PercentPrivilegedTime |Percent |
+| \Processor\PercentInterruptTime |Percent |
+| \Processor\PercentDPCTime |Percent |
+| \Processor\PercentProcessorTime |Percent |
+| \Processor\PercentIOWaitTime |Percent |
 | \PhysicalDisk\BytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
@@ -133,33 +133,33 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \NetworkInterface\TotalTxErrors |Count |
 | \NetworkInterface\TotalCollisions |Count |
 
-## <a name="commonly-used-web-server-farm-metrics"></a>Gangbare metrische gegevens van Web (serverfarm)
-U kunt ook uitvoeren voor automatisch schalen op basis van gemeenschappelijke web server-gegevens, zoals de lengte van de Http-wachtrij. De naam van de meetwaarde is **HttpQueueLength**.  De volgende sectie geeft een lijst van beschikbare serverfarm (Web-Apps) metrische gegevens.
+## <a name="commonly-used-web-server-farm-metrics"></a>Veelgebruikte metrische gegevens voor Web (server-farm)
+U kunt ook automatisch schalen uitvoeren op basis van algemene gegevens van webservers, zoals de lengte van de http-wachtrij. De naam van de metrische waarde is **HttpQueueLength**.  In de volgende sectie worden metrische gegevens van de beschik bare server farm (Web Apps) weer gegeven.
 
-### <a name="web-apps-metrics"></a>Metrische gegevens van Web Apps
-U kunt een lijst van de metrische gegevens van Web-Apps genereren met behulp van de volgende opdracht uit in PowerShell.
+### <a name="web-apps-metrics"></a>Web Apps metrische gegevens
+U kunt een lijst met Web Apps metrische gegevens genereren met behulp van de volgende opdracht in Power shell.
 
 ```
 Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-U kunt de waarschuwing op basis van of schalen door deze metrische gegevens.
+U kunt een melding ontvangen over of schalen op basis van deze metrische gegevens.
 
 | Naam van meetwaarde | Eenheid |
 | --- | --- |
-| CpuPercentage |Procent |
-| MemoryPercentage |Procent |
+| CpuPercentage |Percent |
+| MemoryPercentage |Percent |
 | DiskQueueLength |Count |
 | HttpQueueLength |Count |
 | BytesReceived |Bytes |
 | BytesSent |Bytes |
 
-## <a name="commonly-used-storage-metrics"></a>Veelgebruikte metrische gegevens van Storage
-U kunt schalen door opslag-wachtrijlengte, deze het aantal berichten in de storage-wachtrij is. Wachtrijlengte van Storage is een speciale metrische gegevens en de drempelwaarde is het aantal berichten per exemplaar. Bijvoorbeeld, als er twee exemplaren zijn en de drempelwaarde wordt ingesteld op 100, schalen treedt op wanneer het totale aantal berichten in de wachtrij 200 is. Dat kan worden 100 berichten per exemplaar, 120 en 80, of een andere combinatie waarmee maximaal 200 of meer worden toegevoegd.
+## <a name="commonly-used-storage-metrics"></a>Veelgebruikte metrische opslag gegevens
+U kunt schalen op de lengte van de opslag wachtrij. Dit is het aantal berichten in de opslag wachtrij. De lengte van de opslag wachtrij is een speciale metrische waarde en de drempel waarde is het aantal berichten per exemplaar. Als er bijvoorbeeld twee exemplaren zijn en als de drempel waarde is ingesteld op 100, wordt er geschaald wanneer het totale aantal berichten in de wachtrij 200 is. Dit kan 100 berichten per instantie, 120 en 80 of een andere combi natie van Maxi maal 200 of meer zijn.
 
-Deze instelling configureren in Azure portal in de **instellingen** blade. Voor VM-schaalsets, kunt u de instelling voor automatisch schalen in de Resource Manager-sjabloon gebruiken bijwerken *metricName* als *ApproximateMessageCount* en geef de ID van de storage-wachtrij als  *metricResourceUri*.
+Configureer deze instelling in de Azure Portal op de Blade **instellingen** . Voor VM-schaal sets kunt u de instelling voor automatisch schalen in het Resource Manager-sjabloon bijwerken om *metrische waarde* als *ApproximateMessageCount* te gebruiken en de id van de opslag wachtrij als *metricResourceUri*door te geven.
 
-Bijvoorbeeld, met een klassiek Opslagaccount moet de instelling voor automatisch schalen metricTrigger, zijn:
+Met een klassiek opslag account kunt u bijvoorbeeld de instelling voor automatisch schalen metricTrigger:
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -167,7 +167,7 @@ Bijvoorbeeld, met een klassiek Opslagaccount moet de instelling voor automatisch
  "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
-Voor een (niet klassiek) storage-account, de metricTrigger zijn:
+Voor een (niet-klassiek) opslag account zou het metricTrigger het volgende omvatten:
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -175,10 +175,10 @@ Voor een (niet klassiek) storage-account, de metricTrigger zijn:
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.Storage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
 ```
 
-## <a name="commonly-used-service-bus-metrics"></a>Gangbare metrische gegevens van Service Bus
-U kunt schalen door Service Bus-wachtrijlengte, deze het aantal berichten in de Service Bus-wachtrij is. Lengte van de service Bus-wachtrij is een speciale metrische gegevens en de drempelwaarde is het aantal berichten per exemplaar. Bijvoorbeeld, als er twee exemplaren zijn en de drempelwaarde wordt ingesteld op 100, schalen treedt op wanneer het totale aantal berichten in de wachtrij 200 is. Dat kan worden 100 berichten per exemplaar, 120 en 80, of een andere combinatie waarmee maximaal 200 of meer worden toegevoegd.
+## <a name="commonly-used-service-bus-metrics"></a>Veelgebruikte Service Bus metrische gegevens
+U kunt schalen op Service Bus wachtrij lengte, het aantal berichten in de Service Bus wachtrij. Service Bus wachtrij lengte is een speciale metrische waarde en de drempel waarde is het aantal berichten per exemplaar. Als er bijvoorbeeld twee exemplaren zijn en als de drempel waarde is ingesteld op 100, wordt er geschaald wanneer het totale aantal berichten in de wachtrij 200 is. Dit kan 100 berichten per instantie, 120 en 80 of een andere combi natie van Maxi maal 200 of meer zijn.
 
-Voor VM-schaalsets, kunt u de instelling voor automatisch schalen in de Resource Manager-sjabloon gebruiken bijwerken *metricName* als *ApproximateMessageCount* en geef de ID van de storage-wachtrij als  *metricResourceUri*.
+Voor VM-schaal sets kunt u de instelling voor automatisch schalen in het Resource Manager-sjabloon bijwerken om *metrische waarde* als *ApproximateMessageCount* te gebruiken en de id van de opslag wachtrij als *metricResourceUri*door te geven.
 
 ```
 "metricName": "MessageCount",
@@ -187,7 +187,7 @@ Voor VM-schaalsets, kunt u de instelling voor automatisch schalen in de Resource
 ```
 
 > [!NOTE]
-> Het concept van de groep resource bestaat niet voor Service Bus, maar Azure Resource Manager maakt een standaardresourcegroep per regio. De resourcegroep bevindt zich meestal in de indeling 'Default - ServiceBus-[regio]'. Bijvoorbeeld 'Standaard-ServiceBus-EastUS', 'Standaard-ServiceBus-WestUS', 'Standaard-ServiceBus-AustraliaEast' enzovoort.
+> Voor Service Bus bestaat het concept van de resource groep niet, maar Azure Resource Manager maakt een standaard resource groep per regio. De resource groep bevindt zich doorgaans in de indeling ' default-ServiceBus-[regio] '. Bijvoorbeeld ' default-ServiceBus-oostelijke ', ' default-ServiceBus-Westus ', ' default-ServiceBus-AustraliaEast ' enzovoort.
 >
 >
 

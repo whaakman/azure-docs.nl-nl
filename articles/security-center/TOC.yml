@@ -75,8 +75,6 @@
       href: security-center-provide-security-contact-details.md
     - name: Prijscategorie
       href: security-center-pricing.md
-    - name: Beveiligingsconfiguraties
-      href: security-center-customize-os-security-config.md
     - name: Tenant-brede zichtbaarheid
       href: security-center-management-groups.md
     - name: Aanbevelingen voor beveiliging implementeren
@@ -183,6 +181,8 @@
           href: security-center-alerts-type.md
         - name: UEBA voor Azure-resources en gebruikers
           href: security-center-ueba-mcas.md
+        - name: Beveiligingsconfiguraties aanpassen
+          href: security-center-customize-os-security-config.md
 - name: Naslaginformatie
   items:
     - name: REST-API’s
