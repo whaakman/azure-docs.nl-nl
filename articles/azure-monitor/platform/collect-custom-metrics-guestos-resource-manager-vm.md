@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 85f7395cbfa4ef2ba6ab448c9541b3f107eb0e96
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "68249808"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Metrische gegevens van het gast besturingssysteem naar het Azure Monitor metrische archief verzenden met een resource manager-sjabloon voor een virtuele Windows-machine

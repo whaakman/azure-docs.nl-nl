@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: 3ebf464fed1480e7452f246f04f3906faf0dd219
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67875300"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple als een back-updoel met Veeam
@@ -318,9 +318,9 @@ Hier volgt een voor beeld van een GFS-rotatie schema voor vier weken, maandelijk
 
 | Type frequentie/back-up | Volledig | Incrementeel (dagen 1-5)  |   
 |---|---|---|
-| Wekelijks (weken 1-4) | Zaterdag | Maandag t/m vrijdag |
-| Maandelijks  | Zaterdag  |   |
-| Jaarlijks | Zaterdag  |   |
+| Wekelijks (weken 1-4) | zaterdag | Maandag t/m vrijdag |
+| Maandelijks  | zaterdag  |   |
+| Per jaar | zaterdag  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>StorSimple-volumes toewijzen aan een Veeam-back-uptaak
@@ -393,14 +393,14 @@ In de volgende tabel ziet u hoe u back-ups kunt instellen om uit te voeren op de
 
 GFS draaiing wekelijks, maandelijks en jaarlijks plannen
 
-| Wekelijks | Volledig | Incrementele dag 1 | Incrementele dag 2 | Incrementele dag 3 | Incrementele dag 4 | Incrementele dag 5 |
+| Week | Volledig | Incrementele dag 1 | Incrementele dag 2 | Incrementele dag 3 | Incrementele dag 4 | Incrementele dag 5 |
 |---|---|---|---|---|---|---|
 | Week 1 | Lokaal RAID-volume  | Lokaal RAID-volume | Lokaal RAID-volume | Lokaal RAID-volume | Lokaal RAID-volume | Lokaal RAID-volume |
 | Week 2 | StorSimple weken 2-4 |   |   |   |   |   |
 | Week 3 | StorSimple weken 2-4 |   |   |   |   |   |
 | Week 4 | StorSimple weken 2-4 |   |   |   |   |   |
 | Maandelijks | StorSimple maandelijks |   |   |   |   |   |
-| Jaarlijks | Jaarlijks StorSimple  |   |   |   |   |   |
+| Per jaar | Jaarlijks StorSimple  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>StorSimple-volumes toewijzen aan een Veeam-Kopieer taak
 

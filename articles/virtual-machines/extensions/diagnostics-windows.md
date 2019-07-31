@@ -1,8 +1,8 @@
 ---
-title: Azure PowerShell gebruiken voor het inschakelen van diagnostische gegevens op een Windows-VM | Microsoft Docs
+title: Azure PowerShell gebruiken om diagnostische gegevens in te scha kelen op een Windows-VM | Microsoft Docs
 services: virtual-machines-windows
 documentationcenter: ''
-description: Informatie over het gebruik van PowerShell voor het inschakelen van Azure Diagnostics in een virtuele machine met Windows
+description: Meer informatie over het gebruik van Power shell om Azure Diagnostics in te scha kelen op een virtuele machine met Windows
 author: sbtron
 manager: gwallace
 editor: ''
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
 ms.openlocfilehash: 19d30d207e67e1dfd8cdec2fe9951c763a921a0e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67706076"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>PowerShell gebruiken voor het inschakelen van Azure Diagnostics in een virtuele machine met Windows
 
-Azure Diagnostics is de functie in Azure waarmee u het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de diagnostics-extensie gebruiken voor het verzamelen van diagnostische gegevens, zoals van toepassingslogboeken of prestatiemeteritems van een Azure virtuele machine (VM) waarop Windows wordt uitgevoerd. 
+Azure Diagnostics is de mogelijkheid binnen Azure om het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing mogelijk te maken. U kunt de diagnostische extensie gebruiken om diagnostische gegevens te verzamelen, zoals toepassings Logboeken of prestatie meter items van een virtuele Azure-machine (VM) met Windows. 
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>De extensie voor diagnostische gegevens inschakelen als u de Resource Manager-implementatiemodel
-Bij het maken van een virtuele Windows-machine via het Azure Resource Manager-implementatiemodel door de configuratie van de extensie toe te voegen aan de Resource Manager-sjabloon, kunt u de extensie voor diagnostische gegevens inschakelen. Zie [maken van een Windows-machine met controle en diagnostiek met behulp van de Azure Resource Manager-sjabloon](diagnostics-template.md).
+## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>De diagnostische uitbrei ding inschakelen als u het Resource Manager-implementatie model gebruikt
+U kunt de diagnostische uitbrei ding inschakelen tijdens het maken van een virtuele Windows-machine via het Azure Resource Manager-implementatie model door de extensie configuratie toe te voegen aan de Resource Manager-sjabloon. Zie [een virtuele Windows-machine met controle en diagnostische gegevens maken met behulp van de sjabloon Azure Resource Manager](diagnostics-template.md).
 
-Om in te schakelen de extensie voor diagnostische gegevens op een bestaande virtuele machine die is gemaakt via het Resource Manager-implementatiemodel, kunt u de [Set AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdiagnosticsextension) PowerShell-cmdlet, zoals hieronder weergegeven.
+Als u de uitbrei ding voor diagnostische gegevens wilt inschakelen op een bestaande virtuele machine die is gemaakt via het Resource Manager-implementatie model, kunt u de Power shell [-cmdlet Set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdiagnosticsextension) gebruiken zoals hieronder wordt weer gegeven.
 
     $vm_resourcegroup = "myvmresourcegroup"
     $vm_name = "myvm"
@@ -39,58 +39,58 @@ Om in te schakelen de extensie voor diagnostische gegevens op een bestaande virt
     Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path
 
 
-*$diagnosticsconfig_path* is het pad naar het bestand met de configuratie van diagnostische gegevens in XML-bestand, zoals beschreven in de [voorbeeld](#sample-diagnostics-configuration) hieronder.  
+*$diagnosticsconfig _path* het pad is naar het bestand dat de diagnostische configuratie in XML bevat, zoals wordt beschreven in het onderstaande voor [beeld](#sample-diagnostics-configuration) .  
 
-Als het configuratiebestand van de diagnostische gegevens Hiermee geeft u een **StorageAccount** element met de naam van een opslagaccount, dan zal de *Set AzVMDiagnosticsExtension* script stelt automatisch de diagnostische gegevens de extensie voor diagnostische gegevens verzenden naar dat opslagaccount. Om dit te werken, moet het opslagaccount zich in hetzelfde abonnement als de virtuele machine.
+Als in het configuratie bestand voor diagnostische gegevens een **Storage account** -element met de naam van een opslag account is opgegeven, wordt door het script *set-AzVMDiagnosticsExtension* automatisch de diagnostische extensie ingesteld voor het verzenden van diagnostische gegevens naar die opslag account. Om dit te laten werken, moet het opslag account zich in hetzelfde abonnement benemen als de VM.
 
-Als er geen **StorageAccount** is opgegeven in de configuratie van diagnostische gegevens, moet u om door te geven de *StorageAccountName* parameter aan de cmdlet. Als de *StorageAccountName* parameter is opgegeven, wordt de cmdlet gebruikt altijd de storage-account dat is opgegeven in de parameter en niet de naam die is opgegeven in het configuratiebestand van de diagnostische gegevens.
+Als er geen **Storage account** is opgegeven in de diagnostische configuratie, moet u de para meter *StorageAccountName* door geven aan de cmdlet. Als de para meter *StorageAccountName* is opgegeven, gebruikt de cmdlet altijd het opslag account dat is opgegeven in de para meter en niet de-naam die is opgegeven in het configuratie bestand voor diagnostische gegevens.
 
-Als het opslagaccount voor diagnostische gegevens in een ander abonnement van de virtuele machine, dan u expliciet doorgeven moet de *StorageAccountName* en *StorageAccountKey* parameters aan de cmdlet. De *StorageAccountKey* parameter is niet nodig als het opslagaccount voor diagnostische gegevens in hetzelfde abonnement, aangezien de cmdlet kan automatisch query's uitvoeren en de waarde van de sleutel bij het inschakelen van de extensie voor diagnostische gegevens. Echter, als het opslagaccount voor diagnostische gegevens in een ander abonnement, en vervolgens de cmdlet mogelijk niet ophalen van de sleutel automatisch en u expliciet moet opgeven de sleutel via de *StorageAccountKey* parameter.  
+Als het diagnostische opslag account zich in een ander abonnement dan de virtuele machine bevindt, moet u de para meters *StorageAccountName* en *StorageAccountKey* expliciet door geven aan de cmdlet. De para meter *StorageAccountKey* is niet nodig wanneer het diagnostische opslag account zich in hetzelfde abonnement bevindt, omdat de cmdlet automatisch de sleutel waarde kan opvragen en instellen bij het inschakelen van de uitbrei ding voor diagnostische gegevens. Als het opslag account voor diagnostische gegevens echter zich in een ander abonnement bevindt, kan de cmdlet de sleutel mogelijk niet automatisch ophalen en moet u de sleutel expliciet opgeven via de para meter *StorageAccountKey* .  
 
     Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
-Zodra de diagnostics-extensie is ingeschakeld op een virtuele machine, kunt u de huidige instellingen ophalen met behulp van de [Get-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/get-azvmdiagnosticsextension) cmdlet.
+Zodra de diagnostische uitbrei ding is ingeschakeld op een virtuele machine, kunt u de huidige instellingen ophalen met behulp van de cmdlet [Get-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/get-azvmdiagnosticsextension) .
 
     Get-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
 
-De cmdlet retourneert *PublicSettings*, die de configuratie van de diagnostische gegevens bevat. Er zijn twee soorten configuratie wordt ondersteund, WadCfg en xmlCfg. WadCfg is JSON-configuratie en xmlCfg XML-configuratie in een indeling Base64-gecodeerd is. Als u wilt lezen van het XML-bestand, moet u dit decoderen.
+De cmdlet retourneert *PublicSettings*, die de diagnostische configuratie bevat. Er zijn twee soorten configuratie ondersteund: WadCfg en xmlCfg. WadCfg is een JSON-configuratie en xmlCfg is XML-configuratie in een indeling met base64-code ring. Als u de XML wilt lezen, moet u deze decoderen.
 
     $publicsettings = (Get-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
 
-De [Remove-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdiagnosticsextension) cmdlet kan worden gebruikt voor het verwijderen van de extensie voor diagnostische gegevens van de virtuele machine.  
+De cmdlet [Remove-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdiagnosticsextension) kan worden gebruikt om de diagnostische uitbrei ding van de virtuele machine te verwijderen.  
 
-## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>De extensie voor diagnostische gegevens inschakelen als u het klassieke implementatiemodel
-U kunt de [Set AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) cmdlet om in te schakelen van een extensie voor diagnostische gegevens op een virtuele machine die u hebt gemaakt via het klassieke implementatiemodel. Het volgende voorbeeld ziet hoe u een nieuwe virtuele machine via het klassieke implementatiemodel maakt met de extensie voor diagnostische gegevens ingeschakeld.
+## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>De diagnostische uitbrei ding inschakelen als u het klassieke implementatie model gebruikt
+U kunt de cmdlet [set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) gebruiken om een uitbrei ding van diagnostische gegevens in te scha kelen op een virtuele machine die u maakt via het klassieke implementatie model. In het volgende voor beeld ziet u hoe u een nieuwe virtuele machine maakt op basis van het klassieke implementatie model waarin de diagnostische uitbrei ding is ingeschakeld.
 
     $VM = New-AzVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
     $VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
     $VM = Set-AzVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
     New-AzVM -Location $Location -ServiceName $Service_Name -VM $VM
 
-Om in te schakelen de extensie voor diagnostische gegevens op een bestaande virtuele machine die is gemaakt via het klassieke implementatiemodel, gebruikt u eerst de [Get-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) cmdlet om op te halen van de VM-configuratie. Werk vervolgens de VM-configuratie om op te nemen van de extensie voor diagnostische gegevens met behulp van de [Set AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) cmdlet. Ten slotte de bijgewerkte configuratie van toepassing op de virtuele machine met behulp van [Update-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/update-azurevm).
+Als u de diagnostische uitbrei ding wilt inschakelen op een bestaande virtuele machine die is gemaakt via het klassieke implementatie model, gebruikt u eerst de cmdlet [Get-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) om de VM-configuratie op te halen. Werk vervolgens de configuratie van de virtuele machine bij met de extensie voor diagnostische gegevens met behulp van de cmdlet [set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) . Ten slotte past u de bijgewerkte configuratie toe op de virtuele machine met behulp van [Update-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/update-azurevm).
 
     $VM = Get-AzVM -ServiceName $Service_Name -Name $VM_Name
     $VM_Update = Set-AzVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
     Update-AzVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
 
-## <a name="sample-diagnostics-configuration"></a>In de configuratie van diagnostische gegevens
-Het volgende XML-bestand kan worden gebruikt voor de diagnostische gegevens over openbare configuratie met de bovenstaande scripts. Deze voorbeeldconfiguratie wordt verschillende prestatiemeters overbrengen naar het opslagaccount voor diagnostische gegevens, samen met fouten van de toepassings-, beveiligings- en systeemkanalen in de Windows-gebeurtenislogboeken en eventuele fouten in de logboeken met diagnostische gegevens over infrastructuur.
+## <a name="sample-diagnostics-configuration"></a>Voorbeeld configuratie voor diagnostische gegevens
+De volgende XML kan worden gebruikt voor de open bare configuratie van diagnostische gegevens met de bovenstaande scripts. Met deze voorbeeld configuratie worden verschillende prestatie meter items overgebracht naar het opslag account voor diagnostische gegevens, samen met fouten van de toepassing, de beveiliging en de systeem kanalen in de Windows-gebeurtenis logboeken en eventuele fouten uit de logboeken met diagnostische gegevens van de infra structuur.
 
-De configuratie moet worden bijgewerkt met het volgende:
+De configuratie moet worden bijgewerkt om het volgende te kunnen bevatten:
 
-* De *resourceID* kenmerk van de **metrische gegevens** element moet worden bijgewerkt met de resource-ID voor de virtuele machine.
+* Het kenmerk *resourceID* van het element **Metrics** moet worden bijgewerkt met de resource-id voor de virtuele machine.
   
-  * De resource-ID kan worden samengesteld met behulp van het volgende patroon: ' / subscriptions / {*abonnements-ID voor het abonnement met de virtuele machine*} /resourceGroups/ {*de resourcegroup-naam voor de virtuele machine*} / providers/Microsoft.Compute/virtualMachines/ {*naam van de VM*} '.
-  * Bijvoorbeeld, als het abonnement-ID voor het abonnement waarin de virtuele machine wordt uitgevoerd is **11111111-1111-1111-1111-111111111111**, de naam van de resourcegroep voor de resourcegroep is **MyResourceGroup**, en de De naam van de virtuele machine is **MyWindowsVM**, klikt u vervolgens de waarde voor *resourceID* zou zijn:
+  * De resource-ID kan worden samengesteld met behulp van het volgende patroon: "/Subscriptions/{ *-abonnements-id voor het abonnement met de VM*}/resourceGroups/{*de ResourceGroup-naam voor de VM*}/providers/Microsoft.Compute/virtualMachines/{ *De VM-naam*} ".
+  * Als de abonnements-ID voor het abonnement waarin de virtuele machine wordt uitgevoerd, **11111111-1111-1111-1111-111111111111**is, is de naam van de resource groep voor de resource groep **MyResourceGroup**en de naam van de virtuele machine **MyWindowsVM**. vervolgens wordt de de waarde voor *resourceID* zou zijn:
     
       ```xml
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
       ```
-  * Voor meer informatie over hoe u metrische gegevens worden gegenereerd op basis van de configuratie van tellers en metrische gegevens over prestaties, Zie [metrische gegevenstabel voor Azure Diagnostics in opslag](diagnostics-template.md#wadmetrics-tables-in-storage).
-* De **StorageAccount** element moet worden bijgewerkt met de naam van het opslagaccount voor diagnostische gegevens.
+  * Zie [Azure Diagnostics metrische tabel in opslag](diagnostics-template.md#wadmetrics-tables-in-storage)voor meer informatie over hoe metrieken worden gegenereerd op basis van de configuratie van de prestatie meter items en de metrische gegevens.
+* Het **Storage account** -element moet worden bijgewerkt met de naam van het diagnostische-opslag account.
   
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -197,6 +197,6 @@ De configuratie moet worden bijgewerkt met het volgende:
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het gebruik van de mogelijkheden van Azure Diagnostics en andere technieken voor het oplossen van problemen [diagnostische gegevens inschakelen in Azure Cloud Services en Virtual Machines](../../cloud-services/cloud-services-dotnet-diagnostics.md).
-* [Configuratieschema van Diagnostics](https://msdn.microsoft.com/library/azure/mt634524.aspx) worden de verschillende XML-configuratie-opties voor de extensie voor diagnostische gegevens.
+* Zie voor meer informatie over het gebruik van de Azure Diagnostics mogelijkheden en andere technieken voor het oplossen van problemen [Diagnostische gegevens inschakelen in Azure Cloud Services en virtual machines](../../cloud-services/cloud-services-dotnet-diagnostics.md).
+* In [schema voor diagnostische configuraties](https://msdn.microsoft.com/library/azure/mt634524.aspx) worden de verschillende opties voor XML-configuraties voor de uitbrei ding van diagnostische gegevens uitgelegd.
 
