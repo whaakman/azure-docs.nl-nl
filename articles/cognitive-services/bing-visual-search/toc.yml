@@ -52,7 +52,8 @@
     - name: Gebruik van Bing-inzichten
       href: bing-insights-usage.md
     - name: Analytische gegevens voor Visual zoeken-API
-      href: bing-visual-search-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
 - name: Handleidingen
   items:
     - name: Inzichten verkrijgen met token

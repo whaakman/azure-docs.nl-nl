@@ -1,61 +1,63 @@
 ---
-title: Overzicht (preview) - Azure Search en Knowledge store Inleiding
-description: Verrijkt documenten verzenden naar Azure-opslag waar u kunt weergeven, vorm en verrijkt documenten in Azure Search en andere toepassingen gebruiken.
+title: Inleiding en overzicht van kennis winkels (preview)-Azure Search
+description: Verrijkte documenten naar Azure Storage verzenden waar u verrijkte documenten in Azure Search en in andere toepassingen kunt weer geven, wijzigen en gebruiken.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 6cbf8dfe51e8b553fd84e9eb81a2ea37a65c387e
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540736"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668288"
 ---
-# <a name="what-is-knowledge-store-in-azure-search"></a>Wat is kennis store in Azure Search?
+# <a name="what-is-knowledge-store-in-azure-search"></a>Wat is een kennis winkel in Azure Search?
 
 > [!Note]
-> Kennis store is in preview en niet bedoeld voor gebruik in productieomgevingen. De [2019 in de REST-API-versie-05-06-Preview](search-api-preview.md) biedt deze functie. Er is geen .NET SDK-ondersteuning op dit moment.
+> Het kennis archief is een preview-versie en is niet bedoeld voor productie gebruik. De [rest API versie 2019-05-06-preview](search-api-preview.md) biedt deze functie. Er is op dit moment geen .NET SDK-ondersteuning.
 >
 
-Kennis store is een optionele functie van Azure Search die wordt opgeslagen als verrijkt documenten en metagegevens die zijn gemaakt door een-op basis van AI indexering pijplijn [(cognitief zoeken)](cognitive-search-concept-intro.md). Kennis store wordt ondersteund door Azure storage-account dat u als onderdeel van de pijplijn configureert. Wanneer ingeschakeld, de search-service maakt gebruik van dit opslagaccount wordt gebruikt om een weergave van elk document verrijkt in cache. 
+Knowledge Store is een functie van Azure Search die verrijkte documenten en meta gegevens opslaat die zijn gemaakt met een op AI gebaseerde indexerings pijplijn [(cognitieve zoek functie)](cognitive-search-concept-intro.md). Een verrijkt document is de uitvoer van een pijp lijn, gemaakt op basis van inhoud die is geëxtraheerd, gestructureerd en geanalyseerd met behulp van resources in Cognitive Services. In een standaard-AI-pijp lijn zijn verrijkte documenten onwaar, die alleen tijdens het indexeren worden gebruikt en vervolgens worden verwijderd. In het kennis archief worden documenten opgeslagen voor de volgende evaluatie, het verkennen en kunnen ze worden opgenomen in een Data Science-werk belasting van downstream. 
 
-Als u cognitief zoeken in het verleden hebt gebruikt, weet u al dat kennis en vaardigheden kunnen worden gebruikt om een document via een reeks enrichments te verplaatsen. Het resultaat is een Azure Search-index of (nieuw in deze Preview-versie) projecties in een winkel kennis.
+Als u de functie voor het zoeken in het verleden hebt gebruikt, weet u al dat vaardig heden wordt gebruikt om een document te verplaatsen met behulp van een reeks verrijkingen. De uitkomst kan een Azure Search index zijn of (nieuwe in deze preview-versie) projecties in een kennis archief. De twee uitvoer, zoek index en kennis opslag zijn fysiek onderscheiden van elkaar. Ze delen dezelfde inhoud, maar worden op zeer verschillende manieren opgeslagen en gebruikt.
 
-Projecties zijn uw mechanisme voor het structureren van gegevens voor gebruik in een downstream-app. U kunt [Opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) die is gebouwd voor Azure storage of alle Apps die verbinding met Azure storage maakt, die wordt geopend nieuwe mogelijkheden voor het gebruik van verrijkt documenten. Enkele voorbeelden zijn data science-pijplijnen en aangepaste analyse.
+Fysiek wordt een kennis archief gemaakt in een Azure Storage-account, hetzij als Azure Table Storage of Blob Storage, afhankelijk van hoe u de pijp lijn configureert. Elk hulp programma of proces waarmee verbinding kan worden gemaakt met Azure Storage, kan de inhoud van een kennis archief gebruiken.
 
-![Kennis store in overzichtsdiagram van gegevenspijplijn](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "kennis opslaan in de pijplijn-diagram")
+Projecties zijn uw mechanisme voor het structureren van gegevens in een kennis archief. In projecties kunt u bijvoorbeeld kiezen of de uitvoer wordt opgeslagen als één BLOB of een verzameling gerelateerde tabellen. Een eenvoudige manier om de inhoud van het kennis archief weer te geven, is via de ingebouwde [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) voor Azure Storage.
 
-Voor het gebruik van kennis store toevoegen een `knowledgeStore` element in een set vaardigheden die stap voor stap bewerkingen in een pijplijn voor indexering definieert. Tijdens de uitvoering Azure Search wordt een spatie in uw Azure storage-account gemaakt en gevuld met de definities en inhoud die is gemaakt door de pijplijn.
+![Kennis archief in pijplijn diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Kennis archief in pijplijn diagram")
 
-## <a name="benefits-of-knowledge-store"></a>Voordelen van kennis store
+Als u het kennis archief wilt gebruiken `knowledgeStore` , voegt u een-element toe aan een vaardig heden die stapsgewijze bewerkingen in een indexerings pijplijn definieert. Tijdens de uitvoering van Azure Search wordt er in uw Azure Storage-account een ruimte gemaakt en gevuld met definities en inhoud die door de pijp lijn is gemaakt.
 
-Een kennis biedt u structuur, context en inhoud - afgelezen uit ongestructureerde en semi-gestructureerde gegevensbestanden, zoals blobs, bestanden die hebben ondergaan analyse, of zelfs van gestructureerde gegevens die naar nieuwe formulieren is omgevormd opslaan. In een [stapsgewijze](knowledge-store-howto.md) die zijn geschreven voor deze Preview-versie, kunt u eerste hand hoe een compacte JSON-document is gepartitioneerd in substructuren, geregenereerd in nieuwe structuren en anders beschikbaar gesteld voor downstream bekijken processen zoals machine learning en data science-werkbelastingen.
+## <a name="benefits-of-knowledge-store"></a>Voor delen van kennis archief
 
-Hoewel het is handig om te zien wat een indexering op basis van AI-pijplijn kunt maken, is de ware kracht van kennis store de mogelijkheid om te zetten om gegevens. U kunt beginnen met een eenvoudige set vaardigheden en vervolgens herhalen worden steeds meer niveaus van de structuur, die u vervolgens tot nieuwe structuren, verbruikbare in andere apps naast Azure Search combineren kunt toevoegen.
+Een kennis archief biedt u de structuur, context en werkelijke inhoud-afgelezen van ongestructureerde en semi-gestructureerde gegevens bestanden zoals blobs, afbeeldings bestanden die een analyse hebben ondergaan of zelfs gestructureerde gegevens die in nieuwe formulieren worden omgezet. In een [Stapsgewijze](knowledge-store-howto.md) uitleg dat voor deze preview is geschreven, kunt u de eerste hand leiding zien hoe een dicht JSON-document is gepartitioneerd in substructuren, worden omgezet in nieuwe structuren en op andere wijze beschikbaar worden gesteld voor downstream-processen zoals machine Leer-en data wetenschappen-workloads.
 
-De voordelen van kennis store omvatten geïnventariseerd, het volgende:
+Hoewel het handig is om te zien wat een op AI gebaseerde indexerings pijplijn kan produceren, is de mogelijkheid om gegevens te wijzigen. U kunt beginnen met een basis vaardighedenset en vervolgens door lopen om meer structuur niveaus toe te voegen, die u vervolgens in andere apps kan combi neren, behalve Azure Search.
 
-+ Verrijkt documenten in gebruiken [analyses en hulpprogramma's voor rapportage](#tools-and-apps) dan zoeken. Power BI met Power Query is een aantrekkelijke keuze, maar een hulpprogramma of de app die u verbinding met Azure storage maken kunt kunt ophalen uit een store kennis die u maakt.
+Geïnventariseerd, de voor delen van kennis archief zijn onder andere het volgende:
 
-+ Een pijplijn AI indexeren tijdens het opsporen van stappen en vaardigheden definities verfijnen. Een store kennis ziet u het product van de definitie van een vaardigheden in een pijplijn AI-indexering. De resultaten kunt u een betere vaardigheden ontwerpen omdat ziet u precies wat de enrichments er als volgt uitzien. U kunt [Opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) in Azure storage om de inhoud van een winkel kennis weer te geven.
++ Gebruik verrijkte documenten in [analyse-en rapportage hulpprogramma's,](#tools-and-apps) met uitzonde ring van zoeken. Power BI met Power Query is een fascinerende keuze, maar elk hulp programma of elke app die verbinding kan maken met Azure Storage kan worden opgehaald uit een kennis archief dat u maakt.
 
-+ De vorm van de gegevens naar nieuwe formulieren. Het omzetten van is overgegaan in kennis en vaardigheden, maar het punt is dat een set vaardigheden nu deze mogelijkheid kan bieden. De [Shaper vaardigheid](cognitive-search-skill-shaper.md) in Azure Search is uitgebreid om te voldoen aan deze taak. Omvormen, kunt u een projectie die met uw beoogde gebruik van de gegevens overeenstemt behoud van de relaties definiëren.
++ Verfijn een pijp lijn voor AI-indexering bij het opsporen van fouten en definities van vaardig heden. In een kennis archief ziet u het product van een vaardighedenset-definitie in een AI-Indexing-pijp lijn. U kunt deze resultaten gebruiken om een betere vaardig heden te ontwerpen, want u kunt precies zien hoe de verrijkingen eruitzien. U kunt [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) in azure Storage gebruiken om de inhoud van een kennis archief weer te geven.
+
++ De gegevens vorm geven in nieuwe formulieren. Het omvormen wordt in vaardig heden gecodificeerd, maar het punt is dat deze mogelijkheid nu kan worden geboden door een vaardig heden. De [shaper-vaardigheid](cognitive-search-skill-shaper.md) in azure Search is uitgebreid om deze taak te kunnen verwerken. Met Reshaping kunt u een projectie definiëren die wordt afgestemd op uw gebruik van de gegevens, terwijl de relaties behouden blijven.
 
 > [!Note]
-> Niet bekend bent met AI gebaseerde indexeren met cognitieve Services? Azure Search kan worden geïntegreerd met Cognitive Services Beeld- en taal functies voor het uitpakken en verrijken van gegevens met behulp van optische tekenherkenning (OCR) via afbeeldingsbestanden, herkenning van entity's en sleuteltermextractie uit tekstbestanden, en meer. Zie voor meer informatie, [wat cognitief zoeken is?](cognitive-search-concept-intro.md).
+> Bent u niet bekend met het indexeren op basis van AI met behulp van Cognitive Services? Azure Search integreert met Cognitive Services Vision-en taal functies om bron gegevens te extra heren en te verrijken met behulp van optische teken herkenning (OCR) over afbeeldings bestanden, het herkennen van entiteiten en het uitpakken van sleutel zinnen uit tekst bestanden. Zie [Wat is cognitieve zoek actie?](cognitive-search-concept-intro.md)voor meer informatie.
 
-## <a name="create-a-knowledge-store"></a>Maak een winkel kennis
+## <a name="create-a-knowledge-store"></a>Een kennis archief maken
 
-Een store kennis maakt deel uit van de definitie van een vaardigheden. In deze Preview-versie te maken vereist dat de REST-API met behulp van `api-version=2019-05-06-Preview` of de **gegevens importeren** wizard in de portal.
+Een kennis archief maakt deel uit van een definitie van een vaardig heden. In deze preview-versie is het vereist dat de rest API `api-version=2019-05-06-Preview` , met of de wizard **gegevens importeren** in de portal.
 
-Hiermee geeft u op de volgende JSON een `knowledgeStore`, die deel uitmaakt van een set vaardigheden, die wordt opgeroepen door een indexeerfunctie (niet weergegeven). De specificatie van projecties binnen de `knowledgeStore` wordt bepaald of tabellen of objecten worden gemaakt in Azure storage.
+De volgende JSON geeft een `knowledgeStore`, die deel uitmaakt van een vaardig heden, die wordt aangeroepen door een Indexeer functie (niet weer gegeven). De specificatie van projecties binnen de `knowledgeStore` bepaalt of tabellen of objecten worden gemaakt in azure Storage.
 
-Als u al bekend met AI gebaseerde indexering bent, bepaalt de definitie van de vaardigheden te maken, organisatie, en inhoud van elk verrijkt document.
+Als u al bekend bent met het indexeren op basis van AI, bepaalt de definitie van de vaardig heden het maken, de organisatie en de stof van elk verrijkt document.
 
 ```json
 {
@@ -116,13 +118,13 @@ Als u al bekend met AI gebaseerde indexering bent, bepaalt de definitie van de v
 }
 ```
 
-## <a name="components-backing-a-knowledge-store"></a>Onderdelen van een back-up een winkel kennis
+## <a name="components-backing-a-knowledge-store"></a>Onderdelen voor het maken van een back-up van een kennis archief
 
-Als u wilt een winkel kennis maakt, moet u de volgende services en artefacten.
+Als u een Knowledge Store wilt maken, hebt u de volgende services en artefacten nodig.
 
-### <a name="1---source-data"></a>1 - brongegevens
+### <a name="1---source-data"></a>1: Bron gegevens
 
-De gegevens of documenten die u wilt verrijken moeten bestaan in een Azure-gegevensbron wordt ondersteund door Azure Search-indexeerfuncties: 
+De gegevens of documenten die u wilt verrijken, moeten aanwezig zijn in een Azure-gegevens bron die wordt ondersteund door Azure Search Indexeer functies: 
 
 * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
@@ -130,70 +132,70 @@ De gegevens of documenten die u wilt verrijken moeten bestaan in een Azure-gegev
 
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 
-[Azure-tabelopslag](search-howto-indexing-azure-tables.md) kan worden gebruikt voor uitgaande gegevens in een store kennis, maar kan niet worden gebruikt als een resource voor inkomende gegevens naar een indexering op basis van AI-pijplijn.
+[Azure-tabel opslag](search-howto-indexing-azure-tables.md) kan worden gebruikt voor uitgaande gegevens in een Knowledge Store, maar kan niet worden gebruikt als resource voor inkomende gegevens naar een op AI gebaseerde indexerings pijplijn.
 
-### <a name="2---azure-search-service"></a>2 - azure Search-service
+### <a name="2---azure-search-service"></a>2-Azure Search-service
 
-U moet ook een Azure Search-service en de REST-API maken en configureren van objecten die worden gebruikt voor gegevensverrijking. De REST-API voor het maken van een winkel kennis is `api-version=2019-05-06-Preview`.
+U hebt ook een Azure Search-service en de REST API nodig om objecten te maken en te configureren die worden gebruikt voor gegevens verrijking. De REST API voor het maken van een kennis `api-version=2019-05-06-Preview`archief is.
 
-Azure Search biedt de functie indexeerfunctie en indexeerfuncties worden gebruikt om het hele proces end-to-end, wat resulteert in persistente, verrijkt documenten in Azure storage te stimuleren. Indexeerfuncties gebruiken een gegevensbron, een index en een set vaardigheden - die allemaal vereist zijn voor het maken en invullen van een winkel kennis.
+Azure Search biedt de functie indexer, en Indexeer functies worden gebruikt om het hele proces end-to-end te laten oplopen, wat resulteert in persistente, verrijkte documenten in azure Storage. Indexeer functies maken gebruik van een gegevens bron, een index en een vakkennisset, die allemaal vereist zijn voor het aanmaken en invullen van een kennis archief.
 
 | Object | REST-API | Description |
 |--------|----------|-------------|
-| gegevensbron | [Gegevensbron maken](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Een bron voor het identificeren van een externe Azure gegevensbron met de brongegevens die worden gebruikt voor het maken van geavanceerde documenten bieden.  |
-| Vaardigheden | [Vaardighedenset maken (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Een resource coördinatie van het gebruik van [ingebouwde vaardigheden](cognitive-search-predefined-skills.md) en [aangepaste cognitieve vaardigheden](cognitive-search-custom-skill-interface.md) gebruikt in een pijplijn verrijking tijdens het indexeren. |
-| index | [Index maken](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Een schema aan een Azure Search-index. Velden in de index toewijzen aan velden in de brongegevens of aan velden die tijdens de fase verrijking (bijvoorbeeld een veld voor organisatienamen die zijn gemaakt door herkenning entiteit). |
-| indexeerfunctie | [Indexeerfunctie maken (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Een resource voor het definiëren van onderdelen die worden gebruikt tijdens het indexeren: met inbegrip van een gegevensbron, een set vaardigheden, Veldkoppelingen van de bron- en om gegevens tussentijds structuren met doelindex en de index zelf. De indexeerfunctie wordt uitgevoerd, wordt de trigger voor gegevensopname en verrijking. De uitvoer is een search-index op basis van het indexschema, ingevuld met de brongegevens, verrijkt via kennis en vaardigheden.  |
+| gegevensbron | [Gegevensbron maken](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Een bron voor het identificeren van een externe Azure-gegevens bron die bron gegevens levert die worden gebruikt voor het maken van verrijkte documenten.  |
+| vaardig heden | [Vaardig heden maken (API-Version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Een resource coördineert het gebruik van [ingebouwde vaardig heden](cognitive-search-predefined-skills.md) en [aangepaste cognitieve vaardig heden](cognitive-search-custom-skill-interface.md) die in een verrijkings pijplijn worden gebruikt tijdens het indexeren. |
+| index | [Index maken](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Een schema waarmee een Azure Search index wordt uitgedrukt. Velden in de index toewijzing naar velden in bron gegevens of in velden die worden geproduceerd tijdens de verrijkings fase (bijvoorbeeld een veld voor organisatie namen die zijn gemaakt door entiteits herkenning). |
+| indexeerfunctie | [Indexeer functie maken (API-Version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Een resource waarmee onderdelen worden gedefinieerd die worden gebruikt tijdens de indexering: een gegevens bron, een vaardig heden, veld koppelingen van bron-en intermediair gegevens structuren naar doel index en de index zelf. Het uitvoeren van de Indexeer functie is de trigger voor gegevens opname en verrijking. De uitvoer is een zoek index op basis van het index schema, gevuld met bron gegevens, verrijkt via vaardig heden.  |
 
-### <a name="3---cognitive-services"></a>3 - cognitive Services
+### <a name="3---cognitive-services"></a>3-Cognitive Services
 
-Enrichments opgegeven in een set vaardigheden zijn gebaseerd op de Computer Vision en taal-functies in Cognitive Services. Cognitive Services-functionaliteit wordt gebruikt tijdens het indexeren via uw vaardigheden uit. Een set vaardigheden is een samenstelling van vaardigheden en vaardigheden zijn gebonden aan specifieke functies voor Computer Vision en taal. Voor het integreren van Cognitive Services, zult u [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md) naar een set vaardigheden.
+Verrijkingen die zijn opgegeven in een vaardig heden zijn gebaseerd op de Computer Vision-en taal functies in Cognitive Services. De functionaliteit van Cognitive Services wordt gebruikt tijdens het indexeren via uw vaardig heden. Een vakkennisset is een samen stelling van vaardig heden en vaardig heden zijn gebonden aan specifieke Computer Vision en taal functies. Als u Cognitive Services wilt integreren, [koppelt u een Cognitive Services resource](cognitive-search-attach-cognitive-services.md) aan een vakkennisset.
 
-### <a name="4---storage-account"></a>4 - storage-account
+### <a name="4---storage-account"></a>4-opslag account
 
-Azure Search maakt onder uw Azure Storage-account, een Blob-container of tabellen, afhankelijk van hoe u een set vaardigheden configureert. Als uw data is afkomstig uit Azure Blob of Table storage, bent u al ingesteld. Anders moet u een Azure storage-account maken. Tabellen en objecten in Azure-opslag bevatten de verrijkt documenten die zijn gemaakt door de indexing op basis van AI-pijplijn.
+Onder uw Azure Storage-account maakt Azure Search een BLOB-container of-tabellen, afhankelijk van hoe u een vaardig heden configureert. Als uw gegevens afkomstig zijn uit Azure Blob of tabel opslag, bent u al ingesteld. Anders moet u een Azure-opslag account maken. Tabellen en objecten in azure Storage bevatten de verrijkte documenten die zijn gemaakt door de op AI gebaseerde indexerings pijplijn.
 
-Het opslagaccount dat is opgegeven in de vaardigheden. In `api-version=2019-05-06-Preview`, de definitie van een vaardigheden bevat een definitie van de store kennis zodat u gegevens kunt opgeven.
+Het opslag account is opgegeven in de vaardig heden. In `api-version=2019-05-06-Preview`bevat een vaardighedenset-definitie een definitie van een kennis archief zodat u account gegevens kunt opgeven.
 
 <a name="tools-and-apps"></a>
 
-### <a name="5---access-and-consume"></a>5 - openen en gebruiken
+### <a name="5---access-and-consume"></a>5-toegang en verbruiken
 
-Zodra de enrichments bestaat in storage, een hulpprogramma of de technologie die met Azure Blob verbindt of Table storage kan worden gebruikt om te verkennen, analyseren of de inhoud in beslag nemen. Hieronder volgt een start:
+Zodra de verrijkingen in de opslag ruimte bestaan, kunnen alle hulp middelen of technologieën die verbinding maken met Azure Blob of tabel opslag worden gebruikt om de inhoud te verkennen, te analyseren of te gebruiken. De volgende lijst is een begin:
 
-+ [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) om geavanceerde documentstructuur en de inhoud weer te geven. Houd rekening met deze als de basislijn-hulpprogramma voor het weergeven van inhoud kennis.
++ [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) om de verrijkte document structuur en-inhoud weer te geven. Beschouw dit als het basislijn hulp programma voor het weer geven van de inhoud van het kennis archief.
 
-+ [Power BI met Power Query](https://support.office.com/article/connect-to-microsoft-azure-blob-storage-power-query-f8165faa-4589-47b1-86b6-7015b330d13e) voor query's in natuurlijke taal, of gebruik de rapportage en analyse-hulpprogramma's hebt u numerieke gegevens.
++ [Power bi met Power query](https://support.office.com/article/connect-to-microsoft-azure-blob-storage-power-query-f8165faa-4589-47b1-86b6-7015b330d13e) voor query's in natuurlijke taal of gebruik de hulpprogram ma's voor rapportage en analyse als u numerieke gegevens hebt.
 
-+ [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) voor het verder bewerken.
++ [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) voor verdere manipulatie.
 
-+ Azure Search-index voor zoeken in volledige tekst via de inhoud die u hebt geïndexeerd met [cognitief zoeken](cognitive-search-concept-intro.md).
++ Azure Search index voor zoeken in volledige tekst over inhoud die u hebt geïndexeerd met [cognitieve zoek functie](cognitive-search-concept-intro.md).
 
 ## <a name="document-persistence"></a>Document persistentie
 
-In de storage-account, kunnen de enrichments worden uitgedrukt als tabellen in Azure Table storage of objecten in Azure Blob-opslag. Intrekken dat enrichments, wanneer deze zijn opgeslagen, om gegevens te laden in andere databases en -hulpprogramma's, kunnen worden gebruikt als een bron
+Binnen het opslag account kunnen de verrijkingen worden uitgedrukt als tabellen in azure-tabel opslag of als objecten in Azure Blob-opslag. Deze verrijkingen, zodra ze zijn opgeslagen, kunnen worden gebruikt als bron voor het laden van gegevens in andere data bases en hulpprogram ma's.
 
-+ Tabelopslag is handig als u wilt dat een schema-bewuste weergave van de gegevens in tabelvorm. Als u wilt wijzigen of elementen weer op nieuwe manieren, biedt Table storage de benodigde granulatie.
++ Tabel opslag is handig als u een schema bewuste representatie van de gegevens in tabel vorm wilt maken. Als u de vorm van elementen opnieuw wilt wijzigen of opnieuw wilt combi neren, geeft de tabel opslag u de benodigde granulatie.
 
-+ BLOB-opslag maakt een allesomvattende JSON-weergave van elk document. U kunt allebei opslagopties die in één vaardigheden gebruiken om op te halen van een uitgebreid scala aan expressies.
++ Met Blob-opslag maakt u één JSON-weer gave van elk document. U kunt beide opslag opties in één vaardigheidset gebruiken om een volledige reeks expressies te verkrijgen.
 
-+ Azure Search persistente inhoud in een index. Als uw scenario is het niet-zoekgerelateerde, bijvoorbeeld als het doel is analyse in een ander hulpprogramma, kunt u de index die wordt de pijplijn gemaakt verwijderen. Maar u kunt ook houden van de index en gebruiken van een ingebouwde hulpprogramma zoals [Search Explorer](search-explorer.md) als een derde medium (achter Storage Explorer en uw app analytics) voor interactie met uw inhoud.
++ Azure Search inhoud in een index persistent. Als uw scenario niet-zoek gerelateerd is, bijvoorbeeld als uw doel stelling analyset in een ander hulp programma, kunt u de index verwijderen die door de pijp lijn wordt gemaakt. Maar u kunt de index ook behouden en een ingebouwd hulp programma gebruiken, zoals [Search Explorer](search-explorer.md) als een derde medium (achter Storage Explorer en uw analyse-app) voor interactie met uw inhoud.
 
-Verrijkt documenten bevatten, samen met inhoud van het document, de metagegevens van de versie van de vaardigheden die de enrichments geproduceerd.  
+Naast de inhoud van het document bevatten verrijkte documenten de meta gegevens van de versie van de vaardig heden die de verrijkingen heeft geproduceerd.  
 
-## <a name="inside-a-knowledge-store"></a>In een store kennis
+## <a name="inside-a-knowledge-store"></a>Binnen een kennis archief
 
-De store kennis bestaat uit de cache van een aantekening en projecties. De *cache* wordt gebruikt door de service intern de cache opslaan van de resultaten van vaardigheden en het bijhouden van wijzigingen. Een *projectie* definieert het schema en de structuur van de enrichments die overeenkomen met het bedoelde gebruik. Er is een cache per kennis store, maar meerdere projecties. 
+Het kennis archief bestaat uit een cache en projecties van een aantekening. De *cache* wordt intern door de service gebruikt om de resultaten van vaardig heden in de cache op te slaan en wijzigingen bij te houden. Een *projectie* definieert het schema en de structuur van de verrijkingen die overeenkomen met uw beoogde gebruik. Er is één cache per kennis archief, maar meerdere projecties. 
 
-De cache is altijd een blob-container, maar projecties kunnen worden gelede tabellen of-objecten:
+De cache is altijd een BLOB-container, maar projecties kunnen worden gegeleeerd als tabellen of objecten:
 
-+ Als een object, de projectie wijst naar blobopslag, waar de projectie is opgeslagen naar een container, waarin de objecten of hiërarchische weergaven in de JSON voor scenario's zoals een data science-pijplijn zijn.
++ Als object wordt de projectie toegewezen aan Blob Storage, waar de projectie wordt opgeslagen in een container, binnen de objecten of hiërarchische voors tellingen in JSON voor scenario's zoals een Data Science-pijp lijn.
 
-+ Als een tabel wijst de projectie naar Table storage. Een weergave in tabelvorm bewaart relaties voor scenario's zoals het analyseren van gegevens of exporteren als gegevensframes voor machine learning. De verrijkt projecties kunnen vervolgens worden eenvoudig worden geïmporteerd in andere gegevensarchieven. 
++ Als tabel wordt de projectie toegewezen aan tabel opslag. In een tabel weergave worden de relaties voor scenario's zoals gegevens analyse en exporteren als gegevens frames voor machine learning bewaard. De verrijkte projecties kunnen vervolgens eenvoudig worden geïmporteerd in andere gegevens archieven. 
 
-U kunt meerdere projecties maken in een winkel kennis om verschillende constituencies in uw organisatie mogelijk te maken. Een ontwikkelaar mogelijk toegang tot de volledige JSON-weergave van een geavanceerde document, terwijl de datawetenschappers of analisten kunt gedetailleerde of modulaire gegevensstructuren gevormde door uw vaardigheden uit.
+U kunt in een kennis archief meerdere projecties maken voor verschillende constituencies in uw organisatie. Een ontwikkelaar moet mogelijk toegang hebben tot de volledige JSON-weer gave van een verrijkt document, terwijl gegevens wetenschappers of analisten mogelijk gedetailleerde of modulaire gegevens structuren moeten hebben die door uw vaardig heden worden gevormd.
 
-Bijvoorbeeld, als een van de doelstellingen van het proces verrijking ook maken een gegevensset die wordt gebruikt voor een model te trainen, is projectie van de gegevens in de store van het object een manier om de gegevens in uw data science-pijplijnen gebruiken. U kunt ook als u wilt maken van een snelle Power BI-dashboard op basis van de geavanceerde documenten werkt de tabellaire projectie goed.
+Als een van de doel stellingen van het verrijkings proces bijvoorbeeld is om ook een gegevensset te maken voor het trainen van een model, is het projecteren van de gegevens in de object opslag een manier om de gegevens in uw data Science-pijp lijnen te gebruiken. Als u een snel Power BI dash board wilt maken op basis van de verrijkte documenten, zou de tabellaire projectie goed werken.
 
 <!---
 ## Data lifecycle and billing
@@ -227,27 +229,27 @@ Although Azure Search creates and updates structures and content in Azure storag
 
 ## <a name="where-do-i-start"></a>Waar moet ik beginnen?
 
-We raden aan de gratis service voor educatieve doeleinden, maar houd er rekening mee dat het aantal gratis transacties beperkt tot 20 documenten per dag, per abonnement is.
+We raden u aan de gratis service voor Learning doeleinden aan te bieden, maar houd er rekening mee dat het aantal gratis trans acties is beperkt tot 20 documenten per dag, per abonnement.
 
-Wanneer u meerdere services gebruikt, maakt u al uw services van in dezelfde regio voor de beste prestaties en om kosten te minimaliseren. U betaalt geen voor de bandbreedte voor binnenkomende of uitgaande gegevens die u naar een andere service in dezelfde regio gaat.
+Wanneer u meerdere services gebruikt, maakt u al uw services in dezelfde regio voor de beste prestaties en kunt u de kosten minimaliseren. Er worden geen kosten in rekening gebracht voor de band breedte voor inkomende gegevens of uitgaande gegevens die naar een andere service in dezelfde regio gaan.
 
-**Stap 1: [Maak een Azure Search-resource](search-create-service-portal.md)** 
+**Stap 1: [Een Azure Search resource maken](search-create-service-portal.md)** 
 
-**Stap 2: [Een Azure storage-account maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)** 
+**Stap 2: [Een Azure-opslag account maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)** 
 
-**Stap 3: [Een Cognitive Services-resource maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)** 
+**Stap 3: [Een Cognitive Services resource maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)** 
 
-**Stap 4: [Aan de slag met de portal](cognitive-search-quickstart-blob.md) - of - [aan de slag met voorbeeldgegevens met behulp van REST en Postman](knowledge-store-howto.md)** 
+**Stap 4: Aan [de slag met de portal](cognitive-search-quickstart-blob.md) -of-ga aan de [slag met voorbeeld gegevens met behulp van rest en postman](knowledge-store-howto.md)** 
 
-U kunt REST `api-version=2019-05-06-Preview` te maken van een op basis van AI-pijplijn die kennis store bevat. De nieuwste preview-API, het object vaardigheden beschikt u over de `knowledgeStore` definitie.
+U kunt rest `api-version=2019-05-06-Preview` gebruiken om een op AI gebaseerde pijp lijn te maken die een kennis archief bevat. In de nieuwste preview-API biedt het object vaardig heden de `knowledgeStore` definitie.
 
 ## <a name="takeaways"></a>Opgedane kennis
 
-Kennis store biedt tal van voordelen zoals, maar niet beperkt tot het gebruik van de geavanceerde documenten in scenario's dan zoeken inschakelen, kosten van besturingselementen en drift in uw proces verrijking beheren. Deze functies zijn allemaal beschikbaar voor gebruik door een storage-account toe te voegen aan uw vaardigheden en het gebruik van de bijgewerkte expressietaal, zoals beschreven in [aan de slag met kennis store](knowledge-store-howto.md). 
+Het kennis archief biedt diverse voor delen, waaronder maar niet beperkt tot het gebruik van de verrijkte documenten in andere scenario's dan zoeken, kosten beheer en het beheren van drift in uw verrijkings proces. Deze functies zijn allemaal beschikbaar voor gebruik door simpelweg een opslag account toe te voegen aan uw vaardig heden en de bijgewerkte expressie taal te gebruiken zoals wordt beschreven in aan de [slag met kennis opslag](knowledge-store-howto.md). 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De eenvoudigste manier voor het maken van geavanceerde documenten, is via de **gegevens importeren** wizard.
+De eenvoudigste benadering voor het maken van verrijkte documenten vindt u via de wizard **gegevens importeren** .
 
 > [!div class="nextstepaction"]
-> [Snelstart: Probeer cognitief zoeken in een kennismaken met de portal](cognitive-search-quickstart-blob.md)
+> [Snelstart: Probeer cognitieve zoek functie in een portal-overzicht](cognitive-search-quickstart-blob.md)

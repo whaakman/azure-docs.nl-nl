@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/30/2019
 ms.author: diberry
-ms.openlocfilehash: edaa36cf22e63d42eb347aea3da1816e2c93b45e
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: a61f196a509c3e84b518fffb4eb78f5f7430cb28
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479223"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667572"
 ---
 # <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Preview: Migreren naar API versie 3. x voor LUIS-apps
 
@@ -84,7 +84,7 @@ De V3 API heeft verschillende query reeks parameters.
 |--|--|--|--|--|
 |`log`|boolean|V2 & V3|false|Sla de query op in het logboek bestand.| 
 |`query`|string|Alleen v3|Geen standaard-dit is vereist in de GET-aanvraag|**In v2**bevindt de utterance die moet worden voor speld `q` in de para meter. <br><br>**In v3**wordt de functionaliteit door gegeven in de `query` para meter.|
-|`show-all-intents`|boolean|Alleen v3|false|Alle intenties retour neren met de bijbehorende Score in  het object voor spellingen. Intenties worden geretourneerd als objecten in een bovenliggend `intents` object. Zo kunt u programmatisch toegang krijgen zonder dat u de bedoeling in een matrix hoeft te `prediction.intents.give`vinden:. In v2 zijn deze geretourneerd in een matrix. |
+|`show-all-intents`|boolean|Alleen v3|false|Alle intenties retour neren met de bijbehorende Score in het object voor spellingen. Intenties worden geretourneerd als objecten in een bovenliggend `intents` object. Zo kunt u programmatisch toegang krijgen zonder dat u de bedoeling in een matrix hoeft te `prediction.intents.give`vinden:. In v2 zijn deze geretourneerd in een matrix. |
 |`verbose`|boolean|V2 & V3|false|**In v2**zijn alle voorspelde intenten geretourneerd als deze zijn ingesteld op True. Als u alle voorspelde intenties nodig hebt, gebruikt u de V3 `show-all-intents`-para meter van.<br><br>**In v3**biedt deze para meter alleen details van entiteits-meta gegevens van de voor spelling van de entiteit.  |
 
 
@@ -150,7 +150,9 @@ De bovenste JSON-eigenschappen voor v3 zijn:
 }
 ```
 
-De `normalizedQuery` bevat spelling correcties. Dit komt overeen met de v2 API `alteredQuery`-eigenschap.  
+<!--
+The `alteredQuery` contains spelling corrections. This corresponds to the V2 API property `alteredQuery`.  
+-->
 
 Het `intents` object is een niet-geordende lijst. Ga er niet van uit dat het eerste `intents` onderliggende item in `topIntent`de overeenkomt met de. Gebruik in plaats daarvan `topIntent` de waarde om de score te vinden:
 
