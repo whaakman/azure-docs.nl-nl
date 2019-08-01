@@ -8,12 +8,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: heidist
-ms.openlocfilehash: 04b04e8080590aa6e9fe1c17369e83fa5bb6b894
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 66a051c430be9f59569a5843c0138c7ddc15b87c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668217"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707157"
 ---
 # <a name="create-an-azure-search-knowledge-store-and-connect-using-power-bi"></a>Een Azure Search Knowledge Store maken en verbinding maken met behulp van Power BI
 
@@ -156,7 +156,7 @@ Gebruik de wizard gegevens importeren om het kennis archief te maken. U importee
 
 1. Klik op **sluiten en Toep assen** helemaal links in de Power query opdracht balk.
 
-1. Controleer of Power BI de relaties herkent die zijn gemaakt in uw gegevens. Klik op de tegel relaties in het navigatie deel venster aan de linkerkant. Alle drie de tabellen moeten gerelateerd zijn.
+1. Controleer of Power BI de relaties herkent die zijn gemaakt in uw gegevens. Klik op de tegel relaties in het navigatie deel venster aan de linkerkant. Alle drie de tabellen moeten gerelateerd zijn. Bewerk de relaties en zorg ervoor dat de Kruis filter richting is ingesteld op beide. Dit zorgt ervoor dat alle visuele elementen worden vernieuwd wanneer een filter wordt toegepast.
 
    ![Relaties valideren](media/knowledge-store-howto-powerbi/powerbi-relationships.png "Relaties valideren")
 

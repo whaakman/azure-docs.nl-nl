@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d82f665cc837e5dbd2d7efbf16c7ae94e1b2b7
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 2987f8fb116bfcbb1698335c3aca6f1fd8eb633e
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333912"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717287"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Wat is Azure Active Directory Identity Protection (vernieuwd)?
 
 De ervaring voor identiteits beveiliging is vernieuwd om de identiteiten van uw organisatie beter te beveiligen. Deze vernieuwde ervaring biedt:
 
-- Opnieuw ontworpen beheerders ervaring die het meest relevant risico vormt voor uw ¬-gebruikers risico en aanmeldings risico
+- Opnieuw ontworpen beheerders ervaring die het risico vormt dat het meest relevant is voor uw gebruikers risico en aanmeldings risico
 - Krachtige onderzoek ervaring met ondersteuning voor filteren, sorteren en slimme down loads
 - De berekening van het gebruikers risico is verbeterd om u te helpen bij het bepalen van uw inspanningen bij de gebruikers die het meest waarschijnlijk worden aangetast
 - Nieuwe API-ondersteuning om programmatische toegang tot risico gegevens in te scha kelen
