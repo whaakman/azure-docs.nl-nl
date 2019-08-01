@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: c001b10f14167b4c0947c2ef0ae3f27cc4f55657
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e9d17b0bdeb89fc03c0f089b84a89a5203c39566
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553530"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717430"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-using-the-speech-sdk"></a>Quickstart: Spraak in Swift op iOS herkennen met de Speech SDK
 
@@ -61,7 +61,8 @@ Maak in de dialoogvensters die volgen de volgende selecties:
 
 ## <a name="add-the-sample-code"></a>De voorbeeldcode toevoegen
 
-1. Plaats een nieuw header-bestand met de `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` naam in `helloworld` de map in het HelloWorld-project en plak de volgende code in deze.[!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
+1. Plaats een nieuw header-bestand met de `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` naam in `helloworld` de map in het HelloWorld-project en plak de volgende code in deze.  
+   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
 1. Voeg het relatieve pad `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` naar de bridging-header toe aan de SWIFT-project instellingen voor het doel HelloWorld in de kop *-C bridging koptekst* veld ![koptekst eigenschappen](media/sdk/qs-swift-ios-bridging-header.png)
 1. Vervang de inhoud van het automatisch gegenereerde bestand `AppDelegate.swift` door:  
    [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/AppDelegate.swift#code)]

@@ -1,7 +1,7 @@
 ---
-title: Project akoestische Unreal Bake zelfstudie
+title: Zelf studie voor project akoestische Unreal maken
 titlesuffix: Azure Cognitive Services
-description: Dit document beschrijft het proces voor het indienen van een akoestische bake met de extensie Unreal-editor.
+description: In dit document wordt het proces voor het verzenden van een akoestische maken met behulp van de Unreal-Editor-extensie beschreven.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,211 +10,212 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 6b49a6b9e235414cd63eacdbad523bbda8646963
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 47946570db305ff3d54dfed9ea6f698e5deb7b72
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304299"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704790"
 ---
-# <a name="project-acoustics-unreal-bake-tutorial"></a>Project akoestische Unreal Bake zelfstudie
-Dit document beschrijft het proces voor het indienen van een akoestische bake met de extensie Unreal-editor.
+# <a name="project-acoustics-unreal-bake-tutorial"></a>Zelf studie voor project akoestische Unreal maken
+In dit document wordt het proces voor het verzenden van een akoestische maken met behulp van de Unreal-Editor-extensie beschreven.
 
-Er zijn vijf stappen tot het uitvoeren van een bake:
+Er zijn vijf stappen voor het uitvoeren van een maken:
 
-1. Maken of uw player navigatie mesh taggen
-2. Tag akoestische geometrie
-3. Akoestische materiaal eigenschappen toewijzen aan geometrie
-4. Plaatsing van de Preview-test
-5. Bake
+1. Uw speler navigatie-net maken of coderen
+2. Geometrie van label akoestische
+3. Eigenschappen van akoestische materialen toewijzen aan geometrie
+4. Test plaatsing preview
+5. Maken
 
-## <a name="open-the-project-acoustics-editor-mode"></a>De bewerkingsmodus akoestische Project openen
+## <a name="open-the-project-acoustics-editor-mode"></a>De modus voor het project akoestische editor openen
 
-Importeer het Project akoestische invoegtoepassing pakket aan uw project. Zie voor hulp bij dit, de [Unreal integratie](unreal-integration.md) onderwerp. Zodra de invoegtoepassing is geïntegreerd, opent u de gebruikersinterface akoestische door te klikken op het pictogram Nieuw akoestische modus.
+Importeer het invoeg pakket voor project akoestische conversies aan uw project. Zie het onderwerp [Unreal-integratie](unreal-integration.md) voor meer informatie. Zodra de invoeg toepassing is geïntegreerd, opent u de gebruikers interface voor akoestische door te klikken op het pictogram nieuwe akoestische modus.
 
-![Schermopname van Editor Unreal akoestische Mode option](media/acoustics-mode.png)
+![Scherm opname van de optie voor de akoestische modus van de Unreal-editor](media/acoustics-mode.png)
 
-## <a name="tag-actors-for-acoustics"></a>Tag actoren voor akoestische
+## <a name="tag-actors-for-acoustics"></a>Actors voor akoestische Codeer
 
-Het tabblad objecten is het eerste tabblad dat wordt weergegeven wanneer u de modus akoestische opent. Gebruik dit tabblad om tag actoren in uw niveau, voegt de **AcousticsGeometry** of **AcousticsNavigation** tags aan de actoren.
+Het tabblad objecten is het eerste tabblad dat wordt weer gegeven wanneer u de akoestische modus opent. Gebruik dit tabblad om actors op uw niveau te labelen, waarmee de **AcousticsGeometry** -of **AcousticsNavigation** -Tags aan de actors worden toegevoegd.
 
-Selecteer een of meer objecten in de hele wereld Outliner of gebruik de **selectie** sectie voor hulp bij alle objecten van een specifieke categorie selecteren. Zodra de objecten zijn geselecteerd, gebruikt u de **taggen** sectie toe te passen van de gewenste tag op de geselecteerde objecten.
+Selecteer een of meer objecten in de wereld-contourie of gebruik de sectie **bulksgewijze selectie** om alle objecten van een specifieke categorie te selecteren. Als objecten eenmaal zijn geselecteerd, gebruikt u de sectie labelen om de gewenste tag toe te passen op de geselecteerde objecten.
 
-Als er iets geen heeft **AcousticsGeometry** noch **AcousticsNavigation** label, wordt dit genegeerd in de simulatie. Alleen statische netten, nav netten en landschappen worden ondersteund. Als u iets anders labelen, wordt dit genegeerd.
+Als iets geen **AcousticsGeometry** of **AcousticsNavigation** -tag heeft, wordt deze in de simulatie genegeerd. Alleen statische mazen, NAV-netten en landschappen worden ondersteund. Als u iets anders labelt, wordt dit genegeerd.
 
-### <a name="for-reference-the-objects-tab-parts"></a>Ter referentie: De objecten tabblad delen
+### <a name="for-reference-the-objects-tab-parts"></a>Ter referentie: De onderdelen op het tabblad objecten
 
-![Schermafbeelding van akoestische objecten tabblad in Unreal](media/unreal-objects-tab-details.png)
+![Scherm afbeelding van het tabblad akoestische objecten in Unreal](media/unreal-objects-tab-details.png)
 
-1. Selectie knoppen op het tabblad (**objecten** tabblad is geselecteerd). Gebruik deze knoppen om te zien hoe de verschillende stappen een bake akoestische van boven naar beneden te doen.
-2. Een korte beschrijving van wat u moet doen met behulp van deze pagina.
-3. Beschikbare kiezers voor actoren op het niveau.
-4. Te klikken op **Selecteer** selecteert u alle objecten op het niveau dat overeenkomt met ten minste een van de gecontroleerde actor-typen.
-5. Te klikken op **alle selecties opheffen** , de huidige selectie worden gewist. Dit is hetzelfde als de ESC-toets te maken.
-6. Gebruik deze keuzerondjes te kiezen of ze de geometrie- of navigatie-label toepassen op de geselecteerde actoren.
-7. Te klikken op **Tag** voegt het geselecteerde label toe aan alle geselecteerde actoren.
-8. Te klikken op **label verwijderen** , het geselecteerde label wordt verwijderd uit alle geselecteerde actoren.
-9. Te klikken op **Selecteer gelabeld** wordt de huidige selectie wissen en alle actoren met het geselecteerde label selecteren.
-10. Deze statistieken laten zien hoeveel actors zijn gelabeld met elk type tag.
+1. De knoppen voor het tabblad selectie (tabblad**objecten** geselecteerd). Gebruik deze knoppen om de verschillende stappen voor het uitvoeren van een akoestische maken van boven naar beneden door te lopen.
+2. Een korte beschrijving van wat u moet doen met deze pagina.
+3. Beschik bare selecters voor actors op het niveau.
+4. Als u op **selecteren** klikt, worden alle objecten geselecteerd op het niveau die overeenkomen met ten minste één van de ingeschakelde actor typen.
+5. Als **u op alles opheffen** klikt, wordt de huidige selectie gewist. Dit komt overeen met de Escape-toets.
+6. Gebruik deze keuze rondjes om te kiezen of u de geometrie of navigatie code op de geselecteerde actors wilt Toep assen.
+7. Als u op **tag** klikt, wordt de geselecteerde tag toegevoegd aan alle geselecteerde actors.
+8. Als u op **tag** klikt, wordt de geselecteerde tag verwijderd uit alle geselecteerde actors.
+9. Als **u op gelabeld selecteren** klikt, wordt de huidige selectie gewist en worden alle actors met de momenteel geselecteerde tag geselecteerd.
+10. Deze statistieken laten zien hoeveel Actors zijn gelabeld met elk type code.
 
-### <a name="tag-acoustics-occlusion-and-reflection-geometry"></a>Tag akoestische bedekking en reflectie geometrie
+### <a name="tag-acoustics-occlusion-and-reflection-geometry"></a>Label akoestische bedekking en reflectie geometrie
 
-Open het tabblad objecten van het venster akoestische. Alle objecten markeren als akoestische geometrie, als ze moeten occlude, weerspiegelen, of geluid absorberen. Akoestische geometry kan omvatten zaken zoals volledig is ontwikkeld, wanden daken, windows & glazen venster, tapijt en grote meubels. U kunt elke willekeurige niveau van complexiteit voor deze objecten gebruiken. Omdat de scène voxelized voordat de simulatie is, zijn zeer gedetailleerde netten, zoals structuren met veel kleine bladeren, niet meer kostbaar zijn om u te maken dan vereenvoudigde objecten.
+Open het tabblad objecten van het akoestische venster. Markeer objecten als akoestische geometrie als ze occlude, reflectie of absorberende klank moeten hebben. De geometrie van de akoestische kan zaken bevatten zoals grond, wanden, daken, Windows & glas, vloeren en grote meubelen. U kunt elk wille keurig niveau van complexiteit voor deze objecten gebruiken. Omdat de scène voxelized is vóór simulatie, zijn zeer gedetailleerde netten, zoals structuren met veel kleine bladeren, niet meer kostbaar voor maken dan vereenvoudigde objecten.
 
-Dingen die al dan niet mogen invloed hebben op de akoestische, zoals onzichtbaar botsing netten zijn niet opgenomen.
+Neem geen dingen op die niet van invloed zijn op de akoestische, zoals onzichtbare botsingen.
 
-De transformatie van een object op het moment van de berekening van de test (via het tabblad tests hieronder) in de resultaten bake is opgelost. Een van de gemarkeerde objecten in de scène wordt verplaatst, moet de berekening van de test opnieuw uitvoeren en de scène rebaking.
+De trans formatie van een object op het moment van de berekening van de test (via het tabblad tests hieronder) wordt opgelost in de maken-resultaten. Als u een van de gemarkeerde objecten in de scène verplaatst, moet u de test berekening opnieuw uitvoeren en de scène rebakingen.
 
-### <a name="create-or-tag-a-navigation-mesh"></a>Maken of een navigatie-NET taggen
+### <a name="create-or-tag-a-navigation-mesh"></a>Een navigatie-net maken of coderen
 
-Een navigatie-NET wordt gebruikt voor test-punten voor simulatie plaatsen. U kunt de Unreal [Nav NET grenzen Volume](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html), of u kunt uw eigen mesh navigatie opgeven. U moet ten minste één object als label **akoestische navigatie**. Als u de Unreal navigatie mesh gebruikt, zorg er dan voor dat u eerst klaar bent.
+Er wordt een navigatie-net gebruikt voor het plaatsen van test punten voor simulatie. U kunt het Unreal- [volume van de NAV mesh](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html)gebruiken of u kunt uw eigen navigatie-net opgeven. U moet ten minste één object markeren als **akoestische navigatie**. Als u het navigatie-net van Unreal gebruikt, zorg er dan voor dat u het eerst hebt gemaakt.
 
-### <a name="acoustics-volumes"></a>Akoestische Volumes ###
+### <a name="acoustics-volumes"></a>Geluids volumes ###
 
-Er is meer, geavanceerde aanpassingen kunt u op uw navigatiegebieden met **akoestische Volumes**. **Akoestische Volumes** zijn, kunt u toevoegen aan uw scène actoren waarmee u kunt gebieden wilt opnemen en negeren van de navigatie-mesh selecteren. De actor wordt aangegeven dat een eigenschap die kan worden uitgewisseld tussen 'Toevoegen' en 'Uitsluiten'. Volumes "Bevatten" Zorg ervoor dat alleen gebieden van de maas navigatie in deze worden beschouwd als en volumes 'Uitsluiten' markeert deze gebieden worden genegeerd. Volumes 'Uitsluiten' altijd na "Toevoegen" volumes toegepast. Zorg ervoor dat op tag **akoestische Volumes** als **akoestische navigatie** het normale proces in het tabblad objecten. Deze actoren zijn ***niet*** automatisch gelabeld.
+Er zijn nog meer geavanceerde aanpassingen die u kunt aanbrengen in uw navigatie gebieden met **geluids volumes**. **Geluids volumes** zijn actors die u aan uw scène kunt toevoegen, zodat u gebieden die u wilt insluiten en negeren in het navigatie-net moet kunnen selecteren. De actor beschrijft een eigenschap die kan worden overgeschakeld tussen ' include ' en ' exclude '. ' Include '-volumes zorgen ervoor dat alleen de gebieden van het navigatie-net in de domeinen worden beschouwd en ' exclude ' volumes markeren die gebieden moeten worden genegeerd. ' Exclude ' volumes worden altijd toegepast na ' include ' volumes. Zorg ervoor dat **geluids volumes** worden gelabeld als **akoestische navigatie** via het gebruikelijke proces op het tabblad objecten. Deze actors worden ***niet*** automatisch gelabeld.
 
-![Schermafbeelding van akoestische Volume eigenschappen in Unreal](media/unreal-acoustics-volume-properties.png)
+![Scherm afbeelding van de geluids eigenschappen van het volume in Unreal](media/unreal-acoustics-volume-properties.png)
 
-Volumes 'Uitsluiten' zijn hoofdzakelijk bedoeld om gedetailleerd beheer op waar u niet wilt opslaan van de tests voor het gebruik van bronnen verstrakking te geven.
+' Exclude ' volumes zijn voornamelijk bedoeld om nauw keurige controle te geven over waar het niet plaatsen van tests voor het verhogen van het resource gebruik.
 
-![Schermafbeelding van uitsluiten akoestische Volume in Unreal](media/unreal-acoustics-volume-exclude.png)
+![Scherm opname van geluids volume met uitsluiting in Unreal](media/unreal-acoustics-volume-exclude.png)
 
-"Bevatten" volumes zijn handig voor het maken van het handmatige secties van een scène, zoals als u wilt dat het opsplitsen van de scène in meerdere akoestische zones. Hebt u een grote scène, vele kilometers kwadraat en hebt u twee gebieden van belang dat u maken van akoestische wilt op. U kunt twee grote volumes van 'Toevoegen' in de scène tekenen en produceren van ACE-bestanden voor elk van deze één voor één. Klik in game, kunt u trigger volumes in combinatie met het aanroepen van de blauwdruk laden van de juiste ACE-bestand wanneer de speler elke tegel nadert.
+' Include '-volumes zijn handig voor het maken van hand matige secties van een scène, bijvoorbeeld als u uw scène wilt opdelen in meerdere akoestische zones. Als u bijvoorbeeld een grote scène hebt, zijn veel kilo meters in vier kant en hebt u twee belang rijke gebieden waarop u maken wilt. U kunt twee grote ' include '-volumes in de scène tekenen en voor elk van deze een ACE-bestand maken. In het spel kunt u vervolgens met behulp van activerings volumes gecombineerd met blauw drukken-aanroepen het juiste ACE-bestand laden wanneer de speler elke tegel nadert.
 
-**Akoestische Volumes** alleen beperken de navigatie en ***niet*** de geometrie. Elke test binnen een "toevoegen" **akoestische Volume** nog steeds in de benodigde geometrie buiten het volume wordt opgehaald bij het uitvoeren van simulaties wave. Daarom kunnen mag niet er worden eventuele wijzigingen in bedekking of andere akoestische die voortvloeien uit de overschrijding van de ene sectie naar een andere speler.
+**Geluids volumes** beperken alleen de navigatie en ***niet*** de geometrie. Elke test in een ' include '- **geluids volume** kan nog steeds alle benodigde geometrie buiten het volume halen bij het uitvoeren van Golf simulaties. Daarom mag er geen sprake zijn van bedekking of andere akoestische, ten gevolge van de speler van de ene sectie naar de andere.
 
-## <a name="select-acoustic-materials"></a>Akoestische materiaal selecteren
+## <a name="select-acoustic-materials"></a>Akoestische materialen selecteren
 
-Nadat uw objecten zijn gemarkeerd, klikt u op de **materiaal** knop om te gaan naar het tabblad materialen. Op dit tabblad wordt gebruikt om op te geven van eigenschappen voor het materiaal op het niveau. Voordat een actors zijn gemarkeerd, wordt deze niet leeg zijn.
+Als uw objecten zijn gelabeld, klikt u op de knop **materialen** om naar het tabblad materialen te gaan. Dit tabblad wordt gebruikt om de eigenschappen van het materiaal voor elk materiaal op het niveau op te geven. Voordat een actor is gelabeld, is deze leeg.
 
-Het akoestisch materiaal beheren geluid energieverbruik weergegeven van elke surface. Het standaard akoestische materiaal is vergelijkbaar met concreet opname. Project akoestische stelt materialen op basis van de naam van de scène materiaal.
+De akoestische materialen bepalen de hoeveelheid geluids energie die van elk Opper vlak weer gegeven wordt. Het standaard geluids materiaal heeft een absorptie die vergelijkbaar is met beton. In Project akoestische worden materialen voorgesteld op basis van de naam van het scène materiaal.
 
-De tijd weerklank van een bepaald materiaal in een kamer is omgekeerd gerelateerd aan de coëfficiënt opname met de meeste materiaal met waarden voor opname in het bereik 0,01-0.20. Materialen met opname coëfficiënten boven in dit bereik zijn zeer absorberend. Bijvoorbeeld als een kamer geluiden te reverberant, wijzigt u het akoestisch materiaal van de wanden, basis of maximum in een van de hogere absorptivity. De toewijzing van akoestische materiaal geldt voor alle actoren die gebruikmaken van dit materiaal scène.
+De reverberation tijd van een bepaald materiaal in een kamer is inkerend gerelateerd aan de absorptie coëfficiënt, waarbij de meeste materialen met absorptie waarden in het 0,01 tot 0,20 bereik. Materialen met absorptie coëfficiënten boven dit bereik zijn zeer absorberen. Als bijvoorbeeld een ruimte klinkt te reverberant, wijzigt u het akoestische materiaal van de wanden, de vloer of het plafond in een hogere absorptivity. De toewijzing van akoestische materialen is van toepassing op alle Actors die gebruikmaken van dat scène materiaal.
 
-![Grafiek met negatieve correlatie weerklank tijd met opname coëfficiënt](media/reverb-time-graph.png)
+![Grafiek met een negatieve correlatie tussen reverberation tijd en absorptie coëfficiënt](media/reverb-time-graph.png)
 
-### <a name="for-reference-parts-of-the-materials-tab"></a>Ter referentie: Onderdelen van het tabblad materiaal
+### <a name="for-reference-parts-of-the-materials-tab"></a>Ter referentie: Onderdelen van het tabblad materialen
 
-![Schermafbeelding van akoestische objecten tabblad in Unreal](media/unreal-materials-tab-details.png)
+![Scherm afbeelding van het tabblad akoestische objecten in Unreal](media/unreal-materials-tab-details.png)
 
-1. De **materiaal** tabblad knop, die wordt gebruikt om deze pagina.
-2. Een korte beschrijving van wat u moet doen met behulp van deze pagina.
-3. De lijst van materiaal dat wordt gebruikt op het niveau, die is overgenomen uit de actoren gelabeld als **AcousticsGeometry**. Op een materiaal hier te klikken om alle objecten in de scène die gebruikmaken van dit materiaal te selecteren.
-4. Geeft het akoestisch materiaal dat het scène-materiaal aan is toegewezen. Klik op een vervolgkeuzelijst als u wilt toewijzen van een scène materiaal op een andere akoestische materiaal.
-5. De coëfficiënt akoestische opname van het materiaal dat is geselecteerd in de vorige kolom bevat. Een waarde van nul betekent precies bij reflectieve (geen opname), terwijl een waarde van 1 betekent precies absorptie (geen weerspiegeling). Het materiaal akoestische (stap #4) te wijzigen van deze waarde wordt bijgewerkt **aangepaste**.
+1. De knop met het tabblad **materialen** wordt gebruikt om deze pagina te openen.
+2. Een korte beschrijving van wat u moet doen met deze pagina.
+3. De lijst met materialen die worden gebruikt op het niveau, afkomstig van de Actors die zijn gelabeld als **AcousticsGeometry**. Als u hier op een materiaal klikt, worden alle objecten in de scène geselecteerd die dit materiaal gebruiken.
+4. Toont het akoestische materiaal waaraan het scène materiaal is toegewezen. Klik op een vervolg keuzelijst om een scène materiaal opnieuw toe te wijzen aan een ander akoestisch materiaal.
+5. Toont de akoestische absorptie coëfficiënt van het materiaal dat is geselecteerd in de vorige kolom. Een waarde van nul betekent perfect reflectie (geen absorptie), terwijl een waarde van 1 betekent perfect absorptive (geen reflectie). Als u deze waarde wijzigt, wordt het akoestische materiaal (stap #4) bijgewerkt naar **aangepast**.
 
-Als u wijzigingen in het materiaal in uw scène aanbrengt, moet u tabbladen in de invoegtoepassing Project akoestische om te zien die wijzigingen doorgevoerd in de **materiaal** tabblad.
+Als u wijzigingen aanbrengt in de materialen in uw scène, moet u scha kelen tussen tabbladen in de invoeg toepassing project akoestische om de wijzigingen weer te geven die op het tabblad **materialen** worden weer gegeven.
 
-## <a name="calculate-and-review-listener-probe-locations"></a>Berekenen en listener test locaties bekijken
+## <a name="calculate-and-review-listener-probe-locations"></a>Test locaties voor listeners berekenen en controleren
 
-Na het toewijzen van het materiaal, Ga naar de **tests** tabblad.
+Nadat u de materialen hebt toegewezen, gaat u naar het tabblad **tests** .
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Ter referentie: Onderdelen van het tabblad tests
 
-![Schermafbeelding van akoestische tests tabblad in Unreal](media/unreal-probes-tab-details.png)
+![Scherm afbeelding van het tabblad akoestische tests in Unreal](media/unreal-probes-tab-details.png)
 
-1. De **tests** tabblad-knop die wordt gebruikt om deze pagina
-2. Een korte beschrijving van wat u moet doen met behulp van deze pagina
-3. Met deze optie kiest u een resolutie grof of fijn simulatie. Grof is sneller, maar heeft bepaalde compromissen. Zie [verdient resolutie](bake-resolution.md) hieronder voor meer informatie.
-4. Kies de locatie waar de gegevensbestanden akoestische moeten worden geplaatst met behulp van dit veld. Klik op de knop met '...' voor het gebruik van een map kiezen. Zie voor meer informatie over gegevensbestanden [gegevensbestanden](#Data-Files) hieronder.
-5. De gegevensbestanden voor deze scène wordt de naam hier met behulp van het voorvoegsel dat is opgegeven. De standaardwaarde is '_AcousticsData [naam]'.
-6. Klik op de **berekenen** knop voxelize de scène en de test-distributiepuntlocaties te berekenen. Dit wordt dan niet lokaal op uw computer en moet worden uitgevoerd vóór het uitvoeren van een bake. Nadat de tests zijn berekend, de besturingselementen die hierboven wordt uitgeschakeld en deze knop wordt gewijzigd, zodat het zegt **wissen**. Klik op de **wissen** om te wissen van de berekeningen en de besturingselementen inschakelen zodat u kunt opnieuw berekenen met behulp van de nieuwe instellingen.
+1. De knop met het tabblad probe die wordt gebruikt om deze pagina te openen
+2. Een korte beschrijving van wat u met deze pagina moet doen
+3. Gebruik deze optie om een grof of fijn te simuleren. Grof is sneller, maar heeft bepaalde afwegingen. Zie de onderstaande [maken-oplossing](bake-resolution.md) voor meer informatie.
+4. Kies de locatie waar de akoestische gegevens bestanden moeten worden geplaatst met dit veld. Klik op de knop met '... ' een Mapkiezer gebruiken. Zie [gegevens bestanden](#Data-Files) hieronder voor meer informatie over gegevens bestanden.
+5. De gegevens bestanden voor deze scène worden aangeduid met het voor voegsel dat u hier opgeeft. De standaard waarde is [niveau naam] _AcousticsData.
+6. Klik op de knop **berekenen** om de scène te voxelize en de locaties van het test punt te berekenen. Dit wordt lokaal op uw computer uitgevoerd en moet worden uitgevoerd voordat u een maken kunt uitvoeren. Nadat de tests zijn berekend, worden de bovenstaande besturings elementen uitgeschakeld en wordt deze knop gewijzigd in **duidelijk**. Klik op de knop **wissen** om de berekeningen te wissen en de besturings elementen in te scha kelen, zodat u opnieuw kunt berekenen met nieuwe instellingen.
 
-Tests moeten worden geplaatst door het geautomatiseerde proces dat is opgegeven de **tests** tabblad.
-
-
-### <a name="what-the-calculate-button-calculates"></a>Wat de knop 'Berekenen' wordt berekend
-
-De **berekenen** knop neemt alle gegevens die u tot nu toe hebt opgegeven (geometrie, navigatie, materialen en de instelling grof/fijn) en verschillende stappen doorlopen:
-
-1. Het duurt de geometrie van het scène-netten en een volume voxel berekent. Het volume voxel is een 3-dimensionale volume die uw gehele scène omsluit en bestaat uit kleine kubieke 'voxels'. De grootte van de voxels wordt bepaald door de frequentie simulatie, die is ingesteld door de **simulatie resolutie** instelling. Elke voxel is gemarkeerd als een 'geopend air' of scène geometry bevatten. Als een voxel geometrie bevat wordt de voxel gelabeld met de coëfficiënt voor opname van het materiaal dat is toegewezen aan die geometrie.
-2. Vervolgens wordt de navigatie-gegevens voor het berekenen van acoustically interessante locaties waar de speler kunt gaan. Probeert het vinden van een redelijk klein aantal deze locaties met kleinere gebieden zoals inbegrepen en elkaar tegenkwamen, en vervolgens naar ruimten spaties openen. Voor kleine schermen doorgaans is dit minder dan 100 locaties, terwijl grote schermen kunnen maximaal duizend hebben.
-3. Voor elk van de laatste listener locaties berekent, bepaalt dat een aantal parameters, zoals hoe 'geopend' is de ruimte, de grootte van de ruimte die deel uitmaakt, enzovoort.
-4. De resultaten van deze berekeningen worden opgeslagen in bestanden op de locatie die u opgeeft (Zie [gegevensbestanden](#Data-Files) hieronder)
-
-Deze berekeningen kunnen enkele minuten duren, afhankelijk van de grootte van uw scène en de snelheid van uw computer.
-
-Zodra deze berekeningen voltooid zijn, kunt u zowel de voxel-gegevens en de test-distributiepuntlocaties om ervoor te zorgen dat de bake u goede resultaten krijgt bekijken. Een ongeldige navigatie net zoals of ontbrekende/extra geometrie doorgaans snel zichtbaar zijn in de Preview-versie, zodat u deze kunt oplossen.
+Tests moeten worden geplaatst via het geautomatiseerde proces dat op het tabblad **tests** wordt vermeld.
 
 
-## <a name="debug-display"></a>Fouten opsporen in weergeven
+### <a name="what-the-calculate-button-calculates"></a>Wat wordt berekend met de knop berekenen
 
-Nadat de berekening van de test is voltooid, een nieuwe actor wordt weergegeven in de hele wereld Outliner met de naam **AcousticsDebugRenderer**. Controle van de **renderen tests** en **Voxels renderen** selectievakjes schakelt u de weergave fouten opsporen in de viewport van de editor.
+De knop **berekenen** neemt alle gegevens die u tot nu toe hebt opgegeven (geometrie, navigatie, materialen en de instelling grof/fijn) en doorloopt verschillende stappen:
 
-![Schermopname van akoestische fouten opsporen in Renderer actor in Unreal-Editor](media/acoustics-debug-renderer.png)
+1. Het neemt de geometrie van de scène netten en berekent een Voxel-volume. Het Voxel-volume is een driedimensionaal volume dat uw hele scène omsluit en bestaat uit kleine kubieke ' voxels '. De grootte van de voxels wordt bepaald door de simulatie frequentie, die wordt ingesteld door de instelling **simulatie oplossing** . Elke Voxel is gemarkeerd als ' lucht openen ' of met een scène geometrie. Als een Voxel Geometry bevat, wordt de Voxel gelabeld met de absorptie coëfficiënt van het materiaal dat aan die geometrie is toegewezen.
+2. Vervolgens worden de navigatie gegevens gebruikt voor het berekenen van akoestische interessante locaties waar de speler mogelijk naartoe gaat. Er wordt geprobeerd een redelijk kleine set van deze locaties te vinden die kleinere gebieden bevatten, zoals kantjes en hal, en vervolgens naar kamers om ruimten te openen. Voor kleine scènes is dit doorgaans minder dan 100 locaties, terwijl grote scènes kunnen tot 1000.
+3. Voor elk van de laatste listeners die worden berekend, bepaalt het een aantal para meters, zoals hoe ' open ' de ruimte is, de grootte van de ruimte waarin deze zich bevindt, enzovoort.
+4. De resultaten van deze berekeningen worden opgeslagen in bestanden op de locatie die u opgeeft (zie onderstaande [gegevens bestanden](#Data-Files) )
 
-Als u niet alle voxels of tests overlay bekijken op het niveau van ziet, zorg er dan voor dat realtime rendering is ingeschakeld in de viewport.
+Afhankelijk van de grootte van uw scène en de snelheid van uw computer, kan het enkele minuten duren voordat deze berekeningen worden uitgevoerd.
 
-![Schermafbeelding van de renderingoptie realtime-in Unreal](media/unreal-real-time-rendering.png)
+Zodra deze berekeningen zijn voltooid, kunt u de Voxel-gegevens en de locatie van het test punt bekijken om ervoor te zorgen dat de maken u goede resultaten krijgt. Dingen zoals een onjuist navigatie-net of ontbrekende/extra geometrie worden doorgaans snel zichtbaar in de preview-versie, zodat u deze kunt corrigeren.
+
+
+## <a name="debug-display"></a>Fout opsporing weer geven
+
+Nadat de test berekening is voltooid, wordt er een nieuwe actor weer gegeven in de wereld contourer met de naam **AcousticsDebugRenderer**. Door de selectie vakjes test **tests** te controleren en **voxels** in te scha kelen, wordt de weer gave van fout opsporing in de View Port van de redacteur ingeschakeld.
+
+![Scherm opname van akoestische weer gave van fout opsporing renderer in Unreal editor](media/acoustics-debug-renderer.png)
+
+Als er geen voxels of tests op uw niveau worden weer gegeven, moet u ervoor zorgen dat realtime-rendering is ingeschakeld in de View Port.
+
+![Scherm opname van de optie voor het weer geven van real-time in Unreal](media/unreal-real-time-rendering.png)
 
 ### <a name="voxels"></a>Voxels
 
-Voxels worden weergegeven in het scène-venster als groen kubussen rond deelnemende geometry. Voxels die alleen lucht bevatten, worden niet weergegeven. Er is een grote groene vakje rond uw gehele scène die het volledige voxel volume dat wordt gebruikt in de simulatie wordt aangeduid.
-Een scène verplaatsen en controleer of de geometrie acoustically occluding voxels heeft. Controleer ook dat niet-akoestische objecten zoals botsing netten voxelized nog niet zijn. De camera van het scène heeft binnen ongeveer 5 meters van het object voor de voxels om weer te geven.
+Voxels worden in het scène venster weer gegeven als groene kubussen rond de deel geometrie. Voxels die alleen lucht bevatten, worden niet weer gegeven. Er is een grote groene doos rond uw hele scène die het volledige Voxel volume aanduidt dat wordt gebruikt in de simulatie.
+Ga door uw scène en controleer of de occluding geometrie voxels heeft. Controleer ook of er niet-akoestische objecten, zoals botsings netten, niet zijn voxelized. De scène camera moet binnen ongeveer 5 meters van het object liggen om de voxels weer te geven.
 
-Als u de voxels die zijn gemaakt met behulp van abrupte resolutie vs fijn resolutie vergelijkt, ziet u dat de grof voxels tweemaal zo groot zijn.
+Als u de voxels die is gemaakt met ruwe resolutie en een nauw keurige resolutie vergelijkt, ziet u dat de ruwe voxels twee maal zo groot zijn.
 
-![Schermafbeelding van akoestische voxels preview in Unreal-editor](media/unreal-voxel-preview.png)
+![Scherm opname van akoestische voxels preview in Unreal-editor](media/unreal-voxel-preview.png)
 
-### <a name="probe-points"></a>Test-punten
+### <a name="probe-points"></a>Test punten
 
-Test punten zijn gelijk aan mogelijke player (listener)-locaties. Wanneer bakken, berekent de simulatie de locaties van alle mogelijke bron verbinding te maken met elk punt test akoestische. Tijdens runtime, wordt de locatie van de listener geïnterpoleerde onder in de buurt test punten.
+Test punten zijn synoniemen met mogelijke Player-locaties (listener). Wanneer Baking wordt uitgevoerd, berekent de simulatie de geluids bronnen die alle mogelijke bron locaties aan elk test punt verbinden. Tijdens runtime wordt de locatie van de listener geinterpolatie tussen test punten in de buurt.
 
-Het is belangrijk om te controleren dat test punten overal die in de speler wordt verwacht dat in de scène reizen bestaan. Test-punten worden geplaatst op het net navigatie door de engine voor het Project akoestische en kunnen niet worden verplaatst of bewerkt, dus zorg ervoor de navigatie mesh-omvat alle mogelijke player locaties door te inspecteren van de test-punten.
+Het is belang rijk om te controleren of er test punten bestaan waar de speler naar verwachting in de scène gaat. Test punten worden op het navigatie-net door de project akoestische engine geplaatst en kunnen niet worden verplaatst of bewerkt. Zorg er dus voor dat het navigatie net alle mogelijke locaties van de speler bedekt door de test punten te controleren.
 
-![Schermafbeelding van akoestische tests Preview-versie in Unreal](media/unreal-probes-preview.png)
+![Scherm opname van akoestische tests voor beeld in Unreal](media/unreal-probes-preview.png)
 
-Zie [verdient resolutie](bake-resolution.md) voor meer informatie over grof vs fijn resolutie.
+Zie [maken-oplossing](bake-resolution.md) voor meer informatie over grove nauw keurigheid.
 
-## <a name="bake-your-level-using-azure-batch"></a>Maken van uw niveau met behulp van Azure Batch
+## <a name="bake-your-level-using-azure-batch"></a>Maken uw niveau met behulp van Azure Batch
 
-U kunt maken van een scène met een rekencluster in de cloud met behulp van de Azure Batch-service. De Project akoestische Unreal invoegtoepassing maakt rechtstreeks verbinding met Azure Batch te maken, beheren en een Azure Batch-cluster voor elke bake afbreken. Op het tabblad Bake, Voer uw Azure-referenties, selecteer een clustertype van de machine en de grootte en Bake op.
+U kunt uw scène maken met een berekenings cluster in de Cloud met behulp van de Azure Batch-service. De Unreal-invoeg toepassing voor project akoestische maakt rechtstreeks verbinding met Azure Batch om een Azure Batch cluster voor elke maken te instantiëren, te beheren en te verbreken. Voer uw Azure-referenties in op het tabblad maken, selecteer een type en grootte voor de cluster machine en klik op maken.
 
-### <a name="for-reference-parts-of-the-bake-tab"></a>Ter referentie: Onderdelen van het tabblad bake
+### <a name="for-reference-parts-of-the-bake-tab"></a>Ter referentie: Delen van het tabblad maken
 
-![Schermafbeelding van akoestische verdient tabblad in Unreal](media/unreal-bake-tab-details.png)
+![Scherm afbeelding van het tabblad akoestische maken in Unreal](media/unreal-bake-tab-details.png)
 
-1. De knop Tab verdient is gebruikt om deze pagina.
-2. Een korte beschrijving van wat te doen op deze pagina.
-3. Velden in te voeren van uw Azure-referenties wanneer uw Azure-account is gemaakt. Zie voor meer informatie, [Azure Batch-Account maken](create-azure-account.md).
-4. Start de Azure-portal voor het beheren van uw abonnementen, gebruik controleren en factureringsgegevens enzovoort weergeven. 
-5. Azure batch compute-knooppunt dat moet worden gebruikt voor de berekening. Het knooppunttype moet worden ondersteund door de locatie van uw Azure data center. Als niet weet, laat u op **Standard_F8s_v2**.
-6. Het aantal knooppunten moet worden gebruikt voor deze berekening. Het getal dat u hier opgeeft, is van invloed op de tijd voor het voltooien van de bake en wordt beperkt door de toewijzing van uw Azure Batch-core. De standaard-toewijzing alleen kunt u twee 8-core knooppunten of het knooppunt van een 16-core, maar kan worden uitgebreid. Zie voor meer informatie over core toewijzing beperkingen [Azure Batch-Account maken](create-azure-account.md).
-7. Schakel dit selectievakje in om te configureren van uw compute-toepassingen wilt gebruiken [knooppunten met lage prioriteit](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Rekenknooppunten met lage prioriteit hebben veel lagere kosten, maar ze mogelijk niet altijd beschikbaar of op elk gewenst moment kunnen worden verschoven.
-8. De hoeveelheid tijd die is het waarschijnlijk moet worden uitgevoerd voor de taak wordt uitgevoerd in de cloud. Dit omvat geen opstarttijd knooppunt. Zodra de taak uitgevoerd wordt, is dit over hoe lang moet zijn voordat u de resultaten teruggaan. Houd er rekening mee dat dit slechts een schatting te maken is.
-9. De totale hoeveelheid computertijd die nodig zijn voor de simulaties uitvoeren. Dit is de totale hoeveelheid tijd knooppunt dat wordt gebruikt in Azure. Zie [Estimating bake kosten](#Estimating-bake-cost) hieronder voor meer informatie over het gebruik van deze waarde.
-10. Klik op de knop Bake om in te dienen de bake naar de cloud. Terwijl een taak wordt uitgevoerd, geeft dit **taak annuleren** in plaats daarvan. Als er fouten zijn op dit tabblad, of als de werkstroom op de **tests** tabblad is niet voltooid, wordt deze knop wordt uitgeschakeld.
-11. Het aantal test voor uw scène berekend op de **tests** tabblad. Het aantal tests bepaalt het aantal simulaties die moeten worden uitgevoerd in de cloud. U kunt meer knooppunten dan er tests zijn niet opgeven.
-12. Dit bericht ziet u de huidige status van de taak, of als er fouten op dit tabblad zijn, wat deze fouten zijn.
+1. De knop met het tabblad maken wordt gebruikt om deze pagina te openen.
+2. Een korte beschrijving van wat u op deze pagina moet doen.
+3. Velden om uw Azure-referenties in te voeren nadat uw Azure-account is gemaakt. Zie [een Azure batch-account maken](create-azure-account.md)voor meer informatie.
+4. Start Azure Portal voor het beheren van uw abonnementen, het controleren van het gebruik en het weer geven van facturerings gegevens, enzovoort. 
+5. Type Azure batch Compute-knoop punt dat moet worden gebruikt voor de berekening. Het knooppunt type moet worden ondersteund door de Azure Data Center-locatie. Als dat niet het geval is, moet u op **Standard_F8s_v2**.
+6. Het aantal knoop punten dat moet worden gebruikt voor deze berekening. Het nummer dat u hier invoert, is van invloed op de tijd voor het volt ooien van de maken en wordt beperkt door uw Azure Batch core-toewijzing. De standaard toewijzing biedt alleen ondersteuning voor twee 8 kern knooppunten of een 1 16-kern knooppunt, maar kan worden uitgebreid. Zie [een Azure batch-account maken](create-azure-account.md)voor meer informatie over kern toewijzings beperkingen.
+7. Schakel dit selectie vakje in om uw reken groep te configureren voor het gebruik van [knoop punten met een lage prioriteit](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Reken knooppunten met lage prioriteit hebben veel lagere kosten, maar zijn mogelijk niet altijd beschikbaar of kunnen op elk gewenst moment worden voorranglen.
+8. De hoeveelheid tijd die nodig is om uw taak uit te voeren in de Cloud. Dit geldt niet voor de start tijd van het knoop punt. Zodra de taak is gestart, weet u hoe lang deze moet zijn voordat u de resultaten terugkrijgt. Houd er rekening mee dat dit slechts een schatting is.
+9. De totale hoeveelheid computer tijd die nodig is om de simulaties uit te voeren. Dit is de totale hoeveelheid reken tijd van het knoop punt die wordt gebruikt in Azure. Zie [schatting](#Estimating-bake-cost) van de kosten voor maken hieronder voor meer informatie over het gebruik van deze waarde.
+10. Klik op de knop maken om de maken naar de cloud te verzenden. Terwijl een taak wordt uitgevoerd, wordt in plaats daarvan de **taak annuleren** weer gegeven. Als er fouten zijn opgetreden op dit tabblad of als de werk stroom op het tabblad **tests** niet is voltooid, wordt deze knop uitgeschakeld.
+11. Het aantal tests voor uw scène zoals berekend op het tabblad **tests** . Het aantal tests bepaalt het aantal simulaties dat moet worden uitgevoerd in de Cloud. U kunt niet meer knoop punten opgeven dan er tests zijn.
+12. Dit bericht geeft u de huidige status van de taak of als er fouten op dit tabblad staan, wat deze fouten zijn.
 
-U krijgt altijd volledige informatie over actieve taken, pools compute en opslag op de [Azure-portal](https://portal.azure.com).
+U kunt altijd volledige informatie krijgen over actieve taken, reken Pools en opslag op het [Azure Portal](https://portal.azure.com).
 
-Terwijl een taak wordt uitgevoerd de **verdient** knop verandert **taak annuleren**. Gebruik deze knop om te annuleren van de taak wordt uitgevoerd. Annuleren van een taak kan niet ongedaan worden en er zijn geen resultaten zijn beschikbaar voor alle Azure-rekenen keer gebruikt voor de annulering wordt er nog steeds kosten in rekening gebracht.
+Terwijl een taak wordt uitgevoerd, wordt de **maken** -knop gewijzigd in **taak annuleren**. Gebruik deze knop om de taak in voortgang te annuleren. Het annuleren van een taak kan niet ongedaan worden gemaakt, er zijn geen resultaten meer beschikbaar en er worden nog steeds kosten in rekening gebracht voor elke Azure-reken tijd die vóór de annulering wordt gebruikt.
 
-Nadat u een bake hebt gestart, kunt u Unreal sluiten. Afhankelijk van het project, knooppunttype en het aantal knooppunten, kan een cloud-bake enkele uren duren. De taakstatus bake wordt bijgewerkt wanneer u het project opnieuw laden en het venster akoestische open. Als de taak is voltooid, wordt het uitvoerbestand worden gedownload.
+Nadat u een maken hebt gestart, kunt u Unreal sluiten. Afhankelijk van het project, het knooppunt type en het aantal knoop punten kan een Cloud-maken enkele uren duren. De taak status maken wordt bijgewerkt wanneer u het project opnieuw laadt en het akoestische venster opent. Als de taak is voltooid, wordt het uitvoer bestand gedownload.
 
-De Azure-referenties zijn veilig opgeslagen op uw lokale computer en die zijn gekoppeld aan uw Unreal project. Ze worden gebruikt uitsluitend tot stand brengen van een beveiligde verbinding met Azure.
+De Azure-referenties worden veilig opgeslagen op uw lokale machine en gekoppeld aan uw Unreal-project. Ze worden alleen gebruikt om een beveiligde verbinding met Azure tot stand te brengen.
 
-### <a name="Estimating-bake-cost"></a> Azure bake kosten schatten
+### <a name="Estimating-bake-cost"></a>Kosten voor Azure maken schatten
 
-Voor een schatting van wat een bepaalde bake kost, nemen de waarde die wordt weergegeven voor **geschatte kosten voor Compute**, dit is een duur en vermenigvuldigen die door het elk uur kosten in uw lokale valuta van de **VM knooppunttype** u hebt geselecteerd. Het resultaat bevat niet de knooppunt tijd die nodig zijn aan de slag van de knooppunten en wordt uitgevoerd. Als u bijvoorbeeld **Standard_F8s_v2** voor uw knooppunttype heeft een prijs van $ 0,40/uur, en de geschatte kosten voor Compute 3 uur en 57 minuten, wordt de geschatte kosten voor het uitvoeren van de taak is $0,40 * ~ 4 uur = ~ $1,60. De werkelijke kosten wordt waarschijnlijk een enigszins hoger vanwege de extra tijd om op te halen van de knooppunten gestart. U vindt het uurtarief knooppunt kosten op de [Azure Batch-prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/linux) pagina (Selecteer 'Compute geoptimaliseerd' of 'High performance computing' voor de categorie).
+Als u wilt schatten wat een bepaalde maken kost, neemt u de waarde voor **geschatte reken kosten**op, die een duur is en vermenigvuldigt u die met de kosten per uur in uw lokale valuta van het **VM-knooppunt type** dat u hebt geselecteerd. Het resultaat bevat niet de tijd van het knoop punt dat nodig is om de knoop punten actief en werkend te krijgen. Als u bijvoorbeeld **Standard_F8s_v2** selecteert voor het knooppunt type, dat een kost prijs van $0.40/uur heeft en de geschatte reken kosten 3 uur en 57 minuten zijn, is de geschatte kosten voor het uitvoeren van de taak $0,40 * ~ 4 uur = ~ $1,60. De werkelijke kosten zijn waarschijnlijk iets hoger als gevolg van de extra tijd voor het starten van de knoop punten. U kunt de kosten van het knoop punt per uur vinden op de pagina met [Azure batch prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (Selecteer ' verwerkte optimalisatie ' of ' high performance Compute ' voor de categorie).
 
-### <a name="reviewing-the-bake-results"></a>De bake resultaten te bekijken
+### <a name="reviewing-the-bake-results"></a>De maken-resultaten controleren
 
-Nadat de bake is voltooid, moet u controleren of de punten voxels en test in de verwachte locaties zijn door het uitvoeren van de runtime-invoegtoepassing.
+Nadat de maken is voltooid, controleert u of de voxels en test punten zich op de verwachte locaties bevinden door de runtime-invoeg toepassing uit te voeren.
 
-## <a name="Data-Files"></a>Gegevensbestanden
+## <a name="Data-Files"></a>Gegevens bestanden
 
-Er zijn vier gegevensbestanden die zijn gemaakt door deze invoegtoepassing op verschillende tijdstippen. Slechts één van deze is nodig tijdens runtime en wordt geplaatst in de map inhoud/akoestische van uw project, die wordt automatisch toegevoegd aan het pad van de verpakking van uw project. De andere drie zijn in de map akoestische gegevens en niet zijn verpakt.
+Er zijn op verschillende momenten vier gegevens bestanden die door deze invoeg toepassing zijn gemaakt. Er is slechts één van beide nodig tijdens de runtime en deze wordt geplaatst in de map Content/akoestische van het project, die automatisch wordt toegevoegd aan het pakketmap van het project. De andere drie bevinden zich in de map met akoestische gegevens en zijn niet verpakt.
 
-* **[Project]/Config/ProjectAcoustics.cfg**: Dit bestand slaat de gegevens die u in de velden in de gebruikersinterface van de modus akoestische invoeren. De locatie en naam van dit bestand kunnen niet worden gewijzigd. Er zijn andere waarden die zijn opgeslagen in dit bestand die invloed hebben op de bake, maar ze zijn bedoeld voor ervaren gebruikers en mag niet worden gewijzigd.
-* **[Project]/Content/Acoustics/[LevelName]\_AcousticsData.ace**: Dit bestand is wat wordt gemaakt tijdens de simulatie bake en bevat de opzoekgegevens gebruikt door de runtime voor de akoestische van uw scène renderen. De locatie en naam van dit bestand kunnen worden gewijzigd met de velden op de **tests** tabblad. Als u dit bestand op de naam wijzigen wilt nadat deze is gemaakt, de UAsset verwijderen uit uw Unreal-project, naam van het bestand buiten Unreal in Windows Verkenner en dit bestand opnieuw in Unreal voor het produceren van een nieuwe UAsset te importeren. Naam van de UAsset zelf werkt niet.
-* **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData.vox**: Dit bestand wordt opgeslagen de voxelized akoestische geometrie en eigenschappen van het materiaal. Berekend op basis van de **berekenen** knop op de **tests** tabblad. De locatie en naam van dit bestand kunnen worden gewijzigd met de velden op de **tests** tabblad.
-* **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData\_config.xml**: Dit bestand wordt opgeslagen parameters berekend op basis van de **berekenen** knop op de **tests** tabblad. De locatie en naam van dit bestand kunnen worden gewijzigd met de velden op de **tests** tabblad.
+* **[Project]/Config/ProjectAcoustics.cfg**: In dit bestand worden de gegevens opgeslagen die u invoert in velden in de gebruikers interface van de akoestische modus. De locatie en naam van dit bestand kunnen niet worden gewijzigd. Er zijn andere waarden opgeslagen in dit bestand die van invloed zijn op de maken, maar ze zijn voor ervaren gebruikers en mogen niet worden gewijzigd.
+* **[Project]/Content/Acoustics/[LevelName]\_AcousticsData.ace**: Dit bestand is wat wordt gemaakt tijdens de maken-simulatie en bevat de opzoek gegevens die door de runtime worden gebruikt om de akoestische beelden van uw scène weer te geven. De locatie en naam van dit bestand kunnen worden gewijzigd met behulp van de velden op het tabblad **tests** . Als u de naam van dit bestand wilt wijzigen nadat het is gemaakt, verwijdert u de UAsset uit uw Unreal-project, wijzigt u de naam van het bestand buiten Unreal in Verkenner en importeert u dit bestand opnieuw in Unreal om een nieuwe UAsset te maken. Het is niet mogelijk om de naam van de UAsset zelf te wijzigen.
+* **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData.vox**: In dit bestand worden de voxelized-akoestische geometrie en de materiaal eigenschappen opgeslagen. Berekend met behulp van de knop **berekenen** op het tabblad **tests** . De locatie en naam van dit bestand kunnen worden gewijzigd met behulp van de velden op het tabblad **tests** .
+* **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData\_config.xml**: In dit bestand worden de para meters die worden berekend met behulp van de knop **berekenen** op het tabblad **tests** . De locatie en naam van dit bestand kunnen worden gewijzigd met behulp van de velden op het tabblad **tests** .
 
-Let erop dat niet als u wilt verwijderen van het bestand *.ace is gedownload van Azure. Dit bestand is niet hersteld, met uitzondering van de scène rebaking.
+Zorg ervoor dat u het bestand *. Ace dat is gedownload van Azure niet verwijdert. Dit bestand kan niet worden hersteld, behalve door de scène te rebakingen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Verken de [besturingselementen voor Unreal ontwerpen](unreal-workflow.md)
-* Verken de [Project akoestische ontwerpconcepten](design-process.md)
+* De [ontwerp besturings elementen voor Unreal](unreal-workflow.md) verkennen
+* Bekijk de [ontwerp concepten van het project akoestische ontwerpen](design-process.md)
 

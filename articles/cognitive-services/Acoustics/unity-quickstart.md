@@ -1,7 +1,7 @@
 ---
-title: Project akoestische snelstartgids met Unity
+title: Snelstartgids voor project akoestische
 titlesuffix: Azure Cognitive Services
-description: Met behulp van voorbeelden voor inhoud, Project akoestische experimenteren met besturingselementen in de eenheid van het ontwerpen en implementeren op Windows-bureaublad.
+description: Experimenteer met voorbeeld inhoud door de ontwerp besturings elementen voor project akoestische in eenheid te zetten en te implementeren op Windows Desktop.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,72 +10,73 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1c790e0fa726c719d5b888d42b5f59739777566b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ROBOTS: NOINDEX
+ms.openlocfilehash: 93eb44bf91bc2c8346660a4d770ee6d83501c3ae
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917124"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706609"
 ---
-# <a name="project-acoustics-unity-quickstart"></a>Quick Start Project akoestische Unity
-Gebruik Project akoestische voorbeeld inhoud voor Unity om te experimenteren met besturingselementen voor ontwerp simulatie van garantie.
+# <a name="project-acoustics-unity-quickstart"></a>Snelstartgids voor project akoestische eenheid
+Gebruik de voorbeeld inhoud van de project akoestische voor eenheid om te experimenteren met ontwerp besturings elementen met simulatie-ondersteuning.
 
-Softwarevereisten:
+Software vereisten:
 * [Unity 2018.2 +](https://unity3d.com) voor Windows
-* [Project akoestische voorbeeld-inhoudspakket](https://www.microsoft.com/download/details.aspx?id=57346)
+* [Pakket met voorbeeld inhoud voor project akoestische](https://www.microsoft.com/download/details.aspx?id=57346)
 
-Wat inbegrepen in het Voorbeeldpakket?
-* Unity-scène met geometrie, gezonde bronnen en spelen besturingselementen
-* Project akoestische-invoegtoepassing 
-* Voltooide akoestische activa voor de scène
+Wat is opgenomen in het voorbeeld pakket?
+* Eenheids scène met geometrie, geluids bronnen en gameplay-besturings elementen
+* Invoeg toepassing voor project akoestische 
+* Geïntegreerde akoestische activa voor de scène
 
-## <a name="import-the-sample-package"></a>De Voorbeeldpakket importeren
-De Voorbeeldpakket importeren naar een nieuw Unity-project. 
-* In Unity, gaat u naar **activa > pakket importeren > Custom Package...**
+## <a name="import-the-sample-package"></a>Het voorbeeld pakket importeren
+Importeer het voorbeeld pakket naar een nieuw Unity-project. 
+* Ga in eenheid naar **activa > import pakket > aangepast pakket...**
 
-    ![Schermafbeelding van de eenheid van het pakket importeren-opties](media/import-package.png)  
+    ![Scherm opname van unit import pakket opties](media/import-package.png)  
 
-* Kies **ProjectAcoustics.unitypackage**
+* Kies **ProjectAcoustics. unitypackage**
 
-Als u het pakket in een bestaand project importeert, Zie [Unity-integratie](unity-integration.md) voor extra stappen en notities.
+Zie [Unit-integratie](unity-integration.md) voor aanvullende stappen en notities als u het pakket importeert in een bestaand project.
 
-## <a name="restart-unity"></a>Opnieuw opstarten van Unity
-Het gedeelte bake van de toolkit akoestische vereist de scripting runtime-versie van .NET 4.x. Importeren van het pakket worden de instellingen voor de Unity-speler bijgewerkt. Start opnieuw op de eenheid voor deze instelling van kracht te laten worden.
+## <a name="restart-unity"></a>Eenheid opnieuw opstarten
+Het maken-gedeelte van de akoestische Toolkit vereist de .NET 4. x Scripting runtime-versie. Bij het importeren van pakketten worden de instellingen voor Unity Player bijgewerkt. De eenheid moet opnieuw worden opgestart om deze instelling van kracht te laten worden.
 
-U kunt controleren of deze instelling van kracht door het openen van de **Player Settings**:
+U kunt controleren of deze instelling is doorgevoerd door de instellingen van de **speler**te openen:
 
-![Schermafbeelding van Unity-speler instellingenvenster](media/player-settings.png)
+![Scherm afbeelding van het deel venster instellingen voor Unity Player](media/player-settings.png)
 
-![Schermafbeelding van Unity-speler instellingenvenster met .NET 4.5 geselecteerd](media/net45.png)
+![Scherm afbeelding van het deel venster instellingen voor Unity Player met .NET 4,5 geselecteerd](media/net45.png)
 
-## <a name="experiment-with-design-controls"></a>Experimenteer met besturingselementen voor ontwerp
-Open de scène voorbeeld in de **ProjectAcousticsSample** map en klik op de afspeelknop in de Unity-editor. Gebruik W, A, S, D- en de muis om te navigeren. Als u wilt vergelijken hoe de scène met en zonder Acoustics klinkt, drukt u op **R** totdat de overlaytekst rood wordt en zegt "Acoustics: Disabled." Als u sneltoetsen wilt zien voor meer besturingselementen, drukt u op **F1**. Besturingselementen zijn ook bruikbaar met de rechtermuisknop op de actie uit te voeren, schakel vervolgens links te klikken op als de bewerking wilt uitvoeren.
+## <a name="experiment-with-design-controls"></a>Experimenteren met ontwerp besturings elementen
+Open de voorbeeld scène in de map **ProjectAcousticsSample** en klik op de afspeel knop in de Unity-editor. Gebruik W, A, S, D en de muis om door te gaan. Als u wilt vergelijken hoe de scène met en zonder Acoustics klinkt, drukt u op **R** totdat de overlaytekst rood wordt en zegt "Acoustics: Disabled." Als u sneltoetsen wilt zien voor meer besturingselementen, drukt u op **F1**. Besturings elementen zijn ook bruikbaar door met de rechter muisknop te klikken om de actie te selecteren die u wilt uitvoeren en vervolgens te klikken met de linkermuisknop om de actie uit te voeren.
 
-Het script **AcousticsAdjust** is gekoppeld aan de geluid bronnen in de scène voorbeeld, waarmee de per-source ontwerpparameters. 
+Het script **AcousticsAdjust** wordt gekoppeld aan de geluids bronnen in de voorbeeld scène, waardoor de ontwerp parameters per bron worden ingeschakeld. 
 
-![Schermafbeelding van Unity AcousticsAdjust script](media/acoustics-adjust.png)
+![Scherm opname van Unity AcousticsAdjust-script](media/acoustics-adjust.png)
 
-De volgende verkent enkele van de effecten die kunnen worden gemaakt met de opgegeven besturingselementen. Zie voor gedetailleerde informatie over elk besturingselement, de [Project akoestische Unity ontwerp zelfstudie](unreal-workflow.md).
+Hieronder vindt u enkele van de effecten die kunnen worden geproduceerd met de beschik bare besturings elementen. Voor gedetailleerde informatie over elk besturings element, raadpleegt u de zelf studie over het ontwerpen van de [project akoestische unit-ontwerp](unreal-workflow.md).
 
-### <a name="modify-distance-based-attenuation"></a>Afname op basis van afstand wijzigen
-De audio DSP geleverd door de **Project akoestische** ruimtelijk-invoegtoepassing voor Unity respecteert de per-source afstand gebaseerde afname ingebouwd in de Unity-Editor. Besturingselementen voor afname op basis van afstand zijn de **Audio bron** onderdeel gevonden de **Inspector** Configuratiescherm van geluid gegevensbronnen onder **3D-geluidsinstellingen**:
+### <a name="modify-distance-based-attenuation"></a>Afzwakking op afstand wijzigen
+De audio-DSP die wordt verschaft door de spatializer-invoeg toepassing voor de **project geluids** eenheid, respecteert de op afstand gebaseerde verzwakking die is ingebouwd in de Unity-editor. Besturings elementen voor verzwakking op afstand bevinden zich in het **audio bron** onderdeel dat is gevonden in het deel venster **Inspector** van geluids bronnen, onder **3D-geluids instellingen**:
 
-![Schermafbeelding van Unity afstand afname deelvenster met opties](media/distance-attenuation.png)
+![Scherm afbeelding van het deel venster Opties voor afstands verzwakking](media/distance-attenuation.png)
 
-Project akoestische uitvoeren berekening in een "regio simulatie" gecentreerd rond de player-locatie. Omdat de activa akoestische in het Voorbeeldpakket met een grootte van de regio simulatie van 45m rond de speler sparen zijn, moet de geluid afname worden ontworpen om aan te vallen op 0 bij ongeveer 45 m.
+Project akoestische voert een berekening uit in het vak simulatie regio, gecentreerd rond de locatie van de speler. Omdat de akoestische activa in het voorbeeld pakket zijn geïntegreerde met een simulatie regio grootte van 45m rondom de speler, moet de geluids afzwakking worden ontworpen om op ongeveer 45 m te vallen.
 
-### <a name="modify-occlusion-and-transmission"></a>Wijzigen van bedekking en -overdracht
-* Als de **bedekking** vermenigvuldiger is groter dan 1 (de standaardwaarde is 1), bedekking wordt exaggerated. Het instellen van deze minder dan 1 wordt bedekking gevolgen subtielere.
+### <a name="modify-occlusion-and-transmission"></a>Bedekking en overdracht wijzigen
+* Als de **bedekking** vermenigvuldiger groter is dan 1 (de standaard waarde is 1), wordt bedekking exaggerated. Als u deze instelling kleiner dan 1 instelt, wordt het bedekking-effect subtieler.
 
-* Als u wilt inschakelen via de wand verzending, gaan de **verzending (dB)** schuifregelaar uit het laagste niveau. 
+* Verplaats de schuif regelaar voor **verzen ding (DB)** naar het laagste niveau om de overdracht via de wand mogelijk te maken. 
 
-### <a name="modify-wetness-for-a-source"></a>Wetness voor een gegevensbron wijzigen
-* U kunt wijzigen hoe snel wetness wordt gewijzigd met afstand met de **perceptuele afstand verdraaien**. **Akoestische project** berekeningen NAT niveaus in de ruimte van de simulatie, die variëren probleemloos met afstand en perceptuele afstand aanwijzingen geven. De afstand verdraaien verhogen verhoogt dit effect door te verhogen met betrekking tot afstand NAT niveaus. Controleer de afstand gebaseerde weerklank wijzigen subtielere afbeeldingsvervormingen waarden kleiner dan 1. Dit effect kan ook worden aangepast in detail nauwkeurigere door aan te passen de **Wetness (dB)**.
+### <a name="modify-wetness-for-a-source"></a>Wetness voor een bron wijzigen
+* Als u wilt wijzigen hoe snel wetness verandert met afstand, gebruikt u de afdraaiing van **Perceptueel op afstand**. Met de geluids sterkte van het **project** worden natte niveaus in de ruimte van simulaties berekend, wat soepel en op afstand verloopt en de hints op waarneming bieden. Verhoog de afstands verdraaiing exaggerates dit effect door toenemende natte niveaus te verhogen. Het verdraaien van waarden kleiner dan 1 maken de op afstand gebaseerde reverberation subtieler. Dit effect kan ook worden aangepast in gedetailleerde Details door de **Wetness (DB)** aan te passen.
 
-* De vervaltijd in de ruimte verhogen door aan te passen de **Decay schaal**. Als het simulatieresultaat voor een bepaalde bron-listener locatie paar een Vervaltijd van 1.5s, en de **Decay schaal** is ingesteld op 2, is de vervaltijd toegepast op de bron 3 's.
+* Verhoog de verval tijd in de ruimte door de schaal voor de **verval tijd**aan te passen. Als het simulatie resultaat voor een bepaald locatie paar van de bron-listener een verval tijd van 1,5 s is en de **schaal voor de verval tijd** is ingesteld op 2, wordt de verval tijd die wordt toegepast op de bron 3s.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Volledige details lezen op de [op basis van een Unity-Project akoestische besturingselementen ontwerpen](unity-workflow.md)
-* Meer informatie de concepten achter de [proces ontwerpen](design-process.md)
-* [Maak een Azure-account](create-azure-account.md) verkennen van de vooraf bake en maken van processen
+* Lees de volledige informatie over de [ontwerp besturings elementen op basis van op eenheid gebaseerde project akoestische](unity-workflow.md)
+* Bekijk de concepten verder achter het [ontwerp proces](design-process.md)
+* [Een Azure-account maken](create-azure-account.md) om de maken-en maken-processen te verkennen
 

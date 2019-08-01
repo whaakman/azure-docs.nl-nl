@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe19ea2d8946d645704139bbf2faa80f21e84039
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4c55d3d92faf854952b609287bb16a30ed1e30ec
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708058"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717471"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Zelfstudie: Een aangepaste installatiekopie van een Azure-VM maken met Azure PowerShell
 
@@ -33,6 +33,8 @@ Aangepaste installatiekopieën zijn soortgelijk aan Marketplace-installatiekopie
 > * Een VM maken van een aangepaste installatiekopie
 > * Alle installatiekopieën in uw abonnement weergeven
 > * Een aangepaste installatiekopie verwijderen
+
+In de open bare preview hebben we de [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview) -service nodig. Geef een beschrijving van uw aanpassingen in een sjabloon en de stappen voor het maken van de installatie kopie worden verwerkt in dit artikel. [Probeer Azure Image Builder (preview)](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -65,7 +67,7 @@ Sysprep verwijdert onder meer al uw persoonlijke accountinformatie en de machine
 
 Voor het maken van een installatiekopie moet de toewijzing van de virtuele machine ongedaan worden gemaakt en moet de VM worden gemarkeerd als gegeneraliseerd in Azure.
 
-Toewijzing van de virtuele machine met behulp van [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+Hef de toewijzing van de virtuele machine op met behulp van [AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -162,7 +164,7 @@ In deze zelfstudie hebt u een aangepaste installatiekopie voor een virtuele mach
 > * Alle installatiekopieën in uw abonnement weergeven
 > * Een aangepaste installatiekopie verwijderen
 
-Ga naar de volgende zelfstudie voor meer informatie over het maken van maximaal beschikbare virtuele machines.
+Ga naar de volgende zelf studie voor meer informatie over het maken van Maxi maal beschik bare virtuele machines.
 
 > [!div class="nextstepaction"]
 > [Virtuele machines met hoge beschikbaarheid maken](tutorial-availability-sets.md)

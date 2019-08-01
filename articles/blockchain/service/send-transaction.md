@@ -1,372 +1,136 @@
 ---
-title: Trans acties verzenden met behulp van de Azure Block Chain-Service
-description: Zelf studie over het gebruik van de Azure Block Chain-Service voor het implementeren van een slim contract en het verzenden van een persoonlijke trans actie.
+title: Slimme contracten gebruiken op de Azure Block Chain-Service
+description: Zelf studie over het gebruik van de Azure Block Chain-Service voor het implementeren van een slim contract en het uitvoeren van een functie via een trans actie.
 services: azure-blockchain
-keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/29/2019
+ms.date: 07/31/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: jackyhsu
-manager: femila
-ms.openlocfilehash: 3cfbbdc5b95d1607738b132980320d2ff7c99788
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.reviewer: chrisseg
+ms.openlocfilehash: 1843bd66e11a6686c9ae81fb8e30c7b030e889b7
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698384"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705130"
 ---
-# <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Zelfstudie: Trans acties verzenden met behulp van de Azure Block Chain-Service
+# <a name="tutorial-use-smart-contracts-on-azure-blockchain-service"></a>Zelfstudie: Slimme contracten gebruiken op de Azure Block Chain-Service
 
-In deze zelf studie maakt u transactie knooppunten om de privacy van een contract en trans acties te testen.  U gebruikt Truffle om een lokale ontwikkel omgeving te maken en een slim contract te implementeren en een persoonlijke trans actie te verzenden.
+In deze zelf studie gebruikt u de Azure Block Chain Development Kit voor Ethereum voor het maken en implementeren van een slim contract en voert u een slimme contract functie uit via een trans actie op een consortium Block chain-netwerk.
 
-U leert het volgende:
+U gebruikt Azure Block Chain Development Kit voor Ethereum voor het volgende:
 
 > [!div class="checklist"]
-> * Transactie knooppunten toevoegen
-> * Truffle gebruiken voor het implementeren van een slim contract
-> * Een trans actie verzenden
-> * Privacy van trans acties valideren
+> * Verbinding maken met het block Chain-lid van het Azure Block Chain Service consortium
+> * Een slim contract maken
+> * Een slim contract implementeren
+> * Een slimme contract functie uitvoeren via een trans actie
+> * Query contract status
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Volt ooien [een Block Chain-lid maken met behulp van de Azure Portal](create-member.md)
-* Volledige [Snelstartgids: Truffle gebruiken om verbinding te maken met een consortium netwerk](connect-truffle.md)
-* Installeer [Truffle](https://github.com/trufflesuite/truffle). Truffle vereist verschillende hulpprogram ma's die moeten worden geïnstalleerd, waaronder [node. js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)installeren. Python is vereist voor web3.
-* [Visual Studio code](https://code.visualstudio.com/Download) installeren
-* [Visual Studio code-extensie voor volheid](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity) installeren
+* Volledige [Snelstartgids: Maak een Block Chain-lid met behulp [van de Azure Portal](create-member.md) of Quick Start: Een Block Chain-lid van de Azure Block Chain-service maken met behulp van Azure CLI](create-member-cli.md)
+* [Visual Studio Code](https://code.visualstudio.com/Download)
+* [Azure Block Chain Development Kit voor Ethereum-uitbrei ding](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
+* [Node.js](https://nodejs.org)
+* [Git](https://git-scm.com)
+* [Python](https://www.python.org/downloads/release/python-2715/). Voeg python. exe toe aan het pad. Python in het pad is vereist voor Azure Block Chain Development Kit.
+* [Truffle](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
+* [Ganache CLI](https://github.com/trufflesuite/ganache-cli)
 
-## <a name="create-transaction-nodes"></a>Transactie knooppunten maken
+### <a name="verify-azure-blockchain-development-kit-environment"></a>De Azure Block Chain Development Kit-omgeving controleren
 
-Standaard hebt u één transactie knooppunt. We gaan nog twee meer toevoegen. Een van de knoop punten neemt deel uit van de persoonlijke trans actie. De andere is niet opgenomen in de persoonlijke trans actie.
+In azure Block Chain Development Kit wordt gecontroleerd of aan de vereisten van uw ontwikkel omgeving is voldaan. Controleren of uw ontwikkel omgeving:
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Navigeer naar uw Azure Block Chain-lid en selecteer **transactie knooppunten > toevoegen**.
-1. Voltooi de instellingen voor een nieuw transactie knooppunt met `alpha`de naam.
+Kies **in het palet met de VS code-opdracht Azure Block chain: Welkomst pagina**weer geven.
 
-    ![Transactie knooppunt maken](./media/send-transaction/create-node.png)
+Azure Block Chain Development Kit voert een validatie script uit dat ongeveer een minuut in beslag neemt. U kunt de uitvoer weer geven door **Terminal > New Terminal**te selecteren. Selecteer in de menu balk van de Terminal het tabblad **uitvoer** en **Azure Block Chain** in de vervolg keuzelijst. Geslaagde validatie ziet eruit als in de volgende afbeelding:
 
-    | Instelling | Waarde | Beschrijving |
-    |---------|-------|-------------|
-    | Name | `alpha` | Naam van het transactie knooppunt. De naam wordt gebruikt voor het maken van het DNS-adres voor het eind punt van het transactie knooppunt. Bijvoorbeeld `alpha-mymanagedledger.blockchain.azure.com`. |
-    | Wachtwoord | Sterk wacht woord | Het wacht woord wordt gebruikt voor toegang tot het knoop punt van het transactie knooppunt met basis verificatie.
+![Geldige ontwikkel omgeving](./media/send-transaction/valid-environment.png)
 
-1. Selecteer **Maken**.
+ Als u een vereist hulp programma mist, wordt een nieuw tabblad met de naam **Azure Block Chain Development Kit** weer gegeven met de vereiste apps die moeten worden geïnstalleerd en koppelingen voor het downloaden van de hulpprogram ma's.
 
-    Het inrichten van een nieuw transactie knooppunt duurt ongeveer 10 minuten.
+![Ontwikkel Kit vereiste apps](./media/send-transaction/required-apps.png)
 
-1. Herhaal stap 2 tot en met 4 om een transactie knooppunt `beta`met de naam toe te voegen.
+## <a name="connect-to-consortium-member"></a>Verbinding maken met het consortium
 
-U kunt door gaan met de zelf studie wanneer de knoop punten worden ingericht. Wanneer het inrichten is voltooid, hebt u drie transactie knooppunten.
+U kunt verbinding maken met consortium leden met behulp van de Azure Block Chain Development Kit VS code extension. Wanneer u bent verbonden met een consortium, kunt u slimme contracten compileren, bouwen en implementeren in een Azure Block Chain Service consortium-lid.
 
-## <a name="open-truffle-console"></a>Truffle-console openen
+Als u geen toegang hebt tot een lid van een Azure Block Chain Service consortium, voltooit [u de vereiste Snelstartgids: Maak een Block Chain-lid met behulp [van de Azure Portal](create-member.md) of Quick Start: Maak een Azure Block Chain Service Block Chain-lid met behulp van Azure CLI](create-member-cli.md).
 
-1. Open een node. js-opdracht prompt of-shell.
-1. Wijzig het pad naar de Truffle-project directory van de vereiste [Snelstartgids: Gebruik Truffle om verbinding te maken met een](connect-truffle.md)consortium netwerk. Bijvoorbeeld:
+1. Vouw in het deel venster Visual Studio code (VS code) Explorer de **Azure Block Chain** -extensie uit.
+1. Selecteer **verbinding maken met consortium**.
 
-    ```bash
-    cd truffledemo
-    ```
+   ![Verbinding maken met consortium](./media/send-transaction/connect-consortium.png)
 
-1. Gebruik de Truffle-console om verbinding te maken met het standaard transactie knooppunt.
+    Als u wordt gevraagd om Azure-verificatie, volgt u de prompts voor verificatie met behulp van een browser.
+1. Kies **verbinding maken met Azure Block Chain Service consortium** in de vervolg keuzelijst voor het opdracht palet.
+1. Kies het abonnement en de resource groep die aan uw Azure Block Chain Service consortium-lid zijn gekoppeld.
+1. Kies uw consortium in de lijst.
 
-    ``` bash
-    truffle console --network defaultnode
-    ```
+De consortium-en block Chain-leden worden weer gegeven in de Visual Studio Explorer-balk.
 
-    Truffle maakt verbinding met het standaard transactie knooppunt en biedt een interactieve console.
+![Consortium weer gegeven in Verkenner](./media/send-transaction/consortium-node.png)
 
-## <a name="create-ethereum-account"></a>Ethereum-account maken
+## <a name="create-a-smart-contract"></a>Een slim contract maken
 
-Gebruik Web3 om verbinding te maken met het standaard transactie knooppunt en maak een Ethereum-account. U kunt methoden voor het object Web3 aanroepen om te communiceren met uw trans actie-knoop punt.
+De Azure Block Chain Development Kit voor Ethereum gebruikt Project sjablonen en Truffle-hulpprogram ma's om contracten te helpen, te bouwen en te implementeren.
 
-1. Maak een nieuw account op het standaard transactie knooppunt. Vervang de wachtwoord parameter door uw eigen sterke wacht woord.
+1. Kies **in het palet met de VS code-opdracht Azure Block chain: Nieuw volheid-project**.
+1. Kies **basis project maken**.
+1. Maak een nieuwe map met `HelloBlockchain` de naam en **Selecteer Nieuw pad**voor het project.
 
-    ```bash
-    web3.eth.personal.newAccount("1@myStrongPassword");
-    ```
-
-    Noteer het account adres dat wordt geretourneerd en het wacht woord. U hebt het adres en het wacht woord van het Ethereum-account nodig in de volgende sectie.
-
-1. Sluit de Truffle-ontwikkel omgeving af.
-
-    ```bash
-    .exit
-    ```
-
-## <a name="configure-truffle-project"></a>Truffle-project configureren
-
-Als u het Truffle-project wilt configureren, hebt u enkele informatie over het transactie knooppunt nodig van de Azure Portal.
-
-### <a name="transaction-node-public-key"></a>Open bare sleutel van transactie knooppunt
-
-Elk transactie knooppunt heeft een open bare sleutel. Met de open bare sleutel kunt u een persoonlijke trans actie verzenden naar het knoop punt. Als u een trans actie van het knoop punt standaard transactie naar het *Alfa* transactie knooppunt wilt verzenden, moet u de open bare sleutel van het *Alfa* trans actie-knoop punt hebben.
-
-U kunt de open bare sleutel ophalen uit de lijst met transactie knooppunten. Kopieer de open bare sleutel voor het Alfa knooppunt en sla de waarde op verderop in de zelf studie.
-
-![Lijst met transactie knooppunten](./media/send-transaction/node-list.png)
-
-### <a name="transaction-node-endpoint-addresses"></a>Eindpunt adressen van het transactie knooppunt
-
-1. Ga in het Azure Portal naar elk transactie knooppunt en selecteer **transactie knooppunten > verbindings reeksen**.
-1. Kopieer de eind punt-URL van **https (toegangs sleutel 1)** voor elk transactie knooppunt en sla deze op. U hebt de eindpunt adressen voor het configuratie bestand van het slimme contract later in de zelf studie nodig.
-
-    ![Adres van het transactie eindpunt](./media/send-transaction/endpoint.png)
-
-### <a name="edit-configuration-file"></a>Configuratie bestand bewerken
-
-1. Start Visual Studio code en open de map Truffle project directory in het menu **File > map openen** .
-1. Open het configuratie bestand `truffle-config.js`Truffle.
-1. Vervang de inhoud van het bestand door de volgende configuratie gegevens. Voeg variabelen met de eind punten en account gegevens toe. Vervang de secties met punt haken door de waarden die u hebt verzameld uit de vorige secties.
-
-    ``` javascript
-    var defaultnode = "<default transaction node connection string>";
-    var alpha = "<alpha transaction node connection string>";
-    var beta = "<beta transaction node connection string>";
-    
-    var myAccount = "<Ethereum account address>";
-    var myPassword = "<Ethereum account password>";
-    
-    var Web3 = require("web3");
-    
-    module.exports = {
-      networks: {
-        defaultnode: {
-          provider:(() =>  {
-          const AzureBlockchainProvider = new Web3.providers.HttpProvider(defaultnode);
-    
-          const web3 = new Web3(AzureBlockchainProvider);
-          web3.eth.personal.unlockAccount(myAccount, myPassword);
-    
-          return AzureBlockchainProvider;
-          })(),
-    
-          network_id: "*",
-          gasPrice: 0,
-          from: myAccount
-        },
-        alpha: {
-          provider: new Web3.providers.HttpProvider(alpha),
-          network_id: "*",
-        },
-        beta: {
-          provider: new Web3.providers.HttpProvider(beta),
-          network_id: "*",
-        }
-      },
-      compilers: {
-        solc: {
-          evmVersion: "byzantium"
-        }
-      }
-    }
-    ```
-
-1. Sla de wijzigingen op `truffle-config.js`op.
-
-## <a name="create-smart-contract"></a>Slim contract maken
-
-1. Maak in de map **contracten** een nieuw bestand met de `SimpleStorage.sol`naam. Voeg de volgende code toe.
-
-    ```solidity
-    pragma solidity >=0.4.21 <0.6.0;
-    
-    contract SimpleStorage {
-        string public storedData;
-    
-        constructor(string memory initVal) public {
-            storedData = initVal;
-        }
-    
-        function set(string memory x) public {
-            storedData = x;
-        }
-    
-        function get() view public returns (string memory retVal) {
-            return storedData;
-        }
-    }
-    ```
-    
-1. Maak in de map migraties een nieuw bestand met de `2_deploy_simplestorage.js`naam. Voeg de volgende code toe.
-
-    ```solidity
-    var SimpleStorage = artifacts.require("SimpleStorage.sol");
-    
-    module.exports = function(deployer) {
-    
-      // Pass 42 to the contract as the first constructor parameter
-      deployer.deploy(SimpleStorage, "42", {privateFor: ["<alpha node public key>"], from:"<Ethereum account address>"})  
-    };
-    ```
-
-1. Vervang de waarden in de punt haken.
-
-    | Waarde | Description
-    |-------|-------------
-    | \<alpha node public key\> | Open bare sleutel van het Alfa knooppunt
-    | \<Ethereum account address\> | Het Ethereum-account adres dat is gemaakt in het standaard transactie knooppunt
-
-    In dit voor beeld wordt de begin waarde van de waarde **Store data** ingesteld op 42.
-
-    **privateFor** definieert de knoop punten waarvoor het contract beschikbaar is. In dit voor beeld kan het account van het standaard transactie knooppunt persoonlijke trans acties naar het **Alfa** knooppunt casten. U kunt open bare sleutels voor alle deel nemers aan de persoonlijke trans actie toevoegen. Als u PrivateFor niet opneemt **:** en **van:** , zijn de slimme contract transacties openbaar en kunnen alle leden van het consortium worden weer gegeven.
-
-1. Sla alle bestanden op door **bestand te selecteren > alles**op te slaan.
-
-## <a name="deploy-smart-contract"></a>Slim contract implementeren
-
-Gebruik Truffle om te `SimpleStorage.sol` implementeren op het standaard transactie knooppunt netwerk.
-
-```bash
-truffle migrate --network defaultnode
-```
-
-Truffle maakt eerst een compilatie en implementeert vervolgens het slimme **SimpleStorage** -contract.
-
-Voorbeelduitvoer:
-
-```
-admin@desktop:/mnt/c/truffledemo$ truffle migrate --network defaultnode
-
-2_deploy_simplestorage.js
-=========================
-
-   Deploying 'SimpleStorage'
-   -------------------------
-   > transaction hash:    0x3f695ff225e7d11a0239ffcaaab0d5f72adb545912693a77fbfc11c0dbe7ba72
-   > Blocks: 2            Seconds: 12
-   > contract address:    0x0b15c15C739c1F3C1e041ef70E0011e641C9D763
-   > account:             0x1a0B9683B449A8FcAd294A01E881c90c734735C3
-   > balance:             0
-   > gas used:            0
-   > gas price:           0 gwei
-   > value sent:          0 ETH
-   > total cost:          0 ETH
-
-
-   > Saving migration to chain.
-   > Saving artifacts
-   -------------------------------------
-   > Total cost:                   0 ETH
-
-
-Summary
-=======
-> Total deployments:   2
-> Final cost:          0 ETH
-```
-
-## <a name="validate-contract-privacy"></a>Privacy voor contracten valideren
-
-Vanwege de privacy van het contract kunnen contract waarden alleen worden opgevraagd van de knoop punten die zijn gedeclareerd in **privateFor**. In dit voor beeld kunnen we een query uitvoeren op het standaard transactie knooppunt, omdat het account zich in dat knoop punt bevindt. 
-
-1. Maak verbinding met het standaard transactie knooppunt met behulp van de Truffle-console.
-
-    ```bash
-    truffle console --network defaultnode
-    ```
-
-1. Voer in de Truffle-console code uit die de waarde van het contract exemplaar retourneert.
-
-    ```bash
-    SimpleStorage.deployed().then(function(instance){return instance.get();})
-    ```
-
-    Als er een query wordt uitgevoerd op het standaard transactie knooppunt, wordt de waarde 42 geretourneerd. Bijvoorbeeld:
-
-    ```
-    admin@desktop:/mnt/c/truffledemo$ truffle console --network defaultnode
-    truffle(defaultnode)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-    '42'
-    ```
-
-1. Sluit de Truffle-console af.
-
-    ```bash
-    .exit
-    ```
-
-Omdat we de open bare sleutel van het **Alfa** -knoop punt in **privateFor**zijn gedeclareerd, kunnen we een query uitvoeren op het **Alfa** knooppunt.
-
-1. Maak verbinding met het **Alfa** knooppunt met behulp van de Truffle-console.
-
-    ```bash
-    truffle console --network alpha
-    ```
-
-1. Voer in de Truffle-console code uit die de waarde van het contract exemplaar retourneert.
-
-    ```bash
-    SimpleStorage.deployed().then(function(instance){return instance.get();})
-    ```
-
-    Als er een query wordt uitgevoerd op het **Alfa** knooppunt, wordt de waarde 42 geretourneerd. Bijvoorbeeld:
-
-    ```
-    admin@desktop:/mnt/c/truffledemo$ truffle console --network alpha
-    truffle(alpha)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-    '42'
-    ```
-
-1. Sluit de Truffle-console af.
-
-    ```bash
-    .exit
-    ```
-
-Omdat we de open bare sleutel van het **bèta** -knoop punt niet hebben gedeclareerd in **privateFor**, kunnen we geen query uitvoeren op het **bèta** -knoop punt vanwege de privacy van het contract.
-
-1. Maak met behulp van de Truffle-console verbinding met het **beta** -knoop punt.
-
-    ```bash
-    truffle console --network beta
-    ```
-
-1. Voer een code uit die de waarde van het contract exemplaar retourneert.
-
-    ```bash
-    SimpleStorage.deployed().then(function(instance){return instance.get();})
-    ```
-
-1. Het uitvoeren van een query op het **bèta** knooppunt is mislukt omdat het contract privé is. Bijvoorbeeld:
-
-    ```
-    admin@desktop:/mnt/c/truffledemo$ truffle console --network beta
-    truffle(beta)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-    Thrown:
-    Error: Returned values aren't valid, did it run Out of Gas?
-        at XMLHttpRequest._onHttpResponseEnd (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:345:8)
-        at XMLHttpRequest._setReadyState (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:219:8)
-        at XMLHttpRequestEventTarget.dispatchEvent (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request-event-target.ts:44:13)
-        at XMLHttpRequest.request.onreadystatechange (/mnt/c/truffledemo/node_modules/web3-providers-http/src/index.js:96:13)
-    ```
-
-1. Sluit de Truffle-console af.
-
-    ```bash
-    .exit
-    ```
-    
-## <a name="send-a-transaction"></a>Een trans actie verzenden
-
-1. Maak een bestand met `sampletx.js`de naam. Sla het op in de hoofdmap van het project.
-1. Met het volgende script wordt de waarde van de contract **storedData** -variabele ingesteld op 65. Voeg de code toe aan het nieuwe bestand.
+De Azure Block Chain Development Kit maakt en initialiseert een nieuw solide project voor u. Het basis project bevat een voor beeld van een **HelloBlockchain** slim contract en alle benodigde bestanden voor het bouwen en implementeren van uw consortium in de Azure Block Chain-service. Het kan enkele minuten duren voordat het project is gemaakt. U kunt de voortgang in het Terminal paneel van VS code controleren door de uitvoer voor Azure Block chain te selecteren.
+
+De project structuur ziet eruit als in het volgende voor beeld:
+
+   ![Volheid project](./media/send-transaction/solidity-project.png)
+
+## <a name="build-a-smart-contract"></a>Een slim contract bouwen
+
+Slimme contracten bevinden zich in de map **contracten** van het project. U kunt slimme contracten compileren voordat u ze implementeert in een Block chain. Gebruik de opdracht **contracten bouwen** om alle slimme contracten in uw project te compileren.
+
+1. Vouw in de VS code Explorer-zijbalk de map **contracten** in uw project uit.
+1. Klik met de rechter muisknop op **HelloBlockchain. Sol** en kies **contracten maken** in het menu.
+
+    ![Contracten samen stellen](./media/send-transaction/build-contracts.png)
+
+Azure Block Chain Development Kit maakt gebruik van truffle om de slimme contracten te compileren.
+
+![Uitvoer compileren](./media/send-transaction/compile-output.png)
+
+## <a name="deploy-a-smart-contract"></a>Een slim contract implementeren
+
+Truffle maakt gebruik van migratie scripts om uw contracten te implementeren in een Ethereum-netwerk. Migraties zijn Java script-bestanden die zich in de map migraties van het project bevinden.
+
+1. Als u uw slimme contract wilt implementeren, klikt u met de rechter muisknop op **HelloBlockchain. Sol** en kiest u **contracten implementeren** in het menu.
+1. Kies uw Azure Block Chain consortium-netwerk onder **van truffle-config. js**. Het consortium Block chain-netwerk is toegevoegd aan het Truffle-configuratie bestand van het project wanneer u het project hebt gemaakt.
+1. Kies **instructie genereren**. Kies een bestands naam en sla het bestand voor de instructie op in de projectmap. Bijvoorbeeld `myblockchainmember.env`. Het instructie bestand wordt gebruikt voor het genereren van een persoonlijke sleutel Ethereum voor uw Block Chain-lid.
+
+Azure Block Chain Development Kit maakt gebruik van truffle om het migratie script uit te voeren om de contracten te implementeren op de Block chain.
+
+![Het contract is geïmplementeerd](./media/send-transaction/deploy-contract.png)
+
+## <a name="call-a-contract-function"></a>Een contract functie aanroepen
+
+De functie **SendRequest** van het **HelloBlockchain** -contract wijzigt de variabele **RequestMessage** -status. Het wijzigen van de status van een Block chain-netwerk wordt uitgevoerd via een trans actie. U kunt een script maken om de functie **SendRequest** uit te voeren via een trans actie.
+
+1. Maak een nieuw bestand in de hoofdmap van uw Truffle-project en noem `sendrequest.js`het. Voeg de volgende Web3 java script-code toe aan het bestand.
 
     ```javascript
-    var SimpleStorage = artifacts.require("SimpleStorage");
-    
+    var HelloBlockchain = artifacts.require("HelloBlockchain");
+        
     module.exports = function(done) {
-      console.log("Getting deployed version of SimpleStorage...")
-      SimpleStorage.deployed().then(function(instance) {
-        console.log("Setting value to 65...");
-        return instance.set("65", {privateFor: ["<alpha node public key>"], from:"<Ethereum account address>"});
+      console.log("Getting the deployed version of the HelloBlockchain smart contract")
+      HelloBlockchain.deployed().then(function(instance) {
+        console.log("Calling SendRequest function for contract ", instance.address);
+        return instance.SendRequest("Hello, blockchain!");
       }).then(function(result) {
-        console.log("Transaction:", result.tx);
-        console.log("Finished!");
+        console.log("Transaction hash: ", result.tx);
+        console.log("Request complete");
         done();
       }).catch(function(e) {
         console.log(e);
@@ -375,76 +139,85 @@ Omdat we de open bare sleutel van het **bèta** -knoop punt niet hebben gedeclar
     };
     ```
 
-    Vervang de waarden in de punt haken en sla het bestand op.
+1. Wanneer Azure Block Chain Development Kit een project maakt, wordt het Truffle-configuratie bestand gegenereerd met de details van uw consortium Block chain-netwerk eindpunt. Open **Truffle-config. js** in uw project. In het configuratie bestand worden twee netwerken weer gegeven: een met de naam ontwikkeling en een met dezelfde namen als het consortium.
+1. Gebruik in het Terminal venster van VS code Truffle om het script uit te voeren op uw consortium Block chain-netwerk. Selecteer in de menu balk van het Terminal venster het tabblad **Terminal** en **Power shell** in de vervolg keuzelijst.
 
-    | Value | Description
-    |-------|-------------
-    | \<alpha node public key\> | Open bare sleutel van het Alfa knooppunt
-    | \<Ethereum account address\> | Het Ethereum-account adres dat is gemaakt in het standaard transactie knooppunt.
-
-    **privateFor** definieert de knoop punten waarop de trans actie beschikbaar is. In dit voor beeld kan het account van het standaard transactie knooppunt persoonlijke trans acties naar het **Alfa** knooppunt casten. U moet open bare sleutels voor alle deel nemers aan de persoonlijke trans actie toevoegen.
-
-1. Gebruik Truffle om het script voor het standaard transactie knooppunt uit te voeren.
-
-    ```bash
-    truffle exec sampletx.js --network defaultnode
+    ```PowerShell
+    truffle exec sendrequest.js --network <blockchain network>
     ```
 
-1. Voer in de Truffle-console code uit die de waarde van het contract exemplaar retourneert.
+    Vervang \<Block Chain-\> netwerk door de naam van het block chain-netwerk dat is gedefinieerd in **Truffle-config. js**.
 
-    ```bash
-    SimpleStorage.deployed().then(function(instance){return instance.get();})
+Truffle voert het script uit op uw Block chain-netwerk.
+
+![Scriptuitvoer](./media/send-transaction/execute-transaction.png)
+
+Wanneer u de functie van een contract uitvoert via een trans actie, wordt de trans actie niet verwerkt totdat er een blok is gemaakt. Functies die via een trans actie moeten worden uitgevoerd, retour neren een trans actie-ID in plaats van een retour waarde.
+
+## <a name="query-contract-state"></a>Query contract status
+
+Met de functies van een slimme opdracht kan de huidige waarde van de status variabelen worden geretourneerd. We gaan een functie toevoegen om de waarde van een status variabele te retour neren.
+
+1. Voeg in **HelloBlockchain. Sol**een **GetMessage** -functie toe aan het slimme **HelloBlockchain** -contract.
+
+    ``` solidity
+    function getMessage() public view returns (string memory)
+    {
+        if (State == StateType.Request)
+            return RequestMessage;
+        else
+            return ResponseMessage;
+    }
     ```
 
-    Als de trans actie is geslaagd, wordt de waarde 65 geretourneerd. Bijvoorbeeld:
+    De functie retourneert het bericht dat is opgeslagen in een status variabele op basis van de huidige status van het contract.
+
+1. Klik met de rechter muisknop op **HelloBlockchain. Sol** en kies **contracten maken** in het menu om de wijzigingen in het slimme contract te compileren.
+1. Als u wilt implementeren, klikt u met de rechter muisknop op **HelloBlockchain. Sol** en kiest u **contracten implementeren** in het menu.
+1. Maak vervolgens een script dat wordt gebruikt om de functie **GetMessage** aan te roepen. Maak een nieuw bestand in de hoofdmap van uw Truffle-project en noem `getmessage.js`het. Voeg de volgende Web3 java script-code toe aan het bestand.
+
+    ```javascript
+    var HelloBlockchain = artifacts.require("HelloBlockchain");
     
+    module.exports = function(done) {
+      console.log("Getting the deployed version of the HelloBlockchain smart contract")
+      HelloBlockchain.deployed().then(function(instance) {
+        console.log("Calling getMessage function for contract ", instance.address);
+        return instance.getMessage();
+      }).then(function(result) {
+        console.log("Request message value: ", result);
+        console.log("Request complete");
+        done();
+      }).catch(function(e) {
+        console.log(e);
+        done();
+      });
+    };
     ```
-    Getting deployed version of SimpleStorage...
-    Setting value to 65...
-    Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
-    Finished!
-    ```
 
-1. Sluit de Truffle-console af.
-
-    ```bash
-    .exit
-    ```
-    
-## <a name="validate-transaction-privacy"></a>Privacy van trans acties valideren
-
-Vanwege de privacy van de trans actie kunnen trans acties alleen worden uitgevoerd op knoop punten die zijn gedeclareerd in **privateFor**. In dit voor beeld kunnen we trans acties uitvoeren omdat de open bare sleutel van het **Alfa** -knoop punt in **privateFor**is gedeclareerd. 
-
-1. Gebruik Truffle om de trans actie op het **alpha** -knoop punt uit te voeren.
-
-    ```bash
-    truffle exec sampletx.js --network alpha
-    ```
-    
-1. Voer code uit die de waarde van het contract exemplaar retourneert.
+1. Gebruik in het Terminal venster van VS code Truffle om het script uit te voeren op uw Block chain-netwerk. Selecteer in de menu balk van het Terminal venster het tabblad **Terminal** en **Power shell** in de vervolg keuzelijst.
 
     ```bash
-    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    truffle exec getmessage.js --network <blockchain network>
     ```
-    
-    Als de trans actie is geslaagd, wordt de waarde 65 geretourneerd. Bijvoorbeeld:
 
-    ```
-    Getting deployed version of SimpleStorage...
-    Setting value to 65...
-    Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
-    Finished!
-    ```
-    
-1. Sluit de Truffle-console af.
+    Vervang \<Block Chain-\> netwerk door de naam van het block chain-netwerk dat is gedefinieerd in **Truffle-config. js**.
 
-    ```bash
-    .exit
-    ```
+Het script voert een query uit op het slimme contract door de getMessage-functie aan te roepen. De huidige waarde van de status variabele **RequestMessage** wordt geretourneerd.
+
+![Scriptuitvoer](./media/send-transaction/execute-get.png)
+
+Let op: de waarde is niet **Hello, Block Chain!** . In plaats daarvan is de geretourneerde waarde een tijdelijke aanduiding. Wanneer u het contract wijzigt en implementeert, haalt het contract een nieuw contract adres op en worden aan de status variabelen waarden toegewezen in de Smart contract-constructor. Het Truffle-voor beeld- **2_deploy_contracts. js** -migratie script implementeert het slimme contract en geeft een tijdelijke aanduiding door als argument. De constructor stelt de **RequestMessage** -status variabele in op de waarde van de tijdelijke aanduiding en dat is wat er wordt geretourneerd.
+
+1. Als u de **RequestMessage** -status variabele wilt instellen en de waarde wilt opvragen, voert u de scripts **SendRequest. js** en **GetMessage. js** opnieuw uit.
+
+    ![Scriptuitvoer](./media/send-transaction/execute-set-get.png)
+
+    **SendRequest. js** stelt de **RequestMessage** -status variabele in op **Hello, Block Chain!** en **GetMessage. js** vraagt het contract om de waarde van de **RequestMessage** -status variabele en retourneert **Hello, Block Chain!** .
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u deze niet meer nodig hebt, kunt u de resources verwijderen `myResourceGroup` door de resource groep te verwijderen die u hebt gemaakt door de Azure Block Chain-service.
+Wanneer u deze niet meer nodig hebt, kunt u de resources verwijderen `myResourceGroup` door de resource groep te verwijderen die u hebt gemaakt in de Snelstartgids *een Block Chain-lid maken* .
 
 De resource groep verwijderen:
 
@@ -453,7 +226,7 @@ De resource groep verwijderen:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelf studie hebt u twee transactie knooppunten toegevoegd om de privacy van contracten en trans acties te demonstreren. U hebt het standaard knooppunt gebruikt voor het implementeren van een privé-contract. U hebt de privacy getest door de contract waarden te doorzoeken en trans acties uit te voeren op de Block chain.
+In deze zelf studie hebt u een voor beeld van een volheid project gemaakt met behulp van de Azure Block Chain Development Kit. U hebt een slim contract gemaakt en geïmplementeerd. dit wordt een functie genoemd via een trans actie op een Block Chain consortium-netwerk dat wordt gehost op de Azure Block Chain-service.
 
 > [!div class="nextstepaction"]
 > [Block Chain-toepassingen ontwikkelen met behulp van de Azure Block Chain-Service](develop.md)

@@ -1,7 +1,7 @@
 ---
-title: Overzicht van project akoestische
+title: Overzicht van de project akoestische
 titlesuffix: Azure Cognitive Services
-description: Project akoestische is een akoestische-engine voor 3D-interactieve ervaringen, integratie van sparen wave physics simulatie met interactieve ontwerp besturingselementen.
+description: Project akoestische is een akoestische engine voor 3D-interactieve ervaringen, waarbij geïntegreerde Golf fysica simulatie kan worden geïntegreerd met interactieve ontwerp besturings elementen.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,51 +10,52 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 73b8980b0ea2d1adbd814026f026358e25dcbb55
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ROBOTS: NOINDEX
+ms.openlocfilehash: a654dd966c40b5b079f92b910ade52f4eda10344
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502955"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704760"
 ---
 # <a name="what-is-project-acoustics"></a>Wat is Project Acoustics?
-Project akoestische is een engine voor het akoestische van wave voor 3D-interactieve ervaringen. Deze wave effecten als diffraction, portaling en weerklank effecten in complexe schermen zonder handmatige zone markup-modellen. Dit omvat ook game-engine en audio middleware-integratie. Project akoestische filosofie is vergelijkbaar met statische verlichting: gedetailleerde physics offline maken voor een fysieke basislijn en gebruikt een lichtgewicht runtime met expressieve ontwerp besturingselementen om uw artistieke doelstellingen te behalen.
+Project akoestische is een golf akoestische engine voor 3D-interactieve ervaringen. De IT-modellen zijn wave-effecten zoals Diffraction, portaling en galm effecten in complexe scènes zonder hand matige zone markeringen te vereisen. Het omvat ook Game-Engine en integratie van de audio-middleware. De "filosofie van het project" is vergelijkbaar met statische belichting: maken gedetailleerde fysieke fysica offline om een fysieke basis lijn te bieden en gebruik een licht gewicht runtime met duidelijke ontwerp besturings elementen om te voldoen aan uw artistieke doelen.
 
-![Schermafdruk van Gears of War 4 akoestische voxels weergeven](media/gears-with-voxels.jpg)
+![Scherm afbeelding van het vistuig van War 4 met akoestische voxels](media/gears-with-voxels.jpg)
 
-## <a name="using-wave-physics-for-interactive-acoustics"></a>Met behulp van wave physics voor interactieve akoestische
-Op basis van ray akoestische methoden kunnen controleren met behulp van één bron-naar-listener ray cast bedekking of weerklank door het schatten van de lokale scène volume met een paar stralen station. Maar deze technieken onbetrouwbare kunnen zijn omdat een pebble occludes zo veel een boulder. Stralen account geen voor de manier waarop geluid bochten om objecten, een verschijnsel diffraction genoemd. Project akoestische simulatie bevat deze effecten met behulp van een simulatie op basis van wave. Het resultaat is beter voorspelbare en betrouwbare.
+## <a name="using-wave-physics-for-interactive-acoustics"></a>Golf fysica gebruiken voor interactieve akoestische
+Op Ray gebaseerde akoestische methoden kunnen controleren op bedekking met behulp van één bron-naar-Luister-Ray-cast of een galm van het lokale scène volume met een paar stralen. Deze technieken kunnen echter onbetrouwbaar zijn omdat een Pebble occludes net zo groot is als een Boulder. Stralen hebben geen rekening met de manier waarop geluid rond objecten wordt gebocht, een verschijnsel bekend als Diffraction. Met de simulatie project akoestische wordt deze effecten vastgelegd met behulp van een simulatie op basis van een golf. Het resultaat is meer voorspelbaar en betrouwbaar.
 
-Project akoestische belangrijke innovatie is het paar akoestische simulatie met traditionele, gezonde ontwerpconcepten. Zet simulatieresultaten in traditionele audio DSP-parameters voor bedekking, portaling en weerklank. Controle van dit proces pakketvertaling maakt gebruik van de ontwerpfunctie. Voor meer informatie over de belangrijkste technologieën achter Project akoestische, gaat u naar de [research-projectpagina](https://www.microsoft.com/en-us/research/project/project-triton/).
+De belangrijkste innovatie van een project is het koppelen van akoestische simulatie met traditionele ontwerp concepten. Het zet simulatie resultaten om in traditionele para meters van de audio-DSP voor bedekking, portaling en galm. De ontwerp functie maakt gebruik van besturings elementen voor dit vertaal proces. Ga naar de [pagina onderzoek project](https://www.microsoft.com/en-us/research/project/project-triton/)voor meer informatie over de belangrijkste technologieën achter de project akoestische.
 
-![Een horizontale 2D-segment van wave doorgeven via een scène met animatie](media/wave-simulation.gif)
+![Animatie waarin een horizon taal 2D-segment met een golf door een scène wordt weer gegeven](media/wave-simulation.gif)
 
 ## <a name="setup"></a>Instellen
-[Akoestische Unity-integratie van project](unity-integration.md) slepen en neerzetten en is voorzien van een invoegtoepassing van de audio-engine Unity. De Unity-besturingselementen voor audio gegevensbronnen verbeteren door het koppelen van een Project akoestische C# onderdeel van de besturingselementen op elk audio-object.
+De integratie van de unit van het [project](unity-integration.md) is slepen en neerzetten en bevat een invoeg toepassing voor eenheids audio-engine. Breid de besturings elementen voor unit-audio bron toe door een onderdeel C# van een project akoestische controles toe te voegen aan elk audio object.
 
-[Integratie van akoestische Unreal project](unreal-integration.md) -editor en game-invoegtoepassingen voor Unreal en een Wwise mixer-invoegtoepassing bevat. Een aangepast onderdeel audio breidt vertrouwde Wwise functionaliteit binnen Unreal met live akoestische ontwerp besturingselementen. Ontwerp besturingselementen worden ook weergegeven in Wwise op het mixer-invoegtoepassing.
+De [Unreal-integratie](unreal-integration.md) van het project bevat een editor en Game-invoeg toepassingen voor Unreal, en een WWise mixer-invoeg toepassing. Een aangepast audio onderdeel breidt de vertrouwde WWise-functionaliteit uit binnen Unreal met de ontwerp besturings elementen van Live akoestische ontwerpen. Ontwerp besturings elementen worden ook weer gegeven in WWise op de mixer-invoeg toepassing.
 
 ## <a name="workflow"></a>Werkstroom
-* **Vooraf maken:** Beginnen met het instellen van de bake door te selecteren welke geometrie reageert op akoestische, door bijvoorbeeld lichte schachten wordt genegeerd. Bewerk vervolgens automatische materiaal toewijzingen en navigatiegebieden voor de handleiding listener steekproeven selecteren. Er is geen handmatige markup voor weerklank/portal/ruimte zones.
-* **Maken van:** Een stap voor analyse wordt lokaal uitgevoerd, welke voxelization en andere geometrische analyses uitvoeren op de scène op basis van bovenstaande selecties is. Resultaten worden weergegeven in de editor om te controleren van de scène setup. Verzending van bake voxel gegevens uit naar Azure worden verzonden en je weer toegang krijgen een akoestische game asset.
-* **Runtime:** Laden van de asset in het abonnement en u bent klaar om te luisteren naar akoestische in het abonnement. Ontwerp het akoestische bevinden zich in de editor met behulp van besturingselementen voor nauwkeurige gegevensbronnen. De besturingselementen kunnen ook worden aangestuurd vanuit niveau uitvoeren van scripts.
+* **Pre-maken:** Begin met het instellen van de maken door te selecteren welke geometrie reageert op akoestische, bijvoorbeeld door de lichte schachten te negeren. Bewerk vervolgens automatische materiaal toewijzingen en selecteer vervolgens navigatie gebieden om de steek proef van de listener te begeleiden. Er is geen hand matige opmaak voor galm/Portal/room-zones.
+* **Maken** Een analyse stap wordt lokaal uitgevoerd, wat voxelization en andere geometrische analyses op de scène op basis van bovenstaande selecties. De resultaten worden gevisualiseerd in de editor om de installatie van de scène te controleren. Bij maken-verzen ding worden Voxel-gegevens naar Azure verzonden en wordt er een speld geluids activum teruggeleid.
+* **Gezamenlijke** Laad de asset in uw niveau en u bent klaar om te Luis teren naar akoestische op uw niveau. Ontwerp de akoestische in editor met behulp van nauw keurige besturings elementen per bron. De besturings elementen kunnen ook worden gebaseerd op het niveau van scripts.
 
-## <a name="platforms"></a>Platformen
-De runtime-Project akoestische invoegtoepassingen kan op dit moment worden geïmplementeerd voor de volgende platforms:
+## <a name="platforms"></a>Platforms
+De invoeg toepassingen voor het uitvoeren van de uitvoering van het project kunnen momenteel worden geïmplementeerd op de volgende platforms:
 * Windows
 * Android
 * Xbox One
 
 ## <a name="download"></a>Downloaden
-* [Project akoestische Unity-invoegtoepassing en voorbeelden](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
-* [Project akoestische Unreal & Wwise-invoegtoepassingen en -voorbeelden](https://www.microsoft.com/download/details.aspx?id=58090)
-  * Voor binaire bestanden voor Xbox en ondersteuning contact met ons opnemen via de registreren onderstaande formulier
+* [Invoeg toepassing en voor beelden van de project akoestische eenheid](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Projectbudget Unreal & WWise-invoeg toepassingen en-voor beelden](https://www.microsoft.com/download/details.aspx?id=58090)
+  * Voor Xbox binaire bestanden en ondersteuning kunt u contact met ons opnemen via het onderstaande aanmeldings formulier
 
 ## <a name="contact-us"></a>Contact opnemen
-* [Akoestische discussie project en probleem melden](https://github.com/microsoft/ProjectAcoustics/issues)
-* [Zich registreren voor het ontvangen van updates op het Project akoestische](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
+* [Discussie over project akoestische en probleem rapportage](https://github.com/microsoft/ProjectAcoustics/issues)
+* [Meld u aan voor het ontvangen van updates voor project akoestische](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Probeer een [Project akoestische quickstart voor Unity](unity-quickstart.md) of voor [Unreal](unreal-quickstart.md)
-* Verken de [ontwerpplan van Project akoestische geluid](design-process.md)
+* Probeer een [Snelstartgids voor project akoestische voor unititeit](unity-quickstart.md) of voor [Unreal](unreal-quickstart.md)
+* Verken het [geluids ontwerp filosofie van project akoestische](design-process.md)
 

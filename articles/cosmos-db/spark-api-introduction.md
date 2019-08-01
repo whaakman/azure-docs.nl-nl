@@ -3,15 +3,15 @@ title: Inleiding tot de ingebouwde operationele analyse in Azure Cosmos DB met A
 description: Meer informatie over het gebruik van de ingebouwde ondersteuning voor Apache Spark in Azure Cosmos DB voor het uitvoeren van operationele analyses en AI
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 05/23/2019
+ms.date: 08/01/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: 245df0632765c4000bdf5da3e428187d2b068866
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 3fd7990043543b92eb3daf8ec699ec58db3387ec
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402098"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717576"
 ---
 # <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Ingebouwde operationele analyse in Azure Cosmos DB met Apache Spark (preview-versie) 
 

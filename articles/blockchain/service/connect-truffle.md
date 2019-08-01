@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/29/2019
+ms.date: 07/31/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 9154bc749f7db337de67f501d5e5049dfd466156
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 6768c1e26435ace60b26adb46c9955d080029828
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698476"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705162"
 ---
 # <a name="quickstart-use-truffle-to-connect-to-an-azure-blockchain-service-network"></a>Quickstart: Truffle gebruiken om verbinding te maken met een Azure Block Chain service-netwerk
 
@@ -28,8 +28,6 @@ Truffle is een Block Chain-ontwikkel omgeving die u kunt gebruiken om verbinding
 * [Een Azure Block Chain-lid maken](create-member.md)
 * Installeer [Truffle](https://github.com/trufflesuite/truffle). Truffle vereist verschillende hulpprogram ma's die moeten worden geïnstalleerd, waaronder [node. js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 * [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)installeren. Python is vereist voor web3.
-* Installeer [Visual Studio Code](https://code.visualstudio.com/download).
-* [Visual Studio code-extensie voor volheid](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)installeren.
 
 ## <a name="create-truffle-project"></a>Truffle-project maken
 
@@ -62,16 +60,17 @@ Als u het Truffle-project wilt configureren, hebt u enkele informatie over het t
 
 ### <a name="transaction-node-endpoint-addresses"></a>Eindpunt adressen van het transactie knooppunt
 
-1. Ga in het Azure Portal naar elk transactie knooppunt en selecteer **transactie knooppunten > verbindings reeksen**.
-1. Kopieer de eind punt-URL van **https (toegangs sleutel 1)** voor elk transactie knooppunt en sla deze op. U hebt de eindpunt adressen voor het configuratie bestand van het slimme contract later in de zelf studie nodig.
+1. Ga in het Azure Portal naar het standaard transactie knooppunt en selecteer **transactie knooppunten > verbindings reeksen**.
+1. Kopieer de eind punt-URL en sla deze op in **https (toegangs sleutel 1)** . U hebt de eindpunt adressen voor het configuratie bestand van het slimme contract later in de zelf studie nodig.
 
-    ![Adres van het transactie eindpunt](./media/send-transaction/endpoint.png)
+    ![Adres van het transactie eindpunt](./media/connect-truffle/endpoint.png)
 
 ### <a name="edit-configuration-file"></a>Configuratie bestand bewerken
 
-1. Start Visual Studio code en open de map Truffle project directory in het menu **File > map openen** .
-1. Open het configuratie bestand `truffle-config.js`Truffle.
-1. Vervang de inhoud van het bestand door de volgende configuratie gegevens. Voeg een variabele met het eindpunt adres toe. Vervang de punt haak door de waarden die u hebt verzameld uit de vorige secties.
+Vervolgens moet u het Truffle-configuratie bestand bijwerken met het eind punt van het trans actie knooppunt.
+
+1. Open in de projectmap **truffledemo** het Truffle-configuratie bestand `truffle-config.js` in een editor.
+1. Vervang de inhoud van het bestand door de volgende configuratie gegevens. Voeg een variabele met het eindpunt adres toe. Vervang de punt haak door de waarden die u hebt verzameld uit de vorige sectie.
 
     ``` javascript
     var defaultnode = "<default transaction node connection string>";   
@@ -93,7 +92,7 @@ Als u het Truffle-project wilt configureren, hebt u enkele informatie over het t
 
 Gebruik *Web3* om verbinding te maken met het transactie knooppunt.
 
-1. Gebruik de Truffle-console om verbinding te maken met het standaard transactie knooppunt.
+1. Gebruik de Truffle-console om verbinding te maken met het standaard transactie knooppunt. Voer bij een opdracht prompt of shell de volgende opdracht uit:
 
     ``` bash
     truffle console --network defaultnode
@@ -115,7 +114,7 @@ Gebruik *Web3* om verbinding te maken met het transactie knooppunt.
     truffle(defaultnode)> web3.eth.getBlockNumber();
     18567
     ```
-1. Sluit de Truffle Development console af.
+1. Sluit de Truffle-console af.
 
     ```bash
     .exit
@@ -125,7 +124,7 @@ Gebruik *Web3* om verbinding te maken met het transactie knooppunt.
 
 In deze Snelstartgids hebt u een Truffle-project gemaakt om verbinding te maken met het standaard transactie knooppunt van de Azure Block Chain-service.
 
-Probeer de volgende zelf studie om Truffle te gebruiken om een trans actie te verzenden naar uw consortium Block chain-netwerk.
+Probeer de volgende zelf studie voor het gebruik van Azure Block Chain Development Kit voor Ethereum en Truffle voor het uitvoeren van een slimme contract functie via een trans actie op een consortium Block chain-netwerk.
 
 > [!div class="nextstepaction"]
-> [Een trans actie verzenden](send-transaction.md)
+> [Slimme contracten gebruiken op de Azure Block Chain-Service](send-transaction.md)
