@@ -1,19 +1,18 @@
 ---
 title: 'Zelfstudie: Windows-bestandsservers uitbreiden met Azure File Sync | Microsoft Docs'
 description: Informatie over hoe u Windows-bestandsservers kunt uitbreiden met Azure File Sync, van begin tot eind.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: df3850a839ac789957a9adffb7122a0b58987781
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f71a27ea4da6bce5832287e948e0731672280196
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705062"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699493"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Zelfstudie: Windows-bestandsservers uitbreiden met Azure File Sync
 
@@ -70,7 +69,7 @@ Nadat u een Azure-opslagaccount hebt geïmplementeerd, kunt u een bestandsshare 
 
 1. Selecteer de nieuwe bestandsshare. Selecteer **Uploaden** op de bestandssharelocatie.
 
-    ![Bestand uploaden](./media/storage-sync-files-extend-servers/create-file-share-portal5.png)
+    ![Een bestand uploaden](./media/storage-sync-files-extend-servers/create-file-share-portal5.png)
 
 1. Ga naar de map _FilesToSync_, waar u het TXT-bestand hebt gemaakt, selecteer _mytestdoc.txt_ en selecteer **Uploaden**.
 
@@ -100,7 +99,7 @@ U hebt nu een opslagaccount gemaakt en een bestandsshare met één bestand. U ga
    1. Behoud op het tabblad **Schijven**, onder **Schijfopties**, de standaardinstellingen.
    1. Selecteer onder **GEGEVENSSCHIJVEN** de optie **Een nieuwe schijf maken en koppelen**.
 
-   1. Behoud de standaardinstellingen, behalve voor **Grootte (GiB)**, die u voor deze zelfstudie kunt wijzigen in **1 GB**.
+   1. Behoud de standaardinstellingen, behalve voor **Grootte (GiB)** , die u voor deze zelfstudie kunt wijzigen in **1 GB**.
 
       ![Details van gegevensschijf](./media/storage-sync-files-extend-servers/vm-create-new-disk-details.png)
 
@@ -112,7 +111,7 @@ U hebt nu een opslagaccount gemaakt en een bestandsshare met één bestand. U ga
 
 1. Nadat de implementatie van de VM is voltooid, selecteert u **Ga naar resource**.
 
-   ![Ga naar resource](./media/storage-sync-files-extend-servers/vm-gotoresource.png)
+   ![Naar de resource gaan](./media/storage-sync-files-extend-servers/vm-gotoresource.png)
 
 U hebt nu een nieuwe virtuele machine gemaakt en een gegevensschijf gekoppeld. Maak vervolgens verbinding met de VM.
 
@@ -220,10 +219,10 @@ Om Azure File Sync te implementeren, plaatst u eerst een resource van een **opsl
 
    | Value | Beschrijving |
    | ----- | ----- |
-   | **Naam** | Een unieke naam (per abonnement) voor opslagsynchronisatieservice.<br><br>Gebruik voor deze zelfstudie _afssyncservice02_. |
+   | **Name** | Een unieke naam (per abonnement) voor opslagsynchronisatieservice.<br><br>Gebruik voor deze zelfstudie _afssyncservice02_. |
    | **Abonnement** | Het Azure-abonnement dat u gebruikt voor deze zelfstudie. |
    | **Resourcegroep** | De resourcegroep die de opslagsynchronisatieservice bevat.<br><br>Gebruik voor deze zelfstudie _afsresgroup101918_. |
-   | **Locatie** | US - oost |
+   | **Location** | East US |
 
 1. Als u klaar bent, selecteert u **Maken** om de **opslagsynchronisatieservice** te implementeren.
 1. Selecteer het tabblad **Meldingen** > **Naar de resource gaan**.
@@ -264,7 +263,7 @@ De gebruikersinterface van de serverregistratie moet automatisch worden geopend 
 
    | | |
    | ----- | ----- |
-   | Value | Description |
+   | Waarde | Description |
    | **Azure-abonnement** | Het abonnement dat de opslagsynchronisatieservice voor deze zelfstudie bevat. |
    | **Resourcegroep** | De resourcegroep die de opslagsynchronisatieservice bevat. Gebruik voor deze zelfstudie _afsresgroup101918_. |
    | **Opslagsynchronisatieservice** | De naam van de opslagsynchronisatieservice. Gebruik voor deze zelfstudie _afssyncservice02_. |
