@@ -105,10 +105,14 @@
           href: sizes-previous-gen.md
         - name: Azure Compute Units (ACU)
           href: acu.md
+        - name: vCPU-quota
+          href: quotas.md
         - name: Benchmarkscores
           href: compute-benchmark-scores.md
     - name: Goedgekeurde distributies
       href: endorsed-distros.md
+    - name: Toegewezen hosts
+      href: dedicated-hosts.md
     - name: Onderhoud en updates
       href: maintenance-and-updates.md
     - name: File Storage
@@ -139,12 +143,8 @@
       href: monitor.md
     - name: Back-ups maken en herstellen
       href: backup-recovery.md
-    - name: Overwegingen bij de implementatie
-      items:
-        - name: Richtlijnen voor infrastructuur
-          href: infrastructure-example.md
-        - name: vCPU-quota
-          href: quotas.md
+    - name: Richtlijnen voor infrastructuur
+      href: infrastructure-example.md
     - name: Beveiligingskenmerken
       href: virtual-machines-linux-security-attributes.md
 - name: Handleidingen
@@ -160,6 +160,12 @@
           href: create-vm-rest-api.md
         - name: Een virtuele machine kopiëren of klonen
           href: copy-vm.md
+        - name: Toegewezen hosts gebruiken
+          items:
+            - name: CLI
+              href: dedicated-hosts-cli.md
+            - name: Portal
+              href: dedicated-hosts-portal.md
     - name: Virtuele machines beveiligen
       items:
         - name: Just-in-time-toegang

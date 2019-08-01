@@ -175,7 +175,7 @@
           href: sql-database-service-tier-hyperscale-faq.md
     - name: Individuele databases
       items:
-        - name: Overzicht van individuele databases
+        - name: Documentatie voor individuele databases
           href: sql-database-single-index.yml
         - name: Mogelijkheden van individuele database
           href: sql-database-single-database.md
@@ -215,7 +215,7 @@
           href: sql-database-elastic-pool-manage.md
     - name: Beheerde exemplaren
       items:
-        - name: Overzicht van beheerde exemplaren
+        - name: Documentatie voor beheerde exemplaren
           href: sql-database-managed-instance-index.yml
         - name: Mogelijkheden van beheerde exemplaren
           href: sql-database-managed-instance.md
@@ -235,7 +235,7 @@
           href: sql-database-managed-instance-public-endpoint-securely.md
     - name: Platform als een Service
       items:
-        - name: Overzicht van Platform as a Service (PaaS)
+        - name: Documentatie voor Platform als een Service
           href: sql-database-paas.yml
         - name: Bedrijfscontinuïteit
           href: sql-database-business-continuity.md
@@ -324,7 +324,7 @@
           href: sql-database-feature-restrictions.md
     - name: Schaalbaarheid
       items:
-        - name: Overzicht van schaalbaarheid
+        - name: Documentatie voor schaalbaarheid
           href: sql-database-scalability-index.yml
         - name: Omhoog/omlaag schalen
           href: sql-database-scale-resources.md
@@ -354,7 +354,7 @@
           href: sql-database-elastic-transactions-overview.md
     - name: Bewaking en afstemming
       items:
-        - name: Overzicht van bewaking en afstemming
+        - name: Documentatie voor bewaken en afstemmen
           href: sql-database-monitoring-tuning-index.yml
         - name: Prestaties bewaken en afstemmen
           href: sql-database-monitor-tune-overview.md
@@ -378,7 +378,7 @@
               href: sql-database-advisor.md
     - name: Databases-functies
       items:
-        - name: Overzicht
+        - name: Documentatie voor SQL Database-functies
           href: sql-database-features-index.yml
         - name: Vergelijking van SQL-functies
           href: sql-database-features.md

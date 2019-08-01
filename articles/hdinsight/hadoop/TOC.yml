@@ -54,6 +54,14 @@
     - name: Inzicht in beheerde identiteiten
       href: ../hdinsight-managed-identities.md
       maintainContext: true
+    - name: Problemen oplossen
+      items:
+        - name: Kan geen knooppunten toevoegen aan het HDInsight-cluster
+          href: ./hdinsight-troubleshoot-unable-add-nodes.md
+        - name: 'InvalidNetworkSecurityGroupSecurityRules: het maken van een cluster mislukt'
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+        - name: Certificaat van service-principal converteren
+          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
 - name: Procedures
   items:
     - name: Apache Hadoop-sandbox gebruiken

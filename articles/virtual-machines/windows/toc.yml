@@ -108,6 +108,8 @@
           href: compute-benchmark-scores.md
         - name: vCPU-quota
           href: quotas.md
+    - name: Toegewezen hosts
+      href: dedicated-hosts.md
     - name: Onderhoud en updates
       href: maintenance-and-updates.md
     - name: File Storage
@@ -146,6 +148,12 @@
   items:
     - name: Virtuele machines maken
       items:
+        - name: Toegewezen hosts gebruiken
+          items:
+            - name: PowerShell
+              href: dedicated-hosts-powershell.md
+            - name: Portal
+              href: dedicated-hosts-portal.md
         - name: 'C# gebruiken'
           href: csharp.md
         - name: Een gespecialiseerde schijf gebruiken
