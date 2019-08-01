@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 2aa43318eab9a8d1beb2b133ab9802d390de8a7f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 14d3864f654dac42566441b3729de0cf88482295
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552441"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697865"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>De Text Analytics aanroepen REST API
 
@@ -30,7 +30,7 @@ Intrekken dat Text Analytics stateless is, zodat er geen gegevensassets zijn om 
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) hebben met de Text Analytics-API en het [eind punt en de toegangs sleutel](text-analytics-how-to-access-key.md) die voor u worden gegenereerd wanneer u zich aanmeldt voor Cognitive Services. 
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 <a name="json-schema"></a>
 

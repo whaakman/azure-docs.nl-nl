@@ -1,21 +1,21 @@
 ---
 title: 'Quickstart: Go gebruiken om de Text Analytics-API aan te roepen'
 titleSuffix: Azure Cognitive Services
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Tekstanalyse-API in Azure Cognitive Services.
+description: Informatie en code voorbeelden ophalen zodat u snel aan de slag kunt met de Text Analytics-API in azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e6d641109bafdc3dba05a30fd627a3246c7edef5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85eae936cf86d144f0baf91623b7be9f69eb4dbb
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828627"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697549"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Go gebruiken om de Text Analytics Cognitive Service aan te roepen 
 <a name="HOLTop"></a>
@@ -28,7 +28,7 @@ Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor tec
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-U moet ook de [eindpunt- en toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u is gegenereerd tijden de registratie.
+U moet ook de [eindpunt- en toegangssleutel](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) hebben die voor u is gegenereerd tijden de registratie.
 
 <a name="Detect"></a>
 
@@ -41,7 +41,7 @@ Met de Language Detection-API wordt de taal van een tekstdocument gedetecteerd m
 1. Vervang de waarde `subscriptionKey` door een geldige toegangssleutel voor uw abonnement.
 1. Vervang de locatie `uriBase` (momenteel `westcentralus`) door de regio waarvoor u zich hebt geregistreerd.
 1. Sla het bestand op met de extensie .go.
-1. Open een opdrachtprompt op een computer met Ga geïnstalleerd vanuit de hoofdmap.
+1. Open een opdracht prompt op een computer met Go die vanuit de hoofdmap wordt geïnstalleerd.
 1. Maak het bestand, bijvoorbeeld met: `go build detect.go`.
 1. Voer het bestand uit, bijvoorbeeld met: `go run detect.go`.
 
@@ -184,7 +184,7 @@ Met de Sentiment Analysis-API wordt een set tekstrecords gedetecteerd met behulp
 1. Vervang de waarde `subscriptionKey` door een geldige toegangssleutel voor uw abonnement.
 1. Vervang de locatie `uriBase` (momenteel `westcentralus`) door de regio waarvoor u zich hebt geregistreerd.
 1. Sla het bestand op met de extensie .go.
-1. Open een opdrachtprompt op een computer met Ga geïnstalleerd vanuit de hoofdmap.
+1. Open een opdracht prompt op een computer met Go die vanuit de hoofdmap wordt geïnstalleerd.
 1. Maak het bestand, bijvoorbeeld met: `go build sentiment.go`.
 1. Voer het bestand uit, bijvoorbeeld met: `go run sentiment.go`.
 
@@ -272,7 +272,7 @@ func main() {
 
 ## <a name="analyze-sentiment-response"></a>Sentiment analyseren-antwoord
 
-Het resultaat wordt gemeten als positief als deze dichter bij 1.0 en negatieve wordt berekend als het dichter beoordeeld op 0.0.
+Het resultaat wordt gemeten als positief als het dichter bij 1,0 en negatief is als de Score dichter bij 0,0 ligt.
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld:
 
 ```json
@@ -293,7 +293,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Belangrijke woordgroepen herkennen
+## <a name="extract-key-phrases"></a>Sleuteltermen ophalen
 
 Met de Key Phrase Extraction-API worden sleuteltermen opgehaald uit een tekstdocument met behulp van de [methode Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). In het volgende voorbeeld worden sleuteltermen opgehaald voor zowel de Engelse als Spaanse documenten.
 
@@ -433,7 +433,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="identify-entities"></a>Entiteiten identificeren
 
-De Entities-API identificeert bekende entiteiten in een tekstdocument, met behulp van de [methode Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteiten](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) woorden extraheren uit tekst, zoals 'VS', en vervolgens geeft u het type en/of de Wikipedia-koppeling voor deze woorden. Het type voor "Verenigde Staten" `location`, terwijl de koppeling naar Wikipedia `https://en.wikipedia.org/wiki/United_States`.  In het volgende voorbeeld worden entiteiten geïdentificeerd voor Engelse documenten.
+De Entities-API identificeert bekende entiteiten in een tekstdocument, met behulp van de [methode Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteiten](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) halen woorden op uit tekst, zoals ' Verenigde Staten ', en geven vervolgens het type en/of de Wikipedia-koppeling voor dit woord (en). Het type voor ' Verenigde Staten ' is `location`, terwijl de koppeling naar Wikipedia is `https://en.wikipedia.org/wiki/United_States`.  In het volgende voorbeeld worden entiteiten geïdentificeerd voor Engelse documenten.
 
 1. Maak een nieuw Go-project in uw favoriete code-editor.
 1. Voeg de onderstaande code toe.

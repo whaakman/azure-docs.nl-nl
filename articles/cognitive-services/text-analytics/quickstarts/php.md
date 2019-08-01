@@ -1,21 +1,21 @@
 ---
 title: 'Quickstart: PHP gebruiken om de Text Analytics-API aan te roepen'
 titleSuffix: Azure Cognitive Services
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Tekstanalyse-API in Azure Cognitive Services.
+description: Informatie en code voorbeelden ophalen zodat u snel aan de slag kunt met de Text Analytics-API in azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/15/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 2d3c5873c03023ceaf5b2cafa266ea627ea7df13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 62dd04b6df465b82bb1b39e23afce410325c4248
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828136"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697324"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Quickstart: PHP gebruiken om de Text Analytics Cognitive Service aan te roepen
 <a name="HOLTop"></a>
@@ -27,8 +27,6 @@ Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor tec
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-U moet ook [het eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u zijn gegenereerd tijdens de registratie. 
 
 <a name="Detect"></a>
 
@@ -243,7 +241,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Belangrijke woordgroepen herkennen
+## <a name="extract-key-phrases"></a>Sleuteltermen ophalen
 
 Met de Key Phrase Extraction-API worden sleuteltermen opgehaald uit een tekstdocument met behulp van de [methode Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). In het volgende voorbeeld worden sleuteltermen opgehaald voor zowel de Engelse als Spaanse documenten.
 

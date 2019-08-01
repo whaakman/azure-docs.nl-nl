@@ -1,26 +1,26 @@
 ---
-title: 'Quickstart: De Text Analytics-service met behulp van de Go SDK aanroepen'
+title: 'Quickstart: De Text Analytics-Service aanroepen met de go-SDK'
 titleSuffix: Azure Cognitive Services
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Tekstanalyse-API in Microsoft Cognitive Services.
+description: Informatie en code voorbeelden ophalen zodat u snel aan de slag kunt met de Text Analytics-API in Microsoft Cognitive Services.
 services: cognitive-services
 author: laramume
 manager: assafi
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/23/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 44def29292bc882fdaa08ff76667742756f178b8
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: d3644022e1877369368953b9f147c64aaae2d459
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299609"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697645"
 ---
-# <a name="quickstart-call-the-text-analytics-service-using-the-go-sdk"></a>Quickstart: De Text Analytics-service met behulp van de Go SDK aanroepen 
+# <a name="quickstart-call-the-text-analytics-service-using-the-go-sdk"></a>Quickstart: De Text Analytics-Service aanroepen met de go-SDK 
 <a name="HOLTop"></a>
 
-Gebruik deze Quick Start om te beginnen met het analyseren van de taal met de Text Analytics-SDK voor Go. Dit artikel ziet u hoe u de taal detecteren, sentiment analyseren, sleuteltermen extraheren en gekoppelde entiteiten identificeren. De REST-API is compatibel met de meeste moderne programmeertalen, biedt de SDK een eenvoudige manier om de service te integreren in uw toepassingen. De broncode voor dit voorbeeld is te vinden op [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/cognitiveservices).
+Gebruik deze Quick Start om de taal te analyseren met de Text Analytics SDK voor go. In dit artikel leest u hoe u taal kunt detecteren, sentiment kunt analyseren, sleutel zinnen kunt extra heren en gekoppelde entiteiten aanduidt. Hoewel de REST API compatibel is met de meeste programmeer talen, biedt de SDK een eenvoudige manier om de service te integreren in uw toepassingen. De broncode voor dit voorbeeld is te vinden op [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/cognitiveservices).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -28,11 +28,9 @@ Gebruik deze Quick Start om te beginnen met het analyseren van de taal met de Te
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-U moet ook de [eindpunt- en toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u is gegenereerd tijden de registratie.
+## <a name="set-up-a-new-project"></a>Een nieuw project instellen
 
-## <a name="set-up-a-new-project"></a>Instellen van een nieuw Project
-
-Maak een nieuwe Go-project in uw favoriete code-editor of IDE. De volgende importinstructie toevoegen aan de Go-bestand.
+Maak een nieuw go-project in uw favoriete code-editor of IDE. Voeg vervolgens de volgende import instructie toe aan het Go-bestand.
 
 ```golang
 import (
@@ -44,7 +42,7 @@ import (
 )
 ```
 
-Toevoegen aan uw project de volgende functies zoals de meeste van de parameters en de eigenschappen voor deze Quick Start tekenreeks en bool aanwijzers verwacht.
+Voeg de volgende functies toe aan uw project, zoals de meeste para meters en eigenschappen voor deze Quick Start string en BOOL pointers.
 
 ```golang
 // returns a pointer to the string value passed in.
@@ -58,25 +56,25 @@ func BoolPointer(v bool) *bool {
 }
 ```
 
-## <a name="create-text-analytics-client-and-authenticate-credentials"></a>Text Analytics-Client maken en verifiëren van referenties
+## <a name="create-text-analytics-client-and-authenticate-credentials"></a>Text Analytics client maken en referenties verifiëren
 
-In de main-functie van uw project, maakt u een nieuw `TextAnalytics` object. Gebruik de juiste Azure-regio voor uw Text Analytics-abonnement. Bijvoorbeeld: `https://eastus.api.cognitive.microsoft.com`. Als u een proefversie sleutel gebruikt, moet u niet bijwerken van de locatie.
+Maak een nieuw `TextAnalytics` object in de hoofd functie van het project. Gebruik de juiste Azure-regio voor uw Text Analytics-abonnement. Bijvoorbeeld: `https://eastus.api.cognitive.microsoft.com`. Als u een proef sleutel gebruikt, hoeft u de locatie niet bij te werken.
 
 ```golang
 //Replace 'eastus' with the correct region for your Text Analytics subscription
 textAnalyticsClient := textanalytics.New("https://eastus.api.cognitive.microsoft.com")
 ```
 
-Maak een variabele voor uw sleutel en deze doorgeven aan de functie `autorest.NewCognitiveServicesAuthorizer` die vervolgens worden doorgegeven aan van de client `authorizer` eigenschap.
+Maak een variabele voor uw sleutel en geef deze door aan de `autorest.NewCognitiveServicesAuthorizer` functie die vervolgens wordt door gegeven aan de eigenschap `authorizer` van de client.
 
 ```golang
 subscriptionKey := "<<subscriptionKey>>"
 textAnalyticsClient.Authorizer = autorest.NewCognitiveServicesAuthorizer(subscriptionKey)
 ```
 
-## <a name="sentiment-analysis"></a>Stemmingsanalyse
+## <a name="sentiment-analysis"></a>Sentimentanalyse
 
-Maak een nieuwe functie met de naam `SentimentAnalysis()` waarmee de client eerder hebt gemaakt. Maak een lijst van `MultiLanguageInput` objecten, met de documenten die u wilt analyseren. Elk object bevat een `id`, `Language` en een `text` kenmerk. De `text` slaat de tekst die moet worden geanalyseerd, kenmerk `language` is de taal van het document en de `id` is een waarde. 
+Maak een nieuwe functie met `SentimentAnalysis()` de naam die de client gaat gebruiken die u eerder hebt gemaakt. Maak een lijst met `MultiLanguageInput` objecten die de documenten bevatten die u wilt analyseren. Elk object bevat een `id`, en een `text` - `Language` kenmerk. Het `text` kenmerk slaat de tekst op die moet worden geanalyseerd `language` , is de taal van het document en de `id` kan een wille keurige waarde zijn. 
 
 ```golang
 func SentimentAnalysis(textAnalyticsclient textanalytics.BaseClient) {
@@ -109,7 +107,7 @@ func SentimentAnalysis(textAnalyticsclient textanalytics.BaseClient) {
 }
 ```
 
-In de dezelfde functie aanroepen `textAnalyticsclient.Sentiment()` en het resultaat. Vervolgens doorlopen en de resultaten en afdrukken van elk document-ID en gevoelsscore. Een score dichter bij 0 geeft aan dat een negatief gevoel, terwijl een score dichter bij 1 geeft aan een positieve stemming dat.
+Roep `textAnalyticsclient.Sentiment()` en haal het resultaat op in dezelfde functie. Herhaal vervolgens de resultaten en druk de document-ID en sentiment Score af. Een score dichter bij 0 geeft aan dat er een negatieve sentiment is, terwijl een score dichter bij 1 wijst op een positieve sentiment.
 
 ```golang
 result, _ := textAnalyticsclient.Sentiment(ctx, BoolPointer(false), &batchInput)
@@ -130,9 +128,9 @@ for _,error := range *batchResult.Errors {
 }
 ```
 
-In de main-functie van uw project, roept u `SentimentAnalysis()`.
+Bel `SentimentAnalysis()`in de hoofd functie van uw project.
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 ```console
 Document ID: 1 , Sentiment Score: 0.87
@@ -143,7 +141,7 @@ Document ID: 4 , Sentiment Score: 1.00
 
 ## <a name="language-detection"></a>Taaldetectie
 
-Maak een nieuwe functie met de naam `LanguageDetection()` waarmee de client eerder hebt gemaakt. Maak een lijst van `LanguageInput` objecten, met de documenten die u wilt analyseren. Elk object bevat een `id` en een `text` kenmerk. De `text` slaat de tekst die moet worden geanalyseerd, kenmerk en de `id` is een waarde. 
+Maak een nieuwe functie met `LanguageDetection()` de naam die de client gaat gebruiken die u eerder hebt gemaakt. Maak een lijst met `LanguageInput` objecten die de documenten bevatten die u wilt analyseren. Elk object bevat een `id` en een `text` -kenmerk. Het `text` kenmerk slaat de tekst die moet worden geanalyseerd en de `id` kan een wille keurige waarde zijn. 
 
 ```golang
 func LanguageDetection(textAnalyticsclient textanalytics.BaseClient) {
@@ -168,7 +166,7 @@ func LanguageDetection(textAnalyticsclient textanalytics.BaseClient) {
 }
 ```
 
-In de dezelfde functie aanroepen `textAnalyticsclient.DetectLanguage()` en het resultaat. Vervolgens doorlopen en de resultaten en afdrukken van elk document-ID en gedetecteerde taal.
+Roep `textAnalyticsclient.DetectLanguage()` en haal het resultaat op in dezelfde functie. Herhaal vervolgens de resultaten en druk de document-ID en de gedetecteerde taal af.
 
 ```golang
 result, _ := textAnalyticsclient.DetectLanguage(ctx, BoolPointer(false), &batchInput)
@@ -190,9 +188,9 @@ for _,error := range *result.Errors {
 }
 ```
 
-In de main-functie van uw project, roept u `LanguageDetection()`.
+Bel `LanguageDetection()`in de hoofd functie van uw project.
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 ```console
 Document ID: 0 Detected Languages with Score: English 1.000000,
@@ -200,9 +198,9 @@ Document ID: 1 Detected Languages with Score: Spanish 1.000000,
 Document ID: 2 Detected Languages with Score: Chinese_Simplified 1.000000,
 ```
 
-## <a name="entity-recognition"></a>Herkenning van entiteit
+## <a name="entity-recognition"></a>Entiteit herkenning
 
-Maak een nieuwe functie met de naam `ExtractEntities()` waarmee de client eerder hebt gemaakt. Maak een lijst van `MultiLanguageInput` objecten, met de documenten die u wilt analyseren. Elk object bevat een `id`, `language`, en een `text` kenmerk. De `text` slaat de tekst die moet worden geanalyseerd, kenmerk `language` is de taal van het document en de `id` is een waarde. 
+Maak een nieuwe functie met `ExtractEntities()` de naam die de client gaat gebruiken die u eerder hebt gemaakt. Maak een lijst met `MultiLanguageInput` objecten die de documenten bevatten die u wilt analyseren. Elk object bevat een `id`- `language`,-en `text` -kenmerk. Het `text` kenmerk slaat de tekst op die moet worden geanalyseerd `language` , is de taal van het document en de `id` kan een wille keurige waarde zijn. 
 
 ```golang
 func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
@@ -225,7 +223,7 @@ func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
 }
 ```
 
-In de dezelfde functie `call textAnalyticsclient.Entities()` en het resultaat. Vervolgens doorlopen en de resultaten en elk document-ID van het en uitgepakt entiteiten te beoordelen.
+In dezelfde functie `call textAnalyticsclient.Entities()` en het resultaat ophalen. Herhaal vervolgens de resultaten en druk de Score van elk document en geëxtraheerde entiteiten af.
 
 ```golang
     result, _ := textAnalyticsclient.Entities(ctx, BoolPointer(false), &batchInput)
@@ -254,9 +252,9 @@ In de dezelfde functie `call textAnalyticsclient.Entities()` en het resultaat. V
     }
 ```
 
-In de main-functie van uw project, roept u `ExtractEntities()`.
+Bel `ExtractEntities()`in de hoofd functie van uw project.
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 ```console
 Document ID: 0
@@ -292,7 +290,7 @@ Document ID: 1
 
 ## <a name="key-phrase-extraction"></a>Sleuteltermextractie
 
-Maak een nieuwe functie met de naam `ExtractKeyPhrases()` waarmee de client eerder hebt gemaakt. Maak een lijst van `MultiLanguageInput` objecten, met de documenten die u wilt analyseren. Elk object bevat een `id`, `language`, en een `text` kenmerk. De `text` slaat de tekst die moet worden geanalyseerd, kenmerk `language` is de taal van het document en de `id` is een waarde.
+Maak een nieuwe functie met `ExtractKeyPhrases()` de naam die de client gaat gebruiken die u eerder hebt gemaakt. Maak een lijst met `MultiLanguageInput` objecten die de documenten bevatten die u wilt analyseren. Elk object bevat een `id`- `language`,-en `text` -kenmerk. Het `text` kenmerk slaat de tekst op die moet worden geanalyseerd `language` , is de taal van het document en de `id` kan een wille keurige waarde zijn.
 
 ```golang
 func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
@@ -325,7 +323,7 @@ func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
 }
 ```
 
-In de dezelfde functie textAnalyticsclient.KeyPhrases() aanroepen en het resultaat. Vervolgens doorlopen en de resultaten en afdrukken van elk document-ID en uitgepakte sleuteltermen.
+In dezelfde functie roept u textAnalyticsclient. superwoord groepen () aan en haalt u het resultaat op. Herhaal vervolgens de resultaten en druk de document-ID en de geëxtraheerde sleutel zinnen af.
 
 ```golang
     result, _ := textAnalyticsclient.KeyPhrases(ctx, BoolPointer(false), &batchInput)
@@ -347,9 +345,9 @@ In de dezelfde functie textAnalyticsclient.KeyPhrases() aanroepen en het resulta
     }
 ```
 
-In de main-functie van uw project, roept u `ExtractKeyPhrases()`.
+Bel `ExtractKeyPhrases()`in de hoofd functie van uw project.
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 ```console
 Document ID: 0

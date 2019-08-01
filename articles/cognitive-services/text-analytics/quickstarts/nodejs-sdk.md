@@ -8,55 +8,55 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 06/11/2019
+ms.date: 07/30/2019
 ms.author: shthowse
-ms.openlocfilehash: 7e43d53c0916cf7fdc684c9e044e632015662c3b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9b8a713d58d5753e04de050e0bc961b5e8388123
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081517"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697487"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Node.js gebruiken om de Text Analytics Cognitive Service aan te roepen
 <a name="HOLTop"></a>
 
-Gebruik deze Quick Start om te beginnen met het analyseren van taal met de Text Analytics-SDK voor Node.js. Terwijl de [Tekstanalyse](//go.microsoft.com/fwlink/?LinkID=759711) REST-API is compatibel met de meeste moderne programmeertalen, de SDK biedt een eenvoudige manier om de service te integreren in uw toepassingen. De broncode voor dit voorbeeld is te vinden op [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js).
+Gebruik deze Quick Start om de taal te analyseren met de Text Analytics SDK voor node. js. Hoewel de [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) rest API compatibel is met de meeste programmeer talen, biedt de SDK een gemakkelijke manier om de service te integreren in uw toepassingen. De broncode voor dit voorbeeld is te vinden op [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js).
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * [Node.js](https://nodejs.org/)
-* De Text Analytics [SDK voor Node.js](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) kunt u de SDK installeren:
+* De Text Analytics [SDK voor node. js](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) kunt u de SDK installeren met:
 
     `npm install azure-cognitiveservices-textanalytics`
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-U moet ook de [eindpunt- en toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u is gegenereerd tijden de registratie.
+U moet ook de [eindpunt- en toegangssleutel](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) hebben die voor u is gegenereerd tijden de registratie.
 
-## <a name="create-a-nodejs-application-and-install-the-sdk"></a>Een Node.js-toepassing maken en installeer de SDK
+## <a name="create-a-nodejs-application-and-install-the-sdk"></a>Een node. js-toepassing maken en de SDK installeren
 
-Na de installatie van Node.js, een knooppunt-project te maken. Maak een nieuwe map voor uw app en navigeer naar de map.
+Maak na de installatie van node. js een knooppunt project. Maak een nieuwe map voor uw app en navigeer naar de map.
 
 ```mkdir myapp && cd myapp```
 
-Voer ```npm init``` een node-toepassing maken met een package.json-bestand. Installeer de `ms-rest-azure` en `azure-cognitiveservices-textanalytics` NPM-pakketten:
+Voer ```npm init``` uit om een knooppunt toepassing te maken met een package. JSON-bestand. Installeer de `ms-rest-azure` en `azure-cognitiveservices-textanalytics` NPM-pakketten:
 
 ```npm install azure-cognitiveservices-textanalytics ms-rest-azure```
 
-Package.json-bestand van uw app wordt bijgewerkt met de afhankelijkheden.
+Het bestand Package. json van uw app wordt bijgewerkt met de afhankelijkheden.
 
-## <a name="authenticate-your-credentials"></a>Verificatie van uw referenties
+## <a name="authenticate-your-credentials"></a>Uw referenties verifiëren
 
-Maak een nieuw bestand `index.js` in het project de hoofd- en de geïnstalleerde bibliotheken importeren
+Maak een nieuw bestand `index.js` in de hoofdmap van het project en importeer de geïnstalleerde bibliotheken
 
 ```javascript
 const CognitiveServicesCredentials = require("ms-rest-azure").CognitiveServicesCredentials;
 const TextAnalyticsAPIClient = require("azure-cognitiveservices-textanalytics");
 ```
 
-Maak een variabele voor de sleutel van uw Text Analytics-abonnement.
+Maak een variabele voor uw Text Analytics-abonnements sleutel.
 
 ```javascript
 let credentials = new CognitiveServicesCredentials(
@@ -65,12 +65,12 @@ let credentials = new CognitiveServicesCredentials(
 ```
 
 > [!Tip]
-> Voor de veilige distributie van geheimen in productiesystemen wordt u aangeraden [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net).
+> Voor een veilige implementatie van geheimen in productie systemen raden wij u aan [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net)te gebruiken.
 >
 
 ## <a name="create-a-text-analytics-client"></a>Een Text Analytics-client maken
 
-Maak een nieuwe `TextAnalyticsClient` object met `credentials` als parameter. Gebruik de juiste Azure-regio voor uw Text Analytics-abonnement.
+Maak een nieuw `TextAnalyticsClient` object met `credentials` als para meter. Gebruik de juiste Azure-regio voor uw Text Analytics-abonnement.
 
 ```javascript
 //Replace 'westus' with the correct region for your Text Analytics subscription
@@ -82,7 +82,7 @@ let client = new TextAnalyticsAPIClient(
 
 ## <a name="sentiment-analysis"></a>Sentimentanalyse
 
-Maak een lijst van objecten, met de documenten die u wilt analyseren. De nettolading voor de API bestaat uit een lijst met `documents`, waarin een `id`, `language`, en `text` kenmerk. De `text` slaat de tekst die moet worden geanalyseerd, kenmerk `language` is de taal van het document en de `id` is een waarde. 
+Maak een lijst met objecten die de documenten bevatten die u wilt analyseren. De payload van de API bestaat uit een lijst met `documents`die een `id`, `language`, en `text` kenmerk bevat. Het `text` kenmerk slaat de tekst op die moet worden geanalyseerd `language` , is de taal van het document en de `id` kan een wille keurige waarde zijn. 
 
 ```javascript
 const inputDocuments = {documents:[
@@ -93,7 +93,7 @@ const inputDocuments = {documents:[
 ]}
 ```
 
-Bel `client.sentiment` en het resultaat. Vervolgens doorlopen en de resultaten en afdrukken van elk document-ID en gevoelsscore. Een score dichter bij 0 geeft aan dat een negatief gevoel, terwijl een score dichter bij 1 geeft aan een positieve stemming dat.
+Roep `client.sentiment` het resultaat en ontvang het. Herhaal vervolgens de resultaten en druk de document-ID en sentiment Score af. Een score dichter bij 0 geeft aan dat er een negatieve sentiment is, terwijl een score dichter bij 1 wijst op een positieve sentiment.
 
 ```javascript
 const operation = client.sentiment({multiLanguageBatchInput: inputDocuments})
@@ -106,9 +106,9 @@ operation
 });
 ```
 
-Voer uw code met `node index.js` in het consolevenster weergegeven.
+Voer uw code `node index.js` uit in het console venster.
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 ```console
 [ { id: '1', score: 0.8723785877227783 },
@@ -119,7 +119,7 @@ Voer uw code met `node index.js` in het consolevenster weergegeven.
 
 ## <a name="language-detection"></a>Taaldetectie
 
-Maak een lijst van objecten die uw documenten. De nettolading voor de API bestaat uit een lijst met `documents`, waarin een `id` en `text` kenmerk. De `text` slaat de tekst die moet worden geanalyseerd, kenmerk en de `id` is een waarde.
+Maak een lijst met objecten die uw documenten bevatten. De payload van de API bestaat uit een lijst met `documents`, die een `id` and `text` -kenmerk bevat. Het `text` kenmerk slaat de tekst die moet worden geanalyseerd en de `id` kan een wille keurige waarde zijn.
 
 ```javascript
 // The documents to be submitted for language detection. The ID can be any value.
@@ -132,7 +132,7 @@ const inputDocuments = {
     };
 ```
 
-Bel `client.detectLanguage()` en het resultaat. Vervolgens doorlopen en de resultaten en afdrukken van elk document-ID en de taal van de eerste geretourneerd.
+Roep `client.detectLanguage()` het resultaat en ontvang het. Herhaal vervolgens de resultaten en druk de ID van elk document af en de eerste geretourneerde taal.
 
 ```javascript
 const operation = client.detectLanguage({
@@ -152,9 +152,9 @@ operation
     });
 ```
 
-Voer uw code met `node index.js` in het consolevenster weergegeven.
+Voer uw code `node index.js` uit in het console venster.
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 ```console
 ===== LANGUAGE EXTRACTION ======
@@ -163,9 +163,9 @@ ID: 2 Language Spanish
 ID: 3 Language Chinese_Simplified
 ```
 
-## <a name="entity-recognition"></a>Herkenning van entiteit
+## <a name="entity-recognition"></a>Entiteit herkenning
 
-Maak een lijst van objecten, die uw documenten. De nettolading voor de API bestaat uit een lijst met `documents`, waarin een `id`, `language`, en `text` kenmerk. De `text` slaat de tekst die moet worden geanalyseerd, kenmerk `language` is de taal van het document en de `id` is een waarde.
+Maak een lijst met objecten die uw documenten bevatten. De payload van de API bestaat uit een lijst met `documents`die een `id`, `language`, en `text` kenmerk bevat. Het `text` kenmerk slaat de tekst op die moet worden geanalyseerd `language` , is de taal van het document en de `id` kan een wille keurige waarde zijn.
 
 ```javascript
 
@@ -177,7 +177,7 @@ Maak een lijst van objecten, die uw documenten. De nettolading voor de API besta
 }
 ```
 
-Bel `client.entities()` en het resultaat. Vervolgens doorlopen en de resultaten en afdrukken van elk document-ID. Voor elke entiteit wordt gedetecteerd, de wikipedia-naam, het type en subtypen afdrukken (indien aanwezig) evenals de locaties in de oorspronkelijke tekst.
+Roep `client.entities()` het resultaat en ontvang het. Herhaal vervolgens de resultaten en druk de document-ID af. Voor elke gedetecteerde entiteit drukt u de naam van de Wikipedia, het type en subtype (indien aanwezig) af, evenals de locaties in de oorspronkelijke tekst.
 
 ```javascript
 const operation = client.entities({
@@ -200,9 +200,9 @@ operation
     });
 ```
 
-Voer uw code met `node index.js` in het consolevenster weergegeven.
+Voer uw code `node index.js` uit in het console venster.
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 ```console
 Document ID: 1
@@ -233,7 +233,7 @@ Document ID: 2
 
 ## <a name="key-phrase-extraction"></a>Sleuteltermextractie
 
-Maak een lijst van objecten, die uw documenten. De nettolading voor de API bestaat uit een lijst met `documents`, waarin een `id`, `language`, en `text` kenmerk. De `text` slaat de tekst die moet worden geanalyseerd, kenmerk `language` is de taal van het document en de `id` is een waarde.
+Maak een lijst met objecten die uw documenten bevatten. De payload van de API bestaat uit een lijst met `documents`die een `id`, `language`, en `text` kenmerk bevat. Het `text` kenmerk slaat de tekst op die moet worden geanalyseerd `language` , is de taal van het document en de `id` kan een wille keurige waarde zijn.
 
 ```javascript
     let inputLanguage = {
@@ -246,7 +246,7 @@ Maak een lijst van objecten, die uw documenten. De nettolading voor de API besta
     };
 ```
 
-Bel `client.keyPhrases()` en het resultaat. Vervolgens doorloopt u de resultaten en afdrukken van elk document-ID en eventuele gedetecteerde sleuteltermen.
+Roep `client.keyPhrases()` het resultaat en ontvang het. Herhaal vervolgens de resultaten en druk elke document-ID en alle gedetecteerde sleutel zinnen af.
 
 ```javascript
     let operation = client.keyPhrases({
@@ -261,9 +261,9 @@ Bel `client.keyPhrases()` en het resultaat. Vervolgens doorloopt u de resultaten
     });
 ```
 
-Voer uw code met `node index.js` in het consolevenster weergegeven.
+Voer uw code `node index.js` uit in het console venster.
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 ```console
 [ 

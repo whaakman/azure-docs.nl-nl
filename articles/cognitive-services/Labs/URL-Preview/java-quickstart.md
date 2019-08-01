@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh
-ms.openlocfilehash: 5fa3b723b184e6c20ee678e7ef750d6a9d18f2c6
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 29418ec8ce12033dc576c61a73301dec13d457cc
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592853"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698037"
 ---
 # <a name="quickstart-url-preview-with-java"></a>Quickstart: URL Preview met Java
 
@@ -23,11 +23,11 @@ In het volgende voorbeeld van Java wordt een URL-voorbeeld gemaakt voor de Swift
 
 ## <a name="prerequisites"></a>Vereisten
 
-Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## <a name="request"></a>Aanvraag 
 
-De volgende code maakt een `WebRequest`, stelt u de koptekst van de toegang en voegt u een query-tekenreeks voor ' https:\//swiftkey.com/en '.  Vervolgens wordt de aanvraag verzonden en het antwoord toegewezen aan een tekenreeks die de JSON-tekst moet bevatten.
+Met de volgende code maakt `WebRequest`u een, stelt de kop van de toegangs sleutel in en voegt een query reeks\/toe voor "https:/swiftkey.com/en".  Vervolgens wordt de aanvraag verzonden en het antwoord toegewezen aan een tekenreeks die de JSON-tekst moet bevatten.
 
 ```
     // construct URL of search request (endpoint + query string)

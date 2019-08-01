@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: 4a74133a4a34f07db3813d3b9f9a47794c05ec49
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: af01c0c2586ce7df1902a0bcc502c6fd06a5215d
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594644"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697913"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Een Cognitive Services resource maken met behulp van de Azure Portal
 
@@ -65,6 +65,13 @@ Voordat u een Cognitive Services resource maakt, moet u een Azure-resource groep
 Nadat u de resource hebt gemaakt, kunt u deze openen vanuit het Azure-dash board als u deze hebt vastgemaakt. Als dat niet het geval is, kunt u het vinden in **resource groepen**. Nadat u uw resource hebt geselecteerd, kunt u de sleutels ophalen door **sleutels** te selecteren onder **resource beheer**.
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
+
+## <a name="pricing-tiers-and-billing"></a>Prijs categorieën en facturering
+
+De prijs categorieën (en de hoeveelheid die u ontvangt) zijn gebaseerd op het aantal trans acties dat u verzendt met behulp van uw verificatie gegevens. Met elke prijs categorie geeft u het volgende op:
+* het maximum aantal toegestane trans acties per seconde (TPS).
+* Service functies zijn ingeschakeld in de prijs categorie.
+* De kosten voor een vooraf gedefinieerd bedrag aan trans acties. Boven deze hoeveelheid worden er extra kosten in rekening gebracht, zoals is opgegeven in de [prijs informatie](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) voor uw service.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

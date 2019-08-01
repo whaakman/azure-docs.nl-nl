@@ -1,19 +1,18 @@
 ---
 title: Snelstart voor het beheren van Azure-bestandsshares met de Azure-portal
 description: Gebruik deze snelstart voor informatie over het gebruik van de Azure-portal om Azure Files te beheren.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 69e7dba06fce14c2411a82dfade344ba1b14a6d3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7d7618d2542b1c1d83ed7328c8a32d80f2d0e66a
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698752"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699534"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Quickstart: Azure-bestandsshares maken en beheren met Azure Portal 
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Windows, Linux en macOS. In deze handleiding worden de basisbeginselen besproken van het werken met Azure-bestandsshares met behulp van [Azure Portal](https://portal.azure.com/).
@@ -64,7 +63,7 @@ Ga als volgt te werk om in de hoofdmap van uw Azure-bestandsshare een nieuwe map
 2. Selecteer **+ Map toevoegen** in het menu bovenaan de pagina. De pagina **Nieuwe map** wordt weergegeven.
 3. Typ *myDirectory* en klik op **OK**.
 
-#### <a name="upload-a-file"></a>Bestand uploaden 
+#### <a name="upload-a-file"></a>Een bestand uploaden 
 Als u wilt uitproberen hoe het uploaden van een bestand in zijn werk gaat, moet u eerst een bestand maken of selecteren om te uploaden. De manier waarop u dit doet, kunt u helemaal zelf bepalen. Ga als volgt te werk wanneer u het bestand hebt geselecteerd dat u wilt uploaden:
 
 1. Klik op de map **myDirectory**. Het deelvenster **myDirectory** wordt geopend.
@@ -76,7 +75,7 @@ Als u wilt uitproberen hoe het uploaden van een bestand in zijn werk gaat, moet 
 5. Controleer de bestandsnaam op de pagina **Bestanden uploaden** en klik vervolgens op **Uploaden**.
 6. Als het uploaden is voltooid, ziet u het bestand in de lijst op de pagina **myDirectory**.
 
-#### <a name="download-a-file"></a>Bestand downloaden
+#### <a name="download-a-file"></a>Een bestand downloaden
 U kunt een kopie downloaden van het bestand dat u hebt geüpload, door met de rechtermuisknop op het bestand te klikken. Als u vervolgens Downloaden hebt geselecteerd, verschilt de rest van de procedure afhankelijk van het besturingssysteem en browser die u gebruikt.
 
 ## <a name="clean-up-resources"></a>Resources opschonen

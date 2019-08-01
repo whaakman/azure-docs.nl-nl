@@ -1,19 +1,18 @@
 ---
 title: Snelstart voor het beheren van Azure-bestandsshares met Azure PowerShell
 description: Gebruik deze snelstart om te leren hoe u Azure-bestandsshares beheert met Azure PowerShell.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e32aead791fb84415da1b00f1e979a6ac0f28155
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 802ad497f95a43665665d7e7dbd06c9081eba74a
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729020"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699508"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Snelstartgids: Een Azure-bestandsshare maken en beheren met Azure PowerShell 
 In deze handleiding worden de basisbeginselen besproken van het werken met [Azure-bestandsshares](storage-files-introduction.md) met PowerShell. Azure-bestandsshares zijn net als andere bestandsshares, maar worden in de cloud opgeslagen en ondersteund door het Azure-platform. Azure-bestandsshares ondersteunen het SMB-protocol volgens de industriestandaard en bieden de mogelijkheid bestanden te delen tussen meerdere computers, toepassingen en exemplaren. 
@@ -40,7 +39,7 @@ New-AzResourceGroup `
 ## <a name="create-a-storage-account"></a>Create a storage account
 Een opslagaccount is een gedeelde opslaggroep die u kunt gebruiken voor het implementeren van Azure-bestandsshares of andere opslagresources, zoals blobs of wachtrijen. Een opslagaccount kan een onbeperkt aantal shares bevatten en een share kan een onbeperkt aantal bestanden bevatten, totdat de capaciteit van het opslagaccount is bereikt.
 
-In dit voorbeeld wordt een opslagaccount gemaakt met behulp van de cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). De naam van het opslagaccount *mystorageaccount\<willekeurig getal >* en een verwijzing naar dit account wordt opgeslagen in de variabele **$storageAcct**. Namen van opslagaccounts moeten uniek zijn. Gebruik `Get-Random` om een nummer toe te voegen aan de naam en deze zo uniek te maken. 
+In dit voorbeeld wordt een opslagaccount gemaakt met behulp van de cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Het opslag account heeft de *naam\<mystorageaccount wille keurig getal >* en een verwijzing naar dat opslag account wordt opgeslagen in de variabele **$storageAcct**. Namen van opslagaccounts moeten uniek zijn. Gebruik `Get-Random` om een nummer toe te voegen aan de naam en deze zo uniek te maken. 
 
 ```azurepowershell-interactive 
 $storageAcct = New-AzStorageAccount `
@@ -80,7 +79,7 @@ In de meeste gevallen gebruikt u uw Azure-bestandsshare via het SMB-protocol, om
 
 In de volgende voorbeelden ziet u hoe u de Azure PowerShell-module gebruikt voor het bewerken van uw Azure-bestandsshare met het File REST-protocol. 
 
-#### <a name="create-directory"></a>Map maken
+#### <a name="create-directory"></a>Adreslijst maken
 Als u in de hoofdmap van uw Azure-bestandsshare een nieuwe map wilt maken met de naam *myDirectory*, gebruikt u de cmdlet [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory).
 
 ```azurepowershell-interactive
@@ -90,7 +89,7 @@ New-AzStorageDirectory `
    -Path "myDirectory"
 ```
 
-#### <a name="upload-a-file"></a>Bestand uploaden
+#### <a name="upload-a-file"></a>Een bestand uploaden
 Om te laten zien hoe u met de cmdlet [Set-AzStorageFileContent](/powershell/module/az.storage/Set-AzStorageFileContent) een bestand kunt uploaden, moeten we op de scratch-schijf van uw PowerShell Cloud Shell eerst een bestand maken om te uploaden. 
 
 In dit voorbeeld worden de huidige datum en tijd in een nieuw bestand op uw scratch-schijf geplaatst, waarna het bestand naar de bestandsshare wordt geüpload.
@@ -115,7 +114,7 @@ Nadat het bestand is geüpload, kunt u de cmdlet [Get-AzStorageFile](/powershell
 Get-AzStorageFile -Context $storageAcct.Context -ShareName "myshare" -Path "myDirectory" 
 ```
 
-#### <a name="download-a-file"></a>Bestand downloaden
+#### <a name="download-a-file"></a>Een bestand downloaden
 U kunt de cmdlet [Get-AzStorageFileContent](/powershell/module/az.storage/Get-AzStorageFilecontent) gebruiken om een kopie te downloaden van het bestand dat u net hebt geüpload naar de scratch-schijf van uw Cloud Shell.
 
 ```azurepowershell-interactive
@@ -166,7 +165,7 @@ Als u nu de bestanden in de nieuwe share opvraagt, ziet u het gekopieerde bestan
 Get-AzStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
-Terwijl de `Start-AzStorageFileCopy` cmdlet is handig voor het ad-hoc verplaatsen tussen Azure-bestandsshares en Azure Blob-Opslagcontainers, is het raadzaam AzCopy voor grotere bewerkingen (wat betreft het aantal of de grootte van de verplaatste bestanden). U vindt hier meer informatie over [AzCopy voor Windows](../common/storage-use-azcopy.md) en [AzCopy voor Linux](../common/storage-use-azcopy-linux.md). AzCopy moet lokaal worden geïnstalleerd. De opdracht is niet beschikbaar in Cloud Shell. 
+Hoewel de `Start-AzStorageFileCopy` cmdlet handig is voor het ad hoc-bestand tussen Azure-bestands shares en Azure Blob-opslag containers, is het raadzaam om AzCopy te verg Roten (in termen van het aantal of de grootte van de bestanden die worden verplaatst). U vindt hier meer informatie over [AzCopy voor Windows](../common/storage-use-azcopy.md) en [AzCopy voor Linux](../common/storage-use-azcopy-linux.md). AzCopy moet lokaal worden geïnstalleerd. De opdracht is niet beschikbaar in Cloud Shell. 
 
 ## <a name="create-and-manage-share-snapshots"></a>Momentopnamen van shares maken en beheren
 Nog een andere handige taak die u kunt doen met een Azure-bestandsshare is het maken van een momentopname van de share. Een momentopname bevat voor een specifiek moment de actuele inhoud van een Azure-bestandsshare. Momentopnamen van een share zijn vergelijkbaar met technologieën van besturingssystemen die u mogelijk al kent, zoals:

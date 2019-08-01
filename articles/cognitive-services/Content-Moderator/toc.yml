@@ -11,16 +11,16 @@
       href: quick-start.md
     - name: De client-SDK gebruiken
       items:
-        - name: 'C#'
+        - name: De .NET SDK gebruiken
           items:
             - name: Inhoud van afbeelding analyseren
               href: image-moderation-quickstart-dotnet.md
             - name: Inhoud van tekst analyseren
               href: text-moderation-quickstart-dotnet.md
-        - name: Python
-          items:
-            - name: Inhoud van tekst analyseren
-              href: text-moderation-quickstart-python.md
+        - name: De Python-SDK gebruiken
+          href: python-sdk-quickstart.md
+        - name: De Java-SDK gebruiken
+          href: java-sdk-quickstart.md
 - name: Zelfstudies
   items:
     - name: E-commerce-installatiekopieën beheren

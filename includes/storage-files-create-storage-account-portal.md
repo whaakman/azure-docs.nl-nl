@@ -9,11 +9,11 @@ ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
 ms.openlocfilehash: a09e9206b3ecd23a6208572a88c16b149033f123
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38732781"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "68699450"
 ---
 Een opslagaccount is een gedeelde opslaggroep waarin u Azure-bestandsshares of andere opslagresources, zoals blobs of wachtrijen, kunt implementeren. Een opslagaccount kan een onbeperkt aantal shares bevatten. Een share kan een onbeperkt aantal bestanden opslaan, tot de capaciteitslimiet van het opslagaccount.
 
@@ -31,7 +31,7 @@ Een opslagaccount maken:
 8. Wij adviseren om bij **Veilige overdracht vereist** altijd **Ingeschakeld** te selecteren. Zie [Versleuteling in-transit begrijpen](../articles/storage/common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) voor meer informatie over deze optie.
 9. Selecteer bij **Abonnement** het abonnement waarin u het opslagaccount wilt maken. Als u slechts één abonnement hebt, wordt dit abonnement standaard weergegeven.
 10. Selecteer voor **Resourcegroep** de optie **Nieuwe maken**. Voer als naam *myResourceGroup* in.
-11. Selecteer bij **Locatie** **Oostelijke VS**.
+11. Selecteer bij **Locatie** **US - oost**.
 12. Laat bij **Virtuele netwerken** de standaardoptie **Uitgeschakeld** staan. 
 13. Selecteer **Vastmaken aan dashboard** om het opslagaccount gemakkelijker te vinden.
 14. Als u klaar bent, klikt u op **Maken** om de implementatie te starten.

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/22/2019
+ms.date: 07/30/2019
 ms.author: aahi
 ms.custom: seo-java-july2019
-ms.openlocfilehash: c5e47918cb31d127842cb7a45883cf4c47fb56e0
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 437456ecb700b2efb60f2f6269643ca39d8775e2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489224"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697531"
 ---
 # <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Java gebruiken om de Text Analytics Cognitive Service aan te roepen
 <a name="HOLTop"></a>
@@ -29,7 +29,7 @@ Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor tec
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-U moet ook de [eindpunt- en toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u is gegenereerd tijden de registratie.
+U moet ook de [eindpunt- en toegangssleutel](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) hebben die voor u is gegenereerd tijden de registratie.
 
 <a name="Detect"></a>
 

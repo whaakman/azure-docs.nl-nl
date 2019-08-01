@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Roept de Text Analytics Cognitive Service met behulp van de Ruby-SDK'
+title: 'Quickstart: De Text Analytics cognitieve service aanroepen met behulp van de ruby-SDK'
 titleSuffix: Azure Cognitive Services
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Tekstanalyse-API in Azure Cognitive Services.
+description: Informatie en code voorbeelden ophalen zodat u snel aan de slag kunt met de Text Analytics-API in azure Cognitive Services.
 services: cognitive-services
 author: raymondl
 manager: nitinme
@@ -10,50 +10,48 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: tasharm
-ms.openlocfilehash: 688887826fa803b616ca737bc8558aa17ed80e37
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 3f18b77fe436328e79df351b9c5edcf6dc289ad7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297779"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697270"
 ---
-# <a name="quickstart-call-the-text-analytics-service-using-the-ruby-sdk"></a>Quickstart: Roept de Text Analytics-service met behulp van de Ruby-SDK
+# <a name="quickstart-call-the-text-analytics-service-using-the-ruby-sdk"></a>Quickstart: De Text Analytics-Service aanroepen met behulp van de ruby-SDK
 
 <a name="HOLTop"></a>
 
 
-Gebruik deze Quick Start om te beginnen met het analyseren van de taal met de Text Analytics-SDK voor Ruby. Terwijl de [Tekstanalyse](//go.microsoft.com/fwlink/?LinkID=759711) REST-API is compatibel met de meeste moderne programmeertalen, de SDK biedt een eenvoudige manier om de service te integreren in uw toepassingen. De broncode voor dit voorbeeld is te vinden op [GitHub](https://github.com/Azure-Samples/cognitive-services-ruby-sdk-samples/blob/master/samples/text_analytics.rb).
+Gebruik deze Quick Start om de taal te analyseren met de Text Analytics SDK voor ruby. Hoewel de [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) rest API compatibel is met de meeste programmeer talen, biedt de SDK een gemakkelijke manier om de service te integreren in uw toepassingen. De broncode voor dit voorbeeld is te vinden op [GitHub](https://github.com/Azure-Samples/cognitive-services-ruby-sdk-samples/blob/master/samples/text_analytics.rb).
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * [Ruby 2.5.5 of hoger](https://www.ruby-lang.org/)
-* De Text analytics [SDK voor Ruby](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
+* De tekst analyse- [SDK voor ruby](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
  
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-U moet ook [het eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u zijn gegenereerd tijdens de registratie. 
-
 <a name="RubyProject"></a>
 
-## <a name="create-a-ruby-project-and-install-the-sdk"></a>Een Ruby-project maken en installeer de SDK
+## <a name="create-a-ruby-project-and-install-the-sdk"></a>Een ruby-project maken en de SDK installeren
 
-1. Maak een nieuwe ruby-project en voeg een nieuw bestand met de naam `Gemfile`.
-2. De Text Analytics-SDK toevoegen aan het project door toe te voegen de onderstaande code `Gemfile`.
+1. Maak een nieuw ruby-project en voeg een nieuw bestand `Gemfile`toe met de naam.
+2. Voeg de Text Analytics SDK toe aan het project door de onderstaande code toe `Gemfile`te voegen aan.
 
     ```ruby
     source 'https://rubygems.org'
     gem 'azure_cognitiveservices_textanalytics', '~>0.17.3'
     ```
 
-## <a name="create-a-text-analytics-client"></a>Een Text analytics-client maken
+## <a name="create-a-text-analytics-client"></a>Een tekst analyse-client maken
 
-1. Maak een nieuw bestand met de naam `TextAnalyticsExamples.rb` in uw favoriete editor of IDE. Importeer de Text Analytics SDK.
+1. Maak een nieuw bestand met `TextAnalyticsExamples.rb` de naam in uw favoriete editor of IDE. Importeer de Text Analytics SDK.
 
-2. Een object referenties zal worden gebruikt door de Text Analytics-client. Maken met `CognitiveServicesCredentials.new()` en de abonnementssleutel van uw door te geven.
+2. Er wordt een referenties-object gebruikt door de Text Analytics-client. Maak deze met `CognitiveServicesCredentials.new()` en geef uw abonnements sleutel door.
 
-3. De client met de juiste Text Analytics-eindpunt maken.
+3. Maak de client met uw juiste Text Analytics-eind punt.
 
     ```ruby
     require 'azure_cognitiveservices_textanalytics'
@@ -74,13 +72,13 @@ U moet ook [het eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to
 
 <a name="SentimentAnalysis"></a>
 
-## <a name="sentiment-analysis"></a>Stemmingsanalyse
+## <a name="sentiment-analysis"></a>Sentimentanalyse
 
-U kunt met behulp van de Text Analytics SDK of de API, sentimentanalyse uitvoeren op een set tekstrecords. Het volgende voorbeeld wordt de scores gevoel voor verschillende documenten.
+Met de Text Analytics SDK of API kunt u sentiment-analyse uitvoeren op een set met tekst records. In het volgende voor beeld worden de sentiment-scores voor verschillende documenten weer gegeven.
 
-1. Maak een nieuwe functie met de naam `SentimentAnalysisExample()` die duurt de text analytics-client als een parameter hierboven hebt gemaakt.
+1. Maak een nieuwe functie die `SentimentAnalysisExample()` wordt aangeroepen, waarbij de tekst analyse-client hierboven als para meter wordt gemaakt.
 
-2. Een set definiëren `MultiLanguageInput` objecten moeten worden geanalyseerd. Voeg een taal en de tekst voor elk object. De ID mag geen waarde.
+2. Definieer een set `MultiLanguageInput` objecten die moeten worden geanalyseerd. Voeg een taal en tekst toe voor elk object. De ID kan een wille keurige waarde zijn.
 
     ```ruby
     def SentimentAnalysisExample(client)
@@ -106,9 +104,9 @@ U kunt met behulp van de Text Analytics SDK of de API, sentimentanalyse uitvoere
       input_4.text = "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
     ```
 
-3. Binnen dezelfde functie, de documenten in een lijst te combineren. Toe te voegen aan de `documents` veld van een `MultiLanguageBatchInput` object. 
+3. In dezelfde functie kunt u de documenten in een lijst combi neren. Voeg deze toe aan `documents` het veld van `MultiLanguageBatchInput` een object. 
 
-4. Aanroepen van de client `sentiment()` werken met de `MultiLanguageBatchInput` object als parameter voor de documenten verzenden. Als er geen resultaten oplevert, deze afdrukken.
+4. Roep de functie van `sentiment()` de client met `MultiLanguageBatchInput` het object als een para meter op om de documenten te verzenden. Als er resultaten worden geretourneerd, drukt u deze af.
     ```ruby
       input_documents =  MultiLanguageBatchInput.new
       input_documents.documents = [input_1, input_2, input_3, input_4]
@@ -132,7 +130,7 @@ U kunt met behulp van de Text Analytics SDK of de API, sentimentanalyse uitvoere
     SentimentAnalysisExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 ```console
 ===== SENTIMENT ANALYSIS =====
@@ -146,11 +144,11 @@ Document ID: 4 , Sentiment Score: 1.00
 
 ## <a name="language-detection"></a>Taaldetectie
 
-De Text Analytics-service kan de taal van een tekstdocument detecteren over een groot aantal talen en landen. Het volgende voorbeeld wordt de taal waarin meerdere documenten zijn geschreven.
+De Text Analytics-service kan de taal van een tekst document in een groot aantal talen en land instellingen detecteren. In het volgende voor beeld wordt de taal weer gegeven waarin verschillende documenten zijn geschreven.
 
-1. Maak een nieuwe functie met de naam `DetectLanguageExample()` waarmee de text analytics-client als een parameter hierboven hebt gemaakt. 
+1. Maak een nieuwe functie met `DetectLanguageExample()` de naam die de tekst analyse-client hierboven maakt als een para meter. 
 
-2. Een set definiëren `LanguageInput` objecten moeten worden geanalyseerd. Voeg een taal en de tekst voor elk object. De ID mag geen waarde.
+2. Definieer een set `LanguageInput` objecten die moeten worden geanalyseerd. Voeg een taal en tekst toe voor elk object. De ID kan een wille keurige waarde zijn.
 
     ```ruby
     def DetectLanguageExample(client)
@@ -168,9 +166,9 @@ De Text Analytics-service kan de taal van een tekstdocument detecteren over een 
        language_input_3.text = '这是一个用中文写的文件'
     ```
 
-3. Binnen dezelfde functie, de documenten in een lijst te combineren. Toe te voegen aan de `documents` veld van een `LanguageBatchInput` object. 
+3. In dezelfde functie kunt u de documenten in een lijst combi neren. Voeg deze toe aan `documents` het veld van `LanguageBatchInput` een object. 
 
-4. Aanroepen van de client `detect_language()` werken met de `LanguageBatchInput` object als parameter voor de documenten verzenden. Als er geen resultaten oplevert, deze afdrukken.
+4. Roep de functie van `detect_language()` de client met `LanguageBatchInput` het object als een para meter op om de documenten te verzenden. Als er resultaten worden geretourneerd, drukt u deze af.
     ```ruby
        input_documents = LanguageBatchInput.new
        input_documents.documents = [language_input_1, language_input_2, language_input_3]
@@ -191,13 +189,13 @@ De Text Analytics-service kan de taal van een tekstdocument detecteren over een 
      end
     ```
 
-5. De functie aanroepen `DetectLanguageExample`
+5. De functie aanroepen`DetectLanguageExample`
 
     ```ruby
     DetectLanguageExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 ```console
 ===== LANGUAGE EXTRACTION ======
@@ -208,13 +206,13 @@ Document ID: 3 , Language: Chinese_Simplified
 
 <a name="EntityRecognition"></a>
 
-## <a name="entity-recognition"></a>Herkenning van entiteit
+## <a name="entity-recognition"></a>Entiteit herkenning
 
-De Text Analytics-service kan onderscheiden en extraheer verschillende entiteiten (personen, locaties en dingen) in tekstdocumenten. Het volgende voorbeeld wordt de entiteiten in verschillende voorbeelddocumenten gevonden.
+De Text Analytics-service kan verschillende entiteiten (personen, plaatsen en dingen) in tekst documenten onderscheiden en extra heren. In het volgende voor beeld worden de entiteiten weer gegeven die in verschillende voorbeeld documenten zijn gevonden.
 
-1. Maak een nieuwe functie met de naam `Recognize_Entities()` die duurt de text analytics-client als een parameter hierboven hebt gemaakt.
+1. Maak een nieuwe functie die `Recognize_Entities()` wordt aangeroepen, waarbij de tekst analyse-client hierboven als para meter wordt gemaakt.
 
-2. Een set definiëren `MultiLanguageInput` objecten moeten worden geanalyseerd. Voeg een taal en de tekst voor elk object. De ID mag geen waarde.
+2. Definieer een set `MultiLanguageInput` objecten die moeten worden geanalyseerd. Voeg een taal en tekst toe voor elk object. De ID kan een wille keurige waarde zijn.
 
     ```ruby
       def RecognizeEntitiesExample(client)
@@ -230,9 +228,9 @@ De Text Analytics-service kan onderscheiden en extraheer verschillende entiteite
         input_2.text = 'La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle.'
     ```
 
-3. Binnen dezelfde functie, de documenten in een lijst te combineren. Toe te voegen aan de `documents` veld van een `MultiLanguageBatchInput` object. 
+3. In dezelfde functie kunt u de documenten in een lijst combi neren. Voeg deze toe aan `documents` het veld van `MultiLanguageBatchInput` een object. 
 
-4. Aanroepen van de client `entities()` werken met de `MultiLanguageBatchInput` object als parameter voor de documenten verzenden. Als er geen resultaten oplevert, deze afdrukken.
+4. Roep de functie van `entities()` de client met `MultiLanguageBatchInput` het object als een para meter op om de documenten te verzenden. Als er resultaten worden geretourneerd, drukt u deze af.
 
     ```ruby
         input_documents =  MultiLanguageBatchInput.new
@@ -260,12 +258,12 @@ De Text Analytics-service kan onderscheiden en extraheer verschillende entiteite
       end
     ```
 
-5. De functie aanroepen `RecognizeEntitiesExample`
+5. De functie aanroepen`RecognizeEntitiesExample`
     ```ruby
     RecognizeEntitiesExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 ```console
 ===== ENTITY RECOGNITION =====
@@ -309,11 +307,11 @@ Document ID: 2
 
 ## <a name="key-phrase-extraction"></a>Sleuteltermextractie
 
-De Text Analytics-service kan in zinnen sleuteltermen extraheren. Het volgende voorbeeld wordt de entiteiten die zijn gevonden in verschillende voorbeelddocumenten in meerdere talen.
+De Text Analytics-service kan sleutel zinnen in zinnen extra heren. In het volgende voor beeld worden de entiteiten weer gegeven die in verschillende voorbeeld documenten in meerdere talen zijn gevonden.
 
-1. Maak een nieuwe functie met de naam `KeyPhraseExtractionExample()` die duurt de text analytics-client als een parameter hierboven hebt gemaakt.
+1. Maak een nieuwe functie die `KeyPhraseExtractionExample()` wordt aangeroepen, waarbij de tekst analyse-client hierboven als para meter wordt gemaakt.
 
-2. Een set definiëren `MultiLanguageInput` objecten moeten worden geanalyseerd. Voeg een taal en de tekst voor elk object. De ID mag geen waarde.
+2. Definieer een set `MultiLanguageInput` objecten die moeten worden geanalyseerd. Voeg een taal en tekst toe voor elk object. De ID kan een wille keurige waarde zijn.
 
     ```ruby
     def KeyPhraseExtractionExample(client)
@@ -339,9 +337,9 @@ De Text Analytics-service kan in zinnen sleuteltermen extraheren. Het volgende v
       input_4.text = 'A mi me encanta el fútbol!'
       ```
 
-3. Binnen dezelfde functie, de documenten in een lijst te combineren. Toe te voegen aan de `documents` veld van een `MultiLanguageBatchInput` object. 
+3. In dezelfde functie kunt u de documenten in een lijst combi neren. Voeg deze toe aan `documents` het veld van `MultiLanguageBatchInput` een object. 
 
-4. Aanroepen van de client `key_phrases()` werken met de `MultiLanguageBatchInput` object als parameter voor de documenten verzenden. Als er geen resultaten oplevert, deze afdrukken.
+4. Roep de functie van `key_phrases()` de client met `MultiLanguageBatchInput` het object als een para meter op om de documenten te verzenden. Als er resultaten worden geretourneerd, drukt u deze af.
 
     ```ruby
       input_documents =  MultiLanguageBatchInput.new
@@ -365,13 +363,13 @@ De Text Analytics-service kan in zinnen sleuteltermen extraheren. Het volgende v
     end
     ```
 
-5. De functie aanroepen `KeyPhraseExtractionExample`
+5. De functie aanroepen`KeyPhraseExtractionExample`
 
     ```ruby
     KeyPhraseExtractionExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Uitvoer
+### <a name="output"></a>Output
 
 ```console
 Document ID: 1

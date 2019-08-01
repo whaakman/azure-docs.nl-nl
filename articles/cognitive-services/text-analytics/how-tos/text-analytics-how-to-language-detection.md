@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 1ecb4897811e63ea33936f080791f3abce3e0b32
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 361dc10aad6f65230e1e0f4c563534d44b45f902
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618710"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697816"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Voorbeeld: Taal met Text Analytics detecteren
 
@@ -71,7 +71,7 @@ Zie [de Text Analytics-API aanroepen](text-analytics-how-to-call-api.md)voor mee
 
 + Het HTTP-eindpunt voor taaldetectie instellen. Gebruik een Text Analytics resource in azure of een geïnstantieerd [Text Analytics container](text-analytics-how-to-install-containers.md). Het moet de `/languages` resource bevatten: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`.
 
-+ Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie [eind punten zoeken en toegangs sleutels](text-analytics-how-to-access-key.md)voor meer informatie.
++ Stel een aanvraag header in voor het toevoegen van de [toegangs sleutel](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) voor Text Analytics bewerkingen.
 
 + Verstrek in de hoofdtekst van de aanvraag de JSON-documentenverzameling die u hebt voorbereid voor deze analyse.
 
@@ -269,7 +269,7 @@ In dit artikel hebt u concepten en werk stromen geleerd voor taal detectie door 
 
 + [Taal detectie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) is beschikbaar voor een breed scala aan talen, varianten, dialecten en enkele regionale of culturele talen.
 + JSON-documenten in de hoofd tekst van de aanvraag bevatten een ID en tekst.
-+ De post-aanvraag is naar `/languages` een eind punt met behulp van een aangepaste [toegangs sleutel en een eind punt](text-analytics-how-to-access-key.md) dat geldig is voor uw abonnement.
++ De post-aanvraag is naar `/languages` een eind punt met behulp van een aangepaste [toegangs sleutel en een eind punt](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) dat geldig is voor uw abonnement.
 + De reactie-uitvoer bestaat uit taal-id's voor elke document-ID. De uitvoer kan worden gestreamd naar alle apps die JSON accepteren. Voor beeld-apps zijn Excel en Power BI, om een paar te noemen.
 
 ## <a name="see-also"></a>Zie ook

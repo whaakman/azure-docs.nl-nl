@@ -1,19 +1,18 @@
 ---
 title: Snelstart voor het beheren van Azure-bestandsshares met behulp van Azure Storage Explorer
 description: In deze snelstart leert u hoe Azure Storage Explorer gebruikt om Azure-bestandsshares te beheren.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bf87704a8055b5725178c846df71ed4d873417e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b034b3e7aa5fcb61cf83565f3e4c3b1c83f3610c
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713873"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699440"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Quickstart: Azure-bestandsshares maken en beheren met Azure Storage Explorer
 In deze handleiding worden de basisbeginselen besproken van het werken met [Azure-bestandsshares](storage-files-introduction.md) met behulp van Azure Storage Explorer. Azure-bestandsshares zijn net als andere bestandsshares, maar worden in de cloud opgeslagen en ondersteund op het Azure-platform. Azure-bestandsshares ondersteunen het SMB-protocol volgens de industriestandaard en bieden de mogelijkheid bestanden te delen tussen meerdere computers, toepassingen en exemplaren. 
@@ -67,7 +66,7 @@ Het toevoegen van een map biedt een hiërarchische structuur voor het beheren va
 
 De map *myDirectory* wordt vermeld op het tabblad voor de bestandsshare *myshare*.
 
-### <a name="upload-a-file"></a>Bestand uploaden 
+### <a name="upload-a-file"></a>Een bestand uploaden 
 U kunt een bestand van uw lokale computer uploaden naar de nieuwe map in de bestandsshare. U kunt een hele map uploaden of één bestand.
 
 1. Selecteer **Uploaden** in het bovenste menu. U kunt nu een map of bestand uploaden.
@@ -76,7 +75,7 @@ U kunt een bestand van uw lokale computer uploaden naar de nieuwe map in de best
 
 Wanneer u klaar bent, wordt het bestand weergegeven in de lijst in het deelvenster *myDirectory*.
 
-### <a name="download-a-file"></a>Bestand downloaden
+### <a name="download-a-file"></a>Een bestand downloaden
 Als u een kopie van een bestand vanuit uw bestandsshare wilt downloaden, klikt u met de rechtermuisknop op het bestand en selecteert u **Downloaden**. Kies waar u het bestand op uw lokale computer wilt opslaan en selecteer **Opslaan**.
 
 De voortgang van de download wordt weergegeven in het deelvenster **Activiteiten** onderaan het venster.

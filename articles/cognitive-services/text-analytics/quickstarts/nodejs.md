@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Node.js gebruiken om de Text Analytics-API aan te roepen'
 titleSuffix: Azure Cognitive Services
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Tekstanalyse-API in Azure Cognitive Services.
+description: Informatie en code voorbeelden ophalen zodat u snel aan de slag kunt met de Text Analytics-API in azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: 4c77477e31e7513cb806dda968a68fc1ac5030ed
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: eadac393a7224876e3cb494dd39116bd3b5b0eb7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694962"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697387"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Node.js gebruiken om de Text Analytics Cognitive Service aan te roepen  
 <a name="HOLTop"></a>
@@ -28,19 +28,17 @@ Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor tec
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-U moet ook de [eindpunt- en toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u is gegenereerd tijden de registratie.
-
 <a name="Detect"></a>
 
 ## <a name="detect-language"></a>Taal detecteren
 
 Met de Language Detection-API wordt de taal van een tekstdocument gedetecteerd met behulp van de [methode Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-1. Een nieuwe Node.JS-project maken in uw favoriete IDE of een map op uw bureaublad.
-2. Voeg de code hieronder vindt u een nieuwe `.js` bestand.
-3. Vervang de `accessKey` waarde met een abonnementssleutel van de Text Analytics-resource in Azure.
+1. Maak een nieuw knoop punt. JS-project in uw favoriete IDE of een map op uw bureau blad.
+2. Voeg de hieronder vermelde code toe aan een `.js` nieuw bestand.
+3. Vervang de `accessKey` waarde door een abonnements sleutel van uw Text Analytics-resource in Azure.
 4. Vervang de locatie `uri` (momenteel `westus`) door de regio waarvoor u zich hebt geregistreerd.
-5. Het programma uitvoeren vanuit uw IDE of vanaf de opdrachtregel, bijvoorbeeld `npm start` of `node detect.js`.
+5. Voer het programma uit vanaf uw IDE of opdracht regel, bijvoorbeeld `npm start` of `node detect.js`.
 
 ```javascript
 'use strict';
@@ -156,13 +154,13 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="analyze-sentiment"></a>Stemming analyseren
 
-Met de Sentiment Analysis-API wordt een set tekstrecords gedetecteerd met behulp van de [methode Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). Sentimentanalyse kan worden gebruikt om erachter te komen hoe klanten van uw merk of onderwerp denken door onbewerkte tekst of er aanwijzingen over positief of negatief gevoel analyseren. Het volgende voorbeeld biedt scores voor de twee documenten, één in het Engels en andere in het Spaans.
+Met de Sentiment Analysis-API wordt een set tekstrecords gedetecteerd met behulp van de [methode Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). Sentiment analyse kan worden gebruikt om erachter te komen welke klanten uw merk of onderwerp denken door onbewerkte tekst te analyseren op aanwijzingen over positieve of negatieve sentiment. Het volgende voor beeld bevat scores voor twee documenten, een in het Engels en een andere in het Spaans.
 
-1. Een nieuwe Node.JS-project maken in uw favoriete IDE of een map op uw bureaublad.
-2. Voeg de code hieronder vindt u een nieuwe `.js` bestand.
-3. Vervang de `accessKey` waarde met een abonnementssleutel van de Text Analytics-resource in Azure.
+1. Maak een nieuw knoop punt. JS-project in uw favoriete IDE of een map op uw bureau blad.
+2. Voeg de hieronder vermelde code toe aan een `.js` nieuw bestand.
+3. Vervang de `accessKey` waarde door een abonnements sleutel van uw Text Analytics-resource in Azure.
 4. Vervang de locatie `uri` (momenteel `westus`) door de regio waarvoor u zich hebt geregistreerd.
-5. Het programma uitvoeren vanuit uw IDE of vanaf de opdrachtregel, bijvoorbeeld `npm start` of `node sentiment.js`.
+5. Voer het programma uit vanaf uw IDE of opdracht regel, bijvoorbeeld `npm start` of `node sentiment.js`.
 
 ```javascript
 'use strict';
@@ -229,7 +227,7 @@ get_sentiments (documents);
 
 **Antwoord bij sentimentanalyse**
 
-Het resultaat wordt gemeten als positief als deze dichter bij 1.0 en negatieve wordt berekend als het dichter beoordeeld op 0.0.
+Het resultaat wordt gemeten als positief als het dichter bij 1,0 en negatief is als de Score dichter bij 0,0 ligt.
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld:
 
 ```json
@@ -250,15 +248,15 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Belangrijke woordgroepen herkennen
+## <a name="extract-key-phrases"></a>Sleuteltermen ophalen
 
-Met de Key Phrase Extraction-API worden sleuteltermen opgehaald uit een tekstdocument met behulp van de [methode Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Sleuteltermextractie wordt snel identificeren van de belangrijkste punten van een document of de tekst gebruikt. In het volgende voorbeeld worden sleuteltermen opgehaald voor zowel de Engelse als Spaanse documenten.
+Met de Key Phrase Extraction-API worden sleuteltermen opgehaald uit een tekstdocument met behulp van de [methode Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Sleutel woorden extractie wordt gebruikt om snel de belangrijkste punten van een document of tekst te identificeren. In het volgende voorbeeld worden sleuteltermen opgehaald voor zowel de Engelse als Spaanse documenten.
 
-1. Een nieuwe Node.JS-project maken in uw favoriete IDE of een map op uw bureaublad.
-2. Voeg de code hieronder vindt u een nieuwe `.js` bestand.
-3. Vervang de `accessKey` waarde met een abonnementssleutel van de Text Analytics-resource in Azure.
+1. Maak een nieuw knoop punt. JS-project in uw favoriete IDE of een map op uw bureau blad.
+2. Voeg de hieronder vermelde code toe aan een `.js` nieuw bestand.
+3. Vervang de `accessKey` waarde door een abonnements sleutel van uw Text Analytics-resource in Azure.
 4. Vervang de locatie `uri` (momenteel `westus`) door de regio waarvoor u zich hebt geregistreerd.
-5. Het programma uitvoeren vanuit uw IDE of vanaf de opdrachtregel, bijvoorbeeld `npm start` of `node key-phrases.js`.
+5. Voer het programma uit vanaf uw IDE of opdracht regel, bijvoorbeeld `npm start` of `node key-phrases.js`.
 
 ```javascript
 'use strict';
@@ -368,13 +366,13 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="identify-linked-entities"></a>Gekoppelde entiteiten identificeren
 
-De Entities-API identificeert bekende entiteiten in een tekstdocument, met behulp van de [methode Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteiten](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) woorden extraheren uit tekst, zoals 'VS', en vervolgens geeft u het type en/of de Wikipedia-koppeling voor deze woorden. Het type voor "Verenigde Staten" `location`, terwijl de koppeling naar Wikipedia `https://en.wikipedia.org/wiki/United_States`.  In het volgende voorbeeld worden entiteiten geïdentificeerd voor Engelse documenten.
+De Entities-API identificeert bekende entiteiten in een tekstdocument, met behulp van de [methode Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteiten](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) halen woorden op uit tekst, zoals ' Verenigde Staten ', en geven vervolgens het type en/of de Wikipedia-koppeling voor dit woord (en). Het type voor ' Verenigde Staten ' is `location`, terwijl de koppeling naar Wikipedia is `https://en.wikipedia.org/wiki/United_States`.  In het volgende voorbeeld worden entiteiten geïdentificeerd voor Engelse documenten.
 
-1. Een nieuwe Node.JS-project maken in uw favoriete IDE of een map op uw bureaublad.
-2. Voeg de code hieronder vindt u een nieuwe `.js` bestand.
-3. Vervang de `accessKey` waarde met een abonnementssleutel van de Text Analytics-resource in Azure.
+1. Maak een nieuw knoop punt. JS-project in uw favoriete IDE of een map op uw bureau blad.
+2. Voeg de hieronder vermelde code toe aan een `.js` nieuw bestand.
+3. Vervang de `accessKey` waarde door een abonnements sleutel van uw Text Analytics-resource in Azure.
 4. Vervang de locatie `uri` (momenteel `westus`) door de regio waarvoor u zich hebt geregistreerd.
-5. Het programma uitvoeren vanuit uw IDE of vanaf de opdrachtregel, bijvoorbeeld `npm start` of `node entities.js`.
+5. Voer het programma uit vanaf uw IDE of opdracht regel, bijvoorbeeld `npm start` of `node entities.js`.
 
 ```javascript
 'use strict';

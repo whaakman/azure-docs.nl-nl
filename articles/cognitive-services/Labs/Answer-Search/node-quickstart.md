@@ -9,12 +9,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: c44be9779cf2b856ac2f5e9e017fd9d1040a018b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 21dda323cf465f56fb3f43160dd04c27a81d5590
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60861766"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698080"
 ---
 # <a name="quickstart-project-answer-search-with-node"></a>Quickstart: Project Answer Search met Node
 
@@ -22,7 +22,7 @@ In het volgende Node-voorbeeld wordt een query gemaakt voor informatie over Yose
 
 ## <a name="prerequisites"></a>Vereisten
 
-Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 In dit voorbeeld wordt Node v8.9.4 gebruikt
 

@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 8af56d0d7c0f320e607421f12effdb9b37d5f78d
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: de6a29e1c4c102aa7d4038185c1635544ba9dfe2
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444613"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688797"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>Azure Active Directory-verificatie (Azure AD) gebruiken met de insluitende lezer-service
 
@@ -29,7 +29,7 @@ In de volgende secties gebruikt u de Azure Cloud Shell-omgeving of de Azure CLI 
    Select-AzSubscription -SubscriptionName <YOUR_SUBSCRIPTION>
    ```
 
-2. Maak vervolgens [een insluitende lezer-resource](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) met een aangepast subdomein. 
+2. Maak vervolgens [een insluitende lezer-resource](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) met een aangepast subdomein.
 
    >[!NOTE]
    > De naam van het subdomein wordt gebruikt in insluitende Reader SDK bij het starten van de lezer met de functie launchAsync.
@@ -37,7 +37,7 @@ In de volgende secties gebruikt u de Azure Cloud Shell-omgeving of de Azure CLI 
    -SkuName kan F0 (gratis laag) of S0 (Standard-laag, ook gratis tijdens de open bare preview) zijn. De S0-laag heeft een hogere limiet voor de aanroep frequentie en geen maandelijks quotum voor het aantal aanroepen.
 
    -Locatie kan een van de volgende zijn: `eastus`, `westus`, `australiaeast`, `centralindia`, `japaneast` `northeurope`,,`westeurope`
-   
+
    -CustomSubdomainName moet wereld wijd uniek zijn en mag geen speciale tekens bevatten, zoals: ".", "!", ",".
 
 
@@ -63,7 +63,7 @@ In de volgende secties gebruikt u de Azure Cloud Shell-omgeving of de Azure CLI 
 
    // Display the Resource info
    $resource
-   ```   
+   ```
 
 ## <a name="assign-a-role-to-a-service-principal"></a>Een rol toewijzen aan een Service-Principal
 
@@ -83,7 +83,7 @@ Nu u een aangepast subdomein hebt dat aan uw resource is gekoppeld, moet u een r
    $aadApp
    ```
 
-   Hier wordt het zojuist gemaakte Azure AD-App-object vastgelegd in een **$aadApp** variabele voor gebruik in de volgende stap.   
+   Hier wordt het zojuist gemaakte Azure AD-App-object vastgelegd in een **$aadApp** variabele voor gebruik in de volgende stap.
 
 2. Vervolgens moet u [een service-principal maken](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) voor de Azure AD-toepassing.
 
@@ -128,11 +128,11 @@ In dit voor beeld wordt uw wacht woord gebruikt voor het verifiëren van de serv
    ```
 
    >[!NOTE]
-   > De insluitende lezer-SDK gebruikt de eigenschap AccessToken van het token, bijvoorbeeld $token. AccessToken. Raadpleeg de SDK- [naslag](reference.md) informatie en code [voorbeelden](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples) voor meer informatie.
+   > De insluitende lezer-SDK gebruikt de eigenschap AccessToken van het token, bijvoorbeeld $token. AccessToken. Raadpleeg de SDK- [naslag](reference.md) informatie en code [voorbeelden](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples) voor meer informatie.
 
 U kunt de Service-Principal ook verifiëren met een certificaat. Naast een service-principal worden ook gebruikers-principals ondersteund door machtigingen te delegeren via een andere Azure AD-toepassing. In dit geval, in plaats van wacht woorden of certificaten, wordt gebruikers gevraagd om twee ledige verificatie bij het ophalen van tokens.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Bekijk de [zelf studie](./tutorial.md) om te zien wat u nog meer kunt doen met de SDK voor insluitende lezers
-* Verken de insluitende [Lezer SDK](https://github.com/Microsoft/immersive-reader-sdk) en de referentie voor de insluitende [Lezer SDK](./reference.md)
+* Verken de insluitende [Lezer SDK](https://github.com/microsoft/immersive-reader-sdk) en de referentie voor de insluitende [Lezer SDK](./reference.md)

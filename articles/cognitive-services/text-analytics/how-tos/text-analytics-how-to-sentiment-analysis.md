@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: ccf6756ddfd583b0bc0d23c7f6afecf1f47708f5
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 19654a4902ae64e5de63ffc93a8d143cc518e254
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619649"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697732"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Voorbeeld: Sentiment met Text Analytics detecteren
 
@@ -82,7 +82,7 @@ Zie [de Text Analytics-API aanroepen](text-analytics-how-to-call-api.md)voor mee
 
 + Stel het HTTP-eind punt voor sentiment analyse in met behulp van een Text Analytics resource in azure of een geïnstantieerd [Text Analytics-container](text-analytics-how-to-install-containers.md). Het moet de `/sentiment` resource bevatten: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`.
 
-+ Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie [eind punten zoeken en toegangs sleutels](text-analytics-how-to-access-key.md)voor meer informatie.
++ Stel een aanvraag header in voor het toevoegen van de [toegangs sleutel](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) voor Text Analytics bewerkingen.
 
 + Verstrek in de hoofdtekst van de aanvraag de JSON-documentenverzameling die u hebt voorbereid voor deze analyse.
 
@@ -265,7 +265,7 @@ In dit artikel hebt u concepten en werk stromen geleerd voor sentiment analyse m
 
 + De [sentimentanalyse-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) is beschikbaar voor geselecteerde talen.
 + JSON-documenten in de hoofd tekst van de aanvraag bevatten een ID, tekst en taal code.
-+ De post-aanvraag is naar `/sentiment` een eind punt met behulp van een aangepaste [toegangs sleutel en een eind punt](text-analytics-how-to-access-key.md) dat geldig is voor uw abonnement.
++ De post-aanvraag is naar `/sentiment` een eind punt met behulp van een aangepaste [toegangs sleutel en een eind punt](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) dat geldig is voor uw abonnement.
 + De uitvoer van antwoorden, die bestaat uit een sentiment-score voor elke document-ID, kan worden gestreamd naar elke app die JSON accepteert. Voor beeld-apps zijn Excel en Power BI, om een paar te noemen.
 
 ## <a name="see-also"></a>Zie ook

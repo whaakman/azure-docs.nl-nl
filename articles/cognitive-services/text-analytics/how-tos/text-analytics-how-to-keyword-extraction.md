@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: raymondl
-ms.openlocfilehash: dd3f0c5b82c1898d6e4bbe564556ee26e872dc94
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 1d94cff3eb3299692fc4172f5bb5211532ef1002
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619678"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697828"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Voorbeeld: Sleuteltermen extraheren met behulp van Text Analytics
 
@@ -76,7 +76,7 @@ Zie [de Text Analytics-API aanroepen](text-analytics-how-to-call-api.md)voor inf
 
 + Stel het HTTP-eind punt voor de extractie van sleutel woordgroepen in met behulp van een Text Analytics bron in azure of een geïnstantieerd [Text Analytics container](text-analytics-how-to-install-containers.md). Het moet de `/keyPhrases` resource bevatten: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`.
 
-+ Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie voor meer informatie [Eindpunten en toegangssleutels zoeken](text-analytics-how-to-access-key.md).
++ Stel een aanvraag header in voor het toevoegen van de [toegangs sleutel](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) voor Text Analytics bewerkingen.
 
 + Verstrek in de hoofdtekst van de aanvraag de JSON-documentenverzameling die u hebt voorbereid voor deze analyse.
 
@@ -154,7 +154,7 @@ In dit artikel hebt u concepten en werk stromen geleerd voor het uitpakken van s
 
 + [Sleuteltermextractie-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) is beschikbaar in bepaalde talen.
 + JSON-documenten in de hoofd tekst van de aanvraag bevatten een ID, tekst en taal code.
-+ POST-aanvraag is een `/keyphrases`-eindpunt die een persoonlijke [toegangssleutel en een eindpunt](text-analytics-how-to-access-key.md) gebruikt die geldig zijn voor uw abonnement.
++ POST-aanvraag is een `/keyphrases`-eindpunt die een persoonlijke [toegangssleutel en een eindpunt](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) gebruikt die geldig zijn voor uw abonnement.
 + De uitvoer van antwoorden, die bestaat uit sleutel woorden en zinsdelen voor elke document-ID, kan worden gestreamd naar elke app die JSON accepteert, met inbegrip van Microsoft Office Excel en Power BI, om een paar te noemen.
 
 ## <a name="see-also"></a>Zie ook

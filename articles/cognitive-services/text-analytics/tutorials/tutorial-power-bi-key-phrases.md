@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e56926b9a23e0dd649fb85347e521a6dda7863a3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: dba65e68e7c2204a4d4d7f80a603de607bba7609
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479880"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697349"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Zelfstudie: Power BI Desktop integreren met de Text Analytics Cognitive service
 
@@ -36,7 +36,7 @@ In deze zelfstudie leert u het volgende:
 - Microsoft Power BI Desktop. [Download dit gratis](https://powerbi.microsoft.com/get-started/).
 - Een Microsoft Azure-account. [Start een gratis proefversie](https://azure.microsoft.com/free/) of [meld u aan](https://portal.azure.com/).
 - Een account voor Cognitive Services-API met de Text Analytics-API. Als u geen account hebt kunt zich hier [aanmelden](../../cognitive-services-apis-create-account.md) en gratis 5000 transacties per maand uitvoeren (zie [prijsinformatie](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) om deze zelfstudie te voltooien.
-- De [Text Analytics-toegangssleutel](../how-tos/text-analytics-how-to-access-key.md)die voor u is gegenereerd tijden de registratie.
+- De [Text Analytics-toegangssleutel](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)die voor u is gegenereerd tijden de registratie.
 - Opmerkingen van klanten. U kunt [onze voorbeeldgegevens](https://aka.ms/cogsvc/ta) gebruiken of uw eigen gegevens. In deze zelfstudie wordt ervan uitgegaan dat u onze voorbeeldgegevens gebruikt.
 
 ## <a name="load-customer-data"></a>Laden klantgegevens

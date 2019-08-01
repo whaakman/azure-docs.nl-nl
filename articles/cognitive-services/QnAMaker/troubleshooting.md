@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/31/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b0b9a5e0797a105d7fe61c95b28a6c5f462e7255
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 85c6ff59b5f73e88c82ee8b788bd9f35d18bc0ed
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414748"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697958"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Problemen oplossen voor QnA Maker
 
@@ -24,7 +24,7 @@ De lijst met alle meest gestelde vragen met betrekking tot de QnA Maker-service 
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>De Help-bot gebruiken in de QnA Maker Portal
 
-QnA Maker biedt een **Help** -bot binnen de QnA Maker Portal om u te helpen. De Help-bot is beschikbaar op elke webpagina. De bot maakt gebruik van QnA Maker om antwoorden te geven en geeft het [ C# bot Framework-code project](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot) aan de bot zodat u snel aan de slag kunt met uw eigen antwoord bot. 
+QnA Maker biedt een **Help** -bot binnen de QnA Maker Portal om u te helpen. De Help-bot is beschikbaar op elke webpagina. De bot maakt gebruik van QnA Maker om antwoorden te geven en geeft het [ C# bot Framework-code project](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) aan de bot zodat u snel aan de slag kunt met uw eigen antwoord bot. 
 
 ![! [QnA Maker biedt een * * Help * * bot in de QnA Maker Portal om u te helpen.] (./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 

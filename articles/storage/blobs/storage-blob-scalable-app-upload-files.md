@@ -1,21 +1,18 @@
 ---
 title: Grote hoeveelheden willekeurige gegevens gelijktijdig uploaden naar Azure Storage | Microsoft Docs
 description: Informatie over het gebruik van de Azure SDK om grote hoeveelheden willekeurige gegevens gelijktijdig naar een Azure Storage-account te uploaden
-services: storage
 author: roygara
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 83a888a28c1d1e51a1fe59649dfb956cd0f72203
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e5c1a78bf2f482e99d8ff13590a8bb81f9601991
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071430"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698958"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Grote hoeveelheden willekeurige gegevens gelijktijdig uploaden naar Azure Storage
 
@@ -31,11 +28,11 @@ In deel twee van de serie leert u het volgende:
 
 Azure Blob-opslag biedt een schaalbare service voor het opslaan van gegevens. Om er zeker van te kunnen zijn of uw toepassing optimaal presteert, is het raadzaam te weten hoe blob-opslag werkt. Het is belangrijk dat u kennis hebt van de limieten van Azure-blobs, raadpleeg daarom voor meer informatie over deze limieten [schaalbaarheidsdoelen van blob-opslag](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
 
-[Naamgevingsregels voor partities](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) is een ander mogelijk belangrijke factor bij het ontwerpen van een maximaal presterende toepassing met behulp van blobs. Voor blok-grootten groter dan of gelijk aan vier MiB [hoge doorvoer blok-blobs](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) worden gebruikt, en partitioneren van naamgeving is niet van invloed op prestaties. Voor blok-minder dan vier MiB grootten, wordt in Azure storage maakt gebruik van een op bereiken gebaseerd partitieschema te schalen en taakverdeling. Deze configuratie betekent dat bestanden met vergelijkbare naamconventies of voorvoegsels naar dezelfde partitie gaan. Deze logica bevat de naam van de container waar de bestanden naar worden geüpload. In deze zelfstudie gebruikt u de bestanden die GUID's voor namen en willekeurig gegenereerde inhoud bevatten. Deze worden vervolgens naar vijf verschillende containers met willekeurige namen geüpload.
+De [naam van een partitie](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) is een andere mogelijk belang rijke factor bij het ontwerpen van een zeer krachtige toepassing met behulp van blobs. Voor blok grootten die groter zijn dan of gelijk zijn aan vier MiB, worden [blok-blobs met hoge door Voer](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) gebruikt en worden de prestaties van de partitie niet beïnvloed. Voor blok grootten die kleiner zijn dan vier MiB, gebruikt Azure Storage een partitie schema op basis van bereik om te schalen en taak verdeling. Deze configuratie betekent dat bestanden met vergelijkbare naamconventies of voorvoegsels naar dezelfde partitie gaan. Deze logica bevat de naam van de container waar de bestanden naar worden geüpload. In deze zelfstudie gebruikt u de bestanden die GUID's voor namen en willekeurig gegenereerde inhoud bevatten. Deze worden vervolgens naar vijf verschillende containers met willekeurige namen geüpload.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet de vorige zelfstudie over opslag hebben voltooid: [Maak een virtuele machine en de storage-account voor een schaalbare toepassing][previous-tutorial].
+U moet de vorige zelfstudie over opslag hebben voltooid: [Maak een virtuele machine en een opslag account voor een schaal bare toepassing][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Extern verbinding maken met uw virtuele machine
 
@@ -71,7 +68,7 @@ Naast het instellen van de limietinstellingen voor threads en verbindingen zijn 
 
 |Eigenschap|Waarde|Description|
 |---|---|---|
-|[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| Met deze instelling wordt de blob in blokken opgesplitst bij het uploaden. Voor de beste prestaties moet deze waarde acht keer het aantal kernen. |
+|[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| Met deze instelling wordt de blob in blokken opgesplitst bij het uploaden. Voor de hoogste prestaties moet deze waarde acht maal het aantal kernen zijn. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Met deze eigenschap wordt de controle uitgeschakeld van de MD5-hash van de inhoud die wordt geüpload. MD5-validatie zorgt voor een snellere overdracht. Maar hiermee wordt de geldigheid of de integriteit van de bestanden die worden overgebracht, niet bevestigd.   |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Deze eigenschap bepaalt of een MD5-hash wordt berekend en samen met het bestand opgeslagen.   |
 | [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Twee seconden uitstel bij maximaal tien nieuwe pogingen |Hiermee bepaalt u het beleid voor het opnieuw proberen van aanvragen. Bij verbindingsfouten wordt opnieuw geprobeerd. In dit voorbeeld is een [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry)-beleid geconfigureerd met een uitstel van twee seconden en een maximumaantal nieuwe pogingen van 10. Deze instelling is belangrijk als de toepassing de [schaalbaarheidsdoelen van de blob-opslag ](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets) bijna heeft bereikt.  |

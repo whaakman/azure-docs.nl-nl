@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: diberry
-ms.openlocfilehash: bae772e9fcc9f275fcf593cfd5bf9d0506a89f7c
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d7049c729140591717782b191f970f4295140cb8
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594688"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697927"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services en machine learning
 
@@ -105,11 +105,11 @@ In de volgende gegevens wordt elke service gecategoriseerd op basis van het type
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
 |[Spreker-herkenning](./speaker-recognition/home.md)||x||
 |[Spraak tekst naar spraak (TTS)](speech-service/text-to-speech.md)|x|x||
-|[Spraak-naar-tekst (STT)](/speech-service/speech-to-text.md)|x|x||
+|[Spraak-naar-tekst (STT)](speech-service/speech-to-text.md)|x|x||
 |[Spraakomzetting](speech-service/speech-translation.md)|x|||
 |[Tekstanalyse](./text-analytics/overview.md)|x|||
 |[Translator Text](./translator/translator-info-overview.md)|x|||
-|[Translator Text-aangepaste vertaler]()||x||
+|[Translator Text-aangepaste vertaler](./translator/custom-translator/overview.md)||x||
 
 \* Personaler vereist alleen trainings gegevens die door de service worden verzameld (zoals deze in realtime actief zijn) om uw beleid en gegevens te evalueren. Personaler heeft geen grote historische gegevens sets nodig voor de voor-en hands-training. 
 

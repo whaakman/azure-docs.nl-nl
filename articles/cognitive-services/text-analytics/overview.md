@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: f84d980dd01d1e9f3ffcc00d73f712211524cb42
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: ee4551f6a31436ef2322fcea3a0c479b45036993
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667645"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697623"
 ---
-# <a name="what-is-text-analytics-api"></a>Wat is Text Analytics-API?
+# <a name="what-is-the-text-analytics-api"></a>Wat is Text Analytics-API?
 
 De Text Analytics-API is een Cloud service die geavanceerde verwerking van natuurlijke taal via onbewerkte tekst biedt en vier belang rijke functies bevat: sentiment analyse, extractie van sleutel zinnen, taal detectie en entiteits herkenning.
 
@@ -25,19 +25,19 @@ De API maakt deel uit van [Azure Cognitive Services](https://docs.microsoft.com/
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-Tekst analyse kan verschillende dingen betekenen, maar in Cognitive Services biedt de Text Analytics-API vier typen analyse zoals hieronder wordt beschreven.
+Tekst analyse kan verschillende dingen betekenen, maar in Cognitive Services biedt de Text Analytics-API vier typen analyse zoals hieronder wordt beschreven. U kunt deze functies gebruiken met de [rest API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/), of een client bibliotheek voor [.net](quickstarts/csharp.md), [python](quickstarts/python-sdk.md), [node. js](quickstarts/nodejs-sdk.md), [Go](quickstarts/go-sdk.md)of [ruby](quickstarts/ruby-sdk.md).
 
 ## <a name="sentiment-analysis"></a>Sentimentanalyse
-Gebruik [sentiment Analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) om erachter te komen welke klanten uw merk of onderwerp denken door onbewerkte tekst te analyseren op aanwijzingen over positieve of negatieve sentiment. Deze API retourneert een gevoelsscore tussen 0 en 1 voor elk document, waarbij 1 het meest positief is.<br /> De analysemodellen zijn vooraf getraind met behulp van een uitgebreide hoofdtekst en natuurlijke-taaltechnologieën van Microsoft. Voor [geselecteerde talen](text-analytics-supported-languages.md) kan de API elke onbewerkte tekst die u opgeeft analyseren en beoordelen en de resultaten direct doorgeven aan de aanroepende toepassing. U kunt de [rest](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) API of de [.net](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK gebruiken.
+Gebruik [sentiment Analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) om erachter te komen welke klanten uw merk of onderwerp denken door onbewerkte tekst te analyseren op aanwijzingen over positieve of negatieve sentiment. Deze API retourneert een gevoelsscore tussen 0 en 1 voor elk document, waarbij 1 het meest positief is.<br /> De analysemodellen zijn vooraf getraind met behulp van een uitgebreide hoofdtekst en natuurlijke-taaltechnologieën van Microsoft. Voor [geselecteerde talen](text-analytics-supported-languages.md) kan de API elke onbewerkte tekst die u opgeeft analyseren en beoordelen en de resultaten direct doorgeven aan de aanroepende toepassing.
 
 ## <a name="key-phrase-extraction"></a>Sleuteltermextractie
-[Sleutel zinnen automatisch extra heren](how-tos/text-analytics-how-to-keyword-extraction.md) om snel de belangrijkste punten te identificeren. Bijvoorbeeld, voor de invoertekst 'het eten was heerlijk en de bediening fantastisch' retourneert de API de belangrijkste gespreksonderwerpen: 'eten' en 'bediening fantastisch'. U kunt de [rest](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) -API hier of de [.net](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK gebruiken.
+[Sleutel zinnen automatisch extra heren](how-tos/text-analytics-how-to-keyword-extraction.md) om snel de belangrijkste punten te identificeren. Bijvoorbeeld, voor de invoertekst 'het eten was heerlijk en de bediening fantastisch' retourneert de API de belangrijkste gespreksonderwerpen: 'eten' en 'bediening fantastisch'.
 
 ## <a name="language-detection"></a>Taaldetectie
-U kunt [detecteren in welke taal de invoer tekst is geschreven](how-tos/text-analytics-how-to-language-detection.md) en een enkele taal code rapporteren voor elk document dat op de aanvraag wordt verzonden in een breed scala aan talen, varianten, dialecten en enkele regionale/culturele talen. De taalcode is gekoppeld aan een score die de sterkte van de score aangeeft. U kunt de [rest](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API of de [.net](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK gebruiken.
+U kunt [detecteren in welke taal de invoer tekst is geschreven](how-tos/text-analytics-how-to-language-detection.md) en een enkele taal code rapporteren voor elk document dat op de aanvraag wordt verzonden in een breed scala aan talen, varianten, dialecten en enkele regionale/culturele talen. De taalcode is gekoppeld aan een score die de sterkte van de score aangeeft.
 
 ## <a name="named-entity-recognition"></a>Herkenning van benoemde entiteiten
-Entiteiten in uw tekst [identificeren en categoriseren](how-tos/text-analytics-how-to-entity-linking.md) als mensen, plaatsen, organisaties, datum/tijd, hoeveel heden, percentages, valuta's en nog veel meer. Bekende entiteiten worden ook herkend en gekoppeld aan meer informatie op het web. U kunt de [rest](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) API gebruiken.
+Entiteiten in uw tekst [identificeren en categoriseren](how-tos/text-analytics-how-to-entity-linking.md) als mensen, plaatsen, organisaties, datum/tijd, hoeveel heden, percentages, valuta's en nog veel meer. Bekende entiteiten worden ook herkend en gekoppeld aan meer informatie op het web.
 
 ## <a name="use-containers"></a>Containers gebruiken
 
@@ -47,7 +47,7 @@ Entiteiten in uw tekst [identificeren en categoriseren](how-tos/text-analytics-h
 
 De werkstroom is eenvoudig: u dient gegevens in die u wilt analyseren en verwerkt de uitvoer in uw code. Analyseprogramma's worden in de huidige staat gebruikt, zonder extra configuratie of aanpassing.
 
-1. [Registreer](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) u voor een [toegangssleutel](how-tos/text-analytics-how-to-access-key.md). De sleutel moet bij elke aanvraag worden doorgegeven.
+1. [Maak een Azure-resource](../cognitive-services-apis-create-account.md) voor Text Analytics. Vervolgens [haalt u de sleutel](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) op die u voor het verifiëren van uw aanvragen hebt gegenereerd.
 
 2. [Formuleer een aanvraag](how-tos/text-analytics-how-to-call-api.md#json-schema) in JSON, die uw gegevens bevat als onbewerkte tekst.
 
@@ -75,7 +75,7 @@ U kunt de Text Analytics-API in uw processen gaan gebruiken, zelfs als u niet ve
 
 ## <a name="supported-languages"></a>Ondersteunde talen
 
-Deze sectie is voor betere zichtbaarheid verplaatst naar een afzonderlijk artikel. Raadpleeg [Ondersteunde talen in de Text Analytics-API](text-analytics-supported-languages.md) voor deze inhoud.
+Deze sectie is voor betere zichtbaarheid verplaatst naar een afzonderlijk artikel. Raadpleeg [de ondersteunde talen in de Text Analytics-API](text-analytics-supported-languages.md) voor deze inhoud.
 
 <a name="data-limits"></a>
 
@@ -116,4 +116,4 @@ De Text Analytics-API maakt gebruik van Unicode-codering voor tekstweergave en h
 
 + U leert in een beetje dieper met deze [zelf studie](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services) over de sentiment-analyse met behulp van Azure Databricks.
 
-+ Bekijk onze lijst met blog berichten en meer Video's over het gebruik van Text Analytics-API met andere hulpprogram ma's en technologieën op onze [pagina met externe & Community-inhoud](text-analytics-resource-external-community.md).
++ Bekijk onze lijst met blog berichten en meer Video's over het gebruik van de Text Analytics-API met andere hulpprogram ma's en technologieën op onze [pagina met externe & Community-inhoud](text-analytics-resource-external-community.md).

@@ -4,12 +4,15 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/20/2018
-ms.openlocfilehash: e66f6fb7c823c0c267747ed5774aada438b490ce
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6d53d3d6e115742b7b91d9c7e5888ba2cc0478f5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176307"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697215"
 ---
-U moet een [Cognitive Services-API-abonnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) hebben met toegang tot de Text Analytics-API. Als u geen abonnement hebt, kunt u gratis [een account maken](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). Voordat u doorgaat moet u de abonnementssleutel van Text Analytics opgegeven die u krijgt na het activeren van uw account.
+Een sleutel en eind punt voor een Text Analytics bron. Azure-Cognitive Services worden vertegenwoordigd door Azure-resources waarop u zich abonneert. Maak een resource voor Text Analytics met behulp van de [Azure Portal](../articles/cognitive-services/cognitive-services-apis-create-account.md) of [Azure cli](../articles/cognitive-services/cognitive-services-apis-create-account-cli.md) op uw lokale machine. U kunt ook het volgende doen:
 
+* Ontvang een [proef sleutel](https://azure.microsoft.com/try/cognitive-services/#lang) die zeven dagen gratis geldig is. Nadat u zich hebt aangemeld, is deze beschikbaar op de [Azure-website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+
+* Bekijk uw resource op het [Azure Portal](https://portal.azure.com/)

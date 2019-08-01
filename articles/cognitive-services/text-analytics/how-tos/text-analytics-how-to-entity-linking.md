@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 5a5787504d72259354f9c5eba2e2f4e22402ef0b
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: ea7d3f56aa512b8f5998d710451ff3b37659ca13
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619730"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697847"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Benoemde entiteits herkenning gebruiken in Text Analytics
 
@@ -44,14 +44,14 @@ Voor het gebruik van entiteits koppeling in verschillende talen moet u in elke t
 | Person        | N.V.T.\*         | "Jeff", "Bill Gates"     |
 | Location      | N.V.T.\*         | Redmond, Washington; Parijs  |
 | Organisatie  | N.V.T.\*         | "Microsoft"   |
-| Aantal      | Aantal        | "6", "six"     |
-| Aantal      | Percentage    | 50%, vijftig procent|
-| Aantal      | Rangtelwoord       | 2e, tweede     |
-| Aantal      | Nummerbereik   | 4 tot 8     |
-| Aantal      | Leeftijd           | "90 dag oud", "30 jaar oud"    |
-| Aantal      | Currency      | $ 10,99     |
-| Aantal      | Dimensie     | 10 mijl, 40 cm     |
-| Aantal      | Temperatuur   | 32 graden    |
+| Hoeveelheid      | Aantal        | "6", "six"     |
+| Hoeveelheid      | Percentage    | 50%, vijftig procent|
+| Hoeveelheid      | Rangtelwoord       | 2e, tweede     |
+| Hoeveelheid      | Nummerbereik   | 4 tot 8     |
+| Hoeveelheid      | Leeftijd           | "90 dag oud", "30 jaar oud"    |
+| Hoeveelheid      | Currency      | $ 10,99     |
+| Hoeveelheid      | Dimensie     | 10 mijl, 40 cm     |
+| Hoeveelheid      | Temperatuur   | 32 graden    |
 | Datetime      | N.V.T.\*         | 18:30 uur, 4 februari 2012      |
 | Datetime      | Date          | 2 mei 2017, 05-02-2017   |
 | Datetime      | Time          | "8 a.m.", "8:00"  |
@@ -96,11 +96,11 @@ De documentgrootte moet minder dan maximaal 5120 tekens per document zijn, en u 
 
 Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Analytics-API aanroepen](text-analytics-how-to-call-api.md). De volgende punten zijn voor uw gemak opnieuw geformuleerd:
 
-+ Maak een **POST**-aanvraag. Bekijk de API-documentatie voor deze aanvraag: [Entiteit koppelings-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
++ Maak een **POST**-aanvraag. Bekijk de API-documentatie voor deze aanvraag: [API voor entiteiten](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
 + Stel het HTTP-eind punt in voor het uitpakken van de entiteit. Deze moet de `/entities`-resource: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities` bevatten
 
-+ Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie voor meer informatie [Eindpunten en toegangssleutels zoeken](text-analytics-how-to-access-key.md).
++ Stel een aanvraag header in voor [het toevoegen van de toegangs sleutel](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) voor Text Analytics bewerkingen.
 
 + Verstrek in de hoofdtekst van de aanvraag de JSON-documentenverzameling die u hebt voorbereid voor deze analyse
 
@@ -283,7 +283,7 @@ In dit artikel hebt u concepten en werk stromen geleerd voor het koppelen van en
 
 + Er is een entiteits- [API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) beschikbaar voor geselecteerde talen.
 + JSON-documenten in de hoofd tekst van de aanvraag bevatten een ID, tekst en taal code.
-+ POST-aanvraag is een `/entities`-eindpunt die een persoonlijke [toegangssleutel en een eindpunt](text-analytics-how-to-access-key.md) gebruikt die geldig zijn voor uw abonnement.
++ POST-aanvraag is een `/entities`-eindpunt die een persoonlijke [toegangssleutel en een eindpunt](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) gebruikt die geldig zijn voor uw abonnement.
 + De antwoord uitvoer, die bestaat uit gekoppelde entiteiten (inclusief betrouwbaarheids scores, verschuivingen en webkoppelingen, voor elke document-ID), kan worden gebruikt in elke toepassing
 
 ## <a name="next-steps"></a>Volgende stappen

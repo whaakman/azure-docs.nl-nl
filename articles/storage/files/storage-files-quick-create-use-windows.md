@@ -1,19 +1,18 @@
 ---
 title: Azure-quickstart - Een Azure-bestandsshare maken en gebruiken op virtuele Windows-machines | Microsoft Docs
 description: In deze quickstart stelt u in de Azure-portal een Azure-bestandsshare instellen in en koppelt u deze aan een virtuele Windows-machine. U maakt verbinding met de bestandsshare en uploadt een bestand naar de bestandsshare. Dan maakt u een momentopname van de bestandsshare, wijzigt u het bestand in de bestandsshare en zet u een eerdere momentopname van de bestandsshare terug.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5109f4e801c1e34b2026cff8f8dd83558618e153
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 626a6a5e0449d267b67653c2f63303226dd0c99d
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61482450"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699740"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Quickstart: Een Azure-bestandsshare maken en beheren met virtuele Windows-machines
 
@@ -55,7 +54,7 @@ Vervolgens gaat u een bestandsshare maken.
 1. Maak een nieuw TXT-bestand met de naam *qsTestFile* op uw lokale computer.
 1. Selecteer de nieuwe bestandsshare en klik vervolgens op de locatie van de bestandsshare op **Uploaden**.
 
-    ![Bestand uploaden](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
+    ![Een bestand uploaden](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
 
 1. Blader naar de locatie waar u uw TXT-bestand hebt gemaakt > selecteer *qsTestFile.txt* > selecteer **uploaden**.
 

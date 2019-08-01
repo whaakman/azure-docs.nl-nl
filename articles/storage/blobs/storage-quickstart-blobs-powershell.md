@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: tamram
-ms.openlocfilehash: 4ffa4319fa2691469899ff038eeedc7ef30ccebe
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b0e9cc37f6269c3b878e16b754ec3a49aee13f72
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565014"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699003"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Snelstartgids: Blobs uploaden, downloaden en vermelden met behulp van Azure PowerShell
 
@@ -39,7 +39,7 @@ Stel de containernaam in en maak vervolgens de container met behulp van [New-AzS
 
 ```powershell
 $containerName = "quickstartblobs"
-new-AzStoragecontainer -Name $containerName -Context $ctx -Permission blob
+New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
 ```
 
 ## <a name="upload-blobs-to-the-container"></a>Blobs uploaden naar de container
@@ -52,13 +52,13 @@ In de volgende voorbeelden worden *Image001.jpg* en *Image002.png* uit de map *D
 
 ```powershell
 # upload a file
-set-AzStorageblobcontent -File "D:\_TestImages\Image001.jpg" `
+Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
   -Container $containerName `
   -Blob "Image001.jpg" `
   -Context $ctx 
 
 # upload another file
-set-AzStorageblobcontent -File "D:\_TestImages\Image002.png" `
+Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
   -Context $ctx
@@ -82,13 +82,13 @@ In dit voorbeeld worden de blobs gedownload naar *D:\\_TestImages\Downloads* op 
 
 ```powershell
 # download first blob
-Get-AzStorageblobcontent -Blob "Image001.jpg" `
+Get-AzStorageBlobContent -Blob "Image001.jpg" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
   -Context $ctx 
 
 # download another blob
-Get-AzStorageblobcontent -Blob "Image002.png" `
+Get-AzStorageBlobContent -Blob "Image002.png" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
   -Context $ctx

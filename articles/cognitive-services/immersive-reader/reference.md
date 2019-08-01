@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 22860e0798ec852b6d25da27e108befe8a3089a2
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 1a616bce8c161825853b1966769d9505595d95de
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488820"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688318"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Naslag Gids voor insluitende lezers SDK
 
@@ -136,5 +136,5 @@ Gebruik de meest recente versies van de volgende browsers voor de beste ervaring
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* De insluitende [Lezer-SDK op github](https://github.com/Microsoft/immersive-reader-sdk) verkennen
+* De insluitende [Lezer-SDK op github](https://github.com/microsoft/immersive-reader-sdk) verkennen
 * [Snelstart: Een web-app maken waarmee de insluitende lezerC#wordt gestart ()](./quickstart.md)
