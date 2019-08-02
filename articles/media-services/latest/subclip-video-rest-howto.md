@@ -1,6 +1,6 @@
 ---
-title: Subclip een video als codering met Azure Media Services REST API
-description: In dit onderwerp wordt beschreven hoe u een video subclip wanneer codering met Azure Media Services met behulp van REST
+title: Een video afspelen tijdens het coderen met Azure Media Services REST API
+description: In dit onderwerp wordt beschreven hoe u een video bijhoudt tijdens het coderen met Azure Media Services met behulp van REST
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
-ms.openlocfilehash: df8c8a4040b4aae4379b4bfe0e9a16337588dd1b
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 3557aef6213955ef77542bffafe0a2b0c374ed68
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67305190"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704449"
 ---
-# <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Subclip een video als codering met Media Services - REST
+# <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Een video bijsnijden bij het coderen met Media Services-REST
 
-U kunt trim of een video subclip wanneer codering met behulp van een [taak](https://docs.microsoft.com/rest/api/media/jobs). Deze functionaliteit werkt met een [transformeren](https://docs.microsoft.com/rest/api/media/transforms) die is gebouwd met behulp van de [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, of de [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) voorinstellingen. 
+U kunt een video knippen of subfragmenteren wanneer u deze codeert met behulp van een [taak](https://docs.microsoft.com/rest/api/media/jobs). Deze functionaliteit werkt met elke [trans formatie](https://docs.microsoft.com/rest/api/media/transforms) die is gebouwd met behulp van de [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) -voor instellingen of de [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) -voor waarden. 
 
-De REST-voorbeeld in dit onderwerp wordt een taak die een video worden verwijderd omdat deze een coderingstaak indient. 
+In het REST-voor beeld in dit onderwerp wordt een taak gemaakt die een video bijsnijdt bij het verzenden van een coderings taak. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,21 +33,21 @@ Als u wilt de in dit onderwerp beschreven stappen hebt voltooid, hebt u naar:
 - [Maak een Azure Media Services-account](create-account-cli-how-to.md).
 - [Postman configureren voor Azure Media Services REST API-aanroepen](media-rest-apis-with-postman.md).
     
-    Zorg ervoor dat u de laatste stap in het onderwerp [Azure AD Token ophalen](media-rest-apis-with-postman.md#get-azure-ad-token). 
-- Maken van een transformatie- en uitvoer activa. U kunt zien over het maken van een transformatie- en uitvoer activa in de [een extern bestand op basis van URL coderen en streamen van de video - REST](stream-files-tutorial-with-rest.md) zelfstudie.
-- Controleer de [Encoding concept](encoding-concept.md) onderwerp.
+    Zorg ervoor dat u de laatste stap in het onderwerp [Azure AD-Token ophalen](media-rest-apis-with-postman.md#get-azure-ad-token)volgt. 
+- Maak een trans formatie en een uitvoer activa. U kunt zien hoe u een trans formatie maakt en een uitvoer activum in het [bestand code Ring a op basis van URL en de video-rest](stream-files-tutorial-with-rest.md) zelf studie streamen.
+- Bekijk het [Codeer concept](encoding-concept.md) onderwerp.
 
-## <a name="create-a-subclipping-job"></a>Een taak sub-clipping maken
+## <a name="create-a-subclipping-job"></a>Een subknipsel taak maken
 
-1. Selecteer in de Postman-verzameling die u hebt gedownload, **transformaties en taken** -> **taak maken met knippen Sub**.
+1. Selecteer in de Postman-verzameling die u hebt gedownload, **trans formaties en taken** -> **maken taak met subknipsel**.
     
-    De **plaatsen** aanvraag er als volgt uitzien:
+    De **put** -aanvraag ziet er als volgt uit:
     
     ```
     https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
     ```
-1. Werk de waarde van "transformName" omgevingsvariabele met de transformatienaam van de. 
-1. Selecteer de **hoofdtekst** tabblad en de 'myOutputAsset' bijwerken met de uitvoer de naam van de Asset.
+1. Werk de waarde van de omgevings variabele "transformator" bij met de naam van uw trans formatie. 
+1. Selecteer het tabblad **hoofd tekst** en werk de myOutputAsset bij met de naam van uw uitvoer activum.
 
     ```
     {
@@ -82,8 +82,8 @@ Als u wilt de in dit onderwerp beschreven stappen hebt voltooid, hebt u naar:
     ```
 1. Druk op **Verzenden**.
 
-    U ziet de **antwoord** met de informatie over een taak die is gemaakt en verzonden en status van de taak. 
+    U ziet het **antwoord** met de informatie over de taak die is gemaakt en verzonden en de status van de taak. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Coderen met een aangepaste transformatie](custom-preset-rest-howto.md) 
+[Coderen met een aangepaste trans formatie](custom-preset-rest-howto.md) 

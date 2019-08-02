@@ -1,19 +1,18 @@
 ---
 title: Een Azure-bestandsshare gebruiken met Windows | Microsoft Docs
 description: Informatie over hoe u een Azure-bestandsshare gebruikt met Windows en Windows Server.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 02a8b825a513c75ef7c037348ccaecdf5026ded2
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: d2bad808d0bcbbd5dc8052db0f8fd32fc4c1180a
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560481"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699479"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Een Azure-bestandsshare gebruiken met Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen probleemloos worden gebruikt in Windows en Windows Server. In dit artikel worden de overwegingen besproken voor het gebruik van een Azure-bestandsshare met Windows en Windows Server.
@@ -48,9 +47,9 @@ U kunt Azure-bestandsshares gebruiken in een Windows-installatie die wordt uitge
 
 * **Sleutel van het opslagaccount**: Voor het koppelen van een Azure-bestandsshare hebt u de primaire (of secundaire) opslagsleutel nodig. SAS-sleutels worden momenteel niet ondersteund voor koppelen.
 
-* **Zorg ervoor dat poort 445 open is**: Het SMB-protocol vereist dat TCP-poort 445 open is. Verbindingen mislukken als poort 445 is geblokkeerd. Met de cmdlet `Test-NetConnection` kunt u controleren of uw firewall poort 445 blokkeert. U kunt meer informatie over [kunt op verschillende manieren tijdelijke oplossing geblokkeerd poort 445 hier](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+* **Zorg ervoor dat poort 445 open is**: Het SMB-protocol vereist dat TCP-poort 445 open is. Verbindingen mislukken als poort 445 is geblokkeerd. Met de cmdlet `Test-NetConnection` kunt u controleren of uw firewall poort 445 blokkeert. Hier vindt u meer informatie over de verschillende manieren waarop u de [tijdelijke oplossing poort 445 kunt blok keren](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
-    Zie de volgende PowerShell code wordt ervan uitgegaan dat u hebt de Azure PowerShell-module is geïnstalleerd, [Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-az-ps) voor meer informatie. Vergeet niet om `<your-storage-account-name>` en `<your-resource-group-name>` te vervangen door de betreffende namen van uw opslagaccount.
+    In de volgende Power shell-code wordt ervan uitgegaan dat de module Azure PowerShell is geïnstalleerd, raadpleegt u [Azure PowerShell module installeren](https://docs.microsoft.com/powershell/azure/install-az-ps) voor meer informatie. Vergeet niet om `<your-storage-account-name>` en `<your-resource-group-name>` te vervangen door de betreffende namen van uw opslagaccount.
 
     ```powershell
     $resourceGroupName = "<your-resource-group-name>"
@@ -246,7 +245,7 @@ In de volgende tabel staat gedetailleerde informatie over de status van SMB 1 in
 | Windows 7                                 | Enabled              | Uitschakelen met Register       | 
 
 ### <a name="auditing-smb-1-usage"></a>SMB 1-gebruik controleren
-> Is van toepassing op Windows Server 2019, Windows Server semi-Annual-kanaal (versie 1709 en 1803), Windows Server 2016, Windows 10 (versies 1507, 1607, 1703, 1709 en 1803), Windows Server 2012 R2 en Windows 8.1
+> Van toepassing op Windows Server 2019, Windows Server Semi-Annual-kanaal (versie 1709 en 1803), Windows Server 2016, Windows 10 (versies 1507, 1607, 1703, 1709 en 1803), Windows Server 2012 R2 en Windows 8,1
 
 Voordat u SMB 1 uit uw omgeving verwijdert, wilt u mogelijk het gebruik van SMB 1 controleren om na te gaan of er geen clients beschadigd raken door de wijziging. Als er verzoeken worden gedaan aan SMB-shares met SMB 1, wordt er in het gebeurtenissenlogboek onder `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit` een controlegebeurtenis geregistreerd. 
 
@@ -260,7 +259,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
 ### <a name="removing-smb-1-from-windows-server"></a>SMB 1 verwijderen van Windows Server
-> Is van toepassing op Windows Server 2019, Windows Server semi-Annual-kanaal (versie 1709 en 1803), Windows Server 2016, Windows Server 2012 R2
+> Van toepassing op Windows Server 2019, Windows Server Semi-Annual-kanaal (versie 1709 en 1803), Windows Server 2016, Windows Server 2012 R2
 
 Als u SMB 1 van een Windows Server-exemplaar wilt verwijderen, voert u de volgende cmdlet uit in een PowerShell-sessie met verhoogde bevoegdheden:
 

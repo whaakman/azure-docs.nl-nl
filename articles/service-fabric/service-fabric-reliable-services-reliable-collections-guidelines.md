@@ -1,9 +1,9 @@
 ---
-title: Richtlijnen en aanbevelingen voor betrouwbare verzamelingen in Azure Service Fabric | Microsoft Docs
-description: Richtlijnen en aanbevelingen voor het gebruik van Service Fabric Reliable Collections
+title: Richt lijnen & aanbevelingen voor betrouw bare verzamelingen in azure Service Fabric | Microsoft Docs
+description: Richt lijnen en aanbevelingen voor het gebruik van Service Fabric betrouw bare verzamelingen
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,53 +13,53 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
-ms.author: aljo
-ms.openlocfilehash: 810427c394c3912142e0a21cf1b5c29b81620afb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: dc7d60cb846aa16f2facd41f5b6b7ce52bcc8f41
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60774094"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599337"
 ---
-# <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Richtlijnen en aanbevelingen voor betrouwbare verzamelingen in Azure Service Fabric
-In deze sectie bevat richtlijnen voor het gebruik van betrouwbare status Manager en betrouwbare verzamelingen. Het doel is om gebruikers niet voor verrassingen te helpen.
+# <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Richt lijnen en aanbevelingen voor betrouw bare verzamelingen in azure Service Fabric
+Deze sectie bevat richt lijnen voor het gebruik van betrouw bare status Manager en betrouw bare verzamelingen. Het doel is om gebruikers te helpen veelvoorkomende Valk uilen te voor komen.
 
-De richtlijnen zijn ingedeeld als eenvoudige aanbevelingen die worden voorafgegaan door de voorwaarden *doen*, *Overweeg*, *Vermijd* en *niet*.
+De richt lijnen zijn ingedeeld als eenvoudige aanbevelingen met betrekking tot de voor waarden *.* *Dit*kan van pas *komen* .
 
-* Een object van het aangepaste type dat wordt geretourneerd door de leesbewerkingen mag niet worden gewijzigd (bijvoorbeeld `TryPeekAsync` of `TryGetValueAsync`). Betrouwbare verzamelingen, net als bij gelijktijdige verzamelingen, retourneert een verwijzing naar de objecten en niet een kopie.
-* Doen diepe kopie het geretourneerde object van een aangepaste type voordat u deze wijzigt. Aangezien structs en ingebouwde typen pass-op-waarde, hoeft u niet een diepe kopie op te doen, tenzij ze bevatten verwijzing opgegeven velden of properties die u van plan bent om te wijzigen.
-* Gebruik geen `TimeSpan.MaxValue` voor time-outs. Time-outs moeten worden gebruikt voor het detecteren van impassen.
-* Gebruik niet een transactie nadat deze is toegewezen, is afgebroken, of verwijderd.
-* Gebruik een opsomming niet buiten de transactiebereik dat is gemaakt.
-* Maak een transactie in een andere transactie geen `using` instructie omdat dit ertoe leiden impassen dat kan.
-* Maak geen betrouwbare staat met `IReliableStateManager.GetOrAddAsync` en gebruiken van de betrouwbare status in dezelfde transactie. Dit resulteert in een InvalidOperationException.
-* Kan ervoor zorgen dat uw `IComparable<TKey>` implementatie juist is. Het systeem gebruikt de afhankelijkheid van `IComparable<TKey>` voor het samenvoegen van controlepunten en rijen.
-* Gebruik bijwerkvergrendeling bij het lezen van een item met een voornemen bij te werken om te voorkomen dat een bepaalde klasse impassen.
-* Houd rekening met bewaren aantal betrouwbare verzamelingen per partitie moet minder dan 1000. Betrouwbare verzamelingen met meer items liever over meer betrouwbare verzamelingen met minder items.
-* Bewaar uw items zijn (bijvoorbeeld TKey + TValue voor betrouwbare Dictionary) hieronder 80 KBytes: kleiner hoe beter. Dit vermindert het bedrag van de Object-Heap voor grote gebruik, evenals de schijf en netwerk i/o-vereisten. Vaak, beperkt het repliceren van dubbele gegevens wanneer slechts één klein deel van de waarde wordt bijgewerkt. Veelgebruikte manier om dit te realiseren in betrouwbare woordenlijst is om de rijen in te breken op meerdere rijen.
-* Overweeg het gebruik van back-up en herstel van de functionaliteit voor herstel na noodgevallen.
-* Vermijd een combinatie van één entiteit-bewerkingen en bewerkingen voor meerdere entiteiten (bijvoorbeeld `GetCountAsync`, `CreateEnumerableAsync`) in dezelfde transactie vanwege de van verschillende isolatieniveaus.
-* Ga om met InvalidOperationException. Door het systeem om verschillende redenen kunnen gebruikerstransacties worden afgebroken. Bijvoorbeeld, als de betrouwbare status Manager de rol buiten primaire is gewijzigd of als een langlopende transactie wordt geblokkeerd door afkapping van het logboek voor transactionele. In dergelijke gevallen kan de gebruiker InvalidOperationException waarmee wordt aangegeven dat de transactie is al beëindigd ontvangen. Ervan uitgaande dat, de beëindiging van de transactie niet is aangevraagd door de gebruiker aanbevolen manier voor het verwerken van deze uitzondering is het verwijderen van de transactie, controleert u of het token annulering wordt is aangegeven (of de rol van de replica is gewijzigd), en als dat niet maakt u een nieuw transactie en probeer het opnieuw.  
+* Wijzig geen object van het aangepaste type dat wordt geretourneerd door Lees bewerkingen (bijvoorbeeld `TryPeekAsync` of `TryGetValueAsync`). Betrouw bare verzamelingen, net als gelijktijdige verzamelingen, retour neren een verwijzing naar de objecten en niet naar een kopie.
+* Kopieer het geretourneerde object van een aangepast type grondig voordat u het wijzigt. Aangezien structs en ingebouwde typen pass-by-value zijn, hoeft u geen diep gaande kopie te maken, tenzij deze velden of eigenschappen bevatten die u wilt wijzigen.
+* Gebruik `TimeSpan.MaxValue` deze niet voor time-outs. Time-outs moeten worden gebruikt voor het detecteren van deadlocks.
+* Gebruik geen trans actie nadat deze is vastgelegd, afgebroken of verwijderd.
+* Gebruik geen inventarisatie buiten het transactie bereik waarin het is gemaakt.
+* Maak geen trans actie in een andere trans `using` actie-instructie, omdat deze impasses kan veroorzaken.
+* Maak geen betrouw bare status `IReliableStateManager.GetOrAddAsync` met en gebruik de betrouw bare status in dezelfde trans actie. Dit resulteert in een InvalidOperationException.
+* Zorg ervoor dat uw `IComparable<TKey>` implementatie juist is. Het systeem maakt afhankelijk `IComparable<TKey>` van het samen voegen van controle punten en rijen.
+* Gebruik de update vergrendeling bij het lezen van een item met de bedoeling om het bij te werken om een bepaalde klasse van deadlocks te voor komen.
+* Overweeg het aantal betrouw bare verzamelingen per partitie kleiner dan 1000 te houden. Geniet de voor keur aan betrouw bare verzamelingen met meer items voor betrouwbaardere verzamelingen met minder items.
+* Overweeg om uw items te bewaren (bijvoorbeeld TKey + TValue voor betrouw bare woorden lijst) onder 80 KB: smaller. Dit reduceert de hoeveelheid Large Object heap en de vereisten voor schijf-en netwerk-i/o. Vaak vermindert het het repliceren van dubbele gegevens wanneer er slechts één klein deel van de waarde wordt bijgewerkt. Gebruikelijke manier om dit in een betrouw bare woorden lijst te krijgen, is het opdelen van rijen in meerdere rijen.
+* U kunt de functionaliteit voor back-up en herstel gebruiken om herstel na nood geval te hebben.
+* Vermijd het combi neren van bewerkingen met één entiteit en bewerkingen met `GetCountAsync`meerdere `CreateEnumerableAsync`entiteiten (bijvoorbeeld) in dezelfde trans actie als gevolg van de verschillende isolatie niveaus.
+* Do InvalidOperationException. Gebruikers transacties kunnen om verschillende redenen door het systeem worden afgebroken. Bijvoorbeeld wanneer de betrouw bare status Manager de rol van de hoofd beheerder wijzigt of wanneer een langlopende trans actie de afkap ping van het transactionele logboek blokkeert. In dergelijke gevallen kan de gebruiker InvalidOperationException ontvangen die aangeeft dat de trans actie al is beëindigd. Ervan uitgaande dat de gebruiker de trans actie niet heeft beëindigd en de beste manier om deze uitzonde ring te verwerken is om de trans actie te verwijderen, controleert u of het annulerings token is gesignaleerd (of de rol van de replica is gewijzigd), en als er geen nieuwe wordt gemaakt trans actie en probeer het opnieuw.  
 
-Hier volgen een aantal zaken waarmee u rekening moet houden:
+Hier volgen enkele dingen die u moet onthouden:
 
-* De time-out voor de standaardwaarde is vier seconden voor alle betrouwbare verzameling API's. De meeste gebruikers moeten de standaardtime gebruiken.
-* Het token van de annulering standaard `CancellationToken.None` in alle betrouwbare verzamelingen-API's.
-* De parameter type sleutel (*TKey*) voor een betrouwbare Dictionary moet correct implementeren `GetHashCode()` en `Equals()`. Sleutels moeten onveranderbaar.
-* Voor het bereiken van hoge beschikbaarheid voor de betrouwbare verzamelingen, moet elke service ten minste een doel en de minimale grootte van 3 voor replicaset hebben.
-* Leesbewerkingen op de secundaire kunnen versies die niet doorgevoerd quorum zijn gelezen.
-  Dit betekent dat een versie van de gegevens die worden gelezen uit een enkel secundaire ONWAAR kan worden vordert.
-  Leesbewerkingen van primaire zijn altijd stabiel: kan nooit worden false vooruitgang geboekt.
-* Beveiliging/Privacy van de gegevens behouden door uw toepassing in een betrouwbare verzameling is uw beslissing en onderhevig aan de beveiliging van uw opslagbeheer; DAT WIL ZEGGEN Schijfversleuteling besturingssysteem kan worden gebruikt om uw gegevens in rust beveiligen.  
+* De standaard time-out is vier seconden voor alle betrouw bare verzamelings-Api's. De meeste gebruikers moeten de standaard time-out gebruiken.
+* Het standaard annulerings token `CancellationToken.None` bevindt zich in alle betrouw bare verzamelingen-api's.
+* De sleutel type parameter (*TKey*) voor een betrouw bare woorden lijst `GetHashCode()` moet `Equals()`correct worden geïmplementeerd en. Sleutels moeten onveranderbaar zijn.
+* Voor een hoge Beschik baarheid voor de betrouw bare verzamelingen moet elke service ten minste beschikken over een doel en minimale grootte van de replicaset van 3.
+* Bij Lees bewerkingen op de secundaire versie kunnen versies worden gelezen die niet in het quorum zijn vastgelegd.
+  Dit betekent dat een versie van gegevens die is gelezen uit één secundair mogelijk onwaar is voor de voortgang.
+  Lees bewerkingen van de primaire zijn altijd stabiel: kan nooit ONWAAR worden uitgevoerd.
+* De beveiliging/privacy van de gegevens die door uw toepassing worden bewaard in een betrouw bare verzameling is uw beslissing en is onderworpen aan de beveiligingen van uw opslag beheer. dat wil zeggen. Versleuteling van de schijf van het besturings systeem kan worden gebruikt om uw gegevens in rust te beveiligen.  
 
 ### <a name="next-steps"></a>Volgende stappen
 * [Werken met betrouwbare verzamelingen](service-fabric-work-with-reliable-collections.md)
-* [Transacties en vergrendelingen](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* Beheren van gegevens
+* [Trans acties en vergren delingen](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+* Gegevens beheren
   * [Back-up en herstel](service-fabric-reliable-services-backup-restore.md)
   * [Meldingen](service-fabric-reliable-services-notifications.md)
-  * [Serialisatie en Upgrade](service-fabric-application-upgrade-data-serialization.md)
-  * [Configuratie van betrouwbare status Manager](service-fabric-reliable-services-configuration.md)
+  * [Serialisatie en upgrade](service-fabric-application-upgrade-data-serialization.md)
+  * [Configuratie van betrouw bare status Manager](service-fabric-reliable-services-configuration.md)
 * Andere
-  * [Snel starten met betrouwbare Services](service-fabric-reliable-services-quick-start.md)
-  * [Referentie voor ontwikkelaars voor betrouwbare verzamelingen](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  * [Reliable Services snel starten](service-fabric-reliable-services-quick-start.md)
+  * [Naslag informatie voor ontwikkel aars voor betrouw bare verzamelingen](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2019
+ms.date: 07/31/2019
 ms.author: rkarlin
-ms.openlocfilehash: fef9fa128d2ebb84fb82579f254735fdb9aa7ee2
-ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
+ms.openlocfilehash: dad74410562aa54aeb61675e7dc1c0adccc44797
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67881069"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679215"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Verbinding maken met uw externe oplossing met behulp van syslog
 
@@ -47,6 +47,9 @@ Zie [syslog-gegevens bronnen in azure monitor](../azure-monitor/platform/data-so
 1. Selecteer in de Azure-Sentinel-Portal de optie **gegevens connectors** en selecteer de **syslog** -lijn in de tabel en klik in het deel venster syslog rechts op de **pagina connector openen**.
 2. Als uw Linux-machine zich in azure bevindt, selecteert u **agent downloaden en installeren op virtuele machine van Azure Linux**. Selecteer in het venster virtuele machines de computers waarop u de agent wilt installeren en klik bovenaan op **verbinding maken** .
 1. Als uw Linux-machine niet in Azure is, selecteert u **agent op Linux niet-Azure-machine downloaden en installeren**. In het venster **direct agent** kopieert u de opdracht onder **down load and agent voor Linux** en voert u deze uit op de computer. 
+   > [!NOTE]
+   > Zorg ervoor dat u de beveiliging van de computer configureert op basis van het beveiligings beleid van uw organisatie. U kunt bijvoorbeeld uw netwerk zodanig configureren dat het wordt uitgelijnd met het beveiligings beleid van uw bedrijfs netwerk en de poorten en protocollen in de daemon wijzigen om af te stemmen op uw vereisten. 
+
 1. Volg de instructies onder **Configureer de logboeken die moeten worden verbonden** in het venster Setup van syslog-connector:
     1. Klik op de koppeling om **de configuratie van geavanceerde instellingen voor uw werk ruimte te openen**. 
     1. Selecteer **gegevens**, gevolgd door **syslog**.
@@ -55,7 +58,7 @@ Zie [syslog-gegevens bronnen in azure monitor](../azure-monitor/platform/data-so
        > Als u het selectie vakje voor de **onderstaande configuratie op mijn machines**inschakelt, wordt deze configuratie toegepast op alle Linux-machines die zijn verbonden met deze werk ruimte. U kunt deze configuratie bekijken in uw syslog-machine onder 
 1. Klik op **Druk hier om de Blade configuratie te openen**.
 1. Selecteer **gegevens** en vervolgens **syslog**.
-   - Zorg ervoor dat elke faciliteit die u verstuurt door syslog in de tabel staat. Stel een ernst in voor elke faciliteit die u gaat bewaken. Klik op **Toepassen**.
+   - Zorg ervoor dat elke faciliteit die u verstuurt door syslog in de tabel staat. Voor elke faciliteit gaat u controleren, een Ernst instellen. Klik op **Toepassen**.
 1. Zorg ervoor dat u in uw syslog-machine deze faciliteiten verzendt. 
 
 1. Als u het relevante schema in Log Analytics voor de syslog-logboeken wilt gebruiken, zoekt u naar **syslog**.

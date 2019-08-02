@@ -1,6 +1,6 @@
 ---
-title: Configureer het eindpunt voor openbare - Azure SQL Database managed instance | Microsoft Docs
-description: Informatie over het configureren van een openbaar eindpunt voor het beheerde exemplaar
+title: Een openbaar eind punt-Azure SQL Database beheerd exemplaar configureren | Microsoft Docs
+description: Meer informatie over het configureren van een openbaar eind punt voor een beheerd exemplaar
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,48 +9,47 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cebe6b4ca61b835e7c77f51592c20799fe271853
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65465185"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567405"
 ---
-# <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Openbare eindpunt in beheerd exemplaar voor Azure SQL Database configureren
+# <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Open bare eind punt in Azure SQL Database beheerde instantie configureren
 
-Openbaar eindpunt voor een [beheerd exemplaar](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) kunt u toegang tot gegevens in uw beheerde exemplaar van buiten de [virtueel netwerk](../virtual-network/virtual-networks-overview.md). U zijn kunt toegang tot uw beheerde exemplaar van meerdere tenants Azure-services, zoals Power BI, Azure App Service of een on-premises netwerk. Via het openbare eindpunt op een beheerd exemplaar hoeft u niet te gebruiken een VPN, die kan helpen te voorkomen dat problemen met VPN-doorvoer.
+Het open bare eind punt voor een [beheerd exemplaar](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) maakt gegevens toegang tot uw beheerde exemplaar mogelijk buiten het [virtuele netwerk](../virtual-network/virtual-networks-overview.md). U hebt toegang tot uw beheerde exemplaar vanuit multi tenant Azure-Services, zoals Power BI, Azure App Service of een on-premises netwerk. Als u het open bare eind punt op een beheerd exemplaar gebruikt, hoeft u geen VPN te gebruiken. Dit kan helpen om problemen met de door Voer van VPN te voor komen.
 
-In dit artikel leert u hoe u:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
-> - Openbare eindpunt voor uw beheerde exemplaar in de Azure-portal inschakelen
-> - Openbare eindpunt voor uw beheerde exemplaar met behulp van PowerShell inschakelen
-> - Configureren van uw beheerde exemplaar voor de netwerkbeveiligingsgroep voor verkeer naar het openbare eindpunt beheerd exemplaar
-> - De verbindingsreeks voor beheerd exemplaar openbaar eindpunt verkrijgen
+> - Open bare eind punt inschakelen voor uw beheerde instantie in de Azure Portal
+> - Open bare eind punt voor uw beheerde instantie inschakelen met Power shell
+> - De beveiligings groep voor een beheerd exemplaar netwerk configureren om verkeer naar het open bare eind punt van het beheerde exemplaar toe te staan
+> - Het open bare endpoint van het beheerde exemplaar verkrijgen connection string
 
 ## <a name="permissions"></a>Machtigingen
 
-Vanwege de vertrouwelijkheid van gegevens die zich in een beheerd exemplaar, vereist de configuratie om in te schakelen beheerd exemplaar openbaar eindpunt een proces in twee stappen. Dit beveiligingsmaatregel voldoet aan de scheiding van functies (beplanten):
+Als gevolg van de gevoeligheid van gegevens die zich in een beheerd exemplaar bevindt, vereist de configuratie voor het inschakelen van het open bare eind punt van het beheerde exemplaar een proces dat uit twee stappen bestaat. Deze veiligheids maatregel voldoet aan de schei ding van taken (SoD):
 
-- Inschakelen van openbare eindpunt op een beheerd exemplaar moet worden uitgevoerd door de beheerder beheerd exemplaar. De beheerder van het beheerde exemplaar is te vinden in **overzicht** pagina van uw SQL managed instance-bron.
-- Toestaan van verkeer dat gebruikmaakt van een netwerkbeveiligingsgroep die moet worden uitgevoerd door de beheerder van een netwerk. Zie voor meer informatie, [network security-groepsmachtigingen](../virtual-network/manage-network-security-group.md#permissions).
+- Het inschakelen van een openbaar eind punt op een beheerd exemplaar moet worden uitgevoerd door de beheerder van het beheerde exemplaar. De beheerder van het beheerde exemplaar kan worden gevonden op de overzichts pagina van uw SQL Managed instance-resource.
+- Verkeer toestaan met behulp van een netwerk beveiligings groep die moet worden uitgevoerd door een netwerk beheerder. Zie [machtigingen voor netwerk beveiligings groepen](../virtual-network/manage-network-security-group.md#permissions)voor meer informatie.
 
-## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>Openbaar eindpunt voor een beheerd exemplaar in de Azure-portal inschakelen
+## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>Openbaar eind punt inschakelen voor een beheerd exemplaar in het Azure Portal
 
-1. Starten van de Azure portal op <https://portal.azure.com/.>
-1. Open de resourcegroep met het beheerde exemplaar en selecteer de **SQL beheerd exemplaar** dat u configureren van openbare eindpunt wilt op.
-1. Op de **Security** instellingen, selecteer de **virtueel netwerk** tabblad.
-1. Selecteer in de configuratiepagina van virtueel netwerk **inschakelen** en vervolgens de **opslaan** pictogram van de configuratie bij te werken.
+1. Start de Azure Portal op<https://portal.azure.com/.>
+1. Open de resource groep met het beheerde exemplaar en selecteer het **SQL Managed instance** waarvoor u het open bare eind punt wilt configureren.
+1. Selecteer op de pagina **beveiligings** instellingen het tabblad **virtueel netwerk** .
+1. Selecteer op de pagina configuratie van virtueel netwerk de optie **inschakelen** en klik vervolgens op het pictogram **Opslaan** om de configuratie bij te werken.
 
-![mi-vnet-config.png](media/sql-database-managed-instance-public-endpoint-configure/mi-vnet-config.png)
+![Mi-vnet-config. png](media/sql-database-managed-instance-public-endpoint-configure/mi-vnet-config.png)
 
-## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>Inschakelen van openbare eindpunt voor een beheerd exemplaar met behulp van PowerShell
+## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>Openbaar eind punt inschakelen voor een beheerd exemplaar met behulp van Power shell
 
-### <a name="enable-public-endpoint"></a>Openbare eindpunt inschakelen
+### <a name="enable-public-endpoint"></a>Openbaar eind punt inschakelen
 
-Voer de volgende PowerShell-opdrachten. Vervang **abonnement-id** met uw abonnements-ID. Vervang ook **rg-name** met de resourcegroep voor uw beheerde exemplaar en vervang **mi-name** met de naam van uw beheerde exemplaar.
+Voer de volgende Power shell-opdrachten uit. Vervang **abonnement-id** door uw abonnements-id. Vervang ook de **naam van RG** door de resource groep voor uw beheerde exemplaar en vervang de **mi-naam** door de naam van uw beheerde exemplaar.
 
 ```powershell
 Install-Module -Name Az
@@ -71,50 +70,50 @@ $mi = Get-AzSqlInstance -ResourceGroupName {rg-name} -Name {mi-name}
 $mi = $mi | Set-AzSqlInstance -PublicDataEndpointEnabled $true -force
 ```
 
-### <a name="disable-public-endpoint"></a>Openbaar eindpunt uitschakelen
+### <a name="disable-public-endpoint"></a>Openbaar eind punt uitschakelen
 
-Als u wilt het openbare eindpunt met behulp van PowerShell uitschakelen, u zou de volgende opdracht uitvoeren (en vergeet ook niet de NSG voor de binnenkomende poort 3342 sluiten als u deze geconfigureerd hebt):
+Als u het open bare eind punt wilt uitschakelen met behulp van Power shell, voert u de volgende opdracht uit (en vergeet niet om de NSG voor de binnenkomende poort 3342 te sluiten als u deze hebt geconfigureerd):
 
 ```powershell
 Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ```
 
-## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Sta openbaar eindpunt-verkeer op de netwerkbeveiligingsgroep
+## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Openbaar eindpunt verkeer toestaan voor de netwerk beveiligings groep
 
-1. Als u de configuratiepagina van het beheerde exemplaar nog geopend hebt, gaat u naar de **overzicht** tabblad. Anders gaat u terug naar uw **SQL beheerd exemplaar** resource. Selecteer de **virtueel netwerk/subnet** koppeling u naar de configuratiepagina van de virtuele-netwerk gaat.
+1. Als u de configuratie pagina van het beheerde exemplaar nog steeds geopend hebt, gaat u naar het tabblad **overzicht** . Als dat niet het geval is, gaat u terug naar uw **SQL Managed instance** -resource. Selecteer de koppeling **virtueel netwerk/subnet** , waarmee u naar de configuratie pagina van het virtuele netwerk gaat.
 
-    ![mi-overview.png](media/sql-database-managed-instance-public-endpoint-configure/mi-overview.png)
+    ![Mi-overview. png](media/sql-database-managed-instance-public-endpoint-configure/mi-overview.png)
 
-1. Selecteer de **subnetten** tabblad in het deelvenster links configuratie van uw virtuele netwerk, en noteer de **BEVEILIGINGSGROEP** voor uw beheerde exemplaar.
+1. Selecteer het tabblad subnetten in het linkerdeel venster configuratie van het virtuele netwerk en noteer de **beveiligings groep** voor uw beheerde exemplaar.
 
     ![mi-vnet-subnet.png](media/sql-database-managed-instance-public-endpoint-configure/mi-vnet-subnet.png)
 
-1. Ga terug naar de resourcegroep waarin uw beheerde exemplaar. U ziet de **netwerkbeveiligingsgroep** naam hierboven vermeld. Selecteer de naam om te gaan naar de configuratiepagina van network security group.
+1. Ga terug naar de resource groep die uw beheerde exemplaar bevat. De naam van de **netwerk beveiligings groep** die hierboven wordt vermeld, wordt weer gegeven. Selecteer de naam om naar de configuratie pagina voor de netwerk beveiligings groep te gaan.
 
-1. Selecteer de **inkomende beveiligingsregels** tabblad, en **toevoegen** een regel met hogere prioriteit dan de **deny_all_inbound** regel met de volgende instellingen: </br> </br>
+1. Selecteer het tabblad **binnenkomende beveiligings regels** en voeg een regel **toe** met een hogere prioriteit dan de **deny_all_inbound** -regel met de volgende instellingen: </br> </br>
 
     |Instelling  |Voorgestelde waarde  |Description  |
     |---------|---------|---------|
-    |**Bron**     |IP-adres of servicetag         |<ul><li>Voor Azure-services zoals Power BI, selecteert u de Tag Azure Cloud Service</li> <li>Gebruik NAT IP-adres voor uw computer of virtuele machine van Azure</li></ul> |
-    |**Poortbereiken van bron**     |*         |Laat deze * (alle) zoals bronpoorten meestal dynamisch toegewezen en als dergelijke onvoorspelbare zijn |
-    |**Destination**     |Alle         |Als alle verkeer toe te staan in het subnet van het beheerde exemplaar bestemming verlaten |
-    |**Poortbereiken van doel**     |3342         |Bereik doelpoort voor 3342, dit de openbare TDS-eindpunt voor beheerd exemplaar is |
-    |**Protocol**     |TCP         |Beheerd exemplaar maakt gebruik van TCP-protocol voor TDS |
-    |**Actie**     |Toestaan         |Binnenkomend verkeer naar beheerd exemplaar via het openbare eindpunt toestaan |
-    |**prioriteit**     |1300         |Zorg ervoor dat deze regel is een hogere prioriteit dan de **deny_all_inbound** regel |
+    |**Bron**     |Een IP-adres of service label         |<ul><li>Voor Azure-Services, zoals Power BI, selecteert u de Azure Cloud service-tag</li> <li>Gebruik NAT IP-adres voor uw computer of Azure-VM</li></ul> |
+    |**Poort bereik van bron**     |*         |Dit op * (alle) laten staan als bron poorten worden meestal dynamisch toegewezen en als zodanig, onvoorspelbaar |
+    |**Destination**     |Any         |Bestemming weglaten om verkeer naar het subnet van het beheerde exemplaar toe te staan |
+    |**Poortbereiken van doel**     |3342         |Doel poort van bereik tot 3342, wat het open bare TDS-eind punt van het beheerde exemplaar is |
+    |**Protocol**     |TCP         |Beheerd exemplaar gebruikt TCP-protocol voor TDS |
+    |**Actie**     |Allow         |Binnenkomend verkeer naar een beheerd exemplaar via het open bare eind punt toestaan |
+    |**prioriteit**     |1300         |Zorg ervoor dat deze regel een hogere prioriteit heeft dan de **deny_all_inbound** -regel |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)
 
     > [!NOTE]
-    > Poort 3342 wordt gebruikt voor het openbare eindpunt verbindingen met beheerd exemplaar, en op dit moment niet worden gewijzigd.
+    > Poort 3342 wordt gebruikt voor open bare eindpunt verbindingen met een beheerd exemplaar en kan op dit moment niet worden gewijzigd.
 
-## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Het ophalen van de verbindingsreeks voor beheerd exemplaar openbaar eindpunt
+## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Het open bare endpoint van het beheerde exemplaar verkrijgen connection string
 
-1. Navigeer naar de configuratiepagina van de SQL-beheerd exemplaar dat is ingeschakeld voor het openbare eindpunt. Selecteer de **verbindingsreeksen** tabblad onder de **instellingen** configuratie.
-1. Houd er rekening mee dat de host-naam van het openbare eindpunt is beschikbaar in de indeling < mi_name >. **openbare**. < dns_zone >. database.windows.net en dat de poort die wordt gebruikt voor de verbinding 3342 is.
+1. Ga naar de configuratie pagina voor SQL Managed instance die is ingeschakeld voor openbaar eind punt. Selecteer het tabblad **verbindings reeksen** onder de configuratie- **instellingen** .
+1. Houd er rekening mee dat de hostnaam van het open bare eind punt de notatie < mi_name > bevat. **Public**. < dns_zone >. data base. Windows. net en de poort die voor de verbinding wordt gebruikt, is 3342.
 
-    ![mi-public-endpoint-conn-string.png](media/sql-database-managed-instance-public-endpoint-configure/mi-public-endpoint-conn-string.png)
+    ![Mi-Public-endpoint-Conn-string. png](media/sql-database-managed-instance-public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [met behulp van Azure SQL-Database beheerd exemplaar veilig met een openbaar eindpunt](sql-database-managed-instance-public-endpoint-securely.md).
+- Meer informatie over het [gebruik van Azure SQL database Managed instance veilig met een openbaar eind punt](sql-database-managed-instance-public-endpoint-securely.md).

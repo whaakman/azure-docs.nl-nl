@@ -1,6 +1,6 @@
 ---
-title: Toepassen van aanbevelingen voor prestaties - Azure SQL Database | Microsoft Docs
-description: De Azure portal gebruiken voor het vinden van de aanbevelingen voor prestaties die prestaties van uw Azure SQL Database kunnen optimaliseren.
+title: Aanbevelingen voor prestaties Toep assen-Azure SQL Database | Microsoft Docs
+description: Gebruik de Azure Portal om prestatie aanbevelingen te vinden waarmee de prestaties van uw Azure SQL Database kunnen worden geoptimaliseerd.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,160 +10,159 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6bcb2650cd11ed97b6e81fda6aaafe7fca61202
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61420304"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569593"
 ---
-# <a name="find-and-apply-performance-recommendations"></a>Zoeken en toepassen van aanbevelingen voor prestaties
+# <a name="find-and-apply-performance-recommendations"></a>Aanbevelingen voor prestaties zoeken en Toep assen
 
-U kunt Azure portal gebruiken om te vinden van de aanbevelingen voor prestaties die prestaties van uw Azure SQL Database kunnen optimaliseren of om bepaalde aangeduid in uw werkbelasting probleem te verhelpen. **Prestaties aanbeveling** pagina in Azure portal kunt u de aanbevelingen op basis van de potentiële impact vinden. 
+U kunt de Azure Portal gebruiken om prestatie aanbevelingen te vinden die de prestaties van uw Azure SQL Database kunnen optimaliseren of om een probleem te corrigeren dat in uw workload is geïdentificeerd. Met de pagina met de **prestatie aanbeveling** in azure Portal kunt u de beste aanbevelingen vinden op basis van de mogelijke impact. 
 
-## <a name="viewing-recommendations"></a>Aanbevelingen weergeven
+## <a name="viewing-recommendations"></a>Aanbevelingen weer geven
 
-Als u wilt weergeven en prestatie-aanbevelingen toepassen, moet u de juiste [op rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md) machtigingen in Azure. **Lezer**, **' SQL DB Contributor '** machtigingen zijn vereist om aanbevelingen weer te geven en **eigenaar**, **' SQL DB Contributor '** machtigingen zijn vereist voor alle acties; uitvoeren Maak of verwijder indexen en maken van een index annuleren.
+Als u aanbevelingen voor prestaties wilt weer geven en Toep assen, hebt u de juiste machtigingen [op rollen gebaseerd toegangs beheer](../role-based-access-control/overview.md) in azure nodig. Voor het weer geven van de aanbevelingen en de **eigenaar**van de **SQL DB** - Inzender zijn machtigingen vereist voor het uitvoeren van acties. indexen maken of verwijderen en het maken van de index annuleren.
 
-Gebruik de volgende stappen uit om te vinden van aanbevelingen voor prestaties in Azure portal:
+Gebruik de volgende stappen om aanbevelingen voor prestaties te vinden op Azure Portal:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Ga naar **alle services** > **SQL-databases**, en selecteer uw database.
-3. Navigeer naar **prestaties aanbeveling** om beschikbare aanbevelingen voor de geselecteerde database weer te geven.
+2. Ga naar **alle services** > **SQL-data bases**en selecteer uw data base.
+3. Navigeer naar **Aanbevolen prestaties** om de beschik bare aanbevelingen voor de geselecteerde Data Base weer te geven.
 
-Aanbevelingen voor prestaties worden weergegeven in de tabel die vergelijkbaar is met de architectuur die wordt weergegeven op de volgende afbeelding:
+Aanbevelingen voor prestaties worden weer gegeven in de tabel zoals die wordt weer gegeven op de volgende afbeelding:
 
 ![Aanbevelingen](./media/sql-database-advisor-portal/recommendations.png)
 
-Aanbevelingen worden gesorteerd op hun mogelijke invloed op de prestaties in de volgende categorieën:
+Aanbevelingen worden gesorteerd op de mogelijke invloed op de prestaties van de volgende categorieën:
 
 | Impact | Description |
 |:--- |:--- |
-| Hoog |Aanbevelingen voor hoge impact moeten de meeste impact prestaties bieden. |
-| Gemiddeld |Normale impact aanbevelingen voor moeten de prestaties verbeteren, maar niet aanzienlijk. |
-| Laag |Weinig impact aanbevelingen voor moeten zorgen voor betere prestaties dan zonder, maar mogelijk aanzienlijke verbeteringen niet. |
+| Hoog |Aanbevelingen met hoge impact moeten de belangrijkste prestatie-impact bieden. |
+| Gemiddeld |Aanbevelingen voor normale impact moeten de prestaties verbeteren, maar niet aanzienlijk. |
+| Laag |De aanbevelingen met weinig effect moeten betere prestaties leveren dan zonder, maar de verbeteringen zijn mogelijk niet aanzienlijk. |
 
 
 > [!NOTE]
-> Azure SQL-Database moet activiteiten volgen die ten minste een dag om enkele aanbevelingen. De Azure SQL Database kunt u eenvoudiger optimaliseren voor consistente querypatronen dan kan worden voor willekeurige keuze pieken van activiteit. Als u aanbevelingen zijn momenteel niet beschikbaar, de **prestaties aanbeveling** pagina vindt u een bericht waarin wordt uitgelegd waarom.
+> Azure SQL Database moet activiteiten ten minste een dag bewaken om enkele aanbevelingen te kunnen identificeren. Het Azure SQL Database kan gemakkelijker worden geoptimaliseerd voor consistente query patronen dan voor wille keurige spotty-bursts. Als er momenteel geen aanbevelingen beschikbaar zijn, wordt op de pagina **prestatie aanbeveling** een bericht weer gegeven waarin wordt uitgelegd waarom.
 > 
 
-U kunt ook de status van de historische bewerkingen bekijken. Selecteer een aanbeveling of de status voor meer informatie.
+U kunt ook de status van de historische bewerkingen weer geven. Selecteer een aanbeveling of status om meer informatie weer te geven.
 
-Hier volgt een voorbeeld van de aanbeveling voor 'Index maken' in de Azure-portal.
+Hier volgt een voor beeld van aanbeveling voor het maken van een index in de Azure Portal.
 
 ![Index maken](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
-## <a name="applying-recommendations"></a>Toepassen van aanbevelingen
-Azure SQL Database biedt u volledige controle over hoe de aanbevelingen zijn ingeschakeld met behulp van een van de volgende drie opties: 
+## <a name="applying-recommendations"></a>Aanbevelingen Toep assen
+Azure SQL Database biedt u volledige controle over de manier waarop aanbevelingen worden ingeschakeld met een van de volgende drie opties: 
 
-* Afzonderlijke aanbevelingen voor een toepassing op een tijdstip.
-* Schakel de functie automatisch afstemmen voor het automatisch toepassen van aanbevelingen.
-* Voer voor het handmatig implementeren van een aanbeveling, de aanbevolen T-SQL-script voor de database.
+* Afzonderlijke aanbevelingen afzonderlijk Toep assen.
+* Schakel automatisch afstemmen in om aanbevelingen automatisch toe te passen.
+* Als u een aanbeveling hand matig wilt implementeren, voert u het aanbevolen T-SQL-script uit voor uw data base.
 
-Selecteer elke aanbeveling klikken de details ervan te bekijken en klik vervolgens op **script weergeven** om te controleren van de exacte details van de manier waarop de aanbeveling wordt gemaakt.
+Selecteer een aanbeveling om de details ervan weer te geven en klik vervolgens op **script weer geven** om de exacte details te bekijken van de manier waarop de aanbeveling is gemaakt.
 
-De database blijft online terwijl de aanbeveling is toegepast--met behulp van de prestaties aanbeveling of automatisch afstemmen van een database nooit offline gaat.
+De data base blijft online terwijl de aanbeveling wordt toegepast: door gebruik te maken van de prestatie aanbeveling of automatisch afstemmen maakt u nooit een Data Base offline.
 
-### <a name="apply-an-individual-recommendation"></a>Een afzonderlijke aanbeveling toepast
-U kunt bekijken en aanbevelingen één bewerking tegelijk accepteren.
+### <a name="apply-an-individual-recommendation"></a>Een afzonderlijke aanbeveling Toep assen
+U kunt de aanbevelingen een voor een bekijken en accepteren.
 
-1. Op de **aanbevelingen** pagina, selecteert u een aanbeveling.
-2. Op de **Details** pagina, klikt u op **toepassen** knop.
+1. Selecteer een aanbeveling op de pagina **aanbevelingen** .
+2. Klik op de pagina **Details** op de knop **Toep assen** .
    
-    ![Aanbeveling toepast](./media/sql-database-advisor-portal/apply.png)
+    ![Aanbeveling Toep assen](./media/sql-database-advisor-portal/apply.png)
 
-De geselecteerde aanbeveling worden toegepast op de database.
+De geselecteerde aanbeveling wordt toegepast op de data base.
 
-### <a name="removing-recommendations-from-the-list"></a>Aanbevelingen verwijderen in de lijst
+### <a name="removing-recommendations-from-the-list"></a>Aanbevelingen verwijderen uit de lijst
 
-Als uw lijst met aanbevelingen items die u wilt verwijderen uit de lijst bevat, kunt u de aanbeveling negeren:
+Als uw lijst met aanbevelingen items bevat die u uit de lijst wilt verwijderen, kunt u de aanbeveling negeren:
 
-1. Selecteer een aanbeveling in de lijst met **aanbevelingen** de details te openen.
-2. Klik op **negeren** op de **Details** pagina.
+1. Selecteer een aanbeveling in de lijst met **aanbevelingen** om de details te openen.
+2. Klik op de pagina **Details** op **negeren** .
 
-Indien gewenst, kunt u toevoegen verwijderde items terug naar de **aanbevelingen** lijst:
+Desgewenst kunt u verwijderde items weer toevoegen aan de lijst met **aanbevelingen** :
 
-1. Op de **aanbevelingen** pagina, klikt u op **Genegeerde items weergeven**.
-2. Selecteer een verwijderde item in de lijst om de details ervan weer te geven.
-3. Klik desgewenst op **ongedaan negeren** om toe te voegen van de index terug naar de belangrijkste lijst van **aanbevelingen**.
+1. Klik op de pagina **aanbevelingen** op **Genegeerde weer gave**.
+2. Selecteer een verwijderd item uit de lijst om de details ervan weer te geven.
+3. Klik eventueel op **ongedaan maken verwijderen** om de index weer toe te voegen aan de hoofd lijst met **aanbevelingen**.
 
 > [!NOTE]
-> Houd er rekening mee dat als SQL-Database [automatisch afstemmen](sql-database-automatic-tuning.md) is ingeschakeld, en als u een aanbeveling in de lijst handmatig hebt genegeerd, deze aanbeveling niet automatisch worden toegepast. Verwijderen van een aanbeveling is een handige manier voor gebruikers van automatisch afstemmen is ingeschakeld in gevallen wanneer vereisen dat een specifieke aanbeveling mag niet worden toegepast.
-> U kunt dit gedrag herstellen door genegeerde aanbevelingen terug naar de lijst met aanbevelingen toe te voegen met de optie verwijderen ongedaan maken.
+> Als SQL Database [automatisch afstemmen](sql-database-automatic-tuning.md) is ingeschakeld en u hand matig een aanbeveling uit de lijst hebt verwijderd, wordt deze aanbeveling nooit automatisch toegepast. Het verwijderen van een aanbeveling is een handige manier voor gebruikers om automatisch afstemmen in te scha kelen wanneer is vereist dat een specifieke aanbeveling niet moet worden toegepast.
+> U kunt dit gedrag herstellen door verwijderde aanbevelingen weer toe te voegen aan de lijst met aanbevelingen door de optie verwijderen ongedaan maken te selecteren.
 > 
 
 ### <a name="enable-automatic-tuning"></a>Automatisch instellen inschakelen
-U kunt de Azure SQL-Database voor het implementeren van aanbevelingen automatisch instellen. Wanneer aanbevelingen beschikbaar komen, worden automatisch toegepast. Net als bij alle aanbevelingen die worden beheerd door de service als de invloed op de prestaties negatief is, is de aanbeveling is hersteld.
+U kunt de Azure SQL Database zo instellen dat aanbevelingen automatisch worden geïmplementeerd. Wanneer er aanbevelingen beschikbaar komen, worden ze automatisch toegepast. Net als bij alle aanbevelingen die worden beheerd door de service, wordt de aanbeveling teruggedraaid als de invloed van de prestaties negatief is.
 
-1. Op de **aanbevelingen** pagina, klikt u op **automatiseren**:
+1. Klik op de pagina **aanbevelingen** op **automatiseren**:
    
     ![Advisor-instellingen](./media/sql-database-advisor-portal/settings.png)
-2. Selecteer acties automatiseren:
+2. Selecteer de acties die moeten worden geautomatiseerd:
    
     ![Aanbevolen indexen](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Houd er rekening mee dat **DROP_INDEX** optie is momenteel niet compatibel is met toepassingen die gebruikmaken van partitie schakelen en de index-hints. 
+> Houd er rekening mee dat de optie **DROP_INDEX** is momenteel niet compatibel met toepassingen die gebruikmaken van partitie-switches en index hints. 
 >
 
-Nadat u de gewenste configuratie hebt geselecteerd, klikt u op toepassen.
+Wanneer u de gewenste configuratie hebt geselecteerd, klikt u op Toep assen.
 
-### <a name="manually-apply-recommendations-through-t-sql"></a>Handmatig toepassen van aanbevelingen via T-SQL
+### <a name="manually-apply-recommendations-through-t-sql"></a>Aanbevelingen hand matig Toep assen via T-SQL
 
-Selecteer elke aanbeveling klikken en klik vervolgens op **script weergeven**. Voer dit script op basis van de database om handmatig de aanbeveling toepast.
+Selecteer een aanbeveling en klik vervolgens op **script weer geven**. Voer dit script uit op uw data base om de aanbeveling hand matig toe te passen.
 
-*Indexen die handmatig worden uitgevoerd worden niet gecontroleerd en gevalideerd voor prestatie-impact door de service* , zodat het wordt aangeraden dat u deze indexen na het maken om te controleren of ze leveren prestaties controleren en aanpassen of verwijder ze indien nodig. Zie voor meer informatie over het maken van indexen [INDEX maken (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). Bovendien blijft handmatig toegepaste aanbevelingen actief en wordt weergegeven in de lijst met aanbevelingen voor 24 tot 48 uur. voordat het systeem automatisch ze intrekt. Als u wilt verwijderen van een aanbeveling sneller wilt, kunt u het handmatig verwijderen.
+*Indexen die hand matig worden uitgevoerd, worden niet bewaakt en gevalideerd voor de prestaties van de service* , zodat u deze indexen na het maken kunt bewaken om te controleren of ze zo nodig prestatie voordelen bieden en aanpassen of verwijderen. Zie [Create Index (Transact-SQL) (Engelstalig)](https://msdn.microsoft.com/library/ms188783.aspx)voor meer informatie over het maken van indexen. Daarnaast blijven hand matig toegepaste aanbevelingen actief en worden deze weer gegeven in de lijst met aanbevelingen voor 24-48 uur. voordat het systeem ze automatisch intrekt. Als u een aanbeveling eerder wilt verwijderen, kunt u deze hand matig negeren.
 
 ### <a name="canceling-recommendations"></a>Aanbevelingen annuleren
 
-Aanbevelingen die zich in een **in behandeling**, **Validating**, of **succes** status kan worden geannuleerd. Aanbevelingen met de status van **Executing** kan niet worden geannuleerd.
+Aanbevelingen met de status in **behandeling**, **valideren**of **geslaagd** kunnen worden geannuleerd. Aanbevelingen met de status **bezig met uitvoeren** kunnen niet worden geannuleerd.
 
-1. Selecteer een aanbeveling in de **afstemmen geschiedenis** gebied te openen de **gegevens over de aanbevelingen** pagina.
-2. Klik op **annuleren** om af te breken van het proces van het toepassen van de aanbeveling.
+1. Selecteer een aanbeveling in het gebied afstemmings **geschiedenis** om de pagina met **Details over aanbevelingen** te openen.
+2. Klik op **Annuleren** om het proces van het Toep assen van de aanbeveling af te breken.
 
 ## <a name="monitoring-operations"></a>Controlebewerkingen
 
-Toepassen van een aanbeveling mogelijk niet onmiddellijk plaatsvindt. De portal bevat informatie over de status van de aanbeveling. Hier volgen de mogelijke statussen die een index, kan zich in:
+Het Toep assen van een aanbeveling wordt mogelijk niet onmiddellijk uitgevoerd. De portal biedt Details over de status van aanbeveling. Hieronder ziet u mogelijke statussen die een index kan hebben:
 
 | Status | Description |
 |:--- |:--- |
-| In behandeling |Aanbeveling opdracht is ontvangen en gepland voor uitvoering van toepassing. |
-| Wordt uitgevoerd |De aanbeveling is toegepast. |
-| Valideren |De aanbeveling is toegepast en de service is meten van de voordelen. |
-| Geslaagd |De aanbeveling is toegepast en voordelen zijn gemeten. |
-| Fout |Er is een fout opgetreden tijdens het proces van het toepassen van de aanbeveling. Dit is een tijdelijk probleem of mogelijk een schema wijzigen in de tabel en het script is niet meer geldig. |
-| Terugdraaien |De aanbeveling is toegepast, maar niet-goed presterende ervan en wordt automatisch hersteld. |
+| In behandeling |De opdracht aanbeveling Toep assen is ontvangen en is gepland voor uitvoering. |
+| In uitvoering |De aanbeveling wordt toegepast. |
+| Valideren |Aanbeveling is toegepast en de service meet de voor delen. |
+| Geslaagd |De aanbeveling is toegepast en de voor delen zijn gemeten. |
+| Fout |Er is een fout opgetreden tijdens het toepassen van de aanbeveling. Dit kan een tijdelijk probleem zijn, of mogelijk een schema wijziging aan de tabel en het script is niet meer geldig. |
+| Terugdraaien |De aanbeveling is toegepast, maar is niet-uitgevoerd en wordt automatisch teruggezet. |
 | Teruggedraaid |De aanbeveling is hersteld. |
 
-Klik op een in-process-aanbeveling in de lijst voor meer informatie:
+Klik in de lijst op een aanbeveling in het proces om meer informatie weer te geven:
 
 ![Aanbevolen indexen](./media/sql-database-advisor-portal/operations.png)
 
-### <a name="reverting-a-recommendation"></a>Herstellen van een aanbeveling
-Als u de aanbevelingen voor prestaties gebruikt voor het toepassen van de aanbeveling (wat betekent dat u handmatig niet de T-SQL-script hebt uitgevoerd), wordt automatisch hersteld de wijziging als de invloed op de prestaties negatief is gevonden. Als voor een bepaalde reden herstellen van een aanbeveling wilt, kunt u het volgende doen:
+### <a name="reverting-a-recommendation"></a>Een aanbeveling herstellen
+Als u de aanbevelingen voor prestaties hebt gebruikt om de aanbeveling toe te passen (wat betekent dat u het T-SQL-script niet hand matig hebt uitgevoerd), wordt de wijziging automatisch teruggezet als de prestaties negatief zijn. Als u alleen een aanbeveling wilt herstellen, kunt u het volgende doen:
 
-1. Selecteer een aanbeveling is toegepast in de **Afstemmingsgeschiedenis** gebied.
-2. Klik op **Revert** op de **details van de aanbeveling** pagina.
+1. Selecteer een geslaagde aanbeveling in het gebied afstemmings **geschiedenis** .
+2. Klik op de pagina **aanbeveling Details** op **herstellen** .
 
 ![Aanbevolen indexen](./media/sql-database-advisor-portal/details.png)
 
-## <a name="monitoring-performance-impact-of-index-recommendations"></a>Bewaking van invloed op de prestaties van indexaanbevelingen voor de
-Nadat de aanbevelingen zijn geïmplementeerd (momenteel, index-bewerkingen en alleen de aanbevelingen voor de query's parameteriseren), klikt u op **Queryinzichten** op de aanbeveling details pagina als u wilt openen [Query Prestatie-inzichten](sql-database-query-performance.md) en de impact van de prestaties van uw belangrijkste query's zien.
+## <a name="monitoring-performance-impact-of-index-recommendations"></a>Prestatie-impact van index aanbevelingen controleren
+Nadat de aanbevelingen zijn geïmplementeerd (momenteel alleen de aanbevelingen van index bewerkingen en para meters), kunt u op de pagina aanbevelings Details op **query Insights** klikken om inzicht in de [query prestaties](sql-database-query-performance.md) te openen en te zien de invloed op de prestaties van uw meest voorkomende query's.
 
-![Invloed op de prestaties van de monitor](./media/sql-database-advisor-portal/query-insights.png)
+![Prestatie-impact bewaken](./media/sql-database-advisor-portal/query-insights.png)
 
 ## <a name="summary"></a>Samenvatting
-Azure SQL-Database bevat aanbevelingen voor het verbeteren van de prestaties van de SQL-database. Door op te geven T-SQL-scripts, krijgt u hulp bij het optimaliseren van uw database en uiteindelijk verbeteren van de prestaties van query's.
+Azure SQL Database biedt aanbevelingen voor het verbeteren van de SQL database prestaties. Door T-SQL-scripts te bieden, kunt u hulp krijgen bij het optimaliseren van uw data base en uiteindelijk de query prestaties verbeteren.
 
 ## <a name="next-steps"></a>Volgende stappen
-Bewaak uw aanbevelingen en doorgaan om toe te passen om prestaties te zetten. Databaseworkloads zijn dynamisch en veranderen voortdurend. Azure SQL Database blijft bewaakt en doet aanbevelingen die u kunnen mogelijk de verbeteren de prestaties van uw database. 
+Controleer uw aanbevelingen en pas deze toe om de prestaties te verfijnen. Data base-workloads zijn dynamisch en veranderen voortdurend. Azure SQL Database blijft controleren en aanbevelingen bieden waarmee u de prestaties van uw data base kunt verbeteren. 
 
-* Zie [automatisch afstemmen](sql-database-automatic-tuning.md) voor meer informatie over het automatisch afstemmen in Azure SQL Database.
-* Zie [aanbevelingen voor prestaties](sql-database-advisor.md) voor een overzicht van Azure SQL Database-aanbevelingen voor prestaties.
-* Zie [Query prestatie-inzichten](sql-database-query-performance.md) voor meer informatie over het weergeven van de invloed op de prestaties van uw belangrijkste query's.
+* Zie [automatisch afstemmen](sql-database-automatic-tuning.md) voor meer informatie over het automatisch afstemmen van Azure SQL database.
+* Bekijk de [aanbevelingen voor prestaties](sql-database-advisor.md) voor een overzicht van Azure SQL database prestatie aanbevelingen.
+* Zie [query performance Insights](sql-database-query-performance.md) voor meer informatie over het weer geven van de prestatie-impact van uw meest voorkomende query's.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)

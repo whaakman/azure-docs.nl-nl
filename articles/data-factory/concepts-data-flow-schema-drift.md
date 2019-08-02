@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 562daa024985a546ffb49c4da11eace3bc81a659
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: b5777300f5033569caf3868218e747df3ff83a76
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314812"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640227"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Gegevens stroom schema drift toewijzen
 
@@ -65,7 +65,7 @@ Vervolgens worden de waarden voor elk van deze overeenkomende kolommen afgerond 
 
 ```round(sum ($$))```
 
-U kunt dit testen met behulp van de Azure Data Factory data flow-voor beeld ' taxi-demo '. Schakel over op de foutopsporingssessie met de schakel optie voor fout opsporing boven aan het ontwerp oppervlak voor gegevens stromen, zodat u uw resultaten interactief kunt zien:
+U kunt deze schema drift-functionaliteit op het werk zien met de Azure Data Factory gegevens stroom voor beeld van een taxi. Schakel over op de foutopsporingssessie met de schakel optie voor fout opsporing boven aan het ontwerp oppervlak voor gegevens stromen, zodat u uw resultaten interactief kunt zien:
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
@@ -75,6 +75,9 @@ Wanneer u nieuwe kolommen met kolom patronen genereert, kunt u deze nieuwe kolom
 * Gebruik ' byPosition ' om de nieuwe kolommen op positie nummer te identificeren.
 * Gebruik ' byName ' om de nieuwe kolommen te identificeren met hun naam.
 * Gebruik in kolom patronen "naam", "Stream", "position" of "type" of een wille keurige combi natie van deze om nieuwe kolommen te zoeken.
+
+## <a name="rule-based-mapping"></a>Toewijzing op basis van een regel
+De SELECT-en Sink-trans formatie ondersteunen patroon vergelijking via op regels gebaseerde toewijzing. Hiermee kunt u regels maken waarmee u geplaatste kolommen aan kolom aliassen kan toewijzen en die kolommen naar uw bestemming kunnen opvangen.
 
 ## <a name="next-steps"></a>Volgende stappen
 In de [taal van de data flow-expressie](data-flow-expression-functions.md) vindt u aanvullende voorzieningen voor kolom patronen en schema-drift, waaronder "byName" en "byPosition".

@@ -1,7 +1,7 @@
 ---
-title: Veelgestelde vragen - persoonlijkheid Chat
+title: Veelgestelde vragen-Personality Chat
 titlesuffix: Azure Cognitive Services
-description: Veelgestelde vragen over persoonlijkheid Chat
+description: Veelgestelde vragen over Personality Chat
 services: cognitive-services
 author: noellelacharite
 manager: nitinme
@@ -11,27 +11,28 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
-ms.openlocfilehash: 88dfbb2a547b44de1bb98ca536c7841570a12168
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: e763e3c3731858e20226efbd354927f38c3d5d70
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829970"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704229"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-## <a name="why-doesnt-this-answer-every-question-i-ask-it-like-other-chat-bots"></a>Waarom niet dit elke vraag die ik, net als andere bots chat vragen worden beantwoord?
+## <a name="why-doesnt-this-answer-every-question-i-ask-it-like-other-chat-bots"></a>Waarom wordt dit antwoord niet elke vraag gesteld, zoals bij een andere chat bots?
 
-Project persoonlijkheid chat wordt een bot met algemene kleine praten die worden gepresenteerd persoonlijkheid en maakt u een volledigere gebruikerservaring te verbeteren. Het is niet ontworpen voor het transport van op de lange discussies over onderwerpen die niet relevant zijn voor de primaire functie van de bot. Terwijl deze kan reageren op alle gesprekken, deze is beperkt, in de bètaversie, naar algemene kleine praten domeinen.
+Met de chat functie van project persoonlijkheid wordt een bot verbeterd met een gemeen schappelijke kleine beleving waarbij persoonlijkheid wordt gedemonstreerd en een uitgebreidere gebruikers ervaring wordt gemaakt. Het is niet ontworpen voor het nemen van lange gesp rekken over onderwerpen die niet relevant zijn voor de primaire functie van de bot. Hoewel het kan reageren op alle conversaties, is de beperking beperkt, in de bèta versie, tot algemene kleine pratende domeinen.
 
-## <a name="how-can-i-customize-the-personality-to-suit-my-brand"></a>Hoe kan ik de persoonlijkheid op basis van mijn merk aanpassen?
+## <a name="how-can-i-customize-the-personality-to-suit-my-brand"></a>Hoe kan ik de persoonlijkheid aanpassen aan mijn merk?
 
-Selecteer de dichtstbijzijnde persona uit de beschikbare standaardregels Persona's. U kunt vandaag de dag de redactionele-bibliotheek en de antwoorden beter aan de behoeften van uw merk bewerken. In de toekomst kunt u een voorbeeld reeks uitingen uploaden vanaf uw gekozen persoonlijkheid en de dichtstbijzijnde versie van de persona-ID vinden. Er zijn ook manieren opnieuw trainen en het model aanpassen.
+Selecteer de dichtstbijzijnde persoon in de beschik bare standaard personen. U kunt vandaag nog de redactionele bibliotheek maken en de reacties bewerken zodat deze beter aansluiten bij uw merk. In de toekomst kunt u een voor beeld van een set uitingen uploaden van uw gekozen persoonlijkheid en de meest overeenkomende persoons-ID-versie vinden. Er zijn ook manieren om het model te trainen en aan te passen.
 
-## <a name="is-this-service-powering-existing-intelligent-agents-such-aszo"></a>Is deze service bestaande intelligente agents zoals Zo inschakelen?
+## <a name="is-this-service-powering-existing-intelligent-agents-such-aszo"></a>Is deze service in staat om bestaande intelligente agents zoals zo zo in te scha kelen?
 
-De services die mogelijk maakt Zo, Cortana en Project persoonlijkheid Chat sommige vergelijkbare technieken delen, maar andere stacks zijn. Het heeft geleerde lessen van de ervaringen met Zo en Cortana verwerkt.
+De services die u op een later, Cortana en project Personality Chat, hebben vergelijk bare technieken te delen, maar zijn verschillende stapels. De IT-ervaring heeft met zo en zonder Cortana informatie over de ervaringen opgenomen.
 
-## <a name="can-this-service-lead-to-bad-customer-experiences"></a>Kan deze service leiden tot slechte ervaringen voor klanten?
+## <a name="can-this-service-lead-to-bad-customer-experiences"></a>Kan deze service leiden tot slechte klant ervaringen?
 
-Als u wilt een rijkere ervaring bieden, persoonlijkheid Chat kunt genereren antwoorden die in de redactionele gegevensset en er wordt geprobeerd met het interpreteren van alle invoer van de gebruiker. Het is dus mogelijk dat een reactie wordt niet lijken rechts in de context. Er zijn verschillende controles ingebouwd om ongunstig antwoorden te voorkomen dat. Hiervoor wordt voortgeborduurd op kennis van intelligente agents zoals Zo. De standaardinstelling is dat Personality Chat alleen reageert op herkende intenties van gebruikers. U kunt uitproberen of Project Personality Chat geschikt is voor uw situatie. Uw feedback wordt zeer op prijs gesteld als u van mening bent dat ergens meer training vereist is. Als u deze service in de toekomst met uw klanten gebruiken, raden wij u rekening houden met geanonimiseerde logeboekregistratie bij het identificeren van problemen met live gebruikersinteracties.
+Personality Chat een rijkere ervaring te bieden, kunt u in de redactionele gegevensset reacties laten genereren die groter zijn dan het aantal gebruikers invoer. Het is dus mogelijk dat een antwoord in de context niet goed lijkt. Er zijn verschillende controles ingebouwd om ongunstig antwoorden te voorkomen dat. Hiervoor wordt voortgeborduurd op kennis van intelligente agents zoals Zo. De standaardinstelling is dat Personality Chat alleen reageert op herkende intenties van gebruikers. U kunt uitproberen of Project Personality Chat geschikt is voor uw situatie. Uw feedback wordt zeer op prijs gesteld als u van mening bent dat ergens meer training vereist is. Als u deze service in de toekomst gebruikt met uw klanten, raden we u aan om geanonimiseerd-logboek registratie te gebruiken om problemen met Live gebruikers interacties te identificeren.

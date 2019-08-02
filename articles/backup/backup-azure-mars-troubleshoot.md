@@ -1,18 +1,19 @@
 ---
 title: Problemen met de Azure Backup-Agent oplossen
 description: Problemen met de installatie en registratie van de Azure Backup Agent oplossen
-author: saurabhsensharma
-manager: sivan
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.author: saurse
-ms.openlocfilehash: 6dc56e4eccbad0de986551e055e877d3d051b145
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 12cc584b27134c5c109f1a95eb4ccf8a7b2f0c64
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465972"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689221"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Problemen met de Microsoft Azure Recovery Services-agent (MARS) oplossen
 
@@ -88,7 +89,7 @@ U wordt aangeraden het volgende te controleren voordat u begint met het oplossen
 
 | Fout  | Mogelijke oorzaken | Aanbevolen acties |
 |---------|---------|---------|
-|<br />De activering is niet voltooid. De huidige bewerking is mislukt vanwege een interne service fout [0x1FC07]. Probeer de bewerking na enige tijd opnieuw. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen.     | <li> De map Scratch bevindt zich op een volume dat niet genoeg ruimte heeft. <li> De Scratch-map is onjuist verplaatst. <li> Het bestand OnlineBackup. KEK ontbreekt.         | <li>Voer een upgrade uit naar de [meest recente versie](https://aka.ms/azurebackup_agent) van de Mars-agent.<li>Verplaats de Scratch-map of cache locatie naar een volume met een vrije ruimte tussen 5% en 10% van de totale grootte van de back-upgegevens. Raadpleeg de stappen in [Veelgestelde vragen over het maken van back-ups van bestanden en mappen](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)om de cache locatie correct te verplaatsen.<li> Zorg ervoor dat het bestand OnlineBackup. KEK aanwezig is. <br>*De standaard locatie voor de Scratch-map of het pad naar de cache is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|<br />De activering is niet voltooid. De huidige bewerking is mislukt vanwege een interne service fout [0x1FC07]. Wacht even en probeer het opnieuw. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen.     | <li> De map Scratch bevindt zich op een volume dat niet genoeg ruimte heeft. <li> De Scratch-map is onjuist verplaatst. <li> Het bestand OnlineBackup. KEK ontbreekt.         | <li>Voer een upgrade uit naar de [meest recente versie](https://aka.ms/azurebackup_agent) van de Mars-agent.<li>Verplaats de Scratch-map of cache locatie naar een volume met een vrije ruimte tussen 5% en 10% van de totale grootte van de back-upgegevens. Raadpleeg de stappen in [Veelgestelde vragen over het maken van back-ups van bestanden en mappen](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)om de cache locatie correct te verplaatsen.<li> Zorg ervoor dat het bestand OnlineBackup. KEK aanwezig is. <br>*De standaard locatie voor de Scratch-map of het pad naar de cache is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>Wachtwoordzin voor versleuteling is niet juist geconfigureerd
 

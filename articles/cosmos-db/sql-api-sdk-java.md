@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: SQL Java API, SDK en resources'
+title: 'Azure Cosmos DB: SQL Java API, SDK & resources'
 description: Meer informatie over de SQL Java API en SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure Cosmos DB SQL Java SDK.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 7af43d24b03a4c548925bdca4189fd0524c701a4
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: bf89d419bcd97c276df35701bc4fd808f599094a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341642"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637702"
 ---
-# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK voor SQL-API: Opmerkingen bij de release en resources
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java-SDK voor SQL-API: Release opmerkingen en bronnen
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET-Wijzigingenfeed](sql-api-sdk-dotnet-changefeed.md)
@@ -27,8 +27,8 @@ ms.locfileid: "67341642"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resourceprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Bulk-uitvoerder-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk-uitvoerder-java](sql-api-sdk-bulk-executor-java.md)
 
 De SQL API Java-SDK biedt ondersteuning voor synchrone bewerkingen. Voor asynchrone ondersteuning, gebruikt u de [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
 
@@ -44,22 +44,22 @@ De SQL API Java-SDK biedt ondersteuning voor synchrone bewerkingen. Voor asynchr
 ## <a name="release-notes"></a>Releaseopmerkingen
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
-* Bug verholpen in PartitionKey voor hash-V2.
+* Opgeloste fout in PartitionKey voor hash v2.
 
 ### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
 * Er is ondersteuning toegevoegd voor samengestelde indexen.
-* Bug verholpen in globaal eindpunt voor manager om af te dwingen vernieuwen.
-* Probleem opgelost voor de upsert-bewerking met de voorwaarden in de directe modus.
+* Er is een probleem opgelost in Global Endpoint Manager om het vernieuwen af te dwingen.
+* Er is een fout opgelost voor upsert met voor waarden in de directe modus.
 
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
-* Probleem opgelost in de cache van gateway-adres.
+* Er is een fout opgelost in de cache van de gateway.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Ondersteuning voor meerdere regio's schrijven toegevoegd voor de directe modus.
 * Er is ondersteuning toegevoegd voor het verwerken van IOExceptions gegenereerd als ServiceUnavailable uitzonderingen, van een proxy.
 * Beleid voor opnieuw proberen van eindpunt detectie, een bug vast.
 * Een opgelost om ervoor te zorgen null-aanwijzer uitzonderingen worden niet in BaseDatabaseAccountConfigurationProvider veroorzaakt.
-* Een opgelost om ervoor te zorgen dat queryiterator geen null-waarden geretourneerd.
+* Er is een fout opgelost om ervoor te zorgen dat QueryIterator geen Null-waarden retourneert.
 * Een probleem opgelost om ervoor te zorgen dat grote PartitionKey is toegestaan
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
@@ -127,7 +127,7 @@ De SQL API Java-SDK biedt ondersteuning voor synchrone bewerkingen. Voor asynchr
 * Ondersteuning toegevoegd voor feed wijzigen.
 * Ondersteuning toegevoegd voor verzameling quotumgegevens via RequestOptions.setPopulateQuotaInfo.
 * Er is ondersteuning toegevoegd voor de opgeslagen procedure script logboekregistratie via RequestOptions.setScriptLoggingEnabled.
-* Een bug opgelost waarbij query in de modus DirectHttps reageert als vertraging fouten worden aangetroffen.
+* Er is een fout opgelost waarbij de query in de DirectHttps-modus niet meer reageert wanneer er vertragings fouten optreden.
 * Een bug opgelost in sessiemodus consistentie.
 * Een opgelost waardoor NullReferenceException in HttpContext wanneer aanvraagsnelheid hoog is.
 * Verbeterde prestaties van DirectHttps modus.
@@ -142,7 +142,7 @@ De SQL API Java-SDK biedt ondersteuning voor synchrone bewerkingen. Voor asynchr
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
 * Een bug opgelost bij het Verbindingsbeheer om te voorkomen dat het lekken van de verbinding in de modus voor directe connectiviteit.
-* Een bug opgelost in de bovenste query waar deze NullReference uitzondering kan genereren.
+* Er is een fout opgelost in de bovenste query waar deze NullReference-uitzonde ring kan genereren.
 * Verbeterde prestaties doordat er minder van netwerkaanroep voor de interne caches.
 * Toegevoegde statuscode, ActivityID en aanvraag-URI in DocumentClientException voor het oplossen van betere.
 
@@ -198,7 +198,7 @@ De SQL API Java-SDK biedt ondersteuning voor synchrone bewerkingen. Voor asynchr
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Ondersteunt georuimtelijke Index
-* Hiermee valideert u de eigenschap ID voor alle resources. Kunnen geen id's voor resources bevatten?, /, #, \, tekens bevatten of eindigen met een spatie.
+* Valideert de eigenschap ID voor alle resources. Kunnen geen id's voor resources bevatten?, /, #, \, tekens bevatten of eindigen met een spatie.
 * Nieuwe header 'index transformatie uitgevoerd' toevoegen aan ResourceResponse.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
@@ -215,7 +215,7 @@ Nieuwe functies en functionaliteit en -optimalisatie worden alleen toegevoegd aa
 Een aanvraag voor het Cosmos DB met behulp van een buiten gebruik gestelde SDK worden geweigerd door de service.
 
 > [!WARNING]
-> Alle versies **1.x** van de SQL-SDK voor Java wordt beëindigd op **30 mei 2020**.
+> Alle versies **1. x** van de SQL-SDK voor Java zullen op **30 mei 2020**worden ingetrokken.
 > 
 >
 
@@ -229,41 +229,41 @@ Een aanvraag voor het Cosmos DB met behulp van een buiten gebruik gestelde SDK w
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
 | [2.1.3](#2.1.3) |13 maart 2018 |--- |
-| [2.1.2](#2.1.2) |09 maart 2018 |--- |
+| [2.1.2](#2.1.2) |9 maart 2018 |--- |
 | [2.1.1](#2.1.1) |13 december 2018 |--- |
 | [2.1.0](#2.1.0) |20 november 2018 |--- |
 | [2.0.0](#2.0.0) |21 september 2018 |--- |
-| [1.16.4](#1.16.4) |10 september 2018 |En met 30 mei 2020 |
-| [1.16.3](#1.16.3) |09 september 2018 |En met 30 mei 2020 |
-| [1.16.2](#1.16.2) |29 juni 2018 |En met 30 mei 2020 |
-| [1.16.1](#1.16.1) |16 mei 2018 |En met 30 mei 2020 |
-| [1.16.0](#1.16.0) |15 maart 2018 |En met 30 mei 2020 |
-| [1.15.0](#1.15.0) |14 november 2017 |En met 30 mei 2020 |
-| [1.14.0](#1.14.0) |28 oktober 2017 |En met 30 mei 2020 |
-| [1.13.0](#1.13.0) |25 augustus 2017 |En met 30 mei 2020 |
-| [1.12.0](#1.12.0) |Op 11 juli 2017 |En met 30 mei 2020 |
-| [1.11.0](#1.11.0) |10 mei 2017 |En met 30 mei 2020 |
-| [1.10.0](#1.10.0) |11 maart 2017 |En met 30 mei 2020 |
-| [1.9.6](#1.9.6) |21 februari 2017 |En met 30 mei 2020 |
-| [1.9.5](#1.9.5) |En met 31 januari 2017 |En met 30 mei 2020 |
-| [1.9.4](#1.9.4) |24 november 2016 |En met 30 mei 2020 |
-| [1.9.3](#1.9.3) |30 oktober 2016 |En met 30 mei 2020 |
-| [1.9.2](#1.9.2) |28 oktober 2016 |En met 30 mei 2020 |
-| [1.9.1](#1.9.1) |26 oktober 2016 |En met 30 mei 2020 |
-| [1.9.0](#1.9.0) |03 oktober 2016 |En met 30 mei 2020 |
-| [1.8.1](#1.8.1) |Tot 30 juni 2016 |En met 30 mei 2020 |
-| [1.8.0](#1.8.0) |14 juni 2016 |En met 30 mei 2020 |
-| [1.7.1](#1.7.1) |30 april 2016 |En met 30 mei 2020 |
-| [1.7.0](#1.7.0) |27 april 2016 |En met 30 mei 2020 |
-| [1.6.0](#1.6.0) |29 maart 2016 |En met 30 mei 2020 |
-| [1.5.1](#1.5.1) |En met 31 december 2015 |En met 30 mei 2020 |
-| [1.5.0](#1.5.0) |04 december 2015 |En met 30 mei 2020 |
-| [1.4.0](#1.4.0) |05 oktober 2015 |En met 30 mei 2020 |
-| [1.3.0](#1.3.0) |05 oktober 2015 |En met 30 mei 2020 |
-| [1.2.0](#1.2.0) |05 augustus 2015 |En met 30 mei 2020 |
-| [1.1.0](#1.1.0) |09 juli 2015 |En met 30 mei 2020 |
-| 1.0.1 |12 mei 2015 |En met 30 mei 2020 |
-| [1.0.0](#1.0.0) |07 april 2015 |En met 30 mei 2020 |
+| [1.16.4](#1.16.4) |10 september 2018 |30 mei 2020 |
+| [1.16.3](#1.16.3) |09 september 2018 |30 mei 2020 |
+| [1.16.2](#1.16.2) |29 juni 2018 |30 mei 2020 |
+| [1.16.1](#1.16.1) |16 mei 2018 |30 mei 2020 |
+| [1.16.0](#1.16.0) |15 maart 2018 |30 mei 2020 |
+| [1.15.0](#1.15.0) |14 november 2017 |30 mei 2020 |
+| [1.14.0](#1.14.0) |28 oktober 2017 |30 mei 2020 |
+| [1.13.0](#1.13.0) |25 augustus 2017 |30 mei 2020 |
+| [1.12.0](#1.12.0) |Op 11 juli 2017 |30 mei 2020 |
+| [1.11.0](#1.11.0) |10 mei 2017 |30 mei 2020 |
+| [1.10.0](#1.10.0) |11 maart 2017 |30 mei 2020 |
+| [1.9.6](#1.9.6) |21 februari 2017 |30 mei 2020 |
+| [1.9.5](#1.9.5) |En met 31 januari 2017 |30 mei 2020 |
+| [1.9.4](#1.9.4) |24 november 2016 |30 mei 2020 |
+| [1.9.3](#1.9.3) |30 oktober 2016 |30 mei 2020 |
+| [1.9.2](#1.9.2) |28 oktober 2016 |30 mei 2020 |
+| [1.9.1](#1.9.1) |26 oktober 2016 |30 mei 2020 |
+| [1.9.0](#1.9.0) |03 oktober 2016 |30 mei 2020 |
+| [1.8.1](#1.8.1) |Tot 30 juni 2016 |30 mei 2020 |
+| [1.8.0](#1.8.0) |14 juni 2016 |30 mei 2020 |
+| [1.7.1](#1.7.1) |30 april 2016 |30 mei 2020 |
+| [1.7.0](#1.7.0) |27 april 2016 |30 mei 2020 |
+| [1.6.0](#1.6.0) |29 maart 2016 |30 mei 2020 |
+| [1.5.1](#1.5.1) |En met 31 december 2015 |30 mei 2020 |
+| [1.5.0](#1.5.0) |04 december 2015 |30 mei 2020 |
+| [1.4.0](#1.4.0) |05 oktober 2015 |30 mei 2020 |
+| [1.3.0](#1.3.0) |05 oktober 2015 |30 mei 2020 |
+| [1.2.0](#1.2.0) |05 augustus 2015 |30 mei 2020 |
+| [1.1.0](#1.1.0) |09 juli 2015 |30 mei 2020 |
+| 1.0.1 |12 mei 2015 |30 mei 2020 |
+| [1.0.0](#1.0.0) |07 april 2015 |30 mei 2020 |
 | 0.9.5-prelease |09 maart 2015 |En met 29 februari 2016 |
 | 0.9.4-prelease |17 februari 2015 |En met 29 februari 2016 |
 | 0.9.3-prelease |13 januari 2015 |En met 29 februari 2016 |

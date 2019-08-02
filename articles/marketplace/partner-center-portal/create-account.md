@@ -5,14 +5,14 @@ author: mattwojo
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
-ms.topic: how-to
+ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: 24ed03cde967f0fef7abdc4c2df1f8e5d6bdb6ab
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 16ed52aa2b56a97469ae8fc47299f09593b19c45
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327118"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668342"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Een commercieel Marketplace-account maken in het partner centrum
 
@@ -52,7 +52,7 @@ Zodat u het zakelijke e-mail account domein van uw bedrijf kunt koppelen aan uw 
 
 #### <a name="agree-to-terms-and-conditions"></a>Ga akkoord met de voor waarden
 
-U moet akkoord gaan met twee sets voor waarden, waaronder de [Microsoft Online Subscription overeenkomst](https://go.microsoft.com/fwlink/?LinkId=870457), en de [Microsoft Marketplace Publisher-overeenkomst](https://go.microsoft.com/fwlink/?linkid=843476).
+U moet akkoord gaan met de voor waarden in de [Microsoft Marketplace Publisher-overeenkomst](http://go.microsoft.com/fwlink/?LinkID=699560).
 
 #### <a name="provide-your-publisher-profile"></a>Uw Publisher-profiel opgeven
 

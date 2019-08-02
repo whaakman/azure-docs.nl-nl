@@ -1,5 +1,5 @@
 ---
-title: Voor beelden & algemene scenario's-Azure Logic Apps | Microsoft Docs
+title: Voor beelden & algemene scenario's-Azure Logic Apps
 description: Voor beelden, scenario's, zelf studies en scenario's voor Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -9,19 +9,19 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
-ms.date: 01/31/2018
-ms.openlocfilehash: 95eca4c7f3e8170f6559799fc4c706e95df70e9e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.date: 07/31/2019
+ms.openlocfilehash: 000de22105615c3f6aa015b07e13bf8a47955b52
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385520"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706788"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Veelvoorkomende scenario's, voor beelden, zelf studies en scenario's voor Azure Logic Apps
 
 [Azure Logic apps](../logic-apps/logic-apps-overview.md) helpt u bij het organiseren en integreren van verschillende services door honderden kant-en- [klare connectors](../connectors/apis-list.md)te bieden, variërend van on-premises SQL Server of SAP naar Azure Cognitive Services. De Logic Apps-service is ' serverloos ', dus u hoeft zich geen zorgen te maken over schalen of instanties. U hoeft alleen de werk stroom te definiëren met een trigger en de acties die de werk stroom uitvoert. Het onderliggende platform zorgt voor schaal, Beschik baarheid en prestaties. Logic Apps is vooral nuttig voor gebruik van gevallen en scenario's waarbij u meerdere acties op meerdere systemen moet coördineren.
 
-Hier volgen enkele algemene voor beelden en scenario's voor meer informatie over de vele patronen en mogelijkheden die [Azure Logic apps](../logic-apps/logic-apps-overview.md) ondersteunt.
+Hier volgen enkele algemene voor beelden en scenario's voor meer informatie over de vele patronen en mogelijkheden die Azure Logic Apps ondersteunt.
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>Populaire start punten voor logische app-werk stromen
 
@@ -33,23 +33,31 @@ Elke logische app begint met een [*trigger*](../logic-apps/logic-apps-overview.m
 
 Hier volgen enkele veelvoorkomende voor beelden van triggers:
 
-* Polling 
+* Polling
 
-  * [ **Met Schedule-recurrence** trigger](../connectors/connectors-native-recurrence.md) kunt u de begin datum en-tijd en het terugkeer patroon voor het activeren van uw logische app instellen. 
-  U kunt bijvoorbeeld de dagen van de week en tijdstippen van de dag selecteren voor het activeren van uw logische app.
+  * Met de trigger voor [ **terugkeer patroon** ](../connectors/connectors-native-recurrence.md) kunt u de begin datum en-tijd en het terugkeer patroon instellen voor het activeren van uw logische app. U kunt bijvoorbeeld de dagen van de week en tijdstippen van de dag selecteren voor het activeren van uw logische app. Zie de volgende onderwerpen voor meer informatie:
 
-  * De trigger wanneer een e-mail wordt ontvangen, laat uw logische app controleren op nieuwe e-mail van elke e-mail provider die wordt ondersteund door Logic Apps, bijvoorbeeld [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/), enzovoort.
+    * [Terugkerende geautomatiseerde taken, processen en werk stromen plannen en uitvoeren met Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
+    * [Zelfstudie: Verkeer controleren volgens een planning met Azure Logic Apps](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
+
+  * De trigger wanneer een e-mail wordt ontvangen, laat uw logische app controleren op nieuwe e-mail van elke e-mail provider die wordt ondersteund door Logic Apps, bijvoorbeeld [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/), enzovoort. Zie de volgende onderwerpen voor meer informatie: 
+
+    * [Zelfstudie: Aanvragen voor adressen lijsten beheren met Azure Logic Apps](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
+    * [Zelfstudie: Het verwerken van e-mails en bijlagen met Azure Logic Apps automatiseren](../logic-apps/tutorial-process-email-attachments-workflow.md)
 
   * Met de [ **http-** trigger](../connectors/connectors-native-http.md) kan uw logische app een opgegeven service-eind punt controleren door te communiceren via http.
   
 * Push
 
-  * Met de [trigger **aanvraag/antwoord-Request** ](../connectors/connectors-native-reqres.md) kan uw logische app HTTP-aanvragen ontvangen en in realtime reageren op gebeurtenissen op een of andere manier.
+  * Met de [ **aanvraag** trigger](../connectors/connectors-native-reqres.md) kan uw logische app HTTP-aanvragen ontvangen en in real-time reageren op gebeurtenissen op een of andere manier.
 
-  * De [ **http-webhook** trigger](../connectors/connectors-native-webhook.md) meldt zich aan bij een service-eind punt door een *call back-URL* bij die service te registreren. 
-  Op die manier kan de service alleen een melding sturen wanneer de opgegeven gebeurtenis plaatsvindt, zodat de trigger de service niet hoeft te pollen.
+  * De [ **http-webhook** trigger](../connectors/connectors-native-webhook.md) meldt zich aan bij een service-eind punt door een *call back-URL* bij die service te registreren. Op die manier kan de service alleen een melding sturen wanneer de opgegeven gebeurtenis plaatsvindt, zodat de trigger de service niet hoeft te pollen.
 
-Nadat er een melding over nieuwe gegevens of een gebeurtenis is ontvangen, wordt de trigger geactiveerd, wordt er een nieuw exemplaar van de werk stroom voor de logische app gemaakt en worden de acties in de werk stroom uitgevoerd. U kunt toegang krijgen tot alle gegevens van de trigger in de werk stroom. Met de trigger ' on a New Tweet ' wordt de Tweet-inhoud bijvoorbeeld door gegeven aan de uitvoering van de logische app. 
+Nadat er een melding over nieuwe gegevens of een gebeurtenis is ontvangen, wordt de trigger geactiveerd, wordt er een nieuw exemplaar van de werk stroom voor de logische app gemaakt en worden de acties in de werk stroom uitgevoerd. U kunt toegang krijgen tot alle gegevens van de trigger in de werk stroom. Met de trigger ' on a New Tweet ' wordt de Tweet-inhoud bijvoorbeeld door gegeven aan de uitvoering van de logische app. Voer de volgende Snelstartgids uit om aan de slag te gaan met Azure Logic Apps:
+
+* [Snelstart: Maak uw eerste geautomatiseerde werk stroom met Azure Logic Apps in het Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Snelstart: Geautomatiseerde taken, processen en werk stromen maken met Azure Logic Apps met behulp van Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+* [Snelstart: Geautomatiseerde werk stromen voor logische apps maken en beheren met Visual Studio code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
 
 ## <a name="respond-to-triggers-and-extend-actions"></a>Reageren op Triggers en acties uitbreiden
 
@@ -81,6 +89,10 @@ U kunt Logic apps volledig ontwikkelen en implementeren met Visual Studio, Azure
 * [Logische apps maken en implementeren met Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Bewaking, logboek registratie en waarschuwingen voor bestaande Logic apps inschakelen](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Implementatie van logische apps automatiseren](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Voorbeeld: Verbinding maken met Azure Service Bus wachtrijen vanuit Azure Logic Apps en implementeren met Azure-pijp lijnen in azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Voorbeeld: Verbinding maken met Azure Storage accounts vanuit Azure Logic Apps en implementeren met Azure-pijp lijnen in azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Voorbeeld: Een actie van een functie-app instellen voor Azure Logic Apps en implementeren met Azure-pijp lijnen in azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Voorbeeld: Verbinding maken met een integratie account vanuit Azure Logic Apps en implementeren met Azure-pijp lijnen in azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>Inhouds typen, conversies en trans formaties binnen een uitvoering
 
@@ -112,6 +124,5 @@ Lees hoe Azure Logic Apps, samen met andere Azure-Services en micro soft-product
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Definities van logische apps bouwen met JSON](../logic-apps/logic-apps-author-definitions.md)
-* [Fouten en uitzonde ringen in Logic apps afhandelen](../logic-apps/logic-apps-exception-handling.md)
-* [Stuur uw opmerkingen, vragen, feedback of suggesties voor het verbeteren van Azure Logic Apps](https://feedback.azure.com/forums/287593-logic-apps)
+* Meer informatie over [connectors voor Logic apps](../connectors/apis-list.md)
+* Meer informatie over [B2B Enter prise Integration-scenario's met Azure Logic apps](../logic-apps/logic-apps-enterprise-integration-overview.md)

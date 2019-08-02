@@ -1,18 +1,19 @@
 ---
 title: Azure Monitor logboek gegevens model voor Azure Backup
 description: In dit artikel vindt u informatie over het gegevens model van Azure Monitor logboeken voor Azure Backup gegevens.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: adigan
-ms.openlocfilehash: 6563eefffee0ed8d9ce94c3e0a1e24b0d32314f0
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 878e4e7508d82f78e82f1fd8bda69079d9468e9f
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466161"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689239"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics gegevens model voor Azure Backup gegevens
 
@@ -329,12 +330,12 @@ Deze tabel bevat basis velden over back-upbeheerser vers.
 
 |Veld  |Gegevenstype  | Description  |
 |---------|---------|----------|
-|BackupManagmentServerName_s     |Text         |Naam van de server voor back-upbeheer        |
+|BackupManagementServerName_s     |Text         |Naam van de server voor back-upbeheer        |
 |AzureBackupAgentVersion_s     |Text         |Versie van de Azure Backup-Agent op de server voor back-upbeheer          |
-|BackupManagmentServerVersion_s     |Text         |Versie van de server voor back-upbeheer|
-|BackupManagmentServerOSVersion_s     |Text            |Versie van het besturings systeem van de server voor back-upbeheer|
+|BackupManagementServerVersion_s     |Text         |Versie van de server voor back-upbeheer|
+|BackupManagementServerOSVersion_s     |Text            |Versie van het besturings systeem van de server voor back-upbeheer|
 |BackupManagementServerType_s     |Text         |Type van de server voor back-upbeheer, zoals MABS, SC DPM|
-|BackupManagmentServerUniqueId_s     |Text         |Veld om de back-upbeheerserver op unieke wijze te identificeren       |
+|BackupManagementServerUniqueId_s     |Text         |Veld om de back-upbeheerserver op unieke wijze te identificeren       |
 
 ### <a name="preferredworkloadonvolume"></a>PreferredWorkloadOnVolume
 
