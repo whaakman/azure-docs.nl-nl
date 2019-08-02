@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect-synchronisatie: Mapextensies | Microsoft Docs'
-description: Dit onderwerp beschrijft de functie voor directory-extensies in Azure AD Connect.
+title: 'Azure AD Connect synchronisatie: Directory-extensies | Microsoft Docs'
+description: In dit onderwerp wordt de functie Directory-extensies in Azure AD Connect beschreven.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,57 +16,57 @@ ms.date: 10/05/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff0fd4d01eab739b79685c1de67cb8fe28873961
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 88fdfce58bdd8e13637e77d01d4b6c0ab21f696a
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347952"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607651"
 ---
-# <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect-synchronisatie: Uitbreidingen van de directory
-Directory-extensies kunt u het schema in Azure Active Directory (Azure AD) uit te breiden met uw eigen kenmerken van on-premises Active Directory. Deze functie kunt u LOB-apps kunt maken met kenmerken die u doorgaan met het on-premises beheren verbruikt. Deze kenmerken kunnen worden gebruikt via [directory-Azure AD Graph API-uitbreidingen](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) of [Microsoft Graph](https://developer.microsoft.com/graph/). U kunt de beschikbare kenmerken zien met behulp van [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) en [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), respectievelijk.
+# <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect synchronisatie: Directory-extensies
+U kunt Directory-extensies gebruiken om het schema uit te breiden in Azure Active Directory (Azure AD) met uw eigen kenmerken van on-premises Active Directory. Met deze functie kunt u LOB-apps bouwen door gebruik te maken van kenmerken die u on-premises blijft beheren. Deze kenmerken kunnen worden gebruikt via [Azure AD Graph API Directory-extensies](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) of [Microsoft Graph](https://developer.microsoft.com/graph/). U kunt de beschik bare kenmerken weer geven met behulp van respectievelijk [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) en [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
-Deze kenmerken worden op dit moment geen Office 365-werkbelasting verbruikt.
+Op dit moment gebruikt geen Office 365-werk belasting deze kenmerken.
 
-U configureren welke aanvullende kenmerken die u wilt synchroniseren in het pad van de aangepaste instellingen in de installatiewizard.
-
->[!NOTE]
->Het vak Beschikbare kenmerken is hoofdlettergevoelig.
-
-![Wizard voor schema-uitbreiding](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
-
-De installatie ziet u de volgende kenmerken die geldige kandidaten zijn:
-
-* Gebruikers en groepen objecttypen
-* Kenmerken met één waarde: String, Boolean, Integer, Binary
-* Meerdere waarden kenmerken: String, Binary
-
+U kunt configureren welke extra kenmerken u wilt synchroniseren in het pad voor aangepaste instellingen in de installatie wizard.
 
 >[!NOTE]
-> Hoewel Azure AD Connect ondersteunt meerdere waarden Active Directory synchroniseren kenmerken naar Azure AD als meerdere waarden mapextensies, is er momenteel geen manier ophalen/gebruiken voor de gegevens die in meerdere waarden directory-extensiekenmerken zijn geüpload.
+>Het vak beschik bare kenmerken is hoofdletter gevoelig.
 
-De lijst met kenmerken uit de cache van het schema dat gemaakt tijdens de installatie van Azure AD Connect gelezen. Als u extra kenmerken Active Directory-schema hebt uitgebreid, moet u [het schema vernieuwen](how-to-connect-installation-wizard.md#refresh-directory-schema) voordat deze nieuwe kenmerken weergegeven worden.
+![Wizard schema-uitbrei ding](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 
-Een object in Azure AD kan maximaal 100 kenmerken voor directory-extensies hebben. De maximale lengte is 250 tekens. Als een kenmerkwaarde langer is, wordt deze door de synchronisatie-engine afgekapt.
+In de installatie worden de volgende kenmerken weer gegeven. Dit zijn geldige kandidaten:
 
-Een toepassing geregistreerd tijdens de installatie van Azure AD Connect, waar deze kenmerken beschikbaar zijn. Hier ziet u deze toepassing in Azure portal.
+* Object typen voor gebruikers en groepen
+* Kenmerken met één waarde: Teken reeks, Booleaanse waarde, geheel getal, binair
+* Kenmerken met meerdere waarden: Teken reeks, binair
 
-![Schema-uitbreiding app](./media/how-to-connect-sync-feature-directory-extensions/extension3new.png)
 
-De kenmerken worden voorafgegaan door de extensie \_{AppClientId}\_. AppClientId heeft dezelfde waarde voor alle kenmerken in uw Azure AD-tenant.
+>[!NOTE]
+> Hoewel Azure AD Connect ondersteuning biedt voor het synchroniseren van kenmerken met meerdere waarden Active Directory naar Azure AD als Directory-extensies met meerdere waarden, is er momenteel geen manier om de gegevens op te halen/te gebruiken die zijn geüpload in kenmerken van Directory-extensies met meerdere waarden.
 
-Deze kenmerken zijn nu beschikbaar via de Azure AD Graph API. U kunt query's voor uitvoert met behulp van [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/).
+De lijst met kenmerken wordt gelezen uit de schema cache die is gemaakt tijdens de installatie van Azure AD Connect. Als u het Active Directory schema met aanvullende kenmerken hebt uitgebreid, moet u [het schema vernieuwen](how-to-connect-installation-wizard.md#refresh-directory-schema) voordat deze nieuwe kenmerken zichtbaar zijn.
+
+Een object in azure AD kan Maxi maal 100 kenmerken voor Directory-extensies hebben. De maximale lengte is 250 tekens. Als een kenmerk waarde langer is, wordt deze door de synchronisatie-engine afgekapt.
+
+Tijdens de installatie van Azure AD Connect wordt een toepassing geregistreerd waar deze kenmerken beschikbaar zijn. U kunt deze toepassing weer geven in de Azure Portal.
+
+![App voor schema-uitbrei ding](./media/how-to-connect-sync-feature-directory-extensions/extension3new.png)
+
+De kenmerken worden voorafgegaan door de extensie \_{AppClientId}.\_ AppClientId heeft dezelfde waarde voor alle kenmerken in uw Azure AD-Tenant.
+
+Deze kenmerken zijn nu beschikbaar via de Azure AD-Graph API. U kunt query's uitvoeren met behulp van [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/).
 
 ![Azure AD Graph Explorer](./media/how-to-connect-sync-feature-directory-extensions/extension4.png)
 
-Of u kunt de kenmerken via de Microsoft Graph API opvragen met behulp van [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
+U kunt ook de kenmerken opvragen via de Microsoft Graph-API met behulp van [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> U moet vragen om de kenmerken die moeten worden geretourneerd. Selecteer expliciet de kenmerken die u als volgt: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division. 
+> U moet vragen om de kenmerken te retour neren. Selecteer de kenmerken als volgt expliciet: https\://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $Select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
-> Zie voor meer informatie, [Microsoft Graph: Gebruik queryparameters](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+> Zie [Microsoft Graph voor meer informatie: Query parameters](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter)gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over de [Azure AD Connect-synchronisatie](how-to-connect-sync-whatis.md) configuratie.
+Meer informatie over de [Azure AD Connect synchronisatie](how-to-connect-sync-whatis.md) configuratie.
 
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](whatis-hybrid-identity.md).

@@ -1,20 +1,21 @@
 ---
 title: 'Azure Backup: Back-ups van virtuele Azure-machines maken met REST API'
 description: Back-upbewerkingen van Azure VM-back-ups beheren met REST API
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: REST API; Back-ups van Azure-VM'S; Azure VM herstellen;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: e78c7ca9e5b39beb160aeef96dbbf6bce07613e4
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 7a69fc7c9077fa10ddf808f1cd953f6739eabe20
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466842"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688731"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Maak een back-up van een Azure-VM met behulp van Azure Backup via REST API
 

@@ -1,7 +1,7 @@
 ---
-title: Over het gebruik van meerdere waarden entiteiten met een Model van de cursist conversatie - Microsoft Cognitive Services | Microsoft Docs
+title: Entiteiten met meerdere waarden gebruiken met een Conversation Learner model-Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Informatie over het gebruik van meerdere waarden entiteiten met een Model van de cursist conversatie.
+description: Meer informatie over het gebruik van entiteiten met meerdere waarden met een Conversation Learner model.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,89 +10,90 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 1f62def5e498f3f744beaed0cda207e1a75bfdf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7911dd561da0f1e7b62b1b457ae5b059d5d54767
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387949"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704090"
 ---
-# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Over het gebruik van meerdere waarden entiteiten met een model Conversatiecursist
-In deze zelfstudie leert de eigenschap met meerdere waarden van entiteiten.
+# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Entiteiten met meerdere waarden gebruiken met een Conversation Learner model
+In deze zelf studie wordt de eigenschap met meerdere waarden van entiteiten weer gegeven.
 
 ## <a name="video"></a>Video
 
-[![Zelfstudie Preview entiteiten van meerdere waarden](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
+[![Preview-versie van zelf studie voor Multi-Value-entiteiten](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
 
 ## <a name="requirements"></a>Vereisten
-In deze zelfstudie is vereist dat de algemene zelfstudie Bot wordt uitgevoerd
+Voor deze zelf studie moet de bot van de algemene zelf studie worden uitgevoerd
 
     npm run tutorial-general
 
 ## <a name="details"></a>Details
-Meerdere waarden entiteiten oplopen waarden in een lijst, in plaats van een enkele waarde opslaan.  Deze entiteiten zijn nuttig wanneer gebruikers meer dan één waarde kunnen opgeven. Toppings op een pizza bijvoorbeeld.
+Met meerdere waarden worden waarden in een lijst verzameld, in plaats van een enkele waarde op te slaan.  Deze entiteiten zijn handig wanneer gebruikers meer dan één waarde kunnen opgeven. Toppings voor een pizza.
 
-Entiteiten die zijn gemarkeerd als meerdere waarden elk herkende exemplaar van de entiteit toegevoegd aan een lijst in het geheugen van de Bot heeft. Volgende erkenning toegevoegd aan van de entiteit-waarde, in plaats van worden overschreven.
+Entiteiten die als meerdere waarden zijn gemarkeerd, hebben elk herkend exemplaar van de entiteit toegevoegd aan een lijst in het geheugen van de bot. De volgende herkenning wordt toegevoegd aan de waarde van de entiteit, in plaats van te worden overschreven.
 
 ## <a name="steps"></a>Stappen
 
-Start op de startpagina in de Web-UI.
+Start op de start pagina in de gebruikers interface van het web.
 
-### <a name="create-the-model"></a>Het Model maken
+### <a name="create-the-model"></a>Het model maken
 
-1. Selecteer **nieuw Model**.
-2. Voer **MultiValueEntities** voor **naam**.
+1. Selecteer **Nieuw model**.
+2. Voer **MultiValueEntities** in als **naam**.
 3. Selecteer **Maken**.
 
 ### <a name="entity-creation"></a>Entiteit maken
 
-1. Selecteer **entiteiten** in het linker deelvenster, klikt u vervolgens **nieuwe entiteit**.
-2. Selecteer **aangepaste getraind** voor **entiteitstype**.
-3. Voer **toppings** voor **entiteitnaam**.
-4. Controleer **meerdere waarden** om in te schakelen door de entiteit een of meer waarden worden verzameld.
-5. Controleer **Negatable**.
+1. Selecteer **entiteiten** in het linkerdeel venster en vervolgens **nieuwe entiteit**.
+2. Selecteer **aangepast** getraind voor **entiteits type**.
+3. Voer **toppings** in als **entiteits naam**.
+4. Controleer op **meerdere waarden** om de entiteit in te scha kelen voor een of meer waarden.
+5. Controleer **negatiable**.
 6. Selecteer **Maken**.
 
 ![](../media/T07_entity_create.png)
 
 ### <a name="create-the-first-action"></a>De eerste actie maken
 
-1. Selecteer **acties** in het linker deelvenster, klikt u vervolgens **nieuwe actie**.
-2. Voer **Hier vindt u uw toppings: $toppings** voor **van Bot-antwoord...** . De toonaangevende dollarteken geeft aan dat de verwijzing naar een entiteit.
+1. Selecteer **acties** in het linkerdeel venster en vervolgens op **nieuwe actie**.
+2. Typ **hier uw toppings: $toppings** voor **de reactie van de bot...** . Het voorloop dollar teken duidt op een verwijzing naar een entiteit.
 3. Selecteer **Maken**.
 
 ![](../media/T07_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>De tweede actie maken
 
-1. Selecteer **acties** in het linker deelvenster, klikt u vervolgens **nieuwe actie**.
-2. Voer **welke toppings wilt u dat?** voor **van Bot-antwoord...** .
-3. Voer **toppings** voor **diskwalificeren voorziet**.
+1. Selecteer **acties** in het linkerdeel venster en vervolgens op **nieuwe actie**.
+2. Geef op **welk toppings u wilt?** voor **het antwoord van de bot...** .
+3. Voer **toppings** invoor diskwalificerende recht.
 4. Selecteer **Maken**.
 
 U hebt nu twee acties.
 
 ![](../media/T07_action_create_2.png)
 
-### <a name="train-the-model"></a>Het Model te trainen
+### <a name="train-the-model"></a>Het model trainen
 
-1. Selecteer **Train-dialoogvensters** in het linker deelvenster, klikt u vervolgens **nieuwe dialoogvenster van de trein**.
-2. Voer **Hallo** voor utterance van de gebruiker in het deelvenster links chat.
+1. Selecteer **dialoog vensters trainen** in het linkerpaneel en klik vervolgens op **Nieuw trein dialoog venster**.
+2. Geef **Hi** op voor de utterance van de gebruiker in het linkerdeel venster.
 3. Selecteer **Score acties**.
-4. Selecteer **welke toppings wilt u dat?** uit de lijst met acties. Het percentiel is 100% als de enige geldige actie op basis van de beperkingen.
-5. Voer **kaas- en paddestoelen** voor utterance van de gebruiker in het deelvenster links chat.
-6. Markeer **kaas** Selecteer **+ toppings**.
-7. Markeer **paddestoelen** Selecteer **+ toppings**.
+4. Selecteer **wat toppings u wilt?** in de lijst met acties. Het percentiel is 100% als de enige geldige actie op basis van de beperkingen.
+5. Voer **kaas en champignons** in voor de utterance van de gebruiker in het linkerdeel venster.
+6. Markeer **kaas** en selecteer vervolgens **+ toppings**.
+7. Markeer **champignons** en selecteer vervolgens **+ toppings**.
 8. Selecteer **Score acties**.
-9. Selecteer **Hier vindt u uw toppings: $toppings** uit de lijst met acties.
-10. Voer **toevoegen peper** voor de volgende utterance van de gebruiker in het deelvenster links chat.
-11. Markeer **peper** Selecteer **+ toppings**.
+9. Selecteer **hier uw toppings: $toppings** uit de lijst met acties.
+10. Voer een **peper toe** voor de volgende utterance van de gebruiker in het linkerdeel venster.
+11. Markeer **peper** en selecteer vervolgens **+ toppings**.
 12. Selecteer **Score acties**.
-13. Selecteer **Hier vindt u uw toppings: $toppings** uit de lijst met acties.
-14. Voer **kaas verwijderen** voor derde utterance van de gebruiker in het deelvenster links chat.
-15. Markeer **kaas** Selecteer **-toppings**.
+13. Selecteer **hier uw toppings: $toppings** uit de lijst met acties.
+14. Voer **kaas verwijderen** in voor de derde utterance van de gebruiker in het linkerdeel venster.
+15. Markeer **kaas** en selecteer vervolgens **-toppings**.
 16. Selecteer **Score acties**.
-17. Selecteer **Hier vindt u uw toppings: $toppings** uit de lijst met acties.
+17. Selecteer **hier uw toppings: $toppings** uit de lijst met acties.
 
 ![](../media/T07_training.png)
 

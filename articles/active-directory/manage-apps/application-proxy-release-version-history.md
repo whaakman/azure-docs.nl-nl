@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD-toepassingsproxy: Versiegeschiedenis van release | Microsoft Docs'
-description: In dit artikel geeft een lijst van alle versies van Azure AD-toepassingsproxy en een beschrijving van nieuwe functies en opgeloste problemen
+title: 'Azure AD-toepassingsproxy: Release geschiedenis van versie | Microsoft Docs'
+description: In dit artikel wordt een overzicht gegeven van alle versies van Azure AD-toepassingsproxy en worden nieuwe functies en opgeloste problemen beschreven
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,78 +16,80 @@ ms.date: 04/05/2019
 ms.subservice: app-mgmt
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97b54d57a13f0f2b47633a25f1a44efdfa17d11a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b9ecd193282ed9b7333df44689530b4d057ad7f8
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595064"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693904"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD-toepassingsproxy: Releasegeschiedenis van versie
-In dit artikel bevat de versies en functies van de toepassingsproxy van Azure Active Directory (Azure AD) die zijn uitgebracht. Het team van Azure AD werkt Application Proxy regelmatig bij met nieuwe functies en functionaliteit. Toepassingsproxyconnectors worden automatisch bijgewerkt wanneer er een nieuwe versie wordt uitgebracht.
+In dit artikel vindt u een overzicht van de versies en functies van de toepassings proxy van Azure Active Directory (Azure AD) die is uitgebracht. Het Azure AD-team werkt de toepassings proxy regel matig bij met nieuwe functies en functionaliteit. Application proxy-connectors worden automatisch bijgewerkt wanneer een nieuwe versie wordt uitgebracht. 
 
-Hier volgt een lijst van gerelateerde resources:
+We raden u aan om ervoor te zorgen dat automatische updates zijn ingeschakeld voor uw connectors om ervoor te zorgen dat u beschikt over de nieuwste functies en oplossingen voor fouten. Micro soft biedt direct ondersteuning voor de recentste connector versie en één versie eerder.
+
+Hier volgt een lijst met verwante resources:
 
 Resource |  Details
 --------- | --------- |
-Toepassingsproxy inschakelen | Vereisten voor toepassingsproxy inschakelen, installeren en registreren van een connector worden beschreven in deze [zelfstudie](application-proxy-add-on-premises-application.md).
-Meer informatie over Azure AD Application Proxy connectors | Meer informatie over [connector management](application-proxy-connectors.md) en hoe connectors [automatische clientupdate](application-proxy-connectors.md#automatic-updates).
-Azure AD Application Proxy Connector downloaden |  [Download de meest recente connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
+Toepassings proxy inschakelen | De vereisten voor het inschakelen van toepassings proxy en het installeren en registreren van een connector worden beschreven in deze [zelf studie](application-proxy-add-on-premises-application.md).
+Meer informatie over Azure AD Application Proxy connectors | Meer informatie over [connector beheer](application-proxy-connectors.md) en hoe connectors [automatisch worden bijgewerkt](application-proxy-connectors.md#automatic-updates).
+Downloaden van Azure AD-toepassingsproxy-connector |  [Down load de nieuwste connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
 
 ## <a name="156120"></a>1.5.612.0
 
-### <a name="release-status"></a>Releasestatus
+### <a name="release-status"></a>Release status
 
-20 september 2018: Die zijn uitgebracht voor downloaden
+20 september 2018: Uitgebracht voor downloaden
 
 ### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen
 
-- WebSocket-ondersteuning toegevoegd voor de toepassing QlikSense. Zie voor meer informatie over het integreren van QlikSense met Application Proxy, dit [scenario](application-proxy-qlik.md). 
-- Verbeterde de installatiewizard om gemakkelijker een uitgaande proxy configureren. 
-- TLS 1.2 ingesteld als het standaard-protocol voor connectors. 
-- Een nieuwe gebruiksrechtovereenkomst (EULA) toegevoegd.  
+- De ondersteuning voor websockets voor de QlikSense-toepassing is toegevoegd. Zie dit [overzicht](application-proxy-qlik.md)voor meer informatie over het integreren van QlikSense met toepassings proxy. 
+- De installatie wizard is verbeterd om het configureren van een uitgaande proxy eenvoudiger te maken. 
+- Stel TLS 1,2 in als het standaard protocol voor connectors. 
+- Er is een nieuwe gebruiksrecht overeenkomst voor eind gebruikers toegevoegd.  
 
 ### <a name="fixed-issues"></a>Problemen opgelost
 
-- Een opgelost waardoor sommige geheugenlekken in de connector.
-- De versie van het Azure Service Bus, waaronder een opgelost probleem voor de time-outproblemen connector bijgewerkt.
+- Er is een fout opgelost die een aantal geheugen lekkages in de connector heeft veroorzaakt.
+- De Azure Service Bus versie is bijgewerkt, die een fout oplossing bevat voor problemen met de time-out van de connector.
 
 ## <a name="154020"></a>1.5.402.0
 
-### <a name="release-status"></a>Releasestatus
+### <a name="release-status"></a>Release status
 
-19 januari 2018: Die zijn uitgebracht voor downloaden
+19 januari 2018: Uitgebracht voor downloaden
 
 ### <a name="fixed-issues"></a>Problemen opgelost
 
-- Ondersteuning toegevoegd voor aangepaste domeinen dat domein vertaling in de cookie nodig.
+- Er is ondersteuning toegevoegd voor aangepaste domeinen die domein vertaling in de cookie nodig hebben.
 
 ## <a name="151320"></a>1.5.132.0
 
-### <a name="release-status"></a>Releasestatus 
+### <a name="release-status"></a>Release status 
 
-25 mei 2017: Die zijn uitgebracht voor downloaden 
+25 mei 2017: Uitgebracht voor downloaden 
 
 ### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen 
 
-Verbeterde controle over de limieten voor de uitgaande verbindingen connectors. 
+Verbeterde controle over de uitgaande verbindings limieten van connectors. 
 
 ## <a name="15360"></a>1.5.36.0
 
-### <a name="release-status"></a>Releasestatus
+### <a name="release-status"></a>Release status
 
-15 april 2017: Die zijn uitgebracht voor downloaden
+15 april 2017: Uitgebracht voor downloaden
 
 ### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen
 
-- Vereenvoudigde onboarding- en -beheer met minder vereiste poorten. Application Proxy is het nu vereist slechts twee standaard uitgaande poorten openen: 443 en 80. Toepassingsproxy blijft alleen uitgaande verbindingen gebruiken, zodat u nog steeds niet alle onderdelen in een perimeternetwerk bevindt hoeft. Zie voor meer informatie onze [configuratiedocumentatie](application-proxy-add-on-premises-application.md).  
-- Als dit wordt ondersteund door uw externe proxy of firewall, kunt u nu uw netwerk door DNS in plaats van IP-adresbereik openen. Proxy-toepassingsservices vereisen verbindingen met *. msappproxy.net en *. servicebus.windows.net alleen.
+- Vereenvoudigd onboarding en beheer met minder vereiste poorten. Toepassings proxy vereist nu het openen van slechts twee standaard uitgaande poorten: 443 en 80. Toepassings proxy blijft alleen uitgaande verbindingen gebruiken, dus u hebt nog steeds geen onderdelen in een DMZ nodig. Zie onze [configuratie documentatie](application-proxy-add-on-premises-application.md)voor meer informatie.  
+- Als dit wordt ondersteund door uw externe proxy of firewall, kunt u uw netwerk nu openen met DNS in plaats van met een IP-bereik. Voor Application proxy-services zijn alleen verbindingen met *. msappproxy.net en *. servicebus.windows.net vereist.
 
 
 ## <a name="earlier-versions"></a>Eerdere versies
 
-Als u een Application Proxy connector-versie ouder is dan 1.5.36.0, bijwerken naar de nieuwste versie om ervoor te zorgen dat u de meest recente functies volledig wordt ondersteund.
+Als u een versie van een toepassings proxy connector hebt die ouder is dan 1.5.36.0, werkt u bij naar de nieuwste versie om ervoor te zorgen dat u over de meest recente volledig ondersteunde functies beschikt.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [extern toegang tot on-premises toepassingen via Azure AD-toepassingsproxy](application-proxy.md).
-- Als u wilt gaan met Application Proxy, Zie [zelfstudie: Toevoegen van een on-premises toepassing voor externe toegang via toepassingsproxy](application-proxy-add-on-premises-application.md).
+- Meer informatie over [externe toegang tot on-premises toepassingen via Azure AD-toepassingsproxy](application-proxy.md).
+- Zie [zelf studie: Voeg een on-premises toepassing toe voor externe toegang via](application-proxy-add-on-premises-application.md)toepassings proxy.

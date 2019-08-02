@@ -1,19 +1,20 @@
 ---
 title: 'Azure Backup: Bestanden en mappen herstellen vanuit een back-up van een Azure-VM'
 description: Bestanden herstellen vanaf een herstel punt van een virtuele machine in azure
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: herstel op item niveau; bestands herstel vanuit Azure VM-back-up; bestanden herstellen vanuit een Azure VM
 ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
-ms.author: pullabhk
-ms.openlocfilehash: 678b187eb49c84b5b4cf17fe063d21d09b333434
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 524d0854e8691428738cee321e394f572ea80112
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465670"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689177"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Bestanden herstellen vanuit back-up van virtuele Azure-machine
 
@@ -227,7 +228,7 @@ Als u problemen ondervindt tijdens het herstellen van bestanden van de virtuele 
 | Exe-uitvoer: *Uitzonde ring bij het maken van verbinding met het doel* |Het script kan geen toegang krijgen tot het herstel punt    | Controleer of de computer voldoet aan de vorige toegangs vereisten. |  
 | Exe-uitvoer: *Het doel is al via een iSCSI-sessie aangemeld.* | Het script is al uitgevoerd op dezelfde computer en de stations zijn gekoppeld | De volumes van het herstel punt zijn al gekoppeld. Ze kunnen niet worden gekoppeld met dezelfde stationsletters van de oorspronkelijke VM. Bladeren door alle beschik bare volumes in de Verkenner van het bestand |
 | Exe-uitvoer: *Dit script is ongeldig omdat de schijven zijn ontkoppeld via de portal, de limiet van 12 uur is overschreden. Down load een nieuw script uit de portal.* |    De schijven zijn ontkoppeld van de portal of de limiet van 12 uur overschreden | Deze specifieke exe is nu ongeldig en kan niet worden uitgevoerd. Als u de bestanden van het herstel punt in de tijd wilt openen, gaat u naar de portal voor een nieuw exe-bestand.|
-| Op de computer waarop het exe-programma wordt uitgevoerd: De nieuwe volumes worden niet ontkoppeld nadat u op de knop ontkoppelen hebt geklikt | De iSCSI-initiator op de computer reageert niet/het vernieuwen van de verbinding met het doel en het onderhouden van de cache. |  Nadat u op ontkoppelen hebt geklikt, wacht u een paar minuten. Als de nieuwe volumes niet worden ontkoppeld, bladert u door alle volumes. Door alle volumes te bladeren, zorgt u ervoor dat de initiator de verbinding vernieuwt. het volume wordt ontkoppeld met een fout bericht dat de schijf niet beschikbaar is.|
+| Op de computer waarop het exe-programma wordt uitgevoerd: De nieuwe volumes worden niet ontkoppeld nadat u op de knop ontkoppelen hebt geklikt | De iSCSI-initiator op de computer reageert niet/het vernieuwen van de verbinding met het doel en het onderhouden van de cache. |  Nadat uop ontkoppelen hebt geklikt, wacht u een paar minuten. Als de nieuwe volumes niet worden ontkoppeld, bladert u door alle volumes. Door alle volumes te bladeren, zorgt u ervoor dat de initiator de verbinding vernieuwt. het volume wordt ontkoppeld met een fout bericht dat de schijf niet beschikbaar is.|
 | Exe-uitvoer: Het script wordt uitgevoerd, maar nieuwe volumes gekoppeld wordt niet weer gegeven in de script uitvoer |    Dit is een tijdelijke fout    | De volumes zouden al zijn gekoppeld. Open Explorer om te bladeren. Als u dezelfde computer gebruikt voor het uitvoeren van scripts elke keer, overweeg dan om de computer opnieuw op te starten en de lijst moet worden weer gegeven in de volgende exe-uitvoeringen. |
 | Specifiek voor Linux: Kan de gewenste volumes niet weer geven | Het besturings systeem van de computer waarop het script wordt uitgevoerd, herkent het onderliggende bestands systeem van de beveiligde virtuele machine mogelijk niet | Controleer of het herstel punt vastloopt en consistent is. Als het bestand consistent is, voert u het script uit op een andere computer waarvan het besturings systeem het bestands systeem van de beveiligde VM herkent |
 | Windows-specifiek: Kan de gewenste volumes niet weer geven | De schijven zijn mogelijk gekoppeld, maar de volumes zijn niet geconfigureerd | Zoek in het scherm schijf beheer de extra schijven die zijn gerelateerd aan het herstel punt. Als een of meer van deze schijven offline zijn, probeert u deze online door met de rechter muisknop op de schijf te klikken en vervolgens op ' online ' te klikken.|

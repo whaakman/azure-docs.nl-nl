@@ -1,6 +1,6 @@
 ---
-title: Ontwikkelen en implementeren met Visual Studio - Azure WebJobs
-description: Informatie over het ontwikkelen en implementeren van Azure WebJobs in Azure App Service met behulp van Visual Studio.
+title: Webjobs ontwikkelen en implementeren met behulp van Visual Studio-Azure
+description: Meer informatie over het ontwikkelen en implementeren van Azure WebJobs voor Azure App Service met behulp van Visual Studio.
 services: app-service
 documentationcenter: ''
 author: ggailey777
@@ -15,165 +15,162 @@ ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: e66a2ffa6578ed0c9eb5eb19659adf9ba253bbeb
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 2695ee2751a2834466c42d224101af246b829aca
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613363"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717628"
 ---
-# <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Ontwikkelen en implementeren met Visual Studio - Azure App Service WebJobs
+# <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Webjobs ontwikkelen en implementeren met behulp van Visual Studio-Azure App Service
 
-In dit artikel wordt uitgelegd hoe u Visual Studio gebruiken voor het implementeren van een consoletoepassingsproject in een WebApp in [App Service](overview.md) als een [Azure-webtaak](https://go.microsoft.com/fwlink/?LinkId=390226). Voor informatie over hoe u WebJobs implementeren met behulp van de [Azure-portal](https://portal.azure.com), Zie [achtergrondtaken uitvoeren met WebJobs](webjobs-create.md).
+In dit artikel wordt uitgelegd hoe u met Visual Studio een console toepassings project implementeert in een web-app in [app service](overview.md) als een [Azure](https://go.microsoft.com/fwlink/?LinkId=390226)-Webtaak. Zie [achtergrond taken uitvoeren met Webjobs](webjobs-create.md)voor meer informatie over het implementeren van webjobs met behulp van de [Azure Portal](https://portal.azure.com).
 
-U kunt meerdere WebJobs publiceren naar één web-app. Zorg ervoor dat elke WebJob in een web-app een unieke naam heeft.
+U kunt meerdere webjobs publiceren naar één web-app. Zorg ervoor dat elke Webtaak in een web-app een unieke naam heeft.
 
-Versie 3.x van de [Azure WebJobs SDK](webjobs-sdk-how-to.md) kunt u ontwikkelen van webtaken die worden uitgevoerd als .NET Core-apps of .NET Framework-apps, terwijl versie 2.x ondersteunt alleen het .NET Framework. De manier waarop u een project WebJobs implementeren is voor .NET Core-projecten ten opzichte van .NET Framework die anders.
+Met versie 3. x van de [Azure WEBJOBS SDK](webjobs-sdk-how-to.md) kunt u webjobs ontwikkelen die worden uitgevoerd als .net core-apps of .NET Framework-apps, terwijl versie 2. x alleen de .NET Framework ondersteunt. De manier waarop u een webjobs-project implementeert, verschilt voor .NET core-projecten versus .NET Framework.
 
-## <a name="webjobs-as-net-core-console-apps"></a>WebJobs als .NET Core-console-apps
+## <a name="webjobs-as-net-core-console-apps"></a>Webjobs als .NET core-console-apps
 
-Bij het gebruik van versie 3.x van de WebJobs, kunt u maken en publiceren van WebJobs als .NET Core-console-apps. Zie voor stapsgewijze instructies voor het maken en publiceren van een .NET Core-consoletoepassing naar Azure als een WebJob [aan de slag met de Azure WebJobs-SDK voor verwerking op de achtergrond gebeurtenisgestuurde](webjobs-sdk-get-started.md).
+Wanneer u versie 3. x van de webjobs gebruikt, kunt u webjobs maken en publiceren als .NET core console-apps. Zie [aan de slag met de Azure WEBJOBS SDK voor op gebeurtenissen gebaseerde achtergrond verwerking](webjobs-sdk-get-started.md)voor stapsgewijze instructies voor het maken en publiceren van een .net core-console toepassing naar Azure als Webtaak.
 
 > [!NOTE]
-> .NET core WebJobs kan niet worden gekoppeld met webprojecten. Als u de webtaak met een web-app implementeren wilt, moet u [webtaak als een .NET Framework-consoletoepassing maken](#webjobs-as-net-framework-console-apps).  
+> .NET core-webjobs kunnen niet worden gekoppeld aan webprojecten. Als u uw Webtaak wilt implementeren met een web-app, moet u [uw Webtaak maken als .NET Framework-console-app](#webjobs-as-net-framework-console-apps).  
 
 ### <a name="deploy-to-azure-app-service"></a>Implementeren in Azure App Service
 
-Een .NET Core-webtaak in App Service publiceren vanuit Visual Studio maakt gebruik van de dezelfde hulpmiddelen als het publiceren van een ASP.NET Core-app.
+Het publiceren van een .NET core-Webtaak naar App Service vanuit Visual Studio maakt gebruik van dezelfde hulp middelen als voor het publiceren van een ASP.NET Core-app.
 
 [!INCLUDE [webjobs-publish-net-core](../../includes/webjobs-publish-net-core.md)] 
 
-### <a name="webjob-types"></a>WebJob-typen
+### <a name="webjob-types"></a>Webtaak typen
 
-Standaard wordt een webtaak gepubliceerd vanuit een .NET Core console-project wordt alleen uitgevoerd als geactiveerd of op aanvraag. U kunt ook het project bijwerken [uitgevoerd volgens een schema](#scheduled-execution) continu worden uitgevoerd.
+Een Webtaak die is gepubliceerd vanuit een .NET Core-Console project, wordt standaard alleen uitgevoerd wanneer deze is geactiveerd of op aanvraag. U kunt het project ook bijwerken om [uit te voeren volgens een planning](#scheduled-execution) of continu uitvoeren.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
 #### <a name="scheduled-execution"></a>Geplande uitvoering
 
-Wanneer u een .NET Core-consoletoepassing naar Azure publiceert een nieuwe *settings.job* bestand wordt toegevoegd aan het project. Dit bestand gebruiken om een planning worden uitgevoerd voor de webtaak. Zie voor meer informatie, [plannen van een geactiveerde WebJob](#scheduling-a-triggered-webjob).
+Wanneer u een .NET core-console toepassing naar Azure publiceert, worden er een nieuwe *instellingen gemaakt. taak* bestand wordt toegevoegd aan het project. Gebruik dit bestand om een uitvoerings schema voor uw Webtaak in te stellen. Zie [een geactiveerde Webtaak plannen](#scheduling-a-triggered-webjob)voor meer informatie.
 
-#### <a name="continuous-execution"></a>Continue uitvoering
+#### <a name="continuous-execution"></a>Doorlopende uitvoering
 
-U kunt Visual Studio gebruiken om te wijzigen van de webtaak om uit te voeren continu wanneer AlwaysOn is ingeschakeld in Azure.
+U kunt Visual Studio gebruiken om de Webtaak te wijzigen zodat deze continu wordt uitgevoerd wanneer altijd aan is ingeschakeld in Azure.
 
-1. Als u dit nog niet hebt gedaan, [publiceert u het project naar Azure](#deploy-to-azure-app-service).
+1. Als u dit nog niet hebt gedaan, [kunt u het project publiceren naar Azure](#deploy-to-azure-app-service).
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op het project en selecteer **Publiceren**.
 
-1. In de **publiceren** tabblad **instellingen**. 
+1. Kies op het tabblad **publiceren** de optie **instellingen**. 
 
-1. In de **profielinstellingen** dialoogvenster kiezen **doorlopend** voor **webtaak Type**, en kies **opslaan**.
+1. Kies in het dialoog venster **Profiel instellingen** doorlopend voor **type Webtaak**en kies **Opslaan**.
 
-    ![Dialoogvenster Instellingen voor een WebJob publiceren](./media/webjobs-dotnet-deploy-vs/publish-settings.png)
+    ![Dialoog venster publicatie-instellingen voor een Webtaak](./media/webjobs-dotnet-deploy-vs/publish-settings.png)
 
-1. Selecteer **publiceren** om opnieuw te publiceren van de webtaak met de bijgewerkte instellingen.
+1. Selecteer **publiceren** om de Webtaak opnieuw te publiceren met de bijgewerkte instellingen.
 
-## <a name="webjobs-as-net-framework-console-apps"></a>WebJobs als .NET Framework-consoletoepassingen  
+## <a name="webjobs-as-net-framework-console-apps"></a>Webjobs als .NET Framework-console-apps  
 
-Wanneer Visual Studio een project .NET Framework-consoletoepassing WebJobs-functionaliteit is geïmplementeerd, worden twee taken uitgevoerd:
+Wanneer in Visual Studio een .NET Framework console toepassings project wordt geïmplementeerd, worden runtime-bestanden naar de juiste map in de web-app gekopieerd (*App_Data/Jobs/continue* voor continue webjobs en *App_Data/Jobs/geactiveerd* voor geplande of on-demand webjobs).
 
-* Runtime-bestanden worden gekopieerd naar de juiste map in de web-app (*App_Data/jobs/continuous* voor doorlopende webtaken en *App_Data/jobs/triggered* voor geplande of on-demand WebJobs).
-* Stelt u [Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) taken voor webtaken die zijn gepland om te worden uitgevoerd op bepaalde tijdstippen. (Dit is niet nodig voor doorlopende webtaken.)
+Aan een project met webjobs zijn de volgende items toegevoegd:
 
-Een project WebJobs-functionaliteit heeft de volgende items toegevoegd aan het:
+* Het NuGet-pakket [micro soft. Web. webjobs. publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) .
+* Een [Webtaak-Publish-Settings. json-](#publishsettings) bestand dat implementatie-en planner-instellingen bevat. 
 
-* De [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet-pakket.
-* Een [webjob-publiceren settings.json](#publishsettings) -bestand met de implementatie en de scheduler-instellingen. 
+![Diagram waarin wordt weer gegeven wat er wordt toegevoegd aan een console-app om implementatie als Webtaak in te scha kelen](./media/webjobs-dotnet-deploy-vs/convert.png)
 
-![Diagram van wat wordt toegevoegd aan een Console-App implementeren als een WebJob inschakelen](./media/webjobs-dotnet-deploy-vs/convert.png)
+U kunt deze items toevoegen aan een bestaand console toepassings project of een sjabloon gebruiken om een nieuw console toepassings project met webjobs te maken. 
 
-U kunt deze items toevoegen aan een bestaande Console Application-project of een sjabloon gebruiken om een nieuwe consoletoepassing WebJobs ingeschakeld-project te maken. 
+U kunt een project zelf als Webtaak implementeren of koppelen aan een webproject, zodat het automatisch wordt geïmplementeerd wanneer u het webproject implementeert. Voor het koppelen van projecten bevat Visual Studio de naam van het project met webjobs in een [webjobs-lijst. json-](#webjobslist) bestand in het webproject.
 
-U kunt een project implementeren als een WebJob zelfstandig of koppelen aan een webproject, zodat deze automatisch wordt geïmplementeerd wanneer u het webproject implementeren. Om een koppeling projecten, Visual Studio bevat de naam van het project WebJobs ingeschakeld in een [webjobs list.json](#webjobslist) bestand in de webproject.
-
-![Diagram van de webtaak project koppelen aan de web-project](./media/webjobs-dotnet-deploy-vs/link.png)
+![Diagram van het project taak koppeling naar webproject wordt weer gegeven](./media/webjobs-dotnet-deploy-vs/link.png)
 
 ### <a name="prerequisites"></a>Vereisten
 
-Als u Visual Studio 2015 gebruikt, installeert u de [Azure SDK voor .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
+Als u Visual Studio 2015 gebruikt, installeert u de [Azure SDK voor .net (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 
-Als u Visual Studio 2019, installeert u de [Azure-ontwikkelworkload](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
+Als u Visual Studio 2019 gebruikt, installeert u de [werk belasting Azure Development](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
-### <a id="convert"></a> WebJobs-implementatie voor een bestaande consoletoepassingsproject inschakelen
+### <a id="convert"></a>De implementatie van webjobs inschakelen voor een bestaand console toepassings project
 
 U hebt hiervoor twee opties:
 
-* [Inschakelen van automatische implementatie met een webproject](#convertlink).
+* [Automatische implementatie met een webproject inschakelen](#convertlink).
 
-  Een bestaande consoletoepassingsproject zodanig configureren dat deze automatisch wordt geïmplementeerd als een WebJob wanneer u een webproject implementeert. Gebruik deze optie als u wilt uitvoeren van de webtaak in dezelfde web-app waarin u de gerelateerde web-App uitvoeren.
+  Configureer een bestaand console toepassings project, zodat het automatisch als Webtaak wordt geïmplementeerd wanneer u een webproject implementeert. Gebruik deze optie wanneer u uw Webtaak wilt uitvoeren in dezelfde Web-app waarin u de gerelateerde webtoepassing uitvoert.
 
-* [Implementatie zonder een webproject inschakelen](#convertnolink).
+* [Implementatie inschakelen zonder een webproject](#convertnolink).
 
-  Configureer een bestaande consoletoepassingsproject te implementeren als een webtaak met zichzelf, met geen koppeling naar een web-project. Gebruik deze optie als u wilt een WebJob in een web-app uitvoeren met zichzelf, terwijl geen webtoepassing die wordt uitgevoerd in de web-app. Het is raadzaam om dit te doen om te kunnen schalen van uw resources voor Webjobs onafhankelijk van uw web application-resources.
+  Configureer een bestaand console toepassings project om als Webtaak te implementeren, zonder een koppeling naar een webproject. Gebruik deze optie als u een Webtaak zelf wilt uitvoeren in een web-app, zonder dat er een webtoepassing in de web-app wordt uitgevoerd. U kunt dit doen om de resources van uw webtoepassing onafhankelijk van uw webtoepassingsgegevens te schalen.
 
-#### <a id="convertlink"></a> Inschakelen van automatische WebJobs-implementatie met een webproject
+#### <a id="convertlink"></a>Automatische implementatie van webjobs met een webproject inschakelen
 
-1. Met de rechtermuisknop op het webproject in **Solution Explorer**, en klik vervolgens op **toevoegen** > **bestaand Project als Azure WebJob**.
+1. Klik met de rechter muisknop op het webproject in **Solution Explorer**en klik vervolgens op**bestaand project als Azure**-Webtaak **toevoegen** > .
    
-    ![Bestaand Project als Azure WebJob](./media/webjobs-dotnet-deploy-vs/eawj.png)
+    ![Bestaand project als Azure-Webtaak](./media/webjobs-dotnet-deploy-vs/eawj.png)
    
-    De [Azure-webtaak toevoegen](#configure) in het dialoogvenster wordt weergegeven.
-2. In de **projectnaam** vervolgkeuzelijst, selecteer de consoletoepassing project om toe te voegen als een WebJob.
+    Het dialoog venster [Azure-Webtaak toevoegen](#configure) wordt weer gegeven.
+2. Selecteer in de vervolg keuzelijst **project naam** het project van de console toepassing dat u als Webtaak wilt toevoegen.
    
-    ![Project selecteren in het dialoogvenster Azure-webtaak toevoegen](./media/webjobs-dotnet-deploy-vs/aaw1.png)
-3. Voltooi de [Azure-webtaak toevoegen](#configure) dialoogvenster en klik vervolgens op **OK**. 
+    ![Het project selecteren in het dialoog venster Azure-Webtaak toevoegen](./media/webjobs-dotnet-deploy-vs/aaw1.png)
+3. Voltooi het dialoog venster [Azure-Webtaak toevoegen](#configure) en klik vervolgens op **OK**. 
 
-#### <a id="convertnolink"></a> WebJobs-implementatie zonder een webproject inschakelen
-1. Met de rechtermuisknop op het consoletoepassingsproject in **Solution Explorer**, en klik vervolgens op **publiceren als Azure WebJob...** . 
+#### <a id="convertnolink"></a>De implementatie van webjobs zonder een webproject inschakelen
+1. Klik met de rechter muisknop op het console toepassings project in **Solution Explorer**en klik vervolgens op **publiceren als Azure-Webtaak...** . 
    
-    ![Als Azure WebJob publiceren](./media/webjobs-dotnet-deploy-vs/paw.png)
+    ![Publiceren als Azure-Webtaak](./media/webjobs-dotnet-deploy-vs/paw.png)
    
-    De [Azure-webtaak toevoegen](#configure) in het dialoogvenster wordt weergegeven, met het project is geselecteerd de **projectnaam** vak.
-2. Voltooi de [Azure-webtaak toevoegen](#configure) in het dialoogvenster en klik vervolgens op **OK**.
+    Het dialoog venster [Azure-Webtaak toevoegen](#configure) wordt weer gegeven, met het project geselecteerd in het vak **project naam** .
+2. Voltooi het dialoog venster [Azure-Webtaak toevoegen](#configure) en klik vervolgens op **OK**.
    
-   De **webpublicatie** wizard wordt weergegeven.  Als u niet onmiddellijk publiceren wilt, moet u de wizard sluiten. De instellingen die u hebt ingevoerd voor worden opgeslagen wanneer u wilt [het project implementeren](#deploy).
+   De wizard **Publish Web** wordt weer gegeven.  Als u niet onmiddellijk wilt publiceren, sluit u de wizard. De instellingen die u hebt ingevoerd, worden opgeslagen voor wanneer u [het project wilt implementeren](#deploy).
 
-### <a id="create"></a>Maak een nieuw project voor het WebJobs-ingeschakeld
-Voor het maken van een nieuw project voor WebJobs is ingeschakeld, kunt u gebruik van de Console Application projectsjabloon, maken en inschakelen van WebJobs-implementatie, zoals wordt beschreven [de vorige sectie](#convert). Als alternatief kunt kunt u de WebJobs-nieuw project-sjabloon gebruiken:
+### <a id="create"></a>Een nieuw project maken dat is ingeschakeld voor webjobs
+Als u een nieuw project met webjobs wilt maken, kunt u de project sjabloon console toepassing gebruiken en de implementatie van webtaken inschakelen, zoals wordt uitgelegd in [de vorige sectie](#convert). Als alternatief kunt u de sjabloon webjobs nieuw-project gebruiken:
 
-* [Gebruik de WebJobs-nieuw project-sjabloon voor een onafhankelijke WebJob](#createnolink)
+* [De sjabloon webjobs New-Project gebruiken voor een onafhankelijke Webtaak](#createnolink)
   
-    Maak een project en configureer deze om te implementeren op zichzelf als WebJob, met geen koppeling naar een web-project. Gebruik deze optie als u wilt een WebJob in een web-app uitvoeren met zichzelf, terwijl geen webtoepassing die wordt uitgevoerd in de web-app. Het is raadzaam om dit te doen om te kunnen schalen van uw resources voor Webjobs onafhankelijk van uw web application-resources.
-* [Gebruik de WebJobs-nieuw project-sjabloon voor een webtaak die zijn gekoppeld aan een webproject](#createlink)
+    Een project maken en configureren voor implementatie door zichzelf als Webtaak, zonder een koppeling naar een webproject. Gebruik deze optie als u een Webtaak zelf wilt uitvoeren in een web-app, zonder dat er een webtoepassing in de web-app wordt uitgevoerd. U kunt dit doen om de resources van uw webtoepassing onafhankelijk van uw webtoepassingsgegevens te schalen.
+* [De sjabloon webjobs New-Project gebruiken voor een Webtaak die is gekoppeld aan een webproject](#createlink)
   
-    Maak een project dat is geconfigureerd voor het automatisch als een WebJob implementeren als een webproject in dezelfde oplossing wordt geïmplementeerd. Gebruik deze optie als u wilt uitvoeren van de webtaak in dezelfde web-app waarin u de gerelateerde web-App uitvoeren.
+    Een project maken dat is geconfigureerd om automatisch te worden geïmplementeerd als Webtaak wanneer een webproject in dezelfde oplossing wordt geïmplementeerd. Gebruik deze optie wanneer u uw Webtaak wilt uitvoeren in dezelfde Web-app waarin u de gerelateerde webtoepassing uitvoert.
 
 > [!NOTE]
-> De WebJobs nieuwe-projectsjabloon, maken automatisch NuGet-pakketten installeert en bevat de code in *Program.cs* voor de [WebJobs SDK](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Als u niet wilt dat met de WebJobs-SDK, verwijderen of wijzigen de `host.RunAndBlock` -instructie in *Program.cs*.
+> De webjobs New-Project-sjabloon installeert automatisch NuGet-pakketten en bevat code in *Program.cs* voor de [webjobs SDK](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Als u de webjobs SDK niet wilt gebruiken, verwijdert u de instructie in `host.RunAndBlock` *Program.cs*of wijzigt u deze.
 > 
 > 
 
-#### <a id="createnolink"></a> Gebruik de WebJobs-nieuw project-sjabloon voor een onafhankelijke WebJob
-1. Klik op **bestand** > **nieuw Project**, en klik vervolgens in de **nieuw Project** vak klikt u op dialoogvenster **Cloud**  >   **Azure-webtaak (.NET Framework)** .
+#### <a id="createnolink"></a>De sjabloon webjobs New-Project gebruiken voor een onafhankelijke Webtaak
+1. Klik op **bestand** > **Nieuw project**en klik in het dialoog venster **Nieuw project** op **Cloud** > **Azure Webtaak (.NET Framework)** .
    
-    ![Dialoogvenster voor nieuw Project webtaak sjabloon weergeven](./media/webjobs-dotnet-deploy-vs/np.png)
-2. Volg de aanwijzingen die eerder aan weergegeven [de consoletoepassing project een onafhankelijke WebJobs-project maken](#convertnolink).
+    ![Dialoog venster Nieuw project met websjabloon](./media/webjobs-dotnet-deploy-vs/np.png)
+2. Volg de instructies die eerder worden weer gegeven om [de console toepassing een onafhankelijk Webjobs-project te maken](#convertnolink).
 
-#### <a id="createlink"></a> Gebruik de WebJobs-nieuw project-sjabloon voor een webtaak die zijn gekoppeld aan een webproject
-1. Met de rechtermuisknop op het webproject in **Solution Explorer**, en klik vervolgens op **toevoegen** > **nieuw Project voor Azure-webtaak**.
+#### <a id="createlink"></a>De sjabloon webjobs New-Project gebruiken voor een Webtaak die is gekoppeld aan een webproject
+1. Klik met de rechter muisknop op het webproject in **Solution Explorer**en klik vervolgens op**Nieuw Azure-project**voor Webtaak **toevoegen** > .
    
-    ![Nieuwe Azure-webtaak Project menu-item](./media/webjobs-dotnet-deploy-vs/nawj.png)
+    ![Nieuw menu-item van Azure Webtaak-project](./media/webjobs-dotnet-deploy-vs/nawj.png)
    
-    De [Azure-webtaak toevoegen](#configure) in het dialoogvenster wordt weergegeven.
-2. Voltooi de [Azure-webtaak toevoegen](#configure) in het dialoogvenster en klik vervolgens op **OK**.
+    Het dialoog venster [Azure-Webtaak toevoegen](#configure) wordt weer gegeven.
+2. Voltooi het dialoog venster [Azure-Webtaak toevoegen](#configure) en klik vervolgens op **OK**.
 
-### <a id="configure"></a>Het dialoogvenster Azure-webtaak toevoegen
-De **Azure-webtaak toevoegen** dialoogvenster kunt u de naam van een webtaak en voert u de instelling voor de webtaak uit. 
+### <a id="configure"></a>Het dialoog venster Azure-Webtaak toevoegen
+In het dialoog venster **Azure-Webtaak toevoegen** kunt u de naam van de Webtaak en de instelling voor de uitvoerings modus voor uw Webtaak invoeren. 
 
-![Azure-webtaak dialoogvenster toevoegen](./media/webjobs-dotnet-deploy-vs/aaw2.png)
+![Dialoog venster Azure-Webtaak toevoegen](./media/webjobs-dotnet-deploy-vs/aaw2.png)
 
-De velden in dit dialoogvenster overeenkomen met de velden op de **webtaak toevoegen** dialoogvenster van de Azure-portal. Zie voor meer informatie, [achtergrondtaken uitvoeren met WebJobs](webjobs-create.md).
+De velden in dit dialoog venster komen overeen met velden in het dialoog venster **Webtaak toevoegen** van de Azure Portal. Zie [achtergrond taken uitvoeren met Webjobs](webjobs-create.md)voor meer informatie.
 
 > [!NOTE]
-> * Zie voor meer informatie over de implementatie van de opdrachtregel [opdrachtregel inschakelen of continue levering van Azure WebJobs](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
-> * Als u een WebJob implementeert en vervolgens besluit dat u wilt wijzigen van het type van de webtaak en opnieuw implementeren, moet u verwijdert de *webjobs-publiceren settings.json* bestand. Dit maakt Visual Studio de publicatieopties opnieuw, weergeven, zodat u het type van de webtaak kunt wijzigen.
-> * Als u een WebJob implementeren en de uitvoeringsmodus later van continue naar niet-doorlopende of vice versa wijzigen, maakt Visual Studio een nieuwe WebJob in Azure wanneer u opnieuw implementeert. Als u andere schema-instellingen wijzigen, maar laat de eigenschap uitvoermodus hetzelfde of schakelen tussen de geplande en op aanvraag, Visual Studio de bestaande taak voor het bijwerken in plaats van een nieuwe maken.
+> * Zie [opdracht regel of continue levering van Azure WebJobs inschakelen](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)voor meer informatie over de implementatie van de opdracht regel.
+> * Als u een Webtaak implementeert en vervolgens besluit dat u het type van de webjobs wilt wijzigen en opnieuw wilt implementeren, moet u het bestand *webtaken-Publish-Settings. json* verwijderen. Hierdoor worden de publicatie opties opnieuw weer gegeven in Visual Studio, zodat u het type Webtaak kunt wijzigen.
+> * Als u een Webtaak implementeert en later de uitvoerings modus wijzigt van doorlopend naar niet-doorlopend of omgekeerd, maakt Visual Studio een nieuwe Webtaak in azure wanneer u de implementatie opnieuw uitvoert. Als u andere plannings instellingen wijzigt, maar de uitvoerings modus hetzelfde verlaat of overschakelt tussen gepland en op aanvraag, wordt de bestaande taak in Visual Studio bijgewerkt in plaats van een nieuwe te maken.
 > 
 > 
 
 ### <a id="publishsettings"></a>webjob-publish-settings.json
-Wanneer u een consoletoepassing voor WebJobs-implementatie configureert, Visual Studio installeert de [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet-pakket en winkels planningsgegevens in een *webjob-publiceren settings.json*  bestand in het project *eigenschappen* map van het WebJobs-project. Hier volgt een voorbeeld van het bestand:
+Wanneer u een console toepassing voor webjobs-implementatie configureert, installeert Visual Studio het [micro soft. Web. webjobs. Publiceer](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) het NuGet-pakket en slaat de plannings gegevens op in een Webtaak *-Publish-Settings. json* -bestand in het projectDe map eigenschappen van het project webjobs. Hier volgt een voor beeld van dat bestand:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
@@ -185,10 +182,10 @@ Wanneer u een consoletoepassing voor WebJobs-implementatie configureert, Visual 
           "runMode": "Continuous"
         }
 
-U kunt dit bestand rechtstreeks bewerken en Visual Studio biedt IntelliSense. Het bestandsschema wordt opgeslagen op [ https://schemastore.org ](https://schemastore.org/schemas/json/webjob-publish-settings.json) en er kunnen worden weergegeven.  
+U kunt dit bestand rechtstreeks bewerken en Visual Studio biedt IntelliSense. Het bestands schema wordt opgeslagen op [https://schemastore.org](https://schemastore.org/schemas/json/webjob-publish-settings.json) en kan daar worden weer gegeven.  
 
 ### <a id="webjobslist"></a>webjobs-list.json
-Als u een project WebJobs ingeschakeld aan een web-project koppelt, Visual Studio slaat de naam van het WebJobs-project in een *webjobs list.json* bestand in het webproject *eigenschappen* map. De lijst kan meerdere WebJobs projecten bevatten, zoals wordt weergegeven in het volgende voorbeeld:
+Wanneer u een project met webjobs koppelt aan een webproject, wordt in Visual Studio de naam van het webjobs-project opgeslagen in een *webjobs-lijst. json-* bestand in de map *Eigenschappen* van het webproject. De lijst bevat mogelijk meerdere webjobs-projecten, zoals wordt weer gegeven in het volgende voor beeld:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjobs-list.json",
@@ -202,20 +199,20 @@ Als u een project WebJobs ingeschakeld aan een web-project koppelt, Visual Studi
           ]
         }
 
-U kunt dit bestand rechtstreeks bewerken en Visual Studio biedt IntelliSense. Het bestandsschema wordt opgeslagen op [ https://schemastore.org ](https://schemastore.org/schemas/json/webjobs-list.json) en er kunnen worden weergegeven.
+U kunt dit bestand rechtstreeks bewerken en Visual Studio biedt IntelliSense. Het bestands schema wordt opgeslagen op [https://schemastore.org](https://schemastore.org/schemas/json/webjobs-list.json) en kan daar worden weer gegeven.
 
-### <a id="deploy"></a>Een project WebJobs implementeren
-Een WebJobs-project dat u hebt gekoppeld aan een webproject implementeert automatisch met het webproject. Zie voor meer informatie over de implementatie van web project **instructies begeleidt** > **implementeren app** in het linkernavigatievenster.
+### <a id="deploy"></a>Een webjobs-project implementeren
+Een webjobs-project dat u hebt gekoppeld aan een webproject, wordt automatisch geïmplementeerd met het webproject. Zie voor meer informatie over de implementatie van webprojecten de **procedures voor** > het**implementeren van apps** in de linkernavigatiebalk.
 
-Voor het implementeren van een WebJobs-project zelf, met de rechtermuisknop op het project in **Solution Explorer** en klikt u op **publiceren als Azure WebJob...** . 
+Als u een webjobs-project zelf wilt implementeren, klikt u met de rechter muisknop op het project in **Solution Explorer** en klikt u op **publiceren als Azure-Webtaak...** . 
 
-![Als Azure WebJob publiceren](./media/webjobs-dotnet-deploy-vs/paw.png)
+![Publiceren als Azure-Webtaak](./media/webjobs-dotnet-deploy-vs/paw.png)
 
-Voor een onafhankelijke WebJob hetzelfde **webpublicatie** wizard die wordt gebruikt voor webprojecten wordt weergegeven, maar met minder instellingen die beschikbaar zijn om te wijzigen.
+Voor een onafhankelijke Webtaak wordt dezelfde wizard **Publish Web** die wordt gebruikt voor webprojecten weer gegeven, maar er zijn minder instellingen beschikbaar die kunnen worden gewijzigd.
 
-## <a name="scheduling-a-triggered-webjob"></a>Een geactiveerde WebJob plannen
+## <a name="scheduling-a-triggered-webjob"></a>Een geactiveerde Webtaak plannen
 
-Maakt gebruik van WebJobs een *settings.job* bestand om te bepalen wanneer een WebJob wordt uitgevoerd. Dit bestand gebruiken om een planning worden uitgevoerd voor de webtaak. Het volgende voorbeeld wordt elk uur uitgevoerd vanaf 9: 00 tot 17: 00 uur:
+Webjobs gebruikt een *Settings. Job* -bestand om te bepalen wanneer een Webtaak wordt uitgevoerd. Gebruik dit bestand om een uitvoerings schema voor uw Webtaak in te stellen. In het volgende voor beeld wordt elk uur van 9 tot 5 uur uitgevoerd:
 
 ```json
 {
@@ -223,28 +220,28 @@ Maakt gebruik van WebJobs een *settings.job* bestand om te bepalen wanneer een W
 }
 ```
 
-Dit bestand moet worden gevonden in de hoofdmap van de WebJobs-map, langs zijde van de webtaak script, zoals `wwwroot\app_data\jobs\triggered\{job name}` of `wwwroot\app_data\jobs\continuous\{job name}`. Wanneer u een WebJob vanuit Visual Studio implementeert, Markeer uw `settings.job` eigenschappen als het bestand **kopiëren indien nieuwer**. 
+Dit bestand moet zich in de hoofdmap van de map webjobs bevinden, naast het script van uw Webtaak, `wwwroot\app_data\jobs\triggered\{job name}` zoals `wwwroot\app_data\jobs\continuous\{job name}`of. Wanneer u een Webtaak implementeert vanuit Visual Studio, `settings.job` markeert u de bestands eigenschappen als een **kopie indien nieuwer**. 
 
-Wanneer u [een webtaak maken vanuit Azure portal](webjobs-create.md), wordt de settings.job-bestand voor u gemaakt.
+Wanneer u [een Webtaak maakt op basis van de Azure Portal](webjobs-create.md), wordt het bestand settings. job voor u gemaakt.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
 ### <a name="cron-expressions"></a>CRON-expressies
 
-WebJobs maakt gebruik van de dezelfde CRON-expressies voor het plannen van de timertrigger in Azure Functions. Zie voor meer informatie over CRON-ondersteuning, de [naslagartikel voor timer trigger](../azure-functions/functions-bindings-timer.md#cron-expressions).
+Webjobs maakt gebruik van dezelfde CRON-expressies voor planning als de trigger timer in Azure Functions. Zie het [referentie artikel timer trigger](../azure-functions/functions-bindings-timer.md#cron-expressions)voor meer informatie over cron-ondersteuning.
 
-### <a name="settingjob-reference"></a>Setting.job verwijzing
+### <a name="settingjob-reference"></a>Naslag informatie over instelling. taak
 
-De volgende instellingen worden ondersteund door WebJobs:
+De volgende instellingen worden ondersteund door webjobs:
 
 | **Instelling** | **Type**  | **Beschrijving** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | Alle | Kan de taak om uit te voeren in plaats zonder het eerst wordt gekopieerd naar een tijdelijke map. Zie voor meer informatie, [WebJobs werkmap](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
-| `is_singleton` | Continu | Alleen de webtaken worden uitgevoerd op een enkele instantie als uitgeschaald. Zie voor meer informatie, [een continue taak instellen als singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Triggered | De webtaak uitvoeren volgens een schema op basis van een CRON. Zie voor meer informatie, de [naslagartikel voor timer trigger](../azure-functions/functions-bindings-timer.md#cron-expressions). |
-| `stopping_wait_time`| Alle | Biedt controle over het afsluitgedrag. Zie voor meer informatie, [correct afsluiten](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
+| `is_in_place` | Alle | Hiermee kan de taak worden uitgevoerd in plaats zonder dat deze eerst naar een tijdelijke map wordt gekopieerd. Zie [werkmap](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)voor webtaken voor meer informatie. |
+| `is_singleton` | Doorlopend | Voer de webjobs alleen uit op één instantie wanneer deze is uitgeschaald. Zie [een continue taak als Singleton instellen](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton)voor meer informatie. |
+| `schedule` | Geactiveerd | Voer de Webtaak uit op basis van een CRON schema. Zie het [referentie artikel timer trigger](../azure-functions/functions-bindings-timer.md#cron-expressions)voor meer informatie. |
+| `stopping_wait_time`| Alle | Hiermee staat u het beheer van het afsluit gedrag toe. Zie [correct afsluiten](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown)voor meer informatie. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over de WebJobs SDK](webjobs-sdk-how-to.md)
+> [Meer informatie over de webjobs SDK](webjobs-sdk-how-to.md)

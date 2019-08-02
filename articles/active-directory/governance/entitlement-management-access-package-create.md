@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83eee019ee8530297689b85e6f3300fed4392610
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 9f033cf57c5a285e94372728677c91e021065fa9
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489180"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678203"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Een nieuw toegangs pakket maken in azure AD-rechts beheer (preview-versie)
 
@@ -44,7 +44,7 @@ In het volgende diagram ziet u het proces op hoog niveau voor het maken van een 
 
 ## <a name="start-new-access-package"></a>Nieuw toegangs pakket starten
 
-**Vereiste rol:** Gebruikers beheerder of catalogus eigenaar
+**Vereiste rol:** Globale beheerder, gebruikers beheerder of catalogus eigenaar
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
@@ -64,21 +64,20 @@ Op het tabblad **basis beginselen** geeft u het toegangs pakket een naam en geef
 
 1. Selecteer in de vervolg keuzelijst **catalogus** de catalogus waarin u het toegangs pakket wilt maken. U kunt bijvoorbeeld een catalogus eigenaar hebben die alle marketing resources beheert die kunnen worden aangevraagd. In dit geval kunt u de marketing catalogus selecteren.
 
-    U ziet alleen catalogi waarvoor u gemachtigd bent om toegangs pakketten te maken in. Als u een toegangs pakket wilt maken in een bestaande catalogus, moet u Mini maal een gebruikers beheerder, catalogus eigenaar of toegangs pakket beheer zijn.
+    U ziet alleen catalogi waarvoor u gemachtigd bent om toegangs pakketten te maken in. Als u een toegangs pakket wilt maken in een bestaande catalogus, moet u Mini maal een globale beheerder, een gebruikers beheerder, een catalogus eigenaar in die catalogus zijn of toegang krijgen tot pakket beheer in die catalogus.
 
     ![Toegangs pakket-basis beginselen](./media/entitlement-management-access-package-create/basics.png)
 
-    Als u uw toegangs pakket wilt maken in een nieuwe catalogus, klikt u op **nieuwe maken**. Voer de naam en beschrijving van de catalogus in en klik vervolgens op **maken**.
+    Als u een globale beheerder of een gebruikers beheerder bent en u uw toegangs pakket wilt maken in een nieuwe catalogus die niet wordt weer gegeven, klikt u op **nieuwe maken**. Voer de naam en beschrijving van de catalogus in en klik vervolgens op **maken**.
 
-    Het toegangs pakket dat u maakt en alle resources die erin worden opgenomen, wordt toegevoegd aan de nieuwe catalogus. Daarnaast wordt u automatisch de eerste eigenaar van de catalogus. U kunt extra catalogus eigenaren toevoegen.
+    Het toegangs pakket dat u maakt en alle resources die erin worden opgenomen, wordt toegevoegd aan de nieuwe catalogus. U kunt later ook extra catalogus eigenaren toevoegen.
 
-    Als u een nieuwe catalogus wilt maken, moet u Mini maal een gebruikers beheerder of maker van de catalogus zijn.
 
 1. Klik op **Volgende**.
 
 ## <a name="resource-roles"></a>Resourcerollen
 
-Op het tabblad **resource rollen** selecteert u de resources die u wilt toevoegen in het toegangs pakket.
+Op het tabblad **resource rollen** selecteert u de resources die u wilt toevoegen in het toegangs pakket.  Gebruikers die het toegangs pakket aanvragen en ontvangen, ontvangen alle resource rollen in het toegangs pakket.
 
 1. Klik op het bron type dat u wilt toevoegen (**groepen**, **toepassingen**of **share point-sites**).
 
@@ -86,11 +85,11 @@ Op het tabblad **resource rollen** selecteert u de resources die u wilt toevoege
 
     ![Toegangs pakket-resource rollen](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    Als u het toegangs pakket maakt in de algemene catalogus of een nieuwe catalogus, kunt u een wille keurige bron kiezen uit de map waarvan u de eigenaar bent. U moet ten minste een gebruikers beheerder of maker van de catalogus zijn.
+    Als u het toegangs pakket maakt in de algemene catalogus of een nieuwe catalogus, kunt u een wille keurige bron kiezen uit de map waarvan u de eigenaar bent. U moet ten minste een globale beheerder, een gebruikers beheerder of een maker van de catalogus zijn.
 
     Als u het toegangs pakket maakt in een bestaande catalogus, kunt u alle resources selecteren die zich al in de catalogus bevinden zonder dat hiervoor eigenaar van is.
 
-    Als u een gebruikers beheerder of catalogus eigenaar bent, hebt u de extra optie om resources te selecteren waarvan u eigenaar bent die nog niet in de catalogus staan. Als u resources selecteert die zich momenteel niet in de geselecteerde catalogus bekomen, worden deze resources ook toegevoegd aan de catalogus zodat andere catalogus beheerders toegangs pakketten met kunnen maken. Als u alleen resources wilt selecteren die zich momenteel in de geselecteerde catalogus bevinden, schakelt u het selectie vakje **alleen bekijken** boven in het venster pan selecteren in.
+    Als u een globale beheerder, een gebruikers beheerder of een catalogus eigenaar bent, hebt u de extra optie om resources te selecteren waarvan u eigenaar bent die nog niet in de catalogus staan. Als u resources selecteert die zich momenteel niet in de geselecteerde catalogus bekomen, worden deze resources ook toegevoegd aan de catalogus zodat andere catalogus beheerders toegangs pakketten met kunnen maken. Als u alleen resources wilt selecteren die zich momenteel in de geselecteerde catalogus bevinden, schakelt u het selectie vakje **alleen bekijken** boven in het venster pan selecteren in.
 
 1. Wanneer u de resources hebt geselecteerd, selecteert u in de lijst met **rollen** de rol die gebruikers moeten worden toegewezen aan de resource.
 

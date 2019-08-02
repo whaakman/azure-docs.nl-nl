@@ -1,6 +1,6 @@
 ---
-title: Opgeslagen zoekopdrachten in oplossingen voor | Microsoft Docs
-description: Beheeroplossingen bevatten meestal opgeslagen zoekopdrachten in Log Analytics voor het analyseren van gegevens die zijn verzameld door de oplossing. Ze kunnen ook waarschuwingen om de hoogte van de gebruiker te definiëren of automatisch een actie uitvoeren in reactie op een belangrijk probleem. In dit artikel wordt beschreven hoe u Log Analytics opgeslagen zoekopdrachten in Resource Manager-sjabloon, zodat ze kunnen worden opgenomen in oplossingen voor het beheer te definiëren.
+title: Opgeslagen Zoek opdrachten in beheer oplossingen | Microsoft Docs
+description: Beheer oplossingen bevatten meestal opgeslagen Zoek opdrachten in Log Analytics voor het analyseren van gegevens die zijn verzameld door de oplossing. Ze kunnen ook waarschuwingen definiëren om de gebruiker op de hoogte te stellen of automatisch actie ondernemen als reactie op een kritiek probleem. In dit artikel wordt beschreven hoe u Log Analytics opgeslagen Zoek opdrachten kunt definiëren in een resource manager-sjabloon, zodat deze kunnen worden opgenomen in beheer oplossingen.
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -10,54 +10,54 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2019
+ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2e32fb57a5ee34da8c342649cc1740d111723ec
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104819"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662908"
 ---
-# <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Toevoegen van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in management-oplossing (Preview)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Log Analytics opgeslagen Zoek opdrachten en waarschuwingen toevoegen aan beheer oplossing (preview)
 
 > [!IMPORTANT]
-> De details voor het maken van een waarschuwing met behulp van Resource Manager-sjabloon zijn van de datum nu die [Log Analytics-waarschuwingen zijn uitgebreid naar Azure Monitor](../platform/alerts-extend.md). Zie voor meer informatie over het maken van een waarschuwing met Resource Manager-sjabloon [waarschuwingen beheren met behulp van Azure-Resourcesjabloon](../platform/alerts-log.md#managing-log-alerts-using-azure-resource-template).
+> Zoals [eerder is aangekondigd](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), kunnen log Analytics-werk ruimten die zijn gemaakt na *1 juni 2019* , waarschuwings regels beheren met **alleen** Azure ScheduledQueryRules [rest API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/), [Azure Resource Manager sjabloon](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) en [Power shell cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Klanten kunnen eenvoudig [hun voor keuren voor waarschuwings regel beheer](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) voor oudere werk ruimten gebruiken om Azure monitor scheduledQueryRules als standaard te gebruiken en veel [nieuwe voor delen](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) te krijgen, zoals de mogelijkheid om systeem eigen Power shell-cmdlets uit te scha kelen, verg root lookback tijd in regels, het maken van regels in een afzonderlijke resource groep of abonnement en nog veel meer.
 
 > [!NOTE]
-> Dit is een voorlopige documentatie voor het maken van oplossingen die zich momenteel in preview. Er is geen schema die hieronder worden beschreven kan worden gewijzigd.
+> Dit is voorlopige documentatie voor het maken van beheer oplossingen die momenteel als preview-versie beschikbaar zijn. Elk schema dat hieronder wordt beschreven, kan worden gewijzigd.
 
-[Beheeroplossingen](solutions.md) omvatten [opgeslagen zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics voor het analyseren van gegevens die zijn verzameld door de oplossing. Ze kunnen ook definiëren [waarschuwingen](../../azure-monitor/platform/alerts-overview.md) aan de gebruiker waarschuwen of automatisch een actie uitvoeren in reactie op een belangrijk probleem. In dit artikel wordt beschreven hoe u voor het definiëren van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in een [Resource Manager-sjabloon](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) , zodat ze kunnen worden opgenomen [beheeroplossingen](solutions-creating.md).
+[Beheer oplossingen](solutions.md) bevatten doorgaans [opgeslagen zoek opdrachten](../../azure-monitor/log-query/log-query-overview.md) in log Analytics voor het analyseren van gegevens die door de oplossing worden verzameld. Ze kunnen ook [waarschuwingen](../../azure-monitor/platform/alerts-overview.md) definiëren om de gebruiker op de hoogte te stellen of automatisch actie ondernemen als reactie op een kritiek probleem. In dit artikel wordt beschreven hoe u Log Analytics opgeslagen Zoek opdrachten en waarschuwingen definieert in een [sjabloon voor resource beheer](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) , zodat deze kunnen worden opgenomen in [beheer oplossingen](solutions-creating.md).
 
 > [!NOTE]
-> De voorbeelden in dit artikel Gebruik parameters en variabelen die zijn vereist of gemeenschappelijke beheeroplossingen en wordt beschreven in [ontwerpen en bouwen van een oplossing in Azure](solutions-creating.md)
+> In de voor beelden in dit artikel worden para meters en variabelen gebruikt die vereist zijn of gemeen schappelijk zijn voor beheer oplossingen en die worden beschreven in [ontwerp en bouw een beheer oplossing in azure](solutions-creating.md)
 
 ## <a name="prerequisites"></a>Vereisten
-In dit artikel wordt ervan uitgegaan dat u bent al bekend bent met het [maken van een oplossing voor](solutions-creating.md) en de structuur van een [Resource Manager-sjabloon](../../azure-resource-manager/resource-group-authoring-templates.md) en de bestandsnaam van de oplossing.
+In dit artikel wordt ervan uitgegaan dat u al bekend bent met het [maken van een beheer oplossing](solutions-creating.md) en de structuur van een [Resource Manager-sjabloon](../../azure-resource-manager/resource-group-authoring-templates.md) en een oplossings bestand.
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics-werkruimte
-Alle resources in Log Analytics zijn opgenomen in een [werkruimte](../../azure-monitor/platform/manage-access.md). Zoals beschreven in [Log Analytics-werkruimte en het Automation-account](solutions.md#log-analytics-workspace-and-automation-account), de werkruimte niet is opgenomen in de oplossing voor beheer, maar moet bestaan voordat de oplossing is geïnstalleerd. Als deze niet beschikbaar is, mislukt de installatie van de oplossing.
+Alle resources in Log Analytics zijn opgenomen in een [werk ruimte](../../azure-monitor/platform/manage-access.md). Zoals beschreven in [log Analytics werk ruimte en](solutions.md#log-analytics-workspace-and-automation-account)het Automation-account, is de werk ruimte niet opgenomen in de beheer oplossing, maar moet deze bestaan voordat de oplossing wordt geïnstalleerd. Als deze niet beschikbaar is, mislukt de installatie van de oplossing.
 
-De naam van de werkruimte is de naam van elke Log Analytics-resource. Dit doet u in de oplossing met de **werkruimte** parameter zoals in het volgende voorbeeld van een resource SavedSearch.
+De naam van de werk ruimte bevindt zich in de naam van elke Log Analytics resource. Dit gebeurt in de oplossing met de **werkruimte** parameter, zoals in het volgende voor beeld van een SavedSearch-resource.
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
-## <a name="log-analytics-api-version"></a>Log Analytics-API-versie
-Alle Log Analytics-resources in een Resource Manager-sjabloon gedefinieerd hebben een eigenschap **apiVersion** die de versie van de API moet worden gebruikt door de resource definieert.
+## <a name="log-analytics-api-version"></a>Log Analytics API-versie
+Alle Log Analytics resources die in een resource manager-sjabloon zijn gedefinieerd, hebben een eigenschap **apiVersion** die de versie definieert van de API die door de resource moet worden gebruikt.
 
-De volgende tabel bevat de API-versie voor de resource die in dit voorbeeld worden gebruikt.
+De volgende tabel geeft een overzicht van de API-versie voor de resource die in dit voor beeld wordt gebruikt.
 
 | Resourcetype | API-versie | Query’s uitvoeren |
 |:---|:---|:---|
-| savedSearches | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
+| savedSearches | 2017-03-15-preview | Gebeurtenis &#124; waarbij EventLevelName = = "Error"  |
 
 
 ## <a name="saved-searches"></a>Opgeslagen zoekopdrachten
-Opnemen [opgeslagen zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) in een oplossing waarmee gebruikers query uitvoeren op gegevens die door uw oplossing worden verzameld. Opgeslagen zoekopdrachten worden weergegeven onder **opgeslagen zoekopdrachten** in Azure portal. Een opgeslagen zoekopdracht is ook vereist voor elke waarschuwing.
+Neem [opgeslagen Zoek opdrachten](../../azure-monitor/log-query/log-query-overview.md) op in een oplossing om gebruikers in staat te stellen gegevens op te vragen die door uw oplossing zijn verzameld. Opgeslagen Zoek opdrachten worden weer gegeven onder **opgeslagen Zoek opdrachten** in het Azure Portal. Er is ook een opgeslagen zoek opdracht vereist voor elke waarschuwing.
 
-[Log Analytics opgeslagen zoekopdracht](../../azure-monitor/log-query/log-query-overview.md) resources zijn een type `Microsoft.OperationalInsights/workspaces/savedSearches` en hebben de volgende structuur. Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters.
+[Log Analytics opgeslagen Zoek](../../azure-monitor/log-query/log-query-overview.md) bronnen hebben een type van `Microsoft.OperationalInsights/workspaces/savedSearches` en hebben de volgende structuur. Dit omvat algemene variabelen en para meters, zodat u dit code fragment kunt kopiëren en plakken in het oplossings bestand en de parameter namen wijzigt.
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",
@@ -74,36 +74,32 @@ Opnemen [opgeslagen zoekopdrachten](../../azure-monitor/log-query/log-query-over
         }
     }
 
-Elke eigenschap van een opgeslagen zoekopdracht wordt in de volgende tabel beschreven.
+Elke eigenschap van een opgeslagen zoek opdracht wordt beschreven in de volgende tabel.
 
-| Eigenschap | Description |
+| Eigenschap | description |
 |:--- |:--- |
-| category | De categorie voor de opgeslagen zoekopdracht.  Alle opgeslagen zoekopdrachten in dezelfde oplossing delen vaak één categorie, zodat ze samen worden gegroepeerd in de console. |
-| displayName | De naam om weer te geven voor de opgeslagen zoekopdracht in de portal. |
-| query | De query wilt uitvoeren. |
+| category | De categorie voor de opgeslagen zoek opdracht.  Alle opgeslagen Zoek opdrachten in dezelfde oplossing delen vaak één categorie zodat ze in de-console samen worden gegroepeerd. |
+| displayName | Naam die moet worden weer gegeven voor de opgeslagen zoek opdracht in de portal. |
+| query | De query die moet worden uitgevoerd. |
 
 > [!NOTE]
-> Mogelijk moet u het escape-tekens gebruiken in de query bevat tekens die kunnen worden geïnterpreteerd als JSON. Bijvoorbeeld, als uw query is **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"** , ze moet worden geschreven in het oplossingsbestand als **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"** .
+> U moet mogelijk escape tekens in de query gebruiken als deze tekens bevat die als JSON kunnen worden geïnterpreteerd. Als uw query bijvoorbeeld **AzureActivity | Operationname: ' micro soft. Compute/informatie/write '** , moet worden geschreven in het oplossings bestand als **AzureActivity | Operationname:/\"micro soft. Compute/informatie/\"write**.
 
 ## <a name="alerts"></a>Waarschuwingen
-[Waarschuwingen voor Azure](../../azure-monitor/platform/alerts-unified-log.md) zijn gemaakt door Azure waarschuwingsregels die opgegeven logboeken-query's met regelmatige tussenpozen uitvoeren. Als de resultaten van de query aan opgegeven criteria voldoen, wordt een waarschuwingsrecord gemaakt en een of meer acties worden uitgevoerd met behulp van [actiegroepen](../../azure-monitor/platform/action-groups.md).
+[Waarschuwingen voor Azure](../../azure-monitor/platform/alerts-unified-log.md) -logboeken worden gemaakt door Azure-waarschuwings regels die regel matig opgegeven logboek query's uitvoeren. Als de resultaten van de query overeenkomen met opgegeven criteria, wordt een waarschuwings record gemaakt en worden een of meer acties uitgevoerd met [actie groepen](../../azure-monitor/platform/action-groups.md).
 
-> [!NOTE]
-> Vanaf 14 mei 2018 worden alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte is begonnen om uit te breiden naar Azure. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure](../../azure-monitor/platform/alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actiegroep - Azure Resource Manager-sjabloon](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-Waarschuwingsregels in een oplossing voor bestaan uit de volgende drie verschillende bronnen.
+Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werk ruimte en de bijbehorende waarschuwingen worden uitgebreid naar Azure, kunt u acties ophalen of toevoegen met behulp van de [actie groep-Azure Resource Manager sjabloon](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Waarschuwings regels in verouderde beheer oplossingen bestaan uit de volgende drie verschillende bronnen.
 
-- **Opgeslagen zoekopdracht.** Hiermee definieert u de zoeken in logboeken die wordt uitgevoerd. Meerdere regels voor waarschuwingen kan een enkele opgeslagen zoekopdracht kunnen delen.
-- **Planning.** Bepaalt hoe vaak de zoeken in Logboeken wordt uitgevoerd. De waarschuwingsregel is slechts één schema.
-- **Actie bij waarschuwing.** De waarschuwingsregel is één actie groep of actie bron (verouderde) met een type van **waarschuwing** die de details van de waarschuwing, zoals de criteria voor wanneer een waarschuwingsrecord gemaakt en de ernst van de waarschuwing definieert. [Actiegroep](../../azure-monitor/platform/action-groups.md) resource kan ook een lijst van geconfigureerde acties moet worden uitgevoerd wanneer de waarschuwing wordt geactiveerd - zoals telefoongesprek, SMS, e-mail, webhook, ITSM-hulpprogramma, automation-runbook, logische app, enzovoort.
+- **Opgeslagen zoek opdracht.** Hiermee wordt de logboek zoekactie gedefinieerd die wordt uitgevoerd. Meerdere waarschuwings regels kunnen één opgeslagen zoek opdracht delen.
+- **Planning.** Hiermee definieert u hoe vaak de zoek opdracht in Logboeken wordt uitgevoerd. Elke waarschuwings regel heeft één en slechts één schema.
+- **Waarschuwings actie.** Elke waarschuwings regel heeft één actie groeps resource of actie bron (verouderd) met een type **waarschuwing** waarmee de details van de waarschuwing worden gedefinieerd, zoals de criteria voor het maken van een waarschuwings record en de ernst van de waarschuwing. De resource van de [actie groep](../../azure-monitor/platform/action-groups.md) kan een lijst met geconfigureerde acties hebben die moeten worden uitgevoerd wanneer de waarschuwing wordt geactiveerd, zoals spraak oproep, SMS, e-mail, webhook, ITSM-hulp programma, Automation-runbook, logische app, enzovoort.
 
-De actie-resource (verouderde) definieert een e-mail en runbook-reactie (optioneel).
-- **Webhookactie (verouderd).** Als de waarschuwingsregel een webhook aanroept, wordt hiervoor een actie-resource met een type **Webhook**.
+Opgeslagen Zoek bronnen worden hierboven beschreven. De overige bronnen worden hieronder beschreven.
 
-Opgeslagen zoekopdracht resources hierboven worden beschreven. De andere resources worden hieronder beschreven.
+### <a name="schedule-resource"></a>Resource plannen
 
-### <a name="schedule-resource"></a>Schema-resource
-
-Een opgeslagen zoekopdracht kan een of meer planningen met elke planning voor een afzonderlijke waarschuwingsregel hebben. Het schema wordt gedefinieerd hoe vaak de zoekopdracht wordt uitgevoerd en het tijdsinterval op waarover de gegevens worden opgehaald. Schema-resources zijn een type `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` en hebben de volgende structuur. Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters.
+Een opgeslagen zoek opdracht kan een of meer schema's bevatten met elk schema dat een afzonderlijke waarschuwings regel vertegenwoordigt. De planning bepaalt hoe vaak de zoek actie wordt uitgevoerd en het tijds interval waarover de gegevens worden opgehaald. Plannings resources hebben een type `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` van en hebben de volgende structuur. Dit omvat algemene variabelen en para meters, zodat u dit code fragment kunt kopiëren en plakken in het oplossings bestand en de parameter namen wijzigt.
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name)]",
@@ -119,26 +115,25 @@ Een opgeslagen zoekopdracht kan een of meer planningen met elke planning voor ee
             "enabled": "[variables('Schedule').Enabled]"
         }
     }
-De eigenschappen voor schema-resources worden in de volgende tabel beschreven.
+De eigenschappen voor plannings resources worden beschreven in de volgende tabel.
 
-| De naam van element | Vereist | Description |
+| De naam van element | Vereist | description |
 |:--|:--|:--|
-| enabled       | Ja | Hiermee geeft u op of de waarschuwing is ingeschakeld wanneer deze wordt gemaakt. |
+| enabled       | Ja | Hiermee wordt aangegeven of de waarschuwing wordt ingeschakeld wanneer deze wordt gemaakt. |
 | interval      | Ja | Hoe vaak de query wordt uitgevoerd in minuten. |
-| queryTimeSpan | Ja | De lengte van de tijd in minuten op voor het evalueren van de resultaten. |
+| queryTimeSpan | Ja | De tijds duur in minuten waarover de resultaten moeten worden geëvalueerd. |
 
-De schema-resource moet afhankelijk van de opgeslagen zoekopdracht zodat deze voordat u de planning gemaakt.
+De plannings bron moet afhankelijk zijn van de opgeslagen zoek opdracht, zodat deze wordt gemaakt vóór het schema.
 > [!NOTE]
-> Schemanaam moet uniek zijn in een bepaalde werkruimte. twee schema's kunnen niet dezelfde ID hebben, zelfs als ze gekoppeld aan verschillende opgeslagen zoekopdrachten zijn. Naam voor alle opgeslagen zoekacties, schema's en acties die zijn gemaakt met de Log Analytics-API moet ook in kleine letters.
+> De naam van de planning moet uniek zijn in een bepaalde werk ruimte; twee schema's kunnen niet dezelfde ID hebben, zelfs als ze zijn gekoppeld aan verschillende opgeslagen Zoek opdrachten. De naam van alle opgeslagen Zoek opdrachten, planningen en acties die zijn gemaakt met de Log Analytics-API moet een kleine letter zijn.
 
 ### <a name="actions"></a>Acties
 Een planning kan meerdere acties hebben. Een actie kan definiëren een of meer processen om uit te voeren, zoals een e-mail wordt verzonden of een runbook starten, of het kan een drempelwaarde waarmee wordt bepaald wanneer de resultaten van een zoekopdracht voldoen aan bepaalde criteria definiëren. Sommige acties worden beide definiëren, zodat de processen worden uitgevoerd wanneer de drempelwaarde wordt voldaan.
-Acties kunnen worden gedefinieerd met behulp van [actiegroep] of actie bron.
-> [!NOTE]
-> Vanaf 14 mei 2018 worden is alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure](../../azure-monitor/platform/alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actiegroep - Azure Resource Manager-sjabloon](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-Er zijn twee soorten actie resource die is opgegeven door de **Type** eigenschap. Een planning vereist een **waarschuwing** actie, waarin de details van de waarschuwingsregel en welke acties worden uitgevoerd wanneer een waarschuwing wordt gemaakt. Actie resources zijn een type `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.
+Acties kunnen worden gedefinieerd met behulp van de resource of actie resource van [actie groep].
 
-Waarschuwingsacties hebben de volgende structuur. Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters.
+Er zijn twee typen actie resources die zijn opgegeven met de eigenschap **type** . Voor een planning is één **waarschuwings** actie vereist, waarmee de details van de waarschuwings regel worden gedefinieerd en welke acties worden uitgevoerd wanneer een waarschuwing wordt gemaakt. Actie resources hebben het type van `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.
+
+Waarschuwings acties hebben de volgende structuur. Dit omvat algemene variabelen en para meters, zodat u dit code fragment kunt kopiëren en plakken in het oplossings bestand en de parameter namen wijzigt.
 
 ```json
 {
@@ -172,119 +167,61 @@ Waarschuwingsacties hebben de volgende structuur. Dit omvat de algemene variabel
 }
 ```
 
-De eigenschappen voor actie bij waarschuwing resources worden in de volgende tabellen beschreven.
+De eigenschappen van resources voor waarschuwings acties worden beschreven in de volgende tabellen.
 
-| De naam van element | Vereist | Description |
+| De naam van element | Vereist | description |
 |:--|:--|:--|
-| Type | Ja | Het type van de actie.  Dit is **waarschuwing** voor waarschuwingsacties. |
-| Name | Ja | Weergavenaam voor de waarschuwing.  Dit is de naam die wordt weergegeven in de console voor de waarschuwingsregel. |
-| Description | Nee | Optionele beschrijving van de waarschuwing. |
-| Severity | Ja | Ernst van de waarschuwing record uit de volgende waarden:<br><br> **critical**<br>**Waarschuwing**<br>**Informatief**
+| type | Ja | Het type van de actie.  Dit is een **waarschuwing** voor waarschuwings acties. |
+| name | Ja | Weergavenaam voor de waarschuwing.  Dit is de naam die wordt weer gegeven in de console voor de waarschuwings regel. |
+| description | Nee | Optionele beschrijving van de waarschuwing. |
+| Severity | Ja | Ernst van de waarschuwings record van de volgende waarden:<br><br> **critical**<br>**waarschuwing**<br>**informatief**
 
 
 #### <a name="threshold"></a>Drempelwaarde
-In deze sectie is vereist. Hiermee worden de eigenschappen van drempelwaarde voor waarschuwingen gedefinieerd.
+Deze sectie is vereist. Hiermee worden de eigenschappen van de waarschuwings drempel gedefinieerd.
 
-| De naam van element | Vereist | Description |
+| De naam van element | Vereist | description |
 |:--|:--|:--|
-| Operator | Ja | Operator voor de vergelijking van de volgende waarden:<br><br>**gt = groter is dan<br>lt = minder dan** |
-| Value | Ja | De waarde om de resultaten te vergelijken. |
+| Operator | Ja | Operator voor de vergelijking van de volgende waarden:<br><br>**gt = groter dan<br>lt = kleiner dan** |
+| Waarde | Ja | De waarde waarmee de resultaten worden vergeleken. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
-In deze sectie is optioneel. Op te nemen voor een waarschuwing voor een meting van metrische gegevens.
+Deze sectie is optioneel. Neem deze op voor een waarschuwing voor metrische metingen.
 
-> [!NOTE]
-> Waarschuwingen van de meting van metrische gegevens zijn momenteel in openbare preview.
-
-| De naam van element | Vereist | Description |
+| De naam van element | Vereist | description |
 |:--|:--|:--|
-| TriggerCondition | Ja | Geeft aan of de drempelwaarde voor het totale aantal schendingen of achtereenvolgende schendingen van de volgende waarden:<br><br>**Totaal aantal<br>opeenvolgende** |
-| Operator | Ja | Operator voor de vergelijking van de volgende waarden:<br><br>**gt = groter is dan<br>lt = minder dan** |
-| Value | Ja | Het aantal keren dat de criteria voor het activeren van de waarschuwing moeten worden voldaan. |
+| TriggerCondition | Ja | Hiermee geeft u op of de drempel waarde is voor het totale aantal schendingen of opeenvolgende schendingen van de volgende waarden:<br><br>**Totaal<br>aantal opeenvolgende** |
+| Operator | Ja | Operator voor de vergelijking van de volgende waarden:<br><br>**gt = groter dan<br>lt = kleiner dan** |
+| Waarde | Ja | Aantal keer dat aan de criteria moet worden voldaan om de waarschuwing te activeren. |
 
 
-#### <a name="throttling"></a>Beperking
-In deze sectie is optioneel. Deze sectie bevatten als u onderdrukken van waarschuwingen van de dezelfde regel voor een bepaalde hoeveelheid tijd wilt nadat een waarschuwing is gemaakt.
+#### <a name="throttling"></a>Beperken
+Deze sectie is optioneel. Neem deze sectie op als u waarschuwingen van dezelfde regel wilt onderdrukken gedurende een bepaalde hoeveelheid tijd nadat een waarschuwing is gemaakt.
 
-| De naam van element | Vereist | Description |
+| De naam van element | Vereist | description |
 |:--|:--|:--|
-| DurationInMinutes | Ja als beperking element opgenomen | Het aantal minuten dat waarschuwingen onderdrukken nadat een van de dezelfde waarschuwingsregel is gemaakt. |
+| DurationInMinutes | Ja als het bandbreedte-element is opgenomen | Aantal minuten dat waarschuwingen worden onderdrukt nadat een van dezelfde waarschuwings regel is gemaakt. |
 
-#### <a name="azure-action-group"></a>Azure actiegroep
+#### <a name="azure-action-group"></a>Actie groep van Azure
 Alle waarschuwingen in Azure, gebruik actiegroep als het standaardmechanisme voor het verwerken van acties. Met de actiegroep, kunt u uw acties één keer opgeven en koppel vervolgens de actie die u wilt meerdere waarschuwingen - binnen Azure. Zonder de noodzaak om te declareren dezelfde acties herhaaldelijk telkens opnieuw. Actiegroepen ondersteuning voor meerdere acties - inclusief e-mail, SMS, Spraakoproep, ITSM-verbinding, Automation-Runbook, Webhook URI en meer.
 
-Voor gebruikers die hun waarschuwingen hebt uitgebreid naar Azure, hebt een planning nu actiegroep informatie doorgegeven, samen met de drempelwaarde, kunnen een waarschuwing wilt maken. Details van de e-mail, Webhook-URL's, Runbook-automatisering details en andere acties moeten worden gedefinieerd in naast een actiegroep eerst voordat het maken van een waarschuwing; een kunt maken [actiegroep van Azure Monitor](../../azure-monitor/platform/action-groups.md) in de Portal of gebruik [actiegroep - Resource-sjabloon](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Voor gebruikers die hun waarschuwingen hebt uitgebreid naar Azure, hebt een planning nu actiegroep informatie doorgegeven, samen met de drempelwaarde, kunnen een waarschuwing wilt maken. E-mail gegevens, webhook-Url's, Details van Runbook-automatisering en andere acties moeten eerst worden gedefinieerd in een actie groep naast het maken van een waarschuwing. een kan [actie groep maken van Azure monitor](../../azure-monitor/platform/action-groups.md) in portal of [actie groep gebruiken-resource sjabloon](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-| De naam van element | Vereist | Description |
+| De naam van element | Vereist | description |
 |:--|:--|:--|
-| AzNsNotification | Ja | De resource-ID van de actiegroep Azure moet worden gekoppeld aan de waarschuwing voor de nodige maatregelen nemen wanneer waarschuwingscriteria wordt voldaan. |
-| CustomEmailSubject | Nee | Aangepaste onderwerpregel van het e-mailbericht verzonden naar alle adressen die zijn opgegeven in actiegroep gekoppeld. |
-| CustomWebhookPayload | Nee | Aangepaste nettolading wordt verzonden naar alle webhook eindpunten zijn gedefinieerd in de bijbehorende actiegroep. De indeling, is afhankelijk van wat de webhook wordt verwacht en moet een geldige geserialiseerde JSON. |
-
-#### <a name="actions-for-oms-legacy"></a>Acties voor OMS (verouderd)
-
-Elke planning heeft een **waarschuwing** actie. Hiermee definieert u de details van de waarschuwing en (optioneel) de melding en herstel. Een melding verzendt een e-mailbericht naar een of meer adressen. Een herstel wordt een runbook in Azure Automation om te proberen het gedetecteerde probleem herstellen gestart.
-
-> [!NOTE]
-> Vanaf 14 mei 2018 worden is alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure](../../azure-monitor/platform/alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actiegroep - Azure Resource Manager-sjabloon](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-
-##### <a name="emailnotification"></a>EmailNotification
- Deze sectie is optioneel als u de melding om e-mail te verzenden naar een of meer ontvangers wilt opnemen.
-
-| De naam van element | Vereist | Description |
-|:--|:--|:--|
-| Recipients | Ja | Door komma's gescheiden lijst met e-mailadressen te sturen wanneer een waarschuwing wordt gemaakt, zoals in het volgende voorbeeld.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
-| Subject | Ja | Onderwerpregel van het e-mailbericht. |
-| Attachment | Nee | Bijlagen worden momenteel niet ondersteund. Als dit element opgenomen is, moeten deze **geen**. |
-
-##### <a name="remediation"></a>Herstel
-Deze sectie is optioneel als u een runbook te starten in reactie op de waarschuwing wilt opnemen. 
-
-| De naam van element | Vereist | Description |
-|:--|:--|:--|
-| RunbookName | Ja | De naam van het runbook te starten. |
-| WebhookUri | Ja | De URI van de webhook voor het runbook. |
-| Expiry | Nee | Datum en tijd waarop het herstel is verlopen. |
-
-##### <a name="webhook-actions"></a>Webhookacties
-
-Webhookacties start een proces doordat aanroepen van een URL en eventueel een nettolading wordt verzonden. Ze zijn vergelijkbaar met herstelacties tenzij ze zijn bedoeld voor webhooks die processen dan Azure Automation-runbooks kunnen aanroepen. Ze bieden ook de aanvullende mogelijkheid van het leveren van een payload moet worden geleverd aan het extern proces.
-
-Als de waarschuwing een webhook wordt aangeroepen, dan deze een actie-resource met een type moet **Webhook** naast de **waarschuwing** actie resource.
-
-    {
-      "name": "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Webhook').Name)]",
-      "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions/",
-      "apiVersion": "[variables('LogAnalyticsApiVersion')]",
-      "dependsOn": [
-        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name, '/schedules/', variables('Schedule').Name)]"
-      ],
-      "properties": {
-        "etag": "*",
-        "type": "[variables('Alert').Webhook.Type]",
-        "name": "[variables('Alert').Webhook.Name]",
-        "webhookUri": "[variables('Alert').Webhook.webhookUri]",
-        "customPayload": "[variables('Alert').Webhook.CustomPayLoad]"
-      }
-    }
-De eigenschappen voor Webhook actie resources worden in de volgende tabellen beschreven.
-
-| De naam van element | Vereist | Description |
-|:--|:--|:--|
-| Type | Ja | Het type van de actie. Dit is **Webhook** voor webhookacties. |
-| Name | Ja | De weergavenaam voor de actie. Dit wordt niet weergegeven in de console. |
-| webhookUri | Ja | URI voor de webhook. |
-| customPayload | Nee | Aangepaste nettolading wordt verzonden naar de webhook. De indeling is afhankelijk van wat de webhook wordt verwacht. |
+| AzNsNotification | Ja | De resource-ID van de actie groep van Azure die moet worden gekoppeld aan een waarschuwing voor het nemen van de benodigde acties wanneer aan waarschuwings criteria wordt voldaan. |
+| CustomEmailSubject | Nee | Aangepaste onderwerpregel van het e-mail bericht dat wordt verzonden naar alle adressen die zijn opgegeven in de gekoppelde actie groep. |
+| CustomWebhookPayload | Nee | Aangepaste Payload die moet worden verzonden naar alle webhook-eind punten die zijn gedefinieerd in de bijbehorende actie groep. De indeling is afhankelijk van wat de webhook verwacht en moet een geldige geserialiseerde JSON zijn. |
 
 ## <a name="sample"></a>Voorbeeld
 
-Hieronder volgt een voorbeeld van een oplossing met de volgende bronnen:
+Hier volgt een voor beeld van een oplossing die de volgende resources bevat:
 
-- Opgeslagen zoekopdracht
+- Opgeslagen zoekactie
 - Planning
 - Actiegroep
 
-In het voorbeeld wordt [standaardoplossing parameters]( solutions-solution-file.md#parameters) variabelen die vaak worden gebruikt in een oplossing in plaats van hardcoderen waarden in de resourcedefinities.
+In het voor beeld worden de variabelen voor [standaard oplossings parameters]( solutions-solution-file.md#parameters) gebruikt die doorgaans in een oplossing zouden worden toegepast, in tegens telling tot hardcoding-waarden in de resource definities.
 
 ```json
 {
@@ -441,7 +378,7 @@ In het voorbeeld wordt [standaardoplossing parameters]( solutions-solution-file.
 }
 ```
 
-De volgende parameter-bestand bevat voorbeelden van waarden voor deze oplossing.
+Het volgende parameter bestand bevat voorbeeld waarden voor deze oplossing.
 
 ```json
 {
@@ -471,5 +408,5 @@ De volgende parameter-bestand bevat voorbeelden van waarden voor deze oplossing.
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Weergaven toevoegen](solutions-resources-views.md) aan uw oplossing.
-* [Automation-runbooks en andere resources toevoegen](solutions-resources-automation.md) aan uw oplossing.
+* [Voeg weer gaven](solutions-resources-views.md) toe aan uw beheer oplossing.
+* [Voeg Automation-runbooks en andere resources](solutions-resources-automation.md) toe aan uw beheer oplossing.

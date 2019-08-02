@@ -1,7 +1,7 @@
 ---
 title: Custom Decision Service-werkstroom
 titlesuffix: Azure Cognitive Services
-description: Dit artikel bevat de aanbevolen workflow voor de Azure Custom Decision Service.
+description: Dit artikel bevat de aanbevolen werk stroom voor de Azure-Custom Decision Service.
 services: cognitive-services
 author: noellelacharite
 manager: nitinme
@@ -10,20 +10,21 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: nolachar
-ms.openlocfilehash: 086858f88a1b058e0e94fb356fbd06cf299b14f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: cce40c53fdfb052cc6c1f2941b2e3b4ae710ae21
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60580036"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707200"
 ---
 # <a name="custom-decision-service-workflow"></a>Custom Decision Service-werkstroom
 
-We raden aan na dit patroon bij het bouwen van uw apps.
+U kunt het beste dit patroon volgen wanneer u uw apps bouwt.
 
 ![Custom Decision Service-werkstroom](media/custom-decision-service-workflow.png)
 
-Voeg een [Azure Storage-verbindingsreeks](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string).
+Een [Azure Storage Connection String](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string)toevoegen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

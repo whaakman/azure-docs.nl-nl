@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/20/2019
 ms.author: shvija
-ms.openlocfilehash: 4e6f16a15547583baab63f452504d36eb2e43b85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dbef1db94d7835bd9326102bd62921c6b3d88d74
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978475"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707071"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Beheerde identiteiten voor Azure-resources met Event Hubs
 
@@ -27,28 +27,28 @@ Met beheerde identiteiten beheert het Azure-platform deze runtime-identiteit. U 
 Zodra deze gekoppeld aan een beheerde identiteit is, kunt alle geautoriseerde bewerkingen uitvoeren in een Event Hubs-client. Autorisatie is verleend door een beheerde identiteit koppelen met behulp van Event Hubs. 
 
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs-rollen en machtigingen
-U kunt een beheerde identiteit toevoegen de **Event Hubs-Gegevenseigenaar** rol van een Event Hubs-naamruimte. Deze rol hebben de identiteit, volledig beheer (voor beheer en bewerkingen van gegevens) op alle entiteiten in de naamruimte.
+U kunt een beheerde identiteit toevoegen aan de **Event hubs rol van gegevens eigenaar** van een event hubs naam ruimte. Deze rol verleent de identiteit, volledig beheer (voor beheer en gegevens bewerkingen) voor alle entiteiten in de naam ruimte.
 
 >[!IMPORTANT]
-> We eerder toe te voegen beheerde identiteit ondersteund de **eigenaar** of **Inzender** rol. Echter bevoegdheden voor toegang tot de gegevens **eigenaar** en **Inzender** rol niet meer worden herkend. Als u de **eigenaar** of **Inzender** rol, switch voor het gebruik van de **Event Hubs-Gegevenseigenaar** rol.
+> We hebben eerder ondersteuning geboden voor het toevoegen van beheerde identiteit aan de rol **Owner** of **Inzender** . De bevoegdheden voor gegevens toegang voor de rol **eigenaar** en **Inzender** worden echter niet meer nageleefd. Als u de rol **eigenaar** of **Inzender** gebruikt, schakelt u over naar de Event hubs rol van **gegevens eigenaar** .
 
-Volg deze stappen voor het gebruik van de nieuwe ingebouwde rol: 
+Voer de volgende stappen uit om de nieuwe ingebouwde rol te gebruiken: 
 
 1. Ga naar [Azure Portal](https://portal.azure.com)
-2. Navigeer naar de Event Hubs-naamruimte.
-3. Op de **Event Hubs Namespace** weergeeft, schakelt **toegang Control(IAM)** in het menu links.
-4. Op de **Access Control (IAM)** weergeeft, schakelt **toevoegen** in de **een roltoewijzing toevoegen** sectie. 
+2. Ga naar de Event Hubs naam ruimte.
+3. Selecteer **Access Control (IAM)** in het menu links op de pagina **Event hubs naam ruimte** .
+4. Selecteer op de pagina **Access Control (IAM)** **toevoegen** in het gedeelte **een roltoewijzing toevoegen** . 
 
-    ![Een knop van de toewijzing van rol toevoegen](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
-5. Op de **roltoewijzing toevoegen** pagina, de volgende stappen uit: 
-    1. Voor **rol**, selecteer **Azure Event Hubs-Gegevenseigenaar**. 
-    2. Selecteer de **identiteit** worden toegevoegd aan de rol.
+    ![Knop een roltoewijzing toevoegen](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
+5. Voer op de pagina **roltoewijzing toevoegen** de volgende stappen uit: 
+    1. Selecteer voor **rol** **Azure Event hubs-gegevens eigenaar**. 
+    2. Selecteer de **identiteit** die aan de rol moet worden toegevoegd.
     3. Selecteer **Opslaan**. 
 
-        ![Event Hubs eigenaarsrol voor de gegevens](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
-6. Schakel over naar de **roltoewijzingen** pagina en Bevestig dat de gebruiker wordt toegevoegd aan de **Azure Event Hubs-Gegevenseigenaar** rol. 
+        ![Event Hubs rol gegevens eigenaar](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
+6. Ga naar de pagina **roltoewijzingen** en controleer of de gebruiker is toegevoegd aan de rol **Azure Event hubs gegevens eigenaar** . 
 
-    ![Controleer of de gebruiker is toegevoegd aan de rol](./media/event-hubs-managed-service-identity/role-assignments.png)
+    ![Bevestig dat de gebruiker is toegevoegd aan de rol](./media/event-hubs-managed-service-identity/role-assignments.png)
  
 ## <a name="use-event-hubs-with-managed-identities-for-azure-resources"></a>Event Hubs gebruiken met beheerde identiteiten voor Azure-Resources
 
@@ -74,13 +74,13 @@ Nadat u de functie hebt ingeschakeld, is een nieuwe service-identiteit in uw Azu
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Een nieuwe Event Hubs-naamruimte maken
 
-Volgende [maken van een Event Hubs-naamruimte](event-hubs-create.md). 
+Maak vervolgens [een event hubs naam ruimte](event-hubs-create.md). 
 
 Navigeer naar de naamruimte **Access Control (IAM)** pagina in de portal en klik vervolgens op **roltoewijzing toevoegen** om toe te voegen van de beheerde identiteit op de **eigenaar** rol. Om dit te doen, zoekt u de naam van de web-App in de **machtigingen toevoegen** deelvenster **Selecteer** veld en klik vervolgens op de vermelding. Klik vervolgens op **Opslaan**. De beheerde identiteit voor de webtoepassing nu heeft toegang tot de Event Hubs-naamruimte en naar de event hub die u eerder hebt gemaakt. 
 
 ### <a name="run-the-app"></a>De app uitvoeren
 
-Wijzig nu de standaardpagina van de ASP.NET-toepassing die u hebt gemaakt. U kunt ook de web-toepassingscode van [deze GitHub-opslagplaats](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp). 
+Wijzig nu de standaardpagina van de ASP.NET-toepassing die u hebt gemaakt. U kunt ook de web-toepassingscode van [deze GitHub-opslagplaats](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp). 
 
 Als u de app gestart, wijst u EventHubsMSIDemo.aspx van uw browser. U kunt dit ook instellen als uw startpagina. De code kan worden gevonden in het bestand EventHubsMSIDemo.aspx.cs. Het resultaat is een minimale webtoepassing met een paar velden, en met **verzenden** en **ontvangen** knoppen die verbinding maken met Event Hubs verzenden of ontvangen van gebeurtenissen. 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2019
 ms.author: kumud
-ms.openlocfilehash: 9fb7fc9b4f0e5af0847876ff41b6a307f8a09749
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 857b38693ca85d6ab397cbe850f0cd530fefc88c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348040"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598387"
 ---
 # <a name="azure-networking"></a>Azure-netwerken
 
@@ -38,7 +38,7 @@ In deze sectie worden de services beschreven die verbinding bieden tussen Azure-
 |[VPN Gateway](#vpngateway)|Versleuteld verkeer verzenden tussen een virtueel Azure-netwerk en een on-premises locatie via het open bare Internet.|<p>[Site-naar-site-verbindingen](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[VNet-naar-VNet-verbindingen](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Punt-naar-site-verbindingen](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
 |[Virtueel WAN](#virtualwan)|Optimaliseert en automatiseert de verbinding tussen filialen en Azure. Azure-regio's fungeren als hubs die u kunt gebruiken om uw filialen te koppelen aan.|<p>[Site-naar-site-verbindingen](../virtual-wan/virtual-wan-site-to-site-portal.md), [ExpressRoute-verbindingen](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
 |[Azure DNS](#dns)|Host DNS-domeinen die naam omzetting bieden met behulp van Microsoft Azure-infra structuur.|<p>[Uw domein hosten in Azure DNS](../dns/dns-delegate-domain-azure-dns.md)</p><p>[DNS-records voor een web-app maken](../dns/dns-web-sites-custom-domain.md)</p> <p>[Een alias record maken voor Traffic Manager](../dns/tutorial-alias-tm.md)</p> <p>[Een alias record maken voor openbaar IP-adres](../dns/tutorial-alias-pip.md)</p> <p>[Een alias record maken voor de zone bron record](../dns/tutorial-alias-rr.md)</p>|
-|[Azure-Bastion (preview-versie)](#bastion)|Configureer beveiligde en naadloze RDP-/SSH-connectiviteit in je virtuele machine, rechtstreeks in de Azure-portal via SSL. Wanneer u verbinding maakt via Azure Bastion, hebt u geen openbaar IP-adres nodig voor uw virtuele machines|<p>[Een Azure bastion-host maken](../bastion/bastion-create-host-portal.md)</p><p>[Via SSH verbinding maken met een virtuele Linux-machine](../bastion/bastion-connect-vm-ssh.md)</p><p>[Verbinding maken met behulp van RDP met een Windows VM](/bastion/bastion-connect-vm-rdp.md)</p>|
+|[Azure-Bastion (preview-versie)](#bastion)|Configureer beveiligde en naadloze RDP-/SSH-connectiviteit in je virtuele machine, rechtstreeks in de Azure-portal via SSL. Wanneer u verbinding maakt via Azure Bastion, hebt u geen openbaar IP-adres nodig voor uw virtuele machines|<p>[Een Azure bastion-host maken](../bastion/bastion-create-host-portal.md)</p><p>[Via SSH verbinding maken met een virtuele Linux-machine](../bastion/bastion-connect-vm-ssh.md)</p><p>[Verbinding maken met behulp van RDP met een Windows VM](../bastion/bastion-connect-vm-rdp.md)</p>|
 ||||
 
 
@@ -74,7 +74,7 @@ Azure Virtual WAN is een netwerk service die zorgt voor geoptimaliseerde en geau
 Azure DNS is een service voor het hosten van DNS-domeinen die naamomzetting verzorgt met behulp van de Microsoft Azure-infrastructuur. Door uw domeinen in Azure te hosten, kunt u uw DNS-records met dezelfde referenties, API's, hulpprogramma's en facturering beheren als voor uw andere Azure-services. Zie [Wat is Azure DNS?](../dns/dns-overview.md)voor meer informatie.
 
 ### <a name="bastion"></a>Azure-Bastion (preview-versie)
-De Azure Bastion-service is een nieuwe, volledig door het platform beheerde PaaS-service die u in uw virtuele netwerk hebt ingericht. Het biedt een veilige en naadloze RDP/SSH-verbinding met uw virtuele machines rechtstreeks in de Azure Portal via SSL. Wanneer u verbinding maakt met Azure Bastion, hebben uw virtuele machines geen openbaar IP nodig. Zie [Wat is Azure Bastion?](/bastion/bastion-overview.md)voor meer informatie.
+De Azure Bastion-service is een nieuwe, volledig door het platform beheerde PaaS-service die u in uw virtuele netwerk hebt ingericht. Het biedt een veilige en naadloze RDP/SSH-verbinding met uw virtuele machines rechtstreeks in de Azure Portal via SSL. Wanneer u verbinding maakt met Azure Bastion, hebben uw virtuele machines geen openbaar IP nodig. Zie [Wat is Azure Bastion?](../bastion/bastion-overview.md)voor meer informatie.
 
 ![Azure Bastion-architectuur](./media/networking-overview/architecture.png)
 

@@ -1,18 +1,18 @@
 ---
 title: Maak een back-up van een Azure-VM op basis van de VM-instellingen met de Azure Backup-Service
 description: Meer informatie over het maken van een back-up van een virtuele machine in azure met de Azure Backup-Service
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.author: raynew
-ms.openlocfilehash: 994762098027f7051591b8bf89bfa5cb7c380373
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 042fa44b8f24bb729b94c7631db9469de8493ba4
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465278"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639767"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Een back-up van een Azure VM maken op basis van de VM-instellingen
 

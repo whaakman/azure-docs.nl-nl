@@ -1,18 +1,19 @@
 ---
 title: Rapporten configureren voor Azure Backup
 description: Power BI-rapporten configureren voor Azure Backup met behulp van een Recovery Services kluis.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: adigan
-ms.openlocfilehash: ae772446a4955f9f9def830d5c770f7d826b7e48
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 169ce73ead52d6a275f13f084c681e14c89ab606
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466613"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689360"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup-rapporten configureren
 In dit artikel worden de stappen beschreven die u moet volgen om rapporten voor Azure Backup te configureren met behulp van een Recovery Services kluis. Ook wordt uitgelegd hoe u met behulp van Power BI toegang krijgt tot rapporten. Nadat u deze stappen hebt voltooid, kunt u rechtstreeks naar Power BI gaan om rapporten weer te geven, aan te passen en te maken.

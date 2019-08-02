@@ -1,7 +1,7 @@
 ---
-title: Methode - Academic Knowledge API evalueren
+title: Methode Evaluate-Academic Knowledge API
 titlesuffix: Azure Cognitive Services
-description: Gebruik de methode evalueren om te retourneren van een set academische entiteiten op basis van een query-expressie.
+description: Gebruik de methode Evaluate om een set academische entiteiten te retour neren op basis van een query-expressie.
 services: cognitive-services
 author: alch-msft
 manager: nitinme
@@ -10,19 +10,20 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 69e701d6727e5410b71e6cf8fbe20a1cd038ddb0
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61339083"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705012"
 ---
-# <a name="evaluate-method"></a>Methode evalueren
+# <a name="evaluate-method"></a>Methode Evaluate
 
-De **evalueren** REST-API wordt gebruikt om te retourneren van een set academische entiteiten op basis van een query-expressie.
+De **evaluate** rest API wordt gebruikt om een set academische entiteiten te retour neren op basis van een query-expressie.
 <br>
 
-**REST-eindpunt:**  
+**REST-eind punt:**  
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate? 
 ```   
@@ -32,12 +33,12 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 
 Name     | Value | Vereist?  | Description
 -----------|-----------|---------|--------
-**expr**       | Tekenreeks met tekst | Ja | Een query-expressie waarmee wordt aangegeven welke entiteiten moeten worden geretourneerd.
-**model**      | Tekenreeks met tekst | Nee  | De naam van het model dat u wilt zoeken.  Op dit moment wordt de standaardwaarde aan *nieuwste*.        
-**attributes** | Tekenreeks met tekst | Nee<br>Standaard: Id | Een door komma's gescheiden lijst die Hiermee geeft u de kenmerkwaarden weer die zijn opgenomen in het antwoord. Kenmerknamen zijn hoofdlettergevoelig.
-**count**        | Aantal | Nee<br>Standaard: 10 | Het aantal resultaten dat moet worden geretourneerd.
-**offset**     | Aantal |   Nee<br>Standaard: 0    | De index van het eerste resultaat om terug te keren.
-**orderby** |   Tekenreeks met tekst | Nee<br>Standaard: door kans verkleinen | De naam van een kenmerk dat wordt gebruikt voor het sorteren van de entiteiten. U kunt desgewenst kan oplopend/aflopend worden opgegeven. De indeling is: *naam: asc* of *naam: desc*.
+**expr**       | Tekst teken reeks | Ja | Een query-expressie waarmee wordt opgegeven welke entiteiten moeten worden geretourneerd.
+**model**      | Tekst teken reeks | Nee  | De naam van het model dat u wilt opvragen.  Op dit moment wordt de waarde standaard ingesteld op *meest recente*.        
+**eigenschappen** | Tekst teken reeks | Nee<br>prijs ID | Een door komma's gescheiden lijst waarin de kenmerk waarden worden opgegeven die in het antwoord zijn opgenomen. Kenmerk namen zijn hoofdletter gevoelig.
+**count**        | Number | Nee<br>Standaard: 10 | Het aantal resultaten dat moet worden geretourneerd.
+**offset**     | Number |   Nee<br>Standaard: 0    | Index van het eerste resultaat dat moet worden geretourneerd.
+**orderby** |   Tekst teken reeks | Nee<br>Standaard: door de probe verminderen | De naam van een kenmerk dat wordt gebruikt voor het sorteren van de entiteiten. Optioneel kan oplopend/aflopend worden opgegeven. De indeling is: *naam: ASC* of *naam: desc*.
   
  <br>
 
@@ -45,9 +46,9 @@ Name     | Value | Vereist?  | Description
 
 Name | Description
 -------|-----   
-**expr** |  De *expr* parameter van de aanvraag.
-**Entiteiten** |  Een matrix met 0 of meer entiteiten die overeenkomen met de query-expressie. Elke entiteit bevat een waarde voor de kans natuurlijke logboek en de waarden van andere aangevraagde kenmerken.
-**afgebroken** | Waar, als de aanvraag is een time-out.
+**expr** |  De *expr* para meter van de aanvraag.
+**Rijg** |  Een matrix van 0 of meer entiteiten die overeenkomen met de query-expressie. Elke entiteit bevat een natuurlijke logboek waarschijnlijkheids waarde en de waarden van andere aangevraagde kenmerken.
+**afgebroken** | Waar als er een time-out is opgetreden voor de aanvraag.
 
 <br>
 
@@ -56,9 +57,9 @@ Name | Description
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?expr=
 Composite(AA.AuN=='jaime teevan')&count=2&attributes=Ti,Y,CC,AA.AuN,AA.AuId
 ```
-<br>Normaal gesproken een expressie worden opgehaald van een reactie op de **interpreteren** methode.  Maar u kunt ook samenstellen query-expressies zelf (Zie [Query-expressies](QueryExpressionSyntax.md)).  
+<br>Normaal gesp roken wordt een expressie verkregen van een reactie op de methode interpreteren.  Maar u kunt ook zelf query-expressies samen stellen (Zie [syntaxis van query-expressie](QueryExpressionSyntax.md)).  
   
-Met behulp van de *aantal* en *offset* parameters, een groot aantal resultaten kan worden verkregen zonder het verzenden van een enkele aanvraag de resultaten in een enorme (en mogelijk langzaam)-respons.  In dit voorbeeld gebruikt de aanvraag de expressie voor de eerste interpretatie van de **interpreteren** API-reactie als de *expr* waarde. De *count = 2* parameter geeft u op dat 2 entiteitsresultaten worden aangevraagd. En de *kenmerken Ti, Y, CC, AA =. AuN, AA. AuId* parameter geeft aan dat de titel, jaar, citaat aantal, de naam van auteur en auteur-ID voor elk resultaat worden aangevraagd.  Zie [Entiteitkenmerken](EntityAttributes.md) voor een lijst van kenmerken.
+Als u de para meters *Count* en *Offset* gebruikt, kan er een groot aantal resultaten worden verkregen zonder dat er een enkele aanvraag wordt verzonden die resulteert in een enorme (en mogelijk trage) reactie.  In dit voor beeld heeft de aanvraag de expressie gebruikt voor de eerste interpretatie van de API-reactie interpreteren als de *expr* waarde. De para meter *Count = 2* geeft aan dat er twee entiteits resultaten worden aangevraagd. En de *kenmerken = ti, Y, CC, AA. AuN, AA.* De para meter AuId geeft aan dat voor elk resultaat de titel, het jaar, het aantal citaten, de naam van de auteur en de auteur-id zijn aangevraagd.  Zie [entiteits kenmerken](EntityAttributes.md) voor een lijst met kenmerken.
   
 ```JSON
 {

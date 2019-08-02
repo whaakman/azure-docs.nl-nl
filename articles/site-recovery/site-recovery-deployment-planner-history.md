@@ -1,145 +1,154 @@
 ---
-title: Versiegeschiedenis van Azure Site Recovery Deployment Planner
-description: Verschillende versies van Site Recovery Deployment Planner voor problemen en bekende beperkingen samen met de release-datums bekend.
+title: Geschiedenis van Azure Site Recovery Deployment Planner-versie
+description: Bekende problemen met verschillende Site Recovery Deployment Planner versies en de bijbehorende release datums.
 services: site-recovery
 author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 04/24/2019
+ms.date: 07/29/2019
 ms.author: dapatil
-ms.openlocfilehash: 2edf7ce3be1402a497ceab5b826a89ee43c5c39b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acce72a5ddfaab56a7fcce92f0153bb06cb1ae71
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64927370"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620112"
 ---
-# <a name="azure-site-recovery-deployment-planner-version-history"></a>Versiegeschiedenis van Azure Site Recovery Deployment Planner
+# <a name="azure-site-recovery-deployment-planner-version-history"></a>Geschiedenis van Azure Site Recovery Deployment Planner-versie
 
-Dit artikel bevat een geschiedenis van alle versies van Azure Site Recovery Deployment Planner samen met de oplossingen, bekende beperkingen in elk en hun datums release.
+In dit artikel vindt u een overzicht van alle versies van Azure Site Recovery Deployment Planner, samen met de oplossingen, bekende beperkingen in elke release-datum.
 
-## <a name="version-24"></a>Versie 2.4
+## <a name="version-25"></a>Versie 2,5
 
-**Uitgebracht op: 17 april 2019**
+**Release datum: 29 juli 2019**
 
-**Opgelost:**
+**Dit**
 
-- Verbeterde operationele compatibiliteit, specifiek bij het verwerken van fouten op basis van lokalisatie.
-- Extra virtuele machines met maximaal 20 Mbps van gegevens wijzigt tarief (verloop) in de controlelijst voor de compatibiliteit.
-- Verbeterde foutberichten
-  - Ondersteuning toegevoegd voor vCenter 6.7.
-  - Ondersteuning toegevoegd voor Windows Server 2019 en Red Hat Enterprise Linux (RHEL) werkstation.
+- Voor virtuele VMware-machines en fysieke machines wordt de aanbeveling bijgewerkt op basis van de replicatie naar Managed Disks.
+- Er is ondersteuning toegevoegd voor Windows 10 (x64), Windows 8,1 (x64), Windows 8 (x64), Windows 7 (x64) SP1 of hoger
+
+## <a name="version-24"></a>Versie 2,4
+
+**Release datum: 17 april 2019**
+
+**Dit**
+
+- Verbeterde compatibiliteit van besturings systemen, met name bij het verwerken van op lokalisatie gebaseerde fouten.
+- Er zijn Vm's met Maxi maal 20 Mbps gegevens wijzigings snelheden (verloop) toegevoegd aan de controle lijst voor compatibiliteit.
+- Verbeterde fout berichten
+- Er is ondersteuning toegevoegd voor vCenter 6,7.
+- Er is ondersteuning toegevoegd voor Windows Server 2019 en Red Hat Enterprise Linux-werk station (RHEL).
 
 
 
-## <a name="version-23"></a>Versie 2.3
+## <a name="version-23"></a>Versie 2,3
 
-**Uitgebracht op: 3 december 2018**
+**Release datum: 3 december 2018**
 
-**Opgelost:**
+**Dit**
 
-- Een probleem waardoor de Deployment Planner van het genereren van een rapport met het opgegeven doellocatie en het abonnement is opgelost.
+- Er is een probleem opgelost waardoor de Deployment Planner geen rapport kan genereren met de beschik bare doel locatie en het gegeven abonnement.
 
-## <a name="version-22"></a>Versie 2.2 
+## <a name="version-22"></a>Versie 2,2 
 
-**Uitgebracht op: 25 april 2018**
+**Release datum: 25 april 2018**
 
-**Opgelost:**
+**Dit**
 
-- GetVMList-bewerkingen:
-  - Er is een probleem waardoor GetVMList mislukken als de opgegeven map bestaat niet opgelost. Deze nu de standaard-map wordt gemaakt, of maakt u de map die is opgegeven in de parameter uitvoerbestand.
-  - Toegevoegd op dat meer gedetailleerde oorzaken voor het mislukken van GetVMList.
-- Type-informatie van de toegevoegd VM als een kolom in het werkblad met compatibele VM's van de Deployment Planner-rapport.
-- Hyper-V naar Azure-noodherstel:
-  - Uitgesloten virtuele machines met gedeelde VHD's en PassThrough-schijven van de profilering. De bewerking Startprofiling bevat de lijst met uitgesloten virtuele machines in de console.
-  - Extra virtuele machines met meer dan 64 schijven aan de lijst met niet-compatibele VM's.
-  - De initiële replicatie (IR) en de delta (DR) compressie replicatiefactor zijn bijgewerkt.
-  - Beperkte ondersteuning toegevoegd voor SMB-opslag.
+- GetVMList bewerkingen:
+  - Er is een probleem opgelost dat ertoe leidt dat GetVMList mislukt als de opgegeven map niet bestaat. Nu wordt de standaard directory gemaakt of wordt de map gemaakt die is opgegeven in de para meter uitvoer bestand.
+  - Er zijn meer gedetailleerde oorzaken voor het mislukken van de GetVMList toegevoegd.
+- Informatie over het VM-type is toegevoegd als een kolom in het werk blad compatibele Vm's van het Deployment Planner-rapport.
+- Herstel na nood gevallen voor Hyper-V naar Azure:
+  - Uitgesloten Vm's met gedeelde Vhd's en PassThrough-schijven van profile ring. De Startprofiling-bewerking toont de lijst met uitgesloten Vm's in de-console.
+  - Vm's met meer dan 64 schijven zijn toegevoegd aan de lijst met niet-compatibele Vm's.
+  - De compressie factor voor de initiële replicatie (IR) en de Delta replicatie (DR) is bijgewerkt.
+  - Er is beperkte ondersteuning toegevoegd voor SMB-opslag.
 
-## <a name="version-21"></a>Versie 2.1
+## <a name="version-21"></a>Versie 2,1
 
-**Uitgebracht op: 3 januari 2018**
+**Release datum: 3 januari 2018**
 
-**Opgelost:**
+**Dit**
 
-- Het Excel-rapport bijgewerkt.
-- Er zijn bugs opgelost in de GetThroughput-bewerking.
-- Extra optie voor het beperken van het aantal virtuele machines voor het profiel of het rapport genereren. De standaardlimiet is 1000 virtuele machines.
-- VMware naar Azure-noodherstel:
-  - Een probleem van Windows Server 2016-VM in de tabel niet compatibel is opgelost. 
-  - Compatibiliteit van berichten is bijgewerkt voor Extensible Firmware Interface (EFI) Windows-VM's.
-- Bijgewerkt van VMware naar Azure en Hyper-V naar Azure VM gegevensverloop limiet per virtuele machine. 
-- Verbeterde betrouwbaarheid van bestand met VM-lijst bij het parseren.
+- Het Excel-rapport is bijgewerkt.
+- Opgeloste fouten in de GetThroughput-bewerking.
+- U hebt de optie toegevoegd om het aantal Vm's dat moet worden profiel, te beperken of het rapport te genereren. De standaard limiet is 1.000 Vm's.
+- Nood herstel van VMware naar Azure:
+  - Er is een probleem opgelost met een Windows Server 2016-VM in de niet-compatibele tabel. 
+  - Bijgewerkte compatibiliteits berichten voor Windows-Vm's voor Extensible Firmware Interface (EFI).
+- VMware naar Azure en Hyper-V naar Azure bijgewerkt, limiet voor VM-gegevens verloop per VM. 
+- Verbeterde betrouw baarheid van het parseren van bestanden met virtuele machines.
 
 ## <a name="version-201"></a>Versie 2.0.1
 
-**Uitgebracht op: 7 december 2017**
+**Release datum: 7 december 2017**
 
-**Opgelost:**
+**Dit**
 
-- Toegevoegde aanbeveling voor het optimaliseren van bandbreedte van het netwerk.
+- Aanbeveling toegevoegd om de netwerk bandbreedte te optimaliseren.
 
-## <a name="version-20"></a>Versie 2.0
+## <a name="version-20"></a>Versie 2,0
 
-**Uitgebracht op: 28 november 2017**
+**Release datum: 28 november 2017**
 
-**Opgelost:**
+**Dit**
 
-- Ondersteuning toegevoegd voor Hyper-V naar Azure-noodherstel.
-- Toegevoegde kosten berekenen.
-- OS-versiecontrole toegevoegd voor VMware naar Azure noodherstel om te bepalen of de virtuele machine compatibel of niet compatibel voor de beveiliging. Het hulpprogramma maakt gebruik van de OS-versie-tekenreeks die wordt geretourneerd door de vCenter-server voor die VM. De versie van de Gast-besturingssysteem is dat de gebruiker heeft geselecteerd tijdens het maken van de virtuele machine in VMware.
+- Er is ondersteuning toegevoegd voor Hyper-V naar Azure-herstel na nood gevallen.
+- De kosten calculator is toegevoegd.
+- Controle van versie van besturings systeem toegevoegd voor VMware naar Azure herstel na nood gevallen om te bepalen of de virtuele machine compatibel of niet compatibel is met de beveiliging. Het hulp programma gebruikt de versie teken reeks van het besturings systeem die wordt geretourneerd door de vCenter-Server voor die VM. Het is de versie van het gast besturingssysteem die de gebruiker heeft geselecteerd tijdens het maken van de virtuele machine in VMware.
 
 **Bekende beperkingen:**
 
-- Voor Hyper-V naar Azure-noodherstel, virtuele machine met de naam die de tekens, zoals: `,`, `"`, `[`, `]`, en ``` ` ``` worden niet ondersteund. Als geprofileerd, worden het genereren van rapporten mislukt of heeft een onjuiste resultaten.
-- Voor VMware naar Azure-noodherstel, wordt niet virtuele machine met de naam met door komma's ondersteund. Als geprofileerd, rapporteren genereren mislukt of heeft een onjuiste resultaten.
+- Voor Hyper-V naar Azure herstel na nood gevallen kan de VM een naam hebben die `,`de volgende `[`tekens `]`bevat: ``` ` ``` , `"`,, en niet wordt ondersteund. Als het rapport is profileeerd, mislukt het genereren van rapporten of heeft dit een onjuist resultaat.
+- Voor de nood herstel van VMware naar Azure wordt de VM met een naam die een komma bevat niet ondersteund. Als het rapport is profileeerd, mislukt het genereren van rapporten of heeft dit een onjuist resultaat.
 
 ## <a name="version-131"></a>Versie 1.3.1
 
-**Uitgebracht op: 19 juli 2017** 
+**Release datum: 19 juli 2017** 
 
-**Opgelost:**
+**Dit**
 
-- Ondersteuning toegevoegd voor grote schijven (> 1 TB) in het genereren van rapporten. Nu u Deployment Planner gebruiken kunt voor het plannen van replicatie voor virtuele machines met schijfgrootten van meer dan 1 TB (maximaal 4095 GB).
+- Er is ondersteuning toegevoegd voor grote schijven (> 1 TB) in het genereren van rapporten. Nu kunt u Deployment Planner gebruiken om replicatie te plannen voor virtuele machines met een grotere schijf grootte dan 1 TB (Maxi maal 4095 GB).
 Meer informatie over [ondersteuning voor grote schijven in Azure Site Recovery](https://azure.microsoft.com/blog/azure-site-recovery-large-disks/)
 
-## <a name="version-13"></a>Versie 1.3
+## <a name="version-13"></a>Versie 1,3
 
-**Uitgebracht op: 9 mei 2017**
+**Release datum: 9 mei 2017**
 
-**Opgelost:**
+**Dit**
 
-- Er is ondersteuning toegevoegd voor beheerde schijf in het genereren van rapporten. Het aantal virtuele machines dat kan worden geplaatst op een enkel opslagaccount wordt berekend op basis van de beheerde schijf is geselecteerd voor Failover/Test-Failover.
+- Er is ondersteuning toegevoegd voor beheerde schijven bij het genereren van rapporten. Het aantal virtuele machines dat kan worden geplaatst op één opslag account, wordt berekend op basis van het geval dat de beheerde schijf is geselecteerd voor failover/testfailover.
 
-## <a name="version-12"></a>versie 1.2
+## <a name="version-12"></a>Versie 1,2
 
-**Uitgebracht op: En met 7 april 2017**
+**Release datum: 7 april 2017**
 
-**Opgelost:**
+**Dit**
 
-- Toegevoegde opstarten type (BIOS of EFI) controles voor elke virtuele machine om te bepalen of de virtuele machine compatibel of niet compatibel voor de beveiliging.
-- Toegevoegde OS-type-informatie voor elke virtuele machine in de compatibele virtuele machines en incompatibele VM's werkbladen.
-- Er is ondersteuning toegevoegd voor de GetThroughput-bewerking voor de Amerikaanse overheid en China Microsoft Azure-regio's.
+- Het toegevoegde opstart type (BIOS of EFI) controleert voor elke VM of de virtuele machine compatibel of niet compatibel is met de beveiliging.
+- Er zijn informatie toegevoegd over het type besturings systeem voor elke virtuele machine op de werk bladen compatibele Vm's en incompatibele Vm's.
+- Er is ondersteuning toegevoegd voor de GetThroughput-bewerking voor de regio's Amerikaanse overheid en China Microsoft Azure.
 - Er zijn meer controles op vereisten toegevoegd voor vCenter en ESXi Server.
-- Er is een probleem van onjuist rapport gegenereerd wanneer de landinstellingen zijn ingesteld op niet-Engelse opgelost.
+- Er is een probleem opgelost waarbij een onjuist rapport wordt gegenereerd wanneer de land instellingen worden ingesteld op niet-Engels.
 
-## <a name="version-11"></a>Versie 1.1
+## <a name="version-11"></a>Versie 1,1
 
-**Uitgebracht op: 9 maart 2017**
+**Release datum: 9 maart 2017**
 
-**Opgelost:**
+**Dit**
 
-- Een probleem waardoor profileren van virtuele machines wanneer er twee of meer virtuele machines met dezelfde naam of IP-adres voor verschillende ESXi-hosts van vCenter is opgelost.
-- Een probleem waardoor kopiëren en zoeken worden uitgeschakeld voor de compatibele virtuele machines en incompatibele VM's werkbladen is opgelost.
+- Er is een probleem opgelost waardoor het profileren van virtuele machines niet mogelijk is wanneer er twee of meer virtuele machines met dezelfde naam of hetzelfde IP-adres zijn op verschillende vCenter ESXi-hosts.
+- Er is een probleem opgelost waardoor het kopiëren en zoeken is uitgeschakeld voor de compatibele Vm's en niet-compatibele Vm's-werk bladen.
 
-## <a name="version-10"></a>Versie 1.0
+## <a name="version-10"></a>Versie 1,0
 
-**Uitgebracht op: 23 februari 2017**
+**Release datum: 23 februari 2017**
 
 **Bekende beperkingen:**
 
-- Ondersteunt alleen voor VMware naar Azure herstel na noodgevallen. Voor Hyper-V naar Azure herstel na noodgevallen, gebruikt u de [Capaciteitsplanner voor Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
-- Biedt geen ondersteuning voor de GetThroughput-bewerking voor de Amerikaanse overheid en China Microsoft Azure-regio's.
-- Het hulpprogramma cann't profiel VM's als de vCenter-server twee of meer virtuele machines met dezelfde naam of IP-adres voor verschillende ESXi-hosts.
-In deze versie slaat het hulpprogramma profilering over bij namen of IP-adressen van virtuele machines die dubbel voorkomen in het bestand dat is opgegeven voor VMListFile. Een tijdelijke oplossing is de virtuele machines te profileren met behulp van een ESXi-host in plaats van de vCenter-server. Zorg ervoor dat voor elke ESXi-host één exemplaar uitvoeren.
+- Ondersteunt alleen scenario's voor VMware naar Azure voor herstel na nood gevallen. Gebruik het [hulp programma hyper-v capacity planner](./site-recovery-capacity-planning-for-hyper-v-replication.md)voor hyper-v naar Azure-scenario's voor herstel na nood gevallen.
+- Biedt geen ondersteuning voor de GetThroughput-bewerking voor de regio's Amerikaanse overheid en China Microsoft Azure.
+- Het hulp programma cann't het profiel Vm's als de vCenter-Server twee of meer virtuele machines met dezelfde naam of hetzelfde IP-adres op verschillende ESXi-hosts heeft.
+In deze versie slaat het hulpprogramma profilering over bij namen of IP-adressen van virtuele machines die dubbel voorkomen in het bestand dat is opgegeven voor VMListFile. Een tijdelijke oplossing is de virtuele machines te profileren met behulp van een ESXi-host in plaats van de vCenter-server. Zorg ervoor dat u één exemplaar voor elke ESXi-host uitvoert.

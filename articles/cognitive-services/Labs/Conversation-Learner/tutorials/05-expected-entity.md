@@ -1,7 +1,7 @@
 ---
-title: Het gebruik van de eigenschap 'Verwacht een entiteit' van de conversatie Learner acties - Microsoft Cognitive Services | Microsoft Docs
+title: De eigenschap verwachte entiteit van Conversation Learner acties gebruiken-Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Informatie over het gebruik van de eigenschap 'Verwacht een entiteit' van een Model van de cursist conversatie.
+description: Meer informatie over het gebruik van de eigenschap ' verwachte entiteit ' van een Conversation Learner model.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,106 +10,107 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 48a8abd401ff7191da4709c726042b566d140b78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5fbe4f09d377b9f157368184ab26341782e9aed1
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387801"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707327"
 ---
-# <a name="how-to-use-the-expected-entity-property-of-actions"></a>Het gebruik van de eigenschap 'Verwacht een entiteit' van acties
+# <a name="how-to-use-the-expected-entity-property-of-actions"></a>De eigenschap ' verwachte entiteit ' van acties gebruiken
 
-In deze zelfstudie ziet u de eigenschap 'Verwacht een entiteit' van acties.
+In deze zelf studie wordt de eigenschap verwachte entiteit van acties gedemonstreerd.
 
 ## <a name="video"></a>Video
 
-[![Verwachte entiteit zelfstudie Preview](https://aka.ms/cl_Tutorial_v3_ExpectedEntity_Preview)](https://aka.ms/cl_Tutorial_v3_ExpectedEntity)
+[![Preview-versie van verwachte zelf studie voor entiteit](https://aka.ms/cl_Tutorial_v3_ExpectedEntity_Preview)](https://aka.ms/cl_Tutorial_v3_ExpectedEntity)
 
 ## <a name="requirements"></a>Vereisten
-In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd
+Voor deze zelf studie moet de bot van de algemene zelf studie worden uitgevoerd
 
     npm run tutorial-general
 
 ## <a name="details"></a>Details
-Gebruik de eigenschap 'Verwacht een entiteit' van een actie op te slaan van het antwoord van de gebruiker voor deze actie in een entiteit.
+Gebruik de eigenschap verwachte entiteit van een actie om het antwoord van de gebruiker op deze actie op te slaan in een entiteit.
 
-Als u entiteiten toevoegt aan de eigenschap 'Verwacht een entiteit' van een actie, wordt het systeem:
+Wanneer entiteiten worden toegevoegd aan de eigenschap verwachte entiteit van een actie, wordt het volgende door het systeem uitgevoerd:
 
-1. Begin door te proberen zodat deze overeenkomen met entiteiten met behulp van de machine learning op basis van de entiteit extractie Model
-2. De utterance hele gebruiker toewijzen aan $entity op basis van heuristiek als er geen entiteiten worden gevonden
-3. Bel `EntityDetectionCallback`, en gaat u verder met de actie selecteren.
+1. Begin door te proberen entiteiten te koppelen met behulp van de op machine learning gebaseerde entiteit extractie model
+2. Wijs het hele gebruikers utterance toe aan $entity op basis van heuristiek als er geen entiteiten worden gevonden
+3. Roep `EntityDetectionCallback`aan en ga door met actie selectie.
 
 ## <a name="steps"></a>Stappen
 
-### <a name="create-the-model"></a>Het Model maken
+### <a name="create-the-model"></a>Het model maken
 
-1. In de Web-gebruikersinterface, klikt u op "Nieuwe Model."
-2. Typ in het veld 'Name', 'ExpectedEntities' en druk op enter.
-3. Klik op de knop 'Maken'.
+1. Klik in de gebruikers interface van de web op ' nieuw model '.
+2. Typ ' ExpectedEntities ' in het veld ' naam ' en druk op ENTER.
+3. Klik op de knop maken.
 
 ### <a name="entity-creation"></a>Entiteit maken
 
-1. In het linkerdeelvenster klikt u op "Entiteiten" en vervolgens de knop 'Nieuwe entiteit'.
-2. Selecteer 'Aangepaste getraind' voor het "entiteitstype'.
-3. Typ 'naam' voor "Naam van de entiteit."
-4. Klik op de knop 'Maken'.
+1. Klik in het linkerdeel venster op entiteiten en vervolgens op de knop nieuwe entiteit.
+2. Selecteer aangepast getraind voor het entiteits type.
+3. Typ ' naam ' voor de ' entiteits naam '.
+4. Klik op de knop maken.
 
 > [!NOTE]
-> Het aangepaste getrainde entiteitstype betekent dat deze entiteit kan worden getraind, in tegenstelling tot andere typen entiteiten.
+> Het entiteits type aangepast getraind geeft aan dat deze entiteit kan worden getraind, in tegens telling tot andere typen entiteiten.
 
 ![](../media/tutorial4_entities.PNG)
 
 ### <a name="create-the-first-action"></a>De eerste actie maken
 
-1. Klik op 'Acties' en vervolgens de knop 'Nieuwe actie' in het linkerdeelvenster.
-2. In de 'van de Bot response...' veld, typt u 'Wat is de naam van uw?'
-3. Typ in het veld "Entiteiten verwacht", "naam".
-4. Klik op de knop 'Maken'.
+1. Klik in het linkerdeel venster op acties en vervolgens op de knop nieuwe actie.
+2. In het antwoord van de bot... typt u ' wat is uw naam? '
+3. Typ ' naam ' in het veld ' verwachte entiteiten '.
+4. Klik op de knop maken.
 
 > [!NOTE]
-> Entiteiten gevonden en opgehaald uit het antwoord van de gebruiker wordt opgeslagen in de entiteit "name" Als deze actie wordt gekozen. Als er geen entiteiten worden gedetecteerd, wordt het volledige antwoord worden opgeslagen in deze entiteit.
+> Entiteiten die zijn gedetecteerd en opgehaald van het antwoord van de gebruiker, worden opgeslagen in de entiteit ' naam ' als deze actie wordt gekozen. Als er geen entiteiten worden gedetecteerd, wordt het volledige antwoord opgeslagen naar deze entiteit.
 
 ### <a name="create-the-second-action"></a>De tweede actie maken
 
-1. Klik op 'Acties' en vervolgens de knop 'Nieuwe actie' in het linkerdeelvenster.
-2. In de 'van de Bot response...' veld, typt u 'Hi $name'!
-3. Klik op de knop 'Maken'.
+1. Klik in het linkerdeel venster op acties en vervolgens op de knop nieuwe actie.
+2. In het antwoord van de bot... typt u ' Hi $name! '
+3. Klik op de knop maken.
 
 > [!NOTE]
-> De entiteit 'naam' automatisch is toegevoegd als een 'vereist entiteiten' verwezen in het antwoord.
+> De entiteit ' naam ' is automatisch toegevoegd als een ' vereiste entiteiten ' op basis van de verwijzing in het antwoord.
 
 U hebt nu twee acties.
 
 ![](../media/tutorial4_actions.PNG)
 
-### <a name="train-the-model"></a>Het Model te trainen
+### <a name="train-the-model"></a>Het model trainen
 
-1. In het linkerdeelvenster klikt u op "Train-dialoogvensters" en vervolgens de knop 'Nieuwe Train dialoogvenster'.
-2. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u 'Hallo.'
-    - Dit simuleert de kant van de gebruiker van de conversatie.
-3. Klik op de knop 'Acties Score'.
-4. Selecteer het antwoord, "Wat is de naam van uw?"
-    - De 'Hi $name!" antwoord kan niet worden geselecteerd omdat deze reactie is vereist voor de 'naam' entiteit nu in het geheugen van het Model worden gedefinieerd.
-5. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "Frank."
-    - 'Frank' is gemarkeerd als een entiteit op basis van de heuristiek die wordt ingesteld lager naar het antwoord opslaan als de entiteit.
-6. Klik op de knop 'Acties Score'.
-    - De entiteit 'naam' nu wordt gedefinieerd als 'Frank' in het geheugen van het Model, zodat de actie 'Hallo $name' worden geselecteerd als een actie.
-7. Selecteer het antwoord, "Hoi $name!"
-8. Klik op de knop 'Opslaan'.
+1. Klik in het linkerdeel venster op ' dialoog vensters trainen ' en vervolgens op de knop Nieuw trainen dialoog venster.
+2. In het deel venster chat, waar het bericht "Typ uw boodschap..." typt u "Hallo".
+    - Hiermee wordt de kant van de gebruiker van de conversatie gesimuleerd.
+3. Klik op de knop ' Score acties '.
+4. Selecteer de reactie ' wat is uw naam? '
+    - De ' Hi $name! ' het antwoord kan niet worden geselecteerd omdat dit antwoord vereist dat de entiteit ' naam ' nu in het geheugen van het model moet worden gedefinieerd.
+5. In het deel venster chat, waar het bericht ' Typ uw boodschap... ', typt u ' Frank '.
+    - "Frank" is gemarkeerd als een entiteit op basis van de heuristisch die we eerder hebben ingesteld om het antwoord als de entiteit op te slaan.
+6. Klik op de knop ' Score acties '.
+    - De entiteit ' name ' is nu gedefinieerd als ' Frank ' in het geheugen van het model, dus de actie ' Hello $name ' kan worden geselecteerd als een actie.
+7. Selecteer het antwoord ' Hi $name! '
+8. Klik op de knop Opslaan.
 
-Alternatieve invoer verdere treinen toevoegen van het Model.
+Door alternatieve invoer toe te voegen, wordt het model verder getraind.
 
-1. Typ in het veld 'Toevoegen alternatieve invoer...', "Ik ben Jose."
-    - Het Model wordt niet de naam als een entiteit herkend, zodat deze het gehele blok geselecteerd als de waarde van de entiteit
-2. Klik op de zin 'Ik ben Jose' en klik vervolgens op het prullenbakpictogram.
-3. Klik op 'Jose' en klik vervolgens op 'name' in de lijst met entiteiten.
+1. In de "alternatieve invoer toevoegen..." typt u ' Ik ben Jose '.
+    - Het model herkent de naam niet als een entiteit, zodat het hele tekst blok als de waarde van de entiteit wordt geselecteerd
+2. Klik op de woord groep ' Ik ben ' en klik vervolgens op het pictogram Prullenbak.
+3. Klik op ' Jose ' en klik vervolgens op ' naam ' in de lijst met entiteiten.
 4. Klik op Score acties.
 5. Selecteer het antwoord "Hallo Frank!"
-6. Klik op de knop 'Opslaan'.
+6. Klik op de knop Opslaan.
 
 ![](../media/tutorial4_dialogs.PNG)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Negatable entiteiten](./06-negatable-entities.md)
+> [Ontkennende entiteiten](./06-negatable-entities.md)

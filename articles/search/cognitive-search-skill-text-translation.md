@@ -1,6 +1,6 @@
 ---
 title: Tekst vertaling cognitieve Zoek vaardigheid-Azure Search
-description: Hiermee wordt tekst geëvalueerd en wordt voor elke record tekst geretourneerd die wordt vertaald naar de opgegeven doel taal in een Azure Search verrijkings pijplijn.
+description: Evalueert tekst en retourneert voor elke record tekst die wordt vertaald naar de opgegeven doel taal in een Azure Search verrijkings pijplijn.
 services: search
 manager: briansmi
 author: careyjmac
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cmacdo
 ms.custom: seodec2018
-ms.openlocfilehash: 0268a16ecc07d578e1e3dc2b15ad9208509c2a8c
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: c267d6b2b5a8606c8caaba15c9316a8dbcb989b9
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68351337"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698824"
 ---
-#   <a name="text-translation-cognitive-skill-preview"></a>Tekst vertaling cognitieve vaardigheid (preview-versie)
+#   <a name="text-translation-cognitive-skill"></a>Tekst vertaling cognitieve vaardigheid
 
-De **tekst Vertaal** vaardigheid evalueert tekst, en voor elke record retourneert de tekst vertaald naar de opgegeven doel taal. Deze vaardigheid maakt gebruik van de [Translator text-API v 3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) beschikbaar in cognitive Services.  Hoewel het momenteel beschikbaar is in de meest recente Azure Search algemeen beschik bare API-versie, wordt deze als preview beschouwd en moet deze als zodanig worden behandeld totdat ze algemeen beschikbaar zijn.
+De **tekst Vertaal** vaardigheid evalueert tekst en retourneert voor elke record de tekst die wordt vertaald naar de opgegeven doel taal. Deze vaardigheid maakt gebruik van de [Translator text-API v 3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) beschikbaar in cognitive Services.
 
 Deze mogelijkheid is handig als u verwacht dat uw documenten niet allemaal in één taal zijn opgenomen. in dat geval kunt u de tekst voor het indexeren in één taal normaliseren voordat u de zoek opdracht vertaalt.  Het is ook handig voor lokalisatie van gebruiks voorbeelden, waar u mogelijk kopieën wilt hebben van dezelfde tekst die beschikbaar is in meerdere talen.
 

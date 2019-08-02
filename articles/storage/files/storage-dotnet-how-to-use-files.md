@@ -1,7 +1,6 @@
 ---
 title: Ontwikkelen voor Azure Files met .NET | Microsoft Docs
 description: Informatie over het ontwikkelen van .NET-toepassingen en -services die gebruikmaken van Azure Files voor het opslaan van gegevens uit een bestand.
-services: storage
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 38bafdb4753b41a9c8acd599e6b7215e1777c6cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35f29e425fc471e4df4a037ef312af0fd041dcd7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65779469"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699789"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Ontwikkelen voor Azure Files met .NET
 
@@ -53,13 +52,13 @@ Maak in Visual Studio een nieuwe Windows-consoletoepassing. De volgende stappen 
 
 Alle codevoorbeelden in deze zelfstudie kunnen worden toegevoegd aan de methode `Main()` van het bestand `Program.cs` van de consoletoepassing.
 
-U kunt de Azure Storage-clientbibliotheek in elk type .NET-toepassing, met inbegrip van een Azure-cloud-service of web-app, en desktop- en mobiele toepassingen gebruiken. In deze gids gebruiken we een consoletoepassing voor de eenvoud.
+U kunt de Azure Storage-client bibliotheek gebruiken in elk type .NET-toepassing, waaronder een Azure-Cloud service of web-app, en desktop-en mobiele toepassingen. In deze gids gebruiken we een consoletoepassing voor de eenvoud.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>NuGet gebruiken om de vereiste pakketten te installeren
 Er zijn twee pakketten waarnaar u in uw project moet verwijzen om deze zelfstudie te kunnen voltooien:
 
-* [Algemene Microsoft Azure Storage-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Dit pakket biedt programmatisch toegang tot veelgebruikte resources in uw opslagaccount.
-* [Microsoft Azure Storage-Blob-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Dit pakket biedt programmatische toegang tot Blob-resources in uw storage-account.
+* [Algemene bibliotheek voor .net Microsoft Azure Storage](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Dit pakket biedt programmatische toegang tot veelvoorkomende resources in uw opslag account.
+* [Microsoft Azure Storage BLOB-bibliotheek voor .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Dit pakket biedt programmatische toegang tot BLOB-resources in uw opslag account.
 * [Microsoft Azure Configuration Manager-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): dit pakket biedt een klasse voor het parseren van een verbindingsreeks in een configuratiebestand, ongeacht waar de toepassing wordt uitgevoerd.
 
 Met NuGet kunt u beide pakketten verkrijgen. Volg deze stappen:
@@ -221,7 +220,7 @@ if (share.Exists())
 }
 ```
 
-Zie voor meer informatie over het maken en gebruiken van handtekeningen voor gedeelde toegang, [met behulp van Shared Access Signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Zie [using Shared Access signatures (SAS) (Engelstalig)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)voor meer informatie over het maken en gebruiken van hand tekeningen voor gedeelde toegang.
 
 ## <a name="copy-files"></a>Bestanden kopiëren
 Vanaf versie 5.x van de Azure Storage-clientbibliotheek kunt u een bestand kopiëren naar een ander bestand, een bestand naar een blob of een blob naar een bestand. In de volgende secties ziet u hoe u deze kopieerbewerkingen uitvoert via een programma.
@@ -402,7 +401,7 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 ## <a name="troubleshooting-azure-files-using-metrics"></a>Problemen met Azure Files oplossen met metrische gegevens
 Azure Opslaganalyse ondersteunt nu metrische gegevens voor Azure Files. Met metrische gegevens kunt u aanvragen volgen en problemen diagnosticeren.
 
-U kunt metrische gegevens inschakelen voor Azure-bestanden uit de [Azure-portal](https://portal.azure.com). U kunt metrische gegevens ook inschakelen via een programma. Daarvoor roept u de bewerking Set File Service Properties aan via de REST API of een van de analogen daarvan in de Storage-clientbibliotheek.
+U kunt de metrische gegevens voor Azure Files inschakelen vanuit de [Azure Portal](https://portal.azure.com). U kunt metrische gegevens ook inschakelen via een programma. Daarvoor roept u de bewerking Set File Service Properties aan via de REST API of een van de analogen daarvan in de Storage-clientbibliotheek.
 
 In het volgende codevoorbeeld ziet u hoe u de Storage-clientbibliotheek voor .NET gebruikt om metrische gegevens in te schakelen voor Azure Files.
 

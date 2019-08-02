@@ -8,14 +8,16 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 60ed1f6d6b3904055c01aa32b69299a5872c38ac
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: ea42a459365848386082470deb5120e09cb92421
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404568"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668162"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>Aan de slag met IoT Hub module-identiteit en-module, met behulp van .NET-back-end en .NET-apparaat
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Aan de slag met IoT Hub module-identiteit en-module twee (.NET)
+
+[!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
 > [Module-id's en moduledubbels](iot-hub-devguide-module-twins.md) zijn vergelijkbaar met Azure IoT Hub-apparaat-id's en apparaatdubbels, maar bieden een hogere granulariteit. Met een Azure IoT Hub-apparaat-id en apparaatdubbel kan een apparaat worden geconfigureerd via de back-endtoepassing en kunt u inzicht krijgen in de toestand van een apparaat. Een module-id en moduledubbel bieden deze mogelijkheden voor afzonderlijke onderdelen van een apparaat. Op apparaten met meerdere onderdelen, zoals apparaten met een besturingssysteem of firmware, kunt u afzonderlijke configuraties en voorwaarden voor elk onderdeel instellen.

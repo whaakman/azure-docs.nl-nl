@@ -9,36 +9,34 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3738ffe8b3faedc328bde01173400289403652f4
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 45b28b4d88c670a8b2ec34b93a342f06b80e02d7
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297937"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668481"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
-In dit artikel leert u hoe u een ontwikkel omgeving kunt configureren om met Azure Machine Learning-service te werken. Machine Learning-service is platform neutraal.
+In dit artikel leert u hoe u een ontwikkel omgeving kunt configureren om met Azure Machine Learning-service te werken. Azure Machine Learning-service is platform neutraal. De enige harde vereiste voor uw ontwikkel omgeving is python 3. Een geïsoleerde omgeving zoals Anaconda of virtualenv wordt ook aanbevolen.
 
-De enige vereisten voor uw ontwikkel omgeving zijn python 3, Anaconda (voor geïsoleerde omgevingen) en een configuratie bestand dat uw Azure Machine Learning werkruimte gegevens bevat.
+In de volgende tabel ziet u elke ontwikkel omgeving die in dit artikel wordt behandeld, samen met de voor-en nadelen.
 
-Dit artikel is gericht op de volgende omgevingen en hulpprogram ma's:
+| Omgeving | Professionals | Nadelen |
+| --- | --- | --- |
+| [VM op basis van de Cloud-notebook](#notebookvm) | Eenvoudigste manier om aan de slag te gaan. De volledige SDK is al geïnstalleerd in uw werk ruimte-VM en de notitieblok zelfstudies zijn vooraf gekloond en klaar om te worden uitgevoerd. | Geen controle over uw ontwikkel omgeving en afhankelijkheden. Er zijn extra kosten verbonden aan de virtuele Linux-machine (VM kan worden gestopt wanneer deze niet wordt gebruikt om kosten te voor komen). Zie de [prijs informatie](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
+| [Lokale omgeving](#local) | Volledig beheer van uw ontwikkel omgeving en afhankelijkheden. Voer uit met een hulp programma, omgeving of IDE van uw keuze. | Duurt langer om aan de slag te gaan. De benodigde SDK-pakketten moeten worden geïnstalleerd en er moet ook een omgeving worden geïnstalleerd als u er nog geen hebt. |
+| [Azure Databricks](#aml-databricks) | Ideaal voor het uitvoeren van grootschalige intensieve machine learning werk stromen op het schaal bare Apache Spark platform. | Overbodig voor experimentele machine learning, of kleinschalige experimenten en werk stromen. Er zijn extra kosten gemaakt voor Azure Databricks. Zie de [prijs informatie](https://azure.microsoft.com/pricing/details/databricks/). |
+| [De Data Science Virtual Machine (DSVM)](#dsvm) | Net als bij de cloud-gebaseerde Notebook-VM (python en de SDK zijn vooraf geïnstalleerd), maar met extra populaire gegevens wetenschap en machine learning-hulpprogram ma's vooraf geïnstalleerd. Eenvoudig te schalen en combi neren met andere aangepaste hulp middelen en werk stromen. | Een langzamere aan de slag-ervaring vergeleken met de virtuele machine op de Cloud-notebook. |
+| [Azure Notebooks](#aznotebooks) | De aan de slag-ervaring voor gratis en licht gewicht, met python en de SDK vooraf geïnstalleerd. | Minder krachtige VM'S beschikbaar vergeleken met virtuele machines in de Cloud. Geïsoleerd van werk ruimte en andere resources. |
 
-* Uw eigen [Cloud-VM op basis van een virtuele machine](#notebookvm): Gebruik een reken resource op uw werk station om Jupyter-notebooks uit te voeren. Het is de eenvoudigste manier om aan de slag te gaan, omdat de Azure Machine Learning SDK al is geïnstalleerd.
-
-* [De data Science virtual machine (DSVM)](#dsvm): Een vooraf geconfigureerde ontwikkelings-of experimenten omgeving in de Azure-Cloud die is ontworpen voor data technologie werk en kan worden geïmplementeerd op VM-exemplaren van de CPU of op GPU gebaseerde exemplaren. Python 3, Conda, Jupyter-Notebooks en de SDK van Azure Machine Learning zijn al geïnstalleerd. De VM wordt geleverd met populaire machine learning en diep gaande frameworks, hulpprogram ma's en editors voor het ontwikkelen van machine learning oplossingen. Het is waarschijnlijk de meest complete ontwikkel omgeving voor machine learning op het Azure-platform.
+Dit artikel bevat ook extra tips voor het gebruik van de volgende hulpprogram ma's:
 
 * [Jupyter](#jupyter)-notebooks: Als u de Jupyter Notebook al gebruikt, heeft de SDK enkele extra's die u moet installeren.
 
 * [Visual Studio Code](#vscode): Als u Visual Studio code gebruikt, beschikt u over een aantal nuttige uitbrei dingen die u kunt installeren.
-
-* [Azure Databricks](#aml-databricks): Een populair platform voor gegevens analyse dat is gebaseerd op Apache Spark. Meer informatie over het ophalen van de Azure Machine Learning SDK op uw cluster, zodat u modellen kunt implementeren.
-
-* [Azure notebooks](#aznotebooks): Een Jupyter-notebook service die wordt gehost in de Azure-Cloud. Het is ook een eenvoudige manier om aan de slag te gaan, omdat de Azure Machine Learning SDK al is geïnstalleerd.  
-
-Als u al een Python 3-omgeving hebt, of alleen de basisstappen voor het installeren van de SDK wilt, Zie de [lokale computer](#local) sectie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -57,9 +55,9 @@ Als u de SDK-omgeving voor uw [lokale computer](#local)wilt installeren, [Jupyte
 
 ## <a id="notebookvm"></a>Uw eigen Cloud-VM op basis van een virtuele machine
 
-De virtuele machine van het notebook (preview) is een veilig Azure-werk station in de cloud dat gegevens wetenschappers bevat met een Jupyter notebook-server, Jjupyterlab en een volledig bereide ML-omgeving. 
+De virtuele machine van het notebook (preview) is een veilig Azure-werk station in de cloud dat gegevens wetenschappers bevat met een Jupyter notebook-server, Jjupyterlab en een volledig bereide ML-omgeving.
 
-De VM van het notebook is: 
+De VM van het notebook is:
 
 + **Secure**. Omdat de toegang tot de virtuele machine en het notebook is beveiligd met HTTPS en Azure Active Directory standaard kunnen IT-professionals de eenmalige aanmelding en andere beveiligings functies, zoals multi-factor Authentication, gemakkelijk afdwingen.
 
@@ -68,17 +66,17 @@ De VM van het notebook is:
   + Automatische configuratie voor samen werking met uw werk ruimte
   + Een Jupyter-notebook server
   + Jjupyterlab notebook IDE
-  + Vooraf geconfigureerde GPU-Stuur Programma's 
+  + Vooraf geconfigureerde GPU-Stuur Programma's
   + Een keuze uit een diep gaande lessen
- 
 
-  Als u in code werkt, bevat de virtuele machine zelf studies en voor beelden om u te helpen te verkennen en hoe u Azure Machine Learning-service kunt gebruiken. De voorbeeld notitieblokken worden opgeslagen in het Azure Blob Storage-account van uw werk ruimte zodat ze kunnen worden gedeeld via Vm's. Wanneer ze worden uitgevoerd, hebben ze ook toegang tot de gegevens archieven en reken resources van uw werk ruimte. 
+
+  Als u in code werkt, bevat de virtuele machine zelf studies en voor beelden om u te helpen te verkennen en hoe u Azure Machine Learning-service kunt gebruiken. De voorbeeld notitieblokken worden opgeslagen in het Azure Blob Storage-account van uw werk ruimte zodat ze kunnen worden gedeeld via Vm's. Wanneer ze worden uitgevoerd, hebben ze ook toegang tot de gegevens archieven en reken resources van uw werk ruimte.
 
 + **Eenvoudige installatie**: Maak een wille keurig moment in uw Azure Machine Learning-werk ruimte. Geef een naam op en geef een Azure VM-type op. Probeer het nu met deze [Snelstartgids: Gebruik een op de cloud gebaseerde Notebook server om aan de slag](quickstart-run-cloud-notebook.md)te gaan met Azure machine learning.
 
 + **Aanpasbaar**. Tijdens een beheerde en beveiligde VM-aanbieding behoudt u volledige toegang tot de hardware-mogelijkheden en past u deze aan op de wensen van uw hart. Zo kunt u snel de nieuwste NVidia V100-VM maken om stapsgewijze fout opsporing van nieuwe Neural-netwerk architectuur uit te voeren.
 
-[Stop de VM van het notitie](quickstart-run-cloud-notebook.md#stop-the-notebook-vm)blok om de VM-kosten van de notebook te stoppen. 
+[Stop de VM van het notitie](quickstart-run-cloud-notebook.md#stop-the-notebook-vm)blok om de VM-kosten van de notebook te stoppen.
 
 ## <a id="dsvm"></a>Virtuele Machine voor Datatechnologie
 
@@ -285,9 +283,9 @@ Ga als volgt te werk om Visual Studio code te gebruiken voor ontwikkeling:
 Azure Databricks is een op Apache Spark gebaseerde omgeving in de Azure-Cloud. Het biedt een samen werkende notebook omgeving met een CPU of gebaseerd reken cluster op basis van GPU.
 
 Hoe Azure Databricks werkt met Azure Machine Learning-service:
-+ U kunt een model trainen met Spark MLlib en het model implementeren naar ACI/AKS in Azure Databricks. 
++ U kunt een model trainen met Spark MLlib en het model implementeren naar ACI/AKS in Azure Databricks.
 + U kunt ook gebruikmaken van [geautomatiseerde machine learning](concept-automated-ml.md) mogelijkheden in een speciale Azure ml SDK met Azure Databricks.
-+ U kunt Azure Databricks als een reken doel van een [Azure machine learning pijp lijn](concept-ml-pipelines.md)gebruiken. 
++ U kunt Azure Databricks als een reken doel van een [Azure machine learning pijp lijn](concept-ml-pipelines.md)gebruiken.
 
 ### <a name="set-up-your-databricks-cluster"></a>Uw Databricks-cluster instellen
 
@@ -301,14 +299,14 @@ Gebruik deze instellingen:
 | Clusternaam |altijd| yourclustername |
 | Databricks Runtime |altijd| Een niet-ML-runtime (niet ML 4. x, 5. x) |
 | Python-versie |altijd| 3 |
-| IT |altijd| 2 of hoger |
+| Medewerkers |altijd| 2 of hoger |
 | VM-typen worker-knoop punt <br>(bepaalt het maximum aantal gelijktijdige iteraties) |Geautomatiseerde machine learning<br>alleen| Voorkeurs-VM geoptimaliseerd voor geheugen |
 | Automatisch schalen inschakelen |Geautomatiseerde machine learning<br>alleen| Schakel |
 
 Wacht totdat het cluster wordt uitgevoerd voordat u doorgaat.
 
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>De juiste SDK installeren in een Databricks-bibliotheek
-Zodra het cluster wordt uitgevoerd, [maakt u een bibliotheek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) om het juiste Azure machine learning SDK-pakket aan uw cluster toe te voegen. 
+Zodra het cluster wordt uitgevoerd, [maakt u een bibliotheek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) om het juiste Azure machine learning SDK-pakket aan uw cluster toe te voegen.
 
 1. Kies **slechts één** optie (er worden geen andere SDK-installaties ondersteund)
 
@@ -323,21 +321,21 @@ Zodra het cluster wordt uitgevoerd, [maakt u een bibliotheek](https://docs.datab
    * Selecteer niet **automatisch koppelen aan alle clusters**.
    * Selecteer **koppelen** naast de naam van uw cluster.
 
-1. Controleer op fouten totdat de status is gewijzigd in bijgevoegd. Dit kan enkele minuten duren.  Als deze stap mislukt, controleert u het volgende: 
+1. Controleer op fouten totdat de status isgewijzigd in bijgevoegd. Dit kan enkele minuten duren.  Als deze stap mislukt, controleert u het volgende:
 
    Probeer het cluster opnieuw te starten door:
    1. Selecteer **clusters**in het linkerdeel venster.
    1. Selecteer de naam van uw cluster in de tabel.
    1. Selecteer **opnieuw opstarten**op het tabblad **tape wisselaars** .
-      
+
    Houd ook rekening met het volgende:
    + Voeg in Automl config de volgende para meters toe wanneer u Azure Databricks gebruikt:
-       1. ```max_concurrent_iterations```is gebaseerd op het aantal worker-knoop punten in uw cluster. 
-        2. ```spark_context=sc```is gebaseerd op de standaard Spark-context. 
+       1. ```max_concurrent_iterations```is gebaseerd op het aantal worker-knoop punten in uw cluster.
+        2. ```spark_context=sc```is gebaseerd op de standaard Spark-context.
    + Als u een oude SDK-versie hebt, kunt u deze opheffen door de geïnstalleerde bibliotheken van het cluster te verwijderen en naar de Prullenbak te gaan. Installeer de nieuwe SDK-versie en start het cluster opnieuw op. Als er een probleem is, koppelt u het cluster en koppelt u het opnieuw.
 
 Als de installatie is voltooid, moet de geïmporteerde bibliotheek er ongeveer als volgt uitzien:
-   
+
 SDK voor Databricks **_zonder_** geautomatiseerde machine learning ![Azure machine learning SDK voor Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
 SDK voor Databricks **met** geautomatiseerde machine learning ![SDK met geautomatiseerde machine learning geïnstalleerd op Databricks](./media/how-to-configure-environment/automlonadb.jpg)
@@ -345,9 +343,9 @@ SDK voor Databricks **met** geautomatiseerde machine learning ![SDK met geautoma
 ### <a name="start-exploring"></a>Beginnen met verkennen
 
 Uitproberen:
-+ Down load het [archief bestand voor het notitie blok](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) voor Azure Databricks/Azure machine learning SDK en [Importeer het archief bestand](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) in uw Databricks-cluster.  
++ Down load het [archief bestand voor het notitie blok](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) voor Azure Databricks/Azure machine learning SDK en [Importeer het archief bestand](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) in uw Databricks-cluster.
   Er zijn veel voorbeeld notitieblokken beschikbaar, **maar alleen [deze voorbeeld notitieblokken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) werken met Azure Databricks.**
-  
+
 + Meer informatie over het [maken van een pijp lijn met Databricks als de trainings Compute](how-to-create-your-first-pipeline.md).
 
 ## <a id="aznotebooks"></a>Azure-laptops

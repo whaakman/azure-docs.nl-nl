@@ -1,6 +1,6 @@
 ---
-title: Threat intelligence en beveiliging waarschuwing toewijzen in Azure Security Center | Microsoft Docs
-description: Informatie over het gebruik van de kaart en threat intelligence beveiligingswaarschuwingen in Azure Security Center voor het identificeren van mogelijke bedreigingen in uw virtuele machines en computers.
+title: Overzicht van bedreigings informatie en beveiligings waarschuwingen in Azure Security Center | Microsoft Docs
+description: Meer informatie over het gebruik van de functie voor het toewijzen van beveiligings waarschuwingen en bedreigings informatie in Azure Security Center om mogelijke dreigingen in uw Vm's en computers te identificeren.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,92 +14,47 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 36201bad64e5516375afe1ec9ce141c3fd311d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0740beb3b1ffc200c36ca4b5c15b25017821587e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574350"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662341"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Overzicht beveiligingswaarschuwingen en informatie over bedreigingen
-In dit artikel helpt u bij het gebruik van de Azure Security Center security waarschuwingen kaart en beveiliging op basis van gebeurtenissen bedreigingsinformatiekaart beveiligingsgerelateerde om problemen te verhelpen.
+Dit artikel helpt u bij het gebruik van de Azure Security Center Security Alerts en beveiliging op basis van bedreigings informatie die betrekking heeft op beveiligings problemen.
 
 > [!NOTE]
-> De beveiliging *gebeurtenissen* knop kaart worden stopgezet op 31 juli 2019. Zie voor meer informatie en andere services, [buiten gebruik stellen van Security Center-functies (juli 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
+> De knop voor de toewijzing van beveiligings *gebeurtenissen* is op 31 juli 2019 ingetrokken. Zie voor meer informatie en alternatieve Services de [buiten gebruiks telling van Security Center-functies (2019 juli)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
 
 
-## <a name="how-the-security-alerts-map-works"></a>Hoe werkt in de beveiligingswaarschuwingen worden toegewezen
-Security Center biedt u een map die u helpt beveiligingsbedreigingen voor de omgeving identificeren. U kunt bijvoorbeeld bepalen of een bepaalde computer deel uitmaakt van een botnet en wanneer de bedreiging die afkomstig zijn van. Computers gaan knooppunten in een botnet wanneer aanvallers malware installeren waarmee bedieningscentrale communiceert met opdrachten en besturing die het botnet beheren. 
+## <a name="how-the-security-alerts-map-works"></a>Hoe de toewijzing van beveiligings waarschuwingen werkt
+Security Center biedt u een kaart waarmee u beveiligings Risico's voor de omgeving kunt identificeren. U kunt bijvoorbeeld bepalen of een bepaalde computer deel uitmaakt van een botnet en waar de dreiging van afkomstig is. Computers kunnen knoop punten worden in een botnet wanneer aanvallers schadelijke software installeren die op een geheime wijze communiceert met opdracht en beheer waarmee het botnet wordt beheerd. 
 
-Voor het bouwen van deze kaart maakt gebruik van Security Center gegevens die afkomstig zijn uit meerdere bronnen binnen Microsoft. Security Center gebruikt deze gegevens voor het toewijzen van mogelijke bedreigingen voor uw omgeving. 
+Security Center maakt gebruik van gegevens die afkomstig zijn uit meerdere bronnen in micro soft om deze kaart samen te stellen. Security Center gebruikt deze gegevens om mogelijke dreigingen toe te wijzen aan uw omgeving. 
 
 Een van de stappen van de [procedure om te reageren op een beveiligingsincident](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide#incident-response) is het identificeren van de ernst van het aangevallen systeem. In deze fase moet u de volgende taken uitvoeren:
 
 - Bepaal de aard van de aanval.
-- Bepaal de oorsprong van de aanval.
+- Bepaal het punt van oorsprong van de aanval.
 - Bepaal de bedoeling van de aanval. Was de aanval gericht op uw organisatie om specifieke gegevens te verkrijgen, of was het een willekeurige aanval?
 - Stel vast welke systemen zijn aangevallen.
 - Stel vast welke bestanden zijn geopend en bepaal de gevoeligheid van die bestanden.
 
-U kunt de toewijzing van beveiliging waarschuwingen in Security Center gebruiken om te helpen bij deze taken.
+U kunt de toewijzing van beveiligings waarschuwingen in Security Center gebruiken om te helpen bij deze taken.
 
-## <a name="access-the-security-alerts-map"></a>Toegang tot de beveiliging waarschuwingen overzicht
-Als u wilt de huidige bedreigingen in uw omgeving visualiseren, open de toewijzing van de waarschuwingen beveiliging:
+## <a name="access-the-security-alerts-map"></a>De toewijzing van de beveiligings waarschuwingen openen
+Als u de huidige bedreigingen voor uw omgeving wilt visualiseren, opent u de map met beveiligings waarschuwingen:
 
 1. Open het dashboard van **Security Center**.
-2. In het linkerdeelvenster onder **Threat Protection** Selecteer **Security waarschuwingen kaart**. De kaart wordt geopend.
-3. Voor meer informatie over de waarschuwing en herstelstappen ontvangen, klikt u op de waarschuwing stip op de kaart en volg de instructies. 
+2. Selecteer in het linkerdeel venster onder **bedreigingen beveiliging** de optie **beveiligings waarschuwingen toewijzen**. De kaart wordt geopend.
+3. Als u meer informatie wilt over de waarschuwing en de stappen voor herbemiddeling wilt ontvangen, klikt u op de waarschuwings stip op de kaart en volgt u de instructies. 
  
-De toewijzing van de waarschuwingen beveiliging is gebaseerd op waarschuwingen. Deze waarschuwingen zijn gebaseerd op activiteiten die voor welk netwerk communicatie is gekoppeld aan een IP-adres dat is opgelost, is al dan niet het IP-adres een bekende riskante IP-adres (bijvoorbeeld, een bekende cryptominer is) of een IP-adres dat wordt niet herkend eerder als riskant. De kaart bevat waarschuwingen over abonnementen die u eerder hebt geselecteerd in Azure. 
+De toewijzing van beveiligings waarschuwingen is gebaseerd op waarschuwingen. Deze waarschuwingen zijn gebaseerd op activiteiten waarvoor netwerk communicatie is gekoppeld aan een IP-adres dat is omgezet, ongeacht of het IP-adres een bekend riskant IP-adres is (bijvoorbeeld een bekend cryptominer) of een IP-adres dat niet wordt herkend voorheen als riskant. De kaart biedt waarschuwingen over alle abonnementen die u eerder hebt geselecteerd in Azure. 
 
-De waarschuwingen op de kaart worden weergegeven op basis van de geografische locatie waar ze worden gedetecteerd als zijnde afkomstig van, en ze hebben een kleurcode op basis van ernst. 
-    ![Informatie over bedreigingen](./media/security-center-threat-intel/security-center-alert-map.png)
+De waarschuwingen op de kaart worden weer gegeven op basis van de geografische locatie waar ze worden gedetecteerd als afkomstig van, en ze zijn in kleur gecodeerd op Ernst. 
+    ![Informatie over Threat Intelligence](./media/security-center-threat-intel/security-center-alert-map.png)
 
-## <a name="viewing-the-event-based-threat-intelligence-dashboard"></a>Het dashboard Bedreigingsinformatie op basis van gebeurtenissen weergeven
-Als u de bedreigingsinformatiekaart op basis van onbewerkte beveiligingsgebeurtenissen, kunt u deze procedure te volgen. Deze kaart bevat alleen de gebeurtenissen die betrekking hebben op een IP-adres dat wordt beschouwd als risico's, bijvoorbeeld een IP-adres van een bekend botnet.
-
-1. Open het dashboard van **Security Center**.
-
-1. In het linkerdeelvenster onder **Threat Protection** Selecteer **Security waarschuwingen kaart**. De kaart wordt geopend.
-2. Klik in de rechterbovenhoek, **gaat u naar beveiliging gebeurtenissen kaart**.
-3. Selecteer de werkruimte waarvan u wilt om het dashboard weer te geven.
-4. Selecteer aan de bovenkant van de kaart **klassieke bedreigingsinformatie weer**. De **Bedreigingsinformatie** dashboard wordt geopend.
-
-   > [!NOTE]
-   > Als in de meest rechtse kolom de tekst **UPGRADE ABONNEMENT** staat, is deze werkruimte gekoppeld aan het gratis abonnement. Voer een upgrade naar de Standard-versie uit om deze functie te gebruiken. Als de kolom helemaal rechts ziet u **vereist UPDATE**, bijwerken [logboeken van Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) deze functie wilt gebruiken. Lees Prijzen van Azure Security Center voor meer informatie over de prijzen.
-   >
-5. Als er meer dan één werkruimte is om te onderzoeken, bepaalt u de prioriteit van het onderzoek via de kolom **Schadelijk IP**. Hier ziet u het huidige aantal schadelijke IP-adressen in deze werkruimte. Selecteer de werkruimte die u wilt gebruiken. Het dashboard **Bedreigingsinformatie** wordt nu weergegeven.
-
-    ![Bedreigingsinformatie](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
-
-6. Het dashboard is onderverdeeld in vier tegels:
-
-    a.  **Bedreigingstypen**. Hier ziet u een overzicht van het type bedreigingen dat in de geselecteerde werkruimte is gedetecteerd.
-
-    b.  **Land van oorsprong**. Hier wordt de hoeveelheid verkeer gecombineerd op basis van de bronlocatie.
-
-    c.  **Locatie van de bedreiging**. Helpt u bij het identificeren van de huidige locaties die wereldwijd met uw omgeving communiceren. Op de kaart geven de oranje (inkomend) en rode (uitgaand) pijlen de richtingen van het verkeer aan. Als u een van deze pijlen selecteert, ziet u het type bedreiging en de richting van het verkeer.
-
-    d.  **Details van de bedreiging**. Hier ziet u meer informatie over de bedreiging die u op de kaart hebt geselecteerd.
-
-Ongeacht de tegel die u selecteert, is het dashboard dat wordt weergegeven altijd gebaseerd op het logboek van Zoeken in logboeken. Het enige verschil is het type query en het resultaat.
-
-### <a name="threat-types"></a>Bedreigingstypen
-Selecteer de tegel **Bedreigingstypen** om het dashboard **Zoeken in logboeken** te openen. U ziet filteropties aan de linkerkant en de queryresultaten aan de rechterkant.
-
-![Zoeken in logboeken](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
-
-In het queryresultaat worden de bedreigingen op naam aangegeven. Gebruik het linkerdeelvenster om het kenmerk te selecteren waarop u wilt filteren. Als u bijvoorbeeld alleen de bedreigingen wilt zien die momenteel zijn verbonden met de computers, selecteert u **Verbonden** > **Toepassen** bij **SESSIONSTATE**.
-
-![Sessiestatus](./media/security-center-threat-intel/security-center-threat-intel-fig4.png)
-
-Voor VM’s van Azure bevat het dashboard **Bedreigingsinformatie** alleen de netwerkgegevens die via de agent lopen. De volgende gegevenstypen worden ook gebruikt door bedreigingsinformatie:
-
-- CEF-gegevens (Type=CommonSecurityLog)
-- WireData (Type=WireData)
-- IIS-logboeken (Type=W3CIISLog)
-- Windows Firewall (Type=WindowsFirewall)
-- DNS-gebeurtenissen (Type=DnsEvents)
 
 
 ## <a name="see-also"></a>Zie ook

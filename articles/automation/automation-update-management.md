@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4bd0b6f0652f49c16bd67bbca5a89d19e17a8b2c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 150d30085976c89e9053d4715da98e487684e45c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498423"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717247"
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer oplossing in azure
 
@@ -23,7 +23,7 @@ U kunt de Updatebeheer-oplossing in Azure Automation gebruiken om updates van be
 U kunt Updatebeheer voor virtuele machines rechtstreeks inschakelen vanuit uw Azure Automation-account. Zie [updates voor meerdere virtuele machines beheren](manage-update-multi.md)voor meer informatie over het inschakelen van updatebeheer voor virtuele machines vanuit uw Automation-account. U kunt Updatebeheer ook inschakelen voor een virtuele machine vanaf de pagina virtuele machine in de Azure Portal. Dit scenario is beschikbaar voor virtuele [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) -en [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) -machines.
 
 > [!NOTE]
-> Voor de Updatebeheer oplossing moet u een Log Analytics-werk ruimte koppelen aan uw Automation-account. Zie [./How-to/region-mappings.MD] voor een definitieve lijst met ondersteunde regio's. De regio toewijzingen hebben geen invloed op de mogelijkheid om virtuele machines in een andere regio dan uw Automation-account te beheren.
+> Voor de Updatebeheer oplossing moet u een Log Analytics-werk ruimte koppelen aan uw Automation-account. Zie [https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings ] voor een definitieve lijst met ondersteunde regio's. De regio toewijzingen hebben geen invloed op de mogelijkheid om virtuele machines in een andere regio dan uw Automation-account te beheren.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -99,6 +99,11 @@ De volgende tabel geeft een overzicht van de besturingssystemen die niet worden 
 #### <a name="windows"></a>Windows
 
 Windows-agents moeten worden geconfigureerd om te communiceren met een WSUS-server of moeten toegang hebben tot Microsoft Update. U kunt Updatebeheer gebruiken met System Center Configuration Manager. Zie [System Center Configuration Manager integreren met updatebeheer](oms-solution-updatemgmt-sccmintegration.md#configuration)voor meer informatie over integratie scenario's. De [Windows-agent](../azure-monitor/platform/agent-windows.md) is vereist. De agent wordt automatisch geïnstalleerd als u een virtuele machine van Azure wilt voorbereiden.
+
+> [!NOTE]
+> Het is mogelijk dat een gebruiker groepsbeleid kan wijzigen zodat het opnieuw opstarten van de computer kan worden uitgevoerd door de gebruiker, niet door het systeem. Beheerde computers kunnen vastlopen als Updatebeheer geen rechten heeft om de computer opnieuw op te starten zonder hand matige interactie van de gebruiker.
+>
+> Zie [Groepsbeleid instellingen voor automatische updates configureren](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates)voor meer informatie.
 
 #### <a name="linux"></a>Linux
 

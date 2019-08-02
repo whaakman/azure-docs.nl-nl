@@ -3,18 +3,18 @@ title: Zoek resultaten weer geven met Azure Maps | Microsoft Docs
 description: Een zoek opdracht uitvoeren met Azure Maps de resultaten weer geven op een Java script-kaart
 author: jingjing-z
 ms.author: jinzh
-ms.date: 3/7/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 61eb42def53d44b947eba60e861fd12a37b52455
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 22b677ef4b21d3869e39d600910c271c935934ca
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476821"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638657"
 ---
 # <a name="show-search-results-on-the-map"></a>Zoek resultaten weer geven op de kaart
 
@@ -27,9 +27,9 @@ Er zijn twee manieren om te zoeken naar een locatie van belang. Een van de manie
 <iframe height='500' scrolling='no' title='Zoek resultaten weer geven op een kaart (Service module)' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de pen <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>Zoek resultaten weer geven op een kaart (Service module)</a> door Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In de bovenstaande code maakt het eerste code blok een kaart object en stelt het verificatie mechanisme in om gebruik te maken van de abonnements sleutel. U kunt [een overzicht maken](./map-create.md) voor instructies.
+In de bovenstaande code maakt het eerste code blok een kaart object en stelt het verificatie mechanisme in voor gebruik van het toegangs token. U kunt [een overzicht maken](./map-create.md) voor instructies.
 
-Met het tweede code blok wordt een `SubscriptionKeyCredentialPolicy` voor het verifiëren van HTTP-aanvragen voor Azure Maps met de abonnements sleutel gemaakt. Vervolgens wordt `atlas.service.MapsURL.newPipeline()` het `SubscriptionKeyCredential` beleid gebruikt en wordt een [pijplijn](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) instantie gemaakt. De `searchURL` vertegenwoordigt een URL voor het Azure Maps van [Zoek](https://docs.microsoft.com/rest/api/maps/search) bewerkingen.
+Het tweede code blok maakt een `TokenCredential` om HTTP-aanvragen te verifiëren voor Azure Maps met het toegangs token. Vervolgens wordt door gegeven `TokenCredential` aan `atlas.service.MapsURL.newPipeline()` en wordt een [pijplijn](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) instantie gemaakt. De `searchURL` vertegenwoordigt een URL voor het Azure Maps van [Zoek](https://docs.microsoft.com/rest/api/maps/search) bewerkingen.
 
 Met het derde code blok wordt een gegevens bron object gemaakt met behulp van de klasse [Data Source](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) en worden er Zoek resultaten aan toegevoegd. Een [symbool laag](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) maakt gebruik van tekst of pictogrammen voor het weer geven van op punten gebaseerde gegevens die in de [gegevens bron](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) zijn verpakt als symbolen op de kaart.  Er wordt vervolgens een symbool laag gemaakt en de gegevens bron wordt toegevoegd aan de laag Symbol, die vervolgens wordt toegevoegd aan de kaart.
 
@@ -45,7 +45,7 @@ De zoek aanvraag, de gegevens bron en de symbool laag en de grenzen van de camer
 <iframe height='500' scrolling='no' title='Zoek resultaten weer geven op een kaart' src='//codepen.io/azuremaps/embed/KQbaeM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Bekijk de pen <a href='https://codepen.io/azuremaps/pen/KQbaeM/'>Zoek resultaten weer geven op een kaart</a> op basis<a href='https://codepen.io/azuremaps'>@azuremaps</a>van Azure Maps () op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In de bovenstaande code maakt het eerste code blok een kaart object en stelt het verificatie mechanisme in om gebruik te maken van de abonnements sleutel. U kunt [een overzicht maken](./map-create.md) voor instructies.
+In de bovenstaande code maakt het eerste code blok een kaart object en stelt het verificatie mechanisme in voor gebruik van het toegangs token. U kunt [een overzicht maken](./map-create.md) voor instructies.
 
 Het tweede code blok maakt een URL voor het maken van een zoek opdracht. Er worden ook twee matrices gemaakt voor het opslaan van grenzen en pincodes voor zoek resultaten.
 

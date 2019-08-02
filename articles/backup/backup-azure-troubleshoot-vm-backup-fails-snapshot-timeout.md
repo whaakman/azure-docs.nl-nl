@@ -1,19 +1,20 @@
 ---
 title: 'Azure Backup fout oplossen: De status van de gast agent is niet beschikbaar'
 description: Symptomen, oorzaken en oplossingen voor Azure Backup fouten met betrekking tot agent, uitbrei ding en schijven.
-author: saurabhsensharma
-manager: saurabhsensharma
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 keywords: Azure backup; VM-agent; Netwerk verbinding;
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: saurse
-ms.openlocfilehash: e4337c9c89ca239bb664cbb7fb953ab9eedd3ac5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7fc288ad9e33088b1b5248c1b61ed439ac95a9c4
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465321"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688982"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup fout oplossen: Problemen met de agent of uitbrei ding
 
@@ -77,9 +78,9 @@ Nadat u een virtuele machine voor de Azure Backup-service hebt geregistreerd en 
 **Oorzaak 2: [De back-upextensie kan niet worden bijgewerkt of geladen](#the-backup-extension-fails-to-update-or-load)**  
 **Oorzaak 3: [De virtuele machine heeft geen Internet toegang](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>Bewerking voor ExtentionOperationFailedForManagedDisks-VMSnapshot-extensie is mislukt
+## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>Bewerking voor ExtensionOperationFailedForManagedDisks-VMSnapshot-extensie is mislukt
 
-**Fout code**: ExtentionOperationFailedForManagedDisks <br>
+**Fout code**: ExtensionOperationFailedForManagedDisks <br>
 **Fout bericht**: Bewerking van VMSnapshot-extensie mislukt<br>
 
 Nadat u een virtuele machine voor de Azure Backup-service hebt geregistreerd en gepland, wordt met de back-up de taak gestart door te communiceren met de back-upextensie van de VM om een tijdgebonden moment opname te maken. Een van de volgende situaties kan verhinderen dat de moment opname wordt geactiveerd. Als de moment opname niet wordt geactiveerd, kan er een back-upfout optreden. Voer de volgende stappen voor probleem oplossing in de aangegeven volg orde uit en voer de bewerking opnieuw uit:  
@@ -106,7 +107,7 @@ Nadat u een virtuele machine voor de Azure Backup-service hebt geregistreerd en 
 **Fout code**: UserErrorUnsupportedDiskSize <br>
 **Fout bericht**: Momenteel Azure Backup biedt geen ondersteuning voor schijf grootten die groter zijn dan 4095 GB <br>
 
-De back-upbewerking kan mislukken bij het maken van een back-up van een VM met een grotere schijf grootte dan 4095 GB. De ondersteuning voor grote schijven is binnenkort beschikbaar.  
+De back-upbewerking kan mislukken bij het maken van een back-up van een VM met een grotere schijf grootte dan 4095 GB. Als u zich wilt aanmelden voor een persoonlijke preview van Azure Backup ondersteuning voor de grote schijf voor schijven die groter zijn dan 4 TB tot 30TB groot AskAzureBackupTeam@microsoft.comzijn, schrijft u terug naar ons.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress: kan geen back-up initiëren omdat er momenteel een andere back-upbewerking wordt uitgevoerd
 
@@ -216,7 +217,7 @@ Bij het uitvoeren van deze stappen wordt de extensie opnieuw geïnstalleerd tijd
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Vergren deling van de resource groep herstel punt verwijderen
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Ga naar de **optie alle resources**en selecteer de resource groep voor de verzameling van herstel punten in`<Geo>`de`<number>`volgende indeling AzureBackupRG_ _.
-3. Selecteer in de sectie **instellingen** de  optie vergren delen om de vergren delingen weer te geven.
+3. Selecteer in de sectie **instellingen** de optie vergren delen om de vergren delingen weer te geven.
 4. Als u de vergren deling wilt verwijderen, selecteert u het weglatings teken en klikt u op **verwijderen**.
 
     ![Vergren deling verwijderen](./media/backup-azure-arm-vms-prepare/delete-lock.png)

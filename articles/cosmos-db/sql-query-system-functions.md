@@ -1,17 +1,17 @@
 ---
 title: Systeemfuncties
-description: Meer informatie over functies in Azure Cosmos DB SQL-systeem.
+description: Meer informatie over SQL-systeem functies in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 11a6fdad187670bcb5af4c56198fd7343680690d
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b0e9c751d46f805af75196da464a39783c95ae6a
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342961"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619990"
 ---
 # <a name="system-functions"></a>Systeemfuncties
 
@@ -23,29 +23,29 @@ ms.locfileid: "67342961"
 |[Controle van functies van het type](#type-checking-functions)|Met de typecontrolefuncties kunt u het type van een expressie in SQL-query's controleren.|  
 |[Tekenreeksfuncties](#string-functions)|De tekenreeks-functies uitvoeren van een bewerking op een tekenreekswaarde voor invoer en retourneert een tekenreeks, een numerieke of Booleaanse waarde.|  
 |[Matrixfuncties](#array-functions)|De matrixfuncties uitvoeren van een bewerking op een matrix invoerwaarde en retourneren numerieke, Booleaanse waarde of Matrixwaarde.|
-|[Datum- en tijdfuncties](#date-time-functions)|De functies date en time kunnen u de huidige UTC-datum en tijd in twee vormen; een numerieke tijdstempel waarvan de waarde is de Unix-epoche in milliseconden of als een tekenreeks die aan de ISO 8601-notatie voldoet.|
+|[Datum-en tijd functies](#date-time-functions)|Met de functies datum en tijd kunt u de huidige UTC-datum en-tijd in twee vormen ophalen. een numerieke tijds tempel waarvan de waarde de UNIX-epoche is in milliseconden of als een teken reeks die voldoet aan de ISO 8601-indeling.|
 |[Ruimtelijke-functies](#spatial-functions)|De ruimtelijke functies uitvoeren van een bewerking op een invoerwaarde ruimtelijke index en een numerieke of Booleaanse waarde retourneren.|  
 
-Hieronder vindt u een lijst met functies in elke categorie:
+Hieronder vindt u een lijst met functies binnen elke categorie:
 
 | Functiegroep | Bewerkingen |
 |---------|----------|
-| Wiskundige functies | ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, SIN, TAN |
-| Controle van het type functies | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, IS_PRIMITIVE |
+| Wiskundige functies | ABS, PLAFOND, EXP, VLOER, LOG, LOG10, KRACHT, AFRONDING, TEKEN, WORTEL, KWADRAAT, TRUNC, BOOGCOS, ASIN, BOOGTAN, ATN2, COS, COT, GRADEN, PI, RADIALEN, ASELECT, SIN, TAN |
+| Type functies controleren | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, IS_PRIMITIVE |
 | Tekenreeksfuncties | CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING, UPPER |
 | Matrixfuncties | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH en ARRAY_SLICE |
-| Datum- en tijdfuncties | GETCURRENTDATETIME, GETCURRENTTIMESTAMP,  |
+| Datum-en tijd functies | GETCURRENTDATETIME, GETCURRENTTIMESTAMP,  |
 | Ruimtelijke functies | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID, ST_ISVALIDDETAILED |
 
-Als u momenteel van een gebruiker gedefinieerde functie (UDF's gebruikmaakt) waarvoor een ingebouwde functie nu beschikbaar is, worden de bijbehorende ingebouwde functie om uit te voeren sneller en efficiënter.
+Als u momenteel een door de gebruiker gedefinieerde functie (UDF) gebruikt waarvoor een ingebouwde functie nu beschikbaar is, wordt de bijbehorende ingebouwde functie sneller uitgevoerd en efficiënter.
 
-Het belangrijkste verschil tussen de Cosmos DB en ANSI SQL-functies is dat Cosmos DB-functies zijn ontworpen om te werken goed met gegevens zonder schema en een gemengde-schema. Bijvoorbeeld, als een eigenschap ontbreekt of heeft een niet-numerieke waarde, zoals `unknown`, het item is overgeslagen in plaats van een fout geretourneerd.
+Het belangrijkste verschil tussen Cosmos DB functies en ANSI SQL-functies is dat Cosmos DB-functies zijn ontworpen om goed te werken met schemaloze en gemengde schema gegevens. Als bijvoorbeeld een eigenschap ontbreekt of een niet-numerieke waarde heeft zoals `unknown`, wordt het item overgeslagen in plaats van een fout te retour neren.
 
 ##  <a name="mathematical-functions"></a> Wiskundige functies  
 
 Met elke wiskundige functie wordt een berekening op basis van de opgegeven invoerwaarden uitgevoerd en een numerieke waarde geretourneerd.
 
-U kunt query's zoals het volgende voorbeeld kunt uitvoeren:
+U kunt query's uitvoeren zoals in het volgende voor beeld:
 
 ```sql
     SELECT VALUE ABS(-4)
@@ -66,9 +66,9 @@ Dit is een tabel met ondersteunde ingebouwde wiskundige functies.
 |[COS](#bk_cos)|[COT](#bk_cot)|[DEGREES](#bk_degrees)|  
 |[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOGBOEK](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[ENERGIEBEHEER](#bk_power)|  
-|[RADIANS](#bk_radians)|[AFRONDEN](#bk_round)|[SIN](#bk_sin)|  
-|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
-|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
+|[RADIANS](#bk_radians)|[AFRONDEN](#bk_round)|[ASELECT](#bk_rand)|
+|[SIN](#bk_sin)|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|
+|[SIGN](#bk_sign)|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
 ####  <a name="bk_abs"></a> ABS  
  Retourneert de absolute (positieve) waarde van de opgegeven numerieke expressie.  
@@ -425,7 +425,7 @@ EXP (<numeric_expression>)
   
   De exponent van een getal is de constante **e** verheven tot de macht van het getal. Bijvoorbeeld, EXP(1.0) = e ^ 1.0 = 2.71828182845905 en EXP(10) = e ^ 10 = 22026.4657948067.  
   
-  De exponentiële waarde van de natuurlijke logaritme van een getal is het aantal zelf: EXP (logboek (n)) = n. En de natuurlijke logaritme van de exponentiële van een getal is het aantal zelf: LOGBOEK (EXP (n)) = n.  
+  De exponentiële waarde van de natuurlijke logaritme van een getal is het getal zelf: EXP (logboek (n)) = n. En de natuurlijke logaritme van de exponentiële waarde van een getal is het getal zelf: LOG (EXP (n)) = n.  
   
   **Voorbeelden**  
   
@@ -482,7 +482,7 @@ LOG (<numeric_expression> [, <base>])
   
   De natuurlijke logaritme is de logaritme voor de base **e**, waarbij **e** is een constante irrational ongeveer gelijk zijn aan 2.718281828.  
   
-  De natuurlijke logaritme van de exponentiële van een getal is het aantal zelf: LOGBOEK (EXP (n)) = n. En de exponentiële waarde van de natuurlijke logaritme van een getal is het aantal zelf: EXP (logboek (n)) = n.  
+  De natuurlijke logaritme van de exponentiële waarde van een getal is het getal zelf: LOG (EXP (n)) = n. En de exponentiële waarde van de natuurlijke logaritme van een getal is het getal zelf: EXP (logboek (n)) = n.  
   
   **Voorbeelden**  
   
@@ -555,13 +555,7 @@ SELECT LOG10(100) AS log10
 ```  
 PI ()  
 ```  
-  
- **Argumenten**  
-  
-- `numeric_expression`  
-  
-   Een numerieke expressie is.  
-  
+   
   **Typen retourneren**  
   
   Retourneert een numerieke expressie.  
@@ -677,14 +671,14 @@ ROUND(<numeric_expression>)
   
   **Opmerkingen**
   
-  De afronding bewerking die wordt uitgevoerd, volgt middelpunt afronding weg van nul. Als de invoer is een numerieke expressie die precies twee gehele getallen tussen zijn het resultaat van het dichtstbijzijnde gehele getal weg van nul.  
+  De Afrondings bewerking wordt uitgevoerd op basis van het middel punt afronding van nul. Als de invoer een numerieke expressie is die precies tussen twee gehele getallen ligt, is het resultaat de dichtstbijzijnde gehele waarde van nul.  
   
-  |<numeric_expression>|Afgerond|
+  |<numeric_expression>|Impliceer|
   |-|-|
-  |-6.5000|-7|
-  |-0.5|-1|
+  |-6,5000|-7|
+  |-0,5|-1|
   |0.5|1|
-  |6.5000|7||
+  |6,5000|7||
   
   **Voorbeelden**  
   
@@ -699,7 +693,34 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
+
+#### <a name="bk_rand"></a>ASELECT
+ Retourneert een wille keurig gegenereerde numerieke waarde van [0, 1).
+ 
+ **Syntaxis**  
   
+```  
+RAND ()  
+```  
+
+  **Typen retourneren**  
+  
+  Retourneert een numerieke expressie.  
+  
+  **Voorbeelden**  
+  
+  In het volgende voor beeld wordt een wille keurig gegenereerde numerieke waarde geretourneerd.  
+  
+```  
+SELECT RAND() AS rand 
+```  
+  
+ Hier volgt de resultatenset.  
+  
+```  
+[{"rand": 0.87860053195618093}]  
+``` 
+
 ####  <a name="bk_sign"></a> MELD U  
  Retourneert de positief (+ 1), nul (0) of minteken (-1) van de opgegeven numerieke expressie.  
   
@@ -898,9 +919,9 @@ SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, 
 [{t1: 2, t2: 2, t3: 2, t4: -2, t5: -2}]  
 ```
 
-## <a id="type-checking-functions"></a>Controle van functies van het type
+## <a id="type-checking-functions"></a>Type controleren van functies
 
-De controle van het type functies kunnen u controleert u het type van een expressie in een SQL-query. Controle van het type functies kunt u bepalen welke typen eigenschappen in de items op elk gewenst moment, wanneer de variabele of onbekend. Hier volgt een lijst met ondersteunde ingebouwde controle van het type functies:
+Met de functies voor type controles kunt u het type van een expressie in een SQL-query controleren. U kunt type-controle functies gebruiken om de typen eigenschappen binnen items te bepalen, wanneer deze worden gevariable of onbekend. Hier volgt een tabel met ondersteunde ingebouwde functies voor type controle:
 
 De volgende functies ondersteunen controleren op basis van de invoerwaarden van het type en elke een Booleaanse waarde retourneren.  
   
@@ -1223,9 +1244,9 @@ SELECT
 [{"isStr1":false,"isStr2":false,"isStr3":true,"isStr4":false,"isStr5":false,"isStr6":false,"isStr7":false}] 
 ```  
 
-## <a id="string-functions"></a>Tekenreeksfuncties
+## <a id="string-functions"></a>Teken reeks functies
 
-De volgende scalaire functies uitvoeren van een bewerking op een tekenreekswaarde voor invoer en retourneert een tekenreeks, numerieke of Booleaanse waarde:
+De volgende scalaire functies voeren een bewerking uit op een invoer waarde voor teken reeksen en retour neren een teken reeks, een numerieke of Booleaanse waarde:
   
 ||||  
 |-|-|-|  
@@ -1557,10 +1578,10 @@ REPLICATE(<str_expr>, <num_expr>)
   
 - `num_expr`  
   
-   Een geldige numerieke expressie is. Als num_expr negatief of niet-begrensde is, is het resultaat is niet gedefinieerd.
+   Een geldige numerieke expressie is. Als num_expr negatief of niet-eindig is, wordt het resultaat niet gedefinieerd.
 
   > [!NOTE]
-  > De maximale lengte van het resultaat is 10.000 tekens dat wil zeggen (length(str_expr) * num_expr) < = 10.000.
+  > De maximale lengte van het resultaat is 10.000 tekens, dat wil zeggen (length (str_expr) * num_expr) < = 10.000.
   
   **Typen retourneren**  
   
@@ -1716,8 +1737,8 @@ SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2
 [{"s1": false, "s2": true}]  
 ```  
 
-  ####  <a name="bk_stringtoarray"></a> StringToArray  
- Expressie vertaald naar een matrix retourneert. Als de expressie kan niet worden vertaald, retourneert niet-gedefinieerde.  
+  ####  <a name="bk_stringtoarray"></a>StringToArray  
+ Retourneert een expressie die is vertaald naar een matrix. Als expressie niet kan worden vertaald, retourneert ongedefinieerd.  
   
  **Syntaxis**  
   
@@ -1729,17 +1750,17 @@ StringToArray(<expr>)
   
 - `expr`  
   
-   Is geldige scalaire expressie die moet worden geëvalueerd als een JSON-matrix-expressie. Houd er rekening mee dat geneste tekenreekswaarden moeten zijn geschreven met dubbele aanhalingstekens om geldig te zijn. Zie voor meer informatie over de JSON-indeling, [json.org](https://json.org/)
+   Is een geldige scalaire expressie die moet worden geëvalueerd als een JSON-matrix expressie. Houd er rekening mee dat geneste teken reeks waarden moeten worden geschreven met dubbele aanhalings tekens die geldig zijn. Zie [JSON.org](https://json.org/) voor meer informatie over de JSON-indeling.
   
   **Typen retourneren**  
   
-  Retourneert een matrixexpressie of een niet-gedefinieerde.  
+  Retourneert een matrix expressie of is niet gedefinieerd.  
   
   **Voorbeelden**  
   
-  Het volgende voorbeeld laat zien hoe StringToArray gedraagt zich op verschillende typen. 
+  In het volgende voor beeld ziet u hoe StringToArray zich gedraagt in verschillende typen. 
   
- Hier volgen enkele voorbeelden met geldige invoer.
+ Hier volgen enkele voor beelden met geldige invoer.
 
 ```
 SELECT 
@@ -1756,10 +1777,10 @@ Hier volgt de resultatenset.
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
-Hier volgt een voorbeeld van ongeldige invoer. 
+Hier volgt een voor beeld van ongeldige invoer. 
    
- Enkele aanhalingstekens binnen de matrix zijn geen geldige JSON.
-Hoewel ze geldig in een query zijn, worden ze niet parseren naar geldige matrices. Tekenreeksen in de matrix-tekenreeks moeten ofwel worden weergegeven "[\\"\\"] ' of de omringende offerte moet één ' [" "]'.
+ Enkele aanhalings tekens in de matrix zijn geen geldige JSON.
+Hoewel ze wel geldig zijn binnen een query, worden ze niet geparseerd naar geldige matrices. Teken reeksen binnen de matrix teken reeks moeten worden voorafgegaan door '\\[\\'] ' of de omliggende aanhaling moet één ' ['] ' bevatten.
 
 ```
 SELECT
@@ -1772,9 +1793,9 @@ Hier volgt de resultatenset.
 [{}]
 ```
 
-Hier volgen enkele voorbeelden van ongeldige invoer.
+Hier volgen enkele voor beelden van ongeldige invoer.
    
- De expressie doorgegeven zal worden geparseerd als een JSON-matrix. het volgende doen niet evalueren voor het type matrix en dus retourneren niet gedefinieerd.
+ De door gegeven expressie wordt geparseerd als een JSON-matrix. de volgende evaluaties zijn niet van het type matrix en daarom wordt ongedefinieerd geretourneerd.
    
 ```
 SELECT
@@ -1791,8 +1812,8 @@ Hier volgt de resultatenset.
 [{}]
 ```
 
-####  <a name="bk_stringtoboolean"></a> StringToBoolean  
- Expressie vertaald naar een Booleaanse waarde retourneert. Als de expressie kan niet worden vertaald, retourneert niet-gedefinieerde.  
+####  <a name="bk_stringtoboolean"></a>StringToBoolean  
+ Retourneert een expressie die is vertaald naar een Booleaanse waarde. Als expressie niet kan worden vertaald, retourneert ongedefinieerd.  
   
  **Syntaxis**  
   
@@ -1804,19 +1825,19 @@ StringToBoolean(<expr>)
   
 - `expr`  
   
-   Is geldige scalaire expressie die moet worden geëvalueerd als een Boole-expressie.  
+   Is een geldige scalaire expressie die als een Boole-expressie moet worden geëvalueerd.  
   
   **Typen retourneren**  
   
-  Retourneert een Booleaanse expressie of een niet-gedefinieerde.  
+  Retourneert een booleaanse expressie of een niet-gedefinieerde waarde.  
   
   **Voorbeelden**  
   
-  Het volgende voorbeeld laat zien hoe StringToBoolean gedraagt zich op verschillende typen. 
+  In het volgende voor beeld ziet u hoe StringToBoolean zich gedraagt in verschillende typen. 
  
- Hier volgen enkele voorbeelden met geldige invoer.
+ Hier volgen enkele voor beelden met geldige invoer.
 
-Witruimte mag alleen vóór of na 'true '/ ' false'.
+Spatie is alleen toegestaan vóór of na "True"/"false".
 
 ```  
 SELECT 
@@ -1831,9 +1852,9 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
-Hier volgen enkele voorbeelden met ongeldige invoer.
+Hier volgen enkele voor beelden met ongeldige invoer.
 
- Booleaanse waarden zijn hoofdlettergevoelig en moeten worden geschreven met alle kleine letters, dat wil zeggen 'true' en 'false'.
+ Boole-waarden zijn hoofdletter gevoelig en moeten met alle kleine letters worden geschreven, dat wil zeggen ' True ' en ' false '.
 
 ```  
 SELECT 
@@ -1847,7 +1868,7 @@ Hier volgt de resultatenset.
 [{}]
 ``` 
 
-De expressie doorgegeven zal worden geparseerd als een Booleaanse expressie; deze invoer niet geëvalueerd voor het type Boolean en dus retourneren niet gedefinieerd.
+De door gegeven expressie wordt geparseerd als een Boole-expressie. deze invoer kan niet worden geëvalueerd om Booleaanse waarden te typen en retour neren dus niet-gedefinieerd.
 
 ```  
 SELECT 
@@ -1865,7 +1886,7 @@ Hier volgt de resultatenset.
 ```  
 
 ####  <a name="bk_stringtonull"></a> StringToNull  
- Expressie vertaald naar null retourneert. Als de expressie kan niet worden vertaald, retourneert niet-gedefinieerde.  
+ Retourneert een expressie die is vertaald naar null. Als expressie niet kan worden vertaald, retourneert ongedefinieerd.  
   
  **Syntaxis**  
   
@@ -1877,19 +1898,19 @@ StringToNull(<expr>)
   
 - `expr`  
   
-   Is geldige scalaire expressie die moet worden geëvalueerd als een null-expressie.
+   Is een geldige scalaire expressie die als een null-expressie moet worden geëvalueerd.
   
   **Typen retourneren**  
   
-  Retourneert een null-expressie of een niet-gedefinieerde.  
+  Retourneert een null-expressie of een niet-gedefinieerde waarde.  
   
   **Voorbeelden**  
   
-  Het volgende voorbeeld laat zien hoe StringToNull gedraagt zich op verschillende typen. 
+  In het volgende voor beeld ziet u hoe StringToNull zich gedraagt in verschillende typen. 
 
-Hier volgen enkele voorbeelden met geldige invoer.
+Hier volgen enkele voor beelden met geldige invoer.
 
- Witruimte mag alleen vóór of na 'null'.
+ Witruimte is alleen toegestaan vóór of na null.
 
 ```  
 SELECT 
@@ -1904,9 +1925,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
-Hier volgen enkele voorbeelden met ongeldige invoer.
+Hier volgen enkele voor beelden met ongeldige invoer.
 
-Null is hoofdlettergevoelig en moet worden geschreven met alle kleine letters dat wil zeggen 'null'.
+Null is hoofdletter gevoelig en moet worden geschreven met alleen kleine letters, dat wil zeggen ' null '.
 
 ```  
 SELECT    
@@ -1920,7 +1941,7 @@ SELECT
 [{}]
 ```  
 
-De expressie doorgegeven zal worden geparseerd als een null-expressie. deze invoer niet geëvalueerd voor het type null en dus retourneren niet gedefinieerd.
+De door gegeven expressie wordt geparseerd als een null-expressie. deze invoer kan niet worden geëvalueerd om null te typen en daarom ongedefinieerd te retour neren.
 
 ```  
 SELECT    
@@ -1936,8 +1957,8 @@ SELECT
 [{}]
 ```  
 
-####  <a name="bk_stringtonumber"></a> StringToNumber  
- Expressie vertaald naar een getal retourneert. Als de expressie kan niet worden vertaald, retourneert niet-gedefinieerde.  
+####  <a name="bk_stringtonumber"></a>StringToNumber  
+ Retourneert een expressie die is vertaald naar een getal. Als expressie niet kan worden vertaald, retourneert ongedefinieerd.  
   
  **Syntaxis**  
   
@@ -1949,17 +1970,17 @@ StringToNumber(<expr>)
   
 - `expr`  
   
-   Is geldige scalaire expressie die moet worden geëvalueerd als een getal van de JSON-expressie. Getallen in JSON moet een geheel getal of een drijvende komma zijn. Zie voor meer informatie over de JSON-indeling, [json.org](https://json.org/)  
+   Is een geldige scalaire expressie die als een JSON-nummer expressie moet worden geëvalueerd. Getallen in JSON moeten een geheel getal of een drijvende komma zijn. Zie [JSON.org](https://json.org/) voor meer informatie over de JSON-indeling.  
   
   **Typen retourneren**  
   
-  Retourneert een numerieke expressie of een niet-gedefinieerde.  
+  Retourneert een numerieke expressie of een niet-gedefinieerde waarde.  
   
   **Voorbeelden**  
   
-  Het volgende voorbeeld laat zien hoe StringToNumber gedraagt zich op verschillende typen. 
+  In het volgende voor beeld ziet u hoe StringToNumber zich gedraagt in verschillende typen. 
 
-Witruimte mag alleen vóór of na het getal.
+Witruimte is alleen toegestaan vóór of na het getal.
 
 ```  
 SELECT 
@@ -1975,7 +1996,7 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
-Worden in de JSON die een geldig getal ofwel moet een geheel getal of een drijvende-kommagetal zijn.
+In JSON moet een geldig getal ofwel een geheel getal zijn of een getal met een drijvende komma.
 
 ```  
 SELECT   
@@ -1988,7 +2009,7 @@ SELECT
 {{}}
 ```  
 
-De expressie doorgegeven zal worden geparseerd als een numerieke expressie. deze invoer niet geëvalueerd typt nummer en dus terugkeren niet gedefinieerd. 
+De door gegeven expressie wordt geparseerd als een numerieke expressie. deze invoer kan niet worden geëvalueerd om een getal te typen en daarom ongedefinieerd te retour neren. 
 
 ```  
 SELECT 
@@ -2007,7 +2028,7 @@ SELECT
 ```  
 
 ####  <a name="bk_stringtoobject"></a> StringToObject  
- Expressie vertaald naar een Object geretourneerd. Als de expressie kan niet worden vertaald, retourneert niet-gedefinieerde.  
+ Retourneert een expressie die is vertaald naar een object. Als expressie niet kan worden vertaald, retourneert ongedefinieerd.  
   
  **Syntaxis**  
   
@@ -2019,17 +2040,17 @@ StringToObject(<expr>)
   
 - `expr`  
   
-   Is geldige scalaire expressie die moet worden geëvalueerd als een JSON-object-expressie. Houd er rekening mee dat geneste tekenreekswaarden moeten zijn geschreven met dubbele aanhalingstekens om geldig te zijn. Zie voor meer informatie over de JSON-indeling, [json.org](https://json.org/)  
+   Is een geldige scalaire expressie die moet worden geëvalueerd als een JSON-object expressie. Houd er rekening mee dat geneste teken reeks waarden moeten worden geschreven met dubbele aanhalings tekens die geldig zijn. Zie [JSON.org](https://json.org/) voor meer informatie over de JSON-indeling.  
   
   **Typen retourneren**  
   
-  Retourneert een objectexpressie of een niet-gedefinieerde.  
+  Retourneert een object expressie of een niet-gedefinieerde waarde.  
   
   **Voorbeelden**  
   
-  Het volgende voorbeeld laat zien hoe StringToObject gedraagt zich op verschillende typen. 
+  In het volgende voor beeld ziet u hoe StringToObject zich gedraagt in verschillende typen. 
   
- Hier volgen enkele voorbeelden met geldige invoer.
+ Hier volgen enkele voor beelden met geldige invoer.
 
 ``` 
 SELECT 
@@ -2048,10 +2069,10 @@ Hier volgt de resultatenset.
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
 
- Hier volgen enkele voorbeelden met ongeldige invoer.
-Hoewel ze geldig in een query zijn, worden ze niet parseren naar geldige objecten. Tekenreeksen in de tekenreeks van object ofwel moeten worden weergegeven ' {\\"een\\":\\"str\\'} ' of de omringende offerte moet één ' {"a": 'str'}'.
+ Hier volgen enkele voor beelden met ongeldige invoer.
+Hoewel ze geldig zijn binnen een query, worden ze niet geparseerd naar geldige objecten. Teken reeksen in de teken reeks van een object moeten worden voorafgegaan door\\' {\\' a\\':\\' str '} ' of de omliggende aanhaling moet één ' {' a ': ' str '} ' zijn.
 
-Enkele aanhalingstekens rond de namen van eigenschappen zijn niet geldig JSON.
+Enkele aanhalings tekens rond eigenschapnamen zijn geen geldige JSON-namen.
 
 ``` 
 SELECT 
@@ -2064,7 +2085,7 @@ Hier volgt de resultatenset.
 [{}]
 ```  
 
-Eigenschapnamen zonder omringende aanhalingstekens zijn niet geldig JSON.
+Eigenschaps namen zonder omringende aanhalings tekens zijn geen geldige JSON.
 
 ``` 
 SELECT 
@@ -2077,9 +2098,9 @@ Hier volgt de resultatenset.
 [{}]
 ``` 
 
-Hier volgen enkele voorbeelden met ongeldige invoer.
+Hier volgen enkele voor beelden met ongeldige invoer.
 
- De expressie doorgegeven zal worden geparseerd als een JSON-object. deze invoer niet geëvalueerd voor het type object en dus retourneren niet gedefinieerd.
+ De door gegeven expressie wordt geparseerd als een JSON-object. deze invoer levert geen object op en retourneert dus niet-gedefinieerd.
 
 ``` 
 SELECT 
@@ -2114,7 +2135,7 @@ SUBSTRING(<str_expr>, <num_expr>, <num_expr>)
   
 - `num_expr`  
   
-   Is een geldige numerieke expressie om de begin- en -teken aan te geven.    
+   Is een geldige numerieke expressie om het begin-en eind teken aan te duiden.    
   
   **Typen retourneren**  
   
@@ -2280,9 +2301,9 @@ SELECT UPPER("Abc") AS upper
 [{"upper": "ABC"}]  
 ```
 
-## <a id="array-functions"></a>Matrixfuncties
+## <a id="array-functions"></a>Matrix functies
 
-De volgende scalaire functies uitvoeren van een bewerking op een matrix invoerwaarde en retourneren numerieke, Booleaanse waarde of een matrix-waarde:
+De volgende scalaire functies voeren een bewerking uit op een invoer waarde van een matrix en retour neren numerieke, Booleaanse of matrix waarde:
   
 ||||  
 |-|-|-|  
@@ -2323,7 +2344,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 ```  
   
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
-Retourneert een Booleaanse waarde die aangeeft of de matrix de opgegeven waarde bevat. U kunt een gedeeltelijke of volledige overeenkomst van een object controleren met behulp van een Booleaanse expressie in de opdracht. 
+Retourneert een Booleaanse waarde die aangeeft of de matrix de opgegeven waarde bevat. U kunt controleren op een gedeeltelijke of volledige overeenkomst van een object met behulp van een Boole-expressie in de opdracht. 
 
 **Syntaxis**  
   
@@ -2343,7 +2364,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 
 - `bool_expr`  
   
-   Een Booleaanse expressie is. Als deze ingesteld op ' true'and als de opgegeven waarde een object is, de opdracht wordt gecontroleerd voor een gedeeltelijke overeenkomst (de search-object is een subset van een van de objecten). Als deze ingesteld op 'false', controleert de opdracht een volledige overeenkomst van alle objecten in de matrix. De standaardwaarde indien niet opgegeven is ingesteld op false. 
+   Een Booleaanse expressie is. Als de eigenschap is ingesteld op ' true'and ' als de opgegeven zoek waarde een object is, wordt met de opdracht gecontroleerd op een gedeeltelijke overeenkomst (het zoek object is een subset van een van de objecten). Als de eigenschap is ingesteld op ' false ', wordt met de opdracht gecontroleerd of alle objecten in de matrix volledig overeenkomen. Als niet wordt opgegeven, is de standaard waarde false. 
   
   **Typen retourneren**  
   
@@ -2473,16 +2494,16 @@ SELECT
            "s7": [] 
 }]  
 ```  
-## <a id="date-time-functions"></a>De datum en tijdfunctie
+## <a id="date-time-functions"></a>De functie datum en tijd
 
-De volgende scalaire functies kunnen u de huidige UTC-datum en tijd in twee vormen; een numerieke tijdstempel waarvan de waarde is de Unix-epoche in milliseconden of als een tekenreeks die aan de ISO 8601-notatie voldoet. 
+Met de volgende scalaire functies kunt u de huidige UTC-datum en-tijd in twee vormen ophalen. een numerieke tijds tempel waarvan de waarde de UNIX-epoche is in milliseconden of als een teken reeks die voldoet aan de ISO 8601-indeling. 
 
 |||
 |-|-|
 |[GETCURRENTDATETIME](#bk_get_current_date_time)|[GETCURRENTTIMESTAMP](#bk_get_current_timestamp)||
 
-####  <a name="bk_get_current_date_time"></a> GETCURRENTDATETIME
- Retourneert de huidige UTC-datum en tijd als een ISO 8601-tekenreeks.
+####  <a name="bk_get_current_date_time"></a>GETCURRENTDATETIME
+ Retourneert de huidige UTC-datum en-tijd als een ISO 8601-teken reeks.
   
  **Syntaxis**
   
@@ -2492,39 +2513,39 @@ GETCURRENTDATETIME ()
   
   **Typen retourneren**
   
-  Retourneert de huidige UTC datum en tijd ISO 8601 string-waarde. 
+  Retourneert de huidige UTC-datum en-tijd in ISO 8601-teken reeks waarde. 
 
-  Dit wordt uitgedrukt in de indeling JJJJ-MM-DDThh:mm:ss.sssZ waar:
+  Dit wordt weer gegeven in de notatie JJJJ-MM-DDTuu: mm: SS. sssZ waarbij:
   
   |||
   |-|-|
-  |JJJJ|jaar in vier cijfers|
-  |MM|maand in twee cijfers (01 = januari, enz.)|
-  |DD|twee cijfers dag van maand (01 tot en met 31)|
-  |T|signifier voor begin van de tijdselementen|
-  |hh|twee cijfers uur (00 en 23)|
-  |mm|twee cijfers minuten (00 en 59)|
-  |ss|twee cijfers seconden (00 en 59)|
-  |.sss|drie cijfers van decimalen van een seconde|
-  |Z|UTC (Coordinated Universal Time) designator||
+  |DD|jaar met vier cijfers|
+  |MM|maand van twee cijfers (01 = januari, etc.)|
+  |DD|2-cijferige dag van de maand (01 tot en met 31)|
+  |D|de aanzienlijke voor het begin van de tijd elementen|
+  |UU|twee cijfers per uur (00 tot en met 23)|
+  |mm|twee cijfer minuten (00 tot en met 59)|
+  |SS|twee cijfer seconden (00 tot en met 59)|
+  |.sss|drie cijfers van decimale delen van een seconde|
+  |Z|UTC (Coordinated Universal Time)||
   
-  Zie voor meer informatie over de ISO 8601-notatie [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+  Zie [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601) voor meer informatie over de ISO 8601-indeling.
 
   **Opmerkingen**
 
   GETCURRENTDATETIME is een niet-deterministische functie. 
   
-  Het resultaat wordt UTC (Coordinated Universal Time).
+  Het geretourneerde resultaat is UTC (Coordinated Universal Time).
 
   **Voorbeelden**  
   
-  Het volgende voorbeeld ziet hoe u aan de huidige UTC-datum tijd met de ingebouwde functie GetCurrentDateTime.
+  In het volgende voor beeld ziet u hoe u de huidige UTC-datum tijd kunt ophalen met behulp van de ingebouwde functie GetCurrentDateTime.
   
 ```  
 SELECT GETCURRENTDATETIME() AS currentUtcDateTime
 ```  
   
- Hier volgt een voorbeeld van de resultatenset.
+ Hier volgt een voor beeld van een resultatenset.
   
 ```  
 [{
@@ -2532,8 +2553,8 @@ SELECT GETCURRENTDATETIME() AS currentUtcDateTime
 }]  
 ```  
 
-####  <a name="bk_get_current_timestamp"></a> GETCURRENTTIMESTAMP
- Retourneert het aantal milliseconden dat is verstreken sinds 00:00:00 donderdag 1 januari 1970. 
+####  <a name="bk_get_current_timestamp"></a>GETCURRENTTIMESTAMP
+ Retourneert het aantal milliseconden dat is verstreken sinds 00:00:00 donderdag, 1 januari 1970. 
   
  **Syntaxis**  
   
@@ -2543,23 +2564,23 @@ GETCURRENTTIMESTAMP ()
   
   **Typen retourneren**  
   
-  Retourneert een numerieke waarde, het huidige aantal milliseconden dat is verstreken sinds de Unix-epoche dat wil zeggen het aantal milliseconden dat is verstreken sinds 00:00:00 donderdag 1 januari 1970.
+  Retourneert een numerieke waarde, het huidige aantal milliseconden dat is verstreken sinds de UNIX-epoche, dat wil zeggen het aantal milliseconden dat is verstreken sinds 00:00:00 donderdag, 1 januari 1970.
 
   **Opmerkingen**
 
   GETCURRENTTIMESTAMP is een niet-deterministische functie.
   
-  Het resultaat wordt UTC (Coordinated Universal Time).
+  Het geretourneerde resultaat is UTC (Coordinated Universal Time).
 
   **Voorbeelden**  
   
-  Het volgende voorbeeld ziet hoe u aan de huidige tijdstempel met de ingebouwde functie GetCurrentTimestamp.
+  In het volgende voor beeld ziet u hoe u de huidige tijds tempel kunt ophalen met behulp van de ingebouwde functie GetCurrentTimestamp.
   
 ```  
 SELECT GETCURRENTTIMESTAMP() AS currentUtcTimestamp
 ```  
   
- Hier volgt een voorbeeld van de resultatenset.
+ Hier volgt een voor beeld van een resultatenset.
   
 ```  
 [{
@@ -2567,7 +2588,7 @@ SELECT GETCURRENTTIMESTAMP() AS currentUtcTimestamp
 }]  
 ```
 
-## <a id="spatial-functions"></a>Ruimtelijke-functies
+## <a id="spatial-functions"></a>Ruimtelijke functies
 
 Cosmos DB biedt ondersteuning voor de volgende ingebouwde OGC-functies (Open Geospatial Consortium) voor georuimtelijke query's. De volgende scalaire functies uitvoeren van een bewerking op een invoerwaarde ruimtelijke index en een numerieke of Booleaanse waarde retourneren.  
   

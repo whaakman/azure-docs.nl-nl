@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Microsoft Azure StorSimple Virtual Array | Microsoft Docs
-description: Beschrijving van de StorSimple Virtual Array, een geïntegreerde opslagaccountoplossing waarmee tussen een on-premises virtuele matrix en Microsoft Azure-cloudopslag opslagtaken.
+title: Overzicht van de Microsoft Azure StorSimple virtuele matrix | Microsoft Docs
+description: Beschrijft de virtuele StorSimple-matrix, een geïntegreerde opslag oplossing voor het beheer van opslag taken tussen een on-premises virtuele matrix en Microsoft Azure Cloud opslag.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,209 +12,211 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/14/2019
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cbfc69c7d8d9354ae4e727b9eb0180583165abab
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630310"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516710"
 ---
-# <a name="introduction-to-the-storsimple-virtual-array"></a>Inleiding tot StorSimple Virtual Array
+# <a name="introduction-to-the-storsimple-virtual-array"></a>Inleiding tot de virtuele StorSimple-matrix
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 ## <a name="overview"></a>Overzicht
 
-De Microsoft Azure StorSimple Virtual Array is een geïntegreerde opslagaccountoplossing waarmee opslagtaken tussen een on-premises virtuele matrix die worden uitgevoerd in een hypervisor en Microsoft Azure-cloudopslag. De virtuele matrix is een efficiënte, goedkope en eenvoudig te beheren bestandsserver of iSCSI-server-oplossing waarmee veel van de problemen en de kosten die zijn gekoppeld aan de enterprise- en gegevensbescherming worden opgelost. De virtuele matrix is met name geschikt voor de opslag van weinig gebruikte archivering van gegevens.
+De Microsoft Azure StorSimple virtuele matrix is een geïntegreerde opslag oplossing voor het beheer van opslag taken tussen een on-premises virtuele matrix die wordt uitgevoerd in een Hyper Visor en Microsoft Azure Cloud opslag. De virtuele matrix is een efficiënte, rendabele en eenvoudig beheerde Bestands server-of iSCSI-server oplossing waarmee veel van de problemen en kosten die zijn gekoppeld aan ondernemings opslag en gegevens bescherming, worden geëlimineerd. De virtuele matrix is met name geschikt voor de opslag van zelden gebruikte archiverings gegevens.
 
-In dit artikel biedt een overzicht van de virtuele matrix: Hier volgen enkele andere resources:
+In dit artikel vindt u een overzicht van de virtuele matrix. Dit zijn enkele andere bronnen:
 
-* Zie voor aanbevolen procedures [best practices voor StorSimple Virtual Array](storsimple-ova-best-practices.md).
-* Voor een overzicht van de apparaten van de StorSimple 8000-serie, gaat u naar [StorSimple 8000-serie: een hybride cloudoplossing](storsimple-overview.md).
-* Voor informatie over apparaten uit de StorSimple 5000/7000-serie, gaat u naar [Online-Help voor StorSimple](http://onlinehelp.storsimple.com/).
+* Zie [StorSimple Virtual Array Best practices](storsimple-ova-best-practices.md)(Engelstalig) voor aanbevolen procedures.
+* Ga voor een overzicht van de StorSimple 8000 Series-apparaten naar [StorSimple 8000-serie: een hybride Cloud oplossing](storsimple-overview.md).
+* Ga voor meer informatie over de StorSimple 5000/7000-serie apparaten naar de [online-Help van StorSimple](http://onlinehelp.storsimple.com/).
 
-De virtuele matrix biedt ondersteuning voor het iSCSI- of Server Message Block (SMB)-protocol. Het wordt uitgevoerd op uw bestaande infrastructuur van de hypervisor en biedt meerdere lagen naar de cloud, cloudback-up, snel herstel, herstel op itemniveau en herstelfuncties.
+De virtuele matrix ondersteunt het iSCSI-of SMB-protocol (Server Message Block). Het wordt uitgevoerd op uw bestaande Hyper Visor infrastructuur en biedt lagen voor de Cloud, back-ups in de Cloud, snel terugzetten, herstel op item niveau en functies voor herstel na nood gevallen.
 
-De volgende tabel geeft een overzicht van de belangrijke functies van de StorSimple Virtual Array.
+De volgende tabel bevat een overzicht van de belangrijkste functies van de virtuele StorSimple-matrix.
 
 | Functie | StorSimple Virtual Array |
 | --- | --- |
-| Vereisten voor installatie |Maakt gebruik van virtualisatie-infrastructuur (Hyper-V of VMware) |
+| Installatie vereisten |Maakt gebruik van virtualisatie-infra structuur (Hyper-V of VMware) |
 | Beschikbaarheid |Eén knooppunt |
-| Totale capaciteit (met inbegrip van de cloud) |Maximaal 64 TB aan bruikbare capaciteit per virtuele matrix |
-| Lokale capaciteit |390 GB tot 6.4 TB aan bruikbare capaciteit per virtuele matrix (hoeft in te richten van 500 GB tot 8 TB aan schijfruimte) |
-| Systeemeigen protocollen |iSCSI- of SMB |
-| Beoogde hersteltijd (RTO) |iSCSI: minder dan twee minuten, ongeacht de grootte |
+| Totale capaciteit (inclusief Cloud) |Tot 64 TB bruikbare capaciteit per virtuele matrix |
+| Lokale capaciteit |390 GB tot 6,4 TB bruikbare capaciteit per virtuele array (moet 500 GB inrichten tot 8 TB aan schijf ruimte) |
+| Systeem eigen protocollen |iSCSI of SMB |
+| Beoogde hersteltijd (RTO) |iSCSI: minder dan 2 minuten, ongeacht de grootte |
 | Recovery Point Objective (RPO) |Dagelijkse back-ups en back-ups op aanvraag |
-| Opslaglagen |Maakt gebruik van warmte toewijzing om te bepalen welke gegevens moeten worden lagen in- of uitschalen |
-| Ondersteuning |Virtualisatie-infrastructuur wordt ondersteund door de leverancier |
-| Prestaties |Is afhankelijk van de onderliggende infrastructuur |
-| Gegevensmobiliteit |Op hetzelfde apparaat kunt terugzetten of herstel op itemniveau (bestandsserver) |
-| Opslaglagen |Lokale hypervisor opslag- en cloud |
-| Grootte van de bestandsshare |Lagen: tot 20 TB; lokaal vastgemaakt: tot 2 TB |
-| Volumegrootte |Lagen: 500 GB tot 5 TB; lokaal vastgemaakt: 50 GB tot 200 GB <br> Maximale lokale ruimte gereserveerd voor gelaagde volumes is 200 GB. |
-| Momentopnamen |Crash-consistent |
-| Herstel op itemniveau |Ja. gebruikers kunnen herstellen van shares |
+| Opslag lagen |Maakt gebruik van warmte toewijzing om te bepalen welke gegevens moeten worden getierd of uitgesteld |
+| Ondersteuning |Virtualisatie-infra structuur die wordt ondersteund door de leverancier |
+| Prestaties |Varieert afhankelijk van de onderliggende infra structuur |
+| Gegevens mobiliteit |Kan herstellen op hetzelfde apparaat of herstel op item niveau (bestands server) |
+| Opslag lagen |Lokale Hyper Visor-opslag en Cloud |
+| Share grootte |Gelaagd: Maxi maal 20 TB; lokaal vastgemaakt: Maxi maal 2 TB |
+| Volume grootte |Gelaagde 500 GB tot 5 TB; lokaal vastgemaakt: 50 GB tot 200 GB <br> De maximale lokale reserve ring voor gelaagde volumes is 200 GB. |
+| Momentopnamen |Crash consistent |
+| Herstel op item niveau |Klikt gebruikers kunnen herstellen vanaf shares |
 
 ## <a name="why-use-storsimple"></a>Waarom StorSimple gebruiken?
 
-StorSimple maakt gebruikers en -servers verbinding met Azure-opslag in enkele minuten, er zijn geen wijzigingen in de toepassing.
+StorSimple verbindt gebruikers en servers binnen enkele minuten met Azure Storage, zonder dat er wijzigingen in de toepassing worden aangebracht.
 
-De volgende tabel worden enkele van de belangrijkste voordelen van de oplossing StorSimple Virtual Array biedt beschreven.
+In de volgende tabel worden enkele van de belangrijkste voor delen beschreven die de StorSimple Virtual array-oplossing biedt.
 
 | Functie | Voordeel |
 | --- | --- |
-| Transparante-integratie |De virtuele matrix biedt ondersteuning voor de iSCSI- of het SMB-protocol. De verplaatsing van gegevens tussen de lokale laag en de cloudlaag is een naadloze en transparant voor de gebruiker. |
-| Lagere opslagkosten |Met StorSimple richt u voldoende lokale opslag om te voldoen aan de huidige vraag voor de meest gebruikte gegevens. Opslag behoeften groeien, cloudopslag StorSimple lagen koude gegevens in een goedkope. De gegevens worden ontdubbeld en worden gecomprimeerd voordat ze worden verzonden naar de cloud om verder te beperken opslagvereisten en onkosten. |
-| Vereenvoudigd opslagbeheer |StorSimple biedt gecentraliseerd beheer in de cloud met StorSimple Device Manager voor het beheren van meerdere apparaten. |
-| Verbeterde noodherstel en naleving |StorSimple vereenvoudigt het uitvoeren van noodherstel sneller door de metagegevens onmiddellijk terugzetten en herstellen van de gegevens zo nodig. Dit betekent dat normale bewerkingen kunnen doorgaan met minimale onderbreking. |
-| Gegevensmobiliteit |Gelaagde gegevens in de cloud kunnen worden benaderd vanaf andere sites voor herstel- en migratiedoeleinden. Houd er rekening mee dat u gegevens alleen naar de oorspronkelijke virtuele matrix herstellen kunt. U kunt echter herstelfuncties gebruiken om te herstellen van de volledige virtuele matrix naar een andere virtuele matrix. |
+| Transparante integratie |De virtuele matrix ondersteunt iSCSI of het SMB-protocol. De gegevens verplaatsing tussen de lokale laag en de Cloud laag is naadloos en transparant voor de gebruiker. |
+| Lagere opslag kosten |Met StorSimple voorziet u voldoende lokale opslag om te voldoen aan de huidige vereisten voor de meest gebruikte warme gegevens. Naarmate opslag behoeften groeien, StorSimple lagen koud gegevens naar rendabele Cloud opslag. De gegevens worden ontdubbeld en gecomprimeerd voordat ze naar de cloud worden verzonden om de opslag vereisten en-kosten verder te verlagen. |
+| Vereenvoudigd opslag beheer |StorSimple biedt gecentraliseerd beheer in de Cloud met behulp van StorSimple Apparaatbeheer om meerdere apparaten te beheren. |
+| Verbeterd herstel na nood gevallen en naleving |StorSimple vereenvoudigt snellere herstel na nood gevallen door de meta gegevens onmiddellijk te herstellen en de gegevens naar behoefte te herstellen. Dit betekent dat normale bewerkingen met minimale onderbrekingen kunnen worden voortgezet. |
+| Gegevens mobiliteit |Gegevens die in de Cloud zijn gelaagd, kunnen worden geopend vanaf andere sites voor herstel en migratie doeleinden. Houd er rekening mee dat u alleen gegevens kunt herstellen naar de oorspronkelijke virtuele matrix. U gebruikt echter herstel functies voor nood gevallen om de volledige virtuele matrix terug te zetten naar een andere virtuele matrix. |
 
-## <a name="storsimple-workload-summary"></a>StorSimple workloadoverzicht
+## <a name="storsimple-workload-summary"></a>Samen vatting van StorSimple-werk belasting
 
-Een overzicht van ondersteunde werkbelastingen van StorSimple is Zie tabel hieronder.
+Hieronder vindt u een overzicht van de ondersteunde StorSimple-werk belastingen.
 
 |Scenario     |Workload     |Ondersteund      |Beperkingen               | Versies van toepassing|
 |-------------|-------------|---------------|---------------------------|--------------------|
-|Externe kantoren/filialen Office (ROBO)  |Het delen van bestanden     |Ja      |Zie [maximumlimieten voor bestandsserver](storsimple-ova-limits.md).<br></br>Zie [systeemvereisten voor ondersteunde versies van SMB-](storsimple-ova-system-requirements.md).| Alle versies     |
-|In de cloud archiveren  |Archivering het delen van bestanden     |Ja      |Zie [maximumlimieten voor bestandsserver](storsimple-ova-limits.md).<br></br>Zie [systeemvereisten voor ondersteunde versies van SMB-](storsimple-ova-system-requirements.md).| Alle versies     |
+|Extern kantoor/filiaal (ROBO)  |Bestandsdeling     |Ja      |Zie [maximum aantal limieten voor bestands server](storsimple-ova-limits.md).<br></br>Zie [systeem vereisten voor ondersteunde SMB-versies](storsimple-ova-system-requirements.md).| Alle versies     |
+|Cloud archivering  |Archiveren van bestands deling     |Ja      |Zie [maximum aantal limieten voor bestands server](storsimple-ova-limits.md).<br></br>Zie [systeem vereisten voor ondersteunde SMB-versies](storsimple-ova-system-requirements.md).| Alle versies     |
 
-De StorSimple Virtual Array is het meest geschikt voor weinig gebruikte gegevens. Terwijl de virtuele matrix een lokale cache is om prestaties te verbeteren, gebruikers ervan uitgaan dat het apparaat services-bestanden van het laagste niveau van de opslag (cloud). Elke virtuele matrix kunt schrijven en lezen naar Azure-opslag met ongeveer 100 Mbps. Deze koppeling wordt gedeeld door alle aanvragen die afkomstig zijn bij het apparaat en kan een knelpunt zoals wordt weergegeven in het onderstaande diagram.
+De virtuele StorSimple-matrix is het meest geschikt voor zelden gebruikte gegevens. Hoewel de virtuele matrix een lokale cache heeft om prestaties te verbeteren, moeten gebruikers aannemen dat de services van het apparaat op de laagste laag van opslag (de Cloud). Elke virtuele array kan op ongeveer 100 Mbps schrijven en lezen naar Azure Storage. Deze koppeling wordt gedeeld met alle aanvragen die binnenkomen op het apparaat en kan een knel punt worden, zoals wordt weer gegeven in het onderstaande diagram.
 
-![In de cloud archiveren](./media/storsimple-ova-overview/cloud-archiving.png)
+![Cloud archivering](./media/storsimple-ova-overview/cloud-archiving.png)
 
-Als meerdere gelijktijdige gebruikers toegang hebben tot de virtuele matrix, delen ze allemaal de verbinding met Azure zou leiden tot een lagere prestaties. Er is geen gegarandeerde prestaties per gebruiker en het apparaat afzonderlijke aanvragen verwerkt wanneer ze binnenkomen.
+Wanneer meerdere gelijktijdige gebruikers toegang hebben tot de virtuele matrix, delen ze allemaal de verbinding met Azure tot een lagere prestaties. Er zijn geen gegarandeerde prestaties per gebruiker en het apparaat verwerkt afzonderlijke aanvragen wanneer ze binnenkomen.
 
-StorSimple Virtual Array is niet geschikt voor workloads waarvoor hoge beschikbaarheid. De virtuele matrix is een enkel knooppunt-apparaat dat uitvaltijd optreedt wanneer software-updates zijn geïnstalleerd. Beheerders moeten plannen voor een periode van 30 minuten 3 - 4 keer per jaar.
+De virtuele StorSimple-matrix is niet geschikt voor werk belastingen waarvoor hoge Beschik baarheid is vereist. De virtuele matrix is een apparaat met één knoop punt dat downtime ondervindt tijdens de installatie van software-updates. Beheerders moeten een onderhouds venster van 30 minuten 3-4 keer per jaar plannen.
 
 ## <a name="workflows"></a>Workflows
 
-De StorSimple Virtual Array is met name geschikt voor de volgende werkstromen:
+De virtuele StorSimple-matrix is met name geschikt voor de volgende werk stromen:
 
-* [Cloud-gebaseerd opslagbeheer](#cloud-based-storage-management)
+* [Opslag beheer op basis van de Cloud](#cloud-based-storage-management)
 * [Locatie-onafhankelijke back-up](#location-independent-backup)
-* [Gegevens bescherming en herstel na noodgevallen](#data-protection-and-disaster-recovery)
+* [Gegevens bescherming en herstel na nood gevallen](#data-protection-and-disaster-recovery)
 
-### <a name="cloud-based-storage-management"></a>Cloud-gebaseerd opslagbeheer
-U kunt de StorSimple Device Manager-service die wordt uitgevoerd in Azure portal gebruiken voor het beheren van gegevens die zijn opgeslagen op meerdere apparaten en op meerdere locaties. Dit is vooral handig in scenario's voor gedistribueerde vertakking. Houd er rekening mee dat u afzonderlijke exemplaren van de service StorSimple Device Manager voor het beheer van virtuele matrices en fysieke StorSimple-apparaten moet maken. Houd er ook rekening mee dat de virtuele matrix nu de nieuwe Azure portal in plaats van de klassieke Azure portal gebruikt.
+### <a name="cloud-based-storage-management"></a>Opslag beheer op basis van de Cloud
+U kunt de StorSimple Apparaatbeheer-service die wordt uitgevoerd in de Azure Portal gebruiken voor het beheren van gegevens die zijn opgeslagen op meerdere apparaten en op meerdere locaties. Dit is met name handig in gedistribueerde Branch-scenario's. Houd er rekening mee dat u afzonderlijke instanties van de StorSimple-Apparaatbeheer service moet maken om virtuele matrices en fysieke StorSimple-apparaten te beheren. Houd er ook rekening mee dat de virtuele matrix nu gebruikmaakt van de nieuwe Azure Portal in plaats van de klassieke Azure-Portal.
 
-![Cloud-gebaseerd opslagbeheer](./media/storsimple-ova-overview/cloud-based-storage-management.png)
+![opslag beheer op basis van de Cloud](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>Locatie-onafhankelijke back-up
-De virtuele matrix biedt cloudmomentopnamen een locatie-onafhankelijke, punt-in-time-kopie van een volume of share. Cloudmomentopnamen zijn standaard ingeschakeld en kunnen niet worden uitgeschakeld. Alle volumes en shares zijn back-up op hetzelfde moment via een enkele dagelijkse back-upbeleid en kunt u aanvullende ad-hoc back-ups van elk gewenst moment uitvoeren.
+Met de virtuele matrix bieden cloud momentopnamen een locatie onafhankelijke, tijdgebonden kopie van een volume of share. Cloud momentopnamen zijn standaard ingeschakeld en kunnen niet worden uitgeschakeld. Alle volumes en shares maken tegelijkertijd back-ups via één dagelijks back-upbeleid en u kunt indien nodig aanvullende ad hoc back-ups maken.
 
-### <a name="data-protection-and-disaster-recovery"></a>Gegevens bescherming en herstel na noodgevallen
-De virtuele matrix ondersteunt de volgende gegevensbescherming en herstel na noodgevallen:
+### <a name="data-protection-and-disaster-recovery"></a>Gegevens bescherming en herstel na nood gevallen
+De virtuele matrix ondersteunt de volgende scenario's voor gegevens bescherming en herstel na nood gevallen:
 
-* **Volume of share herstellen** – het herstellen als de nieuwe werkstroom gebruiken om te herstellen van een volume of share. Deze aanpak gebruiken om te herstellen van het hele volume of share.
-* **Herstel op itemniveau** – Shares toestaan vereenvoudigde toegang tot een recente back-ups. U kunt eenvoudig een afzonderlijk bestand herstellen vanaf een speciale *.backup* map die beschikbaar zijn in de cloud. Deze mogelijkheid terugzetten is door gebruikers geïnitieerde en geen interventie van een beheerder is vereist.
-* **Herstel na noodgevallen** – de failover-functionaliteit gebruiken om te herstellen van alle volumes of shares op een nieuwe virtuele matrix. U de nieuwe virtuele matrix maken en registreren bij de StorSimple Device Manager-service en vervolgens de oorspronkelijke virtuele matrix een failover. De nieuwe virtuele matrix wordt vervolgens wordt ervan uitgegaan dat de ingerichte resources.
+* **Volume of share herstellen** : gebruik de herstel bewerking als nieuwe werk stroom om een volume of share te herstellen. Gebruik deze methode om het hele volume of de share te herstellen.
+* **Herstel op item niveau** : shares bieden vereenvoudigde toegang tot recente back-ups. U kunt eenvoudig een afzonderlijk bestand herstellen vanuit een speciale *. Backup-* map die beschikbaar is in de Cloud. Deze herstel mogelijkheid is door de gebruiker gestuurd en er is geen administratieve tussen komst vereist.
+* **Herstel na nood** geval: gebruik de failover-functionaliteit om alle volumes of shares te herstellen naar een nieuwe virtuele matrix. U maakt de nieuwe virtuele matrix en registreert deze bij de StorSimple-Apparaatbeheer service, waarna failover wordt uitgevoerd voor de oorspronkelijke virtuele matrix. De nieuwe virtuele matrix gaat dan uit van de ingerichte resources.
 
-## <a name="storsimple-virtual-array-components"></a>StorSimple Virtual Array onderdelen
+## <a name="storsimple-virtual-array-components"></a>Onderdelen van de virtuele matrix van StorSimple
 
-De virtuele matrix omvat de volgende onderdelen:
+De virtuele matrix bevat de volgende onderdelen:
 
-* [Virtuele matrix](#virtual-array) – een opslagapparaat van hybride cloud op basis van een virtuele machine ingericht in uw gevirtualiseerde omgeving of de hypervisor.
-* [StorSimple Device Manager-service](#storsimple-device-manager-service) ; een uitbreiding van de Azure-portal waarmee u een of meer StorSimple-apparaten beheren via één interface die toegankelijk is vanuit verschillende geografische locaties. De service StorSimple Device Manager kunt u maken en beheren van services, weergeven en beheren van apparaten en waarschuwingen en beheren van volumes, shares en momentopnamen van bestaande.
-* [Lokale webinterface](#local-web-user-interface) : een web gebaseerde gebruikersinterface die wordt gebruikt voor het configureren van het apparaat, zodat u kunt verbinding met het lokale netwerk maken en vervolgens het apparaat bij de StorSimple Device Manager-service registreren. 
-* [Opdrachtregelinterface](#command-line-interface) – A Windows PowerShell-interface waarmee u kunt een ondersteuningssessie voor de voor de virtuele matrix starten.
-  De volgende secties beschrijven elk van deze onderdelen in meer detail en wordt uitgelegd hoe de oplossing zorgt ervoor dat gegevens, opslag kan worden toegewezen en vereenvoudigt het uitvoeren van beheer van opslag- en gegevensbeveiliging.
+* [Virtuele matrix](#virtual-array) : een Hybrid Cloud Storage apparaat op basis van een virtuele machine die is ingericht in uw gevirtualiseerde omgeving of Hyper Visor.
+* [StorSimple Apparaatbeheer service](#storsimple-device-manager-service) : een uitbrei ding van de Azure Portal waarmee u een of meer StorSimple-apparaten kunt beheren vanuit één webinterface die u vanaf verschillende geografische locaties kunt openen. U kunt de StorSimple Apparaatbeheer-service gebruiken voor het maken en beheren van services, het weer geven en beheren van apparaten en waarschuwingen en het beheren van volumes, shares en bestaande moment opnamen.
+* [Lokale](#local-web-user-interface) webgebruikersinterface: een op het web gebaseerde gebruikers interface die wordt gebruikt om het apparaat te configureren, zodat het verbinding kan maken met het lokale netwerk en het apparaat vervolgens kan registreren bij de StorSimple-Apparaatbeheer service. 
+* [Opdracht regel interface](#command-line-interface) : een Windows Power shell-interface die u kunt gebruiken om een ondersteunings sessie te starten op de virtuele matrix.
+  In de volgende secties wordt elk van deze onderdelen uitvoeriger beschreven en wordt uitgelegd hoe de oplossing gegevens rangschikt, opslag ruimte en opslag beheer en gegevens beveiliging vereenvoudigt.
 
 ### <a name="virtual-array"></a>Virtuele matrix
 
-De virtuele matrix is een opslagoplossing van één knooppunt primaire opslag, waarmee communicatie met opslag in de cloud beheert, en helpt om te controleren of de beveiliging en geheimhouding van alle gegevens die zijn opgeslagen op het apparaat.
+De virtuele matrix is een opslag oplossing met één knoop punt dat primaire opslag biedt, communicatie beheert met Cloud opslag en helpt de beveiliging en vertrouwelijkheid te garanderen van alle gegevens die op het apparaat zijn opgeslagen.
 
-De virtuele matrix is beschikbaar in één model dat is gedownload. De virtuele matrix heeft een maximale capaciteit van 6.4 TB op het apparaat (met een onderliggende opslagvereiste van 8 TB) en de met inbegrip van 64 TB opslagruimte in de cloud.
+De virtuele matrix is beschikbaar in één model dat kan worden gedownload. De virtuele matrix heeft een maximale capaciteit van 6,4 TB op het apparaat (met een onderliggende opslag vereiste van 8 TB) en 64 TB, inclusief Cloud opslag.
 
 De virtuele matrix heeft de volgende functies:
 
-* Dit is kosteneffectief. Het maakt gebruik van uw bestaande virtualisatie-infrastructuur en kunnen worden geïmplementeerd op uw bestaande Hyper-V of VMware-hypervisor.
-* Deze bevindt zich in het datacenter en kan worden geconfigureerd als een iSCSI-server of een bestandsserver.
-* Dit is geïntegreerd met de cloud.
-* Back-ups worden opgeslagen in de cloud, die kunt herstel na noodgevallen vergemakkelijken en herstel op itemniveau (ILR) vereenvoudigen.
-* U kunt updates toepassen op de virtuele matrix, net zoals u ze op een fysiek apparaat toepassen wilt.
+* Het is kosten effectief. Het maakt gebruik van uw bestaande virtualisatie-infra structuur en kan worden geïmplementeerd op uw bestaande Hyper-V-of VMware-Hyper Visor.
+* Het bevindt zich in het Data Center en kan worden geconfigureerd als een iSCSI-server of een bestands server.
+* Het is geïntegreerd met de Cloud.
+* Back-ups worden opgeslagen in de Cloud, waardoor herstel na nood gevallen en herstel op item niveau (ILR) kan worden vereenvoudigd.
+* U kunt updates Toep assen op de virtuele matrix, op dezelfde manier als u deze toepast op een fysiek apparaat.
 
 > [!NOTE]
-> Een virtuele matrix kan niet worden uitgebreid. Daarom is het belangrijk dat u voldoende opslagruimte inrichten bij het maken van de virtuele matrix.
+> Een virtuele matrix kan niet worden uitgevouwen. Daarom is het belang rijk om voldoende opslag ruimte in te richten bij het maken van de virtuele matrix.
 
-### <a name="storsimple-device-manager-service"></a>StorSimple-apparaatbeheerfunctie
+### <a name="storsimple-device-manager-service"></a>StorSimple-apparaatbeheerservice
 
-Microsoft Azure StorSimple biedt een web gebaseerde gebruikersinterface, de StorSimple Device Manager-service, waarmee u centraal StorSimple om opslag te beheren. De service StorSimple Device Manager kunt u de volgende taken uitvoeren:
+Microsoft Azure StorSimple biedt een webgebaseerde gebruikers interface, de StorSimple Apparaatbeheer-service, waarmee u StorSimple-opslag centraal kunt beheren. U kunt de StorSimple Apparaatbeheer-service gebruiken om de volgende taken uit te voeren:
 
-* Meerdere virtuele StorSimple-matrices beheren vanaf één service.
-* Configureren en beheren van instellingen voor virtuele StorSimple-matrices. (Versleuteling in de cloud is afhankelijk van de Microsoft Azure-API's.)
-* Referenties voor het opslagaccount en eigenschappen configureren.
-* Configureren en beheren van volumes of shares.
-* Back-up en herstel van gegevens op volumes of shares.
-* Prestaties controleren.
-* Controleer de instellingen en mogelijke problemen te identificeren.
+* Meerdere virtuele StorSimple-matrices beheren vanuit één service.
+* Beveiligings instellingen voor StorSimple virtuele matrices configureren en beheren. (Versleuteling in de Cloud is afhankelijk van Microsoft Azure Api's.)
+* Configureer referenties en eigenschappen van het opslag account.
+* Volumes of shares configureren en beheren.
+* Back-ups maken van gegevens op volumes of shares en deze herstellen.
+* Prestaties bewaken.
+* Controleer de systeem instellingen en Identificeer mogelijke problemen.
 
-U de StorSimple Device Manager-service worden uitgevoerd dagelijkse beheer van uw virtuele array gebruiken.
+U gebruikt de StorSimple Apparaatbeheer-service om dagelijks beheer van uw virtuele matrix uit te voeren.
 
-Ga voor meer informatie naar [de StorSimple Device Manager-service gebruiken voor het beheren van uw StorSimple-apparaat](storsimple-virtual-array-manager-service-administration.md).
+Ga voor meer informatie naar [Gebruik de StorSimple Apparaatbeheer-service om uw StorSimple-apparaat te beheren](storsimple-virtual-array-manager-service-administration.md).
 
-### <a name="local-web-user-interface"></a>Lokale webinterface
+### <a name="local-web-user-interface"></a>Lokale web-gebruikers interface
 
-De virtuele matrix bevat een webgebaseerde gebruikersinterface die wordt gebruikt voor eenmalige configuratie en registratie van het apparaat met de StorSimple Device Manager-service. U kunt het afsluiten en opnieuw opstarten van de virtuele matrix, Voer diagnostische tests uit, software bijwerken, wijzigen van het beheerderswachtwoord, het systeemlogboek in logboeken bekijken en neem contact op met Microsoft Support om een serviceaanvraag.
+De virtuele matrix bevat een op het web gebaseerde gebruikers interface die wordt gebruikt voor eenmalige configuratie en registratie van het apparaat met de StorSimple-Apparaatbeheer service. U kunt deze gebruiken om de virtuele matrix af te sluiten en opnieuw op te starten, diagnostische tests uit te voeren, software bij te werken, het beheerders wachtwoord van het apparaat te wijzigen, systeem logboeken weer te geven en contact op te nemen Microsoft Ondersteuning om een service aanvraag te doen.
 
-Ga voor informatie over het gebruik van het web gebaseerde gebruikersinterface naar [het web gebaseerde gebruikersinterface gebruiken voor het beheren van uw StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Voor informatie over het gebruik van de Web-UI, gaat u naar [de webgebaseerde gebruikers interface gebruiken om uw virtuele StorSimple-matrix te beheren](storsimple-ova-web-ui-admin.md).
 
-### <a name="command-line-interface"></a>Opdrachtregelinterface
+### <a name="command-line-interface"></a>Opdracht regel interface
 
-De opgenomen Windows PowerShell-interface kunt u het starten van een ondersteuningssessie met Microsoft Support zodat deze u problemen op te lossen die op uw virtuele array optreden mogelijk kunnen ondersteunen.
+Met de meegeleverde Windows Power shell-interface kunt u een ondersteunings sessie initiëren met Microsoft Ondersteuning zodat ze u kunnen helpen bij het oplossen van problemen die kunnen optreden in uw virtuele array.
 
-## <a name="storage-management-technologies"></a>Storage management-technologieën
+## <a name="storage-management-technologies"></a>Technologieën voor opslag beheer
 
-Naast de virtuele matrix en andere onderdelen, de StorSimple-oplossing gebruikmaakt van de volgende softwaretechnologieën bieden snelle toegang tot belangrijke gegevens, opslag kan worden verkleind en gegevens die zijn opgeslagen op uw virtuele matrix:
+Naast de virtuele matrix en andere onderdelen, maakt de StorSimple-oplossing gebruik van de volgende software technologieën om snelle toegang tot belang rijke gegevens te bieden, het opslag gebruik te verminderen en gegevens op te slaan die zijn opgeslagen in uw virtuele array:
 
-* [Automatische opslaglagen](#automatic-storage-tiering) 
-* [Lokaal vastgemaakt shares en volumes](#locally-pinned-shares-and-volumes)
-* Compressie van gegevens voor Ontdubbeling en lagen of een back-up naar de cloud 
+* [Automatische opslag lagen](#automatic-storage-tiering) 
+* [Lokaal vastgemaakte shares en volumes](#locally-pinned-shares-and-volumes)
+* Ontdubbeling en compressie voor een gegevenslaag of een back-up naar de Cloud 
 * [Geplande en on-demand back-ups](#scheduled-and-on-demand-backups)
 
-### <a name="automatic-storage-tiering"></a>Automatische opslaglagen
-De virtuele matrix maakt gebruik van een nieuw cloudlagen mechanisme voor het beheren van opgeslagen gegevens op de virtuele matrix en in de cloud. Er zijn slechts twee lagen: de lokale virtuele matrix en Azure-cloudopslag. De StorSimple Virtual Array automatisch zorgt ervoor dat gegevens in de lagen op basis van een heatmap, houdt u huidige gebruik, leeftijd en relaties met andere gegevens. Gegevens die het meest actief (meest belaste) lokaal is opgeslagen, terwijl minder actieve en inactieve gegevens worden automatisch gemigreerd naar de cloud. (Alle back-ups worden opgeslagen in de cloud.) StorSimple wordt aangepast en gegevens opnieuw worden ingedeeld en toewijzingen van opslag als de gebruikspatronen wijzigen. Sommige gegevens kan bijvoorbeeld worden minder actieve na verloop van tijd. Omdat het progressief minder actieve, is het gelaagd uit naar de cloud. Als deze gegevens opnieuw geactiveerd wordt, is het gelaagd op de opslagmatrix.
+### <a name="automatic-storage-tiering"></a>Automatische opslag lagen
+De virtuele matrix maakt gebruik van een nieuwe methode om de opgeslagen gegevens in de virtuele matrix en de cloud te beheren. Er zijn slechts twee lagen: de lokale virtuele matrix en Azure-Cloud opslag. De StorSimple-virtuele matrix rangschikt gegevens automatisch in de lagen op basis van een heatmap, waarmee het huidige gebruik, de leeftijd en de relaties met andere gegevens worden bijgehouden. Gegevens die het meest actief zijn (nieuwste) worden lokaal opgeslagen, terwijl minder actieve en inactieve gegevens automatisch naar de cloud worden gemigreerd. (Alle back-ups worden opgeslagen in de Cloud.) StorSimple past de gegevens-en opslag toewijzingen aan en herordent de wijzigingen in de gebruiks patronen. Zo kan een deel van de gegevens in de loop van de tijd minder actief worden. Omdat deze geleidelijk minder actief wordt, wordt deze in de Cloud gelaagd. Als dezelfde gegevens weer actief worden, wordt deze in de opslag matrix gelaagd.
 
-Gegevens voor een bepaalde gelaagde bestandsshare of een volume kan een eigen lokale laag-ruimte (ongeveer 10% van de totale ingerichte ruimte voor deze share of het volume) worden gegarandeerd. Hoewel er hierdoor worden de beschikbare opslag voor de virtuele matrix voor deze share of het volume, zorgt u ervoor dat meerdere lagen voor één share of het volume wordt niet beïnvloed door de cloudlagen behoeften van de andere bestandsshares of volumes. Dus een erg druk werkbelasting op een share of het volume kan niet afdwingen dat alle andere werkbelastingen naar de cloud.
+Gegevens voor een bepaalde gelaagde share of volume worden gegarandeerd een eigen lokale laag ruimte (ongeveer 10% van de totale ingerichte ruimte voor die share of dit volume). Hoewel dit de beschik bare opslag ruimte in de virtuele matrix voor die share of dit volume vermindert, zorgt u ervoor dat het maken van lagen voor één share of volume niet wordt beïnvloed door de lagen van andere shares of volumes. Een zeer drukke werk belasting op één share of volume kan dus niet alle andere werk belastingen naar de Cloud afdwingen.
 
-Gelaagde volumes die zijn gemaakt voor iSCSI-zijn een maximale lokale reservering van 200 GB, ongeacht de grootte van het volume.
+Gelaagde volumes die zijn gemaakt voor iSCSI, hebben een maximale lokale reserve ring van 200 GB, ongeacht de grootte van het volume.
 
-![Automatische opslaglagen](./media/storsimple-ova-overview/automatic-storage-tiering.png)
-
-> [!NOTE]
-> U kunt een als lokaal vastgemaakt volume opgeven, in welk geval de gegevens op de virtuele matrix blijven en nooit wordt gelaagde in de cloud. Ga voor meer informatie naar [lokaal vastgemaakt shares en volumes](#locally-pinned-shares-and-volumes).
-
-
-### <a name="locally-pinned-shares-and-volumes"></a>Lokaal vastgemaakt shares en volumes
-
-U kunt de juiste shares en volumes als lokaal vastgemaakt maken. Deze mogelijkheid zorgt ervoor dat gegevens die zijn vereist voor essentiële toepassingen in de virtuele matrix blijft en nooit naar de cloud is gelaagd. Lokaal vastgemaakt shares en volumes hebben de volgende kenmerken:
-
-* Ze vallen niet onder cloud latenties of problemen met de netwerkverbinding.
-* Ze blijven profiteren van de StorSimple cloud back-ups en disaster recovery functies.
-
-U kunt een lokaal vastgemaakt share of volume als gelaagde of een gelaagde share herstellen of volume als lokaal vastgemaakt. 
-
-Voor meer informatie over lokaal vastgemaakte volumes, gaat u naar [de StorSimple Device Manager-service gebruiken voor het beheren van volumes](storsimple-virtual-array-manage-volumes.md).
-
-### <a name="deduplication-and-compression-for-data-tiered-or-backed-up-to-the-cloud"></a>Compressie van gegevens voor Ontdubbeling en lagen of een back-up naar de cloud
-
-StorSimple maakt gebruik van Ontdubbeling en gegevens-compressie om verder te beperken opslagvereisten in de cloud. Ontdubbeling vermindert de totale hoeveelheid gegevens die zijn opgeslagen door het elimineren van redundantie in de opgeslagen gegevens-set. Als gegevens veranderen, StorSimple de ongewijzigde gegevens worden genegeerd en wordt alleen de wijzigingen vastgelegd. StorSimple wordt bovendien de hoeveelheid opgeslagen gegevens door te identificeren en verwijderen van dubbele gegevens.
+![automatische opslag lagen](./media/storsimple-ova-overview/automatic-storage-tiering.png)
 
 > [!NOTE]
-> Gegevens die zijn opgeslagen op de virtuele matrix is niet ontdubbeld of gecomprimeerd. Alle gegevensontdubbeling en compressie vindt plaats voordat de gegevens worden verzonden naar de cloud.
+> U kunt een lokaal vastgemaakt volume opgeven. in dat geval blijven de gegevens op de virtuele matrix en worden ze nooit op de Cloud gelaagd. Ga voor meer informatie naar [lokaal vastgemaakte shares en volumes](#locally-pinned-shares-and-volumes).
+
+
+### <a name="locally-pinned-shares-and-volumes"></a>Lokaal vastgemaakte shares en volumes
+
+U kunt de juiste shares en volumes maken die lokaal zijn vastgemaakt. Op deze manier zorgt u ervoor dat de gegevens die nodig zijn voor kritieke toepassingen in de virtuele matrix blijven en nooit in de cloud worden gelaagd. Lokaal vastgemaakte shares en volumes hebben de volgende kenmerken:
+
+* Ze zijn niet onderhevig aan Cloud latenties of verbindings problemen.
+* Ze kunnen nog steeds profiteren van StorSimple-functies voor Cloud back-ups en herstel na nood gevallen.
+
+U kunt een lokaal vastgemaakte share of volume herstellen als een gelaagde of gelaagde share of gedeeld volume. 
+
+Voor meer informatie over lokaal vastgemaakte volumes gaat u naar [de StorSimple Apparaatbeheer-service gebruiken voor het beheren van volumes](storsimple-virtual-array-manage-volumes.md).
+
+### <a name="deduplication-and-compression-for-data-tiered-or-backed-up-to-the-cloud"></a>Ontdubbeling en compressie voor een gegevenslaag of een back-up naar de Cloud
+
+StorSimple maakt gebruik van ontdubbeling en gegevens compressie om de opslag vereisten in de Cloud verder te reduceren. Ontdubbeling vermindert de totale hoeveelheid gegevens die is opgeslagen door redundantie in de opgeslagen gegevensset te elimineren. Als de gegevens worden gewijzigd, worden de ongewijzigde gegevens door StorSimple genegeerd en worden alleen de wijzigingen vastgelegd. Daarnaast vermindert StorSimple de hoeveelheid opgeslagen gegevens door dubbele gegevens te identificeren en te verwijderen.
+
+> [!NOTE]
+> Gegevens die zijn opgeslagen op de virtuele matrix, worden niet ontdubbeld of gecomprimeerd. Alle ontdubbeling en compressie vindt plaats net voordat de gegevens naar de cloud worden verzonden.
 
 ### <a name="scheduled-and-on-demand-backups"></a>Geplande en on-demand back-ups
 
-Functies voor gegevensbescherming StorSimple kunnen u back-ups op aanvraag maken. Een standaard back-upschema Bovendien zorgt ervoor dat de back-up dagelijks. Back-ups worden genomen in de vorm van incrementele momentopnamen die zijn opgeslagen in de cloud. Momentopnamen, die alleen de wijzigingen vastgelegd sinds de laatste back-up, worden gemaakt en hersteld snel. Deze momentopnamen kunnen worden in noodgevallen herstelscenario's cruciaal omdat ze vervangen door secundaire opslag-systemen (zoals tapeback-up), en kunnen u gegevens naar uw datacenter of naar andere sites indien nodig herstellen.
+Met StorSimple-functies voor gegevens bescherming kunt u back-ups op aanvraag maken. Daarnaast zorgt een standaard back-upschema ervoor dat er dagelijks een back-up van gegevens wordt gemaakt. Back-ups worden gemaakt in de vorm van incrementele moment opnamen, die worden opgeslagen in de Cloud. Moment opnamen, waarin alleen de wijzigingen sinds de laatste back-up worden vastgelegd, kunnen snel worden gemaakt en hersteld. Deze moment opnamen kunnen kritiek zijn in nood herstel scenario's, omdat ze secundaire opslag systemen vervangen (zoals tape back-ups) en u zo nodig gegevens kunt herstellen naar uw Data Center of naar andere sites.
 
 ## <a name="managing-personal-information"></a>Persoonlijke gegevens beheren
 
-De StorSimple Device Manager voor virtuele serie verzamelt persoonlijke gegevens in twee belangrijke exemplaren:
- - Ontvang een waarschuwing gebruikersinstellingen waar e-mailadressen van gebruikers zijn geconfigureerd. Deze informatie kan worden verwijderd door de beheerder. 
- - Gebruikers die toegang krijgen tot de gegevens die zich bevinden op de shares. Een lijst met gebruikers die toegang de sharegegevens tot krijgen wordt weergegeven en kan worden geëxporteerd. Deze lijst wordt ook verwijderd wanneer de shares wordt verwijderd.
+Met de StorSimple-Apparaatbeheer voor de virtuele reeks worden persoonlijke gegevens in twee sleutel instanties verzameld:
+ - Gebruikers instellingen voor waarschuwingen waarbij e-mail adressen van gebruikers zijn geconfigureerd. Deze informatie kan worden gewist door de beheerder. 
+ - Gebruikers die toegang hebben tot de gegevens die zich op de shares bevinden. Een lijst met gebruikers die toegang hebben tot de gegevens van de share, worden weer gegeven en kan worden geëxporteerd. Deze lijst wordt ook verwijderd wanneer de shares worden verwijderd.
 
-Raadpleeg voor meer informatie de [Microsoft Privacy-policy op Vertrouwenscentrum](https://www.microsoft.com/trustcenter).
+Raadpleeg het [privacybeleid van micro soft in het vertrouwens centrum](https://www.microsoft.com/trustcenter)voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het [voorbereiden van de portal virtuele matrix](storsimple-virtual-array-deploy1-portal-prep.md).
+Meer informatie over [het voorbereiden van de virtuele matrix Portal](storsimple-virtual-array-deploy1-portal-prep.md).

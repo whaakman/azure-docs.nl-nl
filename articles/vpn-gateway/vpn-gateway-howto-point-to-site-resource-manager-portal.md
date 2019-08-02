@@ -1,26 +1,24 @@
 ---
-title: 'Een computer verbinden met een Azure-netwerk met behulp van punt-naar-Site en systeemeigen Azure-certificaatverificatie: Azure Portal | Microsoft Docs'
-description: Windows, Mac OS X en Linux-clients veilig verbinden met een Azure-netwerk met behulp van P2S en zelfondertekende of door Certificeringsinstanties uitgegeven certificaten. In dit artikel wordt gebruikgemaakt van Azure Portal.
+title: 'Een computer verbinden met een virtueel Azure-netwerk met behulp van punt-naar-site en systeem eigen Azure-certificaat verificatie: Azure Portal | Microsoft Docs'
+description: Verbind Windows-, Mac OS X-en Linux-clients veilig met een virtueel Azure-netwerk met behulp van P2S en zelfondertekende of door certificerings instanties uitgegeven certificaten. In dit artikel wordt gebruikgemaakt van Azure Portal.
 services: vpn-gateway
 author: cherylmc
-tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 6/18/2019
+ms.date: 07/31/2019
 ms.author: cherylmc
-ms.openlocfilehash: 07bcf50a816c090ccef846909dff671486e514c4
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: e603eed34aaff4ad7303819a730fea09a332b7a8
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203064"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706777"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Een punt-naar-Site-verbinding met een VNet met behulp van systeemeigen Azure certificaatverificatie configureren: Azure Portal
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configureer een punt-naar-site-verbinding met een VNet met behulp van systeem eigen Azure-certificaat verificatie: Azure Portal
 
-Dit artikel helpt u afzonderlijke clients met Windows, Linux of Mac OS X naar een Azure VNet veilig verbinding te maken. P2S-verbindingen zijn nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, bijvoorbeeld als u ook thuis werkt of op een congres verbinding wilt maken. U kunt P2S ook in plaats van een site-naar-site-VPN gebruiken wanneer u maar een paar clients hebt die verbinding moeten maken met een VNet. Punt-naar-site-verbindingen hebben geen VPN-apparaat of openbaar IP-adres nodig. P2S maakt de VPN-verbinding via SSTP (Secure Socket Tunneling Protocol) of IKEv2. Voor meer informatie over punt-naar-site-VPN leest u [About Point-to-Site VPN](point-to-site-about.md) (Over punt-naar-site-VPN).
+Dit artikel helpt u bij het veilig verbinden van afzonderlijke clients met Windows, Linux of Mac OS X naar een Azure-VNet. P2S-verbindingen zijn nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, bijvoorbeeld als u ook thuis werkt of op een congres verbinding wilt maken. U kunt P2S ook in plaats van een site-naar-site-VPN gebruiken wanneer u maar een paar clients hebt die verbinding moeten maken met een VNet. Punt-naar-site-verbindingen hebben geen VPN-apparaat of openbaar IP-adres nodig. P2S maakt de VPN-verbinding via SSTP (Secure Socket Tunneling Protocol) of IKEv2. Voor meer informatie over punt-naar-site-VPN leest u [About Point-to-Site VPN](point-to-site-about.md) (Over punt-naar-site-VPN).
 
 ![Diagram: een computer verbinden met een Azure VNet-punt-naar-site-verbinding](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
-
 
 ## <a name="architecture"></a>Architectuur
 
@@ -36,20 +34,20 @@ Native punt-naar-site-verbindingen voor certificaatverificatie in Azure gebruike
 U kunt de volgende waarden gebruiken om een testomgeving te maken of ze raadplegen om meer inzicht te krijgen in de voorbeelden in dit artikel:
 
 * **VNet-naam:** VNet1
-* **Adresruimte:** 192.168.0.0/16<br>In dit voorbeeld gebruiken we slechts één adresruimte. U kunt meer dan één adresruimte voor uw VNet hebben.
+* **Adres ruimte:** 192.168.0.0/16<br>In dit voorbeeld gebruiken we slechts één adresruimte. U kunt meer dan één adresruimte voor uw VNet hebben.
 * **Subnetnaam:** FrontEnd
-* **Subnetadresbereik:** 192.168.1.0/24
-* **Abonnement:** Als u meer dan één abonnement hebt, controleert u of dat u van het juiste is gebruikmaakt.
+* **Adres bereik van subnet:** 192.168.1.0/24
+* **Abonnement:** Als u meer dan één abonnement hebt, controleert u of u de juiste versie gebruikt.
 * **Resourcegroep:** TestRG
-* **Locatie:** US - oost
+* **Locatie:** East US
 * **GatewaySubnet:** 192.168.200.0/24<br>
 * **DNS-server:** (optioneel) IP-adres van de DNS-server die u wilt gebruiken voor naamomzetting.
-* **Gatewaynaam van het virtuele netwerk:** VNet1GW
-* **Gatewaytype:** VPN
+* **Naam van de virtuele netwerk gateway:** VNet1GW
+* **Gateway type:** VPN
 * **VPN-type:** Op route gebaseerd
-* **Naam voor openbare IP-adres:** VNet1GWpip
-* **Verbindingstype:** Punt-naar-site
-* **Clientadresgroep:** 172.16.201.0/24<br>VPN-clients die verbinding maken met het VNet via deze punt-naar-site-verbinding, ontvangen een IP-adres van de clientadresgroep.
+* **Naam van openbaar IP-adres:** VNet1GWpip
+* **Verbindings type:** Punt-naar-site
+* **Client-adres groep:** 172.16.201.0/24<br>VPN-clients die verbinding maken met het VNet via deze punt-naar-site-verbinding, ontvangen een IP-adres van de clientadresgroep.
 
 ## <a name="createvnet"></a>1. Een virtueel netwerk maken
 
@@ -73,7 +71,7 @@ Nadat u uw virtuele netwerk hebt gemaakt, kunt u het IP-adres van een DNS-server
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
->De basis-SKU biedt geen ondersteuning voor IKEv2- of RADIUS-verificatie. Als u van plan bent op de Mac-clients verbinding met uw virtuele netwerk maken dat gebruik niet de basis-SKU.
+>De basis gateway-SKU biedt geen ondersteuning voor IKEv2-of RADIUS-verificatie. Als u van plan bent Mac-clients verbinding te laten maken met uw virtuele netwerk, moet u de basis-SKU niet gebruiken.
 >
 
 ## <a name="generatecert"></a>5. Certificaten genereren
@@ -98,7 +96,7 @@ De clientadrespool bestaat uit een privé-IP-adresbereik dat u opgeeft. De clien
 2. Klik op **Nu configureren** om de configuratiepagina te openen.
 
    ![Nu configureren](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
-3. Op de pagina **Punt-naar-site-configuratie** kunt u in het vak **Adresgroep** het bereik met privé-IP-adressen toevoegen dat u wilt gebruiken. VPN-clients ontvangen dynamisch een IP-adres uit het bereik dat u opgeeft. De minimale subnetmasker is 29 bits voor actief/passief en 28 bits voor actief/actief-configuratie. Klik op **Opslaan** om de instelling te valideren en op te slaan.
+3. Op de pagina **Punt-naar-site-configuratie** kunt u in het vak **Adresgroep** het bereik met privé-IP-adressen toevoegen dat u wilt gebruiken. VPN-clients ontvangen dynamisch een IP-adres uit het bereik dat u opgeeft. Het minimale subnetmasker is 29 bits voor actief/passief en 28 bits voor actieve/actieve configuratie. Klik op **Opslaan** om de instelling te valideren en op te slaan.
 
    ![Clientadresgroep](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
@@ -108,7 +106,7 @@ De clientadrespool bestaat uit een privé-IP-adresbereik dat u opgeeft. De clien
 
 ## <a name="tunneltype"></a>7. Tunneltype configureren
 
-U kunt het tunneltype selecteren. De tunnelopties zijn OpenVPN, SSTP en IKEv2. De strongSwan-client op Android en Linux en de systeemeigen IKEv2 VPN-client op iOS en OS x gebruiken alleen de IKEv2-tunnel om verbinding te maken. Windows-clients proberen eerst IKEv2. Als daarmee geen verbinding kan worden gemaakt, vallen ze terug op SSTP. Verbinding maken met het tunneltype OpenVPN kunt u de client OpenVPN.
+U kunt het tunneltype selecteren. De tunnel opties zijn OpenVPN, SSTP en IKEv2. De strongSwan-client op Android en Linux en de systeemeigen IKEv2 VPN-client op iOS en OS x gebruiken alleen de IKEv2-tunnel om verbinding te maken. Windows-clients proberen eerst IKEv2. Als daarmee geen verbinding kan worden gemaakt, vallen ze terug op SSTP. U kunt de OpenVPN-client gebruiken om verbinding te maken met het tunnel type OpenVPN.
 
 ![Tunneltype](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 
@@ -172,7 +170,7 @@ De configuratiebestanden van de VPN-clients bevatten de instellingen voor het co
 
 Zoek in het dialoogvenster Netwerk het clientprofiel dat u wilt gebruiken, geef de instellingen uit het bestand [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac) op, en klik op **Verbinding maken**.
 
-Controleer [installeren - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) voor gedetailleerde instructies. Als u ondervindt, controleert u of dat de virtuele netwerkgateway geen gebruik van een basis-SKU maakt. Basis-SKU wordt niet ondersteund voor Mac-clients.
+Controleer de [installatie-Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) voor gedetailleerde instructies. Als u problemen ondervindt bij het verbinding maken, controleert u of de gateway van het virtuele netwerk geen basis-SKU gebruikt. Basis-SKU wordt niet ondersteund voor Mac-clients.
 
   ![Mac-verbinding](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Poorten boven 1433 voor SQL Database | Microsoft Docs
-description: Clientverbindingen van ADO.NET naar Azure SQL Database kunnen de proxy overslaan en Communiceer rechtstreeks met de database met behulp van andere poorten dan 1433.
+title: Poorten van meer dan 1433 voor SQL Database | Microsoft Docs
+description: Client verbindingen van ADO.NET naar Azure SQL Database kunnen de proxy overs Laan en rechtstreeks communiceren met de data base via andere poorten dan 1433.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,58 +10,57 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 04/03/2019
-ms.openlocfilehash: d861ccb93de7aa0b84b20215afb5fddf49aa94c9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a39cfd1981041c807a91a08c198378d238f0846e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427953"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568908"
 ---
-# <a name="ports-beyond-1433-for-adonet-45"></a>Poorten boven 1433 voor ADO.NET 4.5
+# <a name="ports-beyond-1433-for-adonet-45"></a>Poorten boven 1433 voor ADO.NET 4,5
 
-Dit onderwerp beschrijft het gedrag van de Azure SQL Database-verbindingen voor clients die gebruikmaken van ADO.NET 4.5 of hoger.
+In dit onderwerp wordt het Azure SQL Database verbindings gedrag voor clients beschreven die gebruikmaken van ADO.NET 4,5 of een latere versie.
 
 > [!IMPORTANT]
-> Zie voor meer informatie over de connectiviteitsarchitectuur van [Azure SQL Database-connectiviteitsarchitectuur](sql-database-connectivity-architecture.md).
+> Zie voor meer informatie over connectiviteits architectuur [Azure SQL database connectiviteits architectuur](sql-database-connectivity-architecture.md).
 >
 
-## <a name="outside-vs-inside"></a>Buiten vs binnen
+## <a name="outside-vs-inside"></a>Buiten zijde
 
-Voor verbindingen met Azure SQL Database, moet eerst vragen we uw clientprogramma wordt uitgevoerd of *buiten* of *binnen* de grens van de Azure-cloud. De subsecties worden twee algemene scenario's besproken.
+Voor verbindingen met Azure SQL Database moet u eerst vragen of uw client programma *buiten* of *binnen* de Azure-Cloud grens wordt uitgevoerd. In de subsecties worden twee veelvoorkomende scenario's besproken.
 
-### <a name="outside-client-runs-on-your-desktop-computer"></a>*Buiten:* Client wordt uitgevoerd op uw desktopcomputer
+### <a name="outside-client-runs-on-your-desktop-computer"></a>*Deel* Client wordt uitgevoerd op uw desktop computer
 
-Poort 1433 is de enige poort die moet worden geopend op uw computer die als host fungeert voor de clienttoepassing van uw SQL-Database.
+Poort 1433 is de enige poort die moet worden geopend op de desktop computer die als host fungeert voor uw SQL Database-client toepassing.
 
-### <a name="inside-client-runs-on-azure"></a>*In:* Client wordt uitgevoerd op Azure
+### <a name="inside-client-runs-on-azure"></a>*Inside* Client wordt uitgevoerd op Azure
 
-Wanneer de client wordt uitgevoerd binnen de grenzen van de Azure-cloud, gebruikt deze kunt zogeheten een *direct route* om te communiceren met de SQL Database-server. Nadat een verbinding tot stand is gebracht, verdere interactie tussen de client en de database hebben betrekking op geen Azure SQL Database-Gateway.
+Wanneer de-client wordt uitgevoerd binnen de grens van de Azure-Cloud, wordt gebruikgemaakt van wat we een *directe route* kunnen aanroepen om te communiceren met de SQL database-server. Nadat een verbinding tot stand is gebracht, omvatten verdere interacties tussen de client en data base geen Azure SQL Database gateway.
 
-De volgorde is als volgt:
+De volg orde is als volgt:
 
-1. ADO.NET 4.5 (of hoger) initieert een korte interactie met de Azure-cloud, en ontvangt een dynamisch geïdentificeerde poortnummer.
+1. ADO.NET 4,5 (of hoger) initieert een korte interactie met de Azure-Cloud en ontvangt een dynamisch geïdentificeerd poort nummer.
 
-   * Het dynamisch geïdentificeerde poortnummer is in het bereik van 11000 11999.
-2. ADO.NET maakt vervolgens verbinding met de SQL Database-server rechtstreeks met geen middleware tussenin.
-3. Query's rechtstreeks naar de database worden verzonden en resultaten rechtstreeks naar de client worden geretourneerd.
+   * Het dynamisch geïdentificeerde poort nummer bevindt zich in het bereik van 11000-11999.
+2. ADO.NET maakt vervolgens rechtstreeks verbinding met de SQL Database Server, zonder middleware in tussen.
+3. Query's worden rechtstreeks naar de-data base verzonden en de resultaten worden direct naar de client geretourneerd.
 
-Zorg ervoor dat de poort bereik van 11000-11999 op uw Azure-client-computer beschikbaar voor ADO.NET 4.5 client interacties met SQL Database blijven.
+Zorg ervoor dat de poortbereiken van 11000-11999 op uw Azure-client machine beschikbaar blijven voor ADO.NET 4,5-client interacties met SQL Database.
 
-* Poorten in het bereik moet in het bijzonder vrij van andere uitgaande blokkeringen.
-* Op uw Azure-VM, de **Windows Firewall met geavanceerde beveiliging** Hiermee bepaalt u de poortinstellingen.
+* In het bijzonder moeten poorten in het bereik vrij van andere uitgaande blok keringen zijn.
+* Op uw virtuele Azure-machine beheert de **Windows Firewall met geavanceerde beveiliging** de poort instellingen.
   
-  * Kunt u de [gebruikersinterface van de firewall](https://msdn.microsoft.com/library/cc646023.aspx) om toe te voegen een regel die u opgeeft de **TCP** protocol samen met een bereik met de syntaxis zoals **11000 11999**.
+  * U kunt de [gebruikers interface van de firewall](https://msdn.microsoft.com/library/cc646023.aspx) gebruiken om een regel toe te voegen waarvoor u het **TCP** -protocol en een poort bereik opgeeft met de syntaxis zoals **11000-11999**.
 
-## <a name="version-clarifications"></a>Versie verduidelijkingen
+## <a name="version-clarifications"></a>Versie-uitleg
 
-In deze sectie wordt uitleg gegeven over de monikers die naar versies van het product verwijzen. Het bevat ook enkele testpunten versies van producten.
+Deze sectie verduidelijkt de monikers die verwijzen naar de product versies. Er wordt ook een aantal versies tussen producten weer gegeven.
 
 ### <a name="adonet"></a>ADO.NET
 
-* ADO.NET 4.0 ondersteunt het TDS-7.3-protocol, maar niet 7.4.
-* ADO.NET 4.5 en hoger ondersteunt het TDS-7.4-protocol.
+* ADO.NET 4,0 ondersteunt het TDS 7,3-protocol, maar niet 7,4.
+* ADO.NET 4,5 en hoger ondersteunt het TDS 7,4-protocol.
 
 ### <a name="odbc"></a>ODBC
 
@@ -69,21 +68,21 @@ In deze sectie wordt uitleg gegeven over de monikers die naar versies van het pr
 
 ### <a name="jdbc"></a>JDBC
 
-* Microsoft SQL Server JDBC 4.2 of hoger (JDBC 4.0 daadwerkelijk biedt ondersteuning voor TDS-7.4 maar implementeert geen "omleiding")
+* Microsoft SQL Server JDBC 4,2 of hoger (JDBC 4,0 ondersteunt werkelijk TDS 7,4, maar implementeert de omleiding niet)
 
 ## <a name="related-links"></a>Verwante koppelingen
 
-* ADO.NET 4.6 is uitgebracht op 20 juli 2015. Een aankondiging blog van het team van .NET is beschikbaar [hier](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 is uitgebracht op 15 augustus 2012. Een aankondiging blog van het team van .NET is beschikbaar [hier](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
-  * Er is een blogbericht over ADO.NET 4.5.1 beschikbaar [hier](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx).
+* ADO.NET 4,6 is uitgebracht op 20 juli 2015. [Hier](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx)vindt u een blog aankondiging van het .net-team.
+* ADO.NET 4,5 is uitgebracht op 15 augustus 2012. [Hier](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx)vindt u een blog aankondiging van het .net-team.
+  * Een blog bericht over ADO.NET 4.5.1 is [hier](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx)beschikbaar.
 
-* Microsoft® ODBC Driver 17 voor SQL Server® - Windows, Linux en macOS https://www.microsoft.com/download/details.aspx?id=56567
+* Micro soft® ODBC-stuur programma 17 voor SQL Server®-Windows, Linux, & macOS https://www.microsoft.com/download/details.aspx?id=56567
 
-* Verbinding maken met Azure SQL Database V12 via een omleiding https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
+* Verbinding maken met Azure SQL Database V12 via omleiding https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
-* [Lijst met de versie van de TDS-protocol](https://www.freetds.org/userguide/tdshistory.htm)
-* [Overzicht van de ontwikkeling van de SQL Database](sql-database-develop-overview.md)
-* [Azure SQL Database-firewall](sql-database-firewall-configure.md)
+* [Lijst met TDS-protocol versies](https://www.freetds.org/userguide/tdshistory.htm)
+* [Overzicht van SQL Database ontwikkeling](sql-database-develop-overview.md)
+* [Azure SQL Database firewall](sql-database-firewall-configure.md)
 * [Procedure: Firewallinstellingen voor SQL Database configureren](sql-database-configure-firewall-settings.md)
 
 

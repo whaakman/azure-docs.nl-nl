@@ -1,7 +1,7 @@
 ---
-title: Alternatieve invoer gebruiken met Conversatiecursist - Microsoft Cognitive Services | Microsoft Docs
+title: Alternatieve invoer gebruiken met Conversation Learner-Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Informatie over het gebruik van alternatieve invoer met Conversatiecursist.
+description: Meer informatie over het gebruik van alternatieve invoer met Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,149 +10,150 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 383c063e1ba7a29986e4b1c48024072799234414
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7416939db8d6552f79fba700b8432de2ad228846
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387929"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704201"
 ---
-# <a name="how-to-use-alternative-inputs"></a>Het gebruik van andere invoer
+# <a name="how-to-use-alternative-inputs"></a>Alternatieve invoer gebruiken
 
-In deze zelfstudie laat zien hoe het veld Alternatieve invoer gebruiken voor uitingen van de gebruiker in de interface voor onderwijs.
+In deze zelf studie ziet u hoe u het veld alternatieve invoer gegevens gebruikt voor gebruikers uitingen in de interface voor onderwijs.
 
 ## <a name="video"></a>Video
 
-[![Zelfstudie alternatieve invoer-Preview](https://aka.ms/cl_Tutorial_v3_AlternativeInputs_Preview)](https://aka.ms/cl_Tutorial_v3_AlternativeInputs)
+[![Preview van zelf studie voor alternatieve invoer](https://aka.ms/cl_Tutorial_v3_AlternativeInputs_Preview)](https://aka.ms/cl_Tutorial_v3_AlternativeInputs)
 
 ## <a name="requirements"></a>Vereisten
-In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd
+Voor deze zelf studie moet de bot van de algemene zelf studie worden uitgevoerd
 
     npm run tutorial-general
 
 ## <a name="details"></a>Details
-Alternatieve invoer zijn alternatieve, dezelfde gebruiker uitingen die de gebruiker kan hebben op een bepaald punt in een dialoogvenster training. Deze alternatieve invoer kunnen u meer compactly variaties van uitingen opgeven zonder voor elke variatie in afzonderlijke trainings-dialoogvensters.
+Alternatieve invoer is een alternatieve, semantisch gelijkwaardige gebruiker uitingen die de gebruiker op een bepaald punt in een trainings dialoogvenster kan hebben genoemd. Met deze alternatieve invoer kunt u op een flexibele manier uitingen opgeven zonder dat u elke variatie in afzonderlijke trainings dialoogvensters hoeft op te lossen.
 
 ## <a name="steps"></a>Stappen
 
-### <a name="create-the-model"></a>Het Model maken
+### <a name="create-the-model"></a>Het model maken
 
-1. In de Web-gebruikersinterface, klikt u op "Nieuwe Model."
-2. Typ in het veld 'Name', 'AlternativeInputs' en druk op enter.
-3. Klik op de knop 'Maken'.
+1. Klik in de gebruikers interface van de web op ' nieuw model '.
+2. Typ ' AlternativeInputs ' in het veld ' naam ' en druk op ENTER.
+3. Klik op de knop maken.
 
 ### <a name="entity-creation"></a>Entiteit maken
 
-1. In het linkerdeelvenster klikt u op "Entiteiten" en vervolgens de knop 'Nieuwe entiteit'.
-2. Selecteer 'Aangepaste getraind' voor het "entiteitstype'.
-3. Typ 'plaats' voor "Naam van de entiteit."
-4. Klik op de knop 'Maken'.
+1. Klik in het linkerdeel venster op entiteiten en vervolgens op de knop nieuwe entiteit.
+2. Selecteer aangepast getraind voor het entiteits type.
+3. Typ ' City ' voor de ' entiteits naam '.
+4. Klik op de knop maken.
 
 ![](../media/T10_actions.png)
 
-Nu gaan we drie acties te maken.
+Nu gaan we drie acties maken.
 
 ### <a name="create-the-first-action"></a>De eerste actie maken
 
-1. Klik op 'Acties' en vervolgens de knop 'Nieuwe actie' in het linkerdeelvenster.
-2. In de 'van de Bot response...' veld, typt u "Welke plaats?"
-3. Typ in het veld 'Verwachte entiteit in antwoord op gebruiker...', 'plaats'.
-4. Typ in het veld 'Diskwalificeren voorziet', 'plaats'.
-5. Klik op de knop 'Maken'.
+1. Klik in het linkerdeel venster op acties en vervolgens op de knop nieuwe actie.
+2. In het antwoord van de bot... veld, typt u "welke plaats?"
+3. In de ' verwachte entiteit in antwoord van de gebruiker... ' typt u ' City. '
+4. Typ ' City ' in het veld ' kwalificeering '.
+5. Klik op de knop maken.
 
 ![](../media/T10_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>De tweede actie maken
 
-1. Klik op 'Acties' en vervolgens de knop 'Nieuwe actie' in het linkerdeelvenster.
-2. In de 'van de Bot response...' veld, typt u "het weer in $city is waarschijnlijk zonnige."
-3. Klik op de knop 'Maken'.
+1. Klik in het linkerdeel venster op acties en vervolgens op de knop nieuwe actie.
+2. In het antwoord van de bot... typt u ' het weer in $city waarschijnlijk zon. '
+3. Klik op de knop maken.
 
 ![](../media/T10_action_create_2.png)
 
 ### <a name="create-the-third-action"></a>De derde actie maken
 
-1. Klik op 'Acties' en vervolgens de knop 'Nieuwe actie' in het linkerdeelvenster.
-2. In de 'van de Bot response...' veld, typt u "Probeert het weer wordt gevraagd."
-3. Typ in het veld 'Diskwalificeren voorziet', 'plaats'.
-4. Klik op de knop 'Maken'.
+1. Klik in het linkerdeel venster op acties en vervolgens op de knop nieuwe actie.
+2. In het antwoord van de bot... typt u ' Probeer om het weer te vragen '.
+3. Typ ' City ' in het veld ' kwalificeering '.
+4. Klik op de knop maken.
 
 ![](../media/T10_action_create_3.png)
 
-U hebt nu de drie acties.
+U hebt nu drie acties.
 
 ![](../media/T10_actions.png)
 
-### <a name="train-the-model"></a>Het Model te trainen
+### <a name="train-the-model"></a>Het model trainen
 
-1. In het linkerdeelvenster klikt u op "Train-dialoogvensters" en vervolgens de knop 'Nieuwe Train dialoogvenster'.
-2. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u 'Wat is het weer?'
-3. Klik op de knop 'Acties Score'.
-4. Selecteer het antwoord, "Welke plaats?"
-5. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "Denver"
-6. Klik op de knop 'Acties Score'.
-7. Selecteer het antwoord, "het weer in Denver is waarschijnlijk zonnige."
-8. Klik op de knop 'Wijzigingen verzenden'.
+1. Klik in het linkerdeel venster op ' dialoog vensters trainen ' en vervolgens op de knop Nieuw trainen dialoog venster.
+2. In het deel venster chat, waar het bericht ' Typ uw boodschap... ', typt u ' wat is het weer? '
+3. Klik op de knop ' Score acties '.
+4. Selecteer de reactie "welke plaats?"
+5. In het deel venster chatten, waar het bericht ' Typ uw boodschap... ' typt u ' Denver '
+6. Klik op de knop ' Score acties '.
+7. Selecteer de reactie: ' het weer in Denver is waarschijnlijk zon. '
+8. Klik op de knop Wijzigingen verzenden.
 
 ![](../media/T10_training_1.png)
 
-Laten we trainen het model door het maken van een ander dialoogvenster van de trein meer.
+We gaan het model verder trainen door een ander trein dialoogvenster te maken.
 
-### <a name="second-model-train-dialog"></a>Second Model Train Dialog
+### <a name="second-model-train-dialog"></a>Tweede model trein, dialoog venster
 
-1. In het linkerdeelvenster klikt u op "Train-dialoogvensters" en vervolgens de knop 'Nieuwe Train dialoogvenster'.
-2. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "Kunt u doen?"
-3. Klik op de knop 'Acties Score'.
-4. Selecteer het antwoord, "Probeer weer wordt gevraagd."
-5. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u 'Wat is het weer in Seattle?'
-6. Klik op "Seattle" en klik vervolgens op 'plaats' uit de lijst met entiteiten.
-7. Klik op de knop 'Acties Score'.
-8. Selecteer het antwoord, "het weer in Seattle is waarschijnlijk zonnige."
-9. Klik op de knop 'Wijzigingen verzenden'.
+1. Klik in het linkerdeel venster op ' dialoog vensters trainen ' en vervolgens op de knop Nieuw trainen dialoog venster.
+2. In het deel venster chatten, waar het bericht ' Typ uw boodschap... ' typt u ' wat kunt u doen? '
+3. Klik op de knop ' Score acties '.
+4. Selecteer het antwoord ' Probeer om het weer te vragen '.
+5. In het deel venster chatten, waar het bericht ' Typ uw boodschap... ' typt u ' wat is het weer in Seattle? '
+6. Klik op Seattle en klik vervolgens in de lijst met entiteiten op plaats.
+7. Klik op de knop ' Score acties '.
+8. Selecteer de reactie: ' het weer in Seattle is waarschijnlijk zon. '
+9. Klik op de knop Wijzigingen verzenden.
 
 ![](../media/T10_training_2.png)
 
-### <a name="third-model-train-dialog-using-alternative-input"></a>Derde Model trainen dialoogvenster met behulp van alternatieve invoer
+### <a name="third-model-train-dialog-using-alternative-input"></a>Dialoog venster voor het trainen van het derde model met alternatieve invoer
 
-1. In het linkerdeelvenster klikt u op "Train-dialoogvensters" en vervolgens de knop 'Nieuwe Train dialoogvenster'.
-2. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "help"
-3. Klik op de knop 'Acties Score'.
-    - Het Model is niet bekend met de beste optie, zodat deze de hoogste percentiel standaard kiest.
-4. Klik op de knop 'Onderwijs afbreken' en klik vervolgens op "Confirm" knop.
+1. Klik in het linkerdeel venster op ' dialoog vensters trainen ' en vervolgens op de knop Nieuw trainen dialoog venster.
+2. In het deel venster chatten, waar het bericht ' Typ uw boodschap... ' typt u ' Help '
+3. Klik op de knop ' Score acties '.
+    - Het model is niet zeker van de beste optie. Daarom kiest u standaard het hoogste percentiel.
+4. Klik op de knop leer annuleren en vervolgens op bevestigen.
 
 ![](../media/T10_training_3.png)
 
-Laten we het systeem met behulp van alternatieve invoergegevens beter afstemmen. U kunt alternatieve invoer toevoegen tijdens het onderwijs of hoger.
+U kunt het systeem beter afstemmen met alternatieve invoer. U kunt alternatieve invoer toevoegen tijdens het onderwijs of later.
 
-1. In het linkerdeelvenster klikt u op 'Train-dialoogvensters' en selecteer vervolgens "Kunt u doen?" in de lijst van de trein-dialoogvensters.
-1. Klik op de 'kunt u doen?" utterance in het deelvenster chat.
-1. In de ' alternatieve invoer toevoegen...' enter veld, type 'help' en druk op.
-1. Klik op de knop 'Wijzigingen opslaan'.
+1. Klik in het linkerpaneel op ' dialoog vensters trainen ' en selecteer vervolgens ' wat kunt u doen? '. in de lijst met dialoog vensters voor de trein.
+1. Klik op het ' wat kunt u doen? ' utterance in het chat venster.
+1. In de "alternatieve invoer toevoegen..." typt u "Help" en druk op ENTER.
+1. Klik op de knop Wijzigingen opslaan.
 
 ![](../media/T10_training_4.png)
 
-Laten we een andere alternatieve invoer voor het afhandelen van Houston toevoegen.
+Laten we nog een alternatieve invoer toevoegen om Houston te verwerken.
 
-1. Klik op de 'Wat is het weer in Seattle?' utterance in het deelvenster chat.
-1. In het veld 'Toevoegen... alternatieve invoer' type 'Prognose voor Houston' en druk op enter.
-   - De fout bericht hoogtepunten de feitelijke alternatieve invoer moeten semantisch gelijk en bevatten de dezelfde entiteiten als de oorspronkelijke utterance; niet alleen de dezelfde waarden van entiteiten. De aanwezigheid van dezelfde entiteiten is vereist.
-1. Klik op 'Houston' en 'city' selecteert in de lijst met entiteiten.
-1. In het veld 'Toevoegen... alternatieve invoer' type 'Prognose voor Seattle"en druk op enter.
-1. Klik op "Seattle" en selecteer 'plaats' in de lijst met entiteiten.
-1. Klik op de knop 'Wijzigingen opslaan'.
-1. Klik op de knop 'Opslaan bewerken'.
+1. Klik op het ' wat is het weer in Seattle? ' utterance in het chat venster.
+1. In de "alternatieve invoer toevoegen..." typt u "forecast for Houston" en druk op ENTER.
+   - Het fout bericht markeert de alternatieve invoer voor het feit moet semantisch gelijkwaardig zijn en dezelfde entiteiten als de oorspronkelijke utterance bevatten. niet alleen dezelfde waarden van entiteiten. De aanwezigheid van dezelfde entiteiten is vereist.
+1. Klik op ' Houston ' en selecteer ' City ' in de lijst met entiteiten.
+1. In de "alternatieve invoer toevoegen..." typt u "prognose voor Seattle" en druk op ENTER.
+1. Klik op Seattle en selecteer plaats in de lijst met entiteiten.
+1. Klik op de knop Wijzigingen opslaan.
+1. Klik op de knop bewerken opslaan.
 
 ![](../media/T10_training_5.png)
 
-### <a name="testing-the-model"></a>Het Model testen
+### <a name="testing-the-model"></a>Het model testen
 
-1. In het linkerdeelvenster, klik op "Log-dialoogvensters" en vervolgens de "Log dialoogvenster Nieuwe."
-2. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u in 'help mij'
-3. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u 'forecast voor Denver'
+1. Klik in het linkerdeel venster op dialoog vensters logboeken en vervolgens op het dialoog venster nieuw logboek.
+2. In het deel venster chatten, waar het bericht ' Typ uw boodschap... ' typt u ' Help mij '
+3. In het deel venster chat, waar het bericht ' Typ uw boodschap... ', typt u ' prognose voor Denver '
 
 ![](../media/T10_logdialog.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Logboek-dialoogvensters](./11-log-dialogs.md)
+> [Dialoog vensters logboek](./11-log-dialogs.md)
