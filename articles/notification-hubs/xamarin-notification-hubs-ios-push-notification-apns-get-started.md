@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/23/2019
 ms.author: jowargo
-ms.openlocfilehash: cd6d22e7c689bce5c325863b914c5ee8abcbf40a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: baf7d5bdb156cc85a06ea2e315caca87832f3810
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240778"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742512"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar Xamarin.iOS-apps met Azure Notification Hubs
 
@@ -31,7 +31,7 @@ ms.locfileid: "66240778"
 
 In deze zelfstudie wordt gedemonstreerd hoe u met Azure Notification Hubs pushmeldingen verzendt naar een iOS-toepassing. U maakt een lege Xamarin.iOS-app die pushmeldingen ontvangt met de [Apple Push Notification service (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html).
 
-Als u klaar bent, kunt u de Notification Hub gebruiken om pushmeldingen uit te zenden naar alle apparaten waarop uw app wordt uitgevoerd. De voltooide code is beschikbaar in het [NotificationHubs-app][GitHub]-voorbeeld.
+Als u klaar bent, kunt u de Notification Hub gebruiken om pushmeldingen uit te zenden naar alle apparaten waarop uw app wordt uitgevoerd. De voltooide code is beschikbaar in het [Notification hubs-app][GitHub] -voor beeld.
 
 In deze zelfstudie gaat u code maken of bijwerken om de volgende taken uit te voeren:
 
@@ -90,7 +90,7 @@ De Notification Hub is nu geconfigureerd om te werken met APNs en u hebt de verb
 
     ![Visual Studio - iOS-app configureren][32]
 
-4. In de oplossingsweergave dubbelklikt u op de `Entitlements.plist` en zorg ervoor dat **Pushmeldingen inschakelen** is ingeschakeld.
+4. Dubbel klik in de oplossings weergave op het `Entitlements.plist` en zorg ervoor dat **Push meldingen inschakelen** is ingeschakeld.
 
     ![Visual Studio - iOS-rechten configureren][33]
 
@@ -124,7 +124,7 @@ De Notification Hub is nu geconfigureerd om te werken met APNs en u hebt de verb
     {
         if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
         {
-            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,
                                                                     (granted, error) =>
             {
                 if (granted)

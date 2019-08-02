@@ -1,5 +1,5 @@
 ---
-title: Een back-up van SQL Server-databases maken in Azure | Microsoft Docs
+title: 'Zelf studie: back-ups maken van SQL Server-data bases naar Azure'
 description: In deze zelfstudie wordt uitgelegd hoe u een back-up van SQL Server maakt in Azure.
 author: dcurwin
 manager: carmonm
@@ -7,18 +7,18 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 99e1e8194594d204a5080287794362dbe028a1f5
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 729eb0d77cee85356e359dc475f4e439b8236ebb
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688426"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736552"
 ---
-# <a name="back-up-sql-server-databases-in-azure-vms"></a>Back-ups maken van SQL Server-databases in virtuele Azure-machines
+# <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Back-ups maken van een SQL Server-data base in een Azure VM
 
 
 
-In dit artikel wordt uitgelegd hoe u een back-up naar een Azure Backup Recovery Services-kluis maakt van een SQL Server-database die op een Azure-VM wordt uitgevoerd. In dit artikel leert u het volgende:
+In deze zelf studie wordt uitgelegd hoe u een back-up maakt van een SQL Server-Data Base die wordt uitgevoerd op een virtuele Azure-machine naar een Azure Backup Recovery Services kluis. In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Een kluis maken en configureren.

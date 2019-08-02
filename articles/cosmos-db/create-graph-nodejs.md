@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
 ms.author: lbosq
-ms.openlocfilehash: 31c2846c628553e74eff5ea9a9627c871f4f810c
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 966dfbf0280351c605e6dc20fc65178aee83d099
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734555"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735257"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Een Node.js-toepassing ontwikkelen met het Gremlin-API-account van Azure Cosmos DB
 
@@ -28,7 +28,7 @@ ms.locfileid: "66734555"
 
 Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
-Deze snelstart laat zien hoe u een [Gremlin-API](graph-introduction.md)-account van Azure Cosmos DB, een database en een graaf kunt maken met behulp van Azure Portal. U gaat vervolgens een console-app ontwikkelen en uitvoeren met behulp van het opensourcestuurprogramma [Gremlin Node.js](https://www.npmjs.com/package/gremlin).
+In deze Quick start ziet u hoe u een Azure Cosmos DB [GREMLIN API](graph-introduction.md) -account,-data base en-grafiek maakt met behulp van de Azure Portal. U gaat vervolgens een console-app ontwikkelen en uitvoeren met behulp van het opensourcestuurprogramma [Gremlin Node.js](https://www.npmjs.com/package/gremlin).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -42,7 +42,7 @@ Voordat u met dit voorbeeld aan de slag gaat, moet u aan de volgende vereisten v
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Een graaf toevoegen
+## <a name="add-a-graph"></a>Een grafiek toevoegen
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -79,15 +79,22 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand app.js.
 * De Gremlin-client wordt gemaakt.
 
     ```javascript
-    const client = Gremlin.createClient(
-        443, 
+    const authenticator = new Gremlin.driver.auth.PlainTextSaslAuthenticator(
+        `/dbs/${config.database}/colls/${config.collection}`, 
+        config.primaryKey
+    )
+
+
+    const client = new Gremlin.driver.Client(
         config.endpoint, 
         { 
-            "session": false, 
-            "ssl": true, 
-            "user": `/dbs/${config.database}/colls/${config.collection}`,
-            "password": config.primaryKey
-        });
+            authenticator,
+            traversalsource : "g",
+            rejectUnauthorized : true,
+            mimeType : "application/vnd.gremlin-v2.0+json"
+        }
+    );
+
     ```
 
   De configuraties bevinden zich allemaal in `config.js`, wat in de [volgende sectie](#update-your-connection-string) wordt bewerkt.
@@ -95,42 +102,50 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand app.js.
 * Een reeks functies wordt gedefinieerd voor het uitvoeren van verschillende Gremlin-bewerkingen. Dit is er een van:
 
     ```javascript
-    function addVertex1(callback)
+    function addVertex1()
     {
         console.log('Running Add Vertex1'); 
-        client.execute("g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44).property('userid', 1)", { }, (err, results) => {
-          if (err) callback(console.error(err));
-          console.log("Result: %s\n", JSON.stringify(results));
-          callback(null)
-        });
+        return client.submit("g.addV(label).property('id', id).property('firstName', firstName).property('age', age).property('userid', userid).property('pk', 'pk')", {
+                label:"person",
+                id:"thomas",
+                firstName:"Thomas",
+                age:44, userid: 1
+            }).then(function (result) {
+                    console.log("Result: %s\n", JSON.stringify(result));
+            });
     }
     ```
 
 * Elke functie voert een `client.execute`-methode uit met behulp van een Gremlin-querytekenreeksparameter. Hier volgt een voorbeeld van hoe `g.V().count()` wordt uitgevoerd:
 
     ```javascript
-    console.log('Running Count'); 
-    client.execute("g.V().count()", { }, (err, results) => {
-        if (err) return console.error(err);
-        console.log(JSON.stringify(results));
-        console.log();
-    });
+    function countVertices()
+    {
+        console.log('Running Count');
+        return client.submit("g.V().count()", { }).then(function (result) {
+            console.log("Result: %s\n", JSON.stringify(result));
+        });
+    }
     ```
 
-* Aan het einde van het bestand worden alle methoden aangeroepen met behulp van de `async.waterfall()`-methode. Hiermee worden ze achter elkaar uitgevoerd:
+* Aan het einde van het bestand worden alle methoden aangeroepen. Hiermee worden ze achter elkaar uitgevoerd:
 
     ```javascript
-    try{
-        async.waterfall([
-            dropGraph,
-            addVertex1,
-            addVertex2,
-            addEdge,
-            countVertices
-            ], finish);
-    } catch(err) {
-        console.log(err)
-    }
+    client.open()
+    .then(dropGraph)
+    .then(addVertex1)
+    .then(addVertex2)
+    .then(addEdge)
+    .then(countVertices)
+    .catch((err) => {
+        console.error("Error running query...");
+        console.error(err)
+    }).then((res) => {
+        client.close();
+        finish();
+    }).catch((err) => 
+        console.error("Fatal error:", err)
+    );
     ```
 
 

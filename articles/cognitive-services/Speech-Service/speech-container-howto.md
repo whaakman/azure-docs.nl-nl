@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 0778814d4a228afe3a986426684c7d1f2080b517
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 14a360e7dc672266e8445a5ae5eb2168ae766af8
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553224"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741867"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Speech Service-containers installeren en uitvoeren
 
@@ -34,7 +34,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 U moet voldoen aan de volgende vereisten voordat u spraak containers kunt gebruiken:
 
-|Vereist|Doel|
+|Verplicht|Doel|
 |--|--|
 |Docker-engine| De docker-engine moet zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten voor het configureren van de docker-omgeving op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **In Windows**moet docker ook worden geconfigureerd voor de ondersteuning van Linux-containers.<br><br>|
 |Vertrouwd met docker | U moet een basis kennis hebben van docker-concepten, zoals registers, opslag plaatsen, containers en container installatie kopieën, en kennis van basis `docker` opdrachten.| 
@@ -169,7 +169,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 Wanneer de container zich op de [hostcomputer](#the-host-computer)bevindt, gebruikt u het volgende proces om met de container te werken.
 
-1. [Voer de container uit](#run-the-container-with-docker-run)met de vereiste, maar niet gebruikte facturerings instellingen. Er zijn meer [voor beelden](speech-container-configuration.md#example-docker-run-commands) van de `docker run` opdracht beschikbaar.
+1. [Voer de container uit](#run-the-container-with-docker-run)met de vereiste facturerings instellingen. Er zijn meer [voor beelden](speech-container-configuration.md#example-docker-run-commands) van de `docker run` opdracht beschikbaar.
 1. [Zoek het Voorspellings eindpunt van de container](#query-the-containers-prediction-endpoint)op.
 
 ## <a name="run-the-container-with-docker-run"></a>Voer de container uit met`docker run`
@@ -178,7 +178,7 @@ Gebruik de opdracht [docker run](https://docs.docker.com/engine/reference/comman
 
 **Tijdens de preview**moeten de facturerings instellingen geldig zijn voor het starten van de container, maar worden er geen kosten in rekening gebracht voor gebruik.
 
-| Tijdelijke aanduiding | Value |
+| Tijdelijke aanduiding | Waarde |
 |-------------|-------|
 |{API_KEY} | Deze sleutel wordt gebruikt om de container te starten en is beschikbaar op de pagina spraak sleutels van de Azure Portal.  |
 |{ENDPOINT_URI} | De waarde voor de URL van het facturerings eindpunt is beschikbaar op de overzichts pagina van het Azure Portal.|

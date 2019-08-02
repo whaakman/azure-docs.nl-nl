@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
-ms.openlocfilehash: 15d312ff4dfdb789cb0d9ee85941ea8760ddb08f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480595"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736652"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Quickstart: een grafiekdatabase maken in Azure Cosmos DB met behulp van PHP en de Azure-portal
 
@@ -44,7 +44,7 @@ Voordat u een grafiekdatabase kunt maken, moet u een Gremlin-databaseaccount (Gr
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Een graaf toevoegen
+## <a name="add-a-graph"></a>Een grafiek toevoegen
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -113,7 +113,7 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/<db>/colls/<coll>',
         'password' => 'your_primary_key'
         ,'port' => '443'
@@ -123,9 +123,7 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
     ]);
     ```
 
-3. Als uw grafiekdatabaseaccount is gemaakt op of na 20 december 2017, wijzigt u `graphs.azure.com` in de hostnaam in `gremlin.cosmosdb.azure.com`.
-
-4. Wijzig de parameter `username` in het verbindingsobject in de naam van uw database en de grafiek. Als u de aanbevolen waarden van `sample-database` en `sample-graph` gebruikt, moeten deze er als de volgende code uitzien:
+3. Wijzig de parameter `username` in het verbindingsobject in de naam van uw database en de grafiek. Als u de aanbevolen waarden van `sample-database` en `sample-graph` gebruikt, moeten deze er als de volgende code uitzien:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -133,7 +131,7 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/sample-database/colls/sample-graph',
         'password' => 'your_primary_key',
         'port' => '443'
@@ -143,7 +141,7 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
     ]);
     ```
 
-5. Gebruik in Azure Portal de kopieerknop om de PRIMAIRE SLEUTEL te kopiëren en vervang `your_primary_key` in de wachtwoordparameter door deze waarde.
+4. Gebruik in Azure Portal de kopieerknop om de PRIMAIRE SLEUTEL te kopiëren en vervang `your_primary_key` in de wachtwoordparameter door deze waarde.
 
     De initialisatie van het verbindingsobject moet er nu als de volgende code uitzien:
 
@@ -159,7 +157,7 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
     ]);
     ```
 
-6. Sla het bestand `connect.php` op.
+5. Sla het bestand `connect.php` op.
 
 ## <a name="run-the-console-app"></a>De console-app uitvoeren
 
@@ -196,7 +194,7 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
    ![Nieuwe documenten maken in Data Explorer in de Azure Portal](./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png)
 
-2. In de lijst met **resultaten** ziet u de nieuwe gebruikers die zijn toegevoegd aan de grafiek. Selecteer **ben** en u ziet dat ze zijn verbonden met robin. U kunt de hoekpunten verplaatsen via slepen en neerzetten, in- en uitzoomen door te scrollen met het muiswiel en de grafiek uitvouwen met de dubbele pijl. 
+2. In de lijst met **resultaten** ziet u de nieuwe gebruikers die zijn toegevoegd aan de grafiek. Selecteer **ben** en u ziet dat ze zijn verbonden met Robin. U kunt de hoekpunten verplaatsen via slepen en neerzetten, in- en uitzoomen door te scrollen met het muiswiel en de grafiek uitvouwen met de dubbele pijl. 
 
    ![Nieuwe hoekpunten in de grafiek in Data Explorer in Azure Portal](./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png)
 
@@ -206,13 +204,13 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
 4. Geef het label *persoon* op.
 
-5. Klik op **Eigenschap toevoegen** om elk van de volgende eigenschappen toe te voegen. U kunt unieke eigenschappen maken voor elke persoon in de grafiek. Alleen de id-sleutel is vereist.
+5. Klik op **Eigenschap toevoegen** om elk van de volgende eigenschappen toe te voegen. U kunt unieke eigenschappen maken voor elke persoon in de grafiek. Alleen de **id-** sleutel is vereist.
 
-    key|waarde|Opmerkingen
+    Sleutel | Value | Opmerkingen
     ----|----|----
-    id|ashley|De unieke id voor het hoekpunt. Als u geen id opgeeft, wordt er een id voor u gegenereerd.
-    geslacht|vrouwelijk| 
-    technisch | java | 
+    **id** | ashley | De unieke id voor het hoekpunt. Als u geen id opgeeft, wordt er een id voor u gegenereerd.
+    **geslacht** | vrouwelijk | 
+    **technische** | java | 
 
     > [!NOTE]
     > In deze snelstart gaat u een niet-gepartitioneerde verzameling maken. Als u echter een gepartitioneerde verzameling maakt door een partitiesleutel op te geven tijdens het maken van de verzameling, moet u de partitiesleutel opnemen als sleutel bij elk nieuw hoekpunt. 
@@ -224,12 +222,12 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 8. Geef het label *persoon* op.
 
 9. Klik op **Eigenschap toevoegen** om elk van de volgende eigenschappen toe te voegen:
-
-    key|waarde|Opmerkingen
+    
+    Sleutel | Waarde | Opmerkingen
     ----|----|----
-    id|rakesh|De unieke id voor het hoekpunt. Als u geen id opgeeft, wordt er een id voor u gegenereerd.
-    geslacht|man| 
-    school|MIT| 
+    **id** | rakesh | De unieke id voor het hoekpunt. Als u geen id opgeeft, wordt er een id voor u gegenereerd.
+    **geslacht** | man | 
+    **studie** | MIT | 
 
 10. Klik op **OK**. 
 

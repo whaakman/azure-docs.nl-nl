@@ -1,5 +1,5 @@
 ---
-title: Een back-up van SQL Server-databases maken in Azure | Microsoft Docs
+title: Een back-up van SQL Server-databases maken in Azure
 description: In deze zelfstudie wordt uitgelegd hoe u een back-up van SQL Server maakt in Azure. In het artikel wordt ook uitgelegd hoe u SQL Server kunt herstellen.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: cddb540eb0d6892426c4857b152ab6caa746f6da
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 989a5689edf7b071d9afe06b1554fdbb0d7d2ebc
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639799"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737212"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Over SQL Server-back-ups in virtuele Azure-machines
 

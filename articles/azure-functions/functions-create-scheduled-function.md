@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: a6b1e4e1571e6ce3cee1658907efd35e9c73ca1a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 7ac87000a6bbe7515106b42f57f9184396ed4168
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107259"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735677"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Maak een functie in Azure die wordt geactiveerd door een timer
 
@@ -57,8 +57,8 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
     | Instelling | Voorgestelde waarde | Description |
     |---|---|---|
-    | **Naam** | Standaard | Bepaalt de naam van de door de timer geactiveerde functie. |
-    | **Planning** | 0 \*/1 \* \* \* \* | Een [CRON-expressie](functions-bindings-timer.md#cron-expressions) met zes velden aan de hand waarvan uw functie elke minuut wordt uitgevoerd. |
+    | **Name** | Standaard | Bepaalt de naam van de door de timer geactiveerde functie. |
+    | **Planning** | 0 \*/1 \* \* \* \* | Een [CRON-expressie](functions-bindings-timer.md#ncrontab-expressions) met zes velden aan de hand waarvan uw functie elke minuut wordt uitgevoerd. |
 
 4. Klik op **Create**. Er wordt een functie gemaakt in uw gekozen taal en deze wordt elke minuut uitgevoerd.
 

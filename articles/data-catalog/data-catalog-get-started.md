@@ -1,82 +1,82 @@
 ---
 title: Een Azure Data Catalog maken
-description: Een snelstartgids voor het maken van een Azure Data Catalog.
+description: Een Snelstartgids voor het maken van een Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 04/05/2019
-ms.openlocfilehash: f00e9eaf56f3973b357792a8d1923a4b5998e0a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 08/01/2019
+ms.openlocfilehash: df2f536dc95dd74dbae1c8bda1a9934a73fd1fe0
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003268"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736496"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Quickstart: Een Azure Data Catalog maken
 
 Azure Data Catalog is een volledig beheerde cloudservice die als een registratie- en detectiesysteem voor gegevensassets van ondernemingen fungeert. Zie [Wat is Azure Data Catalog?](overview.md) voor een gedetailleerd overzicht.
 
-In deze snelstartgids helpt u aan de slag met het maken van een Azure Data Catalog.
+Deze Snelstartgids helpt u aan de slag te gaan met het maken van een Azure Data Catalog.
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt beginnen, moet u beschikken over:
+U hebt het volgende nodig om aan de slag te gaan:
 
-* Een [Microsoft Azure](https://azure.microsoft.com/) abonnement.
-* U moet beschikken over uw eigen [Azure Active Directory-tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
+* Een [Microsoft Azure](https://azure.microsoft.com/) -abonnement.
+* U moet uw eigen Azure Active Directory- [Tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)hebben.
 
-Als u Data Catalog instelt, moet u de eigenaar of mede-eigenaar van een Azure-abonnement zijn.
+Als u Data Catalog wilt instellen, moet u de eigenaar of mede-eigenaar van een Azure-abonnement zijn.
 
-## <a name="create-a-data-catalog"></a>Een catalogus met gegevens maken
+## <a name="create-a-data-catalog"></a>Een gegevens catalogus maken
 
-U kunt per organisatie (Azure Active Directory-domein) slechts één gegevenscatalogus inrichten. Dus als de eigenaar of mede-eigenaar van een Azure-abonnement die deel uitmaakt van deze Azure Active Directory-domein is al een catalogus worden gemaakt, kan niet maakt u een catalogus opnieuw, zelfs als u meerdere Azure-abonnementen hebt. Als u wilt testen of er al een gegevenscatalogus is gemaakt door een gebruiker in uw Azure Active Directory-domein, gaat u naar de [startpagina van Azure Data Catalog](http://azuredatacatalog.com) en controleert u of u de catalogus ziet. Als er al een catalogus voor u is gemaakt, slaat u de volgende procedure over en gaat u naar de volgende sectie.
+U kunt per organisatie (Azure Active Directory-domein) slechts één gegevenscatalogus inrichten. Als de eigenaar of mede-eigenaar van een Azure-abonnement dat deel uitmaakt van dit Azure Active Directory domein al een catalogus heeft gemaakt, kunt u de catalogus dus niet opnieuw maken, zelfs als u meerdere Azure-abonnementen hebt. Als u wilt testen of er al een gegevenscatalogus is gemaakt door een gebruiker in uw Azure Active Directory-domein, gaat u naar de [startpagina van Azure Data Catalog](http://azuredatacatalog.com) en controleert u of u de catalogus ziet. Als er al een catalogus voor u is gemaakt, slaat u de volgende procedure over en gaat u naar de volgende sectie.
 
-1. Ga naar de [Azure-portal](https://portal.azure.com) > **een resource maken** en selecteer **Data Catalog**.
+1. Ga naar de [Azure Portal](https://portal.azure.com) > **een resource maken** en selecteer **Data Catalog**.
 
-    ![Maken van Data Catalog](media/data-catalog-get-started/data-catalog-create.png)
+    ![Data Catalog maken](media/data-catalog-get-started/data-catalog-create.png)
 
-2. Geef een **naam** voor de data catalog, de **abonnement** u wilt gebruiken, de **locatie** voor de catalogus, en de **prijscategorie**. Selecteer vervolgens **Maken**.
+2. Geef een **naam** op voor de gegevens catalogus, het **abonnement** dat u wilt gebruiken, de **locatie** voor de catalogus en de **prijs categorie**. Selecteer vervolgens **Maken**.
 
 3. Ga naar de [startpagina van Azure Data Catalog](http://azuredatacatalog.com) en klik op **Gegevens publiceren**.
 
    ![Azure Data Catalog - de knop Gegevens publiceren](media/data-catalog-get-started/data-catalog-publish-data.png)
 
-   U krijgt ook naar de startpagina van de catalogus met gegevens uit de [Data Catalog-servicepagina](https://azure.microsoft.com/services/data-catalog) hiervoor **aan de slag**.
+   U kunt ook naar de Data Catalog start pagina op de [pagina Data Catalog service](https://azure.microsoft.com/services/data-catalog) gaan door **aan de slag**te selecteren.
 
    ![Azure Data Catalog - marketingstartpagina](media/data-catalog-get-started/data-catalog-marketing-landing-page.png)
 
-4. Ga naar de **instellingen** pagina.
+4. Ga naar de pagina **instellingen** .
 
     ![Azure Data Catalog - gegevenscatalogus inrichten](media/data-catalog-get-started/data-catalog-create-azure-data-catalog.png)
 
-5. Vouw **prijzen** en controleer of uw Azure Data Catalog **edition** (gratis of Standard).
+5. Vouw **prijzen** uit en controleer uw Azure Data Catalog- **editie** (gratis of standaard).
 
     ![Azure Data Catalog - editie selecteren](media/data-catalog-get-started/data-catalog-create-catalog-select-edition.png)
 
-6. Als u ervoor kiest *Standard* editie als uw prijscategorie die u kunt uitvouwen **beveiligingsgroepen** en Active Directory-beveiligingsgroepen voor toegang tot Data Catalog en automatische aanpassing van de inschakelen toestemming inschakelen facturering.
+6. Als u *Standard* Edition kiest als prijs categorie, kunt u **beveiligings groepen** uitvouwen en Active Directory beveiligings groepen toestaan om toegang te krijgen tot Data Catalog en automatische aanpassing van facturering in te scha kelen.
 
-    ![Azure Data Catalog-beveiligingsgroepen](media/data-catalog-get-started/data-catalog-standard-security-groups.png)
+    ![Azure Data Catalog beveiligings groepen](media/data-catalog-get-started/data-catalog-standard-security-groups.png)
 
-7. Vouw **Catalogusgebruikers** uit en klik op **Toevoegen** om gebruikers toe te voegen aan de gegevenscatalogus. U bent automatisch toegevoegd aan deze groep.
+7. Vouw **Catalogusgebruikers** uit en klik op **Toevoegen** om gebruikers toe te voegen aan de gegevenscatalogus. U wordt automatisch aan deze groep toegevoegd.
 
     ![Azure Data Catalog - gebruikers](media/data-catalog-get-started/data-catalog-add-catalog-user.png)
 
-8. Als u ervoor kiest *Standard* editie als uw prijscategorie die u kunt uitvouwen **Woordenlijstbeheerders** en klikt u op **toevoegen** verklarende woordenlijst beheerder gebruikers toe te voegen. U bent automatisch toegevoegd aan deze groep.
+8. Als u *Standard* Edition kiest als prijs categorie, kunt u de **verklarende woorden lijst beheerders** uitvouwen en op **toevoegen** klikken om gebruikers met een woorden lijst beheerder toe te voegen. U wordt automatisch aan deze groep toegevoegd.
 
-    ![Azure Data Catalog-verklarende woordenlijst voor beheerders](media/data-catalog-get-started/data-catalog-standard-glossary-admin.png)
+    ![Beheerders van Azure Data Catalog woorden lijst](media/data-catalog-get-started/data-catalog-standard-glossary-admin.png)
 
-9. Vouw **Catalogusbeheerders** uit en klik op **Toevoegen** om meer beheerders toe te voegen aan de gegevenscatalogus. U bent automatisch toegevoegd aan deze groep.
+9. Vouw **Catalogusbeheerders** uit en klik op **Toevoegen** om meer beheerders toe te voegen aan de gegevenscatalogus. U wordt automatisch aan deze groep toegevoegd.
 
     ![Azure Data Catalog - beheerders](media/data-catalog-get-started/data-catalog-add-catalog-admins.png)
 
-10. Vouw **Portal titel** en toevoegen van aanvullende tekst die moet worden weergegeven in de titel van de portal.
+10. Vouw de titel van de **Portal** uit en voeg extra tekst toe die wordt weer gegeven in de titel van de portal.
 
-    ![Titel van Azure Data Catalog-Portal](media/data-catalog-get-started/data-catalog-portal-title.png)
+    ![Azure Data Catalog-Portal titel](media/data-catalog-get-started/data-catalog-portal-title.png)
 
-11. Nadat u hebt voltooid, de **instellingen** pagina, naast gaat u naar de **publiceren** pagina.
+11. Zodra u de pagina **instellingen** hebt voltooid, gaat u naar de pagina **publiceren** .
 
     ![Azure Data Catalog - gemaakt](media/data-catalog-get-started/data-catalog-created.png)
 
@@ -86,9 +86,9 @@ U kunt per organisatie (Azure Active Directory-domein) slechts één gegevenscat
 
 2. Selecteer **alle services** en klik vervolgens op **Data Catalog**.
 
-    ![Azure Data Catalog-bladeren door Azure](media/data-catalog-get-started/data-catalog-browse-azure-portal.png)
+    ![Azure Data Catalog--bladeren door Azure](media/data-catalog-get-started/data-catalog-browse-azure-portal.png)
 
-    U ziet de gegevenscatalogus die u hebt gemaakt.
+    U ziet de gegevens catalogus die u hebt gemaakt.
 
     ![Azure Data Catalog - catalogus in lijst bekijken](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 
@@ -102,7 +102,7 @@ U kunt per organisatie (Azure Active Directory-domein) slechts één gegevenscat
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u geleerd over het maken van een Azure Data Catalog voor uw organisatie. U kunt nu gegevensbronnen registreren in uw data catalog.
+In deze Quick Start hebt u geleerd hoe u een Azure Data Catalog maakt voor uw organisatie. U kunt nu gegevens bronnen registreren in uw Data Catalog.
 
 > [!div class="nextstepaction"]
-> [Gegevensbronnen registreren in Azure Data Catalog](data-catalog-how-to-register.md)
+> [Gegevens bronnen registreren in Azure Data Catalog](data-catalog-how-to-register.md)

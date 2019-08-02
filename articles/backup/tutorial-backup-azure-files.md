@@ -7,15 +7,15 @@ ms.date: 06/10/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: a06504438340f62d5b338165cb8b159459ae35dc
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: e63ad75effb03cf9dd5eb5c66b142cce629ea290
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467080"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736237"
 ---
-# <a name="back-up-azure-file-shares"></a>Een back-up maken van Azure-bestandsshares
-In dit artikel wordt uitgelegd hoe u met Azure Portal back-ups kunt maken van [Azure-bestandsshares](../storage/files/storage-files-introduction.md) en deze kunt herstellen.
+# <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Back-ups maken van Azure-bestands shares in azure Portal
+In deze zelf studie wordt uitgelegd hoe u de Azure Portal gebruikt voor het maken van back-ups van [Azure-bestands shares](../storage/files/storage-files-introduction.md).
 
 In deze handleiding leert u het volgende:
 > [!div class="checklist"]

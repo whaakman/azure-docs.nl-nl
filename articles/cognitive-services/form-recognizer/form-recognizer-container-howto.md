@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: d03abee7c7a4adb65e1d6146501ee5b7d9e1534c
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 3db63be8856b5bd57323ecd0be767d09032404e9
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348657"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741890"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Containers voor formulier herkenning installeren en uitvoeren
 
@@ -97,7 +97,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recogn
 
 Nadat de container zich op de [hostcomputer](#the-host-computer)bevindt, gebruikt u het volgende proces om met de container te werken.
 
-1. [Voer de container uit](#run-the-container-by-using-the-docker-run-command)met de vereiste, maar niet gebruikte facturerings instellingen. Er zijn meer [voor beelden](form-recognizer-container-configuration.md#example-docker-run-commands) van de `docker run` opdracht beschikbaar.
+1. [Voer de container uit](#run-the-container-by-using-the-docker-run-command)met de vereiste facturerings instellingen. Er zijn meer [voor beelden](form-recognizer-container-configuration.md#example-docker-run-commands) van de `docker run` opdracht beschikbaar.
 1. [Zoek het Voorspellings eindpunt van de container](#query-the-containers-prediction-endpoint)op.
 
 ## <a name="run-the-container-by-using-the-docker-run-command"></a>Voer de container uit met behulp van de opdracht docker run

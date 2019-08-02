@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/01/2019
 ms.author: jowargo
-ms.openlocfilehash: d1aac5bb399fc113b57ad7e59f17d19f8bb1c97f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 39fa004b62bf7e2e2a50500f32fa7edcb0c4b6ba
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728828"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742412"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar Xamarin.Android-apps met behulp van Azure Notification Hubs
 
@@ -66,6 +66,9 @@ De Notification Hub is geconfigureerd om te werken met FCM en u hebt de verbindi
 
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>Visual Studio-project maken en NuGet-pakketten toevoegen
 
+> [!NOTE]
+> De stappen die in deze zelf studie worden beschreven, zijn voor Visual Studio 2017. 
+
 1. Open in Visual Studio het menu **File** en selecteer **New** en vervolgens **Project**. Voer in het venster **New Project** de volgende stappen uit:
     1. Vouw **geïnstalleerd**, **Visual C#** en klik vervolgens op **Android**.
     2. Selecteer **Android-app (Xamarin)** in de lijst.
@@ -80,12 +83,18 @@ De Notification Hub is geconfigureerd om te werken met FCM en u hebt de verbindi
 3. Vouw in het venster **Solution Explorer** het item **Properties** uit en klik op **AndroidManifest.xml**. Wijzig de naam van het pakket zodat deze overeenkomt met de pakketnaam die u hebt ingevoerd tijdens het toevoegen van Firebase Cloud Messaging aan uw project in Google Firebase Console.
 
     ![Pakketnaam in GCM](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
-4. Klik met de rechtermuisknop op het project en selecteer **Manage NuGet Packages...** .
-5. Selecteer het tabblad **Browse**. Zoek naar **Xamarin.GooglePlayServices.Base**. Selecteer **Xamarin.GooglePlayServices.Base** in de lijst met resultaten. Selecteer vervolgens **Install**.
+4. Stel de Android-doel versie voor het project in op **android 9,0 (cirkel)** door de volgende stappen uit te voeren: 
+    1. Klik met de rechter muisknop op het project en selecteer **Eigenschappen**. 
+    1. Voor het **compileren met behulp van Android-versie: (Target Framework) selecteert u **Android 9,0 (cirkel).**** 
+    1. Selecteer **Ja** in het bericht venster om door te gaan met het wijzigen van het doel raamwerk.
+1. Voeg de vereiste NuGet-pakketten aan het project toe door de volgende stappen uit te voeren:
+    1. Klik met de rechtermuisknop op het project en selecteer **Manage NuGet Packages...** .
+    1. Ga naar het tabblad **geïnstalleerd** , selecteer **Xamarin. Android. support. Design**en selecteer **bijwerken** in het rechterdeel venster om het pakket bij te werken naar de meest recente versie.
+    1. Ga naar het tabblad **Bladeren** . Zoek naar **Xamarin.GooglePlayServices.Base**. Selecteer **Xamarin.GooglePlayServices.Base** in de lijst met resultaten. Selecteer vervolgens **Install**.
 
-    ![Google Play Services NuGet](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
-6. Zoek in het venster **NuGet Package Manager** naar **Xamarin.Firebase.Messaging**. Selecteer **Xamarin.Firebase.Messaging** in de lijst met resultaten. Selecteer vervolgens **Install**.
-7. Zoek nu naar **Xamarin.Azure.NotificationHubs.Android**. Selecteer **Xamarin.Azure.NotificationHubs.Android** in de lijst met resultaten. Selecteer vervolgens **Install**.
+        ![Google Play Services NuGet](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
+    6. Zoek in het venster **NuGet Package Manager** naar **Xamarin.Firebase.Messaging**. Selecteer **Xamarin.Firebase.Messaging** in de lijst met resultaten. Selecteer vervolgens **Install**.
+    7. Zoek nu naar **Xamarin.Azure.NotificationHubs.Android**. Selecteer **Xamarin.Azure.NotificationHubs.Android** in de lijst met resultaten. Selecteer vervolgens **Install**.
 
 ### <a name="add-the-google-services-json-file"></a>Voeg het JSON-bestand van Google Services toe
 

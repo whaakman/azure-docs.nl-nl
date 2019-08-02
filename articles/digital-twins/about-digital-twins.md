@@ -3,26 +3,26 @@ title: Overzicht van Azure Digital Twins | Microsoft Docs
 description: Kom meer te weten over Azure Digital Twins, een Azure-IoT-oplossing voor ruimtelijke intelligentie.
 author: julieseto
 ms.author: jseto
-ms.date: 05/31/2019
+ms.date: 08/01/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 0bbbb924cace93e44af84fd96926a2d7153dd5f8
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 6bd4e3bb688e92d30a21c39599e2e5bdb7b17dba
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459019"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736968"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Overzicht van Azure Digital Twins
 
-Azure digitale dubbels Preview is een Azure IoT-service waarmee uitgebreide modellen van de fysieke omgeving. Er kunnen grafieken voor ruimtelijke intelligentie mee worden gemaakt voor het modelleren van de relaties en interacties tussen personen, ruimten en apparaten.
+Azure Digital Apparaatdubbels preview is een Azure IoT-service waarmee u uitgebreide modellen van de fysieke omgeving kunt maken. Er kunnen grafieken voor ruimtelijke intelligentie mee worden gemaakt voor het modelleren van de relaties en interacties tussen personen, ruimten en apparaten.
 
 Met Azure Digital Twins kunt u gegevens opvragen van een fysieke ruimte in plaats van uit veel verschillende sensoren. Deze service helpt u om herbruikbare, zeer schaalbare, ruimtebewuste functionaliteit te bouwen die streaminggegevens uit de digitale en fysieke wereld koppelt. Uw apps worden verbeterd door deze uniek relevante, contextuele functies. 
 
-Azure van digitale dubbels geldt voor alle typen van omgevingen, zoals warehouses, kantoren, scholen, ziekenhuizen en banken. Het kan ook worden gebruikt voor stadions, fabrieken, parkeerplaatsen, parken, smart grids en steden. Hier volgen enkele scenario's waar Azure digitale dubbels kan nuttig zijn:
+Azure Digital Apparaatdubbels is van toepassing op alle soorten omgevingen, zoals magazijnen, kant oren, scholen, zieken huizen en banken. Het kan ook worden gebruikt voor stadions, fabrieken, parkeerplaatsen, parken, smart grids en steden. Hier volgen enkele scenario's waarin Azure Digital Apparaatdubbels nuttig kan zijn:
 
 - Voorspellen van onderhoudsbehoeften voor een fabriek.
 - Analyseren van realtime energiebehoeften van een elektriciteitsnet.
@@ -33,7 +33,7 @@ Azure van digitale dubbels geldt voor alle typen van omgevingen, zoals warehouse
 - Analyseren van de bezettingsgraad van een gebouw.
 - Vinden van de meestgebruikte kassa in uw winkel.
 
-Wat uw praktijk bedrijfsscenario is, is het zeer waarschijnlijk dat een bijbehorende digitale exemplaar via Azure digitale dubbels kan worden ingericht.
+Wat het scenario voor de praktijk is, is het zeer waarschijnlijk dat een bijbehorend digitaal exemplaar kan worden ingericht via Azure Digital Apparaatdubbels.
 
 In de volgende video wordt nader ingegaan op Azure Digital Twins.
 
@@ -53,7 +53,7 @@ Denk eens aan een slimme app voor nutsvoorzieningen waarbij verschillende elektr
 
 [Digital Twin-objectmodellen](./concepts-objectmodel-spatialgraph.md#model) zijn vooraf gedefinieerde apparaatprotocollen en gegevensschema's. Hiermee worden de domeinspecifieke behoeften van uw oplossing met elkaar in overeenstemming gebracht om het ontwikkelen te versnellen en vereenvoudigen.
 
-Bijvoorbeeld, een kamer bezetting toepassing vooraf gedefinieerde ruimte typen zoals campus, gebouw, verdieping en ruimte gebruiken.
+Een room-toepassing kan bijvoorbeeld gebruikmaken van vooraf gedefinieerde ruimte typen zoals campus, gebouw, vloer en kamer.
 
 ### <a name="multiple-and-nested-tenants"></a>Meerdere en geneste tenants
 

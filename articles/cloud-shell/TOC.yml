@@ -7,9 +7,7 @@
     - name: PowerShell - Quickstart
       href: quickstart-powershell.md
 - name: Functies en hulpprogramma's
-  items:
-    - name: Functies en hulpprogramma's
-      href: features.md
+  href: features.md
 - name: Zelfstudies
   items:
     - name: Ansible

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: bba263b65344672808487ae6de4c3f475a871842
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 3bc06a8903fbc431d991e6ef2a4aad8fbaff2365
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523944"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736874"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Zelfstudie: Logboekregistratie van netwerkverkeer naar en van een virtuele machine met behulp van de Microsoft Azure-portal
 
@@ -89,13 +89,13 @@ Voor NSG-stroomlogboekregistratie is de **Microsoft.Insights**-provider vereist.
     | Instelling        | Waarde                                                        |
     | ---            | ---   |
     | Name           | Mag 3 tot 24 tekens lang zijn, mag alleen kleine letters en cijfers bevatten en moet uniek zijn binnen alle Azure Storage-accounts.                                                               |
-    | Locatie       | Selecteer **US - oost**                                           |
-    | Resourcegroep | Selecteer **Bestaande gebruiken** en vervolgens **myResourceGroup** |
+    | Location       | Selecteer **US - oost**                                           |
+    | Resource group | Selecteer **Bestaande gebruiken** en vervolgens **myResourceGroup** |
 
-    Het maken van het opslagaccount kan ongeveer een minuut duren. Ga pas verder met de resterende stappen wanneer het opslagaccount is gemaakt. Als u een bestaand opslagaccount wilt gebruiken in plaats van er een te maken, zorg er dan voor dat u een opslagaccount selecteert waarvoor **Alle netwerken** (standaard) is geselecteerd voor **Firewalls en virtuele netwerken**, onder de **Instellingen** voor het opslagaccount.
+    Het maken van het opslagaccount kan ongeveer een minuut duren. Ga pas verder met de resterende stappen wanneer het opslagaccount is gemaakt. Als u een bestaand opslagaccount wilt gebruiken in plaats van er een te maken, zorg er dan voor dat u een opslagaccount selecteert waarvoor **Alle netwerken** (standaard) is geselecteerd voor **Firewalls en virtuele netwerken**, onder de **Instellingen** voor het opslagaccount. In alle gevallen moet het opslag account zich in dezelfde regio bevinden als de NSG. 
     
     > [!NOTE]
-    > Microsoft.Insight en de Microsoft.Network-providers worden momenteel ondersteund als vertrouwde Microsoft-Services voor Azure Storage, logboeken Stroomlogboeken is echter nog steeds niet volledig toegevoegd. Inschakelen van logboekregistratie voor Stroomlogboeken **alle netwerken** moet nog wel worden geselecteerd totdat deze functie volledig toegevoegd is. 
+    > Hoewel micro soft. Insight en micro soft. Network providers momenteel worden ondersteund als vertrouwde micro soft-Services voor Azure Storage, zijn NSG-stroom logboeken nog steeds niet volledig onboarded. Als u logboek registratie voor NSG-stroom wilt inschakelen, moeten **alle netwerken** nog steeds worden geselecteerd totdat deze functie volledig is voltooid. 
 4. Selecteer in de linkerbovenhoek van de portal de optie **Alle services**. Typ *Network Watcher* in het vak **Filteren**. Selecteer **Network Watcher** in de zoekresultaten.
 5. Selecteer onder **LOGBOEKEN** de optie **NSG-stroomlogboeken**, zoals wordt weergegeven in de volgende afbeelding:
 
@@ -103,9 +103,9 @@ Voor NSG-stroomlogboekregistratie is de **Microsoft.Insights**-provider vereist.
 
 6. Selecteer de NSG met de naam **myVm-nsg**.
 7. Selecteer onder **Instellingen voor stroomlogboeken** de optie **Aan**.
-8. Selecteer de versie voor stroomlogboekregistratie. Versie 2 bevat een flow-sessie als statistieken (Bytes en pakketten)
+8. Selecteer de versie voor stroomlogboekregistratie. Versie 2 bevat statistieken over flow sessies (bytes en pakketten)
 
-   ![Stroom logboeken versie selecteren](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+   ![De versie van stroom logboeken selecteren](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
 9. Selecteer het opslagaccount dat u in stap 3 hebt gemaakt.
 10. Stel **Bewaartermijn (dagen)** in op 5 en selecteer **Opslaan**.
@@ -118,10 +118,10 @@ Voor NSG-stroomlogboekregistratie is de **Microsoft.Insights**-provider vereist.
    ![Stroomlogboeken downloaden](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Selecteer het opslagaccount dat u hebt geconfigureerd in stap 2 van [NSG-stroomlogboek inschakelen](#enable-nsg-flow-log).
-4. Onder **Blob-service**, selecteer **Blobs**, en selecteer vervolgens de **insights-logs-networksecuritygroupflowevent** container.
-5. In de container, navigeer naar de mappenhiërarchie totdat u een bestand PT1H.json, zoals wordt weergegeven in de volgende afbeelding. Logboekbestanden worden geschreven naar een maphiërarchie die volgt op de volgende naamconventie gebruikt: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/ RESOURCEGROUPS/{resourceGroupName}/providers/Microsoft.Network/NETWORKSECURITYGROUPS/{nsgName}/y={Year}/m={Month}/d={Day}/h={hour}/m=00/macAddress={macAddress}/PT1H.JSON
+4. Onder **BLOB service**selecteert u **blobs**en selecteert u vervolgens de container **Insights-logs-networksecuritygroupflowevent** .
+5. Navigeer in de container naar de maphiërarchie totdat u een bestand PT1H. json krijgt, zoals in de volgende afbeelding wordt weer gegeven. Logboek bestanden worden geschreven naar een mappen hiërarchie die voldoet aan de volgende naamgevings Conventie: https://{storageAccountName}. blob. core. Windows. net/Insights-logs-networksecuritygroupflowevent/resourceId =/SUBSCRIPTIONS/{subscriptionID}/ RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/micro soft. netwerk/NETWORKSECURITYGROUPS/{nsgName}/y = {Year}/m = {maand}/d = {day}/h = {Hour}/m = 00/macAddress = {macAddress}/PT1H.json
 
-   ![Stroomlogboek](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
+   ![Stroom logboek](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
 6. Selecteer **...**  rechts van het bestand PT1H.json en selecteer **Downloaden**.
 
@@ -204,12 +204,12 @@ De waarde voor **mac** in de vorige uitvoer is het MAC-adres van de netwerkinter
 | ---          | ---                    | ---                                                                                      |
 | 1542110377   | Tijdstempel             | Het tijdstempel van wanneer de stroom heeft plaatsgevonden, in de indeling UNIX-EPOCHE. In het vorige voorbeeld is de datum omgezet in 1 mei 2018 op 2:59:05 PM GMT.                                                                                    |
 | 10.0.0.4  | IP-adres van de bron      | Het IP-adres van de bron waaruit de stroom afkomstig is. 10.0.0.4 is het privé-IP-adres van de VM die u hebt gemaakt in [Een virtuele machine maken](#create-a-vm).
-| 13.67.143.118     | IP-adres van doel | Het IP-adres van het doel waarvoor de stroom is bestemd.                                                                                  |
+| 13.67.143.118     | Doel-IP-adres | Het IP-adres van het doel waarvoor de stroom is bestemd.                                                                                  |
 | 44931        | Bronpoort            | De bronpoort waaruit de stroom afkomstig is.                                           |
 | 443         | Doelpoort       | De doelpoort waarvoor de stroom is bestemd. Aangezien het verkeer was bestemd voor poort 443, is de stroom verwerkt op basis van de regel met de naam **UserRule_default-allow-rdp** in het logboekbestand.                                                |
 | D            | Protocol               | Hiermee wordt aangegeven of het protocol van de stroom TCP (T) of UDP (U).                                  |
 | O            | Direction              | Hiermee wordt aangegeven of het verkeer inkomend (I) of uitgaand (O) was.                                     |
-| A            | Bewerking                 | Hiermee wordt aangegeven of het verkeer was toegelaten (A) of geweigerd (D).  
+| G            | Action                 | Hiermee wordt aangegeven of het verkeer was toegelaten (A) of geweigerd (D).  
 | C            | Stroomstatus **Alleen Versie 2** | Legt de status van de stroom vast. Mogelijke statussen zijn **B**: Begin, wanneer een stroom wordt gemaakt. Er worden geen statistische gegevens geleverd. **C**: Continu, voor een actieve stroom. Statistische gegevens worden geleverd met intervallen van 5 minuten. **E**: Eind, wanneer een stroom is beëindigd. Er worden statistische gegevens geleverd. |
 | 30 | Verzonden pakketten: bron naar doel, **alleen voor Versie 2** | Het totale aantal TCP- of UDP- pakketten dat sinds de laatste update is verzonden van de bron naar het doel. |
 | 16978 | Verzonden bytes: bron naar doel, **alleen voor Versie 2** | Het totale aantal TCP- of UDP- pakketbytes dat sinds de laatste update is verzonden van de bron naar het doel. Pakketbytes omvatten de pakket-header en -nettolading. | 
