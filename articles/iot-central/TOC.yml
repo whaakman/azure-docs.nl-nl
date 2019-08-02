@@ -101,14 +101,18 @@
       items:
         - name: Uw toepassing beheren
           href: howto-administer.md
+        - name: Gebruikers en rollen beheren
+          href: howto-manage-users-roles.md
+        - name: Uw factuur weergeven
+          href: howto-view-bill.md
+        - name: De gebruikersinterface van de toepassing aanpassen
+          href: howto-customize-ui.md
         - name: Installatiekopie voorbereiden en uploaden
           href: howto-prepare-images.md
         - name: Toepassingsdashboard configureren
           href: howto-configure-homepage.md
         - name: Dashboardtegels gebruiken
           href: howto-use-tiles.md
-        - name: De gebruikersinterface van de toepassing aanpassen
-          href: howto-customize-ui.md
         - name: Toepassingssjablonen gebruiken
           href: howto-use-app-templates.md
         - name: Beheren vanuit de Azure-portal

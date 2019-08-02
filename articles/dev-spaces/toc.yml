@@ -9,18 +9,18 @@
       items:
         - name: Teamontwikkeling
           href: quickstart-team-development.md
-        - name: Een toepassing uitvoeren
+        - name: Fouten opsporen en herhalen
+          items:
+            - name: Visual Studio Code en Java gebruiken
+              href: quickstart-java.md
+            - name: Visual Studio Code en .NET Core gebruiken
+              href: quickstart-netcore.md
+            - name: Visual Studio Code en Node.js gebruiken
+              href: quickstart-nodejs.md
+            - name: Visual Studio en .NET Core gebruiken
+              href: quickstart-netcore-visualstudio.md
+        - name: Ontwikkelen aan de hand van de CLI
           href: quickstart-cli.md
-        - name: Een toepassingen uitvoeren met een Dockerfile
-          href: quickstart-cli-dockerfile.md
-        - name: Java uitvoeren en fouten opsporen met VS Code
-          href: quickstart-java.md
-        - name: .NET Core uitvoeren en fouten opsporen met VS Code
-          href: quickstart-netcore.md
-        - name: Node.js uitvoeren en fouten opsporen met VS Code
-          href: quickstart-nodejs.md
-        - name: .NET Core uitvoeren en fouten opsporen met Visual Studio
-          href: quickstart-netcore-visualstudio.md
     - name: Zelfstudies
       items:
         - name: Java (VS Code en CLI)

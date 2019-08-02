@@ -12,45 +12,46 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
 abstract:
-  description: Met Azure Dev Spaces kunt u uw hele microservicetoepassing die in Azure Kubernetes Service (AKS) wordt uitgevoerd testen en iteratief ontwikkelen zonder dat afhankelijkheden moeten worden gerepliceerd of gesimuleerd. Dankzij Azure Dev Spaces is het minder vervelend en complex om met uw team samen te werken in een gedeeld Azure Kubernetes Service-cluster (AKS) en om containers uit te voeren in AKS en daarin fouten op te sporen. Ontdek hoe u Azure Dev Spaces gebruikt met deze quickstarts.
+  description: Met Azure Dev Spaces kunt u uw hele microservicetoepassing die in Azure Kubernetes Service (AKS) wordt uitgevoerd testen en iteratief ontwikkelen zonder dat afhankelijkheden moeten worden gerepliceerd of gesimuleerd. Dankzij Azure Dev Spaces is het minder vervelend en complex om met uw team samen te werken in een gedeeld Azure Kubernetes Service-cluster (AKS) en om containers uit te voeren in AKS en daarin fouten op te sporen. Ontdek hoe u Azure Dev Spaces gebruikt aan de hand van deze quickstarts.
 sections:
   - title: QuickStarts van vijf minuten
     items:
       - type: paragraph
-        text: 'Ontdek hoe u Azure Dev Spaces gebruikt in AKS:'
+        text: 'Meer informatie over het gebruik van Azure Dev Spaces voor het samenwerken aan microservices in AKS:'
       - type: list
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Ontwikkelen als onderdeel van een team
+              src: 'https://docs.microsoft.com/media/common/i_configure-teams.svg'
+            text: Microservices ontwikkelen als onderdeel van een team
             href: quickstart-team-development.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Een toepassing uitvoeren
-            href: quickstart-cli.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Een toepassingen uitvoeren met een Dockerfile
-            href: quickstart-cli-dockerfile.md
       - type: paragraph
-        text: 'Ontdek hoe u iteratief ontwikkelt en fouten rechtstreeks opspoort in AKS met Azure Dev Spaces:'
+        text: 'Meer informatie over hoe u snel een probleem oplost en herhaalt voor een ontwikkelingservaring met Azure Dev Spaces:'
       - type: list
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_java.svg'
-            text: Ontwikkelen met Java
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Visual Studio Code en Java gebruiken
             href: quickstart-java.md
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Ontwikkelen met .NET en VS Code
+            text: Visual Studio Code en .NET Core gebruiken
             href: quickstart-netcore.md
           - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: Ontwikkelen met .NET en Visual Studio
-            href: quickstart-netcore-visualstudio.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_nodejs.svg'
-            text: Ontwikkelen met Node.js
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Visual Studio Code en Node.js gebruiken
             href: quickstart-nodejs.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
+            text: Visual Studio en .NET Core gebruiken
+            href: quickstart-netcore-visualstudio.md
+      - type: paragraph
+        text: 'Meer informatie over hoe u microservices voor bijna elke taal ontwikkelt door de Azure CLI met Azure Dev Spaces te gebruiken:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Ontwikkelen met de Azure CLI
+            href: quickstart-cli.md

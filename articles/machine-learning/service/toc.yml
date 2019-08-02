@@ -95,15 +95,14 @@
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
     - name: Werkruimte
-      displayName: concept definitions architecture
       href: concept-workspace.md
     - name: Rekendoel
-      displayName: concept definitions architecture
+      displayName: 'compute, resource, target, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
     - name: Visuele interface
-      displayName: concept
+      displayName: studio
       href: ui-concept-visual-interface.md
-    - name: Geautomatiseerde machine learning
+    - name: Geautomatiseerde Machine Learning
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
     - name: Modelbeheer (MLOps)
@@ -114,9 +113,10 @@
     - name: Interpreteerbaarheid van modellen
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
-    - name: Overzicht van FPGA's
+    - name: FPGA versus CPU GPU ASIC
+      displayName: 'field, programmable, arrays'
       href: concept-accelerate-with-fpgas.md
-    - name: ONNX en ONNX Runtime
+    - name: ONNX
       href: concept-onnx.md
     - name: Beveiliging
       items:

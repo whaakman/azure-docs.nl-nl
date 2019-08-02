@@ -18,3 +18,17 @@
           href: secure-develop.md
         - name: Beveiligde apps implementeren
           href: secure-deploy.md
+- name: Oplossingen
+  expanded: true
+  items:
+    - name: Microsoft Security Code Analysis
+      expanded: true
+      items:
+        - name: Overzicht
+          href: security-code-analysis-overview.md
+        - name: Onboarding en installatie
+          href: security-code-analysis-onboard.md
+        - name: Configuratie
+          href: security-code-analysis-customize.md
+        - name: Veelgestelde vragen
+          href: security-code-analysis-faq.md

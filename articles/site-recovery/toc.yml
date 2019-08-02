@@ -179,7 +179,7 @@
           items:
             - name: De Mobility-service bijwerken voor Azure VM's
               href: azure-to-azure-autoupdate.md
-            - name: Updates in Azure Site Recovery
+            - name: Site Recovery-updates beheren
               href: service-updates-how-to.md
             - name: Servers verwijderen en beveiliging uitschakelen
               href: site-recovery-manage-registration-and-protection.md
@@ -263,7 +263,7 @@
               href: vmware-azure-manage-process-server.md
             - name: vCenter-servers beheren
               href: vmware-azure-manage-vcenter.md
-            - name: Updates in Azure Site Recovery
+            - name: Site Recovery-updates beheren
               href: service-updates-how-to.md
             - name: Servers verwijderen en beveiliging uitschakelen
               href: site-recovery-manage-registration-and-protection.md
@@ -281,6 +281,8 @@
               href: concepts-on-premises-to-azure-networking.md
         - name: Herstel na noodgeval instellen
           items:
+            - name: Stapsgewijze handleiding voor instellen van herstel na noodgevallen
+              href: physical-azure-disaster-recovery.md
             - name: De bronomgeving instellen
               href: physical-azure-set-up-source.md
             - name: De doelomgeving instellen
@@ -293,8 +295,6 @@
                   href: vmware-azure-install-mobility-service.md
                 - name: De Mobility-service implementeren met behulp van System Center Configuration Manager
                   href: vmware-azure-mobility-install-configuration-mgr.md
-                - name: Stapsgewijze handleiding voor instellen van herstel na noodgevallen
-                  href: physical-azure-disaster-recovery.md
         - name: Failover en failback uitvoeren
           href: physical-to-azure-failover-failback.md
         - name: Beheren
@@ -307,7 +307,7 @@
               href: vmware-azure-manage-process-server.md
             - name: Servers verwijderen en beveiliging uitschakelen
               href: site-recovery-manage-registration-and-protection.md
-            - name: Updates in Azure Site Recovery
+            - name: Site Recovery-updates beheren
               href: service-updates-how-to.md
             - name: Een kluis verwijderen
               href: delete-vault.md
@@ -361,10 +361,12 @@
               href: upgrade-2012R2-to-2016.md
             - name: Servers verwijderen en beveiliging uitschakelen
               href: site-recovery-manage-registration-and-protection.md
-            - name: Updates in Azure Site Recovery
+            - name: Site Recovery-updates beheren
               href: service-updates-how-to.md
             - name: Een kluis verwijderen
               href: delete-vault.md
+            - name: Een kluis verplaatsen naar een andere regio
+              href: move-vaults-across-regions.md
     - name: Herstel na noodgeval voor apps
       items:
         - name: Herstel na noodgevallen instellen van on-premises apps naar Azure
@@ -423,39 +425,45 @@
       href: hyper-v-vmm-powershell-resource-manager.md
     - name: Azure Automation-runbooks aan herstelplannen toevoegen om failover uit te voeren
       href: site-recovery-runbook-automation.md
-- name: Controleren en problemen oplossen
+- name: Bewaking
   items:
-    - name: Azure Site Recovery bewaken
+    - name: Veelgestelde vragen over bewaking
+      href: monitoring-common-questions.md
+    - name: Site Recovery bewaken
       href: site-recovery-monitor-and-troubleshoot.md
-    - name: Azure-VM's
+    - name: Site Recovery bewaken met Azure Monitor-logboeken
+      href: monitor-log-analytics.md
+    - name: Processervers bewaken
+      href: vmware-physical-azure-monitor-process-server.md
+- name: Problemen oplossen
+  items:
+    - name: Problemen oplossen met Azure-VM's
       items:
-        - name: Problemen met replicatie voor virtuele Azure-machines oplossen
+        - name: Problemen met replicatie van Azure-VM's oplossen
           href: azure-to-azure-troubleshoot-errors.md
-        - name: Problemen met doorlopende replicatie voor virtuele Azure-machines oplossen
+        - name: Problemen met doorlopende replicatie oplossen
           href: azure-to-azure-troubleshoot-replication.md
-        - name: Problemen met de Mobility-service voor Azure VM's oplossen
+        - name: Problemen met de Mobility-service oplossen
           href: site-recovery-extension-troubleshoot.md
-    - name: VMware/fysieke server
+    - name: Problemen met VMware-VM's/fysieke servers oplossen
       items:
-        - name: Processervers bewaken
-          href: vmware-physical-azure-monitor-process-server.md
-        - name: Problemen met replicatie van VMware naar Azure oplossen
+        - name: Problemen met replicatie van VMware-VM's/fysieke servers oplossen
           href: vmware-azure-troubleshoot-replication.md
-        - name: Problemen met de configuratieserver oplossen
+        - name: Problemen met configuratieservers oplossen
           href: vmware-azure-troubleshoot-configuration-server.md
         - name: Problemen met processervers oplossen
           href: vmware-physical-azure-troubleshoot-process-server.md
-        - name: Problemen met de push-installatie van de Mobility-service voor virtuele VMware-machines/fysieke servers oplossen
+        - name: Problemen met push-installatie van de Mobility-service oplossen
           href: vmware-azure-troubleshoot-push-install.md
         - name: Problemen met failover naar Azure oplossen
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Problemen met opnieuw beveiligen en failback van virtuele VMware-machines oplossen
           href: vmware-azure-troubleshoot-failback-reprotect.md
-        - name: Problemen met het upgraden van de Microsoft Azure Site Recovery-provider oplossen
+        - name: Problemen met upgradefouten van provider oplossen
           href: vmware-azure-troubleshoot-upgrade-failures.md
         - name: vCenter-detectiefouten oplossen
           href: vmware-azure-troubleshoot-vcenter-discovery-failures.md
-    - name: Hyper-V
+    - name: Problemen met Hyper-V oplossen
       items:
         - name: Problemen met Hyper-V-replicatie oplossen
           href: hyper-v-azure-troubleshoot.md

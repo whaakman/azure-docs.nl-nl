@@ -221,6 +221,8 @@
           items:
             - name: Gebruikersinrichting voor galerie-apps
               href: application-provisioning-config-how-to.md
+            - name: Automatische gebruikersinrichting inschakelen voor apps met meerdere tenants
+              href: isv-automatic-provisioning-multi-tenant-apps.md
             - name: Automatische gebruikersinrichting configureren
               href: configure-automatic-user-provisioning-portal.md
             - name: Toepassingsattributen aanpassen

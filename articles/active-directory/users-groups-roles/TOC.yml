@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overzicht
   items:
-    - name: 'Gebruikers, groepen, licenties en -rollen'
+    - name: 'Azure AD-gebruikers, -groepen, -licenties en -rollen'
       href: directory-overview-user-model.md
 - name: Snelstartgidsen
   items:
@@ -10,6 +10,8 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Licenties toewijzen aan gebruikers
       href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Een rol toewijzen met resourcebereik
+      href: roles-quickstart-app-registration-limits.md
     - name: Verlooptijd van groepen instellen
       href: groups-quickstart-expiration.md
     - name: Naamgevingsbeleid voor groepen instellen
@@ -126,10 +128,24 @@
           href: directory-assign-admin-roles.md
         - name: Rollen weergeven en toewijzen
           href: directory-manage-roles-portal.md
-        - name: Rollen toewijzen met PowerShell
+        - name: Aangepaste rollen toewijzen in Graph API
           href: roles-assign-powershell.md
-        - name: App-beheerdersrollen delegeren
-          href: roles-delegate-app-roles.md
+        - name: Preview van aangepaste rollen
+          items:
+            - name: Preview van aangepaste rollen
+              href: roles-custom-overview.md
+            - name: Aangepast rol maken
+              href: roles-create-custom.md
+            - name: Aangepaste roltoewijzingen weergeven
+              href: roles-view-assignments.md
+            - name: Rollen toewijzen in Azure AD-beheercentrum
+              href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+            - name: Aangepaste rollen toewijzen in Graph API
+              href: roles-assign-graph.md
+            - name: Machtigingen voor preview van aangepaste rollen
+              href: roles-custom-available-permissions.md
+            - name: App-beheerdersmachtigingen delegeren
+              href: roles-delegate-app-roles.md
         - name: Minst bevoorrechte rollen per taak
           href: roles-delegate-by-task.md
         - name: Microsoft 365-rollen

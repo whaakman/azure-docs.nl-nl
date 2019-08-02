@@ -60,6 +60,12 @@
               href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
             - name: Livy Server kan niet worden gestart
               href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
+        - name: Apache Spark-taak mislukt - NoClassDefFoundError
+          href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
+        - name: Apache Spark-taak mislukt - InvalidClassException
+          href: ./apache-spark-troubleshoot-job-fails-invalidclassexception.md
+        - name: Langzame Apache Spark-taken - listStatus
+          href: ./apache-spark-troubleshoot-job-slowness-liststatus.md
         - name: Langzame Apache Spark-taken - opslagcontainer
           href: ./apache-spark-troubleshoot-job-slowness-container.md
         - name: IllegalArgumentException-uitzondering
@@ -72,6 +78,8 @@
           href: ./apache-spark-troubleshoot-blocking-cross-origin.md
         - name: Kryo-serialisatie mislukt
           href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
+        - name: Apache Spark-gebeurtenislogboek - RequestBodyTooLarge
+          href: ./apache-spark-troubleshoot-event-log-requestbodytoolarge.md
 - name: Procedures
   items:
     - name: Clusteropslag gebruiken
