@@ -6,14 +6,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 07/31/2019
 ms.author: normesta
-ms.openlocfilehash: fc2d7e4f611e1eee9c369ef26aa7bf66feb7c888
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 910e23814b627233395a2f7a646513d9cb6874d8
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385676"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699040"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Bekende problemen met Azure Data Lake Storage Gen2
 
@@ -100,7 +100,7 @@ De volgende tabel bevat alle andere functies en hulpprogram ma's die nog niet wo
 | **Blobfuse** |Nog niet ondersteund|
 | **Aangepaste domeinen** |Nog niet ondersteund|
 | **Bestands systeem Verkenner** | Beperkte ondersteuning |
-| **Registratie in diagnoselogboek** |Alleen ondersteund als u zich registreert bij de [toegang tot meerdere protocollen op Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview.|
+| **Registratie in diagnoselogboek** |Diagnostische logboeken worden alleen ondersteund als u zich registreert bij de [toegang tot meerdere protocollen op Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview. <br><br>Het inschakelen van Logboeken in het Azure Portal wordt momenteel niet ondersteund. Hier volgt een voor beeld van het inschakelen van de logboeken met behulp van Power shell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzureStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Zorg ervoor dat u `Blob` opgeeft als de waarde van `-ServiceType` de para meter zoals weer gegeven in dit voor beeld. 
 | **Onveranderbare opslag** |Nog niet ondersteund <br><br>Onveranderbare opslag biedt de mogelijkheid om gegevens op te slaan in een [worm (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) .|
 | **Lagen op object niveau** |De lagen cool en Archive worden alleen ondersteund als u zich registreert bij de [toegang tot meerdere protocollen op Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview. <br><br> Alle andere toegangs lagen worden nog niet ondersteund.|
 | **Ondersteuning voor Power shell en CLI** | Beperkte functionaliteit <br><br>Beheer bewerkingen, zoals het maken van een account, worden ondersteund. Gegevenslaag bewerkingen, zoals het uploaden en downloaden van bestanden, bevinden zich in de open bare preview als onderdeel van [toegang tot meerdere protocollen op Data Lake Storage](data-lake-storage-multi-protocol-access.md). Werken met mappen en toegangs beheer lijsten (Acl's) instellen wordt nog niet ondersteund. |

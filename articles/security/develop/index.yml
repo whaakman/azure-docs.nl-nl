@@ -48,4 +48,11 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/security/develop/secure-dev-overview">Best practices voor het ontwikkelen van beveiligde toepassingen</a>
-          - html: <a href="/azure/security/azure-security-threat-modeling-tool">Bedreigingsmodellen</a>
+  - title: Resources
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/security/develop/security-code-analysis-overview">Analyse van Microsoft-beveiligingscode</a>
+          - html: <a href="/azure/security/develop/threat-modeling-tool">Threat Modeling Tool</a>

@@ -1,6 +1,6 @@
 ---
-title: App Service-omgeving beheeradressen - Azure
-description: Geeft een lijst van de beheeradressen die zijn gebruikt voor de opdracht een App Service Environment
+title: App Service Environment beheer adressen-Azure
+description: Een lijst met de beheer adressen die worden gebruikt om een App Service Environment te opdracht
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,97 +11,62 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 07/25/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f76dd423cb3f7fbae6cc88d064e49dc2d56f1a1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afc43005765e3ae91c829cfc6b25a3f372241e0b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60766052"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561516"
 ---
-# <a name="app-service-environment-management-addresses"></a>Beheeradressen van App Service-omgeving
+# <a name="app-service-environment-management-addresses"></a>App Service Environment-beheer adressen
 
-De App Service Environment (ASE) is een implementatie met één tenant van de Azure App Service die wordt uitgevoerd in uw Azure Virtual Network (VNet).  Terwijl de as-omgeving wordt uitgevoerd in uw VNet, moet het nog steeds toegankelijk is vanaf een aantal toegewezen IP-adressen die worden gebruikt door de Azure App Service voor het beheren van de service zijn.  In het geval van een as-omgeving, over de gebruiker beheerde netwerk wordt het beheer van verkeer verzonden. Als dit verkeer wordt geblokkeerd of gerouteerde, wordt de as-omgeving worden onderbroken. Lees voor meer informatie over de afhankelijkheden van ASE-netwerken, [netwerken overwegingen en de App Service Environment][networking]. Voor algemene informatie over de as-omgeving, kunt u beginnen met [Inleiding tot App Service Environment][intro].
+De App Service Environment (ASE) is een implementatie met één Tenant van de Azure App Service die wordt uitgevoerd in uw Azure-Virtual Network (VNet).  Terwijl de ASE wordt uitgevoerd in uw VNet, moet deze nog steeds toegankelijk zijn vanaf een aantal toegewezen IP-adressen die worden gebruikt door de Azure App Service voor het beheren van de service.  In het geval van een ASE passeert het beheer verkeer het door de gebruiker beheerde netwerk. Als dit verkeer wordt geblokkeerd of niet wordt gerouteerd, wordt de ASE onderbroken. Lees voor meer informatie over de ASE-netwerk afhankelijkheden [en de app service Environment][networking]. Voor algemene informatie over de ASE kunt u beginnen met [Inleiding tot de app service Environment][intro].
 
-Alle as-omgevingen hebben een openbare VIP die beheer van verkeer binnenkomt. Het binnenkomende beheerverkeer van deze adressen komen binnen uit poorten 454 en 455 op het openbare VIP-adres van de as-omgeving. Dit document geeft een lijst van de App Service-bron-adressen voor beheer van verkeer naar de as-omgeving. Deze adressen zijn ook in de IP-Service-Tag met de naam AppServiceManagement.
+Alle as hebben een open bare VIP waar beheer verkeer binnenkomt. Het binnenkomende beheer verkeer van deze adressen wordt opgehaald van op de poorten 454 en 455 op het open bare VIP van uw ASE. Dit document bevat de App Service bron adressen voor beheer verkeer naar het ASE. Deze adressen bevinden zich ook in het IP-service label met de naam AppServiceManagement.
 
-De hieronder aangegeven adressen kunnen worden geconfigureerd in een routetabel om te voorkomen dat problemen met asymmetrische routering met het beheer van verkeer. Routes reageren op verkeer op het niveau van de IP- en ook geen een bewust te maken van de richting van verkeer of die het verkeer is een onderdeel van een TCP-antwoordbericht. Als het antwoordadres op dat voor een TCP-aanvraag anders dan het adres dat het is verzonden is, hebt u een probleem met asymmetrische routering. Om te voorkomen dat problemen met asymmetrische routering met uw ASE beheer van verkeer, moet u ervoor zorgen dat reacties terug vanaf hetzelfde adres die ze zijn verzonden om te worden verzonden. Lees voor meer informatie over het configureren van de as-omgeving werkt in een omgeving waar het uitgaande verkeer on-premises wordt verzonden, [uw ASE met geforceerde tunneling configureren][forcedtunnel]
+De hieronder vermelde adressen kunnen in een route tabel worden geconfigureerd om asymmetrische routerings problemen met het beheer verkeer te voor komen. Routes handelen op het IP-niveau naar het verkeer en hebben geen inzicht in de richting van het verkeer of het verkeer maakt deel uit van een TCP-antwoord bericht. Als het antwoord adres voor een TCP-aanvraag afwijkt van het adres dat is verzonden naar, hebt u een asymmetrisch routerings probleem. Om te voor komen dat er asymmetrische routerings problemen optreden met uw ASE-beheer verkeer, moet u ervoor zorgen dat antwoorden worden verzonden vanaf hetzelfde adres waarnaar ze zijn verzonden. Lees voor meer informatie over het configureren van uw ASE voor het uitvoeren van een omgeving waar uitgaand verkeer on-premises wordt verzonden [uw ASE configureren met geforceerde tunneling][forcedtunnel]
 
-## <a name="list-of-management-addresses"></a>Lijst met beheeradressen ##
+## <a name="list-of-management-addresses"></a>Lijst met beheer adressen ##
 
 | Regio | Adressen |
 |--------|-----------|
-| Alle openbare regio 's | 13.64.115.203, 13.75.127.117, 13.94.141.115, 13.94.143.126, 13.94.149.179, 23.102.135.246, 23.102.188.65, 40.83.120.64, 40.83.121.56, 40.83.125.161, 40.124.47.188, 52.151.25.45, 52.165.152.214, 52.165.153.122, 52.165.154.193, 52.165.158.140, 52.174.22.21, 52.178.177.147, 52.178.184.149, 52.178.190.65, 52.178.195.197, 52.187.56.50, 52.187.59.251, 52.187.63.19, 52.187.63.37, 52.224.105.172, 52.225.177.153, 65.52.14.230, 65.52.172.237, 65.52.193.203, 70.37.57.58, 70.37.89.222, 104.44.129.141, 104.44.129.243, 104.44.129.255, 104.44.134.255, 104.208.54.11, 157.55.176.93, 157.55.208.185, 191.236.154.88 |
-| Microsoft Azure en de overheid | 23.97.29.209, 13.72.53.37, 13.72.180.105, 23.97.0.17, 23.97.16.184 |
+| Alle open bare regio's | 13.64.115.203, 13.66.140.0, 13.67.8.128, 13.69.64.128, 13.69.227.128, 13.70.73.128, 13.71.170.64, 13.71.194.129, 13.75.127.117, 13.77.50.128, 13.89.171.0, 13.94.141.115, 13.94.143.126, 13.94.149.179, 20.36.106.128, 20.36.114.64, 23.100.226.236, 23.102.135.246, 23.102.188.65, 40.69.106.128, 40.70.146.128, 40.71.13.64, 40.74.100.64, 40.78.194.128, 40.79.130.64, 40.83.120.64, 40.83.121.56, 40.83.125.161, 40.90.240.166, 40.91.126.196, 40.112.242.192, 40.119.4.111, 40.124.47.188, 51.140.146.64, 51.140.210.128, 52.151.25.45, 52.162.80.89, 52.162.106.192, 52.165.152.214, 52.165.153.122, 52.165.154.193, 52.165.158.140, 52.174.22.21, 52.178.177.147, 52.178.184.149, 52.178.190.65, 52.178.195.197, 52.187.56.50, 52.187.59.251, 52.187.63.19, 52.187.63.37, 52.224.105.172, 52.225.177.153, 52.231.18.64, 52.231.146.128, 65.52.14.230, 65.52.172.237, 65.52.193.203, 70.37.57.58, 70.37.89.222, 104.43.242.137, 104.44.129.141, 104.44.129.243, 104.44.129.255, 104.44.134.255, 104.208.54.11, 104.211.81.64, 104.211.146.128, 104.214.49.0, 157.55.176.93, 157.55.208.185, 191.233.203.64, 191.236.154.88 |
+| Microsoft Azure Government | 23.97.29.209, 13.72.53.37, 13.72.180.105, 23.97.0.17, 23.97.16.184 |
 
-## <a name="configuring-a-network-security-group"></a>Configureren van een Netwerkbeveiligingsgroep
+## <a name="configuring-a-network-security-group"></a>Een netwerk beveiligings groep configureren
 
-Met Netwerkbeveiligingsgroepen hoeft u geen zorgen maken over de afzonderlijke adressen of het onderhouden van uw eigen configuratie. Er is een IP-servicetag AppServiceManagement die met alle adressen up-to-date wordt gehouden met de naam. Voor het gebruik van deze service IP-tag in uw NSG, gaat u naar de portal, opent u uw netwerk Security groepen-gebruikersinterface en selecteer inkomende beveiligingsregels. Hebt u een bestaande regel voor het van inkomend beheerverkeer, deze bewerken. Als deze NSG is niet gemaakt met de as-omgeving, of als allemaal nieuw is, en selecteer vervolgens **toevoegen**. Selecteer onder de bron vervolgkeuzelijst **servicetag**.  Selecteer onder de servicetag bron **AppServiceManagement**. De bron poortbereiken ingesteld op \*, doel om door te **eventuele**, poortbereiken van doel naar **454 455**, Protocol **TCP**, en de actie die moet worden **toestaan** . Als u de regel maakt, moet u de prioriteit instellen. 
+Met netwerk beveiligings groepen hoeft u zich geen zorgen te maken over de afzonderlijke adressen of om uw eigen configuratie te behouden. Er is een IP-service-tag met de naam AppServiceManagement die up-to-date wordt gehouden met alle adressen. Als u dit IP-service label in uw NSG wilt gebruiken, gaat u naar de portal, opent u de gebruikers interface voor netwerk beveiligings groepen en selecteert u regels voor binnenkomende beveiliging. Als u een vooraf bestaande regel voor het inkomende beheer verkeer hebt, bewerkt u deze. Als deze NSG niet is gemaakt met uw ASE, of als het om een nieuw item gaat, selecteert u **toevoegen**. Selecteer in de vervolg keuzelijst bron de optie **service label**.  Selecteer in het label bron service de optie **AppServiceManagement**. Stel de bronbereiken van de bron \*poort in op een doel poort **454-455**bereik op **een wille keurige**locatie en op het **TCP**-protocol, en op te **geven**actie. Als u de regel maakt, moet u de prioriteit instellen. 
 
-![het maken van een NSG met de servicetag][1]
+![een NSG maken met het servicetag][1]
 
-## <a name="configuring-a-route-table"></a>Een routetabel configureren
+## <a name="configuring-a-route-table"></a>Een route tabel configureren
 
-De beheeradressen kunnen worden geplaatst in een routetabel, met internet om ervoor te zorgen dat alle binnenkomend beheerverkeer in staat zijn om terug te gaan via hetzelfde pad is de volgende hop. Deze routes zijn nodig bij het configureren van geforceerde tunneling. U kunt de portal, PowerShell of Azure CLI gebruiken voor het maken van de routetabel.  De opdrachten voor het maken van een routetabel met behulp van Azure CLI uit een PowerShell-prompt staan hieronder. 
+De beheer adressen kunnen in een route tabel met de volgende hop van Internet worden geplaatst om ervoor te zorgen dat alle inkomende beheer verkeer kan terugvallen op hetzelfde pad. Deze routes zijn nodig bij het configureren van geforceerde tunneling. Als u de route tabel wilt maken, kunt u de portal, Power shell of Azure CLI gebruiken.  De opdrachten voor het maken van een route tabel met behulp van Azure CLI vanuit een Power shell-prompt vindt u hieronder. 
 
     $rg = "resource group name"
     $rt = "route table name"
     $location = "azure location"
+    $managementAddresses = "13.64.115.203", "13.66.140.0", "13.67.8.128", "13.69.64.128", "13.69.227.128", "13.70.73.128", "13.71.170.64", "13.71.194.129", "13.75.127.117", "13.77.50.128", "13.89.171.0", "13.94.141.115", "13.94.143.126", "13.94.149.179", "20.36.106.128", "20.36.114.64", "23.100.226.236", "23.102.135.246", "23.102.188.65", "40.69.106.128", "40.70.146.128", "40.71.13.64", "40.74.100.64", "40.78.194.128", "40.79.130.64", "40.83.120.64", "40.83.121.56", "40.83.125.161", "40.90.240.166", "40.91.126.196", "40.112.242.192", "40.119.4.111", "40.124.47.188", "51.140.146.64", "51.140.210.128", "52.151.25.45", "52.162.80.89", "52.162.106.192", "52.165.152.214", "52.165.153.122", "52.165.154.193", "52.165.158.140", "52.174.22.21", "52.178.177.147", "52.178.184.149", "52.178.190.65", "52.178.195.197", "52.187.56.50", "52.187.59.251", "52.187.63.19", "52.187.63.37", "52.224.105.172", "52.225.177.153", "52.231.18.64", "52.231.146.128", "65.52.14.230", "65.52.172.237", "65.52.193.203", "70.37.57.58", "70.37.89.222", "104.43.242.137", "104.44.129.141", "104.44.129.243", "104.44.129.255", "104.44.134.255", "104.208.54.11", "104.211.81.64", "104.211.146.128", "104.214.49.0", "157.55.176.93", "157.55.208.185", "191.233.203.64", "191.236.154.88"
+
     az network route-table create --name $rt --resource-group $rg --location $location
-    az network route-table route create -g $rg --route-table-name $rt -n 13.64.115.203 --next-hop-type Internet --address-prefix 13.64.115.203/32
-    az network route-table route create -g $rg --route-table-name $rt -n 13.75.127.117 --next-hop-type Internet --address-prefix 13.75.127.117/32
-    az network route-table route create -g $rg --route-table-name $rt -n 13.94.141.115 --next-hop-type Internet --address-prefix 13.94.141.115/32
-    az network route-table route create -g $rg --route-table-name $rt -n 13.94.143.126 --next-hop-type Internet --address-prefix 13.94.143.126/32
-    az network route-table route create -g $rg --route-table-name $rt -n 13.94.149.179 --next-hop-type Internet --address-prefix 13.94.149.179/32
-    az network route-table route create -g $rg --route-table-name $rt -n 23.102.135.246 --next-hop-type Internet --address-prefix 23.102.135.246/32
-    az network route-table route create -g $rg --route-table-name $rt -n 23.102.188.65 --next-hop-type Internet --address-prefix 23.102.188.65/32
-    az network route-table route create -g $rg --route-table-name $rt -n 40.83.120.64 --next-hop-type Internet --address-prefix 40.83.120.64/32
-    az network route-table route create -g $rg --route-table-name $rt -n 40.83.121.56 --next-hop-type Internet --address-prefix 40.83.121.56/32
-    az network route-table route create -g $rg --route-table-name $rt -n 40.83.125.161 --next-hop-type Internet --address-prefix 40.83.125.161/32
-    az network route-table route create -g $rg --route-table-name $rt -n 40.124.47.188 --next-hop-type Internet --address-prefix 40.124.47.188/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.151.25.45 --next-hop-type Internet --address-prefix 52.151.25.45/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.165.152.214 --next-hop-type Internet --address-prefix 52.165.152.214/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.165.153.122 --next-hop-type Internet --address-prefix 52.165.153.122/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.165.154.193 --next-hop-type Internet --address-prefix 52.165.154.193/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.165.158.140 --next-hop-type Internet --address-prefix 52.165.158.140/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.174.22.21 --next-hop-type Internet --address-prefix 52.174.22.21/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.178.177.147 --next-hop-type Internet --address-prefix 52.178.177.147/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.178.184.149 --next-hop-type Internet --address-prefix 52.178.184.149/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.178.190.65 --next-hop-type Internet --address-prefix 52.178.190.65/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.178.195.197 --next-hop-type Internet --address-prefix 52.178.195.197/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.187.56.50 --next-hop-type Internet --address-prefix 52.187.56.50/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.187.59.251 --next-hop-type Internet --address-prefix 52.187.59.251/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.187.63.19 --next-hop-type Internet --address-prefix 52.187.63.19/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.187.63.37 --next-hop-type Internet --address-prefix 52.187.63.37/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.224.105.172 --next-hop-type Internet --address-prefix 52.224.105.172/32
-    az network route-table route create -g $rg --route-table-name $rt -n 52.225.177.153 --next-hop-type Internet --address-prefix 52.225.177.153/32
-    az network route-table route create -g $rg --route-table-name $rt -n 65.52.14.230 --next-hop-type Internet --address-prefix 65.52.14.230/32
-    az network route-table route create -g $rg --route-table-name $rt -n 65.52.172.237 --next-hop-type Internet --address-prefix 65.52.172.237/32
-    az network route-table route create -g $rg --route-table-name $rt -n 65.52.193.203 --next-hop-type Internet --address-prefix 65.52.193.203/32
-    az network route-table route create -g $rg --route-table-name $rt -n 70.37.57.58 --next-hop-type Internet --address-prefix 70.37.57.58/32
-    az network route-table route create -g $rg --route-table-name $rt -n 70.37.89.222 --next-hop-type Internet --address-prefix 70.37.89.222/32
-    az network route-table route create -g $rg --route-table-name $rt -n 104.44.129.141 --next-hop-type Internet --address-prefix 104.44.129.141/32
-    az network route-table route create -g $rg --route-table-name $rt -n 104.44.129.243 --next-hop-type Internet --address-prefix 104.44.129.243/32
-    az network route-table route create -g $rg --route-table-name $rt -n 104.44.129.255 --next-hop-type Internet --address-prefix 104.44.129.255/32
-    az network route-table route create -g $rg --route-table-name $rt -n 104.44.134.255 --next-hop-type Internet --address-prefix 104.44.134.255/32
-    az network route-table route create -g $rg --route-table-name $rt -n 104.208.54.11 --next-hop-type Internet --address-prefix 104.208.54.11/32
-    az network route-table route create -g $rg --route-table-name $rt -n 157.55.176.93 --next-hop-type Internet --address-prefix 157.55.176.93/32
-    az network route-table route create -g $rg --route-table-name $rt -n 157.55.208.185 --next-hop-type Internet --address-prefix 157.55.208.185/32
-    az network route-table route create -g $rg --route-table-name $rt -n 191.236.154.88 --next-hop-type Internet --address-prefix 191.236.154.88/32
+    foreach ($ip in $managementAddresses) {
+        az network route-table route create -g $rg --route-table-name $rt -n $ip --next-hop-type Internet --address-prefix ($ip + "/32")
+    }
 
-Nadat de routetabel is gemaakt, moet u deze in te stellen op uw ASE-subnet.  
+Nadat de route tabel is gemaakt, moet u deze instellen in het ASE-subnet.  
 
-## <a name="get-your-management-addresses-from-api"></a>Je beheeradressen ophalen uit-API ##
+## <a name="get-your-management-addresses-from-api"></a>Uw beheer adressen ophalen van API ##
 
-U kunt de beheeradressen die met uw ASE met de volgende API-aanroep overeenkomen kunt weergeven.
+U kunt de beheer adressen die overeenkomen met uw ASE weer geven met de volgende API-aanroepen.
 
     get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
 
-De API retourneert een JSON-document met inbegrip van alle inkomende-adressen voor de as-omgeving. De lijst met adressen bevat de beheeradressen het VIP-adres gebruikt door de as-omgeving en de adresbereik van de ASE-subnet zelf.  
+De API retourneert een JSON-document dat alle inkomende adressen voor uw ASE bevat. De lijst met adressen bevat de beheer adressen, het VIP dat door uw ASE wordt gebruikt en het adres bereik van het ASE-subnet zelf.  
 
-Voor het aanroepen van de API met de [armclient](https://github.com/projectkudu/ARMClient) gebruik de volgende opdrachten, maar vervang in uw abonnements-ID, resourcegroep en de naam van de as-omgeving.  
+Als u de API wilt aanroepen met de [armclient](https://github.com/projectkudu/ARMClient) , gebruikt u de volgende opdrachten, maar vervangt u de naam van uw abonnements-id, resource groep en ASE.  
 
     armclient login
     armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
