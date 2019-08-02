@@ -1,55 +1,54 @@
 ---
-title: Een Azure File Sync-servereindpunt toevoegen of verwijderen | Microsoft Docs
-description: Meer informatie over wat u moet overwegen bij het plannen van een implementatie van Azure Files.
-services: storage
+title: Een Azure File Sync server-eind punt toevoegen/verwijderen | Microsoft Docs
+description: Meer informatie over hoe u rekening moet houden bij het plannen van een Azure Files-implementatie.
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 31bb71f016dd7f9dd37c766ece25caf8f300754b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a4a77a9b4cdd30c04de4c4eb9d8731c1ea0616c
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686956"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699256"
 ---
-# <a name="addremove-an-azure-file-sync-server-endpoint"></a>Een Azure File Sync-servereindpunt toevoegen/verwijderen
-Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Dit gebeurt door het transformeren van uw Windows-Servers in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
+# <a name="addremove-an-azure-file-sync-server-endpoint"></a>Een Azure File Sync server-eind punt toevoegen/verwijderen
+Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Dit doet u door uw Windows-servers te transformeren naar een snelle cache van uw Azure-bestands share. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
 
-Een *servereindpunt* staat voor een specifieke locatie op een *geregistreerde server*, zoals een map op een volume van de server of in de hoofdmap van het volume. Meerdere servereindpunten kunnen bevinden zich op hetzelfde volume als de naamruimten niet (bijvoorbeeld F:\sync1 en F:\sync2 overlappen). U kunt cloud cloudlagen beleidsregels voor het eindpunt voor elke server afzonderlijk configureren. Als u de locatie van een server met een bestaande set van bestanden als een servereindpunt aan een groep voor synchronisatie toevoegen, zullen deze bestanden worden samengevoegd met andere bestanden al op de andere eindpunten in de groep voor synchronisatie.
+Een *Server-eind punt* vertegenwoordigt een specifieke locatie op een *geregistreerde server*, zoals een map op een server volume of de hoofdmap van het volume. Meerdere server eindpunten kunnen bestaan op hetzelfde volume als hun naam ruimten niet overlappen (bijvoorbeeld F:\sync1 en F:\sync2). U kunt beleid voor Cloud lagen afzonderlijk configureren voor elk server eindpunt. Als u een server locatie met een bestaande set bestanden als een server-eind punt aan een synchronisatie groep toevoegt, worden deze bestanden samengevoegd met andere bestanden die zich al op andere eind punten in de synchronisatie groep bevindt.
 
-Zie [over het implementeren van Azure File Sync](storage-sync-files-deployment-guide.md) voor informatie over het implementeren van Azure File Sync end-to-end.
+Zie [Azure file sync implementeren](storage-sync-files-deployment-guide.md) voor informatie over het implementeren van Azure File Sync End-to-end.
 
 ## <a name="prerequisites"></a>Vereisten
-Voor het maken van een servereindpunt, moet u eerst ervoor zorgen dat de volgende criteria wordt voldaan: 
-- De server heeft de Azure File Sync-agent is geïnstalleerd en is geregistreerd. Instructies voor het installeren van de Azure File Sync-Agent kunnen worden gevonden de [registreren/registratie van een server met Azure File Sync](storage-sync-files-server-registration.md) artikel. 
-- Zorg ervoor dat een Opslagsynchronisatieservice is geïmplementeerd. Zie [over het implementeren van Azure File Sync](storage-sync-files-deployment-guide.md) voor meer informatie over het implementeren van een Opslagsynchronisatieservice. 
-- Zorg ervoor dat een synchronisatiegroep is geïmplementeerd. Meer informatie over het [maken van een synchronisatiegroep](storage-sync-files-deployment-guide.md#create-a sync-group-and-a-cloud-endpoint).
+Als u een server eindpunt wilt maken, moet u eerst controleren of aan de volgende criteria wordt voldaan: 
+- Op de server is Azure File Sync agent geïnstalleerd en deze is geregistreerd. Instructies voor het installeren van de Azure File Sync agent vindt u in het artikel [een server registreren of registratie ongedaan maken bij Azure file sync](storage-sync-files-server-registration.md) . 
+- Zorg ervoor dat er een opslag synchronisatie service is geïmplementeerd. Zie [Azure file sync implementeren](storage-sync-files-deployment-guide.md) voor meer informatie over het implementeren van een opslag synchronisatie service. 
+- Zorg ervoor dat er een synchronisatie groep is geïmplementeerd. Meer informatie over het [maken van een synchronisatie groep](storage-sync-files-deployment-guide.md#create-a sync-group-and-a-cloud-endpoint).
 - Zorg ervoor dat de server is verbonden met internet en dat Azure toegankelijk is. We gebruiken poort 443 voor alle communicatie tussen de server en onze service.
 
 ## <a name="add-a-server-endpoint"></a>Servereindpunt toevoegen
-Een servereindpunt toevoegen, gaat u naar de gewenste synchronisatiegroep, en selecteer 'Servereindpunt toevoegen'.
+Als u een server eindpunt wilt toevoegen, gaat u naar de gewenste synchronisatie groep en selecteert u Server eindpunt toevoegen.
 
 ![Nieuw servereindpunt toevoegen in het deelvenster met de synchronisatiegroep](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
 
-De volgende informatie is vereist onder **servereindpunt toevoegen**:
+De volgende informatie is vereist onder **Server eindpunt toevoegen**:
 
-- **Geregistreerde server**: De naam van de server of het cluster te maken van het servereindpunt op.
-- **Pad**: Het pad op de Windows-Server moeten worden gesynchroniseerd als onderdeel van de groep voor synchronisatie.
-- **Cloud-Opslaglagen**: Overschakelen naar de in- of uitschakelen van cloud tiering. Wanneer dit is ingeschakeld, cloud trapsgewijs worden *laag* bestanden naar uw Azure-bestandsshares. Dit converteert on-premises bestandsshares naar een cache in plaats van een volledige kopie van de gegevensset, om u te helpen bij het beheren van de ruimte-efficiëntie op de server.
-- **Beschikbare volumeruimte**: de hoeveelheid vrije ruimte te reserveren op het volume dat het servereindpunt zich bevindt. Bijvoorbeeld, als de vrije ruimte op volume is ingesteld op 50% op een volume met een eindpunt met één server, ongeveer de helft van de hoeveelheid gegevens wordt in tiers worden verdeeld naar Azure Files. Ongeacht of cloud tiering is ingeschakeld, wordt uw Azure-bestandsshare is altijd een volledige kopie van de gegevens in de groep voor synchronisatie.
+- **Geregistreerde server**: De naam van de server of het cluster voor het maken van het server eindpunt op.
+- **Pad**: Het pad op de Windows-Server dat moet worden gesynchroniseerd als onderdeel van de synchronisatie groep.
+- **Cloud lagen**: Een switch om Cloud lagen in of uit te scha kelen. Wanneer deze functie is ingeschakeld, worden bestanden door Cloud lagen gelaagd naar uw Azure-bestands shares. Hiermee converteert u on-premises bestands shares naar een cache, in plaats van een volledige kopie van de gegevensset, om u te helpen de efficiëntie van de ruimte op uw server te beheren.
+- **Beschik bare volume ruimte**: de hoeveelheid beschik bare ruimte die moet worden gereserveerd op het volume waarop het server eindpunt zich bevindt. Als het volume beschik bare ruimte bijvoorbeeld is ingesteld op 50% op een volume met één server eindpunt, wordt er ongeveer de helft van de hoeveelheid gegevens gelaagd tot Azure Files. Ongeacht of Cloud lagen zijn ingeschakeld, heeft uw Azure-bestands share altijd een volledige kopie van de gegevens in de synchronisatie groep.
 
-Selecteer **maken** het servereindpunt toevoegen. De bestanden in een naamruimte uit een groep voor synchronisatie wordt nu synchroon worden gehouden. 
+Selecteer **maken** om het server eindpunt toe te voegen. De bestanden in een naam ruimte van een synchronisatie groep worden nu gesynchroniseerd. 
 
-## <a name="remove-a-server-endpoint"></a>Een servereindpunt verwijderen
-Als u wenst op te zetten met behulp van Azure File Sync voor het eindpunt van een bepaalde server, kunt u het servereindpunt verwijderen. 
+## <a name="remove-a-server-endpoint"></a>Een server eindpunt verwijderen
+Als u het gebruik van Azure File Sync voor een bepaald server eindpunt wilt stoppen, kunt u het server-eind punt verwijderen. 
 
 > [!Warning]  
-> Probeer niet aan het oplossen van problemen met synchronisatie, cloud-opslaglagen of een andere aspect van Azure File Sync door te verwijderen en opnieuw maken van het servereindpunt tenzij expliciet naar een Microsoft-technicus. Verwijderen van een servereindpunt is een destructieve bewerking en gelaagde bestanden in het servereindpunt wordt niet opnieuw worden 'verbonden' op de locaties van de Azure-bestandsshare nadat het servereindpunt opnieuw gemaakt wordt, waardoor synchroon fouten. Let ook op, gelaagde bestanden die buiten de server eindpunt-naamruimte bestaat mogelijk permanent verloren. Gelaagde bestanden kunnen bestaan binnen uw server, zelfs als eindpunt cloud tiering nooit is ingeschakeld.
+> Probeer geen problemen met synchronisatie, Cloud lagen of enig ander aspect van Azure File Sync op te lossen door het server eindpunt te verwijderen en opnieuw te maken, tenzij expliciet door een micro soft-Engineer wordt geïnstrueerd. Het verwijderen van een server eindpunt is een destructieve bewerking, en gelaagde bestanden binnen het server eindpunt worden niet opnieuw verbonden met hun locaties op de Azure-bestands share nadat het server-eind punt opnieuw is gemaakt, wat leidt tot synchronisatie fouten. Opmerking: gelaagde bestanden die zich buiten de naam ruimte van het server eindpunt bevinden, kunnen permanent verloren gaan. Er zijn mogelijk gelaagde bestanden aanwezig in uw server eindpunt, zelfs als Cloud lagen nooit zijn ingeschakeld.
 
-Om ervoor te zorgen dat alle gelaagde bestanden zijn ingetrokken voordat u het servereindpunt verwijdert, cloud-opslaglagen op het servereindpunt uitschakelen en vervolgens de volgende PowerShell-cmdlet om in te trekken van alle gelaagde bestanden in de naamruimte van uw server-eindpunt wordt uitgevoerd:
+Om ervoor te zorgen dat alle gelaagde bestanden worden ingetrokken voordat u het server eindpunt verwijdert, schakelt u Cloud lagen op het server eindpunt uit en voert u vervolgens de volgende Power shell-cmdlet uit om alle gelaagde bestanden binnen de naam ruimte van uw server eindpunt op te halen:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -57,17 +56,17 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 
 > [!Note]  
-> Als het lokale volume waarop de server niet voldoende vrije ruimte heeft voor het intrekken van alle gelaagde gegevens, de `Invoke-StorageSyncFileRecall` cmdlet mislukt.  
+> Als het lokale volume dat als host fungeert voor de server onvoldoende beschik bare ruimte heeft om alle gelaagde `Invoke-StorageSyncFileRecall` gegevens in te trekken, mislukt de cmdlet.  
 
-Het servereindpunt verwijdert:
+Het server eindpunt verwijderen:
 
-1. Navigeer naar de Opslagsynchronisatieservice waar de server is geregistreerd.
-2. Navigeer naar de gewenste synchronisatiegroep.
-3. Het servereindpunt die u wilt verwijderen in de groep voor synchronisatie in de Opslagsynchronisatieservice. Dit kan worden bereikt met de rechtermuisknop op het eindpunt van de relevante server in het deelvenster van de groep synchroniseren.
+1. Navigeer naar de opslag synchronisatie service waar uw server is geregistreerd.
+2. Navigeer naar de gewenste synchronisatie groep.
+3. Verwijder het server eindpunt dat u wenst in de synchronisatie groep in de opslag synchronisatie service. U kunt dit doen door met de rechter muisknop te klikken op het relevante server eindpunt in het deel venster synchronisatie groep.
 
-    ![Een servereindpunt verwijderen uit een groep voor synchronisatie](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
+    ![Een server eindpunt verwijderen uit een synchronisatie groep](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Een server met Azure File Sync registreren/registratie](storage-sync-files-server-registration.md)
+- [Een server met Azure File Sync registreren of de registratie ervan opheffen](storage-sync-files-server-registration.md)
 - [Planning voor de implementatie van een Azure File Sync](storage-sync-files-planning.md)
-- [Monitor voor Azure File Sync](storage-sync-files-monitoring.md)
+- [Azure File Sync bewaken](storage-sync-files-monitoring.md)

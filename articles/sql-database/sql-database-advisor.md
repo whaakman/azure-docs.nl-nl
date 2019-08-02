@@ -1,6 +1,6 @@
 ---
-title: Aanbevelingen voor prestaties - Azure SQL Database | Microsoft Docs
-description: Azure SQL-Database bevat aanbevelingen voor uw SQL-databases die u kunnen de huidige queryprestaties verbeteren.
+title: Aanbevelingen voor prestaties-Azure SQL Database | Microsoft Docs
+description: Azure SQL Database biedt aanbevelingen voor uw SQL-data bases waarmee de prestaties van de huidige query kunnen worden verbeterd.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -10,92 +10,91 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08def3ac2fd94f01586bc690d867c04758b8856b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61417580"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569524"
 ---
-# <a name="performance-recommendations-for-sql-database"></a>Aanbevelingen voor prestaties voor SQL-Database
+# <a name="performance-recommendations-for-sql-database"></a>Prestatie aanbevelingen voor SQL Database
 
-Azure SQL Database leert herkennen en past zich aan met uw toepassing. Het biedt gepersonaliseerde aanbevelingen waarmee u kunt de prestaties van uw SQL-databases. SQL Database continu beoordeelt en analyseert de gebruiksgeschiedenis van uw SQL-databases. De aanbevelingen die worden verstrekt zijn gebaseerd op database-unieke werkbelasting patronen en prestaties te verbeteren.
+Azure SQL Database leren en aanpassen met uw toepassing. Het biedt aangepaste aanbevelingen waarmee u de prestaties van uw SQL-data bases kunt maximaliseren. SQL Database doorlopend de gebruiks geschiedenis van uw SQL-data bases beoordelen en analyseren. De aanbevelingen die worden gegeven, zijn gebaseerd op data base-unieke werkbelasting patronen en helpen de prestaties te verbeteren.
 
 > [!TIP]
-> [Automatisch afstemmen](sql-database-automatic-tuning.md) is de aanbevolen methode om enkele van de meest voorkomende prestatieproblemen met de database automatisch afstemmen. [Query uitvoeren op prestatie-inzichten](sql-database-query-performance.md) is de aanbevolen methode voor basic Azure SQL Database-prestaties behoeften op het gebied. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) is de aanbevolen methode voor geavanceerde bewaking van prestaties van de database op schaal, met ingebouwde intelligentie voor het oplossen van prestaties automatisch.
+> [Automatisch afstemmen](sql-database-automatic-tuning.md) is de aanbevolen methode voor het automatisch afstemmen van een aantal van de meest voorkomende prestatie problemen met de data base. [Query performance Insights](sql-database-query-performance.md) is de aanbevolen methode voor basis vereisten voor de bewaking van de prestaties van Azure SQL database. [Azure SQL-analyse](../azure-monitor/insights/azure-sql.md) is de aanbevolen methode voor geavanceerde bewaking van database prestaties op schaal, met ingebouwde intelligentie voor het oplossen van problemen met automatische prestaties.
 >
 
-## <a name="create-index-recommendations"></a>Indexaanbevelingen maken
-SQL Database continu bewaakt de query's die worden uitgevoerd en identificeert de indexen die de prestaties kunnen verbeteren. Nadat er onvoldoende vertrouwen is dat een bepaalde index ontbreekt, is een nieuwe **Create index** aanbeveling is gemaakt.
+## <a name="create-index-recommendations"></a>Aanbevelingen voor index maken
+SQL Database bewaakt voortdurend de query's die worden uitgevoerd en identificeert de indexen waarmee de prestaties kunnen worden verbeterd. Wanneer er voldoende betrouw baarheid is dat een bepaalde index ontbreekt, wordt een nieuwe aanbeveling voor **Create Index** gemaakt.
 
- Azure SQL Database bouwt vertrouwen door het schatten van de index via tijd brengen wilt de prestatieverbetering te bereiken. Afhankelijk van de geschatte prestatieverbetering te bereiken, worden aanbevelingen worden gecategoriseerd als hoog, Gemiddeld of laag. 
+ Azure SQL Database bouwt de betrouw baarheid door de prestaties van de index in de loop van de tijd te schatten. Afhankelijk van de geschatte prestatie verbetering worden aanbevelingen gecategoriseerd als hoog, gemiddeld of laag. 
 
-Indexen die zijn gemaakt met behulp van de aanbevelingen zijn altijd gemarkeerd als indexen automatisch is gemaakt. U kunt zien welke indexen worden automatisch gemaakt door te kijken naar de weergave sys.indexes. Automatisch gemaakte indexen blokkeren niet ALTER/RENAME-opdrachten. 
+Indexen die worden gemaakt met behulp van aanbevelingen, worden altijd gemarkeerd als indexen die automatisch worden gemaakt. U kunt zien welke indexen automatisch worden gemaakt door te kijken naar de weer gave sys. Indexes. Automatisch gemaakte indexen blok keren/wijzigen niet. 
 
-Als u probeert te verwijderen van de kolom met een automatisch gemaakte index erboven, wordt de opdracht wordt doorgegeven. De index automatisch is gemaakt is met de opdracht ook verwijderd. Gewone indexen blokkeren de opdracht ALTER/wijzigen in kolommen die zijn geïndexeerd.
+Als u probeert de kolom met een automatisch gemaakte index te verwijderen, wordt de opdracht door gegeven. De automatisch gemaakte index wordt ook met de opdracht verwijderd. Met reguliere indexen wordt de opdracht ALTER/RENAME voor geïndexeerde kolommen geblokkeerd.
 
-Nadat de index maken aanbeveling is toegepast, worden de prestaties van de query's met de basislijnprestaties vergeleken in Azure SQL Database. Als de nieuwe index prestaties verbeterde, de aanbeveling is gemarkeerd als voltooid en het rapport op het milieu is beschikbaar. Als de index is niet de prestaties te verbeteren, is het automatisch teruggezet. SQL-Database maakt gebruik van dit proces om ervoor te zorgen dat de prestaties van de database voor het verbeteren van aanbevelingen.
+Nadat de aanbeveling voor het maken van een index is toegepast, vergelijkt Azure SQL Database de prestaties van de query's met de basislijn prestaties. Als de nieuwe index betere prestaties heeft, wordt de aanbeveling als geslaagd gemarkeerd en is het impact rapport beschikbaar. Als de index geen prestaties heeft verbeterd, wordt deze automatisch hersteld. SQL Database gebruikt dit proces om ervoor te zorgen dat aanbevelingen de database prestaties verbeteren.
 
-Alle **index maken** aanbeveling heeft een back-off-beleid dat niet is toegestaan toepassen van de aanbeveling als het Resourcegebruik van een database of pool hoog is. Het beleid voor back-off houdt rekening CPU, gegevens-i/o-logboek-IO en beschikbare opslag. 
+Een aanbeveling voor het maken van een **index** heeft een uitstel beleid dat het Toep assen van de aanbeveling niet toestaat als het resource gebruik van een Data Base of groep hoog is. Het back-out-beleid houdt rekening met CPU, data IO, logboek-IO en beschik bare opslag. 
 
-Als de CPU, gegevens-IO en logboek-IO hoger dan 80% in de vorige 30 minuten is, wordt de aanbeveling voor het maken van index uitgesteld. Als de beschikbare opslag dan 10% zijn zal nadat de index is gemaakt, wordt de aanbeveling krijgt een foutstatus. Als u na een paar dagen, automatisch afstemmen nog steeds ervan overtuigd is dat de index gemaakt worden kan, wordt het proces opnieuw wordt gestart. 
+Als CPU, data IO of logboek-IO hoger is dan 80% in de afgelopen 30 minuten, wordt de aanbeveling Create Index uitgesteld. Als de beschik bare opslag lager is dan 10% nadat de index is gemaakt, wordt de aanbeveling een fout status. Als, na een paar dagen, de automatische afstemming nog steeds meent dat de index nuttig zou zijn, wordt het proces opnieuw gestart. 
 
-Dit proces wordt herhaald totdat er is onvoldoende opslagruimte beschikbaar om een index te maken, of de index wordt niet meer beschouwd als nuttig.
+Dit proces wordt herhaald totdat er voldoende beschik bare opslag ruimte is om een index te maken, of totdat de index niet meer wordt gezien als nuttig.
 
-## <a name="drop-index-recommendations"></a>DROP indexaanbevelingen
-Naast het detecteren van ontbrekende indexen, analyseert SQL-Database voortdurend de prestaties van bestaande indexen. Als een index niet gebruikt wordt, raadt Azure SQL Database te slepen en neerzetten. Verwijderen van een index wordt aanbevolen in twee gevallen:
-* De index is een duplicaat van een andere index (dezelfde geïndexeerd en opgenomen kolom, partitie-schema en filters).
-* De index is niet gebruikt voor een langere periode (93 dagen).
+## <a name="drop-index-recommendations"></a>Aanbevelingen voor drop index
+Naast het detecteren van ontbrekende indexen analyseert SQL Database voortdurend de prestaties van bestaande indexen. Als een index niet wordt gebruikt, is het Azure SQL Database aan te raden deze te verwijderen. Het verwijderen van een index wordt in twee gevallen aanbevolen:
+* De index is een duplicaat van een andere index (dezelfde geïndexeerde en opgenomen kolom, partitie schema en filters).
+* De index is niet gebruikt voor een lange periode (93 dagen).
 
-De controle na implementatie doorlopen DROP indexaanbevelingen ook. Als de prestaties worden verbeterd, vindt u het rapport op. Als de prestaties minder, wordt de aanbeveling is hersteld.
+De aanbevelingen voor het verwijderen van de index passeren ook de verificatie na de implementatie. Als de prestaties verbeteren, is het impact rapport beschikbaar. Als de prestaties afnemen, wordt de aanbeveling hersteld.
 
 
-## <a name="parameterize-queries-recommendations"></a>Aanbevelingen voor query's parameteriseren
-*Query's parameteriseren* aanbevelingen worden weergegeven wanneer u een of meer query's die zijn voortdurend wordt gecompileerd, maar het einde van met het plan voor uitvoering van dezelfde query. Deze voorwaarde maakt een kans om toe te passen geforceerde parameterisering. Geforceerde parameterisering kan op zijn beurt queryplannen worden in de cache opgeslagen en opnieuw in de toekomst worden gebruikt, die zorgt voor betere prestaties en vermindert Resourcegebruik. 
+## <a name="parameterize-queries-recommendations"></a>Aanbevelingen voor para meters query's
+Aanbevelingen voor *para meters-query's* worden weer gegeven wanneer u een of meer query's hebt die voortdurend worden gecompileerd, maar wel met hetzelfde query-uitvoerings plan. Met deze voor waarde wordt een kans gemaakt om geforceerde parameterisering toe te passen. Met geforceerde parameterisering kunnen query plannen in de cache worden opgeslagen en opnieuw worden gebruikt, waardoor de prestaties worden verbeterd en het resource gebruik wordt verminderd. 
 
-Elke query die wordt uitgegeven voor de SQL Server in eerste instantie moet worden gecompileerd voor het genereren van een planning worden uitgevoerd. Elke gegenereerde plan wordt toegevoegd aan de plancache. Volgende uitvoeringen van dezelfde query opnieuw kunnen gebruiken voor dit plan is uit de cache, die de noodzaak voor het compileren van extra elimineert. 
+Elke query die wordt uitgegeven op basis van SQL Server moet eerst worden gecompileerd voor het genereren van een uitvoerings plan. Elk gegenereerd plan wordt toegevoegd aan de plannings cache. Volgende uitvoeringen van dezelfde query kunnen dit plan opnieuw gebruiken uit de cache, waardoor er geen verdere compilatie meer nodig is. 
 
-Query's met niet-geparametriseerde waarden kunnen leiden tot prestatieoverhead omdat het abonnement kan worden uitgevoerd telkens wanneer de waarden niet-geparametriseerde verschillend zijn is gecompileerd. In veel gevallen de dezelfde query's met andere parameterwaarden genereren van de dezelfde plannen voor uitvoering. Deze abonnementen worden echter nog steeds afzonderlijk toegevoegd aan de plancache. 
+Query's met niet-geparametriseerde waarden kunnen leiden tot prestatie overhead, omdat het uitvoerings plan opnieuw wordt gecompileerd telkens wanneer de niet-geparametriseerde waarden verschillend zijn. In veel gevallen genereren dezelfde query's met verschillende parameter waarden dezelfde uitvoerings plannen. Deze plannen worden echter nog steeds afzonderlijk toegevoegd aan de plannings cache. 
 
-Het proces voor het compileren van uitvoering maakt gebruik van de database-resources, verhoogt de query duur en buiten de plancache. Deze gebeurtenissen, dat op zijn beurt plannen uit de cache worden verwijderd. Dit gedrag SQL Server kan worden gewijzigd door de optie voor geforceerde parameterisering van de database. 
+Het proces van het opnieuw compileren van uitvoerings plannen maakt gebruik van database resources, verhoogt de duur van de query en overschrijdt de plannings cache. Deze gebeurtenissen zorgen ervoor dat er op zijn beurt plannen uit de cache worden verwijderd. Dit SQL Server gedrag kan worden gewijzigd door de optie geforceerde parameterisering in de data base in te stellen. 
 
-Als u wilt, kunt u de gevolgen van deze aanbeveling wordt u hebt opgegeven met een vergelijking tussen de werkelijke CPU-gebruik en het verwachte CPU-gebruik (zoals als de aanbeveling zijn toegepast). Aan de hand van deze aanbeveling kunt u CPU-besparingen krijgen. Zo kunt u minder queryduur van de en overhead voor de plancache, wat betekent dat meer van de abonnementen in de cache blijven kan en opnieuw worden gebruikt. U kunt deze aanbeveling snel toepassen door het selecteren van de **toepassen** opdracht. 
+Om u te helpen bij het schatten van de impact van deze aanbeveling, krijgt u een vergelijking van het werkelijke CPU-gebruik en het verwachte CPU-gebruik (alsof de aanbeveling is toegepast). Deze aanbeveling kan u helpen CPU-besparingen te realiseren. Het kan ook helpen de duur en overhead van de query te verlagen voor de plannings cache, wat betekent dat meer van de plannen in de cache kunnen blijven en opnieuw worden gebruikt. U kunt deze aanbeveling snel Toep assen door de opdracht **Toep assen** te selecteren. 
 
-Nadat u deze aanbeveling toepast, kan deze geforceerde parameterisering binnen enkele minuten in uw database. Er wordt gestart met het bewakingsproces ongeveer 24 uur duurt. Als deze tijd is verstreken, kunt u het rapport zien. Dit rapport bevat het CPU-gebruik van uw database 24 uur vóór en na de aanbeveling is toegepast. SQL Database Advisor is een beveiligingsmechanisme dat de toegepaste aanbeveling automatisch worden hersteld als prestaties regressie is gedetecteerd.
+Nadat u deze aanbeveling hebt toegepast, wordt geforceerde parameterisering binnen enkele minuten in uw data base ingeschakeld. Het bewakings proces wordt gestart. dit duurt ongeveer 24 uur. Na deze periode kunt u het validatie rapport bekijken. In dit rapport wordt het CPU-gebruik van uw data base 24 uur voor en na het Toep assen van de aanbeveling weer gegeven. SQL Database Advisor heeft een veiligheids mechanisme waarmee automatisch de toegepaste aanbeveling wordt hersteld als er prestatie regressie is gedetecteerd.
 
-## <a name="fix-schema-issues-recommendations-preview"></a>Aanbevelingen voor problemen met schema (preview) oplossen
+## <a name="fix-schema-issues-recommendations-preview"></a>Aanbevelingen voor het oplossen van schema problemen (preview-versie)
 
 > [!IMPORTANT]
-> Microsoft is momenteel niet meer ondersteund 'Schemaprobleem op te lossen' aanbevelingen. Het is raadzaam dat u [Intelligent Insights](sql-database-intelligent-insights.md) voor het bewaken van uw prestatieproblemen met de database, met inbegrip van schema-problemen die de aanbevelingen 'Schemaprobleem op te lossen' eerder besproken.
+> Micro soft maakt momenteel geen aanbevelingen voor het oplossen van schema problemen. We raden u aan [intelligent Insights](sql-database-intelligent-insights.md) te gebruiken voor het bewaken van de prestatie problemen met uw data base, zoals schema problemen die eerder zijn besproken in de aanbevelingen voor het oplossen van het schema probleem.
 > 
 
-**Schemaproblemen oplossen** aanbevelingen worden weergegeven wanneer de service SQL Database meldingen een anomalie in het nummer van de schema-fouten met betrekking tot SQL die op uw SQL-database plaatsvinden. Deze aanbeveling wordt doorgaans weergegeven wanneer de database meerdere fouten over schema (ongeldige kolomnaam, Ongeldige objectnaam, enzovoort) binnen een uur.
+Aanbevelingen voor **schema problemen oplossen** wordt weer gegeven wanneer de SQL database-service een afwijking van het aantal aan schema gerelateerde SQL-fouten in het SQL database ondervindt. Deze aanbeveling wordt doorgaans weer gegeven wanneer in uw data base meerdere schema fouten optreden (ongeldige kolom naam, ongeldige object naam, enzovoort) binnen een uur.
 
-'Problemen met het schema' vormen een klasse van syntaxisfouten in SQL Server. Ze zich voordoen wanneer de definitie van de SQL-query en de definitie van schema van de database niet uitgelijnd. Bijvoorbeeld, een van de kolommen die wordt verwacht door de query mogelijk ontbreekt in de doeltabel of vice versa. 
+"Schema problemen" zijn een klasse syntaxis fouten in SQL Server. Ze treden op wanneer de definitie van de SQL-query en de definitie van het database schema niet zijn uitgelijnd. Een van de kolommen die door de query wordt verwacht, ontbreekt mogelijk in de doel tabel of vice versa. 
 
-De aanbeveling voor 'Schemaprobleem op te lossen' wordt weergegeven wanneer de service Azure SQL Database meldingen een anomalie in het nummer van de schema-fouten met betrekking tot SQL die op uw SQL-database plaatsvinden. De volgende tabel ziet u de fouten die zijn gerelateerd aan schema problemen:
+De aanbeveling schema probleem oplossen wordt weer gegeven wanneer de Azure SQL Database-service een afwijking van het aantal aan schema gerelateerde SQL-fouten op uw SQL database noteert. De volgende tabel bevat de fouten die betrekking hebben op schema problemen:
 
 | SQL-foutcode | Message |
 | --- | --- |
-| 201 |Procedure of functie ' *'wordt verwacht dat de parameter'* ', die niet is opgegeven. |
-| 207 |Ongeldige kolomnaam ' *'. |
-| 208 |Ongeldige objectnaam ' *'. |
-| 213 |Kolomnaam of -nummer van opgegeven waarden komt niet overeen met tabeldefinitie. |
-| 2812 |Kan de opgeslagen procedure niet vinden ' *'. |
-| 8144 |Procedure of functie * zijn te veel argumenten opgegeven. |
+| 201 |De procedure of functie*verwacht para meter*, maar deze is niet opgegeven. |
+| 207 |Ongeldige kolom naam *. |
+| 208 |Ongeldige object naam ' * '. |
+| 213 |Kolom naam of-nummer van opgegeven waarden komt niet overeen met tabel definitie. |
+| 2812 |Kan opgeslagen procedure ' * ' niet vinden. |
+| 8144 |Er zijn te veel argumenten opgegeven voor de procedure of functie *. |
 
 ## <a name="custom-applications"></a>Aangepaste toepassingen
 
-Ontwikkelaars overwegen voor het ontwikkelen van aangepaste toepassingen met behulp van de aanbevelingen voor prestaties voor Azure SQL Database. Alle aanbevelingen die worden vermeld in de portal voor een database kan worden geopend via [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API.
+Ontwikkel aars kunnen overwegen aangepaste toepassingen te ontwikkelen met behulp van prestatie aanbevelingen voor Azure SQL Database. Alle aanbevelingen die in de portal voor een Data Base worden vermeld, zijn toegankelijk via de [Get-AzSqlDatabaseRecommendedAction-](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API.
 
 ## <a name="next-steps"></a>Volgende stappen
-Bewaak uw aanbevelingen en doorgaan om toe te passen om prestaties te zetten. Databaseworkloads zijn dynamisch en veranderen voortdurend. SQL Database Advisor blijft bewaakt en doet aanbevelingen die u kunnen mogelijk de verbeteren de prestaties van uw database. 
+Controleer uw aanbevelingen en pas deze toe om de prestaties te verfijnen. Data base-workloads zijn dynamisch en veranderen voortdurend. SQL Database Advisor blijft controleren en aanbevelingen bieden waarmee u de prestaties van uw data base kunt verbeteren. 
 
-* Zie voor meer informatie over automatisch afstemmen van de database-indexen en query-uitvoering plannen [Azure SQL Database automatisch afstemmen](sql-database-automatic-tuning.md).
-* Zie voor meer informatie over het controleren van de prestaties van de database met geautomatiseerde diagnostische gegevens en analyses van hoofdoorzaken van problemen met prestaties automatisch [Intelligent Insights van Azure SQL](sql-database-intelligent-insights.md).
-*  Zie voor meer informatie over het gebruik van aanbevelingen voor prestaties in Azure portal [aanbevelingen voor prestaties in Azure portal](sql-database-advisor-portal.md).
-* Zie [Query prestatie-inzichten](sql-database-query-performance.md) en meer informatie over de invloed op de prestaties van uw belangrijkste query's weergeven.
+* Zie [Azure SQL database Automatic tuning](sql-database-automatic-tuning.md)(Engelstalig) voor meer informatie over het automatisch afstemmen van database indexen en uitvoer plannen voor query's.
+* Zie [Azure SQL intelligent Insights](sql-database-intelligent-insights.md)voor meer informatie over het automatisch bewaken van database prestaties met automatische diagnose en de oorzaak van prestatie problemen.
+*  Zie voor meer informatie over het gebruik van prestatie aanbevelingen in het Azure Portal [prestatie aanbevelingen in de Azure Portal](sql-database-advisor-portal.md).
+* Zie [query performance Insights](sql-database-query-performance.md) voor meer informatie over de invloed van de prestaties van uw meest voorkomende query's en weer geven.
 
 

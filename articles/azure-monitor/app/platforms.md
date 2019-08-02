@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: dd2fb0c9ef157e3706ca3d902f7feebaf4c2f279
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: b2670ec844df192bb73e8b1e76b1ebf611b2539e
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478914"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619370"
 ---
 # <a name="supported-languages"></a>Ondersteunde talen
 
@@ -39,7 +39,6 @@ ms.locfileid: "68478914"
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Android](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
-* [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
@@ -57,6 +56,5 @@ ms.locfileid: "68478914"
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
 
-## <a name="unsupported-community-sdks"></a>Niet-ondersteunde Community Sdk's
-
-Er zijn een aantal Application Insights Sdk's voor de community. Communautaire Sdk's worden niet officieel ondersteund/onderhouden door micro soft. Kan geen ondersteuning bieden voor een SDK die niet voor komt in de lijst officieel ondersteunde. 
+## <a name="unsupported-sdks"></a>Niet-ondersteunde Sdk's
+We weten dat er verschillende andere door de Community ondersteunde Sdk's bestaan en dat we zelfs aan sommige van hen bijdragen hebben bijgedragen. Azure Monitor biedt echter alleen ondersteuning bij het gebruik van de ondersteunde Sdk's die op deze pagina worden weer gegeven. We evalueren voortdurend de mogelijkheden om onze ondersteuning voor andere talen uit te breiden. Volg daarom onze pagina met [github-meldingen](https://github.com/microsoft/ApplicationInsights-Announcements/issues) om het nieuwste SDK-nieuws te ontvangen.

@@ -4,7 +4,7 @@ description: Meer informatie over de gegevensopnamehulpprogramma's en hulpprogra
 keywords: hulpprogramma's voor datatechnologie, virtuele machine voor datatechnologie, hulpprogramma voor datatechnologie, linux-datatechnologie
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: 92ff5d21fc30d8fcafe97a2b452ff157a2cd5f86
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: ffc6071206236bc25d3c02576225c1de935f722a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502216"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68557706"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Data Science Virtual Machine gegevensopnamehulpprogramma 's
 
-Een van de eerste technische stappen in een data science of AI-project is het identificeren van de gegevenssets die worden gebruikt en deze weer in uw omgeving voor analyse. De Data Science Virtual Machine (DSVM) biedt hulpprogramma's en bibliotheken het binnenhalen van gegevens uit verschillende bronnen in een analytische gegevensopslag lokaal op de DSVM of in een gegevensplatform in de cloud of on-premises. 
+Een van de eerste technische stappen in een data science of AI-project is het identificeren van de gegevenssets die worden gebruikt en deze weer in uw omgeving voor analyse. De Data Science Virtual Machine (DSVM) bevat hulpprogram ma's en bibliotheken om gegevens van verschillende bronnen naar een analytische gegevens opslag lokaal op het DSVM of in een gegevens platform in de Cloud of on-premises te brengen. 
 
 Hier volgen enkele we hebt opgegeven op de DSVM verkeer hulpprogramma's. 
 

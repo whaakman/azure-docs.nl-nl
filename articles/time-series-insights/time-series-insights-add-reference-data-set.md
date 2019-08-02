@@ -1,6 +1,6 @@
 ---
-title: Een referentiegegevensset toevoegen aan uw Azure Time Series Insights-omgeving | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u een referentiegegevensset aan het verbeteren van de gegevens in uw Azure Time Series Insights-omgeving.
+title: Een set met referentie gegevens toevoegen aan uw Azure Time Series Insights omgeving | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u een set met referentie gegevens kunt toevoegen om gegevens in uw Azure Time Series Insights omgeving uit te breiden.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -11,93 +11,93 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 99933fa36cc822598ec9c173a470f90264d06d54
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 5b48a41f025ef06c69e6de126e0a64ad359ce09a
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461307"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666366"
 ---
-# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Een referentiegegevensset voor uw Time Series Insights-omgeving met behulp van de Azure portal maken
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Maak een referentie gegevensverzameling voor uw Time Series Insights-omgeving met behulp van de Azure Portal
 
-In dit artikel wordt beschreven hoe u een referentiegegevensset toevoegen aan uw Azure Time Series Insights-omgeving. Referentiegegevens is handig om lid te maken van uw gegevens om te verbeteren van de waarden.
+In dit artikel wordt beschreven hoe u een set met referentie gegevens toevoegt aan uw Azure Time Series Insights omgeving. Referentie gegevens zijn handig om samen te voegen met de bron gegevens om de waarden te verbeteren.
 
-Een Referentiegegevensset is een verzameling van items die de ervaring van de gebeurtenissen uit uw gebeurtenisbron. De engine voor Time Series Insights inkomende lid wordt van elke gebeurtenis uit uw gebeurtenisbron aan de desbetreffende gegevensrij in uw referentiegegevensset. Deze uitgebreide gebeurtenis is vervolgens beschikbaar voor query’s. Deze koppeling is gebaseerd op de primaire sleutel of meer kolommen gedefinieerd in uw referentiegegevensset.
+Een referentie gegevensset is een verzameling items waarmee de gebeurtenissen worden uitgebreid van de bron van de gebeurtenis. Time Series Insights ingangs engine koppelt elke gebeurtenis uit de bron van de gebeurtenis met de overeenkomstige gegevensrij in uw referentie gegevensverzameling. Deze uitgebreide gebeurtenis is vervolgens beschikbaar voor query’s. Deze samen voeging is gebaseerd op de kolom (men) van de primaire sleutel die is gedefinieerd in uw referentie gegevensverzameling.
 
-Referentiegegevens is niet met terugwerkende kracht gekoppeld. Alleen de huidige en toekomstige inkomende gegevens wordt dus vergeleken en toegevoegd aan de verwijzing datum is ingesteld, zodra deze is geconfigureerd en geüpload.
+Referentie gegevens worden niet met terugwerkende kracht samengevoegd. Daarom worden alleen huidige en toekomstige ingangs gegevens vergeleken en samengevoegd met de referentie datumset, zodra deze is geconfigureerd en geüpload.
 
 ## <a name="video"></a>Video
 
-### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>Meer informatie over Time Series Insight referentie-gegevensmodel.</br>
+### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>Meer informatie over het referentie gegevens model van Time Series Insight.</br>
 
 > [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
-## <a name="add-a-reference-data-set"></a>Een referentiegegevensset toevoegen
+## <a name="add-a-reference-data-set"></a>Een set met referentie gegevens toevoegen
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-1. Ga naar uw bestaande Time Series Insights-omgeving. Selecteer **alle resources** in het menu aan de linkerkant van de Azure-portal. Selecteer uw Time Series Insights-omgeving.
+1. Ga naar uw bestaande Time Series Insights-omgeving. Selecteer **alle resources** in het menu aan de linkerkant van het Azure Portal. Selecteer uw Time Series Insights-omgeving.
 
-1. Selecteer de **overzicht** pagina. Zoek de **Time Series Insights explorer-URL** en opent u de koppeling.  
+1. Selecteer de pagina **overzicht** . Ga naar de **URL van Time Series Insights Explorer** en open de koppeling.  
 
-   Bekijk de explorer voor uw omgeving TSI.
+   Bekijk de Verkenner voor uw TSI-omgeving.
 
-1. Vouw de omgevingsselectie in de TSI-Verkenner. Kies de actieve omgeving. Selecteer het pictogram van de gegevens verwijzing in de rechterbovenhoek op de pagina explorer.
+1. Vouw de omgevings kiezer uit in de TSI-Verkenner. Kies de actieve omgeving. Selecteer het pictogram referentie gegevens in de rechter bovenhoek van de Explorer-pagina.
 
-   [![Naslaginformatie over gegevens toevoegen](media/add-reference-data-set/add-reference-data.png)](media/add-reference-data-set/add-reference-data.png#lightbox)
+   [![Referentie gegevens toevoegen](media/add-reference-data-set/add-reference-data.png)](media/add-reference-data-set/add-reference-data.png#lightbox)
 
-1. Selecteer de **+ toevoegen van een gegevensset** knop om te beginnen met het toevoegen van een nieuwe gegevensset.
+1. Selecteer de knop **+ een gegevensset toevoegen** om een nieuwe gegevensset toe te voegen.
 
    [![Gegevensset toevoegen](media/add-reference-data-set/add-data-set.png)](media/add-reference-data-set/add-data-set.png#lightbox)
 
-1. Op de **verwijzingsgegevensset voor nieuw** pagina, kies de indeling van de gegevens:
-   - Kies **CSV** voor gegevens met door komma's gescheiden. De eerste rij wordt beschouwd als een rij met koppen.
-   - Kies **JSON-matrix** voor javascript object notation (JSON)-opgemaakte gegevens.
+1. Kies op de pagina **nieuwe referentie gegevensgroep** de indeling van de gegevens:
+   - Kies **CSV** voor door komma's gescheiden gegevens. De eerste rij wordt beschouwd als een veldnamenrij.
+   - Kies **JSON-matrix** voor gegevens in JSON-indeling (Java Script object Notation).
 
-   [![Kies de indeling.](media/add-reference-data-set/add-data.png)](media/add-reference-data-set/add-data.png#lightbox)
+   [![Kies gegevens indeling.](media/add-reference-data-set/add-data.png)](media/add-reference-data-set/add-data.png#lightbox)
 
-1. Geef de gegevens, met behulp van een van de twee methoden:
-   - Plak de gegevens in de teksteditor. Selecteer **verwijzingsgegevens parseren** knop.
-   - Selecteer **bestand kiezen** knop voor het toevoegen van gegevens uit een lokale tekstbestand.
+1. Geef de gegevens op met behulp van een van de twee methoden:
+   - Plak de gegevens in de tekst editor. Selecteer vervolgens de knop **referentie gegevens parseren** .
+   - Selecteer de knop **bestand kiezen** om gegevens uit een lokaal tekst bestand toe te voegen.
 
    Plak bijvoorbeeld CSV-gegevens: [![Geplakte CSV-gegevens](media/add-reference-data-set/csv-data-pasted.png)](media/add-reference-data-set/csv-data-pasted.png#lightbox)
 
-   Plak bijvoorbeeld JSON-matrix-gegevens: [![Plak de JSON-gegevens](media/add-reference-data-set/json-data-pasted.png)](media/add-reference-data-set/json-data-pasted.png#lightbox)
+   Plak bijvoorbeeld JSON-matrix gegevens: [![JSON-gegevens plakken](media/add-reference-data-set/json-data-pasted.png)](media/add-reference-data-set/json-data-pasted.png#lightbox)
 
-   Als er een fout bij het parseren van de gegevenswaarden, de fout in het rood weergegeven aan de onderkant van de pagina, zoals `CSV parsing error, no rows extracted`.
+   Als er een fout optreedt bij het parseren van de gegevens waarden, wordt de fout rood weer gegeven aan de onderkant van `CSV parsing error, no rows extracted`de pagina, zoals.
 
-1. Zodra de gegevens wordt geparseerd, wordt het weergeven van kolommen en rijen die de gegevens vertegenwoordigt een gegevensraster weergegeven.  Bekijk het gegevensraster om ervoor te zorgen juistheid.
+1. Zodra de gegevens zijn geparseerd, wordt een gegevens raster weer gegeven waarin de kolommen en rijen worden weer gegeven die de gegevens vertegenwoordigen.  Controleer het gegevens raster om te controleren of het juist is.
 
-   [![Naslaginformatie over gegevens toevoegen](media/add-reference-data-set/parse-data.png)](media/add-reference-data-set/parse-data.png#lightbox)
+   [![Referentie gegevens toevoegen](media/add-reference-data-set/parse-data.png)](media/add-reference-data-set/parse-data.png#lightbox)
 
-1. Controleer elke kolom als u wilt zien van het gegevenstype is uitgegaan en indien nodig, het gegevenstype wijzigen.  Selecteer het type gegevens symbool in de kolomkop: **#** voor dubbele (numerieke gegevens), **T | F** Boole-waarden, of **Abc** voor tekenreeks.
+1. Bekijk elke kolom om te zien welk gegevens type wordt gebruikt en wijzig zo nodig het gegevens type.  Selecteer het gegevens type symbool in de kolomkop: **#** voor dubbele (numerieke gegevens), **T | F** voor Booleaanse waarde, of **ABC** voor teken reeks.
 
-   [![Kies de gegevenstypen van de kolomkoppen.](media/add-reference-data-set/choose-datatypes.png)](media/add-reference-data-set/choose-datatypes.png#lightbox)
+   [![Kies gegevens typen in de kolom koppen.](media/add-reference-data-set/choose-datatypes.png)](media/add-reference-data-set/choose-datatypes.png#lightbox)
 
-1. Wijzig de naam van de kolomkoppen indien nodig. De naam van de sleutelkolom is nodig om lid te maken van de bijbehorende eigenschap in de gebeurtenisbron. Zorg ervoor dat de namen van verwijzing sleutelkolom exact met de naam van de gebeurtenis naar uw inkomende gegevens overeenkomen, met inbegrip van hoofdlettergevoeligheid. De namen van de niet-sleutelkolom worden gebruikt voor het verbeteren van de binnenkomende gegevens met de waarden van de bijbehorende verwijzing.
+1. Wijzig de naam van de kolom koppen, indien nodig. De naam van de sleutel kolom is nodig om lid te worden van de bijbehorende eigenschap in de bron van de gebeurtenis. Zorg ervoor dat de kolom namen van de referentie gegevens sleutel exact overeenkomen met de naam van de gebeurtenis voor uw binnenkomende gegevens, met inbegrip van hoofdletter gevoeligheid. De niet-sleutel kolom namen worden gebruikt voor het verbeteren van de inkomende gegevens met de bijbehorende referentie gegevens waarden.
 
-1. Selecteer **toevoegen van een rij** of **een kolom toevoegen** om toe te voegen meer verwijzing gegevenswaarden, indien nodig.
+1. Selecteer **een rij toevoegen** of **Voeg een kolom** toe om meer referentie gegevens waarden toe te voegen, indien nodig.
 
-1. Typ een waarde in de **de rijen filteren...**  veld om te controleren van bepaalde rijen naar behoefte. Het filter is handig voor het bekijken van gegevens, maar wordt niet toegepast wanneer de gegevens worden geüpload.
+1. Typ een waarde in het veld **rijen...** om specifieke rijen naar behoefte te controleren. Het filter is handig voor het controleren van gegevens, maar wordt niet toegepast bij het uploaden van de gegevens.
 
-1. Naam van de gegevensset, door het invullen van de **naam van gegevensset** veld boven het gegevensraster.
+1. Geef de gegevensset een naam door het veld **naam van gegevensset** boven het gegevens raster in te vullen.
 
-    [![De naam van de gegevensset.](media/add-reference-data-set/name-reference-dataset.png)](media/add-reference-data-set/name-reference-dataset.png#lightbox)
+    [![Geef de gegevensset een naam.](media/add-reference-data-set/name-reference-dataset.png)](media/add-reference-data-set/name-reference-dataset.png#lightbox)
 
-1. Geef de **primaire sleutel** kolom in de gegevensset, door het selecteren van de vervolgkeuzelijst boven het gegevensraster.
+1. Geef de **primaire-sleutel** kolom in de gegevensset op door de vervolg keuzelijst boven het gegevens raster te selecteren.
 
-    [![Selecteer de sleutel kolom(men).](media/add-reference-data-set/set-primary-key.png)](media/add-reference-data-set/set-primary-key.png#lightbox)
+    [![Selecteer de sleutel kolom (men).](media/add-reference-data-set/set-primary-key.png)](media/add-reference-data-set/set-primary-key.png#lightbox)
 
-    Selecteer desgewenst de **+** om toe te voegen een kolom voor de secundaire sleutel als een samengestelde primaire sleutel. Als u nodig hebt om de selectie ongedaan te maken, kiest u de waarde is leeg in de vervolgkeuzelijst om te verwijderen van de secundaire sleutel.
+    Selecteer desgewenst de knop voor **+** het toevoegen van een secundaire sleutel kolom als samengestelde primaire sleutel. Als u de selectie ongedaan wilt maken, kiest u de lege waarde uit de vervolg keuzelijst om de secundaire sleutel te verwijderen.
 
-1. Als u wilt de gegevens uploaden, selecteert u de **rijen uploaden** knop.
+1. Als u de gegevens wilt uploaden, selecteert u de knop **rijen uploaden** .
 
-    [![Uploaden](media/add-reference-data-set/upload-rows.png)](media/add-reference-data-set/upload-rows.png#lightbox)
+    [![Wijzigingen](media/add-reference-data-set/upload-rows.png)](media/add-reference-data-set/upload-rows.png#lightbox)
 
-    De pagina wordt bevestigd dat de voltooide uploaden en het bericht weergegeven **geüpload gegevensset**.
+    Op de pagina wordt de voltooide upload bevestigd en wordt het bericht met de **gegevensset geüpload**weer gegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Programmatisch [referentiegegevens beheren](time-series-insights-manage-reference-data-csharp.md).
 
-* Zie voor de volledige API-verwijzing het document [Reference Data API](/rest/api/time-series-insights/ga-reference-data-api).
+* Zie voor de volledige API-verwijzing het document [Reference Data API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).

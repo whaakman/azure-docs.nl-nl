@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot stroomlogboeken voor netwerkbeveiliging groepen met Azure Network Watcher | Microsoft Docs
-description: In dit artikel wordt uitgelegd hoe u de functie NSG stroom logboeken van Azure Network Watcher.
+title: Inleiding tot stroom logboek registratie voor netwerk beveiligings groepen met Azure Network Watcher | Microsoft Docs
+description: In dit artikel wordt uitgelegd hoe u de functie NSG flow logs van Azure Network Watcher gebruikt.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,96 +14,94 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 1ec7fd4116aa848a9c431df386997cb23f405f1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c156e30f4fa0270082cd1108958c3472130a460
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925415"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640830"
 ---
-# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Inleiding tot stroomlogboeken voor netwerkbeveiligingsgroepen
+# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Inleiding tot stroom logboek registratie voor netwerk beveiligings groepen
 
-Stroomlogboeken van Network security group (NSG) zijn een functie van Network Watcher waarmee u informatie wilt weergeven over inkomende en uitgaande IP-verkeer via een NSG. Logboeken van de stroom worden geschreven in JSON-indeling en weergeven van uitgaande en inkomende stromen op basis van per regel, de netwerkinterface (NIC) de stroom is van toepassing op, 5-tuple-informatie over de stroom (bron-/ doel-IP, bron-/ doel-poort en protocol), als het verkeer is toegestane of geweigerde, en in versie 2, informatie over de doorvoer (Bytes en pakketten).
+Stroom logboeken voor netwerk beveiligings groepen (NSG) zijn een functie van Network Watcher waarmee u informatie kunt bekijken over binnenkomend en IP-verkeer via een NSG. Stroom logboeken worden geschreven in JSON-indeling en weer gegeven uitgaande en inkomende stromen per regel. de netwerk interface (NIC) van de stroom is van toepassing op 5-tuple-informatie over de stroom (bron/doel-IP, bron/doel poort en Protocol), als het verkeer is toegestaan of geweigerd, en in versie 2, gegevens over de door Voer (bytes en pakketten).
 
 
-![stroom-Logboeken, overzicht](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
+![overzicht van stroom logboeken](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
 
-Stroomlogboeken voor nsg's doel, zijn ze niet hetzelfde als de andere logboeken weergegeven. Logboeken van de stroom alleen binnen een storage-account worden opgeslagen en volg het pad naar logboek wordt weergegeven in het volgende voorbeeld:
+Terwijl flow logboeken doel-Nsg's, worden ze niet weer gegeven als de andere logboeken. Stroom logboeken worden alleen in een opslag account opgeslagen en volgen het pad naar Logboeken dat in het volgende voor beeld wordt weer gegeven:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
-U kunt stroomlogboeken analyseren en inzicht verkrijgen in uw netwerkverkeer met [traffic analytics](traffic-analytics.md).
+U kunt stroom logboeken analyseren en inzicht krijgen in uw netwerk verkeer met behulp van [Traffic Analytics](traffic-analytics.md).
 
-De dezelfde bewaarbeleid zichtbaar voor andere logboeken van toepassing op Logboeken van de stroom. U kunt beleid voor het bewaren van logboek ingesteld van 1 dag op 2147483647 dagen. Als geen bewaarbeleid is ingesteld, worden de logboeken voor altijd bewaard.
+Dezelfde Bewaar beleidsregels voor andere logboeken zijn van toepassing op stroom Logboeken. U kunt het Bewaar beleid voor logboek registratie instellen van 1 dag tot 2147483647 dagen. Als geen bewaarbeleid is ingesteld, worden de logboeken voor altijd bewaard.
 
 > [!NOTE] 
-> Met de functie voor het beleid van retentie met NSG Flow logboekregistratie kan resulteren in een groot aantal opslagbewerkingen en de bijbehorende kosten. Als u de functie voor retentie beleid vereist, wordt u aangeraden dat u deze waarde ingesteld op 0.
+> Het gebruik van de functie voor het retentie beleid met NSG-stroom registratie kan leiden tot een groot aantal opslag bewerkingen en de bijbehorende kosten. Als u de functie voor het Bewaar beleid niet nodig hebt, raden we u aan deze waarde in te stellen op 0.
 
 
 ## <a name="log-file"></a>Logboekbestand
 
-Logboeken van de stroom zijn onder andere de volgende eigenschappen:
+Stroom logboeken bevatten de volgende eigenschappen:
 
-* **tijd** - tijd waarop de gebeurtenis is vastgelegd
-* **systeem-id** -Netwerkbeveiligingsgroep resource-id.
-* **categorie** -de categorie van de gebeurtenis. De categorie is altijd **NetworkSecurityGroupFlowEvent**
-* **ResourceID** -de resource-Id van de NSG
+* de **tijd** waarop de gebeurtenis is geregistreerd
+* **systemId** -resource-id van de netwerk beveiligings groep.
+* **categorie** : de categorie van de gebeurtenis. De categorie is altijd **NetworkSecurityGroupFlowEvent**
+* **ResourceID** -de resource-id van de NSG
 * **operationName** - Always NetworkSecurityGroupFlowEvents
-* **Eigenschappen van** -een verzameling eigenschappen van de stroom
-    * **Versie** -versienummer van het schema van de event Log Flow
-    * **stromen** -een verzameling van stromen. Deze eigenschap heeft meerdere vermeldingen voor verschillende regels
-        * **regel** -regel voor de stromen worden weergegeven
-            * **stromen** -een verzameling van stromen
-                * **Mac** -de MAC-adres van de NIC voor de virtuele machine waarop de stroom is verzameld
-                * **flowTuples** -een tekenreeks met meerdere eigenschappen voor de stroom tuple in indeling met door komma's gescheiden
-                    * **Tijdstempel** -deze waarde is de tijdstempel van wanneer de stroom is opgetreden in de indeling van de UNIX-EPOCHE
-                    * **Bron-IP** -het bron-IP
-                    * **Bestemming IP** -de doel-IP
-                    * **Bronpoort** -de bronpoort
-                    * **Doelpoort** -de doel-poort
-                    * **Protocol** -het protocol van de stroom. Geldige waarden zijn **T** voor TCP- en **U** voor UDP
-                    * **Verkeersstroom** -de richting van het netwerkverkeer. Geldige waarden zijn **ik** voor binnenkomend en **O** voor uitgaande.
-                    * **Verkeer besluit** - of verkeer is toegestaan of geweigerd. Geldige waarden zijn **A** voor toegestaan en **D** voor geweigerd.
-                    * **Stroom State - versie 2 alleen** -de status van de stroom worden vastgelegd. Mogelijke statussen zijn **B**: Begin, wanneer een stroom wordt gemaakt. Er worden geen statistische gegevens geleverd. **C**: Continu, voor een actieve stroom. Statistische gegevens worden geleverd met intervallen van 5 minuten. **E**: Eind, wanneer een stroom is beëindigd. Er worden statistische gegevens geleverd.
-                    * **Pakketten - bron naar bestemming - versie 2 alleen** het totale aantal TCP of UDP-pakketten worden verzonden vanuit de bron naar bestemming sinds de laatste update.
-                    * **Bytes verzonden - bron naar doel - versie 2 alleen** het totale aantal TCP of UDP-pakketten bytes verzonden van bron naar bestemming sinds de laatste update. Pakketbytes omvatten de pakket-header en -nettolading.
-                    * **Pakketten - doel naar bron - versie 2 alleen** het totale aantal TCP of UDP-pakketten van doel naar bron verzonden sinds de laatste update.
-                    * **Bytes verzonden - doel naar bron - versie 2 alleen** het totale aantal TCP en UDP-pakket verzonden bytes van doel naar bron sinds de laatste update. Pakketbytes omvatten een pakket-header en -nettolading.
+* **Eigenschappen** : een verzameling eigenschappen van de stroom
+    * **Versie** -versie nummer van het gebeurtenis schema voor het stroom logboek
+    * **stromen** : een verzameling stromen. Deze eigenschap heeft meerdere vermeldingen voor verschillende regels
+        * **regel** -regel waarvoor de stromen worden weer gegeven
+            * **stromen** -een verzameling stromen
+                * **Mac** : het MAC-adres van de NIC voor de virtuele machine waarop de stroom is verzameld
+                * **flowTuples** : een teken reeks die meerdere eigenschappen voor de stroom-tuple in een door komma's gescheiden indeling bevat
+                    * **Tijds tempel** : deze waarde is het tijds tempel van wanneer de stroom is opgetreden in de UNIX-epoche-indeling
+                    * **Bron-IP** -het bron-IP-adres
+                    * **Doel-IP** -het doel-IP-adres
+                    * **Bron poort** : de bron poort
+                    * **Doel poort** -de doel poort
+                    * **Protocol** -het Protocol van de stroom. Geldige waarden zijn **T** voor TCP en **U** voor UDP
+                    * **Verkeers stroom** : de richting van de verkeers stroom. Geldige waarden zijn **I** voor inkomend en **O** voor uitgaand verkeer.
+                    * **Beslissing van verkeer** : of verkeer is toegestaan of geweigerd. Geldige **waarden zijn voor** toegestaan en **D** voor geweigerd.
+                    * **Stroom status-alleen versie 2** : Hiermee wordt de status van de stroom vastgelegd. Mogelijke statussen zijn **B**: Begin, wanneer een stroom wordt gemaakt. Er worden geen statistische gegevens geleverd. **C**: Continu, voor een actieve stroom. Statistische gegevens worden geleverd met intervallen van 5 minuten. **E**: Eind, wanneer een stroom is beëindigd. Er worden statistische gegevens geleverd.
+                    * **Pakketten-bron naar doel-versie 2 alleen** Het totale aantal TCP-of UDP-pakketten dat sinds de laatste update van de bron naar het doel is verzonden.
+                    * **Verzonden bytes-bron naar doel-versie 2** Het totale aantal TCP-of UDP-pakket bytes dat sinds de laatste update van de bron naar het doel is verzonden. Pakketbytes omvatten de pakket-header en -nettolading.
+                    * **Pakketten-doel naar bron-versie 2 alleen** Het totale aantal TCP-of UDP-pakketten dat sinds de laatste update van de bestemming naar de bron is verzonden.
+                    * **Verzonden bytes-bestemming naar bron-versie 2** Het totale aantal bytes van de TCP-en UDP-pakketten dat sinds de laatste update van de bestemming naar de bron is verzonden. Pakketbytes omvatten een pakket-header en -nettolading.
 
-## <a name="nsg-flow-logs-version-2"></a>NSG-stroomlogboeken versie 2
+## <a name="nsg-flow-logs-version-2"></a>NSG flow-logboeken versie 2
 
-Versie 2 van de logboeken introduceert stroom staat. U kunt configureren welke versie van de logboeken van de stroom die u ontvangt. Zie voor informatie over het inschakelen van Logboeken van de stroom, [inschakelen van NSG-stroomlogboeken](network-watcher-nsg-flow-logging-portal.md).
+Versie 2 van de logboeken bevat een stroom status. U kunt configureren welke versie van de stroom logboeken u ontvangt. Zie [NSG-stroom logboeken](network-watcher-nsg-flow-logging-portal.md)inschakelen voor meer informatie over het inschakelen van stroom Logboeken.
 
-Status Flow *B* wordt geregistreerd wanneer een stroom wordt gestart. Status Flow *C* en de status van de stroom *E* Staten die de voortzetting van een stroom en de stroom wordt beëindigd, respectievelijk markeren. Beide *C* en *E* Staten bevatten informatie over de bandbreedte van verkeer.
+Stroom status *B* wordt vastgelegd wanneer een stroom wordt gestart. De stroom status *C* en de stroom status *E* zijn staten die de voortzetting van een stroom en stroom beëindiging markeren. Zowel de *C* -als de *E* -status bevat informatie over de band breedte van het verkeer.
 
-Voor Vervolg *C* en end *E* stroom staat, aantal bytes en pakket cumulatieve aantal vanaf het moment van de vorige stroom tuple record zijn. Verwijst naar het vorige voorbeeld-gesprek, is het totale aantal pakketten die zijn overgebracht 1021 + 52 + 8005 + 47 = 9125. Het totale aantal bytes dat wordt overgebracht is 588096 + 29952 + 4610880 + 27072 = 5256000.
+**Voor beeld**: Verstroom Tuples van een TCP-conversatie tussen 185.170.185.105:35370 en 10.2.0.4:23:
 
-**Voorbeeld**: Stroom tuples van een TCP-conversatie tussen 185.170.185.105:35370 en 10.2.0.4:23:
+"1493763938, 185.170.185.105, 10.2.0.4, 35370, 23, T, I, A, B,,,," "1493695838, 185.170.185.105, 10.2.0.4, 35370, 23, T, I, A, C, 1021, 588096, 8005, 4610880" "1493696138, 185.170.185.105, 10.2.0.4, 35370, 23, T, I, A, E, 52, 29952, 47, 27072"
 
-"1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,," "1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880" "1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072"
+Voor voortzetting *C* en de laatste *E* stroom status zijn de aantallen voor bytes en pakketten cumulatief van de tijd van de vorige record in de stroom tupel. Verwijzen naar het vorige voor beeld van de conversatie is het totale aantal overgedragen pakketten 1021 + 52 + 8005 + 47 = 9125. Het totale aantal overgebrachte bytes is 588096 + 29952 + 4610880 + 27072 = 5256000.
 
-Voor Vervolg *C* en end *E* stroom staat, aantal bytes en pakket cumulatieve aantal vanaf het moment van de vorige stroom tuple record zijn. Verwijst naar het vorige voorbeeld-gesprek, is het totale aantal pakketten die zijn overgebracht 1021 + 52 + 8005 + 47 = 9125. Het totale aantal bytes dat wordt overgebracht is 588096 + 29952 + 4610880 + 27072 = 5256000.
+De volgende tekst is een voor beeld van een stroom logboek. Zoals u ziet, zijn er meerdere records die voldoen aan de eigenschappen lijst die in de voor gaande sectie wordt beschreven.
 
-De tekst die volgt is een voorbeeld van een stroomlogboek. Zoals u ziet, zijn er meerdere records die de lijst met eigenschappen die worden beschreven in de voorgaande sectie volgen.
+## <a name="nsg-flow-logging-considerations"></a>Aandachtspunten voor NSG flow-logboek registratie
 
-## <a name="nsg-flow-logging-considerations"></a>Overwegingen voor logboekregistratie van NSG-stroom
+**Schakel logboek registratie van de NSG-stroom in op alle nsg's die zijn gekoppeld aan een resource**: Stroom registratie in Azure is geconfigureerd op de NSG-resource. Een stroom wordt alleen gekoppeld aan één NSG-regel. In scenario's waarin meerdere Nsg's worden gebruikt, raden wij aan dat logboek registratie voor NSG-flow is ingeschakeld op alle Nsg's het subnet of de netwerk interface van een resource heeft toegepast om ervoor te zorgen dat alle verkeer wordt geregistreerd. Bekijk [hoe verkeer wordt geëvalueerd](../virtual-network/security-overview.md#how-traffic-is-evaluated) voor meer informatie over netwerk beveiligings groepen. 
 
-**NSG Flow logboekregistratie inschakelen op alle nsg's die zijn gekoppeld aan een resource**: Stroom logboekregistratie in Azure is geconfigureerd op de NSG-resource. Een stroom alleen worden gekoppeld aan een NSG-regel. In scenario's waarbij meerdere nsg's worden gebruikt, raden wij of NSG-stroomlogboeken is ingeschakeld op alle nsg's toegepast van de resource-subnet of netwerkinterface om ervoor te zorgen dat al het verkeer wordt vastgelegd. Zie [hoe verkeer wordt geëvalueerd](../virtual-network/security-overview.md#how-traffic-is-evaluated) voor meer informatie over Netwerkbeveiligingsgroepen. 
+**Kosten voor stroom logboek registratie**: Logboek registratie van de NSG-stroom wordt gefactureerd op het volume van de logboeken die zijn geproduceerd. High Traffic volume kan leiden tot een groot stroom logboek volume en de bijbehorende kosten. De prijzen voor het NSG-stroom logboek bevatten geen onderliggende kosten voor opslag. Het gebruik van de functie voor het retentie beleid met NSG-stroom registratie kan leiden tot een groot aantal opslag bewerkingen en de bijbehorende kosten. Als u de functie voor het Bewaar beleid niet nodig hebt, raden we u aan deze waarde in te stellen op 0. Zie [Network Watcher prijzen](https://azure.microsoft.com/pricing/details/network-watcher/) en [Azure Storage prijzen](https://azure.microsoft.com/pricing/details/storage/) voor meer informatie.
 
-**Logboekregistratie kosten Flow**: NSG-stroomlogboeken wordt in rekening gebracht op het volume van de logboeken die wordt geproduceerd. Intensief verkeersvolume kan resulteren in grote stroom logboekvolume en de bijbehorende kosten. Prijzen voor log Stroomlogboeken omvat niet de onderliggende kosten van opslag. Met de functie voor het beleid van retentie met NSG Flow logboekregistratie kan resulteren in een groot aantal opslagbewerkingen en de bijbehorende kosten. Als u de functie voor retentie beleid vereist, wordt u aangeraden dat u deze waarde ingesteld op 0. Zie [prijzen voor Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) en [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor meer informatie.
+**Binnenkomende stromen die zijn geregistreerd via internet ip's naar vm's zonder open bare ip's**: Vm's waarvoor geen openbaar IP-adres is toegewezen via een openbaar IP-adres dat is gekoppeld aan de NIC als instantie niveau openbaar IP of die deel uitmaken van een basis load balancer back-end-pool, gebruiken [standaard SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) en hebben een IP-adres toegewezen door Azure om te vergemakkelijken uitgaande connectiviteit. Als gevolg hiervan ziet u mogelijk stroom logboek vermeldingen voor stromen van IP-adressen van Internet, als de stroom bestemd is voor een poort in het bereik van poorten die zijn toegewezen voor SNAT. Hoewel Azure deze stromen naar de virtuele machine niet toestaat, wordt de poging geregistreerd en wordt deze weer gegeven in het NSG-stroom logboek van Network Watcher. U wordt aangeraden ongewenste binnenkomend Internet verkeer expliciet met NSG te blok keren.
 
-**Inkomende stromen die zijn geregistreerd via internet IP-adressen aan virtuele machines zonder openbare IP-adressen**: Virtuele machines die geen openbaar IP-adres toegewezen via een openbaar IP-adres dat is gekoppeld aan de NIC als een openbaar IP op exemplaarniveau of die deel uitmaken van een basisversie van load balancer back-end-pool, gebruik [SNAT standaard](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) en een IP-adres toegewezen door Azure om uitgaande connectiviteit mogelijk te maken. Als gevolg hiervan, ziet u mogelijk de logboekvermeldingen stroom voor stromen van internet IP-adressen, als de stroom is dat is bestemd voor een poort in het bereik van poorten voor SNAT toegewezen. Hoewel Azure wordt niet toegestaan om deze stromen aan de virtuele machine, wordt de poging wordt geregistreerd en wordt weergegeven in de netwerk-Watcher NSG stroomlogboek standaard. Het is raadzaam dat ongewenste Binnenkomend internetverkeer expliciet worden geblokkeerd met de NSG.
+## <a name="sample-log-records"></a>Voorbeeld logboek records
 
-## <a name="sample-log-records"></a>Voorbeeld van records in logboek registreren
-
-De tekst die volgt is een voorbeeld van een stroomlogboek. Zoals u ziet, zijn er meerdere records die de lijst met eigenschappen die worden beschreven in de voorgaande sectie volgen.
+De volgende tekst is een voor beeld van een stroom logboek. Zoals u ziet, zijn er meerdere records die voldoen aan de eigenschappen lijst die in de voor gaande sectie wordt beschreven.
 
 
 > [!NOTE]
-> De waarden in de **flowTuples* eigenschap zijn een door komma's gescheiden lijst.
+> De waarden in de eigenschap **flowTuples* zijn een door komma's gescheiden lijst.
  
-### <a name="version-1-nsg-flow-log-format-sample"></a>Voorbeeld van versie 1 NSG stroom log-indeling
+### <a name="version-1-nsg-flow-log-format-sample"></a>Voor beeld van versie 1 NSG-stroom logboek indeling
 ```json
 {
     "records": [
@@ -212,7 +210,7 @@ De tekst die volgt is een voorbeeld van een stroomlogboek. Zoals u ziet, zijn er
         ,
         ...
 ```
-### <a name="version-2-nsg-flow-log-format-sample"></a>Versie 2 NSG stroom log indeling voorbeeld
+### <a name="version-2-nsg-flow-log-format-sample"></a>Voor beeld van versie 2 NSG-stroom logboek indeling
 ```json
  {
     "records": [
@@ -286,7 +284,7 @@ De tekst die volgt is een voorbeeld van een stroomlogboek. Zoals u ziet, zijn er
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor informatie over het inschakelen van Logboeken van de stroom, [inschakelen van NSG-stroomlogboeken](network-watcher-nsg-flow-logging-portal.md).
-- Zie voor meer informatie over het lezen van de logboeken van de stroom, [lezen NSG-stroomlogboeken](network-watcher-read-nsg-flow-logs.md).
-- Zie voor meer informatie over NSG-Logboeken, [Azure Monitor-logboeken voor netwerkbeveiligingsgroepen (nsg's)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- Om te bepalen of verkeer is toegestaan of vanaf of naar een virtuele machine verboden, Zie [een probleem VM-netwerk-verkeersfilter vaststellen](diagnose-vm-network-traffic-filtering-problem.md)
+- Zie [NSG-stroom logboeken](network-watcher-nsg-flow-logging-portal.md)inschakelen voor meer informatie over het inschakelen van stroom Logboeken.
+- Zie [NSG-stroom logboeken lezen](network-watcher-read-nsg-flow-logs.md)voor meer informatie over het lezen van de stroom Logboeken.
+- Zie [Azure monitor-logboeken voor netwerk beveiligings groepen (nsg's) voor](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)meer informatie over NSG-logboek registratie.
+- Zie [problemen met een VM-netwerk verkeer diagnosticeren](diagnose-vm-network-traffic-filtering-problem.md) om te bepalen of verkeer wordt toegestaan of geweigerd op een VM

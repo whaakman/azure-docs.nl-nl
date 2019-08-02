@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Het uitvoeren van enkele algemene datatechnologietaken met de Linux Data Science VM.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 editor: cgronlun
 ms.custom: seodec18
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: df05b2605f3553ce26447a4f8e2440002b75ec3a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516880"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68557343"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Gegevenswetenschap met een Linux Data Science Virtual Machine in Azure
 Deze procedure ziet u hoe u enkele algemene datatechnologietaken met de Linux Data Science VM uitvoert. De Linux Data Science Virtual Machine (DSVM) is een installatiekopie van een virtuele machine op Azure die vooraf worden geïnstalleerd met een verzameling hulpprogramma's die doorgaans gebruikt voor gegevensanalyse en machine learning is beschikbaar. De belangrijke software-componenten zijn ingedeeld de [Linux Data Science Virtual Machine inrichten](linux-dsvm-intro.md) onderwerp. De VM-installatiekopie maakt het gemakkelijk om te beginnen gegevenswetenschap in minuten, zonder te installeren en configureren van elk van de hulpprogramma's afzonderlijk. U kunt eenvoudig opschalen van de virtuele machine, indien nodig, en stoppen wanneer deze niet in gebruik. Deze resource is zo flexibel en kostenefficiënt.
@@ -37,7 +37,7 @@ Voordat u een Linux Data Science Virtual Machine gebruiken kunt, moet u het volg
 * Een **Azure-abonnement**. Als u nog geen een, Zie [Maak vandaag nog uw gratis Azure-account](https://azure.microsoft.com/free/).
 * Een [ **Linux data science VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Zie voor meer informatie over het inrichten van deze virtuele machine [Linux Data Science Virtual Machine inrichten](linux-dsvm-intro.md).
 * [X2Go](https://wiki.x2go.org/doku.php) geïnstalleerd op uw computer en een XFCE-sessie hebt geopend. Voor informatie over het installeren en configureren van een **X2Go client**, Zie [installeren en configureren van de client X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
-* Voor een soepeler schuiven ervaring, uitschakelen van de vlag gfx.xrender.enabled in over:-configuratie in virtuele machines FireFox-browser. [Zie hier meer informatie. ](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Denk ook na over bij het omschakelen van *mousewheel.enable_pixel_scrolling* op False. [Hier instructies.](https://support.mozilla.org/en-US/questions/981140)
+* Voor een soepeler schuiven ervaring, uitschakelen van de vlag gfx.xrender.enabled in over:-configuratie in virtuele machines FireFox-browser. [Zie hier meer informatie. ](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Denk ook na over bij het omschakelen van *mousewheel.enable_pixel_scrolling* op False. [Hier instructies.](https://support.mozilla.org/questions/981140)
 * Een **AzureML account**. Als u niet al hebt, zich aanmelden voor nieuwe resourcegroep op de [AzureML-startpagina](https://studio.azureml.net/). Er is een laag gratis gebruik om u aan de slag te helpen.
 
 ## <a name="download-the-spambase-dataset"></a>De gegevensset spambase downloaden
@@ -180,10 +180,10 @@ We gaan ook een willekeurige forest-model. Willekeurige forests trainen van een 
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>Een model implementeren voor Azure Machine Learning studio
-[Azure Machine Learning Studio](https://studio.azureml.net/) is een cloudservice waarmee u eenvoudig predictive analytics-modellen bouwen en implementeren. Een van de leuke functies van Azure Machine Learning studio is de mogelijkheid voor het publiceren van een R-functie als een webservice. De Azure Machine Learning studio R-pakket kunt de implementatie eenvoudig doen vanuit de R-sessie op de DSVM.
+## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>Een model implementeren in Azure Machine Learning Studio
+[Azure machine learning Studio](https://studio.azureml.net/) is een Cloud service waarmee u eenvoudig Predictive Analytics modellen kunt bouwen en implementeren. Een van de leuke functies van Azure Machine Learning Studio is de mogelijkheid om een R-functie als webservice te publiceren. Het Azure Machine Learning Studio R-pakket maakt implementatie eenvoudig vanuit onze R-sessie op de DSVM.
 
-Voor het implementeren van de decision tree code uit de vorige sectie, moet u zich aanmeldt bij Azure Machine Learning Studio. U moet uw werkruimte-ID en een verificatietoken aan te melden. Deze waarden vinden en de Azure Machine Learning-variabelen met hen initialiseren:
+Voor het implementeren van de decision tree code uit de vorige sectie, moet u zich aanmeldt bij Azure Machine Learning Studio. U moet uw werkruimte-ID en een verificatietoken aan te melden. Ga als volgt te werk om deze waarden te vinden en de Azure Machine Learning variabelen te initialiseren:
 
 Selecteer **instellingen** in het menu links. Houd er rekening mee uw **WERKRUIMTE-ID**. ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
 
@@ -344,7 +344,7 @@ Verschillende voorbeeldnotitieblokken zijn al geïnstalleerd op de virtuele mach
 >
 
 ## <a name="rattle"></a>Rammelaar
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (de R analytische hulpprogramma om te leren eenvoudig) is een grafische R-hulpprogramma voor gegevensanalyse. Er is een intuïtieve interface waarmee u eenvoudig om te laden, verkennen, en gegevens transformeren en bouwen en evalueren van modellen.  Het artikel [Rattle: Een Data Mining GUI voor R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) biedt een overzicht waarin ziet u de functies ervan.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (de R analytische hulpprogramma om te leren eenvoudig) is een grafische R-hulpprogramma voor gegevensanalyse. Er is een intuïtieve interface waarmee u eenvoudig om te laden, verkennen, en gegevens transformeren en bouwen en evalueren van modellen.  Het artikel [Rattle: Een gegevens analyse-GUI voor](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) R biedt een overzicht van de functies.
 
 Installeren en Rammelaar starten met de volgende opdrachten:
 
@@ -423,7 +423,7 @@ Een van de leuke functies van Rammelaar is de mogelijkheid voor het uitvoeren va
 Zodra u klaar bent met het ontwikkelen van modellen, selecteert u de **Log** tabblad om de R-code uitvoeren door Rammelaar tijdens uw sessie. U kunt selecteren de **exporteren** knop op te slaan.
 
 > [!NOTE]
-> Er is een fout in de huidige release van Rammelaar. Als u wilt wijzigen van het script of later uw stappen herhalen gebruiken, moet u een teken # vóór *dit logboek exporteren...*  in de tekst van het logboek.
+> Er is een fout in de huidige release van Rammelaar. Als u het script wilt wijzigen of gebruiken om de stappen later te herhalen, moet u een #-teken invoegen voor het *exporteren van dit logboek...* in de tekst van het logboek.
 >
 >
 

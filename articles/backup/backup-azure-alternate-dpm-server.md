@@ -1,18 +1,19 @@
 ---
 title: Gegevens herstellen vanuit een Azure Backup Server
 description: Herstel de gegevens die u hebt beveiligd met een Recovery Services kluis van een Azure Backup Server die is geregistreerd bij die kluis.
-author: kasinh
-manager: vijayts
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: kasinh
-ms.openlocfilehash: aaa2efa706822bee85dc867ad35bc312f4c700a1
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: e3d38e9b5e1b9b9f827476acf7e2e2ecab632424
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466900"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688804"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Gegevens herstellen vanaf Azure Backup Server
 U kunt Azure Backup Server gebruiken om de gegevens te herstellen waarvan u een back-up hebt gemaakt naar een Recovery Services kluis. Het proces hiervoor is geïntegreerd in de Azure Backup Server-beheer console en is vergelijkbaar met de herstel werk stroom voor andere Azure Backup-onderdelen.

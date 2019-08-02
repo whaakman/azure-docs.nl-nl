@@ -1,6 +1,6 @@
 ---
-title: Query voor clouddatabases met verschillende schema's | Microsoft Docs
-description: over het instellen van query's die databaseoverschrijdend via verticale partities
+title: Query's uitvoeren in Cloud databases met een ander schema | Microsoft Docs
+description: query's voor meerdere data bases instellen voor verticale partities
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,40 +10,39 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e7ba8057cd22c5cc1080b4a6d95f17bf76d4acb2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5657490474a401d9e3074ed6ab250a34ef0a5d8d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60585396"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568540"
 ---
-# <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Query's uitvoeren voor clouddatabases met verschillende schema's (preview)
+# <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Query's uitvoeren in Cloud databases met verschillende schema's (preview-versie)
 
-![Query's uitvoeren voor tabellen in verschillende databases][1]
+![Query's uitvoeren voor meerdere tabellen in verschillende data bases][1]
 
-Verticaal gepartitioneerd databases gebruiken verschillende sets van tabellen op verschillende databases. Dit betekent dat het schema verschilt voor verschillende databases. Alle tabellen voor de voorraad zijn bijvoorbeeld op de ene database terwijl alle accounting-gerelateerde tabellen op een tweede database zijn. 
+Verticaal gepartitioneerde data bases gebruiken verschillende sets tabellen in verschillende data bases. Dit betekent dat het schema afwijkt van verschillende data bases. Zo bevinden alle tabellen voor de inventarisatie zich op één data base, terwijl alle aan de administratie gerelateerde tabellen zich in een tweede data base bevinden. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De gebruiker moet beschikken over machtigingen voor een externe gegevensbron niet wijzigen. Deze machtiging is opgenomen in de machtiging ALTER DATABASE.
-* EEN externe gegevensbron ALTER machtigingen nodig om te verwijzen naar de onderliggende gegevensbron.
+* De gebruiker moet beschikken over de machtiging voor het wijzigen van externe gegevens bronnen. Deze machtiging is opgenomen in de machtiging ALTER data base.
+* Machtigingen voor externe gegevens bronnen wijzigen is nodig om te verwijzen naar de onderliggende gegevens bron.
 
 ## <a name="overview"></a>Overzicht
 
 > [!NOTE]
-> In tegenstelling tot bij horizontale partitionering, deze DDL-componenten niet afhankelijk zijn over het definiëren van een gegevenslaag met een shard-toewijzing via de clientbibliotheek van elastische database.
+> In tegens telling tot horizontale partitionering zijn deze DDL-instructies niet afhankelijk van het definiëren van een gegevenslaag met een Shard-toewijzing via de client bibliotheek voor Elastic data base.
 >
 
-1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [MAKEN VAN DATABASE-SCOPED REFERENTIE](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [EXTERNE GEGEVENSBRON MAKEN](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) 
+1. [HOOFD SLEUTEL MAKEN](https://msdn.microsoft.com/library/ms174382.aspx)
+2. [DATA BASE-SCOPED REFERENTIE MAKEN](https://msdn.microsoft.com/library/mt270260.aspx)
+3. [EXTERNE GEGEVENS BRON MAKEN](https://msdn.microsoft.com/library/dn935022.aspx)
+4. [EXTERNE TABEL MAKEN](https://msdn.microsoft.com/library/dn935021.aspx) 
 
-## <a name="create-database-scoped-master-key-and-credentials"></a>De hoofdsleutel van de databaseconfiguratie en referenties maken
+## <a name="create-database-scoped-master-key-and-credentials"></a>Data base-scoped Master sleutel en referenties maken
 
-De referentie op die wordt gebruikt door de elastische query's verbinding maken met uw externe databases.  
+De referentie wordt gebruikt door de elastische query om verbinding te maken met uw externe data bases.  
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
@@ -51,12 +50,12 @@ De referentie op die wordt gebruikt door de elastische query's verbinding maken 
     [;]
 
 > [!NOTE]
-> Zorg ervoor dat de `<username>` omvat geen **"\@servername"** achtervoegsel. 
+> Zorg ervoor dat `<username>` het achtervoegsel **'\@server naam '** niet wordt vermeld. 
 >
 
-## <a name="create-external-data-sources"></a>Externe gegevensbronnen maken
+## <a name="create-external-data-sources"></a>Externe gegevens bronnen maken
 
-Syntaxis:
+Syntaxis
 
     <External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH 
@@ -67,12 +66,12 @@ Syntaxis:
                 ) [;] 
 
 > [!IMPORTANT]
-> Het typeparameter moet worden ingesteld op **RDBMS**. 
+> De TYPE parameter moet worden ingesteld op **RDBMS**. 
 >
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld wordt het gebruik van de instructie CREATE voor externe gegevensbronnen. 
+In het volgende voor beeld ziet u het gebruik van de instructie CREATE voor externe gegevens bronnen. 
 
     CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
     WITH 
@@ -83,13 +82,13 @@ Het volgende voorbeeld wordt het gebruik van de instructie CREATE voor externe g
         CREDENTIAL= SqlUser 
     ); 
 
-De lijst met huidige externe gegevensbronnen ophalen: 
+De lijst met huidige externe gegevens bronnen ophalen: 
 
     select * from sys.external_data_sources; 
 
 ### <a name="external-tables"></a>Externe tabellen
 
-Syntaxis:
+Syntaxis
 
     CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] table_name  
     ( { <column_definition> } [ ,...n ])     
@@ -119,36 +118,36 @@ Syntaxis:
     ); 
 ```
 
-Het volgende voorbeeld laat zien hoe de lijst met externe tabellen ophalen uit de huidige database: 
+In het volgende voor beeld ziet u hoe u de lijst met externe tabellen kunt ophalen uit de huidige Data Base: 
 
     select * from sys.external_tables; 
 
 ### <a name="remarks"></a>Opmerkingen
 
-Elastische query een uitbreiding voor de syntaxis van de bestaande externe tabel voor het definiëren van externe tabellen die gebruikmaken van externe gegevensbronnen van het type RDBMS. De definitie van een externe tabel voor verticale partities bevat informatie over de volgende aspecten: 
+Met elastische query's wordt de bestaande syntaxis van de externe tabel uitgebreid met het definiëren van externe tabellen die gebruikmaken van externe gegevens bronnen van het type RDBMS. Een externe tabel definitie voor verticale partitionering heeft betrekking op de volgende aspecten: 
 
-* **Schema**: De externe DDL-tabel definieert een schema dat uw query's kunnen gebruiken. Het opgegeven in de definitie van de externe tabel schema moet overeenkomen met het schema van de tabellen in de externe database waar de werkelijke gegevens worden opgeslagen. 
-* **Verwijzing naar externe database**: De externe tabel DDL verwijst naar een externe gegevensbron. De externe gegevensbron Hiermee geeft u de SQL-Database-servernaam en databasenaam op van de externe database waar de werkelijke tabelgegevens is opgeslagen. 
+* **Schema**: De externe tabel DDL definieert een schema dat door uw query's kan worden gebruikt. Het schema dat is opgegeven in de definitie van de externe tabel moet overeenkomen met het schema van de tabellen in de externe data base waarin de daad werkelijke gegevens zijn opgeslagen. 
+* **Externe database verwijzing**: De externe tabel DDL verwijst naar een externe gegevens bron. De externe gegevens bron specificeert de SQL Database Server naam en de database naam van de externe data base waar de gegevens van de actuele tabel worden opgeslagen. 
 
-Met behulp van een externe gegevensbron zoals wordt beschreven in de vorige sectie, is de syntaxis voor het maken van externe tabellen als volgt: 
+Als u een externe gegevens bron gebruikt, zoals beschreven in de vorige sectie, is de syntaxis voor het maken van externe tabellen als volgt: 
 
-De component DATA_SOURCE definieert de externe gegevensbron (dat wil zeggen de externe database in het geval van verticale partitionering) die wordt gebruikt voor de externe tabel.  
+De DATA_SOURCE-component definieert de externe gegevens bron (dat wil zeggen de externe data base in het geval van verticale partitionering) die wordt gebruikt voor de externe tabel.  
 
-De componenten SCHEMA_NAME en OBJECT_NAME bieden de mogelijkheid de definitie van de externe tabel naar een tabel in een ander schema op de externe database of naar een tabel met een andere naam, respectievelijk toewijzen. Dit is handig als u wilt definiëren van een externe tabel naar een catalogusweergave of DMV op de externe database- of een andere situatie waarin de naam van de externe tabel is al die lokaal worden uitgevoerd.  
+De SCHEMA_NAME-en OBJECT_NAME-componenten bieden de mogelijkheid om de definitie van de externe tabel toe te wijzen aan een tabel in een ander schema in de externe data base of aan een tabel met een andere naam. Dit is handig als u een externe tabel wilt definiëren in een catalogus weergave of DMV op uw externe data base, of een andere situatie waarin de naam van de externe tabel al lokaal wordt overgenomen.  
 
-De volgende DDL-instructie komt een bestaande definitie van de externe tabel uit de lokale catalogus. Dit heeft geen invloed op de externe database. 
+De volgende DDL-instructie verwijdert een bestaande definitie van een externe tabel uit de lokale catalogus. Dit heeft geen invloed op de externe data base. 
 
     DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
-**Machtigingen voor externe tabel maken/DROP**: EEN externe gegevensbron ALTER machtigingen nodig zijn voor de externe tabel-DDL die ook nodig is om te verwijzen naar de onderliggende gegevensbron.  
+**Machtigingen voor het maken/verwijderen van een externe tabel**: Het wijzigen van machtigingen voor externe gegevens bronnen is nodig voor de DDL van een externe tabel, die ook nodig is om te verwijzen naar de onderliggende gegevens bron.  
 
 ## <a name="security-considerations"></a>Beveiligingsoverwegingen
 
-Gebruikers met toegang tot de externe tabel krijgen automatisch toegang tot de onderliggende externe tabellen onder de referentie gegeven in de definitie van de externe gegevensbron. U moet toegang tot de externe tabel zorgvuldig beheren om te voorkomen dat ongewenste verhoging van bevoegdheden via de referentie van de externe gegevensbron. Machtigingen voor reguliere SQL kunnen worden gebruikt voor het verlenen of INTREKKEN van toegang tot een externe tabel net alsof het een gewone tabellen.  
+Gebruikers met toegang tot de externe tabel krijgen automatisch toegang tot de onderliggende externe tabellen onder de referentie die is opgegeven in de definitie van de externe gegevens bron. U moet de toegang tot de externe tabel zorgvuldig beheren om te voor komen dat er ongewenste bevoegdheden worden uitgebreid via de referentie van de externe gegevens bron. Reguliere SQL-machtigingen kunnen worden gebruikt om toegang tot een externe tabel toe te kennen of in te trekken, net alsof het een normale tabel is.  
 
-## <a name="example-querying-vertically-partitioned-databases"></a>Voorbeeld: query's verticaal gepartitioneerd databases
+## <a name="example-querying-vertically-partitioned-databases"></a>Voor beeld: een query uitvoeren op verticaal gepartitioneerde data bases
 
-De volgende query voert een koppeling drie richtingen tussen de twee lokale tabellen voor orders en regels en de externe tabel voor klanten. Dit is een voorbeeld van de referentie-use-case voor gegevens voor een elastische query: 
+Met de volgende query wordt een drie richtings relatie uitgevoerd tussen de twee lokale tabellen voor orders en order regels en de externe tabel voor klanten. Dit is een voor beeld van het gebruik van referentie gegevens voor elastische query's: 
 
 ```sql
     SELECT      
@@ -166,16 +165,16 @@ De volgende query voert een koppeling drie richtingen tussen de twee lokale tabe
     WHERE c_id = 100
 ```
 
-## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Opgeslagen procedure voor uitvoering op afstand T-SQL: sp\_execute_remote
+## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Opgeslagen procedure voor externe T-SQL-uitvoering:\_SP execute_remote
 
-Elastische query introduceert ook een opgeslagen procedure die rechtstreekse toegang tot de externe database biedt. De opgeslagen procedure is aangeroepen [sp\_uitvoeren \_externe](https://msdn.microsoft.com/library/mt703714) en kan worden gebruikt voor het uitvoeren van extern opgeslagen procedures of T-SQL-code op de externe database. Het bevat de volgende parameters: 
+Met elastische query's wordt ook een opgeslagen procedure geïntroduceerd die directe toegang biedt tot de externe data base. De opgeslagen procedure heet [\_extern uitvoeren \_](https://msdn.microsoft.com/library/mt703714) en kan worden gebruikt om externe opgeslagen procedures of T-SQL-code uit te voeren op de externe data base. Hierbij worden de volgende para meters gebruikt: 
 
-* Naam van gegevensbron (nvarchar): De naam van de externe gegevensbron van het type RDBMS. 
-* Query (nvarchar): De T-SQL-query moet worden uitgevoerd op de externe database. 
-* Parameterdeclaratie (nvarchar) - optionele: De tekenreeks met gegevens typedefinities voor de parameters die in de queryparameter (zoals sp_executesql) gebruikt. 
-* Waarde parameterlijst - optionele: Door komma's gescheiden lijst met parameterwaarden (zoals sp_executesql).
+* Naam van de gegevens bron (nvarchar): De naam van de externe gegevens bron van het type RDBMS. 
+* Query (nvarchar): De T-SQL-query die moet worden uitgevoerd op de externe data base. 
+* Parameter declaratie (nvarchar)-optioneel: Teken reeks met definities van gegevens typen voor de para meters die worden gebruikt in de query parameter (zoals sp_executesql). 
+* Lijst met parameter waarden-optioneel: Een door komma's gescheiden lijst met parameter waarden (zoals sp_executesql).
 
-De sp\_uitvoeren\_extern maakt gebruik van de externe gegevensbron die is opgegeven in de Aanroepparameters voor het uitvoeren van de gegeven T-SQL-instructie op de externe database. De referentie van de externe gegevensbron maakt verbinding met de externe database.  
+De extern\_uitvoeren op afstand maakt gebruik van de externe gegevens bron die is opgegeven in de aanroep parameters om de opgegeven T-SQL-instructie uit te voeren op de externe data base.\_ De referentie van de externe gegevens bron wordt gebruikt om verbinding te maken met de externe data base.  
 
 Voorbeeld: 
 
@@ -185,22 +184,22 @@ Voorbeeld:
         N'select count(w_id) as foo from warehouse' 
 ```
 
-## <a name="connectivity-for-tools"></a>Connectiviteit voor hulpprogramma 's
+## <a name="connectivity-for-tools"></a>Connectiviteit voor hulpprogram ma's
 
-Verbindingsreeksen voor normale SQL Server kunt u uw gegevens en BI-integratie-hulpprogramma's verbinden met databases op de SQL-database-server met elastische query's die zijn ingeschakeld en externe tabellen die zijn gedefinieerd. Zorg ervoor dat SQL Server wordt ondersteund als een gegevensbron voor het hulpprogramma. Raadpleeg vervolgens de elastische query uitvoeren op database en de externe tabellen net als elke andere SQL Server-database waarmee u verbinding met uw hulpprogramma maken wilt. 
+U kunt gewone SQL Server verbindings reeksen gebruiken om uw BI-en gegevens integratie hulpprogramma's te koppelen aan data bases op de SQL DB-server waarop elastische query's zijn ingeschakeld en externe tabellen zijn gedefinieerd. Zorg ervoor dat SQL Server wordt ondersteund als gegevens bron voor uw hulp programma. Raadpleeg vervolgens de elastische query database en de externe tabellen, net als andere SQL Server Data Base waarmee u verbinding wilt maken met uw hulp programma. 
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 
-* Zorg ervoor dat de elastische query uitvoeren op database-eindpunt toegang tot de externe database gekregen heeft door het inschakelen van toegang voor Azure-Services in de SQL-database-firewall-configuratie. Ook voor zorgen dat de referentie die is opgegeven in de definitie van de externe gegevensbron bij de externe database aanmelden kunt en de machtigingen voor toegang tot de externe tabel.  
-* Elastische query's het beste werkt voor query's waar de meeste van de berekening kan worden uitgevoerd op de externe databases. Doorgaans downloadt u de beste prestaties van query's met selectieve filter predicaten die kan worden geëvalueerd op de externe databases of joins die volledig kunnen worden uitgevoerd op de externe database. Andere querypatronen moet mogelijk grote hoeveelheden gegevens van de externe database laden en slecht mag uitvoeren. 
+* Zorg ervoor dat de data base van het Elastic query-eind punt toegang heeft gekregen tot de externe data base door toegang in te scha kelen voor Azure-Services in de configuratie van de SQL DB-firewall. Zorg er ook voor dat de referenties die in de definitie van de externe gegevens bron zijn opgenomen, kunnen worden aangemeld bij de externe data base en de machtigingen hebben voor toegang tot de externe tabel.  
+* Elastische query's werken het beste voor query's waarbij de meeste berekeningen kunnen worden uitgevoerd voor de externe data bases. Normaal gesp roken krijgt u de beste query prestaties met selectieve filter predikaten die kunnen worden geëvalueerd op de externe data bases of samen voegingen die volledig kunnen worden uitgevoerd op de externe data base. Andere query patronen moeten mogelijk grote hoeveel heden gegevens van de externe data base laden en kunnen goed worden uitgevoerd. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een overzicht van elastische query [elastische query overzicht](sql-database-elastic-query-overview.md).
-* Zie voor een verticale partitionering zelfstudie [aan de slag met query van meerdere databases (verticale partitionering)](sql-database-elastic-query-getting-started-vertical.md).
-* Zie voor een zelfstudie horizontale partitionering (sharding) [aan de slag met elastische query's voor horizontale partitionering (sharding)](sql-database-elastic-query-getting-started.md).
-* Zie voor een voorbeeld en de syntaxis van query's voor horizontaal gepartitioneerde gegevens [gegevens opvragen horizontaal gepartitioneerd)](sql-database-elastic-query-horizontal-partitioning.md)
-* Zie [sp\_uitvoeren \_externe](https://msdn.microsoft.com/library/mt703714) voor een opgeslagen procedure die een Transact-SQL-instructie op een één externe SQL-Database van Azure of een set van databases die fungeren als shards in een horizontale partitionering wordt uitgevoerd.
+* Zie [overzicht van elastische query's](sql-database-elastic-query-overview.md)voor een overzicht van elastische query's.
+* Zie aan de slag [met query's tussen data bases (verticaal partitioneren)](sql-database-elastic-query-getting-started-vertical.md)voor een verticaal gepartitioneerde zelf studie.
+* Zie aan de slag [met elastische query's voor horizontale partitionering (sharding)](sql-database-elastic-query-getting-started.md)voor een zelf studie over horizontale partitionering (sharding).
+* Zie query's [uitvoeren in horizon taal gepartitioneerde gegevens](sql-database-elastic-query-horizontal-partitioning.md) voor syntaxis-en voorbeeld query's voor Horizon taal gepartitioneerde gegevens)
+* Zie [extern\_ uitvoeren\_van SP](https://msdn.microsoft.com/library/mt703714) voor een opgeslagen procedure waarmee een Transact-SQL-instructie wordt uitgevoerd op één externe Azure SQL database of een set met data bases die fungeren als Shards in een horizon taal partitie schema.
 
 
 <!--Image references-->

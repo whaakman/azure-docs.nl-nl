@@ -1,6 +1,6 @@
 ---
-title: Azure SQL-Database en Data Warehouse-IP-firewallregels | Microsoft Docs
-description: Leer hoe u een SQL-database of SQL Data Warehouse-firewall configureren met het IP-firewallregels op serverniveau beheren van toegang en een enkele of gegroepeerde-database configureren met de IP-firewallregels op databaseniveau.
+title: IP-firewall regels voor Azure SQL Database en Data Warehouse | Microsoft Docs
+description: Informatie over het configureren van een SQL database of SQL Data Warehouse Firewall met IP-firewall regels op server niveau voor het beheren van toegang en het configureren van een enkele of gegroepeerde Data Base met IP-firewall regels op database niveau.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,148 +10,147 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39d2dae28bde8ff35408733a1af886c302ec79bf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158305"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568186"
 ---
-# <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL-Database en SQL Data Warehouse IP-firewall-regels
+# <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL Database en SQL Data Warehouse IP-firewall regels
 
-Microsoft Azure [SQL-Database](sql-database-technical-overview.md) en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) een relationele databaseservice voor Azure en andere toepassingen op basis van het Internet. Om uw gegevens te beschermen, verhinderen firewalls alle toegang tot de databaseserver totdat u opgeeft welke computers zijn gemachtigd. De firewall verleent toegang tot databases op basis van het IP-adres waar de aanvraag vandaan komt.
+Microsoft Azure [SQL database](sql-database-technical-overview.md) en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) bieden een relationele database service voor Azure en andere toepassingen op internet. Om uw gegevens te beschermen, verhinderen firewalls alle toegang tot de databaseserver totdat u opgeeft welke computers zijn gemachtigd. De firewall verleent toegang tot databases op basis van het IP-adres waar de aanvraag vandaan komt.
 
 > [!NOTE]
-> In dit artikel is van toepassing op Azure SQL-server en op zowel SQL Database en SQL Data Warehouse-databases die zijn gemaakt op de Azure SQL-server. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
+> Dit artikel is van toepassing op Azure SQL Server en op zowel SQL Database-als SQL Data Warehouse-data bases die zijn gemaakt op de Azure SQL-Server. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
 > [!IMPORTANT]
-> In dit artikel biedt *niet* zijn van toepassing op **Azure SQL Database Managed Instance**. Raadpleeg het volgende artikel over [verbinding te maken met een beheerd exemplaar](sql-database-managed-instance-connect-app.md) voor meer informatie over welke netwerkconfiguratie is vereist.
+> Dit artikel is *niet* van toepassing op **Azure SQL database Managed instance**. Raadpleeg het volgende artikel over het [maken van een verbinding met een beheerd exemplaar](sql-database-managed-instance-connect-app.md) voor meer informatie over de benodigde netwerk configuratie.
 
-## <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>Regels voor virtueel netwerk als alternatief voor IP-regels
+## <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>Virtuele netwerk regels als alternatieven voor IP-regels
 
-Naast de IP-regels, beheert de firewall ook *virtuele netwerkregels*. Virtual network-regels zijn gebaseerd op Virtual Network-service-eindpunten. Regels voor virtueel netwerk is mogelijk beter aan IP-regels in sommige gevallen. Zie voor meer informatie, [Virtual Network-service-eindpunten en regels voor Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
+Naast de IP-regels beheert de firewall ook regels voor het *virtuele netwerk*. De regels voor virtuele netwerken zijn gebaseerd op Virtual Network Service-eind punten. De regels voor virtuele netwerken kunnen in sommige gevallen de voor keur geven aan IP-regels. Zie [Virtual Network Service-eind punten en-regels voor Azure SQL database voor](sql-database-vnet-service-endpoint-rule-overview.md)meer informatie.
 
 ## <a name="overview"></a>Overzicht
 
-In eerste instantie wordt wordt alle toegang tot uw Azure SQL-server geblokkeerd door de SQL Database-firewall. Voor toegang tot een database-server, moet u een of meer op serverniveau IP-firewall-regels waarmee toegang tot uw Azure SQL-server opgeven. Gebruik de IP-firewallregels om op te geven welke IP-adresbereiken van Internet zijn toegestaan en of Azure-toepassingen kunnen proberen verbinding maken met uw Azure SQL-server.
+In eerste instantie wordt alle toegang tot uw Azure SQL-Server geblokkeerd door de firewall van SQL Database. Als u toegang wilt krijgen tot een database server, moet u een of meer IP-firewall regels op server niveau opgeven waarmee toegang tot uw Azure SQL-Server mogelijk wordt. Gebruik de IP-firewall regels om op te geven welke IP-adresbereiken van Internet zijn toegestaan en of Azure-toepassingen kunnen proberen verbinding te maken met uw Azure SQL-Server.
 
-Als u selectief toegang wilt verlenen tot slechts een van de databases op uw Azure SQL-server, moet u voor de vereiste database een regel op databaseniveau maken. Geef een IP-adresbereik voor de database IP-firewallregel die buiten het bereik van IP-adres opgegeven in de IP-firewallregel op serverniveau en zorg ervoor dat het IP-adres van de client binnen het bereik dat is opgegeven in de regel op databaseniveau valt.
+Als u selectief toegang wilt verlenen tot slechts een van de databases op uw Azure SQL-server, moet u voor de vereiste database een regel op databaseniveau maken. Geef een IP-adres bereik voor de data base-IP-firewall regel op die zich buiten het IP-adres bereik bevindt dat is opgegeven in de IP-firewall regel op server niveau, en zorg ervoor dat het IP-adres van de client binnen het bereik ligt dat is opgegeven in de regel op database niveau.
 
 > [!IMPORTANT]
-> SQL Data Warehouse wordt alleen ondersteuning biedt voor IP-firewallregels op serverniveau en biedt geen ondersteuning voor de IP-firewallregels op databaseniveau.
+> SQL Data Warehouse ondersteunt alleen IP-firewall regels op server niveau en biedt geen ondersteuning voor IP-firewall regels op database niveau.
 
 Verbindingspogingen van internet en Azure moeten eerst de firewall passeren voordat ze de Azure SQL-server of SQL Database kunnen bereiken, zoals in het volgende diagram wordt weergegeven:
 
    ![Diagram met beschrijving van firewallconfiguratie.][1]
 
-- **Firewallregels op serverniveau-IP:**
+- **IP-firewall regels op server niveau:**
 
-  Deze regels zorgen ervoor dat clients toegang krijgen tot de hele Azure SQL-server, dat wil zeggen, alle databases binnen dezelfde SQL-Database-server. Deze regels worden opgeslagen in de **hoofd**database. IP-firewallregels op serverniveau kunnen worden geconfigureerd met behulp van de portal of met behulp van Transact-SQL-instructies. Voor het maken van IP-firewallregels op serverniveau met de Azure portal of PowerShell, moet u eigenaar van het abonnement of een bijdrager aan het abonnement. Voor het maken van een niveau van de server IP-firewall-regel met behulp van Transact-SQL, moet u verbinding met de SQL-Database-exemplaar als de principal-aanmelding op serverniveau of met de Azure Active Directory-beheerder (wat betekent dat een IP-firewallregel op serverniveau moet eerst worden gemaakt door een gebruiker met machtigingen op entiteitsniveau Azure).
+  Met deze regels kunnen clients toegang krijgen tot uw volledige Azure SQL-Server, dat wil zeggen, alle data bases op dezelfde SQL Database Server. Deze regels worden opgeslagen in de **hoofd**database. IP-firewall regels op server niveau kunnen worden geconfigureerd met behulp van de portal of met behulp van Transact-SQL-instructies. Als u IP-firewall regels op server niveau wilt maken met behulp van de Azure Portal of Power shell, moet u de eigenaar van het abonnement of een mede werker van het abonnement zijn. Als u een IP-firewall regel op server niveau wilt maken met behulp van Transact-SQL, moet u verbinding maken met het SQL Database-exemplaar als de principal-aanmelding op server niveau of de beheerder van Azure Active Directory (dit betekent dat er eerst een IP-firewall regel op server niveau moet worden gemaakt door een gebruiker met machtigingen op Azure-niveau).
 
-- **Firewallregels op databaseniveau-IP:**
+- **IP-firewall regels op database niveau:**
 
-  Deze regels zorgen ervoor dat clients toegang krijgen tot bepaalde (beveiligde) databases binnen dezelfde SQL-Database-server. U kunt deze regels voor elke database maken (met inbegrip van de **master** database) en ze worden opgeslagen in de afzonderlijke databases. Het IP-firewallregels op databaseniveau voor hoofd- en gebruikersdatabases kunnen alleen worden gemaakt en beheerd met behulp van Transact-SQL-instructies en alleen nadat u de eerste firewall op serverniveau hebt geconfigureerd. Als u een IP-adresbereik in de regel op databaseniveau IP-firewall die zich buiten het bereik dat is opgegeven in de IP-firewallregel op serverniveau opgeeft, kunnen alleen clients met IP-adressen in het bereik op databaseniveau toegang krijgen tot de database. U kunt een maximum van 128 op databaseniveau IP-firewallregels voor een database hebben. Zie het voorbeeld verderop in dit artikel en Zie voor meer informatie over het configureren van IP-firewallregels op databaseniveau [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx).
+  Met deze regels kunnen clients toegang krijgen tot bepaalde (beveiligde) data bases op dezelfde SQL Database Server. U kunt deze regels maken voor elke Data Base (met inbegrip van de **hoofd** database) en ze worden opgeslagen in de afzonderlijke data bases. IP-firewall regels op database niveau voor hoofd-en gebruikers databases kunnen alleen worden gemaakt en beheerd met behulp van Transact-SQL-instructies en pas nadat u de eerste firewall op server niveau hebt geconfigureerd. Als u een IP-adres bereik opgeeft in de IP-firewall regel op database niveau buiten het bereik dat is opgegeven in de IP-firewall regel op server niveau, hebben alleen clients met IP-adressen in het bereik op database niveau toegang tot de data base. U kunt Maxi maal 128 IP-firewall regels op database niveau voor een Data Base hebben. Zie het voor beeld verderop in dit artikel voor meer informatie over het configureren van IP-firewall regels op database niveau en Zie [sp_set_database_firewall_rule (Azure SQL database)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 ### <a name="recommendation"></a>Aanbeveling
 
-Microsoft raadt u aan met behulp van IP-firewallregels op databaseniveau indien mogelijk om beveiliging te verbeteren en uw database draagbaarder te maken. Gebruik de IP-firewallregels op serverniveau voor beheerders en wanneer u veel databases met dezelfde toegangsvereisten hebt en u niet wilt dat elke database afzonderlijk configureren.
+Micro soft raadt u aan om de IP-firewall regels op database niveau wanneer mogelijk te gebruiken om de beveiliging te verbeteren en om uw data base draagbaarer te maken. Gebruik IP-firewall regels op server niveau voor beheerders en wanneer u veel data bases met dezelfde toegangs vereisten hebt en u niet de tijd wilt best Eden aan het configureren van elke Data Base afzonderlijk.
 
 > [!IMPORTANT]
-> Windows Azure SQL Database ondersteunt maximaal 128 IP-firewallregels.
+> Windows Azure SQL Database ondersteunt Maxi maal 128 IP-firewall regels.
 > [!NOTE]
 > Voor meer informatie over draagbare databases in de context van bedrijfscontinuïteit raadpleegt u [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md) (Verificatievereisten voor herstel na noodgevallen).
 
 ### <a name="connecting-from-the-internet"></a>Verbinding maken vanuit internet
 
-Wanneer een computer probeert verbinding maken met uw database-server vanaf het Internet, controleert de firewall eerst het oorspronkelijke IP-adres van de aanvraag op basis van de database op serverniveau IP-firewall-regels, voor de database die de verbinding moet worden gemaakt:
+Wanneer een computer via Internet verbinding probeert te maken met uw database server, controleert de firewall eerst het oorspronkelijke IP-adres van de aanvraag op basis van de IP-firewall regels op database niveau voor de data base die door de verbinding wordt aangevraagd:
 
-- Als het IP-adres van de aanvraag binnen een van de opgegeven in de firewallregels op databaseniveau IP-bereiken, wordt de verbinding toegestaan met de SQL-Database die de regel bevat.
-- Als het IP-adres van de aanvraag niet binnen een van de opgegeven in de firewallregel op databaseniveau IP-bereiken, worden de IP-firewallregels op serverniveau gecontroleerd. Als het IP-adres van de aanvraag binnen een van de bereiken die is opgegeven in de IP-firewallregels op serverniveau, wordt de verbinding toegestaan. IP-firewallregels op serverniveau zijn van toepassing op alle SQL-databases op de Azure SQL-server.  
-- Als het IP-adres van de aanvraag niet binnen de bereiken die zijn opgegeven in een van de database-niveau of firewallregels op serverniveau, IP-: de verbindingsaanvraag is mislukt.
+- Als het IP-adres van de aanvraag binnen een van de bereiken ligt die zijn opgegeven in de IP-firewall regels op database niveau, wordt de verbinding verleend aan de SQL Database die de regel bevat.
+- Als het IP-adres van de aanvraag niet binnen een van de bereiken ligt die zijn opgegeven in de IP-firewall regel op database niveau, worden de IP-firewall regels op server niveau gecontroleerd. Als het IP-adres van de aanvraag binnen een van de bereiken ligt die zijn opgegeven in de IP-firewall regels op server niveau, wordt de verbinding verleend. IP-firewall regels op server niveau zijn van toepassing op alle SQL-data bases op de Azure SQL-Server.  
+- Als het IP-adres van de aanvraag niet binnen de bereiken valt die zijn opgegeven in een van de IP-firewall regels op database niveau of op server niveau, mislukt de verbindings aanvraag.
 
 > [!NOTE]
 > Voor toegang tot Azure SQL Database vanuit de lokale computer moet u ervoor zorgen dat de firewall op uw netwerk en lokale computer uitgaande communicatie op TCP-poort 1433 toestaat.
 
 ### <a name="connecting-from-azure"></a>Verbinding maken vanuit Azure
 
-Azure-verbindingen moeten zijn ingeschakeld opdat toepassingen vanuit Azure verbinding kunnen maken met uw Azure SQL-server. Wanneer een toepassing vanuit Azure probeert verbinding te maken met uw databaseserver, verifieert de firewall of Azure-verbindingen zijn toegestaan. Een firewallinstelling waarvan het begin- en eindadres gelijk zijn aan 0.0.0.0 geeft aan dat Azure-verbindingen zijn toegestaan. Als de verbindingspoging niet is toegestaan, zal de aanvraag de Azure SQL Database-server niet bereiken.
+Azure-verbindingen moeten zijn ingeschakeld opdat toepassingen vanuit Azure verbinding kunnen maken met uw Azure SQL-server. Wanneer een toepassing vanuit Azure probeert verbinding te maken met uw databaseserver, verifieert de firewall of Azure-verbindingen zijn toegestaan. Een firewall instelling met het begin-en eind adres gelijk aan 0.0.0.0 geeft aan dat Azure-verbindingen zijn toegestaan. Als de verbindingspoging niet is toegestaan, zal de aanvraag de Azure SQL Database-server niet bereiken.
 
 > [!IMPORTANT]
 > Met deze optie configureert u de firewall zo dat alle verbindingen vanuit Azure zijn toegestaan, inclusief verbindingen vanuit de abonnementen van andere klanten. Wanneer u deze optie selecteert, zorg dan dat uw aanmeldings- en gebruikersmachtigingen de toegang beperken tot alleen geautoriseerde gebruikers.
 
-## <a name="creating-and-managing-ip-firewall-rules"></a>Het maken en beheren van IP-firewallregels
+## <a name="creating-and-managing-ip-firewall-rules"></a>IP-firewall regels maken en beheren
 
-De eerste firewallinstelling op serverniveau kan worden gemaakt met de [Azure-portal](https://portal.azure.com/) of programmatisch met [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), of de [ REST-API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Volgende niveau van de server IP-firewall-regels kunnen worden gemaakt en beheerd met behulp van deze methoden en via Transact-SQL.
+De eerste firewall instelling op server niveau kan worden gemaakt met behulp van de [Azure Portal](https://portal.azure.com/) of programmatisch met behulp van [Azure POWERSHELL](https://docs.microsoft.com/powershell/module/az.sql), [Azure cli](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)of de [rest API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Volgende IP-firewall regels op server niveau kunnen worden gemaakt en beheerd met behulp van deze methoden en via Transact-SQL.
 
 > [!IMPORTANT]
-> IP-firewallregels op databaseniveau kunnen alleen worden gemaakt en beheerd met behulp van Transact-SQL.
+> IP-firewall regels op database niveau kunnen alleen worden gemaakt en beheerd met behulp van Transact-SQL.
 
-Voor betere prestaties, de IP-firewallregels op serverniveau tijdelijk worden opgeslagen op het databaseniveau van de. Zie [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx) als u de cache wilt vernieuwen.
-
-> [!TIP]
-> U kunt [SQL Database Auditing](sql-database-auditing.md) om te controleren van wijzigingen van de firewall op serverniveau en databaseniveau.
-
-## <a name="manage-server-level-ip-firewall-rules-using-the-azure-portal"></a>IP-firewallregels op serverniveau met de Azure-portal beheren
-
-Om in te stellen een IP-firewallregel op serverniveau in Azure portal, kunt u ofwel gaat u naar de pagina overzicht voor uw Azure SQL database of de overzichtspagina voor uw SQL Database-server.
+Om de prestaties te verbeteren, worden IP-firewall regels op server niveau tijdelijk opgeslagen in de cache op database niveau. Zie [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx) als u de cache wilt vernieuwen.
 
 > [!TIP]
-> Zie voor een zelfstudie [maken van een database met behulp van de Azure-portal](sql-database-single-database-get-started.md).
+> U kunt [SQL database controle](sql-database-auditing.md) gebruiken om wijzigingen in de firewall op server niveau en op database niveau te controleren.
 
-### <a name="from-database-overview-page"></a>Overzichtspagina voor database
+## <a name="manage-server-level-ip-firewall-rules-using-the-azure-portal"></a>IP-firewall regels op server niveau beheren met behulp van de Azure Portal
 
-1. Klik op de overzichtspagina voor de database te een IP-firewallregel op serverniveau **serverfirewall instellen** op de werkbalk zoals weergegeven in de volgende afbeelding: De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend.
+Als u een IP-firewall regel op server niveau wilt instellen in de Azure Portal, gaat u naar de pagina overzicht voor uw Azure SQL database of de overzichts pagina voor uw SQL Database-Server.
 
-      ![Server IP-firewallregel](./media/sql-database-get-started-portal/server-firewall-rule.png)
+> [!TIP]
+> Zie [een Data Base maken met behulp van de Azure Portal](sql-database-single-database-get-started.md)voor een zelf studie.
 
-2. Klik op **IP van client toevoegen** op de werkbalk om het toevoegen van het IP-adres van de computer u momenteel gebruikt en klik vervolgens op **opslaan**. Een IP-firewallregel op serverniveau is voor uw huidige IP-adres gemaakt.
+### <a name="from-database-overview-page"></a>Van data base-overzichts pagina
 
-      ![IP-firewallregel op serverniveau instellen](./media/sql-database-get-started-portal/server-firewall-rule-set.png)
+1. Als u een IP-firewall regel op server niveau wilt instellen op de overzichts pagina van de data base, klikt u op de werk balk op **Server firewall instellen** , zoals wordt weer gegeven in de volgende afbeelding: De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend.
 
-### <a name="from-server-overview-page"></a>Overzichtspagina voor server
+      ![Server-IP-firewall regel](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
-De overzichtspagina voor uw server wordt geopend, met de volledig gekwalificeerde servernaam (zoals **mynewserver20170403.database.windows.net**) en opties voor verdere configuratie.
+2. Klik op **IP van client toevoegen** op de werk balk om het IP-adres toe te voegen van de computer die u momenteel gebruikt en klik vervolgens op **Opslaan**. Er wordt een IP-firewall regel op server niveau gemaakt voor uw huidige IP-adres.
 
-1. Als een regel op serverniveau overzichtspagina voor de server, klikt u op **Firewall** in het linkermenu onder instellingen:
+      ![IP-firewall regel op server niveau instellen](./media/sql-database-get-started-portal/server-firewall-rule-set.png)
 
-2. Klik op **IP van client toevoegen** op de werkbalk om het toevoegen van het IP-adres van de computer u momenteel gebruikt en klik vervolgens op **opslaan**. Een IP-firewallregel op serverniveau is voor uw huidige IP-adres gemaakt.
+### <a name="from-server-overview-page"></a>Van Server overzicht pagina
 
-## <a name="manage-ip-firewall-rules-using-transact-sql"></a>Beheren van IP-firewallregels met behulp van Transact-SQL
+De overzichts pagina voor uw server wordt geopend, met de volledig gekwalificeerde server naam (zoals **mynewserver20170403.database.Windows.net**) en biedt opties voor verdere configuratie.
+
+1. Als u een regel op server niveau wilt instellen op de pagina overzicht van server, klikt u in het menu links onder instellingen op **firewall** .
+
+2. Klik op **IP van client toevoegen** op de werk balk om het IP-adres toe te voegen van de computer die u momenteel gebruikt en klik vervolgens op **Opslaan**. Er wordt een IP-firewall regel op server niveau gemaakt voor uw huidige IP-adres.
+
+## <a name="manage-ip-firewall-rules-using-transact-sql"></a>IP-firewall regels beheren met behulp van Transact-SQL
 
 | Catalogusweergave of opgeslagen procedure | Niveau | Description |
 | --- | --- | --- |
-| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server |Geeft de huidige niveau van de server IP-firewall-regels |
-| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Server |Hiermee maken of bijwerken van de IP-firewallregels op serverniveau |
-| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Server |Hiermee verwijdert u de IP-firewallregels op serverniveau |
-| [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |Database |Geeft de huidige op databaseniveau IP-firewall-regels |
-| [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |Database |Hiermee maken of bijwerken van de IP-firewallregels op databaseniveau |
-| [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) |Databases |Hiermee verwijdert u op databaseniveau IP-firewall-regels |
+| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server |Hiermee worden de huidige IP-firewall regels op server niveau weer gegeven |
+| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Server |Hiermee worden IP-firewall regels op server niveau gemaakt of bijgewerkt |
+| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Server |Hiermee worden IP-firewall regels op server niveau verwijderd |
+| [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |Database |Hiermee worden de huidige IP-firewall regels op database niveau weer gegeven |
+| [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |Database |Hiermee worden de IP-firewall regels op database niveau gemaakt of bijgewerkt |
+| [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) |Databases |Hiermee verwijdert u IP-firewall regels op database niveau |
 
-De volgende voorbeelden bekijken van de bestaande regels, een bereik van IP-adressen op de Contoso-server inschakelen en Hiermee verwijdert u een IP-firewallregel:
+In de volgende voor beelden worden de bestaande regels gecontroleerd, een bereik van IP-adressen op de server Contoso ingeschakeld en een IP-firewall regel verwijderd:
 
 ```sql
 SELECT * FROM sys.firewall_rules ORDER BY name;
 ```
 
-Voeg vervolgens een IP-firewallregel op serverniveau.
+Voeg vervolgens een IP-firewall regel op server niveau toe.
 
 ```sql
 EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
    @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 ```
 
-Opgeslagen procedure verwijderen van een IP-firewallregel op serverniveau, voert u de sp_delete_firewall_rule uit. Het volgende voorbeeld wordt de regel contosofirewallrule verwijderd:
+Als u een IP-firewall regel op server niveau wilt verwijderen, voert u de opgeslagen procedure sp_delete_firewall_rule uit. In het volgende voor beeld wordt de regel met de naam ContosoFirewallRule verwijderd:
 
 ```sql
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ```
 
-## <a name="manage-server-level-ip-firewall-rules-using-azure-powershell"></a>IP-firewallregels op serverniveau met behulp van Azure PowerShell beheren
+## <a name="manage-server-level-ip-firewall-rules-using-azure-powershell"></a>IP-firewall regels op server niveau beheren met Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
+> De Power shell-Azure Resource Manager module wordt nog steeds ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module AZ. SQL. Zie [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)voor deze cmdlets. De argumenten voor de opdrachten in de module AZ en in de AzureRm-modules zijn aanzienlijk identiek.
 
 | Cmdlet | Niveau | Description |
 | --- | --- | --- |
@@ -160,7 +159,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 | [Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |Server |Werkt de eigenschappen van een bestaande firewallregel op serverniveau bij |
 | [Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |Server |Verwijdert firewallregels op serverniveau |
 
-Het volgende voorbeeld wordt een niveau van de server IP-firewall-regel met behulp van PowerShell:
+In het volgende voor beeld wordt een IP-firewall regel op server niveau ingesteld met behulp van Power shell:
 
 ```powershell
 New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
@@ -169,19 +168,19 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ```
 
 > [!TIP]
-> Zie voor PowerShell-voorbeelden in de context van een snel starten, [DB maken - PowerShell](sql-database-powershell-samples.md) en [een individuele database maken en een SQL-Database op serverniveau IP-firewallregel configureren met behulp van PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
+> Voor Power shell-voor beelden in de context van een snel starten raadpleegt u [Create DB-Power shell](sql-database-powershell-samples.md) en [een afzonderlijke data base maken en een SQL database IP-firewall regel op server niveau configureren met behulp van Power shell](scripts/sql-database-create-and-configure-database-powershell.md)
 
-## <a name="manage-server-level-ip-firewall-rules-using-azure-cli"></a>IP-firewallregels op serverniveau met behulp van Azure CLI beheren
+## <a name="manage-server-level-ip-firewall-rules-using-azure-cli"></a>IP-firewall regels op server niveau beheren met Azure CLI
 
 | Cmdlet | Niveau | Description |
 | --- | --- | --- |
-|[AZ sql server firewall-regel maken](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Server|Hiermee maakt u een server IP-firewallregel|
-|[AZ sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Server|Geeft een lijst van de IP-firewall-regels op een server|
-|[AZ sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Server|Geeft de details van een IP-firewallregel|
-|[AZ sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Server|Updates van een IP-firewallregel|
-|[AZ sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Server|Hiermee verwijdert u een IP-firewallregel|
+|[AZ SQL Server firewall-Rule Create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Server|Hiermee maakt u een server-IP-firewall regel|
+|[AZ SQL Server firewall-Rule List](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Server|Een lijst met de IP-firewall regels op een server|
+|[AZ SQL Server firewall-Rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Server|Toont de details van een IP-firewall regel|
+|[AZ SQL Server firewall-Rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Server|Hiermee wordt een IP-firewall regel bijgewerkt|
+|[AZ SQL Server firewall-Rule Delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Server|Hiermee verwijdert u een IP-firewall regel|
 
-Het volgende voorbeeld wordt een niveau van de server IP-firewall-regel met de Azure CLI:
+In het volgende voor beeld wordt een IP-firewall regel op server niveau ingesteld met behulp van Azure CLI:
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
@@ -189,71 +188,71 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 ```
 
 > [!TIP]
-> Zie voor een Azure CLI-voorbeeld in de context van een snel starten, [DB maken - Azure CLI](sql-database-cli-samples.md) en [een individuele database maken en configureren van een SQL Database-IP-firewall-regel met de Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
+> Voor een voor beeld van een Azure CLI in de context van een Quick Start raadpleegt u [Create DB-Azure cli](sql-database-cli-samples.md) en [een enkele data base maken en een SQL database IP-firewall regel configureren met behulp van de Azure cli](scripts/sql-database-create-and-configure-database-cli.md)
 
-## <a name="manage-server-level-ip-firewall-rules-using-rest-api"></a>Beheren van IP-firewallregels op serverniveau met behulp van REST-API
+## <a name="manage-server-level-ip-firewall-rules-using-rest-api"></a>IP-firewall regels op server niveau beheren met REST API
 
 | API | Niveau | Description |
 | --- | --- | --- |
-| [List Firewall Rules](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) (Lijst met firewallregels) |Server |Geeft de huidige niveau van de server IP-firewall-regels |
-| [Firewallregels maken of bijwerken](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Hiermee maken of bijwerken van de IP-firewallregels op serverniveau |
-| [Delete Firewall Rule](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) (Firewallregel verwijderen) |Server |Hiermee verwijdert u de IP-firewallregels op serverniveau |
-| [Firewallregels ophalen](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | IP-firewallregels op serverniveau opgehaald |
+| [List Firewall Rules](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) (Lijst met firewallregels) |Server |Hiermee worden de huidige IP-firewall regels op server niveau weer gegeven |
+| [Firewallregels maken of bijwerken](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Hiermee worden IP-firewall regels op server niveau gemaakt of bijgewerkt |
+| [Delete Firewall Rule](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) (Firewallregel verwijderen) |Server |Hiermee worden IP-firewall regels op server niveau verwijderd |
+| [Firewall regels ophalen](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Hiermee worden IP-firewall regels op server niveau opgehaald |
 
-## <a name="server-level-versus-database-level-ip-firewall-rules"></a>-Serverniveau ten opzichte van de IP-firewallregels op databaseniveau
+## <a name="server-level-versus-database-level-ip-firewall-rules"></a>Server niveau versus IP-firewall regels op database niveau
 
-V. Gebruikers van één database worden volledig geïsoleerd van een andere database?
-Als u Ja kiest, moet u toegang met behulp van IP-firewallregels op databaseniveau verlenen. Hiermee voorkomt u met behulp van op serverniveau IP-firewallregels, die via de firewall op alle databases, verminderen de diepte van uw beveiliging toestaan.
+V. Moeten gebruikers van een Data Base volledig worden geïsoleerd van een andere data base?
+Zo ja, toegang verlenen met behulp van IP-firewall regels op database niveau. Dit voor komt het gebruik van IP-firewall regels op server niveau, waarmee toegang via de firewall wordt toegestaan voor alle data bases, waardoor de diepte van uw verdedigingen wordt verminderd.
 
-V. Moeten gebruikers op het IP-adres toegang tot alle databases?
-IP-firewallregels op serverniveau gebruiken om te beperken van het aantal keren die moet u IP-firewallregels configureren.
+V. Hebben gebruikers op het IP-adres toegang tot alle data bases nodig?
+Gebruik IP-firewall regels op server niveau om het aantal keren dat u IP-firewall regels moet configureren te verminderen.
 
-V. Beschikt over de persoon die of het team configureren van de IP-firewallregels alleen toegang tot en met de Azure-portal, PowerShell of de REST-API?
-U moet de IP-firewallregels op serverniveau. IP-firewallregels op databaseniveau kunnen alleen worden geconfigureerd met behulp van Transact-SQL.  
+V. Heeft de persoon of het team dat de IP-firewall regels configureert alleen toegang via de Azure Portal, Power shell of de REST API?
+U moet IP-firewall regels op server niveau gebruiken. IP-firewall regels op database niveau kunnen alleen worden geconfigureerd met behulp van Transact-SQL.  
 
-V. De persoon die of het team configureert u de IP-firewall-regels niet toegestaan op hoog niveau machtigingen hebben op het databaseniveau van de?
-Gebruik de IP-firewallregels op serverniveau. Configureren van IP-firewallregels op databaseniveau met behulp van Transact-SQL, moet ten minste `CONTROL DATABASE` machtigingen op databaseniveau.  
+V. Is de persoon of het team dat de IP-firewall regels voor het configureren van een hoog niveau op database niveau niet toegestaan?
+Gebruik IP-firewall regels op server niveau. Het configureren van IP-firewall regels op database niveau met behulp van Transact `CONTROL DATABASE` -SQL, vereist ten minste machtigingen op database niveau.  
 
-V. Is de persoon die of het team configureren of controle van de IP-firewallregels, Centraal beheer van IP-firewallregels voor veel (bijvoorbeeld 100) van databases?
-Deze selectie is afhankelijk van uw behoeften en de omgeving. IP-firewallregels op serverniveau is mogelijk eenvoudiger te configureren, maar regels op databaseniveau-scripts kunt configureren. En zelfs als u de IP-firewallregels op serverniveau gebruikt, moet u mogelijk om te controleren van de database op serverniveau IP-firewall-regels, om te controleren of gebruikers met `CONTROL` machtiging voor de database IP-firewallregels op databaseniveau hebt gemaakt.
+V. Worden de IP-firewall regels door de persoon of het team geconfigureerd of gecontroleerd, en worden de IP-firewall regels voor veel (mogelijk 100s) van data bases centraal beheerd?
+Deze selectie is afhankelijk van uw behoeften en omgeving. IP-firewall regels op server niveau zijn mogelijk gemakkelijker te configureren, maar met scripts kunnen regels op database niveau worden geconfigureerd. En zelfs als u IP-firewall regels op server niveau gebruikt, moet u mogelijk de IP-firewall regels op database niveau controleren om te zien of gebruikers `CONTROL` met machtigingen voor de data base IP-firewall regels op database niveau hebben gemaakt.
 
-V. Kan ik een combinatie van IP-firewallregels op serverniveau en databaseniveau zowel gebruiken?
-Ja. Sommige gebruikers, zoals beheerders mogelijk IP-firewallregels op serverniveau. Andere gebruikers, zoals gebruikers van een databasetoepassing mogelijk nodig hebt op databaseniveau IP-firewallregels.
+V. Kan ik een combi natie van IP-firewall regels op server niveau en op database niveau gebruiken?
+Ja. Sommige gebruikers, zoals beheerders, hebben mogelijk IP-firewall regels op server niveau nodig. Andere gebruikers, zoals gebruikers van een database toepassing, kunnen mogelijk IP-firewall regels op database niveau hebben.
 
 ## <a name="troubleshooting-the-database-firewall"></a>Problemen met de databasefirewall oplossen
 
 Houd rekening met de volgende punten als toegang tot de service Microsoft Azure SQL Database niet werkt zoals verwacht:
 
-- **Lokale firewallconfiguratie:**
+- **Lokale firewall configuratie:**
 
-  Voordat de computer toegang heeft tot Azure SQL Database, moet u mogelijk maken een firewall-uitzondering voor TCP-poort 1433 op de computer. Als u verbindingen maakt binnen de grenzen van de Azure-cloud, moet u mogelijk aanvullende poorten openen. Zie voor meer informatie de **SQL-Database: Buiten vs binnen** sectie van [poorten boven 1433 voor ADO.NET 4.5 en SQL-Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+  Voordat de computer toegang kan krijgen tot Azure SQL Database, moet u mogelijk een firewall-uitzonde ring op uw computer maken voor TCP-poort 1433. Als u verbindingen maakt binnen de grenzen van de Azure-cloud, moet u mogelijk aanvullende poorten openen. Zie voor meer informatie de **SQL database: Buiten het gedeelte van de [poorten boven 1433 voor ADO.net 4,5 en SQL database.](sql-database-develop-direct-route-ports-adonet-v12.md)**
 
 - **Netwerkadresomzetting (NAT):**
 
-  Vanwege NAT kan het IP-adres gebruikt door de computer verbinding maken met Azure SQL Database mogelijk anders dan het IP-adres wordt weergegeven in uw computer IP-configuratie-instellingen. Als u het IP-adres wilt zien dat door uw computer wordt gebruikt om verbinding te maken met Azure, meldt u zich aan bij de portal en gaat u naar het tabblad **Configureren** op de server die als host fungeert voor uw database. In de sectie **Toegestane IP-adressen** wordt het **Huidige IP-adres van client** weergegeven. Klik op **Toevoegen** aan de **Toegestane IP-adressen** als u wilt toestaan dat deze computer toegang heeft tot de server.
+  Als gevolg van NAT kan het IP-adres dat door uw computer wordt gebruikt om verbinding te maken met Azure SQL Database, afwijken van het IP-adres dat wordt weer gegeven in de IP-configuratie-instellingen van uw computer. Als u het IP-adres wilt zien dat door uw computer wordt gebruikt om verbinding te maken met Azure, meldt u zich aan bij de portal en gaat u naar het tabblad **Configureren** op de server die als host fungeert voor uw database. In de sectie **Toegestane IP-adressen** wordt het **Huidige IP-adres van client** weergegeven. Klik op **Toevoegen** aan de **Toegestane IP-adressen** als u wilt toestaan dat deze computer toegang heeft tot de server.
 
-- **Wijzigingen aan de acceptatielijst zijn nog niet doorgevoerd:**
+- **Wijzigingen in de acceptatie lijst zijn nog niet doorgevoerd:**
 
-  Mogelijk zijn er maar liefst vijf minuten vertraging voor wijzigingen in de configuratie van de Azure SQL Database-firewall pas van kracht.
+  Het kan een vertraging van vijf minuten duren voordat wijzigingen in de configuratie van de Azure SQL Database firewall van kracht worden.
 
-- **De aanmelding is niet gemachtigd of is een onjuist wachtwoord gebruikt:**
+- **De aanmelding is niet geautoriseerd of er is een onjuist wacht woord gebruikt:**
 
-  Als een aanmelding heeft geen machtigingen op de Azure SQL Database-server of het wachtwoord onjuist is, wordt de verbinding met de Azure SQL Database-server is geweigerd. Door een firewallinstellingen te maken, krijgen clients alleen de mogelijkheid om te proberen verbinding te maken met de server. Elke client moet alsnog de benodigde beveiligingsreferenties opgeven. Zie voor meer informatie over het voorbereiden van aanmeldingen, [beheren van Databases, aanmeldingen en gebruikers in Azure SQL Database](sql-database-manage-logins.md).
+  Als een aanmelding geen machtigingen heeft op de Azure SQL Database Server of het gebruikte wacht woord onjuist is, wordt de verbinding met de Azure SQL Database-Server geweigerd. Door een firewallinstellingen te maken, krijgen clients alleen de mogelijkheid om te proberen verbinding te maken met de server. Elke client moet alsnog de benodigde beveiligingsreferenties opgeven. Zie [data bases, aanmeldingen en gebruikers in Azure SQL database beheren](sql-database-manage-logins.md)voor meer informatie over het voorbereiden van aanmeldingen.
 
-- **Dynamische IP-adres:**
+- **Dynamisch IP-adres:**
 
-  Als u een internetverbinding met dynamische IP-adressering hebt en u problemen ondervindt bij het ophalen van via de firewall, kan u een van de volgende oplossingen proberen:
+  Als u een Internet verbinding hebt met dynamische IP-adres sering en u problemen ondervindt met het verkrijgen van de firewall, kunt u een van de volgende oplossingen proberen:
   
-  - Vraag uw Internetproviderverbindingen (ISP) voor het IP-adresbereik is toegewezen aan uw clientcomputers die toegang hebben tot de Azure SQL Database-server en vervolgens als een IP-firewallregel toevoegen het IP-adresbereik.
-  - Ophalen van statische IP-adressen in plaats daarvan voor uw clientcomputers, en voeg de IP-adressen als IP-firewallregels.
+  - Vraag uw Internet provider (ISP) naar het IP-adres bereik dat is toegewezen aan uw client computers die toegang hebben tot de Azure SQL Database Server en voeg vervolgens het IP-adres bereik toe als een IP-firewall regel.
+  - Neem in plaats daarvan statische IP-adressen op voor uw client computers en voeg de IP-adres toe als IP-firewall regels.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Controleer of dat uw zakelijke netwerkomgeving kunt binnenkomende communicatie van de Compute-IP-adresbereiken (inclusief SQL-bereiken) die worden gebruikt door de Microsoft Azure-Datacenters. Kan het nodig zijn aan lijst met geaccepteerde zijn deze IP-adressen, Zie [Microsoft Azure Datacenter IP-bereiken](https://www.microsoft.com/download/details.aspx?id=41653)  
-- Zie voor een snel starten voor het maken van een IP-firewallregel op serverniveau [maken van een Azure SQL database](sql-database-single-database-get-started.md).
+- Bevestigen dat de bedrijfs netwerk omgeving binnenkomende communicatie toestaat van de compute IP-adresbereiken (inclusief SQL-bereiken) die worden gebruikt door de Microsoft Azure data centers. Het kan nodig zijn om deze IP-adressen te white list. Zie [Microsoft Azure Data Center IP-bereiken](https://www.microsoft.com/download/details.aspx?id=41653)  
+- Zie [een Azure-SQL database maken](sql-database-single-database-get-started.md)voor een snelle start voor het maken van een IP-firewall regel op server niveau.
 - Voor hulp bij het maken van een verbinding met een Azure SQL-database vanuit open-source toepassingen of toepassingen van derden raadpleegt u [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx) (Snelstartcodevoorbeelden voor clients met SQL Database).
-- Zie voor informatie over de extra poorten die u mogelijk nodig hebt om te openen, de **SQL-Database: Buiten vs binnen** sectie van [poorten boven 1433 voor ADO.NET 4.5 en SQL-Database](sql-database-develop-direct-route-ports-adonet-v12.md)
-- Zie voor een overzicht van Azure SQL Database-beveiliging, [uw database beveiligen](sql-database-security-overview.md)
+- Voor informatie over aanvullende poorten die u mogelijk moet openen, raadpleegt u **de SQL database: Buiten het gedeelte van de [poorten boven 1433 voor ADO.net 4,5 en SQL database](sql-database-develop-direct-route-ports-adonet-v12.md)**
+- Zie [uw data base beveiligen](sql-database-security-overview.md) voor een overzicht van Azure SQL database beveiliging
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png

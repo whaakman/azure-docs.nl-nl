@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: dd4efcd2f1d4cbf497ad1fde6936088513cb5fd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 407aaf15808d1d1420fd1a3804651d29a407d4b3
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759937"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68606668"
 ---
 # <a name="log-analytics-data-security"></a>Meld u Analytics-gegevensbeveiliging
-Dit document is bedoeld voor specifieke informatie voor Log Analytics, dat een functie van Azure Monitor om te voorzien in de gegevens is op [Azure Trust Center](../../security/security-microsoft-trust-center.md).  
+Dit document is bedoeld voor specifieke informatie voor Log Analytics, dat een functie van Azure Monitor om te voorzien in de gegevens is op [Azure Trust Center](../../security/fundamentals/trust-center.md).  
 
 In dit artikel wordt uitgelegd hoe data wordt verzameld, verwerkt en beveiligd door Log Analytics. Agents kunt u verbinding maken met de webservice, System Center Operations Manager gebruiken voor het verzamelen van operationele gegevens of gegevens ophalen uit Azure diagnostics voor gebruik door Log Analytics. 
 
@@ -77,7 +77,7 @@ De volgende tabel ziet u voorbeelden van gegevenstypen:
 | --- | --- |
 | Waarschuwing |Ontvang een waarschuwing naam, beschrijving van de waarschuwing, BaseManagedEntityId, probleem-ID, IsMonitorAlert, RuleId, ResolutionState, prioriteit, ernst, categorie, de eigenaar, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
 | Configuratie |Klant-id, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
-| Gebeurtenis |Gebeurtenis-id, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, getal, categorie, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Opmerking:** Wanneer u gebeurtenissen met aangepaste velden in het Windows-gebeurtenislogboek schrijft, wordt deze Log Analytics verzamelt. |
+| Gebeurtenis |Gebeurtenis-id, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, getal, categorie, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Opmerking:** Wanneer u gebeurtenissen met aangepaste velden in het Windows-gebeurtenis logboek schrijft, worden deze door Log Analytics verzameld. |
 | Metagegevens |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IP-adres, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Adres NetbiosDomainName, LogicalProcessors, DNS-naam, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | Prestaties |Objectnaam, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
 | Status |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
@@ -173,7 +173,7 @@ Zoals hierboven beschreven, wordt de gegevens van de beheerserver of rechtstreek
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. De Log Analytics-service ontvangt en verwerkt gegevens
 De Log Analytics-service zorgt ervoor dat binnenkomende gegevens van een vertrouwde bron is door het valideren van certificaten en de integriteit van gegevens met Azure-verificatie. De niet-verwerkte onbewerkte gegevens wordt vervolgens opgeslagen in een Azure Event Hub in de regio die de gegevens uiteindelijk worden opgeslagen in rust. Het type van de gegevens die zijn opgeslagen, is afhankelijk van de soorten oplossingen die zijn geïmporteerd en gebruikt om gegevens te verzamelen. Vervolgens wordt de met Log Analytics service processen de onbewerkte gegevens en neemt deze in de database.
 
-De bewaarperiode van de verzamelde gegevens opgeslagen in de database, is afhankelijk van de geselecteerde prijsstelling. Voor de *gratis* laag, verzamelde gegevens zijn beschikbaar voor de zeven dagen. Voor de *betaald* laag, verzamelde gegevens gedurende 31 dagen standaard beschikbaar is, maar kan worden uitgebreid tot 730 dagen. Gegevens worden opgeslagen versleuteld in rust in Azure storage om te controleren of de vertrouwelijkheid van gegevens, en de gegevens worden gerepliceerd binnen de regio met lokaal redundante opslag (LRS). De afgelopen twee weken aan gegevens, worden ook opgeslagen in de cache op basis van SSD en deze cache is versleuteld.
+De bewaarperiode van de verzamelde gegevens opgeslagen in de database, is afhankelijk van de geselecteerde prijsstelling. Voor de *gratis* laag, verzamelde gegevens zijn beschikbaar voor de zeven dagen. Voor de *betaald* laag, verzamelde gegevens gedurende 31 dagen standaard beschikbaar is, maar kan worden uitgebreid tot 730 dagen. Gegevens worden opgeslagen versleuteld in rust in Azure storage om te controleren of de vertrouwelijkheid van gegevens, en de gegevens worden gerepliceerd binnen de regio met lokaal redundante opslag (LRS). De laatste twee weken van gegevens worden ook opgeslagen in de cache op SSD-basis en deze cache is versleuteld.
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Log Analytics gebruiken voor toegang tot de gegevens
 Voor toegang tot uw Log Analytics-werkruimte moet u zich aanmeldt bij de Azure-portal met behulp van de organisatie-account of een Microsoft-account dat u eerder hebt ingesteld. Al het verkeer tussen de portal en de Log Analytics-service worden verzonden via een beveiligde HTTPS-kanaal. Wanneer u de portal, een sessie-ID is gegenereerd op de gebruiker-client (webbrowser) en gegevens worden opgeslagen in een lokale cache totdat de sessie wordt beëindigd. Wanneer is afgesloten, wordt de cache verwijderd. Client-side-cookies niet persoonlijk identificeerbare informatie bevatten, worden niet automatisch verwijderd. Sessiecookies HTTPOnly zijn gemarkeerd en worden beveiligd. Na een vooraf bepaald niet-actieve periode, is de Azure portal-sessie beëindigd.

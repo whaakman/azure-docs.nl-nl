@@ -2,23 +2,23 @@
 title: Beheer van de app en resource-toegang met behulp van groepen - Azure Active Directory | Microsoft Docs
 description: Meer informatie over het beheren van toegang tot de cloud gebaseerde apps, on-premises toepassingen en bronnen met behulp van Azure Active Directory-groepen van uw organisatie.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/28/2017
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c2bffad4254815d2ed51d9bbc14b32a521b5537
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: acbc19c2148a2b62ff1aa28d705591430b4fad20
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248446"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561821"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>App- en resource-toegang met behulp van Azure Active Directory-groepen beheren
 Azure Active Directory (Azure AD) helpt u bij het beheren van uw cloud-gebaseerde apps, on-premises toepassingen en uw resources met behulp van groepen van uw organisatie. Uw resources kunnen deel uitmaken van de map, zoals machtigingen voor het beheren van objecten door middel van rollen in de directory, of extern naar de map, zoals software as a Service (SaaS)-apps, Azure-services, SharePoint-sites, en on-premises resources.
@@ -36,7 +36,7 @@ Er zijn vier manieren om toe te wijzen resource toegangsrechten aan uw gebruiker
 
 - **Rechtstreekse toewijzing toe.** De gebruiker de resource-eigenaar rechtstreeks toegewezen aan de resource.
 
-- **Toewijzing van de groep.** De resource-eigenaar wijst een Azure AD-groep toe aan de resource, waarmee automatisch alle van de groep leden toegang tot de resource. Lidmaatschap van groep wordt beheerd door zowel de Groepseigenaar van de en de resource-eigenaar, zodat de eigenaar toevoegen of verwijderen van leden uit de groep. Zie voor meer informatie over het toevoegen of verwijderen van het groepslidmaatschap [het: Toevoegen of verwijderen van een groep uit een andere groep met behulp van de Azure Active Directory-portal](active-directory-groups-membership-azure-portal.md). 
+- **Toewijzing van de groep.** De resource-eigenaar wijst een Azure AD-groep toe aan de resource, waarmee automatisch alle van de groep leden toegang tot de resource. Lidmaatschap van groep wordt beheerd door zowel de Groepseigenaar van de en de resource-eigenaar, zodat de eigenaar toevoegen of verwijderen van leden uit de groep. Zie [voor meer informatie over het toevoegen of verwijderen van groepslid maatschap: Een groep toevoegen aan of verwijderen uit een andere groep met behulp van de Azure Active Directory Portal](active-directory-groups-membership-azure-portal.md). 
 
 - **Toewijzing op basis van een regel.** De resource-eigenaar een groep maakt en gebruikt een regel voor het definiëren welke gebruikers zijn toegewezen aan een specifieke resource. De regel is gebaseerd op kenmerken die zijn toegewezen aan individuele gebruikers. De resource-eigenaar beheert de regel, waarmee wordt bepaald welke kenmerken en waarden vereist zijn voor toegang tot de resource. Zie voor meer informatie, [een dynamische groep maken en de status controleren](../users-groups-roles/groups-create-rule.md).
 

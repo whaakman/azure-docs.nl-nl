@@ -1,5 +1,5 @@
 ---
-title: AMQP 1,0 gebruiken met de Java JMS Service Bus-API | Microsoft Docs
+title: Gebruik AMQP 1,0 met de API voor Java-berichten service en Azure Service Bus
 description: De Java-berichten service (JMS) gebruiken met Azure Service Bus en Advanced Message Queueing Protocol (AMQP) 1,0.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 47b077dbb62088093c60a588660045529678c58f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: seo-java-july2019
+ms.openlocfilehash: f816a5c84416b7f40e3062bf22dd70cbb356c6f1
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318458"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662883"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>De API voor de Java-berichten service (JMS) gebruiken met Service Bus en AMQP 1,0
 De Advanced Message Queueing Protocol (AMQP) 1,0 is een efficiënte, betrouw bare, Wire-level berichten protocol dat u kunt gebruiken voor het bouwen van robuuste, platform onafhankelijke toepassingen voor berichten uitwisseling.
@@ -371,9 +372,10 @@ Daarnaast wordt Azure Service Bus het besturings element gesplitst van het gegev
 | createTemporaryTopic        | een onderwerp maken via beheer-API/hulpprogram ma's/Portal waarbij *AutoDeleteOnIdle* is ingesteld op een verloop periode |
 | createTopic                 | een onderwerp maken via Management API/tools/Portal                                           |
 | afmelden                 | de topic Management API/tools/Portal verwijderen                                             |
-| createBrowser               | Niet-ondersteunde. De functie Peek () van de Service Bus-API gebruiken                         |
+| createBrowser               | niet-ondersteunde. De functie Peek () van de Service Bus-API gebruiken                         |
 | createQueue                 | een wachtrij maken via Management API/tools/Portal                                           | 
 | createTemporaryQueue        | een wachtrij maken via beheer-API/hulpprogram ma's/Portal waarbij *AutoDeleteOnIdle* is ingesteld op een verloop periode |
+| receiveNoWait               | Gebruik de methode receive () die is opgegeven door de Service Bus SDK en geef een zeer lage of nul time-out op |
 
 ## <a name="summary"></a>Samenvatting
 In deze hand leiding wordt uitgelegd hoe u Service Bus Brokered Messaging functies (wacht rijen en onderwerpen voor publiceren/abonneren) kunt gebruiken vanuit Java met behulp van de populaire JMS-API en AMQP 1,0.

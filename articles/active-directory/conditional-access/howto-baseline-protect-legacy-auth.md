@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a313240685e539b613dee1c7ff8bd56bb24eb2ba
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 91cc2707034eabf85afae70278f2448b77d3ee14
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227328"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608070"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Basislijn beleid: Verouderde verificatie blok keren (preview-versie)
 
@@ -36,7 +36,7 @@ De beste manier om uw account te beschermen tegen kwaad aardige verificatie aanv
 Voordat u verouderde verificatie in uw Directory kunt blok keren, moet u eerst begrijpen of uw gebruikers apps hebben die gebruikmaken van verouderde verificatie en hoe dit van invloed is op uw algemene Directory. Aanmeld logboeken van Azure AD kunnen worden gebruikt om te begrijpen of u gebruikmaakt van verouderde verificatie.
 
 1. Navigeer naar het **Azure Portal** >  **-** **Azure Active Directory** > aanmeldingen.
-1. Voeg de kolom client toepassing toe als deze niet wordt weer gegeven door  > te klikken op de**client-app**columns.
+1. Voeg de kolom client toepassing toe als deze niet wordt weer gegeven door > te klikken op de**client-app**columns.
 1. Filteren op **client-app** > **andere clients** en klik op **Toep assen**.
 
 Bij filteren worden alleen de aanmeldings pogingen weer gegeven die zijn gemaakt door verouderde verificatie protocollen. Als u op elke afzonderlijke aanmeldings poging klikt, wordt er meer informatie weer gegeven. In het veld **client-app** onder het tabblad **basis informatie** wordt aangegeven welk verouderde verificatie protocol is gebruikt.
@@ -117,5 +117,5 @@ Om dit beleid in te scha kelen en uw organisatie te beschermen:
 Zie voor meer informatie:
 
 * [Basis beveiligings beleid voor voorwaardelijke toegang](concept-baseline-protection.md)
-* [Vijf stappen voor het beveiligen van uw identiteits infrastructuur](../../security/azure-ad-secure-steps.md)
+* [Vijf stappen voor het beveiligen van uw identiteits infrastructuur](../../security/fundamentals/steps-secure-identity.md)
 * [Wat is voorwaardelijke toegang in Azure Active Directory?](overview.md)

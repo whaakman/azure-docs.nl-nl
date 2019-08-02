@@ -16,14 +16,14 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896cc495d6f369c034171833a9b90aa53e6477b6
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 12452b4e9cc6caa64d4c81a310fbccb5d1717817
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234624"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678161"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Wat is het beheer van rechten van Azure AD? (Preview)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Wat is het beheer van rechten van Azure AD? (Preview-versie)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD)-rechts beheer is momenteel beschikbaar als open bare preview.
@@ -90,7 +90,7 @@ Met een toegangs pakket en het bijbehorende beleid definieert de Access package 
 
 - Resources
 - Rollen die de gebruikers nodig hebben voor de resources
-- Interne gebruikers en externe gebruikers die in aanmerking komen om toegang aan te vragen
+- Interne gebruikers en partner organisaties van externe gebruikers die in aanmerking komen om toegang aan te vragen
 - Goedkeurings proces en de gebruikers die toegang kunnen goed keuren of weigeren
 - Duur van de toegang van de gebruiker
 
@@ -123,12 +123,12 @@ Bekijk de volgende voor waarden om het rechten beheer en de bijbehorende documen
 | policy | Een set regels die de toegangs levenscyclus definieert, bijvoorbeeld hoe gebruikers toegang krijgen, wie kan goed keuren en hoelang gebruikers toegang hebben. Voor beelden van beleids regels zijn toegang tot werk nemers en externe toegang. |
 | catalog | Een container met gerelateerde resources en toegangs pakketten. |
 | Algemene catalogus | Een ingebouwde catalogus die altijd beschikbaar is. Om resources toe te voegen aan de algemene catalogus, zijn bepaalde machtigingen vereist. |
-| resource | Een activum of service (zoals een groep, toepassing of site) waaraan een gebruiker machtigingen kan verlenen. |
-| Resource type | Het type resource, met inbegrip van groepen, toepassingen en share point online-sites. |
+| resource | Een activum of service (zoals een Office-groep, een beveiligings groep, een toepassing of een share point online-site) waaraan een gebruiker machtigingen kan verlenen. |
+| resourcetype | Het type resource, met inbegrip van groepen, toepassingen en share point online-sites. |
 | resource functie | Een verzameling machtigingen die zijn gekoppeld aan een resource. |
 | Resource Directory | Een map met een of meer resources die moeten worden gedeeld. |
-| toegewezen gebruikers | Een toewijzing van een toegangs pakket aan een gebruiker of groep. |
-| Kunt | Het proces van het beschikbaar maken van een toegangs pakket voor gebruikers om aan te vragen. |
+| toegewezen gebruikers | Een toewijzing van een toegangs pakket aan een gebruiker, zodat de gebruiker alle resource rollen van dat toegangs pakket heeft. |
+| inschakelen | Het proces van het beschikbaar maken van een toegangs pakket voor gebruikers om aan te vragen. |
 
 ## <a name="license-requirements"></a>Licentievereisten
 

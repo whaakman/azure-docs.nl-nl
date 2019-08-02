@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: d94567800a9fd020784c9cb07b2c6824cd032509
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 14bf7dc62bb97cb14232660db6d0649e3d77d4fa
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064275"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662938"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Beveiligingsoplossingen integreren in Azure Security Center
 Dit document helpt u bij het beheren van beveiligingsoplossingen die al zijn gekoppeld aan Azure Security Center en bij het toevoegen van nieuwe oplossingen.
 
 > [!NOTE]
-> Een subset van beveiligingsoplossingen stopgezet op 31 juli 2019. Zie voor meer informatie en andere services, [buiten gebruik stellen van Security Center-functies (juli 2019)](security-center-features-retirement-july2019.md#menu_solutions).
+> Er is een subset van beveiligings oplossingen ingetrokken op 31 juli 2019. Zie voor meer informatie en alternatieve Services de [buiten gebruiks telling van Security Center-functies (2019 juli)](security-center-features-retirement-july2019.md#menu_solutions).
 
 ## <a name="integrated-azure-security-solutions"></a>Geïntegreerde Azure-beveiligingsoplossingen
 Met Security Center kunt u gemakkelijk geïntegreerde beveiligingsoplossingen in Azure inschakelen. Voordelen zijn:
 
-- **Eenvoudige implementatie**: Security Center biedt gestroomlijnd inrichten van geïntegreerde partneroplossingen. Met Security Center kan op virtuele machines de benodigde agent worden ingericht voor oplossingen zoals het beoordelen van antimalware en beveiligingsproblemen. Voor firewallapparaten kan in Security Center een groot gedeelte van de vereiste netwerkconfiguratie worden uitgevoerd.
-- **Geïntegreerde detectie**: Beveiligingsgebeurtenissen van partneroplossingen worden automatisch verzameld, samengevoegd en weergegeven als meldingen en incidenten in Security Center. Deze gebeurtenissen worden ook gekoppeld aan detecties van andere bronnen voor geavanceerde detectie van bedreigingen.
-- **Geïntegreerde statuscontrole en beheer**: Klanten kunnen geïntegreerde statusgebeurtenissen gebruiken om in één oogopslag alle partneroplossingen te controleren. Er zijn basisbeheermogelijkheden beschikbaar, met eenvoudige toegang tot geavanceerde installatie met behulp van de partneroplossing.
+- **Vereenvoudigde implementatie**: Security Center biedt gestroomlijnde inrichting van geïntegreerde partner oplossingen. Met Security Center kan op virtuele machines de benodigde agent worden ingericht voor oplossingen zoals het beoordelen van antimalware en beveiligingsproblemen. Voor firewallapparaten kan in Security Center een groot gedeelte van de vereiste netwerkconfiguratie worden uitgevoerd.
+- **Geïntegreerde detecties**: Beveiligingsgebeurtenissen van partneroplossingen worden automatisch verzameld, samengevoegd en weergegeven als meldingen en incidenten in Security Center. Deze gebeurtenissen worden ook gekoppeld aan detecties van andere bronnen voor geavanceerde detectie van bedreigingen.
+- **Geïntegreerde status controle en-beheer**: Klanten kunnen geïntegreerde statusgebeurtenissen gebruiken om in één oogopslag alle partneroplossingen te controleren. Er zijn basisbeheermogelijkheden beschikbaar, met eenvoudige toegang tot geavanceerde installatie met behulp van de partneroplossing.
 
-Op dit moment geïntegreerde beveiligingsoplossingen omvatten voor evaluatie van beveiligingsproblemen door [Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) en [Rapid7](https://www.rapid7.com/products/insightvm/) en Microsoft Application Gateway Web application firewall.
+Geïntegreerde beveiligings oplossingen omvatten momenteel de evaluatie van beveiligings problemen met [Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) en [Rapid7](https://www.rapid7.com/products/insightvm/) en micro soft Application Gateway Web Application firewall.
 
 > [!NOTE]
 > Security Center installeert de Microsoft Monitoring Agent niet op virtuele apparaten van partners omdat de meeste leveranciers van beveiligingsoplossingen het niet toestaan dat externe agents worden uitgevoerd op hun apparaat.
@@ -42,7 +42,7 @@ Op dit moment geïntegreerde beveiligingsoplossingen omvatten voor evaluatie van
 >
 
 ## <a name="how-security-solutions-are-integrated"></a>Beveiligingsoplossingen integreren
-Azure-beveiligingsoplossingen die zijn geïmplementeerd vanuit Security Center, zijn automatisch verbonden. U kunt ook verbinding maken met andere gegevensbronnen voor beveiliging, inclusief computers waarop on-premises of in andere clouds.
+Azure-beveiligingsoplossingen die zijn geïmplementeerd vanuit Security Center, zijn automatisch verbonden. U kunt ook verbinding maken met andere beveiligings gegevens bronnen, waaronder computers die on-premises of in andere Clouds worden uitgevoerd.
 
 ![Integratie van partneroplossingen](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
@@ -64,24 +64,24 @@ Het gedeelte **Verbonden oplossingen** bevat beveiligingsoplossingen die momente
 
 ![Verbonden oplossingen](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
-De status van een partneroplossing kan zijn:
+De status van een partner oplossing kan zijn:
 
-* In orde (groen) - er is geen probleem met de status.
+* In orde (groen): er is geen status probleem.
 * Niet in orde (rood): er is een probleem met de status waarvoor onmiddellijke aandacht is vereist.
-* Statusproblemen (oranje): de oplossing is gestopt melden van de status.
-* Niet gerapporteerd (grijs): de oplossing heeft alles wat niet gerapporteerd nog, de status van een oplossing mogelijk ondersteuningsteams als deze onlangs is verbonden en is nog steeds de implementatie, of geen statusgegevens beschikbaar is.
+* Status problemen (oranje): de oplossing is gestopt met het rapporteren van de status.
+* Niet gerapporteerd (grijs): de oplossing heeft nog niets gerapporteerd, de status van een oplossing kan niet worden weer gegeven als deze onlangs is verbonden en nog steeds wordt geïmplementeerd, of er zijn geen status gegevens beschikbaar.
 
 > [!NOTE]
-> Als de gegevens van status niet beschikbaar is, ziet u Security Center de datum en tijd van de laatste gebeurtenis ontvangen om aan te geven of de oplossing al dan niet rapporteert. Als er geen statusgegevens beschikbaar is en er zijn geen waarschuwingen worden ontvangen binnen de afgelopen 14 dagen, Security Center geeft aan dat de oplossing beschadigd of niet rapporteren is.
+> Als de status gegevens niet beschikbaar zijn, worden Security Center de datum en tijd weer gegeven van de laatste ontvangen gebeurtenis om aan te geven of de oplossing al dan niet rapporteert. Als er geen status gegevens beschikbaar zijn en er geen waarschuwingen worden ontvangen in de afgelopen 14 dagen, geeft Security Center aan dat de oplossing een slechte status heeft of niet rapporteert.
 >
 >
 
-1. Selecteer **weergave** voor meer informatie en opties, inclusief:
+1. Selecteer **weer geven** voor meer informatie en opties, waaronder:
 
-   - **Oplossingenconsole**. Hiermee opent u de ervaring voor deze oplossing.
-   - **VM koppelen**. Hiermee opent u de blade toepassingen koppelen. Hier kunt u resources verbinden met de partneroplossing.
-   - **Oplossing verwijderen**.
-   - **Configureer**.
+   - **Oplossings console**. Hiermee opent u de beheer ervaring voor deze oplossing.
+   - **Virtuele machine koppelen**. Hiermee opent u de Blade koppelings toepassingen. Hier kunt u resources verbinden met de partneroplossing.
+   - **Verwijder de oplossing**.
+   - **Configureren**.
 
    ![Details van partneroplossingen](./media/security-center-partner-solutions/partner-solutions-detail.png)
 
@@ -106,47 +106,47 @@ Het gedeelte **Gegevensbronnen toevoegen** bevat andere beschikbare gegevensbron
 
 ![Gegevensbronnen](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
-## <a name="exporting-data-to-a-siem"></a>Exporteren van gegevens naar een SIEM
+## <a name="exporting-data-to-a-siem"></a>Gegevens exporteren naar een SIEM
 
-Verwerkte gebeurtenissen die worden geproduceerd door Azure Security Center worden gepubliceerd naar de Azure [activiteitenlogboek](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), een van het logboek voor bestandstypen die beschikbaar zijn via Azure Monitor. Azure Monitor biedt een geconsolideerde pijplijn voor de routering van uw bewakingsgegevens naar een SIEM-hulpprogramma. Dit wordt gedaan door het streamen van die gegevens naar een Event Hub waar deze kan vervolgens worden opgehaald naar een partner-hulpprogramma.
+Verwerkte gebeurtenissen die zijn geproduceerd door Azure Security Center worden gepubliceerd in het Azure- [activiteiten logboek](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), een van de logboek typen die beschikbaar zijn via Azure monitor. Azure Monitor biedt een geconsolideerde pijp lijn voor de route ring van uw bewakings gegevens in een SIEM-hulp programma. Dit wordt gedaan door het streamen van gegevens naar een event hub, waar deze vervolgens kunnen worden opgehaald in een partner programma.
 
-Maakt gebruik van deze pipe de [één pijplijn Azure Monitoring](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) voor het verkrijgen van toegang aan de bewakingsgegevens uit uw Azure-omgeving. Hiermee kunt u eenvoudig instellen van siem's en controleprogramma's gebruiken voor de gegevens.
+Deze pipe maakt gebruik van de [enkelvoudige pijp lijn van Azure monitoring](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) om toegang te krijgen tot de bewakings gegevens van uw Azure-omgeving. Zo kunt u eenvoudig Siem's-en controle hulpprogramma's instellen om de gegevens te verbruiken.
 
-De volgende secties wordt beschreven hoe u gegevens kunnen worden gestreamd naar een event hub kunt configureren. De stappen wordt ervan uitgegaan dat u al geconfigureerd in uw Azure-abonnement van Azure Security Center hebt.
+In de volgende secties wordt beschreven hoe u gegevens kunt configureren om te streamen naar een Event Hub. Bij de stappen wordt ervan uitgegaan dat u al Azure Security Center hebt geconfigureerd in uw Azure-abonnement.
 
 Overzicht
 
 ![Overzicht op hoog niveau](media/security-center-export-data-to-siem/overview.png)
 
-### <a name="what-is-the-azure-security-data-exposed-to-siem"></a>Wat zijn de gegevens van de Azure-beveiliging blootgesteld aan SIEM?
+### <a name="what-is-the-azure-security-data-exposed-to-siem"></a>Wat zijn de Azure-beveiligings gegevens die beschikbaar zijn voor SIEM?
 
-In deze versie stellen we de [beveiligingswaarschuwingen.](../security-center/security-center-managing-and-responding-alerts.md) In toekomstige versies zullen we de gegevensset met aanbevelingen voor beveiliging verrijken.
+In deze versie stellen we de [beveiligings waarschuwingen beschikbaar.](../security-center/security-center-managing-and-responding-alerts.md) In aanstaande releases verrijken we de gegevensset met beveiligings aanbevelingen.
 
-### <a name="how-to-setup-the-pipeline"></a>Het instellen van de pijplijn
+### <a name="how-to-setup-the-pipeline"></a>De pijp lijn instellen
 
 #### <a name="create-an-event-hub"></a>Een Event Hub maken
 
-Voordat u begint, moet u [maken van een Event Hubs-naamruimte](../event-hubs/event-hubs-create.md). Deze naamruimte en Event Hub is de bestemming voor al uw bewakingsgegevens.
+Voordat u begint, moet u [een event hubs naam ruimte maken](../event-hubs/event-hubs-create.md). Deze naam ruimte en Event hub is het doel voor al uw bewakings gegevens.
 
-#### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream het Azure-activiteitenlogboek naar Eventhubs
+#### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Het Azure-activiteiten logboek streamen naar Event Hubs
 
-Raadpleeg het volgende artikel [activiteitenlogboek streamen naar Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+Raadpleeg het volgende artikel stream- [activiteiten logboek naar Event hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
 
 #### <a name="install-a-partner-siem-connector"></a>Een partner SIEM-connector installeren 
 
-Routering van uw bewakingsgegevens naar een Event Hub met Azure Monitor kunt u eenvoudig kunt integreren met SIEM-partner- en controlehulpprogramma's.
+Door uw bewakings gegevens te routeren naar een event hub met Azure Monitor kunt u eenvoudig integreren met SIEM-en controle hulpprogramma's van de partner.
 
-Raadpleeg de volgende koppeling om te zien van de lijst met [ondersteunde siem's](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
+Raadpleeg de volgende koppeling voor een overzicht van de [ondersteunde siem's](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
 
-### <a name="example-for-querying-data"></a>Voorbeeld voor het opvragen van gegevens 
+### <a name="example-for-querying-data"></a>Voor beeld voor het opvragen van gegevens 
 
-Hier volgt een aantal Splunk-query's die u kunt gebruiken voor het ophalen van waarschuwingsgegevens:
+Hier volgt een aantal Splunk-query's die u kunt gebruiken om waarschuwings gegevens op te halen:
 
-| **Beschrijving van Query** | **Query** |
+| **Beschrijving van de query** | **Query** |
 |----|----|
 | Alle waarschuwingen| index=main Microsoft.Security/locations/alerts|
-| Aantal bewerkingen met hun naam samenvatten| index = belangrijkste sourcetype = "amal: security" \| tabel operationName \| statistieken operationName tellen|
-| Waarschuwingen ophalen: Tijd, naam, status, -ID en -abonnement | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
+| Aantal bewerkingen samenvatten op naam| index = hoofd source type = "Amal: Security \| " tabel \| bewerkings naam statistieken per operationname|
+| Waarschuwings gegevens ophalen: Tijd, naam, status, ID en abonnement | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
 
 ## <a name="next-steps"></a>Volgende stappen

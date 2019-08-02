@@ -2,16 +2,16 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 03/05/2019
+ms.date: 07/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 7058d7f46373f8adaacbcbf90e5ea591a15f8f37
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f3bb391dceb1948820d00c0d09229f2c106ffc0b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176493"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601319"
 ---
-Opdrachten zijn beschikbaar om te controleren of het oplossen van modules op een Data Box-Edge-apparaat dat de compute-functie die is geconfigureerd, heeft een subset van docker. Voor een overzicht van de beschikbare opdrachten [verbinding maken met de PowerShell-interface](#connect-to-the-powershell-interface) en gebruik de `dkrdbe` functie.
+Op een Data Box Edge apparaat waarop de compute-functie is geconfigureerd, is een subset van docker-opdrachten beschikbaar voor het bewaken of oplossen van problemen met modules. [Maak verbinding met de Power shell-interface](#connect-to-the-powershell-interface) en gebruik de `dkrdbe` functie om een lijst met beschik bare opdrachten weer te geven.
 
 ```powershell
 [10.100.10.10]: PS>dkrdbe -?
@@ -35,28 +35,28 @@ Commands:
 
 [10.100.10.10]: PS>
 ```
-De volgende tabel bevat een korte beschrijving van de opdrachten die beschikbaar zijn voor `dkrdbe`:
+De volgende tabel bevat een korte beschrijving van de opdrachten die beschikbaar `dkrdbe`zijn voor:
 
 |Opdracht  |Description |
 |---------|---------|
-|`image`     | Installatiekopieën beheren       |
-|`images`     | Installatiekopieën vermelden         |
-|`inspect`     | Gegevens op laag niveau op Docker objecten retourneren         |
-|`login`     | Aanmelden bij een Docker-register         |
-|`logout`     | Meld u af van een Docker-register         |
+|`image`     | Installatie kopieën beheren. Als u ongebruikte installatie kopieën wilt verwijderen, gebruikt u:`dkrdbe image prune -a -f`       |
+|`images`     | Afbeeldingen weer geven         |
+|`inspect`     | Gegevens op laag niveau op docker-objecten retour neren         |
+|`login`     | Aanmelden bij een docker-REGI ster         |
+|`logout`     | Afmelden bij een docker-REGI ster         |
 |`logs`     | De logboeken van een container ophalen        |
-|`port`     | Poorttoewijzingen voor lijst of een specifieke toewijzing voor de container        |
+|`port`     | Poort toewijzingen of een specifieke toewijzing voor de container weer geven        |
 |`ps`     | Containers weergeven        |
-|`pull`     | Een installatiekopie of een opslagplaats van een register ophalen         |
-|`start`     | Een of meer van de gestopte containers starten         |
-|`stats`     | Een live stream van gebruiksstatistieken voor resource (s) weergegeven         |
-|`stop`     | Een of meer actieve containers te stoppen        |
+|`pull`     | Een installatie kopie of een opslag plaats vanuit een REGI ster ophalen         |
+|`start`     | Een of meer gestopt containers starten         |
+|`stats`     | Een live stream van de container (s) weer geven statistieken over het resource gebruik         |
+|`stop`     | Een of meer actieve containers stoppen        |
 |`system`     | Docker beheren         |
-|`top`     | De actieve processen van een container weergeven         |
+|`top`     | De actieve processen van een container weer geven         |
 
-Als u Help-informatie voor alle beschikbare opdrachten, gebruikt `dkrdbe <command-name> --help`.
+Gebruik `dkrdbe <command-name> --help`om hulp te krijgen voor elke beschik bare opdracht.
 
-Bijvoorbeeld, om te begrijpen van het gebruik van de `port` typen:
+Als u bijvoorbeeld inzicht wilt krijgen in het gebruik `port` van de opdracht, typt u:
 
 ```powershell
 [10.100.10.10]: P> dkrdbe port --help
@@ -78,13 +78,13 @@ Options:
 [10.100.10.10]: PS>
 ```
 
-De beschikbare opdrachten voor de `dkrdbe` functie dezelfde parameters gebruiken als de die worden gebruikt voor de normale docker-opdrachten. Voor de opties en parameters die worden gebruikt met de opdracht docker, gaat u naar [gebruikt u de Docker-opdrachtregel](https://docs.docker.com/engine/reference/commandline/docker/).
+De beschik bare opdrachten `dkrdbe` voor de functie gebruiken dezelfde para meters als degene die worden gebruikt voor de normale docker-opdrachten. Voor de opties en para meters die worden gebruikt met de opdracht docker, gaat u naar [het hulp programma docker commandline gebruiken](https://docs.docker.com/engine/reference/commandline/docker/).
 
-### <a name="to-check-if-the-module-deployed-successfully"></a>Om te controleren of de module is geïmplementeerd
+### <a name="to-check-if-the-module-deployed-successfully"></a>Controleren of de module is geïmplementeerd
 
-COMPUTE-modules zijn containers die een zakelijke logica geïmplementeerd. Uitvoeren om te zien als een compute-module is geïmplementeerd, de `ps` beheren en controleren of de container (overeenkomt met de compute-module) wordt uitgevoerd.
+Compute-modules zijn containers waarvoor een bedrijfs logica is geïmplementeerd. Als u wilt controleren of een compute-module is geïmplementeerd `ps` , voert u de opdracht uit en controleert u of de container (overeenkomend met de module Compute) wordt uitgevoerd.
 
-Aan de lijst met alle containers (met inbegrip van degene die zijn onderbroken), voert u de `ps -a` opdracht.
+Voer de `ps -a` opdracht uit om de lijst met alle containers (met inbegrip van de onderbroken items) op te halen.
 
 ```powershell
 [10.100.10.10]: P> dkrdbe ps -a
@@ -96,9 +96,9 @@ acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/s
 [10.100.10.10]: PS>
 ```
 
-Als er een fout opgetreden bij het maken van de containerinstallatiekopie of is tijdens het ophalen van de installatiekopie, voert u `logs edgeAgent`.  `EdgeAgent` de IoT Edge-runtime-container die verantwoordelijk is voor het inrichten van andere containers is.
+Als er een fout is opgetreden bij het maken van de container installatie kopie of tijdens het ophalen `logs edgeAgent`van de installatie kopie, voert u uit.  `EdgeAgent`is de IoT Edge runtime-container die verantwoordelijk is voor het inrichten van andere containers.
 
-Omdat `logs edgeAgent` dumpen van alle logboeken, een goede manier om te zien van de recente fouten is het gebruik van de optie `--tail 20`.
+Omdat `logs edgeAgent` alle logboeken worden gedumpt, is het gebruik van de optie `--tail 20`een goede manier om de recente fouten te bekijken.
 
 
 ```powershell
@@ -117,12 +117,12 @@ reateOptions":"{\"HostConfig\":{\"Binds\":[\"/home/hcsshares/share4-dl460:/home/
 2019-02-28 23:38:28.480 +00:00 [DBG] [Microsoft.Azure.Devices.Edge.Agent.Core.Planners.HealthRestartPlanner] - HealthRestartPlanner created Plan, with 0 command(s).
 ```
 
-### <a name="to-get-container-logs"></a>Containerlogbestanden ophalen
+### <a name="to-get-container-logs"></a>Container logboeken ophalen
 
-Logboeken voor een specifieke container ophalen, lijst eerst met de container en vervolgens de logboeken ophalen voor de container waarin u geïnteresseerd bent.
+Als u Logboeken voor een specifieke container wilt ophalen, moet u eerst de container weer geven en vervolgens de logboeken ophalen voor de container waarin u bent geïnteresseerd.
 
-1. [Verbinding maken met de PowerShell-interface](#connect-to-the-powershell-interface).
-2. Als u de lijst met actieve containers, voer de `ps` opdracht.
+1. [Verbinding maken met de Power shell-interface](#connect-to-the-powershell-interface).
+2. Voer de `ps` opdracht uit om de lijst met actieve containers op te halen.
 
     ```powershell
     [10.100.10.10]: P> dkrdbe ps
@@ -133,9 +133,9 @@ Logboeken voor een specifieke container ophalen, lijst eerst met de container en
     acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
     ```
 
-3. Maak een notitie van de container-ID voor de container die u moet de logboeken voor.
+3. Noteer de container-ID voor de container waarvoor u de logboeken nodig hebt.
 
-4. Als u de logboeken voor een specifieke container, voer de `logs` opdracht geven de container-ID.
+4. Als u de logboeken voor een specifieke container wilt ophalen `logs` , voert u de opdracht uit die de container-ID levert.
 
     ```powershell
     [10.100.10.10]: PS>dkrdbe logs d99e2f91d9a8
@@ -150,18 +150,18 @@ Logboeken voor een specifieke container ophalen, lijst eerst met de container en
     02/26/2019 18:23:38: Info: Processed event.
     ```
 
-### <a name="to-monitor-the-usage-statistics-of-the-device"></a>Voor het bewaken van de gebruiksstatistieken van het apparaat
+### <a name="to-monitor-the-usage-statistics-of-the-device"></a>De gebruiks statistieken van het apparaat controleren
 
-U kunt het geheugen, CPU-gebruik en i/o-controleren op het apparaat met de `stats` opdracht.
+Gebruik de `stats` opdracht om het geheugen, het CPU-gebruik en de i/o-bewerkingen op het apparaat te controleren.
 
-1. [Verbinding maken met de PowerShell-interface](#connect-to-the-powershell-interface).
-2. Voer de `stats` opdracht om de live stream uitschakelen en alleen het eerste resultaat ophalen.
+1. [Verbinding maken met de Power shell-interface](#connect-to-the-powershell-interface).
+2. Voer de `stats` opdracht uit om de Live Stream uit te scha kelen en alleen het eerste resultaat op te halen.
 
    ```powershell
    dkrdbe stats --no-stream
    ```
 
-   Het volgende voorbeeld ziet u het gebruik van deze cmdlet:
+   In het volgende voor beeld ziet u het gebruik van deze cmdlet:
 
     ```
     [10.100.10.10]: P> dkrdbe stats --no-stream

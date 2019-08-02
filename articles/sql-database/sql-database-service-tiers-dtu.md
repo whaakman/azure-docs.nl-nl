@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database-Servicelagen - DTU gebaseerde aankoopmodel | Microsoft Docs
-description: Meer informatie over service-lagen in het op DTU gebaseerde aankoopmodel voor één en gepoolde databases voor reken- en -grootten.
+title: 'Azure SQL Database Service lagen: op DTU gebaseerd aankoop model | Microsoft Docs'
+description: Meer informatie over service lagen in het op DTU gebaseerde aankoop model voor enkelvoudige en gepoolde data bases voor de berekenings-en opslag grootte.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,21 +10,20 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 964a2931267ad2f1e2842693eadf43f8f629a084
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: c46913f24deffc7c4db95d8a77db1c49ae54b6ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357229"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566680"
 ---
-# <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Service-lagen in het op DTU gebaseerde aankoopmodel
+# <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Service lagen in het op DTU gebaseerde aankoop model
 
-Service-lagen in het op DTU gebaseerde aankoopmodel van elkaar worden onderscheiden door een bereik van de compute-grootten met een vaste hoeveelheid inbegrepen opslag, vaste bewaarperiode voor back-ups en vaste prijs. Alle service-lagen in het op DTU gebaseerde aankoopmodel bieden flexibiliteit voor het wijzigen van de compute-grootten met minimale [downtime](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/), maar er is een switch gedurende waar-verbinding verbroken met de database gedurende een korte periode is, die kan grotendeels worden opgevangen met behulp van de logica voor opnieuw proberen. Individuele databases en elastische pools worden gefactureerd per uur op basis van de servicelaag en compute-grootte.
+Service lagen in het op DTU gebaseerde aankoop model worden gedifferentieerd met een bereik van reken grootten met een vaste hoeveelheid inbegrepen opslag, een vaste Bewaar periode voor back-ups en vaste prijzen. Alle service lagen in het op DTU gebaseerde aankoop model bieden flexibiliteit bij het wijzigen van de reken grootte met minimale [downtime](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/). Er is echter een switch over een periode waarin de verbinding gedurende korte tijd naar de data base verloren gaat, wat kan worden verholpen met de logica voor opnieuw proberen. Individuele databases en elastische pools worden gefactureerd per uur op basis van de servicelaag en compute-grootte.
 
 > [!IMPORTANT]
-> Beheerd exemplaar voor SQL Database biedt geen ondersteuning voor een op DTU gebaseerde aankoopmodel. Zie voor meer informatie, [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
+> SQL Database beheerde instantie biedt geen ondersteuning voor een op DTU gebaseerd aankoop model. Zie voor meer informatie, [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 > [!NOTE]
 > Zie voor meer informatie over Servicelagen op vCore gebaseerde [vCore-gebaseerde service-lagen](sql-database-service-tiers-vcore.md). Zie voor meer informatie over Servicelagen op basis van DTU en vCore-gebaseerde service-lagen differentiëren [modellen aanschaffen van Azure SQL Database](sql-database-purchase-models.md).
 
@@ -45,7 +44,7 @@ Een servicelaag kiezen afhankelijk is voornamelijk van zakelijke continuïteit-,
 |||||
 
 > [!NOTE]
-> U krijgt een gratis Azure SQL-database op de basis-servicelaag in combinatie met een gratis Azure-account om Azure te verkennen. Zie voor meer informatie, [maken van een beheerde clouddatabase met uw gratis Azure-account](https://azure.microsoft.com/free/services/sql-database/).
+> In combi natie met een gratis Azure-account kunt u Azure een gratis Azure-SQL database in de laag basis service krijgen. Zie voor meer informatie, [maken van een beheerde clouddatabase met uw gratis Azure-account](https://azure.microsoft.com/free/services/sql-database/).
 
 ## <a name="single-database-dtu-and-storage-limits"></a>DTU- en opslaglimieten van individuele database
 
@@ -74,7 +73,7 @@ COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu
 > [!IMPORTANT]
 > Voor de Premium-laag is er meer dan 1 TB aan opslagruimte beschikbaar in alle regio's, met uitzondering van: China - oost, China - noord, Duitsland - centraal, Duitsland - noordoost, US - west-centraal, US - DoD-regio's en US Government - centraal. In deze regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB.  Raadpleeg [P11-P15 huidige beperkingen](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb) voor meer informatie.  
 > [!IMPORTANT]
-> In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
+> In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie [Bestands ruimte beheren in Azure SQL database](sql-database-file-space-management.md)voor meer informatie.
 
 ## <a name="dtu-benchmark"></a>DTU-Benchmark
 
@@ -88,7 +87,7 @@ De benchmark- en de methoden worden hieronder in detail beschreven.
 
 ### <a name="benchmark-summary"></a>Benchmark-overzicht
 
-De benchmark meet de prestaties van een combinatie van basic-database-bewerkingen die treden het vaakst in online workloads (OLTP) voor transactieverwerking. Hoewel de benchmark is ontworpen met cloudcomputing in gedachten, het databaseschema, invullen van de gegevens en transacties zijn ontworpen voor breed representatief zijn voor de basiselementen die het meest gebruikt in een OLTP-workloads.
+De benchmark meet de prestaties van een combi natie van basis database bewerkingen die het vaakst voor komen in workloads voor online transactie verwerking (OLTP). Hoewel de benchmark is ontworpen met cloudcomputing in gedachten, het databaseschema, invullen van de gegevens en transacties zijn ontworpen voor breed representatief zijn voor de basiselementen die het meest gebruikt in een OLTP-workloads.
 
 ### <a name="schema"></a>Schema
 

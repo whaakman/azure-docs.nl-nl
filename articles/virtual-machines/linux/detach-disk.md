@@ -1,49 +1,40 @@
 ---
-title: Loskoppelen van een gegevensschijf van een Linux-VM - Azure | Microsoft Docs
-description: Leer hoe u een gegevensschijf van een virtuele machine in Azure met behulp van Azure CLI of Azure portal ontkoppelen.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Een gegevens schijf loskoppelen van een virtuele Linux-machine-Azure | Microsoft Docs
+description: Leer hoe u een gegevens schijf loskoppelt van een virtuele machine in azure met behulp van Azure CLI of de Azure Portal.
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 02cb970b5c70064abbbc71e585fe3dd1540fda90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e026617db4da58c12a454000f6d97f8b6843e95d
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696720"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695868"
 ---
-# <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Loskoppelen van een gegevensschijf van een virtuele Linux-machine
+# <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Een gegevens schijf loskoppelen van een virtuele Linux-machine
 
-Wanneer u een gegevensschijf die is gekoppeld aan een virtuele machine niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Hiermee wordt de schijf van de virtuele machine verwijderd, maar niet verwijderd uit de opslag. In dit artikel werken we met een Ubuntu-16.04 LTS-verdeling. Als u een ander distributiepunt gebruikt, worden de instructies voor het ontkoppelen van de schijf kunnen afwijken.
+Wanneer u een gegevensschijf die is gekoppeld aan een virtuele machine niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Hiermee verwijdert u de schijf van de virtuele machine, maar verwijdert u deze niet uit de opslag. In dit artikel werken we met een Ubuntu LTS 16,04-distributie. Als u een andere distributie gebruikt, kunnen de instructies voor het ontkoppelen van de schijf afwijken.
 
 > [!WARNING]
-> Als u een schijf loskoppelen wordt deze niet automatisch verwijderd. Als u bent geabonneerd op Premium-opslag, blijft u opslag in rekening gebracht voor de schijf. Zie voor meer informatie, [prijzen en facturering bij het gebruik van Premium Storage](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
+> Als u een schijf loskoppelt, wordt deze niet automatisch verwijderd. Als u bent geabonneerd op Premium-opslag, blijven er opslag kosten in rekening worden gebracht voor de schijf. Zie [prijzen en facturering bij het gebruik van Premium Storage](https://azure.microsoft.com/pricing/details/storage/page-blobs/)voor meer informatie.
 
 Als u de bestaande gegevens op de schijf opnieuw wilt gebruiken, kunt u de schijf opnieuw koppelen aan dezelfde of een andere virtuele machine.  
 
 
-## <a name="connect-to-the-vm-to-unmount-the-disk"></a>Verbinding maken met de virtuele machine de schijf ontkoppelen
+## <a name="connect-to-the-vm-to-unmount-the-disk"></a>Verbinding maken met de virtuele machine om de schijf te ontkoppelen
 
-Voordat u de schijf met de CLI of de portal loskoppelen kunt, moet u moet worden ontkoppeld van de schijf en verwijzingen naar verwijderd uit het fstab-bestand.
+Voordat u de schijf kunt loskoppelen met behulp van CLI of de portal, moet u de schijf ontkoppelen en verwijzingen naar verwijderen uit het fstab-bestand.
 
-Maak verbinding met de VM. In dit voorbeeld wordt het openbare IP-adres van de virtuele machine is *10.0.1.4* met de gebruikersnaam *azureuser*: 
+Maak verbinding met de VM. In dit voor beeld is het open bare IP-adres van de virtuele machine *10.0.1.4* met de gebruikers naam *azureuser*: 
 
 ```bash
 ssh azureuser@10.0.1.4
 ```
 
-Zoek eerst de gegevensschijf die u wilt loskoppelen. Het volgende voorbeeld wordt dmesg om te filteren op SCSI-schijven:
+Zoek eerst de gegevens schijf die u wilt loskoppelen. In het volgende voor beeld wordt dmesg gebruikt om te filteren op SCSI-schijven:
 
 ```bash
 dmesg | grep SCSI
@@ -59,13 +50,13 @@ De uitvoer lijkt op die in het volgende voorbeeld:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Hier *sdc* is de schijf die we willen loskoppelen. U moet ook de UUID van de schijf ophalen.
+Hier is *Dit SDC* de schijf die u wilt loskoppelen. U moet ook de UUID van de schijf halen.
 
 ```bash
 sudo -i blkid
 ```
 
-De uitvoer lijkt op het volgende voorbeeld:
+De uitvoer ziet er ongeveer uit als in het volgende voor beeld:
 
 ```bash
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -74,33 +65,33 @@ De uitvoer lijkt op het volgende voorbeeld:
 ```
 
 
-Bewerk de */etc/fstab* bestand verwijzingen naar de schijf verwijderen. 
+Bewerk het *bestand/etc/fstab* -bestand om verwijzingen naar de schijf te verwijderen. 
 
 > [!NOTE]
-> Onjuist bewerken van de **/etc/fstab** bestand kan leiden tot een systeem opgestart. Als u niet zeker, verwijzen naar de distributie van documentatie voor meer informatie over hoe u dit bestand goed te bewerken. Het verdient ook dat er een back-up van het bestand/etc/fstab voordat u bewerkt wordt gemaakt.
+> Het onjuist bewerken van het **bestand/etc/fstab** -bestand kan resulteren in een systeem dat niet kan worden opgestart. Als dat niet het geval is, raadpleegt u de documentatie van de distributie voor informatie over het correct bewerken van dit bestand. U wordt ook aangeraden een back-up van het bestand/etc/fstab-bestand te maken voordat u het bewerkt.
 
-Open de */etc/fstab* bestand in een teksteditor als volgt:
+Open het *bestand/etc/fstab* -bestand in een tekst editor als volgt:
 
 ```bash
 sudo vi /etc/fstab
 ```
 
-In dit voorbeeld de volgende regel moet worden verwijderd uit de */etc/fstab* bestand:
+In dit voor beeld moet de volgende regel worden verwijderd uit het *bestand/etc/fstab* -bestand:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
-Gebruik `umount` ontkoppelen van de schijf. Het volgende voorbeeld wordt de */dev/sdc1* partitioneren van de */datadrive* koppelpunt:
+Gebruiken `umount` om de schijf te ontkoppelen. In het volgende voor beeld wordt de */dev/sdc1* -partitie losgekoppeld van het */datadrive* -koppel punt:
 
 ```bash
 sudo umount /dev/sdc1 /datadrive
 ```
 
 
-## <a name="detach-a-data-disk-using-azure-cli"></a>Een gegevensschijf met behulp van Azure CLI ontkoppelen 
+## <a name="detach-a-data-disk-using-azure-cli"></a>Een gegevens schijf loskoppelen met Azure CLI 
 
-In dit voorbeeld losgekoppeld de *myDataDisk* schijf van VM met de naam *myVM* in *myResourceGroup*.
+In dit voor beeld wordt de *myDataDisk* -schijf losgekoppeld van de virtuele machine met de naam *myVM* in *myResourceGroup*.
 
 ```azurecli
 az vm disk detach \
@@ -114,18 +105,18 @@ De schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele mach
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Een gegevensschijf ontkoppelen via de portal
 
-1. Selecteer in het menu links **virtuele Machines**.
-2. Selecteer de virtuele machine waarvoor de gegevensschijf die u wilt loskoppelen en klikt u op **stoppen** toewijzing van de virtuele machine.
-3. Selecteer in het deelvenster met de virtuele machine **schijven**.
-4. Aan de bovenkant van de **schijven** venster **bewerken**.
-5. In de **schijven** in het deelvenster aan de rechterkant van de gegevensschijf die u wilt loskoppelen, klikt u op de ![afbeelding van de knop ontkoppelen](./media/detach-disk/detach.png) knop loskoppelen.
-5. Nadat de schijf is verwijderd, klikt u op opslaan boven aan het deelvenster.
-6. Klik in het deelvenster virtuele machine **overzicht** en klik vervolgens op de **Start** knop aan de bovenkant van het deelvenster met de virtuele machine opnieuw opstarten.
+1. Selecteer in het linkermenu **virtual machines**.
+2. Selecteer de virtuele machine met de gegevens schijf die u wilt loskoppelen en klik op **stoppen** om de toewijzing van de VM ongedaan te maken.
+3. Selecteer **schijven**in het deel venster virtuele machine.
+4. Selecteer boven in het deel venster **schijven** de optie **bewerken**.
+5. Klik in het deel venster **schijven** helemaal rechts van de gegevens schijf die u wilt loskoppelen op de ![knop knop afbeelding](./media/detach-disk/detach.png) loskoppelen.
+5. Nadat de schijf is verwijderd, klikt u boven aan het deel venster op opslaan.
+6. Klik in het deel venster virtuele machine op **overzicht** en klik vervolgens op de knop **Start** boven aan het deel venster om de VM opnieuw op te starten.
 
 De schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele machine.
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u de gegevensschijf opnieuw gebruiken wilt, kunt u zojuist hebt [koppelen aan een andere virtuele machine](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Als u de gegevens schijf opnieuw wilt gebruiken, kunt u [deze gewoon koppelen aan een andere virtuele machine](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

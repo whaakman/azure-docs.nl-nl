@@ -1,7 +1,7 @@
 ---
-title: Wereldwijd beschikbare services met behulp van Azure SQL-Database ontwerpen | Microsoft Docs
-description: Leer meer over toepassingsontwerp voor maximaal beschikbare services met behulp van Azure SQL Database.
-keywords: herstel na noodgevallen, oplossingen voor herstel na noodgevallen, back-up van app-gegevens, geo-replicatie, in de cloud business continuity plannen
+title: Wereld wijd beschik bare Services ontwerpen met behulp van Azure SQL Database | Microsoft Docs
+description: Meer informatie over het ontwerpen van toepassingen voor Maxi maal beschik bare Services met behulp van Azure SQL Database.
+keywords: herstel na nood geval in de Cloud, oplossingen voor herstel na nood gevallen, back-ups van app-gegevens, geo-replicatie, planning voor bedrijfs continuïteit
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,159 +11,158 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 46232afcaf9504d4cfbd80160e2d7e7ea958d600
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a79fa40568502a73194e467de2227d54931d0100
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61488106"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568951"
 ---
-# <a name="designing-globally-available-services-using-azure-sql-database"></a>Algemeen beschikbare services met behulp van Azure SQL-Database ontwerpen
+# <a name="designing-globally-available-services-using-azure-sql-database"></a>Wereld wijd beschik bare Services ontwerpen met behulp van Azure SQL Database
 
-Tijdens het bouwen en implementeren van cloudservices met Azure SQL Database, gebruikt u [actieve geo-replicatie](sql-database-active-geo-replication.md) of [automatische failovergroepen](sql-database-auto-failover-group.md) voor herstelmogelijkheden bij regionale storingen en onherstelbare fouten. De functie kunt u wereldwijd gedistribueerde toepassingen die zijn geoptimaliseerd voor lokale toegang tot de gegevens maken. Dit artikel worden algemene toepassingspatronen, met inbegrip van de voor- en -en nadelen van elke optie.
+Wanneer u Cloud Services bouwt en implementeert met Azure SQL Database, gebruikt u actieve groepen voor [geo-replicatie](sql-database-active-geo-replication.md) of [automatische failover](sql-database-auto-failover-group.md) om te voorzien in tolerantie voor regionale storingen en crashes. Met deze functie kunt u wereld wijd gedistribueerde toepassingen maken die zijn geoptimaliseerd voor lokale toegang tot de gegevens. In dit artikel worden algemene toepassings patronen beschreven, met inbegrip van de voor delen en de afweging van elke optie.
 
 > [!NOTE]
-> Als u van Premium en bedrijfskritiek databases en elastische pools gebruikmaakt, kunt u ze flexibele bij regionale uitval door deze te converteren naar de configuratie van de zone-redundante implementatie. Zie [Zone-redundante databases](sql-database-high-availability.md).  
+> Als u Premium-of Bedrijfskritiek-data bases en elastische Pools gebruikt, kunt u ze voor het maken van regionale storingen gebruiken door ze te converteren naar zone redundante implementatie configuratie. Zie [zone-redundante data bases](sql-database-high-availability.md).  
 
-## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenario 1: Met behulp van twee Azure-regio's voor bedrijfscontinuïteit met minimale downtime
+## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenario 1: Twee Azure-regio's gebruiken voor bedrijfs continuïteit met minimale downtime
 
 In dit scenario hebben de toepassingen de volgende kenmerken:
 
-* Toepassing is actief in een Azure-regio
-* Alle Databasesessies vereisen lezen en schrijven (RW) aan gegevens
-* Weblaag en de gegevenslaag moeten worden geplaatst om te verminderen latentie en verkeer kosten
-* Fundamentele, downtime is een hogere bedrijfsrisico voor deze toepassingen dan verlies van gegevens
+* De toepassing is actief in een Azure-regio
+* Alle database sessies vereisen lees-en schrijf toegang (RW) naar gegevens
+* De weblaag en de gegevenslaag moeten co zijn om latentie en verkeers kosten te beperken
+* In het fundamenteel is uitval tijd een hoger bedrijfs risico voor deze toepassingen dan gegevens verlies
 
-In dit geval is de topologie van de implementatie van toepassing geoptimaliseerd voor het verwerken van regionale rampen als alle onderdelen van de toepassing samen failover plaatsvindt moeten. In het onderstaande diagram ziet u deze topologie. Voor geografische redundantie worden van de toepassing resources geïmplementeerd in de regio A en B. De resources in de regio B zijn echter niet gebruikt, totdat een regio uitvalt. Een failovergroep is geconfigureerd tussen de twee regio's voor het beheren van verbinding met de database, replicatie en failover. De webservice in beide regio's is geconfigureerd voor toegang tot de database via de lezen / schrijven-listener  **&lt;failover-groepsnaam&gt;. database.windows.net** (1). Traffic manager is ingesteld voor het gebruik [prioriteit routeringsmethode](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
-
-> [!NOTE]
-> [Azure traffic manager](../traffic-manager/traffic-manager-overview.md) ter illustratie wordt alleen in dit artikel wordt gebruikt. U kunt een load balancing-oplossing die ondersteuning biedt voor de routeringsmethode prioriteit.
-
-Deze configuratie voordat een storing in het volgende diagram wordt weergegeven:
-
-![Scenario 1. De configuratie voordat de storing.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-a.png)
-
-Na een storing in de primaire regio detecteert de service SQL Database dat de primaire database niet toegankelijk is en failover naar de secundaire regio op basis van de parameters van het automatische failover-beleid (1 activeert). Afhankelijk van de SLA van uw toepassing, kunt u een respijtperiode die de tijd tussen de detectie van de serviceonderbreking en de failover zelf bepaalt configureren. Het is mogelijk dat de eindpunt-failover van traffic manager wordt gestart voordat de failover-groep met de failover van de database wordt geactiveerd. In dat geval de web-App niet onmiddellijk opnieuw verbinding maken met de database. Maar de inlogmodus worden automatisch uitgevoerd zodra de databasefailover is voltooid. Als de mislukte regio teruggezet en weer online is, wordt de oude primaire automatisch opnieuw verbinding als een nieuwe secundaire. Het volgende diagram ziet u de configuratie na een failover.
+In dit geval is de implementatie topologie van de toepassing geoptimaliseerd voor het afhandelen van regionale rampen wanneer alle toepassings onderdelen met elkaar moeten worden failover. In het onderstaande diagram ziet u deze topologie. Voor geografische redundantie worden de bronnen van de toepassing geïmplementeerd in regio A en B. De resources in regio B worden echter pas gebruikt als de regio A mislukt. Er wordt een failovergroep geconfigureerd tussen de twee regio's voor het beheren van de database connectiviteit, replicatie en failover. De webservice in beide regio's is geconfigureerd voor toegang tot de data base via de Read-Write listener  **&lt;failover-group-name&gt;. database.Windows.net** (1). Traffic Manager is ingesteld voor het gebruik van een [prioriteits routerings methode](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
-> Alle transacties na de failover zijn verloren gaan tijdens het opnieuw verbinden. Nadat de failover is voltooid, kan de toepassing in de regio B opnieuw verbinding maken met en opnieuw starten van de gebruiker verwerken. Zowel de web-App als de primaire database zijn nu in de regio B en blijven CO-locaties.
+> [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) wordt alleen in dit artikel gebruikt voor illustratie doeleinden. U kunt elke oplossing voor taak verdeling gebruiken die ondersteuning biedt voor een routerings methode met prioriteit.
 
-![Scenario 1. Configuratie na een failover](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
+In het volgende diagram ziet u deze configuratie vóór een storing:
 
-Als een storing in de regio B gebeurt, het replicatieproces tussen de primaire en secundaire database wordt onderbroken, maar de koppeling tussen de twee blijft intact (1). Verkeer die worden beheerd detecteert dat de verbinding met de regio B verbroken is en wordt de eindpunt-web-app 2 gemarkeerd als gedegradeerd (2). Prestaties van de toepassing wordt in dit geval niet beïnvloed, maar de database beschikbaar wordt gesteld en daarom hoger risico van gegevensverlies in geval regio een mislukt achter elkaar.
+![Scenario 1. Configuratie vóór de storing.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-a.png)
+
+Na een storing in de primaire regio detecteert de SQL Database-service dat de primaire data base niet toegankelijk is en wordt failover naar de secundaire regio geactiveerd op basis van de para meters van het beleid voor automatische failover (1). Afhankelijk van de SLA van uw toepassing kunt u een respijt periode configureren die de tijd bepaalt tussen de detectie van de storing en de failover zelf. Het is mogelijk dat Traffic Manager de failover van het eind punt initieert voordat de failovergroep de failover van de data base activeert. In dat geval kan de webtoepassing niet onmiddellijk opnieuw verbinding maken met de data base. De verbindingen worden echter automatisch uitgevoerd zodra de data base-failover is voltooid. Wanneer de regio mislukt en weer online wordt gezet, wordt de oude primaire automatisch opnieuw verbonden als een nieuwe secundaire. In het onderstaande diagram ziet u de configuratie na een failover.
 
 > [!NOTE]
-> Voor herstel na noodgevallen raden wij de configuratie met de implementatie van de toepassing is beperkt in twee regio's. Dit is omdat de meeste van de Azure-geografieën alleen twee regio's hebben. Deze configuratie biedt geen bescherming voor uw toepassing van een gelijktijdige catastrofale uitval van beide regio's. U kunt uw databases in een derde regio met herstellen in het onwaarschijnlijke geval van een dergelijke storing, [geo-restore-bewerking](sql-database-disaster-recovery.md#recover-using-geo-restore).
+> Alle trans acties die zijn doorgevoerd na de failover, gaan verloren tijdens het opnieuw verbinden. Nadat de failover is voltooid, kan de toepassing in regio B opnieuw verbinding maken en opnieuw starten met het verwerken van de gebruikers aanvragen. Zowel de webtoepassing als de primaire data base bevinden zich nu in regio B en blijven co-locatie.
+
+![Scenario 1. Configuratie na failover](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
+
+Als er een storing optreedt in regio B, wordt het replicatie proces tussen de primaire en de secundaire data base onderbroken, maar de koppeling tussen de twee blijft intact (1). Door verkeer beheerd wordt gedetecteerd dat de verbinding met regio B wordt verbroken en markeert de eind punt-web-app 2 als verslechterd (2). De prestaties van de toepassing worden in dit geval niet beïnvloed, maar de data base wordt weer gegeven en daarom is er een hoger risico op gegevens verlies in het geval van regio A mislukt.
+
+> [!NOTE]
+> Voor herstel na nood gevallen is het raadzaam om de configuratie met toepassings implementatie beperkt tot twee regio's. Dit komt omdat de meeste Azure-grafieken slechts twee regio's hebben. Deze configuratie beveiligt uw toepassing niet tegen een gelijktijdige storing van beide regio's. In het onwaarschijnlijke geval van een dergelijke fout kunt u uw data bases herstellen in een derde regio met behulp van [geo-restore-bewerking](sql-database-disaster-recovery.md#recover-using-geo-restore).
 >
 
- Zodra de onderbreking is verholpen, wordt de secundaire database automatisch opnieuw gesynchroniseerd met de primaire. Tijdens de synchronisatie, kan de prestaties van de primaire worden beïnvloed. De specifieke impact afhankelijk is van de hoeveelheid gegevens van de nieuwe primaire verkregen nadat de failover. Het volgende diagram illustreert een storing in de secundaire regio:
+ Zodra de storing is verholpen, wordt de secundaire data base automatisch opnieuw gesynchroniseerd met de primaire. Tijdens de synchronisatie kan dit van invloed zijn op de prestaties van de primaire. De specifieke impact is afhankelijk van de hoeveelheid gegevens die de nieuwe primaire heeft verkregen sinds de failover. In het volgende diagram ziet u een storing in de secundaire regio:
 
 ![Scenario 1. Configuratie na een storing in de secundaire regio.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
 
-De sleutel **voordelen** van dit ontwerppatroon zijn:
+De belangrijkste **voor delen** van dit ontwerp patroon zijn:
 
-* De dezelfde web-App is geïmplementeerd op beide regio's zonder configuratie regiospecifieke en vereist geen aanvullende logica voor het beheren van failover.
-* De prestaties van toepassingen worden niet beïnvloed door failover als de web-App en de database zijn altijd dezelfde locatie bevindt.
+* Dezelfde webtoepassing wordt geïmplementeerd naar beide regio's zonder enige specifieke configuratie van de regio en vereist geen aanvullende logica voor het beheren van failover.
+* De prestaties van de toepassing worden niet beïnvloed door failover, omdat de webtoepassing en de data base altijd naast elkaar staan.
 
-De belangrijkste **negatieve gevolgen voor de** is dat de toepassingsresources in de regio B deel van de tijd volledig worden benut.
+De belangrijkste **balans** is dat de toepassings bronnen in regio B de meeste tijd worden benut.
 
-## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>Scenario 2: Azure-regio's voor bedrijfscontinuïteit met behoud van gegevens
+## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>Scenario 2: Azure-regio's voor bedrijfs continuïteit met maximale gegevens behoud
 
 Deze optie is het meest geschikt voor toepassingen met de volgende kenmerken:
 
-* Verlies van gegevens is hoog bedrijfsrisico. De databasefailover kan alleen worden gebruikt als een laatste toevlucht als de storing wordt veroorzaakt door een onherstelbare fout.
-* De toepassing ondersteunt alleen-lezen en lees-/ modi van bewerkingen en u kunt gebruiken in 'alleen-lezen modus' voor een bepaalde periode.
+* Gegevens verlies is een hoog bedrijfs risico. De failover van de data base kan alleen worden gebruikt als een laatste redmiddel als de storing wordt veroorzaakt door een onherstelbare fout.
+* De toepassing biedt ondersteuning voor alleen-lezen en lezen/schrijven-modi van bewerkingen en kan gedurende een bepaalde tijd worden uitgevoerd in de modus alleen-lezen.
 
-In dit patroon, de toepassing schakelt over naar modus alleen-lezen wanneer de verbindingen lezen / schrijven beginnen met het ophalen van de time-outfouten optreden. De Web-App wordt geïmplementeerd voor beide regio's en voeg een verbinding met het lezen / schrijven-listener-eindpunt en verschillende verbinding met het kenmerk alleen-lezen-listener-eindpunt (1). Het Traffic manager-profiel moet worden gebruikt [prioriteit routering](../traffic-manager/traffic-manager-configure-priority-routing-method.md). [Eindpunt controleren](../traffic-manager/traffic-manager-monitoring.md) moet worden ingeschakeld voor het toepassingseindpunt van de in elke regio (2).
+In dit patroon wordt de toepassing overgeschakeld naar de modus alleen-lezen wanneer er time-outfouten worden opgehaald met de lees-en schrijf bewerkingen. De webtoepassing wordt geïmplementeerd naar beide regio's en bevat een verbinding met het listener-eind punt voor lezen en schrijven en een andere verbinding met het alleen-lezen listener-eind punt (1). Het Traffic Manager-profiel moet [prioriteits routering](../traffic-manager/traffic-manager-configure-priority-routing-method.md)gebruiken. [Eind punt bewaking](../traffic-manager/traffic-manager-monitoring.md) moet zijn ingeschakeld voor het toepassings eindpunt in elke regio (2).
 
-Het volgende diagram illustreert deze configuratie voordat een storing:
+Het volgende diagram illustreert deze configuratie vóór een storing:
 
-![Scenario 2. De configuratie voordat de storing.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-a.png)
+![Scenario 2. Configuratie vóór de storing.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-a.png)
 
-Wanneer u traffic manager detecteert een verbindingsfout naar een regio, overgeschakeld het gebruikersverkeer automatisch naar de toepassingsexemplaar in de regio B. Met dit patroon is het belangrijk dat u de respijtperiode verlies van gegevens naar een voldoende hoge waarde, bijvoorbeeld 24 uur. Het zorgt ervoor dat gegevens verloren gaan als de onderbreking is verholpen in die tijd wordt voorkomen. Wanneer de Web-App in de regio B is geactiveerd mislukken de lezen / schrijven-bewerkingen. Het moet op dat moment overschakelen naar de modus alleen-lezen (1). In deze modus worden de aanvragen automatisch doorgestuurd naar de secundaire database. Als de onderbreking is veroorzaakt door een onherstelbare fout, niet kan waarschijnlijk het worden verholpen binnen de respijtperiode. Wanneer het verloopt de failover-groep triggers de failover. Na de lezen / schrijven-listener is beschikbaar en de verbindingen met het stoppen (2) mislukt. Het volgende diagram illustreert de twee fasen van het herstelproces.
+Wanneer Traffic Manager een verbindings fout naar regio A detecteert, wordt gebruikers verkeer automatisch overgeschakeld naar het toepassings exemplaar in regio B. Met dit patroon is het belang rijk dat u de respijt periode met gegevens verlies instelt op een voldoende hoge waarde, bijvoorbeeld 24 uur. Het zorgt ervoor dat gegevens verlies wordt voor komen als de storing binnen die tijd wordt verholpen. Wanneer de webtoepassing in regio B wordt geactiveerd, mislukken de lees-en schrijf bewerkingen. Op dat moment moet het overschakelen naar de modus alleen-lezen (1). In deze modus worden de aanvragen automatisch doorgestuurd naar de secundaire data base. Als de storing wordt veroorzaakt door een onherstelbare fout, kan dit waarschijnlijk niet worden verholpen binnen de respijt periode. Wanneer de failover-groep wordt verloopt, wordt de failover geactiveerd. Daarna wordt de lees-/schrijftoegang beschikbaar en worden de verbindingen met de listener niet meer uitgevoerd (2). In het volgende diagram ziet u de twee fasen van het herstel proces.
 
 > [!NOTE]
-> Als de storing in de primaire regio binnen de respijtperiode is beperkt, traffic manager detecteert dat het herstel van de verbinding in de primaire regio en gebruikersverkeer schakelt terug naar het exemplaar van de toepassing in de regio A. Dit exemplaar van de toepassing wordt hervat en werkt in de modus lezen / schrijven met behulp van de primaire database in de regio A zoals wordt geïllustreerd door het vorige diagram.
+> Als de onderbreking in de primaire regio binnen de respijt periode wordt verholpen, detecteert Traffic Manager het herstel van de connectiviteit in de primaire regio en schakelt het gebruikers verkeer terug naar de instantie van de toepassing in regio A. Het toepassings exemplaar wordt hervat en werkt in de modus lezen-schrijven met behulp van de primaire data base in regio A zoals geïllustreerd door het vorige diagram.
 
-![Scenario 2. Disaster recovery fasen.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-b.png)
+![Scenario 2. Nood herstel fasen.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-b.png)
 
-Als een storing in de regio B gebeurt, detecteert de traffic manager het uitvallen van het eindpunt web-app-2 in de regio B en markeert het gedegradeerd (1). De failovergroep verandert in de tussentijd de alleen-lezen-listener voor een regio (2). Deze onderbreking heeft geen invloed op de ervaring van eindgebruikers, maar de primaire database is beschikbaar tijdens de storing. Het volgende diagram wordt een fout in de secundaire regio:
+Als er een storing optreedt in regio B, detecteert Traffic Manager de fout van het eind punt web-app-2 in regio B en markeert deze (1). In de tussen tijd schakelt de failover-groep de alleen-lezen listener over naar regio A (2). Deze storing heeft geen invloed op de ervaring van de eind gebruiker, maar de primaire data base wordt weer gegeven tijdens de onderbreking. In het volgende diagram ziet u een fout in de secundaire regio:
 
-![Scenario 2. Onderbreking van de secundaire regio.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-c.png)
+![Scenario 2. Storing van de secundaire regio.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-c.png)
 
-Zodra de onderbreking is verholpen, de secundaire database is direct gesynchroniseerd met de primaire en de alleen-lezen-listener is overgeschakeld naar de secundaire database in de regio B. Tijdens de synchronisatie kan de prestaties van de primaire enigszins worden beïnvloed, afhankelijk van de hoeveelheid gegevens die moeten worden gesynchroniseerd.
+Zodra de storing is verholpen, wordt de secundaire data base onmiddellijk gesynchroniseerd met de primaire en de alleen-lezen listener wordt weer teruggeschakeld naar de secundaire data base in regio B. Tijdens de synchronisatie prestaties van de primaire kan dit enigszins worden beïnvloed, afhankelijk van de hoeveelheid gegevens die moeten worden gesynchroniseerd.
 
-Dit ontwerppatroon heeft diverse **voordelen**:
+Dit ontwerp patroon heeft verschillende **voor delen**:
 
-* Wordt voorkomen dat er gegevens verloren gaan tijdens de tijdelijke uitval.
-* Uitvaltijd is alleen afhankelijk van hoe snel de verbindingsfout, die kan geconfigureerd worden in traffic manager wordt gedetecteerd.
+* Er wordt voor komen dat gegevens verloren gaan tijdens de tijdelijke uitval.
+* Uitval tijd is alleen afhankelijk van hoe snel de verbindings fout door Traffic Manager wordt gedetecteerd. Dit kan worden geconfigureerd.
 
-De **negatieve gevolgen voor de** is dat de toepassing kunnen moet werken in de modus alleen-lezen.
+De **balans** is dat de toepassing in de modus alleen-lezen moet kunnen worden uitgevoerd.
 
-## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Scenario 3: Toepassing verplaatsingen naar een andere Geografie bevinden zonder verlies van gegevens en in de buurt van uitvaltijd
+## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Scenario 3: Herlocatie van de toepassing naar een andere geografie zonder gegevens verlies en bijna geen downtime
 
 In dit scenario heeft de toepassing de volgende kenmerken:
 
-* De eindgebruikers toegang tot de toepassing vanaf verschillende fysieke locaties
-* De toepassing bevat alleen-lezen-werkbelastingen die niet afhankelijk van volledige synchronisatie met de meest recente updates
-* Schrijftoegang tot de gegevens moeten in hetzelfde geografische gebied voor het merendeel van de gebruikers worden ondersteund
-* Lezen latentie is essentieel voor de eindgebruiker
+* De eind gebruikers hebben toegang tot de toepassing vanuit verschillende geografische gebieden
+* De toepassing bevat alleen-lezen workloads die niet afhankelijk zijn van een volledige synchronisatie met de nieuwste updates
+* Schrijf toegang tot gegevens moet worden ondersteund in dezelfde geografie voor het meren deel van de gebruikers
+* Lees latentie is essentieel voor de ervaring van de eind gebruiker
 
-Om te voldoen aan deze vereisten die u nodig hebt om te garanderen dat het apparaat van de gebruiker **altijd** verbinding maakt met de toepassing geïmplementeerd in hetzelfde geografische gebied voor de alleen-lezen bewerkingen, zoals browsegegevens, analytics, enzovoort. Terwijl de OLTP-bewerkingen worden verwerkt in hetzelfde geografische gebied **van de tijd die de meeste**. Bijvoorbeeld, gedurende de dag tijd OLTP-bewerkingen in hetzelfde geografische gebied worden verwerkt, maar buiten kantooruren kunnen ze worden verwerkt in een andere Geografie bevinden. Als de eindgebruiker activiteit meestal tijdens de werkuren gebeurt, kunt u garanderen dat de optimale prestaties voor de meeste van de gebruikers de meeste van de tijd. Het volgende diagram toont deze topologie.
+Om te voldoen aan deze vereisten moet worden gegarandeerd dat het gebruikers apparaat **altijd** verbinding maakt met de toepassing die is geïmplementeerd in dezelfde geografie voor de alleen-lezen bewerkingen, zoals het bladeren door gegevens, analyses, enzovoort. Overwegende dat de OLTP-bewerkingen in de **meeste tijd**worden verwerkt. Gedurende de tijd dat de OLTP-bewerkingen van de dag worden uitgevoerd, worden deze in dezelfde geografie verwerkt, maar gedurende de buitenste uren die ze in een andere Geografie kunnen verwerken. Als de activiteit van de eind gebruiker voornamelijk plaatsvindt tijdens de werk uren, kunt u de optimale prestaties voor de meeste gebruikers van de tijd garanderen. In het volgende diagram ziet u deze topologie.
 
-Resources van de toepassing moeten worden geïmplementeerd in elke geografische locatie waar u substantieel gebruik aanvraag hebt. Bijvoorbeeld, als uw toepassing actief in de Verenigde Staten gebruikt wordt, moeten Zuidoost-Azië de toepassing en de Europese Unie worden geïmplementeerd op alle van deze locaties. De primaire database moet worden dynamisch overgeschakeld van één Geografie naar het volgende aan het einde van de werkuren. Deze methode wordt aangeroepen 'volgen de zon'. De OLTP-werkbelasting wordt altijd verbinding met de database via de lezen / schrijven-listener  **&lt;failover-groepsnaam&gt;. database.windows.net** (1). De werkbelasting voor alleen-lezen verbinding maakt met de lokale database rechtstreeks met behulp van het servereindpunt databases  **&lt;-servernaam&gt;. database.windows.net** (2). Traffic manager is geconfigureerd met de [routeringsmethode voor prestaties](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Het zorgt ervoor dat de eindgebruiker apparaat is verbonden met de webservice in de dichtstbijzijnde regio. Traffic manager moet worden ingesteld met het bewaken van het eindpunt is ingeschakeld voor elke web service-eindpunt (3).
-
-> [!NOTE]
-> De configuratie van de failover wordt gedefinieerd welke regio wordt gebruikt voor failover. Omdat de nieuwe primaire in een andere Geografie bevinden de failover-leidt tot een langere latentie voor zowel OLTP als alleen-lezen-werkbelastingen is totdat de betrokken regio weer online is.
-
-![Scenario 3. Configuratie met primaire in VS-Oost.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
-
-Aan het einde van de dag (bijvoorbeeld om 23: 00 uur lokale tijd) moeten de actieve databases worden overgeschakeld naar de volgende regio (Noord-Europa). Deze taak kan volledig worden geautomatiseerd met behulp van [Azure service voor het plannen](../scheduler/scheduler-intro.md).  De taak bestaat uit de volgende stappen uit:
-
-* Primaire server in de failovergroep overschakelen naar Noord-Europa met behulp van beschrijvende failover (1)
-* Verwijderen van de failovergroep tussen VS-Oost en Noord-Europa
-* Maak een nieuwe failovergroep met dezelfde naam maar tussen Noord-Europa en Oost-Azië (2).
-* De primaire in Noord-Europa en secundaire in Oost-Azië toevoegen aan deze failovergroep (3).
-
-Het volgende diagram illustreert de nieuwe configuratie na de geplande failover:
-
-![Scenario 3. Overstappen op de primaire naar Noord-Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
-
-Als bijvoorbeeld een storing in Noord-Europa gebeurt, wordt de automatische databaseback-failover wordt gestart door de failovergroep, die effectief resulteert in het verplaatsen van de toepassing naar de volgende regio vooraf een schema (1).  De VS-Oost is in dat geval de enige resterende secundaire regio tot Noord-Europa weer online is. De resterende twee regio's fungeren de klanten in alle drie regio's door het overschakelen van rollen. Met Azure scheduler is dienovereenkomstig worden aangepast. Omdat de resterende regio's extra gebruikersverkeer van Europa krijgen, worden de prestaties van de toepassing is beïnvloed niet alleen door extra latentie, maar ook door een toenemend aantal verbindingen van de eindgebruiker. Zodra de onderbreking is verholpen in Noord-Europa, wordt de secundaire database er direct gesynchroniseerd met de huidige primaire. Het volgende diagram illustreert een storing in Noord-Europa:
-
-![Scenario 3. Storing in Noord-Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
+De resources van de toepassing moeten in elke geografie worden geïmplementeerd, waar u een substantiële gebruiks vraag hebt. Als uw toepassing bijvoorbeeld actief wordt gebruikt in de Verenigde Staten, moeten de Europese Unie en Zuid Azië-oost de toepassing worden geïmplementeerd in al deze geografische gebieden. De primaire data base moet dynamisch worden overgeschakeld van het ene geografie naar het volgende aan het einde van de werk uren. Deze methode wordt ' de zon volgen ' genoemd. De OLTP-werk belasting maakt altijd verbinding met de data base via de Read-Write-listener  **&lt;failover&gt;-group-name. database.Windows.net** (1). De alleen-lezen workload maakt rechtstreeks verbinding met de lokale data base met behulp van de server  **&lt;naam&gt;. database.Windows.net** (2) van de data baseserver. Traffic Manager is geconfigureerd met de [routerings methode voor prestaties](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Hiermee zorgt u ervoor dat het apparaat van de eind gebruiker is verbonden met de webservice in de dichtstbijzijnde regio. Traffic manager moet worden ingesteld terwijl de eindpunt bewaking is ingeschakeld voor elk eind punt van de webservice (3).
 
 > [!NOTE]
-> U kunt de tijd wanneer de ervaring van de eindgebruiker in Europa is verminderd door de lang latentie kunt verminderen. U doet dat u moeten proactief een kopie van de toepassing implementeren en de secundaire database (s) maken in een andere lokale regio (West-Europa) als vervanging van het offline toepassingsexemplaar in Noord-Europa. Wanneer deze weer online kunt u beslissen of om door te gaan met behulp van West-Europa of te verwijderen van de kopie van de toepassing bevat en gaat u terug naar de met behulp van Noord-Europa.
+> De configuratie van de failovergroep definieert welke regio voor failover wordt gebruikt. Omdat de nieuwe primaire locatie zich in een andere geografie bevindt, resulteert de failover in langere latentie voor zowel OLTP-als alleen-lezen workloads totdat de betrokken regio weer online is.
 
-De sleutel **voordelen** van dit ontwerp zijn:
+![Scenario 3. Configuratie met primair in VS-Oost.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
-* Workload van de toepassing alleen-lezen toegang heeft tot gegevens in de regio kasten te allen tijde.
-* De workload voor lezen / schrijven-toepassing toegang heeft tot gegevens in de dichtstbijzijnde regio gedurende de periode van de hoogste activiteit in elke geografische locatie
-* Omdat de toepassing wordt geïmplementeerd in meerdere regio's, kan dit een verlies van een van de regio's zonder significante downtime overbruggen.
+Aan het einde van de dag (bijvoorbeeld op 23:00 uur lokale tijd) moeten de actieve data bases worden overgeschakeld naar de volgende regio (Europa-noord). Deze taak kan volledig worden geautomatiseerd met behulp van de [Azure-plannings service](../scheduler/scheduler-intro.md).  De taak omvat de volgende stappen:
 
-Maar er zijn een aantal **compromissen**:
+* Primaire server in de failovergroep overschakelen naar Europa-noord met behulp van een beschrijvende failover (1)
+* De failovergroep verwijderen tussen de VS-Oost en het Europa-noord
+* Maak een nieuwe failovergroep met dezelfde naam, maar tussen Europa-noord en Azië-oost (2).
+* Voeg de primaire in Europa-noord en secundaire in Azië-oost toe aan deze failovergroep (3).
 
-* Een regionale onderbreking resulteert in de geografische locatie langere latentie worden beïnvloed. Workloads voor lezen / schrijven en alleen-lezen is geleverd door de toepassing in een andere Geografie bevinden.
-* De alleen-lezen-werkbelastingen moeten verbinding maken met een ander eindpunt in elke regio.
+In het volgende diagram ziet u de nieuwe configuratie na de geplande failover:
 
-## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Zakelijke continuïteit plannen: Kies een toepassing ontwerpen voor noodherstel voor cloud
+![Scenario 3. Overgang van de primaire naar Europa-noord.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
 
-Uw strategie voor herstel na noodgevallen specifieke cloud kunt combineren of uitbreiden van deze ontwerppatronen voor het beste voldoet aan de behoeften van uw toepassing.  Zoals eerder vermeld, worden de strategie die u kiest is gebaseerd op de SLA die u wilt aanbieden aan uw klanten en de topologie van de implementatie van toepassing. Om u te helpen uw beslissing, vergelijkt de volgende tabel de opties op basis van beoogd herstelpunt (RPO) en de geschatte hersteltijd (ERT).
+Als er zich een storing voordoet in Europa-noord bijvoorbeeld, wordt de failover van de automatische data base geïnitieerd door de failoverrelatie, waardoor de toepassing effectief wordt verplaatst naar de volgende regio voor planning (1).  In dat geval is de VS-Oost de enige resterende secundaire regio totdat Europa-noord weer online is. De overige twee regio's leveren de klanten in alle drie de geografische gebieden door rollen te scha kelen. Azure scheduler moet dienovereenkomstig worden aangepast. Omdat de resterende regio's extra gebruikers verkeer van Europa verkrijgen, worden de prestaties van de toepassing niet alleen beïnvloed door extra latentie, maar ook door een groter aantal eind gebruikers. Zodra de onderbreking in Europa-noord is verholpen, wordt de secundaire data base onmiddellijk gesynchroniseerd met de huidige primaire. Het volgende diagram illustreert een onderbreking in Europa-noord:
+
+![Scenario 3. Uitval in Europa-noord.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
+
+> [!NOTE]
+> U kunt de tijd beperken waarop de ervaring van de eind gebruiker in Europa wordt gedegradeerd door de lange latentie. U moet proactief een toepassings kopie implementeren en de secundaire data base (s) in een andere lokale regio (Europa-west) maken als vervanging van het exemplaar van de offline toepassing in Europa-noord. Wanneer de laatste weer online is, kunt u bepalen of u Europa-west wilt blijven gebruiken of dat u de kopie van de toepassing daar wilt verwijderen en terug wilt gaan naar het gebruik van Europa-noord.
+
+De belangrijkste **voor delen** van dit ontwerp zijn:
+
+* De werk belasting van de alleen-lezen toepassing heeft altijd toegang tot de gegevens in de behuizing-regio.
+* De werk belasting van de toepassing lezen-schrijven heeft toegang tot gegevens in de dichtstbijzijnde regio tijdens de periode van de hoogste activiteit in elke Geografie
+* Omdat de toepassing wordt geïmplementeerd in meerdere regio's, kan het een verlies van een van de regio's belopen zonder aanzienlijke uitval tijd.
+
+Maar er zijn eenaantal voor afwegingen:
+
+* Een regionale storing leidt ertoe dat de geografie wordt beïnvloed door langere latentie. Alleen werk belastingen met lees-en schrijf bewerkingen en alleen-lezen taken worden door de toepassing in een andere geografie bediend.
+* De alleen-lezen workloads moeten verbinding maken met een ander eind punt in elke regio.
+
+## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Planning voor bedrijfs continuïteit: Kies een toepassings ontwerp voor herstel na nood geval in de Cloud
+
+Met uw specifieke strategie voor nood herstel in de cloud kunt u deze ontwerp patronen combi neren of uitbreiden om optimaal te voldoen aan de behoeften van uw toepassing.  Zoals eerder vermeld, is de strategie die u kiest, gebaseerd op de SLA die u aan uw klanten wilt aanbieden en de topologie voor de implementatie van de toepassing. Om u te helpen uw beslissing te nemen, vergelijkt de volgende tabel de keuzes op basis van Recovery Point Objective (RPO) en geschatte herstel tijd (ERT).
 
 | Patroon | RPO | ERT |
 |:--- |:--- |:--- |
-| Actief-passief-implementatie voor herstel na noodgeval met CO-database-toegang |Lees-/ schrijftoegang sec < 5. |Fout detectietijd + DNS TTL |
-| Actief / actief-implementatie voor de taakverdeling van toepassing |Lees-/ schrijftoegang sec < 5. |Fout detectietijd + DNS TTL |
-| Actief-passief-implementatie voor behoud van gegevens |Alleen-lezentoegang sec < 5. | Alleen-lezentoegang = 0 |
-||Lees-/ schrijftoegang = nul | Lees-/ schrijftoegang = fout detectietijd + respijtperiode verlies van gegevens |
+| Actieve-passieve implementatie voor herstel na nood gevallen met toegang tot de Data Base op basis van co-locaties |Lees-/schrijftoegang < 5 sec |Fout detectie tijd + DNS-TTL |
+| Actief-actief-implementatie voor taak verdeling van toepassingen |Lees-/schrijftoegang < 5 sec |Fout detectie tijd + DNS-TTL |
+| Actieve-passieve implementatie voor gegevens behoud |Alleen-lezen toegang < 5 sec | Alleen-lezen toegang = 0 |
+||Lees-/schrijftoegang = nul | Lezen-schrijven toegang = fout detectie tijd + respijt periode met gegevens verlies |
 |||
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een overzicht voor zakelijke continuïteit en scenario's, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md)
-* Zie voor meer informatie over actieve geo-replicatie, [actieve geo-replicatie](sql-database-active-geo-replication.md).
-* Zie voor meer informatie over automatische failover-groepen, [automatische failovergroepen](sql-database-auto-failover-group.md).
-* Zie voor meer informatie over actieve geo-replicatie met elastische pools [strategieën voor noodherstel elastische pool](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* Zie [overzicht van bedrijfs continuïteit](sql-database-business-continuity.md) voor een overzicht en scenario's voor bedrijfs continuïteit
+* Zie [actieve geo-replicatie](sql-database-active-geo-replication.md)voor meer informatie over actieve geo-replicatie.
+* Zie [groepen met automatische failover](sql-database-auto-failover-group.md)voor meer informatie over groepen met automatische failover.
+* Zie [strategieën voor nood herstel voor elastische Pools](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)voor meer informatie over actieve geo-replicatie met elastische Pools.

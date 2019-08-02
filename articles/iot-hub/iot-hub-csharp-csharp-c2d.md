@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 5a7cb4ecde599a76b2d42cf874420d9cbcfda3d5
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: f8ba9508bdbb7fd436d3b693e638f29bac5065bf
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402640"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618653"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Berichten vanuit de Cloud naar uw apparaat verzenden met IoT Hub (.NET)
 
@@ -43,7 +43,7 @@ Aan het einde van deze zelf studie voert u twee .NET-console-apps uit.
 * **SendCloudToDevice**, waarmee een Cloud-naar-apparaat-bericht naar de apparaat-app wordt verzonden via IOT hub, waarna de ontvangst bevestiging wordt ontvangen.
 
 > [!NOTE]
-> IoT Hub heeft SDK-ondersteuning voor veel platformen en talen (waaronder C, Java en Java script) via [Azure IOT-apparaat-sdk's](iot-hub-devguide-sdks.md). Raadpleeg de [IOT hub ontwikkelaars handleiding](iot-hub-devguide.md)voor stapsgewijze instructies voor het verbinden van uw apparaat met de code van deze zelf studie en over het algemeen tot Azure IOT hub.
+> IoT Hub heeft SDK-ondersteuning voor veel platformen en talen (waaronder C, Java, python en Java script) via [Azure IOT-apparaat-sdk's](iot-hub-devguide-sdks.md). Raadpleeg de [IOT hub ontwikkelaars handleiding](iot-hub-devguide.md)voor stapsgewijze instructies voor het verbinden van uw apparaat met de code van deze zelf studie en over het algemeen tot Azure IOT hub.
 >
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:

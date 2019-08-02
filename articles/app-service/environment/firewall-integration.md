@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 07/29/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b57ac43b02e8630528e7ed3f77f51befa52ed45f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 3e24b95704249a8a0b7588112cbaa678ae1e2c86
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498464"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619132"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Een App Service Environment vergren delen
 
@@ -59,7 +59,7 @@ De stappen voor het vergren delen van uitgaand verkeer van uw bestaande ASE met 
    
    ![Toepassings regel toevoegen][1]
    
-1. Selecteer in de Azure Firewall GEBRUIKERSINTERFACE > regels > netwerk regel verzameling de optie netwerk regel verzameling toevoegen. Geef een naam, prioriteit en set toestaan op. Geef in de sectie regels een naam op, selecteer een wille keurige, set *-bron-en doel adressen en stel de poorten in op 123. Met deze regel kan het systeem klok synchronisatie uitvoeren met behulp van NTP. Maak een andere regel op dezelfde manier als poort 12000 om eventuele systeem problemen te sorteren.
+1. Selecteer in de Azure Firewall GEBRUIKERSINTERFACE > regels > netwerk regel verzameling de optie netwerk regel verzameling toevoegen. Geef een naam, prioriteit en set toestaan op. Geef in de sectie regels een naam op, selecteereen wille keurige, set *-bron-en doel adressen en stel de poorten in op 123. Met deze regel kan het systeem klok synchronisatie uitvoeren met behulp van NTP. Maak een andere regel op dezelfde manier als poort 12000 om eventuele systeem problemen te sorteren.
 
    ![NTP-netwerk regel toevoegen][3]
 
@@ -189,6 +189,7 @@ Met een Azure Firewall krijgt u automatisch alle onderstaande instellingen die z
 |azureprofileruploads3.blob.core.windows.net:443 |
 |azureprofileruploads4.blob.core.windows.net:443 |
 |azureprofileruploads5.blob.core.windows.net:443 |
+|azureprofilerfrontdoor.cloudapp.net:443 |
 
 #### <a name="wildcard-httphttps-dependencies"></a>Joker teken-HTTP/HTTPS-afhankelijkheden 
 

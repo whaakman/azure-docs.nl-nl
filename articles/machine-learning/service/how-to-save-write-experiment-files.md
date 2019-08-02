@@ -1,78 +1,78 @@
 ---
-title: Beperkingen van storage voorkomen en experimenteren latentie met invoer- en -mappen
-description: In dit artikel leert u waar om op te slaan, uw experiment-invoerbestanden en waar de uitvoerbestanden om te voorkomen dat opslag beperking fouten en experimenteren latentie schrijven.
+title: Opslag beperkingen en experiment latentie met invoer-en uitvoer mappen voor komen
+description: In dit artikel leert u waar u uw experimentele invoer bestanden opslaat, en waar u uitvoer bestanden schrijft om te voor komen dat er problemen met de opslag beperking en de latentie van een experiment.
 services: machine-learning
 author: rastala
 ms.author: roastala
 manager: danielsc
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 05/28/2019
-ms.openlocfilehash: 1f9199b5bae0c82cd46750d8ef5522a0d3579671
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b0e0ef93b2782cd44eca3dc6023a7eb556cd3245
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595286"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618384"
 ---
-# <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Wanneer u bestanden wilt opslaan en schrijven voor Azure Machine Learning-experimenten
+# <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Locatie voor het opslaan en schrijven van bestanden voor Azure Machine Learning experimenten
 
-In dit artikel leert u waar om op te slaan invoerbestanden en waar de uitvoerbestanden van de experimenten nodig hebben om te voorkomen dat opslag fouten beperken en experimenteren latentie schrijven.
+In dit artikel wordt beschreven waar u invoer bestanden opslaat, en waar u uitvoer bestanden van uw experimenten schrijft om opslag limiet fouten en experiment latentie te voor komen.
 
-Wanneer de training starten wordt uitgevoerd op een [compute-doel](how-to-set-up-training-targets.md), ze zijn geïsoleerd van buiten-omgevingen. Het doel van dit ontwerp is om ervoor te zorgen reproduceerbaarheid en draagbaarheid van het experiment. Als u twee keer hetzelfde script uitvoert, op dezelfde of een andere compute-doel, ontvangt u hetzelfde resultaat. Met dit ontwerp kunt u de compute-doelen behandelen als stateless rekenbronnen die, elke hoeven geen affiniteit met de taken die worden uitgevoerd nadat ze voltooid zijn.
+Wanneer u training uitvoert op een [Compute-doel](how-to-set-up-training-targets.md), zijn ze geïsoleerd van buiten omgevingen. Het doel van dit ontwerp is om te zorgen voor reproduceer baarheid en draag baarheid van het experiment. Als u hetzelfde script twee keer uitvoert op hetzelfde of een ander Compute-doel, worden dezelfde resultaten weer gegeven. Met dit ontwerp kunt u Compute-doelen behandelen als resources zonder stateless reken kracht, die elk geen affiniteit hebben met de taken die worden uitgevoerd nadat ze zijn voltooid.
 
-## <a name="where-to-save-input-files"></a>Waar om op te slaan invoerbestanden
+## <a name="where-to-save-input-files"></a>Waar de invoer bestanden worden opgeslagen
 
-Voordat u een experiment op een compute-doel of uw lokale computer starten kunt, moet u ervoor zorgen dat de benodigde bestanden beschikbaar voor deze compute-doel, zoals de afhankelijkheid en gegevensbestanden die uw code moet zijn worden uitgevoerd.
+Voordat u een experiment kunt initiëren op een reken doel of op uw lokale computer, moet u ervoor zorgen dat de benodigde bestanden beschikbaar zijn voor het reken doel, zoals afhankelijkheids bestanden en gegevens bestanden die de code moet uitvoeren.
 
-Azure Machine Learning trainingsscripts uitgevoerd door de gehele script-map kopiëren naar de doel-compute-context en een momentopname. De limiet voor opslag voor momentopnamen van het experiment is 300 MB en/of 2000-bestanden.
+Azure Machine Learning oefent trainings scripts uit door de hele scripthost naar de doel Compute-context te kopiëren en vervolgens een moment opname te maken. De opslag limiet voor experimenten-moment opnamen is 300 MB en/of 2000 bestanden.
 
-Daarom raden we het volgende aan:
+Daarom kunt u het beste het volgende doen:
 
-* **Uw bestanden opslaan in een Azure Machine Learning [gegevensopslag](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).** Dit voorkomt dat experiment latentieproblemen en heeft de voordelen van toegang tot gegevens op een externe compute-doel, wat betekent dat de verificatie en koppelen worden beheerd door Azure Machine Learning-service. Meer informatie over het opgeven van een gegevensarchief als de bronmap en bestanden uploaden naar uw gegevensopslag in de [toegang tot gegevens van uw gegevensopslag](how-to-access-data.md) artikel.
+* **Uw bestanden worden opgeslagen in een Azure Machine Learning [gegevens opslag](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).** Dit voor komt problemen met de latentie van experimenten en heeft de voor delen van het openen van gegevens van een extern Compute-doel, wat betekent dat verificatie en bevestiging wordt beheerd door Azure Machine Learning service. Meer informatie over het opgeven van een gegevens opslag als bron directory en het uploaden van bestanden naar uw gegevens opslag in het artikel [toegangs gegevens van uw gegevens opslag](how-to-access-data.md) .
 
-* **Als u alleen een aantal gegevensbestanden hoeft en afhankelijkheid scripts en een gegevensarchief kan niet worden gebruikt** plaatst u de bestanden in dezelfde mapdirectory als uw trainingsscript. Specificeert u deze map als uw `source_directory` rechtstreeks in uw trainingsscript, of in de code die uw trainingsscript aanroept.
+* **Als u alleen een aantal gegevens bestanden en afhankelijkheids scripts nodig hebt en u geen gegevens opslag kunt gebruiken, plaatst u** de bestanden in dezelfde map als uw trainings script. Geef deze map op als `source_directory` uw eigen trainings script of in de code die uw trainings script aanroept.
 
 <a name="limits"></a>
 
-### <a name="storage-limits-of-experiment-snapshots"></a>Opslagbeperkingen van momentopnamen van experiment
+### <a name="storage-limits-of-experiment-snapshots"></a>Opslag limieten van experiment-moment opnamen
 
-Voor experimenten maakt Azure Machine Learning automatisch een momentopname van een experiment van uw code op basis van de map die u bij het configureren van de uitvoering voorstellen. Dit heeft een limiet van 300 MB en/of 2000-bestanden. Als u deze limiet overschrijdt, ziet u de volgende fout:
+Voor experimenten maakt Azure Machine Learning automatisch een Experimenteer moment opname van uw code op basis van de directory die u suggereert bij het configureren van de uitvoering. Dit heeft een totale limiet van 300 MB en/of 2000 bestanden. Als u deze limiet overschrijdt, ziet u de volgende fout:
 
 ```Python
 While attempting to take snapshot of .
 Your total snapshot size exceeds the limit of 300.0 MB
 ```
 
-U kunt deze fout oplossen door uw experiment bestanden opslaat op een gegevensarchief. Als u niet een gegevensopslag, gebruiken de onderstaande tabel biedt mogelijke alternatieve oplossingen.
+U kunt deze fout oplossen door uw experiment-bestanden op te slaan in een gegevens opslag. Als u geen gegevens opslag kunt gebruiken, biedt de onderstaande tabel mogelijke alternatieve oplossingen.
 
-Experiment&nbsp;beschrijving|Limiet opslagoplossing
+Beschrijving&nbsp;van experiment|Oplossing voor opslag limiet
 ---|---
-Minder dan 2000-bestanden en een gegevensarchief kan niet worden gebruikt| Grootte van de momentopname met overschrijven <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Dit kan enige tijd duren, afhankelijk van het aantal en de grootte van bestanden.
-Moet specifiek script directory gebruiken| Controleer een `.amlignore` bestand wilt uitsluiten van bestanden vanuit de momentopname van uw experiment die geen deel uitmaken van de broncode. Toevoegen van de namen van bestanden naar de `.amlignore` -bestand en plaats deze in dezelfde map als het trainingsscript. De `.amlignore` bestand maakt gebruik van dezelfde [syntaxis en patronen](https://git-scm.com/docs/gitignore) als een `.gitignore` bestand.
-Pijplijn|Gebruik een andere submap voor elke stap
-Jupyter-notebooks| Maak een `.amlignore` bestand of uw laptop verplaatsen naar een nieuwe, lege submap en voer uw code opnieuw uit.
+Minder dan 2000 bestanden & kan geen gegevens opslag gebruiken| Maximale grootte van moment opname overschrijven met <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Dit kan enkele minuten duren, afhankelijk van het aantal en de grootte van de bestanden.
+U moet een specifieke script Directory gebruiken| Maak een `.amlignore` bestand om bestanden uit de moment opname van uw experiment uit te sluiten die geen deel uitmaken van de bron code. Voeg de bestands namen toe aan `.amlignore` het bestand en plaats het in dezelfde map als uw trainings script. Het `.amlignore` bestand gebruikt dezelfde [syntaxis en patronen](https://git-scm.com/docs/gitignore) als een `.gitignore` bestand.
+Pijplijn|Voor elke stap een andere submap gebruiken
+Jupyter-notebooks| Maak een `.amlignore` bestand of verplaats uw notitie blok naar een nieuwe, lege, submap en voer de code opnieuw uit.
 
-## <a name="where-to-write-files"></a>Waar u bestanden te schrijven
+## <a name="where-to-write-files"></a>Locatie voor het schrijven van bestanden
 
-Vanwege de isolatie van training experimenten, de wijzigingen in bestanden die ontstaan tijdens uitvoeringen zijn niet noodzakelijkerwijs permanent opgeslagen buiten uw omgeving. Als uw script de lokale compute-bestanden wijzigt, de wijzigingen zijn niet permanent voor uw volgende experiment uitvoert en ze doorgegeven zijn niet automatisch terug naar de clientcomputer. Daarom worden de wijzigingen tijdens de eerste experiment uitvoeren niet en mag niet van invloed zijn op die in de tweede.
+Vanwege de isolatie van trainings experimenten, zijn de wijzigingen aan bestanden die tijdens de uitvoering plaatsvinden, niet noodzakelijkerwijs buiten uw omgeving bewaard. Als uw script de bestanden Local op Compute wijzigt, worden de wijzigingen niet bewaard voor uw volgende experiment en worden ze niet automatisch door gegeven aan de client computer. De wijzigingen die zijn aangebracht tijdens het eerste experiment, worden dus niet in de tweede keer uitgevoerd.
 
-Bij het schrijven van wijzigingen, wordt u aangeraden bestanden schrijven naar een Azure Machine Learning-gegevensopslag. Zie [toegang tot gegevens van uw gegevensopslag](how-to-access-data.md).
+Wanneer u wijzigingen schrijft, raden we u aan om bestanden naar een Azure Machine Learning gegevens opslag te schrijven. Bekijk [de toegang tot gegevens uit uw gegevens opslag](how-to-access-data.md).
 
-Als u een gegevensarchief niet vereist, schrijft u bestanden naar de `./outputs` en/of `./logs` map.
+Als u geen gegevens opslag nodig hebt, schrijft u de `./outputs` bestanden naar de `./logs` map en/of.
 
 >[!Important]
-> Twee mappen *levert* en *logboeken*, speciale behandeling door Azure Machine Learning. Tijdens de training, bij het schrijven van bestanden naar`./outputs` en`./logs` mappen, worden de bestanden worden automatisch uploaden naar uw uitvoeringsgeschiedenis, zodat u de toegang tot hebben als uw uitvoering is voltooid.
+> Twee mappen, *uitvoer* en *Logboeken*, een speciale behandeling ontvangen door Azure machine learning. Tijdens de training, wanneer u bestanden naar`./outputs` en`./logs` mappen schrijft, worden de bestanden automatisch naar de uitvoerings geschiedenis geüpload, zodat u er toegang tot hebt wanneer de uitvoering is voltooid.
 
-* **Voor uitvoer zoals statusberichten of scoring resultaten** schrijven van bestanden naar de `./outputs` map, zodat ze worden doorgevoerd als artefacten in de uitvoeringsgeschiedenis. Worden Houd ook rekening met het aantal en de grootte van bestanden die worden weggeschreven naar deze map, zoals latentie optreden kan wanneer de inhoud naar de uitvoeringsgeschiedenis worden geüpload. Als de latentie is een probleem, wordt het schrijven van bestanden naar een gegevensarchief aanbevolen.
+* Schrijf **voor uitvoer, zoals status berichten of Score resultaten,** bestanden naar de `./outputs` map, zodat deze persistent zijn als artefacten in de uitvoerings geschiedenis. Mindful zijn van het aantal en de grootte van bestanden die naar deze map worden geschreven, omdat er een latentie kan optreden wanneer de inhoud wordt geüpload om de geschiedenis uit te voeren. Als latentie een probleem is, wordt het schrijven van bestanden naar een gegevens opslag aanbevolen.
 
-* **Geschreven opslaan als Logboeken in de uitvoeringsgeschiedenis,** bestanden schrijven `./logs` map. De logboeken zijn geüpload in realtime, zodat deze methode geschikt is voor het streamen van live-updates vanaf een externe uitvoeren.
+* **Als u geschreven bestanden wilt opslaan als Logboeken in uitvoerings geschiedenis,** moet u bestanden naar `./logs` de map schrijven. De logboeken worden in realtime geüpload, dus deze methode is geschikt voor het streamen van live-updates vanaf een externe uitvoering.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [toegang krijgen tot gegevens uit uw gegevensopslag](how-to-access-data.md).
+* Meer informatie over [het verkrijgen van toegang tot gegevens uit uw gegevens opslag](how-to-access-data.md).
 
-* Meer informatie over [Training doelen instellen hoe](how-to-set-up-training-targets.md).
+* Meer informatie over [het instellen van trainings doelen](how-to-set-up-training-targets.md).

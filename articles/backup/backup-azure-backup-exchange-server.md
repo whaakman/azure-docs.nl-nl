@@ -1,18 +1,19 @@
 ---
 title: Met System Center 2012 R2 DPM een back-up maken van een Exchange-server in Azure Backup
 description: Meer informatie over het maken van een back-up van een Exchange-Server naar Azure Backup met behulp van System Center 2012 R2 DPM
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: kasinh
-ms.openlocfilehash: 2d3670e2120e7c203e40d39ba9d82537da877ee5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 0c8975aed79e78b4bb66ce1516b85ceeb78628e8
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466728"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689425"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Met System Center 2012 R2 DPM een back-up maken van een Exchange-server in Azure Backup
 In dit artikel wordt beschreven hoe u een System Center 2012 R2 Data Protection Manager (DPM)-server configureert om een back-up te maken van een micro soft Exchange-Server naar Azure Backup.  

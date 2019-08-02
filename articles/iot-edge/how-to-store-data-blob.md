@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c5a27a8016202f7f8c9e256eaf6b3077fbef295b
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5932d51ecaca3c827ae6de268711c7f4d1b28d0a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414528"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640653"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Gegevens aan de rand met Azure Blob Storage Store op IoT Edge (preview)
 
@@ -87,7 +87,7 @@ De naam van deze instelling is`deviceToCloudUploadProperties`
 | ----- | ----- | ---- | ---- |
 | uploadOn | true, false | Standaard ingesteld `false` op. Als u de functie wilt inschakelen, stelt u dit veld in op `true`. | `deviceToCloudUploadProperties__uploadOn={false,true}` |
 | uploadOrder | NewestFirst, OldestFirst | Hiermee kunt u de volg orde kiezen waarin de gegevens naar Azure worden gekopieerd. Standaard ingesteld `OldestFirst` op. De volg orde wordt bepaald door het tijdstip van de laatste wijziging van de BLOB | `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`is een connection string waarmee u het Azure Storage account kunt opgeven waarnaar u uw gegevens wilt uploaden. Opgeven `Azure Storage Account Name`, `Azure Storage Account Key`, .`End point suffix` Voeg de juiste EndpointSuffix van Azure toe, waarbij gegevens worden geüpload, wat de wereld wijde Azure, overheids Azure en Microsoft Azure Stack is. | `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`is een connection string waarmee u het opslag account kunt opgeven waarnaar u uw gegevens wilt uploaden. Opgeven `Azure Storage Account Name`, `Azure Storage Account Key`, .`End point suffix` Voeg de juiste EndpointSuffix van Azure toe, waarbij gegevens worden geüpload, wat de wereld wijde Azure, overheids Azure en Microsoft Azure Stack is. <br><br> U kunt ervoor kiezen om Azure Storage SAS-connection string hier op te geven. Maar u moet deze eigenschap bijwerken wanneer deze verloopt.  | `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Hiermee kunt u de namen van de containers opgeven die u wilt uploaden naar Azure. Met deze module kunt u zowel de bron-als de doel container naam opgeven. Als u de naam van de doel container niet opgeeft, wordt de naam van de container `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`automatisch toegewezen als. U kunt sjabloon teken reeksen maken voor de naam van de doel container, de kolom mogelijke waarden bekijken. <br>*% h-> IoT Hub naam (3-50 tekens). <br>*% d-> IoT Edge apparaat-ID (1 tot 129 tekens). <br>*% m-> module naam (1 tot 64 tekens). <br>*% c-> Bron container naam (3 tot 63 tekens). <br><br>De maximum grootte van de container naam is 63 tekens, terwijl de naam van de doel container automatisch wordt toegewezen als de grootte van de container groter is dan 63 tekens, wordt elke sectie (IoTHubName, IotEdgeDeviceID, module naam, SourceContainerName) op 15 geknipt aantal. | `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target: <targetName>` |
 | deleteAfterUpload | true, false | Standaard ingesteld `false` op. Als deze is ingesteld op `true`, worden de gegevens automatisch verwijderd wanneer het uploaden naar de Cloud opslag is voltooid | `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
 
@@ -101,6 +101,23 @@ De naam van deze instelling is`deviceAutoDeleteProperties`
 | deleteOn | true, false | Standaard ingesteld `false` op. Als u de functie wilt inschakelen, stelt u dit veld in op `true`. | `deviceAutoDeleteProperties__deleteOn={false,true}` |
 | deleteAfterMinutes | `<minutes>` | Geef de tijd in minuten op. De module verwijdert automatisch uw blobs uit de lokale opslag wanneer deze waarde verloopt | `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
 | retainWhileUploading | true, false | De standaard instelling is ingesteld op `true`, en de BLOB wordt bewaard tijdens het uploaden naar de Cloud opslag als deleteAfterMinutes verloopt. U kunt deze instellen op `false` en de gegevens worden verwijderd zodra deleteAfterMinutes verloopt. Opmerking: Deze eigenschap werkt alleen als uploadOn is ingesteld op True| `deviceAutoDeleteProperties__retainWhileUploading={false,true}` |
+
+## <a name="using-smb-share-as-your-local-storage"></a>SMB-share gebruiken als lokale opslag
+Als u een Windows-container van deze module op Windows host implementeert, kunt u SMB-share als uw lokale opslagpad opgeven.
+U kunt de `New-SmbGlobalMapping` Power shell-opdracht uitvoeren om de SMB-share lokaal toe te wijzen op het IOT-apparaat waarop Windows wordt uitgevoerd. Zorg ervoor dat het IoT-apparaat kan lezen/schrijven naar de externe SMB-share.
+
+Hieronder vindt u de configuratie stappen:
+```PowerShell
+$creds = Get-Credential
+New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
+```
+Voorbeeld: <br>
+`$creds = Get-Credentials` <br>
+`New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G: `
+
+Met deze opdracht worden de referenties gebruikt voor verificatie bij de externe SMB-server. Wijs vervolgens het externe sharepad toe aan G: stationsletter (kan elk ander beschik bare stationsletter zijn). Het IoT-apparaat heeft nu het gegevens volume toegewezen aan een pad op het station G:. 
+
+Voor uw implementatie moet u de `<storage directory bind>` waarde **G:/ContainerData: C:/BlobRoot**.
 
 ## <a name="configure-log-files"></a>Logboek bestanden configureren
 

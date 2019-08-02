@@ -1,29 +1,27 @@
 ---
-title: Het gebruik van Queue storage (C++)-Azure Storage
-description: Informatie over het gebruik van de Queue storage-service in Azure. Voorbeelden zijn geschreven in C++.
-services: storage
+title: Queue Storage (C++)-Azure Storage gebruiken
+description: Meer informatie over het gebruik van de Queue Storage-service in Azure. Voor beelden zijn geschreven C++in.
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: cpp
-ms.topic: article
-ms.date: 05/11/2017
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 05/11/2017
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 440033233bbd60421cc3245a04544cd04caec6f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: e268e30e8f8c512dd6efb5a50da45f173e526b62
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153129"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721642"
 ---
-# <a name="how-to-use-queue-storage-from-c"></a>Hoe u Queue Storage gebruiken met C++
+# <a name="how-to-use-queue-storage-from-c"></a>Queue Storage gebruiken vanuitC++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze handleiding wordt beschreven hoe algemene scenario's met behulp van de Azure Queue storage-service uitvoert. De voorbeelden zijn geschreven in C++ en maken gebruik van de [Azure Storage-clientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). De behandelde scenario's zijn **invoegen**, **inspecteren**, **aan**, en **verwijderen** berichten in de wachtrij, evenals  **het maken en verwijderen van wachtrijen**.
+In deze hand leiding wordt uitgelegd hoe u algemene scenario's uitvoert met behulp van de Azure Queue Storage-service. De voorbeelden zijn geschreven in C++ en maken gebruik van de [Azure Storage-clientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). De gedekte scenario's zijn het **Invoegen**, inspecteren, **ophalen**en **verwijderen** van wachtrij berichten, en het **maken en verwijderen van wacht rijen**.
 
 > [!NOTE]
 > Deze handleiding is gericht op de Azure-opslagclientbibliotheek voor C++ versie 1.0.0 en hoger. De aanbevolen versie is opslagclientbibliotheek 2.2.0. Deze is beschikbaar via [NuGet](https://www.nuget.org/packages/wastorage) of [GitHub](https://github.com/Azure/azure-storage-cpp/).
@@ -35,48 +33,48 @@ Deze handleiding wordt beschreven hoe algemene scenario's met behulp van de Azur
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-c-application"></a>Een C++-toepassing maken
-In deze handleiding gebruikt u opslagfuncties die kunnen worden uitgevoerd binnen een C++-toepassing.
+In deze hand leiding maakt u gebruik van opslag functies die kunnen worden uitgevoerd in C++ een toepassing.
 
 Hiervoor moet u de Azure-opslagclientbibliotheek voor C++ installeren en een Azure-opslagaccount in uw Azure-abonnement maken.
 
 Voor het installeren van de Azure-opslagclientbibliotheek voor C++ kunt u de volgende methoden gebruiken:
 
-* **Linux:** Volg de instructies de [Azure Storage-clientbibliotheek voor C++ Leesmij](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) pagina.
-* **Windows:** Klik in Visual Studio op **Tools > NuGet Package Manager > Package Manager Console**. Typ de volgende opdracht in de [NuGet Package Manager console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) en druk op **ENTER**.
+* **Linux:** Volg de instructies in de pagina [Azure Storage-client bibliotheek C++ voor Leesmij](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
+* **Windows:** Klik in Visual Studio op **Tools > NuGet Package Manager > Package Manager Console**. Typ de volgende opdracht in de [NuGet Package Manager-console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) en druk op **Enter**.
 
 ```powershell
 Install-Package wastorage
 ```
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Uw toepassing configureren voor toegang tot Queue Storage
-Voeg dat de volgende instructies toe aan het begin van de C++-bestand dat is waar u de Azure storage-API's gebruiken voor toegang tot wachtrijen zijn:  
+Voeg de volgende include-instructies toe aan het C++ begin van het bestand waarin u de Azure Storage-api's wilt gebruiken om toegang te krijgen tot wacht rijen:  
 
 ```cpp
 #include <was/storage_account.h>
 #include <was/queue.h>
 ```
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Instellen van een Azure storage-verbindingsreeks
-Een Azure-opslagclient gebruikt een opslagverbindingstekenreeks om eindpunten en referenties voor toegang tot gegevensbeheerservices op te slaan. Wanneer in een clienttoepassing wordt uitgevoerd, moet u de verbindingsreeks voor opslag in de volgende indeling, met de naam van uw opslagaccount en de toegangssleutel voor het opslagaccount dat is vermeld in de [Azure Portal](https://portal.azure.com) voor de *AccountName* en *AccountKey* waarden. Zie voor meer informatie over storage-accounts en toegangssleutels [over Azure Storage-Accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). In dit voorbeeld ziet u hoe u een statisch veld kunt declareren voor het opslaan van de verbindingstekenreeks:  
+## <a name="set-up-an-azure-storage-connection-string"></a>Een Azure Storage-connection string instellen
+Een Azure-opslagclient gebruikt een opslagverbindingstekenreeks om eindpunten en referenties voor toegang tot gegevensbeheerservices op te slaan. Wanneer u in een client toepassing uitvoert, moet u de opslag connection string in de volgende indeling opgeven, waarbij u de naam van uw opslag account en de toegangs sleutel voor opslag gebruikt voor het opslag account dat wordt vermeld in de [Azure-Portal](https://portal.azure.com) voor de *AccountName* en *AccountKey* waarden. Zie [over Azure Storage-accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)voor meer informatie over opslag accounts en toegangs sleutels. In dit voorbeeld ziet u hoe u een statisch veld kunt declareren voor het opslaan van de verbindingstekenreeks:  
 
 ```cpp
 // Define the connection-string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-Als u wilt uw toepassing testen op uw lokale Windows-computer, kunt u de Microsoft Azure [opslagemulator](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) die is geïnstalleerd met de [Azure SDK](https://azure.microsoft.com/downloads/). De opslagemulator is een hulpprogramma waarmee de services Blob, Queue en Table beschikbaar zijn in Azure op uw lokale ontwikkelcomputer simuleert. In het volgende voorbeeld ziet u hoe u een statisch veld kunt declareren voor het opslaan van de verbindingstekenreeks naar uw lokale opslagemulator:  
+Als u uw toepassing wilt testen op uw lokale Windows-computer, kunt u de Microsoft Azure- [opslag emulator](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) gebruiken die is geïnstalleerd met de [Azure SDK](https://azure.microsoft.com/downloads/). De opslag emulator is een hulp programma voor het simuleren van de blob-, wachtrij-en tabel services die beschikbaar zijn in azure op uw lokale ontwikkel computer. In het volgende voorbeeld ziet u hoe u een statisch veld kunt declareren voor het opslaan van de verbindingstekenreeks naar uw lokale opslagemulator:  
 
 ```cpp
 // Define the connection-string with Azure Storage Emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Selecteer eerst de Azure-opslagemulator de **Start** of drukt u op de **Windows** sleutel. Begin met typen **Azure-Opslagemulator**, en selecteer **Microsoft Azure-Opslagemulator** uit de lijst met toepassingen.
+Als u de Azure-opslag emulator wilt starten, selecteert u de knop **Start** of drukt u op de **Windows** -toets. Begin met het typen van **Azure Storage emulator**en selecteer **Microsoft Azure-opslagemulator** in de lijst met toepassingen.
 
 In de volgende voorbeelden wordt ervan uitgegaan dat u een van deze twee methoden hebt gebruikt om de opslagverbindingstekenreeks op te halen.
 
 ## <a name="retrieve-your-connection-string"></a>De verbindingsreeks ophalen
-U kunt de **cloud_storage_account** klasse om weer te geven van de gegevens van uw Opslagaccount. Voor het ophalen van uw opslagaccountgegevens uit de opslagverbindingstekenreeks kunt u de methode **parse** gebruiken.
+U kunt de **cloud_storage_account** -klasse gebruiken om de gegevens van uw opslag account te vertegenwoordigen. Voor het ophalen van uw opslagaccountgegevens uit de opslagverbindingstekenreeks kunt u de methode **parse** gebruiken.
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -84,7 +82,7 @@ azure::storage::cloud_storage_account storage_account = azure::storage::cloud_st
 ```
 
 ## <a name="how-to-create-a-queue"></a>Procedure: Een wachtrij maken
-Een **cloud_queue_client** object kunt u de referentie-objecten ophalen voor wachtrijen. De volgende code maakt een **cloud_queue_client** object.
+Met een **cloud_queue_client** -object kunt u referentie objecten voor wacht rijen ophalen. Met de volgende code wordt een **cloud_queue_client** -object gemaakt.
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -94,7 +92,7 @@ azure::storage::cloud_storage_account storage_account = azure::storage::cloud_st
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 ```
 
-Gebruik de **cloud_queue_client** object verwijst naar de wachtrij die u wilt gebruiken. U kunt de wachtrij maken als deze nog niet bestaat.
+Gebruik het object **cloud_queue_client** om een verwijzing naar de wachtrij die u wilt gebruiken op te halen. U kunt de wachtrij maken als deze niet bestaat.
 
 ```cpp
 // Retrieve a reference to a queue.
@@ -105,7 +103,7 @@ azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sampl
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Procedure: Een bericht in een wachtrij invoegen
-Voor het invoegen van een bericht in een bestaande wachtrij, eerst maakt u een nieuw **cloud_queue_message**. Daarna roept de **add_message** methode. Een **cloud_queue_message** kan worden gemaakt vanuit een tekenreeks of een **byte** matrix. Met deze code wordt er een wachtrij gemaakt (als deze nog niet bestaat) en het bericht 'Hello, World' toegevoegd:
+Als u een bericht wilt invoegen in een bestaande wachtrij, maakt u eerst een nieuwe **cloud_queue_message**. Vervolgens roept u de methode **add_message** aan. U kunt een **cloud_queue_message** maken op basis van een teken reeks of een **byte** matrix. Met deze code wordt er een wachtrij gemaakt (als deze nog niet bestaat) en het bericht 'Hello, World' toegevoegd:
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -126,7 +124,7 @@ queue.add_message(message1);
 ```
 
 ## <a name="how-to-peek-at-the-next-message"></a>Procedure: Bekijken van het volgende bericht
-U kunt het bericht vooraan in een wachtrij bekijken zonder deze te verwijderen uit de wachtrij door het aanroepen van de **peek_message** methode.
+U kunt het bericht aan de voor kant van een wachtrij bekijken zonder het uit de wachtrij te verwijderen door de methode **peek_message** aan te roepen.
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -146,7 +144,7 @@ std::wcout << U("Peeked message content: ") << peeked_message.content_as_string(
 ```
 
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedure: De inhoud van een bericht in de wachtrij wijzigen
-U kunt de inhoud van een bericht in de wachtrij wijzigen. Als het bericht een werktaak vertegenwoordigt, kunt u deze functie gebruiken om de status van de werktaak bij te werken. Met de volgende code wordt het bericht in de wachtrij bijgewerkt met nieuwe inhoud en wordt de time-out voor de zichtbaarheid met 60 seconden verlengd. Hiermee wordt de status van de werkitems die aan het bericht zijn gekoppeld, opgeslagen en krijgt de client een extra minuut om aan het bericht te blijven werken. U kunt deze techniek gebruiken om uit meerdere stappen bestaande werkstromen in berichten in de wachtrij te volgen zonder dat u helemaal opnieuw hoeft te beginnen als een verwerkingsstap vanwege een hardware- of softwarefout is mislukt. Doorgaans houdt u ook aantal nieuwe pogingen, en als het bericht is meer dan n keer geprobeerd, verwijdert u het. Dit biedt bescherming tegen berichten die een toepassingsfout activeren telkens wanneer ze worden verwerkt.
+U kunt de inhoud van een bericht in de wachtrij wijzigen. Als het bericht een werktaak vertegenwoordigt, kunt u deze functie gebruiken om de status van de werktaak bij te werken. Met de volgende code wordt het bericht in de wachtrij bijgewerkt met nieuwe inhoud en wordt de time-out voor de zichtbaarheid met 60 seconden verlengd. Hiermee wordt de status van de werkitems die aan het bericht zijn gekoppeld, opgeslagen en krijgt de client een extra minuut om aan het bericht te blijven werken. U kunt deze techniek gebruiken om uit meerdere stappen bestaande werkstromen in berichten in de wachtrij te volgen zonder dat u helemaal opnieuw hoeft te beginnen als een verwerkingsstap vanwege een hardware- of softwarefout is mislukt. Normaal gesp roken behoudt u ook een aantal nieuwe pogingen en als het bericht meer dan n keer opnieuw wordt geprobeerd, verwijdert u het. Dit biedt bescherming tegen berichten die een toepassingsfout activeren telkens wanneer ze worden verwerkt.
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -172,7 +170,7 @@ std::wcout << U("Changed message content: ") << changed_message.content_as_strin
 ```
 
 ## <a name="how-to-de-queue-the-next-message"></a>Procedure: Het volgende bericht uit de wachtrij verwijderen
-Met uw code wordt een bericht in twee stappen uit de wachtrij verwijderd. Als u aanroept **get_message**, krijgt u het volgende bericht in een wachtrij. Een bericht dat wordt geretourneerd van **get_message** wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. Voor het voltooien van het bericht uit de wachtrij verwijderen, moet u ook aanroepen **delete_message**. Dit proces in twee stappen voor het verwijderen van een bericht zorgt ervoor dat als de code er niet in slaagt een bericht te verwerken vanwege hardware- of softwareproblemen, een ander exemplaar van uw code hetzelfde bericht kan ophalen en het opnieuw kan proberen. Uw code roept **delete_message** direct nadat het bericht is verwerkt.
+Met uw code wordt een bericht in twee stappen uit de wachtrij verwijderd. Wanneer u **get_message**aanroept, wordt het volgende bericht in een wachtrij weer gegeven. Een bericht dat wordt geretourneerd door **get_message** , wordt onzichtbaar voor andere code die berichten uit deze wachtrij leest. Als u het verwijderen van het bericht uit de wachtrij wilt volt ooien, moet u ook **delete_message**aanroepen. Dit proces in twee stappen voor het verwijderen van een bericht zorgt ervoor dat als de code er niet in slaagt een bericht te verwerken vanwege hardware- of softwareproblemen, een ander exemplaar van uw code hetzelfde bericht kan ophalen en het opnieuw kan proberen. Uw code aanroepen **delete_message** direct nadat het bericht is verwerkt.
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -193,7 +191,7 @@ queue.delete_message(dequeued_message);
 ```
 
 ## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Procedure: Gebruikmaken van aanvullende opties voor het verwijderen van berichten uit de wachtrij
-Er zijn twee manieren waarop u het ophalen van berichten uit een wachtrij kunt aanpassen. Ten eerste kunt u berichten batchgewijs (maximaal 32) ophalen. Ten tweede kunt u een langere of kortere time-out voor onzichtbaarheid instellen, zodat uw code meer of minder tijd krijgt voor het volledig verwerken van elk bericht. Het volgende codevoorbeeld wordt de **get_messages** methode voor het ophalen van 20 berichten in één aanroep. Vervolgens wordt verwerkt elke bericht met een **voor** lus. De time-out voor onzichtbaarheid wordt ingesteld op vijf minuten voor elk bericht. Houd er rekening mee dat de vijf minuten voor alle berichten wordt gestart op hetzelfde moment, dus na 5 minuten zijn verstreken sinds de aanroep naar **get_messages**, alle berichten die niet zijn verwijderd, opnieuw zichtbaar.
+Er zijn twee manieren waarop u het ophalen van berichten uit een wachtrij kunt aanpassen. Ten eerste kunt u berichten batchgewijs (maximaal 32) ophalen. Ten tweede kunt u een langere of kortere time-out voor onzichtbaarheid instellen, zodat uw code meer of minder tijd krijgt voor het volledig verwerken van elk bericht. In het volgende code voorbeeld wordt de methode **get_messages** gebruikt om 20 berichten in één aanroep op te halen. Vervolgens wordt elk bericht verwerkt met behulp **van een for** -lus. De time-out voor onzichtbaarheid wordt ingesteld op vijf minuten voor elk bericht. Houd er rekening mee dat de 5 minuten voor alle berichten tegelijk worden gestart, dus nadat de 5 minuten zijn verstreken sinds de aanroep van **get_messages**, worden alle berichten die niet zijn verwijderd, weer zichtbaar.
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -221,7 +219,7 @@ for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 ```
 
 ## <a name="how-to-get-the-queue-length"></a>Procedure: Lengte van de wachtrij ophalen
-U kunt een schatting ophalen van het aantal berichten in de wachtrij. De **download_attributes** methode vraagt de Queue-service om op te halen van de wachtrij-kenmerken, zoals het aantal berichten. De **approximate_message_count** methode haalt het geschatte aantal berichten in de wachtrij.
+U kunt een schatting ophalen van het aantal berichten in de wachtrij. De methode **download_attributes** vraagt de Queue-service om de wachtrij kenmerken op te halen, met inbegrip van het aantal berichten. De methode **approximate_message_count** haalt het geschatte aantal berichten in de wachtrij op.
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -244,7 +242,7 @@ std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::e
 ```
 
 ## <a name="how-to-delete-a-queue"></a>Procedure: Een wachtrij verwijderen
-Als wilt verwijderen van een wachtrij en alle berichten die erin zijn opgenomen, roept de **delete_queue_if_exists** methode voor het object in de wachtrij.
+Als u een wachtrij en alle berichten erin wilt verwijderen, roept u de methode **delete_queue_if_exists** aan in het wachtrij object.
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -261,10 +259,10 @@ queue.delete_queue_if_exists();
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u de basisprincipes van Queue storage hebt geleerd, volgt u deze koppelingen voor meer informatie over Azure Storage.
+Nu u de basis principes van wachtrij opslag hebt geleerd, volgt u deze koppelingen voor meer informatie over Azure Storage.
 
-* [Het Blob Storage gebruiken met C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Hoe u kunt Table Storage gebruiken met C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Lijst met Azure Storage-Resources in C++](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
-* [Storage-clientbibliotheek voor C++-referentie](https://azure.github.io/azure-storage-cpp)
+* [Blob Storage gebruiken vanuitC++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Table Storage gebruiken vanuitC++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+* [Azure Storage resources weer geven inC++](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [Storage-client bibliotheek C++ voor naslag informatie](https://azure.github.io/azure-storage-cpp)
 * [Documentatie bij Azure Storage](https://azure.microsoft.com/documentation/services/storage/)

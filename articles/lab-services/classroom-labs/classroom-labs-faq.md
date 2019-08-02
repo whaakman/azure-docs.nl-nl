@@ -1,0 +1,56 @@
+---
+title: 'Klassikale Labs in Azure Lab Services: veelgestelde vragen | Microsoft Docs'
+description: Vind antwoorden op veelgestelde vragen over klassikale Labs in Azure Lab Services.
+services: lab-services
+documentationcenter: na
+author: spelluru
+manager: femila
+editor: ''
+ms.service: lab-services
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/26/2019
+ms.author: spelluru
+ms.openlocfilehash: 261f337ac72a28bc2e1c74e23731242cc3bd0075
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68572028"
+---
+# <a name="classroom-labs-in-azure-lab-services---frequently-asked-questions-faq"></a>Klassikale Labs in Azure Lab Services-Veelgestelde vragen (FAQ)
+Krijg antwoorden op enkele van de meest voorkomende vragen over klassikale Labs in Azure Lab Services. 
+
+## <a name="quotas"></a>Quota
+
+### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>Is het quotum per gebruiker of per week of per volledige duur van het lab? 
+Het quotum dat u voor een Lab hebt ingesteld, is voor elke student voor een volledige duur van het lab. En de [geplande uitvoerings tijd van vm's](how-to-create-schedules.md) telt niet op het quotum dat aan een gebruiker is toegewezen. Het quotum geldt voor de tijd buiten de plannings uren die een student op Vm's doorbrengt.  Zie [quota's voor gebruikers instellen](how-to-configure-student-usage.md#set-quotas-for-users)voor meer informatie over quota's.
+
+## <a name="schedules"></a>Planningen
+
+### <a name="do-all-vms-in-the-lab-start-automatically-when-a-schedule-is-set"></a>Worden alle Vm's in het lab automatisch gestart wanneer een planning wordt ingesteld? 
+Nee. Niet alle virtuele machines. Alleen de Vm's die aan gebruikers zijn toegewezen volgens een schema. De Vm's die niet aan een gebruiker zijn toegewezen, worden niet automatisch gestart. Het ontwerp is standaard. 
+
+## <a name="lab-accounts"></a>Lab-accounts
+
+### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>Waarom kan ik geen Lab maken vanwege niet-beschik baarheid van het adres bereik? 
+Klassikale Labs kan virtuele lab-Vm's maken binnen een IP-adres bereik dat u opgeeft bij het maken van uw Lab-account in de Azure Portal. Wanneer een adres bereik wordt verstrekt, wordt elk lab dat is gemaakt na de 512 IP-adressen voor Lab-Vm's toegewezen. Het adres bereik voor het lab-account moet groot genoeg zijn voor alle Labs die u wilt maken onder het lab-account. 
+
+Als u bijvoorbeeld een blok van/19-10.0.0.0/19 hebt, is dit adres bereik geschikt voor 8192 IP-adressen en 16 Labs (8192/512 = 16 Labs). In dit geval mislukt het maken van het Lab bij het maken van een 17-Lab.
+
+## <a name="blog-post"></a>Blogpost
+Abonneer u op de [Azure Lab Services blog](https://azure.microsoft.com/blog/tag/azure-lab-services/).
+
+## <a name="update-notifications"></a>Meldingen bijwerken
+Abonneer u op de [updates van Lab Services](https://azure.microsoft.com/updates/?product=lab-services) om op de hoogte te blijven van nieuwe functies in DevTest Labs.
+
+## <a name="general"></a>Algemeen
+### <a name="what-if-my-question-isnt-answered-here"></a>Wat gebeurt er als mijn vraag hier niet wordt beantwoord?
+Als uw vraag hier niet wordt vermeld, laat het ons dan weten, zodat we u kunnen helpen om een antwoord te vinden.
+
+- Plaats een vraag aan het einde van deze veelgestelde vragen. 
+- Als u een breder publiek wilt bereiken, plaatst u een vraag op het [MSDN-forum van Azure DevTest Labs](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). 
+- Voor functie aanvragen stuurt u uw aanvragen en ideeën naar [Azure DevTest Labs gebruikers stem](https://feedback.azure.com/forums/320373-azure-devtest-labs).
+

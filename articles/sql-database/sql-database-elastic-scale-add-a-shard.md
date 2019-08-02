@@ -1,6 +1,6 @@
 ---
-title: Een shard met behulp van hulpprogramma's voor elastische databases toevoegen | Microsoft Docs
-description: Het gebruik van Elastic Scale API's naar de nieuwe shards toevoegen aan een shard is ingesteld.
+title: Een Shard toevoegen met behulp van hulpprogram ma's voor Elastic data base | Microsoft Docs
+description: Hoe u Elastic Scale-Api's kunt gebruiken om nieuwe Shards toe te voegen aan een Shard-set.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,26 +10,25 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: dda3c34dccfdaa041cf9f547244d5529482a3138
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 679c1bea640644cd46c436ec04278558f610ceda
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60585809"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568517"
 ---
-# <a name="adding-a-shard-using-elastic-database-tools"></a>Een shard met behulp van hulpprogramma's voor elastische databases toevoegen
+# <a name="adding-a-shard-using-elastic-database-tools"></a>Een Shard toevoegen met behulp van Elastic Database-hulpprogram ma's
 
-## <a name="to-add-a-shard-for-a-new-range-or-key"></a>Een shard voor een nieuw bereik of een sleutel toevoegen
+## <a name="to-add-a-shard-for-a-new-range-or-key"></a>Een Shard toevoegen voor een nieuw bereik of nieuwe sleutel
 
-Toepassingen moeten vaak om toe te voegen nieuwe shards voor het afhandelen van gegevens dat wordt verwacht van nieuwe sleutels of sleutelbereiken, voor een shard-toewijzing die al bestaat. Bijvoorbeeld, een shard toepassing door Tenant-ID mogelijk nodig hebt voor het inrichten van een nieuwe shard voor een nieuwe tenant of shard maandelijkse gegevens moet mogelijk een nieuwe shard ingericht vóór het begin van elke maand nieuwe.
+Toepassingen moeten vaak nieuwe Shards toevoegen voor het afhandelen van gegevens die worden verwacht van nieuwe sleutels of belang rijke bereiken, voor een Shard-kaart die al bestaat. Het is bijvoorbeeld mogelijk dat een toepassings Shard op basis van de Tenant-ID een nieuwe Shard moet inrichten voor een nieuwe Tenant, of dat de gegevens Shard maandelijks een nieuwe Shard moeten inrichten voor het begin van elke nieuwe maand.
 
-Als het nieuwe bereik van waarden nog niet is onderdeel van een bestaande toewijzing, is het eenvoudig naar de nieuwe shard toevoegen en koppelen van de nieuwe sleutel of het bereik dat sharden.
+Als het nieuwe bereik met sleutel waarden niet al deel uitmaakt van een bestaande toewijzing, is het eenvoudig om het nieuwe Shard toe te voegen en de nieuwe sleutel of het bereik aan die Shard te koppelen.
 
-### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Voorbeeld: een shard en het bereik aan een bestaande shard-toewijzing toevoegen
+### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Voor beeld: een Shard en het bijbehorende bereik toevoegen aan een bestaande Shard-toewijzing
 
-In dit voorbeeld wordt de TryGetShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard), [.NET](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))) de CreateShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)), CreateRangeMapping ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) methoden, en maakt een exemplaar van de ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)) klasse. In het voorbeeld hieronder, een database met de naam **sample_shard_2** en alle benodigde schemaobjecten daarbinnen zijn gemaakt voor het opslaan van bereik [300, 400).  
+In dit voor beeld wordt gebruikgemaakt van de TryGetShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard), [.net](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))) van de[CreateShard (Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)), CreateRangeMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping)-en [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) -methoden en maakt u een instantie van de ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)) klasse. In het onderstaande voor beeld is een Data Base met de naam **sample_shard_2** en alle benodigde schema objecten erin gemaakt voor het bewaren van het bereik [300, 400).  
 
 ```csharp
 // sm is a RangeShardMap object.
@@ -46,15 +45,15 @@ sm.CreateRangeMapping(new RangeMappingCreationInfo<long>
                             (new Range<long>(300, 400), shard2, MappingStatus.Online));
 ```
 
-Voor de versie van .NET kunt u ook PowerShell gebruiken als alternatief voor het maken van een nieuwe Shard-toewijzing. Een voorbeeld is beschikbaar [hier](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Voor de .NET-versie kunt u ook Power shell gebruiken als alternatief voor het maken van een nieuw Shard-toewijzings beheer. [Hier](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)vindt u een voor beeld.
 
-## <a name="to-add-a-shard-for-an-empty-part-of-an-existing-range"></a>Een shard voor een lege deel uitmaken van een bestaand bereik toevoegen
+## <a name="to-add-a-shard-for-an-empty-part-of-an-existing-range"></a>Een Shard toevoegen voor een leeg deel van een bestaand bereik
 
-In sommige gevallen kan u mogelijk hebt al een bereik toegewezen aan een shard en gedeeltelijk ingevuld met gegevens, maar u wilt dat nu toekomstige gegevens om te worden omgeleid naar een andere shard. Bijvoorbeeld, u shard dag breed en 50 dagen al is toegewezen aan een shard hebben, maar op een dag 24 uur per dag, wilt u gegevens uit de toekomst te worden neergezet in een andere shard. De elastische database [hulpprogramma voor splitsen en samenvoegen](sql-database-elastic-scale-overview-split-and-merge.md) kunnen deze bewerking uitvoeren, maar als de verplaatsing van gegevens is niet nodig zijn (bijvoorbeeld gegevens voor het aantal dagen [25, 50), dat wil zeggen, dag 25 tot 50 uit, inclusief nog niet bestaat) kunt u dit uitvoeren volledig rechtstreeks de Shard Map Management API's gebruiken.
+In sommige gevallen is het mogelijk dat u al een bereik hebt toegewezen aan een Shard en deze gedeeltelijk hebt gevuld met gegevens, maar dat toekomstige gegevens worden omgeleid naar een andere Shard. U kunt bijvoorbeeld op dag bereik Shard en al 50 dagen aan een Shard toegewezen, maar op dag 24 wilt u dat toekomstige gegevens in een andere Shard worden gegrond. Met het [hulp programma Split-Merge](sql-database-elastic-scale-overview-split-and-merge.md) elastische data base kan deze bewerking worden uitgevoerd, maar als gegevens verplaatsing niet nodig is (bijvoorbeeld gegevens voor het bereik van dagen [25, 50), dat wil zeggen, een dag 25 van 50 exclusief, nog niet bestaat) kunt u dit volledig doen met behulp van de Shard-beheer Api's rechtstreeks toewijzen.
 
-### <a name="example-splitting-a-range-and-assigning-the-empty-portion-to-a-newly-added-shard"></a>Voorbeeld: het splitsen van een bereik en de lege gedeelte toewijzen aan een nieuw toegevoegde shard
+### <a name="example-splitting-a-range-and-assigning-the-empty-portion-to-a-newly-added-shard"></a>Voor beeld: een bereik splitsen en het lege gedeelte toewijzen aan een pas toegevoegde Shard
 
-Een database met de naam 'sample_shard_2' en alle benodigde schemaobjecten daarbinnen zijn gemaakt.  
+Een Data Base met de naam ' sample_shard_2 ' en alle benodigde schema objecten erin zijn gemaakt.  
 
 ```csharp
 // sm is a RangeShardMap object.
@@ -79,6 +78,6 @@ upd.Shard = shard2;
 sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd));
 ```
 
-**Belangrijke**:  Gebruik deze methode alleen als u zeker weet dat het bereik voor de toewijzing van de bijgewerkte leeg is.  De vorige methoden controleren niet voor het bereik worden verplaatst, dus het is raadzaam om op te nemen van controles in uw code.  Als rijen bestaan in het bereik worden verplaatst, wordt de verdeling van de werkelijke gegevens niet overeen met de bijgewerkte shard-toewijzing. Gebruik de [hulpprogramma voor splitsen en samenvoegen](sql-database-elastic-scale-overview-split-and-merge.md) voor het uitvoeren van de bewerking in plaats daarvan in dergelijke gevallen.  
+**Belang rijk**:  Gebruik deze techniek alleen als u zeker weet dat het bereik voor de bijgewerkte toewijzing leeg is.  Met de voor gaande methoden worden geen gegevens gecontroleerd voor het bereik dat wordt verplaatst, zodat het het beste is om cheques in uw code op te neemt.  Als er rijen bestaan in het bereik dat wordt verplaatst, komt de werkelijke gegevens distributie niet overeen met de bijgewerkte Shard-toewijzing. Gebruik het [hulp programma voor splitsen en samen voegen](sql-database-elastic-scale-overview-split-and-merge.md) om in plaats daarvan de bewerking uit te voeren.  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

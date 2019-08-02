@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad2f25aac7f74c74eb63fd4666c5184ae751ec1f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: cce5de98fe4914e18ee0154d4ac5f1af008d32a6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499932"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561296"
 ---
 # <a name="enable-passwordless-sign-in-for-azure-ad-preview"></a>Aanmelden zonder wacht woord voor Azure AD inschakelen (preview)
 
@@ -54,7 +54,7 @@ Als u specifieke apparaatgroepen wilt instellen om de referentie provider in te 
    1. Naam: Beveiligings sleutels voor Windows-aanmelding
    1. Beschrijving: Hiermee kunnen FIDO-beveiligings sleutels worden gebruikt tijdens Windows-aanmelding
    1. Platform: Windows 10 en hoger
-   1. Platform type: Aangepast
+   1. Platform type: Aanpassen
    1. Aangepaste OMA-URI-instellingen:
       1. Naam: FIDO-beveiligings sleutels inschakelen voor Windows-aanmelding
       1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
@@ -109,7 +109,7 @@ Registratie functies voor FIDO2-beveiligings sleutels zijn afhankelijk van de ge
 ### <a name="enable-new-passwordless-authentication-methods"></a>Nieuwe authenticatie methoden met een wacht woord inschakelen
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com)
-1. Blader naar **Azure Active Directory** > verificatie methode beleid voor verificatie**methoden** >  **(preview-versie)**
+1. Blader naar **Azure Active Directory** > beleid voor verificatie methode voor**beveiligings** > **verificatie methoden** >  **(preview-versie)**
 1. Onder elke **methode**kiest u de volgende opties:
    1. **Inschakelen** -ja of Nee
    1. **Doel** -alle gebruikers of Selecteer gebruikers
@@ -171,7 +171,7 @@ Voor informatie over het aanmelden met behulp van de app Microsoft Authenticator
 
 Het inrichten van de beheerder en het ongedaan maken van de inrichting van beveiligings sleutels is niet beschikbaar in de open bare preview.
 
-#### <a name="hybrid-azure-ad-join"></a>Hybride Azure AD-koppeling
+#### <a name="hybrid-azure-ad-join"></a>Hybrid Azure AD Join
 
 Gebruikers die gebruikmaken van WIA SSO die beheerde referenties gebruiken, zoals FIDO2-beveiligings sleutels of aanmelden met een wacht woord waarbij Microsoft Authenticator app moet worden aangemeld bij een hybride verbinding van Windows 10, kunt u profiteren van de voor delen van SSO. Beveiligings sleutels werken echter alleen voor Azure Active Directory gekoppelde machines. We raden u aan om FIDO2-beveiligings sleutels voor het Windows-vergrendelings scherm op zuivere Azure Active Directory gekoppelde computers alleen uit te proberen. Deze beperking is niet van toepassing op het web.
 

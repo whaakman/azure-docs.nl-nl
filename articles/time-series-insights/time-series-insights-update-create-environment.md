@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: b462f0c427020b1422b91fbd7ac34e3023e546b8
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 998471d99a785eeff39ef7c99e60e1d9b49e0d7a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677872"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725834"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Zelfstudie: Een Time Series Insights Preview-omgeving instellen
 
@@ -62,7 +62,7 @@ In deze sectie maakt u drie gesimuleerde apparaten die gegevens verzenden naar e
 
     [![Pagina computer simulatie oplossing maken](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
-## <a name="create-a-time-series-insights-preview-payg-environment"></a>Een Time Series Insights Preview-omgeving op basis van betalen per gebruik maken
+## <a name="create-a-preview-payg-environment"></a>Een voor beeld-PAYG-omgeving maken
 
 In deze sectie wordt beschreven hoe u een Azure Time Series Insights-voorbeeld omgeving maakt en deze verbindt met de IoT-hub die is gemaakt met de [Azure Portal](https://portal.azure.com/)van de IOT-oplossings versneller.
 
@@ -130,7 +130,9 @@ In deze sectie wordt beschreven hoe u een Azure Time Series Insights-voorbeeld o
 
    Als uw referenties niet worden weer gegeven, moet u uzelf toestemming verlenen voor toegang tot de omgeving. Raadpleeg [Gegevenstoegang verlenen](./time-series-insights-data-access.md) voor meer informatie over het instellen van machtigingen.
 
-## <a name="stream-data-into-your-environment"></a>Gegevens streamen in uw omgeving
+## <a name="stream-data"></a>Gegevens streamen
+
+Nu u uw Time Series Insights omgeving hebt geïmplementeerd, kunt u gegevens streamen voor analyse.
 
 1. Ga terug naar de [pagina met accelerators voor Azure IOT-oplossingen](https://www.azureiotsolutions.com/Accelerators). Zoek uw oplossing in het dash board van de oplossings versnelling. Selecteer vervolgens **starten**:
 
@@ -158,7 +160,7 @@ In deze sectie wordt beschreven hoe u een Azure Time Series Insights-voorbeeld o
 
     [![Simulatie Dashboard van Azure IoT](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
-## <a name="analyze-data-in-your-environment"></a>Gegevens analyseren in uw omgeving
+## <a name="analyze-data"></a>Gegevens analyseren
 
 In deze sectie voert u een eenvoudige analyse uit op uw tijdreeksgegevens met de [verkenner van Azure Time Series Insights Preview](./time-series-insights-update-explorer.md).
 

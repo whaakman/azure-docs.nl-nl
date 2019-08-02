@@ -1,156 +1,156 @@
 ---
-title: Application gateway-onderdelen
-description: In dit artikel bevat informatie over de verschillende onderdelen in een application gateway
+title: Application Gateway-onderdelen
+description: Dit artikel bevat informatie over de verschillende onderdelen in een toepassings gateway
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 49b6b49d908a7426e7cfd1bae5260ff399d9953b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d6d7b4cda4bd3b3246b9bc5573246546d8020b38
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273232"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597380"
 ---
-# <a name="application-gateway-components"></a>Application gateway-onderdelen
+# <a name="application-gateway-components"></a>Application Gateway-onderdelen
 
- Een application gateway fungeert als de één contactpunt voor clients. Het verdeeld binnenkomende verkeer van de toepassing over meerdere back-endpools, waaronder Azure Virtual machines, virtuele-machineschaalsets, Azure App Service en on-premises/externe servers. Een application gateway gebruikt om verkeer te distribueren, verschillende onderdelen die worden beschreven in dit artikel.
+ Een toepassings gateway fungeert als één aanspreek punt voor clients. Het distribueert het binnenkomende toepassings verkeer over meerdere back-end-Pools, waaronder Azure-Vm's, schaal sets voor virtuele machines, Azure App Service en on-premises/externe servers. Voor het distribueren van verkeer gebruikt een toepassings gateway verschillende onderdelen die in dit artikel worden beschreven.
 
-![De onderdelen die worden gebruikt in een application gateway](./media/application-gateway-components/application-gateway-components.png)
+![De onderdelen die worden gebruikt in een toepassings gateway](./media/application-gateway-components/application-gateway-components.png)
 
 ## <a name="frontend-ip-addresses"></a>Frontend-IP-adressen
 
-Een front-end-IP-adres is het IP-adres dat is gekoppeld aan een toepassingsgateway. U kunt een toepassingsgateway met een openbaar IP-adres, een privé IP-adres of beide. Een application gateway biedt ondersteuning voor een openbare of een privé IP-adres. Uw virtuele netwerk en openbare IP-adres moeten zich op dezelfde locatie bevinden als uw application gateway. Nadat deze gemaakt, is een front-end-IP-adres gekoppeld aan een listener.
+Een frontend-IP-adres is het IP-adres dat is gekoppeld aan een toepassings gateway. U kunt een toepassings gateway configureren voor een openbaar IP-adres, een privé IP-adres of beide. Een toepassings gateway ondersteunt één openbaar of een privé-IP-adres. Het virtuele netwerk en het open bare IP-adres moeten zich op dezelfde locatie bevindt als uw toepassings gateway. Nadat de app is gemaakt, wordt een frontend-IP-adres gekoppeld aan een listener.
 
-### <a name="static-versus-dynamic-public-ip-address"></a>Van statische versus dynamische openbare IP-adres
+### <a name="static-versus-dynamic-public-ip-address"></a>Statisch versus dynamisch openbaar IP-adres
 
-De Azure Application Gateway V2-SKU kan worden geconfigureerd ter ondersteuning van zowel statische interne IP-adres en statische openbare IP-adres, of alleen statische openbare IP-adres. Deze kan niet worden geconfigureerd ter ondersteuning van alleen statische interne IP-adres.
+De SKU v2 van de Azure-toepassing gateway kan worden geconfigureerd voor het ondersteunen van zowel een statisch intern IP-adres als een statisch openbaar IP-adres, of alleen een statisch openbaar IP-adres. Het kan niet worden geconfigureerd voor ondersteuning van alleen statisch intern IP-adres.
 
-De V1-SKU kan worden geconfigureerd ter ondersteuning van statische interne IP-adres en dynamische openbare IP-adressen alleen statische interne IP-adres of alleen dynamische openbare IP-adres. De dynamische IP-adres van Application Gateway verandert niet op een actieve gateway. Deze kunt wijzigen wanneer u de Gateway te starten of stoppen. Het wordt niet gewijzigd op systeemfouten, updates, Azure-host updates enzovoort. 
+De V1-SKU kan worden geconfigureerd ter ondersteuning van een statisch intern IP-adres en een dynamisch openbaar IP-adres, alleen een statisch intern IP-adres of alleen een dynamisch openbaar IP-adres of alleen een dynamisch privé-IP-adres en een dynamisch privé-IP-adres. Het dynamische IP-adres van Application Gateway wordt niet gewijzigd op een actieve gateway. Het kan alleen worden gewijzigd wanneer u de gateway stopt of start. Deze wijziging is niet van invloed op systeem fouten, updates, updates van Azure-hosts enz. 
 
-De DNS-naam die is gekoppeld aan een application gateway verandert niet gedurende de levenscyclus van de gateway. Als gevolg hiervan moet u een CNAME-alias gebruiken en wijs het DNS-adres van de toepassingsgateway.
+De DNS-naam die is gekoppeld aan een toepassings gateway wordt niet gewijzigd gedurende de levens cyclus van de gateway. Als gevolg hiervan moet u een CNAME-alias gebruiken en deze verwijzen naar het DNS-adres van de toepassings gateway.
 
 ## <a name="listeners"></a>Listeners
 
-Een listener is een logische eenheid die controleert op binnenkomende verbindingsaanvragen. Een listener accepteert een aanvraag als het protocol, de poort, de host en het IP-adres dat is gekoppeld aan de aanvraag overeenkomt met de dezelfde elementen die zijn gekoppeld aan de listenerconfiguratie van de.
+Een listener is een logische entiteit die controleert op binnenkomende verbindings aanvragen. Een listener accepteert een aanvraag als het Protocol, de poort, de host en het IP-adres dat is gekoppeld aan de aanvraag, overeenkomen met de elementen die zijn gekoppeld aan de configuratie van de listener.
 
-Voordat u een application gateway gebruikt, moet u ten minste één listener toevoegen. Kunnen er meerdere listeners die is gekoppeld aan een application gateway, en ze kunnen worden gebruikt voor hetzelfde protocol.
+Voordat u een toepassings gateway gebruikt, moet u ten minste één listener toevoegen. Er kunnen meerdere listeners zijn gekoppeld aan een toepassings gateway en ze kunnen worden gebruikt voor hetzelfde protocol.
 
-Nadat een listener binnenkomende aanvragen van clients detecteert, stuurt de application gateway deze aanvragen door naar de leden in de back-endpool. De application gateway maakt gebruik van de aanvraag-routeringsregels gedefinieerd voor de listener die de inkomende aanvraag ontvangen.
+Nadat een listener inkomende aanvragen van clients heeft gedetecteerd, stuurt de Application Gateway deze aanvragen door naar leden in de back-end-pool. De toepassings gateway gebruikt de routerings regels voor aanvragen die zijn gedefinieerd voor de listener die de inkomende aanvraag heeft ontvangen.
 
 Listeners ondersteunen de volgende poorten en protocollen.
 
 ### <a name="ports"></a>Poorten
 
-Een poort is waar een listener luistert naar aanvragen van clients. U kunt poorten tussen 1 en 65502 voor de v1-SKU en 1-65199 voor de v2-SKU.
+Een poort is de locatie waar een listener luistert naar de client aanvraag. U kunt poorten configureren van 1 tot 65502 voor de V1-SKU en 1 tot 65199 voor de v2-SKU.
 
 ### <a name="protocols"></a>Protocollen
 
 Application Gateway ondersteunt vier protocollen: HTTP, HTTPS, HTTP/2 en WebSocket:
 
-- Geef tussen HTTP en HTTPS protocollen in de listenerconfiguratie van de.
-- Ondersteuning voor [WebSockets- en HTTP/2-protocollen](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) systeemeigen, wordt geleverd en [WebSocket-ondersteuning](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) is standaard ingeschakeld. Er is geen door de gebruiker configureerbare instelling om selectief WebSocket-ondersteuning in of uit te schakelen. Gebruikmaken van WebSockets met HTTP en HTTPS-listeners.
-- Ondersteuning voor HTTP/2-protocol is beschikbaar voor clients verbinding maken met application gateway alleen listeners. De communicatie met de back-endserverpools is via HTTP/1.1. Ondersteuning voor HTTP/2 is standaard uitgeschakeld. U kunt deze inschakelen.
+- Geef de HTTP-en HTTPS-protocollen op in de configuratie van de listener.
+- Ondersteuning voor [Websockets en http/2-protocollen](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) wordt systeem eigen en WebSocket- [ondersteuning](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) is standaard ingeschakeld. Er is geen door de gebruiker configureerbare instelling om selectief WebSocket-ondersteuning in of uit te schakelen. Gebruik websockets met HTTP-en HTTPS-listeners.
+- Ondersteuning voor HTTP/2-protocollen is alleen beschikbaar voor clients die verbinding maken met de gateway-listeners van de toepassing. De communicatie met back-endserver-Server groepen is via HTTP/1.1. HTTP/2-ondersteuning is standaard uitgeschakeld. U kunt ervoor kiezen om deze functie in te scha kelen.
 
-Gebruik een HTTPS-listener voor SSL-beëindiging. Een HTTPS-listener verplaatst het werk voor versleuteling en ontsleuteling naar uw application gateway, zodat uw webservers worden niet als enige door overhead belast. Uw apps zijn vervolgens kunt richten op zakelijke logica.
+Gebruik een HTTPS-listener voor SSL-beëindiging. Een HTTPS-listener versleutelt de versleuteling en ontsleuteling van uw toepassings gateway, zodat uw webservers niet worden belast met overhead. Uw apps zijn dan gratis op bedrijfs logica gericht.
 
 ### <a name="custom-error-pages"></a>Aangepaste foutpagina's
 
-Application Gateway kunt u aangepaste foutpagina's in plaats van standaard foutpagina's maken. U kunt uw eigen huisstijl en lay-out hanteren door een aangepaste foutpagina te gebruiken. Application Gateway wordt een aangepaste foutpagina weergegeven wanneer een aanvraag tijdelijk niet bereikbaar voor de back-end.
+Met Application Gateway kunt u aangepaste fout pagina's maken in plaats van de standaardfout pagina's weer te geven. U kunt uw eigen huisstijl en lay-out hanteren door een aangepaste foutpagina te gebruiken. Application Gateway wordt een aangepaste fout pagina weer gegeven wanneer een aanvraag de back-end niet kan bereiken.
 
-Zie voor meer informatie, [aangepaste foutpagina's voor uw application gateway](https://docs.microsoft.com/azure/application-gateway/custom-error).
+Zie [aangepaste fout pagina's voor uw toepassings gateway](https://docs.microsoft.com/azure/application-gateway/custom-error)voor meer informatie.
 
 ### <a name="types-of-listeners"></a>Typen listeners
 
 Er zijn twee soorten listeners:
 
-- **Basic**. Dit type listener luistert naar een enkel domein-site waarop het heeft een één DNS-toewijzing naar de IP-adres van de toepassingsgateway. Deze listenerconfiguratie is vereist wanneer u een enkele site achter een application gateway hosten.
+- **Basic**. Dit type listener luistert naar één domein site, waarbij deze één DNS-toewijzing heeft voor het IP-adres van de toepassings gateway. Deze listener-configuratie is vereist wanneer u één site host achter een toepassings gateway.
 
-- **Meerdere sites**. Deze listenerconfiguratie is vereist wanneer u meer dan één webtoepassing op de dezelfde toepassingsgateway-exemplaar configureren. Hiermee kunt u een efficiëntere topologie voor uw implementaties configureren door maximaal 100 websites toe te voegen aan één toepassingsgateway. Elke website kan worden omgeleid naar een eigen back-endpool. Bijvoorbeeld wijst drie subdomeinen, abc.contoso.com xyz.contoso.com en pqr.contoso.com, u het IP-adres van de toepassingsgateway. U zou maken van drie multi-site-listeners en elke listener configureren voor de respectieve poort en protocolinstelling.
+- **Meerdere locaties**. Deze listener-configuratie is vereist wanneer u meer dan een webtoepassing configureert op hetzelfde exemplaar van de toepassings gateway. Hiermee kunt u een efficiëntere topologie voor uw implementaties configureren door Maxi maal 100 websites toe te voegen aan één toepassings gateway. Elke website kan worden omgeleid naar een eigen back-endpool. U kunt bijvoorbeeld drie subdomeinen, abc.contoso.com, xyz.contoso.com en pqr.contoso.com aanwijzen naar het IP-adres van de toepassings gateway. U maakt drie multi-site listeners en configureert elke listener voor de respectieve poort-en protocol instelling.
 
-    Zie voor meer informatie, [meerdere sites hosten](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
+    Zie [hosting op meerdere sites](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview)voor meer informatie.
 
-Nadat u een listener maakt, koppelt u deze met een regel voor het doorsturen van aanvragen. Deze regel bepaalt hoe de aanvraag is ontvangen op de listener moet worden doorgestuurd naar de back-end.
+Nadat u een listener hebt gemaakt, koppelt u deze aan een routerings regel voor aanvragen. Deze regel bepaalt hoe de ontvangen aanvraag op de listener moet worden doorgestuurd naar de back-end.
 
-Application Gateway listeners in de aangegeven volgorde worden verwerkt. Als basislistener overeenkomt met een inkomende aanvraag, wordt deze eerst verwerkt. Configureren om verkeer te routeren naar de juiste back-end, een listener voor meerdere locaties voordat u een basislistener.
+Application Gateway verwerkt listeners in de weer gegeven volg orde. Als de Basic-listener overeenkomt met een inkomende aanvraag, wordt deze eerst verwerkt. Als u verkeer wilt routeren naar de juiste back-end, configureert u een listener voor meerdere sites vóór een Basic-listener.
 
-## <a name="request-routing-rules"></a>Aanvragen van regels voor doorsturen
+## <a name="request-routing-rules"></a>Routerings regels voor aanvragen
 
-Een regel voor het doorsturen van aanvraag is een belangrijk onderdeel van een application gateway, omdat het bepaalt hoe het routeren van verkeer op de listener. De regel verbindt de listener, de back-endserverpool en de back-end-HTTP-instellingen.
+Een regel voor het routeren van aanvragen is een belang rijk onderdeel van een toepassings gateway, omdat deze bepaalt hoe verkeer moet worden gerouteerd op de listener. De regel verbindt de listener, de back-end-server groep en de back-end-HTTP-instellingen.
 
-Wanneer een listener van een aanvraag heeft geaccepteerd, wordt de regel voor het doorsturen van aanvraag stuurt de aanvraag naar de back-end of elders wordt omgeleid. Als de aanvraag wordt doorgestuurd naar de back-end, definieert de regel voor het doorsturen van aanvraag welke back-endserverpool voor het doorsturen van deze. Ook, bepaalt de regel voor het doorsturen van aanvraag ook of de kopteksten in de aanvraag worden herschreven zijn. Een listener kan worden gekoppeld aan één regel.
+Wanneer een listener een aanvraag accepteert, stuurt de regel voor aanvraag routering de aanvraag door naar de back-end of wordt deze elders omgeleid. Als de aanvraag wordt doorgestuurd naar de back-end, definieert de routerings regel voor aanvragen welke back-endserver moet worden doorgestuurd naar. De regel voor aanvraag routering bepaalt ook of de kopteksten in de aanvraag opnieuw moeten worden geschreven. Eén listener kan aan één regel worden gekoppeld.
 
-Er zijn twee typen regels voor het doorsturen van aanvraag:
+Er zijn twee typen routerings regels voor aanvragen:
 
-- **Basic**. Alle aanvragen op de bijbehorende listener (bijvoorbeeld blog.contoso.com/*) worden doorgestuurd naar de gekoppelde back-endpool met behulp van de bijbehorende HTTP-instelling.
+- **Basic**. Alle aanvragen op de gekoppelde listener (bijvoorbeeld blog.contoso.com/*) worden doorgestuurd naar de bijbehorende back-end-groep met behulp van de bijbehorende HTTP-instelling.
 
-- **Op pad gebaseerde**. Deze regel voor doorsturen kunt u de aanvragen versturen op de bijbehorende listener met een specifieke back endadresgroep, op basis van de URL in de aanvraag. Als het pad van de URL in een aanvraag overeenkomt met het padpatroon in een pad gebaseerde regel, stuurt de regel die aanvraag. Het padpatroon toepassing alleen op het URL-pad, niet op de queryparameters. Als de URL-pad voor een listener-aanvraag komt niet overeen met een van de regels op basis van het pad, de aanvraag wordt gerouteerd naar de standaard back-end-adresgroep en de HTTP-instellingen.
+- **Op basis van een pad**. Met deze routerings regel kunt u de aanvragen van de gekoppelde listener door sturen naar een specifieke back-end-groep, op basis van de URL in de aanvraag. Als het pad van de URL in een aanvraag overeenkomt met het pad patroon in een regel op basis van een pad, stuurt de regel deze aanvraag. Hiermee wordt het pad patroon alleen toegepast op het URL-pad, niet naar de query parameters. Als het URL-pad op een listener-aanvraag niet overeenkomt met een van de op pad gebaseerde regels, stuurt het de aanvraag door naar de standaard back-end-en HTTP-instellingen.
 
-Zie voor meer informatie, [URL-gebaseerde routering](https://docs.microsoft.com/azure/application-gateway/url-route-overview).
+Zie [URL-based route ring](https://docs.microsoft.com/azure/application-gateway/url-route-overview)voor meer informatie.
 
 ### <a name="redirection-support"></a>Ondersteuning voor omleiding
 
-De regel voor het doorsturen van aanvraag kunt u omleiden van verkeer op de application gateway. Dit is een mechanisme voor algemene omleiding, zodat u naar omleiden kunt en vanuit een willekeurige poort die u met behulp van regels definiëren.
+Met de regel voor aanvraag routering kunt u het verkeer omleiden naar de Application Gateway. Dit is een algemeen mechanisme voor omleiding, zodat u kunt omleiden naar en van elke poort die u definieert met behulp van regels.
 
-U kunt het doel van omleiding naar een ander listener (dit kan helpen om automatische HTTP naar HTTPS-omleiding inschakelen) of een externe site. U kunt er ook voor kiezen om de tijdelijke of permanente omleiding of de URI-pad en de query-tekenreeks toevoegen aan de omgeleide URL.
+U kunt kiezen dat het doel van de omleiding een andere listener is (waarmee automatische HTTP-naar-HTTPS-omleiding kan worden ingeschakeld) of een externe site. U kunt er ook voor kiezen om de omleiding tijdelijk of permanent te laten, of om het URI-pad en de query reeks toe te voegen aan de omgeleide URL.
 
-Zie voor meer informatie, [omleiden van verkeer op uw application gateway](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+Zie verkeer omleiden naar [uw toepassings gateway](https://docs.microsoft.com/azure/application-gateway/redirect-overview)voor meer informatie.
 
 ### <a name="rewrite-http-headers"></a>HTTP-headers opnieuw genereren
 
-Met behulp van de regels voor het doorsturen van aanvragen, kunt u toevoegen, verwijderen of bijwerken van de aanvraag HTTP (S) en antwoordheaders als de aanvraag en respons pakketten verplaatsen tussen de client en de back-end-pools met de application gateway.
+Door gebruik te maken van de regels voor aanvraag routering kunt u HTTP (S)-aanvragen en-antwoord headers toevoegen, verwijderen of bijwerken omdat de aanvraag-en antwoord pakketten worden verplaatst tussen de client en de back-end-pool via de toepassings gateway.
 
-De headers kunnen worden ingesteld op statische waarden of op andere headers en servervariabelen. Dit helpt met belangrijke use-cases, zoals het extraheren van client-IP-adressen, verwijderen van gevoelige informatie over de back-end, meer beveiliging toe te voegen enzovoort.
+De headers kunnen worden ingesteld op statische waarden of op andere headers en Server variabelen. Dit helpt bij belang rijke gebruiks gevallen, zoals het extra heren van client-IP-adressen, het verwijderen van gevoelige informatie over de back-end, het toevoegen van meer beveiliging, enzovoort.
 
-Zie voor meer informatie, [Herschrijf de HTTP-headers in uw application gateway](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+Zie [HTTP-headers herschrijven in uw toepassings gateway](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)voor meer informatie.
 
 ## <a name="http-settings"></a>HTTP-instellingen
 
-Een application gateway routeert verkeer naar de back-endservers (opgegeven in de aanvraag-routeringsregel met de HTTP-instellingen) met behulp van het poortnummer, protocol en andere instellingen in dit onderdeel worden beschreven.
+Een toepassings gateway routeert verkeer naar de back-endservers (opgegeven in de routerings regel voor aanvragen die HTTP-instellingen bevatten) met behulp van het poort nummer, het protocol en andere instellingen die in dit onderdeel worden beschreven.
 
-De poort en protocol dat wordt gebruikt in de HTTP-instellingen te bepalen of het verkeer tussen de application gateway- en back-end servers (inclusief end-to-end-SSL) is versleuteld of niet-versleuteld.
+De poort en het protocol dat wordt gebruikt in de HTTP-instellingen bepalen of het verkeer tussen de toepassings gateway en de back-endservers is versleuteld (End-to-end SSL) of niet-versleuteld.
 
-Dit onderdeel wordt ook gebruikt voor:
+Dit onderdeel wordt ook gebruikt voor het volgende:
 
-- Bepalen of een gebruikerssessie op dezelfde server worden gehouden met behulp van de [cookies gebaseerde sessieaffiniteit](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity).
+- Bepaal of een gebruikers sessie op dezelfde server moet worden bewaard met de [sessie affiniteit op basis van cookies](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity).
 
-- Back-endpoolleden probleemloos verwijderen met behulp van [verwerkingsstop](https://docs.microsoft.com/azure/application-gateway/overview#connection-draining).
+- Back-end-groeps leden zonder problemen verwijderen met behulp van het verwerkings [Stop](https://docs.microsoft.com/azure/application-gateway/overview#connection-draining).
 
-- Een aangepaste test om te controleren van de back endstatus, de time-outinterval van aanvraag instellen, onderdrukken van hostnaam en het pad in de aanvraag en één klik gemakkelijk instellingen opgeven voor de back-end van de App Service bieden koppelen.
+- Koppel een aangepaste test om de status van de back-end te controleren, de time-outinterval van de aanvraag in te stellen, de hostnaam en het pad in de aanvraag te overschrijven en met één klik te bieden voor het opgeven van instellingen voor de App Service back-end.
 
-## <a name="backend-pools"></a>Back-endpools
+## <a name="backend-pools"></a>Back-end-pools
 
-Een back-endpool stuurt aanvraag door naar de back-endservers, die de aanvraag dienen. Back-endpools kunnen bevatten:
+Een back-end-groep routeert aanvragen naar back-endservers, die de aanvraag verwerken. Back-end-Pools kunnen het volgende bevatten:
 
 - NIC’s
-- Virtuele-machineschaalsets
+- Virtual Machine Scale Sets
 - Openbare IP-adressen
 - Interne IP-adressen
 - FQDN-NAAM
-- Back-ends voor meerdere tenants (zoals App Service)
+- Multi tenant-back-ends (zoals App Service)
 
-Back-endpoolleden voor Application Gateway zijn niet gekoppeld aan een beschikbaarheidsset. Een application gateway kan communiceren met instanties buiten het virtuele netwerk dat deel uitmaakt. Als gevolg hiervan kunnen de leden van de back endadresgroepen zijn in meerdere computerclusters, in datacenters of buiten Azure, zolang er een IP-verbinding is.
+Application Gateway back-end-groeps leden zijn niet gekoppeld aan een beschikbaarheidsset. Een toepassings gateway kan communiceren met exemplaren buiten het virtuele netwerk waarin deze zich bevindt. Als gevolg hiervan kunnen de leden van de back-endservers zich in verschillende clusters bevinden, in data centers of buiten Azure, zolang er een IP-verbinding is.
 
-Als u interne IP-adressen als back-endpoolleden gebruiken, moet u [peering op virtueel netwerk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) of een [VPN-gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Peering op virtueel netwerk wordt ondersteund en nuttig zijn voor taakverdeling verkeer in andere virtuele netwerken.
+Als u interne Ip's als back-endadresgroep wilt gebruiken, moet u [virtuele netwerk peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) of een [VPN-gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)gebruiken. Peering van virtuele netwerken wordt ondersteund en is handig voor taak verdeling van verkeer in andere virtuele netwerken.
 
-Een application gateway kan ook met communiceren met on-premises servers wanneer ze zijn verbonden met Azure ExpressRoute of VPN-tunnels als verkeer is toegestaan.
+Een toepassings gateway kan ook communiceren met naar on-premises servers wanneer ze zijn verbonden met Azure ExpressRoute of VPN-tunnels als verkeer is toegestaan.
 
-U kunt verschillende back-endpools voor verschillende soorten aanvragen kunt maken. Maak bijvoorbeeld een back-endpool voor algemene aanvragen, en vervolgens op een andere back-endpool voor aanvragen voor de microservices voor uw toepassing.
+U kunt verschillende back-endservers maken voor verschillende typen aanvragen. Maak bijvoorbeeld één back-end-groep voor algemene aanvragen en vervolgens een andere back-end-groep voor aanvragen van de micro Services voor uw toepassing.
 
-## <a name="health-probes"></a>Statuscontroles
+## <a name="health-probes"></a>Tests
 
-Standaard wordt een application gateway controleert de status van alle resources in de back-endpool en worden automatisch verwijderd die niet in orde. Deze wordt bewaakt exemplaren en voegt deze toe terug naar de goede back-endpool wanneer ze beschikbaar komen en op statuscontroles reageren.
+Standaard controleert een toepassings gateway de status van alle resources in de back-end-pool en worden de beschadigde items automatisch verwijderd. Vervolgens worden de beschadigde instanties bewaakt en worden ze weer toegevoegd aan de juiste back-end-groep wanneer deze beschikbaar komen en reageren op status controles.
 
-Naast het gebruik van standaard health test controle, kunt u ook de statustest aan de behoeften van de vereisten van uw toepassing aanpassen. Aangepaste tests kunnen gedetailleerdere controle over de statuscontrole. Wanneer u aangepaste tests, kunt u de testinterval, de URL en pad om te testen en het aantal mislukte reacties op accepteren voordat het exemplaar van de groep back-end is gemarkeerd als niet in orde. Het is raadzaam dat u configureert aangepaste tests om te controleren van de status van elke back-endpool.
+Naast het gebruik van de standaard controle van de status test, kunt u ook de status test aanpassen aan de vereisten van uw toepassing. Met aangepaste tests kunt u de controle over de status controle nauw keuriger maken. Bij het gebruik van aangepaste tests kunt u het test interval, de URL en het pad voor testen en het aantal mislukte antwoorden accepteren voordat het exemplaar van de back-endadresgroep is gemarkeerd als beschadigd. U wordt aangeraden aangepaste tests te configureren om de status van elke back-end-groep te controleren.
 
-Zie voor meer informatie, [controleren van de status van uw toepassingsgateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
+Zie [de status van uw toepassings gateway bewaken](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Een toepassingsgateway maken:
+Een toepassings gateway maken:
 
-* [In de Azure-portal](quick-create-portal.md)
+* [In de Azure Portal](quick-create-portal.md)
 * [Met behulp van Azure PowerShell](quick-create-powershell.md)
-* [Met behulp van de Azure CLI](quick-create-cli.md)
+* [Via de Azure CLI](quick-create-cli.md)

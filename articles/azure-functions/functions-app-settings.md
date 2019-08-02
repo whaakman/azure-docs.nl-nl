@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 62d359494050b188869d51d1e3975c823b9c0a76
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 50056d4d05d2426ff644518aea04a2c9f4d817f3
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204942"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667170"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Naslaginformatie over App-instellingen voor Azure Functions
 
-App-instellingen in een functie-app bevatten globale configuratie-opties die invloed hebben op alle functies voor die functie-app. Wanneer u lokaal uitvoert, worden deze instellingen gebruikt als lokale [omgevingsvariabelen](functions-run-local.md#local-settings-file). In dit artikel geeft een lijst van de app-instellingen die beschikbaar in de functie-apps zijn.
+App-instellingen in een functie-app bevatten globale configuratie-opties die invloed hebben op alle functies voor die functie-app. Wanneer u lokaal uitvoert, worden deze instellingen geopend als lokale [omgevings variabelen](functions-run-local.md#local-settings-file). In dit artikel geeft een lijst van de app-instellingen die beschikbaar in de functie-apps zijn.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
@@ -35,7 +35,7 @@ De Application Insights-instrumentatiesleutel als u Application Insights. Zie [A
 
 ## <a name="azurefunctionsenvironment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-In versie 2.x van de Functions-runtime, Hiermee configureert u app-gedrag op basis van de runtime-omgeving. Deze waarde is [lezen tijdens de initialisatie](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). U kunt instellen `AZURE_FUNCTIONS_ENVIRONMENT` op een andere waarde, maar [drie waarden](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) worden ondersteund: [Ontwikkeling](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [fasering](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), en [productie](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Wanneer `AZURE_FUNCTIONS_ENVIRONMENT` niet is ingesteld, wordt standaard `Production`. Deze instelling moet worden gebruikt in plaats van `ASPNETCORE_ENVIRONMENT` om in te stellen van de runtime-omgeving. 
+In versie 2. x van de functions runtime configureert het app-gedrag op basis van de runtime-omgeving. Deze waarde wordt [tijdens de initialisatie gelezen](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). U kunt elke `AZURE_FUNCTIONS_ENVIRONMENT` waarde instellen, maar [drie waarden](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) worden ondersteund: [Ontwikkeling](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [fase ring](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)en [productie](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Als `AZURE_FUNCTIONS_ENVIRONMENT` niet is ingesteld, wordt `Development` standaard de waarde in een lokale `Production` omgeving en op Azure gebruikt. Deze instelling moet worden gebruikt in plaats `ASPNETCORE_ENVIRONMENT` van om de runtime-omgeving in te stellen. 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -102,7 +102,7 @@ Pad naar de gebruikt voor TypeScript-compiler. Hiermee kunt u de standaardinstel
 
 ## <a name="functionappeditmode"></a>FUNCTIE\_APP\_BEWERKEN\_MODUS
 
-Bepaalt of bewerken in de Azure-portal is ingeschakeld. Geldige waarden zijn 'readwrite' en 'alleen-lezen'.
+Hiermee wordt bepaald of bewerken in de Azure Portal is ingeschakeld. Geldige waarden zijn 'readwrite' en 'alleen-lezen'.
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
@@ -118,7 +118,7 @@ De versie van de Functions-runtime voor gebruik in deze functie-app. Een tilde m
 
 ## <a name="functionsworkerruntime"></a>FUNCTIES\_WORKER\_RUNTIME
 
-De werknemer language runtime worden geladen in de functie-app.  Dit komt overeen met de taal die wordt gebruikt in uw toepassing (bijvoorbeeld ' dotnet'). Voor functies in meerdere talen moet u deze publiceren naar meerdere apps, elk met een overeenkomende waarde van de worker-runtime.  Geldige waarden zijn `dotnet` (C#/F#), `node` (JavaScript/TypeScript) `java` (Java), `powershell` (PowerShell), en `python` (Python).
+De werknemer language runtime worden geladen in de functie-app.  Dit komt overeen met de taal die wordt gebruikt in uw toepassing (bijvoorbeeld ' dotnet'). Voor functies in meerdere talen moet u deze publiceren naar meerdere apps, elk met een overeenkomende waarde van de worker-runtime.  Geldige waarden zijn `dotnet` (C#/F#), `node` (Java script/type script) `java` , (Java) `powershell` , (Power shell) `python` en (python).
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
@@ -126,7 +126,7 @@ De werknemer language runtime worden geladen in de functie-app.  Dit komt overee
 
 ## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-Voor verbruiksabonnementen alleen. Verbindingsreeks voor het opslagaccount waarin de functie-app-code en de configuratie zijn opgeslagen. Zie [maken van een functie-app](functions-infrastructure-as-code.md#create-a-function-app).
+Alleen voor verbruik & Premium-abonnementen. Verbindingsreeks voor het opslagaccount waarin de functie-app-code en de configuratie zijn opgeslagen. Zie [maken van een functie-app](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
@@ -134,7 +134,7 @@ Voor verbruiksabonnementen alleen. Verbindingsreeks voor het opslagaccount waari
 
 ## <a name="websitecontentshare"></a>WEBSITE\_CONTENTSHARE
 
-Voor verbruiksabonnementen alleen. Het pad naar de functie-app-code en configuratie. Met WEBSITE_CONTENTAZUREFILECONNECTIONSTRING gebruikt. Standaard is een unieke tekenreeks die met de naam van de functie-app begint. Zie [maken van een functie-app](functions-infrastructure-as-code.md#create-a-function-app).
+Alleen voor verbruik & Premium-abonnementen. Het pad naar de functie-app-code en configuratie. Met WEBSITE_CONTENTAZUREFILECONNECTIONSTRING gebruikt. Standaard is een unieke tekenreeks die met de naam van de functie-app begint. Zie [maken van een functie-app](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
@@ -175,7 +175,7 @@ Standaard wordt Functions-proxy's gebruikmaken van een snelkoppeling naar de API
 
 |Sleutel|Waarde|Description|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Aanroepen met een back-end-url die verwijst naar een functie van de lokale functie-App wordt niet meer rechtstreeks naar de functie worden verzonden en wordt in plaats daarvan worden omgeleid naar de HTTP-front-end voor de functie-App|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Aanroepen met een back-end-URL die verwijst naar een functie in de lokale functie-app worden niet meer rechtstreeks naar de functie verzonden en worden in plaats daarvan teruggestuurd naar de HTTP-front-end voor de functie-app|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Dit is de standaardwaarde. Aanroepen met een back-end-url die verwijst naar een functie van de lokale functie-App wordt rechtstreeks naar deze functie worden doorgestuurd|
 
 

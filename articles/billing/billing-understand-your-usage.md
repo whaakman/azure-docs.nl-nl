@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 66b54c027cde6341b23aef2c10b43fa21bf357da
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1afd78a0525be523f677cf0146c8a120155130ea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383463"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554690"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Meer informatie over de voor waarden in het Azure-gebruiks-en-kosten bestand
 
@@ -28,7 +28,7 @@ Accounttype | Azure-gebruik | Gebruik van Marketplace | Module | Restituties
 --- | --- | --- | --- | ---
 Enterprise Agreement (EA) | Ja | Ja | Ja | Nee
 Microsoft-klantovereenkomst (MCA) | Ja | Ja | Ja | Ja
-Betalen naar gebruik (PAYG) | Ja | Nee | Nee | Nee
+Betalen naar gebruik (PAYG) | Ja | Ja | Nee | Nee
 
 Zie [inzicht krijgen in de kosten van uw Azure-service](billing-understand-your-azure-marketplace-charges.md)voor meer informatie over Marketplace-orders (ook wel bekend als externe services).
 
@@ -65,8 +65,6 @@ EffectivePrice | Alle | Gemengde eenheids prijs voor de periode. De gefactureerd
 ExchangeRateDate | MCA | De datum waarop de wissel koers is ingesteld.
 ExchangeRatePricingToBilling | MCA | De wissel koers die wordt gebruikt om de kosten in de prijs valuta te converteren naar de facturerings valuta.
 Frequentie | Alle | Hiermee wordt aangegeven of verwacht wordt dat er een kosten worden herhaald. Kosten kunnen één keer voor komen (**eenmalige**), herhalen op een maandelijks of jaarlijks (**periodiek**) of op basis van het gebruik (**UsageBased**).
-IncludedQuantity | PAYG | De hoeveelheid van de meter die gratis is inbegrepen in uw huidige facturerings periode.
-InstanceId | PAGY | Zie ResourceId.
 InvoiceId | PAYG, MCA | De unieke document-ID die wordt weer gegeven op de factuur-PDF.
 InvoiceSection | MCA | Zie InvoiceSectionName.
 InvoiceSectionId | EA, MCA | De unieke id voor de sectie EA Department of MCA invoice.
@@ -105,6 +103,7 @@ ServicePeriodStartDate | MCA | De begin datum van de beoordelings periode die de
 SubscriptionId | Alle | De unieke id voor het Azure-abonnement.
 Abonnementsnaam | Alle | De naam van het Azure-abonnement.
 Labels | Alle | Tags toegewezen aan de resource. Bevat geen tags voor een resource groep. Kan worden gebruikt om de kosten voor interne terugstorting te groeperen of te distribueren. Zie [uw Azure-resources organiseren met Tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)voor meer informatie.
+Begrip | Alle | Geeft de geldigheids duur van de aanbieding. Bijvoorbeeld: In het geval van gereserveerde instanties worden 12 maanden weer gegeven als de periode. Voor eenmalige aankopen of terugkerende aankopen geldt een termijn van 1 maand (SaaS, Marketplace-ondersteuning). Dit is niet van toepassing op Azure-verbruik.
 Maateenheid | Alle | De maat eenheid voor facturering voor de service. Reken services worden bijvoorbeeld per uur gefactureerd.
 UnitPrice | EA, PAYG | De prijs per eenheid voor de kosten.
 
@@ -119,7 +118,7 @@ Oude term | Nieuwe term
 Verbruikte hoeveelheid | Hoeveelheid
 IncludedQuantity | N/A
 InstanceId | ResourceId
-Snelheid | EffectivePrice
+Tarief | EffectivePrice
 Eenheid | Maateenheid
 UsageDate | Date
 UsageEnd | Date

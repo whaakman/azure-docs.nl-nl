@@ -1,7 +1,7 @@
 ---
-title: Hoe om te leren met Conversatiecursist - Microsoft Cognitive Services | Microsoft Docs
+title: Leren met Conversation Learner-Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Leer hoe u om te leren met Conversatiecursist.
+description: Meer informatie over het leren van Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,69 +10,70 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 9e5e6594a74219a22d67af18827bfe2b7cbd0fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: a18d4c31da4ffeefebd4bda9aa441fdfec062be9
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66385260"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705269"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Lesgeven met Conversatiecursist 
 
-Dit document wordt uitgelegd wat signalen Conversatiecursist op de hoogte van, en wordt beschreven hoe het aanleren.  
+In dit document wordt uitgelegd welke signalen Conversation Learner op de hoogte is, en wordt beschreven hoe het leert.  
 
-Docenten kan worden onderverdeeld in twee afzonderlijke stappen: entiteiten extraheren en actie selecteren.
+Onderwijs kan worden opgesplitst in twee afzonderlijke stappen: entiteits extractie en actie selectie.
 
-## <a name="entity-extraction"></a>Entiteiten extraheren
+## <a name="entity-extraction"></a>Entiteits extractie
 
-Op de achtergrond Conversatiecursist gebruikt [LUIS](https://www.luis.ai) voor het ophalen van de entiteit.  Als u bekend bent met LUIS, die zich voordoen is van toepassing op entiteiten extraheren in Conversatiecursist.
+Onder de kaften Conversation Learner gebruikt [Luis](https://www.luis.ai) voor het uitpakken van de entiteit.  Als u bekend bent met LUIS, is deze ervaring van toepassing op de extractie van entiteiten in Conversation Learner.
 
-De entiteit extractie modellen zijn op de hoogte van de *inhoud* en *context* binnen een utterance gebruiker.  Bijvoorbeeld, als het woord "Seattle" is aangeduid als een plaats in één utterance zoals "Wat is het weer in Seattle", entiteiten extraheren is in staat dat dezelfde inhoud ("Seattle") herkennen als een plaats in een andere utterance zoals "Populatie van Seattle", zelfs als de uitingen zijn heel anders.  Daarentegen als "Francis" is erkend als een naam in ' Een vergadering plannen met Francis', en vervolgens een nieuwe naam van de eerder niet waren herkend kan worden herkend in een vergelijkbaar context, zoals 'Set up een vergadering met Robin'.  Machine learning bepaalt welke bij te wonen op inhoud, context of beide, op basis van voorbeelden van training.
+De entiteit extractie modellen zijn op de hoogte van de *inhoud* en *context* binnen een gebruiker utterance.  Als bijvoorbeeld het woord ' Seattle ' is gemarkeerd als een stad in een utterance zoals ' wat is het weer in Seattle ', kan de extractie van de entiteit dezelfde inhoud ("Seattle") herkennen als een plaats in een andere utterance, zoals "populatie van Seattle", zelfs als de uitingen zijn zeer verschillend.  Als "Francis" is herkend als een naam in een vergadering plannen met Francis, dan kan een nieuwe eerder geherkende naam worden herkend in een vergelijk bare context, zoals "een vergadering met Robin instellen".  Machine learning maakt deel uit van de gegevens, context of beide, op basis van de trainings voorbeelden.
 
-Entiteiten extraheren is op dit moment alleen op de hoogte van de inhoud van de huidige utterance.  In tegenstelling tot de actieselectie is (Zie hieronder) is het niet op de hoogte van de dialoogvenstergeschiedenis van het zoals vorige systeem draait, vorige gebruiker schakelt of eerder herkende entiteiten.  Als gevolg hiervan is het gedrag van entiteiten extraheren 'gedeeld' tussen alle uitingen.  Bijvoorbeeld als de gebruiker utterance 'Ik wil Apple' 'Apple is' als entiteitstype "Fruit" in één gebruiker utterance, wordt het model van de extractie entiteit verwacht dat deze utterance ("Ik wil Apple') 'Apple' met het label"Fruit"altijd mag hebben.
+Op dit moment is het uitpakken van de entiteit alleen op de hoogte van de inhoud van de huidige utterance.  In tegens telling tot actie selectie (hieronder) is het niet op de hoogte van de dialoog geschiedenis, zoals eerdere systeem mogelijkheden, eerdere gebruikers of eerder herkende entiteiten.  Als gevolg hiervan is het gedrag van entiteits extractie "gedeeld" in alle uitingen.  Als de gebruiker bijvoorbeeld utterance ' Ik wil dat Apple ' is aangeduid als entiteits type ' fruit ' in één gebruiker utterance, zal het model voor het uitpakken van de entiteit verwachten dat deze utterance ("Ik wil dat Apple") altijd "Apple" als "fruit" moet hebben.
 
-Als de extractie van de entiteit is niet gedraagt zoals verwacht, moet u dit mogelijke oplossingen zijn:
+Als de extractie van entiteiten niet naar behoren werkt, kunt u het volgende doen:
 
-- Allereerst moet proberen is het toevoegen van meer voorbeelden van training, met name voorbeelden die laten zien van de context van typische entiteit (rond woorden) of uitzonderingen
-- Houd rekening met de eigenschap van een 'Verwacht een entiteit' toe te voegen aan een actie, indien van toepassing.  Zie de zelfstudie voor entiteiten verwacht voor meer informatie.
-- Het is mogelijk om toe te voegen handmatige verwerking naar `EntityExtractionCallback` om uit te pakken entiteiten met behulp van code, dit de minste aanbevolen aanpak is omdat deze niet van verbeteringen profiteren in machine learning als uw systeem meer vormt krijgt.
+- Het eerste wat u moet proberen om meer trainings voorbeelden toe te voegen: met name voor beelden die typische entiteits context (omringende woorden) of uitzonde ringen tonen
+- Overweeg een ' verwachte entiteit ' toe te voegen aan een actie, indien van toepassing.  Zie de zelf studie over verwachte entiteiten voor meer informatie.
+- Hoewel het mogelijk is om hand matige verwerking toe `EntityExtractionCallback` te voegen aan om entiteiten te extra heren met behulp van code, is dit de minst aanbevolen benadering omdat deze niet kan profiteren van verbeteringen in machine learning als uw systeem verouderd is.
 
-## <a name="action-selection"></a>Actie selecteren
+## <a name="action-selection"></a>Actie selectie
 
-Actieselectie maakt gebruik van een terugkerende neural network, waarbij alle Gesprekgeschiedenis als invoer.  Actie selecteren is dus een stateful processen die op de hoogte van de vorige gebruiker uitingen entiteitswaarden en systeem uitingen.  
+Actie selectie maakt gebruik van een recurrent Neural-netwerk, dat als invoer wordt gebruikt voor alle gesprek geschiedenis.  Actie selectie is dus een stateful proces dat op de hoogte is van de vorige gebruiker uitingen, entiteits waarden en systeem uitingen.  
 
-Sommige signalen voorkeur op een natuurlijke manier van het leerproces.  Met andere woorden, als Conversatiecursist kan een actie selecteren besluit met behulp van meer "voorkeur" signalen uitleg, wordt; Als dit niet, wordt er minder "voorkeur" signalen gebruiken.
+Sommige signalen worden voor het leer proces als voor keur in het geraden.  Met andere woorden, als Conversation Learner een actie selectie besluit met behulp van ' meer voor keur '-signalen kunt uitleggen, wordt het; Als dat niet het geval is, worden de signalen ' minder voor keur ' gebruikt.
 
-Hier volgt een tabel met alle signalen in Conversatiecursist, en welke Apps worden gebruikt door de actie selecteren.  Merk op dat de volgorde van word in uitingen van de gebruiker wordt genegeerd.
+Hier volgt een tabel met alle signalen in Conversation Learner, die worden gebruikt door actie selectie.  Houd er rekening mee dat woord volgorde in de uitingen van de gebruiker wordt genegeerd.
 
-Signaal | Voorkeur (1 = voorkeur) | Opmerkingen
+Melden | Voor keur (1 = meest voor keur) | Opmerkingen
 --- | --- | --- 
-Systeemactie in een vorige inschakelen | 1 | 
-Entiteiten die aanwezig zijn in de huidige inschakelen | 1 | 
-Of dit de eerste inschakelen is | 1 |
-Exacte overeenkomst van woorden in de huidige gebruiker utterance | 2 | 
-Net als betekenis woorden in de huidige gebruiker utterance | 3 | 
-Systeemacties voorafgaand aan de vorige inschakelen | 4 |
-Entiteiten die aanwezig zijn op zijn beurt voorafgaand aan de huidige inschakelen | 4 | 
-Uitingen voorafgaand aan de huidige gebruiker inschakelen | 5 | 
+Systeem actie in vorige zet | 1 | 
+Entiteiten die momenteel aanwezig zijn in de huidige beurt | 1 | 
+Of dit de eerste zet is | 1 |
+Exact overeenkomende woorden in de huidige gebruiker utterance | 2 | 
+Vergelijk bare woorden in de huidige gebruiker utterance | 3 | 
+Systeem acties voorafgaand aan vorige turn | 4 |
+Entiteiten aanwezig in beurten vóór huidige beurt | 4 | 
+Gebruikers uitingen vóór huidige beurt | 5 | 
 
 > [!NOTE]
-> Actieselectie neemt de inhoud van het systeemacties--de tekst, inhoud van de kaart, of API-naam of gedrag--alleen de identiteit van de systeemactie.  Als gevolg hiervan niet wijzigen van de inhoud van een actie wordt het gedrag van het model van de selectie actie niet wijzigen.
+> Actie selectie houdt geen rekening met de inhoud van systeem acties: de tekst, de kaart inhoud of de API-naam of het gedrag, alleen de identiteit van de systeem actie.  Als gevolg hiervan is het wijzigen van de inhoud van een actie niet van invloed op het gedrag van het actie selectie model.
 >
-> Bovendien wordt de inhoud/waarden van entiteiten zijn niet gebruikt--alleen hun aanwezigheid/afwezigheid.
+> De inhoud/waarden van entiteiten worden niet gebruikt, maar alleen hun aanwezigheid/verzuim.
 
-Als de actie selecteren is niet gedraagt zoals verwacht, moet u dit mogelijke oplossingen zijn:
+Als de actie selectie niet werkt zoals verwacht, kunt u dit op de volgende manieren doen:
 
-- Voeg meer train dialoogvensters, met name de dialoogvensters die laten zien welke signalen actieselectie moet de waarbij aandacht wordt besteed aan.  Als actieselectie moet één signaal liever via een andere, geeft bijvoorbeeld voorbeelden die laten zien van de gewenste signaal dat deze zich in dezelfde staat en de andere signalen variëren.  Aantal reeksen kunnen duren voordat een handvol training dialoogvensters voor meer informatie.
-- 'Vereist' en 'diskwalificeren"entiteiten met definities van de actie toevoegen.  Deze limieten wanneer acties beschikbaar zijn en kunnen nuttig zijn voor snelle bedrijfsregels en sommige gezond verstand patronen. 
+- Voeg meer dialoog vensters voor Train toe, met name dialoog vensters die laten zien welke actie selectie voor signalen moet worden bedacht.  Als de actie selectie bijvoorbeeld de voor keur geeft aan een signaal over een andere, geeft u voor beelden op die het voorkeurs signaal in dezelfde staat weer geven en de andere signalen variëren.  Sommige reeksen kunnen een aantal trainings dialoogvensters hebben om te leren.
+- Entiteiten ' vereist ' en ' diskwalificerend ' toevoegen aan actie definities.  Dit is beperkt wanneer er acties beschikbaar zijn en kan nuttig zijn om bedrijfs regels en enkele algemene gevoels patronen te maken. 
 
 ## <a name="updates-to-models"></a>Updates voor modellen
 
-Elk gewenst moment toevoegen of bewerken van een entiteit, een actie of een dialoogvenster van de trein in de gebruikersinterface, Hiermee wordt een aanvraag voor het opnieuw trainen van zowel de entiteit extractie-model en het model van de selectie actie gegenereerd.  Deze aanvraag in een wachtrij wordt geplaatst en opnieuw trainen van asynchroon wordt uitgevoerd.  Wanneer een nieuw model beschikbaar is, wordt deze of hoger vanaf dat moment gebruikt voor de selectie van de extractie en actie van de entiteit.  Dit proces opnieuw training vaak duurt ongeveer 5 seconden, maar kan niet langer als het model complex is of als de belasting van de trainingsservice is hoog.
+Telkens wanneer u een entiteit, actie of trein dialoog venster in de gebruikers interface toevoegt of bewerkt, genereert dit een aanvraag voor het opnieuw trainen van zowel het model voor de extractie van entiteiten als voor het actie selectie model.  Deze aanvraag wordt in een wachtrij geplaatst en opnieuw getraind wordt asynchroon uitgevoerd.  Wanneer een nieuw model beschikbaar is, wordt het vanaf dat punt gebruikt voor het uitpakken van de entiteit en de actie selectie.  Dit proces voor opnieuw trainen duurt vaak ongeveer vijf seconden, maar kan langer zijn als het model complex is of als de belasting van de trainings service hoog is.
 
-Omdat training asynchroon wordt uitgevoerd, is het mogelijk dat u hebt wijzigingen direct worden niet doorgevoerd.  Als er sleuteltermextractie plaats of actie selecteren van een entiteit niet gedraagt is zoals verwacht op basis van wijzigingen die u hebt aangebracht in de afgelopen 5-10 seconden, kan dit de oorzaak.
+Omdat de training asynchroon wordt uitgevoerd, is het mogelijk dat wijzigingen die u hebt aangebracht, niet meteen worden weer gegeven.  Als entiteits extractie of actie selectie niet werkt zoals verwacht, op basis van wijzigingen die u in de afgelopen 5-10 seconden hebt aangebracht, kan dit de oorzaak zijn.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Standaardwaarden en grenzen](./cl-values-and-boundaries.md)
+> [Standaard waarden en grenzen](./cl-values-and-boundaries.md)

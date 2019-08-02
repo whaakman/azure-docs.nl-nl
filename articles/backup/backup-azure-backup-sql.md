@@ -1,18 +1,19 @@
 ---
 title: Workloads van Azure Backup for SQL Server met DPM
 description: Een inleiding tot het maken van back-ups van SQL Server-data bases met de Azure Backup-Service
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: kasinh
-ms.openlocfilehash: 60afba5d094d730aab20f2a7d50206c063f390ff
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 744c954c9192f75489911f09a1ef7195c5bbd1fa
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466633"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689375"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Back-ups maken van SQL Server naar Azure als een DPM-workload
 Dit artikel leidt u door de configuratie stappen voor het maken van back-ups van SQL Server-data bases met behulp van Azure Backup.

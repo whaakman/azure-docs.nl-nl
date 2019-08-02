@@ -1,9 +1,9 @@
 ---
-title: Verwijderen van een knooppunttype in Azure Service Fabric | Microsoft Docs
-description: Informatie over het verwijderen van een knooppunttype uit een Service Fabric-cluster in Azure uitvoert.
+title: Een knooppunt type verwijderen in azure Service Fabric | Microsoft Docs
+description: Meer informatie over het verwijderen van een knooppunt type van een Service Fabric cluster dat in azure wordt uitgevoerd.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: vturecek
 ms.assetid: ''
@@ -13,44 +13,44 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: aljo
-ms.openlocfilehash: 779051135a994574cb2bed7bfc4879270ec1d8fa
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: atsenthi
+ms.openlocfilehash: 44f25adf4168f4339a31e9270c2b23a8466a8889
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443023"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599487"
 ---
-# <a name="remove-a-service-fabric-node-type"></a>Verwijderen van de soort van een Service Fabric-knooppunt
-In dit artikel wordt beschreven hoe u een Azure Service Fabric-cluster schalen door het verwijderen van een bestaande knooppunttype uit een cluster. Een Service Fabric-cluster is een netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Een machine of virtuele machine die deel uitmaakt van een cluster, heet een knooppunt. Virtuele-machineschaalsets vormen een Azure compute-resource die u gebruikt om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype die is gedefinieerd in een Azure-cluster is [instellen als een afzonderlijke schaalset](service-fabric-cluster-nodetypes.md). Vervolgens kan elk knooppunttype afzonderlijk worden beheerd. Na het maken van een Service Fabric-cluster, kunt u een cluster horizontaal schalen door een knooppunttype (virtuele-machineschaalset) en alle bijbehorende knooppunten te verwijderen.  U kunt het cluster schalen op elk gewenst moment, zelfs wanneer workloads worden uitgevoerd op het cluster.  Als het cluster wordt geschaald, wordt uw toepassingen automatisch ook schalen.
+# <a name="remove-a-service-fabric-node-type"></a>Een Service Fabric knooppunt type verwijderen
+In dit artikel wordt beschreven hoe u een Azure Service Fabric cluster kunt schalen door een bestaand knooppunt type uit een cluster te verwijderen. Een Service Fabric cluster is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw micro services worden geïmplementeerd en beheerd. Een computer of virtuele machine die deel uitmaakt van een cluster, wordt een knoop punt genoemd. Virtuele-machine schaal sets vormen een Azure Compute-resource die u gebruikt om een verzameling virtuele machines als een set te implementeren en te beheren. Elk knooppunt type dat in een Azure-cluster is gedefinieerd, wordt [ingesteld als een afzonderlijke schaalset](service-fabric-cluster-nodetypes.md). Elk knooppunt type kan vervolgens afzonderlijk worden beheerd. Nadat u een Service Fabric cluster hebt gemaakt, kunt u horizon taal een cluster schalen door een knooppunt type (virtuele-machine schaalset) en alle knoop punten te verwijderen.  U kunt het cluster op elk gewenst moment schalen, zelfs wanneer werk belastingen op het cluster worden uitgevoerd.  Naarmate het cluster wordt geschaald, worden uw toepassingen ook automatisch geschaald.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Gebruik [Remove-AzServiceFabricNodeType](https://docs.microsoft.com/powershell/module/az.servicefabric/remove-azservicefabricnodetype) te verwijderen van de soort van een Service Fabric-knooppunt.
+Gebruik [Remove-AzServiceFabricNodeType](https://docs.microsoft.com/powershell/module/az.servicefabric/remove-azservicefabricnodetype) om een service Fabric knooppunt type te verwijderen.
 
-De drie bewerkingen die zich voordoen bij het verwijderen AzServiceFabricNodeType heet zijn:
-1.  De virtuele-machineschaalset achter het knooppunttype is verwijderd.
-2.  Het knooppunttype is verwijderd uit het cluster.
-3.  Voor elk knooppunt binnen dat knooppunttype, wordt de status van de gehele voor dat knooppunt uit het systeem verwijderd. Als er services op dat knooppunt zijn, klikt u vervolgens de services eerst verplaatst uit naar een ander knooppunt. Als de clustermanager een knooppunt niet voor de replica/service vinden kan, klikt u vervolgens is de bewerking vertraagd/geblokkeerd.
+De drie bewerkingen die optreden wanneer Remove-AzServiceFabricNodeType wordt aangeroepen, zijn:
+1.  De virtuele-machine schaalset achter het knooppunt type wordt verwijderd.
+2.  Het knooppunt type wordt uit het cluster verwijderd.
+3.  Voor elk knoop punt in dat knooppunt type wordt de hele status voor dat knoop punt uit het systeem verwijderd. Als er services op dat knoop punt zijn, worden de services voor het eerst naar een ander knoop punt verplaatst. Als cluster beheer geen knoop punt voor de replica/service kan vinden, wordt de bewerking uitgesteld/geblokkeerd.
 
 > [!WARNING]
-> Remove-AzServiceFabricNodeType gebruiken om te verwijderen van een knooppunttype uit een productiecluster wordt niet aanbevolen moet regelmatig worden gebruikt. Het is een opdracht als de resource VM scale set achter het knooppunttype worden verwijderd. 
+> Het gebruik van Remove-AzServiceFabricNodeType om een knooppunt type van een productie cluster te verwijderen, wordt niet aanbevolen om regel matig te worden gebruikt. Het is een gevaarlijke opdracht, omdat hiermee de bron van de virtuele-machine schaalset wordt verwijderd achter het knooppunt type. 
 
-## <a name="durability-characteristics"></a>Kenmerken van duurzaamheid
-Bij het gebruik van de Remove-AzServiceFabricNodeType veiligheid prioriteit boven snelheid. Het knooppunttype moet Silver- of Gold [duurzaamheidsniveau](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster), omdat:
-- Brons geeft u geen garanties over het opslaan van informatie over de status.
-- Silver en Gold duurzaamheid trap eventuele wijzigingen in de schaalset.
-- Goud biedt u ook controle over de Azure-updates onder de schaalset.
+## <a name="durability-characteristics"></a>Duurzaamheids kenmerken
+De veiligheid heeft de prioriteit van de snelheid bij het gebruik van Remove-AzServiceFabricNodeType. Het knooppunt type moet zilver of goud- [duurzaamheids niveau](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)zijn. de reden hiervoor is:
+- Bronzen geeft u geen garanties over het opslaan van status informatie.
+- Met Silver en Gold duurzaamheid worden wijzigingen in de schaalset onderschept.
+- Daarnaast biedt Gold u de controle over de updates van Azure onder de schaalset.
 
-Service Fabric 'regelt' onderliggende wijzigingen en updates zodat de gegevens zijn niet verloren gaan. Wanneer u een knooppunt met de duurzaamheid Brons verwijdert, kunt u informatie over de status verliezen. Als u een primaire knooppunttype verwijderen wilt en uw toepassing staatloos is, is Brons acceptabel. Wanneer u stateful werkbelastingen in de productieomgeving uitvoert, moet de minimale configuratie Silver. Op dezelfde manier voor productiescenario's moet het primaire knooppunttype altijd worden Silver- of Gold.
+Met Service Fabric worden onderliggende wijzigingen en updates gecoördineerd zodat er geen gegevens verloren gaan. Wanneer u echter een knoop punt met Bronze duurzaamheid verwijdert, kunt u status gegevens verliezen. Als u een primair knooppunt type verwijdert en de toepassing stateless is, is Bronze acceptabel. Wanneer u stateful workloads in productie uitvoert, moet de minimale configuratie zilver zijn. Voor productie scenario's geldt dat het primaire knooppunt type altijd zilver of goud moet zijn.
 
-### <a name="more-about-bronze-durability"></a>Meer informatie over duurzaamheid Brons
+### <a name="more-about-bronze-durability"></a>Meer informatie over bronzen duurzaamheid
 
-Wanneer u een knooppunttype dat is Brons verwijdert, gaan alle knooppunten in het knooppunttype onmiddellijk omlaag. Service Fabric Brons knooppunten scale set updates niet overlappen, alle virtuele machines dus u kunt onmiddellijk. Als u iets stateful op deze knooppunten hebt, gaat de gegevens verloren. Nu, zelfs als u stateless was, alle knooppunten in de Service Fabric deel uitmaken van de ring, zodat u een volledige groep mogelijk verloren gaan, die het cluster zelf kan destabiliseren.
+Bij het verwijderen van een type knoop punt dat bronzen, worden alle knoop punten in het knooppunt type onmiddellijk doorlopend. Service Fabric onderschept geen updates voor een schaalset van Bronze-knoop punten, waardoor alle Vm's onmiddellijk beschikbaar zijn. Als u iets op deze knoop punten hebt, gaan de gegevens verloren. Nu, zelfs als u stateless was, worden alle knoop punten in de Service Fabric deel nemen aan de ring, dus kan een hele groep verloren gaan, waardoor het cluster zelf kan worden overschreven.
 
-## <a name="recommended-node-type-removal-process"></a>Aanbevolen procedure voor het verwijderen van type knooppunt
+## <a name="recommended-node-type-removal-process"></a>Proces voor het verwijderen van het aanbevolen knooppunt type
 
-Als u wilt verwijderen van het knooppunttype, voer de [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  De cmdlet duurt enige tijd om te voltooien.  Nadat alle virtuele machines zijn verwijderd (weergegeven als 'Down') de fabric: / System/InfrastructureService / [nodetype name] wordt weergegeven een foutstatus.
+Als u het knooppunt type wilt verwijderen, voert u de cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) uit.  Het duurt enige tijd voordat de cmdlet is voltooid.  Zodra alle Vm's zijn verdwenen (weer gegeven als ' omlaag '), wordt in de fabric:/System/InfrastructureService/[nodetypenaam] een fout status weer gegeven.
 
 ```powershell
 $groupname = "mynodetype"
@@ -66,9 +66,9 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mytestcluster.eastus.cloudapp.a
           -StoreLocation CurrentUser -StoreName My
 ```
 
-Vervolgens kunt u de cluster-bron als u wilt verwijderen van het knooppunttype bijwerken. U kunt de implementatie van ARM-sjabloon gebruiken of bewerken van de cluster-bron via de [Azure resourcemanager](https://resources.azure.com). Hiermee start u een clusterupgrade van een die wordt verwijderd van de fabric: / System/InfrastructureService / [nodetype name]-service die zich in de foutstatus.
+Vervolgens kunt u de cluster bron bijwerken om het knooppunt type te verwijderen. U kunt de implementatie van de ARM-sjabloon gebruiken of de cluster bron bewerken via [Azure Resource Manager](https://resources.azure.com). Hiermee start u een cluster upgrade waarmee de service Fabric:/System/InfrastructureService/[nodeType name] met de fout status wordt verwijderd.
 
-U ziet echter nog steeds dat de knooppunten zijn 'Down' in de Service Fabric Explorer. Voer [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) op elk van de knooppunten die moeten worden verwijderd.
+De knoop punten zijn nog steeds zichtbaar in de Service Fabric Explorer. Voer [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) uit op elk van de knoop punten die u wilt verwijderen.
 
 
 ```powershell
@@ -81,6 +81,6 @@ Foreach($node in $nodes)
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over cluster [duurzaamheid kenmerken](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
-- Meer informatie over [knooppunttypen en Virtual Machine Scale Sets](service-fabric-cluster-nodetypes.md).
-- Meer informatie over [Service Fabric-cluster schalen](service-fabric-cluster-scaling.md).
+- Meer informatie over de [kenmerken](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)van de cluster duurzaamheid.
+- Meer informatie over [knooppunt typen en virtual machine Scale sets](service-fabric-cluster-nodetypes.md).
+- Meer informatie over het [schalen van service Fabric cluster](service-fabric-cluster-scaling.md).

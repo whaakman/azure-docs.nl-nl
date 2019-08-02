@@ -1,83 +1,77 @@
 ---
-title: Het oplossen van Azure SQL datawarehouse | Microsoft Docs
-description: Problemen oplossen met Azure SQL datawarehouse.
+title: Problemen oplossen Azure SQL Data Warehouse | Microsoft Docs
+description: Problemen met Azure SQL Data Warehouse oplossen.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 4/26/2019
+ms.date: 7/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 02591185914f3b04a70af3b7c5d607f4a2865806
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04d63b2c1583228a274c0ba21c87df08886f5cdb
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154254"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619061"
 ---
-# <a name="troubleshooting-azure-sql-data-warehouse"></a>Oplossen van problemen met Azure SQL datawarehouse
-In dit artikel geeft een lijst met veelgestelde vragen voor het oplossen van problemen.
+# <a name="troubleshooting-azure-sql-data-warehouse"></a>Problemen met Azure SQL Data Warehouse oplossen
+Dit artikel bevat een lijst met veelvoorkomende problemen met de probleem oplossing.
 
 ## <a name="connecting"></a>Verbinding maken
 | Probleem                                                        | Oplossing                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Aanmelden is mislukt voor gebruiker 'NT AUTHORITY\ANONIEME LOGON'. (Microsoft SQL Server, Error: 18456) | Deze fout treedt op wanneer een AAD-gebruiker probeert verbinding te maken met de hoofddatabase, maar heeft geen een gebruiker in de master.  Dit probleem oplossen door op de SQL Data Warehouse die u wilt verbinding maken met tijdens de verbinding of de gebruiker toevoegen aan de database master opgeven.  Zie [beveiligingsoverzicht][Security overview] artikel voor meer informatie. |
-| De server principal 'MyUserName' is niet toegang hebben tot de database 'master' in de huidige beveiligingscontext. Kan de standaarddatabase van de gebruiker niet openen. Aanmelden is mislukt. Aanmelden is mislukt voor gebruiker 'MyUserName'. (Microsoft SQL Server, Error: 916) | Deze fout treedt op wanneer een AAD-gebruiker probeert verbinding te maken met de hoofddatabase, maar heeft geen een gebruiker in de master.  Dit probleem oplossen door op de SQL Data Warehouse die u wilt verbinding maken met tijdens de verbinding of de gebruiker toevoegen aan de database master opgeven.  Zie [beveiligingsoverzicht][Security overview] artikel voor meer informatie. |
-| CTAIP fout                                                  | Deze fout kan optreden wanneer een aanmelding is gemaakt op de hoofddatabase van SQL server, maar niet in de SQL Data Warehouse-database.  Als u deze fout optreedt, kijk dan eens de [beveiligingsoverzicht] [ Security overview] artikel.  In dit artikel wordt uitgelegd hoe u een aanmelding en gebruiker maken op de master en over het maken van een gebruiker in de SQL Data Warehouse-database. |
-| Geblokkeerd door Firewall                                          | Azure SQL-databases worden beveiligd door de server en database niveau firewalls om te controleren of alleen bekende IP-adressen die toegang hebben tot een database. De firewalls zijn beveiligd door standaard, wat betekent dat u expliciet moet inschakelen en IP-adres of adresbereik voordat u verbinding kunt maken.  U configureert de firewall om toegang te krijgen, volg de stappen in [server firewall-toegang configureren voor uw client-IP-][Configure server firewall access for your client IP] in de [inrichting instructies][Provisioning instructions]. |
-| Kan geen verbinding maken met het hulpprogramma of het stuurprogramma                           | SQL Data Warehouse adviseert [SSMS][SSMS], [SSDT voor Visual Studio][SSDT for Visual Studio], of [sqlcmd][sqlcmd] aan uw gegevens op te vragen. Zie voor meer informatie over stuurprogramma's en verbinding maken met SQL Data Warehouse [stuurprogramma's voor Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] en [verbinding maken met Azure SQL Data Warehouse] [ Connect to Azure SQL Data Warehouse] artikelen. |
+| De aanmelding is mislukt voor de gebruiker ' NT AUTHORITY\ANONYMOUS-aanmelding '. (Microsoft SQL Server, Error: 18456) | Deze fout treedt op wanneer een AAD-gebruiker probeert verbinding te maken met de hoofd database, maar geen gebruiker heeft in de master-data base.  U kunt dit probleem oplossen door de SQL Data Warehouse op te geven waarmee u verbinding wilt maken op het moment van de verbinding of door de gebruiker toe te voegen aan de hoofd database.  Zie het artikel over [beveiligings overzicht][Security overview] voor meer informatie. |
+| De server-principal ' MyUserName ' heeft geen toegang tot de data base ' Master ' in de huidige beveiligings context. Kan de standaard database van de gebruiker niet openen. Aanmelding mislukt. De aanmelding is mislukt voor de gebruiker MyUserName. (Microsoft SQL Server, Error: 916) | Deze fout treedt op wanneer een AAD-gebruiker probeert verbinding te maken met de hoofd database, maar geen gebruiker heeft in de master-data base.  U kunt dit probleem oplossen door de SQL Data Warehouse op te geven waarmee u verbinding wilt maken op het moment van de verbinding of door de gebruiker toe te voegen aan de hoofd database.  Zie het artikel over [beveiligings overzicht][Security overview] voor meer informatie. |
+| CTAIP-fout                                                  | Deze fout kan optreden als er een aanmelding is gemaakt op de SQL Server-hoofd database, maar niet in de SQL Data Warehouse data base.  Als deze fout optreedt, bekijkt u het artikel overzicht van de [beveiliging][Security overview] .  In dit artikel wordt uitgelegd hoe u een aanmelding en gebruiker op Master maakt en hoe u een gebruiker maakt in de SQL Data Warehouse data base. |
+| Geblokkeerd door de firewall                                          | Azure SQL-data bases worden beveiligd door firewalls op server-en database niveau om ervoor te zorgen dat alleen bekende IP-adressen toegang hebben tot een Data Base. De firewalls zijn standaard beveiligd. Dit betekent dat u een expliciete en een IP-adres of bereik van adressen moet inschakelen voordat u verbinding kunt maken.  Als u uw firewall voor toegang wilt configureren, volgt u de stappen in de [Server firewall toegang configureren voor uw client-IP][Configure server firewall access for your client IP] in de instructies voor het [inrichten][Provisioning instructions]. |
+| Kan geen verbinding maken met het hulp programma of stuur programma                           | SQL Data Warehouse wordt aangeraden [SSMS][SSMS], [SSDT for Visual Studio][SSDT for Visual Studio]of [Sqlcmd][sqlcmd] te gebruiken om uw gegevens op te vragen. Zie [Stuur Programma's voor Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] en [verbinding maken met Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse] -artikelen voor meer informatie over Stuur Programma's en het maken van verbinding met SQL Data Warehouse. |
 
 ## <a name="tools"></a>Hulpprogramma's
 | Probleem                                                        | Oplossing                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Visual Studio-Objectverkenner ontbreekt AAD-gebruikers           | Dit is een bekend probleem.  Als tijdelijke oplossing, bekijk de gebruikers in [sys.database_principals][sys.database_principals].  Zie [verificatie met Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] voor meer informatie over het gebruik van Azure Active Directory met SQL Data Warehouse. |
-| Handmatig uitvoeren van scripts, met behulp van de wizard uitvoeren van scripts of via SSMS verbinding maken met is traag, reageert niet of produceren van fouten | Zorg ervoor dat gebruikers zijn gemaakt in de database master. In scriptopties, ook voor zorgen dat de engine-editie is ingesteld als 'Microsoft Azure SQL Data Warehouse Edition' en engine-type is 'Microsoft Azure SQL Database'. |
-| Genereren van scripts mislukt in SSMS                             | Genereren van een script voor SQL datawarehouse mislukt als de optie '-script genereren voor afhankelijke objecten'-optie is ingesteld op 'True'. Als tijdelijke oplossing, handmatig gebruikers moeten gaan naar Extra -> Options -> SQL Server Object Explorer script genereren voor afhankelijke opties -> en ingesteld op false |
+| Er ontbreken AAD-gebruikers in Visual Studio object Explorer           | Dit is een bekend probleem.  Als tijdelijke oplossing kunt u de gebruikers weer geven in [sys. database_principals][sys.database_principals].  Zie [verificatie voor Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] voor meer informatie over het gebruik van Azure Active Directory met SQL Data Warehouse. |
+| Hand matige scripting, met behulp van de wizard scripting of het maken van verbinding via SSMS is traag, reageert niet of levert fouten op | Zorg ervoor dat gebruikers zijn gemaakt in de hoofd database. In script opties moet u er ook voor zorgen dat de engine Edition is ingesteld als ' Microsoft Azure SQL Data Warehouse Edition ' en het type engine is ' Microsoft Azure SQL Database '. |
+| Genereren van scripts mislukt in SSMS                               | Het genereren van een script voor SQL Data Warehouse mislukt als de optie script voor afhankelijke objecten genereren is ingesteld op ' True '. Als tijdelijke oplossing moeten gebruikers hand matig naar Hulpprogram Ma's > Opties-> SQL Server-objectverkenner-> script genereren voor afhankelijke opties en ingesteld op ONWAAR |
 
 ## <a name="performance"></a>Prestaties
 | Probleem                                                        | Oplossing                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Voor het oplossen van een query-prestaties                            | Als u probeert om op te lossen van een bepaalde query, begint u met [leren hoe u kunt voor het bewaken van uw query's][Learning how to monitor your queries]. |
-| Slechte queryprestaties en -abonnementen is vaak een resultaat van de ontbrekende statistieken | De meest voorkomende oorzaak van slechte prestaties is gebrek aan statistieken voor uw tabellen.  Zie [tabelstatistieken beheren][Statistics] voor meer informatie over het maken van statistieken en waarom ze essentieel zijn voor de prestaties van uw. |
-| Onvoldoende gelijktijdigheid / query's in de wachtrij geplaatst                             | Informatie over [beheer van de werkbelasting][Workload management] is het belangrijk om te begrijpen hoe u taakverdeling tussen de toewijzing van geheugen met gelijktijdigheid. |
-| Over het implementeren van best practices                              | De beste plaats om te starten voor meer informatie over manieren om queryprestaties te verbeteren is [best practices voor SQL Data Warehouse][SQL Data Warehouse best practices] artikel. |
-| Over het verbeteren van de prestaties met schalen                      | Soms de oplossing voor het verbeteren van de prestaties is het simpelweg toevoegen van meer rekenkracht voor uw query's door [schalen van uw SQL Data Warehouse][Scaling your SQL Data Warehouse]. |
-| Slechte queryprestaties als gevolg van de index van slechte kwaliteit     | Enkele voorbeelden van momenten query's kunnen worden vertraagd vanwege [slechte columnstore-index kwaliteit][Poor columnstore index quality].  Raadpleeg dit artikel voor meer informatie en hoe u [opnieuw opbouwen van indexen voor het verbeteren van segmentkwaliteit][Rebuild indexes to improve segment quality]. |
+| Problemen met query prestaties oplossen                            | Als u probeert een bepaalde query op te lossen, begint u met [leren hoe u uw query's kunt bewaken][Learning how to monitor your queries]. |
+| Slechte query prestaties en-plannen zijn vaak het resultaat van ontbrekende statistieken | De meest voorkomende oorzaak van slechte prestaties zijn geen statistieken voor uw tabellen.  Zie beheer van [tabel statistieken][Statistics] voor meer informatie over het maken van statistieken en waarom ze essentieel zijn voor uw prestaties. |
+| Weinig gelijktijdigheid/query's in wachtrij                             | Inzicht in het [beheer van werk belastingen][Workload management] is belang rijk om te begrijpen hoe geheugen toewijzing met gelijktijdigheid kan worden gebalanceerd. |
+| Aanbevolen procedures implementeren                              | De beste manier om te beginnen met het verbeteren van de query prestaties is [SQL Data Warehouse artikel Best practices][SQL Data Warehouse best practices] . |
+| Prestaties verbeteren met schalen                      | Soms is de oplossing voor het verbeteren van de prestaties het eenvoudig om meer reken kracht aan uw query's toe te voegen door [uw SQL Data Warehouse te schalen][Scaling your SQL Data Warehouse]. |
+| Slechte query prestaties als gevolg van slechte index kwaliteit     | Sommige keer dat query's kunnen vertragen vanwege [slechte kwaliteit van Column Store-indexen][Poor columnstore index quality].  Raadpleeg dit artikel voor meer informatie en hoe u [indexen opnieuw bouwt om de segment kwaliteit te verbeteren][Rebuild indexes to improve segment quality]. |
 
-## <a name="system-management"></a>Systeembeheer
+## <a name="system-management"></a>Systeem beheer
 | Probleem                                                        | Oplossing                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Msg 40847: Kan de bewerking niet uitvoeren omdat de server hiermee het toegestane quotum van de Database Transaction Units van 45000 overschrijdt. | Verlaag de [DWU][DWU] van de database die u probeert te maken of [een verhoging aanvragen][request a quota increase]. |
-| Ruimteverbruik onderzoeken                              | Zie [tabel grootten][Table sizes] om te begrijpen van het ruimtegebruik van uw systeem. |
-| Het beheer van tabellen                                    | Zie de [tabeloverzicht] [ Overview] artikel voor meer informatie over het beheren van uw tabellen.  In dit artikel bevat ook koppelingen naar meer gedetailleerde onderwerpen zoals [gegevenstypes tabel][Data types], [distribueren van een tabel][Distribute], [Indexeren van een tabel][Index], [partitioneren van een tabel][Partition], [tabelstatistieken beheren][Statistics] en [tijdelijke tabellen][Temporary]. |
-| Transparent data encryption (TDE) voortgangsbalk wordt niet bijgewerkt in de Azure Portal | U kunt de status van TDE via weergeven [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
+| Msg 40847: Kan de bewerking niet uitvoeren omdat de server het toegestane quotum van de database transactie-eenheid 45000 overschrijdt. | Verminder de [DWU][DWU] van de data base die u probeert te maken of [vraag een quotum toename][request a quota increase]aan. |
+| Ruimte gebruik onderzoeken                              | Zie [tabel grootten][Table sizes] om inzicht te krijgen in het ruimte gebruik van uw systeem. |
+| Hulp bij het beheren van tabellen                                    | Zie het artikel [overzicht][Overview] voor meer informatie over het beheren van tabellen.  Dit artikel bevat ook koppelingen naar gedetailleerde onderwerpen, zoals [tabel gegevens typen][Data types], [het distribueren van een tabel][Distribute], [het indexeren][Index]van een tabel, het partitioneren van [een][Partition]tabel, het [onderhouden van tabel statistieken][Statistics] en [tijdelijke tabellen][Temporary]. |
+| De voortgangs balk voor transparent Data Encryption (TDE) wordt niet bijgewerkt in de Azure Portal | U kunt de status van TDE bekijken via [Power shell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
-## <a name="polybase"></a>PolyBase
-| Probleem                                           | Oplossing                                                   |
-| :---------------------------------------------- | :----------------------------------------------------------- |
-| Uitvoer mislukken met typen TINYINT en datum             | Voor Parquet en ORC-bestandsindeling, type datumwaarden moeten liggen tussen 01-01-1970 00:00:01 UTC en 2038-01-19 03:14:07. Waarden voor TINYINT moet tussen 0-127.    |
-| Probleem met Parquet decimaal: schrijven van Spark DecimalType(18,4) typt en importeren in een kolom van het type double of echte biedt ' fout: java.base/java.lang.Long kan niet worden geconverteerd naar java.base/java.lang.Float '. | U moet importeren in bigint en delen door 10000 liggen, of gebruik de [Databricks] SQL DW connector. |
-| Probleem met Parquet-datumtype: schrijven van Spark type datum en importeren in een kolom van het type datum of datum/tijd biedt ' fout: java.base/java.lang.Integer kan niet worden geconverteerd naar parquet.io.api.Binary '. | U moet een ander type met Spark (int) en compute van de datum of de [Databricks] SQL DW connector. |
 
-## <a name="differences-from-sql-database"></a>Verschillen met SQL-Database
+## <a name="differences-from-sql-database"></a>Verschillen van SQL Database
 | Probleem                                 | Oplossing                                                   |
 | :------------------------------------ | :----------------------------------------------------------- |
-| Niet-ondersteunde SQL-Database-functies     | Zie [niet-ondersteunde tabelfuncties][Unsupported table features]. |
-| Niet-ondersteunde SQL-Database-gegevenstypen   | Zie [niet-ondersteunde gegevenstypen][Unsupported data types].        |
-| VERWIJDEREN en UPDATE-beperkingen         | Zie [UPDATE oplossingen][UPDATE workarounds], [verwijderen oplossingen][DELETE workarounds] en [met behulp van CTAS omzeilen niet-ondersteunde UPDATE en DELETE syntaxis][Using CTAS to work around unsupported UPDATE and DELETE syntax]. |
-| MERGE-instructie wordt niet ondersteund      | Zie [samenvoegen oplossingen][MERGE workarounds].                  |
-| Beperkingen van de opgeslagen procedure          | Zie [opgeslagen procedure beperkingen][Stored procedure limitations] om enkele van de beperkingen van opgeslagen procedures te begrijpen. |
-| UDF's bieden geen ondersteuning voor SELECT-instructies | Dit is een beperking van onze UDF's.  Zie [CREATE FUNCTION][CREATE FUNCTION] voor de syntaxis wordt ondersteund. |
+| Niet-ondersteunde SQL Database functies     | Zie [niet-ondersteunde tabel functies][Unsupported table features]. |
+| Niet-ondersteunde SQL Database gegevens typen   | Zie [niet-ondersteunde gegevens typen][Unsupported data types].        |
+| Beperkingen voor verwijderen en bijwerken         | Zie [oplossingen bijwerken][UPDATE workarounds], [tijdelijke oplossingen verwijderen][DELETE workarounds] en [CTAS gebruiken om niet-ondersteunde syntaxis voor bijwerken en verwijderen te][Using CTAS to work around unsupported UPDATE and DELETE syntax]omzeilen. |
+| De instructie MERGe wordt niet ondersteund      | Zie [tijdelijke oplossingen voor samen voegen][MERGE workarounds].                  |
+| Beperkingen voor opgeslagen procedures          | Zie [beperkingen van opgeslagen][Stored procedure limitations] procedures voor een overzicht van de beperkingen van opgeslagen procedure. |
+| Udf's bieden geen ondersteuning voor SELECT-instructies | Dit is een huidige beperking van onze Udf's.  Zie [Create function][CREATE FUNCTION] voor de syntaxis die we ondersteunen. |
 
 ## <a name="next-steps"></a>Volgende stappen
-Voor meer hulp bij het vinden van oplossing voor uw probleem volgen hier enkele andere bronnen die u kunt proberen.
+Als u meer informatie wilt over het vinden van oplossingen voor uw probleem, kunt u het volgende proberen.
 
 * [Blogs]
 * [Functieverzoeken]
 * [Video's]
-* [CAT-teamblogs]
+* [KAT-team blogs]
 * [Ondersteuningsticket maken]
 * [MSDN-forum]
 * [Stack Overflow-forum]
@@ -127,7 +121,7 @@ Voor meer hulp bij het vinden van oplossing voor uw probleem volgen hier enkele 
 
 <!--Other Web references-->
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[CAT-teamblogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[KAT-team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Functieverzoeken]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN-forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
 [Stack Overflow-forum]: https://stackoverflow.com/questions/tagged/azure-sqldw

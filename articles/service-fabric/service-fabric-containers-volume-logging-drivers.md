@@ -2,24 +2,19 @@
 title: Service Fabric Azure Files-volume stuur programma (preview) | Microsoft Docs
 description: Service Fabric ondersteunt het gebruik van Azure Files voor het maken van back-upvolumes in de container. Dit is momenteel beschikbaar als preview-versie.
 services: service-fabric
-documentationcenter: other
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
-ms.devlang: other
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/10/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: 09ee729fea952665350aa25c21cdb3d5823b899f
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.author: atsenthi
+ms.openlocfilehash: 36a3bb385064009f25a585ea299558d54714fc27
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489900"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599700"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure Files-volume stuur programma (preview-versie)
 De Azure Files-invoeg toepassing voor volumes is een [docker volume-invoeg toepassing](https://docs.docker.com/engine/extend/plugins_volume/) die op [Azure files](https:///azure/storage/files/storage-files-introduction) gebaseerde volumes biedt voor docker-containers. Deze volume-invoegtoepassing voor Docker is verpakt als een Service Fabric-toepassing die kan worden geïmplementeerd in Service Fabric-clusters. Het doel is om Azure Files volumes te bieden voor andere Service Fabric container toepassingen die op het cluster worden geïmplementeerd.

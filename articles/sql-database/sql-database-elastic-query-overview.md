@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Azure SQL Database elastische query | Microsoft Docs
-description: Elastische query's kunt u een Transact-SQL-query die meerdere databases omvat uit te voeren.
+title: Overzicht van elastische query's Azure SQL Database | Microsoft Docs
+description: Met elastische query's kunt u een Transact-SQL-query uitvoeren die meerdere data bases omspant.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,152 +10,151 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 07/01/2019
-ms.openlocfilehash: 5188862c50895c8e3f1bdecb4e08d39409bb5f9e
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 313e8af0e42f5108a22261a475b5340208adb7bf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491656"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568555"
 ---
-# <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database elastische query overzicht (preview)
+# <a name="azure-sql-database-elastic-query-overview-preview"></a>Overzicht van elastische query's Azure SQL Database (preview-versie)
 
-De functie elastische query's (in preview) kunt u een Transact-SQL-query die meerdere databases in Azure SQL Database omvat uit te voeren. Hiermee kunt u query's die databaseoverschrijdend voor toegang tot externe tabellen, en verbinding maken met Microsoft en hulpprogramma's van derden (Excel, Power BI, Tableau, enzovoort) om op te vragen voor de gegevenslagen met meerdere databases. Met deze functie kunt u uitschalen van query's voor de lagen van grote hoeveelheden gegevens in SQL-Database en de resultaten in business intelligence (BI)-rapporten weergeven.
+Met de functie elastische query's (in Preview) kunt u een Transact-SQL-query uitvoeren die meerdere data bases in Azure SQL Database omspant. Hiermee kunt u query's uitvoeren voor meerdere data bases voor toegang tot externe tabellen en kunt u micro soft en hulpprogram ma's van derden (Excel, Power BI, tableau, enzovoort) verbinden om een query uit te voeren voor gegevens lagen met meerdere data bases. Met deze functie kunt u query's uitschalen naar grote gegevens lagen in SQL Database en de resultaten visualiseren in business intelligence (BI)-rapporten.
 
-## <a name="why-use-elastic-queries"></a>Waarom zou ik elastische query's gebruiken
+## <a name="why-use-elastic-queries"></a>Waarom elastische query's gebruiken?
 
 ### <a name="azure-sql-database"></a>Azure SQL Database
 
-Query's op Azure SQL-databases volledig in T-SQL. Hiermee voor alleen-lezen query's naar externe databases en biedt een optie voor het huidige on-premises SQL Server-klanten voor het migreren van toepassingen die gebruikmaken van drie en vierkleuren part namen of gekoppelde server aan de SQL-database.
+Een query uitvoeren in Azure SQL data bases volledig in T-SQL. Hiermee kunnen alleen-lezen query's worden uitgevoerd voor externe data bases en wordt een optie geboden voor huidige on-premises SQL Server klanten om toepassingen te migreren met behulp van drie-en vier deel namen of een gekoppelde server naar SQL DB.
 
-### <a name="available-on-standard-tier"></a>Beschikbaar in standard-laag
+### <a name="available-on-standard-tier"></a>Beschikbaar in de laag standaard
 
-Elastische query's wordt ondersteund op de Standard- en Premium-Servicelagen. Zie de sectie over de beperkingen van Preview hieronder op presteert voor lagere service-lagen.
+Elastische query's worden ondersteund in de service lagen Standard en Premium. Zie de sectie over de beperkingen van de voor beelden over prestatie beperkingen voor lagere service lagen.
 
-### <a name="push-parameters-to-remote-databases"></a>Push-parameters met externe databases
+### <a name="push-parameters-to-remote-databases"></a>Push para meters naar externe data bases
 
-Elastische query's kunnen nu SQL-parameters pushen met de externe databases voor uitvoering.
+Elastische query's kunnen nu SQL-para meters naar de externe data base pushen om uit te voeren.
 
 ### <a name="stored-procedure-execution"></a>Uitvoering van opgeslagen procedure
 
-Aanroepen van externe opgeslagen procedure of externe functies met [sp\_uitvoeren \_externe](https://msdn.microsoft.com/library/mt703714).
+Voer externe opgeslagen procedure aanroepen of externe functies uit met behulp van [\_extern uitvoeren \_op afstand](https://msdn.microsoft.com/library/mt703714).
 
 ### <a name="flexibility"></a>Flexibiliteit
 
-Externe tabellen met elastische query's kunnen verwijzen naar externe tabellen met een ander schema of de tabelnaam.
+Externe tabellen met elastische query's kunnen verwijzen naar externe tabellen met een andere schema-of tabel naam.
 
-## <a name="elastic-query-scenarios"></a>Scenario's voor elastische query 's
+## <a name="elastic-query-scenarios"></a>Elastische query scenario's
 
-Het doel is om een query uitvoeren op scenario's waarbij meerdere databases rijen in één algemene resultaat bijdragen mogelijk te maken. De query kan ofwel worden samengesteld door de gebruiker of toepassing direct of indirect via hulpprogramma's die zijn verbonden met de database. Dit is vooral handig bij het maken van rapporten, met behulp van commerciële BI of gegevens integratiehulpprogramma's, of een toepassing die kan niet worden gewijzigd. Met een elastische query's, kunt u een query uitvoeren voor meerdere databases met behulp van de vertrouwde SQL Server-connectiviteit-ervaring in hulpprogramma's zoals Excel, Power BI, Tableau of Hiermee.
-Een elastische query's kunt eenvoudig toegang tot een hele verzameling-databases via query's dat is uitgegeven door SQL Server Management Studio of Visual Studio en vereenvoudigt het uitvoeren van meerdere databases uitvoeren van query's van Entity Framework of andere omgevingen ORM. Afbeelding 1 toont een scenario waarbij een bestaande cloud-toepassing (welke toepassingen de [clientbibliotheek voor elastic database](sql-database-elastic-database-client-library.md)) bouwt voort op de gegevens van een scale-out-laag en een elastische query wordt gebruikt voor het melden van meerdere databases.
+Het doel is het vergemakkelijken van het uitvoeren van query's waarbij meerdere data bases rijen in een enkel geheel resultaat bijdragen. De query kan rechtstreeks worden samengesteld door de gebruiker of toepassing, of indirect via hulpprogram ma's die zijn verbonden met de data base. Dit is vooral handig bij het maken van rapporten, het gebruik van hulpprogram ma's voor commerciële BI of gegevens integratie, of een toepassing die niet kan worden gewijzigd. Met een elastische query kunt u een query uitvoeren op verschillende data bases met behulp van de vertrouwde SQL Server connectiviteits ervaring in hulpprogram ma's zoals Excel, Power BI, tableau of Cognos.
+Een elastische query biedt eenvoudige toegang tot een volledige verzameling data bases via query's die zijn uitgegeven door SQL Server Management Studio of Visual Studio, en vereenvoudigt query's voor meerdere data bases vanuit Entity Framework of andere ORM-omgevingen. In afbeelding 1 ziet u een scenario waarin een bestaande Cloud toepassing (die gebruikmaakt van de [client bibliotheek voor Elastic data base](sql-database-elastic-database-client-library.md)), is gebaseerd op een uitgeschaalde gegevenslaag en een elastische query wordt gebruikt voor rapportage over meerdere data bases.
 
-**Afbeelding 1** elastische query die wordt gebruikt voor uitgeschaalde gegevenslaag
+**Afbeelding 1** Elastische query gebruikt op uitgeschaalde gegevenslaag
 
-![Elastische query die wordt gebruikt voor uitgeschaalde gegevenslaag][1]
+![Elastische query gebruikt op uitgeschaalde gegevenslaag][1]
 
-Klantscenario's voor elastische query's worden gekenmerkt door de volgende topologieën:
+Klant scenario's voor elastische query's worden gekenmerkt door de volgende topologieën:
 
-* **Verticale partitionering - query's die databaseoverschrijdend** (topologie 1): De gegevens zijn verticaal gepartitioneerd tussen een aantal databases in een gegevenslaag. Normaal gesproken verschillende sets van tabellen bevinden zich op verschillende databases. Dit betekent dat het schema verschilt voor verschillende databases. Alle tabellen voor de voorraad zijn bijvoorbeeld op de ene database terwijl alle accounting-gerelateerde tabellen op een tweede database zijn. Algemene scenario's met deze topologie vereisen een op query's uitvoeren voor of op het samenstellen van rapporten in tabellen in verschillende databases.
-* **Horizontale partitionering - Sharding** (topologie 2): Gegevens zijn horizontaal gepartitioneerd voor het distribueren van rijen in een uitgeschaalde gegevens laag. Met deze methode is het schema identiek zijn op alle deelnemende databases. Deze aanpak wordt ook 'sharding' genoemd. Sharding kan worden uitgevoerd en beheerd met behulp van (1) de elastische database-hulpmiddelen bibliotheken of (2) self-sharding. Een elastische query wordt gebruikt om een query of rapporten in veel shards tegelijk worden gecompileerd.
+* **Verticale partitionering-query's voor meerdere data bases** (Topologie 1): De gegevens worden verticaal gepartitioneerd tussen een aantal data bases in een gegevenslaag. Doorgaans bevinden verschillende sets tabellen zich op verschillende data bases. Dit betekent dat het schema afwijkt van verschillende data bases. Zo bevinden alle tabellen voor de inventarisatie zich op één data base, terwijl alle aan de administratie gerelateerde tabellen zich in een tweede data base bevinden. Voor veelvoorkomende use-cases met deze topologie moet er een worden doorzocht op of voor het compileren van rapporten tussen tabellen in verschillende data bases.
+* **Horizontale partitionering-sharding** (Topologie 2): Gegevens worden horizon taal gepartitioneerd om rijen te verdelen over een uitgeschaalde gegevenslaag. Met deze methode is het schema identiek voor alle deelnemende data bases. Deze methode wordt ook wel ' sharding ' genoemd. Sharding kan worden uitgevoerd en beheerd met behulp van (1) de Elastic data base tools libraries of (2) Self-sharding. Een elastische query wordt gebruikt voor het opvragen of compileren van rapporten in veel Shards.
 
 > [!NOTE]
-> Elastische query's het beste werkt voor het melden van scenario's waar de meeste van de verwerking (filteren, aggregatie) aan de externe bron kan worden uitgevoerd. Het is niet geschikt voor ETL-bewerkingen waarbij grote hoeveelheden gegevens worden overgebracht van de externe database (s). Voor rapportage werkbelastingen of voor datawarehousescenario's met meer complexe query's, ook kunt u overwegen [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+> Elastische query's werken het beste voor rapportage scenario's waarbij de meeste verwerking (filteren, aggregatie) op de externe bron zijde kan worden uitgevoerd. Het is niet geschikt voor ETL-bewerkingen waarbij een grote hoeveelheid gegevens worden overgebracht van externe data base (s). Overweeg het gebruik van [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)voor zware rapporten van werk belastingen of scenario's met gegevens opslag met complexere query's.
 >  
 
-## <a name="vertical-partitioning---cross-database-queries"></a>Verticale partitionering - query's tussen databases
+## <a name="vertical-partitioning---cross-database-queries"></a>Verticale partitionering-query's voor meerdere data bases
 
-Als u wilt coderen, Zie [aan de slag met query van meerdere databases (verticale partitionering)](sql-database-elastic-query-getting-started-vertical.md).
+Zie aan de slag [met query's tussen data bases (verticaal partitioneren)](sql-database-elastic-query-getting-started-vertical.md)om te beginnen met de code ring.
 
-Een elastische query kan worden gebruikt om gegevens die zich in een SQL-database die beschikbaar zijn voor andere SQL-databases te maken. Hiermee kunt query's van de ene database om te verwijzen naar tabellen in een andere externe SQL-database. De eerste stap is het een externe gegevensbron definiëren voor elke externe database. De externe gegevensbron is gedefinieerd in de lokale database waaruit u wilt toegang te krijgen tot tabellen die zich op de externe database. Er zijn geen wijzigingen nodig op de externe database. Voor typische verticale partitionering scenario's waarbij verschillende databases verschillende schema's hebben, kunnen elastische query's worden gebruikt om algemene scenario's zoals toegang tot de referentiegegevens te implementeren en uitvoeren van query's tussen databases.
+Een elastische query kan worden gebruikt om gegevens te maken die zich bevinden in een SQL database die beschikbaar zijn voor andere SQL-data bases. Hierdoor kunnen query's van de ene data base verwijzen naar tabellen in andere externe SQL database. De eerste stap is het definiëren van een externe gegevens bron voor elke externe data base. De externe gegevens bron wordt gedefinieerd in de lokale data base van waaruit u toegang wilt krijgen tot de tabellen die zich op de externe data base bevinden. Er zijn geen wijzigingen vereist voor de externe data base. Voor typische scenario's voor verticale partitionering waarbij verschillende data bases verschillende schema's hebben, kunnen elastische query's worden gebruikt voor het implementeren van algemene gebruiks voorbeelden, zoals toegang tot referentie gegevens en query's tussen data bases.
 
 > [!IMPORTANT]
-> U moet beschikken over machtigingen voor een externe gegevensbron niet wijzigen. Deze machtiging is opgenomen in de machtiging ALTER DATABASE. EEN externe gegevensbron ALTER machtigingen nodig om te verwijzen naar de onderliggende gegevensbron.
+> U moet een machtiging hebben om een externe gegevens bron te wijzigen. Deze machtiging is opgenomen in de machtiging ALTER data base. Machtigingen voor externe gegevens bronnen wijzigen is nodig om te verwijzen naar de onderliggende gegevens bron.
 >
 
-**Verwijzen naar gegevens**: De topologie wordt gebruikt voor beheer van verwijzing. In de afbeelding hieronder worden twee tabellen (T1 en T2) met referentiegegevens bewaard op een specifieke database. Met behulp van een elastische query's, u kunt nu toegang tot tabellen T1 en T2 op afstand van andere databases, zoals weergegeven in de afbeelding. Gebruik topologie 1 als tabellen met kleine of externe query's in de verwijzingstabel selectief predicaten hebben.
+**Referentie gegevens**: De topologie wordt gebruikt voor het beheer van referentie gegevens. In de onderstaande afbeelding worden twee tabellen (T1 en T2) met referentie gegevens bewaard op een speciale data base. Met behulp van een elastische query hebt u nu toegang tot de tabellen T1 en T2 op afstand van andere data bases, zoals wordt weer gegeven in de afbeelding. Topologie 1 gebruiken als verwijzings tabellen kleine of externe query's in verwijzings tabel zijn, zijn selectieve predikaten.
 
-**Afbeelding 2** verticale partitionering: met behulp van referentiegegevens elastische query-query
+**Afbeelding 2** Verticaal partitioneren-een elastische query gebruiken om referentie gegevens op te vragen
 
-![Verticale partitionering: met behulp van referentiegegevens elastische query-query][3]
+![Verticaal partitioneren-een elastische query gebruiken om referentie gegevens op te vragen][3]
 
-**Uitvoeren van query's tussen databases**: Elastische query's inschakelen van use cases die nodig hebt voor het uitvoeren van query's voor verschillende SQL-databases. Afbeelding 3 ziet u vier verschillende databases: CRM, voorraad, HR en producten. Query's uitgevoerd in een van de databases moeten ook toegang tot een of alle andere databases. Met behulp van een elastische query's, kunt u uw database in dit geval door het uitvoeren van een paar eenvoudige DDL-componenten op elk van de vier databases configureren. Toegang tot een externe tabel is na deze eenmalige configuratie, net zo eenvoudig als die verwijst naar een lokale tabel van de T-SQL-query's of van uw BI-hulpprogramma's. Deze aanpak wordt aanbevolen als de externe query's niet veel resultaten retourneren.
+**Query's voor meerdere data bases**: Elastische query's maken gebruik van aanvragen waarvoor query's moeten worden uitgevoerd in meerdere SQL-data bases. In afbeelding 3 worden vier verschillende data bases weer gegeven: CRM, inventaris, HR en producten. Query's die in een van de data bases worden uitgevoerd, hebben ook toegang nodig tot een of alle andere data bases. Met behulp van een elastische query kunt u uw Data Base voor deze case configureren door een paar eenvoudige DDL-instructies uit te voeren op elk van de vier data bases. Na deze eenmalige configuratie is toegang tot een externe tabel net zo eenvoudig als verwijzingen naar een lokale tabel van uw T-SQL-query's of vanuit uw BI-hulpprogram ma's. Deze methode wordt aanbevolen als de externe query's geen grote resultaten retour neren.
 
-**Afbeelding 3** verticale partitionering: gebruik elastische query-query voor verschillende databases
+**Afbeelding 3** Verticaal partitioneren-elastische query's gebruiken om query's uit te zoeken in verschillende data bases
 
-![Verticale partitionering: gebruik elastische query-query voor verschillende databases][4]
+![Verticaal partitioneren-elastische query's gebruiken om query's uit te zoeken in verschillende data bases][4]
 
-De volgende stappen uit configureren elastische databasequery's voor verticale partitionering scenario's waarvoor toegang tot een tabel die zich op de externe SQL-databases met hetzelfde schema:
+Met de volgende stappen worden Elastic data base-query's voor verticale partitionatie scenario's geconfigureerd die toegang nodig hebben tot een tabel op externe SQL-data bases met hetzelfde schema:
 
-* [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
-* [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
-* [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource van het type **RDBMS**
-* [EXTERNE tabel maken/DROP](https://msdn.microsoft.com/library/dn935021.aspx) mytable
+* [Hoofd sleutel Mymasterkey maken](https://msdn.microsoft.com/library/ms174382.aspx)
+* [Data Base scoped CREDENTIAL Mycredential maken](https://msdn.microsoft.com/library/mt270260.aspx)
+* [Externe gegevens bron](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource van het type **RDBMS** maken/verwijderen
+* [Externe tabel mytable maken/verwijderen](https://msdn.microsoft.com/library/dn935021.aspx)
 
-U kunt toegang tot de externe tabel "mytable" alsof het een lokale tabel na het uitvoeren van de DDL-componenten. Azure SQL Database automatisch een verbinding met de externe database wordt geopend, verwerkt de aanvraag op de externe database en worden de resultaten geretourneerd.
+Na het uitvoeren van de DDL-instructies, hebt u toegang tot de externe tabel ' mytable ', alsof het een lokale tabel is. Azure SQL Database opent automatisch een verbinding met de externe data base, verwerkt uw aanvraag op de externe data base en retourneert de resultaten.
 
-## <a name="horizontal-partitioning---sharding"></a>Horizontale partitionering - sharding
+## <a name="horizontal-partitioning---sharding"></a>Horizontale partitionering-sharding
 
-Met elastische query's voor het uitvoeren van rapportage taken via een shard, dat wil zeggen, horizontaal gepartitioneerd, gegevenslaag vereist een [shard-toewijzing voor elastische database](sql-database-elastic-scale-shard-map-management.md) om weer te geven van de databases van de gegevenslaag. Normaal gesproken alleen een enkele shard-toewijzing wordt gebruikt in dit scenario en een specifieke database met elastische query-mogelijkheden (hoofdknooppunt) fungeert als het toegangspunt voor het melden van query's. Alleen deze specifieke database moet toegang hebben tot de shard-toewijzing. Afbeelding 4 ziet u deze topologie en de configuratie met de query's in elastic database en de shard-kaart. De databases in de gegevenslaag kunnen van een Azure SQL Database versie of editie zijn. Zie voor meer informatie over de clientbibliotheek voor elastic database en het maken van de shard-toewijzingen [Shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md).
+Door gebruik te maken van elastische query's voor het uitvoeren van rapportage taken via een Shard, dat wil zeggen horizon taal gepartitioneerd, is voor een gegevenslaag een elastische- [database Shard-toewijzing](sql-database-elastic-scale-shard-map-management.md) vereist voor de data bases van de gegevenslaag. Normaal gesp roken wordt slechts één Shard-kaart gebruikt in dit scenario en een speciale data base met elastische query mogelijkheden (hoofd knooppunt) fungeert als het toegangs punt voor rapportage query's. Alleen deze speciale data base moet toegang hebben tot de Shard-kaart. Afbeelding 4 illustreert deze topologie en de configuratie ervan met de elastische query database en de Shard-kaart. De data bases in de gegevenslaag kunnen van een wille keurige Azure SQL Database versie of editie zijn. Zie [Shard map Management](sql-database-elastic-scale-shard-map-management.md)(Engelstalig) voor meer informatie over de client bibliotheek voor Elastic data base en het maken van Shard Maps.
 
-**Afbeelding 4** horizontale partitionering: met elastische query's voor rapportage over de lagen van gedeelde gegevens
+**Afbeelding 4** Horizon taal partitioneren-een elastische query gebruiken voor rapportage over Shard-gegevens lagen
 
-![Horizontale partitionering: met elastische query's voor rapportage over de lagen van gedeelde gegevens][5]
+![Horizon taal partitioneren-een elastische query gebruiken voor rapportage over Shard-gegevens lagen][5]
 
 > [!NOTE]
-> Elastische query uitvoeren op Database (hoofdknooppunt) is een afzonderlijke database of kan de dezelfde database die als host fungeert voor de shard-toewijzing.
-> Welke configuratie u kiest, zorg ervoor dat serviceniveau en compute van de grootte van de database is hoog genoeg is voor het afhandelen van de verwachte hoeveelheid aanmelding/queryaanvragen.
+> Elastic query-data base (hoofd knooppunt) kan afzonderlijke data bases zijn, of kan dezelfde data base zijn die de Shard-toewijzing host.
+> Welke configuratie u kiest, zorg ervoor dat de servicelaag en de reken grootte van die data base hoog genoeg zijn om de verwachte hoeveelheid aanmeldings-en query aanvragen af te handelen.
 
-De volgende stappen uit configureren elastische databasequery's voor horizontale partitionering scenario's waarvoor toegang tot een set met tabellen die zich op (meestal) verschillende externe SQL-databases:
+Met de volgende stappen worden Elastic data base-query's geconfigureerd voor horizontale partitionatie scenario's die toegang nodig hebben tot een set tabellen op (meestal) verschillende externe SQL-data bases:
 
-* [CREATE MASTER KEY](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql) mymasterkey
-* [CREATE DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql) mycredential
-* Maak een [shard-toewijzing](sql-database-elastic-scale-shard-map-management.md) die uw gegevenslaag met behulp van de clientbibliotheek van elastische database vertegenwoordigt.
-* [CREATE/DROP EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource van het type **SHARD_MAP_MANAGER**
-* [EXTERNE tabel maken/DROP](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) mytable
+* [Hoofd sleutel Mymasterkey maken](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)
+* [Data Base scoped CREDENTIAL Mycredential maken](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+* Maak een [Shard-toewijzing](sql-database-elastic-scale-shard-map-management.md) die uw gegevenslaag weergeeft met behulp van de client bibliotheek voor Elastic data base.
+* [Externe gegevens bron](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource van het type **SHARD_MAP_MANAGER** maken/verwijderen
+* [Externe tabel mytable maken/verwijderen](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)
 
-Nadat u deze stappen hebt uitgevoerd, kunt u de horizontaal gepartitioneerde tabel 'mytable' toegang tot alsof het een lokale tabel. Azure SQL Database automatisch geopend van meerdere parallelle verbindingen met de externe databases waarin de tabellen fysiek worden opgeslagen, verwerkt de aanvragen voor de externe databases, en worden de resultaten geretourneerd.
-Meer informatie over de stappen die nodig zijn voor de horizontale partitionering scenario kunt u vinden in [elastische query's voor horizontale partitionering](sql-database-elastic-query-horizontal-partitioning.md).
+Wanneer u deze stappen hebt uitgevoerd, hebt u toegang tot de horizon taal gepartitioneerde tabel ' mytable ', alsof het een lokale tabel is. Azure SQL Database opent automatisch meerdere parallelle verbindingen met de externe data bases waarin de tabellen fysiek zijn opgeslagen, verwerkt de aanvragen op de externe data bases en retourneert de resultaten.
+Meer informatie over de stappen die vereist zijn voor het horizontale partitie scenario kunt u vinden in [elastische query's voor horizontale partitionering](sql-database-elastic-query-horizontal-partitioning.md).
 
-Als u wilt coderen, Zie [aan de slag met elastische query's voor horizontale partitionering (sharding)](sql-database-elastic-query-getting-started.md).
+Zie aan de slag [met elastische query's voor horizontale partitionering (sharding)](sql-database-elastic-query-getting-started.md)om te beginnen met de code ring.
 
-## <a name="t-sql-querying"></a>T-SQL-query 's
+## <a name="t-sql-querying"></a>T-SQL-query's uitvoeren
 
-Nadat u uw externe gegevensbronnen en uw externe tabellen hebt gedefinieerd, kunt u normale SQL Server-verbindingsreeksen verbinding maken met de databases waar u uw externe tabellen hebt gedefinieerd. U kunt vervolgens T-SQL-instructies via uw externe tabellen uitvoeren op die verbinding met de beperkingen die hieronder worden beschreven. U vindt meer informatie over en voorbeelden van T-SQL-query's in de documentatie-onderwerpen voor [horizontale partitionering](sql-database-elastic-query-horizontal-partitioning.md) en [verticale partitionering](sql-database-elastic-query-vertical-partitioning.md).
+Wanneer u uw externe gegevens bronnen en uw externe tabellen hebt gedefinieerd, kunt u reguliere SQL Server verbindings reeksen gebruiken om verbinding te maken met de data bases waarin u de externe tabellen hebt gedefinieerd. U kunt vervolgens T-SQL-instructies uitvoeren voor uw externe tabellen op die verbinding met de beperkingen die hieronder worden beschreven. Meer informatie en voor beelden van T-SQL-query's vindt u in de documentatie onderwerpen voor [horizontale partitionering](sql-database-elastic-query-horizontal-partitioning.md) en [verticale partitionering](sql-database-elastic-query-vertical-partitioning.md).
 
-## <a name="connectivity-for-tools"></a>Connectiviteit voor hulpprogramma 's
+## <a name="connectivity-for-tools"></a>Connectiviteit voor hulpprogram ma's
 
-Verbindingsreeksen voor normale SQL Server kunt u verbinding maken met uw toepassingen en hulpprogramma's voor BI of gegevens integratie met databases die u externe tabellen hebt. Zorg ervoor dat SQL Server wordt ondersteund als een gegevensbron voor het hulpprogramma. Eenmaal verbinding hebben, raadpleegt u de query's in elastic database en de externe tabellen in de database net zoals u zou doen met een andere SQL Server-database waarmee u verbinding met uw hulpprogramma maken.
+U kunt gewone SQL Server verbindings reeksen gebruiken om uw toepassingen en BI-of gegevens integratie hulpprogramma's te koppelen aan data bases die externe tabellen hebben. Zorg ervoor dat SQL Server wordt ondersteund als gegevens bron voor uw hulp programma. Als de verbinding tot stand is gebracht, raadpleegt u de elastische query database en de externe tabellen in die data base net zoals u zou doen met andere SQL Server Data Base waarmee u verbinding maakt met uw hulp programma.
 
 > [!IMPORTANT]
-> Verificatie met behulp van Azure Active Directory met elastische query's is momenteel niet ondersteund.
+> Verificatie met behulp van Azure Active Directory met elastische query's wordt momenteel niet ondersteund.
 
 ## <a name="cost"></a>Kosten
 
-Elastische query's is opgenomen in de kosten van Azure SQL Database-databases. Houd er rekening mee dat topologieën waar uw externe databases zich in een ander datacenter dan het eindpunt van de elastische query's bevinden worden ondersteund, maar de uitgaande gegevens uit externe databases wordt in rekening gebracht regelmatig [Azure-tarieven](https://azure.microsoft.com/pricing/details/data-transfers/).
+Elastische query's zijn opgenomen in de kosten van Azure SQL Database-data bases. Houd er rekening mee dat topologieën waarbij uw externe data bases zich in een ander Data Center bevinden dan het elastische query-eind punt worden ondersteund, maar dat de gegevens die worden uitgeschreven door externe data bases [regel matig](https://azure.microsoft.com/pricing/details/data-transfers/)worden berekend
 
 ## <a name="preview-limitations"></a>Preview-beperkingen
 
-* Uw eerste elastische query uit te voeren met een paar minuten op het serviceniveau Standard kan duren. Deze tijd is noodzakelijk om te laden van de functionaliteit van elastische query's; het laden van de prestaties worden verbeterd met hogere service-lagen en compute-grootten.
-* Scripts van externe gegevensbronnen of externe tabellen van SSMS of SSDT is nog niet ondersteund.
-* Import/Export voor SQL DB ondersteunt nog geen externe gegevensbronnen en externe tabellen. Als u gebruiken voor importeren/exporteren wilt, deze objecten verwijderen voordat u exporteert en vervolgens opnieuw maken na het importeren.
-* Elastische query's ondersteunt momenteel alleen alleen-lezen toegang tot externe tabellen. U kunt volledige T-SQL-functionaliteit echter gebruiken voor de database waarin de externe tabel is gedefinieerd. Dit kan handig zijn bij, zoals tijdelijke resultaten met, bijvoorbeeld voordoen, < column_list > in < local_table > Selecteer of voor het definiëren van opgeslagen procedures op de database elastische query's die verwijzen naar externe tabellen zijn.
-* Met uitzondering van nvarchar(max), worden LOB-typen (met inbegrip van ruimtelijke typen) niet ondersteund in de definities van de externe tabel. Als tijdelijke oplossing, kunt u een weergave op de externe database die het type LOB in nvarchar(max) geworpen maken, uw externe tabel over de weergave in plaats van de basistabel definiëren en vervolgens geconverteerd naar het oorspronkelijke LOB-type in uw query's.
-* Kolommen van het gegevenstype nvarchar(max) in resultaat set uitschakelen geavanceerde batchverwerking technics gebruikt in een elastische Query-implementatie en kunnen invloed hebben op prestaties van query voor een orde van grootte, of zelfs twee orde van grootte in niet-standaard use-cases waar grote hoeveelheid niet-samengevoegde gegevens worden overgebracht als gevolg van de query.
-* Kolomstatistieken over externe tabellen worden momenteel niet ondersteund. Tabelstatistieken worden ondersteund, maar moeten handmatig worden gemaakt.
-* Elastische query werkt alleen met Azure SQL Database. U kunt deze niet gebruiken voor het uitvoeren van query's on-premises SQL Server of SQL Server in een virtuele machine.
+* Het uitvoeren van uw eerste elastische query kan tot een paar minuten duren op de Standard-servicelaag. Deze tijd is nodig om de functionaliteit voor elastische query's te laden. het laden van prestaties verbetert met hogere service lagen en reken grootten.
+* Het uitvoeren van scripts voor externe gegevens bronnen of externe tabellen vanuit SSMS of SSDT wordt nog niet ondersteund.
+* Import/export voor SQL DB biedt nog geen ondersteuning voor externe gegevens bronnen en externe tabellen. Als u importeren/exporteren moet gebruiken, verwijdert u deze objecten voordat u deze exporteert en maakt u ze na het importeren opnieuw.
+* Elastische query's bieden momenteel alleen ondersteuning voor alleen-lezen toegang tot externe tabellen. U kunt echter volledige T-SQL-functionaliteit gebruiken voor de Data Base waarin de externe tabel is gedefinieerd. Dit kan handig zijn om bijvoorbeeld tijdelijke resultaten te blijven gebruiken. Selecteer bijvoorbeeld < column_list > in < local_table >, of om opgeslagen procedures te definiëren voor de elastische query database die naar externe tabellen verwijzen.
+* Met uitzonde ring van nvarchar (max) worden LOB-typen (met inbegrip van ruimtelijke typen) niet ondersteund in externe tabel definities. Als tijdelijke oplossing kunt u een weer gave maken voor de externe data base waarmee het LOB-type wordt omgezet in nvarchar (max), uw externe tabel definiëren via de weer gave in plaats van de basis tabel en deze vervolgens weer omzetten in het oorspronkelijke LOB-type in uw query's.
+* Kolommen van het gegevens type nvarchar (max) in de resultatenset geavanceerde batch verwerking uitschakelen die wordt gebruikt in de implementatie van elastische Query's en kan invloed hebben op de prestaties van de query voor een orde van omvang, of zelfs twee bestellingen van grootte in niet-canonieke situaties waarbij grote hoeveelheid niet-geaggregeerde gegevens worden overgebracht als resultaat van een query.
+* Kolom statistieken over externe tabellen worden momenteel niet ondersteund. Tabel statistieken worden ondersteund, maar moeten hand matig worden gemaakt.
+* Elastische query's werken alleen met Azure SQL Database. U kunt deze niet gebruiken voor het opvragen van on-premises SQL Server, of SQL Server in een VM.
 
 ## <a name="feedback"></a>Feedback
 
-Feedback over uw ervaring delen met elastische query's met ons hieronder, op de MSDN-forums, of op Stack Overflow. We zijn geïnteresseerd in allerlei soorten feedback over de service (defecten, ruwe randen, functiehiaten).
+Deel uw feedback over uw ervaring met elastische query's met ons hieronder, op de MSDN-Forums of op Stack Overflow. We zijn geïnteresseerd in alle soorten feedback over de service (defecten, ruwe randen, hiaten in de functie).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een verticale partitionering zelfstudie [aan de slag met query van meerdere databases (verticale partitionering)](sql-database-elastic-query-getting-started-vertical.md).
-* Zie voor een voorbeeld en de syntaxis van query's voor verticaal gepartitioneerde gegevens [opvragen van verticaal gepartitioneerde gegevens)](sql-database-elastic-query-vertical-partitioning.md)
-* Zie voor een zelfstudie horizontale partitionering (sharding) [aan de slag met elastische query's voor horizontale partitionering (sharding)](sql-database-elastic-query-getting-started.md).
-* Zie voor een voorbeeld en de syntaxis van query's voor horizontaal gepartitioneerde gegevens [gegevens opvragen horizontaal gepartitioneerd)](sql-database-elastic-query-horizontal-partitioning.md)
-* Zie [sp\_uitvoeren \_externe](https://msdn.microsoft.com/library/mt703714) voor een opgeslagen procedure die een Transact-SQL-instructie op een één externe SQL-Database van Azure of een set van databases die fungeren als shards in een horizontale partitionering wordt uitgevoerd.
+* Zie aan de slag [met query's tussen data bases (verticaal partitioneren)](sql-database-elastic-query-getting-started-vertical.md)voor een verticaal gepartitioneerde zelf studie.
+* Zie query's [uitvoeren op verticaal gepartitioneerde gegevens](sql-database-elastic-query-vertical-partitioning.md) voor syntaxis-en voorbeeld query's voor verticaal gepartitioneerde gegevens)
+* Zie aan de slag [met elastische query's voor horizontale partitionering (sharding)](sql-database-elastic-query-getting-started.md)voor een zelf studie over horizontale partitionering (sharding).
+* Zie query's [uitvoeren in horizon taal gepartitioneerde gegevens](sql-database-elastic-query-horizontal-partitioning.md) voor syntaxis-en voorbeeld query's voor Horizon taal gepartitioneerde gegevens)
+* Zie [extern\_ uitvoeren\_van SP](https://msdn.microsoft.com/library/mt703714) voor een opgeslagen procedure waarmee een Transact-SQL-instructie wordt uitgevoerd op één externe Azure SQL database of een set met data bases die fungeren als Shards in een horizon taal partitie schema.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-overview/overview.png

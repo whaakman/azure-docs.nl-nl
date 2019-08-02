@@ -8,12 +8,12 @@ ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: bd50fb4a28aa0ab71c1fb0aeba772a2bd7d1df9d
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4d9af918c222107cfca5863309efb391b8e6d2e0
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677727"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720871"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Zelfstudie: Een web-app van Azure Time Series Insights met één pagina maken
 
@@ -38,7 +38,7 @@ Meld u aan voor een [gratis Azure-abonnement](https://azure.microsoft.com/free/)
 
 * De onderdelen van de IIS Express, Web Deploy en Azure Cloud Services Core-hulpprogram ma's voor Visual Studio. Voeg de onderdelen toe door de installatie van Visual Studio te wijzigen.
 
-## <a name="application-design"></a>Toepassingsontwerp
+## <a name="understand-application-design"></a>Toepassings ontwerp begrijpen
 
 De Time Series Insights voor beeld-beveiligd-wachtwoord verificatie is de basis voor het ontwerp en de code die in deze zelf studie wordt gebruikt. De code maakt gebruik van de Time Series Insights java script-client bibliotheek. De Time Series Insights-client bibliotheek biedt een abstractie voor twee hoofd-API-Categorieën:
 
@@ -48,11 +48,11 @@ De Time Series Insights voor beeld-beveiligd-wachtwoord verificatie is de basis 
 
 In deze zelf studie wordt ook gebruikgemaakt van gegevens uit de Time Series Insights omgeving van de voorbeeld toepassing. Raadpleeg de zelf studie [de Azure time series Insights java script-client bibliotheek](tutorial-explore-js-client-lib.md)voor meer informatie over de structuur van de voorbeeld toepassing time series Insights en het gebruik van de time series Insights-client bibliotheek.
 
-## <a name="register-the-application-with-azure-ad"></a>Toepassing registreren bij Azure AD
+## <a name="register-with-azure-ad"></a>Registreren bij Azure AD
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
-## <a name="build-and-publish-the-web-application"></a>Webtoepassing bouwen en publiceren
+## <a name="build-and-publish"></a>Bouwen en publiceren
 
 1. Maak een map voor het opslaan van de projectbestanden van uw toepassing. Ga vervolgens naar de volgende Url's. Klik met de rechter muisknop op de onbewerkte koppeling in de rechter bovenhoek van de pagina en selecteer vervolgens **Opslaan als** om de bestanden in de projectmap op te slaan.
 
@@ -101,7 +101,7 @@ In deze zelf studie wordt ook gebruikgemaakt van gegevens uit de Time Series Ins
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. Als u de app wilt configureren voor het gebruik van de registratie-id van `clientID` uw Azure AD-app, wijzigt u de waarde voor het gebruik van de **toepassings-id** die u in **stap 3** hebt gekopieerd, wanneer u [de toepassing hebt geregistreerd voor gebruik van Azure AD](#register-the-application-with-azure-ad). Als u een afmeldings- **URL** hebt gemaakt in azure AD, stelt u `postLogoutRedirectUri` deze waarde in als de waarde.
+   1. Als u de app wilt configureren voor het gebruik van de registratie-id van `clientID` uw Azure AD-app, wijzigt u de waarde voor het gebruik van de **toepassings-id** die u in **stap 3** hebt gekopieerd, wanneer u [de toepassing hebt geregistreerd voor gebruik van Azure AD](#register-with-azure-ad). Als u een afmeldings- **URL** hebt gemaakt in azure AD, stelt u `postLogoutRedirectUri` deze waarde in als de waarde.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -141,9 +141,9 @@ In deze zelf studie wordt ook gebruikgemaakt van gegevens uit de Time Series Ins
 
 Foutcode/-conditie | Description
 ---------------------| -----------
-*AADSTS50011: No reply address is registered for the application.* | In de Azure AD-registratie ontbreekt de **antwoord-URL** -eigenschap. Ga naar **instellingen** > **antwoord-url's** voor de registratie van uw Azure AD-toepassing. Controleer of de omleidings- **URI** die u in **stap 2** hebt opgegeven tijdens de [registratie van de toepassing voor gebruik van Azure AD](#register-the-application-with-azure-ad) aanwezig is.
-*AADSTS50011: De antwoord-URL die in de aanvraag is opgegeven, komt niet overeen met de antwoord-url's die zijn geconfigureerd voor de toepassing: '\<Toepassings-id-GUID > '.* | De `postLogoutRedirectUri` opgegeven **stap 6** in [de webtoepassing bouwen en publiceren](#build-and-publish-the-web-application) moet overeenkomen met de waarde die is opgegeven onder **instellingen** > **antwoord url's** in uw Azure AD-toepassings registratie. Zorg ervoor dat u ook de waarde voor **doel-URL** wijzigt *om HTTPS* per **stap 5** te gebruiken in [de webtoepassing bouwen en publiceren](#build-and-publish-the-web-application).
-De webtoepassing wordt geladen, maar heeft een onopgemaakte, alleen tekst-aanmeld pagina met een witte achtergrond. | Controleer of de paden die zijn beschreven in **stap 4** van [de webtoepassing maken en publiceren](#build-and-publish-the-web-application) juist zijn. Als de webtoepassing de CSS-bestanden niet kan vinden, wordt de pagina niet goed opgemaakt.
+*AADSTS50011: No reply address is registered for the application.* | In de Azure AD-registratie ontbreekt de **antwoord-URL** -eigenschap. Ga naar **instellingen** > **antwoord-url's** voor de registratie van uw Azure AD-toepassing. Controleer of de omleidings- **URI** die u in **stap 2** of **stap 4** hebt opgegeven bij het registreren van [de toepassing voor gebruik van Azure AD](#register-with-azure-ad) aanwezig is.
+*AADSTS50011: De antwoord-URL die in de aanvraag is opgegeven, komt niet overeen met de antwoord-url's die zijn geconfigureerd voor de toepassing: '\<Toepassings-id-GUID > '.* | Het `postLogoutRedirectUri` opgegeven in **stap 6. b** bij [het bouwen en publiceren van de webtoepassing](#build-and-publish) moet overeenkomen met de waarde die is opgegeven onder **instellingen** > **antwoord-url's** in uw Azure AD-toepassings registratie. |
+De webtoepassing wordt geladen, maar heeft een onopgemaakte, alleen tekst-aanmeld pagina met een witte achtergrond. | Controleer of de paden die in **stap 6** zijn beschreven in [de webtoepassing bouwen en publiceren](#build-and-publish) juist zijn. Als de webtoepassing de CSS-bestanden niet kan vinden, wordt de pagina niet goed opgemaakt.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

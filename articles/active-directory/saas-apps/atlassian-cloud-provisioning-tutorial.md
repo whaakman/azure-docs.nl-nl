@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Atlassian Cloud configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
-description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en inrichting van gebruikersaccounts naar Atlassian Cloud ongedaan maken.
+title: 'Zelfstudie: Atlassian Cloud configureren voor het automatisch inrichten van gebruikers met Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van Azure Active Directory voor het automatisch inrichten en ongedaan maken van de inrichting van gebruikers accounts in Atlassian Cloud.
 services: active-directory
 documentationcenter: ''
 author: zhchia
@@ -15,164 +15,163 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: f168e2746afa278880ad7ceb21f78666151d5aa1
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 0c3173841de25a30b84870332c7334a81773e84d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672711"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561589"
 ---
-# <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Zelfstudie: Atlassian Cloud configureren voor het automatisch inrichten van gebruikers
+# <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Zelfstudie: Atlassian-Cloud configureren voor het automatisch inrichten van gebruikers
 
-Het doel van deze zelfstudie is ter illustratie van de stappen in de Atlassian-Cloud en Azure Active Directory (Azure AD) voor Azure AD configureren automatisch inrichten en de inrichting ongedaan maken van gebruikers en/of groepen aan Atlassian Cloud worden uitgevoerd.
+Het doel van deze zelf studie is om te demonstreren welke stappen moeten worden uitgevoerd in Atlassian Cloud en Azure Active Directory (Azure AD) om Azure AD te configureren voor het automatisch inrichten en ongedaan maken van de inrichting van gebruikers en/of groepen in Atlassian Cloud.
 
 > [!NOTE]
-> Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
->
-> Deze connector is momenteel in openbare Preview. Zie voor meer informatie over de algemene Microsoft Azure gebruiksvoorwaarden voor Preview-functies, [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> In deze zelf studie wordt een connector beschreven die boven op de Azure AD User Provisioning-Service is gebouwd. Zie [Gebruikers inrichten en de inrichting ongedaan maken voor SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md)voor belang rijke informatie over de werking van deze service, hoe deze werkt en veelgestelde vragen.
+
 
 ## <a name="prerequisites"></a>Vereisten
 
-Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende vereisten hebt:
+In het scenario dat in deze zelf studie wordt beschreven, wordt ervan uitgegaan dat u al beschikt over de volgende vereisten:
 
-* Een Azure AD-tenant
-* [Een Atlassian Cloud-tenant](https://www.atlassian.com/licensing/cloud)
-* Een gebruikersaccount in de Atlassian Cloud met beheerdersmachtigingen.
+* Een Azure AD-Tenant
+* [Een Atlassian-Cloud Tenant](https://www.atlassian.com/licensing/cloud)
+* Een gebruikers account in Atlassian Cloud met beheerders machtigingen.
 
 > [!NOTE]
-> De integratie wordt ingericht op Azure AD is afhankelijk van de **Atlassian Cloud SCIM API**, die voor teams van Atlassian Cloud beschikbaar is.
+> De integratie van Azure AD-inrichting is afhankelijk van de **Atlassian Cloud scim-API**, die beschikbaar is voor Atlassian Cloud teams.
 
-## <a name="add-atlassian-cloud-from-the-gallery"></a>Atlassian Cloud uit de galerie toevoegen
+## <a name="add-atlassian-cloud-from-the-gallery"></a>Een Atlassian-Cloud toevoegen vanuit de galerie
 
-Voordat het Atlassian Cloud configureren voor automatisch gebruikers inrichten met Azure AD, moet u Atlassian Cloud uit de galerie met Azure AD toevoegen aan uw lijst met beheerde SaaS-toepassingen.
+Voordat u de Atlassian-Cloud configureert voor het automatisch inrichten van gebruikers met Azure AD, moet u Atlassian cloud van de Azure AD-toepassings galerie toevoegen aan uw lijst met beheerde SaaS-toepassingen.
 
-**Als u wilt toevoegen Atlassian Cloud uit de galerie met Azure AD, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om Atlassian-Cloud toe te voegen vanuit de Azure AD-toepassings galerie:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)** , selecteer in het navigatievenster aan de linkerkant **Azure Active Directory**.
+1. Selecteer in de **[Azure Portal](https://portal.azure.com)** in het navigatie venster links **Azure Active Directory**.
 
     ![De Azure Active Directory-knop](common/select-azuread.png)
 
-2. Ga naar **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
+2. Ga naar **bedrijfs toepassingen**en selecteer **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen](common/enterprise-applications.png)
 
-3. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop aan de bovenkant van het deelvenster.
+3. Als u een nieuwe toepassing wilt toevoegen, selecteert u de knop **nieuwe toepassing** boven aan het deel venster.
 
     ![De knop nieuwe toepassing](common/add-new-app.png)
 
-4. Voer in het zoekvak **Atlassian Cloud**, selecteer **Atlassian Cloud** in het deelvenster voor resultaten en klik vervolgens op de **toevoegen** om toe te voegen van de toepassing.
+4. Voer in het zoekvak **Atlassian Cloud**in, selecteer **Atlassian Cloud** in het deel venster resultaten en klik vervolgens op de knop **toevoegen** om de toepassing toe te voegen.
 
     ![Atlassian Cloud in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="assigning-users-to-atlassian-cloud"></a>Gebruikers toewijzen aan Atlassian Cloud
 
-Azure Active Directory maakt gebruik van een concept genaamd *toewijzingen* om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van het automatisch inrichten van gebruikers, worden alleen de gebruikers en/of groepen die zijn toegewezen aan een toepassing in Azure AD gesynchroniseerd.
+Azure Active Directory gebruikt een concept met de naam *toewijzingen* om te bepalen welke gebruikers toegang moeten krijgen tot geselecteerde apps. In de context van het automatisch inrichten van gebruikers worden alleen de gebruikers en/of groepen die zijn toegewezen aan een toepassing in azure AD gesynchroniseerd.
 
-Voordat u configureren en inschakelen van automatische inrichten van gebruikers, moet u bepalen welke gebruikers en/of groepen in Azure AD toegang hebben tot de Atlassian-Cloud moeten. Wanneer u beslist, kunt u deze gebruikers en/of groepen toewijzen aan Atlassian Cloud door de instructies hier:
+Voordat u automatische gebruikers inrichting configureert en inschakelt, moet u beslissen welke gebruikers en/of groepen in azure AD toegang nodig hebben tot de Atlassian-Cloud. Nadat u hebt besloten, kunt u deze gebruikers en/of groepen toewijzen aan de Atlassian-Cloud door de volgende instructies te volgen:
 
-* [Een gebruiker of groep toewijzen aan een enterprise-app](../manage-apps/assign-user-or-group-access-portal.md)
+* [Een gebruiker of groep toewijzen aan een bedrijfs-app](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-atlassian-cloud"></a>Belangrijke tips voor het toewijzen van gebruikers naar de Atlassian Cloud
+### <a name="important-tips-for-assigning-users-to-atlassian-cloud"></a>Belang rijke tips voor het toewijzen van gebruikers aan Atlassian Cloud
 
-* Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan Atlassian Cloud voor het testen van de configuratie van de automatische gebruikersinrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+* Het is raadzaam dat één Azure AD-gebruiker wordt toegewezen aan de Atlassian-Cloud om de configuratie voor automatische gebruikers inrichting te testen. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
-* Wanneer een gebruiker toewijzen aan Atlassian-Cloud, moet u alle geldige toepassingsspecifieke rollen (indien beschikbaar) selecteren in het dialoogvenster toewijzing. Gebruikers met de **standaardtoegang** rol worden uitgesloten van het inrichten.
+* Wanneer u een gebruiker toewijst aan Atlassian-Cloud, moet u een geldige toepassingsspecifieke rol (indien beschikbaar) selecteren in het dialoog venster toewijzing. Gebruikers met de rol **standaard toegang** worden uitgesloten van het inrichten.
 
-## <a name="configuring-automatic-user-provisioning-to-atlassian-cloud"></a>Automatisch gebruikers inrichten naar Atlassian Cloud configureren 
+## <a name="configuring-automatic-user-provisioning-to-atlassian-cloud"></a>Automatische gebruikers inrichting configureren voor Atlassian-Cloud 
 
-Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inrichtingsservice als u wilt maken, bijwerken en uitschakelen van gebruikers en/of groepen in de Atlassian Cloud op basis van gebruiker en/of toewijzingen van groepen in Azure AD.
+In deze sectie wordt u begeleid bij de stappen voor het configureren van de Azure AD-inrichtings service om gebruikers en/of groepen in Atlassian Cloud te maken, bij te werken en uit te scha kelen op basis van gebruikers-en/of groeps toewijzingen in azure AD.
 
 > [!TIP]
-> U kunt er ook voor kiezen om in te schakelen op SAML gebaseerde eenmalige aanmelding voor Atlassian Cloud, vindt u de instructies te volgen in de [één Atlassian Cloud aanmeldings-zelfstudie](atlassian-cloud-tutorial.md). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatisch gebruikers inrichten, hoewel deze twee functies een fraaie aanvulling in elkaar.
+> U kunt er ook voor kiezen om op SAML gebaseerde eenmalige aanmelding in te scha kelen voor Atlassian Cloud, gevolgd door de instructies in de [Atlassian-zelf studie voor eenmalige aanmelding](atlassian-cloud-tutorial.md)in de Cloud. Eenmalige aanmelding kan onafhankelijk van automatische gebruikers inrichting worden geconfigureerd, hoewel deze twee functies elkaar behoeven.
 
-### <a name="to-configure-automatic-user-provisioning-for-atlassian-cloud-in-azure-ad"></a>Het configureren van automatisch gebruikers inrichten voor Atlassian Cloud in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-atlassian-cloud-in-azure-ad"></a>Automatische gebruikers inrichting configureren voor Atlassian Cloud in azure AD:
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en selecteer **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Atlassian Cloud**.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com) en selecteer **bedrijfs toepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Atlassian Cloud**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **Atlassian Cloud**.
+2. Selecteer in de lijst toepassingen de optie **Atlassian Cloud**.
 
     ![De koppeling naar Atlassian Cloud in de lijst met toepassingen](common/all-applications.png)
 
-3. Selecteer de **Provisioning** tabblad.
+3. Selecteer het tabblad **inrichten** .
 
-    ![Cloudinrichting-Atlassian](./media/atlassian-cloud-provisioning-tutorial/provisioning-tab.png)
+    ![Atlassian Cloud inrichting](./media/atlassian-cloud-provisioning-tutorial/provisioning-tab.png)
 
-4. Stel de **Inrichtingsmodus** naar **automatische**.
+4. Stel de **inrichtings modus** in op **automatisch**.
 
-    ![Cloudinrichting-Atlassian](./media/atlassian-cloud-provisioning-tutorial/credentials.png)
+    ![Atlassian Cloud inrichting](./media/atlassian-cloud-provisioning-tutorial/credentials.png)
 
-5. Onder de **beheerdersreferenties** sectie, voer de **Tenant-URL** en **geheim Token** van uw Atlassian-Cloud-account. Voorbeelden van deze waarden zijn:
+5. Voer de URL van de **Tenant** en het **geheime token** van het account van uw Atlassian-Cloud in het gedeelte **beheerders referenties** in. Voor beelden van deze waarden zijn:
 
-   * In de **Tenant-URL** veld, vult u het eindpunt voor de specifieke tenant u van de Atlassian ontvangen, zoals beschreven in stap 6. Bijvoorbeeld: `https://api.atlassian.com/scim/directory/{directoryId}`.
+   * In het veld **Tenant-URL** vult u het specifieke Tenant eindpunt dat u ontvangt van de Atlassian, zoals beschreven in stap 6. Bijvoorbeeld: `https://api.atlassian.com/scim/directory/{directoryId}`.
 
-   * In de **geheim Token** veld, vul het token voor geheim zoals beschreven in stap 6.
+   * In het veld **geheim token** vult u het geheime token in, zoals beschreven in stap 6.
 
-6. Navigeer naar [Atlassian organisatie Manager](https://admin.atlassian.com) **> Gebruikersinrichting** en klikt u op **maken van een Token**. Kopiëren de **Directory basis-URL** en **Bearer Token** naar de **Tenant-URL** en **geheim Token** respectievelijk in velden.
+6. Navigeer naar [Atlassian Organization Manager](https://admin.atlassian.com) **> User** provisioning en klik op **Create a token**. Kopieer de **Directory basis-URL** en Bearer- **token** naar respectievelijk de velden **Tenant-URL** en **geheime token** .
 
-    ![Cloudinrichting-Atlassian](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Cloudinrichting-Atlassian](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
+    ![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
 
-    ![Cloudinrichting-Atlassian](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
+    ![Atlassian Cloud inrichting](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
 
-7. Bij het invullen van de velden die in stap 5 wordt weergegeven, klikt u op **testverbinding** om te controleren of Azure AD kunt verbinden met Atlassian-Cloud. Als de verbinding is mislukt, zorg ervoor dat uw Atlassian Cloud-account beheerdersmachtigingen heeft en probeer het opnieuw.
+7. Klik bij het invullen van de velden die worden weer gegeven in stap 5 op **verbinding testen** om te controleren of Azure AD verbinding kan maken met Atlassian Cloud. Als de verbinding mislukt, zorg er dan voor dat uw Atlassian-Cloud account beheerders machtigingen heeft en probeer het opnieuw.
 
-    ![Cloudinrichting-Atlassian](./media/atlassian-cloud-provisioning-tutorial/test-connection.png)
+    ![Atlassian Cloud inrichting](./media/atlassian-cloud-provisioning-tutorial/test-connection.png)
 
-8. In de **e-mailmelding** en voer het e-mailadres van een persoon of groep die u moet de inrichting fout ontvangen en schakel het selectievakje in - **een e-mailmelding verzenden wanneer een foutoptreedt**.
+8. Voer in het veld **e-mail melding** het e-mail adres in van een persoon of groep die de inrichtings fout meldingen moet ontvangen en schakel het selectie vakje in om **een e-mail bericht te verzenden wanneer er een fout optreedt**.
 
-    ![Cloudinrichting-Atlassian](./media/atlassian-cloud-provisioning-tutorial/notification.png)
+    ![Atlassian Cloud inrichting](./media/atlassian-cloud-provisioning-tutorial/notification.png)
 
 9. Klik op **Opslaan**.
 
-10. Onder de **toewijzingen** sectie, selecteer **synchroniseren Azure Active Directory: gebruikers naar de Atlassian Cloud**.
+10. Selecteer in de sectie **toewijzingen** de optie **Azure Active Directory gebruikers synchroniseren met Atlassian Cloud**.
 
-    ![Cloudinrichting-Atlassian](./media/atlassian-cloud-provisioning-tutorial/provision-users.png)
+    ![Atlassian Cloud inrichting](./media/atlassian-cloud-provisioning-tutorial/provision-users.png)
 
-11. Controleer de kenmerken van de gebruiker die worden gesynchroniseerd vanuit Azure AD naar Atlassian Cloud in de **kenmerk toewijzing** sectie. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in de Atlassian Cloud voor update-bewerkingen. Selecteer de **opslaan** knop wijzigingen doorvoeren.
+11. Controleer de gebruikers kenmerken die zijn gesynchroniseerd vanuit Azure AD naar Atlassian Cloud in de sectie **kenmerk toewijzing** . De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt om te voldoen aan de gebruikers accounts in de Atlassian-Cloud voor bijwerk bewerkingen. Selecteer de knop **Opslaan** om eventuele wijzigingen door te voeren.
 
-    ![Cloudinrichting-Atlassian](./media/atlassian-cloud-provisioning-tutorial/user-mapping.png)
+    ![Atlassian Cloud inrichting](./media/atlassian-cloud-provisioning-tutorial/user-mapping.png)
 
-12. Onder de **toewijzingen** sectie, selecteer **synchroniseren Azure Active Directory-groepen naar de Atlassian Cloud**.
+12. Selecteer in de sectie **toewijzingen** de optie **Azure Active Directory groepen synchroniseren naar Atlassian Cloud**.
 
-    ![Cloudinrichting-Atlassian](./media/atlassian-cloud-provisioning-tutorial/provision-groups.png)
+    ![Atlassian Cloud inrichting](./media/atlassian-cloud-provisioning-tutorial/provision-groups.png)
 
-13. Bekijk de groepskenmerken die worden gesynchroniseerd vanuit Azure AD naar Atlassian Cloud in de **kenmerk toewijzing** sectie. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de groepen in de Atlassian Cloud voor update-bewerkingen. Selecteer de **opslaan** knop wijzigingen doorvoeren.
+13. Controleer de groeps kenmerken die zijn gesynchroniseerd vanuit Azure AD naar Atlassian Cloud in de sectie **kenmerk toewijzing** . De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt om de groepen in de Atlassian-Cloud te vergelijken voor bijwerk bewerkingen. Selecteer de knop **Opslaan** om eventuele wijzigingen door te voeren.
 
-    ![Cloudinrichting-Atlassian](./media/atlassian-cloud-provisioning-tutorial/group-mapping.png)
+    ![Atlassian Cloud inrichting](./media/atlassian-cloud-provisioning-tutorial/group-mapping.png)
 
-14. Als u wilt configureren bereikfilters, raadpleegt u de volgende instructies in de [Scoping filter zelfstudie](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Raadpleeg de volgende instructies in de [zelf studie](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)voor het filteren op bereik voor het configureren van bereik filters.
 
-15. Om in te schakelen in de Azure AD-inrichtingsservice voor Atlassian Cloud, wijzigen de **Inrichtingsstatus** naar **op** in de **instellingen** sectie.
+15. Als u de Azure AD Provisioning Service voor Atlassian Cloud wilt inschakelen, **wijzigt u de** inrichtings **status** in in het gedeelte **instellingen** .
 
-    ![Cloudinrichting-Atlassian](./media/atlassian-cloud-provisioning-tutorial/provisioning-on.png)
+    ![Atlassian Cloud inrichting](./media/atlassian-cloud-provisioning-tutorial/provisioning-on.png)
 
-16. De gebruikers en/of groepen die u wilt definiëren voor het inrichten van Atlassian Cloud door het kiezen van de gewenste waarden in **bereik** in de **instellingen** sectie.
+16. Definieer de gebruikers en/of groepen die u wilt inrichten voor Atlassian Cloud door de gewenste waarden in het **bereik** te kiezen in de sectie **instellingen** .
 
-    ![Cloudinrichting-Atlassian](./media/atlassian-cloud-provisioning-tutorial/provisioning-options.png)
+    ![Atlassian Cloud inrichting](./media/atlassian-cloud-provisioning-tutorial/provisioning-options.png)
 
-17. Wanneer u klaar om in te richten bent, klikt u op **opslaan**.
+17. Wanneer u klaar bent om in te richten, klikt u op **Opslaan**.
 
-    ![Cloudinrichting-Atlassian](./media/atlassian-cloud-provisioning-tutorial/save.png)
+    ![Atlassian Cloud inrichting](./media/atlassian-cloud-provisioning-tutorial/save.png)
 
-Met deze bewerking wordt gestart voor de initiële synchronisatie van alle gebruikers en/of groepen die zijn gedefinieerd **bereik** in de **instellingen** sectie. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de Azure AD-inrichtingsservice wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en koppelingen volgen voor het inrichten van rapport van de activiteit, die alle acties die worden uitgevoerd door de Azure AD-inrichtingsservice op Atlassian Cloud beschrijft.
+Met deze bewerking wordt de eerste synchronisatie gestart van alle gebruikers en/of groepen die in het **bereik** zijn gedefinieerd in de sectie **instellingen** . Het duurt langer voordat de initiële synchronisatie is uitgevoerd dan volgende synchronisaties, die ongeveer elke 40 minuten optreden, zolang de Azure AD-inrichtings service wordt uitgevoerd. U kunt de sectie **synchronisatie Details** gebruiken om de voortgang te bewaken en koppelingen naar het rapport inrichtings activiteiten te volgen. Hiermee worden alle acties beschreven die worden uitgevoerd door de Azure AD Provisioning-Service op Atlassian Cloud.
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Connector-beperkingen
+## <a name="connector-limitations"></a>Connector beperkingen
 
-* Atlassian Cloud staat inrichting van gebruikers kunnen alleen [geverifieerde domeinen](https://confluence.atlassian.com/cloud/organization-administration-938859734.html).
-* Atlassian Cloud ondersteunt geen naam van de groep vandaag nog. Dit betekent dat eventuele wijzigingen in de displayName op van een groep in Azure AD niet worden bijgewerkt en in de Atlassian-Cloud weergegeven.
-* De waarde van de **e-mail** gebruikerskenmerk in Azure AD wordt alleen ingevuld als de gebruiker een Microsoft Exchange-postvak heeft. Als de gebruiker beschikt niet over een, is het raadzaam om toe te wijzen een andere gewenste kenmerk aan de **e-mailberichten** kenmerk in de Atlassian-Cloud.
+* Met Atlassian Cloud kunnen gebruikers alleen worden ingericht vanuit [geverifieerde domeinen](https://confluence.atlassian.com/cloud/organization-administration-938859734.html).
+* Atlassian Cloud biedt momenteel geen ondersteuning voor de naam van een groep. Dit betekent dat wijzigingen in de displayName van een groep in azure AD niet worden bijgewerkt en niet worden weer gegeven in de Atlassian-Cloud.
+* De waarde van het kenmerk **e-mail** gebruiker in azure AD wordt alleen ingevuld als de gebruiker een micro soft Exchange-postvak heeft. Als de gebruiker niet beschikt over één, wordt aanbevolen om een ander gewenst kenmerk toe te wijzen aan het kenmerk emails in Atlassian Cloud.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Inrichten van gebruikers accounts voor zakelijke apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Meer informatie over het controleren van Logboeken en rapporten over het inrichten van activiteit ophalen](../manage-apps/check-status-user-account-provisioning.md)
+* [Meer informatie over het controleren van Logboeken en het ophalen van rapporten over de inrichtings activiteit](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png

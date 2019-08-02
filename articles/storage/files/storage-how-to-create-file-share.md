@@ -1,19 +1,18 @@
 ---
 title: Een Azure-bestandsshare maken | Microsoft Docs
 description: Informatie over het maken van een Azure-bestandsshare in Azure Files met behulp van de Azure Portal, PowerShell en de Azure CLI.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d945d5b79c274aa8e142203c56b27eb673e36741
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e56be394bc7667dfca9a0b417593e8e587073712
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510518"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699653"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Een bestandsshare maken in Azure Files
 U kunt Azure-bestandsshares maken met de  [Azure-portal](https://portal.azure.com/), de PowerShell-cmdlets van Azure Storage, de clientbibliotheken van Azure Storage of de REST API van Azure Storage. In deze zelfstudie leert u het volgende:
@@ -82,7 +81,7 @@ U bereidt het gebruik van PowerShell voor door de Azure PowerShell-cmdlets te do
 
 3. **De bestandsshare maken**
     ```azurecli
-    az storage share create --name files --quota 2048 --connection-string $current_env_conn_string 1 > /dev/null
+    az storage share create --name files --quota 2048 --connection-string $current_env_conn_string > /dev/null
     ```
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -1,9 +1,9 @@
 ---
 title: Veilig verbinding maken met een Azure Service Fabric-cluster | Microsoft Docs
-description: Hierin wordt beschreven hoe u verifieert de clienttoegang tot een Service Fabric-cluster en over het beveiligen van communicatie tussen clients en een cluster.
+description: Hierin wordt beschreven hoe u client toegang tot een Service Fabric cluster verifieert en hoe u communicatie tussen clients en een cluster beveiligt.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
@@ -13,73 +13,73 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2019
-ms.author: aljo
-ms.openlocfilehash: 703830778edb73781a263ae4d92529f7f79a0eb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: c350b53b2d0b235c5e34431386205f090f37b482
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306847"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599710"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Verbinding maken met een beveiligd cluster
 
-Wanneer een client verbinding met het knooppunt van een Service Fabric-cluster maakt, gebruikt de client kan worden geverifieerd en veilige communicatie tot stand gebracht met behulp van certificaat beveiligings- of Azure Active Directory (AAD). Deze verificatie zorgt ervoor dat alleen geautoriseerde gebruikers toegang het cluster tot kunnen en toepassingen geïmplementeerde en beheertaken uitvoeren.  Certificaat of de AAD-beveiliging moet zijn eerder ingeschakeld op het cluster als het cluster is gemaakt.  Zie voor meer informatie over clusterbeveiligingsscenario's [Cluster security](service-fabric-cluster-security.md). Als u verbinding met een cluster dat is beveiligd met certificaten maakt, [instellen van het clientcertificaat](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) op de computer die verbinding met het cluster maakt. 
+Wanneer een client verbinding maakt met een Service Fabric cluster knooppunt, kan de client geverifieerde en beveiligde communicatie tot stand worden gebracht met behulp van certificaat beveiliging of Azure Active Directory (AAD). Deze verificatie zorgt ervoor dat alleen geautoriseerde gebruikers toegang hebben tot het cluster en geïmplementeerde toepassingen en beheer taken kunnen uitvoeren.  Certificaten of AAD-beveiliging moet eerder zijn ingeschakeld op het cluster toen het cluster werd gemaakt.  Zie [cluster beveiliging](service-fabric-cluster-security.md)voor meer informatie over scenario's voor het beveiligen van het cluster. Als u verbinding maakt met een cluster dat is beveiligd met certificaten, [stelt u het client certificaat](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) in op de computer die verbinding maakt met het cluster. 
 
 <a id="connectsecureclustercli"></a> 
 
-## <a name="connect-to-a-secure-cluster-using-azure-service-fabric-cli-sfctl"></a>Verbinding maken met een beveiligd cluster met behulp van Azure Service Fabric-CLI (sfctl)
+## <a name="connect-to-a-secure-cluster-using-azure-service-fabric-cli-sfctl"></a>Verbinding maken met een beveiligd cluster met behulp van Azure Service Fabric CLI (sfctl)
 
-Er zijn een aantal verschillende manieren verbinding maken met een beveiligd cluster met behulp van de Service Fabric CLI (sfctl). Als u ter verificatie een clientcertificaat gebruikt, moeten de certificaatgegevens overeenkomen met een certificaat dat is geïmplementeerd in de clusterknooppunten. Als uw certificaat heeft certificeringsinstanties (CA's), moet u ook opgeven de vertrouwde certificeringsinstanties.
+Er zijn een aantal verschillende manieren om verbinding te maken met een beveiligd cluster met behulp van de Service Fabric CLI (sfctl). Als u ter verificatie een clientcertificaat gebruikt, moeten de certificaatgegevens overeenkomen met een certificaat dat is geïmplementeerd in de clusterknooppunten. Als uw certificaat certificerings instanties (Ca's) heeft, moet u ook de vertrouwde certificerings instanties opgeven.
 
-U kunt verbinding maken met een cluster met de `sfctl cluster select` opdracht.
+U kunt verbinding maken met een cluster met `sfctl cluster select` behulp van de opdracht.
 
-Clientcertificaten kunnen worden opgegeven in twee verschillende manieren, als een certificaat en het sleutelpaar of als een enkel PFX-bestand. Voor het PEM-bestanden beveiligd met een wachtwoord, wordt u automatisch gevraagd het wachtwoord op te geven. Als u het clientcertificaat als een PFX-bestand hebt verkregen, moet u eerst het PFX-bestand converteren naar een PEM-bestand met de volgende opdracht. 
+Client certificaten kunnen worden opgegeven op twee verschillende manieren, hetzij als een certificaat en sleutel paar, hetzij als één PFX-bestand. U wordt gevraagd om het wacht woord op te geven voor met wacht woord beveiligde PEM-bestanden. Als u het client certificaat als een PFX-bestand hebt verkregen, moet u het PFX-bestand eerst converteren naar een PEM-bestand met behulp van de volgende opdracht. 
 
 ```bash
 openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
 ```
 
-Als uw pfx-bestand niet beveiligd met een wachtwoord is, gebruikt u pass - passin: voor de laatste parameter zijn.
+Als uw pfx-bestand niet is beveiligd met een wacht woord, gebruikt u-Passin Pass: voor de laatste para meter.
 
-Als u het clientcertificaat als een pem-bestand, geef het pad in de `--pem` argument. Bijvoorbeeld:
+Geef het bestandspad op in het `--pem` argument om het client certificaat op te geven als een PEM-bestand. Bijvoorbeeld:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-Wachtwoord beveiligd pem-bestanden wordt u gevraagd het wachtwoord voordat u een opdracht uitvoert.
+Met een wacht woord beveiligde PEM-bestanden wordt om een wacht woord gevraagd voordat een opdracht wordt uitgevoerd.
 
-Als u een certificaat, sleutel paar gebruiken de `--cert` en `--key` argumenten voor de bestandspaden aan elk respectieve bestand opgeven.
+Als u een certificaat wilt opgeven, gebruikt u `--cert` de `--key` argumenten en en geeft u de bestands paden naar elk bestand op.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Certificaten die worden gebruikt voor het beveiligen van test- of ontwikkelingsomgevingen clusters mislukt soms validatie van het servercertificaat. Als u wilt omzeilen certificaatcontrole, geef de `--no-verify` optie. Bijvoorbeeld:
+Soms certificaten die worden gebruikt voor het beveiligen van test-of dev-clusters, mislukken certificaat validatie. Als u certificaat verificatie wilt overs `--no-verify` Laan, geeft u de optie op. Bijvoorbeeld:
 
 > [!WARNING]
-> Gebruik niet de `no-verify` optie bij het verbinden met productie Service Fabric-clusters.
+> Gebruik de `no-verify` optie niet wanneer u verbinding maakt met productie service Fabric clusters.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-U kunt bovendien paden naar de mappen van vertrouwde CA-certificaten of afzonderlijke certificaten opgeven. Als u wilt deze paden opgeven, gebruikt u de `--ca` argument. Bijvoorbeeld:
+Daarnaast kunt u paden opgeven naar mappen van vertrouwde CA-certificaten of afzonderlijke certificaten. Als u deze paden wilt opgeven, `--ca` gebruikt u het argument. Bijvoorbeeld:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 
-Nadat u verbinding hebt gemaakt, kunt u moet kunnen [andere sfctl-opdrachten uitvoeren](service-fabric-cli.md) om te communiceren met het cluster.
+Nadat u verbinding hebt gemaakt, moet u [andere sfctl-opdrachten kunnen uitvoeren](service-fabric-cli.md) om met het cluster te communiceren.
 
 <a id="connectsecurecluster"></a>
 
-## <a name="connect-to-a-cluster-using-powershell"></a>Verbinding maken met een cluster met behulp van PowerShell
-Voordat u bewerkingen op een cluster via PowerShell uitvoeren, eerst een verbinding maken met het cluster. De clusterverbinding wordt gebruikt voor alle volgende opdrachten in de opgegeven PowerShell-sessie.
+## <a name="connect-to-a-cluster-using-powershell"></a>Verbinding maken met een cluster met behulp van Power shell
+Voordat u bewerkingen uitvoert op een cluster via Power shell, moet u eerst een verbinding met het cluster tot stand brengen. De cluster verbinding wordt gebruikt voor alle volgende opdrachten in de opgegeven Power shell-sessie.
 
-### <a name="connect-to-an-unsecure-cluster"></a>Verbinding maken met een onbeveiligd cluster
+### <a name="connect-to-an-unsecure-cluster"></a>Verbinding maken met een niet-beveiligd cluster
 
-Voor verbinding met een onbeveiligd cluster, geeft u het adres van de cluster-eindpunt naar de **Connect-ServiceFabricCluster** opdracht:
+Als u verbinding wilt maken met een niet-beveiligd cluster, geeft u het cluster eindpunt adres op de opdracht **Connect-ServiceFabricCluster** :
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 
@@ -87,7 +87,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Verbinding maken met een beveiligd cluster met behulp van Azure Active Directory
 
-Voor verbinding met een beveiligd cluster die gebruikmaakt van Azure Active Directory om cluster beheerderstoegang te verlenen, bieden de vingerafdruk van het cluster en gebruikt de *AzureActiveDirectory* vlag.  
+Als u verbinding wilt maken met een beveiligd cluster dat Azure Active Directory gebruikt voor het autoriseren van de toegang van cluster beheerders, geeft u de vinger afdruk van het cluster certificaat op en gebruikt u de vlag *AzureActiveDirectory* .  
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -95,11 +95,11 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 -AzureActiveDirectory
 ```
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Verbinding maken met een beveiligd cluster met behulp van een clientcertificaat
-Voer de volgende PowerShell-opdracht verbinding maken met een beveiligd cluster die gebruikmaakt van clientcertificaten om de beheerderstoegang te verlenen. 
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Verbinding maken met een beveiligd cluster met behulp van een client certificaat
+Voer de volgende Power shell-opdracht uit om verbinding te maken met een beveiligd cluster dat client certificaten gebruikt om beheerders toegang te autoriseren. 
 
-#### <a name="connect-using-certificate-common-name"></a>Verbinding maken met behulp van de algemene naam van certificaat
-Geef een algemene naam van de cluster-certificaat en de algemene naam van het clientcertificaat dat voor Clusterbeheer machtigingen heeft. Details van het certificaat moeten overeenkomen met een certificaat op de clusterknooppunten.
+#### <a name="connect-using-certificate-common-name"></a>Verbinding maken met algemene naam van certificaat
+Geef de algemene naam van het cluster certificaat en de algemene naam van het client certificaat op dat machtigingen voor cluster beheer heeft gekregen. De certificaat details moeten overeenkomen met een certificaat op de cluster knooppunten.
 
 ```powershell
 Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
@@ -110,7 +110,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
     -StoreLocation CurrentUser `
     -StoreName My 
 ```
-*ServerCommonName* is de algemene naam van het certificaat van de server geïnstalleerd op de clusterknooppunten. *FindValue* is de algemene naam van het certificaat voor de Beheerclient. Wanneer de parameters worden ingevuld, wordt de opdracht ziet eruit zoals in het volgende voorbeeld:
+*ServerCommonName* is de algemene naam van het server certificaat dat op de cluster knooppunten is geïnstalleerd. *FindValue* is de algemene naam van het client certificaat voor de beheerder. Wanneer de para meters zijn ingevuld, ziet de opdracht eruit als in het volgende voor beeld:
 ```powershell
 $ClusterName= "sf-commonnametest-scus.southcentralus.cloudapp.azure.com:19000"
 $certCN = "sfrpe2eetest.southcentralus.cloudapp.azure.com"
@@ -124,8 +124,8 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
     -StoreName My 
 ```
 
-#### <a name="connect-using-certificate-thumbprint"></a>Verbinding maken met behulp van de vingerafdruk van certificaat
-Geef de vingerafdruk van het cluster en de vingerafdruk van het clientcertificaat dat voor Clusterbeheer machtigingen heeft. Details van het certificaat moeten overeenkomen met een certificaat op de clusterknooppunten.
+#### <a name="connect-using-certificate-thumbprint"></a>Verbinding maken via de vinger afdruk van het certificaat
+Geef de vinger afdruk van het cluster certificaat en de vinger afdruk van het client certificaat op dat is gemachtigd voor cluster beheer. De certificaat details moeten overeenkomen met een certificaat op de cluster knooppunten.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `  
@@ -135,7 +135,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-*ServerCertThumbprint* is de vingerafdruk van het certificaat van de server geïnstalleerd op de clusterknooppunten. *FindValue* is de vingerafdruk van het certificaat voor de Beheerclient.  Wanneer de parameters worden ingevuld, wordt de opdracht ziet eruit zoals in het volgende voorbeeld:
+*ServerCertThumbprint* is de vinger afdruk van het server certificaat dat is geïnstalleerd op de cluster knooppunten. *FindValue* is de vinger afdruk van het client certificaat voor de beheerder.  Wanneer de para meters zijn ingevuld, ziet de opdracht eruit als in het volgende voor beeld:
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `  
@@ -146,7 +146,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Verbinding maken met een beveiligd cluster met behulp van Windows Active Directory
-Als uw zelfstandige cluster wordt geïmplementeerd met behulp van AD-beveiliging, verbinding met het cluster door de switch 'WindowsCredential' toe te voegen.
+Als uw zelfstandige cluster wordt geïmplementeerd met behulp van AD-beveiliging, maakt u verbinding met het cluster door de switch ' WindowsCredential ' toe te voegen.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -155,26 +155,26 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 
 <a id="connectsecureclusterfabricclient"></a>
 
-## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>Verbinding maken met een cluster met behulp van de APIs FabricClient
-De Service Fabric SDK bevat de [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) klasse voor Clusterbeheer. Voor het gebruik van de APIs FabricClient, het Microsoft.ServiceFabric NuGet-pakket te downloaden.
+## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>Verbinding maken met een cluster met behulp van de FabricClient-Api's
+De Service Fabric-SDK biedt de [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) -klasse voor cluster beheer. Als u de FabricClient-Api's wilt gebruiken, haalt u het micro soft. ServiceFabric NuGet-pakket op.
 
-### <a name="connect-to-an-unsecure-cluster"></a>Verbinding maken met een onbeveiligd cluster
+### <a name="connect-to-an-unsecure-cluster"></a>Verbinding maken met een niet-beveiligd cluster
 
-Verbinding maken met een externe niet-beveiligd cluster, een FabricClient-exemplaar maken en geeft u het clusteradres:
+Als u verbinding wilt maken met een extern niet-beveiligd cluster, maakt u een FabricClient-exemplaar en geeft u het cluster adres op:
 
 ```csharp
 FabricClient fabricClient = new FabricClient("clustername.westus.cloudapp.azure.com:19000");
 ```
 
-Voor de code die wordt uitgevoerd binnen een cluster, bijvoorbeeld in een betrouwbare Service maakt een FabricClient *zonder* adres van het cluster op te geven. FabricClient maakt verbinding met de lokale management-gateway op het knooppunt dat de code wordt momenteel uitgevoerd, waardoor een extra netwerk hop is voorkomen.
+Voor code die wordt uitgevoerd binnen een cluster, bijvoorbeeld in een betrouw bare service, maakt u een FabricClient *zonder* het cluster adres op te geven. FabricClient maakt verbinding met de lokale beheer gateway op het knoop punt waarop de code momenteel wordt uitgevoerd, waardoor een extra netwerk-hop wordt voor komen.
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
 ```
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Verbinding maken met een beveiligd cluster met behulp van een clientcertificaat
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Verbinding maken met een beveiligd cluster met behulp van een client certificaat
 
-De knooppunten in het cluster moeten geldige certificaten waarvan de algemene naam of DNS-naam in het SAN wordt weergegeven in de [RemoteCommonNames eigenschap](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) instellen op [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Deze stappen te volgen, kunt wederzijdse verificatie tussen de client en de clusterknooppunten.
+De knoop punten in het cluster moeten geldige certificaten hebben waarvan de algemene naam of DNS-naam in SAN wordt weer gegeven in de [eigenschap RemoteCommonNames](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) die is ingesteld op [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Als u dit proces volgt, wordt wederzijdse verificatie tussen de client en de cluster knooppunten ingeschakeld.
 
 ```csharp
 using System.Fabric;
@@ -212,11 +212,11 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 }
 ```
 
-### <a name="connect-to-a-secure-cluster-interactively-using-azure-active-directory"></a>Verbinding maken met een beveiligd cluster interactief met behulp van Azure Active Directory
+### <a name="connect-to-a-secure-cluster-interactively-using-azure-active-directory"></a>Interactief verbinding maken met een beveiligd cluster met behulp van Azure Active Directory
 
-Het volgende voorbeeld maakt gebruik van Azure Active Directory voor identiteits- en server clientcertificaat voor de identiteit van server.
+In het volgende voor beeld wordt Azure Active Directory gebruikt voor client identiteit en server certificaat voor de identiteit van de server.
 
-Dialoogvenster verschijnt een venster automatisch voor interactief aanmelden bij het verbinding maken met het cluster.
+Er wordt automatisch een dialoog venster weer gegeven voor interactief aanmelden bij het maken van verbinding met het cluster.
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
@@ -238,11 +238,11 @@ catch (Exception e)
 }
 ```
 
-### <a name="connect-to-a-secure-cluster-non-interactively-using-azure-active-directory"></a>Verbinding maken met een beveiligd cluster niet-interactief met behulp van Azure Active Directory
+### <a name="connect-to-a-secure-cluster-non-interactively-using-azure-active-directory"></a>Niet-interactief verbinding maken met een beveiligd cluster met behulp van Azure Active Directory
 
-Het volgende voorbeeld is afhankelijk van Microsoft.IdentityModel.Clients.ActiveDirectory, versie: 2.19.208020213.
+In het volgende voor beeld wordt gebruikgemaakt van micro soft. Identity model. clients. ActiveDirectory, versie: 2.19.208020213.
 
-Zie voor meer informatie over het ophalen van de AAD-tokens, [Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
+Zie [micro soft. Identity model. clients. ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx)voor meer informatie over het verkrijgen van Aad-tokens.
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";
@@ -295,9 +295,9 @@ static string GetAccessToken(
 
 ```
 
-### <a name="connect-to-a-secure-cluster-without-prior-metadata-knowledge-using-azure-active-directory"></a>Verbinding maken met een beveiligd cluster zonder voorafgaande metagegevens kennis met Azure Active Directory
+### <a name="connect-to-a-secure-cluster-without-prior-metadata-knowledge-using-azure-active-directory"></a>Verbinding maken met een beveiligd cluster zonder voorafgaande meta gegevens kennis met behulp van Azure Active Directory
 
-Het volgende voorbeeld wordt een niet-interactieve ophalen van tokens, maar dezelfde aanpak kan worden gebruikt voor het bouwen van een aangepaste interactieve token acquisition-ervaring. De Azure Active Directory-metagegevens die nodig zijn voor het ophalen van tokens worden gelezen uit de configuratie van het cluster.
+In het volgende voor beeld wordt de niet-interactieve token aanschaf gebruikt, maar dezelfde benadering kan worden gebruikt voor het bouwen van een aangepaste interactieve token Acquisition-ervaring. De Azure Active Directory meta gegevens die nodig zijn voor het ophalen van tokens, worden gelezen uit de cluster configuratie.
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
@@ -341,37 +341,37 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
 <a id="connectsecureclustersfx"></a>
 
 ## <a name="connect-to-a-secure-cluster-using-service-fabric-explorer"></a>Verbinding maken met een beveiligd cluster met behulp van Service Fabric Explorer
-Bereiken [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) voor een bepaald cluster, wijst u uw browser naar:
+Als u [service Fabric Explorer](service-fabric-visualizing-your-cluster.md) voor een bepaald cluster wilt bereiken, wijst u uw browser aan:
 
 `http://<your-cluster-endpoint>:19080/Explorer`
 
-De volledige URL is ook beschikbaar in het cluster essentials-deelvenster van de Azure-portal.
+De volledige URL is ook beschikbaar in het deel venster cluster Essentials van de Azure Portal.
 
-Om verbinding te maken met een beveiligd cluster op Windows- of OS X met behulp van een browser, kunt u het certificaat importeren en de browser wordt u gevraagd voor het certificaat te gebruiken om verbinding te maken met het cluster.  Op Linux-machines moet het certificaat worden geïmporteerd met behulp van geavanceerde browserinstellingen (elke browser heeft verschillende mechanismen) en Ga naar de certificaatlocatie op de schijf. Lezen [instellen van een clientcertificaat](#connectsecureclustersetupclientcert) voor meer informatie.
+Als u verbinding wilt maken met een beveiligd cluster op Windows of OS X met een browser, kunt u het client certificaat importeren. in de browser wordt u gevraagd het certificaat te gebruiken om verbinding te maken met het cluster.  Op Linux-machines moet het certificaat worden geïmporteerd met geavanceerde browser instellingen (elke browser heeft verschillende mechanismen) en dit naar de certificaat locatie op schijf verwijzen. Lees [een client certificaat instellen](#connectsecureclustersetupclientcert) voor meer informatie.
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Verbinding maken met een beveiligd cluster met behulp van Azure Active Directory
 
-Als u wilt verbinding maken met een cluster die is beveiligd met AAD, wijst u uw browser naar:
+Als u verbinding wilt maken met een cluster dat is beveiligd met AAD, wijst u uw browser aan:
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-U wordt automatisch gevraagd zich aanmelden met AAD.
+U wordt automatisch gevraagd om u aan te melden met AAD.
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Verbinding maken met een beveiligd cluster met behulp van een clientcertificaat
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Verbinding maken met een beveiligd cluster met behulp van een client certificaat
 
-Als u wilt verbinding maken met een cluster die is beveiligd met certificaten, wijst u uw browser naar:
+Als u verbinding wilt maken met een cluster dat is beveiligd met certificaten, wijst u uw browser aan:
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-U wordt automatisch gevraagd een clientcertificaat te selecteren.
+U wordt automatisch gevraagd om een client certificaat te selecteren.
 
 <a id="connectsecureclustersetupclientcert"></a>
 
-## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>Instellen van een certificaat op de externe computer
+## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>Een client certificaat instellen op de externe computer
 
-Ten minste twee certificaten moeten worden gebruikt voor het beveiligen van het cluster, een voor het cluster en de server-certificaat en een voor clienttoegang.  Het is raadzaam om ook extra secundaire certificaten en clientcertificaten toegang te gebruiken.  Als u wilt beveiligen de communicatie tussen een client en het knooppunt van een cluster met Certificaatbeveiliging, moet u eerst het verkrijgen en installeren van het clientcertificaat. Het certificaat kan worden geïnstalleerd in het persoonlijke (Mijn) archief van de lokale computer of de huidige gebruiker.  U moet ook de vingerafdruk van het servercertificaat zodat de client kan het cluster verifiëren.
+Ten minste twee certificaten moeten worden gebruikt voor het beveiligen van het cluster, een voor het cluster en het server certificaat en een andere voor client toegang.  U wordt aangeraden ook extra secundaire certificaten en certificaten voor client toegang te gebruiken.  Als u de communicatie tussen een client en een cluster knooppunt wilt beveiligen met behulp van certificaat beveiliging, moet u eerst het client certificaat verkrijgen en installeren. Het certificaat kan worden geïnstalleerd in het persoonlijke archief (mijn opslag) van de lokale computer of de huidige gebruiker.  U hebt ook de vinger afdruk van het server certificaat nodig, zodat de client het cluster kan verifiëren.
 
-* In Windows: Dubbelklik op het PFX-bestand en volg de aanwijzingen om het certificaat in uw persoonlijke archief, `Certificates - Current User\Personal\Certificates`, te installeren. U kunt ook de PowerShell-opdracht gebruiken:
+* In Windows: Dubbelklik op het PFX-bestand en volg de aanwijzingen om het certificaat in uw persoonlijke archief, `Certificates - Current User\Personal\Certificates`, te installeren. U kunt ook de Power shell-opdracht gebruiken:
 
     ```powershell
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -379,7 +379,7 @@ Ten minste twee certificaten moeten worden gebruikt voor het beveiligen van het 
             -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
     ```
 
-    Als het een zelfondertekend certificaat, dat u wilt importeren naar archief van de 'vertrouwde personen' van uw computer voordat u dit certificaat gebruiken kunt om verbinding met een beveiligd cluster te maken.
+    Als het een zelfondertekend certificaat is, moet u het importeren in het archief Vertrouwde personen van uw computer voordat u dit certificaat kunt gebruiken om verbinding te maken met een beveiligd cluster.
 
     ```powershell
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
@@ -391,8 +391,8 @@ Ten minste twee certificaten moeten worden gebruikt voor het beveiligen van het 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Het upgradeproces service Fabric-Cluster en de verwachtingen van u](service-fabric-cluster-upgrade.md)
-* [Beheren van uw Service Fabric-toepassingen in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
-* [Introductie van service Fabric-status-model](service-fabric-health-introduction.md)
-* [Beveiliging van toepassingen en RunAs](service-fabric-application-runas-security.md)
+* [Upgrade proces en verwachtingen van de Cluster Service Fabric](service-fabric-cluster-upgrade.md)
+* [Uw Service Fabric-toepassingen beheren in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+* [Inleiding van Service Fabric status model](service-fabric-health-introduction.md)
+* [Toepassings beveiliging en runas](service-fabric-application-runas-security.md)
 * [Aan de slag met de Service Fabric-CLI](service-fabric-cli.md)

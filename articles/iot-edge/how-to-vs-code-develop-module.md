@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 07/23/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a9c38d82c4b460564077690d3cddd731ec6c2b89
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 39b8485ac3f98cb7ca6739fe31378726bea3452b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414502"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565344"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio code gebruiken voor het ontwikkelen en opsporen van fouten in modules voor Azure IoT Edge
 
@@ -100,7 +100,7 @@ Er zijn vier items in de oplossing:
 
 - Een **. vscode** -map bevat configuraties voor fout opsporing.
 
-- Een map met **modules** bevat submappen voor elke module.  In de map voor elke module bevindt zich een bestand, **module. json**, dat bepaalt hoe modules worden gebouwd en geïmplementeerd.  Dit bestand moet worden gewijzigd om de module-implementatie container Regristry van localhost te wijzigen in een extern REGI ster. Op dit moment hebt u slechts één module.  U kunt echter meer in het opdracht palet toevoegen met de opdracht **Azure IOT Edge: Add IoT Edge Module** uit te voeren.
+- Een map met **modules** bevat submappen voor elke module.  In de map voor elke module bevindt zich een bestand, **module. json**, dat bepaalt hoe modules worden gebouwd en geïmplementeerd.  Dit bestand moet worden gewijzigd om het module-implementatie container register van localhost te wijzigen in een extern REGI ster. Op dit moment hebt u slechts één module.  U kunt echter meer in het opdracht palet toevoegen met de opdracht **Azure IOT Edge: Add IoT Edge Module** uit te voeren.
 
 - Een **. env** -bestand bevat uw omgevings variabelen. Als Azure Container Registry uw REGI ster is, hebt u een Azure Container Registry gebruikers naam en wacht woord.
 
@@ -111,7 +111,7 @@ Er zijn vier items in de oplossing:
 
 ## <a name="add-additional-modules"></a>Aanvullende modules toevoegen
 
-Als u extra modules wilt toevoegen aan uw oplossing, voert **u de opdracht uit Azure IOT Edge: Voeg IOT Edge module** toe vanuit het opdracht palet. U kunt ook met de rechter muisknop  op de map modules `deployment.template.json` of het bestand in de Visual Studio code Explorer-weer gave klikken en vervolgens **IOT Edge module toevoegen**selecteren.
+Als u extra modules wilt toevoegen aan uw oplossing, voert **u de opdracht uit Azure IOT Edge: Voeg IOT Edge module** toe vanuit het opdracht palet. U kunt ook met de rechter muisknop op de map modules `deployment.template.json` of het bestand in de Visual Studio code Explorer-weer gave klikken en vervolgens **IOT Edge module toevoegen**selecteren.
 
 ## <a name="develop-your-module"></a>Uw-module ontwikkelen
 

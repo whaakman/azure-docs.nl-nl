@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 01247dfc0046ef722d70fe48f7ab8ee63f685962
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0236491f9ebc8e3ecf7df8b74db4fd5ff441c7f8
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153559"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677443"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Maken en inrichten van een gesimuleerd TPM-Edge-apparaat op Windows
 
@@ -46,7 +46,7 @@ Wanneer u een inschrijving in DPS maakt, hebt u de mogelijkheid om te declareren
 
 De SDK-taal die u gebruiken wilt voor het maken van het gesimuleerde apparaat kiezen en volg de stappen totdat u de afzonderlijke registratie maken.
 
-Wanneer u de afzonderlijke registratie maakt, selecteert u **inschakelen** op te geven dat het gesimuleerde TPM-apparaat op uw Windows-ontwikkelcomputer is een **IoT Edge-apparaat**.
+Wanneer u de afzonderlijke inschrijving maakt, selecteert u **waar** om te declareren dat het gesimuleerde TPM-apparaat op uw Windows-ontwikkel computer een **IOT edge apparaat**is.
 
 Gesimuleerd apparaat en handleidingen voor afzonderlijke inschrijving:
 
@@ -66,9 +66,9 @@ De IoT Edge-runtime wordt op alle IoT Edge-apparaten geïmplementeerd. De onderd
 
 Volg de instructies voor het installeren van de IoT Edge-runtime op het apparaat dat het gesimuleerde TPM uit de vorige sectie wordt uitgevoerd. Zorg ervoor dat u de IoT Edge-runtime voor het inrichten van automatische, niet handmatig configureren.
 
-Kent uw DPS **ID-bereik** en apparaat **registratie-ID** voordat u IoT Edge op uw apparaat installeert.
+Ken uw DPS **-id-bereik** en **registratie-id** van het apparaat aan voordat u IOT Edge op uw apparaat installeert.
 
-[Installeren en automatisch inrichten van IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+[IoT Edge installeren en automatisch inrichten](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>Controleer of geslaagde installatie
 

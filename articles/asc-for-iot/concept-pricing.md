@@ -1,6 +1,6 @@
 ---
-title: Inzicht in Azure Security Center voor IoT kosten Preview | Microsoft Docs
-description: Meer informatie over de kosten die zijn gekoppeld aan Azure Security Center voor IoT, en hoe u ze kunt beheren.
+title: Meer informatie over Azure Security Center voor IoT-kosten | Microsoft Docs
+description: Meer informatie over de kosten van Azure Security Center voor IoT en hoe u deze kunt beheren.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,79 +13,76 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: dd041cdb1608eab60fa2a5fa756f381656a13a46
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 603df1def011232ad2120c37ad1ba256f2a30526
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618440"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596514"
 ---
 # <a name="pricing-and-associated-costs"></a>Prijs en bijbehorende kosten
 
-> [!IMPORTANT]
-> Azure Security Center voor IoT is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
-
-In dit artikel wordt uitgelegd van Azure Security Center (ASC) voor IoT-prijsmodel, bevat een overzicht van alle bijbehorende kosten en wordt uitgelegd hoe u ze kunt beheren.
+In dit artikel wordt uitgelegd Azure Security Center voor IoT-prijs model, worden alle gekoppelde kosten samenvatten en wordt uitgelegd hoe u deze kunt beheren.
 
 ## <a name="pricing"></a>Prijzen
 
-De ASC voor IoT prijsmodel uit twee bestaat delen en wordt in rekening gebracht zodra een IoT-Hub is [ingeschakeld](quickstart-onboard-iot-hub.md) in ASC voor IoT:
+Het prijs model Azure Security Center voor IoT bestaat uit twee delen en wordt gefactureerd wanneer een IoT Hub is [ingeschakeld](quickstart-onboard-iot-hub.md) in azure Security Center voor IOT:
 
-- Kosten per apparaat - mogelijkheden voor ingebouwde beveiliging op basis van de analyse van Logboeken van de IoT Hub.
+- Kosten per apparaat-ingebouwde beveiligings mogelijkheden op basis van de analyse van IoT Hub Logboeken.
 
-- Kosten per bericht - mogelijkheden voor verbeterde beveiliging op basis van beveiligingsberichten van IoT Edge of leaf-apparaten.
+- Kosten per bericht: Verbeterde beveiligings mogelijkheden op basis van beveiligings berichten van IoT Edge of blad apparaten.
 
   >[!Note]
-  > Beveiligingsberichten wordt ook quotumverbruik op IoT-Hub in rekening gebracht.
+  > Beveiligings berichten ontstaan ook het quotum verbruik op IoT Hub.
 
-Zie voor meer informatie, [prijzen van Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+Zie [Security Center prijzen](https://azure.microsoft.com/pricing/details/security-center/)voor meer informatie.
 
-## <a name="associated-costs"></a>Bijbehorende kosten
+## <a name="associated-costs"></a>Gekoppelde kosten
 
-ASC voor IoT heeft twee soorten bijbehorende kosten, die geen deel uitmaken van de directe prijzen:
+Azure Security Center voor IoT heeft twee soorten gekoppelde kosten, die geen deel uitmaken van de prijzen voor direct:
 
-- IoT Hub quotumverbruik
+- Quota verbruik IoT Hub
 
-- Meld u Analytics-opslagkosten
+- Opslag kosten Log Analytics
 
-U kunt de bijbehorende kosten verlagen door wanneer u geen gebruik van bepaalde functies door de instellingen wijzigen.
+U kunt de gekoppelde kosten verlagen door de instellingen van bepaalde functies te wijzigen.
 
-De instellingen te wijzigen:
+Uw instellingen wijzigen:
 
 1. Open IoT Hub.
 
-2. Onder **Security**, klikt u op **overzicht**.
+2. Klik onder **beveiliging**op **overzicht**.
 
 3. Klik op **Instellingen**.
 
-De volgende tabel bevat een overzicht van de bijbehorende kosten en de implicaties van elke optie.
+De volgende tabel bevat een samen vatting van de bijbehorende kosten en implicaties van elke optie.
 
 |     | Gebruik | Opmerking |
 | --- | --- | --- |
-| **IoT Hub quotumverbruik** |  |
-| [Exporteren van apparaat](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) taak (dubbele exporteren) | Eenmaal per dag | Uitschakelen _metagegevensverzameling twin_ |
-| **Log Analytics-opslag** |  |
-| Apparaat aanbevelingen en waarschuwingen| Beveiligingsaanbeveling en waarschuwingen die zijn gegenereerd door de service | Niet optioneel |
-| Onbewerkte beveiligingsgegevens| Onbewerkte beveiligingsgegevens van IoT-apparaten die worden verzameld door beveiliging-agents | Uitschakelen _beveiligingsgebeurtenissen van niet-gecodeerd apparaat opslaan_ |
+| **Quota verbruik IoT Hub** |  |
+| Taak voor het exporteren van een [apparaat](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) (dubbele export) | Eenmaal per dag | _Verzameling van dubbele meta gegevens_ uitschakelen |
+| **Opslag Log Analytics** |  |
+| Aanbeveling en waarschuwingen van het apparaat| Beveiligings aanbeveling en waarschuwingen die worden gegenereerd door de service | Niet optioneel |
+| Onbewerkte beveiligings gegevens| Onbewerkte beveiligings gegevens van IoT-apparaten, verzameld door beveiligings agenten | _Beveiligings gebeurtenissen_ voor het opslaan van onbewerkte apparaten uitschakelen |
 
 >[!Important]
-> Uitschrijft, heeft ernstige gevolgen voor beschikbare beveiligingsfuncties.
+> Uitbellen heeft ernstige gevolgen voor de beschik bare beveiligings functies.
   
-| Opt-out | Gevolgen |
+| Afmelden | Gevolgen |
 | --- | --- |
-| _Dubbele metagegevensverzameling_ | Uitschakelen [aangepaste waarschuwingen](quickstart-create-custom-alerts.md) |
-| | IoT Edge manifest aanbevelingen uitschakelen |
-| | Apparaat-id op basis van aanbevelingen en waarschuwingen uitschakelen |
-| _Store-gecodeerd apparaat beveiligingsgebeurtenissen_ | Meer informatie over apparaat OS algemene aanbevelingen zijn niet beschikbaar |
-| | Informatie over [waarschuwing](concept-security-alerts.md) en [aanbeveling](concept-recommendations.md) onderzoeken zijn niet beschikbaar |
+| _Verzameling van dubbele meta gegevens_ | [Aangepaste waarschuwingen](quickstart-create-custom-alerts.md) uitschakelen |
+| | Aanbevelingen van IoT Edge-manifest uitschakelen |
+| | Aanbevelingen en waarschuwingen op basis van apparaat-id's uitschakelen |
+| _Beveiligings gebeurtenissen voor onbewerkte apparaten opslaan_ | Details van de algemene aanbevelingen voor het besturings systeem van het apparaat zijn niet beschikbaar |
+| | Er zijn geen gegevens over [waarschuwingen](concept-security-alerts.md) en [aanbevelings](concept-recommendations.md) onderzoeken beschikbaar |
+|
 
 
 ## <a name="see-also"></a>Zie ook
 
-- Toegang tot uw [onbewerkte beveiligingsgegevens](how-to-security-data-access.md)
+- Toegang tot uw onbewerkte [beveiligings gegevens](how-to-security-data-access.md)
 - [Een apparaat onderzoeken](how-to-investigate-device.md)
-- Begrijpen en verkennen [aanbevelingen voor beveiliging](concept-recommendations.md)
-- Begrijpen en verkennen [beveiligingswaarschuwingen](concept-security-alerts.md)
+- [Beveiligings aanbevelingen](concept-recommendations.md) begrijpen en verkennen
+- [Beveiligings waarschuwingen](concept-security-alerts.md) begrijpen en verkennen

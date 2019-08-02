@@ -1,6 +1,6 @@
 ---
-title: Meer informatie over het onboarden updatebeheer, wijzigingen bijhouden en inventaris oplossingen voor meerdere virtuele machines in Azure Automation
-description: Informatie over hoe zorgen voor onboarding een virtueel Azure-machine met updatebeheer, wijzigingen bijhouden en inventaris oplossingen die deel uitmaken van Azure Automation
+title: Meer informatie over het voorbereiden van Updatebeheer-, Wijzigingen bijhouden-en inventaris oplossingen voor meerdere Vm's in Azure Automation
+description: Meer informatie over het voorbereiden van een virtuele machine van Azure met Updatebeheer, Wijzigingen bijhouden en inventaris oplossingen die deel uitmaken van Azure Automation
 services: automation
 ms.service: automation
 author: bobbytreed
@@ -9,16 +9,16 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 11dda62a7d8a92b17eb1d431e61086680f356195
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: cf063311e5559ddf5706df397ce744a726610000
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476623"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667347"
 ---
-# <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Inschakelen van updatebeheer, wijzigingen bijhouden en inventaris-oplossingen op meerdere virtuele machines
+# <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Oplossingen voor Updatebeheer, Wijzigingen bijhouden en inventaris inschakelen op meerdere Vm's
 
-Azure Automation biedt oplossingen voor het beheren van beveiligingsupdates, het bijhouden van wijzigingen en inventaris wat er op uw computers is geïnstalleerd. Er zijn meerdere manieren om Onboarding van machines, u kunt Onboarding van de oplossing [van een virtuele machine](automation-onboard-solutions-from-vm.md), van uw [Automation-account](automation-onboard-solutions-from-automation-account.md), bij het bladeren door virtuele machines of door [runbook](automation-onboard-solutions.md). In dit artikel bevat informatie over onboarding deze oplossingen bij het bladeren door virtuele machines in Azure.
+Azure Automation biedt oplossingen voor het beheren van beveiligings updates van het besturings systeem, het bijhouden van wijzigingen en het inventariseren van wat op uw computers is geïnstalleerd. Er zijn meerdere manieren om computers vrij te maken, u kunt de oplossing [van een virtuele machine](automation-onboard-solutions-from-vm.md), van uw Automation- [account](automation-onboard-solutions-from-automation-account.md), voor het bladeren door virtuele machines, of per [runbook](automation-onboard-solutions.md), uitvoeren. In dit artikel wordt beschreven hoe u deze oplossingen voorbereidt tijdens het bladeren door virtuele machines in Azure.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -26,136 +26,138 @@ Aanmelden bij Azure op https://portal.azure.com
 
 ## <a name="enable-solutions"></a>Oplossingen inschakelen
 
-In de Azure-portal, gaat u naar **virtuele machines**.
+Ga in het Azure Portal naar **virtuele machines**.
 
-Met behulp van de selectievakjes uit, selecteer de virtuele machines die u vrijgeven met wijzigingen bijhouden en inventaris of updatebeheer wilt. Onboarding is beschikbaar voor maximaal drie verschillende resourcegroepen bevinden op een tijdstip. Virtuele Azure-machines kunnen bestaan in andere regio's, ongeacht de locatie van uw Automation-Account.
+Gebruik de selectie vakjes om de virtuele machines te selecteren die u wilt vrijgeven met Wijzigingen bijhouden en inventaris of Updatebeheer. Onboarding is beschikbaar voor Maxi maal drie verschillende resource groepen tegelijk. Azure-Vm's kunnen in elke regio bestaan, ongeacht de locatie van uw Automation-account.
 
-![Lijst met virtuele machines](media/automation-onboard-solutions-from-browse/vmlist.png)
+![Lijst met Vm's](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]
-> Gebruik de besturingselementen voor filteren aan de lijst met virtuele machines wijzigen en klik vervolgens op het bovenste selectievakje in om te selecteren van alle virtuele machines in de lijst.
+> Gebruik de filter besturings elementen om de lijst met virtuele machines te wijzigen en klik vervolgens op het selectie vakje aan de bovenkant om alle virtuele machines in de lijst te selecteren.
 
-Klik in de opdrachtbalk op **Services** en selecteert u **bijhouden**, **voorraad**, of **updatebeheer**.
+Klik op de opdracht balk op **Services** en selecteer **Wijzigingen bijhouden**, **inventaris**of **updatebeheer**.
 
 > [!NOTE]
-> **Bijhouden van wijzigingen** en **voorraad** gebruikt het dezelfde oplossing als een is ingeschakeld de andere ook is ingeschakeld.
+> **Wijzigingen bijhouden** en **inventarisatie** gebruiken dezelfde oplossing, wanneer er een is ingeschakeld, de andere is ingeschakeld.
 
-De volgende afbeelding is voor updatebeheer. Wijzigingen bijhouden en inventaris hebben dezelfde lay-out en gedrag.
+De volgende afbeelding is voor Updatebeheer. Wijzigingen bijhouden en inventaris hebben dezelfde indeling en hetzelfde gedrag.
 
-De lijst met virtuele machines wordt gefilterd om alleen de virtuele machines die zich in hetzelfde abonnement en locatie weer te geven. Als uw virtuele machines zich in meer dan drie resourcegroepen, wordt de eerste drie resourcegroepen zijn geselecteerd.
+De lijst met virtuele machines wordt gefilterd om alleen de virtuele machines weer te geven die zich in hetzelfde abonnement en dezelfde locatie bevinden. Als uw virtuele machines zich in meer dan drie resource groepen bevinden, worden de eerste drie resource groepen geselecteerd.
 
-### <a name="resource-group-limit"></a> Onboarding-beperkingen
+### <a name="resource-group-limit"></a>Beperkingen voor onboarding
 
-Het aantal resourcegroepen die u voor onboarding gebruiken kunt wordt beperkt door de [limieten voor Resource Manager-implementatie](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Resource Manager-implementaties, niet te verwarren met Update-implementaties zijn beperkt tot 5 resourcegroepen per implementatie. 2 van deze resourcegroepen zijn om te controleren of de integriteit van onboarding, gereserveerd voor het configureren van de Log Analytics-werkruimte, het Automation-account en de gerelateerde resources. U verlaat dit met 3 resourcegroepen selecteren voor implementatie.
+Het aantal resource groepen dat u voor onboarding kunt gebruiken, wordt beperkt door de [implementatie limieten van Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Implementaties van Resource Manager, niet te verwarren met update-implementaties, zijn beperkt tot 5 Resource groepen per implementatie. 2 van deze resource groepen zijn gereserveerd voor het configureren van de Log Analytics-werk ruimte, het Automation-account en gerelateerde resources om de integriteit van de onboarding te garanderen. U kunt drie resource groepen selecteren voor implementatie.
 
-Gebruik de besturingselementen voor filteren om te selecteren van virtuele machines uit verschillende abonnementen, locaties en resourcegroepen.
+U kunt ook een runbook gebruiken voor onboarding. Zie voor meer informatie [onboard update en oplossingen voor het bijhouden van wijzigingen in azure Automation](automation-onboard-solutions.md).
 
-![Onboarden voor updatebeheer](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
+Gebruik de filter besturings elementen om virtuele machines te selecteren op basis van verschillende abonnementen, locaties en resource groepen.
 
-Controleer de keuzes voor de Log Analytics-werkruimte en het Automation-account. Een bestaande werkruimte en een Automation-Account zijn standaard geselecteerd. Als u gebruiken een andere Log Analytics-werkruimte en een Automation-Account wilt, klikt u op **aangepaste** te selecteren uit de **aangepaste configuratie** pagina. Wanneer u ervoor een Log Analytics-werkruimte kiest, wordt een controle uitgevoerd om te bepalen als deze is gekoppeld aan een Automation-Account. Als een gekoppelde Automation-Account wordt gevonden, ziet u het volgende scherm. Wanneer u klaar bent, klikt u op **OK**.
+![Oplossing voor update beheer voor onboarding](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-![Selecteer een werkruimte en account](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
+Bekijk de opties voor de Log Analytics-werk ruimte en het Automation-account. Een bestaande werk ruimte en een Automation-account zijn standaard geselecteerd. Als u een andere Log Analytics-werk ruimte en een Automation-account wilt gebruiken, klikt u op **aangepast** om ze te selecteren op de pagina **aangepaste configuratie** . Wanneer u een werk ruimte voor Log Analytics kiest, wordt er een controle uitgevoerd om te bepalen of deze is gekoppeld aan een Automation-account. Als er een gekoppeld Automation-account wordt gevonden, wordt het volgende scherm weer gegeven. Klik op **OK**wanneer u klaar bent.
 
-Als de geselecteerde werkruimte is niet gekoppeld aan een Automation-Account, ziet u het volgende scherm. Selecteer een Automation-Account en klik op **OK** wanneer u klaar bent.
+![Werk ruimte en account selecteren](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
-![Er is geen werkruimte](media/automation-onboard-solutions-from-browse/no-workspace.png)
+Als de geselecteerde werk ruimte niet is gekoppeld aan een Automation-account, wordt het volgende scherm weer gegeven. Selecteer een Automation-account en klik op **OK** wanneer u klaar bent.
+
+![Geen werk ruimte](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
 > [!NOTE]
 > Bij het inschakelen van oplossingen worden slechts bepaalde regio's ondersteund voor het koppelen van een Log Analytics-werkruimte aan een Automation-Account.
 >
-> Zie voor een lijst van de ondersteunde toewijzingsparen, [regiotoewijzing voor Automation-Account en de Log Analytics-werkruimte](how-to/region-mappings.md).
+> Zie [regio toewijzing voor Automation-account en log Analytics-werk ruimte](how-to/region-mappings.md)voor een lijst met de ondersteunde toewijzings paren.
 
-Schakel het selectievakje naast een virtuele machine die u niet wilt inschakelen. Virtuele machines die kan niet worden ingeschakeld, zijn al uitgeschakeld.
+Schakel het selectie vakje naast een wille keurige virtuele machine die u niet wilt inschakelen uit. De selectie van virtuele machines die niet kunnen worden ingeschakeld, is al opheffen.
 
-Klik op **inschakelen** de oplossing in te schakelen. Het duurt maximaal 15 minuten om de oplossing in te schakelen.
+Klik op **inschakelen** om de oplossing in te scha kelen. Het duurt maximaal 15 minuten om de oplossing in te schakelen.
 
-## <a name="unlink-workspace"></a>Werkruimte ontkoppelen
+## <a name="unlink-workspace"></a>Werk ruimte ontkoppelen
 
-De volgende oplossingen zijn afhankelijk van een Log Analytics-werkruimte:
+De volgende oplossingen zijn afhankelijk van een Log Analytics-werk ruimte:
 
 * [Updatebeheer](automation-update-management.md)
 * [Tracering wijzigen](automation-change-tracking.md)
-* [VM's starten/stoppen buiten kantooruren](automation-solution-vm-management.md)
+* [Vm's starten/stoppen buiten kantoor uren](automation-solution-vm-management.md)
 
-Als u besluit dat u niet meer wilt integreren van uw Automation-account met een Log Analytics-werkruimte, kunt u uw account rechtstreeks vanuit de Azure portal kunt ontkoppelen. Voordat u doorgaat, moet u eerst te verwijderen van de oplossingen die eerder vermeld, anders wordt dit proces zal worden voorkomen dat u doorgaat. Lees het artikel voor de desbetreffende oplossing die u hebt geïmporteerd voor meer informatie over de stappen die nodig zijn om deze te verwijderen.
+Als u besluit dat u uw Automation-account niet meer wilt integreren met een Log Analytics-werk ruimte, kunt u uw account rechtstreeks van de Azure Portal ontkoppelen. Voordat u doorgaat, moet u eerst de eerder genoemde oplossingen verwijderen, anders kan dit proces niet worden voortgezet. Raadpleeg het artikel voor de specifieke oplossing die u hebt geïmporteerd om inzicht te krijgen in de stappen die nodig zijn om deze te verwijderen.
 
-Nadat u deze oplossingen hebt verwijderd, kunt u de volgende stappen uit als u wilt loskoppelen van uw Automation-account kunt uitvoeren.
+Nadat u deze oplossingen hebt verwijderd, kunt u de volgende stappen uitvoeren om het Automation-account te ontkoppelen.
 
 > [!NOTE]
-> Sommige oplossingen met inbegrip van eerdere versies van de Azure SQL-oplossing voor controle mogelijk gemaakt automatiseringsactiva en moet mogelijk ook worden verwijderd voordat het ontkoppelen van de werkruimte.
+> Sommige oplossingen, waaronder eerdere versies van de Azure SQL-bewakings oplossing, hebben mogelijk Automation-assets gemaakt en moeten mogelijk ook worden verwijderd voordat u de werk ruimte ontkoppelt.
 
-1. Open uw Automation-account vanuit Azure portal, en op de Automation-account selecteren pagina **gekoppelde werkruimte** onder de sectie **gerelateerde Resources** aan de linkerkant.
+1. Open uw Automation-account vanuit het Azure Portal en selecteer op de pagina Automation-account de optie **gekoppelde werk ruimte** onder de sectie **Verwante resources** aan de linkerkant.
 
-2. Klik op de pagina van de werkruimte ontkoppelen **werkruimte ontkoppelen**.
+2. Klik op de pagina werk ruimte ontkoppelen op **werk ruimte ontkoppelen**.
 
-   ![Pagina voor werkruimte ontkoppelen](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
+   ![Pagina werk ruimte ontkoppelen](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    U ontvangt een prompt waarin u wordt gevraagd of u wilt doorgaan.
 
-3. Terwijl Azure Automation probeert te ontkoppelen van het account uw Log Analytics-werkruimte, u kunt de voortgang volgen onder **meldingen** in het menu.
+3. Terwijl Azure Automation probeert het account te ontkoppelen van uw Log Analytics-werk ruimte, kunt u de voortgang bijhouden onder **meldingen** in het menu.
 
-Als u de oplossing Update Management gebruikt, kunt indien gewenst u verwijderen van de volgende items die niet meer nodig zijn nadat u de oplossing te verwijderen.
+Als u de oplossing Updatebeheer hebt gebruikt, kunt u eventueel de volgende items verwijderen die niet meer nodig zijn nadat u de oplossing hebt verwijderd.
 
-* Plant u update - elk hebben namen die overeenkomen met de update-implementaties die u hebt gemaakt)
+* Update schema's: elk heeft een naam die overeenkomt met de update-implementaties die u hebt gemaakt.
 
-* Hybrid worker-groepen gemaakt voor de oplossing - elke naam op dezelfde manier naar machine1.contoso.com_9ceb8108 - 26 c 9-4051-b6b3-227600d715c8).
+* Hybrid worker-groepen gemaakt voor de oplossing: elke groep krijgt dezelfde naam als machine1. contoso. com _9ceb8108-26c9-4051-b6b3-227600d715c8).
 
-Als u de VM's starten/stoppen buiten kantooruren oplossing gebruikt, kunt indien gewenst u verwijderen van de volgende items die niet meer nodig zijn nadat u de oplossing te verwijderen.
+Als u de oplossing Vm's starten/stoppen buiten kantoor uren hebt gebruikt, wilt u eventueel mogelijk de volgende items verwijderen die niet meer nodig zijn nadat u de oplossing hebt verwijderd.
 
-* Starten en stoppen van VM runbook schema 's
+* VM-runbook-schema's starten en stoppen
 * VM-runbooks starten en stoppen
 * Variabelen
 
-U kunt ook ook uw werkruimte ontkoppelen van uw Automation-Account van uw Log Analytics-werkruimte. Selecteer in de werkruimte **Automation-Account** onder **gerelateerde Resources**. Selecteer op de pagina Automation-Account **-account loskoppelen**.
+U kunt ook uw werk ruimte ontkoppelen van uw Automation-account vanuit uw Log Analytics-werk ruimte. Selecteer in uw werk ruimte **Automation-account** onder **gerelateerde resources**. Selecteer op de pagina Automation-account de optie **account loskoppelen**.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Wanneer onboarding meerdere machines, kunnen er machines die als **kan niet worden ingeschakeld**. Er zijn verschillende redenen waarom sommige computers niet kunnen worden ingeschakeld. De volgende secties tonen mogelijke redenen voor de **kan niet worden ingeschakeld** staat op een virtuele machine wanneer u probeert te onboarden.
+Bij het onboarden van meerdere machines zijn er mogelijk computers die **niet**kunnen worden ingeschakeld. Er zijn verschillende redenen waarom sommige computers niet kunnen worden ingeschakeld. In de volgende secties worden mogelijke oorzaken voor de status **kan niet inschakelen** op een virtuele machine worden weer gegeven wanneer u probeert onboarding uit te voeren.
 
-### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>Virtuele machine rapporteert aan een andere werkruimte: '\<workspaceName\>'.  De configuratie wijzigen om deze te gebruiken voor het inschakelen van
+### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>VM-rapporten naar een andere werk ruimte\<: '\>workspacenaam '.  Configuratie wijzigen om deze functie in te scha kelen
 
-**Oorzaak**: Deze fout ziet u dat de virtuele machine die u vrijgeven rapporten aan een andere werkruimte wilt.
+**Oorzaak**: Deze fout geeft aan dat de virtuele machine die u probeert uit te voeren rapporteert aan een andere werk ruimte.
 
-**Oplossing**: Klik op **gebruiken als de configuratie** te wijzigen van de betreffende Automation-Account en de Log Analytics-werkruimte.
+**Oplossing**: Klik op **als configuratie gebruiken** om het beoogde Automation-account en de log Analytics-werk ruimte te wijzigen.
 
-### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>Virtuele machine rapporteert aan een werkruimte die is niet beschikbaar in dit abonnement
+### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>VM-rapporten naar een werk ruimte die niet beschikbaar is in dit abonnement
 
-**Oorzaak**: De werkruimte die de virtuele machine rapporteert aan:
+**Oorzaak**: De werk ruimte waarnaar de virtuele machine rapporteert:
 
-* Is in een ander abonnement of
-* Niet meer bestaat, of
-* Is in een resourcegroep die u geen toegangsmachtigingen voor hebt
+* Bevindt zich in een ander abonnement of
+* Bestaat niet meer of
+* Bevindt zich in een resource groep waarvoor u geen toegangs machtigingen hebt
 
-**Oplossing**: Het automation-account gekoppeld aan de werkruimte waarin de virtuele machine en vrijgeven de virtuele machine gevonden door het veranderen van de scopeconfiguratie.
+**Oplossing**: Zoek het Automation-account dat is gekoppeld aan de werk ruimte die door de VM wordt gerapporteerd aan en onboarding van de virtuele machine door de scope configuratie te wijzigen.
 
-### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>De versie van de VM-besturingssysteem of distributie wordt niet ondersteund
+### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>De versie of distributie van het VM-besturings systeem wordt niet ondersteund
 
-**Oorzaak:** De oplossing wordt niet ondersteund voor alle Linux-distributies of alle versies van Windows.
+**Wordt** De oplossing wordt niet ondersteund voor alle Linux-distributies of alle versies van Windows.
 
-**Oplossing:** Raadpleeg de [lijst van ondersteunde clients](automation-update-management.md#clients) voor de oplossing.
+**Oplossen** Raadpleeg de [lijst met ondersteunde clients](automation-update-management.md#clients) voor de oplossing.
 
 ### <a name="classic-vms-cannot-be-enabled"></a>Klassieke virtuele machines kunnen niet worden ingeschakeld
 
-**Oorzaak**: Virtuele machines die gebruikmaken van het klassieke implementatiemodel worden niet ondersteund.
+**Oorzaak**: Virtuele machines die gebruikmaken van het klassieke implementatie model, worden niet ondersteund.
 
-**Oplossing**: Migreer de virtuele machine naar het Resource Manager-implementatiemodel. Zie voor meer informatie hoe u dit doet, [classic deployment model resources migreren](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Oplossing**: Migreer de virtuele machine naar het Resource Manager-implementatie model. Zie [klassieke implementatie model bronnen migreren](../virtual-machines/windows/migration-classic-resource-manager-overview.md)voor meer informatie over hoe u dit doet.
 
-### <a name="vm-is-stopped-deallocated"></a>Virtuele machine is gestopt. (toewijzing opgeheven)
+### <a name="vm-is-stopped-deallocated"></a>De VM is gestopt. deallocated
 
-**Oorzaak**: De virtuele machine in niet in een **met** staat.
+**Oorzaak**: De virtuele machine **wordt niet uitgevoerd** .
 
-**Oplossing**: Om moet onboarding een virtuele machine naar een oplossing voor de virtuele machine worden uitgevoerd. Klik op de **VM starten** inlinekoppeling naar de virtuele machine starten zonder de pagina wordt genavigeerd.
+**Oplossing**: Als u een virtuele machine wilt voorbereiden op een oplossing, moet de virtuele machine worden uitgevoerd. Klik op de koppeling VM-inline **starten** om de VM te starten zonder op de pagina te navigeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat de oplossing is ingeschakeld voor uw virtuele machines, gaat u naar het artikel van het overzicht updatebeheer voor informatie over het weergeven van de systeemupdate-evaluatie voor uw virtuele machines.
+Nu de oplossing is ingeschakeld voor uw virtuele machines, gaat u naar het artikel overzicht van Updatebeheer voor meer informatie over het weer geven van de update-evaluatie voor uw machines.
 
 > [!div class="nextstepaction"]
-> [Updates beheren - update-evaluatie bekijken](./automation-update-management.md#viewing-update-assessments)
+> [Updatebeheer-update-evaluatie weer geven](./automation-update-management.md#viewing-update-assessments)
 
-Zelfstudies voor toevoeging van de oplossingen en het gebruik ervan:
+Aanvullende zelf studies voor de oplossingen en hoe u deze kunt gebruiken:
 
-* [Zelfstudie - Updates voor uw virtuele machine beheren](automation-tutorial-update-management.md)
+* [Zelf studie-updates voor uw virtuele machine beheren](automation-tutorial-update-management.md)
 
-* [Zelfstudie - software op een virtuele machine identificeren](automation-tutorial-installed-software.md)
+* [Zelf studie-software op een virtuele machine identificeren](automation-tutorial-installed-software.md)
 
-* [Zelfstudie: problemen met wijzigingen op een virtuele machine oplossen](automation-tutorial-troubleshoot-changes.md)
+* [Zelf studie: problemen met wijzigingen in een virtuele machine oplossen](automation-tutorial-troubleshoot-changes.md)

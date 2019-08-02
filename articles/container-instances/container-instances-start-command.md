@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 99440e22eb736522a25c2ee56bb07ef1d9967e66
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 40d946db48a65452d2da529098c07d0d0c60d472
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325657"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619658"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Stel de opdracht regel in een container exemplaar in om de standaard opdracht regel bewerking te overschrijven
 
@@ -23,7 +23,7 @@ Net als bij het instellen van [omgevings variabelen](container-instances-environ
 
 ## <a name="command-line-guidelines"></a>Opdracht regel richtlijnen
 
-* De opdracht regel specificeert standaard *één proces dat wordt gestart zonder een shell* in de container. De opdracht regel kan bijvoorbeeld een python-script of een uitvoerbaar bestand worden uitgevoerd. 
+* De opdracht regel specificeert standaard *één proces dat wordt gestart zonder een shell* in de container. De opdracht regel kan bijvoorbeeld een python-script of een uitvoerbaar bestand worden uitgevoerd. Het proces kan aanvullende para meters of argumenten opgeven.
 
 * Als u meerdere opdrachten wilt uitvoeren, start u de opdracht regel door een shell-omgeving in te stellen die wordt ondersteund in het besturings systeem van de container. Voorbeelden:
 
@@ -66,7 +66,7 @@ De syntaxis van de opdracht regel is afhankelijk van de API of het hulp programm
 
 Wijzig bijvoorbeeld het gedrag van de container installatie kopie [micro soft/ACI-WordCount][aci-wordcount] , die tekst analyseert in de *Hamlet* van Shakespeare om de meest voorkomende woorden te vinden. In plaats van *Hamlet*te analyseren, kunt u een opdracht regel instellen die naar een andere tekst bron wijst.
 
-Om de uitvoer van de opdracht [micro soft/ACI-WordCount][aci-wordcount] container when it analyzes the default text, run it with the following [az container create][az-container-create] weer te geven. Er is geen start opdracht regel opgegeven, dus de standaard container opdracht wordt uitgevoerd. Ter illustratie stelt dit voor beeld [omgevings variabelen](container-instances-environment-variables.md) in om de eerste drie woorden te vinden die ten minste vijf letters lang zijn:
+Als u de uitvoer van de [micro soft/ACI-WordCount-][aci-wordcount] container wilt zien bij het analyseren van de standaard tekst, voert u deze uit met de volgende opdracht [AZ container Create][az-container-create] . Er is geen start opdracht regel opgegeven, dus de standaard container opdracht wordt uitgevoerd. Ter illustratie stelt dit voor beeld [omgevings variabelen](container-instances-environment-variables.md) in om de eerste drie woorden te vinden die ten minste vijf letters lang zijn:
 
 ```azurecli-interactive
 az container create \
@@ -77,7 +77,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Zodra de status van de container wordt weer gegeven als *beëindigd* (gebruik [AZ container show][az-container-show] to check state), display the log with [az container logs][az-container-logs] om de uitvoer weer te geven).
+Zodra de status van de container wordt weer gegeven als *beëindigd* (gebruik [AZ container show][az-container-show] om state te controleren), geeft u het logboek met [AZ container logs][az-container-logs] weer om de uitvoer te bekijken.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1

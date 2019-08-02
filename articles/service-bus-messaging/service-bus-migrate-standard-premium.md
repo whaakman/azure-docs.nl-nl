@@ -1,6 +1,6 @@
 ---
-title: Migreren van bestaande Azure Service Bus standard-naamruimten naar de premium-laag | Microsoft Docs
-description: Handleiding voor het toestaan van de migratie van bestaande standaard Azure Service Bus-naamruimten naar premium
+title: Bestaande Azure Service Bus Standard-naam ruimten migreren naar de Premium-laag | Microsoft Docs
+description: Gids voor het toestaan van de migratie van bestaande Azure Service Bus Standard-naam ruimten naar Premium
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,47 +14,47 @@ ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
 ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67566065"
 ---
-# <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migreren van bestaande Azure Service Bus standard-naamruimten naar de premium-laag
-Azure Service Bus aangeboden eerder, naamruimten alleen op de standard-laag. Naamruimten worden instellingen voor meerdere tenants die zijn geoptimaliseerd voor lage doorvoer en ontwikkelaarsomgevingen. De premium-laag biedt toegewezen bronnen per naamruimte voor voorspelbare latentie en verbeterde doorvoer tegen een vaste prijs. De premium-laag is geoptimaliseerd voor hoge doorvoer en productieomgevingen waarvoor extra enterprise-functies.
+# <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Bestaande Azure Service Bus Standard-naam ruimten migreren naar de Premium-laag
+Voorheen beAzure Service Bus de aangeboden naam ruimten alleen in de laag standaard. Naam ruimten zijn instellingen voor multi tenants die zijn geoptimaliseerd voor omgevingen met lage door Voer en ontwikkel aars. De Premium-laag biedt toegewezen bronnen per naam ruimte voor voorspel bare latentie en verhoogde door voer tegen een vaste prijs. De Premium-laag is geoptimaliseerd voor omgevingen met hoge door Voer en productie waarvoor extra bedrijfs functies nodig zijn.
 
-Dit artikel wordt beschreven hoe u voor het migreren van bestaande naamruimten voor standard-laag naar de premium-laag.  
+In dit artikel wordt beschreven hoe u bestaande naam ruimten van de Standard-laag migreert naar de laag Premium.  
 
 >[!WARNING]
-> Migratie is bedoeld voor Service Bus standard-naamruimten worden bijgewerkt naar de premium-laag. Het hulpprogramma voor migratie ondersteunt geen downgrade uitvoert.
+> Migratie is bedoeld voor Service Bus standaard naam ruimten die moeten worden bijgewerkt naar de Premium-laag. Het hulp programma voor migratie biedt geen ondersteuning voor downgrades.
 
-Enkele van de die u moet weten: 
-- Deze migratie is bedoeld om u te gebeuren aanwezig is, wat betekent dat bestaande afzender en de ontvanger toepassingen **niet vereist geen wijzigingen in code of configuratie**. De bestaande verbindingsreeks wordt automatisch verwijzen naar de nieuwe premium-naamruimte.
-- De **premium** naamruimte moet **geen entiteiten** in voor de migratie te voltooien. 
-- Alle **entiteiten** in de standard-naamruimte zijn **gekopieerd** naar de premium-naamruimte tijdens het migratieproces. 
-- Migratie ondersteunt **1000 entiteiten per messaging-eenheid** op de premium-laag. Voor het identificeren van het aantal messaging-eenheden u moet beginnen met het aantal entiteiten die u op uw huidige standard-naamruimte hebt. 
-- U niet rechtstreeks migreren van **basic-laag** naar **premier laag**, maar u kunt zodat indirect doen door te migreren vanaf een basic eerst naar standard en klik in de standaard naar premium in de volgende stap.
+Enkele van de punten waarop moet worden genoteerd: 
+- Deze migratie is bedoeld om te worden uitgevoerd, wat betekent dat bestaande Sender-en receiver-toepassingen **geen wijzigingen in code of configuratie nodig hebben**. De bestaande connection string wijst automatisch naar de nieuwe Premium-naam ruimte.
+- De **Premium** -naam ruimte mag **geen entiteiten** bevatten voordat de migratie slaagt. 
+- Alle **entiteiten** in de standaard naam ruimte worden tijdens het migratie proces **gekopieerd** naar de Premium-naam ruimte. 
+- Migratie ondersteunt **1.000 entiteiten per Messa ging-eenheid** op de Premium-laag. Als u wilt weten hoeveel Messa ging-eenheden u nodig hebt, begint u met het aantal entiteiten dat u hebt in uw huidige standaard naam ruimte. 
+- U kunt niet rechtstreeks migreren van de **Basic-laag** naar de **premier-laag**, maar dit moet u ook indirect doen door de migratie eerst van Basic naar standaard en vervolgens van de standaard naar Premium in de volgende stap uit te voeren.
 
 ## <a name="migration-steps"></a>Migratiestappen
-Sommige voorwaarden zijn gekoppeld aan het migratieproces. Maak uzelf bekend met de volgende stappen uit om te verminderen de kans op fouten. Deze stappen wordt beschreven hoe u migratie en de stapsgewijze details worden weergegeven in de volgende secties.
+Sommige voor waarden zijn gekoppeld aan het migratie proces. Raadpleeg de volgende stappen om de kans op fouten te verminderen. In deze stappen wordt het migratie proces beschreven en worden de stapsgewijze details weer gegeven in de volgende secties.
 
-1. Maak een nieuwe premium-naamruimte.
-1. De standard en premium-naamruimten met elkaar worden gekoppeld.
-1. Synchronisatie (kopie via) entiteiten van de norm voor de premium-naamruimte.
-1. De migratie doorvoeren.
-1. Leegmaken entiteiten in de standard-naamruimte met behulp van de naam na de migratie van de naamruimte.
-1. De standard-naamruimte verwijderen.
+1. Maak een nieuwe Premium-naam ruimte.
+1. Koppel de standaard-en Premium-naam ruimten aan elkaar.
+1. Synchroniseer entiteiten van de Standard-naar de Premium-naam ruimte.
+1. Voer de migratie door.
+1. Afvoer entiteiten in de standaard naam ruimte met behulp van de naam van de post-migratie van de naam ruimte.
+1. Verwijder de standaard naam ruimte.
 
 >[!IMPORTANT]
-> Nadat de migratie doorgevoerd is, toegang tot de oude standard-naamruimte en leegmaken van de wachtrijen en abonnementen. Nadat u hebt de berichten zijn geleegd, kunnen ze naar de nieuwe premium-naamruimte kan worden verwerkt door de toepassingen van de ontvanger verzonden. Nadat de wachtrijen en abonnementen is geleegd, wordt u aangeraden dat u de oude standard-naamruimte verwijdert.
+> Nadat de migratie is doorgevoerd, opent u de oude standaard naam ruimte en verwerkt u de wacht rijen en abonnementen. Nadat de berichten zijn ontslagen, kunnen ze worden verzonden naar de nieuwe Premium-naam ruimte die door de ontvangende toepassingen moet worden verwerkt. Nadat de wacht rijen en abonnementen zijn leeg gemaakt, wordt u aangeraden de oude standaard naam ruimte te verwijderen.
 
-### <a name="migrate-by-using-the-azure-cli-or-powershell"></a>Migreren met behulp van de Azure CLI of PowerShell
+### <a name="migrate-by-using-the-azure-cli-or-powershell"></a>Migreren met behulp van Azure CLI of Power shell
 
-Als u wilt uw standard Service Bus-naamruimte migreren naar premium met behulp van de Azure CLI of PowerShell-hulpprogramma, de volgende stappen uit.
+Als u uw Service Bus Standard-naam ruimte wilt migreren naar Premium met behulp van het Azure CLI-of Power shell-hulp programma, volgt u deze stappen.
 
-1. Maak een nieuwe Service Bus premium-naamruimte. U kunt verwijzen naar de [Azure Resource Manager-sjablonen](service-bus-resource-manager-namespace.md) of [gebruik van Azure portal](service-bus-create-namespace-portal.md). Zorg ervoor dat u selecteert **premium** voor de **serviceBusSku** parameter.
+1. Maak een nieuwe Service Bus Premium-naam ruimte. U kunt verwijzen naar de [Azure Resource Manager sjablonen](service-bus-resource-manager-namespace.md) of [de Azure Portal gebruiken](service-bus-create-namespace-portal.md). Zorg ervoor dat u **Premium** selecteert voor de para meter **serviceBusSku** .
 
-1. Stel de volgende omgevingsvariabelen voor het vereenvoudigen van de migratie-opdrachten.
+1. Stel de volgende omgevings variabelen in om de migratie opdrachten te vereenvoudigen.
    ```azurecli
    resourceGroup = <resource group for the standard namespace>
    standardNamespace = <standard namespace to migrate>
@@ -63,112 +63,112 @@ Als u wilt uw standard Service Bus-naamruimte migreren naar premium met behulp v
    ```
 
     >[!IMPORTANT]
-    > Na de migratie/naam van de alias (post_migration_dns_name) wordt gebruikt voor toegang tot de oude standard-naamruimte nadat de migratie. Gebruik deze verwijderen uit de wachtrijen en abonnementen, en verwijder vervolgens de naamruimte.
+    > De alias/naam van het na de migratie (post_migration_dns_name) wordt gebruikt voor toegang tot de oude standaard naam ruimte na migratie. Gebruik deze om de wacht rijen en de abonnementen af te zuigen en verwijder vervolgens de naam ruimte.
 
-1. De standard en premium-naamruimten worden gekoppeld en de synchronisatie te starten met behulp van de volgende opdracht uit:
+1. Koppel de standaard-en Premium-naam ruimten en start de synchronisatie met behulp van de volgende opdracht:
 
     ```azurecli
     az servicebus migration start --resource-group $resourceGroup --name $standardNamespace --target-namespace $premiumNamespaceArmId --post-migration-name $postMigrationDnsName
     ```
 
 
-1. Controleer de status van de migratie met behulp van de volgende opdracht uit:
+1. Controleer de status van de migratie met behulp van de volgende opdracht:
     ```azurecli
     az servicebus migration show --resource-group $resourceGroup --name $standardNamespace
     ```
 
-    De migratie als voltooid beschouwd wanneer u de volgende waarden:
-    * MigrationState = 'Actief'
+    De migratie wordt als voltooid beschouwd wanneer u de volgende waarden ziet:
+    * MigrationState = "actief"
     * pendingReplicationsOperationsCount = 0
-    * provisioningState = "Geslaagd"
+    * provisioningState = "geslaagd"
 
-    Deze opdracht wordt ook weergegeven voor de configuratie voor de migratie. Controleer of de waarden correct zijn ingesteld. Controleer ook of de premium-naamruimte in de portal om te controleren of alle wachtrijen en onderwerpen zijn gemaakt en dat ze overeenkomen met wat aanwezig in de standard-naamruimte.
+    Met deze opdracht wordt ook de migratie configuratie weer gegeven. Controleer of de waarden juist zijn ingesteld. Controleer ook de Premium-naam ruimte in de portal om te controleren of alle wacht rijen en onderwerpen zijn gemaakt en of ze overeenkomen met wat er in de standaard naam ruimte aanwezig is.
 
-1. Voer de migratie door het uitvoeren van de volgende opdracht voltooid:
+1. Voer de volgende volledige opdracht uit om de migratie door te voeren:
    ```azurecli
    az servicebus migration complete --resource-group $resourceGroup --name $standardNamespace
    ```
 
-### <a name="migrate-by-using-the-azure-portal"></a>Migreren met behulp van de Azure-portal
+### <a name="migrate-by-using-the-azure-portal"></a>Migreren met behulp van de Azure Portal
 
-Migratie met behulp van de Azure-portal heeft de dezelfde logische stroom als voor de migratie met behulp van de opdrachten. Volg deze stappen als u wilt migreren met behulp van de Azure-portal.
+Migratie met behulp van de Azure Portal heeft dezelfde logische stroom als migratie met behulp van de opdrachten. Volg deze stappen om met behulp van de Azure Portal te migreren.
 
-1. Op de **navigatie** menu in het linkerdeelvenster, selecteer **migreren naar premium**. Klik op de **aan de slag** om door te gaan naar de volgende pagina.
-    ![Landingspagina van migratie][]
+1. Selecteer **migreren naar Premium**in het **Navigatie** menu in het linkerdeel venster. Klik op de knop aan de **slag** om door te gaan naar de volgende pagina.
+    ![Migratie landings pagina][]
 
-1. Volledige **Setup**.
-   ![Setup-naamruimte][]
-   1. Maken en toewijzen van de premium-naamruimte voor het migreren van de bestaande standard-naamruimte.
-        ![Instellen van de naamruimte - premium-naamruimte maken][]
-   1. Kies een **nadat de migratie naam**. U moet deze naam gebruiken voor toegang tot de standard-naamruimte nadat de migratie voltooid is.
-        ![Instellen van de naamruimte - naam voor na de migratie kiezen][]
-   1. Selecteer **'Volgende'** om door te gaan.
-1. De entiteiten van de synchronisatie tussen de standard en premium-naamruimten.
-    ![Begin van de naamruimte - entiteiten synchronisatie - instellingen][]
+1. Voltooi de **installatie**.
+   ![Naam ruimte instellen][]
+   1. Maak de Premium-naam ruimte en wijs deze toe om de bestaande standaard naam ruimte te migreren naar.
+        ![Installatie naam ruimte-Premium-naam ruimte maken][]
+   1. Kies een **naam**voor de migratie van de post. U gebruikt deze naam om toegang te krijgen tot de standaard naam ruimte nadat de migratie is voltooid.
+        ![Installatie naam ruimte: de naam van de post migratie kiezen][]
+   1. Selecteer **volgende** om door te gaan.
+1. Entiteiten synchroniseren tussen de Standard-en Premium-naam ruimten.
+    ![Setup-naam ruimte-entiteiten synchroniseren-starten][]
 
-   1. Selecteer **synchronisatie starten** om te beginnen met de entiteiten worden gesynchroniseerd.
-   1. Selecteer **Ja** in het dialoogvenster om te bevestigen en de synchronisatie starten.
-   1. Wacht totdat de synchronisatie voltooid is. De status is beschikbaar op de statusbalk.
-        ![De naamruimte - sync-entiteiten - voortgang van Setup][]
+   1. Selecteer **begin synchronisatie** om te beginnen met het synchroniseren van de entiteiten.
+   1. Selecteer **Ja** in het dialoog venster om de synchronisatie te bevestigen en te starten.
+   1. Wacht totdat de synchronisatie is voltooid. De status is beschikbaar op de status balk.
+        ![Naam ruimte instellen-entiteiten synchroniseren-voortgang][]
         >[!IMPORTANT]
-        > Als u wilt het Breek de migratie af voor een bepaalde reden, raadpleegt u de stroom afbreken in de sectie Veelgestelde vragen van dit document.
-   1. Nadat de synchronisatie voltooid is, selecteert u **volgende** aan de onderkant van de pagina.
+        > Als u de migratie om een of andere reden moet afbreken, raadpleegt u de afbreek stroom in het gedeelte Veelgestelde vragen van dit document.
+   1. Nadat de synchronisatie is voltooid, selecteert u **volgende** onder aan de pagina.
 
-1. Controleer de wijzigingen op de pagina overzicht. Selecteer **volledige migratie** om over te schakelen van naamruimten en om de migratie te voltooien.
-    ![Overschakelen van de naamruimte - switch menu][] de bevestigingspagina die wordt weergegeven wanneer de migratie voltooid is.
-    ![Switch-namespace - geslaagd][]
+1. Bekijk de wijzigingen op de pagina samen vatting. Selecteer **volledige migratie** om te scha kelen tussen naam ruimten en de migratie te volt ooien.
+    ![Switch naam ruimte: menu][] switch de pagina bevestiging wordt weer gegeven wanneer de migratie is voltooid.
+    ![Switch naam ruimte-geslaagd][]
 
-## <a name="caveats"></a>Aanvullende opmerkingen
+## <a name="caveats"></a>Waarschuwingen
 
-Enkele van de functies van Azure Service Bus Standard-laag worden niet ondersteund door Azure Service Bus Premium-laag. Dit zijn standaard omdat de premium-laag toegewezen resources voor voorspelbare doorvoer en latentie biedt.
+Sommige van de functies van Azure Service Bus Standard-laag worden niet ondersteund door Azure Service Bus Premium-laag. Dit zijn per ontwerp, aangezien de Premium-laag specifieke bronnen biedt voor voorspel bare door Voer en latentie.
 
-Hier volgt een lijst met functies die niet wordt ondersteund door Premium en hun risicobeperking- 
+Hier volgt een lijst met functies die niet worden ondersteund door Premium en de oplossing 
 
 ### <a name="express-entities"></a>Express-entiteiten
 
-   Express-entiteiten die de berichtgegevens van een naar de opslag niet doorvoeren worden niet ondersteund in Premium. Toegewezen resources opgegeven doorvoer aanzienlijke verbetering terwijl ervoor te zorgen dat gegevens worden opgeslagen, zoals van elke onderneming berichtensysteem wordt verwacht.
+   Express-entiteiten die geen bericht gegevens aan opslag door voeren, worden niet ondersteund in Premium. Toegewezen bronnen hebben aanzienlijke verbetering van de door Voer en zorgen ervoor dat de gegevens behouden blijven, zoals wordt verwacht van elk systeem voor bedrijfs berichten.
    
-   Tijdens de migratie wordt van de express-entiteiten in de Standard-naamruimte gemaakt op de Premium-naamruimte als een niet-express-entiteit.
+   Tijdens de migratie worden uw Express-entiteiten in uw standaard naam ruimte op de Premium-naam ruimte gemaakt als een niet-Express-entiteit.
    
-   Als u Azure Resource Manager (ARM)-sjablonen gebruiken, zorg ervoor dat u de vlag 'enableExpress' uit de implementatieconfiguratie, verwijderen zodat uw geautomatiseerde werkstromen worden uitgevoerd zonder fouten.
+   Als u Azure Resource Manager-sjablonen (ARM) gebruikt, moet u ervoor zorgen dat u de markering ' enableExpress ' verwijdert uit de implementatie configuratie zodat uw geautomatiseerde werk stromen zonder fouten worden uitgevoerd.
 
 ### <a name="partitioned-entities"></a>Gepartitioneerde entiteiten
 
-   Gepartitioneerde entiteiten werden ondersteund in de laag standaard voor betere beschikbaarheid in een multitenant-instellingen. Met het inrichten van toegewezen resources die beschikbaar is per naamruimte in de Premium-laag, is deze niet meer nodig.
+   Gepartitioneerde entiteiten worden ondersteund in de laag standaard om betere beschikbaarheids te bieden in een multi tenant-installatie. Met het inrichten van toegewezen resources die beschikbaar zijn per naam ruimte in de Premium-laag, is dit niet meer nodig.
    
-   Een gepartitioneerde eenheid in de Standard-naamruimte wordt tijdens de migratie als niet-gepartitioneerde eenheid gemaakt op de Premium-naamruimte.
+   Tijdens de migratie wordt een gepartitioneerde entiteit in de Standard-naam ruimte gemaakt op de Premium-naam ruimte als een niet-gepartitioneerde entiteit.
    
-   Als de ARM-sjabloon wordt ingesteld 'enablePartitioning' op 'true' voor een specifieke wachtrij of onderwerp, worden klikt u vervolgens het genegeerd door de broker.
+   Als uw ARM-sjabloon ' enablePartitioning ' instelt op ' True ' voor een specifieke wachtrij of onderwerp, wordt deze door de Broker genegeerd.
 
 ## <a name="faqs"></a>Veelgestelde vragen
 
-### <a name="what-happens-when-the-migration-is-committed"></a>Wat gebeurt er wanneer de migratie doorgevoerd is?
+### <a name="what-happens-when-the-migration-is-committed"></a>Wat gebeurt er wanneer de migratie wordt doorgevoerd?
 
-Nadat de migratie doorgevoerd is, wordt de verbindingsreeks die waarnaar wordt verwezen naar de standard-naamruimte verwijzen naar de premium-naamruimte.
+Nadat de migratie is doorgevoerd, wordt de connection string die naar de standaard naam ruimte wijst, naar de Premium-naam ruimte verwijzen.
 
-De afzender en ontvanger-toepassingen wordt de standaard Namespace verbreken en automatisch opnieuw verbinding te maken met de premium-naamruimte.
+De Sender-en receiver-toepassingen verbreekt de verbinding met de standaard naam ruimte en maken automatisch verbinding met de Premium-naam ruimte.
 
-### <a name="what-do-i-do-after-the-standard-to-premium-migration-is-complete"></a>Wat moet ik doen als de standaard naar premium-migratie voltooid is?
+### <a name="what-do-i-do-after-the-standard-to-premium-migration-is-complete"></a>Wat moet ik doen nadat de standaard voor Premium-migratie is voltooid?
 
-De standaard naar premium migratie zorgt ervoor dat de metagegevens van een entiteit, zoals onderwerpen, abonnementen en filters van de standard-naamruimte worden gekopieerd naar de premium-naamruimte. De berichtgegevens die is toegewezen aan de standard-naamruimte is niet van de standard-naamruimte gekopieerd naar de premium-naamruimte.
+De standaard voor Premium-migratie zorgt ervoor dat de meta gegevens van de entiteit, zoals onderwerpen, abonnementen en filters, worden gekopieerd van de standaard naam ruimte naar de Premium-naam ruimte. De bericht gegevens die zijn vastgelegd in de standaard naam ruimte worden niet gekopieerd van de standaard naam ruimte naar de Premium-naam ruimte.
 
-De standard-naamruimte mogelijk enkele berichten die zijn verzonden en vastgelegd tijdens de migratie uitgevoerd is. Deze berichten van de standaard Namespace handmatig leegmaken en handmatig naar de premium-Namespace te verzenden. Als u wilt leegmaken handmatig de berichten, een console-app of een script dat verkeer naar de standard-naamruimte-entiteiten met behulp van de Post migratie DNS-naam die u hebt opgegeven in de migratie-opdrachten te gebruiken. Deze berichten verzenden naar de premium-naamruimte, zodat ze kunnen worden verwerkt door de ontvangers.
+De standaard naam ruimte bevat mogelijk berichten die zijn verzonden en doorgevoerd tijdens de migratie. Voer deze berichten hand matig uit in de standaard naam ruimte en stuur deze hand matig naar de Premium-naam ruimte. Als u de berichten hand matig wilt verwijderen, gebruikt u een console-app of een script waarmee de standaard naam ruimte-entiteiten worden verwisseld met behulp van de post-migratie DNS-naam die u hebt opgegeven in de migratie opdrachten. Deze berichten verzenden naar de Premium-naam ruimte, zodat deze kunnen worden verwerkt door de ontvangers.
 
-Nadat u hebt de berichten zijn geleegd, verwijdert u de standard-naamruimte.
+Nadat de berichten zijn leeg gemaakt, verwijdert u de standaard naam ruimte.
 
 >[!IMPORTANT]
-> Nadat de berichten uit de standard-naamruimte hebt zijn geleegd, verwijdert u de standard-naamruimte. Dit is belangrijk omdat de verbindingsreeks die in eerste instantie waarnaar wordt verwezen naar de standard-naamruimte nu naar de premium-naamruimte verwijst. U hoeft niet de standaard Namespace meer. Verwijderen van de standard-naamruimte die u hebt gemigreerd, kunt voorkoming van verwarring hoger.
+> Nadat de berichten uit de standaard naam ruimte zijn leeg gemaakt, verwijdert u de standaard naam ruimte. Dit is belang rijk omdat de connection string die in eerste instantie de Standard-naam ruimte wordt genoemd, nu verwijst naar de Premium-naam ruimte. U hebt de standaard naam ruimte niet meer nodig. Als u de standaard naam ruimte die u hebt gemigreerd verwijdert, vermindert u later Verwar ring.
 
-### <a name="how-much-downtime-do-i-expect"></a>Hoeveel downtime verwachten ik?
-Het migratieproces is bedoeld om te beperken van de verwachte uitvaltijd voor de toepassingen. Uitvaltijd is verlaagd met behulp van de verbindingsreeks die de afzender en ontvanger-toepassingen gebruiken om te verwijzen naar de nieuwe premium-naamruimte.
+### <a name="how-much-downtime-do-i-expect"></a>Hoeveel downtime moet ik verwachten?
+Het migratie proces is bedoeld om de verwachte downtime voor de toepassingen te verminderen. Uitval tijd wordt gereduceerd met behulp van de connection string die de toepassingen van de afzender en de ontvanger gebruiken om naar de nieuwe Premium-naam ruimte te verwijzen.
 
-De downtime die is opgetreden door de toepassing is beperkt tot de tijd die nodig zijn om bij te werken van de DNS-vermelding om te verwijzen naar de premium-naamruimte. De uitvaltijd is ongeveer 5 minuten.
+De downtime die door de toepassing wordt ervaren, is beperkt tot de tijd die nodig is om de DNS-vermelding bij te werken zodat deze naar de Premium-naam ruimte wijst. Downtime is ongeveer 5 minuten.
 
-### <a name="do-i-have-to-make-any-configuration-changes-while-doing-the-migration"></a>Heb ik configuratiewijzigingen aanbrengen tijdens de migratie?
-Nee, er zijn geen code of configuratiewijzigingen die nodig zijn voor de migratie. De verbindingsreeks die de afzender en ontvanger-toepassingen gebruiken voor toegang tot de standaard Namespace is automatisch om te fungeren als een alias voor de premium-naamruimte toegewezen.
+### <a name="do-i-have-to-make-any-configuration-changes-while-doing-the-migration"></a>Moet ik configuratie wijzigingen aanbrengen tijdens de migratie?
+Nee, er zijn geen code-of configuratie wijzigingen nodig om de migratie uit te voeren. De connection string dat de afzender-en receiver-toepassingen gebruiken om toegang te krijgen tot de standaard naam ruimte wordt automatisch toegewezen om te fungeren als alias voor de Premium-naam ruimte.
 
-### <a name="what-happens-when-i-abort-the-migration"></a>Wat gebeurt er wanneer ik de migratie afbreken?
-De migratie kan worden afgebroken met behulp van de `Abort` opdracht of met behulp van de Azure-portal. 
+### <a name="what-happens-when-i-abort-the-migration"></a>Wat gebeurt er wanneer ik de migratie afbreekt?
+De migratie kan worden afgebroken met behulp van `Abort` de opdracht of met behulp van de Azure Portal. 
 
 #### <a name="azure-cli"></a>Azure-CLI
 
@@ -178,49 +178,49 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 
 #### <a name="azure-portal"></a>Azure Portal
 
-![Stroom afbreken - synchronisatie afbreken][]
-![afbreken stroom - afbreken voltooid][]
+![Stroom afbreken: afbreken van synchronisatie][]
+![afgebroken stroom-afbreken voltooid][]
 
-Wanneer het migratieproces is afgebroken, annuleert het proces van het kopiëren van de entiteiten (onderwerpen, abonnementen en filters) van de standaard naar de premium-naamruimte en de koppeling verbroken.
+Wanneer het migratie proces wordt afgebroken, wordt het kopiëren van de entiteiten (onderwerpen, abonnementen en filters) van de standaard naar de Premium-naam ruimte afgebroken en wordt de koppeling verbroken.
 
-De verbindingsreeks wordt niet bijgewerkt om te verwijzen naar de premium-naamruimte. Uw bestaande toepassingen blijven werken zoals voordat u de migratie is gestart.
+De connection string is niet bijgewerkt zodat deze naar de Premium-naam ruimte wijst. Uw bestaande toepassingen blijven werken zoals ze waren voordat u de migratie begon.
 
-Echter niet het verwijderen van de entiteiten in de premium-naamruimte of de premium-naamruimte verwijderen. Verwijder handmatig de entiteiten in als u had besloten geen te gaan met de migratie.
+De entiteiten in de Premium-naam ruimte worden echter niet verwijderd of de Premium-naam ruimte wordt verwijderd. Verwijder de entiteiten hand matig als u ervoor hebt gekozen om door te gaan met de migratie.
 
 >[!IMPORTANT]
-> Als u besluit om af te breken de migratie, verwijdert u de premium-Namespace die u voor de migratie heeft ingericht, zodat u niet in rekening voor de resources gebracht worden.
+> Als u besluit de migratie af te breken, verwijdert u de Premium-naam ruimte die u voor de migratie hebt ingericht, zodat u niet in rekening wordt gebracht voor de resources.
 
-#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Ik wil niet verwijderen uit de berichten zijn. Wat moet ik doen?
+#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Ik wil de berichten niet hoeven te verwerken. Wat moet ik doen?
 
-Het is mogelijk dat er berichten die worden verzonden door de afzender en toegewezen aan de opslag op de standaard Namespace tijdens de migratie plaatsvindt en net voordat de migratie doorgevoerd is.
+Er zijn mogelijk berichten die door de toepassingen van de afzender worden verzonden en die zijn toegewezen aan de opslag in de standaard naam ruimte terwijl de migratie plaatsvindt en net voordat de migratie wordt doorgevoerd.
 
-Tijdens de migratie is niet de werkelijke bericht/nettolading van de norm gekopieerd naar de premium-naamruimte. De berichten moeten worden handmatig geleegd en vervolgens wordt verzonden naar de premium-naamruimte.
+Tijdens de migratie worden de werkelijke bericht gegevens/Payload niet gekopieerd van de standaard naar de Premium-naam ruimte. De berichten moeten hand matig worden geleegd en vervolgens naar de Premium-naam ruimte worden verzonden.
 
-Als u tijdens gepland onderhoud/housekeeping kunt migreren, en u niet wilt handmatig leegmaken en de berichten te verzenden, volgt u deze stappen:
+Als u echter kunt migreren tijdens een gepland onderhouds-en housekeeping en u de berichten niet hand matig wilt verwerken en verzenden, voert u de volgende stappen uit:
 
-1. Stop de afzender-toepassingen. De ontvanger toepassingen verwerkt de berichten die zich momenteel in de standard-naamruimte en wordt de wachtrij leegmaken.
-1. Nadat de wachtrijen en abonnementen in de standard Namespace leeg zijn, volgt u de procedure die eerder is beschreven voor het uitvoeren van de migratie van de norm voor de premium-naamruimte.
-1. Nadat de migratie voltooid is, kunt u de afzender-toepassingen opnieuw te starten.
-1. De afzenders en ontvangers wordt nu automatisch verbinding maken met de premium-naamruimte.
+1. Stop de toepassingen van de afzender. De receive-toepassingen verwerken de berichten die zich momenteel in de standaard naam ruimte bevinden en verwatert de wachtrij.
+1. Nadat de wacht rijen en abonnementen in de standaard naam ruimte leeg zijn, volgt u de procedure die eerder is beschreven voor het uitvoeren van de migratie van de standaard naar de Premium-naam ruimte.
+1. Nadat de migratie is voltooid, kunt u de toepassingen van de afzender opnieuw starten.
+1. De afzenders en ontvangers zullen nu automatisch verbinding maken met de Premium-naam ruimte.
 
     >[!NOTE]
-    > U hoeft niet te stoppen van de ontvanger toepassingen voor de migratie.
+    > U hoeft de ontvangende toepassingen niet te stoppen voor de migratie.
     >
-    > Nadat de migratie voltooid is, wordt de ontvanger toepassingen loskoppelen van de standard-naamruimte en wordt automatisch verbinding maken met de premium-naamruimte.
+    > Nadat de migratie is voltooid, wordt de verbinding met de receiver-toepassingen met de standaard naam ruimte verbroken en wordt automatisch verbinding gemaakt met de Premium-naam ruimte.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over de [verschillen tussen standard en premium-Messaging](./service-bus-premium-messaging.md).
-* Meer informatie over de [recovery aspecten van hoge beschikbaarheid en Geo-noodherstel voor Service Bus premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
+* Meer informatie over de [verschillen tussen de Standard-en Premium-berichten](./service-bus-premium-messaging.md).
+* Meer informatie over de [aspecten van een hoge Beschik baarheid en geo-nood herstel voor service bus Premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
 
-[Landingspagina van migratie]: ./media/service-bus-standard-premium-migration/1.png
-[Setup-naamruimte]: ./media/service-bus-standard-premium-migration/2.png
-[Instellen van de naamruimte - premium-naamruimte maken]: ./media/service-bus-standard-premium-migration/3.png
-[Instellen van de naamruimte - naam voor na de migratie kiezen]: ./media/service-bus-standard-premium-migration/4.png
-[Begin van de naamruimte - entiteiten synchronisatie - instellingen]: ./media/service-bus-standard-premium-migration/5.png
-[De naamruimte - sync-entiteiten - voortgang van Setup]: ./media/service-bus-standard-premium-migration/8.png
-[Switch-namespace - switch-menu]: ./media/service-bus-standard-premium-migration/9.png
-[Switch-namespace - geslaagd]: ./media/service-bus-standard-premium-migration/12.png
+[Migratie landings pagina]: ./media/service-bus-standard-premium-migration/1.png
+[Naam ruimte instellen]: ./media/service-bus-standard-premium-migration/2.png
+[Installatie naam ruimte-Premium-naam ruimte maken]: ./media/service-bus-standard-premium-migration/3.png
+[Installatie naam ruimte: de naam van de post migratie kiezen]: ./media/service-bus-standard-premium-migration/4.png
+[Setup-naam ruimte-entiteiten synchroniseren-starten]: ./media/service-bus-standard-premium-migration/5.png
+[Naam ruimte instellen-entiteiten synchroniseren-voortgang]: ./media/service-bus-standard-premium-migration/8.png
+[Switch naam ruimte: menu switch]: ./media/service-bus-standard-premium-migration/9.png
+[Switch naam ruimte-geslaagd]: ./media/service-bus-standard-premium-migration/12.png
 
-[Stroom afbreken - synchronisatie annuleren]: ./media/service-bus-standard-premium-migration/abort1.png
-[Stroom afbreken - afbreken voltooid]: ./media/service-bus-standard-premium-migration/abort3.png
+[Stroom afbreken-synchronisatie afbreken]: ./media/service-bus-standard-premium-migration/abort1.png
+[Stroom afbreken-afbreken voltooid]: ./media/service-bus-standard-premium-migration/abort3.png

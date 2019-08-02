@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2872d106eea56a37c362195e7a3250058336768b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 7cbddc4b7af546396a1a5a4c86d349a96054a6f3
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295046"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726278"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Bijlage voor Azure Disk Encryption 
 
@@ -104,7 +104,7 @@ Voordat u begint, controleert u de [vereisten](azure-security-disk-encryption-pr
      ```
 
 ### <a name="bkmk_prereq-script"></a> Met behulp van de PowerShell-script voor Azure Disk Encryption vereisten
-Als u al bekend met de vereisten voor Azure Disk Encryption bent, kunt u de [PowerShell script met vereisten voor Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Zie voor een voorbeeld van het gebruik van dit PowerShell-script, de [een snelstartgids van Virtual machines versleutelen](quick-encrypt-vm-powershell.md). U kunt de opmerkingen verwijderen uit een gedeelte van het script, begint bij regel 211, voor het versleutelen van alle schijven voor bestaande virtuele machines in een bestaande resourcegroep. 
+Als u al bekend met de vereisten voor Azure Disk Encryption bent, kunt u de [PowerShell script met vereisten voor Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Zie voor een voorbeeld van het gebruik van dit PowerShell-script, de [een snelstartgids van Virtual machines versleutelen](azure-disk-encryption-linux-powershell-quickstart.md). U kunt de opmerkingen verwijderen uit een gedeelte van het script, begint bij regel 211, voor het versleutelen van alle schijven voor bestaande virtuele machines in een bestaande resourcegroep. 
 
 De volgende tabel ziet u welke parameters kunnen worden gebruikt in het PowerShell-script: 
 
@@ -133,15 +133,15 @@ De volgende tabel ziet u welke parameters kunnen worden gebruikt in het PowerShe
   - [Schakel versleuteling uit op een actieve Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - Als u versleuteling uitschakelt is alleen toegestaan op gegevensvolumes voor virtuele Linux-machines.  
 
-### <a name="encrypt-or-decrypt-virtual-machine-scale-sets"></a>Versleutelen of ontsleutelen van virtuele-machineschaalsets
+### <a name="encrypt-or-decrypt-virtual-machine-scale-sets"></a>Schaal sets voor virtuele machines versleutelen of ontsleutelen
 
 - [Schakelt u schijfversleuteling op een actieve virtuele-machineschaalset met Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
 - [Schijfversleuteling op een actieve virtuele-machineschaalset met Windows inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
 
-  - [Een virtuele-machineschaalset van virtuele Linux-machines met een jumpbox en kunnen versleuteling voor VMSS Linux implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+  - [Een schaalset voor virtuele machines van Linux-machines met een JumpBox implementeren en versleuteling inschakelen op Linux VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
 
-  - [Een virtuele-machineschaalset van Windows-VM's met een jumpbox en kunnen versleuteling voor VMSS Windows implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+  - [Een schaalset met virtuele machines van Windows-Vm's implementeren met een JumpBox en versleuteling inschakelen op Windows VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
 
 - [Schijfversleuteling op een actieve Linux virtuele-machineschaalset uitschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
@@ -206,7 +206,7 @@ Gebruik de [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx)
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Vereisten voor versleuteling van de OS-schijf
 
-* De virtuele machine moet worden met behulp van een distributiepunt dat compatibel is met schijfversleuteling van OS zoals vermeld in de [Azure Disk Encryption ondersteunde besturingssystemen: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
+* De virtuele machine moet gebruikmaken van een distributie die compatibel is met de besturingssysteem schijf versleuteling [, zoals vermeld in de Azure Disk Encryption ondersteunde besturings systemen: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
 * De virtuele machine moet worden gemaakt via de Marketplace-installatiekopie in Azure Resource Manager.
 * Azure-VM met ten minste 4 GB aan RAM-geheugen (aanbevolen grootte is 7 GB).
 * (Voor RHEL en CentOS) SELinux uitschakelen. Als u wilt uitschakelen SELinux, Zie "4.4.2. Uitschakelen van SELinux' in de [SELinux gebruikers en beheerders van handleiding](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) op de virtuele machine.
@@ -234,7 +234,7 @@ Gebruik de [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx)
 
 5. Controleer regelmatig de voortgang van versleuteling met behulp van de instructies in de [volgende sectie](#monitoring-os-encryption-progress).
 
-6. Nadat Get-AzVmDiskEncryptionStatus "VMRestartPending" ziet, start u uw virtuele machine opnieuw aanmelden bij deze of via de portal, PowerShell of CLI.
+6. Na Get-AzVmDiskEncryptionStatus wordt "VMRestartPending" weer gegeven, start u de VM opnieuw op door u aan te melden of door de portal, Power shell of CLI te gebruiken.
     ```powershell
     C:\> Get-AzVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
@@ -546,7 +546,7 @@ Wanneer u versleutelt met behulp van een Azure AD-app (vorige versie), moet het 
 ``` 
 
 ### <a name="bkmk_SecretnoKEK"></a> Versleutelingsgeheim van schijf niet is versleuteld met een KEK-sleutel
-Als u het geheim in uw key vault instelt, gebruikt u [Set AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Als u een Windows-machine hebt, de bek-bestand is als een tekenreeks met Base 64-codering en vervolgens geüpload naar uw sleutelkluis met de `Set-AzKeyVaultSecret` cmdlet. Voor Linux, is de wachtwoordzin in als een tekenreeks met Base 64 gecodeerde en vervolgens geüpload naar de key vault. Bovendien moet u ervoor dat de volgende codes zijn ingesteld wanneer u het geheim in de key vault maakt.
+Als u het geheim in uw sleutel kluis wilt instellen, gebruikt u [set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Als u een Windows-machine hebt, de bek-bestand is als een tekenreeks met Base 64-codering en vervolgens geüpload naar uw sleutelkluis met de `Set-AzKeyVaultSecret` cmdlet. Voor Linux, is de wachtwoordzin in als een tekenreeks met Base 64 gecodeerde en vervolgens geüpload naar de key vault. Bovendien moet u ervoor dat de volgende codes zijn ingesteld wanneer u het geheim in de key vault maakt.
 
 #### <a name="windows-bek-file"></a>De BEK Windows-bestand
 ```powershell

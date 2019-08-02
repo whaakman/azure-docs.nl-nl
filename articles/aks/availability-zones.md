@@ -1,6 +1,6 @@
 ---
-title: Gebruik Beschikbaarheidszones in Azure Kubernetes Service (AKS)
-description: Informatie over het maken van een cluster met knooppunten over beschikbaarheidszones in Azure Kubernetes Service (AKS verdeelt)
+title: Beschikbaarheidszones gebruiken in azure Kubernetes service (AKS)
+description: Meer informatie over het maken van een cluster dat knoop punten distribueert over beschikbaarheids zones in azure Kubernetes service (AKS)
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -8,33 +8,33 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: iainfou
 ms.openlocfilehash: 0f99386aa9eeb75a990507e383c32412fb39eceb
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67840678"
 ---
-# <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Voorbeeld: een Azure Kubernetes Service (AKS)-cluster dat gebruik maakt van Beschikbaarheidszones maken
+# <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Voor beeld: een Azure Kubernetes service-cluster (AKS) maken dat gebruikmaakt van Beschikbaarheidszones
 
-Een cluster Azure Kubernetes Service (AKS) verdeelt resources, zoals de knooppunten en meerdere logische secties van de onderliggende Azure-opslag van de rekeninfrastructuur. Dit implementatiemodel zorgt ervoor dat de knooppunten worden uitgevoerd in afzonderlijke domeinen voor de update- en foutdomeinen in een enkel Azure-datacenter. AKS-clusters die zijn geïmplementeerd met dit standaardgedrag bieden een hoge mate van beschikbaarheid ter bescherming tegen een hardware-uitval of gepland onderhoud.
+Een Azure Kubernetes service (AKS)-cluster distribueert bronnen zoals de knoop punten en opslag ruimte over logische secties van de onderliggende Azure Compute-infra structuur. Dit implementatie model zorgt ervoor dat de knoop punten worden uitgevoerd op afzonderlijke updates en fout domeinen in één Azure-Data Center. AKS-clusters die zijn geïmplementeerd met dit standaard gedrag bieden een hoog niveau van Beschik baarheid om te beschermen tegen een hardwarestoring of gepland onderhouds gebeurtenis.
 
-Voor een hoger niveau van beschikbaarheid voor uw toepassingen, kunnen de AKS-clusters worden verdeeld in meerdere beschikbaarheidszones. Deze zones zijn fysiek gescheiden datacenters binnen een bepaalde regio. Als de clusteronderdelen zijn verdeeld over meerdere zones, is uw AKS-cluster kunnen tolereren van een storing in een van de zones. Uw toepassingen en beheerbewerkingen nog steeds beschikbaar, zelfs als er is een probleem met een hele datacenter.
+Als u uw toepassingen een hoger niveau van Beschik baarheid wilt bieden, kunnen AKS-clusters worden gedistribueerd in verschillende beschikbaarheids zones. Deze zones zijn fysiek gescheiden data centers binnen een bepaalde regio. Wanneer de cluster onderdelen over meerdere zones worden verdeeld, kan uw AKS-cluster een fout in een van deze zones verdragen. Uw toepassingen en beheer bewerkingen blijven beschikbaar, zelfs als er een probleem is met één heel Data Center.
 
-Dit artikel ziet u hoe u een AKS-cluster maken en distribueren van de onderdelen van het knooppunt in meerdere beschikbaarheidszones. Deze functie is momenteel beschikbaar als preview-product.
+In dit artikel wordt beschreven hoe u een AKS-cluster maakt en hoe u de knooppunt onderdelen over beschikbaarheids zones distribueert. Deze functie is momenteel beschikbaar als preview-product.
 
 > [!IMPORTANT]
-> AKS-preview-functies zijn selfservice, aanmelden. Ze zijn bedoeld om het verzamelen van fouten en feedback van onze community. Preview-versie, worden deze functies zijn niet bedoeld voor gebruik in productieomgevingen. Functies in public preview vallen onder 'best effort'-ondersteuning. Hulp van de AKS-teams voor technische ondersteuning is beschikbaar tijdens kantooruren Pacific tijdzone (PST) alleen. Zie de volgende artikelen ondersteuning voor aanvullende informatie:
+> AKS preview-functies zijn self-service en opt-in. Ze zijn bedoeld om feedback en bugs van onze community te verzamelen. In de preview-versie zijn deze functies niet bedoeld voor productie gebruik. Functies in open bare preview vallen onder de ondersteuning voor beste inspanningen. Hulp van de technische ondersteunings teams van AKS is alleen beschikbaar tijdens kantoor uren Pacific time zone (PST). Raadpleeg de volgende ondersteunings artikelen voor meer informatie:
 >
-> * [Ondersteuningsbeleid voor AKS][aks-support-policies]
-> * [Veelgestelde vragen over ondersteuning van Azure][aks-faq]
+> * [AKS-ondersteunings beleid][aks-support-policies]
+> * [Veelgestelde vragen over ondersteuning voor Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-U moet de Azure CLI versie 2.0.66 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
+U moet de Azure CLI-versie 2.0.66 of hoger hebben geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, raadpleegt u [Azure cli installeren][install-azure-cli].
 
-### <a name="install-aks-preview-cli-extension"></a>Aks-preview CLI-extensie installeren
+### <a name="install-aks-preview-cli-extension"></a>AKS-preview CLI-extensie installeren
 
-AKS om clusters te maken die gebruikmaken van beschikbaarheidszones, moet u de *aks-preview* CLI versie van de extensie 0.4.1 of hoger. Installeer de *aks-preview* Azure CLI-extensie met de [az-extensie toevoegen][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] opdracht::
+Als u AKS-clusters wilt maken die gebruikmaken van beschikbaarheids zones, hebt u de *AKS-preview cli-* extensie versie 0.4.1 of hoger nodig. Installeer de Azure CLI *-extensie AKS-preview* met behulp van de opdracht [AZ extension add][az-extension-add] en controleer vervolgens of er beschik bare updates zijn met behulp van de opdracht [AZ extension update][az-extension-update] ::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -46,10 +46,10 @@ az extension update --name aks-preview
 
 ### <a name="register-feature-flags-for-your-subscription"></a>Functie vlaggen voor uw abonnement registreren
 
-Vlaggen voor het maken van een AKS-cluster die beschikbaarheidszones, een functie voor het eerst inschakelt voor uw abonnement. Clusters gebruikt u een virtuele-machineschaalset voor het beheren van de implementatie en configuratie van de Kubernetes-knooppunten. De *standard* SKU van de Azure load balancer is ook vereist voor tolerantie van de netwerkonderdelen om verkeer te routeren in uw cluster. Registreert de *AvailabilityZonePreview*, *AKSAzureStandardLoadBalancer*, en *VMSSPreview* functie worden gemarkeerd met behulp van de [az functie registreren][az-feature-register] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+Als u een AKS-cluster wilt maken dat beschikbaarheids zones zijn, moet u eerst sommige functie vlaggen inschakelen voor uw abonnement. Clusters gebruiken een schaalset voor virtuele machines om de implementatie en configuratie van de Kubernetes-knoop punten te beheren. De *standaard* -SKU van Azure Load Balancer is ook vereist om tolerantie te bieden voor de netwerk onderdelen om verkeer naar uw cluster te routeren. Registreer de functie vlaggen *AvailabilityZonePreview*, *AKSAzureStandardLoadBalancer*en *VMSSPreview* met de opdracht [AZ feature REGI ster][az-feature-register] , zoals weer gegeven in het volgende voor beeld:
 
 > [!CAUTION]
-> Als u een functie op een abonnement registreert, kunt u niet op dit moment opheffen van de registratie die functie. Nadat u een preview-functies ingeschakeld, kunnen de standaardwaarden worden gebruikt voor alle AKS-clusters wordt gemaakt in het abonnement. Geen preview-functies voor productieabonnementen niet inschakelen. Gebruik een afzonderlijk abonnement voor het testen van de preview-functies en verzamelen van feedback.
+> Wanneer u een functie op een abonnement registreert, kunt u de registratie van die functie op dit moment niet ongedaan maken. Nadat u enkele preview-functies hebt ingeschakeld, kunnen standaard waarden worden gebruikt voor alle AKS-clusters die vervolgens in het abonnement zijn gemaakt. Schakel geen preview-functies in voor productie abonnementen. Gebruik een afzonderlijk abonnement om Preview-functies te testen en feedback te verzamelen.
 
 ```azurecli-interactive
 az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
@@ -57,7 +57,7 @@ az feature register --name AKSAzureStandardLoadBalancer --namespace Microsoft.Co
 az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
-Het duurt enkele minuten duren voordat de status om weer te geven *geregistreerde*. U kunt controleren op de registratie van status met behulp van de [az Functielijst][az-feature-list] opdracht:
+Het duurt enkele minuten voordat de status is *geregistreerd*. U kunt de registratie status controleren met de opdracht [AZ Feature List][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
@@ -65,15 +65,15 @@ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/A
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
-Wanneer u klaar bent, vernieuwt u de registratie van de *Microsoft.ContainerService* resourceprovider met behulp van de [az provider register][az-provider-register] opdracht:
+Als u klaar bent, vernieuwt u de registratie van de resource provider *micro soft. container service* met de opdracht [AZ provider REGI ster][az-provider-register] :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## <a name="limitations-and-region-availability"></a>Beperkingen en beschikbaarheid in regio
+## <a name="limitations-and-region-availability"></a>Beperkingen en beschik baarheid van regio's
 
-AKS-clusters kunnen op dit moment worden gemaakt met behulp van de beschikbaarheidszones in de volgende regio's:
+AKS-clusters kunnen momenteel worden gemaakt met beschikbaarheids zones in de volgende regio's:
 
 * US - oost 2
 * Europa - noord
@@ -81,42 +81,42 @@ AKS-clusters kunnen op dit moment worden gemaakt met behulp van de beschikbaarhe
 * Europa -west
 * US - west 2
 
-De volgende beperkingen zijn van toepassing wanneer u een AKS-cluster met beschikbaarheidszones maakt:
+De volgende beperkingen zijn van toepassing wanneer u een AKS-cluster maakt met beschikbaarheids zones:
 
-* U kunt alleen beschikbaarheidszones inschakelen wanneer het cluster is gemaakt.
-* Instellingen voor de beschikbaarheid zone kunnen niet worden bijgewerkt nadat het cluster is gemaakt. U bijwerken een bestaande, niet-beschikbaarheid zone-cluster voor het gebruik van beschikbaarheidszones ook niet.
-* Beschikbaarheidszones voor een AKS-cluster niet worden uitgeschakeld nadat deze is gemaakt.
-* Grootte van het knooppunt (VM-SKU) ingeschakeld moet beschikbaar zijn in alle beschikbaarheidszones.
-* Clusters met availability zones ingeschakeld nodig gebruik van Azure Standard Load Balancers voor distributie in zones.
-* Moet u Kubernetes versie 1.13.5 of hoger als u wilt implementeren Standard Load Balancers.
+* U kunt beschikbaarheids zones alleen inschakelen wanneer het cluster is gemaakt.
+* De instellingen van de beschikbaarheids zone kunnen niet worden bijgewerkt nadat het cluster is gemaakt. U kunt ook een bestaand niet-beschikbaarheids zone cluster bijwerken om beschikbaarheids zones te gebruiken.
+* U kunt geen beschikbaarheids zones uitschakelen voor een AKS-cluster nadat het is gemaakt.
+* De geselecteerde knooppunt grootte (VM-SKU) moet beschikbaar zijn in alle beschikbaarheids zones.
+* Voor clusters waarvoor beschikbaarheids zones zijn ingeschakeld, moet Azure Standard load balancers worden gebruikt voor distributie in meerdere zones.
+* U moet Kubernetes-versie 1.13.5 of hoger gebruiken om standaard load balancers te kunnen implementeren.
 
-AKS-clusters die gebruikmaken van beschikbaarheidszones moeten gebruiken de Azure load balancer *standard* SKU. De standaardwaarde *basic* SKU van de Azure load balancer biedt geen ondersteuning voor distributie in meerdere beschikbaarheidszones. Zie voor meer informatie en de beperkingen van de standard load balancer, [Azure load balancer standard SKU preview beperkingen][standard-lb-limitations].
+AKS-clusters die gebruikmaken van beschikbaarheids zones, moeten gebruikmaken van de Azure load balancer *Standard* -SKU. De standaard *-SKU van* Azure Load Balancer biedt geen ondersteuning voor distributie over beschikbaarheids zones. Zie voor meer informatie en de beperkingen van de standaard load balancer de [beperkingen voor Azure Load Balancer Standard sku's preview][standard-lb-limitations].
 
 ### <a name="azure-disks-limitations"></a>Beperkingen voor Azure-schijven
 
-Volumes die gebruikmaken van Azure managed disks zijn momenteel niet zonegebonden resources. Schillen opnieuw gepland in een andere zone vanuit hun oorspronkelijke zone niet opnieuw koppelen van hun vorige schijven. Het is raadzaam om uit te voeren van staatloze werkbelastingen waarvoor geen permanente opslag dat wordt geleverd via zonegebonden problemen is vereist.
+Volumes die gebruikmaken van Azure Managed disks zijn momenteel geen zonegebonden bronnen. Een opnieuw gepland in een andere zone dan de oorspronkelijke zone kan de vorige schijven niet opnieuw koppelen. Het wordt aanbevolen om staatloze werk belastingen uit te voeren waarvoor geen permanente opslag nodig is die zich in zonegebonden-problemen kunnen voordoen.
 
-Als u stateful werkbelastingen uitvoeren moet, gebruiken taints en tolerations in de specificaties van uw schil om te zien van de Kubernetes-scheduler schillen maken in dezelfde regio bevindt als uw schijven. Of gebruik netwerk gebaseerde opslag, zoals Azure-bestanden die u aan schillen koppelen kunt zoals ze zijn gepland tussen zones.
+Als u stateful werk belastingen moet uitvoeren, gebruikt u taints en verdragen in uw Pod-spec om te laten zien dat de Kubernetes scheduler in staat is om in dezelfde zone als uw schijven een Peul te maken. U kunt ook op het netwerk gebaseerde opslag gebruiken, zoals Azure Files die kan worden gekoppeld aan een van de verschillende zones.
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>Overzicht van Beschikbaarheidszones voor AKS-clusters
 
-Beschikbaarheidszones is een aanbieding die uw toepassingen en gegevens beveiligt tegen storingen in datacenters hoge beschikbaarheid. Zones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters die zijn uitgerust met onafhankelijke voeding, koeling en netwerken. Om voor tolerantie te zorgen, is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. De fysieke scheiding tussen beschikbaarheidszones binnen een Azure-regio beschermt toepassingen en gegevens tegen storingen op zoneniveau. Zone-redundante services repliceren uw toepassingen en gegevens in meerdere Beschikbaarheidszones om te beschermen tegen enkele punten van de fout.
+Beschikbaarheidszones is een aanbieding met hoge Beschik baarheid die uw toepassingen en gegevens beveiligt tegen Data Center-fouten. Zones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters die zijn uitgerust met onafhankelijke voeding, koeling en netwerken. Om voor tolerantie te zorgen, is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. De fysieke scheiding tussen beschikbaarheidszones binnen een Azure-regio beschermt toepassingen en gegevens tegen storingen op zoneniveau. Zone-redundante Services repliceren uw toepassingen en gegevens op Beschikbaarheidszones om te beschermen tegen enkele punten van een storing.
 
-Zie voor meer informatie, [wat zijn Beschikbaarheidszones in Azure?][az-overview].
+Zie [Wat zijn Beschikbaarheidszones in azure?][az-overview]voor meer informatie.
 
-AKS-clusters die zijn geïmplementeerd met behulp van de beschikbaarheidszones kunnen knooppunten verdelen over meerdere zones binnen één regio. Bijvoorbeeld, een cluster in de *VS-Oost 2* regio knooppunten kunt maken in alle drie beschikbaarheidszones in *VS-Oost 2*. Deze verdeling van resources van AKS-cluster verbetert de beschikbaarheid van het cluster wanneer ze tegen uitval van een specifieke zone.
+AKS-clusters die zijn geïmplementeerd met beschikbaarheids zones, kunnen knoop punten distribueren over meerdere zones binnen één regio. Zo kan een cluster in de regio *VS-Oost 2* knoop punten maken in alle drie beschikbaarheids zones in *VS-Oost 2*. Deze distributie van AKS-cluster resources verbetert de beschik baarheid van het cluster, omdat ze robuust zijn in het mislukken van een specifieke zone.
 
-![AKS knooppunt distributie in meerdere beschikbaarheidszones](media/availability-zones/aks-availability-zones.png)
+![Distributie van AKS-knoop punten in beschikbaarheids zones](media/availability-zones/aks-availability-zones.png)
 
-In een storing in de zone, de knooppunten handmatig kunnen worden uitgevoerd of met behulp van het cluster automatisch schalen. Als een enkele zone niet beschikbaar is, blijven uw toepassingen worden uitgevoerd.
+In een zone storing kunnen de knoop punten hand matig worden gebalanceerd of gebruikmaken van de cluster-automatische schaal functie. Als een enkele zone niet meer beschikbaar is, blijven uw toepassingen actief.
 
-## <a name="create-an-aks-cluster-across-availability-zones"></a>Een AKS-cluster maken in meerdere beschikbaarheidszones
+## <a name="create-an-aks-cluster-across-availability-zones"></a>Een AKS-cluster maken in verschillende beschikbaarheids zones
 
-Wanneer u een cluster maken met de [az aks maken][az-aks-create] opdracht, de `--node-zones` parameter wordt gedefinieerd welke agentknooppunten zones worden geïmplementeerd in. De onderdelen AKS besturingselement vlak voor uw cluster ook worden verdeeld in zones in de configuratie van de hoogste beschikbaar bij het maken van een cluster op te geven de `--node-zones` parameter.
+Wanneer u een cluster maakt met behulp van de opdracht [AZ AKS Create][az-aks-create] , definieert de `--node-zones` para meter welke zone-agent knooppunten worden geïmplementeerd in. De AKS-besturings vlak onderdelen voor uw cluster worden ook verspreid over zones in de hoogste beschik bare configuratie wanneer u een cluster `--node-zones` maakt waarmee de para meter wordt opgegeven.
 
-Als u niet alle zones voor de standaard-agentpool definiëren wanneer u een AKS-cluster maakt, de onderdelen AKS besturingselement vlak voor uw cluster beschikbaarheidszones niet gebruiken. U kunt extra knooppuntgroepen (momenteel in preview in AKS) toevoegen met behulp van de [az aks nodepool toevoegen][az-aks-nodepool-add] opdracht en geeft u `--node-zones` voor deze nieuwe agentknooppunten, maar het besturingselement vlak onderdelen blijven zonder binnen een beschikbaarheidszone bewustzijn. U kunt de status van de zone niet wijzigen voor een knooppuntgroep of de AKS vlak onderdelen besturingselement nadat deze zijn geïmplementeerd.
+Als u geen zones voor de standaard agent groep definieert wanneer u een AKS-cluster maakt, zullen de onderdelen van de AKS-besturings elementen voor uw cluster geen beschikbaarheids zones gebruiken. U kunt extra knooppunt groepen toevoegen (momenteel als preview-versie in AKS) met behulp van de opdracht [AZ AKS nodepool add][az-aks-nodepool-add] en opgeven `--node-zones` voor deze nieuwe agent knooppunten. de onderdelen van het besturings element blijven echter behouden zonder de beschik baarheid van de zone. U kunt de zone bewustzijn voor een knooppunt groep of de onderdelen van het AKS-besturings element niet wijzigen zodra deze zijn geïmplementeerd.
 
-Het volgende voorbeeld wordt een AKS-cluster met de naam *myAKSCluster* in de resourcegroep met de naam *myResourceGroup*. Totaal *3* knooppunten zijn gemaakt: één agent in de zone *1*, één in *2*, en vervolgens een in *3*. De onderdelen van AKS besturingselement vlak worden ook verdeeld over de zones in de hoogste beschikbare configuratie omdat ze zijn gedefinieerd als onderdeel van het cluster proces maken.
+In het volgende voor beeld wordt een AKS-cluster gemaakt met de naam *myAKSCluster* in de resource groep met de naam *myResourceGroup*. Er zijn in totaal *drie* knoop punten gemaakt: één agent in zone *1*, één in *2*, en vervolgens een in *3*. De onderdelen van het AKS-besturings element worden ook gedistribueerd over zones in de hoogste beschik bare configuratie, omdat deze zijn gedefinieerd als onderdeel van het proces voor het maken van het cluster.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
@@ -132,25 +132,25 @@ az aks create \
     --node-zones 1 2 3
 ```
 
-Het duurt een paar minuten om de AKS-cluster te maken.
+Het duurt enkele minuten om het AKS-cluster te maken.
 
-## <a name="verify-node-distribution-across-zones"></a>Controleer of knooppunt distributie in zones
+## <a name="verify-node-distribution-across-zones"></a>Knooppunt distributie in zones verifiëren
 
-Wanneer het cluster gereed is, naam van agentknooppunten in de schaalset om te zien welke deze zijn geïmplementeerd in beschikbaarheidszone.
+Wanneer het cluster gereed is, vermeldt u de agent knooppunten in de schaalset om te zien in welke beschikbaarheids zone ze zijn geïmplementeerd.
 
-Haal eerst de referenties van AKS-cluster met behulp van de [az aks get-credentials][az-aks-get-credentials] opdracht:
+Haal eerst de AKS-cluster referenties op met de opdracht [AZ AKS Get-credentials][az-aks-get-credentials] :
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Gebruik vervolgens de [kubectl beschrijven][kubectl-describe] opdracht om een lijst van de knooppunten in het cluster. Filteren op de *failure-domain.beta.kubernetes.io/zone* waarde zoals wordt weergegeven in het volgende voorbeeld:
+Gebruik vervolgens de opdracht [kubectl beschrijven][kubectl-describe] om de knoop punten in het cluster weer te geven. Filter op de waarde *failure-Domain.beta.kubernetes.io/zone* zoals weer gegeven in het volgende voor beeld:
 
 ```console
 kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
 ```
 
-De volgende voorbeelduitvoer ziet u de drie knooppunten die zijn verdeeld over de opgegeven regio en beschikbaarheidszones, zoals *eastus2-1* voor de eerste binnen een beschikbaarheidszone en *eastus2-2* voor de tweede binnen een beschikbaarheidszone:
+In de volgende voorbeeld uitvoer ziet u de drie knoop punten verdeeld over de opgegeven regio en beschikbaarheids zones, zoals *eastus2-1* voor de eerste beschikbaarheids zone en *eastus2-2* voor de tweede beschikbaarheids zone:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -161,11 +161,11 @@ Name:       aks-nodepool1-28993262-vmss000002
             failure-domain.beta.kubernetes.io/zone=eastus2-3
 ```
 
-Wanneer u extra knooppunten aan een groep van de agent toevoegen, verdeelt het Azure-platform de onderliggende virtuele machines automatisch tussen de opgegeven beschikbaarheidszones.
+Wanneer u extra knoop punten aan een agent groep toevoegt, distribueert het Azure-platform automatisch de onderliggende virtuele machines over de opgegeven beschikbaarheids zones.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel gedetailleerde over het maken van een AKS-cluster dat gebruik maakt van beschikbaarheidszones. Zie voor meer overwegingen over maximaal beschikbare clusters [aanbevolen procedures voor zakelijke continuïteit en herstel na noodgevallen in AKS][best-practices-bc-dr].
+In dit artikel wordt beschreven hoe u een AKS-cluster maakt dat gebruikmaakt van beschikbaarheids zones. Zie [Aanbevolen procedures voor bedrijfs continuïteit en herstel na nood gevallen in AKS][best-practices-bc-dr]voor meer informatie over Maxi maal beschik bare clusters.
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

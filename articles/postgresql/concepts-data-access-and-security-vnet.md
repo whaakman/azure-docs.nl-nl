@@ -1,43 +1,43 @@
 ---
-title: Virtueel netwerk (VNet) services eindpunt overzicht in Azure Database voor PostgreSQL - Server één
-description: Meer informatie over hoe service-eindpunten voor Virtueelnetwerk (VNet) werken voor Azure Database voor PostgreSQL - één Server.
+title: Overzicht van eind punten voor Virtual Network (VNet)-services in Azure Database for PostgreSQL-één server
+description: Meer informatie over het werken met de service-eind punten van Virtual Network (VNet) voor Azure Database for PostgreSQL-één-server.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: c873abcdf3c64f8357c584c8e24809270946bf74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b03be62a634d04f41513e7cf27c3cb55f69da438
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073482"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609987"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure Database voor PostgreSQL - één Server
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Virtual Network Service-eind punten en-regels voor Azure Database for PostgreSQL-één server gebruiken
 
-*Regels voor virtueel netwerk* één firewall beveiligingsfunctie die bepaalt of uw Azure Database for PostgreSQL-server accepteert berichten die worden verzonden op basis van specifieke subnetten in virtuele netwerken zijn. In dit artikel wordt uitgelegd waarom de functie van de regel virtueel netwerk is het soms de beste optie voor het veilig toestaan van communicatie met uw Azure Database for PostgreSQL-server.
+*Regels voor virtuele netwerken* zijn één firewall beveiligings functie die bepaalt of uw Azure database for postgresql server communicatie accepteert die wordt verzonden vanuit bepaalde subnetten in virtuele netwerken. In dit artikel wordt uitgelegd waarom de regel functie van het virtuele netwerk soms de beste optie is om communicatie met uw Azure Database for PostgreSQL-server veilig toe te staan.
 
-Het maken van een regel voor virtuele netwerken, er moet eerst worden een [virtueel netwerk] [ vm-virtual-network-overview] (VNet) en een [service-eindpunt voor virtueel netwerk] [ vm-virtual-network-service-endpoints-overview-649d] voor de regel-verwijzing. De volgende afbeelding ziet u hoe een service-eindpunt voor Virtueelnetwerk werkt met Azure Database voor PostgreSQL:
+Als u een regel voor een virtueel netwerk wilt maken, moet u eerst een [virtueel netwerk][vm-virtual-network-overview] (VNet) en een [virtueel netwerk service-eind punt][vm-virtual-network-service-endpoints-overview-649d] voor de regel waarnaar moet worden verwezen. In de volgende afbeelding ziet u hoe een Virtual Network Service-eind punt samen met Azure Database for PostgreSQL werkt:
 
-![Voorbeeld van de werking van een VNet-Service-eindpunt](media/concepts-data-access-and-security-vnet/vnet-concept.png)
+![Voor beeld van hoe een VNet-service-eind punt werkt](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
-> Deze functie is beschikbaar in alle regio's van openbare Azure-cloud waarop de Azure Database for PostgreSQL voor algemeen gebruik en geoptimaliseerd voor geheugen-servers wordt geïmplementeerd.
-> In het geval van VNet-peering wordt als verkeer via een gemeenschappelijke VNet-Gateway met service-eindpunten stroomt en moet worden overgebracht naar de peer, maak een ACL/VNet-regel voor het toestaan van Azure Virtual Machines in het VNet-Gateway voor toegang tot de Azure Database for PostgreSQL-server.
+> Deze functie is beschikbaar in alle regio's van de open bare Azure-Cloud, waar Azure Database for PostgreSQL wordt geïmplementeerd voor Algemeen en servers die zijn geoptimaliseerd voor geheugen.
+> In het geval van VNet-peering, als verkeer via een gemeen schappelijke VNet-gateway met Service-eind punten stroomt en naar de peer moet stromen, moet u een ACL/VNet-regel maken om Azure Virtual Machines in de gateway-VNet toegang te geven tot de Azure Database for PostgreSQL-server.
 
 <a name="anch-terminology-and-description-82f" />
 
 ## <a name="terminology-and-description"></a>Terminologie en beschrijving
 
-**Virtueel netwerk:** U kunt virtuele netwerken die zijn gekoppeld aan uw Azure-abonnement hebben.
+**Virtueel netwerk:** U kunt virtuele netwerken koppelen aan uw Azure-abonnement.
 
-**Subnet:** Een virtueel netwerk bevat **subnetten**. Een Azure virtual machines (VM's) waarvoor u zijn toegewezen aan subnetten. Één subnet kan meerdere virtuele machines of andere compute-knooppunten bevatten. COMPUTE-knooppunten die zich buiten het virtuele netwerk heeft geen toegang tot uw virtuele netwerk, tenzij u de beveiliging voor toegang configureren.
+**Subnetrouter** Een virtueel netwerk bevat **subnetten**. Alle Azure virtual machines (Vm's) die u hebt toegewezen aan subnetten. Eén subnet kan meerdere Vm's of andere reken knooppunten bevatten. Reken knooppunten die zich buiten uw virtuele netwerk bevinden, hebben geen toegang tot het virtuele netwerk tenzij u de beveiliging zo configureert dat toegang wordt toegestaan.
 
-**Virtual Network service-eindpunt:** Een [service-eindpunt voor Virtueelnetwerk] [ vm-virtual-network-service-endpoints-overview-649d] is een subnet met eigenschappen die een of meer formele Azure-service typenamen bevatten. In dit artikel zijn we geïnteresseerd in de typenaam van **Microsoft.Sql**, die verwijst naar de Azure-service met de naam SQL-Database. Deze servicetag geldt ook voor de Azure Database for PostgreSQL en MySQL-services. Het is belangrijk te weten bij het toepassen van de **Microsoft.Sql** servicetag naar een VNet-service-eindpunt wordt het verkeer van de service-eindpunt configureren voor alle Azure SQL Database, Azure Database for PostgreSQL en Azure Database for MySQL-servers op het subnet. 
+**Service-eind punt Virtual Network:** Een [Virtual Network Service-eind punt][vm-virtual-network-service-endpoints-overview-649d] is een subnet waarvan de eigenschaps waarden een of meer formele namen van Azure-service typen bevatten. In dit artikel bent u geïnteresseerd in de type naam van **micro soft. SQL**, die verwijst naar de Azure-service met de naam SQL database. Deze servicetag is ook van toepassing op de Azure Database for PostgreSQL-en MySQL-Services. Het is belang rijk te weten wanneer u de code van de **micro soft. SQL** -service toepast op een VNet-service-eind punt Hiermee wordt het verkeer van service-eind punten geconfigureerd voor alle Azure SQL Database, Azure Database for PostgreSQL en Azure database for MySQL servers in het subnet. 
 
-**Regel voor virtuele netwerken:** Een regel voor virtuele netwerken voor uw Azure Database for PostgreSQL-server is een subnet dat wordt weergegeven in de toegangsbeheerlijst (ACL) van uw Azure Database for PostgreSQL-server. Als u in de ACL voor uw Azure Database for PostgreSQL-server, het subnet moet bevatten de **Microsoft.Sql** typenaam.
+**Regel voor virtueel netwerk:** Een regel voor het virtuele netwerk voor uw Azure Database for PostgreSQL-server is een subnet dat wordt vermeld in de toegangs beheer lijst (ACL) van uw Azure Database for PostgreSQL-server. Het subnet moet de naam van het **micro soft. SQL** -type bevatten in de ACL voor uw Azure database for postgresql-server.
 
-Een regel voor virtuele netwerken wordt aan uw Azure Database for PostgreSQL-server voor het accepteren van communicatie van elk knooppunt dat zich in het subnet.
+Met een regel voor het virtuele netwerk krijgt uw Azure Database for PostgreSQL-server de communicatie van elk knoop punt dat zich in het subnet bevindt, te accepteren.
 
 
 
@@ -47,102 +47,103 @@ Een regel voor virtuele netwerken wordt aan uw Azure Database for PostgreSQL-ser
 
 <a name="anch-benefits-of-a-vnet-rule-68b" />
 
-## <a name="benefits-of-a-virtual-network-rule"></a>Voordelen van een regel voor virtuele netwerken
+## <a name="benefits-of-a-virtual-network-rule"></a>Voor delen van een regel voor een virtueel netwerk
 
-Totdat u actie onderneemt, wordt de virtuele machines op de subnetten van het niet kunnen communiceren met uw Azure Database for PostgreSQL-server. Een actie die de communicatie is het maken van een regel voor virtuele netwerken. De logica voor het kiezen van de aanpak van de VNet-regel wordt een vergelijken en contrast bespreking met betrekking tot de concurrerende beveiligingsopties die worden aangeboden door de firewall.
+Totdat u actie onderneemt, kunnen de Vm's op uw subnetten niet communiceren met uw Azure Database for PostgreSQL-server. Een actie die de communicatie tot stand brengt, is het maken van een regel voor een virtueel netwerk. De motivering van het kiezen van de methode voor de VNet-regel vereist een vergelijking en contrast met betrekking tot de concurrerende beveiligings opties die door de firewall worden geboden.
 
 ### <a name="a-allow-access-to-azure-services"></a>A. Toegang tot Azure-services toestaan
 
-Het deelvenster verbinding beveiliging heeft een **aan/uit** knop die is aangeduid als **toegang tot Azure-services toestaan**. De **ON** instelling kan communicatie van alle Azure-IP-adressen en subnetten voor alle Azure. Deze Azure-IP-adressen of subnetten worden niet beheerd door u. Dit **ON** instelling is waarschijnlijk meer open dan u wilt dat uw Azure Database for PostgreSQL-Database te zijn. De functie van de regel virtueel netwerk maakt veel betere resultaten nauwkeurig beheer mogelijk.
+Het deel venster verbindings beveiliging heeft een **aan/uit-** knop met de naam **toegang tot Azure-Services toestaan**. Met de instelling **bij** kunt u communicatie van alle Azure IP-adressen en alle Azure-subnetten toestaan. Deze IP-adressen of subnetten van Azure zijn mogelijk niet het eigendom van u. Deze **bij** instelling is waarschijnlijk meer open dan u wilt dat uw Azure database for PostgreSQL-data base. De functie regel voor virtueel netwerk biedt veel nauw keurigere controle.
 
 ### <a name="b-ip-rules"></a>B. IP-regels
 
-De Azure Database for PostgreSQL-firewall kunt u IP-adresbereiken waaruit communicatie worden geaccepteerd in de Azure Database for PostgreSQL-Database. Deze aanpak is prima voor stabiele IP-adressen die zich buiten het particuliere netwerk van Azure. Maar veel knooppunten in het particuliere netwerk van Azure zijn geconfigureerd met *dynamische* IP-adressen. Dynamische IP-adressen kunnen wijzigen, zoals wanneer uw virtuele machine opnieuw wordt opgestart. Het zou fraai om op te geven van een dynamisch IP-adres in een firewallregel in een productieomgeving zijn.
+Met de Azure Database for PostgreSQL firewall kunt u IP-adresbereiken opgeven waarvan de communicatie wordt geaccepteerd in de Azure Database for PostgreSQL-data base. Deze aanpak is nauw keurig voor stabiele IP-adressen die zich buiten het particuliere Azure-netwerk bevinden. Maar veel knoop punten in het particuliere netwerk van Azure zijn geconfigureerd met *dynamische* IP-adressen. Dynamische IP-adressen kunnen veranderen, bijvoorbeeld wanneer de virtuele machine opnieuw is opgestart. Het is Folly om een dynamisch IP-adres op te geven in een firewall regel, in een productie omgeving.
 
-U kunt de IP-optie restwaarde door het verkrijgen van een *statische* IP-adres voor uw virtuele machine. Zie voor meer informatie, [privé IP-adressen voor een virtuele machine configureren met behulp van de Azure-portal][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
+U kunt de IP-optie inwaarderen door een *statisch* IP-adres voor uw virtuele machine op te halen. Zie voor meer informatie [privé IP-adressen configureren voor een virtuele machine met behulp van de Azure Portal][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
-Echter, de statische IP-aanpak kan het lastig om te beheren, en is kostbare wanneer u klaar bent op schaal. Virtual network-regels zijn gemakkelijker te maken en te beheren.
+De aanpak van een statisch IP-adres kan echter moeilijk te beheren zijn, en het kost goed wanneer deze op schaal wordt uitgevoerd. Regels voor virtuele netwerken zijn eenvoudiger te maken en te beheren.
 
-### <a name="c-cannot-yet-have-azure-database-for-postgresql-on-a-subnet-without-defining-a-service-endpoint"></a>C. Nog geen Azure Database for PostgreSQL in een subnet zonder het definiëren van een service-eindpunt
+### <a name="c-cannot-yet-have-azure-database-for-postgresql-on-a-subnet-without-defining-a-service-endpoint"></a>C. Kan nog geen Azure Database for PostgreSQL op een subnet hebben zonder een service-eind punt te definiëren
 
-Als uw **Microsoft.Sql** server is een knooppunt in een subnet van het virtuele netwerk, alle knooppunten in het virtuele netwerk kunnen communiceren met uw Azure Database for PostgreSQL-server. In dit geval kunnen uw virtuele machines communiceren met Azure Database for PostgreSQL zonder alle regels voor virtueel netwerk of het IP-regels.
+Als uw **micro soft. SQL** server een knoop punt in een subnet in het virtuele netwerk is, kunnen alle knoop punten in het virtuele netwerk communiceren met uw Azure database for postgresql-server. In dit geval kunnen uw Vm's communiceren met Azure Database for PostgreSQL zonder dat er regels voor het virtuele netwerk of IP-regels nodig zijn.
 
-Vanaf augustus 2018 is de Azure Database for PostgreSQL-service is echter niet nog tussen de services die kunnen worden toegewezen rechtstreeks aan een subnet.
+Vanaf 2018 augustus is de Azure Database for PostgreSQL-service nog niet van de services die rechtstreeks aan een subnet kunnen worden toegewezen.
 
 <a name="anch-details-about-vnet-rules-38q" />
 
-## <a name="details-about-virtual-network-rules"></a>Meer informatie over virtual network-regels
+## <a name="details-about-virtual-network-rules"></a>Details over regels voor virtuele netwerken
 
-Deze sectie beschrijft de verschillende details over virtual network-regels.
+In deze sectie worden verschillende details over regels voor het virtuele netwerk beschreven.
 
 ### <a name="only-one-geographic-region"></a>Slechts één geografische regio
 
-Alle service-eindpunten voor Virtueelnetwerk is van toepassing op slechts één Azure-regio. Het eindpunt is niet ingeschakeld voor andere regio's communicatie accepteert van het subnet.
+Elk Virtual Network Service-eind punt is alleen van toepassing op één Azure-regio. Met het eind punt kunnen andere regio's geen communicatie van het subnet accepteren.
 
-Een regel voor virtuele netwerken is beperkt tot de regio waarin het onderliggende eindpunt is van toepassing op.
+Een regel voor het virtuele netwerk is beperkt tot de regio waarin het onderliggende eind punt van toepassing is.
 
-### <a name="server-level-not-database-level"></a>Niveau van de server, niet op databaseniveau
+### <a name="server-level-not-database-level"></a>Server niveau, niet database niveau
 
-Elk virtueel netwerk-regel van toepassing is op uw hele Azure Database for PostgreSQL-server, niet alleen op een bepaalde database op de server. Met andere woorden, virtueel netwerk-regel wordt toegepast op de server-niveau, niet op niveau van de database.
+Elke regel voor het virtuele netwerk is van toepassing op uw hele Azure Database for PostgreSQL server, niet alleen op een bepaalde data base op de server. Met andere woorden, de regel voor het virtuele netwerk geldt op server niveau, niet op database niveau.
 
-#### <a name="security-administration-roles"></a>Beveiligingsrollen voor beheer
+#### <a name="security-administration-roles"></a>Beveiligings beheer rollen
 
-Er is een scheiding van beveiligingsrollen in het beheer van service-eindpunten. Actie is vereist van elk van de volgende rollen:
+Er is een schei ding van beveiligings rollen in het beheer van Virtual Network Service-eind punten. Actie is vereist voor elk van de volgende rollen:
 
-- **De beheerder van het netwerk:** &nbsp; Schakel op het eindpunt.
-- **De beheerder van de database:** &nbsp; Werk de toegangsbeheerlijst (ACL) om toe te voegen van het opgegeven subnet met de Azure Database for PostgreSQL-server.
+- **Netwerk beheerder:** &nbsp;Schakel het eind punt in.
+- **Database beheerder:** &nbsp;Werk de toegangs beheer lijst (ACL) bij om het opgegeven subnet toe te voegen aan de Azure Database for PostgreSQL-server.
 
-*RBAC alternatieve:*
+*Alternatief voor RBAC:*
 
-De functies van netwerk-beheerder en beheerder van de Database beschikken over meer mogelijkheden dan nodig zijn voor het beheren van virtuele netwerkregels. Er is slechts een subset van hun mogelijkheden nodig.
+De rollen van de netwerk beheerder en de database beheerder hebben meer mogelijkheden dan nodig zijn voor het beheren van regels voor het virtuele netwerk. Er is slechts een subset van de mogelijkheden nodig.
 
-U hebt de mogelijkheid van het gebruik van [op rollen gebaseerd toegangsbeheer (RBAC)] [ rbac-what-is-813s] in Azure een één aangepaste rol waarvoor alleen de benodigde subset van de mogelijkheden van maken. De aangepaste rol kan worden gebruikt in plaats van met betrekking tot de netwerk-beheerder of de Database-beheerder. De surface area van blootstelling van de beveiliging is lager als u een gebruiker aan een aangepaste rol toevoegen, ten opzichte van de gebruiker toe te voegen aan de andere twee belangrijke beheerdersrollen.
+U hebt de mogelijkheid om op [rollen gebaseerd toegangs beheer (RBAC)][rbac-what-is-813s] in azure te gebruiken om één aangepaste rol te maken die alleen de benodigde subset van mogelijkheden heeft. De aangepaste rol kan worden gebruikt in plaats van de netwerk beheerder of de database beheerder. De surface area van uw beveiligings risico is lager als u een gebruiker toevoegt aan een aangepaste rol, en de gebruiker toevoegt aan de andere twee belang rijke beheerders rollen.
 
 > [!NOTE]
-> In sommige gevallen zijn de Azure Database for PostgreSQL en het VNet-subnet in verschillende abonnementen. In dergelijke gevallen moet u ervoor zorgen dat de volgende configuraties:
-> - Beide abonnementen moeten zich in dezelfde Azure Active Directory-tenant.
-> - De gebruiker heeft de vereiste machtigingen voor het initiëren van bewerkingen, zoals service-eindpunten inschakelen en een VNet-subnet aan de opgegeven Server toe te voegen.
+> In sommige gevallen bevinden de Azure Database for PostgreSQL en het VNet-subnet zich in verschillende abonnementen. In deze gevallen moet u ervoor zorgen dat u de volgende configuraties hebt:
+> - Beide abonnementen moeten zich in dezelfde Azure Active Directory Tenant bezitten.
+> - De gebruiker beschikt over de vereiste machtigingen voor het initiëren van bewerkingen, zoals het inschakelen van service-eind punten en het toevoegen van een VNet-subnet aan de opgegeven server.
+> - Zorg ervoor dat de **micro soft. SQL** -resource provider is geregistreerd voor beide abonnementen. Raadpleeg [Resource-Manager-registratie][resource-manager-portal] voor meer informatie
 
 ## <a name="limitations"></a>Beperkingen
 
-Voor Azure Database for PostgreSQL heeft de functie van de regels voor virtueel netwerk in de volgende beperkingen:
+Voor Azure Database for PostgreSQL heeft de functie regels voor virtuele netwerken de volgende beperkingen:
 
-- Een Web-App kunnen worden toegewezen aan een privé IP-adres in een VNet/subnet. Zelfs als de service-eindpunten van het opgegeven VNet/subnet zijn ingeschakeld, worden verbindingen van de Web-App naar de server een Azure openbare IP-bron niet de bron van een VNet/subnet hebben. Om in te schakelen connectiviteit vanuit een Web-App naar een server met VNet-firewallregels, moet u toestaan dat Azure-services voor toegang tot de server op de server.
+- Een web-app kan worden toegewezen aan een persoonlijk IP-adres in een VNet/subnet. Zelfs als service-eind punten zijn ingeschakeld vanuit het opgegeven VNet/subnet, hebben verbindingen van de web-app naar de server een open bare IP-bron van Azure, niet een VNet/subnet-bron. Als u de verbinding van een web-app naar een server met VNet-firewall regels wilt inschakelen, moet u Azure-Services toegang geven tot de server op de server.
 
-- In de firewall voor uw Azure Database for PostgreSQL, is elke regel van het virtuele netwerk verwijst naar een subnet. Alle deze subnetten waarnaar wordt verwezen, moeten worden gehost in dezelfde geografische regio die als host fungeert voor de Azure Database voor PostgreSQL.
+- In de firewall voor uw Azure Database for PostgreSQL verwijst elke virtuele netwerk regel naar een subnet. Al deze subnetten waarnaar wordt verwezen, moeten worden gehost in dezelfde geografische regio die als host fungeert voor de Azure Database for PostgreSQL.
 
-- Elke Azure Database for PostgreSQL-server kan maximaal 128 ACL-vermeldingen voor een bepaald virtueel netwerk hebben.
+- Elke Azure Database for PostgreSQL-server kan Maxi maal 128 ACL-vermeldingen hebben voor elk gegeven virtueel netwerk.
 
-- Virtual network-regels gelden alleen voor virtuele netwerken van Azure Resource Manager; en niet op [klassieke implementatiemodel] [ arm-deployment-model-568f] netwerken.
+- De regels voor virtuele netwerken zijn alleen van toepassing op Azure Resource Manager virtuele netwerken. en niet op [klassieke implementatie model][arm-deployment-model-568f] netwerken.
 
-- Inschakelen op service-eindpunten met Azure Database voor PostgreSQL met behulp van de **Microsoft.Sql** servicetag kunt ook de eindpunten voor alle Azure-Database-services: Azure Database voor MySQL, Azure Database voor PostgreSQL, Azure SQL Database en Azure SQL datawarehouse.
+- Als u de service-eind punten voor virtuele netwerken inschakelt om Azure Database for PostgreSQL met behulp van het tag **micro soft. SQL** service, worden ook de eind punten voor alle Azure Data Base-Services ingeschakeld: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database en Azure SQL Data Warehouse.
 
 - Ondersteuning voor VNet-service-eindpunten is alleen voor algemeen gebruik en geoptimaliseerd voor geheugen-servers.
 
-- Op de firewall, IP-adresbereiken zijn van toepassing op de volgende items voor netwerken, maar regels voor virtueel netwerk dat niet doen:
-    - [Site-naar-Site (S2S) virtueel particulier netwerk (VPN)][vpn-gateway-indexmd-608y]
+- IP-adresbereiken op de firewall zijn van toepassing op de volgende netwerk items, maar de regels voor het virtuele netwerk doen dit niet:
+    - [Virtueel particulier netwerk (VPN) van site-naar-site (S2S)][vpn-gateway-indexmd-608y]
     - On-premises via [ExpressRoute][expressroute-indexmd-744v]
 
 ## <a name="expressroute"></a>ExpressRoute
 
-Als uw netwerk is verbonden met het Azure-netwerk door het gebruik van [ExpressRoute][expressroute-indexmd-744v], elk circuit is geconfigureerd met twee openbare IP-adressen op de Microsoft Edge. De twee IP-adressen worden gebruikt om verbinding maken met Microsoft-Services, zoals aan Azure Storage met behulp van openbare Azure-Peering.
+Als uw netwerk is verbonden met het Azure-netwerk met behulp van [ExpressRoute][expressroute-indexmd-744v], wordt elk circuit geconfigureerd met twee open bare IP-adressen op de micro soft Edge. De twee IP-adressen worden gebruikt om verbinding te maken met micro soft-Services, zoals Azure Storage, met behulp van open bare Azure-peering.
 
-Als u wilt toestaan dat communicatie tussen uw circuit en Azure Database for PostgreSQL, moet u IP-netwerkregels voor openbare IP-adressen van uw circuits maken. Om te zoeken in de openbare IP-adressen van uw ExpressRoute-circuit, opent u een ondersteuningsticket met ExpressRoute met behulp van de Azure-portal.
+Als u communicatie van uw circuit naar Azure Database for PostgreSQL wilt toestaan, moet u IP-netwerk regels maken voor de open bare IP-adressen van uw circuits. Als u de open bare IP-adressen van uw ExpressRoute-circuit wilt vinden, opent u een ondersteunings ticket met ExpressRoute met behulp van de Azure Portal.
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Een VNET-firewallregel toevoegen aan uw server zonder in te schakelen op VNET-Service-eindpunten
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Een VNET-firewall regel toevoegen aan uw server zonder de VNET-service-eind punten in te scha kelen
 
-Alleen instelling een firewallregel niet om de server met het VNet beveiligen. U moet ook de VNet-service-eindpunten inschakelen **op** voor de beveiliging pas van kracht. Wanneer u service-eindpunten inschakelen **op**, uw VNet-subnet ondervindt uitvaltijd totdat de bewerking is de overgang van **uit** naar **op**. Dit geldt met name in de context van grote VNets. U kunt de **IgnoreMissingServiceEndpoint** vlag te verlagen of elimineren van de uitvaltijd tijdens de overgang.
+Als u alleen een firewall regel instelt, kunt u de server niet beveiligen met het VNet. U moet ook VNet-service-eind punten inschakelen om de **beveiliging van kracht** te laten worden. Wanneer u service-eind punten inschakelt **, wordt**de downtime van uw VNet-subnet in stand gezet totdat de overgang van **uit** naar wordt **voltooid.** Dit geldt met name in de context van grote VNets. U kunt de vlag **IgnoreMissingServiceEndpoint** gebruiken om de downtime te verminderen of te elimineren tijdens de overgang.
 
-U kunt instellen dat de **IgnoreMissingServiceEndpoint** vlag met behulp van de Azure CLI of de portal.
+U kunt de vlag **IgnoreMissingServiceEndpoint** instellen met behulp van de Azure CLI of portal.
 
 ## <a name="related-articles"></a>Verwante artikelen:
 - [Virtuele netwerken van Azure][vm-virtual-network-overview]
-- [Azure virtual network-service-eindpunten][vm-virtual-network-service-endpoints-overview-649d]
+- [Azure Virtual Network-Service-eind punten][vm-virtual-network-service-endpoints-overview-649d]
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor artikelen over het maken van VNet-regels:
-- [Maken en beheren van Azure Database voor PostgreSQL-VNet-regels met behulp van de Azure portal](howto-manage-vnet-using-portal.md)
-- [Maken en beheren van Azure Database voor PostgreSQL-VNet-regels met behulp van Azure CLI](howto-manage-vnet-using-cli.md)
+- [Azure Database for PostgreSQL VNet-regels maken en beheren met behulp van de Azure Portal](howto-manage-vnet-using-portal.md)
+- [Azure Database for PostgreSQL VNet-regels maken en beheren met Azure CLI](howto-manage-vnet-using-cli.md)
 
 
 <!-- Link references, to text, Within this same GitHub repo. -->
@@ -159,3 +160,5 @@ Zie voor artikelen over het maken van VNet-regels:
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
+
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

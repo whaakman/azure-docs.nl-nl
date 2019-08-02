@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
 ms.openlocfilehash: 232468d9b3466759d7af2b7be68a1f553ced6e6d
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68348654"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
@@ -125,7 +125,7 @@ Als u een configuratie van IBM Db2 wilt implementeren, moet u de volgende stappe
   + Implementeer de Vm's.
   + RHEL Linux bijwerken en bestands systemen configureren.
   + Pacemaker installeren en configureren.
-  + [Glusterfs-cluster][glusterfs] instellen or [Azure NetApp Files][anf-rhel]
+  + [Glusterfs-cluster][glusterfs] of- [Azure NetApp files][anf-rhel] instellen
   + Installeer [ASCS/ers op een afzonderlijk cluster][ascs-ha-rhel].
   + Installeer de IBM Db2-data base met de optie gedistribueerde/hoge Beschik baarheid (SWPM).
   + Installeer en maak een secundair database knooppunt en-exemplaar en configureer HADR.

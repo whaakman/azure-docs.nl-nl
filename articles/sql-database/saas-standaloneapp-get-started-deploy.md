@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie voor één tenant SaaS - Azure SQL Database | Microsoft Docs
-description: Implementeren en een zelfstandige één tenant SaaS-toepassing die gebruikmaakt van Azure SQL Database verkennen.
+title: SaaS-zelf studie met één Tenant-Azure SQL Database | Microsoft Docs
+description: Implementeer en verken een zelfstandige SaaS-toepassing met één Tenant die gebruikmaakt van Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -10,97 +10,96 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e6b18e53358cad1bfe89e8c0ae7fbacec24d179
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304141"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570207"
 ---
-# <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Een zelfstandige één tenant-toepassing die gebruikmaakt van Azure SQL Database implementeren en verkennen
+# <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Een zelfstandige toepassing met één Tenant implementeren en verkennen die gebruikmaakt van Azure SQL Database
 
-In deze zelfstudie, implementeren en verkennen van de Wingtip Tickets SaaS-voorbeeldtoepassing die is ontwikkeld met behulp van het patroon zelfstandige toepassing of app-per-tenant.  De toepassing is ontworpen om u te presenteren functies van Azure SQL Database die het eenvoudiger multitenant SaaS-scenario's inschakelen.
+In deze zelf studie implementeert en bekijkt u de Wingtip tickets SaaS-voorbeeld toepassing die is ontwikkeld met behulp van de zelfstandige toepassing of het app-per-Tenant-patroon.  De toepassing is ontworpen voor het uitbrengen van functies van Azure SQL Database die het inschakelen van SaaS-scenario's met meerdere tenants vereenvoudigen.
 
-De zelfstandige toepassing of het patroon van de app-per-tenant wordt geïmplementeerd exemplaar van een toepassing voor elke tenant.  Elke toepassing is geconfigureerd voor een specifieke tenant en geïmplementeerd in een afzonderlijke Azure-resourcegroep. Meerdere exemplaren van de toepassing worden om toegang te bieden een oplossing voor meerdere tenants ingericht. Dit patroon is het meest geschikt voor kleinere getallen, van tenants waar de isolatie van tenants een topprioriteit is. Azure heeft de partner-programma's die worden gebruikt om resources te worden geïmplementeerd in van een tenant-abonnement en worden beheerd door een serviceprovider voor andere gebruikers van de tenant. 
+De zelfstandige toepassing of het app-per-Tenant patroon implementeert een toepassings exemplaar voor elke Tenant.  Elke toepassing wordt geconfigureerd voor een specifieke Tenant en geïmplementeerd in een afzonderlijke Azure-resource groep. Meerdere exemplaren van de toepassing zijn ingericht om een multi tenant oplossing te bieden. Dit patroon is het meest geschikt voor kleinere aantallen tenants waarbij Tenant isolatie een topprioriteit is. Azure heeft partner Programma's waarmee resources kunnen worden geïmplementeerd in het abonnement van een Tenant en worden beheerd door een service provider op naam van de Tenant. 
 
-In deze zelfstudie implementeert u drie zelfstandige toepassingen voor drie tenants in uw Azure-abonnement.  U hebt volledige toegang om te verkennen en werken met de afzonderlijke toepassingsonderdelen.
+In deze zelf studie implementeert u drie zelfstandige toepassingen voor drie tenants in uw Azure-abonnement.  U hebt volledige toegang om te verkennen en om te werken met de afzonderlijke toepassings onderdelen.
 
-De toepassing source code en scripts zijn beschikbaar in de [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub-opslagplaats. De toepassing is gemaakt met behulp van Visual Studio 2015, en niet is geopend en compileren in Visual Studio 2019 zonder bij te werken.
+De bron code-en beheer scripts van de toepassing zijn beschikbaar in de [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) github opslag plaats. De toepassing is gemaakt met behulp van Visual Studio 2015 en kan niet worden geopend en gecompileerd in Visual Studio 2019 zonder te worden bijgewerkt.
 
 
 In deze zelfstudie komen deze onderwerpen aan bod:
 
 > [!div class="checklist"]
-> * Hoe u de zelfstandige Wingtip Tickets SaaS-toepassing implementeert.
-> * Waar de broncode van de toepassing en scripts voor downloaden.
-> * Over de servers en databases waaruit de app.
+> * Hoe u de zelfstandige Wingtip tickets SaaS-toepassing implementeert.
+> * Waar de bron code van de toepassing en beheer scripts worden opgehaald.
+> * Over de servers en data bases die de app vormen.
 
-Aanvullende zelfstudies wordt uitgebracht. Hiermee wordt kunt u een scala aan scenario's voor beheer op basis van dit toepassingspatroon verkennen.   
+Aanvullende zelf studies worden uitgebracht. Ze bieden u de mogelijkheid om een reeks beheer scenario's te verkennen op basis van dit toepassings patroon.   
 
-## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>De Wingtip Tickets zelfstandige SaaS-toepassing implementeren
+## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>De zelfstandige SaaS-toepassing Wingtip tickets implementeren
 
-Implementeer de app voor de drie opgegeven tenants:
+Implementeer de app voor de drie beschik bare tenants:
 
-1. Klik op elke blauw **implementeren in Azure** knop voor het openen van de sjabloon voor de implementatie in de [Azure-portal](https://portal.azure.com). Elke sjabloon is vereist twee parameterwaarden; een naam op voor een nieuwe resourcegroep en de naam van een gebruiker die deze implementatie van andere implementaties van de app onderscheidt. De volgende stap bevat details voor het instellen van deze waarden.<br><br>
-    <a href="https://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contoso Concert Hall**
+1. Klik op elke blauwe knop **implementeren naar Azure** om de implementatie sjabloon te openen in de [Azure Portal](https://portal.azure.com). Voor elke sjabloon zijn twee parameter waarden vereist. een naam voor een nieuwe resource groep en een gebruikers naam die deze implementatie onderscheidt van andere implementaties van de app. De volgende stap bevat details over het instellen van deze waarden.<br><br>
+    <a href="https://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>**Concert zaal contoso** &nbsp;
 <br><br>
     <a href="https://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dogwood Dojo**
 <br><br>
     <a href="https://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz Club**
 
-2. Voer de vereiste parameterwaarden voor elke implementatie.
+2. Voer de vereiste parameter waarden in voor elke implementatie.
 
     > [!IMPORTANT]
-    > Sommige firewalls verificatie en de server zijn opzettelijk onbeveiligde voor demonstratiedoeleinden te gebruiken. **Maak een nieuwe resourcegroep** voor elke implementatie van de toepassing.  Gebruik niet een bestaande resourcegroep. Gebruik deze toepassing, of eventuele resources die zijn gemaakt, niet voor productie. Alle resourcegroepen verwijderen wanneer u klaar bent met de toepassingen gerelateerde facturering te stoppen.
+    > Sommige verificatie-en server firewalls zijn opzettelijk onveilig voor demonstratie doeleinden. **Maak een nieuwe resource groep** voor elke toepassings implementatie.  Gebruik geen bestaande resource groep. Gebruik deze toepassing of resources die worden gemaakt, niet voor productie. Verwijder alle resource groepen wanneer u klaar bent met de toepassingen om gerelateerde facturering te stoppen.
 
-    Het is raadzaam gebruik alleen kleine letters, cijfers en afbreekstreepjes bevatten in de resourcenamen van uw.
-    * Voor **resourcegroep**, selecteer de nieuwe optie maken en geef vervolgens een kleine naam voor de resourcegroep. **Wingtip-sa -\<venueName\>-\<gebruiker\>**  is het aanbevolen patroon.  Voor \<venueName\>, vervangt u de naam van de venue zonder spaties. Voor \<gebruiker\>, vervang de gebruikerswaarde hieronder.  Met dit patroon resourcegroepnamen mogelijk *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
-    * Selecteer een **locatie** uit de vervolgkeuzelijst.
+    Het is raadzaam alleen kleine letters, cijfers en afbreek streepjes in de resource namen te gebruiken.
+    * Voor **resource groep**selecteert u nieuwe maken en geeft u een kleine naam op voor de resource groep. **Wingtip-sa-\<\>locatiegebruikerishetAanbevolenpatroon\>. -\<**  Vervang de naam van de locatie voor \<de locatie van de locatie zonder spaties.\> Voor \<de\>gebruiker vervangt u de onderstaande gebruikers waarde.  Met dit patroon kunnen namen van resource groepen *Wingtip-sa-contosoconcerthall-AF1*, *Wingtip-sa-dogwooddojo-AF1*, *Wingtip-sa-fabrikamjazzclub-AF1*zijn.
+    * Selecteer een **locatie** in de vervolg keuzelijst.
 
-    * Voor **gebruiker** -wordt aangeraden een korte gebruikerswaarde, zoals uw initialen plus een cijfer: bijvoorbeeld *af1*.
+    * Voor de **gebruiker** : we raden een korte gebruikers waarde aan, zoals uw initialen plus een cijfer: bijvoorbeeld *AF1*.
 
 
 3. **Implementeer de toepassing**.
 
-    * Klik op om de voorwaarden en bepalingen te accepteren.
+    * Klik om akkoord te gaan met de voor waarden.
     * Klik op **Kopen**.
 
-4. De status van alle drie implementaties controleren door te klikken op **meldingen** (het belpictogram aan de rechterkant van het zoekvak). Implementatie van de apps duurt ongeveer vijf minuten.
+4. U kunt de status van alle drie de implementaties controleren door te klikken op **meldingen** (het klok pictogram rechts van het zoekvak). Het implementeren van de apps duurt ongeveer vijf minuten.
 
 
 ## <a name="run-the-applications"></a>De toepassingen uitvoeren
 
-De app worden venues die als host gebeurtenissen fungeren gepresenteerd.  De venues zijn de tenants van de toepassing. Elke venue krijgt een aangepaste website te vermelden van hun evenementen en tickets kunnen verkopen. Locatietypen bevatten concertzalen, jazzclubs stadions en sport stadions. In het voorbeeld bepaalt het type venue de achtergrondfoto wordt weergegeven op de website van de venue.   In de zelfstandige app-model heeft elke locatie een afzonderlijke toepassing-exemplaar met een eigen zelfstandige SQL-database.
+De app geeft een overzicht van locaties die gebeurtenissen hosten.  De locaties zijn de tenants van de toepassing. Elke locatie haalt een gepersonaliseerde website op om hun evenementen te vermelden en kaarten te verkopen. Locatie typen zijn onder andere concert huizen, Jazz klaveren en sport clubs. In het voor beeld bepaalt het type locatie de achtergrond foto die wordt weer gegeven op de website van de site.   In het zelfstandige app-model heeft elke locatie een afzonderlijk toepassings exemplaar met een eigen zelfstandige SQL database.
 
-1. Open de pagina gebeurtenissen voor elk van de drie tenants in afzonderlijke browsertabbladen:
+1. Open de pagina gebeurtenissen voor elk van de drie tenants in afzonderlijke browser tabbladen:
 
    - http://events.contosoconcerthall.&lt ;user&gt;.trafficmanager.net
    - http://events.dogwooddojo.&lt ;user&gt;.trafficmanager.net
    - http://events.fabrikamjazzclub.&lt ;user&gt;.trafficmanager.net
 
-     (In elke URL vervangen &lt;gebruiker&gt; met de waarde van de gebruiker van uw implementatie.)
+     (Vervang &lt;&gt; de gebruiker in elke URL door de gebruikers waarde van uw implementatie.)
 
    ![Events](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
-Voor het beheren van de distributie van inkomende aanvragen, de app gebruikt [ *Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Elke tenant-specifieke app-instantie bevat de naam van de tenant als onderdeel van de domeinnaam in de URL. Alle tenant URL's bevatten uw specifieke **gebruiker** waarde. De URL volgt u de volgende indeling:
+De app maakt gebruik van [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md)om de distributie van binnenkomende aanvragen te beheren. Elk Tenant-specifiek app-exemplaar bevat de Tenant naam als onderdeel van de domein naam in de URL. Alle Tenant-Url's bevatten uw specifieke **gebruikers** waarde. De Url's volgen de volgende indeling:
 - http://events.&lt ;venuename&gt;.&lt; user&gt;.trafficmanager.net
 
-Van elke tenantdatabase **locatie** is opgenomen in de app-instellingen van de bijbehorende geïmplementeerde app.
+De **locatie** van de data base van elke Tenant is opgenomen in de app-instellingen van de bijbehorende geïmplementeerde app.
 
-In een productieomgeving, doorgaans maakt u een CNAME-DNS-record [ *internetdomein van een bedrijf* ](../traffic-manager/traffic-manager-point-internet-domain.md) naar de URL van het traffic manager-profiel.
+In een productie omgeving maakt u doorgaans een CNAME DNS-record om het [*Internet domein van een bedrijf*](../traffic-manager/traffic-manager-point-internet-domain.md) te laten verwijzen naar de URL van het Traffic Manager-profiel.
 
 
-## <a name="explore-the-servers-and-tenant-databases"></a>Verken de servers en tenant-databases
+## <a name="explore-the-servers-and-tenant-databases"></a>De servers en Tenant databases verkennen
 
-Laten we kijken enkele van de resources die zijn geïmplementeerd:
+Laten we eens kijken naar enkele van de resources die zijn geïmplementeerd:
 
-1. In de [Azure-portal](https://portal.azure.com), blader naar de lijst met resourcegroepen.
-2. Hier ziet u de resourcegroepen drie tenant.
-3. Open de **wingtip-sa-fabrikam -&lt;gebruiker&gt;**  resourcegroep, die de resources voor de implementatie van Fabrikam Jazz Club bevat.  De **fabrikamjazzclub -&lt;gebruiker&gt;**  server bevat de **fabrikamjazzclub** database.
+1. Blader in het [Azure Portal](https://portal.azure.com)naar de lijst met resource groepen.
+2. U ziet nu de drie Tenant resource groepen.
+3. Open de resource groep **Wingtip-sa-&lt;fabrikam&gt; -User** . Deze bevat de resources voor de implementatie van Fabrikam Jazz Club.  De **fabrikamjazzclub-&lt;gebruikers&gt;**  server bevat de **fabrikamjazzclub** -data base.
 
-Elke tenant-database is een 50 DTU *zelfstandige* database.
+Elke Tenant database is een een *zelfstandige* 50 DTU-data base.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
@@ -110,22 +109,22 @@ Elke tenant-database is een 50 DTU *zelfstandige* database.
 * To learn about elastic jobs, see [*Managing scaled-out cloud databases*](elastic-jobs-overview.md)
 -->
 
-- Zie voor meer informatie over SaaS-toepassingen met meerdere tenants, [ontwerppatronen voor SaaS-toepassingen met meerdere tenants](saas-tenancy-app-design-patterns.md).
+- Zie [ontwerp patronen voor SaaS-toepassingen met meerdere](saas-tenancy-app-design-patterns.md)tenants voor meer informatie over SaaS-toepassingen met meerdere tenants.
 
  
-## <a name="delete-resource-groups-to-stop-billing"></a>Resourcegroepen om te stoppen facturering verwijderen ##
+## <a name="delete-resource-groups-to-stop-billing"></a>Resource groepen verwijderen om de facturering te stoppen ##
 
-Wanneer u klaar bent met het voorbeeld gebruikt, verwijdert alle resourcegroepen die u hebt gemaakt om de bijbehorende facturering te stoppen.
+Wanneer u klaar bent met het gebruik van het voor beeld, verwijdert u alle resource groepen die u hebt gemaakt om de gekoppelde facturering te stoppen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Hoe u de zelfstandige Wingtip Tickets SaaS-toepassing implementeert.
-> * Over de servers en databases waaruit de app.
-> * Klik hier voor meer informatie over het verwijderen van de voorbeeldresources om gerelateerde facturering te stoppen.
+> * Hoe u de zelfstandige Wingtip tickets SaaS-toepassing implementeert.
+> * Over de servers en data bases die de app vormen.
+> * Voorbeeld resources verwijderen om gerelateerde facturering te stoppen.
 
-Probeer vervolgens de [inrichten en catalogiseren](saas-standaloneapp-provision-and-catalog.md) zelfstudie waarin u het gebruik van een catalogus van tenants waarmee een scala aan scenario's voor cross-tenant, zoals schema management en tenant-analytics verkennen.
+Vervolgens kunt u de zelf studie voor het [inrichten en de catalogus](saas-standaloneapp-provision-and-catalog.md) gebruiken om het gebruik van een catalogus met tenants te verkennen die verschillende scenario's voor meerdere tenants mogelijk maakt, zoals schema beheer en Tenant-analyses.
  
 

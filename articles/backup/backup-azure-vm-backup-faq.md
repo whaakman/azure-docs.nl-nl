@@ -1,18 +1,19 @@
 ---
 title: Veelgestelde vragen over het maken van back-ups van virtuele Azure-machines met Azure Backup
 description: Antwoorden op veelgestelde vragen over het maken van back-ups van virtuele Azure-machines met Azure Backup.
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
-ms.author: sogup
-ms.openlocfilehash: a26cc2fcdc381361912085b0980a736f040c5b0a
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 8948a620c27311f0371a557c91a971da37111cb9
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465295"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688582"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Veelgestelde vragen: back-ups maken van virtuele Azure-machines
 
@@ -86,7 +87,7 @@ De geplande back-up wordt binnen twee uur na de geplande back-uptijd geactiveerd
 ### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>Wat is de mini maal toegestane Bewaar termijn voor dagelijks back-uppunt?
 Het back-upbeleid van Azure Virtual Machine ondersteunt een minimale Bewaar termijn van 7 dagen tot 9999 dagen. Elke wijziging van een bestaand VM-back-upbeleid met minder dan zeven dagen vereist dat een update voldoet aan de minimale Bewaar periode van 7 dagen.
 
-## <a name="restore"></a>Terugzetten
+## <a name="restore"></a>Herstellen
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Hoe kan ik bepalen of u alleen schijven of een volledige virtuele machine wilt herstellen?
 U kunt een VM-herstel bewerking beschouwen als een snelle optie voor het maken van een virtuele Azure-machine. Met deze optie wijzigt u de schijf namen, containers die worden gebruikt door de schijven, open bare IP-adressen en netwerk interface namen. De wijziging houdt unieke resources bij wanneer een virtuele machine wordt gemaakt. De virtuele machine is niet toegevoegd aan een beschikbaarheidsset.

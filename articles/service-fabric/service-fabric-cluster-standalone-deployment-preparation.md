@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: e5fa46930a3be3c85cd76e655fac3164cc45d957
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 78db25fed7c284b31491bdc9e5498493da4c7479
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544735"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618844"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Plannen en voorbereiden van uw Service Fabric een zelfstandige Clusterimplementatie
 
-<a id="preparemachines"></a>De volgende stappen uitvoeren voordat u uw cluster maakt.
+<a id="preparemachines"></a>Voer de volgende stappen uit voordat u het cluster maakt.
 
 ## <a name="plan-your-cluster-infrastructure"></a>Uw clusterinfrastructuur plannen
 U staat op het maken van een Service Fabric-cluster op machines die u 'eigenaar', zodat u kunt beslissen welke soorten fouten die het cluster om te overbruggen. Bijvoorbeeld, u moet Scheid power lijnen of verbindingen via Internet geleverd aan deze machines? Bovendien kunt u overwegen de fysieke beveiliging van deze machines. Waar bevinden de machines zich en die behoefte hebben aan de toegang tot? Nadat u deze beslissingen nemen, kunt u de machines logisch toewijzen aan verschillende domeinen met fouten (Zie de volgende stap). De infrastructuur plannen voor productieclusters is meer betrokken dan voor testclusters.
@@ -45,7 +45,7 @@ Wanneer u ud's in ClusterConfig.json opgeeft, kunt u de naam op voor elke UD kie
 * "upgradeDomain": "UD0"
 * "upgradeDomain": "UD1A"
 * "upgradeDomain": "DomainRed"
-* "upgradeDomain": "Blue"
+* "upgradeDomain": Meng
 
 Zie voor meer informatie over Foutdomeinen en Upgradedomeinen, [met een beschrijving van een Service Fabric-cluster](service-fabric-cluster-resource-manager-cluster-description.md).
 
@@ -65,7 +65,7 @@ Hier volgen enkele aanbevolen specificaties voor elke machine die u wilt toevoeg
 * Een minimum van 40 GB beschikbare schijfruimte
 * Een 4-core of hoger CPU
 * Verbinding met een beveiligd netwerk of netwerken voor alle machines
-* Windows Server-besturingssysteem is geïnstalleerd (geldige versies: 2012 R2, 2016, 1709 of 1803)
+* Windows Server-besturings systeem geïnstalleerd (geldige versies: 2012 R2, 2016, 1709, 1803 of 2019)
 * [.NET framework 4.5.1 of hoger](https://www.microsoft.com/download/details.aspx?id=40773), volledige installatie
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * De [RemoteRegistry service](https://technet.microsoft.com/library/cc754820) moet worden uitgevoerd op alle computers
@@ -103,13 +103,13 @@ Wanneer een Clusterbeheerder een zelfstandige Service Fabric-cluster configureer
    * Hebben de Remote Registry-Service (remote registry) ingeschakeld
    * Bestand die delen (SMB) ingeschakeld
    * Vereiste poorten geopend zijn op basis van poorten voor cluster-configuratie
-   * Hebben de vereiste poorten geopend voor SMB in Windows en de Remote Registry-service: 135, 137, 138, 139 en 445
+   * De benodigde poorten zijn geopend voor de Windows SMB-en Remote Registry-service: 135, 137, 138, 139 en 445
    * Netwerkverbinding hebben met elkaar
 3. Geen van de cluster-knooppunt machines moet een domeincontroller.
 4. Als het cluster worden geïmplementeerd, een beveiligd cluster is, controleert u de benodigde beveiligingsreferenties vereisten zijn in plaats en correct zijn geconfigureerd op basis van de configuratie.
 5. Als de cluster-machines niet toegankelijk is met internet zijn, moet u het volgende instellen in de configuratie van het cluster:
-   * Telemetrie uitschakelen: Onder *eigenschappen* ingesteld *"enableTelemetry": false*
-   * Automatische Fabric versie gedownload en dat de huidige clusterversie einde van ondersteuning wordt binnenkort meldingen uitschakelen: Onder *eigenschappen* ingesteld *"fabricClusterAutoupgradeEnabled": false*
+   * Telemetrie uitschakelen: Onder *Eigenschappen* set *"enableTelemetry": False*
+   * Schakel de automatische infrastructuur versie voor het downloaden van & meldingen uit dat de huidige cluster versie bijna de ondersteuning ondervindt: Onder *Eigenschappen* set *"fabricClusterAutoupgradeEnabled": False*
    * U kunt ook als internet toegang tot het netwerk beperkt tot acceptatielijstdomeinen is, de domeinen die hieronder zijn vereist voor automatisch bijwerken: go.microsoft.com download.microsoft.com
 
 6. Juiste antivirus uitsluitingen voor Service Fabric instellen:

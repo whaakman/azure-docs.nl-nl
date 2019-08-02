@@ -1,6 +1,6 @@
 ---
-title: Bronnen van de gegevens in Azure Monitor | Microsoft Docs
-description: Beschrijving van de gegevens beschikbaar voor het bewaken van de status en prestaties van uw Azure-resources en de toepassingen die daarop worden uitgevoerd.
+title: Gegevens bronnen in Azure Monitor | Microsoft Docs
+description: Beschrijft de gegevens die beschikbaar zijn voor het bewaken van de status en prestaties van uw Azure-resources en de toepassingen die erop worden uitgevoerd.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -12,57 +12,57 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: bwren
-ms.openlocfilehash: b77fb3ab5651147c59b9f0afd22a2d6d0159c90e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 673575d480b78c151e68963e4a935fc72e7e578b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357529"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564745"
 ---
-# <a name="sources-of-monitoring-data-for-azure-monitor"></a>Bronnen van bewakingsgegevens voor Azure Monitor
-Azure Monitor is gebaseerd op een [algemene gegevens bewakingsplatform](data-platform.md) die bevat [logboeken](data-platform-logs.md) en [metrische gegevens](data-platform-metrics.md). Dit platform verzamelen van gegevens, kunt gegevens uit meerdere bronnen om te worden geanalyseerd samen met een gemeenschappelijke set hulpprogramma's in Azure Monitor. Bewakingsgegevens kan ook worden verzonden naar andere locaties voor de ondersteuning van bepaalde scenario's en bronnen naar andere locaties kunnen schrijven voordat ze verzameld in Logboeken of metrische gegevens worden kunnen.
+# <a name="sources-of-monitoring-data-for-azure-monitor"></a>Bronnen van bewakings gegevens voor Azure Monitor
+Azure Monitor is gebaseerd op een [Algemeen bewakings gegevensplatform](data-platform.md) dat [Logboeken](data-platform-logs.md) en [metrische](data-platform-metrics.md)gegevens bevat. Door gegevens te verzamelen in dit platform kunnen gegevens uit meerdere bronnen worden geanalyseerd met behulp van een gemeen schappelijke set hulpprogram ma's in Azure Monitor. Bewakings gegevens kunnen ook worden verzonden naar andere locaties ter ondersteuning van bepaalde scenario's en sommige resources kunnen naar andere locaties schrijven voordat ze kunnen worden verzameld in Logboeken of metrische gegevens.
 
-Dit artikel beschrijft de verschillende bronnen van bewakingsgegevens die worden verzameld door Azure Monitor naast de gegevens die zijn gemaakt door Azure-resources. Vindt u koppelingen naar gedetailleerde informatie over de configuratie is vereist voor het verzamelen van deze gegevens naar verschillende locaties.
+In dit artikel worden de verschillende bronnen beschreven van bewakings gegevens die zijn verzameld door Azure Monitor naast de bewakings gegevens die zijn gemaakt door Azure-resources. Er zijn koppelingen naar gedetailleerde informatie over de configuratie die is vereist voor het verzamelen van deze gegevens op verschillende locaties.
 
 ## <a name="application-tiers"></a>Toepassingslagen
 
-Bronnen van bewakingsgegevens van Azure-toepassingen kunnen worden ingedeeld in lagen, de hoogste niveaus wordt uw toepassing zelf en de lagere lagen worden onderdelen van Azure-platform. De methode van de toegang tot gegevens van elke laag verschilt. Toepassingslagen worden samengevat in de onderstaande tabel en de bronnen van bewakingsgegevens in elke laag worden weergegeven in de volgende secties. Zie [gegevenslocaties in Azure Monitoring](data-locations.md) voor een beschrijving van elke locatie en hoe u toegang hebt tot de gegevens.
+Bronnen van bewakings gegevens van Azure-toepassingen kunnen worden ingedeeld in lagen, de hoogste lagen van uw toepassing zelf en de lagere lagen die onderdeel zijn van het Azure-platform. De methode voor het openen van gegevens van elke laag varieert. De toepassings lagen worden in de onderstaande tabel samengebracht en de bronnen van bewakings gegevens in elke laag worden weer gegeven in de volgende secties. Zie [gegevens locaties bewaken in azure](data-locations.md) voor een beschrijving van elke gegevens locatie en hoe u toegang kunt krijgen tot de gegevens.
 
 
-![Bewaking van lagen](../media/overview/overview.png)
+![Bewakings lagen](../media/overview/overview.png)
 
 
 ### <a name="azure"></a>Azure
-De volgende tabel wordt kort beschreven toepassingslagen die specifiek voor Azure zijn. Na de koppeling voor meer informatie over elk in de volgende secties.
+De volgende tabel bevat een korte beschrijving van de toepassings lagen die specifiek zijn voor Azure. Volg de onderstaande koppeling voor meer informatie over elk van de onderstaande secties.
 
-| Laag | Description | Methode voor gebruikersstatusverzameling |
+| Laag | Description | Verzamel methode |
 |:---|:---|:---|
-| [Azure Tenant](#azure-tenant) | Gegevens over de werking van op tenantniveau-Azure-services, zoals Azure Active Directory. | AAD-gegevens weergeven in de portal of verzamelen van Azure Monitor met behulp van de diagnostische instelling van een tenant configureren. |
-| [Azure-abonnement](#azure-subscription) | Gegevens met betrekking tot de status en het beheer van meerdere bronnen services in uw Azure-abonnement, zoals Resource Manager en de status van de Service. | In de portal weergeven of configureren van verzameling naar Azure Monitor met een logboekprofiel voor een. |
-| [Azure-resources](#azure-resources) |  Gegevens over de werking en prestaties van elke Azure-resource. | Verzamelde metrische gegevens worden automatisch in Metrics Explorer weergeven.<br>Diagnostische instellingen voor het verzamelen van Logboeken in Azure Monitor configureren.<br>Bewaking van oplossingen en inzichten die beschikbaar zijn voor meer gedetailleerde bewaking voor specifieke brontypen. |
+| [Azure Tenant](#azure-tenant) | Gegevens over de werking van Azure-Services op Tenant niveau, zoals Azure Active Directory. | Bekijk AAD-gegevens in de portal of configureer de verzameling op Azure Monitor met behulp van een diagnostische instelling voor tenants. |
+| [Azure-abonnement](#azure-subscription) | Gegevens met betrekking tot de status en het beheer van cross-resource Services in uw Azure-abonnement, zoals Resource Manager en Service Health. | Weer geven in portal of verzameling configureren voor Azure Monitor met behulp van een logboek profiel. |
+| [Azure-resources](#azure-resources) |  Gegevens over de werking en prestaties van elke Azure-resource. | Gegevens die automatisch worden verzameld, worden weer gegeven in Metrics Explorer.<br>Diagnostische instellingen configureren voor het verzamelen van Logboeken in Azure Monitor.<br>Bewakings oplossingen en inzichten die beschikbaar zijn voor gedetailleerde bewaking van specifieke resource typen. |
 
-### <a name="azure-other-cloud-or-on-premises"></a>Azure, andere cloud of on-premises 
-De volgende tabel wordt kort beschreven toepassingslagen die mogelijk in Azure, een andere cloud of on-premises. Na de koppeling voor meer informatie over elk in de volgende secties.
+### <a name="azure-other-cloud-or-on-premises"></a>Azure, andere Cloud of on-premises 
+De volgende tabel bevat een korte beschrijving van de toepassings lagen in azure, een andere Cloud of on-premises. Volg de onderstaande koppeling voor meer informatie over elk van de onderstaande secties.
 
-| Laag | Description | Methode voor gebruikersstatusverzameling |
+| Laag | Description | Verzamel methode |
 |:---|:---|:---|
-| [Besturingssysteem (Gast)](#operating-system-guest) | Gegevens over het besturingssysteem op de compute-resources. | Log Analytics-agent voor het verzamelen van gegevensbronnen van de client in Azure Monitor- en Afhankelijkheidsmonitors agent voor het verzamelen van afhankelijkheden ondersteuning van Azure Monitor voor virtuele machines installeren.<br>Voor virtuele machines van Azure, installeert u diagnostische Azure-extensie voor het verzamelen van Logboeken en metrische gegevens in Azure Monitor. |
-| [Toepassingscode](#application-code) | Gegevens over de prestaties en functionaliteit van de werkelijke toepassing en de code, inclusief prestatietraces, toepassingslogboeken en telemetrie van de gebruiker. | Instrumenteer uw code voor het verzamelen van gegevens naar Application Insights. |
-| [Aangepaste bronnen](#custom-sources) | Gegevens van externe services of andere onderdelen of apparaten. | Logboek of de metrische gegevens verzamelen in Azure Monitor vanaf een willekeurige REST-client. |
+| [Besturings systeem (gast)](#operating-system-guest) | Gegevens over het besturings systeem op reken resources. | Installeer Log Analytics agent voor het verzamelen van client gegevens bronnen in Azure Monitor en een afhankelijkheids agent voor het verzamelen van afhankelijkheden die Azure Monitor voor VM's ondersteunen.<br>Voor virtuele machines van Azure installeert u de diagnostische Azure-extensie voor het verzamelen van Logboeken en metrische gegevens in Azure Monitor. |
+| [Toepassings code](#application-code) | Gegevens over de prestaties en functionaliteit van de daad werkelijke toepassing en code, met inbegrip van prestatie traceringen, toepassings logboeken en telemetrie van de gebruiker. | Instrumenteer uw code voor het verzamelen van gegevens in Application Insights. |
+| [Aangepaste bronnen](#custom-sources) | Gegevens van externe services of andere onderdelen of apparaten. | Verzamelen van logboek-of metrische gegevens in Azure Monitor van elke REST-client. |
 
 ## <a name="azure-tenant"></a>Azure-tenant
-Telemetrie met betrekking tot uw Azure-tenant worden verzameld van de tenant-brede services zoals Azure Active Directory.
+Telemetrie die betrekking heeft op uw Azure-Tenant wordt verzameld van services voor de hele Tenant, zoals Azure Active Directory.
 
-![Verzameling van de Azure-tenant](media/data-sources/tenant.png)
+![Azure-Tenant verzameling](media/data-sources/tenant.png)
 
-### <a name="azure-active-directory-audit-logs"></a>Auditlogboeken van Azure Active Directory
-[Azure Active Directory-rapportage](../../active-directory/reports-monitoring/overview-reports.md) bevat de geschiedenis van aanmelding activiteit en audit audittrail van wijzigingen in een bepaalde tenant. 
+### <a name="azure-active-directory-audit-logs"></a>Controle logboeken Azure Active Directory
+[Azure Active Directory rapportage](../../active-directory/reports-monitoring/overview-reports.md) bevat de geschiedenis van de aanmeldings activiteit en de audittrail van wijzigingen die zijn aangebracht in een bepaalde Tenant. 
 
 | Bestemming | Description | Referentie |
 |:---|:---|:---|
-| Logboeken van Azure Monitor | Azure AD-logboeken te verzamelen in Azure Monitor voor het analyseren van deze met andere bewakingsgegevens configureren. | [Azure AD-logboeken integreren met Azure Monitor-Logboeken (preview)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure Storage | Azure AD-logboeken exporteren naar Azure Storage voor het archiveren. | [Zelfstudie: Logboeken van Azure AD naar Azure storage-account (preview) archiveren](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Event Hub | Azure AD-Stream logboeken naar andere locaties met behulp van Event Hubs. | [Zelfstudie: Azure Active Directory-logboeken naar een Azure event hub (preview) Stream](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
+| Azure Monitor logboeken | Configureer de Azure AD-logboeken die moeten worden verzameld in Azure Monitor om ze te analyseren met andere bewakings gegevens. | [Azure AD-logboeken integreren met Azure Monitor-Logboeken (preview-versie)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
+| Azure Storage | Exporteer Azure AD-logboeken naar Azure Storage voor archivering. | [Zelfstudie: Azure AD-logboeken archiveren in een Azure-opslag account (preview-versie)](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Event Hub | Stream Azure AD-logboeken naar andere locaties met Event Hubs. | [Zelfstudie: Stream Azure Active Directory logboeken naar een Azure Event Hub (preview](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)). |
 
 
 
@@ -72,145 +72,145 @@ Telemetrie met betrekking tot de status en de werking van uw Azure-abonnement.
 ![Azure-abonnement](media/data-sources/azure-subscription.png)
 
 ### <a name="azure-activity-log"></a>Azure-activiteitenlogboek 
-De [Azure-activiteitenlogboek](activity-logs-overview.md) service medische dossiers, samen met records in de van configuratiewijzigingen aan de resources in uw Azure-abonnement bevat. Het activiteitenlogboek is beschikbaar voor alle Azure-resources en vertegenwoordigt de _externe_ weergeven.
+Het [Azure-activiteiten logboek](activity-logs-overview.md) bevat service status records samen met records in configuratie wijzigingen die zijn aangebracht in de resources in uw Azure-abonnement. Het activiteiten logboek is beschikbaar voor alle Azure-resources en vertegenwoordigt hun _externe_ weer gave.
 
 | Bestemming | Description | Referentie |
 |:---|:---|
-| Activiteitenlogboek | Het activiteitenlogboek zijn verzameld in een eigen gegevensarchief die u kunt bekijken in het menu Azure Monitor of gebruiken voor het maken van waarschuwingen voor activiteitenlogboeken. | [Query uitvoeren op het activiteitenlogboek in Azure portal](activity-log-view.md#azure-portal) |
-| Logboeken van Azure Monitor | Configureer Azure Monitor-logboeken voor het verzamelen van het activiteitenlogboek voor het analyseren van deze met andere gegevens. | [Verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics-werkruimte in Azure Monitor](activity-log-collect.md) |
-| Azure Storage | Het activiteitenlogboek exporteren naar Azure Storage voor het archiveren. | [Het activiteitenlogboek archiveren](activity-log-export.md#archive-activity-log)  |
-| Event Hubs | Stream het activiteitenlogboek naar andere locaties met behulp van Event Hubs | [Stream-activiteitenlogboek naar Event Hub](activity-log-export.md#stream-activity-log-to-event-hub). |
+| Activiteitenlogboek | Het activiteiten logboek wordt verzameld in het eigen gegevens archief dat u kunt weer geven in het menu Azure Monitor of gebruiken om waarschuwingen in het activiteiten logboek te maken. | [Query's uitvoeren op het activiteiten logboek in de Azure Portal](activity-log-view.md#azure-portal) |
+| Azure Monitor logboeken | Configureer Azure Monitor Logboeken om het activiteiten logboek te verzamelen om het te analyseren met andere bewakings gegevens. | [Azure-activiteiten Logboeken in Log Analytics werk ruimte in Azure Monitor verzamelen en analyseren](activity-log-collect.md) |
+| Azure Storage | Exporteer het activiteiten logboek naar Azure Storage voor het archiveren. | [Activiteiten logboek archiveren](activity-log-export.md#archive-activity-log)  |
+| Event Hubs | Het activiteiten logboek streamen naar andere locaties met Event Hubs | [Activiteiten logboek streamen naar Event hub](activity-log-export.md#stream-activity-log-to-event-hub). |
 
-### <a name="azure-service-health"></a>Azure Service Health
-[Azure Service Health](../../service-health/service-health-overview.md) bevat informatie over de status van de Azure-services in uw abonnement die uw toepassing en de resources afhankelijk van zijn.
+### <a name="azure-service-health"></a>Azure-servicestatus
+[Azure service Health](../../service-health/service-health-overview.md) biedt informatie over de status van de Azure-Services in uw abonnement waarvan uw toepassing en resources afhankelijk zijn.
 
 | Bestemming | Description | Referentie |
 |:---|:---|:---|
-| Activiteitenlogboek<br>Logboeken van Azure Monitor | Servicestatus records worden opgeslagen in de Azure-activiteitenlogboek, zodat u kunt ze in Azure portal weergeven of uitvoeren van alle andere activiteiten die u met het activiteitenlogboek uitvoeren kunt. | [Servicestatusmeldingen bekijken met Azure Portal](service-notifications.md) |
+| Activiteitenlogboek<br>Azure Monitor logboeken | Service Health Records worden opgeslagen in het Azure-activiteiten logboek, zodat u ze kunt weer geven in de Azure Portal of andere activiteiten kunt uitvoeren die u met het activiteiten logboek uitvoert. | [Servicestatusmeldingen bekijken met Azure Portal](service-notifications.md) |
 
 
 ## <a name="azure-resources"></a>Azure-resources
-Metrische gegevens en resources niveau diagnostische logboeken bieden informatie over de _interne_ werking van Azure-resources. Deze zijn beschikbaar voor de meeste Azure-services en oplossingen en inzichten verzamelen van aanvullende gegevens voor bepaalde services.
+Metrische gegevens en Diagnostische logboeken op resource niveau bieden informatie over de _interne_ werking van Azure-resources. Deze zijn beschikbaar voor de meeste Azure-Services en bewakings oplossingen en inzichten verzamelen extra gegevens voor bepaalde services.
 
-![Azure-resource-verzameling](media/data-sources/azure-resources.png)
+![Azure-resource verzameling](media/data-sources/azure-resources.png)
 
 
-### <a name="platform-metrics"></a>Platform metrische gegevens 
-De meeste Azure-services wordt verzonden [platform metrische gegevens](data-platform-metrics.md) die overeenkomen de prestaties en de bewerking rechtstreeks naar de database van de metrische gegevens. De specifieke [metrische gegevens varieert voor elk type resource](metrics-supported.md). 
+### <a name="platform-metrics"></a>Metrische platform gegevens 
+De meeste Azure-Services verzenden [platform metrieken](data-platform-metrics.md) die de prestaties en bewerking rechtstreeks aan de data base met metrische gegevens weer geven. De specifieke [metrische gegevens zijn afhankelijk van elk type resource](metrics-supported.md). 
 
 | Bestemming | Description | Referentie |
 |:---|:---|:---|
-| Azure Monitor Metrics | Platform metrische gegevens worden geschreven naar de database van Azure Monitor metrische gegevens waarvoor geen configuratie. Platform metrische gegevens op de toegang van Metrics Explorer.  | [Aan de slag met Azure Metrics Explorer](metrics-getting-started.md)<br>[Ondersteunde metrische gegevens met Azure Monitor](metrics-supported.md) |
-| Logboeken van Azure Monitor | Kopieer platform metrische gegevens naar de logboeken voor trending en andere analyse met behulp van Log Analytics. | [Azure diagnostics rechtstreeks naar Log Analytics](collect-azure-metrics-logs.md#azure-diagnostics-direct-to-log-analytics) |
-| Event Hubs | Stream metrische gegevens naar andere locaties met behulp van Event Hubs. |[Azure-Stream bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma](stream-monitoring-data-event-hubs.md) |
+| Azure Monitor metrische gegevens | De metrische gegevens van het platform worden geschreven naar de data base van de Azure Monitor metriek zonder configuratie. Toegang krijgen tot platform gegevens van Metrics Explorer.  | [Aan de slag met Azure Metrics Explorer](metrics-getting-started.md)<br>[Ondersteunde metrische gegevens met Azure Monitor](metrics-supported.md) |
+| Azure Monitor logboeken | Platform metrieken kopiëren naar Logboeken voor trending en andere analyse met behulp van Log Analytics. | [Diagnostische gegevens van Azure rechtstreeks naar Log Analytics](diagnostic-logs-stream-log-store.md) |
+| Event Hubs | Meet gegevens streamen naar andere locaties met behulp van Event Hubs. |[Azure-bewakings gegevens streamen naar een Event Hub voor gebruik door een extern hulp programma](stream-monitoring-data-event-hubs.md) |
 
 ### <a name="diagnostic-logs"></a>Diagnostische logboeken
-[Diagnostische logboeken](diagnostic-logs-overview.md) inzicht geven in de _interne_ werking van een Azure-resource.  Logboeken met diagnostische gegevens worden niet standaard ingeschakeld. U moet ze inschakelen en een doel voor elke resource opgeven. 
+[Diagnostische logboeken](diagnostic-logs-overview.md) bieden inzicht in de _interne_ werking van een Azure-resource.  Diagnostische logboeken zijn niet standaard ingeschakeld. U moet deze inschakelen en een bestemming opgeven voor elke resource. 
 
-De configuratievereisten en de inhoud van diagnostische logboeken variëren per resourcetype, en niet alle services nog maken diagnostische logboeken. Zie [ondersteunde services, schema's en categorieën voor diagnostische logboeken van Azure](diagnostic-logs-schema.md) voor meer informatie over elke service en koppelingen naar gedetailleerde procedures. Als de service niet wordt weergegeven in dit artikel, wordt deze service wordt momenteel niet schrijven naar Logboeken met diagnostische gegevens.
+De configuratie vereisten en de inhoud van Diagnostische logboeken variëren per bron type en niet alle services maken nog geen Diagnostische logboeken. Zie [ondersteunde services, schema's en categorieën voor Azure Diagnostische logboeken](diagnostic-logs-schema.md) voor meer informatie over elke service en koppelingen naar gedetailleerde configuratie procedures. Als de service niet wordt vermeld in dit artikel, wordt de service momenteel niet naar Diagnostische logboeken geschreven.
 
 | Bestemming | Description | Referentie |
 |:---|:---|:---|
-| Logboeken van Azure Monitor | Logboeken met diagnostische gegevens verzenden naar Azure Monitor-logboeken voor analyse met andere verzamelde gegevens. Sommige resources kunnen schrijven rechtstreeks naar Azure Monitor, terwijl anderen naar een opslagaccount schrijven voordat het wordt geïmporteerd in een Log Analytics-werkruimte. | [Stream Azure diagnostische logboeken naar Log Analytics-werkruimte in Azure Monitor](diagnostic-logs-stream-log-store.md)<br>[De Azure portal gebruiken voor het verzamelen van Logboeken van Azure Storage](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)  |
-| Opslag | Verzenden van diagnostische logboeken naar Azure Storage voor het archiveren. | [Archiveren van diagnostische logboeken in Azure](archive-diagnostic-logs.md) |
-| Event Hubs | Stream diagnostische logboeken naar andere locaties met behulp van Event Hubs. |[Stream Azure diagnostische logboeken naar een event hub](diagnostic-logs-stream-event-hubs.md) |
+| Azure Monitor logboeken | Diagnostische logboeken verzenden naar Azure Monitor-logboeken voor analyse met andere verzamelde logboek gegevens. Sommige resources kunnen rechtstreeks naar Azure Monitor schrijven terwijl anderen naar een opslag account schrijven voordat ze in een Log Analytics-werk ruimte worden geïmporteerd. | [Diagnostische logboeken van Azure streamen naar Log Analytics werk ruimte in Azure Monitor](diagnostic-logs-stream-log-store.md)<br>[De Azure Portal gebruiken voor het verzamelen van logboeken van Azure Storage](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)  |
+| Storage | Diagnostische logboeken verzenden naar Azure Storage voor archivering. | [Diagnostische logboeken van Azure archiveren](archive-diagnostic-logs.md) |
+| Event Hubs | Diagnostische logboeken streamen naar andere locaties met behulp van Event Hubs. |[Diagnostische logboeken van Azure streamen naar een Event Hub](diagnostic-logs-stream-event-hubs.md) |
 
-## <a name="operating-system-guest"></a>Besturingssysteem (Gast)
-COMPUTE-resources in Azure, in andere clouds en on-premises hebben een gast-besturingssysteem om te controleren. Met de installatie van een of meer agents, kunt u telemetrie van de Gast verzamelen in Azure Monitor om te analyseren met de dezelfde controleprogramma's als de Azure-services zelf.
+## <a name="operating-system-guest"></a>Besturings systeem (gast)
+Reken resources in azure, in andere Clouds en on-premises, hebben een gast besturingssysteem dat kan worden bewaakt. Met de installatie van een of meer agents kunt u telemetrie van de gast in Azure Monitor verzamelen om deze te analyseren met dezelfde controle hulpprogramma's als de Azure-Services zelf.
 
-![Verzameling van Azure compute-resource](media/data-sources/compute-resources.png)
+![Azure Compute-resource verzameling](media/data-sources/compute-resources.png)
 
 ### <a name="azure-diagnostic-extension"></a>Diagnostische Azure-extensie
-Inschakelen van de Azure Diagnostics-extensie voor Azure Virtual machines, kunt u voor het verzamelen van Logboeken en metrische gegevens van het gastbesturingssysteem van de Azure-rekenresources met inbegrip van Azure Cloud Service (klassiek) Web- en werkrollen, virtuele Machines, virtuele machine schaalsets, en Service Fabric.
+Door de Azure Diagnostics-extensie voor virtuele Azure-machines in te scha kelen, kunt u Logboeken en metrische gegevens verzamelen uit het gast besturingssysteem van Azure Compute-resources, inclusief de web-en werk rollen van Azure Cloud service (klassiek), Virtual Machines, virtuele machine schaal sets en Service Fabric.
 
 | Bestemming | Description | Referentie |
 |:---|:---|:---|
-| Opslag | Wanneer u de extensie voor diagnostische gegevens inschakelt, wordt het schrijven naar een opslagaccount standaard. | [Diagnostische gegevens opslaan en weergeven in Azure Storage](diagnostics-extension-to-storage.md) |
-| Azure Monitor Metrics | Wanneer u de extensie voor diagnostische gegevens voor het verzamelen van prestatiemeteritems configureert, worden ze naar de database van Azure Monitor metrics geschreven. | [Verzenden van Guest OS metrische gegevens in de Azure Monitor-metriek opslaan met behulp van Resource Manager-sjabloon voor een virtuele machine van Windows](collect-custom-metrics-guestos-resource-manager-vm.md) |
-| Application Insights-logboekbestanden | Logboeken en prestatiemeteritems verzamelen van de rekenresource ondersteuning van uw toepassing kunnen worden geanalyseerd met andere toepassingsgegevens. | [Cloud Service, virtuele Machine of Service Fabric diagnostische gegevens verzenden naar Application Insights](diagnostics-extension-to-application-insights.md) |
-| Event Hubs | Configureer de extensie voor diagnostische gegevens als u wilt de gegevens naar andere locaties met behulp van Event Hubs streamen.  | [Streaming van Azure Diagnostics-gegevens in het dynamische pad met behulp van Event Hubs](diagnostics-extension-stream-event-hubs.md) |
+| Storage | Wanneer u de uitbrei ding voor diagnostische gegevens inschakelt, wordt standaard naar een opslag account geschreven. | [Diagnostische gegevens opslaan en weergeven in Azure Storage](diagnostics-extension-to-storage.md) |
+| Azure Monitor metrische gegevens | Wanneer u de uitbrei ding voor diagnostische gegevens configureert voor het verzamelen van prestatie meter items, worden deze geschreven naar de data base van de Azure Monitor metrische gegevens. | [Metrische gegevens van het gast besturingssysteem naar het Azure Monitor metrische archief verzenden met een resource manager-sjabloon voor een virtuele Windows-machine](collect-custom-metrics-guestos-resource-manager-vm.md) |
+| Application Insights logboeken | Verzamelen van Logboeken en prestatie meter items van de reken resource die uw toepassing ondersteunen om te worden geanalyseerd met andere toepassings gegevens. | [De diagnostische gegevens voor de Cloud service, virtuele machine of Service Fabric verzenden naar Application Insights](diagnostics-extension-to-application-insights.md) |
+| Event Hubs | Configureer de diagnostische extensie om de gegevens naar andere locaties te streamen met behulp van Event Hubs.  | [Azure Diagnostics gegevens in het warme pad streamen met behulp van Event Hubs](diagnostics-extension-stream-event-hubs.md) |
 
 ### <a name="log-analytics-agent"></a>Log Analytics-agent 
-Installeer de Log Analytics-agent voor uitgebreide bewaking en beheer van uw Windows- of Linux-machines. De virtuele machine kan worden uitgevoerd in Azure, een andere cloud of on-premises.
+Installeer de Log Analytics-agent voor uitgebreidere bewaking en beheer van uw virtuele Windows-of Linux-machines. De virtuele machine kan worden uitgevoerd in azure, een andere Cloud of on-premises.
 
 | Bestemming | Description | Referentie |
 |:---|:---|:---|
-| Logboeken van Azure Monitor | De Log Analytics-agent maakt verbinding met Azure controleren rechtstreeks of via System Center Operations Manager en kunt u het verzamelen van gegevens van gegevensbronnen die u configureert of bewakingsoplossingen zodat u meer inzicht in toepassingen uitgevoerd op de virtuele machine. | [Agent-gegevensbronnen in Azure Monitor](agent-data-sources.md)<br>[Operations Manager verbinden met Azure Monitor](om-agents.md) |
+| Azure Monitor logboeken | De Log Analytics agent maakt rechtstreeks of via System Center Operations Manager verbinding met Azure Monitor en biedt u de mogelijkheid om gegevens te verzamelen van gegevens bronnen die u configureert of van bewakings oplossingen die extra inzichten in toepassingen bieden wordt uitgevoerd op de virtuele machine. | [Gegevens bronnen van agents in Azure Monitor](agent-data-sources.md)<br>[Operations Manager verbinden met Azure Monitor](om-agents.md) |
 
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor voor virtuele machines 
-[Azure Monitor voor virtuele machines](../insights/vminsights-overview.md) biedt u een aangepaste bewakingservaring voor virtuele machines biedt functies dan kernfunctionaliteit van Azure Monitor, met inbegrip van de status van service- en VM-status. Een Agent voor afhankelijkheden op Windows en Linux-machines die in combinatie met de Log Analytics-agent voor het verzamelen van gedetecteerde gegevens over de processen die worden uitgevoerd op de virtuele machine en een extern Procesafhankelijkheden is vereist.
+[Azure monitor voor VM's](../insights/vminsights-overview.md) biedt een aangepaste bewakings ervaring voor virtuele machines die meer functies bieden dan de kern functionaliteit van Azure monitor, inclusief de status van de service en de status van de virtuele machine. Hiervoor is een Dependency Agent vereist op virtuele Windows-en Linux-machines die zijn geïntegreerd met de Log Analytics-agent om gedetecteerde gegevens te verzamelen over processen die worden uitgevoerd op de virtuele machine en externe proces afhankelijkheden.
 
 | Bestemming | Description | Referentie |
 |:---|:---|:---|
-| Logboeken van Azure Monitor | Gegevens over processen en afhankelijkheden worden opgeslagen op de agent. | [Met behulp van Azure Monitor voor virtuele machines (preview) de kaart om te begrijpen van toepassingsonderdelen](../insights/vminsights-maps.md) |
-| VM-opslag | Azure Monitor voor virtuele machines worden opgeslagen informatie over de status van de Health in een aangepaste locatie. Dit is alleen beschikbaar voor Azure Monitor voor virtuele machines in Azure portal in aanvulling op de [REST-API van Azure Resource health](/rest/api/resourcehealth/). | [De status van uw virtuele Azure-machines begrijpen](../insights/vminsights-health.md)<br>[Azure Resource health REST-API](https://docs.microsoft.com/rest/api/resourcehealth/) |
+| Azure Monitor logboeken | Hiermee worden gegevens over processen en afhankelijkheden van de agent opgeslagen. | [Overzicht van het gebruik van Azure Monitor voor VM's (preview) om inzicht te krijgen in toepassings onderdelen](../insights/vminsights-maps.md) |
+| VM-opslag | Azure Monitor voor VM's gegevens over de status van een bewaarde op een aangepaste locatie opslaan. Dit is alleen beschikbaar voor Azure Monitor voor VM's in de Azure Portal naast de [Azure resource Health-rest API](/rest/api/resourcehealth/). | [Inzicht in de status van uw virtuele machines in azure](../insights/vminsights-health.md)<br>[Azure resource Health-REST API](https://docs.microsoft.com/rest/api/resourcehealth/) |
 
 
 
-## <a name="application-code"></a>Toepassingscode
-Gedetailleerde toepassing bewaken in Azure Monitor is klaar met [Application Insights](https://docs.microsoft.com/azure/application-insights/) verzamelt gegevens van toepassingen die op een aantal verschillende platformen. De toepassing kan worden uitgevoerd in Azure, een andere cloud of on-premises.
+## <a name="application-code"></a>Toepassings code
+Gedetailleerde toepassings bewaking in Azure Monitor wordt uitgevoerd met [Application Insights](https://docs.microsoft.com/azure/application-insights/) waarmee gegevens worden verzameld van toepassingen die op verschillende platforms worden uitgevoerd. De toepassing kan worden uitgevoerd in azure, een andere Cloud of on-premises.
 
-![Verzamelen van gegevens van toepassing](media/data-sources/applications.png)
+![Verzameling van toepassings gegevens](media/data-sources/applications.png)
 
 
 ### <a name="application-data"></a>Toepassingsgegevens
-Wanneer u Application Insights voor een toepassing inschakelt door een instrumentatiepakket installeren, verzamelt deze metrische gegevens en logboeken met betrekking tot de prestaties en het gebruik van de toepassing. Application Insights slaat de gegevens worden verzameld in de dezelfde Azure Monitor gegevensplatform dat wordt gebruikt door andere gegevensbronnen. Het uitgebreide hulpmiddelen voor het analyseren van deze gegevens bevat, maar u kunt deze ook analyseren met gegevens uit andere bronnen met behulp van hulpprogramma's zoals Metrics Explorer en Log Analytics.
+Wanneer u Application Insights voor een toepassing inschakelt door een instrumentatie pakket te installeren, worden metrische gegevens en logboeken verzameld die betrekking hebben op de prestaties en werking van de toepassing. Application Insights slaat de gegevens op die worden verzameld in hetzelfde Azure Monitor gegevens platform dat wordt gebruikt door andere gegevens bronnen. Het bevat uitgebreide hulpprogram ma's voor het analyseren van deze gegevens, maar u kunt deze ook analyseren met gegevens uit andere bronnen met behulp van hulpprogram ma's zoals Metrics Explorer en Log Analytics.
 
 | Bestemming | Description | Referentie |
 |:---|:---|:---|
-| Logboeken van Azure Monitor | Operationele gegevens over uw toepassing met inbegrip van paginaweergaven, aanvragen, uitzonderingen en traceringen. | [Analyseren van logboekgegevens in Azure Monitor](../log-query/log-query-overview.md) |
-|                    | De afhankelijkheidsinformatie tussen toepassingsonderdelen ter ondersteuning van Toepassingsoverzicht en telemetriecorrelatie. | [Telemetriecorrelatie in Application Insights](../app/correlation.md) <br> [Toepassingskaart](../app/app-map.md) |
-|            | Resultaten van de beschikbaarheidstests die testen van de beschikbaarheid en reactiesnelheid van uw toepassing vanaf verschillende locaties op het openbare Internet. | [De beschikbaarheid en reactiesnelheid van een website bewaken](../app/monitor-web-app-availability.md) |
-| Azure Monitor Metrics | Application Insights verzamelt metrische gegevens met een beschrijving van de prestaties en het gebruik van de toepassing naast aangepaste metrische gegevens die u in uw toepassing in de database van Azure Monitor metrics definieert. | [Op basis van een logboek en vooraf samengevoegde metrische gegevens in Application Insights](../app/pre-aggregated-metrics-log-metrics.md)<br>[Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens](../app/api-custom-events-metrics.md) |
-| Azure Storage | Toepassingsgegevens verzenden naar Azure Storage voor het archiveren. | [Telemetrie exporteren vanuit Application Insights](../app/export-telemetry.md) |
-|            | Details van de beschikbaarheidstests worden opgeslagen in Azure Storage. Application Insights in Azure portal gebruiken om te downloaden voor lokale analyse. Resultaten van de beschikbaarheidstests worden opgeslagen in Azure Monitor-Logboeken. | [De beschikbaarheid en reactiesnelheid van een website bewaken](../app/monitor-web-app-availability.md) |
-|            | Profiler-traceringsgegevens worden opgeslagen in Azure Storage. Application Insights in Azure portal gebruiken om te downloaden voor lokale analyse.  | [Profiel productie-apps in Azure met Application Insights](../app/profiler-overview.md) 
-|            | Fouten opsporen in momentopname van gegevens die is opgenomen voor een subset van uitzonderingen worden opgeslagen in Azure Storage. Application Insights in Azure portal gebruiken om te downloaden voor lokale analyse.  | [De werking van momentopnamen](../app/snapshot-debugger.md#how-snapshots-work) |
+| Azure Monitor logboeken | Operationele gegevens over uw toepassing, waaronder pagina weergaven, toepassings aanvragen, uitzonde ringen en traceringen. | [Logboek gegevens in Azure Monitor analyseren](../log-query/log-query-overview.md) |
+|                    | Afhankelijkheids informatie tussen toepassings onderdelen ter ondersteuning van Application map en telemetrie-correlatie. | [Intermetrie-correlatie in Application Insights](../app/correlation.md) <br> [Toepassingskaart](../app/app-map.md) |
+|            | Resultaten van beschikbaarheids tests waarmee de beschik baarheid en reactie tijd van uw toepassing vanaf verschillende locaties op het open bare Internet worden getest. | [De beschikbaarheid en reactiesnelheid van een website bewaken](../app/monitor-web-app-availability.md) |
+| Azure Monitor metrische gegevens | Application Insights verzamelt metrische gegevens met een beschrijving van de prestaties en werking van de toepassing, naast aangepaste metrische gegevens die u in uw toepassing definieert in de data base Azure Monitor Metrics. | [Op logboek gebaseerde en vooraf geaggregeerde metrische gegevens in Application Insights](../app/pre-aggregated-metrics-log-metrics.md)<br>[Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens](../app/api-custom-events-metrics.md) |
+| Azure Storage | Toepassings gegevens verzenden naar Azure Storage voor archiveren. | [Telemetrie exporteren vanuit Application Insights](../app/export-telemetry.md) |
+|            | Details van beschikbaarheids testen worden opgeslagen in Azure Storage. Gebruik Application Insights in het Azure Portal om te downloaden voor lokale analyse. Resultaten van beschikbaarheids tests worden opgeslagen in Azure Monitor Logboeken. | [De beschikbaarheid en reactiesnelheid van een website bewaken](../app/monitor-web-app-availability.md) |
+|            | Tracerings gegevens van Profiler worden opgeslagen in Azure Storage. Gebruik Application Insights in het Azure Portal om te downloaden voor lokale analyse.  | [Profileer productie toepassingen in azure met Application Insights](../app/profiler-overview.md) 
+|            | Fout opsporing voor moment opnamen van gegevens die zijn vastgelegd voor een subset van uitzonde ringen wordt opgeslagen in Azure Storage. Gebruik Application Insights in het Azure Portal om te downloaden voor lokale analyse.  | [Hoe moment opnamen werken](../app/snapshot-debugger.md#how-snapshots-work) |
 
-## <a name="monitoring-solutions-and-insights"></a>Bewakingsoplossingen en inzichten
-[Bewakingsoplossingen](../insights/solutions.md) en [Insights](../insights/insights-overview.md) verzamelen van gegevens voor meer inzicht in de werking van een bepaalde service of toepassing. Ze kunnen resources in andere toepassingslagen en zelfs meerdere lagen adres.
+## <a name="monitoring-solutions-and-insights"></a>Bewakings oplossingen en inzichten
+[Bewakings oplossingen](../insights/solutions.md) en [inzichten](../insights/insights-overview.md) verzamelen gegevens om meer inzicht te krijgen in de werking van een bepaalde service of toepassing. Ze kunnen resources in verschillende toepassings lagen en zelfs op meerdere lagen.
 
 ### <a name="monitoring-solutions"></a>Bewakingsoplossingen
 
 | Bestemming | Description | Referentie
 |:---|:---|:---|
-| Logboeken van Azure Monitor | Bewakingsoplossingen verzamelen van gegevens in Logboeken van Azure Monitor waarbij het wellicht niet geanalyseerd op basis van de querytaal of [weergaven](view-designer.md) die gewoonlijk zijn opgenomen in de oplossing. | [Details van de verzameling gegevens voor het bewaken van oplossingen in Azure](../insights/solutions-inventory.md) |
+| Azure Monitor logboeken | Bewakings oplossingen verzamelen gegevens in Azure Monitor logboeken waarin deze kunnen worden geanalyseerd met behulp van de query taal of- [weer gaven](view-designer.md) die doorgaans in de oplossing zijn opgenomen. | [Details van gegevens verzameling voor het controleren van oplossingen in azure](../insights/solutions-inventory.md) |
 
 
-### <a name="azure-monitor-for-containers"></a>Azure Monitor voor Containers
-[Azure Monitor voor Containers](../insights/container-insights-overview.md) vindt u een aangepaste controlemogelijkheden voor [Azure Kubernetes Service (AKS)](/azure/aks/). Het verzamelt gegevens over deze resources in de volgende tabel beschreven.
+### <a name="azure-monitor-for-containers"></a>Azure Monitor voor containers
+[Azure monitor voor containers](../insights/container-insights-overview.md) biedt een aangepaste bewakings ervaring voor [Azure KUBERNETES service (AKS)](/azure/aks/). Er worden aanvullende gegevens verzameld over deze resources die in de volgende tabel worden beschreven.
 
 | Bestemming | Description | Referentie |
 |:---|:---|:---|
-| Logboeken van Azure Monitor | Slaat gegevens voor AKS inclusief voorraad, logboeken en gebeurtenissen te controleren. Metrische gegevens wordt ook opgeslagen in Logboeken om te kunnen gebruikmaken van de analyse-functionaliteit in de portal. | [Inzicht in prestaties van een AKS-cluster met Azure Monitor voor containers](../insights/container-insights-analyze.md) |
-| Azure Monitor Metrics | Metrische gegevens is opgeslagen in de metrische database station visualisatie en waarschuwingen. | [De container metrische gegevens weergeven in metrics explorer](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
-| Azure Kubernetes Service | In volgorde naar een bijna realtime-ervaring geeft Azure-Monitor voor Containers gegevens rechtstreeks vanuit de service Azure Kubernetes in Azure portal. | [Containerlogboeken in realtime weergeven met Azure Monitor voor containers (preview)](../insights/container-insights-live-logs.md) |
+| Azure Monitor logboeken | Slaat bewakings gegevens voor AKS op, waaronder inventaris, logboeken en gebeurtenissen. Metrische gegevens worden ook opgeslagen in Logboeken om gebruik te kunnen maken van de analyse functionaliteit in de portal. | [Inzicht in prestaties van een AKS-cluster met Azure Monitor voor containers](../insights/container-insights-analyze.md) |
+| Azure Monitor metrische gegevens | Metrische gegevens worden opgeslagen in de metrische data base om visualisatie en waarschuwingen te testen. | [Metrische container gegevens weer geven in Metrics Explorer](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
+| Azure Kubernetes Service | Voor een bijna realtime-ervaring, Azure Monitor voor containers gegevens rechtstreeks uit de Azure Kubernetes-service in de Azure Portal. | [Containerlogboeken in realtime weergeven met Azure Monitor voor containers (preview)](../insights/container-insights-live-logs.md) |
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor voor virtuele machines
-[Azure Monitor voor virtuele machines](../insights/vminsights-overview.md) biedt een uiterst persoonlijke ervaring voor het bewaken van virtuele machines. Een beschrijving van de gegevens die door Azure Monitor worden verzameld voor virtuele machines is opgenomen in de [besturingssysteem (Gast)](#operating-system-guest) hierboven.
+[Azure monitor voor VM's](../insights/vminsights-overview.md) biedt een aangepaste ervaring voor het bewaken van virtuele machines. Een beschrijving van de gegevens die worden verzameld door Azure Monitor voor VM's is opgenomen in de sectie [besturings systeem (gast)](#operating-system-guest) hierboven.
 
 ## <a name="custom-sources"></a>Aangepaste bronnen
-Naast de standaard-laag van een toepassing moet u mogelijk andere bronnen die telemetrie die niet kan worden verzameld met de andere gegevensbronnen hebben controleren. Voor deze resources, deze gegevens naar metrische gegevens of logboeken met behulp van een API van Azure Monitor te schrijven.
+Naast de standaard lagen van een toepassing, moet u mogelijk andere resources bewaken die telemetrie hebben die niet met de andere gegevens bronnen kunnen worden verzameld. Voor deze resources moet u deze gegevens schrijven naar metrieken of Logboeken met behulp van een Azure Monitor-API.
 
 ![Aangepaste verzameling](media/data-sources/custom.png)
 
 | Bestemming | Methode | Description | Referentie |
 |:---|:---|:---|:---|
-| Logboeken van Azure Monitor | Gegevensverzamelaar-API | Verzamel logboekgegevens uit alle REST-client en op te slaan in Log Analytics-werkruimte. | [Logboekgegevens verzenden naar Azure Monitor met de HTTP Data Collector-API (preview-versie)](data-collector-api.md) |
-| Azure Monitor Metrics | API voor aangepaste metrische gegevens | Metrische gegevens verzamelen vanuit elke REST-client en opslaan in Azure Monitor metrics-database. | [Aangepaste metrische gegevens voor een Azure-resource verzenden naar de Azure Monitor metrische store met behulp van een REST-API](metrics-store-custom-rest-api.md) |
+| Azure Monitor logboeken | Gegevensverzamelaar-API | Verzamel logboek gegevens van elke REST-client en sla deze op in Log Analytics werk ruimte. | [Logboek gegevens naar Azure Monitor verzenden met de HTTP-gegevens verzamelaar-API (open bare preview)](data-collector-api.md) |
+| Azure Monitor metrische gegevens | API voor aangepaste metrische gegevens | Gegevens verzamelen van een wille keurige REST-client en opslaan in de data base van Azure Monitor Metrics. | [Aangepaste metrische gegevens voor een Azure-resource verzenden naar het Azure Monitor metrische archief met behulp van een REST API](metrics-store-custom-rest-api.md) |
 
 
-## <a name="other-services"></a>Andere services
-Andere services in Azure schrijven gegevens naar de Azure Monitor-gegevensplatform. Hiermee kunt u voor het analyseren van gegevens die door deze services zijn verzameld met gegevens die zijn verzameld door Azure Monitor en gebruikmaken van de dezelfde analyse en visualisatie-hulpprogramma's.
+## <a name="other-services"></a>Overige services
+Andere services in azure schrijven gegevens naar het Azure Monitor-gegevens platform. Zo kunt u gegevens analyseren die door deze services worden verzameld met gegevens die zijn verzameld door Azure Monitor en gebruikmaken van dezelfde analyse-en visualisatie hulpprogramma's.
 
 | Service | Bestemming | Description | Referentie |
 |:---|:---|:---|:---|
-| [Azure Security Center](/azure/security-center/) | Logboeken van Azure Monitor | Azure Security Center slaat de beveiliging die worden verzameld in een Log Analytics-werkruimte, zodat ze kunnen worden geanalyseerd met andere logboekgegevens die door Azure Monitor worden verzameld.  | [Gegevensverzameling in Azure Security Center](../../security-center/security-center-enable-data-collection.md) |
-| [Azure Sentinel](/azure/sentinel/) | Logboeken van Azure Monitor | Azure Sentinel slaat de gegevens die worden verzameld uit verschillende gegevensbronnen in een Log Analytics-werkruimte, zodat ze kunnen worden geanalyseerd met andere logboekgegevens die door Azure Monitor worden verzameld.  | [Verbinding maken met gegevensbronnen](/azure/sentinel/quickstart-onboard) |
+| [Azure Security Center](/azure/security-center/) | Azure Monitor logboeken | Azure Security Center slaat de beveiligings gegevens op die worden verzameld in een Log Analytics-werk ruimte, zodat deze kunnen worden geanalyseerd met andere door Azure Monitor verzamelde logboek gegevens.  | [Gegevensverzameling in Azure Security Center](../../security-center/security-center-enable-data-collection.md) |
+| [Azure Sentinel](/azure/sentinel/) | Azure Monitor logboeken | Azure Sentinel slaat de gegevens op die worden verzameld uit verschillende gegevens bronnen in een Log Analytics-werk ruimte, zodat deze kunnen worden geanalyseerd met andere door Azure Monitor verzamelde logboek gegevens.  | [Verbinding maken met gegevens bronnen](/azure/sentinel/quickstart-onboard) |
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de [typen gegevens te controleren die worden verzameld door Azure Monitor](data-platform.md) en hoe u kunt weergeven en analyseren van deze gegevens.
-- Lijst met de [verschillende locaties waar de gegevens voor het opslaan van Azure-resources](data-locations.md) en hoe u het kunt openen. 
+- Meer informatie over de [typen bewakings gegevens die worden verzameld door Azure monitor](data-platform.md) en hoe u deze gegevens kunt bekijken en analyseren.
+- Geef een lijst weer met de [verschillende locaties waar Azure-resources gegevens opslaan](data-locations.md) en hoe u deze kunt openen. 

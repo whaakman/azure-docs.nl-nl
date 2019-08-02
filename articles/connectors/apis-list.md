@@ -9,16 +9,16 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: ab2413cfce8b87fbe1899a0b7c465c6e6c27a3f5
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 126c3fb348b1d53769a818ae4b21fcdbbef65615
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277648"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517241"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connectors voor Azure Logic Apps
 
-Connectors bieden snelle toegang tot Azure Logic Apps gebeurtenissen, gegevens en acties in andere apps, services, systemen, protocollen en platformen. Door connectors in uw Logic apps te gebruiken, vouwt u de mogelijkheden voor uw Cloud en on-premises apps uit om taken uit te voeren met de gegevens die u maakt en al hebt.
+Connectors bieden snel toegang vanuit Azure Logic Apps naar gebeurtenissen, gegevens en acties in andere apps, services, systemen, protocollen en platformen. Door connectors in uw logische apps te gebruiken, vergroot u de mogelijkheden voor uw cloud- en on-premises apps om taken uit te voeren met de gegevens die u maakt en die u al hebt.
 
 Hoewel Logic Apps [honderden connectors](https://docs.microsoft.com/connectors)biedt, worden in dit artikel populaire en veelgebruikte connectors beschreven die worden gebruikt door duizenden apps en miljoenen uitvoeringen voor het verwerken van gegevens en informatie. Als u wilt zoeken naar de volledige lijst met connectors en de referentie gegevens van elke connector, zoals triggers, acties en limieten, raadpleegt u de referentie pagina's van de connector onder [connectors Overview](https://docs.microsoft.com/connectors)(Engelstalig). Meer informatie over [Triggers en acties](#triggers-actions), [Logic apps prijs model](../logic-apps/logic-apps-pricing.md)en [Logic apps prijs informatie](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
@@ -35,7 +35,7 @@ Connectors zijn beschikbaar als ingebouwde triggers en acties of als beheerde co
   > Logic apps binnen een [Integration service-omgeving (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) hebben rechtstreeks toegang tot resources in een virtueel Azure-netwerk.
   > Wanneer u een ISE gebruikt, worden ingebouwde triggers en acties die het **kern** label weer geven, uitgevoerd in dezelfde ISE als uw logische apps. Logic apps, ingebouwde triggers en ingebouwde acties die worden uitgevoerd in uw ISE, gebruiken een prijs plan dat verschilt van het prijs plan op basis van verbruik.
   >
-  > Zie [verbinding maken met virtuele Azure-netwerken vanuit Azure Logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)voor meer informatie over het maken van ISEs. 
+  > Zie [verbinding maken met virtuele Azure-netwerken vanuit Azure Logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)voor meer informatie over het maken van ISEs. 
   > Zie [Logic apps prijs model](../logic-apps/logic-apps-pricing.md)voor meer informatie over prijzen.
 
 <a name="managed-connectors"></a>
@@ -63,7 +63,7 @@ Connectors zijn beschikbaar als ingebouwde triggers en acties of als beheerde co
   >
   > Voor on-premises systemen die zijn verbonden met een virtueel Azure-netwerk, injecteert u uw ISE in dat netwerk, zodat uw Logic apps rechtstreeks toegang hebben tot deze systemen met behulp van een connector met een **ISE** -label, een http-actie of een [aangepaste connector](#custom). Logic apps en connectors die worden uitgevoerd in uw ISE, gebruiken een prijs plan dat verschilt van het prijs plan op basis van verbruik. 
   >
-  > Zie [verbinding maken met virtuele Azure-netwerken vanuit Azure Logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)voor meer informatie over het maken van ISEs.
+  > Zie [verbinding maken met virtuele Azure-netwerken vanuit Azure Logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)voor meer informatie over het maken van ISEs.
   > Zie [Logic apps prijs model](../logic-apps/logic-apps-pricing.md)voor meer informatie over prijzen.
 
   Voor de volledige lijst met connectors en de referentie gegevens van elke connector, zoals acties en triggers, die zijn gedefinieerd door de beschrijving van een OpenAPI (voorheen Swagger), plus eventuele limieten, kunt u de volledige lijst vinden onder het [overzicht connectors](/connectors/). Zie [Logic apps prijs model](../logic-apps/logic-apps-pricing.md)voor prijzen en [Logic apps prijs](https://azure.microsoft.com/pricing/details/logic-apps/)informatie. 
@@ -112,9 +112,9 @@ Logic Apps biedt deze populaire standaard connectors voor het automatiseren van 
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![API-][azure-service-bus-icon]<br/>pictogram**Azure service bus**][azure-service-bus-doc] | Beheer asynchrone berichten, sessies en onderwerp-abonnementen met de meest gebruikte connector in Logic Apps. | [![API-][sql-server-icon]<br/>pictogram**SQL Server**][sql-server-doc] | Maak verbinding met uw SQL Server on-premises of een Azure SQL Database in de Cloud, zodat u records kunt beheren, opgeslagen procedures uitvoert of query's uitvoert. | 
+| [![API-][azure-service-bus-icon]<br/>pictogram**Azure service bus**][azure-service-bus-doc] | Beheer asynchrone berichten, sessies en abonnementen op onderwerpen met behulp van de meest gebruikte connector in Logic Apps. | [![API-][sql-server-icon]<br/>pictogram**SQL Server**][sql-server-doc] | Maak verbinding met uw SQL Server on-premises of een Azure SQL Database in de Cloud, zodat u records kunt beheren, opgeslagen procedures uitvoert of query's uitvoert. | 
 | [![API-][office-365-outlook-icon]<br/>pictogram**Office<br/>365 Outlook**][office-365-outlook-doc] | Maak verbinding met uw e-mail account voor Office 365 zodat u e-mail berichten, taken, agenda-items en vergaderingen, contact personen, aanvragen en meer kunt maken en beheren. | [![API-][azure-blob-storage-icon]<br/>pictogram**Azure<br/>Blob-opslag**][azure-blob-storage-doc] | Maak verbinding met uw opslag account zodat u blob-inhoud kunt maken en beheren. | 
-| [![API-][sftp-icon]<br/>pictogram**SFTP**][sftp-doc] | Verbinding maken met SFTP-servers die u vanaf internet kunt gebruiken zodat u kunt werken met uw bestanden en mappen. | [![API-][sharepoint-online-icon]<br/>pictogram **<br/>share point online**][sharepoint-online-doc] | Maak verbinding met share point online, zodat u bestanden, bijlagen, mappen en meer kunt beheren. | 
+| [![API-][sftp-icon]<br/>pictogram**SFTP**][sftp-doc] | Maak verbinding met SFTP-servers die vanaf internet toegankelijk zijn zodat u met uw bestanden en mappen kunt werken. | [![API-][sharepoint-online-icon]<br/>pictogram **<br/>share point online**][sharepoint-online-doc] | Maak verbinding met share point online, zodat u bestanden, bijlagen, mappen en meer kunt beheren. | 
 | [![API-][dynamics-365-icon]<br/>pictogram**Dynamics<br/>365 CRM Online**][dynamics-365-doc] | Maak verbinding met uw Dynamics 365-account zodat u records, items en meer kunt maken en beheren. | [![API-][ftp-icon]<br/>pictogram**FTP**][ftp-doc] | Verbinding maken met FTP-servers die u vanaf internet kunt gebruiken zodat u kunt werken met uw bestanden en mappen. | 
 | [![API-][salesforce-icon]<br/>pictogram**Sales Force**][salesforce-doc] | Maak verbinding met uw Sales Force-account, zodat u items zoals records, taken, objecten en meer kunt maken en beheren. | [![API-][twitter-icon]<br/>pictogram**Twitter**][twitter-doc] | Maak verbinding met uw Twitter-account zodat u tweets, volgers, uw tijd lijn en meer kunt beheren. Sla uw tweets op in SQL, Excel of share point. | 
 | [![API-][azure-event-hubs-icon]<br/>pictogram**Azure Event hubs**][azure-event-hubs-doc] | Gebeurtenissen gebruiken en publiceren via een event hub. Haal bijvoorbeeld uitvoer van uw logische app met Event Hubs op en verzend die uitvoer naar een realtime analyse provider. | [![API-][azure-event-grid-icon]<br/>pictogram**Azure Event**</br>**grid**][azure-event-grid-doc] | Gebeurtenissen bewaken die zijn gepubliceerd door een Event Grid, bijvoorbeeld wanneer Azure-resources of bronnen van derden worden gewijzigd. | 
@@ -196,7 +196,7 @@ Als u aangepaste API Apps of connectors openbaar wilt maken zodat iedereen deze 
 >
 > Aangepaste connectors die zijn gemaakt in een ISE werken niet met de on-premises gegevens gateway. Deze connectors hebben echter rechtstreeks toegang tot on-premises gegevens bronnen die zijn verbonden met een virtueel Azure-netwerk dat als host fungeert voor de ISE. Logic apps in een ISE hebben daarom waarschijnlijk niet de gegevens gateway nodig bij het communiceren met deze resources.
 >
-> Zie [verbinding maken met virtuele Azure-netwerken vanuit Azure Logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)voor meer informatie over het maken van ISEs.
+> Zie [verbinding maken met virtuele Azure-netwerken vanuit Azure Logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)voor meer informatie over het maken van ISEs.
 
 ## <a name="next-steps"></a>Volgende stappen
 

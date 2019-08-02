@@ -1,6 +1,6 @@
 ---
-title: Verificatie en autorisatie voor Azure ruimtelijke ankers | Microsoft Docs
-description: Meer informatie over de verschillende manieren die kan worden geverifieerd door een app of service voor Azure ruimtelijke ankers en de niveaus van controle die u poort toegang tot Azure ruimtelijke ankers moet.
+title: Verificatie en autorisatie voor Azure spatiale ankers | Microsoft Docs
+description: Meer informatie over de verschillende manieren waarop een app of service kan worden geverifieerd voor Azure spatiale ankers en de niveaus van beheer die u nodig hebt om toegang te krijgen tot ruimtelijke ankers van Azure.
 author: julianparismorgan
 manager: vriveras
 services: azure-spatial-anchors
@@ -8,42 +8,42 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c7ffa432c9311ba9d4ecf4ba82c375e2dad988d0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 850748462f0273f2dfb1522d900ce9f1b2156d2a
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478549"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517071"
 ---
-# <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Verificatie en autorisatie voor Azure ruimtelijke ankers
+# <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Verificatie en autorisatie voor Azure spatiale ankers
 
-In deze sectie wordt behandelen we de verschillende manieren die kan worden geverifieerd voor Azure ruimtelijke ankers van uw app of webservice en de manieren waarop u toegangsbeheer op basis van rollen in Azure Directory (Azure AD) kunt gebruiken voor toegang tot uw ruimtelijke ankers-accounts beheren.  
+In deze sectie worden de verschillende manieren beschreven waarop u kunt verifiëren voor Azure spatiale ankers van uw app of webservice, en de manieren waarop u Access Control op basis van rollen in azure Directory (Azure AD) kunt gebruiken om de toegang tot uw spatiale ankers-accounts te beheren.  
 
 ## <a name="overview"></a>Overzicht
 
-![Een overzicht van verificatie bij Azure ruimtelijke ankers](./media/spatial-anchors-authentication-overview.png)
+![Een overzicht van verificatie voor Azure spatiale ankers](./media/spatial-anchors-authentication-overview.png)
 
-Voor toegang tot een bepaald ruimtelijke ankers Azure-account, moeten clients eerst een toegangstoken ophalen uit Azure gemengde realiteit Security Token Service (STS). Tokens die zijn verkregen van de STS live voor 24 uur en bevatten informatie voor de services ruimtelijke ankers te maken van autorisatie beslissingen te nemen voor het account en ervoor te zorgen dat alleen geautoriseerde principals toegang heeft tot dat account. 
+Om toegang te krijgen tot een bepaald Azure spatiale-anker account moeten clients eerst een toegangs token verkrijgen van de Azure Mixed Reality-beveiligings token service (STS). Tokens die zijn verkregen van STS Live gedurende 24 uur en die informatie bevatten over de spatiale ankers Services om autorisatie beslissingen te nemen voor het account en ervoor te zorgen dat alleen geautoriseerde principals toegang hebben tot dat account. 
 
-Toegangstokens kunnen exchange worden verkregen vanuit een van beide sleutels of vanuit Azure AD-uitgegeven tokens. 
+Toegangs tokens kunnen worden verkregen in Exchange van een van beide account sleutels of van Azure AD-uitgegeven tokens. 
 
-Accountsleutels kunnen u snel aan de slag over het gebruik van de service Azure ruimtelijke ankers; echter, voordat u uw toepassing naar productie implementeert, is het raadzaam dat u uw app voor het gebruik van Azure AD gebaseerde verificatie bijwerkt. 
+Met account sleutels kunt u snel aan de slag met de Azure spatiale-ankers service. voordat u uw toepassing implementeert voor productie, wordt u echter aangeraden uw app bij te werken voor het gebruik van verificatie op basis van Azure AD. 
 
-Azure AD-verificatietokens kunnen op twee manieren worden verkregen:
+Azure AD-verificatie tokens kunnen op twee manieren worden verkregen:
 
-- Als u een zakelijke toepassing bouwen en uw bedrijf van Azure AD als de identiteitssysteem gebruikmaakt, u kunt op basis van gebruiker Azure AD-verificatie in uw app en toegang verlenen tot uw ruimtelijke ankers accounts met behulp van uw bestaande Azure AD-beveiligingsgroepen, of rechtstreeks aan gebruikers in uw organisatie. 
-- Anders is het raadzaam dat u Azure AD-tokens verkrijgen van een webservice ondersteunen van uw app. Met behulp van een ondersteunende webservice is de aanbevolen methode verificatie voor productie-Apps, zoals dit voorkomt het insluiten van de referenties voor toegang tot Azure ruimtelijke ankers in uw clienttoepassing. 
+- Als u een bedrijfs toepassing bouwt en uw bedrijf Azure AD als identiteits systeem gebruikt, kunt u gebruikmaken van Azure AD-verificatie op basis van gebruikers in uw app en toegang verlenen tot uw ruimtelijke-anker accounts met behulp van uw bestaande Azure AD-beveiligings groepen. rechtstreeks aan gebruikers in uw organisatie. 
+- Anders is het raadzaam om Azure AD-tokens te verkrijgen van een webservice die uw app ondersteunt. Het gebruik van een ondersteunende webservice is de aanbevolen verificatie methode voor productie toepassingen, omdat hiermee wordt voor komen dat de referenties worden inge sloten voor toegang tot Azure spatiale ankers in uw client toepassing. 
 
 ## <a name="account-keys"></a>Accountsleutels
 
-Sleutels gebruiken voor toegang tot uw account Azure ruimtelijke ankers is de eenvoudigste manier om aan de slag. U vindt uw accountsleutels in Azure portal. Navigeer naar uw account en selecteer het tabblad 'Sleutels'.
+Het gebruik van account sleutels voor toegang tot uw Azure spatiale-ankers account is de eenvoudigste manier om aan de slag te gaan. U vindt uw account sleutels op het Azure Portal. Navigeer naar uw account en selecteer het tabblad sleutels.
 
-![Een overzicht van verificatie bij Azure ruimtelijke ankers](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![Een overzicht van verificatie voor Azure spatiale ankers](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
 
-Twee sleutels worden beschikbaar gemaakt, die beide zijn tegelijkertijd geldig zijn voor toegang tot aan de ruimtelijke ankers-account. Het is raadzaam dat u regelmatig bijwerken van de sleutel die u gebruiken voor toegang tot het account hebben twee afzonderlijke geldige sleutels inschakelen, zoals updates zonder uitvaltijd; u hoeft alleen te werken ook de primaire sleutel en de secundaire sleutel. 
+Er worden twee sleutels beschikbaar gemaakt, die beide gelijktijdig geldig zijn voor toegang tot het ruimtelijke-ankers account. Het is raadzaam om de sleutel die u gebruikt voor toegang tot het account, regel matig bij te werken. Als er twee afzonderlijke geldige sleutels zijn, kunnen deze updates zonder downtime worden ingeschakeld. u hoeft alleen de primaire sleutel en de secundaire sleutel bij te werken. 
 
-De SDK heeft ingebouwde ondersteuning voor verificatie met accountsleutels; u hoeft alleen de eigenschap AccountKey instellen voor uw cloudSession-object. 
+De SDK heeft ingebouwde ondersteuning voor verificatie met account sleutels; u hoeft alleen de eigenschap AccountKey in te stellen voor uw cloudSession-object. 
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -69,7 +69,7 @@ _cloudSession!.configuration.accountKey = "MyAccountKey"
 mCloudSession.getConfiguration().setAccountKey("MyAccountKey");
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 auto configuration = cloudSession_->Configuration();
@@ -83,35 +83,35 @@ auto configuration = m_cloudSession.Configuration();
 configuration.AccountKey(LR"(MyAccountKey)");
 ```
 
-***
+---
 
-Wanneer dat is gebeurd, wordt de SDK verwerkt de uitwisseling van de accountsleutel voor een toegangstoken en de benodigde caching van tokens voor uw app. 
+Als dat is gebeurd, wordt de uitwisseling van de account sleutel voor een toegangs token door de SDK verwerkt en worden de tokens die u nodig hebt in de cache opgeslagen voor uw app. 
 
 > [!WARNING] 
-> Gebruik van sleutels wordt aanbevolen voor snelle bepalen, maar tijdens de ontwikkeling/prototypen alleen. Het wordt sterk aanbevolen niet voor de verzending van uw toepassing naar productie met behulp van een ingesloten accountsleutel in het, en het gebruik in plaats daarvan op basis van gebruikers of -service op basis van Azure AD-verificatie vermelde volgende nadert.
+> Het gebruik van account sleutels wordt aanbevolen voor een snelle on-boarding, maar tijdens ontwikkeling/prototypen. Het wordt ten zeerste aanbevolen om uw toepassing niet naar productie te verzenden met behulp van een Inge sloten account sleutel. in plaats daarvan wordt gebruikgemaakt van de op gebruikers of service gebaseerde Azure AD-verificatie benaderingen die hieronder worden weer gegeven.
 
-## <a name="azure-ad-user-authentication"></a>Gebruikersverificatie met Azure AD
+## <a name="azure-ad-user-authentication"></a>Gebruikers verificatie van Azure AD
 
-Voor toepassingen die zijn gericht op Azure Active Directory-gebruikers, de aanbevolen aanpak is een Azure AD-token wordt gebruikt voor de gebruiker die u met behulp van de ADAL-bibliotheek verkrijgen kunt, zoals beschreven in de volgende documentatie: [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); u Volg de stappen die worden vermeld onder 'Quick Start', waaronder:
+Voor toepassingen die Azure Active Directory gebruikers zijn, is de aanbevolen benadering een Azure AD-token voor de gebruiker te gebruiken, dat u kunt verkrijgen met behulp van de ADAL-bibliotheek, zoals [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md)beschreven in de volgende documentatie:; Voer de stappen uit die worden vermeld onder snel starten, zoals:
 
-1. De configuratie in Azure portal
-    1.  Registreer uw toepassing in Azure AD als **systeemeigen toepassing**. Als onderdeel van het registreren moet u te bepalen of uw toepassing moet multitenant of niet worden en de URL's toegestaan voor uw toepassing omleiding bieden.  
-    2.  Uw toepassing of gebruikers toegang verlenen tot uw resources: 
-        1.  Navigeer naar uw ruimtelijke ankers resource in Azure portal
-        2.  Schakel over naar de **toegangsbeheer (IAM)** tabblad
-        3.  Raak **roltoewijzing toevoegen**
-            1.  [Selecteer een rol](#role-based-access-control)
-            2.  In de **Selecteer** en voer de naam van de gebruiker (s), groepen en/of toepassingen waartoe u toegang wilt toewijzen. 
-            3.  Raak **opslaan**.
+1. Configuratie in Azure Portal
+    1.  Registreer uw toepassing in azure AD als **systeem eigen toepassing**. Als onderdeel van de registratie moet u bepalen of uw toepassing multi tenant moet zijn of niet, en de omleidings-Url's opgeven die voor uw toepassing zijn toegestaan.  
+    2.  Verleen uw toepassing of gebruikers toegang tot uw resource: 
+        1.  Ga naar de resource met ruimtelijke ankers in Azure Portal
+        2.  Overschakelen naar het tabblad **toegangs beheer (IAM)**
+        3.  **Toewijzing van roltoewijzing toevoegen**
+            1.  [Een rol selecteren](#role-based-access-control)
+            2.  Voer in het veld **selecteren** de naam in van de gebruiker (s), groep (en) en/of toepassing (en) waaraan u toegang wilt toewijzen. 
+            3.  Druk op **Opslaan**.
 2. In uw code:
-    1.  Zorg ervoor dat u de **toepassings-ID** en **omleidings-Uri** van uw eigen Azure AD-toepassing als de **client-ID** en **RedirectUri** parameters in ADAL
-    2.  Stel in de tenant-gegevens:
-        1.  Als uw toepassing ondersteunt **mijn organisatie alleen**, vervang deze waarde aan uw **Tenant-ID** of **tenantnaam** (bijvoorbeeld contoso.microsoft.com)
-        2.  Als uw toepassing ondersteunt **Accounts in een organisatie-map**, vervang deze waarde met **organisaties**
-        3.  Als uw toepassing ondersteunt **alle Microsoft-accountgebruikers**, vervang deze waarde met **algemene**
-    3.  Stel op uw tokenaanvraag de **resource** naar 'https://sts.mixedreality.azure.com '. Deze 'resource' wordt aangegeven met Azure AD dat uw toepassing een token voor de service Azure ruimtelijke ankers aanvraagt.  
+    1.  Zorg ervoor dat u de **toepassings-id** en omleidings- **URI** van uw eigen Azure AD-toepassing gebruikt als de **client-id** en **RedirectUri** para meters in ADAL
+    2.  Stel de Tenant gegevens in:
+        1.  Als uw toepassing **alleen mijn organisatie**ondersteunt, vervangt u deze waarde door uw **Tenant-id** of **Tenant naam** (bijvoorbeeld contoso.Microsoft.com)
+        2.  Als uw toepassing **accounts in een organisatorische Directory**ondersteunt, vervangt u deze waarde door **organisaties**
+        3.  Als uw toepassing **alle Microsoft-account gebruikers**ondersteunt, vervangt u deze waarde door **common**
+    3.  Stel op uw token aanvraag de **resource** in op 'https://sts.mixedreality.azure.com '. Deze ' resource ' geeft aan Azure AD door dat uw toepassing een token aanvraagt voor de Azure spatiale ankers-service.  
 
-Met die uw toepassing zou het mogelijk om te verkrijgen van ADAL met een Azure AD-token; u kunt instellen dat Azure AD-token als de **authenticationtoken weergeeft** op uw cloud-sessie AppConfig-object. 
+Met dat moet uw toepassing ADAL een Azure AD-token kunnen verkrijgen. u kunt dat Azure AD-token instellen als de **authenticationToken** in uw Cloud sessie configuratie object. 
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -137,7 +137,7 @@ _cloudSession!.configuration.authenticationToken = "MyAuthenticationToken"
 mCloudSession.getConfiguration().setAuthenticationToken("MyAuthenticationToken");
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 auto configuration = cloudSession_->Configuration();
@@ -151,37 +151,37 @@ auto configuration = m_cloudSession.Configuration();
 configuration.AuthenticationToken(LR"(MyAuthenticationToken)");
 ```
 
-***
+---
 
-## <a name="azure-ad-service-authentication"></a>Azure AD-service-verificatie
+## <a name="azure-ad-service-authentication"></a>Verificatie van Azure AD-service
 
-De aanbevolen optie voor het gebruik te maken van Azure ruimtelijke ankers naar productie-apps implementeren is gebruikmaken van een back-endservice die verificatieaanvragen wordt broker. Het algemene schema moet worden zoals beschreven in dit diagram:
+De aanbevolen optie voor het implementeren van apps met behulp van Azure spatiale ankers naar productie is het gebruik van een back-end-service die Broker-verificatie aanvragen zal gebruiken. Het algemene schema moet worden beschreven in dit diagram:
 
-![Een overzicht van verificatie bij Azure ruimtelijke ankers](./media/spatial-anchors-aad-authentication.png)
+![Een overzicht van verificatie voor Azure spatiale ankers](./media/spatial-anchors-aad-authentication.png)
 
-Hier wordt ervan uitgegaan dat uw app gebruikmaakt van een eigen mechanisme (bijvoorbeeld: Microsoft-account, PlayFab, Facebook, Google-ID, aangepaste gebruikersnaam en wachtwoord, enz.) aanmelden bij de back endservice. Wanneer uw gebruikers worden geverifieerd met uw back endservice, die service kan ophalen een Azure AD-token exchange het voor een toegangstoken voor ruimtelijke ankers van Azure en deze terug naar uw clienttoepassing te retourneren.
+Hierbij wordt ervan uitgegaan dat uw app een eigen mechanisme gebruikt (bijvoorbeeld: Microsoft-account, PlayFab, Facebook, Google ID, aangepaste gebruikers naam/wacht woord, enzovoort) verificatie bij de back-end-service. Zodra uw gebruikers zijn geverifieerd voor uw back-end-service, kan die service een Azure AD-Token ophalen, dit uitwisselen voor een toegangs token voor Azure spatiale ankers en het weer terugsturen naar uw client toepassing.
 
-Het Azure AD-toegangstoken wordt opgehaald met behulp van de ADAL-bibliotheek, zoals beschreven in de volgende documentatie: [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); u moet de stappen die worden vermeld onder 'Quick Start', waaronder:
+Het Azure AD-toegangs token wordt opgehaald met behulp van de ADAL-bibliotheek, zoals beschreven [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md)in de volgende documentatie:; Voer de stappen uit die worden vermeld onder Quick starts, waaronder:
 
-1.  De configuratie in Azure portal:
-    1.  Uw toepassing registreren in Azure AD:
-        1.  Navigeer in Azure portal naar **Azure Active Directory**, en selecteer **app-registraties**
-        2.  Selecteer **nieuwe toepassing registreren**
-        3.  Voer de naam van uw toepassing, selecteert **Web-app / API** als het toepassingstype en voer de verificatie-URL voor uw service. Druk vervolgens op **maken**.
-        4.  Klik op de betreffende toepassing, **instellingen**en selecteer vervolgens de **sleutels** tabblad. Voer de naam van de sleutel, selecteer een tijdsduur en druk op **opslaan**. Zorg ervoor dat u het opslaan van de waarde van de sleutel die op dat moment wordt weergegeven als u moet opnemen in de code van uw webservice.
-    2.  Uw toepassing en/of gebruikers toegang verlenen tot uw resources:
-        1.  Navigeer naar uw ruimtelijke ankers resource in Azure portal
-        2.  Schakel over naar de **toegangsbeheer (IAM)** tabblad
-        3.  Raak **roltoewijzing toevoegen**
-        1.  [Selecteer een rol](#role-based-access-control)
-        2.  In de **Selecteer** veld, voer de naam van de toepassingen die u hebt gemaakt en gebruikt die u wilt toewijzen. Als u wilt dat gebruikers van uw app hebben verschillende rollen op basis van het ruimtelijke ankers-account, moet u meerdere toepassingen in Azure AD registreren en toewijzen aan elk een afzonderlijke functie. Vervolgens implementeert u uw logica autorisatie voor het gebruik van de juiste rol voor uw gebruikers.  
-    3.  Raak **opslaan**.
-2.  In uw code (Opmerking: u kunt het voorbeeld van de service opgenomen op GitHub):
-    1.  Zorg ervoor dat u de toepassings-ID, het toepassingsgeheim en omleidings-Uri van uw eigen Azure AD-toepassing als de client-ID, RedirectUri parameters in ADAL en -geheim
-    2.  De tenant-ID ingesteld op uw eigen tenant-ID AAAzure toevoegen in de parameter instantie in ADAL
-    3.  Stel op uw tokenaanvraag de **resource** naar "https://sts.mixedreality.azure.com " 
+1.  Configuratie in Azure Portal:
+    1.  Registreer uw toepassing in azure AD:
+        1.  Ga in Azure Portal naar **Azure Active Directory**en selecteer app- **registraties**
+        2.  **Nieuwe toepassings registratie** selecteren
+        3.  Voer de naam van uw toepassing in, selecteer **Web-app/API** als het toepassings type en voer de verificatie-URL voor uw service in. Klik vervolgens op **maken**.
+        4.  Klik in deze toepassing op **instellingen**en selecteer vervolgens het tabblad **sleutels** . Voer de naam van de sleutel in, selecteer een duur en druk op **Opslaan**. Zorg ervoor dat u de sleutel waarde opslaat die op dat moment wordt weer gegeven, omdat u deze moet gebruiken in de code van de webservice.
+    2.  Verleen uw toepassing en/of gebruikers toegang tot uw resource:
+        1.  Ga naar de resource met ruimtelijke ankers in Azure Portal
+        2.  Overschakelen naar het tabblad **toegangs beheer (IAM)**
+        3.  **Toewijzing van roltoewijzing toevoegen**
+        1.  [Een rol selecteren](#role-based-access-control)
+        2.  Voer in het veld **selecteren** de naam in van de toepassing (en) die u hebt gemaakt en waaraan u toegang wilt toewijzen. Als u wilt dat de gebruikers van uw app verschillende rollen hebben voor het ruimtelijke-ankers account, moet u meerdere toepassingen in azure AD registreren en aan elke afzonderlijke rol toewijzen. Implementeer vervolgens uw autorisatie logica om de juiste rol voor uw gebruikers te gebruiken.  
+    3.  Druk op **Opslaan**.
+2.  In uw code (Opmerking: u kunt het service voorbeeld gebruiken dat is opgenomen in GitHub):
+    1.  Zorg ervoor dat u de toepassings-ID, het toepassings geheim en de omleidings-URI van uw eigen Azure AD-toepassing gebruikt als de client-ID, het geheim en de RedirectUri-para meters in ADAL
+    2.  Stel de Tenant-ID in op uw eigen AAAzure Tenant-ID toevoegen in de para meter Authority in ADAL
+    3.  Stel op uw token aanvraag de **resource** in op https://sts.mixedreality.azure.com 
 
-Uw back-endservice kan een Azure AD-token ophalen met die. Het kan deze vervolgens uitwisselen voor een MR-token dat wordt geretourneerd naar de client. Met behulp van een Azure AD-token ophalen een token MR wordt gedaan via een REST-aanroep. Hier volgt een voorbeeld-aanroep:
+Met dat kan uw back-end-service een Azure AD-Token ophalen. Vervolgens kan het worden uitgewisseld voor een MR-token dat wordt teruggestuurd naar de client. Het gebruik van een Azure AD-token om een MR-token op te halen, wordt uitgevoerd via een REST-aanroep. Hier volgt een voor beeld van een oproep:
 
 ```
 GET https://mrc-auth-prod.trafficmanager.net/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
@@ -198,11 +198,11 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
 {"AccessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjI2MzYyMTk5ZTI2NjQxOGU4ZjE3MThlM2IyMThjZTIxIiwidHlwIjoiSldUIn0.eyJqdGkiOiJmMGFiNWIyMy0wMmUxLTQ1MTQtOWEzNC0xNzkzMTA1NTc4NzAiLCJjYWkiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJ0aWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJhaWQiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJhYW8iOi0xLCJhcHIiOiJlYXN0dXMyIiwicmlkIjoiL3N1YnNjcmlwdGlvbnMvNzIzOTdlN2EtNzA4NC00ODJhLTg3MzktNjM5Y2RmNTMxNTI0L3Jlc291cmNlR3JvdXBzL3NhbXBsZV9yZXNvdXJjZV9ncm91cC9wcm92aWRlcnMvTWljcm9zb2Z0Lk1peGVkUmVhbGl0eS9TcGF0aWFsQW5jaG9yc0FjY291bnRzL2RlbW9fYWNjb3VudCIsIm5iZiI6MTU0NDU0NzkwMywiZXhwIjoxNTQ0NjM0MzAzLCJpYXQiOjE1NDQ1NDc5MDMsImlzcyI6Imh0dHBzOi8vbXJjLWF1dGgtcHJvZC50cmFmZmljbWFuYWdlci5uZXQvIiwiYXVkIjoiaHR0cHM6Ly9tcmMtYW5jaG9yLXByb2QudHJhZmZpY21hbmFnZXIubmV0LyJ9.BFdyCX9UJj0i4W3OudmNUiuaGgVrlPasNM-5VqXdNAExD8acFJnHdvSf6uLiVvPiQwY1atYyPbOnLYhEbIcxNX-YAfZ-xyxCKYb3g_dbxU2w8nX3zDz_X3XqLL8Uha-rkapKbnNgxq4GjM-EBMCill2Svluf9crDmO-SmJbxqIaWzLmlUufQMWg_r8JG7RLseK6ntUDRyDgkF4ex515l2RWqQx7cw874raKgUO4qlx0cpBAB8cRtGHC-3fA7rZPM7UQQpm-BC3suXqRgROTzrKqfn_g-qTW4jAKBIXYG7iDefV2rGMRgem06YH_bDnpkgUa1UgJRRTckkBuLkO2FvA"}
 ```
 
-Waar de autorisatie-header is als volgt ingedeeld: `Bearer <accoundId>:<accountKey>`
+Als de autorisatie-header er als volgt uitziet:`Bearer <accoundId>:<accountKey>`
 
-En het antwoord bevat de token MR in tekst zonder opmaak.
+En het antwoord bevat het MR-token in tekst zonder opmaak.
  
-Dit token MR wordt vervolgens geretourneerd naar de client. Uw client-app kan vervolgens ingesteld als het toegangstoken in de configuratie van de cloud-sessie.
+Dat MR-token vervolgens wordt geretourneerd naar de client. Uw client-app kan deze vervolgens instellen als toegangs token in de Cloud sessie configuratie.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -228,7 +228,7 @@ _cloudSession!.configuration.accessToken = "MyAccessToken"
 mCloudSession.getConfiguration().setAccessToken("MyAccessToken");
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 auto configuration = cloudSession_->Configuration();
@@ -242,19 +242,19 @@ auto configuration = m_cloudSession.Configuration();
 configuration.AccessToken(LR"(MyAccessToken)");
 ```
 
-***
+---
 
 ## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 
-Om te bepalen verleend het niveau van toegang aan die toepassingen, services of Azure AD-gebruikers van uw service, de volgende rollen zijn gemaakt voor u om toe te wijzen naar behoefte op basis van uw Azure ruimtelijke ankers-accounts:
+Om het niveau van toegang te beheren dat wordt verleend aan toepassingen, services of Azure AD-gebruikers van uw service, zijn de volgende rollen gemaakt zodat u deze kunt toewijzen aan uw Azure Spatial-ankers-accounts:
 
-- **Ruimtelijke ankers accounteigenaar**: toepassingen of gebruikers met deze rol kunnen ruimtelijke ankers te maken, query's uitvoeren voor deze en verwijdert u deze. Wanneer u zich bij uw account met behulp van accountsleutels, verifieert de **ruimtelijke ankers accounteigenaar** rol wordt toegewezen aan de geverifieerde principal. 
-- **Inzender voor ruimtelijke ankers Account**: toepassingen of gebruikers met deze rol kunnen maken van ruimtelijke ankers, query, maar ze niet verwijderen. 
-- **Ruimtelijke ankers Account Reader**: toepassingen of gebruikers met deze rol kunnen alleen op te vragen voor ruimtelijke ankers, maar kan geen nieuwe te maken, bestaande verwijderen of bijwerken metagegevens op ruimtelijke ankers. Dit wordt doorgaans met de gebruikt voor toepassingen waarbij sommige gebruikers cureren de omgeving, terwijl anderen alleen ankers eerder geplaatst in die omgeving kunnen intrekken.
+- **Eigenaar van ruimtelijk ankers account**: toepassingen of gebruikers die deze rol hebben, kunnen ruimtelijke ankers maken, query's uitvoeren en deze verwijderen. Wanneer u uw account met behulp van account sleutels verifieert, wordt de rol van de **account eigenaar van ruimtelijke ankers** toegewezen aan de geverifieerde principal. 
+- **Inzender voor ruimtelijke ankers**: toepassingen of gebruikers die deze rol hebben, kunnen ruimtelijke ankers maken, er query's op uitvoeren, maar ze kunnen ze niet verwijderen. 
+- **Account lezer van ruimtelijk ankers**: toepassingen of gebruikers die deze rol hebben, kunnen alleen een query uitvoeren op ruimtelijke ankers, maar kunnen geen nieuwe maken, bestaande verwijderen of meta gegevens bijwerken op ruimtelijke ankers. Dit wordt doorgaans gebruikt voor toepassingen waarbij sommige gebruikers de omgeving opzeggen, terwijl anderen alleen ankers kunnen intrekken die eerder in deze omgeving zijn geplaatst.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Uw eerste app maken met Azure ruimtelijke ankers.
+Maak uw eerste app met Azure spatiale ankers.
 
 > [!div class="nextstepaction"]
 > [Unity](../unity-overview.yml)

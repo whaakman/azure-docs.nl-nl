@@ -1,18 +1,18 @@
 ---
 title: Achtergrond installatie van Azure Backup Server v2
 description: Gebruik een Power shell-script om Azure Backup Server v2 op de achtergrond te installeren. Dit type installatie wordt ook wel een installatie zonder toezicht genoemd.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: raynew
-ms.openlocfilehash: add1f4057b5b52310f53553dcd23e3357fb1ee29
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 4bce7aeebee729ed253d39720ef520880c261a22
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465014"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639659"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Een installatie zonder toezicht van Azure Backup Server uitvoeren
 

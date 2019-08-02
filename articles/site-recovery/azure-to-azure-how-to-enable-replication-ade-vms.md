@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: b000610b5cba6f768a629ad797500a57597f2569
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 25f8c19ad1c574f6a3d84d50d911b4da6b52cfc3
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335691"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516509"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Virtuele machines die met Azure Disk Encryption zijn ingeschakeld repliceren naar een andere Azure-regio
 
@@ -23,9 +23,9 @@ In dit artikel wordt beschreven hoe u Azure Disk Encryption-Vm's van de ene Azur
 >Azure Site Recovery ondersteunt momenteel alleen virtuele Azure-machines waarop een Windows-besturings systeem wordt uitgevoerd en die zijn [ingeschakeld voor versleuteling met Azure Active Directory (Azure AD)](https://aka.ms/ade-aad-app).
 
 ## <a id="required-user-permissions"></a>Vereiste gebruikers machtigingen
-Site Recovery moet de gebruiker machtigingen hebben voor het maken van de sleutel kluis in de doel regio en het kopiëren van sleutels naar de regio.
+Site Recovery vereist dat de gebruiker gemachtigd is om de sleutel kluis te maken in de doel regio en sleutels te kopiëren van de sleutel kluis van het bron gebied naar de sleutel kluis met de doel regio.
 
-De gebruiker heeft de volgende machtigingen nodig om replicatie van virtuele machines met schijf versleuteling in te scha kelen op basis van de Azure Portal:
+De gebruiker heeft de volgende machtigingen nodig voor de **bron-en doel regio** sleutel kluizen om replicatie van virtuele machines met schijf versleuteling in te scha kelen vanaf de Azure Portal.
 
 - Sleutel kluis machtigingen
     - Weer geven, maken en ophalen
@@ -116,7 +116,7 @@ Volg deze stappen om de Site Recovery standaard doel instellingen te wijzigen.
 
 2. Selecteer **aanpassen** naast versleutelings instellingen om de volgende standaard instellingen te wijzigen:
    - Selecteer voor de **doel schijf versleutelings sleutel**kluis de doel schijf versleutelings sleutel kluis in de lijst met sleutel kluizen op de doel locatie van het abonnement.
-   - Selecteer de sleutel kluis van de doel sleutel versleutelen in de lijst met sleutel kluizen op de doel locatie van het abonnement.
+   - Selecteerde sleutel kluis van de doel sleutel versleutelen in de lijst met sleutel kluizen op de doel locatie van het abonnement.
 
 3. Selecteer **doel bron** > maken**replicatie inschakelen**.
 4. Nadat de Vm's zijn ingeschakeld voor replicatie, kunt u de status van de virtuele machines controleren onder **gerepliceerde items**.

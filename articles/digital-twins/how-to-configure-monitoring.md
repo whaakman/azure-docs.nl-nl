@@ -1,6 +1,6 @@
 ---
-title: Bewaking in digitale dubbels voor Azure configureren | Microsoft Docs
-description: Hoe u bewaking in Azure, digitale dubbels configureren.
+title: Bewaking configureren in azure Digital Apparaatdubbels | Microsoft Docs
+description: Bewaking in azure Digital Apparaatdubbels configureren.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
@@ -9,126 +9,126 @@ ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 5dc2587a0c127106d5afb41e20eca43919065f1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66a0b98e2cae14c3708cf8a6aa3f8bd498f41c9f
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118791"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609633"
 ---
-# <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Bewaking in Azure, digitale dubbels configureren
+# <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Bewaking in azure Digital Apparaatdubbels configureren
 
-Azure van digitale dubbels biedt ondersteuning voor robuuste logboekregistratie, controle en analyse. Oplossingen voor ontwikkelaars kunnen Azure Monitor-Logboeken, diagnostische logboeken, activiteit logboekregistratie en andere services gebruiken voor de ondersteuning van de behoeften van complexe bewaking van een IoT-app. Opties voor logboekregistratie kunnen worden gecombineerd om opvragen of records weergeven binnen diverse services en om gedetailleerde logboekregistratie dekking voor veel services.
+Azure Digital Apparaatdubbels ondersteunt robuuste logboek registratie, bewaking en analyses. Ontwikkel aars van oplossingen kunnen Azure Monitor logboeken, Diagnostische logboeken, activiteiten registreren en andere services gebruiken om de complexe bewakings behoeften van een IoT-app te ondersteunen. Opties voor logboek registratie kunnen worden gecombineerd om records op te vragen of weer te geven in verschillende services en om een gedetailleerde logboek registratie te bieden voor veel services.
 
-In dit artikel bevat een overzicht van logboekregistratie en bewaking opslagopties en informatie over om ze te combineren in manieren van specifieke digitale dubbels van Azure.
+Dit artikel bevat een overzicht van de opties voor logboek registratie en controle en hoe u deze kunt combi neren op manieren die specifiek zijn voor Azure Digital Apparaatdubbels.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="review-activity-logs"></a>Activiteitenlogboeken bekijken
+## <a name="review-activity-logs"></a>Activiteiten logboeken controleren
 
-Azure [activiteitenlogboeken](../azure-monitor/platform/activity-logs-overview.md) bieden snel inzicht krijgen in de geschiedenis gebeurtenis en de bewerking op abonnementsniveau voor elke Azure-service-exemplaar.
+Azure- [activiteiten logboeken](../azure-monitor/platform/activity-logs-overview.md) bieden snelle inzichten in gebeurtenis-en bewerkings geschiedenis voor elk Azure-service-exemplaar.
 
-Gebeurtenissen op abonnementsniveau zijn onder andere:
+Gebeurtenissen op abonnements niveau zijn onder andere:
 
-* Het maken van resources
-* Resource verwijderen
-* Het maken van appgeheimen
+* Resources maken
+* Resources verwijderen
+* App-geheimen maken
 * Integreren met andere services
 
-Activiteit logboekregistratie voor digitale dubbels van Azure is standaard ingeschakeld en kunt u vinden via de Azure-portal door:
+Activiteiten logboek registratie voor Azure Digital Apparaatdubbels is standaard ingeschakeld en kan worden gevonden via de Azure Portal:
 
-1. Uw digitale dubbels Azure-exemplaar selecteren.
-1. Kiezen **activiteitenlogboek** om het deelvenster weergeven:
+1. Uw Azure Digital Apparaatdubbels-exemplaar selecteren.
+1. **Activiteiten logboek** kiezen om het weergave paneel weer te geven:
 
-    [![Activiteitenlogboek](media/how-to-configure-monitoring/activity-log.png)](media/how-to-configure-monitoring/activity-log.png#lightbox)
+    [![Activiteiten logboek](media/how-to-configure-monitoring/activity-log.png)](media/how-to-configure-monitoring/activity-log.png#lightbox)
 
-Voor geavanceerde logboekregistratie voor activiteit:
+Voor geavanceerde activiteiten logboek registratie:
 
-1. Selecteer de **logboeken** optie om weer te geven de **overzicht voor analyse van activiteit**:
+1. Selecteer de optie Logboeken om het **analyse van activiteitenlogboek overzicht**weer te geven:
 
-    [![Selectie](media/how-to-configure-monitoring/activity-log-select.png)](media/how-to-configure-monitoring/activity-log-select.png#lightbox)
+    [![Item](media/how-to-configure-monitoring/activity-log-select.png)](media/how-to-configure-monitoring/activity-log-select.png#lightbox)
 
-1. De **overzicht voor analyse van activiteit** bevat een overzicht van gegevens van een essentiële activiteitenlogboek:
+1. In het overzicht van de **analyse van activiteitenlogboek** vindt u een overzicht van essentiële logboek gegevens voor activiteiten:
 
-    [![Overzicht voor analyse van activiteit]( media/how-to-configure-monitoring/log-analytics-overview.png)]( media/how-to-configure-monitoring/log-analytics-overview.png#lightbox)
+    [![Overzicht van activiteiten logboek analyse]( media/how-to-configure-monitoring/log-analytics-overview.png)]( media/how-to-configure-monitoring/log-analytics-overview.png#lightbox)
 
 >[!TIP]
->Gebruik **activiteitenlogboeken** snel inzicht krijgen in gebeurtenissen op abonnementsniveau.
+>Gebruik **activiteiten logboeken** voor snelle inzichten in gebeurtenissen op abonnements niveau.
 
-## <a name="enable-customer-diagnostic-logs"></a>Klant logboeken met diagnostische gegevens inschakelen
+## <a name="enable-customer-diagnostic-logs"></a>Diagnostische logboeken van klanten inschakelen
 
-Azure [diagnostische instellingen](../azure-monitor/platform/diagnostic-logs-overview.md) kan worden ingesteld voor elke Azure-instantie om te voorzien in activiteitenregistratie. Activiteitenlogboeken hebben betrekking op gebeurtenissen op abonnementsniveau, biedt registratie in diagnoselogboek inzicht in de operationele geschiedenis van de resources zelf.
+De [Diagnostische instellingen](../azure-monitor/platform/diagnostic-logs-overview.md) van Azure kunnen voor elke Azure-instantie worden ingesteld op een aanvullende activiteiten logboek registratie. Hoewel activiteiten logboeken betrekking hebben op gebeurtenissen op abonnements niveau, biedt diagnostische logboek registratie inzicht in de operationele geschiedenis van de resources zelf.
 
-Voorbeelden van het vastleggen van diagnostische gegevens zijn:
+Voor beelden van diagnostische logboek registratie zijn:
 
-* De uitvoeringstijd voor een gebruiker gedefinieerde functie
-* De responscode van de status van een geslaagd API-aanvraag
-* Het ophalen van een app-sleutel van een kluis
+* De uitvoerings tijd voor een door de gebruiker gedefinieerde functie
+* De antwoord status code van een geslaagde API-aanvraag
+* Een app-sleutel ophalen uit een kluis
 
 Diagnostische logboeken voor een exemplaar inschakelen:
 
-1. Open de resource in Azure portal.
-1. Selecteer **diagnostische instellingen**:
+1. Breng de resource in Azure Portal.
+1. **Diagnostische instellingen**selecteren:
 
-    [![Diagnostische instellingen](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
+    [![Diagnostische instellingen één](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
-1. Selecteer **diagnostische gegevens inschakelen** voor het verzamelen van gegevens (indien niet eerder ingeschakeld).
-1. Vul de vereiste velden in en selecteer hoe en waar gegevens worden opgeslagen:
+1. Selecteer **diagnostiek inschakelen** om gegevens te verzamelen (indien niet eerder ingeschakeld).
+1. Vul de vereiste velden in en Selecteer hoe en waar de gegevens worden opgeslagen:
 
     [![Diagnostische instellingen twee](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
 
-    Diagnostische logboeken zijn vaak opgeslagen met [Azure File Storage](../storage/files/storage-files-deployment-guide.md) en gedeeld met [logboeken van Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Beide opties kunnen worden geselecteerd.
+    Diagnostische logboeken worden vaak opgeslagen met [Azure File Storage](../storage/files/storage-files-deployment-guide.md) en worden gedeeld met [Azure monitor](../azure-monitor/log-query/get-started-portal.md)-Logboeken. U kunt beide opties selecteren.
 
 >[!TIP]
->Gebruik **diagnostische logboeken** voor inzicht in bewerkingen van resources.
+>Gebruik **Diagnostische logboeken** voor inzichten in resource bewerkingen.
 
-## <a name="azure-monitor-and-log-analytics"></a>Azure monitor en log analytics
+## <a name="azure-monitor-and-log-analytics"></a>Azure monitor en log Analytics
 
-IoT-toepassingen aandragen voor de verschillende bronnen, apparaten, locaties en gegevens in één. Uiterst gedetailleerde logboekregistratie biedt gedetailleerde informatie over elke specifiek, een service of een onderdeel van de algehele architectuur, maar een uniform overzicht is vaak vereist voor onderhoud en foutopsporing.
+IoT-toepassingen kunnen verschillende resources, apparaten, locaties en gegevens samen voegen tot één. Met nauw keurige logboek registratie wordt gedetailleerde informatie gegeven over elk specifiek onderdeel, elke service of elk onderdeel van de algemene toepassings architectuur, maar een uniform overzicht is vaak vereist voor onderhoud en fout opsporing.
 
-Azure Monitor omvat de krachtige log analytics-service, waarmee de logboekregistratie van bronnen om te worden bekeken en geanalyseerd op één locatie. Azure Monitor is dus zeer nuttig voor het analyseren van Logboeken in geavanceerde IoT-apps.
+Azure Monitor bevat de krachtige log Analytics-service, waarmee logboek registratie bronnen op één locatie kunnen worden weer gegeven en geanalyseerd. Azure Monitor is daarom zeer nuttig voor het analyseren van Logboeken binnen geavanceerde IoT-apps.
 
-Voorbeelden van het gebruik zijn:
+Voor beelden van gebruik zijn:
 
-* Uitvoeren van query's meerdere geschiedenis van diagnostische logboeken
-* Logboeken voor verschillende door de gebruiker gedefinieerde functies bekijken
-* Logboeken voor twee of meer services weergeven binnen een bepaalde periode
+* Query's uitvoeren op meerdere Diagnostische logboeken
+* Logboeken bekijken voor verschillende door de gebruiker gedefinieerde functies
+* Logboeken weer geven voor twee of meer services binnen een bepaald tijds bestek
 
-Volledige logboek uitvoeren van query's wordt geboden via [logboeken van Azure Monitor](../azure-monitor/log-query/log-query-overview.md). Om in te stellen deze krachtige functies:
+Volledige logboek query's worden via Azure Monitor- [Logboeken](../azure-monitor/log-query/log-query-overview.md)verschaft. U kunt deze krachtige functies als volgt instellen:
 
-1. Zoeken naar **Log Analytics** in Azure portal.
-1. U ziet uw beschikbare **Log Analytics-werkruimte** exemplaren. Kies een en selecteer **logboeken** query:
+1. Zoek naar **log Analytics** in het Azure Portal.
+1. Uw beschik bare **log Analytics werkruimte** -instanties worden weer geven. Kies één en selecteer de logboeken die u wilt doorzoeken:
 
-    [![Log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
+    [![Log Analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
-1. Als u nog geen een **Log Analytics-werkruimte** exemplaar, kunt u een werkruimte maken door het selecteren van de **toevoegen** knop:
+1. Als u nog geen exemplaar van **log Analytics-werk ruimte** hebt, kunt u een werk ruimte maken door de knop **toevoegen** te selecteren:
 
     [![OMS maken](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
-Zodra uw **Log Analytics-werkruimte** exemplaar is ingericht, mag u krachtige query's naar items zoeken in Logboeken veelvouden of zoeken met behulp van specifieke criteria, met behulp van **Log Management**:
+Zodra uw **log Analytics werkruimte** -exemplaar is ingericht, kunt u krachtige query's gebruiken om vermeldingen in meerdere logboeken te vinden of om te zoeken met specifieke criteria met behulp van **logboek beheer**:
 
-   [![Logboekbeheer](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
+   [![Logboek beheer](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
 
-Zie voor meer informatie over krachtige querybewerkingen [aan de slag met query's](../azure-monitor/log-query/get-started-queries.md).
+Zie aan de slag [met query's](../azure-monitor/log-query/get-started-queries.md)voor meer informatie over krachtige query bewerkingen.
 
 > [!NOTE]
-> Een vertraging van 5 minuten kunnen optreden bij het verzenden van gebeurtenissen naar **Log Analytics-werkruimte** voor de eerste keer.
+> Er kan een vertraging van 5 minuten optreden bij het verzenden van gebeurtenissen naar **log Analytics werk ruimte** voor de eerste keer.
 
-Azure Monitor-logboeken bieden ook krachtige fout en waarschuwingsmeldingen services die kunnen worden bekeken door het selecteren van **vaststellen en oplossen van problemen met**:
+Azure Monitor logboeken bieden ook krachtige services voor fout meldingen en waarschuwingen, die kunnen worden weer gegeven door het selecteren van **problemen vaststellen en oplossen**:
 
-   [![Waarschuwing en fout-meldingen](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
+   [![Waarschuwings-en fout meldingen](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 
 >[!TIP]
->Gebruik **Log Analytics-werkruimte** naar query log geschiedenisgegevens voor meerdere app-functies, abonnementen of -services.
+>Gebruik **log Analytics werk ruimte** om de logboek geschiedenis te doorzoeken op meerdere app-functionaliteiten, abonnementen of services.
 
 ## <a name="other-options"></a>Andere opties
 
-Azure van digitale dubbels biedt ook ondersteuning voor toepassingsspecifieke logboekregistratie en beveiligingscontrole. Zie voor een uitgebreide overzicht van alle opties voor logboekregistratie van Azure beschikbaar is voor uw Azure digitale Twins-exemplaar, de [Azure log audit](../security/azure-log-audit.md) artikel.
+Azure Digital Apparaatdubbels biedt ook ondersteuning voor toepassingsspecifieke logboek registratie en beveiligings controles. Zie het artikel over [Azure-logboek controle](../security/fundamentals/log-audit.md) voor een uitgebreid overzicht van alle opties voor Azure-logboek registratie die beschikbaar zijn voor uw Azure Digital apparaatdubbels-exemplaar.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over Azure [activiteitenlogboeken](../azure-monitor/platform/activity-logs-overview.md).
+- Meer informatie over Azure- [activiteiten logboeken](../azure-monitor/platform/activity-logs-overview.md).
 
-- Duik dieper in Azure diagnostische instellingen lezen een [overzicht van diagnostische logboeken](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Bedieping van de diagnostische instellingen van Azure door een [overzicht van Diagnostische logboeken](../azure-monitor/platform/diagnostic-logs-overview.md)te lezen.
 
-- Meer informatie over [logboeken van Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
+- Lees meer over [Azure monitor](../azure-monitor/log-query/get-started-portal.md)-Logboeken.

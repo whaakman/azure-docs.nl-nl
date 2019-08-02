@@ -1,30 +1,30 @@
 ---
-title: De verwerking van dubbele gegevens in Azure Data Explorer
-description: In dit onderwerp ziet u verschillende methoden voor het omgaan met dubbele gegevens bij het gebruik van Azure Data Explorer.
+title: Dubbele gegevens in azure Data Explorer verwerken
+description: In dit onderwerp ziet u verschillende benaderingen voor het afhandelen van dubbele gegevens bij gebruik van Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60ec2b86e0205060f907f1fe39d084dca3aac1cd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60445767"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608225"
 ---
-# <a name="handle-duplicate-data-in-azure-data-explorer"></a>De verwerking van dubbele gegevens in Azure Data Explorer
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Dubbele gegevens in azure Data Explorer verwerken
 
-Apparaten die gegevens verzenden naar de Cloud behouden een lokale cache van de gegevens. Afhankelijk van de gegevensgrootte kan kan de lokale cache worden opslag van gegevens voor dagen of zelfs maanden. Wilt u uw analytische databases van niet-functionerende apparaten die opnieuw verzenden van gegevens in de cache en ervoor zorgen dat gegevensontdubbeling in de analytische database beveiligen. In dit onderwerp worden aanbevolen procedures voor het verwerken van dubbele gegevens voor dit soort scenario's.
+Apparaten die gegevens naar de Cloud verzenden, behouden een lokale cache van de gegevens. Afhankelijk van de grootte van de gegevens, kan de lokale cache gegevens gedurende dagen of zelfs maanden opslaan. U wilt uw analytische data bases beveiligen tegen apparaten die de gegevens in de cache opnieuw verzenden en gegevens dupliceren in de analytische data base veroorzaken. In dit onderwerp vindt u een overzicht van de aanbevolen procedures voor het afhandelen van dubbele gegevens voor deze typen scenario's.
 
-De beste oplossing voor het kopiëren van gegevens voorkomt dat de mate van duplicatie. Los het probleem, indien mogelijk, eerder in de gegevenspijplijn, die kosten voor gegevensverplaatsing langs de gegevenspijplijn worden opgeslagen en u voorkomt uitgaven van resources op kopieert met dubbele gegevens die zijn opgenomen in het systeem. In situaties waarbij het bronsysteem kan niet worden gewijzigd, zijn er verschillende manieren om u te bekommeren om dit scenario.
+De beste oplossing voor het dupliceren van gegevens kan de duplicatie verhinderen. Los, indien mogelijk, het probleem op dat eerder in de gegevens pijplijn is opgenomen, waarbij de kosten voor het verplaatsen van gegevens in de gegevens pijplijn worden bespaard en u geen bestedings resources op omgaan met dubbele gegevens die in het systeem zijn opgenomen. In situaties waarin het bron systeem niet kan worden gewijzigd, zijn er echter verschillende manieren om dit scenario te behandelen.
 
-## <a name="understand-the-impact-of-duplicate-data"></a>Begrijp de gevolgen van dubbele gegevens
+## <a name="understand-the-impact-of-duplicate-data"></a>Meer informatie over de impact van dubbele gegevens
 
-Het percentage van de dubbele gegevens bewaken. Wanneer het percentage van de dubbele gegevens wordt gedetecteerd, kunt u het bereik van de probleem- en business impact analyseren en kies de juiste oplossing.
+Het percentage dubbele gegevens bewaken. Zodra het percentage dubbele gegevens is gedetecteerd, kunt u het bereik van het probleem en de impact van het bedrijf analyseren en de juiste oplossing kiezen.
 
-Voorbeeldquery voor het identificeren van het percentage van de dubbele records:
+Voorbeeld query voor het identificeren van het percentage dubbele records:
 
 ```kusto
 let _sample = 0.01; // 1% sampling
@@ -39,17 +39,17 @@ _data
 | extend duplicate_percentage = (duplicateRecords / _sample) / _totalRecords  
 ```
 
-## <a name="solutions-for-handling-duplicate-data"></a>Oplossingen voor de verwerking van dubbele gegevens
+## <a name="solutions-for-handling-duplicate-data"></a>Oplossingen voor het afhandelen van dubbele gegevens
 
-### <a name="solution-1-dont-remove-duplicate-data"></a>Oplossing #1: Dubbele gegevens niet verwijderen
+### <a name="solution-1-dont-remove-duplicate-data"></a>#1 oplossing: Geen dubbele gegevens verwijderen
 
-Inzicht in uw zakelijke vereisten en tolerantie van dubbele gegevens. Sommige gegevenssets kunt beheren met een bepaald percentage van dubbele gegevens. Als de gedupliceerde gegevens geen grote gevolgen heeft, kunt u de aanwezigheid negeren. Het voordeel van het niet verwijderen van de duplicaatgegevens is geen extra overhead op de prestaties van gegevensopname proces of query.
+Inzicht in uw bedrijfs vereisten en tolerantie voor dubbele gegevens. Sommige gegevens sets kunnen worden beheerd met een bepaald percentage dubbele gegevens. Als de gedupliceerde gegevens geen grote invloed hebben, kunt u de aanwezigheid ervan negeren. Het voor deel van het niet verwijderen van de dubbele gegevens is geen extra overhead op het opname proces of de query prestaties.
 
-### <a name="solution-2-handle-duplicate-rows-during-query"></a>Oplossing #2: Dubbele rijen tijdens query verwerken
+### <a name="solution-2-handle-duplicate-rows-during-query"></a>#2 oplossing: Dubbele rijen verwerken tijdens query
 
-Een andere optie is de dubbele rijen in de gegevens kunt uitfilteren tijdens query. De [ `arg_max()` ](/azure/kusto/query/arg-max-aggfunction) statistische functie kan worden gebruikt om de dubbele records filteren en de laatste record op basis van de tijdstempel (of een andere kolom) retourneren. Het voordeel van het gebruik van deze methode is sneller opname omdat deduplicatie treedt op tijdens het uitvoeren van query's. Bovendien worden alle records (met inbegrip van duplicaten) beschikbaar voor controle en probleemoplossing. Het nadeel van het gebruik van de `arg_max` functie is de aanvullende uitvoeren van query's en de belasting van de CPU, telkens wanneer de gegevens op de query wordt uitgevoerd. Afhankelijk van de hoeveelheid gegevens wordt opgevraagd, worden deze oplossing kan worden niet-functionele of geheugen verbruikt en moet overschakelen naar de andere opties.
+Een andere optie is het filteren van de dubbele rijen in de gegevens tijdens de query. De [`arg_max()`](/azure/kusto/query/arg-max-aggfunction) functie Aggregated kan worden gebruikt om de dubbele records te filteren en de laatste record te retour neren op basis van de tijds tempel (of een andere kolom). Het voor deel van het gebruik van deze methode is een snellere opname omdat de-duplicatie tijdens de query tijd plaatsvindt. Daarnaast zijn alle records (inclusief duplicaten) beschikbaar voor controle en probleem oplossing. Het nadeel van het gebruik `arg_max` van de functie is de extra query tijd en belasting op de CPU telkens wanneer er een query wordt uitgevoerd op de gegevens. Afhankelijk van de hoeveelheid gegevens die wordt opgevraagd, kan deze oplossing niet-functioneel of geheugen verbruiken zijn en moeten andere opties worden overgeschakeld.
 
-In het volgende voorbeeld wordt een query we in de laatste record opgenomen voor een set kolommen die de unieke records bepalen:
+In het volgende voor beeld wordt de laatste record opgevraagd die is opgenomen in een set kolommen die de unieke records bepalen:
 
 ```kusto
 DeviceEventsAll
@@ -57,7 +57,7 @@ DeviceEventsAll
 | summarize hint.strategy=shuffle arg_max(EventDateTime, *) by DeviceId, EventId, StationId
 ```
 
-Deze query kan ook worden geplaatst in een functie in plaats van rechtstreeks uitvoeren van query's in de tabel:
+Deze query kan ook in een functie worden geplaatst in plaats van de tabel direct te doorzoeken:
 
 ```kusto
 .create function DeviceEventsView
@@ -68,11 +68,11 @@ DeviceEventsAll
 }
 ```
 
-### <a name="solution-3-filter-duplicates-during-the-ingestion-process"></a>Oplossing #3: Dubbele waarden filteren tijdens de opname
+### <a name="solution-3-filter-duplicates-during-the-ingestion-process"></a>#3 oplossing: Dubbele waarden filteren tijdens het opname proces
 
-Een andere oplossing is voor het filteren van duplicaten tijdens de opname. Het systeem negeert de dubbele gegevens tijdens de opname in Kusto-tabellen. Gegevens die zijn opgenomen in een tijdelijke tabel en gekopieerd naar een andere tabel na het verwijderen van dubbele rijen. Het voordeel van deze oplossing is de queryprestaties aanzienlijk verbeterd in vergelijking met de vorige oplossing. De nadelen zijn verhoogde opname tijd en extra kosten voor gegevensopslag.
+Een andere oplossing is het filteren van dubbele items tijdens het opname proces. Het systeem negeert de dubbele gegevens tijdens opname in Kusto-tabellen. Gegevens worden opgenomen in een faserings tabel en naar een andere tabel gekopieerd nadat dubbele rijen zijn verwijderd. Het voor deel van deze oplossing is dat de prestaties van query's aanzienlijk worden verbeterd ten opzichte van de vorige oplossing. De nadelen omvatten verhoogde opname tijd en extra kosten voor gegevens opslag. Extra. deze oplossing werkt alleen als dubbele en niet-verwerkingen tegelijkertijd worden uitgevoerd. Als er meerdere gelijktijdige opname waarden met dubbele records zijn, kunnen alle gegevens worden opgenomen, omdat de ontdubbeling proces geen bestaande overeenkomende records in de tabel kan vinden.    
 
-Het volgende voorbeeld ziet u deze methode:
+In het volgende voor beeld wordt deze methode getoond:
 
 1. Maak een andere tabel met hetzelfde schema:
 
@@ -80,7 +80,7 @@ Het volgende voorbeeld ziet u deze methode:
     .create table DeviceEventsUnique (EventDateTime: datetime, DeviceId: int, EventId: int, StationId: int)
     ```
 
-1. Maak een functie uit de dubbele records te filteren om lid te worden de nieuwe records met de eerder opgenomen resultaten.
+1. Maak een functie waarmee de dubbele records worden gefilterd door de nieuwe records samen te voegen met de gegevens die eerder zijn opgenomen.
 
     ```kusto
     .create function RemoveDuplicateDeviceEvents()
@@ -97,9 +97,9 @@ Het volgende voorbeeld ziet u deze methode:
     ```
 
     > [!NOTE]
-    > Samenvoegingen bewerkingen zijn afhankelijk van de CPU en het toevoegen van een extra belasting op het systeem.
+    > Deelname zijn CPU-gebonden bewerkingen en voegen een extra belasting toe aan het systeem.
 
-1. Stel [updatebeleid](/azure/kusto/management/update-policy) op `DeviceEventsUnique` tabel. De updatebeleid wordt geactiveerd als er nieuwe gegevens in de `DeviceEventsAll` tabel. De Kusto-engine wordt automatisch uitvoeren van de functie als nieuwe [gebieden](/azure/kusto/management/extents-overview) worden gemaakt. De verwerking is afgestemd op de zojuist gemaakte gegevens. De volgende opdracht uit dan aan elkaar gehecht de brontabel (`DeviceEventsAll`), doeltabel (`DeviceEventsUnique`), en de functie `RemoveDuplicatesDeviceEvents` samen de om updatebeleid te maken.
+1. [Update beleid](/azure/kusto/management/update-policy) instellen op `DeviceEventsUnique` tabel. Het update beleid wordt geactiveerd wanneer nieuwe gegevens in de `DeviceEventsAll` tabel worden geplaatst. De Kusto-engine voert de functie automatisch uit wanneer er nieuwe [gebieden](/azure/kusto/management/extents-overview) worden gemaakt. De verwerking ligt binnen het bereik van de zojuist gemaakte gegevens. De volgende opdracht wordt gebruikt voor de bron tabel`DeviceEventsAll`(), de doel`DeviceEventsUnique`tabel () en de `RemoveDuplicatesDeviceEvents` functie samen om het update beleid te maken.
 
     ```kusto
     .alter table DeviceEventsUnique policy update
@@ -107,9 +107,9 @@ Het volgende voorbeeld ziet u deze methode:
     ```
 
     > [!NOTE]
-    > Updatebeleid breidt de duur van gegevensopname omdat de gegevens worden gefilterd tijdens de opname en vervolgens twee keer die zijn opgenomen (aan de `DeviceEventsAll` tabel en de `DeviceEventsUnique` tabel).
+    > Het update beleid breidt de duur van opname uit omdat de gegevens tijdens opname worden gefilterd en vervolgens twee maal worden `DeviceEventsAll` opgenomen (aan de `DeviceEventsUnique` tabel en aan de tabel).
 
-1. (Optioneel) Stel een lagere bewaren van gegevens op de `DeviceEventsAll` tabel om te voorkomen dat opslaan van kopieën van de gegevens. Kies het aantal dagen, afhankelijk van het gegevensvolume en de hoeveelheid tijd die u wilt bewaren van gegevens voor het oplossen van problemen. U kunt dit instellen op `0d` dagen retentie COGS opslaan en de prestaties verbeteren, omdat de gegevens niet is geüpload naar de opslag.
+1. Beschrijving Stel een lagere Bewaar periode voor gegevens in de `DeviceEventsAll` tabel in om te voor komen dat kopieën van de gegevens worden opgeslagen. Kies het aantal dagen, afhankelijk van het gegevens volume en de tijds duur dat u gegevens wilt bewaren voor het oplossen van problemen. U kunt deze instellen op `0d` dagen retentie om KPV op te slaan en de prestaties te verbeteren, omdat de gegevens niet naar de opslag worden geüpload.
 
     ```kusto
     .alter-merge table DeviceEventsAll policy retention softdelete = 1d
@@ -117,7 +117,7 @@ Het volgende voorbeeld ziet u deze methode:
 
 ## <a name="summary"></a>Samenvatting
 
-Gegevensontdubbeling kan op verschillende manieren worden verwerkt. Evalueren van de opties zorgvuldig, waarbij rekening wordt account prijs en prestaties, om te bepalen van de juiste methode voor uw bedrijf.
+Gegevens duplicatie kan op verschillende manieren worden verwerkt. Evalueer de opties zorgvuldig, waarbij rekening wordt gehouden met de prijs en prestaties, om de juiste methode voor uw bedrijf te bepalen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

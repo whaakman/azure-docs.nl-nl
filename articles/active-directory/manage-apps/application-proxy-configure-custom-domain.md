@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae13de156d502cdd731005d460641ca452448d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d721e750ddb77ba293643ad978cecf4bd2dbac0
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108662"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618807"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Werken met aangepaste domeinen in Azure AD-toepassingsproxy
 
@@ -61,7 +61,7 @@ Wanneer u deze drie vereisten klaar hebt, volgt u deze stappen voor het instelle
 6. Het PFX-certificaat uploaden en voer het wachtwoord voor het certificaat. 
 7. Selecteer **opslaan** uw wijzigingen op te slaan. 
 8. Voeg een [DNS-record](../../dns/dns-operations-recordsets-portal.md) die de nieuwe externe URL wordt omgeleid naar het domein msappproxy.net.
-9. Controleer of de DNS-record is geconfigureerd correct met behulp van de [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) opdracht uit om te controleren of de externe URL bereikbaar is en het domein msapproxy.net weergegeven als een alias wordt.
+9. Controleer of de DNS-record correct is geconfigureerd met behulp van de [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) opdracht om te zien of uw externe URL bereikbaar is en of het domein msapproxy.net wordt weer gegeven als een alias.
 
 >[!TIP] 
 >U moet slechts één certificaat per aangepast domein uploaden. Wanneer u een certificaat hebt geüpload, kunt u het aangepaste domein kiezen wanneer u een nieuwe app publiceren en geen extra configuratie, met uitzondering van de DNS-record. 
@@ -73,7 +73,7 @@ Er is geen beperking voor het certificaat handtekening-methoden. Alle worden Ell
 
 U kunt een certificaat met jokertekens gebruiken, zolang het jokerteken komt overeen met de gewenste externe URL.
 
-U kunt een certificaat dat is uitgegeven door uw eigen openbare-sleutelinfrastructuur (PKI) vanwege beveiligingsoverwegingen niet gebruiken.
+Certificaten die zijn uitgegeven door uw eigen open bare-sleutel infrastructuur (PKI) kunnen worden gebruikt als de certificaat keten is geïnstalleerd op uw client apparaten. InTune kan worden gebruikt om deze certificaten te implementeren op beheerde apparaten. Voor niet-beheerde apparaten moeten deze certificaten hand matig worden geïnstalleerd.
 
 ### <a name="changing-the-domain"></a>Wijzigen van het domein
 Alle geverifieerde domeinen worden weergegeven in de vervolgkeuzelijst voor de externe URL voor uw toepassing. Als u wilt wijzigen van het domein, moet u alleen dat veld voor de toepassing bijwerken. Als het domein dat u wilt dat zich niet in de lijst [toe te voegen als een geverifieerd domein](../fundamentals/add-custom-domain.md). Als u een domein dat niet beschikken over een bijbehorende certificaat nog, volgt u stap 5-7 om toe te voegen van het certificaat selecteren. Controleer vervolgens of dat u de DNS-record om te leiden van de nieuwe externe URL bijwerken. 
@@ -87,7 +87,7 @@ Alle Certificaatbeheer is momenteel door afzonderlijke toepassing's daarom voor 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Eenmalige aanmelding inschakelen](application-proxy-configure-single-sign-on-with-kcd.md) naar uw gepubliceerde apps met Azure AD-verificatie.
-* [Inschakelen van voorwaardelijke toegang](application-proxy-integrate-with-sharepoint-server.md) aan uw gepubliceerde apps.
+* [Schakel voorwaardelijke toegang](application-proxy-integrate-with-sharepoint-server.md) tot uw gepubliceerde apps in.
 * [Uw aangepaste domeinnaam toevoegen aan Azure AD](../fundamentals/add-custom-domain.md)
 
 

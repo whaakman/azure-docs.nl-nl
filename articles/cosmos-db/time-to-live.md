@@ -4,19 +4,21 @@ description: Met TTL biedt Microsoft Azure Cosmos DB de mogelijkheid om document
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 7a29e9446a8c3b703c2ec3140711f44f3c81535f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c3e1c4f56c641bf5bfa189836a4bcdf99672a3c1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467591"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597479"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live (TTL) in Azure Cosmos DB 
 
 Met **time to Live** of TTL biedt Azure Cosmos DB de mogelijkheid om automatisch items uit een container te verwijderen na een bepaalde tijds periode. Standaard kunt u time to Live instellen op container niveau en de waarde per item overschrijven. Nadat u de TTL hebt ingesteld op een container of op item niveau, worden deze items na de periode door Azure Cosmos DB automatisch verwijderd, sinds de tijd waarop ze voor het laatst zijn gewijzigd. De waarde voor time to Live wordt in seconden geconfigureerd. Wanneer u TTL configureert, worden de verlopen items automatisch door het systeem verwijderd op basis van de TTL-waarde, zonder dat er een Verwijder bewerking hoeft te worden uitgevoerd die expliciet door de client toepassing wordt verleend.
+
+Het verwijderen van verlopen items is een achtergrond taak die gebruikmaakt van aanvragen voor links op [aanvraag](request-units.md), die aanvraag eenheden zijn die niet zijn verbruikt door gebruikers aanvragen. Verlopen kunnen worden vertraagd als de container zwaar wordt belast en er geen aanvraag eenheid voor onderhouds taken wordt gelaten.
 
 ## <a name="time-to-live-for-containers-and-items"></a>Time to Live voor containers en items
 

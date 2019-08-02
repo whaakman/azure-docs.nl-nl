@@ -1,0 +1,400 @@
+---
+title: Inleiding tot Azure-beveiliging | Microsoft Docs
+description: Meer informatie over Azure-beveiliging, de bijbehorende services en hoe deze werkt.
+services: security
+documentationcenter: na
+author: UnifyCloud
+manager: barbkess
+editor: TomSh
+ms.assetid: ''
+ms.service: security
+ms.subservice: security-fundamentals
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/21/2017
+ms.author: TomSh
+ms.openlocfilehash: 62fd2c3f46104fdf3193f105c234f1dae417b0fd
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726871"
+---
+# <a name="introduction-to-azure-security"></a>Inleiding tot Azure-beveiliging
+## <a name="overview"></a>Overzicht
+We weten dat de veiligheid taak in de Cloud is en hoe belang rijk het is dat u nauw keurige en tijdige informatie over Azure-beveiliging vindt. Een van de beste redenen om Azure te gebruiken voor uw toepassingen en services is om te profiteren van de uitgebreide reeks beveiligings Programma's en-mogelijkheden. Met deze hulpprogram ma's en mogelijkheden kunt u beveiligde oplossingen maken op het beveiligde Azure-platform. Microsoft Azure biedt vertrouwelijkheid, integriteit en beschik baarheid van klant gegevens, terwijl ook transparante verantwoording wordt ingeschakeld.
+
+Om u te helpen beter inzicht te krijgen in de verzameling beveiligings controles die worden geïmplementeerd in Microsoft Azure van de perspectieven van de klant en micro soft Operations, is dit technisch document "Inleiding tot Azure Security", geschreven om een uitgebreid uiterlijk te bieden bij de beveiliging die beschikbaar is met Microsoft Azure.
+
+### <a name="azure-platform"></a>Azure Platform
+Azure is een openbaar Cloud service platform dat ondersteuning biedt voor een groot aantal besturings systemen, programmeer talen, frameworks, hulpprogram ma's, data bases en apparaten. Het kan Linux-containers uitvoeren met docker-integratie; bouw apps met Java script, Python, .NET, PHP, Java en node. js; Maak back-ends voor iOS-, Android-en Windows-apparaten.
+
+Open bare Cloud Services van Azure bieden ondersteuning voor miljoenen ontwikkel aars en IT-professionals die al gebruikmaken van en vertrouwen. Wanneer u de IT-activa bouwt op of migreert naar, een open bare Cloud serviceprovider die u vertrouwt over de mogelijkheden van die organisatie om uw toepassingen en gegevens te beschermen met de services en de besturings elementen die ze bieden om de beveiliging van uw cloud-gebaseerde assets te beheren.
+
+De infra structuur van Azure is ontworpen met het oog op toepassingen om miljoenen klanten tegelijkertijd te hosten, en biedt een betrouw bare basis waarover bedrijven kunnen voldoen aan de beveiligings vereisten.
+
+Bovendien biedt Azure u een breed scala aan Configureer bare beveiligings opties en de mogelijkheid om deze te beheren, zodat u de beveiliging kunt aanpassen om te voldoen aan de unieke vereisten van de implementaties van uw organisatie. In dit document wordt uitgelegd hoe u de beveiligings mogelijkheden van Azure kunt gebruiken om aan deze vereisten te voldoen.
+
+> [!Note]
+> De primaire focus van dit document is op klant gerichte besturings elementen die u kunt gebruiken om de beveiliging van uw toepassingen en services aan te passen en te verbeteren.
+>
+> We bieden enkele overzichts gegevens, maar voor gedetailleerde informatie over hoe micro soft het Azure-platform zelf beveiligt, raadpleegt u de informatie in het [vertrouwens centrum van micro soft](https://www.microsoft.com/TrustCenter/default.aspx).
+
+### <a name="abstract"></a>Samenvatting
+In eerste instantie werden open bare Cloud migraties aangestuurd door kosten besparingen en flexibiliteit om te innoveren. Voor de migratie van de open bare Cloud is de beveiliging al enige tijd aangemerkt als een belang rijk probleem. De open bare Cloud beveiliging is echter overgegaan van een grote bezorgdheid naar een van de Stuur Programma's voor Cloud migratie. De rationele navolgende is de superieure mogelijkheid van grote open bare Cloud serviceproviders om toepassingen en de gegevens van op de cloud gebaseerde activa te beveiligen.
+
+De infrastructuur van Azure is zo ontworpen dat toepassingen miljoenen klanten tegelijkertijd kunnen hosten en er daarnaast een betrouwbare basis wordt geboden waarop bedrijven kunnen voldoen aan hun beveiligingsbehoeften. Bovendien biedt Azure u een breed scala aan Configureer bare beveiligings opties en de mogelijkheid om deze te beheren, zodat u de beveiliging kunt aanpassen om te voldoen aan de unieke vereisten van uw implementaties om te voldoen aan uw beleids regels voor het beheer van uw IT-beleid en om aan externe vastgesteld.
+
+Dit artikel bevat een overzicht van de benadering van micro soft voor beveiliging binnen het Microsoft Azure Cloud platform:
+* Beveiligings functies die door micro soft zijn geïmplementeerd om de Azure-infra structuur, klant gegevens en toepassingen te beveiligen.
+* Azure-Services en beveiligings functies die voor u beschikbaar zijn voor het beheren van de beveiliging van de services en uw gegevens in uw Azure-abonnementen.
+
+## <a name="summary-azure-security-capabilities"></a>Overzicht van Azure-beveiligings mogelijkheden
+De volgende tabel bevat een korte beschrijving van de beveiligings functies die door micro soft zijn geïmplementeerd om de Azure-infra structuur, klant gegevens en beveiligde toepassingen te beveiligen.
+### <a name="security-features-implemented-to-secure-the-azure-platform"></a>Beveiligings functies die zijn geïmplementeerd voor het beveiligen van het Azure-platform:
+De functies die hieronder worden weer gegeven, zijn mogelijkheden die u kunt bekijken om de zekerheid te geven dat het Azure-platform op een veilige manier wordt beheerd. Er zijn koppelingen gegeven voor verdere inzoomen op de manier waarop micro soft op de vragen van klanten vertrouwen op vier gebieden wordt vertrouwd: Veilig platform, privacy & besturings elementen, naleving en transparantie.
+
+
+| [Secure Platform](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Privacy-& besturings elementen](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Naleving](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Doorzichtigheids](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
+| :-- | :-- | :-- | :-- |
+| [Beveiligings ontwikkelings cyclus](https://www.microsoft.com/en-us/sdl/), interne controles | [Altijd uw gegevens beheren](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) | [Vertrouwenscentrum](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[Hoe micro soft klant gegevens beveiligt in Azure-Services](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
+| [Verplichte beveiligings training, achtergrond controles](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Controle op gegevens locatie](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Hub met algemene besturings elementen](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Hoe micro soft de gegevens locatie in Azure-Services beheert](https://azuredatacentermap.azurewebsites.net/)|
+| [Indringings tests](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [inbraak detectie, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [controles & logboek registratie](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Gegevens toegang bieden voor uw voor waarden](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [De controle lijst voor de Cloud Services de verval datum](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Wie in micro soft heeft toegang tot uw gegevens met betrekking tot de voor waarden](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
+| [Status van het Art Data Center, de](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)fysieke beveiliging, het [beveiligde netwerk](https://docs.microsoft.com/azure/security/security-network-overview) | [Reageren op wets afdwinging](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Naleving per service, locatie & industrie](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Hoe micro soft klant gegevens beveiligt in Azure-Services](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
+|  [Reactie op beveiligings incidenten](https://aka.ms/SecurityResponsepaper), [gedeelde verantwoordelijkheid](https://aka.ms/sharedresponsibility) |[Strenge privacy-standaarden](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Certificering controleren voor Azure-Services, Transparency-hub](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
+
+
+
+### <a name="security-features-offered-by-azure-to-secure-data-and-application"></a>Beveiligings functies die worden geboden door Azure om gegevens en toepassingen te beveiligen
+Afhankelijk van het Cloud service model, is er een variabele verantwoordelijkheid voor wie verantwoordelijk is voor het beheren van de beveiliging van de toepassing of service. Er zijn mogelijkheden beschikbaar in het Azure-platform om u te helpen bij het beantwoorden van deze verantwoordelijkheden via ingebouwde functies en via partner oplossingen die kunnen worden geïmplementeerd in een Azure-abonnement.
+
+De ingebouwde mogelijkheden zijn ingedeeld in zes (6) functionele gebieden: Bewerkingen, toepassingen, opslag, netwerken, compute en identiteit. Meer details over de functies en mogelijkheden die beschikbaar zijn in het Azure-platform in deze zes (6) gebieden worden verstrekt via samenvattings informatie.
+
+## <a name="operations"></a>Bewerkingen
+Deze sectie bevat aanvullende informatie over belang rijke functies in beveiligings bewerkingen en overzichts informatie over deze mogelijkheden.
+
+### <a name="security-and-audit-dashboard"></a>Beveiliging en audit dash board
+De [beveiliging en audit-oplossing](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) biedt een uitgebreid overzicht van de IT-beveiligings postuur van uw organisatie met [ingebouwde Zoek query's](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) voor de belangrijkste problemen die uw aandacht vereisen. Het [beveiliging en audit](https://technet.microsoft.com/library/mt484091.aspx) -dash board is het begin scherm voor alles wat te maken heeft met beveiliging in azure monitor-Logboeken. Het biedt hoogwaardig inzicht in de beveiligings status van uw computers. Ook kunnen op het startscherm alle gebeurtenissen van de afgelopen 24 uur, 7 dagen of een ander tijdsbestek worden weergegeven.
+
+Daarnaast kunt u Beveiliging en naleving zodanig configureren dat er [automatisch specifieke acties worden uitgevoerd](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) wanneer een specifieke gebeurtenis wordt gedetecteerd.
+
+### <a name="azure-resource-manager"></a>Azure Resource Manager
+[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) kunt u met de resources in uw oplossing als groep gebruiken. U kunt alle resources voor uw oplossing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking. U gebruikt een [Azure Resource Manager-sjabloon](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) voor de implementatie en die sjabloon kan werken voor verschillende omgevingen, zoals testen, faseren en productie. Resource Manager biedt beveiliging, controle en tagfuncties die u na de implementatie helpen bij het beheren van uw resources.
+
+Azure Resource Manager implementaties op basis van een sjabloon helpen bij het verbeteren van de beveiliging van oplossingen die zijn geïmplementeerd in azure, omdat standaard instellingen voor beveiligings beheer en kunnen worden geïntegreerd in gestandaardiseerde implementaties op basis van een sjabloon. Dit vermindert het risico van beveiligings configuratie fouten die kunnen optreden tijdens hand matige implementaties.
+
+### <a name="application-insights"></a>Application Insights
+[Application Insights](https://docs.microsoft.com/azure/application-insights/) is een UITBREID bare apm-service (Application Performance Management) voor webontwikkelaars. Met Application Insights kunt u uw Live webtoepassingen bewaken en automatisch prestatie afwijkingen detecteren. Het bevat krachtige analyse hulpprogramma's waarmee u problemen kunt vaststellen en inzicht kunt krijgen wat gebruikers daad werkelijk doen met uw apps. Hiermee wordt uw toepassing gecontroleerd op het moment dat deze wordt uitgevoerd, zowel tijdens het testen als nadat u deze hebt gepubliceerd of geïmplementeerd.
+
+Application Insights maakt grafieken en tabellen waarin u bijvoorbeeld kunt zien op welke tijdstippen u de meeste gebruikers krijgt, hoe reageert de app en hoe goed deze wordt bediend door externe services waarvan deze afhankelijk is.
+
+Als er zich crashes, fouten of prestatie problemen voordoen, kunt u de gegevens in de telemetrie gedetailleerd doorzoeken om de oorzaak vast te stellen. En de service stuurt u e-mail berichten als er wijzigingen zijn in de beschik baarheid en prestaties van uw app. Toepassings inzicht wordt daarom een waardevol beveiligings programma, omdat het helpt bij de beschik baarheid van de beveiligings Triad van de vertrouwelijkheid, integriteit en beschik baarheid.
+
+### <a name="azure-monitor"></a>Azure Monitor
+[Azure monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) biedt visualisatie, query, route ring, waarschuwingen, automatisch schalen en automatisering op gegevens van de Azure-infra structuur ([activiteiten logboek](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) en elke afzonderlijke Azure-resource ([Diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). U kunt Azure Monitor gebruiken om u te waarschuwen voor beveiligings gebeurtenissen die worden gegenereerd in azure-Logboeken.
+
+### <a name="azure-monitor-logs"></a>Azure Monitor-logboeken
+[Azure monitor](https://azure.microsoft.com/documentation/services/log-analytics/) -logboeken: voorziet in een IT-beheer oplossing voor zowel on-premises als Cloud infrastructuur op basis van derden (zoals AWS) naast Azure-resources. Gegevens van Azure Monitor kunnen rechtstreeks naar Azure Monitor-logboeken worden gerouteerd, zodat u meet waarden en logboeken voor uw hele omgeving op één plek kunt zien.
+
+Azure Monitor logboeken kunnen een handig hulp middel zijn in forensische en een andere beveiligings analyse, omdat u met het hulp programma snel grote hoeveel heden aan beveiligings gegevens kunt doorzoeken met een flexibele query benadering. Daarnaast kunnen on-premises [firewall-en proxy Logboeken in Azure worden geëxporteerd en beschikbaar worden gesteld voor analyse met behulp van Azure monitor-Logboeken.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
+
+### <a name="azure-advisor"></a>Azure Advisor
+[Azure Advisor](https://docs.microsoft.com/azure/advisor/) is een gepersonaliseerde Cloud consultant waarmee u uw Azure-implementaties kunt optimaliseren. Advisor analyseert de configuratie van uw resources en de gebruiksgerelateerde telemetrie. Vervolgens worden oplossingen aanbevolen om de [prestaties](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), [beveiliging](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations)en [hoge Beschik baarheid](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) van uw resources te verbeteren terwijl u op zoek bent naar mogelijkheden om [uw totale Azure-uitgaven te verminderen](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). Azure Advisor biedt beveiligings aanbevelingen, waarmee u uw algemene beveiligings postuur aanzienlijk kunt verbeteren voor oplossingen die u in azure implementeert. Deze aanbevelingen worden getrokken van de beveiligings analyse die wordt uitgevoerd door [Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-intro)
+
+### <a name="azure-security-center"></a>Azure Security Center
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) helpt u bij het detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders onopgemerkt zouden blijven, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
+
+Daarnaast helpt Azure Security Center bij het uitvoeren van beveiligings bewerkingen door u een dash board te bieden dat waarschuwingen en aanbevelingen ondervindt die direct kunnen worden verwerkt. Vaak kunt u problemen oplossen met één klik binnen de Azure Security Center-console.
+## <a name="applications"></a>Toepassingen
+De sectie bevat aanvullende informatie over de belangrijkste functies in toepassings beveiliging en samenvattings informatie over deze mogelijkheden.
+
+### <a name="web-application-vulnerability-scanning"></a>Scan voor beveiligings problemen webtoepassing
+Een van de eenvoudigste manieren om aan de slag te gaan met het testen op beveiligings problemen in uw [app service-app](https://docs.microsoft.com/azure/app-service/overview) is het gebruik van de [integratie met Tinfoil-beveiliging](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) om met één klik een beveiligingslek in uw app te scannen. U kunt de test resultaten weer geven in een eenvoudig te begrijpen rapport en meer informatie over het oplossen van elk beveiligings probleem met stapsgewijze instructies.
+
+### <a name="penetration-testing"></a>Penetratietesten
+Als u liever uw eigen indringings tests uitvoert of een ander scanner pakket of een andere provider wilt gebruiken, moet u het [goedkeurings proces voor Azure indringings tests](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) volgen en voorafgaand goed keuring aanvragen om de gewenste indringings tests uit te voeren.
+
+### <a name="web-application-firewall"></a>Web Application firewall
+De Web Application Firewall (WAF) in [Azure-toepassing gateway](https://azure.microsoft.com/services/application-gateway/) helpt bij het beveiligen van webtoepassingen tegen veelvoorkomende aanvallen op internet, zoals SQL-injectie, cross-site scripting aanvallen en het overnemen van sessies. Het is vooraf geconfigureerd met beveiliging tegen bedreigingen die zijn geïdentificeerd door het [Open Web Application Security project (OWASP) als de Top 10 van veelvoorkomende beveiligings problemen](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
+
+### <a name="authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service
+[App service-verificatie/-autorisatie](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) is een functie waarmee uw toepassing zich kan aanmelden, zodat u geen code hoeft te wijzigen op de back-end van de app. Het biedt een eenvoudige manier om uw toepassing te beveiligen en te werken met gegevens per gebruiker.
+
+### <a name="layered-security-architecture"></a>Gelaagde beveiligings architectuur
+Omdat [app service omgevingen](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro) een geïsoleerde runtime-omgeving bieden die is geïmplementeerd in een [Azure-Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview), kunnen ontwikkel aars een gelaagde beveiligings architectuur maken die verschillende niveaus van netwerk toegang biedt voor elke toepassingslaag. Een gemeen schappelijke wens is de API-back-ends van algemene Internet toegang te verbergen en alleen Api's toe te staan door upstream-web-apps. [Netwerk beveiligings groepen (nsg's)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) kunnen worden gebruikt in azure Virtual Network subnetten die app service omgevingen bevatten om de open bare toegang tot API-toepassingen te beperken.
+
+### <a name="web-server-diagnostics-and-application-diagnostics"></a>Diagnostische gegevens van webservers en Application Diagnostics
+App Service web-apps bieden diagnostische functionaliteit voor het vastleggen van gegevens van zowel de webserver als de webtoepassing. Deze worden logisch gescheiden in [webserver diagnostiek](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) en [toepassings diagnoses](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Webserver bevat twee belang rijke voor uitgang bij het opsporen en oplossen van problemen met sites en toepassingen.
+
+De eerste nieuwe functie is realtime-status informatie over groepen van toepassingen, werk processen, sites, toepassings domeinen en actieve aanvragen. De tweede nieuwe voor delen zijn de gedetailleerde tracerings gebeurtenissen die een aanvraag volgen tijdens het volledige proces van aanvragen en antwoorden.
+
+Om het verzamelen van deze tracerings gebeurtenissen in te scha kelen, kan IIS 7 worden geconfigureerd voor het automatisch vastleggen van volledige traceer Logboeken in XML-indeling, voor een bepaalde aanvraag op basis van de verstreken tijd of de code voor fout reacties.
+
+#### <a name="web-server-diagnostics"></a>Diagnostische gegevens van webserver
+U kunt de volgende soorten logboeken in-of uitschakelen:
+
+-   Gedetailleerde fout registratie: gedetailleerde fout informatie voor HTTP-status codes die duiden op een fout (status code 400 of hoger). Dit kan informatie bevatten die u kan helpen om te bepalen waarom de server de fout code heeft geretourneerd.
+
+-   Tracering van mislukte aanvragen-gedetailleerde informatie over mislukte aanvragen, inclusief een tracering van de IIS-onderdelen die worden gebruikt om de aanvraag te verwerken en de tijd die in elk onderdeel is gemaakt. Dit kan handig zijn als u de prestaties van de site probeert te verhogen of als u wilt isoleren wat er een specifieke HTTP-fout wordt geretourneerd.
+
+-   Logboek registratie van webserver-informatie over HTTP-trans acties met de uitgebreide W3C-indeling van logboek bestand. Dit is handig bij het bepalen van de algemene metrische site gegevens, zoals het aantal verwerkte aanvragen of hoeveel aanvragen van een specifiek IP-adres.
+
+#### <a name="application-diagnostics"></a>Application diagnostics
+Met [Application Diagnostics](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) kunt u gegevens vastleggen die zijn geproduceerd door een webtoepassing. ASP.NET-toepassingen kunnen de klasse [System. Diagnostics. trace](https://msdn.microsoft.com/library/system.diagnostics.trace) gebruiken om informatie te registreren in het logboek voor toepassings diagnose. In Application Diagnostics zijn er twee belang rijke typen gebeurtenissen, die betrekking hebben op de prestaties van toepassingen en die betrekking hebben op toepassings fouten en fouten. De fouten en fouten kunnen verder worden onderverdeeld in connectiviteits-, beveiligings-en fout problemen. Problemen met de fout zijn doorgaans gerelateerd aan een probleem met de toepassings code.
+
+In Application Diagnostics kunt u de gebeurtenissen weer geven die op de volgende manieren zijn gegroepeerd:
+
+-   Alle (alle gebeurtenissen worden weer gegeven)
+-   Toepassings fouten (geeft uitzonderings gebeurtenissen weer)
+-   Prestaties (prestatie gebeurtenissen worden weer gegeven)
+
+## <a name="storage"></a>Storage
+De sectie bevat aanvullende informatie over de belangrijkste functies in azure Storage-beveiliging en samenvattings informatie over deze mogelijkheden.
+
+### <a name="role-based-access-control-rbac"></a>RBAC (op rollen gebaseerd toegangsbeheer)
+U kunt uw opslag account beveiligen met op rollen gebaseerd Access Control (RBAC). Het beperken van de toegang op basis van [de beveiligings principes](https://en.wikipedia.org/wiki/Principle_of_least_privilege) van de [nood zaak om te kennen](https://en.wikipedia.org/wiki/Need_to_know) , is van cruciaal belang voor organisaties die beveiligings beleid voor gegevens toegang willen afdwingen. Deze toegangs rechten worden verleend door de juiste RBAC-rol toe te wijzen aan groepen en toepassingen bij een bepaald bereik. U kunt [Ingebouwde RBAC-rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles), zoals Inzender voor opslag accounts, gebruiken om machtigingen toe te wijzen aan gebruikers. Toegang tot de opslag sleutels voor een opslag account met behulp van het [Azure Resource Manager](https://docs.microsoft.com/azure/storage/storage-security-guide) model kan worden beheerd via op rollen gebaseerde Access Control (RBAC).
+
+### <a name="shared-access-signature"></a>Shared Access Signature
+Een [SAS (Shared Access Signature; handtekening voor gedeelde toegang)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) biedt gedelegeerde toegang tot bronnen in uw opslagaccount. De SAS betekent dat u een client beperkte machtigingen kunt verlenen voor objecten in uw opslag account voor een opgegeven periode en met een opgegeven set machtigingen. U kunt deze beperkte machtigingen verlenen zonder dat u de toegangs sleutels van uw account hoeft te delen.
+
+### <a name="encryption-in-transit"></a>Versleuteling in transit
+Versleuteling in transit is een mechanisme voor het beveiligen van gegevens wanneer deze via netwerken worden verzonden. Met Azure Storage kunt u gegevens beveiligen met behulp van:
+-   [Versleuteling op transport niveau](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), zoals https wanneer u gegevens overbrengt naar of van Azure Storage.
+
+-   [Wire-versleuteling](https://docs.microsoft.com/azure/storage/storage-security-guide#using-encryption-during-transit-with-azure-file-shares), zoals [SMB 3,0-versleuteling](https://docs.microsoft.com/azure/storage/storage-security-guide) voor [Azure-bestands shares](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-files).
+
+-   Versleuteling aan de client zijde, voor het versleutelen van de gegevens voordat deze naar de opslag wordt overgebracht en voor het ontsleutelen van de gegevens nadat deze buiten de opslag zijn overgedragen.
+
+### <a name="encryption-at-rest"></a>Versleuteling 'at rest'
+Voor veel organisaties is gegevens versleuteling in rust een verplichte stap op het vlak van gegevens privacy, naleving en data soevereiniteit. Er zijn drie Azure Storage-beveiligings functies die gegevens versleuteling bieden die ' op rust ' zijn:
+
+-   Met [Storage service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption) kunt u aanvragen dat de opslag service automatisch gegevens versleutelt bij het schrijven naar Azure Storage.
+
+-   [Versleuteling aan de client zijde](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) biedt ook de mogelijkheid om op rest te versleutelen.
+
+-   Met [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) kunt u de stations van het besturings systeem en de gegevens schijven die worden gebruikt door een virtuele machine van IaaS versleutelen.
+
+### <a name="storage-analytics"></a>Storage Analytics
+[Azure Opslaganalyse](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) voert logboek registratie uit en geeft metrische gegevens voor een opslag account. Deze gegevens kunt u gebruiken om aanvragen te traceren, gebruikstrends te analyseren en een diagnose uit te voeren voor problemen met uw opslagaccount. Opslaganalyse registreert gedetailleerde informatie over geslaagde en mislukte aanvragen voor een opslag service. Deze informatie kan worden gebruikt voor het bewaken van afzonderlijke aanvragen en voor het vaststellen van problemen met een opslag service. Aanvragen worden op de beste basis geregistreerd. De volgende typen geverifieerde aanvragen worden geregistreerd:
+-   Geslaagde aanvragen.
+
+-   Mislukte aanvragen, inclusief time-out, beperking, netwerk, autorisatie en andere fouten.
+
+-   Aanvragen met behulp van een Shared Access Signature (SAS), waaronder mislukte en geslaagde aanvragen.
+
+-   Aanvragen voor Analytics-gegevens.
+
+### <a name="enabling-browser-based-clients-using-cors"></a>Clients op basis van een browser inschakelen met CORS
+[Cross-Origin Resource Sharing (CORS)](https://docs.microsoft.com/rest/api/storageservices/fileservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) is een mechanisme waarmee domeinen elke andere machtiging kunnen geven om toegang te krijgen tot de resources van elkaar. De gebruikers agent verzendt extra headers om ervoor te zorgen dat de Java script-code die is geladen vanuit een bepaald domein, toegang heeft tot bronnen die zich in een ander domein bevinden. Het laatste domein beantwoordt vervolgens met extra headers die de oorspronkelijke toegang tot de bronnen van het domein toestaan of weigeren.
+
+Azure Storage-services ondersteunen nu CORS zodat als u de CORS-regels voor de service hebt ingesteld, een correct geverifieerde aanvraag voor de service vanuit een ander domein wordt geëvalueerd om te bepalen of deze is toegestaan volgens de regels die u hebt opgegeven.
+## <a name="networking"></a>Netwerken
+De sectie bevat aanvullende informatie over de belangrijkste functies in azure-netwerk beveiliging en samenvattings informatie over deze mogelijkheden.
+
+### <a name="network-layer-controls"></a>Besturings elementen voor netwerklaag
+Netwerk toegangs beheer is de handeling van het beperken van de connectiviteit met en van specifieke apparaten of subnetten en vertegenwoordigt de kern van netwerk beveiliging. Het doel van netwerk toegangs beheer is om ervoor te zorgen dat uw virtuele machines en services alleen toegankelijk zijn voor gebruikers en apparaten waartoe u ze toegang wilt geven.
+
+#### <a name="network-security-groups"></a>Netwerkbeveiligingsgroepen
+Een [netwerk beveiligings groep (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) is een elementaire stateful pakket filtering firewall waarmee u de toegang kunt beheren op basis van een [5-tuple](https://www.techopedia.com/definition/28190/5-tuple). Nsg's bieden geen inspectie van toepassings lagen of geverifieerde toegangs beheer. Ze kunnen worden gebruikt om verkeer tussen subnetten binnen een Azure-Virtual Network en verkeer tussen een Azure Virtual Network en Internet te beheren.
+
+#### <a name="route-control-and-forced-tunneling"></a>Route beheer en geforceerde tunneling
+De mogelijkheid om routerings gedrag voor uw virtuele Azure-netwerken te beheren, is een essentiële mogelijkheden voor netwerk beveiliging en toegangs beheer. Als u bijvoorbeeld wilt dat al het verkeer naar en van de Azure-Virtual Network het virtuele beveiligings apparaat doorloopt, moet u het gedrag van route ring kunnen bepalen en aanpassen. U kunt dit doen door door de gebruiker gedefinieerde routes te configureren in Azure.
+
+Door de [gebruiker gedefinieerde routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) bieden u de mogelijkheid om binnenkomende en uitgaande paden aan te passen voor verkeer dat wordt verplaatst naar en van afzonderlijke virtuele machines of subnetten om de veiligste route te garanderen. [Geforceerde tunneling](https://www.petri.com/azure-forced-tunneling) is een mechanisme dat u kunt gebruiken om ervoor te zorgen dat uw services geen verbinding met apparaten op Internet mogen initiëren.
+
+Dit wijkt af van de mogelijkheid om binnenkomende verbindingen te accepteren en vervolgens te reageren. Front-end-webservers moeten reageren op aanvragen van Internet hosts, waardoor het Internet verkeer naar deze webservers wordt toegestaan en de webservers kunnen reageren.
+
+Geforceerde tunneling wordt doorgaans gebruikt om uitgaand verkeer naar Internet af te dwingen via on-premises beveiligings proxy's en firewalls.
+
+#### <a name="virtual-network-security-appliances"></a>Beveiligings apparaten Virtual Network
+Hoewel netwerk beveiligings groepen, door de gebruiker gedefinieerde routes en geforceerde tunneling u een beveiligings niveau bieden op het netwerk en de transport lagen van het [OSI-model](https://en.wikipedia.org/wiki/OSI_model), is het mogelijk dat u de beveiliging op een hoger niveau van de stack wilt inschakelen. U kunt deze verbeterde beveiligings functies van het netwerk openen met behulp van een Azure-partner netwerk beveiligings apparaat. U kunt de meest recente oplossingen voor Azure-partner netwerk beveiliging vinden door de [Azure Marketplace](https://azure.microsoft.com/marketplace/) te bezoeken en te zoeken naar ' Beveiliging ' en ' netwerk beveiliging '.
+
+### <a name="azure-virtual-network"></a>Azure Virtual Network
+
+Een virtueel Azure-netwerk (VNet) is een weergave van uw eigen netwerk in de cloud. Het is een logische isolatie van de Azure Network-infra structuur die is toegewezen aan uw abonnement. U kunt de IP-adresblokken, DNS-instellingen, beveiligingsbeleidsregels en routetabellen binnen dit netwerk volledig beheren. U kunt uw VNet in subnetten segmenteren en Azure IaaS virtuele machines (Vm's) en/of [Cloud Services (PaaS-rolinstanties)](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) plaatsen in azure Virtual Networks.
+
+Hiermee kunt u het virtuele netwerk via een van de beschikbare [verbindingsopties](https://docs.microsoft.com/azure/vpn-gateway/) in Azure verbinden met uw on-premises netwerk. In wezen kunt u uw netwerk uitbreiden naar Azure met behoud van de volledige controle over IP-adresblokken en de schaalvoordelen van Azure voor ondernemingen.
+
+Azure-netwerken biedt ondersteuning voor verschillende scenario's voor beveiligde externe toegang. Dit zijn onder andere:
+
+-   [Afzonderlijke werk stations verbinden met een Azure-Virtual Network](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
+
+-   [On-premises netwerk verbinden met een Azure-Virtual Network met een VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design)
+
+-   [On-premises netwerk verbinden met een Azure-Virtual Network met een specifieke WAN-koppeling](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)
+
+-   [Virtuele Azure-netwerken met elkaar verbinden](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps)
+
+### <a name="vpn-gateway"></a>VPN Gateway
+Als u netwerk verkeer wilt verzenden tussen uw Azure Virtual Network en uw on-premises site, moet u een VPN-gateway maken voor uw Azure-Virtual Network. Een [VPN-gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) is een type virtuele netwerk gateway die versleuteld verkeer verzendt via een open bare verbinding. U kunt VPN-gateways ook gebruiken om verkeer tussen virtuele Azure-netwerken te verzenden via de Azure-netwerk infrastructuur.
+
+### <a name="express-route"></a>ExpressRoute
+Microsoft Azure [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) is een specifieke WAN-verbinding waarmee u uw on-premises netwerken in de micro soft-Cloud kunt uitbreiden via een speciale persoonlijke verbinding die wordt vereenvoudigd door een connectiviteits provider.
+
+![ExpressRoute](./media/overview/azure-security-fig1.png)
+
+Met ExpressRoute kunt u verbindingen tot stand brengen met Microsoft Cloud-services, zoals Microsoft Azure, Office 365 en CRM Online. Via een connectiviteitsprovider in een co-locatiefaciliteit is connectiviteit mogelijk vanuit een any-to-any (IP VPN) netwerk, een point-to-point Ethernet-netwerk of een virtuele overlappende verbinding.
+
+ExpressRoute-verbindingen gaan niet via het open bare Internet en kunnen worden beschouwd als veiliger dan op VPN gebaseerde oplossingen. Daardoor zijn ExpressRoute-verbindingen betrouwbaarder en sneller en hebben ze lagere latenties en betere beveiliging dan gewone verbindingen via internet.
+
+
+### <a name="application-gateway"></a>Application Gateway
+Micro soft [Azure-toepassing gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) biedt een [ADC (Application Delivery controller)](https://en.wikipedia.org/wiki/Application_delivery_controller) als een service en biedt verschillende mogelijkheden voor de taak verdeling van laag 7 voor uw toepassing.
+
+![Application Gateway](./media/overview/azure-security-fig2.png)
+
+Zo kunt u de productiviteit van webfarms optimaliseren door de CPU-intensieve SSL-beëindiging te offloaden naar de Application Gateway (ook wel ' SSL-offload ' of ' SSL-bridging ' genoemd). Het biedt ook andere Layer 7-routerings mogelijkheden, waaronder round-robin distributie van binnenkomend verkeer, sessie affiniteit op basis van cookies, op URL gebaseerde route ring en de mogelijkheid om meerdere websites achter één Application Gateway te hosten. Azure Application Gateway is een load balancer in laag 7.
+
+De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud).
+
+De toepassing biedt veel ADC-functies (Application Delivery controller), waaronder HTTP-taak verdeling, op cookies gebaseerde sessie affiniteit, [Secure Sockets Layer (SSL)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-powershell) offload, aangepaste status tests, ondersteuning voor meerdere locaties en vele andere.
+
+### <a name="web-application-firewall"></a>Web Application Firewall
+Web Application firewall is een functie van [Azure-toepassing gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) die beveiliging biedt voor webtoepassingen die gebruikmaken van Application Gateway voor standaard ADC-functies (Application Delivery Control). Web Application Firewall doet dit door deze te beschermen tegen het grootste deel van de algemene internetbeveiligingsproblemen uit de OWASP top 10.
+
+![Web Application Firewall](./media/overview/azure-security-fig1.png)
+
+-   Beveiliging tegen SQL-injecties
+
+-   Beveiliging tegen veelvoorkomende aanvallen via internet, zoals opdrachtinjectie, het smokkelen van HTTP-aanvragen, het uitsplitsen van HTTP-antwoorden en aanvallen waarbij een extern bestand wordt ingesloten
+
+-   Beveiliging tegen schendingen van het HTTP-protocol
+
+-   Beveiliging tegen afwijkingen van het HTTP-protocol, zoals een gebruikersagent voor de host en Accept-headers die ontbreken
+
+-   Beveiliging tegen bots, crawlers en scanners
+
+-   Detectie van veelvoorkomende onjuiste configuraties van toepassingen (dat wil zeggen Apache, IIS, enzovoort)
+
+
+Een gecentraliseerde Web Application Firewall ter bescherming tegen aanvallen via internet maakt het beveiligingsbeheer veel eenvoudiger en biedt de toepassing meer veiligheid tegen de bedreigingen van indringers. Een WAF-oplossing kan ook sneller reageren op een beveiligingsrisico door een patch voor een bekend beveiligingsprobleem toe te passen op een centrale locatie in plaats van elke afzonderlijke webtoepassing te beveiligen. Bestaande toepassingsgateways kunnen eenvoudig worden geconverteerd naar een toepassingsgateway met Web Application Firewall.
+### <a name="traffic-manager"></a>Traffic Manager
+Met micro soft [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) kunt u de distributie van gebruikers verkeer voor service-eind punten in verschillende data centers beheren. Service-eind punten die worden ondersteund door Traffic Manager zijn onder andere Azure-Vm's, Web Apps en Cloud Services. U kunt Traffic Manager ook gebruiken met externe eindpunten die niet van Azure zijn. Traffic Manager gebruikt de Domain Name System (DNS) om client aanvragen door te sturen naar het meest geschikte eind punt op basis van een [routerings methode voor verkeer](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) en de status van de eind punten.
+
+Traffic Manager biedt een reeks methoden voor het routeren van verkeer voor verschillende toepassings behoeften, [controle](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring)van de eindpunt status en automatische failover. Traffic Manager is bestand tegen storingen, waaronder het uitvallen van een hele Azure-regio.
+### <a name="azure-load-balancer"></a>Azure Load Balancer
+[Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) zorgt dat uw toepassingen een hoge beschikbaarheid hebben en goede netwerkprestaties leveren. Het is een laag 4 (TCP, UDP) load balancer waarmee binnenkomend verkeer wordt verdeeld over in orde zijnde instanties van services die zijn gedefinieerd in een set met gelijke taak verdeling. Azure Load Balancer kunnen worden geconfigureerd voor het volgende:
+
+-   Taak verdeling van binnenkomend Internet verkeer naar virtuele machines. Deze configuratie wordt ook wel [Internet gerichte taak verdeling](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)genoemd.
+
+-   Taak verdeling van verkeer tussen virtuele machines in een virtueel netwerk, tussen virtuele machines in Cloud Services of tussen lokale computers en virtuele machines in een cross-premises virtueel netwerk. Deze configuratie wordt ook wel [interne taak verdeling](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)genoemd. 
+
+- Extern verkeer door sturen naar een specifieke virtuele machine
+
+### <a name="internal-dns"></a>Interne DNS
+U kunt de lijst met DNS-servers die worden gebruikt in een VNet, beheren in de Beheerportal of in het netwerk configuratie bestand. De klant kan Maxi maal 12 DNS-servers voor elk VNet toevoegen. Wanneer u DNS-servers opgeeft, is het belang rijk om te controleren of de DNS-servers van de klant in de juiste volg orde voor de omgeving van de klant staan. DNS-Server lijsten werken niet met Round Robin. Ze worden gebruikt in de volg orde waarin ze zijn opgegeven. Als de eerste DNS-server in de lijst kan worden bereikt, gebruikt de client die DNS-server, ongeacht of de DNS-server correct werkt of niet. Als u de volg orde van de DNS-server voor het virtuele netwerk van de klant wilt wijzigen, verwijdert u de DNS-servers uit de lijst en voegt u deze weer toe in de volg orde die de klant wil. DNS ondersteunt het beschik baarheids aspect van de CIA Security Triad.
+
+### <a name="azure-dns"></a>Azure DNS
+De [Domain Name System](https://technet.microsoft.com/library/bb629410.aspx), of DNS, is verantwoordelijk voor het vertalen van een website-of service naam naar het IP-adres. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) is een hosting service voor DNS-domeinen die naam omzetting biedt met behulp van Microsoft Azure-infra structuur. Door uw domeinen in Azure te hosten, kunt u uw DNS-records met dezelfde referenties, API's, hulpprogramma's en facturering beheren als voor uw andere Azure-services. DNS ondersteunt het beschik baarheids aspect van de CIA Security Triad.
+### <a name="azure-monitor-logs-nsgs"></a>Azure Monitor logboeken Nsg's
+U kunt de volgende diagnostische logboek categorieën inschakelen voor Nsg's:
+-   Gebeurtenislog Bevat vermeldingen waarvoor NSG-regels worden toegepast op Vm's en instantie rollen op basis van een MAC-adres. De status voor deze regels wordt elke 60 seconden verzameld.
+
+-   Item regels: Bevat vermeldingen voor het aantal keren dat elke NSG regel wordt toegepast om verkeer te weigeren of toe te staan.
+
+### <a name="azure-security-center"></a>Azure Security Center
+Security Center helpt u bedreigingen te voor komen, te detecteren en erop te reageren, en biedt u meer inzicht in en controle over de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligings bewaking en beleids beheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders niet kunnen worden opgemerkt en werkt met een uitgebreid ecosysteem van beveiligings oplossingen. Netwerk aanbevelingen centrum rond firewalls, netwerk beveiligings groepen, configureren van regels voor binnenkomend verkeer en meer.
+
+Beschik bare aanbevelingen voor het netwerk zijn als volgt:
+
+-   [Een firewall van de volgende generatie toevoegen](https://docs.microsoft.com/azure/security-center/security-center-add-next-generation-firewall) Hiermee wordt aanbevolen dat u een Next Generation firewall (NGFW) toevoegt van een micro soft-partner om uw beveiligings beveiliging te verhogen
+
+-   [Verkeer alleen via NGFW routeren](https://docs.microsoft.com/azure/security-center/security-center-add-next-generation-firewall#route-traffic-through-ngfw-only) Hiermee wordt aanbevolen dat u NSG-regels (netwerk beveiligings groep) configureert waarmee inkomend verkeer naar uw virtuele machine wordt afgedwongen via uw NGFW.
+
+-   [Netwerk beveiligings groepen inschakelen op subnetten of virtuele machines](https://docs.microsoft.com/azure/security-center/security-center-enable-network-security-groups) Hiermee wordt aanbevolen om Nsg's in te scha kelen op subnetten of Vm's.
+
+-   [Toegang via Internet gericht eind punt beperken](https://docs.microsoft.com/azure/security-center/security-center-restrict-access-through-internet-facing-endpoints) Raadt u aan om regels voor binnenkomend verkeer voor Nsg's te configureren.
+
+
+## <a name="compute"></a>Compute
+
+De sectie bevat aanvullende informatie over belang rijke functies op dit gebied en samenvattings informatie over deze mogelijkheden.
+
+### <a name="antimalware--antivirus"></a>Antimalware & anti virus
+Met Azure IaaS kunt u antimalware-software gebruiken van beveiligings leveranciers zoals micro soft, Symantec, Trend Micro, McAfee en Kaspersky om uw virtuele machines te beschermen tegen schadelijke bestanden, adware en andere bedreigingen. [Micro soft antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) voor Azure Cloud Services en virtual machines is een beschermings functie waarmee u virussen, spyware en andere schadelijke software kunt identificeren en verwijderen. Micro soft antimalware biedt Configureer bare waarschuwingen wanneer bekende schadelijke of ongewenste software probeert zichzelf te installeren of uit te voeren op uw Azure-systemen. Micro soft antimalware kan ook worden geïmplementeerd met Azure Security Center
+
+### <a name="hardware-security-module"></a>Hardware Security module
+Versleuteling en verificatie verbeteren de beveiliging alleen als de sleutels zelf zijn beveiligd. U kunt het beheer en de beveiliging van uw essentiële geheimen en sleutels vereenvoudigen door ze op te slaan in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis). Key Vault biedt de mogelijkheid om uw sleutels op te slaan in Hardware Security modules (Hsm's) die zijn gecertificeerd voor FIPS 140-2 level 2-standaarden. Uw SQL Server versleutelings sleutels voor back-up of [transparante gegevens versleuteling](https://msdn.microsoft.com/library/bb934049.aspx) kunnen allemaal worden opgeslagen in Key Vault met alle sleutels of geheimen van uw toepassingen. Machtigingen en toegang tot deze beveiligde items worden beheerd via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+
+### <a name="virtual-machine-backup"></a>Back-up van virtuele machine
+[Azure backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) is een oplossing die uw toepassings gegevens beveiligt met een kapitaal investering van nul en minimale bedrijfs kosten. Toepassings fouten kunnen uw gegevens beschadigen en menselijke fouten kunnen fouten in uw toepassingen introduceren die kunnen leiden tot beveiligings problemen. Met Azure Backup worden uw virtuele machines met Windows en Linux beveiligd.
+
+### <a name="azure-site-recovery"></a>Azure Site Recovery
+Een belang rijk onderdeel van de strategie voor [bedrijfs continuïteit/herstel na nood gevallen (BCDR)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) van uw organisatie is te bepalen hoe u bedrijfs werkbelastingen en apps actief kunt houden wanneer geplande en ongeplande storingen optreden. [Azure site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) helpt de replicatie, failover en herstel van werk belastingen en apps te organiseren, zodat deze beschikbaar zijn vanaf een secundaire locatie als uw primaire locatie uitvalt.
+
+### <a name="sql-vm-tde"></a>TDE SQL-VM
+[Transparent Data Encryption (TDE)](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault) en encryption op kolom niveau (CLE) zijn SQL Server-versleutelings functies. Deze vorm van versleuteling vereist dat klanten de cryptografische sleutels die u voor versleuteling gebruikt, beheert en opslaat.
+
+De Azure Key Vault-service (Azure) is ontworpen voor het verbeteren van de beveiliging en het beheer van deze sleutels op een veilige en Maxi maal beschik bare locatie. Met de SQL Server-connector kan SQL Server deze sleutels vanuit Azure Key Vault gebruiken.
+
+Als u SQL Server met on-premises machines uitvoert, zijn er stappen die u kunt volgen om toegang te krijgen tot Azure Key Vault vanaf uw on-premises SQL Server computer. Maar voor SQL Server in azure-Vm's kunt u tijd besparen door gebruik te maken van de functie voor Azure Key Vault integratie. Met enkele Azure PowerShell-cmdlets om deze functie in te scha kelen, kunt u de configuratie automatiseren die nodig is voor een SQL-VM om toegang te krijgen tot uw sleutel kluis.
+
+### <a name="vm-disk-encryption"></a>VM-schijf versleuteling
+[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) is een nieuwe mogelijkheid waarmee u uw virtuele Windows-en Linux IaaS-machine schijven kunt versleutelen. Hiermee wordt de industrie standaard BitLocker-functie van Windows en de DM-cryptografie functie van Linux toegepast om volume versleuteling voor het besturings systeem en de gegevens schijven te bieden. De oplossing is geïntegreerd met Azure Key Vault om u te helpen de schijf versleutelings sleutels en geheimen in uw Key Vault-abonnement te beheren. De oplossing zorgt er ook voor dat alle gegevens op de schijven van de virtuele machine op rest worden versleuteld in uw Azure-opslag.
+
+### <a name="virtual-networking"></a>Virtueel netwerk
+Virtuele machines hebben een netwerk verbinding nodig. Voor de ondersteuning van deze vereiste vereist Azure dat virtuele machines zijn verbonden met een Azure-Virtual Network. Een Azure-Virtual Network is een logische constructie die boven op de fysieke Azure-netwerk infrastructuur is gebouwd. Elke logische [Azure-Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) is geïsoleerd van alle andere virtuele netwerken van Azure. Deze isolatie helpt ervoor te zorgen dat het netwerk verkeer in uw implementaties niet toegankelijk is voor andere Microsoft Azure-klanten.
+
+### <a name="patch-updates"></a>Patch updates
+Patch updates bieden de basis voor het zoeken en verhelpen van mogelijke problemen en het vereenvoudigen van het software-update beheer proces, zowel door het aantal software-updates dat u moet implementeren in uw onderneming te verminderen als door de mogelijkheid te verhogen om naleving te bewaken.
+
+### <a name="security-policy-management-and-reporting"></a>Beheer en rapportage van beveiligings beleid
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) helpt u bedreigingen te voor komen, te detecteren en erop te reageren, en biedt u meer inzicht in en controle over de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligings bewaking en beleids beheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders niet kunnen worden opgemerkt en werkt met een uitgebreid ecosysteem van beveiligings oplossingen.
+
+### <a name="azure-security-center"></a>Azure Security Center
+Azure Security Center helpt u bij het detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders onopgemerkt zouden blijven, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
+
+## <a name="identity-and-access-management"></a>Identiteits- en toegangsbeheer
+
+Het beveiligen van systemen, toepassingen en gegevens begint met toegangs beheer op basis van een identiteit. De functies voor identiteits-en toegangs beheer die zijn ingebouwd in micro soft-producten en-services, helpen uw organisatie-en persoonlijke gegevens te beschermen tegen onbevoegde toegang wanneer deze beschikbaar zijn voor legitieme gebruikers, waar en wanneer ze deze nodig hebt.
+
+### <a name="secure-identity"></a>Beveiligde identiteit
+Micro soft maakt gebruik van meerdere beveiligings procedures en-technologieën in de producten en services voor het beheren van identiteit en toegang.
+-   [Multi-factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) vereist dat gebruikers meerdere methoden gebruiken voor toegang, on-premises en in de Cloud. Het biedt krachtige verificatie met diverse eenvoudige verificatie opties, terwijl gebruikers een eenvoudig aanmeldings proces kunnen uitvoeren.
+
+-   [Microsoft Authenticator](https://aka.ms/authenticator) biedt een gebruikers vriendelijke multi-factor Authentication-ervaring die werkt met zowel Microsoft Azure Active Directory-als micro soft-accounts, en biedt ondersteuning voor goed keuringen op basis van wearables en vinger afdruk.
+
+-   Met het afdwingen van het [wacht woord](https://azure.microsoft.com/documentation/articles/active-directory-passwords-policy/) wordt de beveiliging van traditionele wacht woorden verhoogd door de vereisten voor lengte en complexiteit, geforceerde periodieke rotatie en account vergrendeling na mislukte verificatie pogingen op te nemen.
+
+-   [Met verificatie op basis van tokens](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) kunt u verificatie via Azure Active Directory.
+
+-   Met op [rollen gebaseerd toegangs beheer (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) kunt u toegang verlenen op basis van de toegewezen rol van de gebruiker, zodat u gebruikers eenvoudig de benodigde toegangs rechten kunt geven om hun taken uit te voeren. U kunt RBAC aanpassen volgens het bedrijfs model en de risico tolerantie van uw organisatie.
+
+-   Met [geïntegreerde identiteits beheer (hybride identiteit)](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/) kunt u de toegang van gebruikers tot de interne data centers en Cloud platforms beheren en één gebruikers identiteit voor verificatie en autorisatie voor alle resources maken.
+
+### <a name="secure-apps-and-data"></a>Apps en gegevens beveiligen
+[Azure Active Directory](https://azure.microsoft.com/services/active-directory/), een uitgebreide Cloud oplossing voor identiteits-en toegangs beheer, helpt bij het beveiligen van de toegang tot gegevens in toepassingen op site en in de Cloud, en vereenvoudigt het beheer van gebruikers en groepen. Het combineert essentiële Directory Services, Geavanceerd identiteits bestuur, beveiliging en toegangs beheer voor toepassingen, en maakt het eenvoudig voor ontwikkel aars om identiteits beheer op basis van beleid in hun apps te bouwen. Om uw Azure Active Directory te verbeteren, kunt u betaalde mogelijkheden toevoegen met de Azure Active Directory Basic-, Premium P1- en Premium P2-edities.
+
+| Gratis/algemene functies     | Basis functies    |Premium P1-functies |Premium P2-functies | Azure Active Directory toevoegen: alleen de verwante functies van Windows 10|
+| :------------- | :------------- |:------------- |:------------- |:------------- |
+|   [Directory-objecten](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [gebruikers-of groeps beheer (toevoegen/bijwerken/verwijderen)/inrichten op basis van gebruikers,](https://docs.microsoft.com/azure/active-directory/active-directory-editions)apparaatregistratie, [eenmalige aanmelding (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [selfservice voor wachtwoord wijziging voor Cloud gebruikers](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [verbinding maken (synchronisatie-engine die breidt on-premises directory's uit naar Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [beveiligings-en gebruiks rapporten](https://docs.microsoft.com/azure/active-directory/active-directory-editions)       |     [Op groepen gebaseerd toegangs beheer/inrichting](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [self-service voor wacht woord opnieuw instellen voor Cloud gebruikers](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [huis stijl (aanmeldings pagina's/toegangs venster aanpassen)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [toepassings proxy](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [Sla 99,9%](https://docs.microsoft.com/azure/active-directory/active-directory-editions) |  [Selfservice groep en app-beheer/self-service toepassings toevoegingen/dynamische groepen](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [selfservice voor wacht woord opnieuw instellen/wijzigen/ontgrendelen met on-premises write-back](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [multi-factor Authentication (Cloud en on-premises (MFA-server) )](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [MIM CAL + MIM-Server](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [Cloud app Discovery](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [Connect Health](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [Automatische wachtwoord overschakeling voor groeps accounts](https://docs.microsoft.com/azure/active-directory/active-directory-editions)|  [Identiteits beveiliging](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), [privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)|  [Een apparaat toevoegen aan Azure AD, Desktop-SSO, Microsoft Passport voor Azure AD, BitLocker-herstel door de beheerder](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [automatische MDM-inschrijving, selfservice BitLocker-herstel, extra lokale beheerders naar Windows 10-apparaten via Azure AD-deelname](https://docs.microsoft.com/azure/active-directory/active-directory-editions)|
+
+
+- [Cloud app Discovery](https://docs.microsoft.com/azure/active-directory/active-directory-cloudappdiscovery-whatis) is een Premium-functie van Azure Active Directory waarmee u Cloud toepassingen kunt identificeren die worden gebruikt door de werk nemers in uw organisatie.
+
+- [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) is een beveiligings service die gebruikmaakt van Azure Active Directory anomalie detectie mogelijkheden om een geconsolideerde weer gave te bieden in risico gebeurtenissen en mogelijke beveiligings problemen die van invloed kunnen zijn op de identiteit.
+
+- Met [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) kunt u virtuele Azure-machines toevoegen aan een domein zonder dat u domein controllers hoeft te implementeren. Gebruikers melden zich aan bij deze Vm's door hun bedrijfs Active Directory referenties te gebruiken en kunnen naadloos toegang krijgen tot resources.
+
+- [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) is een Maxi maal beschik bare, wereld wijde identiteits beheer service voor consumenten toepassingen die kan worden geschaald naar honderden miljoenen identiteiten en kunnen worden geïntegreerd in mobiele en webplatformen. Uw klanten kunnen zich bij al uw apps aanmelden via aanpas bare ervaringen die gebruikmaken van bestaande accounts voor sociale media of u kunt nieuwe zelfstandige referenties maken.
+
+- [Azure Active Directory B2B-samen werking](https://aka.ms/aad-b2b-collaboration) is een beveiligde partner integratie oplossing die ondersteuning biedt voor uw cross-Company-relaties door partners te voorzien van de eigen beheerde identiteiten van uw bedrijfs toepassingen en-gegevens. .
+
+- Met [Azure Active Directory toevoegen](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/) kunt u Cloud mogelijkheden voor gecentraliseerd beheer uitbreiden naar Windows 10-apparaten. Hierdoor kunnen gebruikers verbinding maken met de cloud van het bedrijf of de organisatie via Azure Active Directory en kan de toegang tot apps en bronnen worden vereenvoudigd.
+
+- [Azure Active Directory-toepassingsproxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) biedt SSO en beveiligde externe toegang voor webtoepassingen die on-premises worden gehost.
+
+## <a name="next-steps"></a>Volgende stappen
+- [Aan de slag met Microsoft Azure beveiliging](https://docs.microsoft.com/azure/security/azure-security-getting-started)
+
+Azure-services en -functies die u kunt gebruiken voor het beveiligen van uw services en gegevens binnen Azure
+
+- [Azure Security Center](https://azure.microsoft.com/services/security-center/)
+
+Voorkom, detecteer en reageer op bedreigingen met verbeterde zichtbaarheid en controle over de beveiliging van uw Azure-resources
+
+- [Beveiligingsstatus bewaken in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
+
+De bewakings mogelijkheden van Azure Security Center om naleving van beleid te bewaken.

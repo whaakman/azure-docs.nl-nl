@@ -1,6 +1,6 @@
 ---
-title: Selecteren en implementeren van Azure Security Center voor IoT-agent Preview | Microsoft Docs
-description: Meer informatie over hoe selecteren en implementeren van Azure Security Center voor IoT security agents op IoT-apparaten.
+title: Azure Security Center voor IoT-agent selecteren en implementeren | Microsoft Docs
+description: Meer informatie over het selecteren en implementeren van Azure Security Center voor IoT-beveiligings agenten op IoT-apparaten.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,79 +13,82 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: c549e5ccbda9b364b3e7d20c9572eb777c32299e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: ffc6ea447ae90649be0455abbed6245c078e518d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616830"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596343"
 ---
-# <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecteren en implementeren van een beveiligingsagent op uw IoT-apparaat
+# <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Een beveiligings agent op uw IoT-apparaat selecteren en implementeren
 
-> [!IMPORTANT]
-> Azure Security Center voor IoT is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+Azure Security Center voor IoT biedt referentie architecturen voor beveiligings agenten waarmee gegevens van IoT-apparaten worden gecontroleerd en verzameld.
+Zie [referentie architectuur beveiligings agent](security-agent-architecture.md)voor meer informatie.
 
-Azure Security Center (ASC) voor IoT biedt referentiearchitecturen voor beveiliging-agents die bewaken en verzamelen gegevens van IoT-apparaten.
-Zie [Security agent referentiearchitectuur](security-agent-architecture.md) voor meer informatie.
-
-Agents als open source-projecten zijn ontwikkeld en zijn beschikbaar in twee versies: <br> [C](https://aka.ms/iot-security-github-c), en [ C# ](https://aka.ms/iot-security-github-cs).
+Agents zijn ontwikkeld als open-source projecten en zijn verkrijgbaar in twee soorten: <br> [C](https://aka.ms/iot-security-github-c)en [C#](https://aka.ms/iot-security-github-cs).
 
 In dit artikel leert u het volgende: 
 > [!div class="checklist"]
-> * Vergelijk security agent-versies
-> * Platforms van ondersteunde agents detecteren
-> * Kies de juiste agent-versie voor uw oplossing
+> * De versies van de beveiligings agent vergelijken
+> * Ondersteunde agent platforms detecteren
+> * Kies de juiste agent smaak voor uw oplossing
 
-## <a name="understand-security-agent-options"></a>Agent beveiligingsopties begrijpen
+## <a name="understand-security-agent-options"></a>Meer informatie over de beveiligings agent opties
 
-Elke ASC voor IoT security agent smaak biedt dezelfde set functies en biedt ondersteuning voor vergelijkbare configuratieopties. 
+Elke Azure Security Center voor IoT-beveiligings agent biedt dezelfde set functies en ondersteunt vergelijk bare configuratie opties. 
 
-De beveiliging op basis van de C-agent heeft een lagere geheugengebruik en is de ideale keuze voor apparaten met minder beschikbare bronnen. 
+De op C gebaseerde beveiligings agent heeft een lagere geheugen capaciteit en is de ideale keuze voor apparaten met minder beschik bare bronnen. 
 
-|     | Beveiliging op basis van de C agent | C#-op basis van de security-agent |
+|     | Op C gebaseerde beveiligings agent | C#gebaseerde beveiligings agent |
 | --- | ----------- | --------- |
-| Open source | Beschikbaar onder [MIT-licentie](https://en.wikipedia.org/wiki/MIT_License) in [Github](https://aka.ms/iot-security-github-cs) | Beschikbaar onder [MIT-licentie](https://en.wikipedia.org/wiki/MIT_License) in [Github](https://aka.ms/iot-security-github-c) |
-| Talen    | C | C# |
+| Open-source | Beschikbaar onder een [MIT-licentie](https://en.wikipedia.org/wiki/MIT_License) in [github](https://aka.ms/iot-security-github-cs) | Beschikbaar onder een [MIT-licentie](https://en.wikipedia.org/wiki/MIT_License) in [github](https://aka.ms/iot-security-github-c) |
+| Ontwikkel taal    | C | C# |
 | Ondersteunde Windows-platforms? | Nee | Ja |
 | Windows-vereisten | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
-| Ondersteunde Linux-platform? | Ja, x64 en x86 | Ja, alleen x64 |
-| Linux-vereisten | libunwind8, libcurl3, uuid-runtime, auditd, audispd-invoegtoepassingen | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins, sudo, netstat, iptables |
-| Ingenomen schijfruimte | 10,5 MB | 90MB |
-| Geheugengebruik (gemiddeld) | 5.5 MB | 33MB |
-| [Verificatie](concept-security-agent-authentication-methods.md) naar IoT Hub | Ja | Ja |
-| Beveiligingsgegevens [verzameling](how-to-agent-configuration.md#supported-security-events) | Ja | Ja |
-| Aggregatie van gebeurtenis | Ja | Ja |
-| Externe configuratie via [security moduledubbel](concept-security-module.md) | Ja | Ja |
+| Ondersteunde Linux-platforms? | Ja, x64 en x86 | Ja, alleen x64 |
+| Vereisten voor Linux | libunwind8, libcurl3, uuid-runtime, gecontroleerde, audispd-invoeg toepassingen | libunwind8, libcurl3, uuid-runtime, gecontroleerde, audispd-plugins, sudo, netstat, iptables |
+| Schijf ruimte | 10,5 MB | 90 MB |
+| Geheugen capaciteit (gemiddeld) | 5,5 MB | 33 MB |
+| [Verificatie](concept-security-agent-authentication-methods.md) voor IOT hub | Ja | Ja |
+| [Verzameling](how-to-agent-configuration.md#supported-security-events) van beveiligings gegevens | Ja | Ja |
+| Aggregatie van gebeurtenissen | Ja | Ja |
+| Externe configuratie via [beveiligings module dubbele](concept-security-module.md) | Ja | Ja |
+|
+
+## <a name="security-agent-installation-guidelines"></a>Richt lijnen voor installatie van beveiligings agent
+
+Voor **Windows**: Het script install SecurityAgent. ps1 moet worden uitgevoerd vanuit een Power shell-venster van de beheerder. 
+
+Voor **Linux**: De InstallSecurityAgent.sh moet worden uitgevoerd als super gebruiker. U wordt aangeraden de installatie opdracht voor te stellen met ' sudo '.
 
 
-## <a name="choose-an-agent-flavor"></a>Kies de smaak van een agent 
+## <a name="choose-an-agent-flavor"></a>Een agent selecteren 
 
-Beantwoord de volgende vragen over uw IoT-apparaten te selecteren van de juiste agent:
+Beantwoord de volgende vragen over uw IoT-apparaten om de juiste agent te selecteren:
 
-- Gebruikt u _Windows Server_ of _Windows IoT Core_? 
+- Gebruikt u _Windows Server_ of _Windows IOT core_? 
 
-    [Implementeer een C#-security-agent voor Windows op basis van](how-to-deploy-windows-cs.md).
+    [Implementeer een C#beveiligings agent voor Windows](how-to-deploy-windows-cs.md).
 
-- Gebruikt u een Linux-distributie met x86 architectuur? 
+- Gebruikt u een Linux-distributie met een x86-architectuur? 
 
-    [Implementeren van een beveiliging op basis van de C-agent voor Linux](how-to-deploy-linux-c.md).
+    [Implementeer een op C gebaseerde beveiligings agent voor Linux](how-to-deploy-linux-c.md).
 
-- Gebruikt u een Linux-distributie met x64 architectuur?
+- Gebruikt u een Linux-distributie met een x64-architectuur?
 
-    U kunt een van beide smaak agent gebruiken. <br>
-    [Implementeren van een beveiliging op basis van de C-agent voor Linux](how-to-deploy-linux-c.md) en/of [implementeren een C#-security-agent voor Linux op basis van](how-to-deploy-linux-cs.md).
+    U kunt een van beide agents gebruiken. <br>
+    [Implementeer een op C gebaseerde beveiligings agent voor Linux](how-to-deploy-linux-c.md) en/of [Implementeer een C#beveiligings agent voor Linux](how-to-deploy-linux-cs.md).
 
-Beide agent-versies bieden dezelfde set functies en ondersteuning voor vergelijkbare configuratieopties.
-Zie [Security agent vergelijking](how-to-deploy-agent.md#understand-security-agent-options) voor meer informatie.
+Beide versies van de agent bieden dezelfde set functies en bieden ondersteuning voor vergelijk bare configuratie opties.
+Zie [vergelijking van beveiligings agent](how-to-deploy-agent.md#understand-security-agent-options) voor meer informatie.
 
 ## <a name="supported-platforms"></a>Ondersteunde platforms
 
-De volgende lijst bevat alle ondersteunde platforms.
+De volgende lijst bevat alle momenteel ondersteunde platforms.
 
-|ASC voor IoT-agent |Besturingssysteem |Architectuur |
+|Azure Security Center voor IoT-agent |Besturingssysteem |Architectuur |
 |--------------|------------|--------------|
 |C|Ubuntu 16.04 |   x64|
 |C|Ubuntu 18.04 |   x64|
@@ -94,10 +97,11 @@ De volgende lijst bevat alle ondersteunde platforms.
 |C#|Ubuntu 18.04    |x64|
 |C#|Debian 9    |x64|
 |C#|Windows Server 2016|    X64|
-|C#|Windows 10 IoT Core build 17763 |x64|
+|C#|Windows 10 IoT core build 17763 |x64|
+|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over configuratie-opties, blijven de handleiding voor de configuratie van agent. 
+Ga naar de hand leiding voor agent configuratie voor meer informatie over configuratie opties. 
 > [!div class="nextstepaction"]
-> [De configuratie van agent hoe u met betrekking tot](./how-to-agent-configuration.md)
+> [Hand leiding voor agent configuratie](./how-to-agent-configuration.md)

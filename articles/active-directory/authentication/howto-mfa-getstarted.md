@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa2254ff3223be4312f4e9b3db4d9d83da443c0
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 182b9da402e633033411f85eb59b31f76749f3cd
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311330"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666257"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Een Azure multi-factor Authentication-implementatie op basis van de Cloud plannen
 
@@ -52,7 +52,7 @@ Azure multi-factor Authentication wordt geïmplementeerd door beleids regels met
 
 * Alle gebruikers, een specifieke gebruiker, lid van een groep of toegewezen rol
 * Specifieke Cloud toepassing waartoe toegang wordt verkregen
-* Platform apparaat
+* Apparaatplatform
 * Status van apparaat
 * Netwerk locatie of geografisch geplaatste IP-adres
 * Client-toepassingen
@@ -109,7 +109,7 @@ Er wordt een push melding verzonden naar de Microsoft Authenticator-app op uw mo
 > [!NOTE]
 > Als uw organisatie mede werkers heeft in of reist naar China, werkt de **melding via de mobiele app** -methode op **Android-apparaten** niet in dat land. Alternatieve methoden moeten beschikbaar worden gemaakt voor deze gebruikers.
 
-### <a name="verification-code-from-mobile-app"></a>Verificatie code uit de mobiele app
+### <a name="verification-code-from-mobile-app"></a>Verificatiecode via mobiele app
 
 Een mobiele app, zoals de app Microsoft Authenticator, genereert elke 30 seconden een nieuwe OATH-verificatie code. De gebruiker voert de verificatie code in de aanmeldings interface in. De optie voor de mobiele app kan worden gebruikt, ongeacht of de telefoon een gegevens-of mobiel signaal heeft.
 
@@ -117,7 +117,7 @@ Een mobiele app, zoals de app Microsoft Authenticator, genereert elke 30 seconde
 
 Er wordt een automatische spraak oproep naar de gebruiker geplaatst. De gebruiker beantwoordt het gesprek en drukt **#** op het toetsen blok van de telefoon om hun verificatie goed te keuren. Bellen naar telefoon is een fantastische back-upmethode voor meldings-of verificatie code van een mobiele app.
 
-### <a name="text-message-to-phone"></a>SMS-bericht naar telefoon
+### <a name="text-message-to-phone"></a>Sms-bericht naar telefoon
 
 Er wordt een tekst bericht met een verificatie code naar de gebruiker verzonden. de gebruiker wordt gevraagd de verificatie code in te voeren in de aanmeldings interface.
 
@@ -247,11 +247,11 @@ Het is belang rijk dat u niet per ongeluk uw Azure AD-Tenant kunt vergren delen.
 1. Selecteer **Nieuw beleid**.
 1. Geef een beschrijvende naam op voor uw beleid.
 1. Onder **gebruikers en groepen**:
-   * Schakel op  het tabblad include het keuze rondje **alle gebruikers** in
-   * Schakel op  het tabblad exclude het selectie vakje voor **gebruikers en groepen** in en kies uw accounts voor toegang voor nood gevallen.
+   * Schakel op het tabblad include het keuze rondje **alle gebruikers** in
+   * Schakel op het tabblad exclude het selectie vakje voor **gebruikers en groepen** in en kies uw accounts voor toegang voor nood gevallen.
    * Klik op **Gereed**.
 1. Onder **Cloud-apps**selecteert u het keuze rondje **alle Cloud-apps** .
-   * EVENTUEEL Kies op  het tabblad exclude de optie Cloud-apps waarvoor uw organisatie geen MFA vereist.
+   * EVENTUEEL Kies op het tabblad exclude de optie Cloud-apps waarvoor uw organisatie geen MFA vereist.
    * Klik op **Gereed**.
 1. Onder **voor waarden** :
    * EVENTUEEL Als Azure Identity Protection is ingeschakeld, kunt u ervoor kiezen om aanmeldings Risico's als onderdeel van het beleid te evalueren.
@@ -360,6 +360,9 @@ Nu u uw oplossing hebt gepland, kunt u deze implementeren door de volgende stapp
    1. Met [identiteits beveiliging](../identity-protection/howto-mfa-policy.md)
 1. Gebruikers communicatie verzenden en gebruikers ontvangen om te registreren op[https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Bijhouden wie is inge schreven](#identify-non-registered-users)
+
+> [!TIP]
+> Government Cloud-gebruikers kunnen zich inschrijven op[https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
 
 ## <a name="manage-your-solution"></a>Uw oplossing beheren
 

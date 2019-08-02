@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 4ba3109460616be98b5330ec7175f161a6a3b750
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68326164"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Vastleggen van gebeurtenissen tot en met Azure Event Hubs in Azure Blob Storage of Azure Data Lake Storage
@@ -73,7 +73,7 @@ De bestanden die worden geproduceerd door Event Hubs Capture hebben de volgende 
 
 ![Avro-schema][3]
 
-Een eenvoudige manier om Avro-bestanden te verkennen, is door gebruik te maken van de [Avro-hulpprogram ma's][Avro Tools] jar from Apache. You can also use [Apache Drill][Apache Drill] voor een lichte, op SQL gebaseerde ervaring of [Apache Spark][Apache Spark] om complexe gedistribueerde verwerking uit te voeren op de opgenomen gegevens. 
+Een eenvoudige manier om Avro-bestanden te verkennen, is met behulp van de [Avro-Hulpprogram ma's][Avro Tools] jar van Apache. U kunt Apache- [analyse][Apache Drill] ook gebruiken voor een lichte, op SQL gebaseerde ervaring of [Apache Spark][Apache Spark] voor het uitvoeren van complexe gedistribueerde verwerking op de opgenomen gegevens. 
 
 ### <a name="use-apache-drill"></a>Apache-boren gebruiken
 
@@ -129,7 +129,7 @@ U kunt ook de Avro-hulpprogramma's gebruiken voor het bestand converteren naar J
 
 Als u meer geavanceerde verwerken, downloaden en installeren van Avro naar keuze van platform. Op het moment van dit artikel is geschreven, er zijn implementaties beschikbaar voor C, C++, C\#, Java, NodeJS, Perl, PHP, Python en Ruby.
 
-Apache Avro is volledig aan de slag met hand leidingen voor [Java][Java] and [Python][Python]. U kunt ook lezen de [aan de slag met Event Hubs Capture](event-hubs-capture-python.md) artikel.
+Apache Avro is volledig aan de slag met hand leidingen voor [Java][Java] en [python][Python]. U kunt ook lezen de [aan de slag met Event Hubs Capture](event-hubs-capture-python.md) artikel.
 
 ## <a name="how-event-hubs-capture-is-charged"></a>Hoe Event Hubs Capture wordt in rekening gebracht
 

@@ -2,51 +2,51 @@
 title: Een bestaande Azure-abonnement toevoegen aan uw tenant - Azure Active Directory | Microsoft Docs
 description: Instructies over hoe u een bestaande Azure-abonnement toevoegen aan uw Azure Active Directory-tenant.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2889af6000e77fba7a91392c0adb227588b5306
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a64bad11f5b83ddd7f6d7236ffed4ff4a6e39c2c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430793"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561859"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppelen of een Azure-abonnement toevoegen aan uw Azure Active Directory-tenant
 
-Een Azure-abonnement heeft een vertrouwensrelatie met Azure Active Directory (Azure AD), wat betekent dat het abonnement Azure AD om te verifiëren van gebruikers, services en apparaten vertrouwt. Meerdere abonnementen kunnen dezelfde Azure AD-directory vertrouwen, maar elk abonnement kan alleen een één directory vertrouwen.
+Een Azure-abonnement heeft een vertrouwens relatie met Azure Active Directory (Azure AD). Dit betekent dat het abonnement Azure AD vertrouwt voor het verifiëren van gebruikers, services en apparaten. Meerdere abonnementen kunnen dezelfde Azure AD-directory vertrouwen, maar elk abonnement kan alleen een één directory vertrouwen.
 
 Als uw abonnement is verlopen, verliest u toegang tot alle andere resources die zijn gekoppeld aan het abonnement. De Azure AD-directory blijft echter in Azure, zodat u kunt koppelen en beheren van de directory met behulp van een ander Azure-abonnement.
 
-Alle gebruikers hebben één *home* Active directory voor verificatie. Uw gebruikers kunnen echter ook gasten zijn in andere directory's zijn. U ziet de startpagina en Gast mappen voor elke gebruiker in Azure AD.
+Al uw gebruikers hebben één *basis* Directory voor verificatie. Uw gebruikers kunnen echter ook gasten zijn in andere directory's zijn. U ziet de startpagina en Gast mappen voor elke gebruiker in Azure AD.
 
 > [!Important]
-> Wanneer u een abonnement op een andere map, gebruikers die beschikken over de rol is toegewezen met behulp van koppelen [op rollen gebaseerd toegangsbeheer (RBAC)](../../role-based-access-control/role-assignments-portal.md) verliest de toegang. Klassieke abonnementsbeheerders (servicebeheerder en Medebeheerders) zal ook geen toegang meer.
+> Wanneer u een abonnement aan een andere map koppelt, verliezen gebruikers die rollen hebben die zijn toegewezen via [op rollen gebaseerd toegangs beheer (RBAC)](../../role-based-access-control/role-assignments-portal.md) hun toegang. Klassieke abonnements beheerders (Service beheerder en mede beheerders) hebben ook geen toegang meer.
 > 
-> Bovendien uw cluster Azure Kubernetes Service (AKS) verplaatst naar een ander abonnement of het abonnement die eigenaar van het cluster verplaatsen naar een nieuwe tenant is, zorgt ervoor dat het cluster te verliezen functionaliteit vanwege verloren roltoewijzingen en service-principals rechten. Zie voor meer informatie over AKS [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
+> Als u uw Azure Kubernetes service-cluster (AKS) verplaatst naar een ander abonnement of het cluster eigenaar-abonnement verplaatst naar een nieuwe Tenant, zorgt het cluster er daarom voor dat de functionaliteit verloren gaat als gevolg van kwijt raken van roltoewijzingen en machtigingen voor service-principals. Zie [Azure Kubernetes service (AKS) (Engelstalig)](https://docs.microsoft.com/azure/aks/)voor meer informatie over AKS.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 Voordat u kunt koppelen of uw abonnement toevoegt, moet u de volgende taken uitvoeren:
 
-1. Bekijk de volgende lijst met wijzigingen en hoe u mogelijk worden beïnvloed:
+1. Bekijk de volgende lijst met wijzigingen en de manier waarop u dit kunt beïnvloeden:
 
-    - Gebruikers die zijn toegewezen aan rollen met RBAC verliest de toegang
-    - Servicebeheerder en Medebeheerders verliest toegang
-    - Als u alle sleutelkluizen hebt, ze niet toegankelijk zijn en u hebt deze na de koppeling oplossen
-    - Als u geen beheerde identiteiten voor resources zoals virtuele Machines of Logic Apps hebt, hebt u opnieuw in te schakelen of ze na de koppeling opnieuw maken
-    - Als u een geregistreerde Azure Stack hebt, hebt u opnieuw registreren na de koppeling
+    - Gebruikers aan wie rollen zijn toegewezen via RBAC, raken hun toegang kwijt
+    - Service beheerder en mede beheerders hebben geen toegang meer
+    - Als u sleutel kluizen hebt, zijn ze niet toegankelijk en moet u deze na de koppeling oplossen
+    - Als u beheerde identiteiten hebt voor resources zoals Virtual Machines of Logic Apps, moet u deze opnieuw inschakelen of opnieuw maken na de koppeling
+    - Als u een geregistreerde Azure Stack hebt, moet u deze na de koppeling opnieuw registreren
 
 1. Meld u aan met een account dat:
-    - Heeft een [eigenaar](../../role-based-access-control/built-in-roles.md#owner) roltoewijzing voor het abonnement. Zie voor meer informatie over het toewijzen van de rol van eigenaar [beheren van toegang tot Azure-resources met behulp van RBAC en de Azure-portal](../../role-based-access-control/role-assignments-portal.md).
+    - Beschikt over [een roltoewijzing](../../role-based-access-control/built-in-roles.md#owner) voor het abonnement. Zie [toegang tot Azure-resources beheren met RBAC en de Azure Portal](../../role-based-access-control/role-assignments-portal.md)voor meer informatie over het toewijzen van de rol van eigenaar.
     - Er bestaat in zowel de huidige map die is gekoppeld aan het abonnement en de nieuwe map die is waar u het abonnement voortaan koppelen. Zie voor meer informatie over het verkrijgen van toegang tot een andere map [hoe voeg door Azure Active Directory-beheerders de gebruikers van B2B-samenwerking toe?](../b2b/add-users-administrator.md).
 
 1. Zorg ervoor dat u niet een Azure Cloud Service Providers (CSP)-abonnement (MS-AZR - 0145P, MS - AZR - 0146P, MS - AZR - 159P), een abonnement op Microsoft Internal (MS-AZR - 0015P) of een Microsoft Imagine-abonnement (MS-AZR - 0144P).
@@ -65,21 +65,21 @@ Voordat u kunt koppelen of uw abonnement toevoegt, moet u de volgende taken uitv
 
     De map wordt gewijzigd voor het abonnement en u krijgt een bericht weergegeven.
 
-    ![Bericht over directory wijzigen](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
-4. Gebruik de **directorywisselaar** om naar de nieuwe adreslijst te gaan. Duurt enkele uren voor van alles goed wordt weergegeven. Als het lijkt alsof duurt te lang, moet u controleren of de **filter globale abonnementen** voor het abonnement verplaatst, om te controleren of het niet alleen verborgen.
+    ![Geslaagd bericht over Directory wijziging](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+4. Gebruik de **Directory-schakelaar** om naar uw nieuwe map te gaan. Het kan enkele uren duren voordat alles goed wordt weer gegeven. Als het te lang lijkt te duren, controleert u of het **globale abonnements filter** voor het verplaatste abonnement wordt weer gegeven, zodat u zeker weet dat het niet gewoon verborgen is.
 
-    ![Overschakelen naar directorypagina, met voorbeeldgegevens](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+    ![Pagina Directory-wisselaar, met voorbeeld gegevens](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
 Wijzigen van de abonnementsdirectory is een bewerking op serviceniveau, zodat deze niet van invloed op abonnement eigendom. De accountbeheerder kan nog steeds wijzigen voor de servicebeheerder van de [Accountcentrum](https://account.azure.com/subscriptions). Als de oorspronkelijke map verwijderen, moet u overbrengen van de abonnementsfacturering over aan een nieuwe accountbeheerder. Zie [Eigendom van een Azure-abonnement naar een ander account overdragen](../../billing/billing-subscription-transfer.md) voor meer informatie over het overdragen van het eigendom.
 
-## <a name="post-association-steps"></a>Stappen na-koppeling
-Nadat u een abonnement op een andere map hebt gekoppeld, is er mogelijk extra stappen die u uitvoeren moet om bewerkingen te hervatten.
+## <a name="post-association-steps"></a>Stappen na de koppeling
+Nadat u een abonnement aan een andere map hebt gekoppeld, zijn er mogelijk extra stappen die u moet uitvoeren om de bewerkingen te hervatten.
 
-1. Als u alle sleutelkluizen hebt, moet u een tenant-id in de vorm van de sleutelkluis. Zie voor meer informatie, [een tenant-ID van key vault wijzigen na een verplaatsing van een abonnement](../../key-vault/key-vault-subscription-move-fix.md).
+1. Als u sleutel kluizen hebt, moet u de Tenant-ID van de sleutel kluis wijzigen. Zie voor meer informatie [een sleutel kluis Tenant-id wijzigen nadat een abonnement is verplaatst](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. Als u het systeem toegewezen beheerde identiteiten voor resources, moet u deze opnieuw inschakelen. Als u gebruiker toegewezen identiteiten voor beheerde gebruikt, moet u deze opnieuw maken. Na het opnieuw in te schakelen of opnieuw maken van de identiteiten beheerd, moet u de machtigingen worden toegewezen aan deze identiteiten opnieuw maken. Zie voor meer informatie [wat is beheerde identiteiten voor Azure-resources?](../managed-identities-azure-resources/overview.md).
+2. Als u door het systeem toegewezen beheerde identiteiten voor resources gebruikt, moet u deze opnieuw inschakelen. Als u door de gebruiker toegewezen beheerde identiteiten gebruikt, moet u deze opnieuw maken. Nadat u de beheerde identiteiten opnieuw hebt ingeschakeld of opnieuw hebt gemaakt, moet u de machtigingen die zijn toegewezen aan deze identiteiten opnieuw instellen. Zie [Wat is beheerde identiteiten voor Azure-resources?](../managed-identities-azure-resources/overview.md)voor meer informatie.
 
-3. Als u een Azure-Stack met behulp van dit abonnement hebt geregistreerd, moet u opnieuw registreren. Zie voor meer informatie, [Azure Stack registreren met Azure](/azure-stack/operator/azure-stack-registration).
+3. Als u een Azure Stack met dit abonnement hebt geregistreerd, moet u zich opnieuw registreren. Zie [Azure stack registreren bij Azure](/azure-stack/operator/azure-stack-registration)voor meer informatie.
 
 
 

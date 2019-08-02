@@ -1,18 +1,18 @@
 ---
 title: Over Azure VM Backup
 description: Meer informatie over back-ups van Azure-VM'S en enkele aanbevolen procedures.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.author: raynew
-ms.openlocfilehash: bf6aa07319b8029744a5c8898a4104d330fbb1d1
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7a470674fa9ccdde2b33bb33bfb52bead1822895
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465219"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639744"
 ---
 # <a name="about-azure-vm-backup"></a>Over Azure VM Backup
 
@@ -111,8 +111,8 @@ Deze algemene scenario's kunnen van invloed zijn op de totale back-uptijd:
 Wanneer u back-ups van virtuele machines configureert, kunt u het volgende doen:
 
 - Wijzig de standaard plannings tijden die in een beleid zijn ingesteld. Als de standaard tijd in het beleid bijvoorbeeld 12:00 uur is, verhoogt u de timing met enkele minuten zodat de resources optimaal worden gebruikt.
-- Voor back-ups van virtuele machines die gebruikmaken van Premium Storage, raden we u aan om de meest recente versie van Azure Backup ([direct herstellen](backup-instant-restore-capability.md)) uit te voeren. Als u niet de nieuwste versie uitvoert, wordt met back-up meer dan 50 procent van de totale opslag ruimte toegewezen. Voor de back-upservice is deze ruimte vereist voor het kopiëren van de moment opname naar hetzelfde opslag account en voor de overdracht van deze gegevens naar de kluis.
 - Als u virtuele machines herstelt vanuit één kluis, raden we u ten zeerste aan om andere [v2-opslag accounts voor algemeen](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) gebruik te gebruiken om ervoor te zorgen dat het doel-opslag account niet wordt beperkt. Elke virtuele machine moet bijvoorbeeld een ander opslag account hebben. Als er bijvoorbeeld tien Vm's zijn teruggezet, gebruikt u 10 verschillende opslag accounts.
+- Voor back-ups van virtuele machines die gebruikmaken van Premium Storage, kunt u met direct terugzetten *50%* beschik bare ruimte toewijzen aan de totale toegewezen opslag ruimte. Dit is **alleen** vereist voor de eerste back-up. De 50% beschik bare ruimte is geen vereiste voor back-ups nadat de eerste back-up is voltooid.
 - De herstel bewerkingen van een v1-opslaglaag (een moment opname) voor algemeen gebruik worden binnen enkele minuten voltooid, omdat de moment opname zich in hetzelfde opslag account bevindt. Het herstellen van de opslag laag voor algemeen gebruik van v2 (kluis) kan uren duren. In gevallen waarin de gegevens beschikbaar zijn in opslag voor algemeen gebruik, wordt u aangeraden de functie voor [direct terugzetten](backup-instant-restore-capability.md) te gebruiken voor sneller herstel. (Als de gegevens moeten worden hersteld vanuit een kluis, neemt het meer tijd in beslag.)
 - De limiet voor het aantal schijven per opslag account is relatief ten opzichte van de mate waarin de schijven worden geopend door toepassingen die worden uitgevoerd op een IaaS-VM (Infrastructure as a Service). In het algemeen is het zo dat als 5 tot 10 schijven of meer aanwezig zijn op één opslag account, de belasting kan verdelen door sommige schijven te verplaatsen naar afzonderlijke opslag accounts.
 

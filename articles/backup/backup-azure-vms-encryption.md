@@ -1,18 +1,19 @@
 ---
 title: Back-up en herstel van versleutelde virtuele Azure-machines met Azure Backup
 description: Hierin wordt beschreven hoe u back-ups van versleutelde virtuele Azure-machines maakt en herstelt met de Azure Backup-service.
-author: geetha
-manager: vijayts
+ms.reviewer: geg
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
-ms.author: geg
-ms.openlocfilehash: 9da3e4d6f8043e8df0a448e1fb7b957849076868
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 71a33b7263cd7a3b2f5e39ce9d24df11a7d6283c
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465310"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688603"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Back-up en herstel van versleutelde Azure VM
 
@@ -73,7 +74,7 @@ Daarnaast zijn er een aantal dingen die u in bepaalde omstandigheden mogelijk mo
 
     ![Blade back-up](./media/backup-azure-vms-encryption/select-backup.png)
 
-3. Waar wordt **uw werk belasting uitgevoerd?** Selecteer Azure.  > 
+3. Waar wordt**uw werk belasting uitgevoerd?** Selecteer Azure. > 
 4. In **waarvan wilt u een back-up maken?** Selecteer **virtuele machine** > **OK**.
 
       ![Blade scenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)

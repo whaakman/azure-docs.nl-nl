@@ -10,10 +10,10 @@ ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: b17004e7821bcac61ca98afdbeaf87644da2a441
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68326057"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Container groepen in Azure Container Instances
@@ -41,13 +41,13 @@ Deze voorbeeld container groep:
 
 ## <a name="deployment"></a>Implementatie
 
-Hier volgen twee algemene manieren om een groep met meerdere containers te implementeren: gebruik een [Resource Manager-sjabloon][resource-manager template] or a [YAML file][yaml-file]. Een resource manager-sjabloon wordt aanbevolen wanneer u aanvullende Azure-service resources wilt implementeren (bijvoorbeeld een [Azure files shares]van[Azure-bestanden]) wanneer u de container instanties implementeert. Als gevolg van de YAML-indeling, wordt een YAML-bestand aanbevolen wanneer uw implementatie alleen container instanties bevat.
+Hier volgen twee algemene manieren om een groep met meerdere containers te implementeren: gebruik een [Resource Manager-sjabloon][resource-manager template] of een [yaml-bestand][yaml-file]. Een resource manager-sjabloon wordt aanbevolen wanneer u aanvullende Azure-service resources (bijvoorbeeld een [Azure Files share][azure-files]) moet implementeren wanneer u de container instanties implementeert. Als gevolg van de YAML-indeling, wordt een YAML-bestand aanbevolen wanneer uw implementatie alleen container instanties bevat.
 
 Als u de configuratie van een container groep wilt behouden, kunt u de configuratie exporteren naar een YAML-bestand met behulp van de Azure CLI-opdracht [AZ container export][az-container-export]. Met exporteren kunt u de configuraties van container groepen opslaan in versie beheer voor ' configuratie als code '. Of gebruik het geëxporteerde bestand als uitgangs punt bij het ontwikkelen van een nieuwe configuratie in YAML.
 
 ## <a name="resource-allocation"></a>Resource toewijzing
 
-Azure container instances wijst bronnen toe, zoals cpu's, geheugen en optioneel [GPU][gpus] (preview) to a container group by adding the [resource requests][resource-requests] van de instanties in de groep. Het maken van CPU-resources als voor beeld als u een container groep maakt met twee exemplaren, die elk één CPU aanvragen, wordt twee Cpu's toegewezen aan de container groep.
+Azure Container Instances wijst resources, zoals Cpu's, geheugen en optioneel [gpu's][gpus] (preview), toe aan een container groep door de [resource-aanvragen][resource-requests] van de instanties in de groep toe te voegen. Het maken van CPU-resources als voor beeld als u een container groep maakt met twee exemplaren, die elk één CPU aanvragen, wordt twee Cpu's toegewezen aan de container groep.
 
 De Maxi maal beschik bare resources voor een container groep zijn afhankelijk van de [Azure-regio][region-availability] die wordt gebruikt voor de implementatie.
 

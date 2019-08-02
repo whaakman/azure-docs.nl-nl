@@ -1,7 +1,7 @@
 ---
-title: Project akoestische Azure Batch-Account instellen
+title: Project akoestische Azure Batch account instellen
 titlesuffix: Azure Cognitive Services
-description: Deze instructies beschrijft het instellen van een Azure Batch-account voor gebruik met Project akoestische Unity en Unreal engine-integraties.
+description: In deze procedure wordt beschreven hoe u een Azure Batch account kunt instellen voor gebruik met de geluids eenheid van het project en de integratie van de Unreal-Engine.
 services: cognitive-services
 author: ashtat
 manager: nitinme
@@ -10,58 +10,59 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: db4f96ff7c355f3582966e4daa945f54a6e5b847
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ROBOTS: NOINDEX
+ms.openlocfilehash: f11dfda62ebb53aba6254f2db4eace7c524141d4
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616534"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704884"
 ---
-# <a name="project-acoustics-azure-batch-account-setup"></a>Project akoestische Azure Batch-Account instellen
-Deze instructies beschrijft het instellen van een Azure Batch-account voor gebruik met Project akoestische Unity en Unreal engine-integraties.
+# <a name="project-acoustics-azure-batch-account-setup"></a>Project akoestische Azure Batch account instellen
+In deze procedure wordt beschreven hoe u een Azure Batch account kunt instellen voor gebruik met de geluids eenheid van het project en de integratie van de Unreal-Engine.
 
-## <a name="get-an-azure-subscription"></a>Neem een abonnement op Azure
-Een [Azure-abonnement](https://azure.microsoft.com/free/) is vereist voordat het instellen van de Batch- en Storage-accounts. Als u bent aangemeld voor de eerste keer, biedt Azure een paar gedurende beperkte tijd gratis resources en $200 aan tegoed.
+## <a name="get-an-azure-subscription"></a>Een Azure-abonnement nemen
+Een [Azure-abonnement](https://azure.microsoft.com/free/) is vereist voordat u batch-en opslag accounts instelt. Als u zich voor de eerste keer aanmeldt, biedt Azure een beperkt aantal tijdrovende, gratis bronnen en $200 tegoed.
 
-## <a name="create-azure-batch-and-storage-accounts"></a>Azure Batch- en storage-accounts maken
-Vervolgens gaat u als volgt [deze instructies](https://docs.microsoft.com/azure/batch/batch-account-create-portal) aan uw Azure-Batch instellen en Azure Storage-accounts die zijn gekoppeld.
+## <a name="create-azure-batch-and-storage-accounts"></a>Azure Batch-en opslag accounts maken
+Volg vervolgens [deze instructies](https://docs.microsoft.com/azure/batch/batch-account-create-portal) voor het instellen van uw Azure batch en gekoppelde Azure Storage accounts.
 
-Kies de standaardopties voor Batch- en Storage-accounts:
+Kies standaard opties voor zowel batch-als opslag accounts:
   
-  ![Schermopname van Azure Batch nieuwe accounts opties met standaardinstellingen](media/new-batch-account-create.png)
+  ![Scherm opname van Azure Batch nieuwe account opties standaard instellingen weer geven](media/new-batch-account-create.png)
 
-  ![Schermopname van Azure-nieuwe opslagaccounts die opties met standaardinstellingen](media/batch-storage-account-create.png)
+  ![Scherm opname van Azure Storage nieuwe account opties standaard instellingen weer geven](media/batch-storage-account-create.png)
 
-Het duurt een paar minuten voor Azure voor het implementeren van de accounts. Zoek naar een melding voor voltooiing van in de rechterbovenhoek van de portal.
+Het duurt enkele minuten voordat de accounts zijn geïmplementeerd in Azure. Zoek in de rechter bovenhoek van de portal naar een voltooiings bericht.
   
-  ![Schermopname van het Azure-accounts geïmplementeerd-melding](media/batch-accounts-deploy-notification.png)
+  ![Scherm afbeelding van geïmplementeerde melding van Azure-accounts](media/batch-accounts-deploy-notification.png)
 
-Uw accounts worden nu weergegeven op uw dashboard.
+Uw accounts moeten nu zichtbaar zijn op uw dash board.
   
-  ![Schermafbeelding van de Azure portal-dashboard met een Batch- en Storage-account](media/azure-portal-dashboard.png)
+  ![Scherm afbeelding van Azure Portal dash board met een batch-en opslag account](media/azure-portal-dashboard.png)
 
-## <a name="set-up-acoustics-bake-ui-with-azure-credentials"></a>Akoestische bake gebruikersinterface met Azure-referenties instellen
-Klik op de koppeling van het Batch-account op het dashboard en klik op de **sleutels** koppeling op de pagina van de Batch-account voor toegang tot uw referenties.
+## <a name="set-up-acoustics-bake-ui-with-azure-credentials"></a>Akoestische maken-gebruikers interface instellen met Azure-referenties
+Klik op de koppeling batch-account op het dash board en klik vervolgens op de koppeling **sleutels** op de pagina batch-account om toegang te krijgen tot uw referenties.
   
-  ![Schermopname van Azure Batch-account met een koppeling naar de pagina sleutels is gemarkeerd](media/batch-access-keys.png)
+  ![Scherm afbeelding van Azure Batch account met een koppeling naar de pagina sleutels gemarkeerd](media/batch-access-keys.png)
 
-  ![Schermopname van Azure Batch-account-pagina voor sleutels met toegangssleutels](media/batch-keys-info.png)
+  ![Scherm afbeelding van de pagina Azure Batch account sleutels met toegangs toetsen](media/batch-keys-info.png)
 
-Klik op de **Opslagaccount** koppeling op de pagina voor toegang tot de referenties van uw Azure Storage-account.
+Klik op de koppeling naar het **opslag account** op de pagina om toegang te krijgen tot de referenties van uw Azure Storage-account.
   
-  ![Schermopname van Azure Storage-account-pagina voor sleutels met toegangssleutels](media/storage-keys-info.png)
+  ![Scherm afbeelding van de pagina Azure Storage account sleutels met toegangs toetsen](media/storage-keys-info.png)
 
-Voer deze referenties in de [bake-invoegtoepassing voor Unity](unity-baking.md) of [Unreal bake invoegtoepassing](unreal-baking.md).
+Geef deze referenties op in de [maken unit eenheid](unity-baking.md) of [Unreal maken-invoeg toepassing](unreal-baking.md).
 
-## <a name="node-types-and-region-support"></a>Knooppunttypen en ondersteuning voor regio
-Project akoestische vereist dat fsv2 - en H-serie berekenen geoptimaliseerde virtuele machine van Azure-knooppunten die niet kunnen worden ondersteund in alle Azure-regio's. Controleer of [deze tabel](https://azure.microsoft.com/global-infrastructure/services) om ervoor te zorgen alsof u de juiste locatie voor uw Batch-account.
-![Schermopname van Azure Virtual Machines per regio](media/azure-regions.png) 
+## <a name="node-types-and-region-support"></a>Knooppunt typen en regio ondersteuning
+Voor project akoestische is een Azure VM-knoop punt met Fsv2-en H-serie reken optimalisatie vereist die mogelijk niet worden ondersteund in alle Azure-regio's. Controleer [deze tabel](https://azure.microsoft.com/global-infrastructure/services) om te controleren of u de juiste locatie voor uw batch-account hebt gekozen.
+![Scherm afbeelding met Azure Virtual Machines per regio](media/azure-regions.png) 
 
-## <a name="upgrading-your-quota"></a>Een upgrade van uw quotum aanvragen
-Azure Batch-accounts worden ingericht voor het account maken met een limiet van 20 compute-resources. Wilt u mogelijk verhogen van deze limiet voor snellere bake momenten, omdat u kunt uw workload akoestische parallel over veel knooppunten, tot maximaal het aantal punten in uw scène test. U kunt een verhoging aanvragen door te klikken op de **quotum** koppelen op de portalpagina van uw Azure Batch en vervolgens te klikken op **aanvraag Quota verhogen**:
+## <a name="upgrading-your-quota"></a>Uw quotum bijwerken
+Azure Batch accounts worden ingericht bij het maken van een account met een limiet van 20 reken kernen. We willen mogelijk deze limiet verhogen voor snellere maken tijden, omdat u de werk belasting van uw akoestische op verschillende knoop punten kunt parallelliseren, tot het aantal test punten in uw scène. U kunt een quotum verhoging aanvragen door te klikken op de **quotum** koppeling op uw Azure batch portal pagina en vervolgens op **aanvraag quotum toename**te klikken:
 
-![Schermafbeelding van de Quota van de Azure-pagina](media/azure-quotas.png)
+![Scherm opname van de Azure-quotum pagina](media/azure-quotas.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Integratie van de invoegtoepassing Project akoestische in uw [Unity](unity-integration.md) of [Unreal](unreal-integration.md) project
+* De invoeg toepassing voor project akoestische in uw [eenheids](unity-integration.md) -of [Unreal](unreal-integration.md) -project integreren
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: de712d63fa2315a85c6c0eaf392d9c17758e4999
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: ce22efd6eccdc067b05697b8389c821c4c01a347
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226186"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638593"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK voor SQL-API: Release opmerkingen en bronnen
 > [!div class="op_single_selector"]
@@ -28,8 +28,8 @@ ms.locfileid: "68226186"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resourceprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Bulk-uitvoerder-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk-uitvoerder-java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
@@ -215,7 +215,7 @@ ms.locfileid: "68226186"
 
 ### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
 
-* Oplossing voor een probleem dat af en toe leidt tot een webexcept: De externe naam kan niet worden omgezet.
+* Oplossing voor een probleem dat af en toe leidt tot een webexcept: Kan de externe naam niet omzetten.
 * De ondersteuning voor het lezen van een getypte document rechtstreeks door toe te voegen nieuwe overloads naar ReadDocumentAsync API toegevoegd.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1

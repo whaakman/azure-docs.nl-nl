@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6f6dc7745a47c61cf28a0e860a68af677dae8010
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67869114"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure Virtual Machines hoge Beschik baarheid voor SAP NetWeaver
@@ -210,7 +210,7 @@ In deze artikelen leert u hoe u Single Point of Failure-onderdelen (SPOF), zoals
 
 * [Azure Virtual Machines-architectuur met hoge Beschik baarheid en scenario's voor SAP NetWeaver][sap-high-availability-architecture-scenarios]
 
-![Het artikel behandelt Windows  ![ Windows enLinux][Logo_Linux]Linux. ][Logo_Windows]
+![Het artikel behandelt Windows ![Windows enLinux][Logo_Linux]Linux. ][Logo_Windows]
 
 
 ## <a name="azure-infrastructure-preparation-for-sap-netweaver-high-availability-deployment"></a>Azure-infrastructuur voorbereiding voor een implementatie met hoge Beschik baarheid voor SAP NetWeaver

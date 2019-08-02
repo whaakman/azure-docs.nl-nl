@@ -1,6 +1,6 @@
 ---
 title: Taak voor Elastic Database voor Azure SQL-databases | Microsoft Docs
-description: Taken voor Elastic Database als u wilt uitvoeren (T-SQL) Transact-SQL-scripts in een set van een of meer Azure SQL-databases configureren
+description: Elastic Database taken configureren om Transact-SQL-scripts (T-SQL) uit te voeren in een set van een of meer Azure SQL-data bases
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,25 +10,24 @@ ms.topic: conceptual
 author: srinia
 ms.author: srinia
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c5905716c0aada4a5070b9968c330eafaffb741
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61482931"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561333"
 ---
-# <a name="create-configure-and-manage-elastic-jobs"></a>Maken, configureren en beheren van elastische taken
+# <a name="create-configure-and-manage-elastic-jobs"></a>Elastische taken maken, configureren en beheren
 
-In dit artikel leert u hoe u kunt maken, configureren en beheren van elastische taken. Als u hebt geen elastische taken gebruikt [meer informatie over de concepten van de taak automation in Azure SQL Database](sql-database-job-automation-overview.md).
+In dit artikel vindt u informatie over het maken, configureren en beheren van elastische taken. Als u geen elastische taken hebt gebruikt, [leest u meer over de concepten van de taak automatisering in Azure SQL database](sql-database-job-automation-overview.md).
 
 ## <a name="create-and-configure-the-agent"></a>De agent maken en configureren
 
-1. Maak of identificeer een lege SQL-database op servicelaag S0 of hoger. Deze database wordt gebruikt als de *taak database* tijdens het maken van een elastische taak agent.
+1. Maak of identificeer een lege SQL-database op servicelaag S0 of hoger. Deze data base wordt gebruikt als de *taak database* tijdens het maken van een elastische taak agent.
 2. Maak een elastische-taakagent in de [portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) of met [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
-   ![Het maken van de agent voor elastische taken](media/elastic-jobs-overview/create-elastic-job-agent.png)
+   ![Een elastische taak agent maken](media/elastic-jobs-overview/create-elastic-job-agent.png)
 
 ## <a name="create-run-and-manage-jobs"></a>Taken maken, uitvoeren en beheren
 
@@ -49,8 +48,8 @@ Taken gebruiken [databasereferenties](/sql/t-sql/statements/create-database-scop
 Het instellen van de juiste referenties voor het uitvoeren van een taak kan enigszins verwarrend zijn. Houd daarom de volgende punten in gedachten:
 
 - De databasereferenties moeten worden gemaakt in de *taakdatabase*.
-- **Alle doeldatabase moeten hebben een aanmelding met [voldoende machtigingen](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) voor de taak is voltooid** (`jobuser` in het diagram hieronder).
-- Referenties kunnen worden hergebruikt binnen taken, en de referentie-wachtwoorden worden versleuteld en beveiligd is tegen gebruikers die alleen-lezen toegang tot taakobjecten hebben.
+- **Alle doel databases moeten een aanmelding hebben met [voldoende machtigingen](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) voor het volt ooien van de taak** (`jobuser` in het onderstaande diagram).
+- Referenties kunnen opnieuw worden gebruikt voor verschillende taken en de referentie wachtwoorden worden versleuteld en beveiligd door gebruikers met alleen-lezen toegang tot taak objecten.
 
 De volgende afbeelding is gemaakt als hulp bij het begrijpen en instellen van de juiste taakreferenties. **Denk eraan dat de gebruiker moet worden gemaakt in elke database (alle *doelgebruikersdatabases*) waarin de taak moet worden uitgevoerd**.
 
@@ -61,8 +60,8 @@ De volgende afbeelding is gemaakt als hulp bij het begrijpen en instellen van de
 Een paar aandachtspunten voor best practices voor het werken met elastische taken:
 
 - Beperk het gebruik van de API's tot vertrouwde personen.
-- Referenties moeten slechts de minimale bevoegdheden hebben die nodig zijn om de taakstap uit te voeren. Zie voor meer informatie, [autorisatie en machtigingen voor SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
-- Wanneer u een server en/of lid van groep doel, is het zeer een afzonderlijke referentie maken met machtigingen op de hoofddatabase voor databases die wordt gebruikt voor het uitbreiden van de databaselijsten met de server (s) en/of pool(s) voordat de taakuitvoering/weergavelijst nodig.
+- Referenties moeten slechts de minimale bevoegdheden hebben die nodig zijn om de taakstap uit te voeren. Zie [autorisatie en machtigingen SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)voor meer informatie.
+- Wanneer u een lid van een server en/of groeps doel groep gebruikt, is het zeer raadzaam een afzonderlijke referentie te maken met rechten op de hoofd database om data bases weer te geven/te vermelden die worden gebruikt om de database lijsten van de server (s) en/of pool (s) uit te breiden voordat de taak wordt uitgevoerd.
 
 ## <a name="agent-performance-capacity-and-limitations"></a>Agentprestaties, - capaciteit en -beperkingen
 
@@ -76,7 +75,7 @@ Op dit moment is de preview beperkt tot 100 gelijktijdige taken.
 
 Om ervoor te zorgen dat resources niet worden overbelast tijdens het uitvoeren van taken voor databases in een elastische SQL-pool, kunnen taken zo worden geconfigureerd dat het aantal databases waarvoor een taak tegelijkertijd wordt uitgevoerd, wordt beperkt.
 
-Stel het aantal gelijktijdige databases een taak wordt uitgevoerd op door in te stellen de `sp_add_jobstep` opgeslagen procedure van `@max_parallelism` parameter in T-SQL, of `Add-AzSqlElasticJobStep -MaxParallelism` in PowerShell.
+Stel het aantal gelijktijdige data bases in waarop een taak wordt uitgevoerd `sp_add_jobstep` door de para `@max_parallelism` meter van de opgeslagen procedure in T `Add-AzSqlElasticJobStep -MaxParallelism` -SQL of in Power shell in te stellen.
 
 ## <a name="best-practices-for-creating-jobs"></a>Best practices voor het maken van taken
 

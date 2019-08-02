@@ -1,9 +1,9 @@
 ---
-title: Een sjabloon voor Azure Service Fabric-cluster maken | Microsoft Docs
-description: Informatie over het maken van een Resource Manager-sjabloon voor een Service Fabric-cluster. Configureer beveiliging, Azure Key Vault en Azure Active Directory (Azure AD) voor clientauthenticatie.
+title: Een Azure Service Fabric-cluster sjabloon maken | Microsoft Docs
+description: Meer informatie over het maken van een resource manager-sjabloon voor een Service Fabric cluster. Configureer beveiliging, Azure Key Vault en Azure Active Directory (Azure AD) voor client verificatie.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
@@ -13,38 +13,38 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
-ms.author: aljo
-ms.openlocfilehash: 2fdea1f088dd6eabdf7d72342c837d976133a1bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 9030a1d9d0b1e3f9b84f6636b0d3d758ab4cfa3b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60386875"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599986"
 ---
-# <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Een Service Fabric-cluster Resource Manager-sjabloon maken
+# <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Een Service Fabric cluster resource manager-sjabloon maken
 
-Een [Azure Service Fabric-cluster](service-fabric-deploy-anywhere.md) is een netwerk verbonden reeks virtuele machines waarop uw microservices worden geïmplementeerd en beheerd. Een Service Fabric-cluster worden uitgevoerd in Azure is een Azure-resource en is geïmplementeerd, beheerd en bewaakt met behulp van de Resource Manager.  Dit artikel wordt beschreven hoe een Resource Manager-sjabloon voor een Service Fabric-cluster worden uitgevoerd in Azure maken.  Als u de sjabloon is voltooid, kunt u [implementeren van het cluster op Azure](service-fabric-cluster-creation-via-arm.md).
+Een [Azure service Fabric-cluster](service-fabric-deploy-anywhere.md) is een met het netwerk verbonden reeks virtuele machines waarop uw micro services worden geïmplementeerd en beheerd. Een Service Fabric cluster dat in azure wordt uitgevoerd, is een Azure-resource die wordt geïmplementeerd, beheerd en bewaakt met behulp van de Resource Manager.  In dit artikel wordt beschreven hoe u een resource manager-sjabloon maakt voor een Service Fabric cluster dat in azure wordt uitgevoerd.  Wanneer de sjabloon is voltooid, kunt u [het cluster implementeren op Azure](service-fabric-cluster-creation-via-arm.md).
 
-Clusterbeveiliging is geconfigureerd als een cluster eerst is ingesteld en kan later worden gewijzigd. Lees voordat u een cluster instelt, [Service Fabric-clusterbeveiligingsscenario's][service-fabric-cluster-security]. In Azure, Service Fabric gebruikt x509-certificaat voor het beveiligen van uw cluster en de eindpunten, verifiëren van clients en -gegevens versleutelen. Azure Active Directory wordt ook aanbevolen voor beveiligde toegang tot eindpunten voor beheer. Azure AD-tenants en gebruikers moeten worden gemaakt voordat het cluster te maken.  Lees voor meer informatie, [instellen van Azure AD om clients te verifiëren](service-fabric-cluster-creation-setup-aad.md).
+Cluster beveiliging wordt geconfigureerd wanneer het cluster voor het eerst wordt ingesteld en kan later niet worden gewijzigd. Lees [service Fabric scenario's voor cluster beveiliging][service-fabric-cluster-security]voordat u een cluster instelt. In azure gebruikt Service Fabric x509-certificaat om uw cluster en de bijbehorende eind punten te beveiligen, clients te verifiëren en gegevens te versleutelen. Azure Active Directory wordt ook aanbevolen om de toegang tot beheer eindpunten te beveiligen. U moet Azure AD-tenants en-gebruikers maken voordat u het cluster maakt.  Lees voor meer informatie [Azure AD instellen om clients te verifiëren](service-fabric-cluster-creation-setup-aad.md).
 
-Voordat u een productiecluster voor het uitvoeren van productieworkloads implementeert, moet u eerst lezen de [productie gereedheid controlelijst](service-fabric-production-readiness-checklist.md).
+Voordat u een productie cluster implementeert om productie werkbelastingen uit te voeren, moet u eerst de [controle lijst voor productie voorbereiding](service-fabric-production-readiness-checklist.md)lezen.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-the-resource-manager-template"></a>Het Resource Manager-sjabloon maken
-Voorbeeld van Resource Manager-sjablonen zijn beschikbaar in de [Azure-voorbeelden op GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Deze sjablonen kunnen worden gebruikt als uitgangspunt voor de clustersjabloon voor het.
+Voorbeeld sjablonen voor Resource Manager zijn beschikbaar in de [Azure-voor beelden op github](https://github.com/Azure-Samples/service-fabric-cluster-templates). Deze sjablonen kunnen worden gebruikt als uitgangs punt voor uw cluster sjabloon.
 
-In dit artikel wordt de [beveiligde cluster met vijf knooppunten] [ service-fabric-secure-cluster-5-node-1-nodetype] van de voorbeeldsjabloon en sjabloonparameters. Download *azuredeploy.json* en *azuredeploy.parameters.json* op uw computer en opent u beide bestanden in uw favoriete teksteditor.
+In dit artikel worden de voorbeeld sjabloon en sjabloon parameters voor het [beveiligde cluster met vijf knoop punten][service-fabric-secure-cluster-5-node-1-nodetype] gebruikt. Down load *azuredeploy. json* en *azuredeploy. para meters. json* naar uw computer en open beide bestanden in uw favoriete tekst editor.
 
 > [!NOTE]
-> Voor nationale clouds (Azure Government, China, Azure, Azure Duitsland), moet u ook het volgende toevoegen `fabricSettings` aan uw sjabloon: `AADLoginEndpoint`, `AADTokenEndpointFormat` en `AADCertEndpointFormat`.
+> Voor nationale Clouds (Azure Government, Azure China, Azure Duitsland `fabricSettings` ) moet u ook het volgende toevoegen aan uw sjabloon: `AADLoginEndpoint`, `AADTokenEndpointFormat` en. `AADCertEndpointFormat`
 
 ## <a name="add-certificates"></a>Certificaten toevoegen
-U kunt certificaten toevoegen aan een cluster Resource Manager-sjabloon door te verwijzen naar de sleutelkluis waarin de certificaatsleutels. Deze sleutelkluis parameters en waarden toevoegen in een bestand met Sjabloonparameters Resource Manager (*azuredeploy.parameters.json*).
+U voegt certificaten toe aan een cluster resource manager-sjabloon door te verwijzen naar de sleutel kluis die de certificaat sleutels bevat. Voeg deze sleutel-kluis parameters en waarden toe aan een resource manager-sjabloon parameter bestand (*azuredeploy. para meters. json*).
 
-### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>Alle certificaten toevoegen aan de virtuele machine scale set osProfile
-Elk certificaat dat geïnstalleerd in het cluster moet worden geconfigureerd in de **osProfile** schaalsetresource sectie van de schaal (Microsoft.Compute/virtualMachineScaleSets). Deze actie geeft de resourceprovider voor het installeren van het certificaat op de virtuele machines. Deze installatie bevat zowel het clustercertificaat en application security certificaten die u wilt gebruiken voor uw toepassingen:
+### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>Alle certificaten toevoegen aan de osProfile voor de virtuele-machine schaalset
+Elk certificaat dat in het cluster is geïnstalleerd, moet worden geconfigureerd in de sectie **osProfile** van de resource Scale set (micro soft. Compute/virtualMachineScaleSets). Met deze actie wordt de resource provider geïnstrueerd het certificaat op de Vm's te installeren. Deze installatie omvat zowel het cluster certificaat als alle toepassings beveiligings certificaten die u voor uw toepassingen wilt gebruiken:
 
 ```json
 {
@@ -78,11 +78,11 @@ Elk certificaat dat geïnstalleerd in het cluster moet worden geconfigureerd in 
 }
 ```
 
-### <a name="configure-the-service-fabric-cluster-certificate"></a>Het Service Fabric-cluster-certificaat configureren
+### <a name="configure-the-service-fabric-cluster-certificate"></a>Het Service Fabric-cluster certificaat configureren
 
-Het verificatiecertificaat van het cluster moet worden geconfigureerd in zowel de Service Fabric-clusterresource (Microsoft.ServiceFabric/clusters) en de Service Fabric-extensie voor virtuele-machineschaalset wordt ingesteld in de virtual machine scale set-resource. Deze benadering kunt de Service Fabric-resourceprovider te configureren voor gebruik voor cluster-verificatie en -serververificatie voor eindpunten voor beheer.
+Het cluster verificatie certificaat moet worden geconfigureerd in zowel de Service Fabric cluster resource (micro soft. ServiceFabric/clusters) als de Service Fabric-extensie voor virtuele-machine schaal sets in de resource van de virtuele-machine schaalset. Met deze indeling kan de Service Fabric resource provider deze configureren voor gebruik voor cluster verificatie en Server verificatie voor beheer eindpunten.
 
-#### <a name="add-the-certificate-information-the-virtual-machine-scale-set-resource"></a>De gegevens van het certificaat de virtuele-machineschaalset ingesteld resource toevoegen
+#### <a name="add-the-certificate-information-the-virtual-machine-scale-set-resource"></a>De certificaat gegevens voor de virtuele-machine Scale set-resource toevoegen
 
 ```json
 {
@@ -115,7 +115,7 @@ Het verificatiecertificaat van het cluster moet worden geconfigureerd in zowel d
 }
 ```
 
-#### <a name="add-the-certificate-information-to-the-service-fabric-cluster-resource"></a>Informatie over het certificaat toevoegen aan de Service Fabric-cluster-bron
+#### <a name="add-the-certificate-information-to-the-service-fabric-cluster-resource"></a>Voeg de certificaat gegevens toe aan de Service Fabric cluster resource
 
 ```json
 {
@@ -143,10 +143,10 @@ Het verificatiecertificaat van het cluster moet worden geconfigureerd in zowel d
 
 ## <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Azure Active Directory-configuratie toevoegen voor het gebruik van Azure Active Directory voor clienttoegang
 
-U kunt de Azure AD-configuratie toevoegen aan cluster Resource Manager-sjabloon door te verwijzen naar de sleutelkluis waarin de certificaatsleutels. Toevoegen van deze Azure AD-parameters en waarden in een bestand met Sjabloonparameters Resource Manager (*azuredeploy.parameters.json*). 
+U voegt de Azure AD-configuratie toe aan een cluster resource manager-sjabloon door te verwijzen naar de sleutel kluis die de certificaat sleutels bevat. Voeg deze Azure AD-para meters en-waarden toe aan een resource manager-sjabloon parameter bestand (*azuredeploy. para meters. json*). 
 
 > [!NOTE]
-> Azure AD-tenants en gebruikers moeten worden gemaakt voordat het cluster te maken.  Lees voor meer informatie, [instellen van Azure AD om clients te verifiëren](service-fabric-cluster-creation-setup-aad.md).
+> U moet Azure AD-tenants en-gebruikers maken voordat u het cluster maakt.  Lees voor meer informatie [Azure AD instellen om clients te verifiëren](service-fabric-cluster-creation-setup-aad.md).
 
 ```json
 {
@@ -175,14 +175,14 @@ U kunt de Azure AD-configuratie toevoegen aan cluster Resource Manager-sjabloon 
 }
 ```
 
-## <a name="populate-the-parameter-file-with-the-values"></a>Vul in het parameterbestand met de waarden
+## <a name="populate-the-parameter-file-with-the-values"></a>Vul het parameter bestand in met de waarden
 
-Gebruik tot slot de uitvoerwaarden van de van de key vault en Azure AD PowerShell-opdrachten voor het vullen van het parameterbestand.
+Gebruik tot slot de uitvoer waarden van de sleutel kluis en Azure AD Power shell-opdrachten om het parameter bestand in te vullen.
 
-Als u van plan bent de Azure service fabric DB PowerShell-modules gebruiken, klikt u vervolgens hoeft niet u voor het vullen van de gegevens van het cluster. Als u wilt dat het systeem voor het genereren van de eigen ondertekend certificaat voor clusterbeveiliging, houd ze net als null. 
+Als u van plan bent de Azure service Fabric RM Power shell-modules te gebruiken, hoeft u de cluster certificaat gegevens niet in te vullen. Als u wilt dat het systeem het zelfondertekende certificaat voor de cluster beveiliging genereert, hoeft u deze alleen als NULL te gebruiken. 
 
 > [!NOTE]
-> Voor de RM-modules te halen en deze leeg parameterwaarden te vullen, de namen van parameters veel overeenkomen met de namen hieronder
+> Voor de RM-modules om deze lege parameter waarden op te halen en in te vullen, worden de para meters met een naam die veel overeenkomen met de onderstaande namen
 
 ```json
 "clusterCertificateThumbprint": {
@@ -199,9 +199,9 @@ Als u van plan bent de Azure service fabric DB PowerShell-modules gebruiken, kli
 },
 ```
 
-Als u van certificaten van de toepassing gebruikmaakt of een bestaand cluster dat u hebt geüpload naar de key vault gebruikt, moet u deze gegevens te halen en deze vullen.
+Als u toepassings certificaten gebruikt of een bestaand cluster gebruikt dat u hebt geüpload naar de sleutel kluis, moet u deze gegevens ophalen en vullen.
 
-De RM-modules hebt niet de mogelijkheid voor het genereren van de configuratie van de Azure AD bij u past, dus als u van plan bent de Azure AD gebruiken voor toegang van clients, moet u deze vullen.
+De RM-modules kunnen de Azure AD-configuratie niet voor u genereren, dus als u van plan bent om Azure AD voor client toegang te gebruiken, moet u deze invullen.
 
 ```json
 {
@@ -241,29 +241,29 @@ De RM-modules hebt niet de mogelijkheid voor het genereren van de configuratie v
 }
 ```
 
-## <a name="test-your-template"></a>De sjabloon voor het testen
-Gebruik de volgende PowerShell-opdracht voor het testen van uw Resource Manager-sjabloon met een parameterbestand:
+## <a name="test-your-template"></a>Uw sjabloon testen
+Gebruik de volgende Power shell-opdracht om uw Resource Manager-sjabloon te testen met een parameter bestand:
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
-Als u problemen ondervindt en cryptisch berichten ophalen, gebruikt u '-fouten opsporen in ' als een optie.
+Als u problemen ondervindt en cryptische berichten ontvangt, gebruikt u '-debug ' als een optie.
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
-Het volgende diagram illustreert waar uw key vault en Azure AD-configuratie in de Resource Manager-sjabloon aanpassen.
+In het volgende diagram ziet u waar uw sleutel kluis en Azure AD-configuratie in uw Resource Manager-sjabloon passen.
 
-![Kaart van de Resource Manager-afhankelijkheden][cluster-security-arm-dependency-map]
+![Resource Manager-afhankelijkheids toewijzing][cluster-security-arm-dependency-map]
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een sjabloon voor uw cluster hebt, kunt u leren hoe u [het cluster implementeren in Azure](service-fabric-cluster-creation-via-arm.md).  Als u niet hebt gedaan, leest de [productie gereedheid controlelijst](service-fabric-production-readiness-checklist.md) voordat u implementeert een productiecluster.
+Nu u een sjabloon voor uw cluster hebt, leert u hoe u [het cluster implementeert in azure](service-fabric-cluster-creation-via-arm.md).  Als u dit nog niet hebt gedaan, leest u de [controle lijst voor productie voorbereiding](service-fabric-production-readiness-checklist.md) voordat u een productie cluster implementeert.
 
-Voor meer informatie over de JSON-syntaxis en de eigenschappen voor de resources die zijn geïmplementeerd in dit artikel, Zie:
+Zie voor meer informatie over de JSON-syntaxis en de eigenschappen voor de resources die in dit artikel zijn geïmplementeerd:
 
-* [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters)
+* [Micro soft. ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters)
 * [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
 * [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
 * [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)

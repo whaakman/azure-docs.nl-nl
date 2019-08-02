@@ -1,46 +1,46 @@
 ---
-title: Azure CLI gebruiken voor het beheren van Azure AD-toegangsrechten tot blob- en wachtrijservices gegevens met RBAC - Azure Storage
-description: Azure CLI gebruiken voor toegang tot containers en wachtrijen met op rollen gebaseerd toegangsbeheer (RBAC) toewijzen. Azure Storage biedt ondersteuning voor ingebouwde en aangepaste RBAC-rollen voor verificatie via Azure AD.
+title: Azure CLI gebruiken voor het beheren van Azure AD-toegangs rechten voor Blob-en wachtrij gegevens met RBAC-Azure Storage
+description: Gebruik Azure CLI om toegang toe te wijzen aan containers en wacht rijen met op rollen gebaseerd toegangs beheer (RBAC). Azure Storage ondersteunt ingebouwde en aangepaste RBAC-rollen voor verificatie via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 1e29b8e23927ef2ff70416d1adc76e2b2b3f2d8a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8219e795bb9ab4fc0d479b71e6a93fe6300037d0
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443717"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514901"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC met behulp van Azure CLI
+# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Toegang verlenen tot Azure Blob-en wachtrij gegevens met RBAC met behulp van Azure CLI
 
-Azure Active Directory (Azure AD) machtigt toegangsrechten tot beveiligde bronnen via [op rollen gebaseerd toegangsbeheer (RBAC)](../../role-based-access-control/overview.md). Azure Storage definieert een aantal ingebouwde RBAC-rollen die algemene sets machtigingen die wordt gebruikt voor toegang tot blob of een wachtrij gegevens omvatten.
+Met Azure Active Directory (Azure AD) worden de toegangs rechten voor beveiligde bronnen geautoriseerd via [op rollen gebaseerd toegangs beheer (RBAC)](../../role-based-access-control/overview.md). Azure Storage definieert een set ingebouwde RBAC-rollen die algemene sets machtigingen omvatten die worden gebruikt voor toegang tot BLOB-of wachtrij gegevens.
 
-Wanneer een RBAC-rol is toegewezen aan een beveiligings-principal voor Azure AD, wordt de status van Azure verleent toegang tot deze resources voor deze beveiligings-principal. Toegang kan worden gericht op het niveau van het abonnement, de resourcegroep, de storage-account of een afzonderlijke container of de wachtrij. Een beveiligings-principal voor Azure AD kan een gebruiker, een groep, een service-principal van toepassing zijn of een [beheerde identiteit voor de Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md).
+Wanneer een RBAC-rol is toegewezen aan een Azure AD-beveiligings-principal, verleent Azure toegang tot de resources voor die beveiligings-principal. De toegang kan worden beperkt tot het niveau van het abonnement, de resource groep, het opslag account of een afzonderlijke container of wachtrij. Een beveiligings-principal voor Azure AD kan een gebruiker, een groep, een service-principal van de toepassing of een [beheerde identiteit voor Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md)zijn.
 
-In dit artikel wordt beschreven hoe u Azure CLI gebruiken voor de lijst met ingebouwde RBAC-rollen en deze toewijzen aan gebruikers. Zie voor meer informatie over het gebruik van Azure CLI [Azure-opdrachtregelinterface (CLI)](https://docs.microsoft.com/cli/azure).
+In dit artikel wordt beschreven hoe u Azure CLI gebruikt om ingebouwde RBAC-rollen weer te geven en toe te wijzen aan gebruikers. Zie [Azure-opdracht regel interface (CLI)](https://docs.microsoft.com/cli/azure)voor meer informatie over het gebruik van Azure cli.
 
-## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC-rollen voor blobs en wachtrijen
+## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC-rollen voor blobs en wacht rijen
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Resource-bereik bepalen 
+## <a name="determine-resource-scope"></a>Resource bereik bepalen 
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
-## <a name="list-available-rbac-roles"></a>Lijst met beschikbare RBAC-rollen
+## <a name="list-available-rbac-roles"></a>Beschik bare RBAC-rollen weer geven
 
-U kunt beschikbare ingebouwde RBAC-rollen met Azure CLI gebruiken de [az role definitielijst](/cli/azure/role/definition#az-role-definition-list) opdracht:
+Als u beschik bare ingebouwde RBAC-rollen met Azure CLI wilt weer geven, gebruikt u de opdracht [AZ Role definition List](/cli/azure/role/definition#az-role-definition-list) :
 
 ```azurecli-interactive
 az role definition list --out table
 ```
 
-Hier ziet u de ingebouwde Azure Storage-gegevens rollen weergegeven, samen met andere ingebouwde rollen voor Azure:
+De ingebouwde Azure Storage gegevens rollen worden weer gegeven, samen met andere ingebouwde rollen voor Azure:
 
 ```Example
 Storage Blob Data Contributor             Allows for read, write and delete access to Azure Storage blob containers and data
@@ -52,19 +52,19 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-security-principal"></a>Een RBAC-rol toewijzen aan een beveiligings-principal
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>Een RBAC-rol toewijzen aan een beveiligingsprincipal
 
-Als u wilt een RBAC-rol toewijzen aan een beveiligings-principal, gebruikt u de [az roltoewijzing maken](/cli/azure/role/assignment#az-role-assignment-create) opdracht. De indeling van de opdracht kan verschillen op basis van het bereik van de toewijzing. De volgende voorbeelden laten zien hoe u een rol toewijzen aan een gebruiker op verschillende bereiken, maar u kunt dezelfde opdracht een rol toewijzen aan elke beveiligings-principal.
+Als u een RBAC-rol aan een beveiligingsprincipal wilt toewijzen, gebruikt u de opdracht [AZ Role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create) . De indeling van de opdracht kan verschillen op basis van het bereik van de toewijzing. In de volgende voor beelden ziet u hoe u een rol toewijst aan een gebruiker in verschillende bereiken, maar u kunt dezelfde opdracht gebruiken om een rol toe te wijzen aan een beveiligings-principal.
 
-### <a name="container-scope"></a>Bereik van de container
+### <a name="container-scope"></a>Container bereik
 
-Als u wilt toewijzen van een rol binnen het bereik van een container, Geef een tekenreeks met het bereik van de container voor de `--scope` parameter. Het bereik voor een container heeft de notatie:
+Als u een Role bereik wilt toewijzen aan een container, geeft u een teken reeks op met het bereik van `--scope` de container voor de para meter. Het bereik voor een container bevindt zich in de vorm:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
 ```
 
-In het volgende voorbeeld wordt de **Gegevensbijdrager voor Blob** rol voor een gebruiker, binnen het bereik van een container met de naam *voorbeeldcontainer*. Zorg ervoor dat u de voorbeeldwaarden en de tijdelijke aanduiding voor waarden tussen vierkante haken vervangen door uw eigen waarden: 
+In het volgende voor beeld wordt de rol **Storage BLOB data Inzender** toegewezen aan een gebruiker, met een container met de naam *sample-container*. Vervang de voorbeeld waarden en de waarden van de tijdelijke aanduiding tussen vier Kante haken door uw eigen waarden: 
 
 ```azurecli-interactive
 az role assignment create \
@@ -73,15 +73,15 @@ az role assignment create \
     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/sample-container"
 ```
 
-### <a name="queue-scope"></a>Wachtrijbereik
+### <a name="queue-scope"></a>Wachtrij bereik
 
-Als u wilt toewijzen van een rol binnen het bereik van een wachtrij, Geef een tekenreeks met het bereik van de wachtrij voor de `--scope` parameter. Het bereik voor een wachtrij is in het formulier:
+Als u een Role bereik aan een wachtrij wilt toewijzen, geeft u een teken reeks met het bereik van de `--scope` wachtrij voor de para meter op. Het bereik voor een wachtrij bevindt zich in de vorm:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
 ```
 
-In het volgende voorbeeld wordt de **Gegevensbijdrager voor wachtrij** rol voor een gebruiker, binnen het bereik van een wachtrij met de naam *voorbeeld-wachtrij*. Zorg ervoor dat u de voorbeeldwaarden en de tijdelijke aanduiding voor waarden tussen vierkante haken vervangen door uw eigen waarden: 
+In het volgende voor beeld wordt de rol Inzender voor gegevens van de **opslag wachtrij** toegewezen aan een gebruiker, met het bereik van een wachtrij met de naam *voorbeeld wachtrij*. Vervang de voorbeeld waarden en de waarden van de tijdelijke aanduiding tussen vier Kante haken door uw eigen waarden: 
 
 ```azurecli-interactive
 az role assignment create \
@@ -90,15 +90,15 @@ az role assignment create \
     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/sample-queue"
 ```
 
-### <a name="storage-account-scope"></a>Storage-accountbereik
+### <a name="storage-account-scope"></a>Bereik van opslag account
 
-Als u wilt toewijzen van een rol binnen het bereik van de storage-account, geef het bereik van de resource van het opslagaccount voor de `--scope` parameter. Het bereik voor een storage-account is in het formulier:
+Als u een rollen bereik wilt toewijzen aan het opslag account, geeft u het bereik van de bron van het `--scope` opslag account op voor de para meter. Het bereik van een opslag account bevindt zich in de vorm:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-Het volgende voorbeeld laat zien hoe om toe te wijzen de **gegevenslezer voor Opslagblob** rol aan een gebruiker op het niveau van het storage-account. Zorg ervoor dat u de voorbeeldwaarden door uw eigen waarden vervangt: 
+In het volgende voor beeld ziet u hoe u de rol **Storage BLOB data Reader** toewijst aan een gebruiker op het niveau van het opslag account. Zorg ervoor dat u de voorbeeld waarden vervangt door uw eigen waarden: 
 
 ```azurecli-interactive
 az role assignment create \
@@ -107,9 +107,9 @@ az role assignment create \
     --scope "/subscriptions/<subscription-id>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/storagesamples"
 ```
 
-### <a name="resource-group-scope"></a>Groepsbereik van de resource
+### <a name="resource-group-scope"></a>Bereik van de resource groep
 
-Als u wilt toewijzen van een rol binnen het bereik van de resourcegroep, geef de naam van de resourcegroep of de ID voor de `--resource-group` parameter. In het volgende voorbeeld wordt de **gegevenslezer voor Opslagwachtrij** rol aan een gebruiker op het niveau van de resourcegroep. Zorg ervoor dat u de voorbeeldwaarden en de tijdelijke aanduiding voor waarden tussen vierkante haken vervangen door uw eigen waarden: 
+Als u een rollen bereik wilt toewijzen aan de resource groep, geeft u de naam van de resource groep `--resource-group` of id voor de para meter op. In het volgende voor beeld wordt de rol van **gegevens lezer van de opslag wachtrij** toegewezen aan een gebruiker op het niveau van de resource groep. Vervang de voorbeeld waarden en de waarden van de tijdelijke aanduiding tussen vier Kante haken door uw eigen waarden: 
 
 ```azurecli-interactive
 az role assignment create \
@@ -118,15 +118,15 @@ az role assignment create \
     --resource-group sample-resource-group
 ```
 
-### <a name="subscription-scope"></a>Bereik van abonnement
+### <a name="subscription-scope"></a>Abonnements bereik
 
-Als u wilt toewijzen van een rol binnen het bereik van het abonnement, het bereik opgeven voor het abonnement voor de `--scope` parameter. Het bereik voor een abonnement heeft de notatie:
+Als u een rollen bereik wilt toewijzen aan het abonnement, geeft u het bereik op voor het `--scope` abonnement voor de para meter. Het bereik voor een abonnement bevindt zich in de vorm:
 
 ```
 /subscriptions/<subscription>
 ```
 
-Het volgende voorbeeld laat zien hoe om toe te wijzen de **gegevenslezer voor Opslagblob** rol aan een gebruiker op het niveau van het storage-account. Zorg ervoor dat u de voorbeeldwaarden door uw eigen waarden vervangt: 
+In het volgende voor beeld ziet u hoe u de rol **Storage BLOB data Reader** toewijst aan een gebruiker op het niveau van het opslag account. Zorg ervoor dat u de voorbeeld waarden vervangt door uw eigen waarden: 
 
 ```azurecli-interactive
 az role assignment create \
@@ -138,5 +138,5 @@ az role assignment create \
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Toegang tot Azure-resources beheren met behulp van RBAC en Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC met behulp van Azure PowerShell](storage-auth-aad-rbac-powershell.md)
-- [Toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC in Azure portal](storage-auth-aad-rbac-portal.md)
+- [Toegang verlenen tot Azure Blob-en wachtrij gegevens met RBAC met behulp van Azure PowerShell](storage-auth-aad-rbac-powershell.md)
+- [Toegang verlenen tot Azure blob en wachtrijgegevens met RBAC in de Azure-portal](storage-auth-aad-rbac-portal.md)

@@ -10,10 +10,10 @@ ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: c83648124f616670423b2ef459530c191d7e17e4
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325764"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances en container Orchestrator
@@ -61,7 +61,7 @@ Als u werk belastingen van toepassingen snel wilt schalen in een [Azure Kubernet
 
 Virtuele knoop punten ondersteunen momenteel Linux-container exemplaren. Ga aan de slag met virtuele knoop punten met behulp van [Azure cli](https://go.microsoft.com/fwlink/?linkid=2047538) of [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-Virtuele knoop punten gebruiken het open-source [virtuele-Kubelet][aci-connector-k8s] to mimic the Kubernetes [kubelet][kubelet-doc] door te registreren als een knoop punt met onbeperkte capaciteit. De virtuele-Kubelet verzendt het [maken van een][pod-doc] als container groepen in azure container instances.
+Virtuele knoop punten gebruiken het open-source [virtuele-Kubelet][aci-connector-k8s] om de Kubernetes- [Kubelet][kubelet-doc] te simuleren door te registreren als een knoop punt met onbeperkte capaciteit. De virtuele-Kubelet verzendt het maken van een [peul][pod-doc] als container groepen in azure container instances.
 
 Bekijk het [virtuele-Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) -project voor meer voor beelden van het uitbreiden van de KUBERNETES-API naar serverloze container platforms.
 

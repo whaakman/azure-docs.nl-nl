@@ -1,7 +1,7 @@
 ---
-title: API aanroepen vanuit een app - Custom Decision Service
+title: API aanroepen vanuit een app-Custom Decision Service
 titlesuffix: Azure Cognitive Services
-description: Hoe de Custom Decision Service API's aanroepen vanuit een smartphone-app.
+description: De Custom Decision Service-Api's aanroepen vanuit een smartphone-app.
 services: cognitive-services
 author: slivkins
 manager: nitinme
@@ -10,31 +10,32 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: slivkins
-ms.openlocfilehash: 0e5c99aae61fb927ea7f101bab74d661a747f88b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: 08fbc1716d402c83bc2c33be82cba143c1737a55
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60511553"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707258"
 ---
 # <a name="call-api-from-an-app"></a>API aanroepen vanuit een app
 
-Aanroepen naar de Azure Custom Decision Service API's vanuit een smartphone-app. In dit artikel wordt uitgelegd hoe u aan de slag met enkele eenvoudige opties.
+Aanroepen naar de Azure Custom Decision Service-Api's vanuit een smartphone-app. In dit artikel wordt uitgelegd hoe u aan de slag kunt gaan met enkele basis opties.
 
-Zorg ervoor dat u [uw toepassing registreren](custom-decision-service-get-started-register.md), eerste.
+Zorg ervoor dat u [uw toepassing](custom-decision-service-get-started-register.md)eerst registreert.
 
-Er zijn twee API-aanroepen die u in uw smartphone-app in Custom Decision Service aanbrengt: een aanroep naar de Trefwoordenrangschikking-API om een gerangschikte lijst uw inhoud en een aanroep naar de API van derden voor het rapporteren van een beloning te verkrijgen. Hier volgen de voorbeeld-aanroepen in [cURL](https://en.wikipedia.org/wiki/CURL).
+Er zijn twee API-aanroepen van uw smartphone-app naar Custom Decision Service: een aanroep van de classificatie-API voor het verkrijgen van een geclassificeerde lijst met inhoud en een aanroep naar de belonings-API om een beloning te rapporteren. Hier volgen de voorbeeld gesprekken in [krul](https://en.wikipedia.org/wiki/CURL).
 
-Voor meer informatie, Zie de verwijzing [API](custom-decision-service-api-reference.md).
+Zie de referentie- [API](custom-decision-service-api-reference.md)voor meer informatie.
 
-Beginnen met de aanroep naar de API positie. Maak het bestand `<request.json>`, die is de actie ingesteld ID. Deze ID is de naam van de bijbehorende RSS of Atom-feed die u hebt ingevoerd in de portal:
+Begin met het aanroepen van de classificatie-API. Maak het bestand `<request.json>`, dat de actie set-id heeft. Deze ID is de naam van de bijbehorende RSS-of Atom-feed die u hebt ingevoerd in de portal:
 
 ```json
 {"decisions":
      [{ "actionSets":[{"id":{"id":"<actionSetId>"}}] }]}
 ```
 
-Veel actie sets kunnen als volgt worden opgegeven:
+U kunt een groot aantal actie sets als volgt opgeven:
 
 ```json
 {"decisions":
@@ -42,13 +43,13 @@ Veel actie sets kunnen als volgt worden opgegeven:
                      {"id":{"id":"<actionSetId2>"}}] }]}
 ```
 
-Deze JSON-bestand wordt verzonden als onderdeel van de rangschikking van aanvraag:
+Dit JSON-bestand wordt vervolgens verzonden als onderdeel van de aanvraag voor de rang schikking:
 
 ```shell
 curl -d @<request.json> -X POST https://ds.microsoft.com/api/v2/<appId>/rank --header "Content-Type: application/json"
 ```
 
-Hier `<appId>` is de naam van uw toepassing geregistreerd op de portal. U ontvangt een geordende reeks inhoud items, die u in uw toepassing kan weergeven. Een voorbeeld van een afzender ziet eruit zoals:
+Hier volgt de naam van uw toepassing die isgeregistreerdopdeportal.`<appId>` U ontvangt een geordende set inhouds items, die u in uw toepassing kunt weer geven. Een voor beeld van een resultaat ziet er als volgt uit:
 
 ```json
 [{ "ranking":[{"id":"actionId3"}, {"id":"actionId1"}, {"id":"actionId2"}],
@@ -59,15 +60,15 @@ Hier `<appId>` is de naam van uw toepassing geregistreerd op de portal. U ontvan
                  {"id":"<actionSetId2>","lastRefresh":"2017-04-30T22:34:25.3401438Z"}]}]
 ```
 
-Het eerste deel van het rendement heeft een lijst met geordende acties, met de actie-id's opgegeven. Voor een artikel is de actie-ID van een URL. De totale aanvraag heeft een unieke `<eventId>`, gemaakt door het systeem.
+Het eerste deel van de retour bevat een lijst met geordende acties, opgegeven door hun actie-Id's. Voor een artikel is de actie-ID een URL. De algemene aanvraag heeft ook een uniek `<eventId>`, gemaakt door het systeem.
 
-Later, u kunt opgeven als u een klik op het eerste inhoudsitem dat deze gebeurtenis, die is waargenomen `<actionId3>`. U kunt vervolgens een beloning rapporteren over dit `<eventId>` op Custom Decision Service via de API van derden, met een andere vragen zoals:
+Later kunt u opgeven of u een klik op het eerste inhouds item van deze gebeurtenis `<actionId3>`hebt gevolgd. U kunt vervolgens met behulp van de `<eventId>` belonings-API een vergoeding op dit rapport geven om te Custom decision service, met een andere aanvraag, zoals:
 
 ```shell
 curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST
 ```
 
-Tot slot moet u de actie ingesteld API, die resulteert in de lijst met artikelen (acties) worden beschouwd door Custom Decision Service opgeven. Implementeer deze API als een RSS-feed, zoals hier wordt weergegeven:
+Ten slotte moet u de Actions set API opgeven, waarmee de lijst met artikelen (acties) wordt geretourneerd die door Custom Decision Service worden overwogen. Implementeer deze API als een RSS-feed, zoals hier wordt weer gegeven:
 
 ```xml
 <rss version="2.0">
@@ -84,9 +85,9 @@ Tot slot moet u de actie ingesteld API, die resulteert in de lijst met artikelen
 </rss>
 ```
 
-Hier, elk op het hoogste niveau `<item>` element een artikel wordt beschreven. De `<link>` is verplicht en als een actie-ID wordt gebruikt door Custom Decision Service. Geef `<date>` (in een standaardindeling van RSS) als u meer dan 15 artikelen hebt. De meest recente 15 artikelen worden gebruikt. De `<title>` is optioneel en wordt gebruikt voor het maken van tekst-gerelateerde functies voor het artikel.
+Hier wordt voor elk element op `<item>` het hoogste niveau een artikel beschreven. De `<link>` is verplicht en wordt gebruikt als actie-id door Custom decision service. Geef `<date>` (in een standaard-RSS-indeling) op als u meer dan 15 artikelen hebt. De 15 meest recente artikelen worden gebruikt. De `<title>` is optioneel en wordt gebruikt voor het maken van tekst-gerelateerde functies voor het artikel.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Doorloop een [zelfstudie](custom-decision-service-tutorial-news.md) voor een voorbeeld van een meer diepgaande.
-* Raadpleeg de [API](custom-decision-service-api-reference.md) voor meer informatie over de functionaliteit van de opgegeven.
+* Gebruik een [zelf studie](custom-decision-service-tutorial-news.md) voor een uitgebreidere voor beeld.
+* Raadpleeg de verwijzings- [API](custom-decision-service-api-reference.md) voor meer informatie over de beschik bare functionaliteit.

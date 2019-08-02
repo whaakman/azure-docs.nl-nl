@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure Security Center (ASC) voor de Preview van IoT | Microsoft Docs
-description: Aan de slag in informatie over de basiswerkstroom van Azure Security Center voor IoT-functies en -service.
+title: Aan de slag met Azure Security Center voor IoT | Microsoft Docs
+description: Ga aan de slag met het leren van de basis werk stroom van Azure Security Center voor IoT-functies en-services.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,70 +13,39 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 39f448f258923d23bdcba75a0a1987777ce0492e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 86c6c0bac5caae0873d0067c6abcb5a8ac864c88
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616868"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596414"
 ---
-# <a name="get-started-with-azure-security-center-for-iot"></a>Aan de slag met Azure Security Center voor IoT 
+# <a name="get-started-with-azure-security-center-for-iot"></a>Aan de slag met Azure Security Center for IoT
 
-> [!IMPORTANT]
-> Azure Security Center voor IoT is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+Dit artikel bevat een uitleg van de verschillende bouw stenen van de Azure Security Center voor IoT-service en legt uit hoe u aan de slag kunt met de service met twee mogelijke implementatie opties.  
 
-In dit artikel bevat een uitleg van de verschillende bouwstenen van de Azure Security Center (ASC) voor IoT-service en wordt uitgelegd hoe u aan de slag met [inschakelen van de service](quickstart-onboard-iot-hub.md). 
+## <a name="deployment-options"></a>Implementatieopties
 
-ASC voor IoT kan naadloos worden geïntegreerd in uw IoT-Hub voor analyse van IoT hub-configuratie, de apparaat-id en de hub-apparaat communicatiepatronen.
-ASC voor IoT biedt mogelijkheden voor verbeterde beveiliging, op basis van een agent verzamelen van beveiligingsgegevens van uw IoT-apparaten.
+Kies het service scenario dat het beste voldoet aan uw IoT-apparaat en omgevings vereisten. 
 
-## <a name="asc-for-iot-seamless-iot-hub-integration"></a>ASC voor naadloze integratie van IoT-Hub IoT
+### <a name="built-in-deployment"></a>Ingebouwde implementatie
+Met de naadloze, ingebouwde implementatie optie Azure Security Center voor IoT snel kan worden geïntegreerd in uw IoT Hub en kan de configuratie van de IoT-hub, de identiteit en het beheer van apparaten en de communicatie patronen voor Hub-apparaten worden verbeterd.
 
-Wanneer u probeert om de afzonderlijke IoT-apparaten te beveiligen, is de mogelijkheid voor het verzamelen van gegevens rechtstreeks vanuit de apparaten of vanuit het netwerk is vereist. ASC voor IoT biedt ter ondersteuning van deze inspanning, een arsenal van lage footprint security-agents voor bewaking en beveiliging.
+Start een [ingebouwde implementatie](iot-hub-integration.md) met IOT hub bewaking en aanbevelingen. 
+    <br>
 
-Referentie-architectuur in ASC voor IoT-preview voor Linux en Windows security-agents, zowel in C# en C worden geleverd.
-De agents onbewerkte gebeurtenissen verzamelen van het besturingssysteem van apparaat, gebeurtenis-aggregatie te verminderen van kosten en configuratie van een via een apparaatdubbel-module worden verwerkt.
-Beveiligingsberichten worden verzonden via uw IoT-Hub in ASC van IoT analytics-services.
+### <a name="enhanced-deployment"></a>Verbeterde implementatie
+Voor verbeterde beveiligings functies implementeert u Azure Security Center voor IoT-agents, naast het inschakelen van IoT Hub beveiliging, het verzamelen van gebeurtenissen, analyses en bedreigingen voor het detecteren van belang rijke beveiligings gegevens van uw IoT-apparaten, evenals de uitgebreide beheer mogelijkheden voor beveiliging van postuur.
 
-## <a name="asc-for-iot-basics"></a>ASC voor IoT-basisbeginselen
-
-Kies het scenario voor workflow die het beste aan uw IoT-apparaat- en omgevingsvereisten:
-
-### <a name="get-started-with-asc-for-iot-seamless-iot-hub-integration"></a>Aan de slag met ASC voor naadloze integratie van IoT-Hub IoT 
-
->[!Note]
->Deze werkstroom kunt u gebruikmaken van de service zonder ASC voor IoT-beveiliging-agents. 
-
-Voor bewaking van uw apparaat gebruik identiteitsbeheer, het apparaat naar cloud en cloud naar apparaat communicatiepatronen, basiswerkstroom voor het testen en de service te starten na: 
-
-1. [ASC inschakelen voor IoT-service op uw IoT-Hub](quickstart-onboard-iot-hub.md)
-1. Als uw IoT-Hub geen geregistreerde apparaten heeft [registreren van een nieuw apparaat](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
-1. [Maken van een module azureiotsecurity beveiliging voor uw apparaten](quickstart-create-security-twin.md) voor uw apparaten. 
-1. Normale gedrag van apparaat- en system via definiëren [aangepaste waarschuwingen](quickstart-create-custom-alerts.md). 
-1. Systeem testen om te controleren of de service en status van apparaten uitvoeren. 
-1. Verken [waarschuwingen](concept-security-alerts.md), [aanbevelingen](concept-recommendations.md), en [gedetailleerde informatie over het gebruik van Log Analytics](how-to-security-data-access.md) met behulp van IoT-Hub. 
-
-
-### <a name="get-started-with-asc-for-iot-security-agents"></a>Aan de slag met ASC voor IoT-beveiliging-agents
-
-Maakt gebruik van ASC voor IoT enhanced security mogelijkheden, zoals het controleren van externe verbindingen, actieve toepassingen, aanmeldgebeurtenissen en aanbevolen procedures voor OS-configuratie met behulp van de volgende algemene werkstroom voor het testen en ervoor zorgen dat de: 
-
-1. [ASC inschakelen voor IoT-service waarmee uw IoT-Hub](quickstart-onboard-iot-hub.md)
-1. Als uw IoT-Hub geen geregistreerde apparaten heeft [registreren van een nieuw apparaat](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
-1. [Maken van een module van de beveiliging azureiotsecurity](quickstart-create-security-twin.md) voor uw apparaten.
-1. De agent installeren op een Azure-gesimuleerd apparaat in plaats van installatie op een daadwerkelijk apparaat [draaien van een nieuwe Azure Virtual Machine (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) in een zone beschikbaar. 
-1. [Een ASC voor IoT security-agent implementeren](how-to-deploy-linux-cs.md) op uw IoT-apparaat of een nieuwe virtuele machine.
-1. Volg de instructies voor [trigger_events](https://aka.ms/iot-security-github-trigger-events) om uit te voeren een simulatie van een aanval onschadelijk.
-1. Controleer of u ASC voor IoT-waarschuwingen in reactie op de gesimuleerde aanval in de vorige stap. Beginnen met verificatie van vijf minuten nadat het script is uitgevoerd.
-1. Verken [waarschuwingen](concept-security-alerts.md), [aanbevelingen](concept-recommendations.md), en [gedetailleerde informatie over het gebruik van Log Analytics](how-to-security-data-access.md) met behulp van IoT-Hub. 
+Start een [verbeterde implementatie](security-agents.md) met een uitgebreide oplossing voor beveiliging tegen bedreigingen en postuur beheer van een agent.
+   
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Schakel [ASC voor IoT](quickstart-onboard-iot-hub.md)
-- Configureer uw [oplossing](quickstart-configure-your-solution.md)
-- [Beveiligingsmodules maken](quickstart-create-security-twin.md)
-- Configureer [aangepaste waarschuwingen](quickstart-create-custom-alerts.md)
-- [Een beveiligingsagent implementeren](how-to-deploy-agent.md)
+- [Azure Security Center inschakelen voor IOT](quickstart-onboard-iot-hub.md)
+- Uw [oplossing](quickstart-configure-your-solution.md) configureren
+- [Beveiligings modules maken](quickstart-create-security-twin.md)
+- [Aangepaste waarschuwingen](quickstart-create-custom-alerts.md) configureren
+- [Een beveiligings agent implementeren](how-to-deploy-agent.md)

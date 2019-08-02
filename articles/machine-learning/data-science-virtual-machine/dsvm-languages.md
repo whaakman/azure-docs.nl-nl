@@ -5,7 +5,7 @@ description: Meer informatie over de programma-talen en de bijbehorende hulpprog
 keywords: hulpprogramma's voor datatechnologie, virtuele machine voor datatechnologie, hulpprogramma voor datatechnologie, linux-datatechnologie
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 1df3c986132de2a3e7ec9547a996abef60ea04ac
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502215"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558124"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Talen die worden ondersteund op de Data Science Virtual Machine 
 
@@ -193,7 +193,7 @@ R is geïnstalleerd op de DSVM in een globale omgeving kan worden gelezen door a
 | ------------- | ------------- |
 | Taalversies ondersteund | 0,6 |
 | Ondersteunde DSVM-edities      | Linux, Windows     |
-| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Windows: Geïnstalleerd op `C:\JuliaPro-VERSION`<br /> Linux: Geïnstalleerd op `/opt/JuliaPro-VERSION`    |
+| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Windows: Geïnstalleerd op`C:\JuliaPro-VERSION`<br /> Linux: Geïnstalleerd op`/opt/JuliaPro-VERSION`    |
 | Koppelingen naar voorbeelden      | Voorbeeld Jupyter-notebooks voor Julia zijn opgenomen     |
 | Meer hulpprogramma's op de DSVM      | Python, R      |
 ### <a name="how-to-use--run-it"></a>Hoe kan ik gebruik / uitvoeren?    
@@ -222,7 +222,7 @@ De standaardwaarde van Julia locatie is een globale omgeving kan worden gelezen 
 Open terminal en alleen uitvoeren `julia`. 
 * Met behulp van een IDE
 
-Gebruik `Juno` de IDE Julia geïnstalleerd op de DSVM en is beschikbaar als een snelkoppeling naar het menu van de toepassing.
+Gebruik `Juno` de Julia IDE die is geïnstalleerd op de DSVM en die beschikbaar is als snelkoppeling voor een toepassings menu.
 
 * Gebruik in Jupyter
 
@@ -234,12 +234,12 @@ De standaardwaarde van Julia locatie is een globale omgeving kan worden gelezen 
 
 ## <a name="other-languages"></a>Andere talen
 
-**C#** : Beschikbaar op Windows en toegankelijk is via de Visual Studio Community-editie of op een `Developer Command Prompt for Visual Studio` waar u kunt alleen uitvoeren `csc` opdracht. 
+**C#** : Beschikbaar in Windows en toegankelijk via de Visual Studio Community-editie of op `Developer Command Prompt for Visual Studio` een locatie waarop u de `csc` opdracht gewoon kunt uitvoeren. 
 
-**Java**: OpenJDK is beschikbaar op Linux- en Windows-versie van de DSVM en instellen op het pad. U kunt typen `javac` of `java` opdracht op de opdrachtprompt in Windows- of bash-shell in Linux Java gebruiken. 
+**Java**: OpenJDK is beschikbaar in zowel de Linux-als de Windows-versie van de DSVM en is ingesteld op het pad. U kunt typen `javac` of `java` opdracht op de opdrachtprompt in Windows- of bash-shell in Linux Java gebruiken. 
 
 **node.js**: node.js is beschikbaar op Linux- en Windows-versie van de DSVM en instellen op het pad. U kunt typen `node` of `npm` opdracht op de opdrachtprompt in de Windows- of bash-shell in Linux voor toegang tot node.js. De Node.js-hulpprogramma's voor Visual Studio-extensie is geïnstalleerd op Windows, voor een grafische IDE voor het ontwikkelen van uw node.js-toepassing. 
 
-**F#** : Beschikbaar op Windows en toegankelijk is via de Visual Studio Community-editie of op een `Developer Command Prompt for Visual Studio` waar u kunt alleen uitvoeren `fsc` opdracht. 
+**F#** : Beschikbaar in Windows en toegankelijk via de Visual Studio Community-editie of op `Developer Command Prompt for Visual Studio` een locatie waarop u de `fsc` opdracht gewoon kunt uitvoeren. 
 
 

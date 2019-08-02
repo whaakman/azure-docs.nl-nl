@@ -1,6 +1,6 @@
 ---
-title: Rolling upgrades van toepassingen - Azure SQL Database | Microsoft Docs
-description: Informatie over het gebruik van Azure SQL Database geo-replicatie voor de ondersteuning van online upgrades van uw cloudtoepassing.
+title: Upgrades van Rolling toepassingen-Azure SQL Database | Microsoft Docs
+description: Meer informatie over het gebruik van Azure SQL Database geo-replicatie ter ondersteuning van online-upgrades van uw Cloud toepassing.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,99 +10,98 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 47fd6c1e2bb342bc1a31fb16a45a5ebc749dca69
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55b23b8d8e03a79aa0806a68306017f89c747760
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60702619"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567775"
 ---
-# <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Rolling upgrades van cloud-Apps beheren met behulp van SQL-Database van actieve geo-replicatie
+# <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Rolling upgrades van Cloud toepassingen beheren door gebruik te maken van SQL Database actieve geo-replicatie
 
-Meer informatie over het gebruik van [actieve geo-replicatie](sql-database-auto-failover-group.md) in Azure SQL Database om het inschakelen van rolling upgrades van uw cloudtoepassing. Omdat upgrades verstorende bewerkingen zijn, moeten ze deel uitmaken van uw zakelijke continuïteit planning en ontwerp. In dit artikel hebben we kijken naar twee verschillende methoden van het upgradeproces en bespreken de voor- en nadelen van elke optie. Voor de doeleinden van dit artikel verwijzen we naar een toepassing die bestaat uit een website die verbonden met een individuele database als de gegevenslaag. Ons doel is om bij te werken van versie 1 (V1) van de toepassing op versie 2 (V2) zonder aanzienlijke invloed op de gebruikerservaring.
+Meer informatie over het gebruik van [actieve geo-replicatie](sql-database-auto-failover-group.md) in Azure SQL database om rolling upgrades van uw Cloud toepassing in te scha kelen. Omdat upgrades storend zijn, moeten ze deel uitmaken van uw planning en ontwerp van uw bedrijfs continuïteit. In dit artikel kijken we naar twee verschillende methoden om het upgrade proces te organiseren en de voor delen en afwegingen van elke optie te bespreken. Voor de doel einden van dit artikel verwijzen we naar een toepassing die bestaat uit een website die is verbonden met één Data Base als gegevenslaag. Het doel is om versie 1 (v1) van de toepassing te upgraden naar versie 2 (v2) zonder dat dit invloed heeft op de gebruikers ervaring.
 
-Houd rekening met deze factoren bij het evalueren van de upgrade-opties:
+Houd rekening met de volgende factoren bij het evalueren van upgrade opties:
 
-* Gevolgen voor de beschikbaarheid van toepassingen tijdens upgrades, zoals hoelang toepassingsfuncties kunnen worden beperkt of gedegradeerd.
-* De mogelijkheid om terugdraaien als de upgrade mislukt.
-* Beveiligingsproblemen van de toepassing als een niet-gerelateerde, onherstelbare fout tijdens de upgrade optreedt.
-* Totaal aantal dollar kosten. Dit omvat aanvullende databaseredundantie en incrementele kosten voor de tijdelijke onderdelen die worden gebruikt door het upgradeproces.
+* Gevolgen voor de beschik baarheid van toepassingen tijdens upgrades, zoals hoe lang toepassings functies kunnen worden beperkt of gedegradeerd.
+* De mogelijkheid om terug te draaien als de upgrade mislukt.
+* Beveiligings probleem van de toepassing als er sprake is van een niet-gerelateerde, fatale fout tijdens de upgrade.
+* Totale dollar kosten. Deze factor bevat extra database redundantie en incrementele kosten van de tijdelijke onderdelen die worden gebruikt door het upgrade proces.
 
-## <a name="upgrade-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Upgrade uitvoeren van toepassingen die afhankelijk van de databaseback-ups voor herstel na noodgevallen zijn
+## <a name="upgrade-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Toepassingen bijwerken die afhankelijk zijn van database back-ups voor herstel na nood gevallen
 
-Als uw toepassing is afhankelijk van automatische databaseback-ups en geografisch herstel voor herstel na noodgevallen gebruikt, wordt deze geïmplementeerd naar één Azure-regio. Om te beperken onderbreking van de gebruiker, maakt u een faseringsomgeving in die regio met alle toepassingsonderdelen die betrokken zijn bij de upgrade. Het eerste diagram illustreert de operationele omgeving voordat u het upgradeproces. Het eindpunt `contoso.azurewebsites.net` vertegenwoordigt een productie-omgeving van de web-app. Als u de upgrade terugdraaien, moet u een faseringsomgeving maken met behulp van een volledig gesynchroniseerde kopie van de database. Volg deze stappen voor het maken van een faseringsomgeving voor de upgrade:
+Als uw toepassing gebruikmaakt van automatische database back-ups en geo-herstel gebruikt voor herstel na nood gevallen, wordt deze geïmplementeerd in één Azure-regio. Als u de gebruikers onderbreking wilt minimaliseren, maakt u een faserings omgeving in die regio met alle toepassings onderdelen die bij de upgrade horen. Het eerste diagram illustreert de operationele omgeving vóór het upgrade proces. Het eind `contoso.azurewebsites.net` punt vertegenwoordigt een productie omgeving van de web-app. Als u de upgrade wilt herstellen, moet u een faserings omgeving met een volledig gesynchroniseerde kopie van de data base maken. Volg deze stappen voor het maken van een faserings omgeving voor de upgrade:
 
-1. Een secundaire database in dezelfde Azure-regio maken. Controleer de secundaire server om te zien of het seeden proces voltooid (1).
-2. Maak een nieuwe omgeving voor uw web-app en roep deze aan 'Fasering'. Het wordt geregistreerd in Azure DNS met de URL `contoso-staging.azurewebsites.net` (2).
-
-> [!NOTE]
-> Deze stappen voor gegevensvoorbereiding heeft geen gevolgen voor de productieomgeving, die kan worden gebruikt in de modus voor volledige toegang.
-
-![Configuratie van de SQL-Database geo-replicatie voor noodherstel van de cloud.](media/sql-database-manage-application-rolling-upgrade/option1-1.png)
-
-Wanneer de voorbereidende stappen voltooid zijn, wordt de toepassing is gereed voor de daadwerkelijke upgrade. Het volgende diagram illustreert de stappen die betrokken zijn bij het upgradeproces:
-
-1. De primaire database is ingesteld op de modus alleen-lezen (3). In deze modus wordt gegarandeerd dat de productie-omgeving van de web-app (V1) blijft alleen-lezen tijdens de upgrade, waardoor wordt voorkomen dat gegevens verschillen tussen de V1 en V2-database-exemplaren.
-2. Verbinding met het verbreken van de secundaire database met behulp van de geplande beëindiging-modus (4). Deze actie wordt een kopie synchroniseren is voltooid, onafhankelijk van de primaire database gemaakt. Deze database wordt bijgewerkt.
-3. Schakel de secundaire database naar de modus lezen / schrijven en uitvoeren van het script bijwerken (5).
-
-![Configuratie van de SQL-Database geo-replicatie voor noodherstel van de cloud.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
-
-Als de upgrade voltooid is, kunt u nu klaar om te schakelen tussen gebruikers naar het bijgewerkte exemplaar van de toepassing die een productie-omgeving wordt. Schakelen tussen bestaat uit enkele andere stappen, zoals wordt geïllustreerd in het volgende diagram:
-
-1. Activeer een wisselbewerking tussen productie- en testomgevingen van de web-app (6). Met deze bewerking wordt de URL's van de twee omgevingen. Nu `contoso.azurewebsites.net` verwijst naar de V2-versie van de website en de database (productie-omgeving). 
-2. Als u niet meer nodig hebt van de V1-versie, die werd een tijdelijke kopie nadat de wisseling, kunt u de faseringsomgeving (7).
-
-![Configuratie van de SQL-Database geo-replicatie voor noodherstel van de cloud.](media/sql-database-manage-application-rolling-upgrade/option1-3.png)
-
-Als tijdens de upgrade is mislukt (bijvoorbeeld vanwege een fout in het script bijwerken), kunt u de testomgeving om te worden aangetast. De toepassing naar de vóór de upgrade status terug om terug te draaien de toepassing in de productieomgeving voor volledige toegang. Het volgende diagram toont de stappen opnieuw:
-
-1. Stel het database-exemplaar naar de modus lezen / schrijven (8). Deze actie worden hersteld door de volledige V1-functionaliteit van de productie-exemplaar.
-2. Uitvoeren van de hoofdoorzaak wordt onderzocht en uit bedrijf nemen de faseringsomgeving (9).
-
-Op dit moment de toepassing volledig functioneel is en u kunt de upgrade stappen herhalen.
+1. Maak een secundaire data base in dezelfde Azure-regio. Controleer de secundaire om te zien of het seeding-proces is voltooid (1).
+2. Maak een nieuwe omgeving voor uw web-app en roep deze ' staging ' aan. Het wordt geregistreerd in azure DNS met de URL `contoso-staging.azurewebsites.net` (2).
 
 > [!NOTE]
-> Het terugdraaien vereist geen wijzigingen in DNS omdat u een wisselbewerking nog niet hebt uitgevoerd.
+> Deze voorbereidings stappen hebben geen invloed op de productie omgeving, die in de volledige toegangs modus kan functioneren.
 
-![Configuratie van de SQL-Database geo-replicatie voor noodherstel van de cloud.](media/sql-database-manage-application-rolling-upgrade/option1-4.png)
+![SQL Database geo-replicatie Configuratie voor herstel na nood gevallen in de Cloud.](media/sql-database-manage-application-rolling-upgrade/option1-1.png)
 
-Het belangrijkste voordeel van deze optie is dat u een toepassing in één regio bijwerken kunt door een reeks eenvoudige stappen te volgen. De Dollarkosten van de upgrade is relatief laag. 
+Wanneer de voorbereidende stappen zijn voltooid, is de toepassing gereed voor de daad werkelijke upgrade. In het volgende diagram ziet u de stappen die bij het upgrade proces zijn betrokken:
 
-Het belangrijkste verschil is dat, als er een onherstelbare fout optreedt tijdens de upgrade, het herstel van de status van de vóór de upgrade omvat het opnieuw distribueren van de toepassing in een andere regio en de database herstellen vanuit back-up met behulp van geo-herstel. Dit proces leidt er significante downtime.
+1. Stel de primaire data base in op de modus alleen-lezen (3). In deze modus wordt gegarandeerd dat de productie omgeving van de web-app (v1) alleen-lezen blijft tijdens de upgrade, waardoor gegevens verschillen tussen de data base-exemplaren van v1 en v2 worden voor komen.
+2. Verbreek de verbinding van de secundaire data base met behulp van de geplande beëindigings modus (4). Met deze actie maakt u een volledig gesynchroniseerde, onafhankelijke kopie van de primaire data base. Er wordt een upgrade voor deze data base uitgevoerd.
+3. Schakel de secundaire data base in op de modus lezen/schrijven en voer het upgrade script uit (5).
 
-## <a name="upgrade-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>Upgrade uitvoeren van toepassingen die afhankelijk van de database geo-replicatie voor herstel na noodgevallen zijn
+![SQL Database geo-replicatie Configuratie voor herstel na nood gevallen in de Cloud.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
 
-Als uw toepassing gebruikmaakt van actieve geo-replicatie of automatische failover-groepen voor bedrijfscontinuïteit, wordt deze geïmplementeerd op ten minste twee verschillende regio's. Er is een actieve, primaire database in een primaire regio en een alleen-lezen, secundaire database in een back-regio. Samen met de factoren die aan het begin van dit artikel worden vermeld, moet het upgradeproces ook die garanderen:
+Als de upgrade is voltooid, bent u nu klaar om over te scha kelen naar de bijgewerkte versie van de toepassing, die een productie omgeving wordt. Wisseling omvat een aantal stappen, zoals wordt geïllustreerd in het volgende diagram:
 
-* De toepassing blijft te allen tijde tijdens het upgradeproces onherstelbare fouten beveiligd.
-* De geografisch redundante onderdelen van de toepassing geüpdatet zijn in combinatie met de actieve onderdelen.
+1. Activeer een wissel bewerking tussen productie-en faserings omgevingen van de web-app (6). Met deze bewerking worden de Url's van de twee omgevingen omgeschakeld. Wijst `contoso.azurewebsites.net` nu naar versie v2 van de website en de data base (productie omgeving). 
+2. Als u de V1-versie niet meer nodig hebt, die na het wisselen een staging-kopie werd geworden, kunt u de faserings omgeving (7) buiten gebruik stellen.
 
-Voor het bereiken van deze doelstellingen, naast het gebruik van de Web-Apps-omgevingen, kunt u profiteren van Azure Traffic Manager met behulp van een failover-profiel met één actief eindpunt en een back-eindpunt. Het volgende diagram illustreert de operationele omgeving voordat u het upgradeproces. De websites `contoso-1.azurewebsites.net` en `contoso-dr.azurewebsites.net` vertegenwoordigen een productie-omgeving van de toepassing met volledige geografische redundantie. De productie-omgeving bevat de volgende onderdelen:
+![SQL Database geo-replicatie Configuratie voor herstel na nood gevallen in de Cloud.](media/sql-database-manage-application-rolling-upgrade/option1-3.png)
 
-* De productie-omgeving van de web-app `contoso-1.azurewebsites.net` in de primaire regio (1)
-* De primaire database in de primaire regio (2)
-* Een stand-by-exemplaar van de web-app in de back-regio (3)
-* De geo-replicatie secundaire database in de back-regio (4)
-* Een prestatieprofiel van Traffic Manager met een online-eindpunt met de naam `contoso-1.azurewebsites.net` en een offline-eindpunt met de naam `contoso-dr.azurewebsites.net`
+Als het upgrade proces mislukt (bijvoorbeeld vanwege een fout in het upgrade script), moet u overwegen dat de faserings omgeving is aangetast. Als u de toepassing wilt terugdraaien naar de status van vóór de upgrade, herstelt u de toepassing in de productie omgeving naar volledige toegang. In het volgende diagram ziet u de stappen voor het opnieuw versie nummer:
 
-Als u wilt maken het mogelijk is de upgrade terugdraaien, moet u een faseringsomgeving maken met behulp van een volledig gesynchroniseerde kopie van de toepassing. Omdat u nodig hebt om ervoor te zorgen dat de toepassing snel herstellen kunt als een onherstelbare fout tijdens het upgradeproces optreedt, moet de faseringsomgeving ook geografisch redundante zijn. De volgende stappen zijn vereist voor het maken van een faseringsomgeving voor de upgrade:
+1. Stel de database kopie in op lees-schrijf modus (8). Met deze actie wordt de volledige v1-functionaliteit van de productie kopie hersteld.
+2. Voer de analyse van de hoofd oorzaak uit en maak de faserings omgeving buiten gebruik (9).
 
-1. Implementeer een faseringsomgeving van de web-app in de primaire regio (6).
-2. Een secundaire database maken in de primaire Azure-regio (7). Configureer de faseringsomgeving van de web-app tot stand te brengen. 
-3. Een andere geografisch redundante, secundaire database in de back-regio maken door de secundaire database in de primaire regio te repliceren. (Deze methode wordt aangeroepen *geo-replicatie in een keten*.) (8).
-4. Implementeren van een faseringsomgeving van de web-app-exemplaar in de back-regio (9) en configureer deze als u wilt verbinding maken met de geografisch redundante secundaire database gemaakt op (8).
+Op dit moment is de toepassing volledig functioneel en kunt u de upgrade stappen herhalen.
 
 > [!NOTE]
-> Deze stappen voor gegevensvoorbereiding heeft geen gevolgen voor de toepassing in de productieomgeving. Deze blijven volledig functioneel in de modus lezen-schrijven.
+> Voor het terugdraaien zijn geen DNS-wijzigingen vereist omdat u nog geen swap bewerking hebt uitgevoerd.
 
-![Configuratie van de SQL-Database geo-replicatie voor noodherstel van de cloud.](media/sql-database-manage-application-rolling-upgrade/option2-1.png)
+![SQL Database geo-replicatie Configuratie voor herstel na nood gevallen in de Cloud.](media/sql-database-manage-application-rolling-upgrade/option1-4.png)
 
-Wanneer de voorbereidende stappen voltooid zijn, is de staging-omgeving gereed is voor de upgrade. Het volgende diagram illustreert deze stappen voor de upgrade:
+Het belangrijkste voor deel van deze optie is dat u een toepassing in één regio kunt bijwerken door een aantal eenvoudige stappen te volgen. De kosten voor de dollar van de upgrade zijn relatief laag. 
 
-1. De primaire database instellen in de productie-omgeving naar de modus alleen-lezen (10). In deze modus wordt gegarandeerd dat de productiedatabase (V1) niet worden gewijzigd tijdens de upgrade, waardoor wordt voorkomen dat de gegevensdivergentie tussen de V1 en V2-database-exemplaren.
+Als er sprake is van een onherstelbare fout tijdens de upgrade, moet u de toepassing opnieuw implementeren in een andere regio en de data base vanuit een back-up terugzetten met behulp van geo-Restore. Dit proces resulteert in aanzienlijke downtime.
+
+## <a name="upgrade-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>Toepassingen bijwerken die gebruikmaken van geo-replicatie van de Data Base voor nood herstel
+
+Als uw toepassing actieve groepen met geo-replicatie of automatische failover gebruikt voor bedrijfs continuïteit, wordt deze geïmplementeerd in ten minste twee verschillende regio's. Er is een actieve, primaire data base in een primaire regio en een secundaire data base met het kenmerk alleen-lezen in een back-upregio. Naast de factoren die aan het begin van dit artikel worden vermeld, moet het upgrade proces ook garanderen dat:
+
+* De toepassing blijft beveiligd tegen onherstelbare storingen tijdens het upgrade proces.
+* De geo-redundante onderdelen van de toepassing worden parallel geüpgraded met de actieve onderdelen.
+
+Om deze doel stellingen te bereiken, kunt u, naast het gebruik van de Web Apps omgevingen, gebruikmaken van Azure Traffic Manager met behulp van een failover-profiel met één actief eind punt en één back-upeindpunt. In het volgende diagram ziet u de operationele omgeving voorafgaand aan het upgrade proces. De websites `contoso-1.azurewebsites.net` en `contoso-dr.azurewebsites.net` vertegenwoordigen een productie omgeving van de toepassing met volledige geografische redundantie. De productie omgeving omvat de volgende onderdelen:
+
+* De productie omgeving van de web- `contoso-1.azurewebsites.net` app in de primaire regio (1)
+* De primaire data base in de primaire regio (2)
+* Een stand-by-exemplaar van de web-app in de back-upregio (3)
+* De geo-gerepliceerde secundaire data base in de back-upregio (4)
+* Een Traffic Manager prestatie profiel met een online eind punt `contoso-1.azurewebsites.net` met de naam en een offline-eind punt met de naam`contoso-dr.azurewebsites.net`
+
+Om het mogelijk te maken om de upgrade te herstellen, moet u een faserings omgeving maken met een volledig gesynchroniseerde kopie van de toepassing. Omdat u er zeker van wilt zijn dat de toepassing snel kan worden hersteld wanneer er tijdens het upgrade proces een onherstelbare fout optreedt, moet de faserings omgeving ook geografisch redundant zijn. De volgende stappen zijn vereist voor het maken van een faserings omgeving voor de upgrade:
+
+1. Implementeer een faserings omgeving van de web-app in de primaire regio (6).
+2. Maak een secundaire data base in de primaire Azure-regio (7). Configureer de faserings omgeving van de web-app om er verbinding mee te maken. 
+3. Maak een andere geo-redundante, secundaire data base in de back-upregio door de secundaire data base te repliceren in de primaire regio. (Deze methode wordt *aaneengeschakelde geo-replicatie*genoemd.) (8).
+4. Implementeer een faserings omgeving van het web-app-exemplaar in de back-upregio (9) en configureer deze om verbinding te maken met de geo-redundante secundaire data base die is gemaakt om (8).
+
+> [!NOTE]
+> Deze voorbereidings stappen hebben geen invloed op de toepassing in de productie omgeving. Deze functie blijft volledig functioneel in de modus lezen-schrijven.
+
+![SQL Database geo-replicatie Configuratie voor herstel na nood gevallen in de Cloud.](media/sql-database-manage-application-rolling-upgrade/option2-1.png)
+
+Wanneer de voorbereidende stappen zijn voltooid, is de faserings omgeving gereed voor de upgrade. In het volgende diagram ziet u deze upgrade stappen:
+
+1. Stel de primaire data base in de productie omgeving in op de modus alleen-lezen (10). In deze modus wordt gegarandeerd dat de productie database (v1) niet verandert tijdens de upgrade, waardoor de gegevens verschillen tussen de data base-exemplaren van v1 en v2 worden voor komen.
 
 ```sql
 -- Set the production database to read-only mode
@@ -110,7 +109,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. Geo-replicatie beëindigen door de secundaire (11). Deze actie maakt een onafhankelijke maar volledig gesynchroniseerde kopie van de productiedatabase. Deze database wordt bijgewerkt. Het volgende voorbeeld maakt gebruik van Transact-SQL, maar [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) is ook beschikbaar. 
+2. Beëindig geo-replicatie door de verbinding van de secundaire te verbreken (11). Met deze actie wordt een onafhankelijke, volledig gesynchroniseerde kopie van de productie database gemaakt. Er wordt een upgrade voor deze data base uitgevoerd. In het volgende voor beeld wordt Transact-SQL gebruikt, maar [Power shell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) is ook beschikbaar. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
@@ -118,41 +117,41 @@ ALTER DATABASE <Prod_DB>
 REMOVE SECONDARY ON SERVER <Partner-Server>
 ```
 
-3. Voer het script bijwerken op basis van `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net`, en de primaire faseringsdatabase (12). Wijzigingen in de database zal automatisch worden gerepliceerd naar de secundaire fasering.
+3. Voer het upgrade script `contoso-1-staging.azurewebsites.net`uit met, `contoso-dr-staging.azurewebsites.net`en de primaire Data Base voor fase ring (12). De wijzigingen in de Data Base worden automatisch gerepliceerd naar de fase ring secundair.
 
-![Configuratie van de SQL-Database geo-replicatie voor noodherstel van de cloud.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)
+![SQL Database geo-replicatie Configuratie voor herstel na nood gevallen in de Cloud.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)
 
-Als de upgrade voltooid is, kunt u nu klaar om te schakelen tussen gebruikers naar de V2-versie van de toepassing. Het volgende diagram illustreert de stappen voor het:
+Als de upgrade is voltooid, bent u nu klaar om te scha kelen tussen gebruikers en de versie v2 van de toepassing. In het volgende diagram ziet u de stappen die worden beschreven:
 
-1. Activeer een wisselbewerking tussen productie- en testomgevingen van de web-app in de primaire regio (13) en in de back-regio (14). Versie 2 van de toepassing nu wordt een productie-omgeving, met behulp van een redundante kopie in de back-regio.
-2. Als u de V1-toepassing (15 en 16) niet meer nodig hebt, kunt u de faseringsomgeving.
+1. Activeer een wissel bewerking tussen productie-en faserings omgevingen van de web-app in de primaire regio (13) en in de back-upregio (14). V2 van de toepassing wordt nu een productie omgeving, met een redundante kopie in de back-upregio.
+2. Als u de V1-toepassing (15 en 16) niet meer nodig hebt, kunt u de faserings omgeving buiten gebruik stellen.
 
-![Configuratie van de SQL-Database geo-replicatie voor noodherstel van de cloud.](media/sql-database-manage-application-rolling-upgrade/option2-3.png)
+![SQL Database geo-replicatie Configuratie voor herstel na nood gevallen in de Cloud.](media/sql-database-manage-application-rolling-upgrade/option2-3.png)
 
-Als tijdens de upgrade is mislukt (bijvoorbeeld vanwege een fout in het script bijwerken), kunt u overwegen de faseringsomgeving zich in een inconsistente toestand terechtkomen. Als u wilt de toepassing naar de status van vóór de upgrade terugdraaien, teruggaan naar het gebruik van v1-versie van de toepassing in de productieomgeving. De vereiste stappen worden weergegeven in het volgende diagram:
+Als het upgrade proces mislukt (bijvoorbeeld vanwege een fout in het upgrade script), moet u overwegen dat de faserings omgeving een inconsistente status heeft. Als u de toepassing wilt terugdraaien naar de status van vóór de upgrade, keert u terug naar het gebruik van v1 van de toepassing in de productie omgeving. De vereiste stappen worden in het volgende diagram weer gegeven:
 
-1. Stel het primaire database-exemplaar in de productie-omgeving naar de modus lezen / schrijven (17). Deze actie worden hersteld door volledige V1-functionaliteit in de productieomgeving.
-2. Uitvoeren van de hoofdoorzaak wordt onderzocht en herstellen of verwijderen van de faseringsomgeving (18 en 19).
+1. Stel de primaire database kopie in de productie omgeving in op de modus lezen/schrijven (17). Met deze actie wordt de volledige v1-functionaliteit hersteld in de productie omgeving.
+2. Voer de analyse van de hoofd oorzaak uit en herstel of verwijder de faserings omgeving (18 en 19).
 
-Op dit moment de toepassing volledig functioneel is en u kunt de upgrade stappen herhalen.
+Op dit moment is de toepassing volledig functioneel en kunt u de upgrade stappen herhalen.
 
 > [!NOTE]
-> Het terugdraaien vereist geen dat DNS gewijzigd omdat u een swap-bewerking niet uitvoeren.
+> Voor het terugdraaien zijn geen DNS-wijzigingen vereist omdat u geen swap bewerking hebt uitgevoerd.
 
-![Configuratie van de SQL-Database geo-replicatie voor noodherstel van de cloud.](media/sql-database-manage-application-rolling-upgrade/option2-4.png)
+![SQL Database geo-replicatie Configuratie voor herstel na nood gevallen in de Cloud.](media/sql-database-manage-application-rolling-upgrade/option2-4.png)
 
-Het belangrijkste voordeel van deze optie is dat u zowel de toepassing en de geografisch redundante kopie parallel upgraden kunt zonder verlies van de bedrijfscontinuïteit tijdens de upgrade.
+Het belangrijkste voor deel van deze optie is dat u zowel de toepassing als de geo-redundante kopie tegelijkertijd kunt upgraden zonder in te leveren op uw bedrijfs continuïteit tijdens de upgrade.
 
-Het belangrijkste verschil is dat het dubbele redundantie van elk toepassingsonderdeel vereist, en daarom worden hogere Dollarkosten in rekening gebracht. Hierbij wordt ook een meer complexe workflow.
+De belangrijkste balans is dat hiervoor dubbele redundantie van elk toepassings onderdeel is vereist, waardoor de kosten voor de dollar hoger worden. Het omvat ook een complexere werk stroom.
 
 ## <a name="summary"></a>Samenvatting
 
-De twee upgrademethode die worden beschreven in het artikel verschillen in complexiteit en Dollarkosten, maar ze beide richten zich op het minimaliseren van hoe lang de gebruiker is beperkt tot alleen-lezen bewerkingen. Deze tijd wordt rechtstreeks gedefinieerd door de duur van het upgrade-script. Deze niet afhankelijk is van de grootte van de database, de servicelaag die u hebt gekozen, de websiteconfiguratie van de of andere factoren die u eenvoudig kunt niet bepalen. Alle voorbereidende stappen zijn ontkoppeld van de Upgradestappen en niet van invloed zijn op de productietoepassing. De efficiëntie van het upgrade-script is een belangrijke factor waarmee wordt bepaald van de gebruikerservaring tijdens upgrades. Dus, is de beste manier om deze ervaring te verbeteren om u te concentreren op het maken van het upgrade-script zo efficiënt mogelijk.
+De twee upgrade methoden die in het artikel worden beschreven, verschillen in complexiteits-en dollar kosten, maar ze zijn vooral gericht op het minimaliseren van de duur van de gebruiker tot alleen-lezen bewerkingen. Deze tijd wordt rechtstreeks gedefinieerd door de duur van het upgrade script. Het is niet afhankelijk van de grootte van de data base, de servicelaag die u hebt gekozen, de website configuratie of andere factoren die u niet eenvoudig kunt beheren. Alle voorbereidings stappen zijn losgekoppeld van de upgrade stappen en zijn niet van invloed op de productie toepassing. De efficiëntie van het upgrade script is een belang rijke factor waarmee de gebruikers ervaring tijdens upgrades wordt bepaald. De beste manier om deze ervaring te verbeteren, is de nadruk op uw inspanningen om het upgrade script zo efficiënt mogelijk te maken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een overzicht voor zakelijke continuïteit en scenario's, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md).
-* Zie voor meer informatie over Azure SQL Database van actieve geo-replicatie, [leesbare secundaire databases met behulp van actieve geo-replicatie maken](sql-database-active-geo-replication.md).
-* Zie voor meer informatie over automatische failovergroepen Azure SQL Database, [automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases](sql-database-auto-failover-group.md).
-* Zie voor meer informatie over het faseringsomgevingen in Azure App Service, [faseringsomgevingen in Azure App Service instellen](../app-service/deploy-staging-slots.md).
-* Zie voor meer informatie over Azure Traffic Manager-profielen, [een Azure Traffic Manager-profiel beheren](../traffic-manager/traffic-manager-manage-profiles.md).
+* Zie [overzicht van bedrijfs continuïteit](sql-database-business-continuity.md)voor een overzicht en scenario's voor bedrijfs continuïteit.
+* Zie voor meer informatie over Azure SQL Database actieve geo-replicatie, [Lees bare secundaire data bases maken met behulp van actieve geo-replicatie](sql-database-active-geo-replication.md).
+* Zie voor meer informatie over Azure SQL Database groepen voor automatische failover de [optie groepen voor automatische failover gebruiken om transparante en gecoördineerde failover van meerdere data bases mogelijk te maken](sql-database-auto-failover-group.md).
+* Zie [faserings omgevingen instellen in azure app service](../app-service/deploy-staging-slots.md)voor meer informatie over faserings omgevingen in azure app service.
+* Zie [een azure Traffic Manager-profiel beheren](../traffic-manager/traffic-manager-manage-profiles.md)voor meer informatie over Azure Traffic Manager-profielen.

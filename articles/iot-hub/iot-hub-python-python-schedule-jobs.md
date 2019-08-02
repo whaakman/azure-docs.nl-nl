@@ -1,20 +1,19 @@
 ---
 title: Taken plannen met Azure IoT Hub (python) | Microsoft Docs
 description: Een Azure IoT Hub-taak plannen voor het aanroepen van een directe methode op meerdere apparaten. U gebruikt de Azure IoT Sdk's voor python voor het implementeren van de gesimuleerde apparaat-apps en een service-app om de taak uit te voeren.
-author: kgremban
-manager: philmea
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 02/16/2019
-ms.author: kgremban
-ms.openlocfilehash: f4a7cbb5c4f8f4a019cbf5d63a6f2ffe8092546e
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.date: 07/30/2019
+ms.author: robinsh
+ms.openlocfilehash: 81b2145e6107558f2d9698c7e5d03658f1129b00
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405890"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667935"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Taken plannen en uitzenden (python)
 
@@ -48,16 +47,14 @@ Aan het einde van deze zelf studie hebt u twee python-apps:
 
 **scheduleJobService.py**, waarmee een directe methode wordt aangeroepen in de gesimuleerde apparaat-app en de gewenste eigenschappen van het apparaat worden bijgewerkt met behulp van een taak.
 
-Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-* [Python 2. x of 3. x](https://www.python.org/downloads/). Zorg ervoor dat u de 32-bits of 64-bits installatie gebruikt, zoals vereist door uw configuratie. Zorg ervoor dat u Python toevoegt aan uw platformspecifieke omgevingsvariabele als u hierom wordt gevraagd tijdens de installatie. Als u Python 2.x gebruikt, moet u mogelijk [pip *installeren of upgraden*, het Python-pakketbeheersysteem](https://pip.pypa.io/en/stable/installing/).
+Hier volgen de installatie-instructies voor de vereisten.
 
-* Als u een Windows-besturingssysteem hebt, gebruikt u vervolgens het [herdistribueerbare pakket van Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) om het gebruik van systeemeigen DLL's van Python mogelijk te maken.
-
-* Een actief Azure-account. (Als u geen account hebt, kunt u in slechts een paar minuten een [gratis account](https://azure.microsoft.com/pricing/free-trial/) maken.)
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 > [!NOTE]
-> De **Azure IOT SDK voor python** biedt geen rechtstreekse ondersteuning voor de functionaliteit van **taken** . In plaats daarvan biedt deze zelf studie een alternatieve oplossing die gebruikmaakt van asynchrone threads en timers. Zie de **Service client SDK** Feature List op de pagina [Azure IOT SDK voor python](https://github.com/Azure/azure-iot-sdk-python) voor verdere updates. 
+> De **Azure IOT SDK voor python** biedt geen rechtstreekse ondersteuning voor de functionaliteit van **taken** . In plaats daarvan biedt deze zelf studie een alternatieve oplossing die gebruikmaakt van asynchrone threads en timers. Zie de **Service client SDK** Feature List op de pagina [Azure IOT SDK voor python](https://github.com/Azure/azure-iot-sdk-python) voor verdere updates.
 >
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken

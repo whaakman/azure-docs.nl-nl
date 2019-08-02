@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 13ae1b74acbcab8d623c24d6a7b8d7e1355b80e8
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: bbce41271914df4bb8a75804bc66ae538fe766fa
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227142"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716755"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Over het aanpassen van de gebruikers interface in Azure Active Directory B2C
 
@@ -118,13 +118,13 @@ De volgende tabel bevat de HTML-fragmenten die Azure AD B2C worden samengevoegd 
 | Lokaal account registreren | Bevat een formulier voor het registreren van een lokaal account op basis van een e-mail adres of een gebruikers naam. Het formulier kan verschillende invoer besturings elementen bevatten, zoals een tekstinvoervak, een vak voor het invoeren van een wacht woord, keuze rondje, vervolg keuze vakjes en selectie vakjes met meerdere selecties. |
 | Aanmelding voor sociaal account | Kan worden weer gegeven wanneer u zich aanmeldt met een bestaand account van een id-provider voor sociale netwerken, zoals Facebook of Google. Dit wordt gebruikt wanneer aanvullende informatie van de klant moet worden verzameld met behulp van een aanmeldings formulier. |
 | Unified Sign-up of aanmelden | Hiermee worden zowel registratie als gebruikers met sociale id-providers, zoals Facebook-, Google-of lokale accounts, afgehandeld. |
-| Multi-Factor Authentication | Klanten kunnen hun telefoon nummers (met behulp van tekst of spraak) verifiëren tijdens het registreren of aanmelden. |
+| Meervoudige verificatie | Klanten kunnen hun telefoon nummers (met behulp van tekst of spraak) verifiëren tijdens het registreren of aanmelden. |
 | Fout | Geeft fout informatie aan de klant. |
 
 
 ## <a name="how-do-i-localize-content"></a>Hoe kan ik inhoud lokaliseren?
 
-U kunt uw HTML-inhoud lokaliseren door [taal aanpassing](active-directory-b2c-reference-language-customization.md) in te scha kelen in uw Azure AD B2C-Tenant. Als u deze functie inschakelt, kunnen Azure AD B2C de para `ui-locales` meter open id Connect door sturen naar uw eind punt. De inhouds server kan deze para meter gebruiken om taalspecifieke HTML-pagina's op te geven.
+U kunt uw HTML-inhoud lokaliseren door [taal aanpassing](active-directory-b2c-reference-language-customization.md) in te scha kelen in uw Azure AD B2C-Tenant. Als u deze functie inschakelt, kunnen Azure AD B2C de `ui-locales` OpenID Connect Connect-para meter naar uw eind punt door sturen. De inhouds server kan deze para meter gebruiken om taalspecifieke HTML-pagina's op te geven.
 
 Inhoud kan vanaf verschillende locaties worden opgehaald op basis van de land instelling die wordt gebruikt. In het eind punt waarvoor CORS is ingeschakeld, stelt u een mapstructuur in om inhoud voor specifieke talen te hosten. U roept de juiste naam aan als u de Joker waarde {Culture: RFC5646} gebruikt. Uw aangepaste pagina-URI kan er bijvoorbeeld als volgt `https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html`uitzien. U kunt de pagina in het Frans laden door inhoud op te halen uit`https://contoso.blob.core.windows.net/fr/myHTML/unified.html`
 

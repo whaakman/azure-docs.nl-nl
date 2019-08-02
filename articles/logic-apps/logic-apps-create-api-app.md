@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 233aa92b30404ac7ad2b93bb37380bea984be566
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: e5dc913d682088296f84fb6bd7595a09d9d3fe7b
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273225"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609867"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Aangepaste Api's maken die u kunt aanroepen vanuit Azure Logic Apps
 
@@ -25,7 +25,7 @@ Hoewel Azure Logic Apps [honderden connectors](../connectors/apis-list.md) biedt
 * Help klanten uw service te gebruiken voor het beheren van professionele of persoonlijke taken.
 * Breid het bereik, de vind baarheid en het gebruik voor uw service uit.
 
-Connectors zijn in principe Web-Api's die REST gebruiken voor pluggable interfaces, [Swagger-meta gegevens indeling](https://swagger.io/specification/) voor documentatie en JSON als gegevensuitwisselings indeling. Omdat connectors zijn REST-Api's die communiceren via HTTP-eind punten, kunt u elke taal, zoals .NET, Java of node. js, gebruiken voor het bouwen van connectors. U kunt ook uw Api's hosten op [Azure app service](../app-service/overview.md), een Paas-Aanbieding (platform-as-a-Service) die een van de beste, eenvoudigste en meest schaal bare manieren biedt voor API-hosting. 
+Connectors zijn in principe Web-Api's die REST gebruiken voor pluggable interfaces, [Swagger-meta gegevens indeling](https://swagger.io/specification/) voor documentatie en JSON als gegevensuitwisselings indeling. Omdat connectors zijn REST-Api's die communiceren via HTTP-eind punten, kunt u elke taal, zoals .NET, Java, python of node. js, gebruiken voor het bouwen van connectors. U kunt ook uw Api's hosten op [Azure app service](../app-service/overview.md), een Paas-Aanbieding (platform-as-a-Service) die een van de beste, eenvoudigste en meest schaal bare manieren biedt voor API-hosting. 
 
 Voor aangepaste Api's voor het werken met Logic apps kan uw API [*acties*](./logic-apps-overview.md#logic-app-concepts) bieden waarmee specifieke taken in werk stromen voor logische apps worden uitgevoerd. Uw API kan ook fungeren als een [*trigger*](./logic-apps-overview.md#logic-app-concepts) waarmee een logische app-werk stroom wordt gestart wanneer nieuwe gegevens of een gebeurtenis aan een opgegeven voor waarde voldoet. In dit onderwerp worden algemene patronen beschreven die u kunt volgen voor het bouwen van acties en triggers in uw API, op basis van het gedrag dat u voor uw API wilt bieden.
 
@@ -45,7 +45,7 @@ U kunt uw Api's hosten op [Azure app service](../app-service/overview.md), een P
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Wat zijn de verschillen tussen aangepaste Api's en aangepaste connectors?
 
-Aangepaste Api's en [aangepaste connectors](../logic-apps/custom-connector-overview.md) zijn web-API'S die rest gebruiken voor pluggable interfaces, [Swagger-meta gegevens indeling](https://swagger.io/specification/) voor documentatie en JSON als de Data Exchange-indeling. En omdat deze Api's en connectors REST Api's zijn die communiceren via HTTP-eind punten, kunt u elke taal, zoals .NET, Java of node. js, gebruiken voor het bouwen van aangepaste Api's en connectors.
+Aangepaste Api's en [aangepaste connectors](../logic-apps/custom-connector-overview.md) zijn web-API'S die rest gebruiken voor pluggable interfaces, [Swagger-meta gegevens indeling](https://swagger.io/specification/) voor documentatie en JSON als de Data Exchange-indeling. En omdat deze Api's en connectors REST Api's zijn die communiceren via HTTP-eind punten, kunt u elke taal, zoals .NET, Java, python of node. js, gebruiken voor het bouwen van aangepaste Api's en connectors.
 
 Met aangepaste Api's kunt u Api's aanroepen die geen connectors zijn en eind punten bieden die u met HTTP + Swagger, Azure API Management of App Services aanroept. Aangepaste connectors werken als aangepaste Api's, maar hebben ook deze kenmerken:
 
@@ -141,7 +141,7 @@ Stel voor dit patroon twee eind punten in op uw controller: `subscribe` en`unsub
 ![Actie patroon van webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
 > [!NOTE]
-> Momenteel biedt de Logic app Designer geen ondersteuning voor het detecteren van webhook-eind punten via Swagger. Daarom moet u voor dit patroon een webhook- [  actie](../connectors/connectors-native-webhook.md) toevoegen en de URL, headers en hoofd tekst voor uw aanvraag opgeven. Zie ook [werk stroom acties en triggers](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Als u de URL voor terugbellen wilt door geven, `@listCallbackUrl()` kunt u indien nodig de werk stroom functie in een van de vorige velden gebruiken.
+> Momenteel biedt de Logic app Designer geen ondersteuning voor het detecteren van webhook-eind punten via Swagger. Daarom moet u voor dit patroon een webhook- [ actie](../connectors/connectors-native-webhook.md) toevoegen en de URL, headers en hoofd tekst voor uw aanvraag opgeven. Zie ook [werk stroom acties en triggers](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Als u de URL voor terugbellen wilt door geven, `@listCallbackUrl()` kunt u indien nodig de werk stroom functie in een van de vorige velden gebruiken.
 
 > [!TIP]
 > Bekijk voor een voor beeld van een webhook-patroon deze voor beeld van een webhook- [trigger in github](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
@@ -167,7 +167,7 @@ Hier vindt u specifieke stappen voor een polling trigger, zoals beschreven in he
 
 | Hebt u nieuwe gegevens of gebeurtenissen gevonden?  | API-antwoord | 
 | ------------------------- | ------------ |
-| Gegeven | Een http- `200 OK` status retour neren met de nettolading van het antwoord (invoer voor de volgende stap). <br/>Dit antwoord maakt een exemplaar van een logische app en start de werk stroom. | 
+| Gevonden | Een http- `200 OK` status retour neren met de nettolading van het antwoord (invoer voor de volgende stap). <br/>Dit antwoord maakt een exemplaar van een logische app en start de werk stroom. | 
 | Niet gevonden | Een http- `202 ACCEPTED` status retour neren `location` met een koptekst `retry-after` en een header. <br/>Voor triggers moet de `location` header ook een `triggerState` query parameter bevatten, die meestal een ' tijds tempel ' is. Uw API kan deze id gebruiken om de laatste keer dat de logische app werd geactiveerd, bij te houden. | 
 ||| 
 
@@ -203,7 +203,7 @@ Webhook-triggers functioneren op dezelfde manier als de webhook- [acties](#webho
 ![Patroon van de webhook-trigger](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
 > [!NOTE]
-> Momenteel biedt de Logic app Designer geen ondersteuning voor het detecteren van webhook-eind punten via Swagger. Daarom moet u voor dit patroon een webhook- [  trigger](../connectors/connectors-native-webhook.md) toevoegen en de URL, headers en hoofd tekst voor uw aanvraag opgeven. Zie ook [HTTPWebhook-trigger](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Als u de URL voor terugbellen wilt door geven, `@listCallbackUrl()` kunt u indien nodig de werk stroom functie in een van de vorige velden gebruiken.
+> Momenteel biedt de Logic app Designer geen ondersteuning voor het detecteren van webhook-eind punten via Swagger. Daarom moet u voor dit patroon een webhook- [ trigger](../connectors/connectors-native-webhook.md) toevoegen en de URL, headers en hoofd tekst voor uw aanvraag opgeven. Zie ook [HTTPWebhook-trigger](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Als u de URL voor terugbellen wilt door geven, `@listCallbackUrl()` kunt u indien nodig de werk stroom functie in een van de vorige velden gebruiken.
 >
 > Om te voor komen dat dezelfde gegevens meerdere keren worden verwerkt, moet de trigger gegevens opschonen die al zijn gelezen en zijn door gegeven aan de logische app.
 

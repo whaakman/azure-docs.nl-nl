@@ -1,6 +1,6 @@
 ---
-title: Handleiding voor het installeren en implementeren van Linux C-agent voor IoT-agent Preview van Azure Security Center | Microsoft Docs
-description: Informatie over het installeren van de Azure Security Center voor IoT-agent op zowel 32-bits en 64-bits Linux.
+title: Hand leiding voor het installeren en implementeren van Linux C-agent van Azure Security Center voor IoT-agent | Microsoft Docs
+description: Meer informatie over het installeren van de Azure Security Center voor IoT-agent op zowel 32-bits als 64-bits Linux.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,22 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f5b98060486e6c55bb1702386cd5438f558254b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3fd4287c6dd1cc42f419cfa6b252c1d276d1d5a5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616851"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597237"
 ---
-# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Azure Security Center voor beveiliging op basis van IoT C-agent voor Linux implementeren
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Azure Security Center implementeren voor IoT C-gebaseerde beveiligings agent voor Linux
 
-> [!IMPORTANT]
-> Azure Security Center voor IoT is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
-
-Deze handleiding wordt uitgelegd hoe te installeren en implementeren van de Azure Security Center (ASC) voor beveiliging op basis van IoT C-agent op Linux.
+In deze hand leiding wordt uitgelegd hoe u de Azure Security Center voor IoT C-beveiligings agent op Linux installeert en implementeert.
 
 In deze handleiding leert u het volgende: 
 > [!div class="checklist"]
@@ -39,64 +35,64 @@ In deze handleiding leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Zie voor andere platforms en versies van de agent [kiest u de juiste security agent](how-to-deploy-agent.md).
+Zie [de juiste beveiligings agent kiezen](how-to-deploy-agent.md)voor andere platforms en agents.
 
-1. Voor het implementeren van de security-agent zijn lokale administratorrechten op de computer die u wilt installeren op (sudo) vereist.
+1. Voor het implementeren van de beveiligings agent zijn lokale beheerders rechten vereist op de computer waarop u wilt installeren (sudo).
 
-1. [Maken van een security module](quickstart-create-security-twin.md) voor het apparaat.
+1. [Maak een beveiligings module](quickstart-create-security-twin.md) voor het apparaat.
 
 ## <a name="installation"></a>Installatie 
 
-Als u wilt installeren en implementeren van de security-agent, het volgende doen:
+Als u de beveiligings agent wilt installeren en implementeren, gebruikt u de volgende werk stroom:
 
 
-1. De meest recente versie downloaden op de computer van [Github](https://aka.ms/iot-security-github-c).
+1. Down load de meest recente versie van [github](https://aka.ms/iot-security-github-c)naar uw computer.
 
-1. Pak de inhoud van het pakket uit en navigeer naar de _/Install_ map.
+1. Pak de inhoud van het pakket uit en navigeer naar de map _/install_ .
 
-1. Actieve Voeg machtigingen toe aan de **InstallSecurityAgent script** door het uitvoeren van de volgende:
+1. Voeg actieve machtigingen toe aan het **script InstallSecurityAgent** door de volgende opdracht uit te voeren:
     
    ```
    chmod +x InstallSecurityAgent.sh
    ```
 
-1. Voer vervolgens: 
+1. Voer vervolgens de volgende handelingen uit: 
 
    ```
    ./InstallSecurityAgent.sh -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -i
    ```
    
-   Zie [verificatie configureren](concept-security-agent-authentication-methods.md) voor meer informatie over parameters voor verificatie.
+   Zie [verificatie configureren](concept-security-agent-authentication-methods.md) voor meer informatie over verificatie parameters.
 
-Dit script doet het volgende:
+Met dit script wordt de volgende functie uitgevoerd:
 
-1. Vereiste onderdelen installeert.
+1. Hiermee worden vereisten geïnstalleerd.
 
-2. Hiermee voegt u een servicegebruiker toe (met interactieve aanmelding uitgeschakeld).
+2. Hiermee wordt een service gebruiker (met interactieve aanmelding uitgeschakeld) toegevoegd.
 
-3. Installeert de agent als een **Daemon** -wordt ervan uitgegaan dat het apparaat gebruikmaakt van **systemd** voor service management.
+3. Installeert de agent als een **daemon** : veronderstelt dat het apparaat **wordt gebruikt voor** Service beheer.
 
-4. Hiermee configureert u de agent met de opgegeven verificatieparameters. 
+4. Hiermee configureert u de agent met de opgegeven verificatie parameters. 
 
-Voer het script voor extra hulp met de parameter Help-informatie: 
+Voer het script uit met de para meter – Help voor meer informatie. 
     
     ./InstallSecurityAgent.sh --help
 
 ### <a name="uninstall-the-agent"></a>De agent verwijderen
 
-Voer het script met de agent verwijderen, de-parameter verwijderen:
+Als u de agent wilt verwijderen, voert u het script uit met de para meter –-Uninstall:
 
     ./InstallSecurityAgent.sh -–uninstall
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-Controleer de implementatiestatus door uit te voeren:
+De implementatie status controleren door uit te voeren:
 
     systemctl status ASCIoTAgent.service
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Lees de ASC voor IoT-service [overzicht](overview.md)
-- Meer informatie over ASC voor IoT [architectuur](architecture.md)
-- Schakel de [service](quickstart-onboard-iot-hub.md)
+- Lees het [overzicht](overview.md) van de Azure Security Center voor IOT-service
+- Meer informatie over Azure Security Center voor IoT- [architectuur](architecture.md)
+- De [service](quickstart-onboard-iot-hub.md) inschakelen
 - Lees de [Veelgestelde vragen](resources-frequently-asked-questions.md)
-- Inzicht in [beveiligingswaarschuwingen](concept-security-alerts.md)
+- [Beveiligings waarschuwingen](concept-security-alerts.md) begrijpen

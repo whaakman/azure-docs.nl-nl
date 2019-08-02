@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity-platform voor web API's (verkrijgen van tokens voor de app) - Daemon-app aanroepen
-description: Informatie over het bouwen van een daemon-app dat aanroepen van web-API's (verkrijgen van tokens)
+title: Daemon-app die web-Api's aanroept (tokens ophalen voor de app)-micro soft Identity-platform
+description: Meer informatie over het bouwen van een daemon-app die web-Api's aanroept (tokens ophalen)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,20 +16,20 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a5f15aa5264c0abf87cb15f0468e8a3a924e0b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075368"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562360"
 ---
-# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon-app die web-API's - roept een token verkrijgen
+# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon-app die web-Api's aanroept-een Token ophalen
 
-Zodra de toepassing vertrouwelijke client is gebouwd, kunt u een token voor de app verkrijgen door het aanroepen van ``AcquireTokenForClient``, het doorgeven van het bereik en forceren of het token niet vernieuwen.
+Zodra de vertrouwelijke client toepassing is gebouwd, kunt u een token voor de app verkrijgen door het ``AcquireTokenForClient``bereik aan te roepen, door te geven en het token te forceren of niet te vernieuwen.
 
-## <a name="scopes-to-request"></a>Bereiken om aan te vragen
+## <a name="scopes-to-request"></a>Te aanvragen scopes
 
-Het bereik om aan te vragen voor een client referentie-stroom de naam van de bron is, gevolgd door `/.default`. Deze notatie vertelt Azure AD gebruiken de **niveau Toepassingsmachtigingen** gedeclareerd statisch tijdens de registratie van de toepassing. Ook, zoals eerder weergegeven, de machtigingen van deze API moeten worden verleend door een tenantbeheerder
+Het bereik dat moet worden aangevraagd voor een client referentie stroom is de naam van de resource `/.default`gevolgd door. Deze notatie vertelt Azure AD voor het gebruik van de **machtigingen op toepassings niveau** die statisch zijn gedeclareerd tijdens de registratie van de toepassing. Net zoals eerder gezien, moeten deze API-machtigingen worden verleend door een Tenant beheerder
 
 ### <a name="net"></a>.NET
 
@@ -40,7 +40,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 ### <a name="python"></a>Python
 
-In MSAL. Python, het configuratiebestand eruit als het volgende codefragment:
+In MSAL. Python, het configuratie bestand zou eruit zien als het volgende code fragment:
 
 ```Python
 {
@@ -59,13 +59,13 @@ public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.de
 
 ### <a name="all"></a>Alle
 
-Het bereik dat wordt gebruikt voor de clientreferenties moet altijd resourceId + "/ .standaard"
+Het bereik dat wordt gebruikt voor client referenties moet altijd resourceId + "/.default" zijn
 
-### <a name="case-of-v10-resources"></a>Aanvraag van v1.0 resources
+### <a name="case-of-azure-ad-v10-resources"></a>Het geval van Azure AD (v 1.0)-resources
 
 > [!IMPORTANT]
-> Azure AD wordt de gewenste doelgroep van het aangevraagde bereik voor MSAL (v2.0-eindpunt) waarin wordt gevraagd een toegangstoken voor een resource een toegangstoken v1.0 accepteren, geparseerd door te nemen alles vóór de laatste slash en als de resource-id gebruiken.
-> Dus als, zoals Azure SQL ( **https://database.windows.net** ) de resource wordt verwacht dat een doelgroep die eindigen met een slash (voor Azure SQL: `https://database.windows.net/` ), moet u een bereik van aanvragen `https://database.windows.net//.default` (Houd er rekening mee de dubbele slash). Zie ook MSAL.NET probleem [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Bron-url afsluitende schuine streep wordt weggelaten, waardoor sql-verificatie mislukt.
+> Voor MSAL (micro soft Identity platform-eind punt) waarbij een toegangs token wordt gevraagd voor een resource die een v 1.0-toegangs token accepteert, parseert Azure AD de gewenste doel groep uit het aangevraagde bereik door alles vóór de laatste slash te nemen en deze als resource-id te gebruiken.
+> Als, zoals Azure SQL ( **https://database.windows.net** ) voor de resource een doel groep verwacht die eindigt met een slash (voor Azure SQL: `https://database.windows.net/` ), moet u daarom een bereik van `https://database.windows.net//.default` aanvragen (Let op de dubbele slash). Zie ook MSAL.NET issue [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): De afsluitende slash van de bron-URL wordt wegge laten, waardoor SQL-verificatie is mislukt.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 
@@ -98,9 +98,9 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 }
 ```
 
-#### <a name="application-token-cache"></a>Toepassing tokencache
+#### <a name="application-token-cache"></a>Toepassings token cache
 
-In MSAL.NET, `AcquireTokenForClient` maakt gebruik van de **toepassing tokencache** (alle andere AcquireTokenXX methoden die gebruikmaken van de gebruiker token cache) niet oproepen `AcquireTokenSilent` voordat `AcquireTokenForClient` als `AcquireTokenSilent` maakt gebruik van de **gebruiker** cache-token. `AcquireTokenForClient` controleert of de **toepassing** token in de cache zelf en bijgewerkt.
+In MSAL.net `AcquireTokenForClient` maakt gebruik van de **toepassings token cache** (alle andere AcquireTokenXX-methoden gebruiken de token cache van de gebruiker `AcquireTokenSilent` ) worden `AcquireTokenForClient` niet `AcquireTokenSilent` aangeroepen voordat aanroepen als gebruikt de token cache van de **gebruiker** . `AcquireTokenForClient`Hiermee wordt de cache van het **toepassings** token zelf gecontroleerd en bijgewerkt.
 
 ### <a name="python"></a>Python
 
@@ -130,9 +130,9 @@ AuthenticationResult result = future.get();
 
 ### <a name="protocol"></a>Protocol
 
-Als u hebt geen nog een bibliotheek voor uw taal naar keuze, kunt u het protocol rechtstreeks gebruiken:
+Als u nog geen bibliotheek hebt voor de taal van uw keuze, kunt u het protocol het beste rechtstreeks gebruiken:
 
-#### <a name="first-case-access-token-request-with-a-shared-secret"></a>Eerste geval: Aanvraag voor een toegangstoken met een gedeeld geheim
+#### <a name="first-case-access-token-request-with-a-shared-secret"></a>Eerste geval: Toegangs token aanvraag met een gedeeld geheim
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
@@ -145,7 +145,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &grant_type=client_credentials
 ```
 
-#### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: Aanvraag voor een toegangstoken met een certificaat
+#### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: Toegangs token aanvraag met een certificaat
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
@@ -159,20 +159,20 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-### <a name="learn-more-about-the-protocol"></a>Meer informatie over het protocol
+### <a name="learn-more-about-the-protocol"></a>Meer informatie over het Protocol
 
-Zie voor meer informatie de documentatie van het protocol: [Azure Active Directory v2.0 en de OAuth 2.0-client referenties stroom](v2-oauth2-client-creds-grant-flow.md).
+Zie de protocol documentatie voor meer informatie: [Micro soft Identity platform en de OAuth 2,0-client referenties stroom](v2-oauth2-client-creds-grant-flow.md).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-### <a name="did-you-use-the-resourcedefault-scope"></a>Hebt u het bereik van de resource/.standaard gebruikt?
+### <a name="did-you-use-the-resourcedefault-scope"></a>Hebt u het resource/.-standaard bereik gebruikt?
 
-Als er een foutbericht weergegeven dat aangeeft dat u hebt een ongeldige bereikparameter gebruikt, zult u waarschijnlijk niet gebruiken de `resource/.default` bereik.
+Als er een fout bericht wordt weer gegeven met de melding dat u een ongeldig bereik hebt gebruikt, hebt `resource/.default` u waarschijnlijk geen gebruik gemaakt van het bereik.
 
-### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Bent u vergeten voor toestemming van een beheerder? Daemon-apps nodig.
+### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Bent u verg eten om beheerders toestemming te geven? Daemon-apps zijn vereist!
 
-Als u een fout optreedt bij het aanroepen van de API **onvoldoende bevoegdheden om de bewerking te voltooien**, de tenantbeheerder moet het verlenen van machtigingen voor de toepassing. Zie stap 6 van de bovenstaande client-app registreren.
-U ziet doorgaans en fout zoals de beschrijving van de volgende fout:
+Als er een fout optreedt bij het aanroepen van de API **onvoldoende bevoegdheden om de bewerking te volt ooien**, moet de Tenant beheerder machtigingen verlenen voor de toepassing. Zie stap 6 van de bovenstaande client-app registreren.
+Normaal gesp roken ziet u een fout, zoals de volgende fout beschrijving:
 
 ```JSon
 Failed to call the web API: Forbidden
@@ -191,4 +191,4 @@ Content: {
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Daemon-app - een web-API aanroepen](scenario-daemon-call-api.md)
+> [Daemon-app: een web-API aanroepen](scenario-daemon-call-api.md)

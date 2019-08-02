@@ -1,6 +1,6 @@
 ---
-title: Operationele Query Store in Azure SQL-Database
-description: Meer informatie over het uitvoeren van de Query Store in Azure SQL Database
+title: Het query archief van het besturings systeem in Azure SQL Database
+description: Meer informatie over het uitvoeren van de query Store in Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,51 +10,50 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 3ceb8569d952f2947870ce7314f869623b2d87f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4f999818fe3b3517ee3fb48c22e616ee50f2d88
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584740"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567143"
 ---
-# <a name="operating-the-query-store-in-azure-sql-database"></a>Besturingssysteem van de Query Store in Azure SQL-Database
+# <a name="operating-the-query-store-in-azure-sql-database"></a>Het query archief in Azure SQL Database gebruiken
 
-Query Store in Azure is een volledig beheerde database-functie die voortdurend worden verzameld en geeft gedetailleerde historische informatie over alle query's. U kunt zien over de Query Store vergelijken met van een vliegtuig flight data recorder die aanzienlijk eenvoudiger queryprestaties probleemoplossing voor cloud en on-premises-klanten. In dit artikel wordt uitgelegd dat specifieke aspecten van het besturingssysteem van de Query Store in Azure. Met deze vooraf verzamelde querygegevens, kunt u snel vaststellen en dus houd meer tijd te focussen op hun bedrijf en oplossen van problemen met prestaties. 
+Query Store in Azure is een volledig beheerde database functie waarmee voortdurend gedetailleerde historische informatie over alle query's wordt verzameld en gepresenteerd. U kunt nadenken over query Store net als bij een vliegtuig vlucht gegevens recorder die de prestaties van query's aanzienlijk vereenvoudigt voor zowel Cloud-als on-premises klanten. In dit artikel worden specifieke aspecten van het besturings systeem voor het uitvoeren van Query's in azure uitgelegd. Door deze vooraf verzamelde query gegevens te gebruiken, kunt u snel prestatie problemen vaststellen en oplossen en zo meer tijd best Eden aan het richten op hun bedrijf. 
 
-Query Store is [wereldwijd beschikbaar](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) in Azure SQL Database sinds November 2015. Query Store vormt de basis voor de analyse van prestaties en afstemmen van functies, zoals [SQL Database Advisor en Prestatiedashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Op het moment van publicatie van dit artikel wordt wordt Query Store uitgevoerd in meer dan 200.000 gebruikersdatabases in Azure, verzamelen van informatie met betrekking tot query voor enkele maanden, zonder onderbreking.
+Het query archief is sinds november 2015 [wereld wijd beschikbaar](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) in Azure SQL database. Query Store is de basis voor het analyseren van prestaties en het afstemmen van functies, zoals [SQL database Advisor en het dash board prestaties](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Op het moment van publicatie van dit artikel wordt de query Store uitgevoerd in meer dan 200.000 gebruikers databases in azure, en worden er zonder onderbrekingen query gegevens verzameld over enkele maanden.
 
 > [!IMPORTANT]
-> Microsoft wordt momenteel Query Store activeren voor alle Azure SQL-databases (bestaande en nieuwe). 
+> Micro soft is bezig met het activeren van het query Archief voor alle Azure SQL-data bases (bestaande en nieuwe). 
 
-## <a name="optimal-query-store-configuration"></a>Configuratie van de optimale Query Store
+## <a name="optimal-query-store-configuration"></a>Optimale configuratie van het query archief
 
-Deze sectie wordt beschreven optimale standaardconfiguratie-instellingen die zijn ontworpen om ervoor te zorgen betrouwbare werking van de Query Store en afhankelijke onderdelen, zoals [SQL Database Advisor en Prestatiedashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Standaard-configuratie is geoptimaliseerd voor continu gegevens te verzamelen, die weinig tijd besteed in OFF/READ_ONLY Staten.
+In deze sectie worden optimale standaard instellingen voor configuraties beschreven, die zijn ontworpen om een betrouw bare werking van de query-Store en afhankelijke functies, zoals [SQL database Advisor en het prestatie dashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/), te garanderen. De standaard configuratie is geoptimaliseerd voor het verzamelen van doorlopende gegevens, waarbij de minimale tijd wordt besteed aan de status uit-READ_ONLY.
 
 | Configuratie | Description | Standaard | Opmerking |
 | --- | --- | --- | --- |
-| MAX_STORAGE_SIZE_MB |Hiermee geeft u de limiet voor de gegevensruimte op de Query Store kunt uitvoeren in de klantendatabase |100 |Afgedwongen voor nieuwe databases |
-| INTERVAL_LENGTH_MINUTES |Bepaalt de grootte van de periode gedurende welke verzamelde runtime-statistieken voor query-plannen worden samengevoegd en opgeslagen. Elke actieve queryplan is maximaal één rij voor een bepaalde periode gedefinieerd met deze configuratie |60 |Afgedwongen voor nieuwe databases |
-| STALE_QUERY_THRESHOLD_DAYS |Op basis van tijd opschoningsbeleid die de bewaarperiode van de persistente runtime-statistieken en niet-actieve query's bepaalt |30 |Afgedwongen voor nieuwe databases en databases met een eerdere standaard (367) |
-| SIZE_BASED_CLEANUP_MODE |Hiermee geeft u op of automatische opruimen plaats vindt wanneer de grootte van Query Store de limiet nadert |AUTO |Afgedwongen voor alle databases |
-| QUERY_CAPTURE_MODE |Hiermee geeft u op of alle query's of slechts een subset van query's worden bijgehouden |AUTO |Afgedwongen voor alle databases |
-| FLUSH_INTERVAL_SECONDS |Hiermee geeft u de maximale periode gedurende welke de runtime-statistieken worden bewaard in het geheugen voor leegmaken naar schijf vastgelegd |900 |Afgedwongen voor nieuwe databases |
+| MAX_STORAGE_SIZE_MB |Hiermee geeft u de limiet op voor de gegevens ruimte die in de query opslag kan worden uitgevoerd in de klanten database |100 |Afgedwongen voor nieuwe data bases |
+| INTERVAL_LENGTH_MINUTES |Definieert de grootte van het tijd venster waarin verzamelde runtime statistieken voor query plannen worden geaggregeerd en bewaard. Elk actief query plan heeft Maxi maal één rij voor een tijds periode die met deze configuratie is gedefinieerd |60 |Afgedwongen voor nieuwe data bases |
+| STALE_QUERY_THRESHOLD_DAYS |Op tijd gebaseerd opschonings beleid dat de Bewaar periode van persistente runtime statistieken en inactieve query's beheert |30 |Afgedwongen voor nieuwe data bases en data bases met eerdere standaard (367) |
+| SIZE_BASED_CLEANUP_MODE |Hiermee geeft u op of het automatisch opschonen van gegevens wordt uitgevoerd wanneer de gegevens opslag van de query de limiet nadert |AUTO |Afgedwongen voor alle data bases |
+| QUERY_CAPTURE_MODE |Hiermee wordt aangegeven of alle query's of alleen een subset van query's worden bijgehouden |AUTO |Afgedwongen voor alle data bases |
+| FLUSH_INTERVAL_SECONDS |Hiermee geeft u de maximum periode op waarin vastgelegde runtime statistieken in het geheugen worden bewaard voordat deze naar de schijf worden leeg gemaakt |900 |Afgedwongen voor nieuwe data bases |
 |  | | | |
 
 > [!IMPORTANT]
-> Deze standaardinstellingen worden automatisch toegepast in de laatste fase van de activering van de Query Store in alle Azure SQL-databases (Zie voorgaande belangrijke opmerking). Na deze licht van, wordt niet op Azure SQL Database,-configuratiewaarden die zijn ingesteld door klanten, tenzij ze een negatieve invloed zijn op primaire werkbelasting of betrouwbare bewerkingen van de Query Store worden gewijzigd.
+> Deze standaard waarden worden automatisch toegepast in de laatste fase van de activering van de query Store in alle Azure SQL-data bases (zie voorafgaande belang rijke opmerking). Na dit lampje is Azure SQL Database configuratie waarden die door klanten zijn ingesteld, niet gewijzigd, tenzij ze een negatieve invloed hebben op de primaire werk belasting of betrouw bare bewerkingen van de query Store.
 
-Als u blijven met uw aangepaste instellingen wilt, gebruikt u [ALTER DATABASE met opties voor Query Store](https://msdn.microsoft.com/library/bb522682.aspx) om terug te zetten van de configuratie van de vorige status. Bekijk [Best Practices met de Query Store](https://msdn.microsoft.com/library/mt604821.aspx) om te leren hoe boven gekozen optimale configuratieparameters.
+Als u de aangepaste instellingen wilt blijven gebruiken, gebruikt u de [Opties Alter data base with query Store](https://msdn.microsoft.com/library/bb522682.aspx) om de configuratie terug te zetten naar de vorige status. Bekijk [de aanbevolen procedures voor het query archief](https://msdn.microsoft.com/library/mt604821.aspx) om te leren hoe beste de optimale configuratie parameters hebt gekozen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[SQL Database Performance Insight](sql-database-performance.md)
+[Inzicht in de prestaties SQL Database](sql-database-performance.md)
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-Meer informatie Bekijk voor de volgende artikelen:
+Raadpleeg de volgende artikelen voor meer informatie:
 
-- [Een flight data recorder voor uw database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
-- [Prestaties controleren via de Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+- [Een vlucht gegevens recorder voor uw data base](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
+- [Prestaties bewaken met behulp van de query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 - [Query Store-gebruiksscenario's](https://msdn.microsoft.com/library/mt614796.aspx)

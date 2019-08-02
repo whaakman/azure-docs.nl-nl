@@ -1,6 +1,6 @@
 ---
-title: Nieuwe verificatie voor virtuele opslagmatrices van StorSimple | Microsoft Docs
-description: Wordt uitgelegd hoe u op basis van AAD-verificatie gebruiken voor uw service, het genereren van nieuwe registratiesleutel en het uitvoeren van handmatige registratie van de apparaten.
+title: Nieuwe authenticatie voor StorSimple virtuele matrices | Microsoft Docs
+description: Hierin wordt uitgelegd hoe u verificatie op basis van AAD gebruikt voor uw service, hoe u een nieuwe registratie sleutel genereert en hand matige registratie van de apparaten uitvoert.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -12,84 +12,86 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 080f49ca1078858462264f229e9acfee6fad17d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 723d5e969ba2f635724ffa50d562a7abaf936dcf
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61387618"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517142"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>De nieuwe verificatie voor uw StorSimple gebruiken
 
 ## <a name="overview"></a>Overzicht
 
-De StorSimple Device Manager-service wordt uitgevoerd in Microsoft Azure en verbindt met meerdere virtuele StorSimple-matrices. Tot op heden heeft StorSimple Device Manager-service een Access Control service (ACS) gebruikt voor verificatie van de service voor uw StorSimple-apparaat. Het mechanisme voor ACS worden binnenkort worden afgeschaft en vervangen door een Azure Active Directory (AAD)-authenticatie.
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-De informatie in dit artikel is van toepassing op beide StorSimple 1200-serie alleen virtuele matrices. Dit artikel beschrijft de details van de AAD-verificatie en de bijbehorende nieuwe serviceregistratiesleutel en wijzigingen in de firewall-regels, zoals van toepassing op het StorSimple-apparaten.
+De StorSimple-Apparaatbeheer-service wordt uitgevoerd in Microsoft Azure en er wordt verbinding gemaakt met meerdere virtuele StorSimple-matrices. Tot nu toe heeft StorSimple-Apparaatbeheer service een Access Control service (ACS) gebruikt om de service te verifiëren op uw StorSimple-apparaat. Het ACS-mechanisme wordt binnenkort afgeschaft en vervangen door een Azure Active Directory (AAD)-verificatie.
 
-De AAD-verificatie wordt uitgevoerd in virtuele StorSimple-matrices (1200 model) met Update 1 of hoger.
+De informatie in dit artikel is alleen van toepassing op virtuele matrices uit de StorSimple-serie van 1200. In dit artikel worden de details van de AAD-verificatie en de bijbehorende nieuwe service registratie sleutel en wijzigingen aan de firewall regels beschreven die van toepassing zijn op de StorSimple-apparaten.
 
-Vanwege de introductie van de AAD-verificatie optreden wijzigingen in:
+De AAD-verificatie vindt plaats in StorSimple Virtual arrays (model 1200) waarop update 1 of hoger wordt uitgevoerd.
 
-- URL-patronen voor firewall-regels.
-- Serviceregistratiesleutel.
+Als gevolg van de introductie van de AAD-verificatie, treden er wijzigingen op in:
 
-Deze wijzigingen worden besproken in de volgende secties.
+- URL-patronen voor firewall regels.
+- Service registratie sleutel.
 
-## <a name="url-changes-for-aad-authentication"></a>Wijzigingen in de URL voor AAD-verificatie
+Deze wijzigingen worden gedetailleerd beschreven in de volgende secties.
 
-Om ervoor te zorgen dat de service op basis van AAD-verificatie gebruikt, moeten alle gebruikers de nieuwe verificatie-URL's opnemen in hun firewall-regels.
+## <a name="url-changes-for-aad-authentication"></a>URL-wijzigingen voor AAD-verificatie
 
-Als u StorSimple Virtual Array, zorgt u ervoor dat de volgende URL wordt opgenomen in de firewall-regels:
+Om ervoor te zorgen dat de service gebruikmaakt van authenticatie op basis van AAD, moeten alle gebruikers de nieuwe verificatie-Url's opnemen in hun firewall regels.
+
+Als u virtuele StorSimple-matrix gebruikt, moet u ervoor zorgen dat de volgende URL is opgenomen in de firewall regels:
 
 | URL-patroon                         | Cloud | Onderdeel/functionaliteit         |
 |------------------------------------|-------|---------------------------------|
-| `https://login.windows.net`        | Azure Public |AAD authentication-service      |
-| `https://login.microsoftonline.us` | Amerikaanse overheid |AAD authentication-service      |
+| `https://login.windows.net`        | Open bare Azure |AAD-verificatie service      |
+| `https://login.microsoftonline.us` | Amerikaanse overheid |AAD-verificatie service      |
 
-Voor een volledige lijst van URL voor virtuele opslagmatrices van StorSimple patronen, gaat u naar [URL-patronen voor firewallregels](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).
+Voor een volledige lijst met URL-patronen voor virtuele StorSimple-matrices gaat u naar [URL-patronen voor firewall regels](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).
 
-Als de verificatie-URL niet in de firewall-regels na de datum van de afschaffing opgenomen is, zien de gebruikers een kritieke waarschuwing dat het StorSimple-apparaat kan niet worden geverifieerd met de service. De service zich niet kan communiceren met het apparaat. Als de gebruikers deze waarschuwing zien, moeten ze de nieuwe verificatie-URL. Ga voor meer informatie over de waarschuwing naar [waarschuwingen gebruiken voor het bewaken van uw StorSimple-apparaat](storsimple-virtual-array-manage-alerts.md#networking-alerts).
+Als de verificatie-URL niet is opgenomen in de firewall regels na de datum van afschaffing, zien de gebruikers een kritieke waarschuwing dat hun StorSimple-apparaat niet kan worden geverifieerd bij de service. De service kan niet communiceren met het apparaat. Als de gebruikers deze waarschuwing zien, moeten ze de nieuwe verificatie-URL toevoegen. Ga voor meer informatie over de waarschuwing naar [waarschuwingen gebruiken om uw StorSimple-apparaat te bewaken](storsimple-virtual-array-manage-alerts.md#networking-alerts).
 
-## <a name="device-version-and-authentication-changes"></a>Wijzigingen in apparaat-versie en -verificatie
+## <a name="device-version-and-authentication-changes"></a>De versie van het apparaat en de verificatie worden gewijzigd
 
-Als u een StorSimple Virtual Array, gebruikt u de volgende tabel om te bepalen welke actie u dient te ondernemen op basis van de software-versie van het apparaat die wordt uitgevoerd.
+Als u een virtuele StorSimple-matrix gebruikt, gebruikt u de volgende tabel om te bepalen welke actie u moet uitvoeren op basis van de software versie van het apparaat dat u gebruikt.
 
-| Als uw apparaat wordt uitgevoerd  | De volgende actie ondernemen                                    |
+| Als uw apparaat wordt uitgevoerd  | De volgende actie uitvoeren                                    |
 |----------------------------|--------------------------------------------------------------|
-| Update 1.0 of hoger en offline is. <br> U ziet een waarschuwing dat de URL niet opgenomen in de whitelist is.| 1. Wijzig de firewall-regels zodanig dat de verificatie-URL. Zie [verificatie-URL's](#url-changes-for-aad-authentication). <br> 2. [De registratiesleutel AAD ophalen van de service](#aad-based-registration-keys). <br> 3. Voer stappen 1-5 [verbinding maken met de Windows PowerShell-interface van de virtuele matrix](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. Gebruik `Invoke-HcsReRegister` cmdlet voor het registreren van het apparaat via de Windows PowerShell. Geef de sleutel die u hebt verkregen in de vorige stap.|
-| Update 1.0 of hoger en het apparaat is online.| Geen actie vereist.                                       |
-| Update 0.6 of eerder en het apparaat is offline. | 1. [Download de Update 1.0 via catalogusserver](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [Update 1.0 toepassen via de lokale webgebruikersinterface](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [De registratiesleutel AAD ophalen van de service](#aad-based-registration-keys). <br>4. Voer stappen 1-5 [verbinding maken met de Windows PowerShell-interface van de virtuele matrix](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. Gebruik `Invoke-HcsReRegister` cmdlet voor het registreren van het apparaat via de Windows PowerShell. Geef de sleutel die u hebt verkregen in de vorige stap.|
-| Update 0.6 of eerder en het apparaat is online | Wijzig de firewall-regels zodanig dat de verificatie-URL.<br> Installeer Update 1.0 via Azure portal. |
+| Update 1,0 of hoger en is offline. <br> U ziet een waarschuwing dat de URL niet white list is.| 1. Wijzig de firewall regels zodanig dat ze de verificatie-URL bevatten. Zie [verificatie-url's](#url-changes-for-aad-authentication). <br> 2. [Haal de Aad-registratie sleutel op uit de service](#aad-based-registration-keys). <br> 3. Voer de stappen 1-5 om [verbinding te maken met de Windows Power shell-interface van de virtuele matrix](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. Gebruik `Invoke-HcsReRegister` de cmdlet om het apparaat te registreren via de Windows Power shell. Geef de sleutel op die u in de vorige stap hebt gekregen.|
+| Update 1,0 of hoger en het apparaat is online.| U hoeft geen actie te ondernemen.                                       |
+| Update 0,6 of een eerdere versie en het apparaat is offline. | 1. [Down load Update 1,0 via de catalogus server](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [Installeer Update 1,0 via de lokale web-UI](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [Haal de Aad-registratie sleutel op uit de service](#aad-based-registration-keys). <br>4. Voer de stappen 1-5 om [verbinding te maken met de Windows Power shell-interface van de virtuele matrix](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. Gebruik `Invoke-HcsReRegister` de cmdlet om het apparaat te registreren via de Windows Power shell. Geef de sleutel op die u in de vorige stap hebt gekregen.|
+| Update 0,6 of een eerdere versie en het apparaat is online | Wijzig de firewall regels zodanig dat ze de verificatie-URL bevatten.<br> Installeer update 1,0 via de Azure Portal. |
 
-## <a name="aad-based-registration-keys"></a>Van AAD op basis van registratiesleutels
+## <a name="aad-based-registration-keys"></a>Registratie sleutels op basis van AAD
 
-Vanaf Update 1.0 voor StorSimple virtuele matrices, op basis van AAD registratie van nieuwe sleutels worden gebruikt. U de registratiesleutels gebruiken voor het registreren van uw StorSimple Device Manager-service met het apparaat.
+Bij het starten van update 1,0 voor StorSimple virtuele matrices worden nieuwe op AAD gebaseerde registratie sleutels gebruikt. U gebruikt de registratie sleutels om uw StorSimple-Apparaatbeheer service met het apparaat te registreren.
 
-U kunt de nieuwe registratiesleutels van de AAD-service niet gebruiken als u een virtuele StorSimple-matrices met Update 0.6 of eerder. U moet de serviceregistratiesleutel opnieuw genereren. Nadat u de sleutel opnieuw genereert, wordt de nieuwe sleutel wordt gebruikt voor het registreren van de volgende apparaten. De oude sleutel is niet meer geldig.
+U kunt de nieuwe registratie sleutels voor AAD-Services niet gebruiken als u een StorSimple-virtuele array gebruikt waarop update 0,6 of eerder wordt uitgevoerd. U moet de service registratie sleutel opnieuw genereren. Zodra u de sleutel opnieuw hebt gegenereerd, wordt de nieuwe sleutel gebruikt voor het registreren van alle volgende apparaten. De oude sleutel is niet meer geldig.
 
-- De nieuwe AAD-registratiesleutel verloopt na drie dagen.
-- De AAD-registratie sleutels in combinatie alleen met StorSimple 1200-serie virtuele matrices actieve Update 1 of hoger. De AAD-registratiesleutel van een StorSimple 8000-apparaat werkt niet.
-- De AAD-registratiesleutels zijn langer zijn dan de bijbehorende sleutels van de ACS-registratie.
+- De nieuwe AAD-registratie sleutel verloopt na drie dagen.
+- De AAD-registratie sleutels werken alleen met virtuele StorSimple-matrices van de 1200-serie waarop update 1 of hoger wordt uitgevoerd. De AAD-registratie sleutel van een StorSimple 8000 Series-apparaat werkt niet.
+- De AAD-registratie sleutels zijn langer dan de bijbehorende ACS-registratie sleutels.
 
-Voer de volgende stappen uit voor het genereren van een AAD-serviceregistratiesleutel.
+Voer de volgende stappen uit om een AAD-service registratie sleutel te genereren.
 
-#### <a name="to-generate-the-aad-service-registration-key"></a>Voor het genereren van de AAD-serviceregistratiesleutel
+#### <a name="to-generate-the-aad-service-registration-key"></a>De registratie sleutel voor AAD-Services genereren
 
-1. In **StorSimple Device Manager**, gaat u naar **Management &gt;**  **sleutels**.
+1. Ga in **StorSimple Apparaatbeheer**naar **beheer &gt;**  **sleutels**.
     
-    ![Ga naar de sleutels](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key1.png)
+    ![Ga naar sleutels](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key1.png)
 
 2. Klik op **sleutel genereren**.
 
-    ![Klik op sleutel opnieuw genereren](./media/storsimple-virtual-array-aad-registration-key/aad-click-generate-registration-key.png)
+    ![Klik op opnieuw genereren](./media/storsimple-virtual-array-aad-registration-key/aad-click-generate-registration-key.png)
 
-3. Kopieer de nieuwe sleutel. De oudere sleutel werkt niet meer.
+3. Kopieer de nieuwe sleutel. De oude sleutel werkt niet meer.
 
-    ![Controleer of de sleutel opnieuw genereren](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key2.png)
+    ![Opnieuw genereren bevestigen](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key2.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het implementeren [StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
+* Meer informatie over het implementeren van [StorSimple Virtual array](storsimple-virtual-array-deploy1-portal-prep.md)

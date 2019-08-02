@@ -1,6 +1,6 @@
 ---
-title: PowerShell - draaien TDE-beveiliging - Azure SQL Database | Microsoft Docs
-description: Informatie over het draaien van de sleutelbeveiliging transparante gegevensversleuteling (TDE) voor een Azure SQL-server.
+title: Power shell-TDE-Protector draaien-Azure SQL Database | Microsoft Docs
+description: Meer informatie over het roteren van de Transparent Data Encryption-Protector (TDE) voor een Azure SQL-Server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,45 +10,44 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: jhubbard
 ms.date: 03/12/2019
-ms.openlocfilehash: c3e982c0fc46ea72692d5fa7f27e14b88c6383df
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 464ea73d9b3d7116205377600ffccee13a9e2dcb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274271"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566048"
 ---
-# <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>De transparante gegevensversleuteling (TDE)-beveiliging met behulp van PowerShell draaien
+# <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>De Transparent Data Encryption-Protector (TDE) draaien met Power shell
 
-Dit artikel wordt beschreven rouleren van de sleutel voor een Azure SQL-server met behulp van een TDE-beveiliging van Azure Key Vault. Een Azure SQL-server TDE-beveiliging betekent overschakelen naar een nieuwe asymmetrische sleutel die worden beveiligd met de databases op de server draaien. Rouleren van de sleutel is een online bewerking en duurt slechts een paar seconden voltooid, omdat dit alleen wordt ontsleuteld en versleutelt de gegevensversleutelingssleutel van de database, niet de gehele database opnieuw.
+In dit artikel wordt de belangrijkste draaiing beschreven van een Azure SQL-Server met behulp van een TDE-Protector van Azure Key Vault. Als u de TDE-Protector van Azure SQL Server roteert, schakelt u over naar een nieuwe asymmetrische sleutel die de data bases op de server beveiligt. Het draaien van sleutels is een online bewerking die slechts enkele seconden kan duren, omdat hiermee alleen de gegevens versleutelings sleutel van de data base wordt gedecodeerd en opnieuw versleuteld, niet de volledige data base.
 
-Deze handleiding wordt beschreven twee opties voor het draaien van de TDE-beveiliging op de server.
+In deze hand leiding worden twee opties besproken voor het draaien van de TDE-protector op de-server.
 
 > [!NOTE]
-> Een onderbroken SQL Data Warehouse moet voordat sleutelrotaties worden hervat.
+> Een onderbroken SQL Data Warehouse moet worden hervat voordat de sleutel wordt gedraaid.
 >
 
 > [!IMPORTANT]
-> **Kan niet worden verwijderd** eerdere versies van de sleutel na een rollover.  Wanneer sleutels worden meegenomen, sommige gegevens nog steeds versleuteld met de vorige sleutels, zoals oudere databaseback-ups. 
+> **Verwijder geen** eerdere versies van de sleutel na een rollover.  Wanneer sleutels worden doorgevoerd, worden er nog enkele gegevens versleuteld met de vorige sleutels, zoals oudere back-ups van de data base. 
 >
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
+> De Power shell-Azure Resource Manager module wordt nog steeds ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module AZ. SQL. Zie [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)voor deze cmdlets. De argumenten voor de opdrachten in de module AZ en in de AzureRm-modules zijn aanzienlijk identiek.
 
-- In deze gebruiksaanwijzing wordt ervan uitgegaan dat u al van een sleutel uit Azure Key Vault als de TDE-beveiliging voor een Azure SQL Database of het datawarehouse gebruikmaakt. Zie [Transparent Data Encryption met BYOK-ondersteuning](transparent-data-encryption-byok-azure-sql.md).
-- Azure PowerShell installeren en uitvoeren, moet u hebben.
-- [Aanbevolen maar niet vereist] Maken van het sleutelmateriaal voor de TDE-beveiliging in een hardware security module (HSM) of lokale sleutel opslaan van de eerste en het sleutelmateriaal importeren naar Azure Key Vault. Ga als volgt de [instructies voor het gebruik van een hardware security module (HSM) en Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) voor meer informatie.
+- In deze hand leiding wordt ervan uitgegaan dat u al een sleutel gebruikt uit Azure Key Vault als de TDE-Protector voor een Azure SQL Database of Data Warehouse. Zie [transparent Data Encryption met BYOK-ondersteuning](transparent-data-encryption-byok-azure-sql.md).
+- Azure PowerShell moet zijn geïnstalleerd en worden uitgevoerd.
+- [Aanbevolen, maar optioneel] Maak eerst het sleutel materiaal voor de TDE-Protector in een HSM (Hardware Security module) of een lokaal sleutel archief en importeer het sleutel materiaal in Azure Key Vault. Volg de [instructies voor het gebruik van een Hardware Security module (hsm) en Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) voor meer informatie.
 
-## <a name="manual-key-rotation"></a>Handmatige sleutelroulatie
+## <a name="manual-key-rotation"></a>Hand matige rotatie van de sleutel
 
-Handmatige sleutelroulatie maakt gebruik van de [toevoegen AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [toevoegen AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), en [Set AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets om toe te voegen een volledig nieuwe sleutel, die onder de naam van een nieuwe sleutel of zelfs een andere sleutelkluis worden kan. Met deze aanpak biedt ondersteuning voor dezelfde sleutel aan verschillende sleutelkluizen ter ondersteuning van hoge beschikbaarheid en geo-dr's toe te voegen.
+Hand matige rotatie van de sleutel maakt gebruik van de cmdlets [add-AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey)en [set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) om een volledig nieuwe sleutel toe te voegen, die onder een nieuwe sleutel naam kan staan of zelfs een andere sleutel kluis. Het gebruik van deze aanpak biedt ondersteuning voor het toevoegen van dezelfde sleutel aan verschillende sleutel kluizen ter ondersteuning van scenario's met hoge Beschik baarheid en geo-Dr.
 
 >[!NOTE]
->De gecombineerde lengte voor de key vault-naam en de naam mag maximaal 94 tekens bevatten.
+>De gecombineerde lengte van de naam van de sleutel kluis en de naam van de sleutel mag niet langer zijn dan 94 tekens.
 
    ```powershell
    # Add a new key to Key Vault
@@ -72,9 +71,9 @@ Handmatige sleutelroulatie maakt gebruik van de [toevoegen AzKeyVaultKey](/power
    ```
 
 
-## <a name="other-useful-powershell-cmdlets"></a>Andere nuttige PowerShell-cmdlets
+## <a name="other-useful-powershell-cmdlets"></a>Andere handige Power shell-cmdlets
 
-- Als u wilt overschakelen van de TDE-beveiliging van Microsoft beheerde naar de BYOK-modus, gebruikt u de [Set AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet.
+- Gebruik de cmdlet [set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) om de TDe-Protector te scha kelen van micro soft die wordt beheerd naar de BYOK-modus.
 
    ```powershell
    Set-AzSqlServerTransparentDataEncryptionProtector `
@@ -84,7 +83,7 @@ Handmatige sleutelroulatie maakt gebruik van de [toevoegen AzKeyVaultKey](/power
    -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
 
-- Als u wilt overschakelen van de TDE-beveiliging van de BYOK-modus naar Microsoft worden beheerd, gebruiken de [Set AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet.
+- Als u de TDE-Protector wilt overschakelen van de BYOK-modus naar micro soft-beheerd, gebruikt u de cmdlet [set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) .
 
    ```powershell
    Set-AzSqlServerTransparentDataEncryptionProtector `
@@ -95,6 +94,6 @@ Handmatige sleutelroulatie maakt gebruik van de [toevoegen AzKeyVaultKey](/power
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het verwijderen van een potentieel aangetast TDE-beveiliging in het geval van een veiligheidsrisico inhouden: [Een potentieel aangetast sleutel verwijderen](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) 
+- In het geval van een beveiligings risico leert u hoe u een mogelijk aangetast TDE-Protector kunt verwijderen: [Een mogelijk beschadigde sleutel verwijderen](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) 
 
-- Aan de slag met Azure Key Vault-integratie en Bring Your Own Key-ondersteuning voor TDE: [TDE met behulp van uw eigen sleutel uit Key Vault met behulp van PowerShell inschakelen](transparent-data-encryption-byok-azure-sql-configure.md)
+- Aan de slag met Azure Key Vault-integratie en Bring Your Own Key ondersteuning voor TDE: [TDE inschakelen met uw eigen sleutel vanuit Key Vault met behulp van Power shell](transparent-data-encryption-byok-azure-sql-configure.md)

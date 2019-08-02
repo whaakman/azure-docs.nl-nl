@@ -16,10 +16,10 @@ ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 3bf9ba52bc4071755918b842da477384dcd38973
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68323507"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Query's maken om batch resources efficiënt weer te geven
@@ -29,7 +29,7 @@ Hier leest u hoe u de prestaties van uw Azure Batch-toepassing kunt verhogen doo
 Bijna alle batch-toepassingen moeten een type bewaking of een andere bewerking uitvoeren die de batch-service uitvoert, vaak regel matig intervallen. Als u bijvoorbeeld wilt bepalen of er taken in de wachtrij voor een taak resteren, moet u gegevens ophalen voor elke taak in de taak. Als u de status van knoop punten in uw pool wilt bepalen, moet u gegevens op elk knoop punt in de pool ophalen. In dit artikel wordt uitgelegd hoe u dergelijke query's op de meest efficiënte manier uitvoert.
 
 > [!NOTE]
-> De batch-service biedt speciale API-ondersteuning voor de algemene scenario's voor het tellen van taken in een taak en het tellen van reken knooppunten in de batch-pool. In plaats van een lijst query te gebruiken, kunt u de bewerkingen [taak aantal][rest_get_task_counts] and [List Pool Node Counts][rest_get_node_counts] ophalen aanroepen. Deze bewerkingen zijn efficiënter dan een lijst query, maar retour neren meer beperkte informatie. Zie [aantal taken en reken knooppunten per status](batch-get-resource-counts.md). 
+> De batch-service biedt speciale API-ondersteuning voor de algemene scenario's voor het tellen van taken in een taak en het tellen van reken knooppunten in de batch-pool. In plaats van een lijst query voor deze te gebruiken, kunt u de bewerkingen [taak aantallen ophalen][rest_get_task_counts] en [aantal aantallen van lijst groepen][rest_get_node_counts] aanroepen. Deze bewerkingen zijn efficiënter dan een lijst query, maar retour neren meer beperkte informatie. Zie [aantal taken en reken knooppunten per status](batch-get-resource-counts.md). 
 
 
 ## <a name="meet-the-detaillevel"></a>Voldoen aan de DetailLevel
@@ -43,7 +43,7 @@ IPagedEnumerable<CloudTask> allTasks =
     batchClient.JobOperations.ListTasks("job-001");
 ```
 
-U kunt een veel efficiëntere lijst query uitvoeren, maar door een ' detail niveau ' toe te passen op uw query. U doet dit door een [ODATADetailLevel][odata] object to the [JobOperations.ListTasks][net_list_tasks] -methode op te geven. Dit fragment retourneert alleen de eigenschappen van de ID, opdracht regel en reken knooppunt voor voltooide taken:
+U kunt een veel efficiëntere lijst query uitvoeren, maar door een ' detail niveau ' toe te passen op uw query. U doet dit door een [ODATADetailLevel][odata] -object op te geven voor de methode [JobOperations. ListTasks][net_list_tasks] . Dit fragment retourneert alleen de eigenschappen van de ID, opdracht regel en reken knooppunt voor voltooide taken:
 
 ```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and
@@ -65,7 +65,7 @@ Als in dit voorbeeld scenario duizenden taken in de taak zijn, worden de resulta
 > 
 
 ## <a name="filter-select-and-expand"></a>Filteren, selecteren en uitvouwen
-De [batch .net][api_net] and [Batch REST][api_rest] -api's bieden de mogelijkheid om het aantal items dat wordt geretourneerd in een lijst te verminderen, evenals de hoeveelheid gegevens die voor elk item wordt geretourneerd. U doet dit door **filter**-, **Select**-en **expand-teken reeksen** op te geven bij het uitvoeren van lijst query's.
+De [batch .net][api_net] -en [batch][api_rest] -api's bieden de mogelijkheid om zowel het aantal geretourneerde items in een lijst te verminderen als de hoeveelheid gegevens die voor elk item wordt geretourneerd. U doet dit door **filter**-, **Select**-en **expand-teken reeksen** op te geven bij het uitvoeren van lijst query's.
 
 ### <a name="filter"></a>Filteren
 De filter teken reeks is een expressie waarmee het aantal geretourneerde items wordt verminderd. U kunt bijvoorbeeld alleen de actieve taken voor een taak weer geven of alleen reken knooppunten weer geven die gereed zijn om taken uit te voeren.
@@ -74,7 +74,7 @@ De filter teken reeks is een expressie waarmee het aantal geretourneerde items w
 * Meerdere expressies kunnen worden gecombineerd met behulp van de `and` logische `or`Opera tors en.
 * In dit voor beeld wordt gefilterde teken reeks alleen de actieve `(state eq 'running') and startswith(id, 'renderTask')`' render-taken ' weer gegeven:.
 
-### <a name="select"></a>Selecteer
+### <a name="select"></a>Selecteren
 De teken reeks selecteren beperkt de eigenschaps waarden die voor elk item worden geretourneerd. U geeft een lijst met eigenschapnamen op, en alleen de eigenschaps waarden worden geretourneerd voor de items in de query resultaten.
 
 * De Select-teken reeks bestaat uit een lijst met door komma's gescheiden namen van eigenschappen. U kunt een van de eigenschappen opgeven voor het entiteits type dat u zoekt.
@@ -94,7 +94,7 @@ De Uitvouw teken reeks vermindert het aantal API-aanroepen dat nodig is om bepaa
 > 
 
 ### <a name="rules-for-filter-select-and-expand-strings"></a>Regels voor het filteren, selecteren en uitvouwen van teken reeksen
-* Eigenschappen in filters, selecteren en Uitvouw teken reeksen moeten worden weer gegeven zoals in de [batch rest][api_rest] API--even when you use [Batch .NET][api_net] of een van de andere batch-sdk's.
+* Eigenschappen in filters, selecteren en Uitvouw teken reeksen moeten worden weer gegeven zoals in de [batch rest][api_rest] -API, zelfs wanneer u [batch .net][api_net] of een van de andere batch-sdk's gebruikt.
 * Alle eigenschapnamen zijn hoofdletter gevoelig, maar eigenschaps waarden zijn niet hoofdletter gevoelig.
 * Datum-en tijd teken reeksen kunnen een van de twee indelingen hebben en moeten worden `DateTime`voorafgegaan door.
   
@@ -104,11 +104,11 @@ De Uitvouw teken reeks vermindert het aantal API-aanroepen dat nodig is om bepaa
 * Als er een ongeldige eigenschap of operator is opgegeven, `400 (Bad Request)` treedt er een fout op.
 
 ## <a name="efficient-querying-in-batch-net"></a>Efficiënte query's uitvoeren in batch .NET
-Binnen de [batch .net][api_net] API, the [ODATADetailLevel][odata] -klasse wordt gebruikt voor het leveren van filters, selecteren en uitvouwen van teken reeksen om bewerkingen weer te geven. De klasse ODataDetailLevel heeft drie open bare teken reeks eigenschappen die kunnen worden opgegeven in de constructor of die rechtstreeks op het object kan worden ingesteld. Vervolgens geeft u het ODataDetailLevel-object als een para meter door aan de verschillende lijst bewerkingen, zoals [ListPools][net_list_pools], [ListJobs][net_list_jobs], and [ListTasks][net_list_tasks].
+Binnen de [batch .net][api_net] -API wordt de klasse [ODATADetailLevel][odata] gebruikt voor het leveren van filters, selecteren en uitvouwen van teken reeksen om bewerkingen weer te geven. De klasse ODataDetailLevel heeft drie open bare teken reeks eigenschappen die kunnen worden opgegeven in de constructor of die rechtstreeks op het object kan worden ingesteld. Vervolgens geeft u het ODataDetailLevel-object als een para meter door aan de verschillende lijst bewerkingen, zoals [ListPools][net_list_pools], [ListJobs][net_list_jobs]en [ListTasks][net_list_tasks].
 
-* [ODATADetailLevel][odata].[FilterClause][odata_filter]: Beperk het aantal items dat wordt geretourneerd.
-* [ODATADetailLevel][odata].[SelectClause][odata_select]: Geef op welke eigenschaps waarden met elk item worden geretourneerd.
-* [ODATADetailLevel][odata].[ExpandClause][odata_expand]: Gegevens ophalen voor alle items in één API-aanroep in plaats van afzonderlijke aanroepen voor elk item.
+* [ODATADetailLevel][odata]. [FilterClause][odata_filter]: Beperk het aantal items dat wordt geretourneerd.
+* [ODATADetailLevel][odata]. [SelectClause][odata_select]: Geef op welke eigenschaps waarden met elk item worden geretourneerd.
+* [ODATADetailLevel][odata]. [ExpandClause][odata_expand]: Gegevens ophalen voor alle items in één API-aanroep in plaats van afzonderlijke aanroepen voor elk item.
 
 In het volgende code fragment wordt de batch .NET API gebruikt om de batch-service op een efficiënte manier te doorzoeken op de statistieken van een specifieke set met groepen. In dit scenario heeft de batch gebruiker zowel test-als productie Pools. De test groep-Id's worden voorafgegaan door ' test ' en de productie pool-Id's worden voorafgegaan door ' Prod '. In het fragment is *myBatchClient* een correct geïnitialiseerd exemplaar van de klasse [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) .
 
@@ -177,7 +177,7 @@ Eigenschaps namen in filters, selecteren en uitvouwen teken reeksen *moeten* ove
 | [CloudTask][net_task] |[Informatie over een taak ophalen][rest_get_task] |
 
 ## <a name="example-construct-a-filter-string"></a>Voor beeld: een filter teken reeks maken
-Wanneer u een filter teken reeks bouwt voor [ODATADetailLevel. FilterClause][odata_filter] , consult the table above under "Mappings for filter strings" to find the REST API documentation page that corresponds to the list operation that you wish to perform. You will find the filterable properties and their supported operators in the first multirow table on that page. If you wish to retrieve all tasks whose exit code was nonzero, for example, this row on [List the tasks associated with a job][rest_list_tasks] geeft u de toepasselijke eigenschaps teken reeks en toegestane Opera tors op:
+Wanneer u een filter teken reeks voor [ODATADetailLevel. FilterClause][odata_filter]bouwt, raadpleegt u de bovenstaande tabel onder toewijzingen voor filter reeksen om de rest API-documentatie pagina te vinden die overeenkomt met de lijst bewerking die u wilt uitvoeren. U vindt de filter eigenschappen en de ondersteunde Opera tors in de eerste kolom MultiRow op die pagina. Als u alle taken wilt ophalen waarvan de afsluit code niet gelijk is aan nul, bijvoorbeeld deze rij in [de lijst met taken die aan een taak zijn gekoppeld][rest_list_tasks] , geeft u de toepasselijke eigenschap teken reeks en toegestane Opera tors op:
 
 | Eigenschap | Toegestane bewerkingen | type |
 |:--- |:--- |:--- |
@@ -188,7 +188,7 @@ De filter teken reeks voor het weer geven van alle taken met een niet-nul afslui
 `(executionInfo/exitCode lt 0) or (executionInfo/exitCode gt 0)`
 
 ## <a name="example-construct-a-select-string"></a>Voor beeld: een SELECT-teken reeks maken
-[ODATADetailLevel. SelectClause][odata_select], consult the table above under "Mappings for select strings" and navigate to the REST API page that corresponds to the type of entity that you are listing. You will find the selectable properties and their supported operators in the first multirow table on that page. If you wish to retrieve only the ID and command line for each task in a list, for example, you will find these rows in the applicable table on [Get information about a task][rest_get_task]maken:
+Als u [ODATADetailLevel. SelectClause][odata_select]wilt maken, raadpleegt u de bovenstaande tabel onder ' toewijzingen voor Select strings ' en navigeert u naar de rest API pagina die overeenkomt met het type entiteit dat u wilt weer geven. U vindt de eigenschappen die kunnen worden geselecteerd en de Opera tors die worden ondersteund in de eerste kolom MultiRow op die pagina. Als u alleen de ID en de opdracht regel voor elke taak in een lijst wilt ophalen, kunt u deze rijen in de desbetreffende tabel vinden op [informatie over een taak ophalen][rest_get_task]:
 
 | Eigenschap | type | Opmerkingen |
 |:--- |:--- |:--- |
@@ -201,7 +201,7 @@ De teken reeks selecteren voor het opnemen van alleen de ID en de opdracht regel
 
 ## <a name="code-samples"></a>Codevoorbeelden
 ### <a name="efficient-list-queries-code-sample"></a>Code voorbeeld van een efficiënte lijst query's
-Bekijk de methode [EfficientListQueries][efficient_query_sample] sample project on GitHub to see how efficient list querying can affect performance in an application. This C# console application creates and adds a large number of tasks to a job. Then, it makes multiple calls to the [JobOperations.ListTasks][net_list_tasks] en geeft [ODATADetailLevel][odata] -objecten door die zijn geconfigureerd met verschillende eigenschaps waarden om de hoeveelheid gegevens die moeten worden geretourneerd, te variëren. Dit levert uitvoer op die er ongeveer als volgt uitziet:
+Bekijk het [EfficientListQueries][efficient_query_sample] -voorbeeld project op github om te zien hoe een efficiënte lijst query de prestaties van een toepassing kan beïnvloeden. Met C# deze console toepassing kunt u een groot aantal taken maken en toevoegen aan een taak. Vervolgens worden er meerdere aanroepen naar de methode [JobOperations. ListTasks][net_list_tasks] gemaakt en worden [ODATADetailLevel][odata] -objecten door gegeven die zijn geconfigureerd met verschillende eigenschaps waarden om de hoeveelheid gegevens die moeten worden geretourneerd, te variëren. Dit levert uitvoer op die er ongeveer als volgt uitziet:
 
 ```
 Adding 5000 tasks to job jobEffQuery...
@@ -220,7 +220,7 @@ Sample complete, hit ENTER to continue...
 Zoals in de verstreken tijd wordt weer gegeven, kunt u de reactie tijden van query's aanzienlijk verlagen door de eigenschappen en het aantal geretourneerde items te beperken. U kunt deze en andere voorbeeld projecten vinden in de opslag plaats [Azure-batch-samples][github_samples] op github.
 
 ### <a name="batchmetrics-library-and-code-sample"></a>BatchMetrics-bibliotheek en code voorbeeld
-Naast het voor beeld van een EfficientListQueries-code, kunt u de [BatchMetrics][batch_metrics] project in the [azure-batch-samples][github_samples] github-opslag plaats vinden. In het voorbeeld project van BatchMetrics ziet u hoe u de voortgang van Azure Batch taken efficiënt kunt bewaken met de batch-API.
+Naast het voor beeld van de EfficientListQueries-code kunt u het [BatchMetrics][batch_metrics] -project vinden in de [Azure-batch-voor beelden github-][github_samples] opslag plaats. In het voorbeeld project van BatchMetrics ziet u hoe u de voortgang van Azure Batch taken efficiënt kunt bewaken met de batch-API.
 
 Het [BatchMetrics][batch_metrics] -voor beeld bevat een .net-klassen bibliotheek project die u kunt opnemen in uw eigen projecten, en een eenvoudig opdracht regel programma voor het uitoefenen en demonstreren van het gebruik van de bibliotheek.
 

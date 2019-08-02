@@ -1,19 +1,18 @@
 ---
 title: Een Azure Files-implementatie plannen | Microsoft Docs
 description: Meer informatie over hoe u rekening moet houden bij het plannen van een Azure Files-implementatie.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6282ce426b08c4ad9c44bead0bd4ec3d259f65fe
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 93c36ccb244931c12d8b038f448fbda4eff77f16
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501423"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721716"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 
@@ -98,7 +97,7 @@ Op dit moment kunt u niet rechtstreeks converteren tussen een standaard bestands
 > [!IMPORTANT]
 > Premium-bestands shares zijn alleen beschikbaar met LRS en zijn beschikbaar in de meeste regio's die opslag accounts aanbieden. Zie de pagina [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=storage) voor Azure als u wilt weten of Premium-bestands shares op dit moment beschikbaar zijn in uw regio.
 
-### <a name="provisioned-shares"></a>Ingerichte shares
+#### <a name="provisioned-shares"></a>Ingerichte shares
 
 Premium-bestands shares worden ingericht op basis van een vaste GiB/IOPS/doorvoer ratio. Voor elke GiB die is ingericht, wordt de share één IOPS en 0,1 MiB/s-door Voer verleend tot het maximum aantal limieten per share. De mini maal toegestane inrichting is 100 GiB met een minimale IOPS/door voer.
 
@@ -135,7 +134,7 @@ In de volgende tabel ziet u enkele voor beelden van deze formules voor de ingeri
 > [!NOTE]
 > De prestaties van bestands shares zijn afhankelijk van de netwerk limieten van de computer, de beschik bare netwerk bandbreedte, i/o-grootte, de parallelle uitvoering, onder andere factoren. U kunt de maximale prestaties schalen door de belasting over meerdere virtuele machines uit te breiden. Raadpleeg de [gids voor probleem oplossing](storage-troubleshooting-files-performance.md) voor enkele veelvoorkomende prestatie problemen en tijdelijke oplossingen.
 
-### <a name="bursting"></a>Toepassingen
+#### <a name="bursting"></a>Toepassingen
 
 Premium-bestands shares kunnen de IOPS opbursten tot een factor van drie. Bursting wordt geautomatiseerd en werkt op basis van een tegoed systeem. Bursting werkt op basis van de beste inspanningen en de burst-limiet is geen garantie. bestands shares *kunnen de limiet* overschrijden.
 
@@ -206,11 +205,15 @@ Deze sectie is alleen van toepassing op de standaard bestands shares. Alle Premi
 
 Standaard bestands shares zijn beschikbaar in alle regio's tot 5 TiB. In bepaalde regio's is deze beschikbaar met een limiet van 100 TiB. deze regio's worden in de volgende tabel weer gegeven:
 
-|Regio  |Ondersteunde redundantie  |Ondersteunt bestaande opslag accounts  |
-|---------|---------|---------|
-|Zuidoost-Azië     |LRS|Nee         |
-|Europa -west     |LRS, ZRS|Nee         |
-|US - west 2     |LRS, ZRS|Nee         |
+|Regio |Ondersteunde redundantie |Ondersteunt bestaande opslag accounts |Portal ondersteuning *   |
+|-------|---------|---------|---------|
+|Australië - oost  |LRS|Nee         |Ja|
+|Frankrijk - centraal  |LRS|Nee         |Nog niet|
+|Zuidoost-Azië  |LRS, ZRS|Nee         |Alleen LRS, ZRS-nog niet|
+|Europa -west     |LRS, ZRS|Nee       |Ja|
+|US - west 2       |LRS, ZRS|Nee         |Ja|
+
+\* Voor regio's zonder ondersteuning van de portal kunt u Power shell of de Azure-opdracht regel interface (CLI) nog steeds gebruiken om meer dan 5 TiB-shares te maken. Altenatively maakt u een nieuwe share via de Portal zonder een quotum op te geven. Hiermee wordt een share gemaakt met de standaard grootte van 100 TiB, die later kan worden bijgewerkt via Power shell of Azure CLI.
 
 Vul deze [enquête](https://aka.ms/azurefilesatscalesurvey)in om u te helpen bij het bepalen van de prioriteit van nieuwe regio's en functies.
 

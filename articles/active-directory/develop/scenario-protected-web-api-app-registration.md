@@ -1,5 +1,5 @@
 ---
-title: Beveiligde web-API - app-registratie | Azure
+title: Beveiligde web-API-app-registratie | Azure
 description: Meer informatie over het bouwen van een beveiligde web-API en de informatie die u nodig hebt om de app te registreren.
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,89 +16,89 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4622cffedc159ce85166eafe571ccb26c2c1b4d
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: bbccfc38a4e5e4b31cb625c614e838a3c92e7429
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536867"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562303"
 ---
 # <a name="protected-web-api-app-registration"></a>Beveiligde web-API: App-registratie
 
-In dit artikel wordt uitgelegd van de details van app-registratie voor een beveiligde web-API.
+In dit artikel worden de details van de app-registratie voor een beveiligde web-API beschreven.
 
-Zie [Quickstart: Een toepassing registreren met het Microsoft identity-platform](quickstart-register-app.md) voor de algemene stappen voor het registreren van een app.
+Zie [Quickstart: Registreer een toepassing met het micro soft-](quickstart-register-app.md) identiteits platform voor de algemene stappen voor het registreren van een app.
 
-## <a name="accepted-token-version"></a>Token versie hebben geaccepteerd
+## <a name="accepted-token-version"></a>Geaccepteerde token versie
 
-Het eindpunt van de Microsoft identity platform kan twee soorten tokens uitgeven: v1.0 tokens en v2.0-tokens. Zie voor meer informatie over deze tokens [toegangstokens](access-tokens.md). De geaccepteerde token versie is afhankelijk van de **ondersteund accounttypen** u hebt gekozen tijdens het maken van uw toepassing:
+Het micro soft Identity platform-eind punt kan twee typen tokens uitgeven: v 1.0-tokens en v 2.0-tokens. Zie [toegangs tokens](access-tokens.md)voor meer informatie over deze tokens. De geaccepteerde token versie is afhankelijk van de **ondersteunde account typen** die u hebt gekozen tijdens het maken van uw toepassing:
 
-- Als de waarde van **ondersteund accounttypen** is **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts (zoals Skype, Xbox, Outlook.com)** , de geaccepteerde token versie v2.0 zal zijn.
-- Anders worden de geaccepteerde token versie v1.0.
+- Als de waarde van **ondersteunde account typen** **accounts in een organisatorische Directory en persoonlijke micro soft-accounts (bijvoorbeeld Skype, Xbox, Outlook.com)** is, is de geaccepteerde token versie v 2.0.
+- Anders is de geaccepteerde token versie v 1.0.
 
-Nadat u de toepassing hebt gemaakt, kunt u bepalen of de versie van de geaccepteerde token wijzigen door de volgende stappen:
+Nadat u de toepassing hebt gemaakt, kunt u de geaccepteerde token versie vaststellen of wijzigen door de volgende stappen uit te voeren:
 
-1. Selecteer uw app in de Azure-portal en selecteer vervolgens de **Manifest** voor uw app.
-2. Zoek in het manifest **"accessTokenAcceptedVersion"** . Merk op dat de waarde ervan **2**. Deze eigenschap geeft u aan Azure Active Directory (Azure AD) dat de web-API v2.0 tokens accepteert. Als de waarde **null**, de versie van de geaccepteerde token v1.0 is.
-3. Als u de token versie hebt gewijzigd, selecteert u **opslaan**.
+1. Selecteer in de Azure Portal uw app en selecteer vervolgens het **manifest** voor uw app.
+2. Zoek in het manifest naar **' accessTokenAcceptedVersion '** . Houd er rekening mee dat de waarde **2**is. Met deze eigenschap geeft u op Azure Active Directory (Azure AD) dat de Web-API v 2.0-tokens accepteert. Als de waarde **Null**is, is de geaccepteerde token versie v 1.0.
+3. Als u de token versie hebt gewijzigd, selecteert u **Opslaan**.
 
 > [!NOTE]
-> De web-API geeft aan welke token versie (v1.0 of v2.0) dat wordt geaccepteerd. Wanneer clients een token voor uw web-API van het Microsoft identity platform v2.0-eindpunt aanvraagt, krijgt deze een token dat wordt aangegeven welke versie wordt geaccepteerd door de web-API.
+> De Web-API geeft aan welke token versie (v 1.0 of v 2.0) deze accepteert. Wanneer clients een token aanvragen voor uw web-API van het micro soft Identity platform (v 2.0)-eind punt, krijgen ze een token waarmee wordt aangegeven welke versie wordt geaccepteerd door de Web-API.
 
-## <a name="no-redirect-uri"></a>Er is geen omleidings-URI
+## <a name="no-redirect-uri"></a>Geen omleidings-URI
 
-Web-API's hoeft te registreren, een omleidings-URI omdat er geen gebruiker is aangemeld interactief.
+Web-Api's hoeven geen omleidings-URI te registreren, omdat er interactief een gebruiker is aangemeld.
 
-## <a name="expose-an-api"></a>Een API beschikbaar maakt
+## <a name="expose-an-api"></a>Een API beschikbaar maken
 
-Een andere instelling die specifiek zijn voor web-API's is de daarvoor beschikbare API en de beschikbaar gemaakte bereiken.
+Een andere instelling die specifiek is voor web-Api's is de beschik bare API en de weer gegeven bereiken.
 
-### <a name="resource-uri-and-scopes"></a>Resource-URI en bereiken
+### <a name="resource-uri-and-scopes"></a>Bron-URI en bereiken
 
-Bereiken zijn meestal in de vorm `resourceURI/scopeName`. Voor Microsoft Graph, hebben de scopes snelkoppelingen zoals `User.Read`. Deze tekenreeks vormt een snelkoppeling naar `https://graph.microsoft.com/user.read`.
+Bereiken bevinden zich doorgaans in het `resourceURI/scopeName`formulier. Voor Microsoft Graph hebben de bereiken snelkoppelingen zoals `User.Read`. Deze teken reeks is een snelkoppeling `https://graph.microsoft.com/user.read`voor.
 
-Tijdens de appregistratie moet u deze parameters definiëren:
+Tijdens de registratie van de app moet u deze para meters definiëren:
 
-- De resource-URI. Standaard wordt de portal voor appregistratie aanbevolen die u gebruiken `api://{clientId}`. Deze resource-URI is uniek, maar het is niet mens leesbaar is. U kunt dit wijzigen, maar zorg ervoor dat de nieuwe waarde is uniek.
-- Een of meer *scopes*. (Voor clienttoepassingen, ze wordt weergegeven als *overgedragen machtigingen* voor uw web-API.)
-- Een of meer *app-rollen*. (Voor clienttoepassingen, ze wordt weergegeven als *Toepassingsmachtigingen* voor uw web-API.)
+- De resource-URI. De portal voor toepassings registratie raadt u standaard aan om te gebruiken `api://{clientId}`. Deze resource-URI is uniek, maar is niet leesbaar. U kunt deze wijzigen, maar u moet er wel voor zorgen dat de nieuwe waarde uniek is.
+- Een of meer *scopes*. (Voor client toepassingen worden ze weer gegeven als *gedelegeerde machtigingen* voor uw web-API.)
+- Een of meer *app-rollen*. (Voor client toepassingen worden ze weer gegeven als *toepassings machtigingen* voor uw web-API.)
 
-De bereiken worden ook weergegeven op het instemmingsscherm dat wordt weergegeven voor eindgebruikers van uw app. U moet dus de overeenkomstige tekenreeksen die worden beschreven van het bereik opgeven:
+De bereiken worden ook weer gegeven op het venster met de toestemming dat wordt gepresenteerd aan eind gebruikers van uw app. Daarom moet u de overeenkomende teken reeksen opgeven die het bereik beschrijven:
 
-- Zoals gezien door de eindgebruiker.
-- Zoals gezien door de tenantbeheerder, die toestemming van een beheerder kan verlenen.
+- Zoals gezien door de eind gebruiker.
+- Zoals gezien door de Tenant beheerder, wie toestemming van de beheerder kan verlenen.
 
-### <a name="exposing-delegated-permissions-scopes"></a>Gedelegeerde machtigingen (bereiken) weergeven
+### <a name="exposing-delegated-permissions-scopes"></a>Gedelegeerde machtigingen (bereiken) weer geven
 
-1. Selecteer de **beschikbaar maken van een API** sectie in de registratie van de toepassing.
+1. Selecteer de sectie **een API beschikbaar** maken in de registratie van de toepassing.
 1. Selecteer **Een bereik toevoegen**.
-1. Als u wordt gevraagd, accepteert u de URI van de voorgestelde toepassings-ID (`api://{clientId}`) door te selecteren **opslaan en doorgaan**.
-1. Deze parameters opgeven:
-      - Voor **scopenaam**, gebruikt u **access_as_user**.
-      - Voor **wie kan instemmen**, zorg ervoor dat **beheerders en gebruikers** is geselecteerd.
-      - In **beheerder toestemming weergavenaam**, voer **TodoListService als een gebruiker toegang**.
-      - In **beschrijving van de beheerderstoestemming**, voer **toegang heeft tot de TodoListService Web-API als een gebruiker**.
-      - In **weergavenaam van de gebruiker toestemming**, voer **TodoListService als een gebruiker toegang**.
-      - In **beschrijving van de gebruikerstoestemming**, voer **toegang heeft tot de TodoListService Web-API als een gebruiker**.
-      - Houd **status** ingesteld op **ingeschakeld**.
+1. Als u hierom wordt gevraagd, accepteert u de voorgestelde`api://{clientId}`URI voor de toepassings-id () door **opslaan en door gaan**te selecteren.
+1. Voer de volgende para meters in:
+      - Gebruik **access_as_user**voor **Scope naam**.
+      - Voor **wie toestemming kan**geven, moet u ervoor zorgen dat **beheerders en gebruikers** zijn geselecteerd.
+      - Voer in de **weergave naam van de beheerders toestemming** **de toegangs TodoListService in als een gebruiker**.
+      - In de beschrijving van de **beheerders toestemming**voert u **de TodoListService-Web-API in als een gebruiker**.
+      - In **weergave naam van gebruikers toestemming**voert u **toegangs TodoListService in als een gebruiker**.
+      - In **Beschrijving van de gebruikers toestemming**voert u **de TodoListService-Web-API in als een gebruiker**.
+      - Zorg ervoor dat de **status** is ingesteld op **ingeschakeld**.
       - Selecteer **bereik toevoegen**.
 
 ### <a name="if-your-web-api-is-called-by-a-daemon-app"></a>Als uw web-API wordt aangeroepen door een daemon-app
 
-In deze sectie leert u hoe u uw beveiligde web-API registreren, zodat deze veilig kan worden aangeroepen door daemon-apps.
+In deze sectie leert u hoe u de beveiligde web-API kunt registreren zodat deze veilig kan worden aangeroepen door daemon-apps.
 
-- u moet blootstellen *Toepassingsmachtigingen*. U kunt alleen de machtigingen van de toepassing moet declareren, omdat de daemon-apps niet communiceren met gebruikers, zodat u gedelegeerde machtigingen heeft geen zin.
-- Tenantbeheerders kunnen Azure Active Directory (Azure AD) moeten probleem tokens voor uw web-API alleen voor toepassingen die zijn geregistreerd voor toegang tot een van de machtigingen van de web-API's van de toepassing.
+- U moet *toepassings machtigingen*zichtbaar maken. U declareert alleen toepassings machtigingen omdat daemon-apps geen interactie hebben met gebruikers, dus gedelegeerde machtigingen zouden niet zinvol zijn.
+- Tenant beheerders kunnen Azure Active Directory (Azure AD) verplichten om tokens voor uw web-API uit te geven aan toepassingen die zijn geregistreerd voor toegang tot een van de toepassings machtigingen van de Web-API.
 
-#### <a name="exposing-application-permissions-app-roles"></a>Machtigingen van de toepassing (app-rollen) weergeven
+#### <a name="exposing-application-permissions-app-roles"></a>Toepassings machtigingen beschikbaar maken (app-rollen)
 
-Als u toepassingsmachtigingen beschikbaar, wilt moet u het manifest bewerken.
+Als u toepassings machtigingen beschikbaar wilt maken, moet u het manifest bewerken.
 
-1. Selecteer in de toepassingsregistratie voor uw toepassing, **Manifest**.
-1. Het manifest bewerken door te zoeken op de `appRoles` instellen en het toevoegen van een of meer toepassingsrollen. De roldefinitie van de is opgegeven in het volgende voorbeeld-JSON-blok. Laat de `allowedMemberTypes` ingesteld op `"Application"` alleen. Zorg ervoor dat de `id` is een unieke GUID en die `displayName` en `value` geen spaties bevatten.
-1. Sla het manifest.
+1. Selecteer in de registratie van de toepassing voor uw toepassing **manifest**.
+1. Bewerk het manifest door de `appRoles` instelling te zoeken en een of meer toepassings rollen toe te voegen. De roldefinitie is opgenomen in het volgende voor beeld-JSON-blok. De `allowedMemberTypes` set alleen op `"Application"` . Zorg ervoor dat `id` het een unieke GUID is en `displayName` `value` dat ze geen spaties bevatten.
+1. Sla het manifest op.
 
-Het volgende voorbeeld ziet u de inhoud van `appRoles`. (De `id` kan een unieke GUID zijn.)
+In het volgende voor beeld wordt de `appRoles`inhoud van weer gegeven. (De `id` kan een unieke GUID zijn.)
 
 ```JSon
 "appRoles": [
@@ -115,28 +115,28 @@ Het volgende voorbeeld ziet u de inhoud van `appRoles`. (De `id` kan een unieke 
 ],
 ```
 
-#### <a name="ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients"></a>Ervoor te zorgen dat problemen met Azure AD-tokens voor uw web-API voor het alleen clients toegestaan
+#### <a name="ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients"></a>Ervoor zorgen dat Azure AD tokens voor uw web-API alleen aan toegestane clients geeft
 
-De web-API gecontroleerd voor de rol van de app. (Dat is de ontwikkelaar manier om machtigingen van de toepassing zichtbaar te maken.) Maar u kunt ook Azure AD voor het uitgeven van een token voor uw web-API alleen op apps die zijn goedgekeurd door de tenantbeheerder voor toegang tot uw API configureren. Deze verbeterde beveiliging toevoegen:
+De Web-API controleert op de functie van de app. (Dat is de ontwikkelaars manier om toepassings machtigingen beschikbaar te maken.) Maar u kunt ook Azure AD zo configureren dat er een token voor uw web-API wordt uitgegeven aan apps die zijn goedgekeurd door de Tenant beheerder voor toegang tot uw API. Deze verhoogde beveiliging toe te voegen:
 
-1. Op de app **overzicht** pagina voor de registratie van uw app, selecteer de koppeling met de naam van uw app bij **beheerde toepassing in lokale map**. De titel op voor dit veld kan worden afgekapt. U kunt bijvoorbeeld zien **beheerde toepassing in...**
+1. Selecteer op de pagina **overzicht** van apps voor uw app-registratie de koppeling met de naam van uw app onder **beheerde toepassing in lokale map**. De titel voor dit veld kan worden afgekapt. U kunt bijvoorbeeld **beheerde toepassing in..** .
 
    > [!NOTE]
    >
-   > Wanneer u deze koppeling selecteert, gaat u naar de **Enterprise Toepassingsoverzicht** pagina die is gekoppeld aan de service-principal voor uw toepassing in de tenant waar u deze hebt gemaakt. U kunt Ga terug naar de registratiepagina van de app met behulp van de knop terug van uw browser.
+   > Wanneer u deze koppeling selecteert, gaat u naar de overzichts pagina van de **bedrijfs toepassing** die is gekoppeld aan de service-principal voor uw toepassing in de Tenant waar u deze hebt gemaakt. U kunt teruggaan naar de registratie pagina van de app met behulp van de knop terug van uw browser.
 
-1. Selecteer de **eigenschappen** pagina in de **beheren** sectie van de onderneming toepassingspagina's.
-1. Als u Azure AD om toegang te verlenen aan uw web-API van alleen bepaalde clients wilt, stelt **Gebruikerstoewijzing vereist?** naar **Ja**.
+1. Selecteer de pagina **Eigenschappen** in de sectie **beheren** van de pagina's van de Enter prise-toepassing.
+1. Als u wilt dat Azure AD toegang tot uw web-API van alleen bepaalde clients toestaat, stelt u de **gebruikers toewijzing vereist** in op **Ja**.
 
    > [!IMPORTANT]
    >
-   > Als u instelt **Gebruikerstoewijzing vereist?** naar **Ja**, Azure AD wordt de app-roltoewijzingen van de clients gecontroleerd bij het aanvragen van een toegangstoken voor de web-API. Als de client niet is toegewezen aan een app-rollen, Azure AD wordt geretourneerd met de fout `invalid_client: AADSTS501051: Application <application name> is not assigned to a role for the <web API>`.
+   > Als u de **gebruikers toewijzing** hebt ingesteld op vereist? **in azure**AD worden de toewijzingen van de app-rollen van clients gecontroleerd wanneer deze een toegangs token aanvragen voor de Web-API. Als de client niet is toegewezen aan de app-rollen, wordt de fout `invalid_client: AADSTS501051: Application <application name> is not assigned to a role for the <web API>`geretourneerd door Azure AD.
    >
-   > Als u wilt houden **Gebruikerstoewijzing vereist?** ingesteld op **Nee**, *Azure AD de app-roltoewijzingen wordt niet gecontroleerd wanneer een client een toegangstoken voor uw web-API vraagt*. Een daemon-client (dat wil zeggen, een client met behulp van de clientreferenties-stroom) is mogelijk een toegangstoken verkrijgen voor de API door te geven van de doelgroep. Elke toepassing zich voor toegang tot de API zonder te moeten machtigingen voor deze aanvragen. Maar uw web-API kunt altijd, zoals wordt beschreven in de vorige sectie, moet u controleren dat de toepassing de juiste rol heeft (die is gemachtigd door de tenantbeheerder). De API voert deze uit door te valideren dat het toegangstoken een rollen heeft claim en dat de waarde voor deze claim juist is. (In ons geval de waarde is `access_as_application`.)
+   > Als u de **gebruikers toewijzing verplicht stelt?** ingesteld op **Nee**, worden *de toewijzingen van de app-rollen niet door Azure AD gecontroleerd wanneer een client een toegangs token voor uw web-API*aanvraagt. Elke daemon-client (dat wil zeggen elke client die gebruikmaakt van de client referentie stroom) kan een toegangs token voor de API verkrijgen door alleen de doel groep op te geven. Elke toepassing kan toegang krijgen tot de API zonder dat hiervoor machtigingen moeten worden gevraagd. Maar uw web-API kan altijd, zoals wordt beschreven in de vorige sectie, controleren of de toepassing de juiste rol heeft (die is geautoriseerd door de Tenant beheerder). De API voert deze verificatie uit door te valideren dat het toegangs token een rol claim heeft en dat de waarde voor deze claim juist is. (In ons geval is `access_as_application`de waarde.)
 
 1. Selecteer **Opslaan**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [De configuratie van App-code](scenario-protected-web-api-app-configuration.md)
+> [Configuratie van de app-code](scenario-protected-web-api-app-configuration.md)

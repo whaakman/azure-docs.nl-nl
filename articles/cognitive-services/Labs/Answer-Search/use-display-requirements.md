@@ -1,7 +1,7 @@
 ---
-title: Gebruik en weergavevereisten - Project antwoord zoeken
+title: Vereisten gebruiken en weer geven-project antwoorden zoeken
 titlesuffix: Azure Cognitive Services
-description: Gebruik en weergavevereisten voor het eindpunt van het Project antwoord zoeken.
+description: Vereisten gebruiken en weer geven voor het zoek eindpunt van het project antwoord.
 services: cognitive-services
 author: mikedodaro
 manager: nitinme
@@ -10,100 +10,101 @@ ms.subservice: answer-search
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 085cb20e4dad92ed55b5ba0914c677aa50f3ac97
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2b42d61fd887f166a08b78510d5eaacb8a7cdcb8
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60345750"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706708"
 ---
-# <a name="project-answer-search-use-and-display-requirements"></a>Project antwoord zoeken gebruiken en weergavevereisten
+# <a name="project-answer-search-use-and-display-requirements"></a>Vereisten voor project antwoorden zoeken en weer geven
 
-Gebruik en weergave vereisten van toepassing op elke uitvoering van de inhoud en de bijbehorende gegevens, bijvoorbeeld, relaties, metagegevens en andere signalen, beschikbaar via aanroepen naar de Bing Knowledge zoeken, Bing Custom Search, entiteiten zoeken, afbeeldingen zoeken, Nieuws zoeken, video's zoeken, visuele zoekopdrachten, Web, zoeken, Spell Check en Automatische suggestie-API's. Implementatiegegevens die betrekking hebben op deze vereisten vindt u in de documentatie voor specifieke functies en de resultaten.
+De vereisten voor gebruik en weer gave zijn van toepassing op alle implementaties van de inhoud en de bijbehorende informatie, bijvoorbeeld relaties, meta gegevens en andere signalen, die beschikbaar zijn via aanroepen van de Bing kennis zoeken, Bing Aangepaste zoekopdrachten, Entiteiten zoeken, Afbeeldingen zoeken, Nieuws zoeken, Video's zoeken, Visual Search, Webzoekopdrachten, Spellingcontrole en Automatische suggestie-Api's. Implementatie gegevens met betrekking tot deze vereisten vindt u in de documentatie voor specifieke functies en resultaten.
 
-## <a name="1-bing-spell-check-and-bing-autosuggest-api"></a>1. Bing Spell Check- en Bing Automatische suggestie-API.
+## <a name="1-bing-spell-check-and-bing-autosuggest-api"></a>1. Bing Spellingcontrole en Automatische suggestie-API voor Bing.
 
 Niet doen:
 
-- kopiëren, opslaan of alle gegevens die u van de Bing Spell Check- of Bing Automatische suggestie-API's ontvangt in de cache
-- Gebruik de gegevens die u van de Bing Spell Check- of Bing Automatische suggestie-API's als onderdeel van een machine learning- of vergelijkbare algoritmische activiteit trainen ontvangt, evalueren, of een nieuwe of bestaande services die u of andere bedrijven bieden mogelijk te verbeteren.
+- u kunt alle gegevens die u ontvangt van de Bing Spellingcontrole of Bing Automatische suggesties-Api's kopiëren, opslaan of in de cache plaatsen
+- Gebruik gegevens die u van de Bing Spellingcontrole of Bing Automatische suggesties Api's ontvangt als onderdeel van een machine learning of vergelijk bare algoritme activiteit voor het trainen, evalueren of verbeteren van nieuwe of bestaande services die u of derden kunnen aanbieden.
 
 ## <a name="2-definitions"></a>2. Definities
 
-- "antwoord" verwijst naar een categorie van de resultaten in een antwoord geretourneerd. Bijvoorbeeld, kan een reactie van de Bing webzoekopdrachten-API antwoorden bevatten in de categorieën van webpagina-resultaten, afbeelding, video en nieuws;
-- 'response' betekent dat alle antwoorden en bijbehorende gegevens ontvangen in antwoord op één aanroep aan een Search-API
-- "resultaat" verwijst naar een artikel van gegevens in een antwoord. De set gegevens die zijn verbonden met een enkele nieuwsartikel is bijvoorbeeld een resultaat in een nieuwsantwoord.
-- ' Zoeken-API's ' betekent gezamenlijk de Bing Custom Search, entiteiten zoeken, afbeeldingen zoeken, nieuws zoeken, video's zoeken, visuele zoekopdrachten- en Web zoeken-API's. 
+- "antwoord" verwijst naar een categorie resultaten die in een antwoord wordt geretourneerd. Een reactie van de Bing Webzoekopdrachten-API kan bijvoorbeeld antwoorden bevatten in de categorieën resultaten van webpagina's, afbeelding, video en nieuws.
+- "antwoord" betekent elke en alle antwoorden en bijbehorende gegevens die zijn ontvangen als reactie op één aanroep van een zoek-API;
+- "Result" verwijst naar een gegevens item in een antwoord. De set met gegevens die zijn gekoppeld aan één nieuws artikel is bijvoorbeeld een antwoord op een nieuws.
+- "Zoek-Api's" betekent gezamenlijk, de Bing Aangepaste zoekopdrachten, Entiteiten zoeken, Afbeeldingen zoeken, Nieuws zoeken, Video's zoeken, Visual Search en Webzoekopdrachten-Api's. 
 
 
-## <a name="3-search-apis"></a>3. Zoeken-API 's
+## <a name="3-search-apis"></a>3. Zoek-API's
 
-De vereisten in deze sectie 3 van toepassing op het zoeken-API's.
+De vereisten in deze sectie 3 zijn van toepassing op de zoek-Api's.
 
-**EEN. Zoekfunctie voor Internet.** Alle gegevens die worden geretourneerd in antwoorden kan alleen worden gebruikt in internet zoekervaringen. Een internet-zoekervaring betekent dat de inhoud weergegeven, indien van toepassing: 
-- relevante en reageren op van de eindgebruiker directe query of een andere indicatie van de gebruiker zoeken bezienswaardigheden en een doel (bijvoorbeeld gebruiker aangegeven zoekquery); 
-- helpt gebruikers bij het vinden en navigeer naar de bronnen van gegevens (bijvoorbeeld de URL's die worden geïmplementeerd als hyperlinks, zodat de inhoud of attribution een link opvallende weergegeven met de gegevens is); of, als u van de Bing Entity Search API koppelen zichtbaar aan de bing.com-URL die is opgegeven in het antwoord waarmee de gebruiker om te navigeren naar de lijst met zoekresultaten voor de relevante query op bing.com;
-- bevat verschillende resultaten voor de eindgebruiker te selecteren in (bijvoorbeeld, verschillende resultaten van het nieuwsantwoord worden weergegeven of alle resultaten als minder dan verschillende worden geretourneerd); 
-- is beperkt tot een bedrag dat geschikt is voor de search-doel (bijvoorbeeld afbeelding miniaturen worden miniatuur-de grootte van de weergave van de gebruiker); dienen 
-- bevat zichtbare indicatie voor de eindgebruiker of de inhoud is zoekresultaten op Internet (bijvoorbeeld een overzicht dat de inhoud 'van het web is"); en
-- een andere combinatie van maatregelen om ervoor te zorgen van uw gebruik van gegevens ontvangen van het zoeken-API's geen inbreuk maken op alle van toepassing zijnde wetten of rechten van derden (bijvoorbeeld, als afhankelijk zijn van een Creative Commons-licentie die voldoet aan de toepasselijke licentie bevat voorwaarden). Raadpleeg uw juridische adviseurs om te bepalen welke metingen kunnen worden nodig.
-De enige uitzondering op het internet zoeken ervaring vereiste is voor de detectie van de URL, zoals beschreven in de sectie 3E (niet-weergave-URL-discovery) volgende. 
+**ÉÉN. Zoek ervaring op internet.** Alle gegevens die in reacties worden geretourneerd, mogen alleen worden gebruikt in Internet zoek functies. Een Internet-Zoek ervaring betekent dat de inhoud wordt weer gegeven, indien van toepassing: 
+- is relevant en reageert op de directe query van de eind gebruiker of op een andere vermelding van de zoek interesse en het doel van de gebruiker (bijvoorbeeld door de gebruiker aangegeven Zoek query). 
+- helpt gebruikers bij het zoeken naar en navigeren naar de gegevens bronnen (de gegeven Url's worden bijvoorbeeld als Hyper links geïmplementeerd, zodat de inhoud of de toewijzing een klik bare koppeling op een zicht bare manier wordt weer gegeven met de gegevens). of, indien van Bing Entiteiten zoeken-API, de beschik bare koppeling naar de bing.com-URL in het antwoord waarmee de gebruiker naar de zoek resultaten voor de relevante query op bing.com kan navigeren.
+- bevat meerdere resultaten voor de eind gebruiker om te selecteren (bijvoorbeeld verschillende resultaten van het nieuws antwoord worden weer gegeven of alle resultaten als er minder dan één worden geretourneerd); 
+- is beperkt tot een hoeveelheid die geschikt is voor het zoek doel (bijvoorbeeld afbeeldings miniaturen zijn in verhouding tot de weer gave van de gebruiker). 
+- bevat zicht bare indicatie van de eind gebruiker dat de inhoud de zoek resultaten van Internet omvat (bijvoorbeeld een verklaring dat de inhoud ' van het web ' is); maar
+- omvat alle andere Combi Naties van maat regelen die nodig zijn om ervoor te zorgen dat uw gebruik van gegevens die zijn ontvangen van de zoek-Api's geen overtreding zijn van toepasselijke wetten of rechten van derden (bijvoorbeeld als er wordt gebruikgemaakt van een Creative Commons-licentie, die voldoet aan de toepasselijke licentie voor waarden). Neem contact op met uw juridische adviseur om te bepalen welke maat regelen mogelijk geschikt zijn.
+De enige uitzonde ring op de vereiste voor Internet zoekopdracht ervaring is voor URL-detectie zoals beschreven in sectie 3E (detectie van niet-weer gave-URL'S). 
 
-**B. Beperkingen.** Niet doen:
+**B. Restrictie.** Niet doen:
 
-- kopiëren, opslaan of in de cache geen gegevens van antwoorden (met uitzondering van de bewaarperiode voor zover toegestaan door de volgende van de sectie 'Continuïteit van de Service'); 
-- Gebruik gegevens ontvangen van het zoeken-API's als onderdeel van een machine learning- of vergelijkbare algoritmische activiteit trainen, evalueren, of een nieuwe of bestaande services die u of andere bedrijven bieden mogelijk te verbeteren.
-- wijzigen van de inhoud van de resultaten (andere dan te formatteren ze op een manier die niet in strijd is met alle andere vereiste), tenzij de wet of goedgekeurd door Microsoft. 
-- weglaten attribution en URL's die zijn gekoppeld aan de resultaat-inhoud:
-- opnieuw wilt rangschikken, met inbegrip van door het nalaten hiervan, resultaten in een antwoord weergegeven als een order of classificatie wordt geleverd (voor de Bing Custom Search-API met deze regel geldt niet voor opnieuw ordenen geïmplementeerd via de portal customsearch.ai), tenzij de wet of overeengekomen door Microsoft ;
-- andere inhoud binnen een deel van een reactie op een manier die een eindgebruiker te geloven dat de andere inhoud deel van het antwoord uitmaakt; zou leiden weergeven 
-- voor advertentiedoeleinden die niet is geleverd door Microsoft op een willekeurige pagina waarop een deel van een reactie; -advertenties met antwoorden (i) van de Bing afbeeldingen, nieuws of Video zoeken-API's; weergeven of (ii) die zijn gefilterd of die beperkt zijn voornamelijk (of uitsluitend) tot afbeeldingen, nieuws en/of video resultaten.
+- gegevens uit antwoorden kopiëren, opslaan of in de cache bewaren (behalve Bewaar periode voor zover toegestaan door de sectie continuïteit van de service); 
+- Gebruik gegevens die zijn ontvangen van de zoek-Api's als onderdeel van een machine learning of vergelijk bare algoritme activiteit voor het trainen, evalueren of verbeteren van nieuwe of bestaande services die u of derden kunnen aanbieden.
+- Wijzig de inhoud van de resultaten (met uitzonde ring van het opnieuw Format teren op een manier die geen andere vereiste heeft geschonden), tenzij wettelijk vereist of door micro soft zijn overeengekomen; 
+- toewijzing en Url's die zijn gekoppeld aan resultaten inhoud weglaten;
+- Volg orde, met inbegrip van weglating, resultaten die worden weer gegeven in een antwoord wanneer een order of rang orde wordt opgegeven (voor de Bing Custom Search-API, is deze regel niet van toepassing op het opnieuw ordenen van de implementatie via de customsearch.ai-Portal), tenzij vereist door de wet of door micro soft zijn overeengekomen ;
+- andere inhoud weer geven binnen een deel van een reactie op een manier die een eind gebruiker zou kunnen vermoeden dat de andere inhoud deel van het antwoord is. 
+- advertenties weer geven die niet door micro soft zijn verschaft op een pagina waarop een deel van een antwoord wordt weer gegeven; -alle advertenties weer geven met antwoorden (i) van de Bing-installatie kopie, nieuws of Video's zoeken-Api's; of (II) die voornamelijk (of uitsluitend) worden gefilterd of beperkt tot afbeeldingen, nieuws en/of video resultaten.
 
-**C. Kennisgevingen en huisstijl.** 
+**G. Kennisgevingen en merken.** 
 
-- Een functionele hyperlink naar de privacyverklaring van Microsoft, beschikbaar op duidelijk zichtbaar opnemen https://go.microsoft.com/fwlink/?LinkId=521839, in de buurt van elk punt in de gebruikerservaring (UX) die een gebruiker de mogelijkheid biedt voor het invoeren van een zoekquery. De hyperlink "Microsoft Privacy Statement" van label.
-- Duidelijk zichtbaar weer Bing huisstijl, consistent zijn met de richtlijnen die beschikbaar zijn op https://go.microsoft.com/fwlink/?linkid=833278, in de buurt van elk punt in de UX die een gebruiker de mogelijkheid biedt voor het invoeren van een zoekquery.  Dergelijke huisstijl moet duidelijk geven aan de gebruiker dat Microsoft wordt de zoekervaring internet is ingeschakeld.
-- U kunt elk antwoord (of elk deel van een antwoord) weergegeven van de Bing Web, afbeeldingen, nieuws en Video-API's naar Microsoft, zoals beschreven in van het kenmerk https://go.microsoft.com/fwlink/?linkid=833278, tenzij Microsoft bij het schrijven voor uw gebruik iets anders aangeeft. 
-- Niet kenmerk antwoorden (of gedeelten van de antwoorden) weergegeven van de Bing Custom Search-API aan Microsoft, tenzij Microsoft iets anders aangeeft bij het schrijven voor uw specifieke gebruik.
+- U kunt een functionele Hyper Link toevoegen aan de privacyverklaring van micro soft, https://go.microsoft.com/fwlink/?LinkId=521839 die beschikbaar is op, bijna elk punt in de gebruikers ervaring (UX) waarmee een gebruiker een zoek opdracht kan invoeren. Label de Hyper Link micro soft privacyverklaring.
+- De Bing-huis stijl duidelijk weer geven, in overeenstemming met https://go.microsoft.com/fwlink/?linkid=833278 de richt lijnen die beschikbaar zijn op, bijna elk punt in de UX, waarmee een gebruiker een zoek opdracht kan invoeren.  Een dergelijke branding moet duidelijk aangeven aan welke gebruiker micro soft de Internet zoekmachine inschakelt.
+- U kunt elk antwoord (of gedeelte van een antwoord) dat wordt weer gegeven door de Bing Web-, afbeeldings-, nieuws-en video- https://go.microsoft.com/fwlink/?linkid=833278 api's naar micro soft kenmerken, tenzij micro soft schrijft dat er iets anders is geschreven voor uw gebruik. 
+- Geen kenmerk Reacties (of delen van antwoorden) die worden weer gegeven van de Bing Custom Search-API naar micro soft, tenzij micro soft schrijft dat er iets anders is voor uw specifieke gebruik.
 
 
-**D. Antwoorden worden overgebracht.** Als u een gebruiker om over te dragen van een reactie van een Search-API aan een andere gebruiker, zoals via een berichten-app of sociale media plaatsen, de volgende van toepassing inschakelen: 
-- Overgedragen antwoorden moeten:
-  - Bestaan uit de inhoud die niet worden gewijzigd van de inhoud van de antwoorden weergegeven aan de gebruiker overdragen (wijzigingen in de opmaak zijn toegestaan);
-  - Geen gegevens bevatten in de metagegevens van formulier.
-  - Voor antwoorden van de Bing Web, afbeeldingen, nieuws en Video-API's, weergavetaal die wijzen op het antwoord is verkregen via een internet-zoekervaring mogelijk gemaakt door Bing (bijvoorbeeld "Mogelijk gemaakt door Bing," "meer informatie over deze installatiekopie op Bing ', of met behulp van de Bing-logo);
-  - Voor antwoorden van de Bing Custom Search-API, is weergavetaal die wijzen op het antwoord verkregen via een internet-zoekervaring (bijvoorbeeld ' meer informatie over dit zoekresultaat");
-  - De volledige-query gebruikt voor het genereren van het antwoord; prominent weergegeven en
-  - Bevatten een prominente koppeling of een vergelijkbare attribution naar de onderliggende gegevensbron van het antwoord, rechtstreeks of via de zoekmachine (bing.com, m.bing.com of uw aangepaste search-service, zoals van toepassing).
-- U mag niet de overdracht van antwoorden automatiseren. Een overdracht moet worden gestart door een actie van de gebruiker duidelijk waaruit blijkt een intent om over te dragen van een antwoord.
-- U mag alleen een gebruiker om over te dragen van antwoorden die werden weergegeven in reactie op de overdracht gebruikersquery inschakelen.
+**!. Reacties worden overgedragen.** Als u een gebruiker in staat stelt om een reactie over te dragen van een zoek-API naar een andere gebruiker, zoals via een bericht-app of een boeking van de sociale media, is het volgende van toepassing: 
+- Verzonden reacties moeten:
+  - Bestaan uit inhoud die niet is gewijzigd ten opzichte van de inhoud van de antwoorden die worden weer gegeven aan de overdrachts gebruiker (wijzigingen in de opmaak zijn toegestaan).
+  - Geen gegevens in het formulier meta gegevens bevatten.
+  - Voor antwoorden van de Bing Web-, afbeeldings-, nieuws-en video-Api's is de weergave taal die het antwoord aangeeft, verkregen via een Internet Zoek ervaring die is ingeschakeld door Bing (bijvoorbeeld ' Powered by Bing ', ' "meer informatie over deze installatie kopie op Bing ' of het Bing-logo gebruiken).
+  - Voor reacties van de Bing Custom Search-API is de weergave taal die het antwoord aangeeft, verkregen via een Internet-Zoek ervaring (bijvoorbeeld "meer informatie over dit Zoek resultaat").
+  - De volledige query die wordt gebruikt voor het genereren van het antwoord prominent weer geven. maar
+  - Neem een prominente koppeling of soort gelijke toewijzing aan de onderliggende bron van het antwoord op, hetzij rechtstreeks, hetzij via de zoek machine (bing.com, m.bing.com of uw aangepaste zoek service, indien van toepassing).
+- U kunt de overdracht van antwoorden niet automatiseren. Een overdracht moet duidelijk worden geïnitieerd door een actie van een gebruiker om een evidencing te kunnen overdragen.
+- U kunt alleen een gebruiker in staat stellen reacties over te dragen die worden weer gegeven als reactie op de query van de overdrachts gebruiker.
 
-**E. De continuïteit van de service.** Niet kopiëren, opslaan of alle gegevens van antwoorden zoeken-API in de cache. Echter, zodat de continuïteit van de toegang tot de service en de rendering van rapportgegevens bewaren u resultaten uitsluitend in de volgende omstandigheden:
+**E. Continuïteit van de service.** Geen gegevens uit de zoek-API-antwoorden kopiëren, opslaan of in de cache plaatsen. Om continuïteit van service toegang en gegevens rendering mogelijk te maken, kunt u de resultaten echter alleen onder de volgende omstandigheden behouden:
 
-**Het apparaat.** U mogelijk een eindgebruiker oplost op een apparaat voor de laagste van (i) 24 uur vanaf het moment van de query of (ii) tot en met een eindgebruiker dient een andere query voor de bijgewerkte resultaten voorwaarde dat de ingehouden resultaten kunnen alleen worden gebruikt:
+**Apparaatconfiguratie.** U kunt een eind gebruiker in staat stellen om de resultaten te bewaren op een apparaat met een lagere (i) 24 uur na het tijdstip van de query of (II) totdat een eind gebruiker een andere query voor bijgewerkte resultaten indient, mits de Inge houden resultaten alleen mogen worden gebruikt:
 
-- om in te schakelen van de eindgebruiker toegang tot resultaten die eerder zijn geretourneerd naar die eindgebruikers op het apparaat (bijvoorbeeld in het geval van service wordt onderbroken); of
-- voor het opslaan van resultaten voor uw proactieve query persoonlijke in afwachting van de behoeften van de eindgebruiker op basis van signalen die van de eindgebruiker (bijvoorbeeld in het geval van verwachte service wordt onderbroken).
+- om ervoor te zorgen dat de eind gebruiker toegang krijgt tot resultaten die eerder zijn geretourneerd naar die eind gebruiker op dat apparaat (bijvoorbeeld in het geval van een onderbreking van de service). of
+- om de resultaten op te slaan die zijn geretourneerd voor uw proactieve query, worden de behoeften van de eind gebruiker gepersonaliseerd op basis van de signalen van de eind gebruiker (bijvoorbeeld in het geval van een verwachte service onderbreking).
 
-**Server.** U bewaren resultaten die specifiek zijn voor een enkele gebruiker veilig op een server die u beheren en weergeven van de ingehouden resultaten alleen:
+**Naam.** U kunt resultaten die specifiek zijn voor een enkele eind gebruiker veilig bewaren op een server die u beheert en alleen de behouden resultaten weer geven:
 
-- om in te schakelen van de eindgebruiker toegang tot een historisch rapport van de resultaten eerder geretourneerd voor die gebruiker in uw oplossing, mits de resultaten niet (i) gedurende meer dan 21 dagen vanaf het moment van de eerste query van de eindgebruiker behouden mogelijk en (ii) in reactie op een einde u weergegeven Ser van nieuwe of herhaalde query. of
-- persoonlijke in afwachting van een eindgebruiker behoeften op basis van signalen die van de gebruiker voor de laagste van (i) 24 uur vanaf het moment van de query of (ii) tot en met een eindgebruiker dient een andere query voor de bijgewerkte resultaten voor het opslaan van resultaten die voor uw proactieve query zijn geretourneerd.
+- om ervoor te zorgen dat de eind gebruiker toegang krijgt tot een historisch rapport met resultaten dat in uw oplossing eerder naar die gebruiker is geretourneerd, mits de resultaten mogelijk niet (i) worden bewaard gedurende meer dan 21 dagen vanaf het moment waarop de eerste query van de eind gebruiker en (II) worden weer gegeven als reactie op een end u de nieuwe of herhaalde query van ser; of
+- om de resultaten op te slaan die voor uw proactieve query worden geretourneerd, is het aan te raden de behoeften van een eind gebruiker op basis van de signalen van die eind gebruiker te bewaren, voor een lagere periode (i) 24 uur vanaf het moment van de query of (II) totdat een eind gebruiker een andere query verzendt voor bijgewerkte resultaten.
 
-Indien aanwezig, resultaten voor een specifieke gebruiker kunnen niet worden commingled met de resultaten van een andere gebruiker, dat wil zeggen, de resultaten van elke gebruiker moeten worden bewaard en afzonderlijk verkrijgbaar waren in.
+Wanneer het behouden blijft, kunnen de resultaten voor een specifieke gebruiker niet worden commingled met de resultaten van een andere gebruiker, dat wil zeggen dat de resultaten van elke gebruiker afzonderlijk moeten worden bewaard en geleverd.
 
-**Algemene.** Voor alle presentatie van de ingehouden resultaten:
+**Algemene.** Voor alle presentatie van behouden resultaten:
 
-- een duidelijke, zichtbaar kennisgeving van de tijd waarop die de query is verzonden, bevatten
-- presenteren aan de gebruiker een knop of een vergelijkbare manier opnieuw opvragen en de bijgewerkte resultaten verkrijgen 
-- de huisstijl van de presentatie van de resultaten, Bing behouden en
-- verwijderen (en indien nodig het vernieuwen met een nieuwe query) de opgeslagen resultaten binnen het opgegeven tijdsbestek.
+- een duidelijke, zicht bare kennisgeving van het tijdstip van verzen ding van de query toevoegen
+- Zorg ervoor dat de gebruiker een knop of een vergelijk bare manier geeft om bijgewerkte resultaten opnieuw op te vragen en te verkrijgen. 
+- Bewaar de Bing-huis stijl in de presentatie van de resultaten en
+- de opgeslagen resultaten binnen de opgegeven tijds bestek verwijderen (en zo nodig vernieuwen met een nieuwe query).
 
-**F. Detectie van de URL niet weergeven.** U kunt de reacties op webzoekopdrachten alleen gebruiken in een internet-zoekervaring voor het enige doel van het detecteren van URL's van bronnen met informatie die reageren op een query van de gebruiker of de klant. U kunt deze URL's kopiëren in een rapport of een vergelijkbaar antwoord dat u (i) alleen voor die gebruiker opgeeft of -klant bent, bevat in reactie op deze query en (ii) die belangrijke aanvullende waardevolle inhoud die relevant zijn voor de query. De vereisten in secties 3A via 3E van deze vereisten voldoet voor gebruik en de weergave niet van toepassing op het gebruik van deze niet weergegeven, met uitzondering van: 
+**F. Niet-weer gave van URL-detectie.** U kunt Zoek reacties alleen in een niet-Internet zoek opdracht gebruiken voor het detecteren van Url's van gegevens bronnen die reageren op een query van uw gebruiker of klant. U kunt dergelijke Url's in een rapport of een soortgelijk antwoord dat u (i) verstrekt, alleen naar die gebruiker of klant kopiëren als reactie op die query en (II), met inbegrip van belang rijke extra waardevolle inhoud die relevant is voor de query. De vereisten in de secties 3A tot en met 3E van deze gebruiks-en weergave vereisten zijn niet van toepassing op dit niet-weer gave-gebruik, met uitzonde ring van: 
 
-- U wordt niet in de cache, kopiëren of alle gegevens worden opgeslagen of inhoud op of afgeleid zijn van het antwoord van de zoekactie dan het beperkte URL kopiëren die eerder zijn beschreven;
-- Zorg ervoor dat uw gebruik van gegevens (inclusief de URL's) van de Search-API's ontvangen geen inbreuk maken op alle van toepassing zijnde wetten of rechten van derden; en
-- U mag de gegevens (inclusief de URL's) die worden ontvangen van de Search-API's als onderdeel van een search-index of machine learning- of vergelijkbare algoritmische activiteit geen gebruik maken van de trein, evalueren of services die u of andere bedrijven bieden mogelijk te verbeteren.
+- Het is niet mogelijk om gegevens of inhoud op te slaan in de cache of te kopiëren van, of af te leiden van, het antwoord op de zoek opdracht, met uitzonde ring van de beperkte URL-kopie die eerder is beschreven.
+- Zorg ervoor dat uw gebruik van gegevens (inclusief de Url's) die zijn ontvangen van de zoek-Api's geen inbreuk maakt op toepasselijke wetten of rechten van derden; maar
+- U mag de gegevens (inclusief de Url's) die zijn ontvangen van de zoek-Api's, niet gebruiken als onderdeel van een zoek index of machine learning of vergelijk bare algoritmen voor het maken van Train-, evaluatie-of Verbeter services die u of derden kunnen aanbieden.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Antwoord zoeken-overzicht](overview.md)
+[Overzicht van antwoorden zoeken](overview.md)

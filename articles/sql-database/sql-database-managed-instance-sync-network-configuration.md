@@ -1,6 +1,6 @@
 ---
-title: Azure App Service - netwerkconfiguratie synchroniseren | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u uw netwerkconfiguratie voor Azure App Service-hostingabonnement synchroniseren.
+title: Azure App Service-netwerk configuratie synchroniseren | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u uw netwerk configuratie synchroniseert voor Azure App Service hosting abonnement.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -10,41 +10,40 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 0d7920080fd61389741fbe785f5141003bef5251
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 920851e33255b0bcb5b085c541ae636c5988be72
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61314690"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567310"
 ---
-# <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Configuratie van netwerken voor Azure App Service-hostingabonnement synchroniseren
+# <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>De netwerk configuratie voor het hosting abonnement voor Azure App Service synchroniseren
 
-Het gebeuren dat hoewel u [geïntegreerd van uw app met een Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md), u kunt geen verbinding maken met Managed Instance. Wat die kunt u proberen is om te vernieuwen voor de configuratie van netwerken voor uw service-plan.
+Het kan gebeuren dat u [uw app hebt geïntegreerd met een Azure-Virtual Network](../app-service/web-sites-integrate-with-vnet.md), maar u kunt geen verbinding maken met het beheerde exemplaar. U kunt proberen om de netwerk configuratie voor uw service abonnement te vernieuwen.
 
-## <a name="sync-network-configuration-for-app-service-hosting-plan"></a>Netwerkconfiguratie synchroniseren voor App Service-hostingplan
+## <a name="sync-network-configuration-for-app-service-hosting-plan"></a>Netwerk configuratie voor App Service hosting abonnement synchroniseren
 
 Voer hiervoor de volgende stappen uit:  
 
-1. Ga naar uw web-apps met App Service-plan.
+1. Ga naar uw web apps App Service plan.
 
-   ![App service-plan](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
+   ![App Service-plan](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
 
 2. Klik op **netwerken** en klik vervolgens op **Klik hier om te beheren**.
 
-   ![beheren van service-plan](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
+   ![service abonnement beheren](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
 
-3. Selecteer uw **VNet** en klikt u op **netwerk synchroniseren**.
+3. Selecteer uw **VNet** en klik op **netwerk synchroniseren**.
 
    ![netwerk synchroniseren](./media/sql-database-managed-instance-sync-networking/sync.png)
 
 4. Wacht totdat de synchronisatie is voltooid.
   
-   ![synchronisatie is uitgevoerd](./media/sql-database-managed-instance-sync-networking/sync-done.png)
+   ![synchronisatie is voltooid](./media/sql-database-managed-instance-sync-networking/sync-done.png)
 
-U bent nu klaar om te proberen voor uw verbinding met uw beheerde exemplaar opnieuw tot stand te brengen.
+U kunt nu proberen om de verbinding met uw beheerde exemplaar te herstellen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over het configureren van uw VNet voor beheerd exemplaar [beheerd exemplaar VNet architectuur](sql-database-managed-instance-connectivity-architecture.md) en [het configureren van bestaande VNet](sql-database-managed-instance-configure-vnet-subnet.md).
+- Zie voor meer informatie over het configureren van uw VNet voor beheerde exemplaren [beheerde exemplaar VNet-architectuur](sql-database-managed-instance-connectivity-architecture.md) en [het configureren van bestaande vnet](sql-database-managed-instance-configure-vnet-subnet.md).

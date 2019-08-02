@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6260a619ad3dfda65fcdfc1180cba4002dd23d0
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 7011025a1d94a5c99bf2338d9f80c683c2fd7b35
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499902"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514970"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
@@ -35,7 +35,7 @@ Sommige van deze instellingen zijn van toepassing op de MFA-server, Azure MFA of
 | Accountvergrendeling | Accounts in de multi-factor Authentication-Service tijdelijk vergren delen als er te veel pogingen tot authenticatie in een rij zijn geweigerd. Deze functie is alleen van toepassing op gebruikers die een pincode invoeren om te verifiëren. (MFA-server) |
 | [Gebruikers blok keren/deblokkeren](#block-and-unblock-users) | Wordt gebruikt om te voor komen dat specifieke gebruikers multi-factor Authentication-aanvragen kunnen ontvangen. Verificatie pogingen voor geblokkeerde gebruikers worden automatisch geweigerd. Gebruikers blijven geblokkeerd gedurende 90 dagen vanaf het moment dat ze worden geblokkeerd. |
 | [Fraude waarschuwing](#fraud-alert) | Instellingen configureren met betrekking tot gebruikers die frauduleuze verificatie aanvragen rapporteren |
-| Meldingen | Meldingen van gebeurtenissen van MFA-server inschakelen. |
+| [Meldingen](#notifications) | Meldingen van gebeurtenissen van MFA-server inschakelen. |
 | [OATH-tokens](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Wordt gebruikt in in de cloud gebaseerde Azure MFA-omgevingen om OATH-tokens voor gebruikers te beheren. |
 | [Instellingen voor telefoon gesprek](#phone-call-settings) | Instellingen configureren met betrekking tot telefoon gesprekken en begroetingen voor Cloud-en on-premises omgevingen. |
 | Providers | Hiermee worden alle bestaande verificatie providers weer gegeven die u mogelijk aan uw account hebt gekoppeld. Nieuwe verificatie providers mogen niet worden gemaakt vanaf 1 september 2018 |
@@ -99,6 +99,12 @@ Configureer de functie _fraude waarschuwing_ zodat uw gebruikers frauduleuze pog
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer **Azure Active Directory** > aanmeldingen. Het fraude rapport maakt nu deel uit van het standaard rapport van Azure AD-aanmeldingen.
+
+## <a name="notifications"></a>Meldingen
+
+Hier kunt u e-mail adressen configureren voor gebruikers die e-mails met fraude waarschuwingen ontvangen.
+
+![Voor beeld e-mail bericht fraude waarschuwing](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 
 ## <a name="phone-call-settings"></a>Instellingen voor telefoongesprek
 
@@ -390,7 +396,7 @@ De functie _multi-factor Authentication onthouden_ voor apparaten en browsers di
 
 Met de functie multi-factor Authentication onthouden wordt een permanente cookie ingesteld op de browser wanneer een gebruiker de optie **niet opnieuw vragen voor X dagen** selecteert tijdens het aanmelden. De gebruiker wordt niet opnieuw gevraagd naar multi-factor Authentication vanuit dezelfde browser totdat de cookie verloopt. Als de gebruiker een andere browser op hetzelfde apparaat opent of de cookies wist, wordt deze opnieuw gevraagd om te verifiëren.
 
-De optie **niet opnieuw vragen voor X dagen** wordt niet weer gegeven voor niet-browser toepassingen, ongeacht of de app moderne verificatie ondersteunt. Deze apps maken  gebruik van vernieuwings tokens die elk uur nieuwe toegangs tokens bieden. Wanneer een vernieuwings token is gevalideerd, controleert Azure AD of de laatste verificatie in twee stappen binnen het opgegeven aantal dagen is uitgevoerd.
+De optie **niet opnieuw vragen voor X dagen** wordt niet weer gegeven voor niet-browser toepassingen, ongeacht of de app moderne verificatie ondersteunt. Deze apps maken gebruik van vernieuwings tokens die elk uur nieuwe toegangs tokens bieden. Wanneer een vernieuwings token is gevalideerd, controleert Azure AD of de laatste verificatie in twee stappen binnen het opgegeven aantal dagen is uitgevoerd.
 
 De functie beperkt het aantal authenticaties op Web-apps, die Norma liter elke keer worden gevraagd. De functie verhoogt het aantal authenticaties voor moderne authenticatie clients die Norma liter elke 90 dagen worden gevraagd. Kan ook het aantal authenticaties verhogen in combi natie met beleid voor voorwaardelijke toegang.
 

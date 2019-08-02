@@ -3,7 +3,7 @@ title: Een betrouwbare Azure Service Fabric Java-actortoepassing maken in Linux 
 description: Lees hoe u een betrouwbare Service Fabric Java-actortoepassing in vijf minuten kunt maken en implementeren.
 services: service-fabric
 documentationcenter: java
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
-ms.author: aljo
-ms.openlocfilehash: 37d9c17ff10922aa524fa2fe3eb8abff92c83052
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 4b008c001e1c4749b6ab6f9f21eff479f007c05c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394020"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599680"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Uw eerste betrouwbare Service Fabric Java-actortoepassing maken in Linux
 > [!div class="op_single_selector"]
@@ -50,8 +50,8 @@ Om aan de slag te gaan met Reliable Actors hoeft u slechts enkele basisbegrippen
 * **Actor-interface**. De Actor-interface wordt gebruikt voor het definiëren van een sterk getypeerde openbare interface van een actor. In de terminologie van Reliable Actor-modellen definieert de actorinterface de typen berichten die de actor kan begrijpen en verwerken. De actorinterface wordt door andere actors en clienttoepassingen gebruikt om (asynchroon) berichten naar de actor te 'verzenden'. Reliable Actors kunnen meerdere interfaces implementeren.
 * **Klasse ActorProxy**. De klasse ActorProxy wordt door clienttoepassingen gebruikt voor het aanroepen van de methoden die toegankelijk zijn via de actorinterface. De klasse ActorProxy heeft twee belangrijke functies:
   
-  * Naamomzetting: Het is te vinden van de actor in het cluster (zoeken naar het knooppunt van het cluster waar dit wordt gehost).
-  * Afhandeling van taakfouten: Het kan methodes opnieuw proberen en de locatie van een actor opnieuw omzetten na, bijvoorbeeld een storing waardoor de actor is verplaatst naar een ander knooppunt in het cluster.
+  * Naam omzetting: De actor kan in het cluster worden gevonden (Zoek het knoop punt van het cluster waar deze wordt gehost).
+  * Afhandeling van fouten: Het kan methode-aanroepen opnieuw proberen en de actor-locatie opnieuw oplossen na bijvoorbeeld een storing waarbij de actor moet worden verplaatst naar een ander knoop punt in het cluster.
 
 De volgende regels met betrekking tot actorinterfaces zijn het noemen waard:
 
@@ -219,18 +219,18 @@ Nadat de toepassing is geïmplementeerd, opent u een browser en gaat u naar [Ser
 Vouw vervolgens het knooppunt **Toepassingen** uit. U ziet dat er nu een vermelding is voor uw toepassingstype en nog een voor het eerste exemplaar van dat type.
 
 > [!IMPORTANT]
-> Voor het implementeren van de toepassing met een beveiligd Linux-cluster in Azure, moet u een certificaat voor het valideren van uw toepassing met de Service Fabric-runtime configureren. In dat geval kunt uw Reliable Actors-services om te communiceren met de onderliggende Service Fabric-runtime-API's. Zie voor meer informatie, [een Reliable Services-app uit te voeren op Linux-clusters configureren](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Als u de toepassing wilt implementeren in een beveiligd Linux-cluster in azure, moet u een certificaat configureren om uw toepassing te valideren met de Service Fabric runtime. Hierdoor kunnen uw Reliable Actors-services communiceren met de onderliggende Service Fabric runtime-Api's. Zie [een reliable Services-app configureren voor het uitvoeren van Linux-clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)voor meer informatie.  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>De testclient starten en een failover uitvoeren
 Actoren doen niets uit zichzelf, ze hebben een andere service of client nodig die hen berichten stuurt. De actorsjabloon bevat een eenvoudig testscript dat u kunt gebruiken om te communiceren met de actorservice.
 
 > [!Note]
-> De testclient gebruikt de klasse actorproxy heeft om te communiceren met actors, die moeten worden uitgevoerd binnen hetzelfde cluster als de actor-service of delen van dezelfde IP-adresruimte.  U kunt de testclient uitvoeren op dezelfde computer als het lokale ontwikkelcluster.  Om te communiceren met actoren in een extern cluster, moet u echter een gateway in het cluster die verantwoordelijk is voor externe communicatie met de actoren implementeren.
+> De test-client maakt gebruik van de actor proxy-klasse om te communiceren met actors, die moeten worden uitgevoerd binnen hetzelfde cluster als de actor-service, of dezelfde IP-adres ruimte delen.  U kunt de test-client uitvoeren op dezelfde computer als het lokale ontwikkel cluster.  Als u wilt communiceren met actors in een extern cluster, moet u echter een gateway implementeren op het cluster dat externe communicatie met de actors verwerkt.
 
 1. Voer het script uit met behulp van het controleprogramma om de uitvoer van de actorservice te bekijken.  Via het testscript wordt de methode `setCountAsync()` op de actor aangeroepen om een teller te verhogen, wordt de methode `getCountAsync()` op de actor aangeroepen om de nieuwe tellerwaarde op te halen en wordt deze waarde weergegeven op de console.
 
-   In het geval van MAC OS X moet u de map HelloWorldTestClient kopiëren naar de enige locatie in de container door het uitvoeren van de volgende aanvullende opdrachten.    
+   In het geval van MAC OS X moet u de HelloWorldTestClient-map naar een bepaalde locatie in de container kopiëren door de volgende extra opdrachten uit te voeren.    
     
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
@@ -243,7 +243,7 @@ Actoren doen niets uit zichzelf, ze hebben een andere service of client nodig di
     watch -n 1 ./testclient.sh
     ```
 
-2. Zoek in Service Fabric Explorer het knooppunt op dat als host fungeert voor de primaire replica voor de actorservice. In de onderstaande schermafbeelding is dit knooppunt 3. Via de primaire servicereplica worden lees- en schrijfbewerkingen verwerkt.  Wijzigingen in de servicestatus worden vervolgens gerepliceerd naar de secundaire replica's die worden uitgevoerd op knooppunt 0 en 1 in de onderstaande schermafbeelding.
+2. Zoek in Service Fabric Explorer het knooppunt op dat als host fungeert voor de primaire replica voor de actorservice. In de onderstaande schermafbeelding is dit knooppunt 3. Via de primaire servicereplica worden lees- en schrijfbewerkingen verwerkt.  Wijzigingen in de status van de service worden vervolgens gerepliceerd naar de secundaire replica's die worden uitgevoerd op de knoop punten 0 en 1 in de onderstaande scherm afbeelding.
 
     ![Zoeken naar de primaire replica in Service Fabric Explorer][sfx-primary]
 

@@ -1,26 +1,26 @@
 ---
-title: Avere vFXT cluster afstemmen - Azure
-description: Overzicht van aangepaste instellingen voor het optimaliseren van prestaties in Avere vFXT voor Azure
+title: AVERE vFXT cluster tuning-Azure
+description: Overzicht van aangepaste instellingen voor het optimaliseren van de prestaties in avere vFXT voor Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: f5e780dcab20befe19ca34020908eee93c290516
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 17e55dbe84cda87ee902c94e0024c9a3aad8b31b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409157"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698342"
 ---
 # <a name="cluster-tuning"></a>Cluster afstemmen
 
 
-De meeste vFXT clusters kunnen profiteren van aangepaste prestatie-instellingen. Deze instellingen helpen bij het cluster geschikt zijn voor uw specifieke werkstroom, gegevensset en hulpprogramma's. 
+De meeste vFXT-clusters kunnen profiteren van aangepaste instellingen voor prestaties. Deze instellingen helpen het cluster optimaal te laten werken met uw specifieke werk stroom, gegevensset en hulpprogram ma's. 
 
-Deze aanpassing moet samen met een ondersteuningsmedewerker worden uitgevoerd, omdat dat normaal gesproken omvat het configureren van de functies die niet beschikbaar in het Configuratiescherm Avere.
+Deze aanpassing moet worden uitgevoerd naast een ondersteunings medewerker, omdat hiervoor doorgaans functies moeten worden geconfigureerd die niet beschikbaar zijn via het configuratie scherm van AVERE.
 
-Deze sectie wordt uitgelegd enkele van de aangepaste afstemmen die kan worden gedaan.
+In deze sectie wordt een deel van de aangepaste tuning beschreven die kan worden uitgevoerd.
 
 <!-- 
 [ xxx keep or not? \/ research this xxx ]
@@ -32,32 +32,30 @@ Deze sectie wordt uitgelegd enkele van de aangepaste afstemmen die kan worden ge
 
 ## <a name="general-optimizations"></a>Algemene optimalisaties
 
-Deze wijzigingen kunnen worden aanbevolen op basis van kenmerken van de gegevensset of werkstroom-stijl.
+Deze wijzigingen kunnen worden aanbevolen op basis van de kenmerken van de gegevensset of de stijl van de werk stroom.
 
-* Als de werkbelasting schrijfintensief, verhoogt u de grootte van de schrijf-cache van de standaardwaarde van 20%. 
-* Als de gegevensset veel kleine bestanden omvat, vergroot u de limiet voor het aantal van de cache van de cluster-bestand. 
-* Als het werk omvat kopiëren of verplaatsen van gegevens tussen twee opslagplaatsen, het aantal threads die worden gebruikt voor het verplaatsen van gegevens aanpassen: 
-  * Om te verkorten, kunt u het aantal parallelle threads gebruikt verhogen.
-  * Als het back-end opslagvolume wordt overbelast, moet u mogelijk verkleinen het aantal parallelle threads die worden gebruikt.
-* Als het cluster gegevens voor een core filer die gebruikmaakt van NFSv4-ACL's slaat, toegangsmodus opslaan in cache voor het stroomlijnen van bestandsverificatie voor bepaalde clients inschakelen
+* Als de werk belasting write-Heavy is, verg root u de grootte van de schrijf cache van de standaard waarde van 20%. 
+* Als de gegevensset veel kleine bestanden omvat, verhoogt u de limiet voor het aantal bestanden van de cluster cache. 
+* Als voor het werk het kopiëren of verplaatsen van gegevens tussen twee opslag plaatsen is vereist, past u het aantal threads aan dat wordt gebruikt voor het verplaatsen van gegevens: 
+  * Als u de snelheid wilt verhogen, kunt u het aantal gebruikte parallelle threads verhogen.
+  * Als het opslag volume van de back-end overbelast wordt, moet u mogelijk het aantal gebruikte parallelle threads verlagen.
+* Als het cluster gegevens in de cache opslaat voor een kern bestand die gebruikmaakt van NFSv4 Acl's, schakelt u in cache opslaan in de toegangs modus in om bestands autorisatie voor bepaalde clients te stroom lijnen.
 
-## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>NAS in de cloud of in de cloud optimalisaties voor gateway
+## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>Cloud-NAS-of Cloud gateway-optimalisaties
 
-Als u wilt profiteren van hogere snelheden tussen de vFXT cluster en cloud-opslag in een cloud NAS of de gateway-scenario (waar het cluster vFXT NAS-stijl toegang tot een cloudcontainer biedt), wijzigen van instellingen zoals deze meer van uw vertegenwoordiger aanbevelen gegevens naar het opslagvolume doelbewust pushen uit de cache:
+Als u wilt profiteren van hogere gegevens snelheden tussen het vFXT-cluster en de Cloud opslag in een Cloud-NAS of Gateway scenario (waarbij het vFXT-cluster toegang biedt tot een Cloud container), is het raadzaam om de instellingen te wijzigen, zoals deze voor meer informatie gegevens naar het opslag volume agressief pushen vanuit de cache:
 
-* Vergroot het aantal TCP-verbindingen tussen het cluster en de storage-container
-* Verkleinen van de REST-time-outwaarde voor de communicatie tussen het cluster en de opslag schrijfbewerkingen eerder wordt uitgevoerd als ze niet direct worden voltooid  
-* Het segment wordt vergroot zodat elk back-end segment overdrachten schrijven een segment 8 MB aan gegevens in plaats van 1 MB
+* Verhoog het aantal TCP-verbindingen tussen het cluster en de opslag container
 
-## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Cloudbursting of hybride WAN-optimalisatie
+## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Cloud bursting of hybride WAN-optimalisaties
 
-In een cloud bursting scenario of hybride opslag WAN-optimalisatie scenario (waar het cluster vFXT biedt integratie tussen de cloud en on-premises hardware opslag), kunnen het nuttig zijn deze wijzigingen:
+In een scenario met een hoofdletter gevoelig scenario of een WAN-optimalisatie voor hybride opslag (waarbij het vFXT-cluster integratie biedt tussen de Cloud en on-premises hardwarematige opslag), kunnen deze wijzigingen nuttig zijn:
 
-* Het aantal TCP-verbindingen toegestaan tussen het cluster en de filer core verhogen
-* Schakel de WAN-optimalisatie-instelling voor de externe core filer (deze instelling kan worden gebruikt voor een externe lokale filer of een cloud core filer in een andere Azure-regio).
-* Verhoog de grootte van de TCP-Sockets (afhankelijk van de werkbelasting en prestatiebehoeften voldoen)
-* Schakel de instelling "altijd forward" te verminderen van de bestanden toch toe in de cache (afhankelijk van de werkbelasting en prestatiebehoeften voldoen)
+* Verhoog het aantal TCP-verbindingen dat is toegestaan tussen het cluster en de kern bestand
+* Schakel de WAN-optimalisatie-instelling voor de externe kern bestand in (deze instelling kan worden gebruikt voor een externe on-premises bestand of een Cloud kern bestand in een andere Azure-regio.)
+* De grootte van de TCP-socket buffer verhogen (afhankelijk van de behoeften van de werk belasting en de prestaties)
+* Schakel de instelling ' altijd door sturen ' in om overbodige bestanden in cache te verminderen (afhankelijk van de behoeften van de werk belasting en de prestaties)
 
-## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Help uw vFXT Avere optimaliseren voor Azure
+## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Help uw avere vFXT voor Azure te optimaliseren
 
-Gebruik de procedure wordt beschreven in [hulp met uw systeem](avere-vfxt-open-ticket.md) contact opnemen met ondersteuningsmedewerkers over deze optimalisaties. 
+Gebruik de procedure die wordt beschreven in [hulp vragen aan uw systeem](avere-vfxt-open-ticket.md) om contact op te nemen met de ondersteunings medewerkers over deze optimalisaties. 

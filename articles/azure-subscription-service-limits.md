@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 1c30d9e70facaf9ab47bd33e5ca1fc1d35c6c979
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 7c4c80950e43f374b40085cb4e1c3e026e5f3abd
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405852"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698288"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 Dit document bevat enkele van de meest voorkomende Microsoft Azure limieten, ook wel quota's genoemd. Dit document geldt momenteel niet voor alle Azure-Services. De lijst wordt na verloop van tijd uitgebreid en bijgewerkt om meer services te kunnen behandelen.
@@ -48,6 +48,7 @@ In de volgende lijst met limieten wordt een nieuwe tabel weer gegeven met versch
 * [Automation](#automation-limits)
 * [Azure Cache voor Redis](#azure-cache-for-redis-limits)
 * [Azure Cloud Services](#azure-cloud-services-limits)
+* [Azure Cognitive Services](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Database for MySQL](#azure-database-for-mysql)
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
@@ -186,7 +187,7 @@ De volgende tabel is van toepassing op v1-, v2-, Standard-en WAF-Sku's, tenzij a
 
 Zie [Azure Storage schaalbaarheids-en prestatie doelen](storage/common/storage-scalability-targets.md)voor meer informatie over limieten voor opslag accounts.
 
-#### <a name="storage-resource-provider-limits"></a>Limieten van opslag Resource provider 
+#### <a name="storage-resource-provider-limits"></a>Limieten van opslag Resource provider
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -225,6 +226,9 @@ Zie grootten van [virtuele machines](virtual-machines/linux/sizes.md?toc=%2fazur
 
 ### <a name="azure-cloud-services-limits"></a>Limieten voor Azure-Cloud Services
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
+
+### <a name="azure-cognitive-services-limits"></a>Limieten voor Azure-Cognitive Services
+[!INCLUDE [azure-cloud-services-limits](../includes/azure-cognitive-services-limits.md)]
 
 ### <a name="app-service-limits"></a>App Service limieten
 De volgende App Service limieten zijn limieten voor Web Apps, Mobile Apps en API Apps.

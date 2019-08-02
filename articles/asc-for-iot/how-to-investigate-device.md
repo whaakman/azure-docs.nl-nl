@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center voor onderzoek voor Preview-versie voor IoT-apparaat | Microsoft Docs
-description: Deze stapsgewijze handleiding wordt uitgelegd hoe u Azure Security Center voor IoT gebruiken voor het onderzoeken van een verdachte IoT-apparaat met de Log Analytics.
+title: Onderzoek gids voor IoT-apparaten voor Azure Security Center | Microsoft Docs
+description: In deze hand leiding wordt uitgelegd hoe u Azure Security Center voor IoT kunt gebruiken om een verdacht IoT-apparaat te onderzoeken met Log Analytics.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,70 +13,66 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 884d001a65962d5e7e6e52dd47ce6ad7e02e1057
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 8d2fe8d63c7ece6f3b3426d8fc5a3454a61826f8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618125"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596250"
 ---
-# <a name="investigate-a-suspicious-iot-device"></a>Onderzoeken van een verdachte IoT-apparaat
+# <a name="investigate-a-suspicious-iot-device"></a>Een verdacht IoT-apparaat onderzoeken
 
-> [!IMPORTANT]
-> Azure Security Center voor IoT is momenteel in openbare preview.
-> Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+Azure Security Center voor IoT-Service waarschuwingen bieden duidelijke aanwijzingen wanneer IoT-apparaten worden verdacht van betrokkenheid bij verdachte activiteiten of wanneer er aanwijzingen zijn dat een apparaat is aangetast. 
 
-Azure Security Center (ASC) voor IoT-servicewaarschuwingen en bewijs bieden duidelijk aangegeven wanneer de IoT-apparaten wordt vermoed dat ze van de betrokkenheid bij verdachte activiteiten of wanneer vermeldingen bestaat dat een apparaat is geknoeid. 
-
-Gebruik onderzoek suggesties om te bepalen van de mogelijke risico's voor uw organisatie, bepalen hoe u wilt herstellen, en de beste manieren zijn om in de toekomst te voorkomen dat dergelijke aanvallen te detecteren die in deze handleiding.  
+In deze hand leiding kunt u de suggesties voor onderzoek gebruiken om te helpen bij het bepalen van de mogelijke Risico's voor uw organisatie, het bepalen van de manier waarop u wilt herstellen en het vinden van de beste manieren om in de toekomst soort gelijke aanvallen te voor komen.  
 
 > [!div class="checklist"]
-> * De apparaatgegevens van uw zoeken
-> * Met behulp van query's kql onderzoeken
+> * De gegevens van uw apparaat zoeken
+> * Onderzoeken met behulp van kql-query's
 
 
-## <a name="how-can-i-access-my-data"></a>Hoe krijg ik toegang tot mijn gegevens?
+## <a name="how-can-i-access-my-data"></a>Hoe kan ik toegang krijgen tot mijn gegevens?
 
-Standaard slaat ASC voor IoT uw beveiligingswaarschuwingen en aanbevelingen in uw Log Analytics-werkruimte. U kunt ook kiezen voor het opslaan van uw onbewerkte beveiligingsgegevens.
+Azure Security Center voor IoT slaat standaard uw beveiligings waarschuwingen en aanbevelingen op in uw Log Analytics-werk ruimte. U kunt er ook voor kiezen om uw onbewerkte beveiligings gegevens op te slaan.
 
-Om te zoeken de werkruimte voor logboekanalyse voor gegevensopslag:
+De Log Analytics-werk ruimte voor gegevens opslag zoeken:
 
-1. Open uw IoT-hub. 
-1. Onder **Security**, klikt u op **overzicht**, en selecteer vervolgens **instellingen**.
-1. Wijzig de configuratiedetails van uw Log Analytics-werkruimte. 
+1. Open uw IoT-hub, 
+1. Klik onder **beveiliging**op **overzicht**en selecteer vervolgens **instellingen**.
+1. Wijzig de configuratie gegevens van uw Log Analytics werk ruimte. 
 1. Klik op **Opslaan**. 
 
-De volgende configuratie, doe het volgende voor toegang tot gegevens die zijn opgeslagen in uw Log Analytics-werkruimte:
+Volgende configuratie gaat u als volgt te werk om toegang te krijgen tot gegevens die zijn opgeslagen in uw Log Analytics werkruimte:
 
-1. Selecteer en klik op een ASC voor IoT-waarschuwing in uw IoT-Hub. 
-1. Klik op **nader onderzoek**. 
-1. Selecteer **om te zien welke apparaten deze waarschuwing klikt u hier en weergeven van de apparaat-id-kolom**.
+1. Selecteer en klik op een Azure Security Center voor IoT-waarschuwing in uw IoT Hub. 
+1. Klik op **meer onderzoek**. 
+1. Selecteer **hier om te zien op welke apparaten deze waarschuwing zich bevindt en Bekijk de kolom DeviceID**.
 
-## <a name="investigation-steps-for-suspicious-iot-devices"></a>Onderzoeksvolgorde voor verdachte IoT-apparaten
+## <a name="investigation-steps-for-suspicious-iot-devices"></a>Onderzoek stappen voor verdachte IoT-apparaten
 
-Voor toegang tot inzichten en onbewerkte gegevens over uw IoT-apparaten, gaat u naar uw Log Analytics-werkruimte [toegang tot uw gegevens](#how-can-i-access-my-data).
+Als u inzichten en onbewerkte gegevens over uw IoT-apparaten wilt weer geven, gaat u naar uw Log Analytics-werk ruimte [om toegang te krijgen tot uw gegevens](#how-can-i-access-my-data).
 
-Controleren en onderzoeken van de apparaatgegevens voor de volgende details en de activiteiten met behulp van de volgende kql-query's.
+Bekijk de voor beelden van kql query's hieronder om aan de slag te gaan met het onderzoeken van waarschuwingen en activiteiten op het apparaat.
 
 ### <a name="related-alerts"></a>Gerelateerde waarschuwingen
 
-Als u wilt weten of andere waarschuwingen zijn geactiveerd rond dezelfde tijd gebruikt de volgende kql-query:
+Als u wilt weten of andere waarschuwingen rond dezelfde tijd zijn geactiveerd, gebruikt u de volgende kql-query:
 
-  ~~~
+  ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityAlert
   | where ExtendedProperties contains device and ResourceId contains tolower(hub)
   | project TimeGenerated, AlertName, AlertSeverity, Description, ExtendedProperties
-  ~~~
+  ```
 
 ### <a name="users-with-access"></a>Gebruikers met toegang
 
-Als u wilt weten hebben welke gebruikers toegang tot dit apparaat gebruiken met de volgende kql-query: 
+Als u wilt weten welke gebruikers toegang hebben tot dit apparaat, gebruikt u de volgende kql-query: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -88,16 +84,16 @@ Als u wilt weten hebben welke gebruikers toegang tot dit apparaat gebruiken met 
      GroupNames=extractjson("$.GroupNames", EventDetails, typeof(string)),
      UserName=extractjson("$.UserName", EventDetails, typeof(string))
   | summarize FirstObserved=min(TimestampLocal) by GroupNames, UserName
-  ~~~
-Deze gegevens gebruiken om te detecteren: 
-  1. Welke gebruikers hebben toegang tot het apparaat?
-  2. Hebben de gebruikers met toegang tot de machtigingsniveaus zoals verwacht? 
+ ```
+Gebruik deze gegevens om te ontdekken: 
+- Welke gebruikers hebben toegang tot het apparaat?
+- Hebben de gebruikers met toegang de verwachte machtigings niveaus?
 
 ### <a name="open-ports"></a>Poorten openen
 
-Als u wilt weten welke poorten in het apparaat zijn momenteel in gebruik of zijn gebruikt, gebruikt u de volgende kql-query: 
+Als u wilt weten welke poorten op het apparaat momenteel in gebruik zijn of zijn gebruikt, gebruikt u de volgende kql-query: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -113,18 +109,18 @@ Als u wilt weten welke poorten in het apparaat zijn momenteel in gebruik of zijn
      RemoteAddress=extractjson("$.RemoteAddress", EventDetails, typeof(string)),
      RemotePort=extractjson("$.RemotePort", EventDetails, typeof(string))
   | summarize MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), AllowedRemoteIPAddress=makeset(RemoteAddress), AllowedRemotePort=makeset(RemotePort) by Protocol, LocalPort
-  ~~~
+ ```
 
-    Use this data to discover:
-  1. Welke luisterende sockets zijn momenteel actief is op het apparaat?
-  2. De luisterende sockets die momenteel actief zijn toegestaan?
-  3. Zijn er een verdachte remote-adressen die zijn verbonden met het apparaat?
+Gebruik deze gegevens om te ontdekken:
+- Welke luisterende sockets zijn momenteel actief op het apparaat?
+- Moeten de luisterende sockets die momenteel actief zijn, worden toegestaan?
+- Zijn er verdachte externe adressen verbonden met het apparaat?
 
-### <a name="user-logins"></a>Gebruikersaanmeldingen
+### <a name="user-logins"></a>Gebruikers aanmeldingen
 
-Als u wilt weten gebruik gebruikers dat aangemeld bij het apparaat de volgende kql-query: 
+Als u wilt zoeken naar gebruikers die zijn aangemeld bij het apparaat, gebruikt u de volgende kql-query: 
  
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -144,18 +140,18 @@ Als u wilt weten gebruik gebruikers dat aangemeld bij het apparaat de volgende k
      RemoteAddress=extractjson("$.RemoteAddress", EventDetails, typeof(string)),
      Result=extractjson("$.Result", EventDetails, typeof(string))
   | summarize CntLoginAttempts=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), CntIPAddress=dcount(RemoteAddress), IPAddress=makeset(RemoteAddress) by UserName, Result, LoginHandler
-  ~~~
+ ```
 
-    Use the query results to discover:
-  1. Welke gebruikers aangemeld op het apparaat?
-  2. Zijn de gebruikers die aangemeld, moet zich aanmelden?
-  3. De gebruikers die vastgelegd in verbinding maken vanaf de verwachte of onverwachte IP-adressen?
+De query resultaten gebruiken om te detecteren:
+- Welke gebruikers zijn aangemeld bij het apparaat?
+- Moeten de gebruikers zich aanmelden om zich aan te melden?
+- Hebben de gebruikers die zich hebben aangemeld, verbinding gemaakt vanaf verwachte of onverwachte IP-adressen?
   
-### <a name="process-list"></a>Proceslijst
+### <a name="process-list"></a>Proces lijst
 
-Als u wilt weten als de lijst is zoals verwacht, gebruikt u de volgende kql-query: 
+Als u wilt weten of de proces lijst naar verwachting is, gebruikt u de volgende kql-query: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -180,14 +176,14 @@ Als u wilt weten als de lijst is zoals verwacht, gebruikt u de volgende kql-quer
   ) on UserId
   | extend UserIdName = strcat("Id:", UserId, ", Name:", UserName)
   | summarize CntExecutions=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), ExecutingUsers=makeset(UserIdName), ExecutionCommandLines=makeset(CommandLine) by Executable
-  ~~~
+```
 
-    Use the query results to discover:
+De query resultaten gebruiken om te detecteren:
 
-  1. Zijn er een verdachte processen worden uitgevoerd op het apparaat?
-  2. Zijn er processen uitgevoerd door de juiste gebruikers?
-  3. Bevat alle uitvoeringen vanaf de opdrachtregel de juiste en de verwachte argumenten?
+- Werden er verdachte processen uitgevoerd op het apparaat?
+- Zijn er processen uitgevoerd door de juiste gebruikers?
+- Hebben alle opdracht regel uitvoeringen de juiste en verwachte argumenten?
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Neem na onderzoek van een apparaat en krijgen een beter begrip van de risico's, kunt u overwegen [configureren van aangepaste waarschuwingen](quickstart-create-custom-alerts.md) voor het verbeteren van de beveiligingsstatus van uw IoT-oplossing. Als u nog een agent apparaat hebt, kunt u overwegen [implementeren van een beveiligingsagent](how-to-deploy-agent.md) of [wijzigen van de configuratie van een bestaand apparaat agent](how-to-agent-configuration.md) voor het verbeteren van de resultaten. 
+Nadat u een apparaat hebt onderzocht en een beter inzicht hebt in uw Risico's, kunt u overwegen om [aangepaste waarschuwingen te configureren](quickstart-create-custom-alerts.md) om uw IOT-oplossing Security postuur te verbeteren. Als u nog geen apparaat-agent hebt, kunt u [een beveiligings agent implementeren](how-to-deploy-agent.md) of [de configuratie van een bestaande apparaat-agent wijzigen](how-to-agent-configuration.md) om uw resultaten te verbeteren. 

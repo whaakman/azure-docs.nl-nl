@@ -9,14 +9,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 07/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c086f94a161853cba3a9ed2b98f13ea17b90dd20
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 662594f3ef0e4d5598b52cb07006b513e7f3c35a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478803"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564969"
 ---
  # <a name="application-insights-overriding-default-endpoints"></a>Application Insights standaard eindpunten overschrijven
 
@@ -158,6 +158,14 @@ Momenteel zijn de enige regio's waarvoor wijziging van het eind punt is vereist,
 | Azure Government | Telemetrie-kanaal |`https://dc.applicationinsights.us/v2/track` |
 | Azure Government | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | Profiel query |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+
+Als u momenteel de [Application Insights rest API](https://dev.applicationinsights.io/
+) gebruikt die normaal gesp roken wordt geopend via API.applicationinsights.io, moet u een eind punt gebruiken dat lokaal is voor uw regio:
+
+|Regio |  De naam van eindpunt | Value |
+|-----------------|:------------|:-------------|
+| Azure China | REST-API | `api.applicationinsights.azure.cn` |
+| Azure Government | REST-API | `api.applicationinsights.us`|
 
 > [!NOTE]
 > Bewaking op basis van agent/uitbrei ding voor Azure-app Services wordt **momenteel niet ondersteund** in deze regio's. Zodra deze functionaliteit beschikbaar wordt, wordt dit artikel bijgewerkt.

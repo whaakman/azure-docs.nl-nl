@@ -1,32 +1,32 @@
 ---
-title: Functies van Azure Resource Manager-sjablonen - tekenreeks | Microsoft Docs
-description: Beschrijft de functies in een Azure Resource Manager-sjabloon gebruiken om te werken met tekenreeksen.
+title: Azure Resource Manager-sjabloon functies-teken reeks | Microsoft Docs
+description: Hierin worden de functies beschreven die u kunt gebruiken in een Azure Resource Manager sjabloon om te werken met teken reeksen.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 04/08/2019
+ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 979474ea6b5b61935742591f8fba87d200d618e4
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 1db1eb9be3586f76a8d3abc48a78a1e691da9924
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206345"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698183"
 ---
-# <a name="string-functions-for-azure-resource-manager-templates"></a>Tekenreeksfuncties voor Azure Resource Manager-sjablonen
+# <a name="string-functions-for-azure-resource-manager-templates"></a>Teken reeks functies voor Azure Resource Manager sjablonen
 
-Resource Manager biedt de volgende functies voor het werken met tekenreeksen:
+Resource Manager biedt de volgende functies voor het werken met teken reeksen:
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [concat](#concat)
-* [contains](#contains)
+* [daarin](#contains)
 * [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
-* [empty](#empty)
+* [gelaten](#empty)
 * [endsWith](#endswith)
-* [first](#first)
+* [instantie](#first)
 * [format](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
@@ -41,7 +41,7 @@ Resource Manager biedt de volgende functies voor het werken met tekenreeksen:
 * [startsWith](#startswith)
 * [string](#string)
 * [substring](#substring)
-* [take](#take)
+* [Houd](#take)
 * [toLower](#tolower)
 * [toUpper](#toupper)
 * [trim](#trim)
@@ -55,21 +55,21 @@ Resource Manager biedt de volgende functies voor het werken met tekenreeksen:
 
 `base64(inputString)`
 
-Retourneert de Base 64-weergave van de ingevoerde tekenreeks.
+Retourneert de base64-weer gave van de invoer teken reeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| inputString |Ja |string |De waarde dat wordt geretourneerd als een Base 64-indeling. |
+| inputString |Ja |string |De waarde die als een base64-weer gave moet worden geretourneerd. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks met Base 64-indeling.
+Een teken reeks met de base64-weer gave.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) laat zien hoe u de met base64-functie te gebruiken.
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) ziet u hoe u de base64-functie gebruikt.
 
 ```json
 {
@@ -112,21 +112,21 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | Een twee drie |
-| toJsonOutput | Object | {"een": "a", "2": "b"} |
+| base64Output | Tekenreeks | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Tekenreeks | Een twee drie |
+| toJsonOutput | Object | {"een": "a", "twee": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
 
 `base64tojson`
 
-Converteert een Base 64-indeling naar een JSON-object.
+Converteert een base64-weer gave naar een JSON-object.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Ja |string |De Base 64-indeling converteren naar een JSON-object. |
+| base64Value |Ja |string |De base64-weer gave die moet worden geconverteerd naar een JSON-object. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -134,7 +134,7 @@ Een JSON-object.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) maakt gebruik van de functie base64ToJson om een met base64-waarde te converteren:
+De volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) maakt gebruik van de functie base64ToJson om een Base64-waarde te converteren:
 
 ```json
 {
@@ -175,31 +175,31 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Value |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | Een twee drie |
-| toJsonOutput | Object | {"een": "a", "2": "b"} |
+| base64Output | Reeks | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Reeks | Een twee drie |
+| toJsonOutput | Object | {"een": "a", "twee": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
 
 `base64ToString(base64Value)`
 
-Converteert een Base 64-indeling naar een tekenreeks.
+Converteert een base64-weer gave naar een teken reeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Ja |string |De Base 64-indeling converteren naar een tekenreeks. |
+| base64Value |Ja |string |De base64-weer gave die moet worden geconverteerd naar een teken reeks. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks van de geconverteerde base64-waarde.
+Een teken reeks van de geconverteerde Base64-waarde.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) maakt gebruik van de functie base64ToString om een met base64-waarde te converteren:
+De volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) maakt gebruik van de functie base64ToString om een Base64-waarde te converteren:
 
 ```json
 {
@@ -242,29 +242,29 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | Een twee drie |
-| toJsonOutput | Object | {"een": "a", "2": "b"} |
+| base64Output | Tekenreeks | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Tekenreeks | Een twee drie |
+| toJsonOutput | Object | {"een": "a", "twee": "b"} |
 
 ## <a name="concat"></a>concat
 
 `concat (arg1, arg2, arg3, ...)`
 
-Combineert meerdere tekenreekswaarden en retourneert de samengevoegde tekenreeks of combineert meerdere matrices en retourneert de samengevoegde matrix.
+Combineert meerdere teken reeks waarden en retourneert de aaneengeschakelde teken reeks, of combineert meerdere matrices en retourneert de aaneengeschakelde matrix.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |tekenreeks of matrix |De eerste waarde voor samenvoeging. |
-| aanvullende argumenten |Nee |string |Aanvullende waarden in opeenvolgende volgorde voor samenvoeging. |
+| arg1 |Ja |teken reeks of matrix |De eerste waarde voor samen voegen. |
+| aanvullende argumenten |Nee |string |Aanvullende waarden in sequentiële volg orde voor samen voeging. |
 
 ### <a name="return-value"></a>Retourwaarde
-Een tekenreeks of matrix met samengevoegde waarden.
+Een teken reeks of matrix van aaneengeschakelde waarden.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) laat zien hoe u het combineren van twee tekenreekswaarden en een samengevoegde tekenreeks te retourneren.
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) ziet u hoe u twee teken reeks waarden combineert en een samengevoegde teken reeks retourneert.
 
 ```json
 {
@@ -288,11 +288,11 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Value |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | Tekenreeks | prefix-5yj4yjf5mbg72 |
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) laat zien hoe u twee matrices combineren.
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) ziet u hoe u twee matrices kunt combi neren.
 
 ```json
 {
@@ -331,28 +331,28 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| terug | Matrix | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| opvragen | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 ## <a name="contains"></a>bevat
 
 `contains (container, itemToFind)`
 
-Controleert of een matrix een waarde bevat, een object een sleutel bevat of een tekenreeks een subtekenreeks. De vergelijking van gegevensreeksen is hoofdlettergevoelig. De vergelijking is echter niet-hoofdlettergevoelige bij het testen van als een object een sleutel bevat.
+Controleert of een matrix een waarde bevat, een object bevat een sleutel of een teken reeks bevat een subtekenreeks. De teken reeks vergelijking is hoofdletter gevoelig. Als er echter wordt getest of een object een sleutel bevat, is de vergelijking niet hoofdletter gevoelig.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| container |Ja |matrix of object tekenreeks |De waarde met de waarde om te zoeken. |
-| itemToFind |Ja |tekenreeks of int |De waarde om te zoeken. |
+| container |Ja |matrix, object of teken reeks |De waarde die de te zoeken waarde bevat. |
+| itemToFind |Ja |teken reeks of int |De waarde die moet worden gevonden. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-**De waarde True** als het item gevonden, anders is, **False**.
+**Waar** als het item is gevonden; anders **False**.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) toont hoe u met verschillende typen bevat:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) ziet u hoe u deze kunt gebruiken met verschillende typen:
 
 ```json
 {
@@ -407,11 +407,11 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| stringTrue | Bool | True |
+| stringTrue | Bool | Waar |
 | stringFalse | Bool | False |
-| objectTrue | Bool | True |
+| objectTrue | Bool | Waar |
 | objectFalse | Bool | False |
-| arrayTrue | Bool | True |
+| arrayTrue | Bool | Waar |
 | arrayFalse | Bool | False |
 
 ## <a name="datauri"></a>dataUri
@@ -424,15 +424,15 @@ Converteert een waarde naar een gegevens-URI.
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Ja |string |De waarde moet worden geconverteerd naar een gegevens-URI. |
+| stringToConvert |Ja |string |De waarde die moet worden geconverteerd naar een gegevens-URI. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks is opgemaakt als een gegevens-URI.
+Een teken reeks die is opgemaakt als een gegevens-URI.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) converteert een waarde naar een gegevens-URI en een gegevens-URI converteert naar een tekenreeks:
+Met de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) wordt een waarde geconverteerd naar een gegevens-URI en wordt een gegevens-URI geconverteerd naar een teken reeks:
 
 ```json
 {
@@ -466,28 +466,28 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello, World! |
+| dataUriOutput | Tekenreeks | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Reeks | Hallo mensen! |
 
 ## <a name="datauritostring"></a>dataUriToString
 
 `dataUriToString(dataUriToConvert)`
 
-Een gegevens-URI converteert opgemaakt waarde naar een tekenreeks.
+Converteert een waarde in de indeling van een gegevens-URI naar een teken reeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Ja |string |De gegevens-URI-waarde te converteren. |
+| dataUriToConvert |Ja |string |De gegevens-URI-waarde die moet worden geconverteerd. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks met de geconverteerde waarde.
+Een teken reeks met de geconverteerde waarde.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) converteert een waarde naar een gegevens-URI en een gegevens-URI converteert naar een tekenreeks:
+Met de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) wordt een waarde geconverteerd naar een gegevens-URI en wordt een gegevens-URI geconverteerd naar een teken reeks:
 
 ```json
 {
@@ -519,30 +519,30 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Value |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello, World! |
+| dataUriOutput | Tekenreeks | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Tekenreeks | Hallo mensen! |
 
-## <a name="empty"></a>leeg zijn
+## <a name="empty"></a>Leeg
 
 `empty(itemToTest)`
 
-Bepaalt of een matrix, een object of een tekenreeks leeg is.
+Bepaalt of een matrix, een object of een teken reeks leeg is.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Ja |matrix of object tekenreeks |De waarde moet worden gecontroleerd als dit leeg zijn. |
+| itemToTest |Ja |matrix, object of teken reeks |De waarde die moet worden gecontroleerd of deze leeg is. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Retourneert **waar** als de waarde leeg, anders is, **False**.
+Retourneert **waar** als de waarde leeg is; anders **False**.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) controleert of een matrix, het object en de tekenreeks leeg zijn.
+Met de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) wordt gecontroleerd of een matrix, een object en een teken reeks leeg zijn.
 
 ```json
 {
@@ -585,30 +585,30 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | True |
-| objectEmpty | Bool | True |
-| stringEmpty | Bool | True |
+| arrayEmpty | Bool | Waar |
+| objectEmpty | Bool | Waar |
+| stringEmpty | Bool | Waar |
 
 ## <a name="endswith"></a>endsWith
 
 `endsWith(stringToSearch, stringToFind)`
 
-Bepaalt of een tekenreeks met een waarde eindigt. De vergelijking is niet hoofdlettergevoelig.
+Hiermee wordt bepaald of een teken reeks eindigt met een waarde. De vergelijking is hoofdletter gevoelig.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |string |De waarde die bevat het artikel om te zoeken. |
-| stringToFind |Ja |string |De waarde om te zoeken. |
+| stringToSearch |Ja |string |De waarde die het item bevat dat moet worden gevonden. |
+| stringToFind |Ja |string |De waarde die moet worden gevonden. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-**De waarde True** als het laatste teken of van de tekenreeks overeen met de waarde; anders **False**.
+**Waar** als het laatste teken of de tekens van de teken reeks overeenkomen met de waarde; anders **False**.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) ziet u hoe u de functies startsWith en endsWith:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) ziet u hoe u de functies StartsWith en endsWith gebruikt:
 
 ```json
 {
@@ -648,32 +648,32 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| startsTrue | Bool | True |
-| startsCapTrue | Bool | True |
+| startsTrue | Bool | Waar |
+| startsCapTrue | Bool | Waar |
 | startsFalse | Bool | False |
-| endsTrue | Bool | True |
-| endsCapTrue | Bool | True |
+| endsTrue | Bool | Waar |
+| endsCapTrue | Bool | Waar |
 | endsFalse | Bool | False |
 
-## <a name="first"></a>eerste
+## <a name="first"></a>instantie
 
 `first(arg1)`
 
-Retourneert het eerste teken van de tekenreeks of het eerste element van de matrix.
+Retourneert het eerste teken van de teken reeks of het eerste element van de matrix.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matrix of tekenreeks |De waarde om op te halen van het eerste element of het teken. |
+| arg1 |Ja |matrix of teken reeks |De waarde voor het ophalen van het eerste element of teken. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks van het eerste teken of het type (string, int, matrix of object) van het eerste element in een matrix.
+Een teken reeks van het eerste teken of het type (teken reeks, int, matrix of object) van het eerste element in een matrix.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) ziet u hoe u de eerste functie met een matrix en een tekenreeks.
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) ziet u hoe u de eerste functie gebruikt met een matrix en teken reeks.
 
 ```json
 {
@@ -704,30 +704,30 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | één |
-| stringOutput | String | O |
+| arrayOutput | Reeks | één |
+| stringOutput | Tekenreeks | O |
 
 ## <a name="format"></a>format
 
 `format(formatString, arg1, arg2, ...)`
 
-Maakt een opgemaakte tekenreeks van de invoerwaarden.
+Hiermee maakt u een ingedeelde teken reeks van invoer waarden.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| formatString | Ja | string | De samengestelde tekenreeks. |
-| arg1 | Ja | tekenreeks, geheel getal of Booleaanse waarde | De waarde in de opgemaakte tekenreeks wilt opnemen. |
-| aanvullende argumenten | Nee | tekenreeks, geheel getal of Booleaanse waarde | Aanvullende waarden in de opgemaakte tekenreeks wilt opnemen. |
+| Tring | Ja | string | De samengestelde indelings teken reeks. |
+| arg1 | Ja | teken reeks, geheel getal of Booleaanse waarde | De waarde die moet worden meegenomen in de opgemaakte teken reeks. |
+| aanvullende argumenten | Nee | teken reeks, geheel getal of Booleaanse waarde | Aanvullende waarden die moeten worden meegenomen in de opgemaakte teken reeks. |
 
 ### <a name="remarks"></a>Opmerkingen
 
-Deze functie gebruiken om de opmaak van een tekenreeks in de sjabloon. Hierbij de dezelfde opties als de [System.String.Format](/dotnet/api/system.string.format) methode in .NET.
+Gebruik deze functie om een teken reeks in uw sjabloon op te maken. Er worden dezelfde opmaak opties gebruikt als voor de methode [System. String. Format](/dotnet/api/system.string.format) in .net.
 
 ### <a name="examples"></a>Voorbeelden
 
-De voorbeeldsjabloon van het volgende ziet u hoe u de functie format.
+In de volgende voorbeeld sjabloon ziet u hoe u de functie Format gebruikt.
 
 ```json
 {
@@ -760,44 +760,44 @@ De voorbeeldsjabloon van het volgende ziet u hoe u de functie format.
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Value |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
-| formatTest | String | Hallo, gebruiker. Opgemaakte nummer: 8,175,133 |
+| Indelings meest | Tekenreeks | Hallo, gebruiker. Opgemaakt aantal: 8.175.133 |
 
-## <a name="guid"></a>GUID
+## <a name="guid"></a>guid
 
 `guid(baseString, ...)`
 
-Hiermee maakt een waarde in de indeling van een globally unique identifier op basis van de waarden geleverd als parameters.
+Hiermee maakt u een waarde in de notatie van een Globally Unique Identifier op basis van de waarden die zijn opgegeven als para meters.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Ja |string |De waarde die wordt gebruikt in de hash-functie voor het maken van de GUID. |
-| aanvullende parameters indien nodig |Nee |string |U kunt zoveel tekenreeksen als nodig voor het maken van de waarde die het niveau van de uniciteit bepaalt toevoegen. |
+| baseString |Ja |string |De waarde die wordt gebruikt in de hash-functie om de GUID te maken. |
+| aanvullende para meters indien nodig |Nee |string |U kunt zoveel teken reeksen toevoegen als u nodig hebt om de waarde te maken waarmee het niveau van uniekheid wordt opgegeven. |
 
 ### <a name="remarks"></a>Opmerkingen
 
-Deze functie is handig als u wilt maken van een waarde in de indeling van een globally unique identifier. U opgeven parameterwaarden die beperken van het bereik van de uniciteit voor het resultaat. U kunt opgeven of de naam van de unieke omlaag naar het abonnement, resourcegroep of implementatie.
+Deze functie is handig wanneer u een waarde in de indeling van een Globally Unique Identifier wilt maken. U geeft parameter waarden op die het bereik van de uniekheid voor het resultaat beperken. U kunt opgeven of de naam uniek is voor het abonnement, de resource groep of de implementatie.
 
-De geretourneerde waarde is niet een willekeurige tekenreeks, maar in plaats van het resultaat van een hash-functie van de parameters. De geretourneerde waarde is 36 tekens lang zijn. Het is niet uniek. Voor het maken van een nieuwe GUID die niet is gebaseerd op deze hashwaarde van de parameters gebruikt de [newGuid](#newguid) functie.
+De geretourneerde waarde is geen wille keurige teken reeks, maar in plaats daarvan het resultaat van een hash-functie voor de para meters. De geretourneerde waarde is 36 tekens lang. Het is niet wereld wijd uniek. Als u een nieuwe GUID wilt maken die niet is gebaseerd op die hashwaarde van de para meters, gebruikt u de functie [newGuid](#newguid) .
 
-De volgende voorbeelden laten zien hoe u guid om te maken van een unieke waarde voor de meest gebruikte niveaus.
+In de volgende voor beelden ziet u hoe u met behulp van GUID een unieke waarde voor veelgebruikte niveaus maakt.
 
-Uniek binnen het bereik van abonnement
+Uniek bereik voor abonnement
 
 ```json
 "[guid(subscription().subscriptionId)]"
 ```
 
-Uniek binnen het bereik van resourcegroep
+Uniek bereik van resource groep
 
 ```json
 "[guid(resourceGroup().id)]"
 ```
 
-Uniek binnen het bereik van de implementatie voor een resourcegroep
+Uniek bereik voor implementatie voor een resource groep
 
 ```json
 "[guid(resourceGroup().id, deployment().name)]"
@@ -805,11 +805,11 @@ Uniek binnen het bereik van de implementatie voor een resourcegroep
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks met 36 tekens in de indeling van een globally unique identifier.
+Een teken reeks met 36 tekens in de indeling van een Globally Unique Identifier.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json) resultaten uit guid:
+De volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json) retourneert resultaten van GUID:
 
 ```json
 {
@@ -839,22 +839,22 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 `indexOf(stringToSearch, stringToFind)`
 
-Retourneert de eerste positie van een waarde van een tekenreeks. De vergelijking is niet hoofdlettergevoelig.
+Retourneert de eerste positie van een waarde binnen een teken reeks. De vergelijking is hoofdletter gevoelig.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |string |De waarde die bevat het artikel om te zoeken. |
-| stringToFind |Ja |string |De waarde om te zoeken. |
+| stringToSearch |Ja |string |De waarde die het item bevat dat moet worden gevonden. |
+| stringToFind |Ja |string |De waarde die moet worden gevonden. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal dat staat voor de positie van het item te vinden. De waarde is nul. Als het item is niet gevonden, wordt -1 geretourneerd.
+Een geheel getal dat de positie van het item vertegenwoordigt dat moet worden gezocht. De waarde is gebaseerd op nul. Als het item niet wordt gevonden, wordt-1 geretourneerd.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) ziet u hoe u de functies indexOf en lastIndexOf:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) ziet u hoe u de functies IndexOf en lastIndexOf gebruikt:
 
 ```json
 {
@@ -890,31 +890,31 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| firstT | Int | 0 |
-| lastT | Int | 3 |
+| eerst | Int | 0 |
+| laatst | Int | 3 |
 | firstString | Int | 2 |
 | lastString | Int | 0 |
 | notFound | Int | -1 |
 
-## <a name="last"></a>laatste
+## <a name="last"></a>duren
 
 `last (arg1)`
 
-Retourneert de laatste teken van de tekenreeks of het laatste element van de matrix.
+Retourneert het laatste teken van de teken reeks of het laatste element van de matrix.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matrix of tekenreeks |De waarde om op te halen van het laatste element of het teken. |
+| arg1 |Ja |matrix of teken reeks |De waarde voor het ophalen van het laatste element of teken. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks van het laatste teken of het type (string, int, matrix of object) van het laatste element in een matrix.
+Een teken reeks van het laatste teken of het type (teken reeks, int, matrix of object) van het laatste element in een matrix.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) ziet u hoe u de laatste functie met een matrix en een tekenreeks.
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) ziet u hoe u de laatste functie gebruikt met een matrix en teken reeks.
 
 ```json
 {
@@ -945,29 +945,29 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | drie |
-| stringOutput | String | e |
+| arrayOutput | Tekenreeks | drie |
+| stringOutput | Reeks | & |
 
 ## <a name="lastindexof"></a>lastIndexOf
 
 `lastIndexOf(stringToSearch, stringToFind)`
 
-Retourneert de laatste positie van een waarde van een tekenreeks. De vergelijking is niet hoofdlettergevoelig.
+Retourneert de laatste positie van een waarde binnen een teken reeks. De vergelijking is hoofdletter gevoelig.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |string |De waarde die bevat het artikel om te zoeken. |
-| stringToFind |Ja |string |De waarde om te zoeken. |
+| stringToSearch |Ja |string |De waarde die het item bevat dat moet worden gevonden. |
+| stringToFind |Ja |string |De waarde die moet worden gevonden. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal dat staat voor de laatste positie van het item te vinden. De waarde is nul. Als het item is niet gevonden, wordt -1 geretourneerd.
+Een geheel getal dat de laatste positie van het item vertegenwoordigt dat moet worden gezocht. De waarde is gebaseerd op nul. Als het item niet wordt gevonden, wordt-1 geretourneerd.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) ziet u hoe u de functies indexOf en lastIndexOf:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) ziet u hoe u de functies IndexOf en lastIndexOf gebruikt:
 
 ```json
 {
@@ -1003,8 +1003,8 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| firstT | Int | 0 |
-| lastT | Int | 3 |
+| eerst | Int | 0 |
+| laatst | Int | 3 |
 | firstString | Int | 2 |
 | lastString | Int | 0 |
 | notFound | Int | -1 |
@@ -1013,13 +1013,13 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 `length(string)`
 
-Retourneert het aantal tekens in een tekenreeks of elementen in een matrix.
+Retourneert het aantal tekens in een teken reeks, elementen in een matrix of hoofd niveau-eigenschappen in een-object.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matrix of tekenreeks |De matrix te gebruiken voor het ophalen van het aantal elementen, of een tekenreeks te gebruiken voor het ophalen van het aantal tekens. |
+| arg1 |Ja |matrix, teken reeks of object |De matrix die moet worden gebruikt voor het ophalen van het aantal elementen, de teken reeks die moet worden gebruikt voor het ophalen van het aantal tekens of het object dat moet worden gebruikt voor het ophalen van het aantal eigenschappen op hoofd niveau. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1027,7 +1027,7 @@ Een int.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) ziet u hoe u de lengte van een matrix en een tekenreeks:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) ziet u hoe lengte met een matrix en teken reeks kan worden gebruikt:
 
 ```json
 {
@@ -1045,6 +1045,18 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
         "stringToTest": {
             "type": "string",
             "defaultValue": "One Two Three"
+        },
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "propA": "one",
+                "propB": "two",
+                "propC": "three",
+                "propD": {
+                    "propD-1": "sub",
+                    "propD-2": "sub"
+                }
+            }
         }
     },
     "resources": [],
@@ -1056,6 +1068,10 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
         "stringLength": {
             "type": "int",
             "value": "[length(parameters('stringToTest'))]"
+        },
+        "objectLength": {
+            "type": "int",
+            "value": "[length(parameters('objectToTest'))]"
         }
     }
 }
@@ -1067,32 +1083,33 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
+| objectLength | Int | 4 |
 
 ## <a name="newguid"></a>newGuid
 
 `newGuid()`
 
-Retourneert een waarde in de indeling van een globally unique identifier. **Deze functie kan alleen worden gebruikt in de standaardwaarde voor een parameter.**
+Retourneert een waarde in de indeling van een Globally Unique Identifier. **Deze functie kan alleen worden gebruikt in de standaard waarde voor een para meter.**
 
 ### <a name="remarks"></a>Opmerkingen
 
-U kunt deze functie in een expressie alleen gebruiken voor de standaardwaarde van een parameter. Met deze functie ergens anders in een sjabloon wordt een fout geretourneerd. De functie is niet toegestaan in andere onderdelen van de sjabloon, omdat deze een andere waarde retourneert telkens wanneer die deze wordt aangeroepen. Implementatie van dezelfde sjabloon met dezelfde parameters, wouldn't op betrouwbare wijze de dezelfde resultaten opleveren.
+U kunt deze functie alleen gebruiken in een expressie voor de standaard waarde van een para meter. Als u deze functie ergens anders in een sjabloon gebruikt, wordt er een fout geretourneerd. De functie is niet toegestaan in andere onderdelen van de sjabloon omdat deze een andere waarde retourneert telkens wanneer deze wordt aangeroepen. Het implementeren van dezelfde sjabloon met dezelfde para meters zou geen betrouw bare resultaten opleveren.
 
-De functie newGuid wijkt af van de [guid](#guid) omdat deze parameters niet uitvoeren. Wanneer u de guid met dezelfde parameter aanroept, wordt dezelfde id telkens wanneer. Guid gebruiken wanneer u nodig hebt voor het genereren van betrouwbaar dezelfde GUID voor een specifieke omgeving. NewGuid gebruiken wanneer u een andere id telkens moet, zoals het implementeren van resources in een testomgeving.
+De functie newGuid verschilt van de functie [GUID](#guid) omdat deze geen para meters heeft. Wanneer u een GUID met dezelfde para meter aanroept, wordt elke keer dezelfde id geretourneerd. Gebruik GUID wanneer u op een betrouw bare manier dezelfde GUID wilt genereren voor een specifieke omgeving. Gebruik newGuid wanneer u elke keer een andere id nodig hebt, zoals het implementeren van resources in een test omgeving.
 
-Als u de [optie voor het implementeren van een eerder geslaagde implementatie](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails), en de eerdere implementatie omvat een parameter die gebruikmaakt van newGuid, de parameter is niet opnieuw geëvalueerd. De waarde van parameter uit de eerdere implementatie is in plaats daarvan automatisch opnieuw gebruikt in de implementatie ongedaan maken.
+Als u de optie gebruikt voor het opnieuw [implementeren van een eerdere geslaagde implementatie](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails), en de eerdere implementatie bevat een para meter die gebruikmaakt van newGuid, wordt de para meter niet opnieuw geëvalueerd. In plaats daarvan wordt de parameter waarde van de eerdere implementatie automatisch opnieuw gebruikt in de rollback-implementatie.
 
-In een testomgeving moet u mogelijk resources die alleen live voor korte tijd herhaaldelijk te implementeren. In plaats van unieke namen maken, kunt u newGuid met [uniqueString](#uniquestring) unieke namen moeten worden gemaakt.
+In een test omgeving moet u mogelijk herhaaldelijk resources implementeren die alleen gedurende een korte periode actief zijn. In plaats van unieke namen te maken, kunt u newGuid gebruiken met [Unique string](#uniquestring) om unieke namen te creëren.
 
-Wees voorzichtig een sjabloon die is gebaseerd op de functie newGuid voor een standaardwaarde opnieuw wilt implementeren. Wanneer u opnieuw implementeren en niet een waarde voor de parameter opgeven, wordt de functie opnieuw geëvalueerd. Als u wilt bijwerken van een bestaande resource in plaats van een nieuwe maken, worden uit de eerdere implementatie in de waarde van parameter doorgeven.
+Wees voorzichtig met het opnieuw implementeren van een sjabloon die afhankelijk is van de functie newGuid voor een standaard waarde. Wanneer u opnieuw implementeert en geen waarde opgeeft voor de para meter, wordt de functie opnieuw geëvalueerd. Als u een bestaande resource wilt bijwerken in plaats van een nieuwe te maken, geeft u de parameter waarde van de eerdere implementatie door.
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks met 36 tekens in de indeling van een globally unique identifier.
+Een teken reeks met 36 tekens in de indeling van een Globally Unique Identifier.
 
 ### <a name="examples"></a>Voorbeelden
 
-De voorbeeldsjabloon van het volgende ziet u een parameter met een nieuwe id.
+In de volgende voorbeeld sjabloon wordt een para meter met een nieuwe id weer gegeven.
 
 ```json
 {
@@ -1115,13 +1132,13 @@ De voorbeeldsjabloon van het volgende ziet u een parameter met een nieuwe id.
 }
 ```
 
-De uitvoer van het vorige voorbeeld varieert voor elke implementatie, maar is vergelijkbaar met:
+De uitvoer van het voor gaande voor beeld varieert per implementatie, maar lijkt op:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
-Het volgende voorbeeld gebruikt de functie newGuid om een unieke naam voor een opslagaccount maken. Deze sjabloon werkt mogelijk voor testomgeving waar het opslagaccount bestaat voor een korte periode en wordt niet geïmplementeerd.
+In het volgende voor beeld wordt de functie newGuid gebruikt om een unieke naam voor een opslag account te maken. Deze sjabloon kan worden gebruikt voor test omgevingen waarin het opslag account bestaat voor een korte periode en niet opnieuw wordt geïmplementeerd.
 
 ```json
 {
@@ -1158,7 +1175,7 @@ Het volgende voorbeeld gebruikt de functie newGuid om een unieke naam voor een o
 }
 ```
 
-De uitvoer van het vorige voorbeeld varieert voor elke implementatie, maar is vergelijkbaar met:
+De uitvoer van het voor gaande voor beeld varieert per implementatie, maar lijkt op:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -1169,25 +1186,25 @@ De uitvoer van het vorige voorbeeld varieert voor elke implementatie, maar is ve
 
 `padLeft(valueToPad, totalLength, paddingCharacter)`
 
-Retourneert een rechts uitgelijnde tekenreeks met tekens toe te voegen aan de linkerkant tot het bereiken van de totale lengte van de opgegeven.
+Retourneert een rechts uitgelijnde teken reeks door tekens aan de linkerkant toe te voegen totdat de totale opgegeven lengte wordt bereikt.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| valueToPad |Ja |tekenreeks of int |De waarde rechts uitlijnen. |
-| totalLength |Ja |int |Het totale aantal tekens in de geretourneerde tekenreeks. |
-| paddingCharacter |Nee |willekeurig teken |Het teken dat moet worden gebruikt voor links-opvulling totdat de totale lengte is bereikt. De standaardwaarde is een spatie. |
+| valueToPad |Ja |teken reeks of int |De waarde die rechts moet worden uitgelijnd. |
+| totalLength |Ja |int |Het totale aantal tekens in de geretourneerde teken reeks. |
+| paddingCharacter |Nee |Eén teken |Het teken dat moet worden gebruikt voor de linker opvulling totdat de totale lengte wordt bereikt. De standaard waarde is een spatie. |
 
-Als de oorspronkelijke reeks langer dan het aantal tekens dat moet worden opvullen met het teken is, worden geen tekens toegevoegd.
+Als de oorspronkelijke teken reeks langer is dan het aantal tekens dat u wilt aanvullen, worden er geen tekens toegevoegd.
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks met ten minste het aantal tekens opgegeven.
+Een teken reeks met ten minste het aantal opgegeven tekens.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json) laat zien hoe u opvullen met het teken van de gebruiker opgegeven parameterwaarde door toe te voegen van het teken nul totdat het totale aantal tekens is bereikt. 
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json) ziet u hoe u de door de gebruiker gedefinieerde parameter waarde invult door het teken nul toe te voegen tot het totaal aantal tekens wordt bereikt. 
 
 ```json
 {
@@ -1213,29 +1230,29 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| stringOutput | String | 0000000123 |
+| stringOutput | Tekenreeks | 0000000123 |
 
-## <a name="replace"></a>vervangen
+## <a name="replace"></a>replace
 
 `replace(originalString, oldString, newString)`
 
-Retourneert een nieuwe tekenreeks met alle exemplaren van een tekenreeks vervangen door een andere tekenreeks.
+Retourneert een nieuwe teken reeks waarbij alle exemplaren van een teken reeks zijn vervangen door een andere teken reeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalString |Ja |string |De waarde waarvoor alle exemplaren van een tekenreeks vervangen door een andere tekenreeks. |
-| oldString |Ja |string |De tekenreeks die moet worden verwijderd uit de oorspronkelijke reeks. |
-| newString |Ja |string |De tekenreeks om toe te voegen in plaats van de verwijderde tekenreeks. |
+| originalString |Ja |string |De waarde met alle exemplaren van één teken reeks die is vervangen door een andere teken reeks. |
+| Olds Tring |Ja |string |De teken reeks die moet worden verwijderd uit de oorspronkelijke teken reeks. |
+| newString |Ja |string |De teken reeks die moet worden toegevoegd in plaats van de verwijderde teken reeks. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks met de tekens die vervangen.
+Een teken reeks met de vervangen tekens.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json) leest hoe alle streepjes verwijderen uit de gebruiker opgegeven tekenreeks en Vervang een deel van de tekenreeks met een andere tekenreeks.
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json) ziet u hoe u alle streepjes uit de door de gebruiker gegeven teken reeks verwijdert en hoe u een deel van de teken reeks vervangt door een andere teken reeks.
 
 ```json
 {
@@ -1263,31 +1280,31 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Value |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
-| firstOutput | String | 1231231234 |
-| secondOutput | String | 123-123-xxxx |
+| firstOutput | Reeks | 1231231234 |
+| secondOutput | Reeks | 123-123-xxxx |
 
-## <a name="skip"></a>Overslaan
+## <a name="skip"></a>overslaan
 
 `skip(originalValue, numberToSkip)`
 
-Retourneert een tekenreeks waarbij alle tekens na het opgegeven aantal tekens of een matrix met alle elementen na het opgegeven aantal elementen.
+Retourneert een teken reeks met alle tekens na het opgegeven aantal tekens of een matrix met alle elementen na het opgegeven aantal elementen.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Ja |matrix of tekenreeks |De ingevoerde matrix of tekenreeks die moet worden gebruikt voor het overslaan. |
-| numberToSkip |Ja |int |Het aantal elementen of tekens om over te slaan. Als deze waarde 0 of minder is, worden alle elementen of tekens in de waarde geretourneerd. Als dit groter is dan de lengte van de matrix of tekenreeks, wordt een lege matrix of tekenreeks geretourneerd. |
+| originalValue |Ja |matrix of teken reeks |De matrix of teken reeks die moet worden gebruikt voor het overs Laan. |
+| numberToSkip |Ja |int |Het aantal elementen of tekens dat moet worden overgeslagen. Als deze waarde 0 of kleiner is, worden alle elementen of tekens in de waarde geretourneerd. Als het groter is dan de lengte van de matrix of teken reeks, wordt een lege matrix of teken reeks geretourneerd. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een matrix of tekenreeks.
+Een matrix of teken reeks.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) slaat het opgegeven aantal elementen in de matrix, en het opgegeven aantal tekens in een tekenreeks.
+De volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) slaat het opgegeven aantal elementen in de matrix over en het opgegeven aantal tekens in een teken reeks.
 
 ```json
 {
@@ -1333,29 +1350,29 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | Matrix | ["3"] |
-| stringOutput | String | twee drie |
+| arrayOutput | Array | ["drie"] |
+| stringOutput | Tekenreeks | 2 3 |
 
 ## <a name="split"></a>split
 
 `split(inputString, delimiter)`
 
-Retourneert een matrix met tekenreeksen die de subtekenreeksen van de ingevoerde tekenreeks die worden gescheiden door de opgegeven scheidingstekens bevat.
+Retourneert een matrix met teken reeksen die de subtekenreeksen bevat van de invoer teken reeks die wordt gescheiden door de opgegeven scheidings tekens.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| inputString |Ja |string |De tekenreeks te splitsen. |
-| scheidingsteken |Ja |tekenreeks of een matrix met tekenreeksen |Het scheidingsteken moet worden gebruikt voor het splitsen van de tekenreeks. |
+| inputString |Ja |string |De teken reeks die moet worden gesplitst. |
+| vorm |Ja |teken reeks of matrix met teken reeksen |Het scheidings teken dat moet worden gebruikt voor het splitsen van de teken reeks. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een matrix met tekenreeksen.
+Een matrix met teken reeksen.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json) splitst de ingevoerde tekenreeks met een door komma's, en met een komma of puntkomma's.
+De volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json) splitst de invoer teken reeks met een komma en met een komma of een punt komma.
 
 ```json
 {
@@ -1392,29 +1409,29 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| firstOutput | Matrix | ["een", "twee", "drie"] |
-| secondOutput | Matrix | ["een", "twee", "drie"] |
+| firstOutput | Array | [' één ', ' twee ', ' drie '] |
+| secondOutput | Array | [' één ', ' twee ', ' drie '] |
 
 ## <a name="startswith"></a>startsWith
 
 `startsWith(stringToSearch, stringToFind)`
 
-Bepaalt of een tekenreeks met een waarde begint. De vergelijking is niet hoofdlettergevoelig.
+Hiermee wordt bepaald of een teken reeks begint met een waarde. De vergelijking is hoofdletter gevoelig.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |string |De waarde die bevat het artikel om te zoeken. |
-| stringToFind |Ja |string |De waarde om te zoeken. |
+| stringToSearch |Ja |string |De waarde die het item bevat dat moet worden gevonden. |
+| stringToFind |Ja |string |De waarde die moet worden gevonden. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-**De waarde True** als het eerste teken of van de tekenreeks overeen met de waarde; anders **False**.
+**Waar** als het eerste teken of de tekens van de teken reeks overeenkomen met de waarde; anders **False**.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) ziet u hoe u de functies startsWith en endsWith:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) ziet u hoe u de functies StartsWith en endsWith gebruikt:
 
 ```json
 {
@@ -1452,34 +1469,34 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Value |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
-| startsTrue | Bool | True |
-| startsCapTrue | Bool | True |
+| startsTrue | Bool | Waar |
+| startsCapTrue | Bool | Waar |
 | startsFalse | Bool | False |
-| endsTrue | Bool | True |
-| endsCapTrue | Bool | True |
+| endsTrue | Bool | Waar |
+| endsCapTrue | Bool | Waar |
 | endsFalse | Bool | False |
 
 ## <a name="string"></a>string
 
 `string(valueToConvert)`
 
-De opgegeven waarde omgezet in een tekenreeks.
+Hiermee wordt de opgegeven waarde geconverteerd naar een teken reeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Ja | Alle |De waarde te converteren naar een tekenreeks. Elk type waarde kan worden geconverteerd, met inbegrip van objecten en -matrices. |
+| valueToConvert |Ja | Any |De waarde die moet worden geconverteerd naar een teken reeks. Elk type waarde kan worden geconverteerd, inclusief objecten en matrices. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks van de geconverteerde waarde.
+Een teken reeks van de geconverteerde waarde.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json) laat zien hoe u verschillende soorten waarden converteren naar tekenreeksen:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json) ziet u hoe u verschillende typen waarden converteert naar teken reeksen:
 
 ```json
 {
@@ -1526,33 +1543,33 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Value |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
-| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
-| arrayOutput | String | ["a","b","c"] |
-| intOutput | String | 5 |
+| objectOutput | Reeks | {"waardea": 10, "valueB": "voorbeeld tekst"} |
+| arrayOutput | Tekenreeks | ["a", "b", "c"] |
+| intOutput | Tekenreeks | 5 |
 
-## <a name="substring"></a>de subtekenreeks
+## <a name="substring"></a>subtekenreeks
 
 `substring(stringToParse, startIndex, length)`
 
-Retourneert een subtekenreeks die begint op de positie van het opgegeven teken en het opgegeven aantal tekens bevat.
+Retourneert een subtekenreeks die begint bij de opgegeven teken positie en het opgegeven aantal tekens bevat.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Ja |string |De oorspronkelijke tekenreeks waaruit de subtekenreeks wordt opgehaald. |
-| startIndex |Nee |int |De op nul gebaseerde beginpositie voor de subtekenreeks. |
-| length |Nee |int |Het aantal tekens in voor de subtekenreeks. Moet verwijzen naar een locatie in de tekenreeks. Moet nul of groter zijn. |
+| stringToParse |Ja |string |De oorspronkelijke teken reeks waaruit de subtekenreeks wordt opgehaald. |
+| startIndex |Nee |int |De op nul gebaseerde positie van het begin teken voor de subtekenreeks. |
+| length |Nee |int |Het aantal tekens voor de subtekenreeks. Moet verwijzen naar een locatie binnen de teken reeks. Moet nul of groter zijn. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-De subtekenreeks. Of een lege tekenreeks als de lengte nul is.
+De subtekenreeks. Of een lege teken reeks als de lengte nul is.
 
 ### <a name="remarks"></a>Opmerkingen
 
-De functie mislukt wanneer de subtekenreeks valt buiten het einde van de tekenreeks, of wanneer de lengte is kleiner dan nul zijn. Het volgende voorbeeld is mislukt met de fout "de index en lengte moeten verwijzen naar een locatie in de tekenreeks. De Indexparameter: '0', de lengteparameter: '11', de lengte van de tekenreeksparameter: '10'.".
+De functie mislukt als de subtekenreeks voorbij het einde van de teken reeks valt of wanneer de lengte kleiner is dan nul. Het volgende voor beeld mislukt met de fout ' de para meters index en lengte moeten naar een locatie binnen de teken reeks verwijzen. De para meter index: 0, de lengte parameter: 11, de lengte van de teken reeks parameter: 10.
 
 ```json
 "parameters": {
@@ -1565,7 +1582,7 @@ De functie mislukt wanneer de subtekenreeks valt buiten het einde van de tekenre
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json) een subtekenreeks uit een parameter.
+De volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json) extraheert een subtekenreeks uit een para meter.
 
 ```json
 {
@@ -1591,28 +1608,28 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| substringOutput | String | twee |
+| substringOutput | Tekenreeks | twee |
 
-## <a name="take"></a>toets maken
+## <a name="take"></a>Houd
 
 `take(originalValue, numberToTake)`
 
-Retourneert een tekenreeks zijn met het opgegeven aantal tekens vanaf het begin van de tekenreeks of een matrix met het opgegeven aantal elementen vanaf het begin van de matrix.
+Retourneert een teken reeks met het opgegeven aantal tekens vanaf het begin van de teken reeks of een matrix met het opgegeven aantal elementen vanaf het begin van de matrix.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Ja |matrix of tekenreeks |De ingevoerde matrix of tekenreeks waaruit de elementen uit. |
-| numberToTake |Ja |int |Het aantal elementen of tekens op te nemen. Als deze waarde 0 of minder is, wordt een lege matrix of tekenreeks geretourneerd. Als dit groter is dan de lengte van de opgegeven matrix of tekenreeks, worden alle elementen in de matrix of tekenreeks worden geretourneerd. |
+| originalValue |Ja |matrix of teken reeks |De matrix of teken reeks waaruit de elementen moeten worden afgeleid. |
+| numberToTake |Ja |int |Het aantal elementen of tekens dat moet worden uitgevoerd. Als deze waarde 0 of kleiner is, wordt een lege matrix of teken reeks geretourneerd. Als het groter is dan de lengte van de opgegeven matrix of teken reeks, worden alle elementen in de matrix of teken reeks geretourneerd. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een matrix of tekenreeks.
+Een matrix of teken reeks.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) neemt van het opgegeven aantal elementen van de matrix en tekens uit een tekenreeks.
+De volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) haalt het opgegeven aantal elementen uit de matrix en tekens uit een teken reeks.
 
 ```json
 {
@@ -1658,28 +1675,28 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | Matrix | ["een", "twee"] |
-| stringOutput | String | op |
+| arrayOutput | Array | [' één ', ' twee '] |
+| stringOutput | Tekenreeks | op |
 
 ## <a name="tolower"></a>toLower
 
 `toLower(stringToChange)`
 
-De opgegeven tekenreeks die wordt omgezet in kleine letters.
+Hiermee wordt de opgegeven teken reeks geconverteerd naar kleine letters.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Ja |string |De waarde moet worden geconverteerd naar kleine letters. |
+| stringToChange |Ja |string |De waarde die moet worden omgezet in kleine letters. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-De tekenreeks wordt geconverteerd naar kleine letters.
+De teken reeks die is geconverteerd naar een kleine letter.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) een parameterwaarde wordt geconverteerd naar kleine letters en hoofdletters.
+Met de volgende [voorbeeld sjabloon wordt](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) een parameter waarde geconverteerd naar kleine letters en naar hoofd letters.
 
 ```json
 {
@@ -1709,28 +1726,28 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| toLowerOutput | String | Een twee drie |
-| toUpperOutput | String | EEN TWEE DRIE |
+| toLowerOutput | Reeks | Een twee drie |
+| toUpperOutput | Tekenreeks | EEN TWEE DRIE |
 
 ## <a name="toupper"></a>toUpper
 
 `toUpper(stringToChange)`
 
-De opgegeven tekenreeks die wordt omgezet in hoofdletters.
+Hiermee wordt de opgegeven teken reeks geconverteerd naar hoofd letters.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Ja |string |De waarde moet worden geconverteerd naar hoofdletters. |
+| stringToChange |Ja |string |De waarde die moet worden omgezet in hoofd letters. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-De tekenreeks wordt geconverteerd naar hoofdletters.
+De teken reeks die naar hoofd letters is geconverteerd.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) een parameterwaarde wordt geconverteerd naar kleine letters en hoofdletters.
+Met de volgende [voorbeeld sjabloon wordt](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) een parameter waarde geconverteerd naar kleine letters en naar hoofd letters.
 
 ```json
 {
@@ -1760,28 +1777,28 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| toLowerOutput | String | Een twee drie |
-| toUpperOutput | String | EEN TWEE DRIE |
+| toLowerOutput | Reeks | Een twee drie |
+| toUpperOutput | Reeks | EEN TWEE DRIE |
 
-## <a name="trim"></a>trim
+## <a name="trim"></a>interne
 
 `trim (stringToTrim)`
 
-Verwijdert alle voorloop- en volgspaties spatietekens bestaan uit de opgegeven tekenreeks.
+Verwijdert alle voor loop-en volg spaties uit de opgegeven teken reeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Ja |string |De waarde naar trim. |
+| stringToTrim |Ja |string |De waarde die moet worden bijgesneden. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-De tekenreeks zonder voorloopspaties en afsluitende spatietekens bevatten.
+De teken reeks zonder voor loop-en volg spaties.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json) verwijdert de spatietekens bevatten van de parameter.
+Met de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json) worden de witruimte tekens uit de para meter verkleind.
 
 ```json
 {
@@ -1807,50 +1824,50 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| terug | String | Een twee drie |
+| opvragen | Tekenreeks | Een twee drie |
 
 ## <a name="uniquestring"></a>uniqueString
 
 `uniqueString (baseString, ...)`
 
-Hiermee maakt u een deterministische hash-tekenreeks op basis van de waarden geleverd als parameters. 
+Hiermee maakt u een deterministische hash-teken reeks op basis van de waarden die zijn opgegeven als para meters. 
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Ja |string |De waarde die wordt gebruikt in de hash-functie voor het maken van een unieke tekenreeks. |
-| aanvullende parameters indien nodig |Nee |string |U kunt zoveel tekenreeksen als nodig voor het maken van de waarde die het niveau van de uniciteit bepaalt toevoegen. |
+| baseString |Ja |string |De waarde die wordt gebruikt in de hash-functie om een unieke teken reeks te maken. |
+| aanvullende para meters indien nodig |Nee |string |U kunt zoveel teken reeksen toevoegen als u nodig hebt om de waarde te maken waarmee het niveau van uniekheid wordt opgegeven. |
 
 ### <a name="remarks"></a>Opmerkingen
 
-Deze functie is handig wanneer u moet een unieke naam voor een resource maken. U opgeven parameterwaarden die beperken van het bereik van de uniciteit voor het resultaat. U kunt opgeven of de naam van de unieke omlaag naar het abonnement, resourcegroep of implementatie. 
+Deze functie is handig als u een unieke naam voor een resource wilt maken. U geeft parameter waarden op die het bereik van de uniekheid voor het resultaat beperken. U kunt opgeven of de naam uniek is voor het abonnement, de resource groep of de implementatie. 
 
-De geretourneerde waarde is niet een willekeurige tekenreeks, maar in plaats van het resultaat van een hash-functie. De geretourneerde waarde is 13 tekens bevatten. Het is niet uniek. U kunt de waarde worden gecombineerd met een voorvoegsel van de naamconventie voor het maken van een naam die zinvol is. Het volgende voorbeeld ziet de indeling van de geretourneerde waarde. De werkelijke waarde is afhankelijk van de opgegeven parameters.
+De geretourneerde waarde is geen wille keurige teken reeks, maar in plaats daarvan het resultaat van een hash-functie. De geretourneerde waarde is 13 tekens lang. Het is niet wereld wijd uniek. U kunt de waarde met een voor voegsel uit uw naam Conventie combi neren om een naam te maken die zinvol is. In het volgende voor beeld ziet u de indeling van de geretourneerde waarde. De werkelijke waarde is afhankelijk van de opgegeven para meters.
 
     tcvhiyu5h2o5o
 
-De volgende voorbeelden laten zien hoe uniqueString gebruiken voor het maken van een unieke waarde voor de meest gebruikte niveaus.
+In de volgende voor beelden ziet u hoe u Unique string kunt gebruiken om een unieke waarde te maken voor veelgebruikte niveaus.
 
-Uniek binnen het bereik van abonnement
+Uniek bereik voor abonnement
 
 ```json
 "[uniqueString(subscription().subscriptionId)]"
 ```
 
-Uniek binnen het bereik van resourcegroep
+Uniek bereik van resource groep
 
 ```json
 "[uniqueString(resourceGroup().id)]"
 ```
 
-Uniek binnen het bereik van de implementatie voor een resourcegroep
+Uniek bereik voor implementatie voor een resource groep
 
 ```json
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-Het volgende voorbeeld ziet hoe u een unieke naam voor een opslagaccount op basis van de resourcegroep te maken. De naam is niet binnen de resourcegroep, unieke als op dezelfde manier samengesteld.
+In het volgende voor beeld ziet u hoe u een unieke naam maakt voor een opslag account op basis van uw resource groep. In de resource groep is de naam niet uniek als deze op dezelfde manier wordt gemaakt.
 
 ```json
 "resources": [{ 
@@ -1859,15 +1876,15 @@ Het volgende voorbeeld ziet hoe u een unieke naam voor een opslagaccount op basi
     ...
 ```
 
-Als u wilt maken van een nieuwe unieke naam telkens wanneer u een sjabloon implementeren, en niet van plan bent om bij te werken van de bron, kunt u de [utcNow](#utcnow) functie met uniqueString. U kunt deze aanpak gebruiken in een testomgeving. Zie voor een voorbeeld [utcNow](#utcnow).
+Als u elke keer dat u een sjabloon implementeert een nieuwe unieke naam moet maken en u niet van plan bent om de resource bij te werken, kunt u de functie [utcNow](#utcnow) gebruiken met Unique string. U kunt deze benadering gebruiken in een test omgeving. Zie [utcNow](#utcnow)voor een voor beeld.
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks met 13 tekens.
+Een teken reeks met 13 tekens.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json) resultaten uit uniquestring:
+De volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json) retourneert resultaten van Unique string:
 
 ```json
 {
@@ -1887,34 +1904,34 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-## <a name="uri"></a>URI
+## <a name="uri"></a>uri
 
 `uri (baseUri, relativeUri)`
 
-Hiermee maakt u een absolute URI zijn die door de baseUri en de tekenreeks relativeUri te combineren.
+Hiermee maakt u een absolute URI door het combi neren van de baseUri en de relativeUri-teken reeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |Ja |string |De basis-uri-tekenreeks. |
-| relativeUri |Ja |string |De relatieve uri-tekenreeks om toe te voegen aan de basis-uri-tekenreeks. |
+| baseUri |Ja |string |De basis-URI-teken reeks. |
+| relativeUri |Ja |string |De relatieve Uri-teken reeks die moet worden toegevoegd aan de basis-URI-teken reeks. |
 
-De waarde voor de **baseUri** parameter kan een specifiek bestand bevatten, maar alleen het basispad wordt gebruikt bij het maken van de URI. Bijvoorbeeld, doorgeven `http://contoso.com/resources/azuredeploy.json` als de resultaten van de parameter baseUri in een basis-URI van `http://contoso.com/resources/`.
+De waarde voor de para meter **baseUri** kan een specifiek bestand bevatten, maar alleen het basispad wordt gebruikt bij het maken van de URI. Als de baseUri- `http://contoso.com/resources/azuredeploy.json` para meter wordt door gegeven, resulteert dit in een `http://contoso.com/resources/`basis-URI van.
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks die de absolute URI zijn die voor de basis- en relatieve waarden vertegenwoordigt.
+Een teken reeks die de absolute URI voor de basis-en relatieve waarden vertegenwoordigt.
 
 ### <a name="examples"></a>Voorbeelden
 
-Het volgende voorbeeld ziet hoe u een koppeling naar een geneste sjabloon op basis van de waarde van de bovenliggende sjabloon.
+In het volgende voor beeld ziet u hoe u een koppeling naar een geneste sjabloon bouwt op basis van de waarde van de bovenliggende sjabloon.
 
 ```json
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) ziet u hoe u de uri en uriComponent uriComponentToString:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) ziet u hoe u URI, UriComponent en uriComponentToString gebruikt:
 
 ```json
 {
@@ -1945,11 +1962,11 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Value |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Tekenreeks | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Tekenreeks | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | Reeks | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -1961,15 +1978,15 @@ Codeert een URI.
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Ja |string |De waarde moet worden gecodeerd. |
+| stringToEncode |Ja |string |De waarde die moet worden gecodeerd. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks van de URI gecodeerde waarde.
+Een teken reeks van de gecodeerde URI-waarde.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) ziet u hoe u de uri en uriComponent uriComponentToString:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) ziet u hoe u URI, UriComponent en uriComponentToString gebruikt:
 
 ```json
 {
@@ -2000,31 +2017,31 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Value |
+| Name | Type | Waarde |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Tekenreeks | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Tekenreeks | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | Tekenreeks | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
 `uriComponentToString(uriEncodedString)`
 
-Retourneert dat een tekenreeks van een URI-gecodeerde waarde.
+Retourneert een teken reeks van een gecodeerde URI-waarde.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Ja |string |Waarde moet worden geconverteerd naar een tekenreeks met de URI-codering. |
+| uriEncodedString |Ja |string |De gecodeerde URI-waarde die moet worden geconverteerd naar een teken reeks. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een gedecodeerde tekenreeks met URI gecodeerde waarde.
+Een gecodeerde teken reeks met URI-code ring.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) ziet u hoe u de uri en uriComponent uriComponentToString:
+In de volgende [voorbeeld sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) ziet u hoe u URI, UriComponent en uriComponentToString gebruikt:
 
 ```json
 {
@@ -2057,37 +2074,37 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Reeks | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Tekenreeks | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | Reeks | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="utcnow"></a>utcNow
 
 `utcNow(format)`
 
-Retourneert de huidige datum/tijd-waarde van (UTC) in de indeling die is opgegeven. Als er geen indeling is opgegeven, wordt de ISO 8601 (JJJJMMDDTuummssZ)-indeling wordt gebruikt. **Deze functie kan alleen worden gebruikt in de standaardwaarde voor een parameter.**
+Retourneert de huidige (UTC) datum/tijd-waarde in de opgegeven notatie. Als er geen indeling wordt gegeven, wordt de ISO 8601-indeling (yyyyMMddTHHmmssZ) gebruikt. **Deze functie kan alleen worden gebruikt in de standaard waarde voor een para meter.**
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| format |Nee |string |Waarde moet worden geconverteerd naar een tekenreeks met de URI-codering. Gebruik een [standard opmaaktekenreeksen](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of [tekenreeksen met aangepaste notatie](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Nee |string |De gecodeerde URI-waarde die moet worden geconverteerd naar een teken reeks. Gebruik [standaard notatie teken reeksen](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of [teken reeksen met aangepaste notaties](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Opmerkingen
 
-U kunt deze functie in een expressie alleen gebruiken voor de standaardwaarde van een parameter. Met deze functie ergens anders in een sjabloon wordt een fout geretourneerd. De functie is niet toegestaan in andere onderdelen van de sjabloon, omdat deze een andere waarde retourneert telkens wanneer die deze wordt aangeroepen. Implementatie van dezelfde sjabloon met dezelfde parameters, wouldn't op betrouwbare wijze de dezelfde resultaten opleveren.
+U kunt deze functie alleen gebruiken in een expressie voor de standaard waarde van een para meter. Als u deze functie ergens anders in een sjabloon gebruikt, wordt er een fout geretourneerd. De functie is niet toegestaan in andere onderdelen van de sjabloon omdat deze een andere waarde retourneert telkens wanneer deze wordt aangeroepen. Het implementeren van dezelfde sjabloon met dezelfde para meters zou geen betrouw bare resultaten opleveren.
 
-Als u de [optie voor het implementeren van een eerder geslaagde implementatie](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails), en de eerdere implementatie omvat een parameter die gebruikmaakt van utcNow, de parameter is niet opnieuw geëvalueerd. De waarde van parameter uit de eerdere implementatie is in plaats daarvan automatisch opnieuw gebruikt in de implementatie ongedaan maken.
+Als u de optie gebruikt voor het opnieuw [implementeren van een eerdere geslaagde implementatie](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails), en de eerdere implementatie bevat een para meter die gebruikmaakt van utcNow, wordt de para meter niet opnieuw geëvalueerd. In plaats daarvan wordt de parameter waarde van de eerdere implementatie automatisch opnieuw gebruikt in de rollback-implementatie.
 
-Wees voorzichtig een sjabloon die is gebaseerd op de functie utcNow voor een standaardwaarde opnieuw wilt implementeren. Wanneer u opnieuw implementeren en niet een waarde voor de parameter opgeven, wordt de functie opnieuw geëvalueerd. Als u wilt bijwerken van een bestaande resource in plaats van een nieuwe maken, worden uit de eerdere implementatie in de waarde van parameter doorgeven.
+Wees voorzichtig met het opnieuw implementeren van een sjabloon die afhankelijk is van de functie utcNow voor een standaard waarde. Wanneer u opnieuw implementeert en geen waarde opgeeft voor de para meter, wordt de functie opnieuw geëvalueerd. Als u een bestaande resource wilt bijwerken in plaats van een nieuwe te maken, geeft u de parameter waarde van de eerdere implementatie door.
 
 ### <a name="return-value"></a>Retourwaarde
 
-De huidige UTC datum/tijd-waarde.
+De huidige UTC-waarde voor datum/tijd.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende voorbeeldsjabloon bevat verschillende indelingen voor de datum / tijdwaarde.
+In de volgende voorbeeld sjabloon ziet u verschillende notaties voor de datum/tijd-waarde.
 
 ```json
 {
@@ -2126,7 +2143,7 @@ De volgende voorbeeldsjabloon bevat verschillende indelingen voor de datum / tij
 }
 ```
 
-De uitvoer van het vorige voorbeeld varieert voor elke implementatie, maar is vergelijkbaar met:
+De uitvoer van het voor gaande voor beeld varieert per implementatie, maar lijkt op:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -2134,7 +2151,7 @@ De uitvoer van het vorige voorbeeld varieert voor elke implementatie, maar is ve
 | utcShortOutput | string | 03/05/2019 |
 | utcCustomOutput | string | 3 5 |
 
-Het volgende voorbeeld ziet u hoe u een waarde van de functie wordt gebruikt bij het instellen van een tagwaarde.
+In het volgende voor beeld ziet u hoe u een waarde uit de functie gebruikt wanneer u een tag-waarde instelt.
 
 ```json
 {

@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39ec27c75ff5ba9164b44b0524f90a4e28ab20f1
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 420a7079a7961868277a2d78ffbac4adba240d9f
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488979"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678089"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management-preview"></a>Problemen oplossen met Azure AD-rechten beheer (preview-versie)
 
@@ -41,7 +41,7 @@ In dit artikel worden enkele items beschreven die u moet controleren om te helpe
 
 * Een toepassing kan alleen een resource in een toegangs pakket zijn als deze ten minste één resource functie heeft die kan worden toegewezen. De rollen worden gedefinieerd door de toepassing zelf en worden beheerd in azure AD. Houd er rekening mee dat de Azure Portal ook service-principals kunnen weer geven voor services die niet als toepassingen kunnen worden geselecteerd.  Met name **Exchange Online** en **share point online** zijn services, geen toepassingen die resource rollen hebben in de Directory, zodat ze niet kunnen worden opgenomen in een toegangs pakket.  Gebruik in plaats daarvan op groep gebaseerde licenties om een juiste licentie te maken voor een gebruiker die toegang tot deze services nodig heeft.
 
-* Een groep kan alleen een resource in een toegangs pakket zijn als deze kan worden gewijzigd in azure AD.  Groepen die afkomstig zijn van een on-premises Active Directory, kunnen niet worden toegewezen als resources omdat hun eigen kenmerken of lideigenschappen niet kunnen worden gewijzigd in azure AD.  
+* Een groep kan alleen een resource in een toegangs pakket zijn als deze kan worden gewijzigd in azure AD.  Groepen die afkomstig zijn van een on-premises Active Directory, kunnen niet worden toegewezen als resources omdat hun eigen kenmerken of lideigenschappen niet kunnen worden gewijzigd in azure AD.   Groepen die afkomstig zijn van Exchange Online als distributie groep kunnen niet worden gewijzigd in azure AD. 
 
 * Share point online-document bibliotheken en afzonderlijke documenten kunnen niet worden toegevoegd als resources.  Maak in plaats daarvan een Azure AD-beveiligings groep, neem deze groep en een siterol op in het toegangs pakket, en gebruik in share point online die groep om de toegang tot de document bibliotheek of het document te beheren.
 
@@ -55,9 +55,9 @@ In dit artikel worden enkele items beschreven die u moet controleren om te helpe
 
 ## <a name="checklist-for-request-issues"></a>Controle lijst voor aanvraag problemen
 
-* Wanneer een gebruiker de toegang tot een toegangs pakket wil aanvragen, moet u ervoor zorgen dat ze de **Portal-koppeling van mijn toegang** gebruiken voor het toegangs pakket. Zie [de koppeling naar mijn Access-Portal kopiëren](entitlement-management-access-package-edit.md#copy-my-access-portal-link)voor meer informatie.
+* Wanneer een gebruiker de toegang tot een toegangs pakket wil aanvragen, moet u ervoor zorgen dat ze de **Portal-koppeling van mijn toegang** gebruiken voor het toegangs pakket. Zie [de koppeling naar mijn Access-Portal kopiëren](entitlement-management-access-package-edit.md#copy-my-access-portal-link)voor meer informatie.  Als een externe gebruiker een bezoek stuurt naar **myaccess.Microsoft.com**, zien ze de toegangs pakketten die voor hen beschikbaar zijn in hun eigen organisatie.
 
-* Wanneer een gebruiker zich aanmeldt bij de portal van mijn toegang om een toegangs pakket aan te vragen, moet u ervoor zorgen dat ze worden geverifieerd met hun organisatie account. Het organisatie account kan een account in de Resource Directory zijn of een map die is opgenomen in een van de beleids regels van het toegangs pakket. Als het account van de gebruiker geen organisatie account is, of als de map niet is opgenomen in het beleid, wordt het toegangs pakket niet weer gegeven door de gebruiker. Zie [toegang tot een toegangs pakket aanvragen](entitlement-management-request-access.md)voor meer informatie.
+* Wanneer een gebruiker die nog niet in uw Directory zich aanmeldt bij de mijn Access-Portal om een toegangs pakket aan te vragen, moet u ervoor zorgen dat ze worden geverifieerd met hun organisatie account. Het organisatie account kan een account in de Resource Directory zijn of een map die is opgenomen in een van de beleids regels van het toegangs pakket. Als het account van de gebruiker geen organisatie account is, of de map waar de authenticatie niet is opgenomen in het beleid, wordt het toegangs pakket niet weer gegeven door de gebruiker. Zie [toegang tot een toegangs pakket aanvragen](entitlement-management-request-access.md)voor meer informatie.
 
 * Als een gebruiker zich niet kan aanmelden bij de resource directory, kunnen ze geen toegang aanvragen in de portal van mijn toegang. Voordat de gebruiker toegang kan aanvragen, moet u het aanmeldings blok verwijderen uit het profiel van de gebruiker. Als u het aanmeldings blok wilt verwijderen, klikt u in het Azure Portal op **Azure Active Directory**, klikt u op **gebruikers**, klikt u op de gebruiker en klikt u vervolgens op **profiel**. Bewerk de sectie **instellingen** en wijzig de **blok aanmelding in** op **Nee**. Zie [de profiel gegevens van een gebruiker toevoegen of bijwerken met behulp van Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md)voor meer informatie.  U kunt ook controleren of de gebruiker is geblokkeerd vanwege een [beleid voor identiteits beveiliging](../identity-protection/howto-unblock-user.md).
 

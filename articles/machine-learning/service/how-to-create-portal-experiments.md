@@ -1,7 +1,7 @@
 ---
-title: Experimenten maken en verkennen in de portal
+title: Gebruik automatische ML om machine learning modellen te bouwen en te implementeren
 titleSuffix: Azure Machine Learning service
-description: Meer informatie over het maken en beheren van automatische machine learning experimenten in de portal
+description: Automatische machine learning experimenten maken, beheren en implementeren in de Azure Portal
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.author: cgronlun
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/2019
-ms.openlocfilehash: 1bfc415b2e4dbc66e2afeae73b78079fb027a60c
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.date: 08/02/2019
+ms.openlocfilehash: eb6ae11bb4ffb39d9e9bcc692f17559fa2cde674
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358841"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720238"
 ---
-# <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Automatische machine learning experimenten maken en verkennen in de Azure Portal (preview-versie)
+# <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Automatische machine learning experimenten maken, verkennen en implementeren in de Azure Portal (preview-versie)
 
- In dit artikel leert u hoe u geautomatiseerde machine learning experimenten kunt maken, uitvoeren en verkennen in de Azure Portal zonder één regel code. Automatische machine learning automatiseert het proces van het selecteren van het beste algoritme dat voor uw specifieke gegevens moet worden gebruikt, zodat u snel een machine learning model kunt genereren. Meer [informatie over automatische machine learning](concept-automated-ml.md).
+ In dit artikel leert u hoe u geautomatiseerde machine learning experimenten kunt maken, verkennen en implementeren in de Azure Portal zonder één regel code. Automatische machine learning automatiseert het proces van het selecteren van het beste algoritme dat voor uw specifieke gegevens moet worden gebruikt, zodat u snel een machine learning model kunt genereren. Meer [informatie over automatische machine learning](concept-automated-ml.md).
 
  Als u de voor keur geeft aan een meer op code gebaseerde ervaring, kunt u ook [uw geautomatiseerde machine learning experimenten in python configureren](how-to-configure-auto-train.md) met de [Azure machine learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
@@ -36,27 +36,19 @@ Navigeer naar het linkerdeel venster van uw werk ruimte. Selecteer Automatische 
 
 ![Navigatie deel venster Azure Portal](media/how-to-create-portal-experiments/nav-pane.png)
 
- Als dit de eerste keer is dat u experimenteert met automatische Machine Learning, ziet u het volgende:
+ Als dit de eerste keer is dat er experimenten worden uitgevoerd, ziet u het scherm **Welkom bij automatisch machine learning** . 
 
-![Landings pagina van Azure Portal experiment](media/how-to-create-portal-experiments/landing-page.png)
-
-Als dat niet het geval is, ziet u uw geautomatiseerde machine learning dash board met een overzicht van al uw geautomatiseerde machine learning experimenten, met inbegrip van de proeven die zijn gemaakt met de SDK. Hier kunt u uw uitvoeringen filteren en verkennen op datum, naam van het experiment en uitvoerings status.
-
-![Dash board Azure Portal-experiment](media/how-to-create-portal-experiments/dashboard.png)
+Anders ziet u uw **geautomatiseerde machine learning** -dash board met een overzicht van al uw geautomatiseerde machine learning experimenten, met inbegrip van de proeven die zijn gemaakt met de SDK. Hier kunt u uw uitvoeringen filteren en verkennen op datum, naam van het experiment en uitvoerings status.
 
 ## <a name="create-an-experiment"></a>Een experiment maken
 
-Selecteer de knop experiment maken om het volgende formulier in te vullen.
+Selecteer **experiment maken** en vul het formulier **een nieuw automatisch machine learning experiment maken** in.
 
-![Formulier experiment maken](media/how-to-create-portal-experiments/create-exp-name-compute.png)
-
-1. Voer de naam van uw experiment in.
+1. Voer een unieke naam voor het experiment in.
 
 1. Selecteer een compute voor de taak voor gegevens profilering en training. In de vervolg keuzelijst vindt u een lijst met uw bestaande berekeningen. Volg de instructies in stap 3 om een nieuwe Compute te maken.
 
-1. Selecteer de knop een nieuwe berekening maken om het onderstaande deel venster te openen en configureer uw berekenings context voor dit experiment.
-
-    ![Nieuwe reken kracht maken voor experiment](media/how-to-create-portal-experiments/create-new-compute.png)
+1. Selecteer **een nieuwe Compute maken** om uw berekenings context voor dit experiment te configureren.
 
     Veld|Description
     ---|---
@@ -64,38 +56,35 @@ Selecteer de knop experiment maken om het volgende formulier in te vullen.
     Grootte van de virtuele machine| Selecteer de grootte van de virtuele machine voor de reken kracht.
     Aanvullende instellingen| *Min. knoop punt*: Voer het minimum aantal knoop punten in voor de reken kracht. Het minimum aantal knoop punten voor de AML-Compute is 0. Als u gegevens profilering wilt inschakelen, moet u één of meer knoop punten hebben. <br> *Maximum knoop punt*: Voer het maximum aantal knoop punten in voor de reken kracht. De standaard waarde is 6 knoop punten voor een AML-berekening.
 
-      Selecteer **maken**om het maken van de nieuwe Compute te starten. Dit kan even duren.
+      Selecteer **Maken**. Het maken van een nieuwe berekening kan enkele minuten duren.
 
       >[!NOTE]
       > De naam van de berekening geeft aan of de compute die u selecteert/maakt, *profile ring is ingeschakeld*. (Zie 7b voor meer informatie over gegevens profilering).
 
-1. Selecteer een opslag account voor uw gegevens. Open bare preview biedt alleen ondersteuning voor het uploaden van lokale bestanden en Azure Blob Storage-accounts.
+1. Selecteer een opslag account voor uw gegevens. 
 
 1. Selecteer een opslag container.
 
-1. Selecteer een gegevens bestand uit uw opslag container of upload een bestand van uw lokale computer naar de container.
+1. Selecteer een gegevens bestand uit uw opslag container of upload een bestand van uw lokale computer naar de container. Open bare preview biedt alleen ondersteuning voor het uploaden van lokale bestanden en Azure Blob Storage-accounts.
 
-    ![Gegevens bestand voor experiment selecteren](media/how-to-create-portal-experiments/select-file.png)
+    [![Gegevens bestand selecteren](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 
 1. Gebruik de tabbladen preview en profile om uw gegevens voor dit experiment verder te configureren.
 
-    1. Geef op het tabblad voor beeld aan of uw gegevens kopteksten bevatten en selecteer de functies (kolommen) voor training met behulp van de **opgenomen** switch knoppen in elke functie kolom.
+    1. Geef op het tabblad **voor beeld** aan of uw gegevens kopteksten bevatten en selecteer de functies (kolommen) voor training met behulp van de **opgenomen** switch knoppen in elke functie kolom.
 
-        ![Voor beeld van gegevens](media/how-to-create-portal-experiments/data-preview.png)
-
-    1. Op het tabblad Profiel kunt u het [gegevens profiel](#profile) weer geven op functie, evenals de verdeling, het type en de samenvattings statistieken (gemiddelde, mediaan, maximum/min, enzovoort) van elk.
-
-        ![Tabblad Gegevens Profiel](media/how-to-create-portal-experiments/data-profile.png)
+    1. Op het tabblad **profiel** kunt u het [gegevens profiel](#profile) weer geven op functie, evenals de verdeling, het type en de samenvattings statistieken (gemiddelde, mediaan, maximum/min, enzovoort) van elk.
 
         >[!NOTE]
         > Het volgende fout bericht wordt weer gegeven als voor uw Compute-context **geen** profile ring is ingeschakeld: *Gegevens profilering is alleen beschikbaar voor Compute-doelen die al worden uitgevoerd*.
 
 1. Selecteer het type trainings taak: classificatie, regressie of prognose.
 
-1. Selecteer de doel kolom. De kolom waarop u de voor spellingen wilt uitvoeren.
+1. Selecteer de doel kolom. Dit is de kolom waarop u de voor spellingen wilt uitvoeren.
 
 1. Voor prognoses:
     1. Selecteer een tijd kolom: Deze kolom bevat de tijd gegevens die moeten worden gebruikt.
+
     1. Prognose horizon selecteren: Geef aan hoeveel tijds eenheden (minuten/uren/dagen/weken/maanden/jaren) het model op de toekomst kan voors pellen. Verder is het model vereist om in de toekomst te voors pellen, hoe minder nauw keurig wordt. Meer [informatie over prognoses en prognoses horizon](how-to-auto-train-forecast.md).
 
 1. Beschrijving Geavanceerde instellingen: extra instellingen die u kunt gebruiken om de trainings taak beter te beheren.
@@ -109,48 +98,35 @@ Selecteer de knop experiment maken om het volgende formulier in te vullen.
     Gelijktijdigheid| Selecteer de limieten voor meerdere kernen die u wilt gebruiken bij het gebruik van multi-core-berekening.
     Geblokkeerd algoritme| Selecteer de algoritmen die u wilt uitsluiten van de trainings taak.
 
-   ![Formulier Geavanceerde instellingen](media/how-to-create-portal-experiments/advanced-settings.png)
-
-> [!NOTE]
-> Voor meer informatie over velden, klikt u op de informatie knop info.
-
 <a name="profile"></a>
 
-### <a name="data-profiling"></a>Gegevens profilering
+## <a name="data-profiling--summary-stats"></a>Overzichts statistieken voor gegevens profilering &
 
 U kunt een groot aantal samenvattings statistieken in uw gegevensset ontvangen om te controleren of uw gegevensset van ML is. Voor niet-numerieke kolommen bevatten ze alleen basis statistieken zoals min, Max en aantal fouten. Voor numerieke kolommen kunt u ook hun statistische momenten en geschatte quantiles bekijken. Het gegevens profiel bevat met name:
 
-* **Functie**: de naam van de kolom die wordt samenvatten.
+>[!NOTE]
+> Lege vermeldingen worden weer gegeven voor functies met irrelevante typen.
 
-* **Profiel**: een in-line visualisatie op basis van het type dat is afgeleid. Teken reeksen, Booleaanse waarden en datums hebben bijvoorbeeld een aantal aantallen, terwijl decimalen (cijfers) geschatte histogrammen hebben. Zo kunt u een goed inzicht krijgen in de distributie van de gegevens.
-
-* **Type distributie**: een in-line waarde van het aantal typen in een kolom. Nullen zijn hun eigen type, waardoor deze visualisatie nuttig is voor het detecteren van oneven of ontbrekende waarden.
-
-* **Type**: het type dat is afgeleid van de kolom. Mogelijke waarden zijn: teken reeksen, booleans, datums en decimalen.
-
-* **Min**: de minimum waarde van de kolom. Er worden geen lege items weer gegeven voor functies waarvan het type geen inherente ordening (bijvoorbeeld Boole-waarden) heeft.
-
-* **Max**: de maximum waarde van de kolom. Net als ' min. ' worden geen vermeldingen weer gegeven voor functies met irrelevante typen.
-
-* **Aantal**: het totale aantal ontbrekende en niet-ontbrekende vermeldingen in de kolom.
-
-* **Aantal niet-ontbrekende**items: het aantal vermeldingen in de kolom die niet ontbreken. Houd er rekening mee dat lege teken reeksen en fouten worden beschouwd als waarden, zodat ze niet bijdragen aan het aantal niet-ontbrekende items.
-
-* **Quantiles** (bij 0,1, 1, 5, 25, 50, 75, 95, 99 en 99,9% intervallen): de geschatte waarden bij elke quantile om een idee te geven van de distributie van de gegevens. Lege vermeldingen worden weer gegeven voor functies met irrelevante typen.
-
-* **Gemiddelde**: het reken kundige gemiddelde van de kolom. Lege vermeldingen worden weer gegeven voor functies met irrelevante typen.
-
-* **Standaard afwijking**: de standaard deviatie van de kolom. Lege vermeldingen worden weer gegeven voor functies met irrelevante typen.
-
-* **Afwijking**: de variantie van de kolom. Lege vermeldingen worden weer gegeven voor functies met irrelevante typen.
-
-* **Scheefheid**: de scheefheid van de kolom. Lege vermeldingen worden weer gegeven voor functies met irrelevante typen.
-
-* **Kurtosis**: de kurtosis van de kolom. Lege vermeldingen worden weer gegeven voor functies met irrelevante typen.
+Statistiek|Description
+------|------
+Functie| De naam van de kolom die wordt samenvatten.
+Profiel| In-line visualisatie op basis van het type dat is afgeleid. Teken reeksen, Booleaanse waarden en datums hebben bijvoorbeeld een aantal aantallen, terwijl decimalen (cijfers) geschatte histogrammen hebben. Zo kunt u een goed inzicht krijgen in de distributie van de gegevens.
+Type distributie| In-line waarde van het aantal typen in een kolom. Nullen zijn hun eigen type, waardoor deze visualisatie nuttig is voor het detecteren van oneven of ontbrekende waarden.
+type|Het type van de kolom is afgeleid. Mogelijke waarden zijn: teken reeksen, booleans, datums en decimalen.
+Min.| Minimum waarde van de kolom. Er worden geen lege items weer gegeven voor functies waarvan het type geen inherente ordening (bijvoorbeeld Boole-waarden) heeft.
+Max.| De maximum waarde van de kolom. 
+Count| Totaal aantal ontbrekende en niet-ontbrekende vermeldingen in de kolom.
+Niet-ontbrekend aantal| Het aantal vermeldingen in de kolom die niet ontbreken. Lege teken reeksen en fouten worden beschouwd als waarden, zodat ze niet bijdragen aan het aantal niet-ontbrekende items.
+Quantiles| Geschatte waarden bij elke quantile om een idee te geven van de distributie van de gegevens.
+Gemiddeld| Reken kundige gemiddelde of gemiddelde van de kolom.
+Standaarddeviatie| Meting van de hoeveelheid sprei ding of variatie van de gegevens van deze kolom.
+Variantie| De mate waarin de gegevens van deze kolom worden verdeeld uit de gemiddelde waarde. 
+Asymmetrie| Meting van de manier waarop de gegevens van de andere kolom van een normale distributie zijn.
+Kurtosis| Meting van hoe sterk de gegevens van deze kolom worden vergeleken met een normale distributie.
 
 <a name="preprocess"></a>
 
-### <a name="advanced-preprocessing"></a>Geavanceerde preverwerking
+## <a name="advanced-preprocessing-options"></a>Geavanceerde voor verwerkings opties
 
 Wanneer u uw experimenten configureert, kunt u de geavanceerde instelling `Preprocess`inschakelen. Dit betekent dat de volgende stappen voor preprocesing en parametrisatie automatisch worden uitgevoerd.
 
@@ -168,15 +144,15 @@ Wanneer u uw experimenten configureert, kunt u de geavanceerde instelling `Prepr
 
 ## <a name="run-experiment-and-view-results"></a>Experiment uitvoeren en resultaten weer geven
 
-Klik op Start om het experiment uit te voeren. Het proces voor het voorbereiden van het experiment duurt enkele minuten.
+Selecteer **Start** om uw experiment uit te voeren. Het proces voor het voorbereiden van het experiment duurt enkele minuten.
 
 ### <a name="view-experiment-details"></a>Details van experiment weer geven
 
-Nadat de voor bereiding van het experiment is voltooid, ziet u het scherm Details uitvoeren. Dit geeft u een volledige lijst van de gemaakte modellen. Standaard beoordeelt het model met het hoogste niveau op basis van uw para meters boven aan de lijst. Wanneer de trainings taak meer modellen probeert, worden deze toegevoegd aan de lijst met herhalingen en de grafiek. Gebruik het iteratie diagram om een snelle vergelijking te krijgen van de metrische gegevens voor de modellen die tot nu toe zijn geproduceerd.
+Nadat de voor bereiding van het experiment is voltooid, ziet u het scherm Details uitvoeren beginnen met vullen. Dit scherm bevat een volledige lijst met gemaakte modellen. Standaard beoordeelt het model dat het hoogste verlaagt op basis van de gekozen metriek boven aan de lijst. Wanneer de trainings taak meer modellen probeert, worden deze toegevoegd aan de lijst met herhalingen en de grafiek. Gebruik het iteratie diagram om een snelle vergelijking te krijgen van de metrische gegevens voor de modellen die tot nu toe zijn geproduceerd.
 
 Het kan even duren voordat trainings taken worden uitgevoerd om de uitvoering van elke pijp lijn te volt ooien.
 
-![Dash board Details uitvoeren](media/how-to-create-portal-experiments/run-details.png)
+[![Dash board Details uitvoeren](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
 
 ### <a name="view-training-run-details"></a>Details van de cursus uitvoering weer geven
 
@@ -184,64 +160,39 @@ Inzoomen op de uitvoer modellen om details van de trainings uitvoering te bekijk
 
 ![Details van herhaling](media/how-to-create-portal-experiments/iteration-details.png)
 
-## <a name="deploy-model"></a>Model implementeren
+## <a name="deploy-your-model"></a>Uw model implementeren
 
 Zodra u het beste model bij de hand hebt, is het tijd om het te implementeren als een webservice om nieuwe gegevens te voors pellen.
 
 Automatische ML helpt u bij het implementeren van het model zonder code te schrijven:
 
 1. U hebt een aantal opties voor implementatie. 
-    1. Als u het beste model wilt implementeren op basis van de criteria voor metrische gegevens die u voor het experiment hebt ingesteld, selecteert u **beste model implementeren** op de pagina **Details uitvoeren** .
 
-        ![Knop model implementeren](media/how-to-create-portal-experiments/deploy-model-button.png)
+    + Optie 1: Als u het beste model wilt implementeren (volgens de criteria die u hebt gedefinieerd), selecteert u beste model implementeren op de detail pagina Details uitvoeren.
 
-    1. Als u een specifieke model herhaling wilt implementeren, zoomt u in op het model om de specifieke uitvoerings detail pagina te openen en selecteert u **model implementeren**.
+    + Optie 2: Als u een specifieke model herhaling uit dit experiment wilt implementeren, zoomt u in op het model om de detail pagina van de uitvoering te openen en selecteert u model implementeren.
+1. Het deel venster **model implementeren** invullen
 
-        ![Knop model implementeren](media/how-to-create-portal-experiments/deploy-model-button2.png)
+    Veld| Value
+    ----|----
+    Implementatienaam| Voer een unieke naam in voor uw implementatie.
+    Beschrijving van implementatie| Voer een beschrijving in om beter te kunnen identificeren waarvoor deze implementatie is.
+    Score script| Genereer of upload uw eigen score bestand automatisch. [Meer informatie over Score script](how-to-deploy-and-where.md#script)
+    Omgevings script| Automatisch genereren of uploaden van uw eigen omgevings bestand.
+    >[!Important]
+    > Bestands namen moeten minder dan 32 tekens lang zijn en moeten beginnen en eindigen met een alfanumerieke teken reeks. Kan streepjes, onderstrepings tekens, punten en alfanumerieken bevatten. Spaties zijn niet toegestaan.
 
-1. De eerste stap is het registreren van het model in de service. Selecteer model registreren en wacht totdat het registratie proces is voltooid.
+1. Selecteer **Implementeren**. Het volt ooien van de implementatie kan ongeveer 20 minuten duren.
 
-    ![Blade model implementeren](media/how-to-create-portal-experiments/deploy-model-blade.png)
+    Het volgende bericht wordt weer gegeven wanneer de implementatie is voltooid.
 
-1. Zodra het model is geregistreerd, kunt u het Score script (scoring.py) en het omgevings script (condaEnv. yml) downloaden dat moet worden gebruikt tijdens de implementatie.
+    ![Implementatie voltooid](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png) 
 
-1. Wanneer het Score script en het omgevings script worden gedownload, gaat u naar de Blade **assets** van het navigatie deel venster links en selecteert u **modellen**.
-
-    ![Modellen van het navigatie deel venster](media/how-to-create-portal-experiments/nav-pane-models.png)
-
-1. Selecteer het model dat u hebt geregistreerd en selecteer installatie kopie maken.
-
-    U kunt het model identificeren aan de hand van de beschrijving, zoals de run-ID, het herhalings nummer, in de volgende indeling: *< Run_ID > _ < Iteration_number > _Model*
-
-    ![Modellen: Installatiekopie maken](media/how-to-create-portal-experiments/model-create-image.png)
-
-1. Voer een naam in voor de installatie kopie. 
-1. Selecteer de knop **Bladeren** naast het vak Score bestand om het Score bestand (scoring.py) te uploaden dat u eerder hebt gedownload.
-
-1. Selecteer de knop **Bladeren** naast het vak Conda-bestand om het omgevings bestand (condaEnv. yml) te uploaden dat u eerder hebt gedownload.
-
-    U kunt uw eigen score script-en Conda-bestand gebruiken, maar ook extra bestanden uploaden. Meer [informatie over Score script](how-to-deploy-and-where.md#script).
-
-      >[!Important]
-      > Bestands namen moeten minder dan 32 tekens lang zijn en moeten beginnen en eindigen met een alfanumerieke teken reeks. Kan streepjes, onderstrepings tekens, punten en alfanumerieken bevatten. Spaties zijn niet toegestaan.
-
-    ![Installatiekopie maken](media/how-to-create-portal-experiments/create-image.png)
-
-1. Selecteer de knop maken om de installatie kopie te maken. Dit kan een paar minuten duren. Zodra u dit hebt gedaan, wordt er een bericht weer gegeven op de bovenste balk.
-1. Ga naar het tabblad ' afbeeldingen ', schakel het selectie vakje in naast de installatie kopie die u wilt implementeren en selecteer implementatie maken. Meer [informatie over implementaties](how-to-deploy-and-where.md).
-
-    Er zijn twee opties voor de implementatie.
-     + Azure container instance (ACI): dit wordt gebruikt voor test doeleinden in plaats van operationele implementatie op schaal. Vul de waarden in voor ten minste één kern voor _CPU-reserve capaciteit_en ten minste één gigabyte (GB) voor _gereserveerde geheugen capaciteit_
-     + Azure Kubernetes service (AKS)): deze optie is voor implementatie op schaal. U moet een AKS-based Compute Ready hebben.
-
-     ![Installatie kopieën Implementatie maken](media/how-to-create-portal-experiments/images-create-deployment.png)
-
-1. Wanneer u klaar bent, selecteert u **Maken**. Het implementeren van het model kan enkele minuten duren voordat de uitvoering van elke pijp lijn is voltooid.
-
-1. Dat is alles. U hebt een Operational web service voor het genereren van voor spellingen.
+U hebt nu een Operational web service voor het genereren van voor spellingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
+* Probeer de end-to-end- [zelf studie voor het maken van uw eerste geautomatiseerde ml experiment met Azure machine learning](tutorial-first-experiment-automated-ml.md). 
 * Meer [informatie over automatische machine learning](concept-automated-ml.md) en Azure machine learning.
 * Krijg [inzicht in geautomatiseerde machine learning resultaten](how-to-understand-automated-ml.md).
 * [Meer informatie over het gebruik van een webservice](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

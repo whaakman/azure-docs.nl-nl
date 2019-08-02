@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: ecb2059e529347b7eff72bf6af74b82558a4c251
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: 4688cf6fb82eb8f726205d54d0c852fd3daf8dfb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371692"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564791"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>host. json-verwijzing voor Azure Functions 2. x  
 
@@ -147,7 +147,10 @@ Een lijst met functies die de taak host uitvoert. Een lege matrix houdt in dat a
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Hiermee wordt de duur van de time-out voor alle functies aangegeven. In een serverloze verbruiks abonnement is het geldige bereik van 1 seconde tot 10 minuten en de standaard waarde is 5 minuten. In een App Service plan geldt geen algemene limiet en de standaard waarde is afhankelijk van de runtime versie. In versie 2. x is de standaard waarde voor een App Service plan 30 minuten. In versie 1. x is het *Null*, wat geen time-out aangeeft. Deze kan niet worden ingesteld als oneindig. Als deze waarde niet expliciet worden ingesteld, wordt de standaard waarde van 30 minuten genoteerd.
+Hiermee wordt de duur van de time-out voor alle functies aangegeven. Het volgt de teken reeks notatie time span. In een serverloze verbruiks abonnement is het geldige bereik van 1 seconde tot 10 minuten en de standaard waarde is 5 minuten.  
+In een speciaal (App Service)-abonnement is er geen algemene limiet en de standaard waarde is afhankelijk van de runtime versie: 
++ Versie 1. x: de standaard waarde is *Null*, wat geen time-out aangeeft.   
++ Versie 2. x: de standaard waarde is 30 minuten. Een waarde van `-1` geeft aan dat de uitvoering is beperkt.
 
 ```json
 {

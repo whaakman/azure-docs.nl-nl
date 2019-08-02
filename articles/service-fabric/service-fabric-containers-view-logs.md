@@ -1,9 +1,9 @@
 ---
-title: Containers logboeken bekijken in Azure Service Fabric | Microsoft Docs
-description: Beschrijft hoe u Logboeken voor containers voor een actieve Service Fabric-containerservices met Service Fabric Explorer weergeeft.
+title: Container logboeken weer geven in azure Service Fabric | Microsoft Docs
+description: Hierin wordt beschreven hoe u container Logboeken kunt weer geven voor een actieve Service Fabric container Services met behulp van Service Fabric Explorer.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,28 +13,28 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
-ms.author: aljo
-ms.openlocfilehash: 0408010a49b8ec83aa02c74887139f663788ad80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 3fa40d794d02da08d29b6cac652edf493977f8e1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60881475"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599726"
 ---
-# <a name="view-logs-for-a-service-fabric-container-service"></a>Logboeken weergeven voor een Service Fabric containerservice
-Azure Service Fabric is een containerorchestrator en ondersteunt zowel [Linux- en Windows-containers](service-fabric-containers-overview.md).  In dit artikel wordt beschreven hoe u Logboeken voor containers van een actieve containerservice of een andere container weergeven, zodat u kunt vaststellen en oplossen van problemen.
+# <a name="view-logs-for-a-service-fabric-container-service"></a>Logboeken voor een Service Fabric container service weer geven
+Azure Service Fabric is een container Orchestrator en ondersteunt zowel [Linux-als Windows-containers](service-fabric-containers-overview.md).  In dit artikel wordt beschreven hoe u container Logboeken weergeeft van een actieve container service of een Dead-container, zodat u problemen kunt vaststellen en oplossen.
 
-## <a name="access-the-logs-of-a-running-container"></a>Toegang tot de logboeken van een container die wordt uitgevoerd
-Logboeken voor containers kunnen worden geopend met behulp van [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  Openen in een webbrowser, Service Fabric Explorer vanuit het beheereindpunt van het cluster door te navigeren naar [ http://mycluster.region.cloudapp.azure.com:19080/Explorer ](http://mycluster.region.cloudapp.azure.com:19080/Explorer).  
+## <a name="access-the-logs-of-a-running-container"></a>Toegang tot de logboeken van een actieve container
+Container logboeken kunnen worden geopend met behulp van [service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  Open in een webbrowser Service Fabric Explorer van het beheer eindpunt van het cluster door naar te [http://mycluster.region.cloudapp.azure.com:19080/Explorer](http://mycluster.region.cloudapp.azure.com:19080/Explorer)navigeren.  
 
-Containerlogboeken bevinden zich op het clusterknooppunt waarop de container service-exemplaar wordt uitgevoerd op. Als voorbeeld krijgen de logboeken van de web-front-container van de [voorbeeldtoepassing Linux stemmen](service-fabric-quickstart-containers-linux.md). Vouw in de structuurweergave wordt weergegeven, **Cluster**>**toepassingen**>**VotingType**>**fabric: / Voting / azurevotefront**.  Vervolgens vouwt u de partitie (d1aa737e-f22a-e347-be16-eec90be24bc1, in dit voorbeeld) en Zie dat de container wordt uitgevoerd op clusterknooppunt *_lnxvm_0*.
+Container logboeken bevinden zich op het cluster knooppunt waarop het container service-exemplaar wordt uitgevoerd. Zo kunt u de logboeken van de web-front-end-container van de [Linux-stem voorbeeld toepassing](service-fabric-quickstart-containers-linux.md)ophalen. Vouw in de structuur weergave **cluster**>**toepassingen**>**VotingType**>**Fabric:/stem/azurevotefront**uit.  Vouw vervolgens de partitie (d1aa737e-f22a-e347-be16-eec90be24bc1, in dit voor beeld) uit en controleer of de container wordt uitgevoerd op het cluster knooppunt *_lnxvm_0*.
 
-Zoek in de structuurweergave wordt weergegeven, het codepakket op de *_lnxvm_0* knooppunt door uit te vouwen **knooppunten**> **_lnxvm_0**>**fabric: / Voting**  > **azurevotfrontPkg**>**codepakketten**>**code**.  Selecteer vervolgens de **Containerlogboeken** optie om de containerlogboeken van de weer te geven.
+Zoek in de structuur weergave het code pakket op het knoop punt *_lnxvm_0* door **knoop punten**> **_lnxvm_0**>Fabric uit te breiden **:/stem**>**azurevotfrontPkg**>-**code** Pakket>**code**.  Selecteer vervolgens de optie **container logboeken** om de container logboeken weer te geven.
 
 ![Service Fabric-platform][Image1]
 
-## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>Toegang tot de logboeken van een container dode of vastgelopen
-Vanaf v6.2, u kunt ook ophalen van de logboeken voor een inactieve of gecrashte container met [REST-API's](/rest/api/servicefabric/sfclient-index) of [Service Fabric CLI (SFCTL)](service-fabric-cli.md) opdrachten.
+## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>Toegang tot de logboeken van een dood of crashed container
+Vanaf v 6.2 kunt u de logboeken ook ophalen voor een Dead of crashed container met behulp van [rest-api's](/rest/api/servicefabric/sfclient-index) of [service Fabric cli-opdrachten (SFCTL)](service-fabric-cli.md) .
 
 ### <a name="set-container-retention-policy"></a>Bewaarbeleid voor containers instellen
 Om gemakkelijker opstartfouten bij containers te analyseren, ondersteunt Service Fabric (versie 6.1 of hoger) het bewaren van containers die zijn gestopt of niet kunnen starten. Dit beleid kan worden ingesteld in het bestand **ApplicationManifest.xml**, zoals u in het volgende fragment ziet:
@@ -42,42 +42,42 @@ Om gemakkelijker opstartfouten bij containers te analyseren, ondersteunt Service
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
  ```
 
-De instelling **ContainersRetentionCount** geeft aan hoeveel containers er moeten worden bewaard wanneer ze fouten genereren. Als er een negatieve waarde wordt opgegeven, worden alle niet goed werkende containers bewaard. Wanneer de **ContainersRetentionCount** kenmerk is niet opgegeven, wordt er zijn geen containers bewaard. Het kenmerk **ContainersRetentionCount** ondersteunt ook toepassingsparameters, zodat gebruikers verschillende waarden kunnen opgeven voor test- en productieclusters. Bij het gebruik van deze functies dient u plaatsingsbeperkingen in te stellen om de containerservice op een bepaald knooppunt te richten. Zo voorkomt u dat de containerservice naar een ander knooppunt wordt verplaatst. Containers die met behulp van deze functie zijn bewaard, moeten handmatig worden verwijderd.
+De instelling **ContainersRetentionCount** geeft aan hoeveel containers er moeten worden bewaard wanneer ze fouten genereren. Als er een negatieve waarde wordt opgegeven, worden alle niet goed werkende containers bewaard. Wanneer het kenmerk **ContainersRetentionCount** niet wordt opgegeven, worden er geen containers bewaard. Het kenmerk **ContainersRetentionCount** ondersteunt ook toepassingsparameters, zodat gebruikers verschillende waarden kunnen opgeven voor test- en productieclusters. Bij het gebruik van deze functies dient u plaatsingsbeperkingen in te stellen om de containerservice op een bepaald knooppunt te richten. Zo voorkomt u dat de containerservice naar een ander knooppunt wordt verplaatst. Containers die met behulp van deze functie zijn bewaard, moeten handmatig worden verwijderd.
 
-De instelling **RunInteractive** komt overeen met de Docker `--interactive` en `tty` [vlaggen](https://docs.docker.com/engine/reference/commandline/run/#options). Wanneer deze instelling is ingesteld op true in het manifestbestand, deze vlaggen worden gebruikt voor het starten van de container.  
+De instelling **RunInteractive** komt overeen met de behorende en `--interactive` `tty` [vlaggen](https://docs.docker.com/engine/reference/commandline/run/#options)van docker. Als deze instelling is ingesteld op True in het manifest bestand, worden deze vlaggen gebruikt om de container te starten.  
 
 ### <a name="rest"></a>REST
-Gebruik de [ophalen Container logboeken geïmplementeerd op knooppunt](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) bewerking voor het verkrijgen van de logboeken voor een container vastgelopen. Geef de naam van het knooppunt waarop de container is uitgevoerd op, toepassingsnaam, servicenaam manifest en de naam van het code-pakket.  Geef `&Previous=true`. Het antwoord bevat de logboeken voor containers voor de andere container van het exemplaar van code-pakket.
+Gebruik de [container logboeken ophalen die zijn geïmplementeerd op knooppunt](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) bewerking om de logboeken voor een vastgelopen container op te halen. Geef de naam op van het knoop punt waarop de container wordt uitgevoerd, toepassings naam, naam van service manifest en de naam van het code pakket.  Opgeven `&Previous=true`. Het antwoord bevat de container logboeken voor de dode container van het code pakket exemplaar.
 
-De aanvraag-URI heeft de volgende notatie:
+De URI van de aanvraag heeft de volgende vorm:
 
 ```
 /Nodes/{nodeName}/$/GetApplications/{applicationId}/$/GetCodePackages/$/ContainerLogs?api-version=6.2&ServiceManifestName={ServiceManifestName}&CodePackageName={CodePackageName}&Previous={Previous}
 ```
 
-Van de voorbeeldaanvraag:
+Voorbeeld aanvraag:
 ```
 GET http://localhost:19080/Nodes/_Node_0/$/GetApplications/SimpleHttpServerApp/$/GetCodePackages/$/ContainerLogs?api-version=6.2&ServiceManifestName=SimpleHttpServerSvcPkg&CodePackageName=Code&Previous=true  
 ```
 
-200 antwoordtekst:
+200-antwoord tekst:
 ```json
 {   "Content": "Exception encountered: System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 (Internal Server Error).\r\n\tat System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()\r\n" } 
 ```
 
 ### <a name="service-fabric-sfctl"></a>Service Fabric (SFCTL)
-Gebruik de [sfctl get-container-logboeken](service-fabric-sfctl-service.md) opdracht voor het ophalen van de logboeken voor een container vastgelopen.  Geef de naam van het knooppunt waarop de container is uitgevoerd op, toepassingsnaam, servicenaam manifest en de naam van het code-pakket. Geef de `--previous` vlag.  Het antwoord bevat de logboeken voor containers voor de andere container van het exemplaar van code-pakket.
+Gebruik de opdracht [sfctl service Get-container-logs](service-fabric-sfctl-service.md) om de logboeken voor een vastgelopen container op te halen.  Geef de naam op van het knoop punt waarop de container wordt uitgevoerd, toepassings naam, naam van service manifest en de naam van het code pakket. Geef de `--previous` vlag op.  Het antwoord bevat de container logboeken voor de dode container van het code pakket exemplaar.
 
 ```
 sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –-previous
 ```
-Reactie:
+Antwoord:
 ```json
 {   "content": "Exception encountered: System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 (Internal Server Error).\r\n\tat System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()\r\n" }
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- Doorloop de [maken van een zelfstudie over het Linux-container toepassingen](service-fabric-tutorial-create-container-images.md).
-- Meer informatie over [Service Fabric en containers](service-fabric-containers-overview.md)
+- Werk met de [zelf studie een Linux-container toepassing maken](service-fabric-tutorial-create-container-images.md).
+- Meer informatie over [service Fabric en containers](service-fabric-containers-overview.md)
 
 [Image1]: media/service-fabric-containers-view-logs/view-container-logs-sfx.png

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/19/2019
 ms.author: davidmu
 ms.openlocfilehash: 9c0f94af62e8d4688a676415b32a6a7ebf82d453
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67176557"
 ---
 > [!NOTE]
-> In Azure Active Directory B2C, [aangepast beleid](../articles/active-directory-b2c/active-directory-b2c-get-started-custom.md) zijn ontworpen voor complexe scenario's. Voor de meeste scenario's, raden wij aan dat u ingebouwde [gebruikersstromen](../articles/active-directory-b2c/active-directory-b2c-reference-policies.md).
+> In Azure Active Directory B2C zijn [aangepaste beleids regels](../articles/active-directory-b2c/active-directory-b2c-get-started-custom.md) voornamelijk ontworpen om complexe scenario's te verhelpen. Voor de meeste scenario's wordt u aangeraden ingebouwde [gebruikers stromen](../articles/active-directory-b2c/active-directory-b2c-reference-policies.md)te gebruiken.

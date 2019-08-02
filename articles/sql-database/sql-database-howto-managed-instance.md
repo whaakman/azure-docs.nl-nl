@@ -1,6 +1,6 @@
 ---
-title: Het configureren van een Azure SQL-Database beheerd exemplaar | Microsoft Docs
-description: Informatie over het configureren en beheren van beheerd exemplaar voor Azure SQL Database.
+title: Een door Azure SQL Database beheerd exemplaar configureren | Microsoft Docs
+description: Meer informatie over het configureren en beheren van Azure SQL Database Managed instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -10,41 +10,40 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
-manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 886f06e8640891ac09d1e4624335a7bfebcd3def
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8c05ab05630e92e64a4885d5e6cdc6f5471dff2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60340788"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568062"
 ---
-# <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Over het gebruik van een beheerd exemplaar in Azure SQL Database
+# <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Een beheerd exemplaar gebruiken in Azure SQL Database
 
-In dit artikel vindt u diverse handleidingen, scripts en uitleg dat u helpen kan te beheren en configureren uw beheerde exemplaar.
+In dit artikel vindt u verschillende hand leidingen, scripts en uitleg die u kunnen helpen bij het beheren en configureren van uw beheerde exemplaar.
 
 ## <a name="migration"></a>Migratie
 
-- [Migreren naar een beheerd exemplaar](sql-database-managed-instance-migrate.md) : meer informatie over de aanbevolen migratieproces en hulpprogramma's voor migratie naar een beheerd exemplaar.
+- [Migreren naar een beheerd exemplaar](sql-database-managed-instance-migrate.md) : meer informatie over het aanbevolen migratie proces en hulpprogram ma's voor migratie naar een beheerd exemplaar.
 
-- [TDE cert migreren naar een beheerd exemplaar](sql-database-managed-instance-migrate-tde-certificate.md) : als uw SQL Server-database wordt beschermd met transparante gegevensversleuteling (TDE), moet u voor het migreren van certificaten die een beheerd exemplaar voor het ontsleutelen van de back-up die u wilt herstellen in Azure kunt gebruiken.
+- [TDe-certificaat migreren naar een beheerd exemplaar](sql-database-managed-instance-migrate-tde-certificate.md) : als uw SQL Server-Data Base wordt beveiligd met transparent Data Encryption (TDE), moet u het certificaat migreren dat door een beheerd exemplaar kan worden gebruikt voor het ontsleutelen van de back-up die u wilt herstellen in Azure.
 
 ## <a name="network-configuration"></a>Netwerkconfiguratie
 
-- [Bepaalt de grootte van het subnet van een beheerd exemplaar](sql-database-managed-instance-determine-size-vnet-subnet.md) – voor het beheerde exemplaar wordt geplaatst in worden op subnet dat kan niet worden gewijzigd nadat u de resources binnen hebt toegevoegd. Daarom moet u berekenen welke IP-adresbereik zijn vereist voor het subnet, afhankelijk van het aantal en typen van exemplaren die u wilt implementeren in het subnet.
-- [Nieuwe VNet en subnet voor een beheerd exemplaar](sql-database-managed-instance-create-vnet-subnet.md) – Azure VNet en subnet waarvoor u wilt implementeren van uw beheerde exemplaren moeten worden geconfigureerd volgens de [vereisten voor de hier beschreven](sql-database-managed-instance-connectivity-architecture.md#network-requirements). In deze handleiding vindt u de eenvoudigste manier om uw nieuwe VNet en subnet juist geconfigureerd voor beheerde exemplaren maken.
-- [Configureren van bestaande VNet en subnet voor een beheerd exemplaar](sql-database-managed-instance-configure-vnet-subnet.md) – als u configureren van uw bestaande VNet en subnet wilt voor het implementeren van beheerde exemplaren binnen, Hier vindt u het script waarmee wordt gecontroleerd of de [vereisten voor de](sql-database-managed-instance-connectivity-architecture.md#network-requirements) en controleer uw subnet op basis van de vereisten configureert.
-- [Configureren van aangepaste DNS](sql-database-managed-instance-custom-dns.md) : u moet aangepaste DNS configureren als u wilt toegang krijgen tot externe bronnen voor de aangepaste domeinen van uw beheerde exemplaar via een gekoppelde server van db e-mailprofielen.
-- [Netwerkconfiguratie synchroniseren](sql-database-managed-instance-sync-network-configuration.md) -het gebeuren dat hoewel u [geïntegreerd van uw app met een Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md), kunt u&#39;t verbinding maken met een beheerd exemplaar. Wat die kunt u proberen is om te vernieuwen voor de configuratie van netwerken voor uw service-plan.
-- [Beheer van IP-adres van eindpunt vinden](sql-database-managed-instance-find-management-endpoint-ip-address.md) – openbaar eindpunt voor management-toepassing maakt gebruik van het beheerde exemplaar. IP-adres van het eindpunt voor het script dat wordt beschreven hier gebruiken, kunt u bepalen.
-- [Controleer of de ingebouwde firewallbeveiliging](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) – voor het beheerde exemplaar is beveiligd met ingebouwde firewall waarmee het verkeer alleen op de poorten die nodig zijn. U kunt controleren en controleer of de ingebouwde firewallregels met behulp van het script in deze handleiding beschreven.
-- [Verbinding maken met toepassingen](sql-database-managed-instance-connect-app.md) – voor het beheerde exemplaar wordt geplaatst in uw eigen persoonlijke Azure-VNet met particuliere IP-adres. Meer informatie over andere patronen voor het verbinden van de toepassingen op uw beheerde exemplaar.
+- De [grootte van een beheerd exemplaar van het subnet bepalen](sql-database-managed-instance-determine-size-vnet-subnet.md) : het beheerde exemplaar wordt in het subnet reserveren dat niet kan worden gewijzigd nadat u de resources in hebt toegevoegd. Daarom moet u berekenen welk IP-adres bereik voor het subnet is vereist, afhankelijk van het aantal en de typen exemplaren dat u in het subnet wilt implementeren.
+- [Nieuw VNet en subnet maken voor een beheerd exemplaar](sql-database-managed-instance-create-vnet-subnet.md) : Azure VNet en subnet waar u uw beheerde exemplaren wilt implementeren, moeten worden geconfigureerd volgens de [hier beschreven netwerk vereisten](sql-database-managed-instance-connectivity-architecture.md#network-requirements). In deze hand leiding vindt u de eenvoudigste manier om uw nieuwe VNet en subnet te maken die op de juiste wijze zijn geconfigureerd voor beheerde exemplaren.
+- [Een bestaand vnet en subnet voor een beheerd exemplaar configureren](sql-database-managed-instance-configure-vnet-subnet.md) : als u uw bestaande vnet en subnet wilt configureren voor het implementeren van beheerde exemplaren in, kunt u hier het script vinden dat de [netwerk vereisten](sql-database-managed-instance-connectivity-architecture.md#network-requirements) controleert en de configuratie van uw subnet volgens de vereisten.
+- [Aangepaste DNS configureren](sql-database-managed-instance-custom-dns.md) : u moet aangepaste DNS configureren als u via een gekoppelde server van DB e-mail profielen toegang wilt krijgen tot externe resources op de aangepaste domeinen van uw beheerde exemplaar.
+- [Netwerk configuratie synchroniseren](sql-database-managed-instance-sync-network-configuration.md) : Hoewel u [uw app hebt geïntegreerd met een Azure-Virtual Network](../app-service/web-sites-integrate-with-vnet.md), kunt&#39;u verbinding maken met een beheerd exemplaar. U kunt proberen om de netwerk configuratie voor uw service abonnement te vernieuwen.
+- [IP-adres van beheer eindpunt zoeken](sql-database-managed-instance-find-management-endpoint-ip-address.md) : beheerde instantie gebruikt open bare eind punt voor beheer doeleinden. U kunt het IP-adres van het beheer eindpunt bepalen met behulp van het script dat hier wordt beschreven.
+- [Controleer of](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) het beheerde exemplaar van de firewall beveiliging is beveiligd met een ingebouwde firewall waarmee het verkeer alleen op de benodigde poorten is toegestaan. U kunt de ingebouwde firewall regels controleren en controleren met behulp van het script dat in deze hand leiding wordt beschreven.
+- [Connect-toepassingen](sql-database-managed-instance-connect-app.md) : het beheerde exemplaar wordt in uw eigen persoonlijke Azure VNet geplaatst met een privé IP-adres. Meer informatie over verschillende patronen voor het verbinden van de toepassingen met uw beheerde exemplaar.
 
-## <a name="feature-configuration"></a>Functieconfiguratie
+## <a name="feature-configuration"></a>Configuratie van onderdelen
 
-- [Transactionele replicatie](replication-with-sql-database-managed-instance.md) kunt u uw gegevens repliceren tussen beheerde exemplaren of van on-premises SQL Server tot een beheerd exemplaar, en vice versa. Meer informatie vinden over het gebruik en transactionele replicatie configureren in deze handleiding.
-- [Detectie van bedreigingen instellen](sql-database-managed-instance-threat-detection.md) – [detectie van bedreigingen](sql-database-threat-detection-overview.md) is een ingebouwde Azure SQL Database-functie die verschillende potentiële aanvallen, zoals SQL-injectie of toegang vanaf verdachte locaties gedetecteerd. In deze handleiding leert u hoe u inschakelen en configureren van [detectie van bedreigingen](sql-database-threat-detection-overview.md) voor een beheerd exemplaar.
+- Met transactionele [replicatie](replication-with-sql-database-managed-instance.md) kunt u uw gegevens repliceren tussen beheerde instanties, of van on-premises SQL Server naar een beheerd exemplaar, en omgekeerd. Meer informatie over het gebruik en configureren van transactie replicatie in deze hand leiding.
+- [Detectie van bedreigingen configureren](sql-database-managed-instance-threat-detection.md) : [bedreigingen detectie](sql-database-threat-detection-overview.md) is een ingebouwde Azure SQL database functie die verschillende mogelijke aanvallen detecteert zoals SQL-injectie of toegang vanaf verdachte locaties. In deze hand leiding vindt u informatie over het inschakelen en configureren van [detectie van bedreigingen](sql-database-threat-detection-overview.md) voor een beheerd exemplaar.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [instructies gidsen voor individuele databases](sql-database-howto-single-database.md)
+- Meer informatie over [hand leidingen voor afzonderlijke data bases](sql-database-howto-single-database.md)

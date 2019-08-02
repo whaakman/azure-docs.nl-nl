@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9128a747dcd42ada2feefd72ad8bfebdf7bfb25a
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c5d374f4ddac2e4d013bab1c5e88a87af1da2c1f
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334043"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667137"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Identiteitsbeveiliging en B2B-gebruikers
 
@@ -47,7 +47,7 @@ Als een Risk ante B2B-gebruiker in uw Directory wordt geblokkeerd door uw beleid
 
 ### <a name="how-do-i-prevent-b2b-collaboration-users-from-being-impacted-by-risk-based-policies"></a>Hoe kan ik voor komen dat gebruikers van B2B-samen werking worden beïnvloed door op risico gebaseerd beleid?
 
-Met uitzonde ring van B2B-gebruikers uit het op risico gebaseerd beleid voor voorwaardelijke toegang van uw organisatie kunnen B2B-gebruikers niet worden beïnvloed of geblokkeerd door hun risico-evaluatie. Als u deze B2B-gebruikers wilt uitsluiten, maakt u een groep in azure AD die alle gast gebruikers van uw organisatie bevat. Voeg deze groep vervolgens als uitsluiting toe voor het beleid voor de gebruikers Risico's en aanmeldings Risico's voor de ingebouwde identiteits beveiliging en de beleids regels voor voorwaardelijke toegang die gebruikers als voor waarde aanmelden.
+Met uitzonde ring van B2B-gebruikers uit het op risico gebaseerd beleid voor voorwaardelijke toegang van uw organisatie kunnen B2B-gebruikers niet worden beïnvloed of geblokkeerd door hun risico-evaluatie. Als u deze B2B-gebruikers wilt uitsluiten, maakt u een groep in azure AD die alle gast gebruikers van uw organisatie bevat. Voeg deze groep vervolgens als uitsluiting toe voor het beleid voor de gebruikers Risico's en aanmeldings Risico's voor de ingebouwde identiteits beveiliging en de beleids regels voor voorwaardelijke toegang die gebruikmaken van aanmeldings risico als voor waarde.
 
 ## <a name="next-steps"></a>Volgende stappen
 

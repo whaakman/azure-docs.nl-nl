@@ -1,7 +1,7 @@
 ---
-title: Over het maken van een model Conversatiecursist "Hallo wereld" - Microsoft Cognitive Services | Microsoft Docs
+title: Een Hallo wereld Conversation Learner model maken-Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Informatie over het maken van een model Conversatiecursist "Hallo wereld".
+description: Meer informatie over het maken van een model voor ' Hallo wereld ' Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,103 +10,104 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: fe5d21fadef8f4452ba36259dbf89cefc78230de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: bb1d053af8813f05872c56d3b5609f2d7d7d5d8c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388058"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705642"
 ---
-# <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Over het maken van een 'Hallo wereld'-model met Conversatiecursist
+# <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Een model ' Hallo wereld ' maken met Conversation Learner
 
-Deze zelfstudie laat zien hoe u aan de slag met Conversatiecursist, met inbegrip van het maken van acties, geven de Bot interactief en correcties van geregistreerde dialoogvensters die afkomstig van eindgebruikers zijn te maken.
+In deze zelf studie leert u hoe u aan de slag gaat met Conversation Learner, zoals het maken van acties, het interactief samen stellen van de bot en het aanbrengen van correcties van geregistreerde dialoog vensters die afkomstig zijn van eind gebruikers.
 
 ## <a name="video"></a>Video
 
-[![Zelfstudie Hallo wereld-voorbeeld](https://aka.ms/cl_Tutorial_v3_HelloWorld_Preview)](https://aka.ms/cl_tutorial_v3_helloworld)
+[![Preview van Hallo wereld-zelf studie](https://aka.ms/cl_Tutorial_v3_HelloWorld_Preview)](https://aka.ms/cl_tutorial_v3_helloworld)
 
 
 ## <a name="requirements"></a>Vereisten
-Als u niet hebt gedaan, eerst controleert u of alle stappen van de setup zijn voltooid, met inbegrip van het maken van een `.env` bestand met uw LUIS sleutel ontwerpen.  Zie [snelstartgids](../quickstart.md) voor meer informatie.
+Als u dat nog niet hebt gedaan, controleert u eerst of alle installatie stappen zijn voltooid `.env` , inclusief het maken van een bestand met uw Luis-ontwerp sleutel.  Zie [Quick](../quickstart.md) start voor meer informatie.
 
-In deze zelfstudie is vereist dat de algemene zelfstudie Bot wordt uitgevoerd
+Voor deze zelf studie moet de bot van de algemene zelf studie worden uitgevoerd
 
     npm run tutorial-general
 
 ## <a name="steps"></a>Stappen
 
-Start op de startpagina in de Web-UI.
+Start op de start pagina in de gebruikers interface van het web.
 
-### <a name="create-the-model"></a>Het Model maken
-1. Klik op de knop "Nieuw Model".
-2. Voer in het veld "Naam", "Hallo wereld".
-3. Klik op de knop 'Maken'.
+### <a name="create-the-model"></a>Het model maken
+1. Klik op de knop Nieuw model.
+2. Voer Hallo wereld in het veld naam in.
+3. Klik op de knop maken.
 
-U ziet nu de weergave van het model dat u hebt gemaakt.
+U ziet nu de weer gave van het model dat u hebt gemaakt.
 
 ### <a name="create-an-action"></a>Een actie maken
-1. Klik op 'Acties' en vervolgens de knop 'Nieuwe actie' in het linkerdeelvenster.
-    - Een actie is een SMS-bericht die Conversatiecursist geretourneerd naar de gebruiker, een API-aanroep of een kaart.
-2. In de 'van de Bot Response...' veldtype "Hallo".
-    - Dit is het antwoord dat de Bot wordt geretourneerd.
-3. Klik op de knop 'Maken'.
+1. Klik in het linkerdeel venster op acties en vervolgens op de knop nieuwe actie.
+    - Een actie kan een tekst bericht zijn dat Conversation Learner terugkeert naar de gebruiker, een API-aanroep of een kaart.
+2. In het antwoord van de bot... veld type "Hallo".
+    - Dit is de reactie die wordt geretourneerd door de bot.
+3. Klik op de knop maken.
 
-U hebt gemaakt dat de eerste actie die de Bot uitvoeren kunt, dat wil zeggen een tekstantwoord retourneren.
+U hebt de eerste actie gemaakt die de bot kan uitvoeren, d.w.z. het retour neren van een tekst antwoord.
 
-### <a name="train-dialogs"></a>Dialoogvensters trainen
-Dit is waar u het Model voor het reageren op gebruiker-uitingen te trainen.
+### <a name="train-dialogs"></a>Dialoog vensters trainen
+Hier traint u het model om te reageren op gebruikers uitingen.
 
-#### <a name="first-training-dialog"></a>Eerste Training-dialoogvenster
+#### <a name="first-training-dialog"></a>Eerste trainings venster
 
-1. In het linkerdeelvenster klikt u op "Train-dialoogvensters" en vervolgens de knop 'Nieuwe Train dialoogvenster'.
-2. Type 'Hi', druk op enter.
-    - Als u een voorbeeld van wat de gebruiker mogelijk staat in het begin van een gesprek.
-3. Klik op de knop 'Acties Score'.
-4. Selecteer "Hallo".
-    - U zojuist een volledige inschakelen in dit dialoogvenster voorbeeld. 
-5. Typ in het antwoord van de gebruiker, "Tot ziens".
-6. Klik op de knop 'Acties Score'.
-7. Klik op het "+ actie" knop.
-8. Type "Goodbye!" veld en klik op de knop 'Maken' in '... van Bot-response'.
-    - U ziet de Bot reageerde met dat actie u zojuist hebt gemaakt.
-9. Klik op de knop 'Opslaan'. 
-    - Dit wordt beëindigd en sla dit dialoogvenster Training.
+1. Klik in het linkerdeel venster op ' dialoog vensters trainen ' en vervolgens op de knop Nieuw trainen dialoog venster.
+2. Typ ' hi ', druk op ENTER.
+    - Als voor beeld van wat de gebruiker aan het begin van een gesprek kan zeggen.
+3. Klik op de knop ' Score acties '.
+4. Selecteer Hallo.
+    - U hebt zojuist een volledige turn-functie in dit voor beeld voltooid. 
+5. Typ het antwoord van de gebruiker, "tot ziens".
+6. Klik op de knop ' Score acties '.
+7. Klik op de knop + actie.
+8. Typ "tot ziens" in het antwoord van de bot... en klik vervolgens op de knop maken.
+    - U ziet dat de bot heeft gereageerd met de actie die u zojuist hebt gemaakt.
+9. Klik op de knop Opslaan. 
+    - Hiermee wordt het dialoog venster voor trainingen beëindigd en opgeslagen.
 
-U hebt nu een dialoogvenster voor Training in het Model, samen met een enkele entiteit en twee acties.
+Nu hebt u één trainings venster in het model, samen met één entiteit en twee acties.
 
-#### <a name="second-training-dialog"></a>Second Training Dialog
-Laten we doen een meer training en Zie hoe de Bot reageert.
+#### <a name="second-training-dialog"></a>Dialoog venster voor tweede training
+Laten we nog een training volgen en zien hoe de bot reageert.
 
-1. Klik op de knop 'Nieuwe Train dialoogvenster'.
-2. Typ in 'Hallo'
-    - Dit is vergelijkbaar met het eerste dialoogvenster en we verwachten dat een goede score ophalen van de Bot.
-3. Klik op de knop 'Acties Score'.
-    - De positie en de score nog steeds mogelijk niet nauwkeurig genoeg en mogelijk extra training.
-4. Selecteer "Hallo".
-5. Typ in het antwoord van de gebruiker, "tot ziens".
-6. Klik op de knop 'Acties Score'.
-7. Selecteer "Tot ziens!"
-8. Klik op de knop 'Opslaan'.
+1. Klik op de knop Nieuw trainen dialoog venster.
+2. Typ in, Hi
+    - Dit is vergelijkbaar met het eerste dialoog venster en we verwachten een goede Score van de bot te krijgen.
+3. Klik op de knop ' Score acties '.
+    - De positie en Score zijn mogelijk nog niet nauw keurig genoeg en vereisen mogelijk extra training.
+4. Selecteer Hallo.
+5. Typ het antwoord van de gebruiker.
+6. Klik op de knop ' Score acties '.
+7. Selecteer "tot ziens"
+8. Klik op de knop Opslaan.
 
-### <a name="log-dialogs"></a>Logboek-dialoogvensters
-Dit is waar u Test, weergeven en corrigeren gesprekken die u of de echte gebruikers met uw Bot hebben gehad.
+### <a name="log-dialogs"></a>Dialoog vensters logboek
+Hier kunt u uw gesprekken testen, weer geven en corrigeren die u of echte gebruikers hebben gehad met uw bot.
 
-#### <a name="test-the-model-as-an-end-user"></a>Test het Model als een eindgebruiker
-1. Klik op "Log-dialoogvensters" en vervolgens de knop 'Dialoogvenster voor een nieuwe Log' in het linkerdeelvenster.
-2. Typ 'Hallo er'.
-3. Wacht even, de Bot automatisch moet reageren met "Hallo"
-4. Enter 'byebye'
-5. Wacht even, opnieuw de Bot automatisch moet reageren met "Hallo".
-6. Klik op de knop 'Gedaan testen'.
+#### <a name="test-the-model-as-an-end-user"></a>Het model testen als een eind gebruiker
+1. Klik in het linkerdeel venster op dialoog vensters logboeken en vervolgens op de knop nieuw logboek.
+2. Typ ' Hallo daar '.
+3. Een korte tijd geduld; de bot moet automatisch reageren met ' Hallo '
+4. Voer ' Byebye ' in
+5. Wacht even en opnieuw moet de bot automatisch reageren met ' Hallo '.
+6. Klik op de knop testen is voltooid.
 
-#### <a name="view-and-correct-a-user-conversation"></a>Weergeven en corrigeren van de conversatie van een gebruiker
-Met Log-dialoogvensters, kunt u de lijst met gesprekken weergeven gebruikers gehouden met uw Bot. U kunt ook deze corrigeren van de Bot antwoorden en de interacties als Training-dialoogvensters opslaan als u wilt bewerken. Om dat te doen:
+#### <a name="view-and-correct-a-user-conversation"></a>Een gebruikers conversatie bekijken en corrigeren
+Met de dialoog vensters voor Logboeken kunt u de lijst met conversaties weer geven die gebruikers met uw bot hebben ondergaan. U kunt deze ook bewerken om de reacties van de bot te corrigeren en de interacties als trainings dialoogvensters op te slaan. Hiervoor doet u het volgende:
 1. Klik in het raster op het logboek van de conversatie.
-2. Klik bijvoorbeeld op de laatste Bot-actie "Hallo".
-3. Selecteer "Tot ziens!" om op te lossen de Bot.
-4. Klik op de knop 'Opslaan als Train dialoogvenster'.
+2. Klik op de laatste bot-actie, bijvoorbeeld "Hallo".
+3. Selecteer "tot ziens" om de bot te corrigeren.
+4. Klik op de knop Opslaan als trein venster.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Inleiding tot Training](./02-intro-to-training.md)
+> [Inleiding tot training](./02-intro-to-training.md)

@@ -4,7 +4,7 @@ description: Pools van Data Science-VM's implementeren als een gedeelde bron voo
 keywords: deep learning, AI, hulpprogramma's voor data science, virtuele machine voor datatechnologie, georuimtelijke analyses, team data science process
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
-ms.author: gokuma
-ms.openlocfilehash: 5cce7f691204a0fd116627fadde1076a4505fcb2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 44983de87ce2e774356bf506e3a868da922a3ba3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502269"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558061"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Maken van een gedeelde groep van virtuele Machines voor Datatechnologie
 
 In dit artikel wordt beschreven hoe u een gedeelde groep van virtuele Machines voor Datatechnologie (Dsvm) voor een team te gebruiken kunt maken. De voordelen van het gebruik van een gedeelde groep zijn beter Resourcegebruik, vereenvoudiging van delen en samenwerking en efficiënter beheer van resources van de DSVM. 
 
-U kunt vele methoden en -technologieën gebruiken om een pool van Dsvm te maken. In dit artikel is gericht op groepen voor interactieve virtuele machines. Een alternatieve beheerde rekeninfrastructuur is Azure Machine Learning-Computing. Zie [compute-doelen ingesteld](../service/how-to-set-up-training-targets.md#amlcompute) voor meer informatie.
+U kunt vele methoden en -technologieën gebruiken om een pool van Dsvm te maken. Dit artikel richt zich op Pools voor interactieve Vm's. Een alternatieve beheerde Compute-infra structuur is Azure Machine Learning Reken kracht. Zie [Compute-doelen instellen](../service/how-to-set-up-training-targets.md#amlcompute) voor meer informatie.
 
 ## <a name="interactive-vm-pool"></a>Interactieve VM-pool
 

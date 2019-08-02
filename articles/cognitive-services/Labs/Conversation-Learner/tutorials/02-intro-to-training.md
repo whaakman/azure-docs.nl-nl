@@ -1,7 +1,7 @@
 ---
-title: Inleiding tot het trainen van een model Conversatiecursist - Microsoft Cognitive Services | Microsoft Docs
+title: Inleiding tot het trainen van een Conversation Learner model-Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Leer hoe u een zoals vertakkingen en bewerken van vorige trainingen via Conversatiecursist model te trainen.
+description: Meer informatie over het trainen van een model, inclusief vertakkingen en het bewerken van een vorige training via Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,94 +10,95 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 0bf5b71a4b0f51a586febbdaeaf8caba03c5b25a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: c657025ce588363cf76ce10868d809a9aff69222
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387923"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705614"
 ---
-# <a name="introduction-to-training"></a>Inleiding tot Training
+# <a name="introduction-to-training"></a>Inleiding tot training
 
-In deze zelfstudie leert de basisprincipes van het trainen van een Model, vertakkingen maken uit een nieuwe training op basis van een vorige trainingen en bewerken van een Bot-antwoord om te wijzigen.
+In deze zelf studie ziet u de basis beginselen van het trainen van een model, het uitdelen van een nieuwe training op basis van een vorige training en het bewerken van een bot-antwoord om het te wijzigen.
 
 ## <a name="video"></a>Video
 
-[![Inleiding tot zelfstudie Preview Training](https://aka.ms/cl_Tutorial_v3_IntroTraining_Preview)](https://aka.ms/cl_Tutorial_v3_IntroTraining)
+[![Preview-zelf studie voor training](https://aka.ms/cl_Tutorial_v3_IntroTraining_Preview)](https://aka.ms/cl_Tutorial_v3_IntroTraining)
 
 ## <a name="requirements"></a>Vereisten
-In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd
+Voor deze zelf studie moet de bot van de algemene zelf studie worden uitgevoerd
 
     npm run tutorial-general
 
 ## <a name="details"></a>Details
 
-- Acties: Een Bot-reactie op gebruikersinvoer.
-- Trainen: De manier waarop we leren een Bot om te reageren op invoer van de gebruiker.
-- Vertakking: De wijziging van de invoer van een gebruiker binnen een opgeslagen dialoogvenster van de trein ten behoeve van het maken van een nieuw dialoogvenster van de trein die gelijk zijn aan de oorspronkelijke instantie, maar duurt het gesprek in een andere richting.
+- Regelen Een bot-reactie op invoer van de gebruiker.
+- Trainen: De manier waarop we een bot leren om te reageren op invoer van de gebruiker.
+- Vertakkingen De wijziging van een gebruikers invoer in een opgeslagen trein dialoog venster voor het maken van een nieuw trein dialoogvenster dat hetzelfde start als het origineel, maar neemt de conversatie in een andere richting.
 
 ## <a name="steps"></a>Stappen
 
 ### <a name="create-a-new-model"></a>Een nieuw model maken
 
-1. Klik op Nieuw Model in de Web-UI
-2. Typ voor de 'naam', 'Bot inspireren'. Klik vervolgens op maken.
+1. Klik in de gebruikers interface van de web op nieuw model
+2. Typ voor de naam ' bot inspireren '. Klik vervolgens op maken.
 
 ### <a name="create-an-action"></a>Een actie maken
 
-1. Klik op 'Acties' en vervolgens de knop 'Nieuwe actie' in het linkerdeelvenster.
-2. In de 'van de Bot-response' Voer "Hallo! Wilt u inspireren vandaag? ".
-    - Laat andere velden en selectievakjes op de standaardinstelling.
+1. Klik in het linkerdeel venster op acties en vervolgens op de knop nieuwe actie.
+2. Geef in het veld ' bot ' op ' Hallo! Wil je vandaag geïnspireerd zijn? '.
+    - Wijzig alle andere velden en schakel de standaard instelling in.
 3. Klik op Maken.
 
-### <a name="first-training-and-creating-another-action-while-training"></a>Eerst trainings- en het maken van een andere actie tijdens het trainen
+### <a name="first-training-and-creating-another-action-while-training"></a>Eerste training en maken van een andere actie tijdens de training
 
-1. In het linkerdeelvenster klikt u op "Train-dialoogvensters" en vervolgens de knop 'Nieuwe Train dialoogvenster'.
-2. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "Hallo". 
-    - Dit simuleert de kant van de gebruiker van de conversatie.
-3. Klik op 'Acties Score'.
-4. Selecteer het antwoord, "Hallo! Wilt u inspireren vandaag? ".
-5. Beantwoorden 'Ja', als de gebruiker.
-6. Klik op 'Acties Score'.
-7. Klik op het "+ actie" knop. 
-    - Hiermee gaat u naar de bekend in het dialoogvenster 'Een actie maken'.
-8. Typ in de reactie van de Bot als "U bent geweldige."
+1. Klik in het linkerdeel venster op ' dialoog vensters trainen ' en vervolgens op de knop Nieuw trainen dialoog venster.
+2. In het deel venster chat, waar het bericht ' Typ uw boodschap... ', typt u ' Hallo '. 
+    - Hiermee wordt de kant van de gebruiker van de conversatie gesimuleerd.
+3. Klik op ' Score acties '.
+4. Selecteer het antwoord ' Hallo! Wil je vandaag geïnspireerd zijn? '.
+5. Reageer als gebruiker op ' ja '.
+6. Klik op ' Score acties '.
+7. Klik op de knop + actie. 
+    - Hiermee gaat u naar het vertrouwde ' actie maken ' in het dialoog venster.
+8. Typ de reactie van de bot als ' u bent geweldig! '
 9. Klik op Maken.
-10. U ziet dat de Bot direct reageert.
-11. Klik op de knop 'Opslaan'.
+10. U ziet dat de bot direct reageert.
+11. Klik op de knop Opslaan.
 
-### <a name="branch-a-second-training-off-of-the-first-training"></a>Een tweede Training af bij de eerste Training vertakking
+### <a name="branch-a-second-training-off-of-the-first-training"></a>Vertakking een tweede training van de eerste training
 1. Klik op de rasterrij met een overzicht van de eerste training. 
-    - Hiermee kunt u bekijken en bewerken van de bestaande training.
-2. Klik op het antwoord "Ja" gebruiker. 
-    - Deze wordt besturingselementen bewerken weergegeven.
-3. Klik op het pictogram vertakking. 
-    - Er verschijnt nu een prompt voor de invoer van een andere gebruiker voor een nieuwe discussie.
-4. Type in "Nee" hits invoeren of klik op de knop 'Maken'. 
-    - Op dit moment hebt u een nieuw exemplaar van een dialoogvenster van de trein, de oorspronkelijke map blijft ongewijzigd.
-5. Klik op 'Acties Score'.
-6. Klik op onjuist antwoord van de Bot die net binnenkomen.
-7. Klik op het "+ actie" knop 
-    - zodat we een nieuwe actie voor de Bot reageert met maken kunt.
-8. Typ in het antwoord van de Bot als 'geen probleem! Een prettige dag hebben."
+    - Zo kunt u de bestaande training bekijken en bewerken.
+2. Klik op het antwoord van de gebruiker op Ja. 
+    - Dit maakt het bewerken van besturings elementen zichtbaar.
+3. Klik op het vertakkings pictogram. 
+    - Hiermee wordt een prompt weer gegeven voor een andere gebruikers invoer voor een nieuwe conversatie.
+4. Typ ' nee ', druk op ENTER of klik op de knop maken. 
+    - Op dit moment hebt u een nieuw exemplaar van een trein dialoogvenster. het oorspronkelijke venster blijft ongewijzigd.
+5. Klik op ' Score acties '.
+6. Klik op het onjuiste antwoord van de bot dat zojuist is verschenen.
+7. Klik op de knop + actie 
+    - zodat we een nieuwe actie voor de bot kunnen maken om te reageren met.
+8. Typ de reactie van de bot als ' geen probleem! Hebt u een goede dag! '
 9. Klik op Maken
-10. U ziet dat de Bot direct reageert.
-11. Klik op de knop 'Opslaan'.
+10. U ziet dat de bot direct reageert.
+11. Klik op de knop Opslaan.
 
-### <a name="test-the-trainings"></a>U kunt de testen
-1. Klik op "Log-dialoogvensters" en 'Dialoogvenster voor een nieuwe Log' in het linkerdeelvenster.
-2. Typ in het bericht 'Hallo'. 
-3. U ziet dat de Bot automatisch in de manier waarop die we deze getraind reageert.
-4. Typ in het antwoord van de gebruiker, 'Ja'.
-5. U ziet het antwoord Bot Hier ziet u dat de eerste training functioneert.
-6. Klik op de knop 'Sessietime-out'. Hiermee wordt aangegeven Conversatiecursist dat we opnieuw wilt starten, negeert de conversatie schakelt die zojuist plaatsgevonden heeft.
-7. Typ in het bericht 'Hallo'. 
-8. U ziet dat de Bot automatisch in de manier waarop die we deze getraind reageert.
-9. Typ in het antwoord van de gebruiker, "Nee".
-10. U ziet het antwoord Bot Hier ziet u dat de tweede training functioneert.
-11. Klik op de knop 'Gedaan testen'.
+### <a name="test-the-trainings"></a>De trainingen testen
+1. Klik in het linkerdeel venster op dialoog vensters logboeken en vervolgens op nieuw logboek venster.
+2. Typ ' hi ' in het bericht. 
+3. U ziet dat de bot automatisch reageert op de manier waarop we deze hebben getraind.
+4. Typ ' ja ' in het antwoord van de gebruiker.
+5. Let op het antwoord van de bot. Dit betekent dat de eerste training werkt.
+6. Klik op de knop sessietime time-out. Dit geeft aan Conversation Learner u opnieuw wilt beginnen, waardoor de conversatie wordt genegeerd.
+7. Typ ' hi ' in het bericht. 
+8. U ziet dat de bot automatisch reageert op de manier waarop we deze hebben getraind.
+9. Typ het antwoord van de gebruiker, "nee".
+10. Let op het bot-antwoord, het laat zien dat de tweede training werkt.
+11. Klik op de knop testen is voltooid.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Wacht even en acties voor niet-wait](./03-wait-vs-nonwait-actions.md)
+> [Wacht tijden en acties zonder wacht tijd](./03-wait-vs-nonwait-actions.md)

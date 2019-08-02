@@ -2,22 +2,22 @@
 title: Toevoegen of bijwerken van een gebruiker profielgegevens - Azure Active Directory | Microsoft Docs
 description: Instructies over hoe u gegevens toevoegt aan het profiel van een gebruiker in Azure Active Directory, met inbegrip van de details van een afbeelding en de taak.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 04/11/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d710a86bb63765ea8a1a777818ca5f99e38d3a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4002c14ed6340a0e1a89ee295d47c98436515775
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248107"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561774"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Toevoegen of bijwerken van de profielgegevens van een gebruiker met behulp van Azure Active Directory
 Profielgegevens, zoals een profielfoto, taak-specifieke informatie en enkele instellingen die met Azure Active Directory (Azure AD) toevoegen. Zie voor meer informatie over het toevoegen van nieuwe gebruikers [toevoegen of verwijderen van gebruikers in Azure Active Directory](add-users-azure-active-directory.md).
@@ -26,7 +26,7 @@ Profielgegevens, zoals een profielfoto, taak-specifieke informatie en enkele ins
 Zoals u ziet, is er meer informatie beschikbaar in het profiel van een gebruiker dan wat kunt u om toe te voegen tijdens het maken van de gebruiker. Deze extra informatie is optioneel en, indien nodig door uw organisatie kan worden toegevoegd.
 
 ## <a name="to-add-or-change-profile-information"></a>Toevoegen of wijzigen van de profielgegevens
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als de Gebruikersbeheerder van een voor de organisatie.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) als een gebruikers beheerder voor de organisatie.
 
 2. Selecteer **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens een gebruiker. Bijvoorbeeld, _Alain Charon_.
 
@@ -40,7 +40,7 @@ Zoals u ziet, is er meer informatie beschikbaar in het profiel van een gebruiker
 
     - **De profielfoto.** Selecteer een miniatuur voor het gebruikersaccount. Deze afbeelding wordt weergegeven in Azure Active Directory en op van de gebruiker persoonlijke's, zoals de pagina myapps.microsoft.com.
 
-    - **De identiteit.** Toevoegen of bijwerken van een extra identity-waarde voor de gebruiker, zoals een Getrouwd achternaam op. U kunt deze naam onafhankelijk van de waarden van de voornaam en achternaam instellen. U kunt dit bijvoorbeeld gebruiken om op te nemen initialen, de naam van een bedrijf, of te wijzigen van de volgorde van de namen weergegeven. Een ander voorbeeld: voor twee gebruikers waarvan de namen zijn 'Chris Green' u kunt de identiteitstekenreeks hun namen instellen op 'Chris B. Green' 'Chris R. groen (Contoso).'
+    - **De identiteit.** Een extra identiteits waarde voor de gebruiker toevoegen of bijwerken, zoals een getrouwde achternaam. U kunt deze naam onafhankelijk van de waarden voor voor naam en achternaam instellen. U kunt dit bijvoorbeeld gebruiken om initialen, een bedrijfs naam op te geven of om de weer gegeven volg orde van de namen te wijzigen. Een ander voor beeld: voor twee gebruikers met de naam Chris Green kunt u de teken reeks voor identiteiten gebruiken om de namen in te stellen op Chris B. Green ' Chris R. Green (Contoso). '
 
     - **Taakgegevens.** Toevoegen van een taak-gerelateerde informatie, zoals de functie, afdeling of beheer van de gebruiker.
 

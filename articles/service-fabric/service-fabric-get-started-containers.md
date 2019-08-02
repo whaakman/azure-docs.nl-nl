@@ -3,7 +3,7 @@ title: Een Azure Service Fabric-containertoepassing maken | Microsoft Docs
 description: Maak uw eerste Windows-containertoepassing in Azure Service Fabric. Bouw een Docker-installatiekopie met een Python-toepassing, push de installatiekopie naar een containerregister, en bouw en implementeer een Service Fabric-containertoepassing.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: jpconnock
 editor: vturecek
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
-ms.author: aljo
-ms.openlocfilehash: 70dc458e341024797761262cd9a4fd1b3eb23ec3
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: atsenthi
+ms.openlocfilehash: 9ef1dad0e90ec3e48a4bf22325cba0beb197d290
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359790"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599528"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 
@@ -423,7 +423,7 @@ Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met de
 
 Vanaf versie 6.1 integreert Service Fabric automatisch [Docker-STATUSCONTROLE](https://docs.docker.com/engine/reference/builder/#healthcheck)-gebeurtenissen in het systeemstatusrapport. Dit betekent dat als voor uw container **STATUSCONTROLE** is ingeschakeld, Service Fabric de status van de container rapporteert wanneer Docker aangeeft dat deze is gewijzigd. In [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) wordt de status **OK** weergegeven wanneer *health_status* *healthy* is en **WAARSCHUWING** wanneer *health_status* *unhealthy* is. 
 
-Vanaf de laatste vernieuwing van v 6.4 hebt u de optie om op te geven dat de status controle-evaluaties van docker moeten worden gerapporteerd als een fout. Als deze optie is ingeschakeld, wordt het status rapport **OK** weer gegeven  wanneer health_status *in orde* is en de **fout** wordt weer gegeven wanneer *health_status* een *slechte status*heeft.
+Vanaf de laatste vernieuwing van v 6.4 hebt u de optie om op te geven dat de status controle-evaluaties van docker moeten worden gerapporteerd als een fout. Als deze optie is ingeschakeld, wordt het status rapport **OK** weer gegeven wanneer health_status *in orde* is en de **fout** wordt weer gegeven wanneer *health_status* een *slechte status*heeft.
 
 De instructie **STATUSCONTROLE**, die verwijst naar de feitelijke controle die wordt uitgevoerd voor het bewaken van de containerstatus, moet aanwezig zijn in de Dockerfile die wordt gebruikt tijdens het genereren van de containerinstallatiekopie.
 

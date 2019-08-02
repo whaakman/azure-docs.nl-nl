@@ -10,10 +10,10 @@ ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 25cac6a66baeb1587e4b5ba3f0923ca9c4394706
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325487"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Een Azure-bestands share koppelen in Azure Container Instances
@@ -83,13 +83,13 @@ De `--dns-name-label` waarde moet uniek zijn binnen de Azure-regio waar u het co
 
 ## <a name="manage-files-in-mounted-volume"></a>Bestanden in gekoppelde volume beheren
 
-Zodra de container is gestart, kunt u de eenvoudige web-app gebruiken die is geïmplementeerd via de micro soft [ACI-hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] -opdracht:
+Zodra de container is gestart, kunt u de eenvoudige web-app die is geïmplementeerd via de micro soft [ACI-hellofiles-][aci-hellofiles] installatie kopie, gebruiken om kleine tekst bestanden in de Azure-bestands share te maken op het koppelingspad dat u hebt opgegeven. Haal de Fully Qualified Domain Name (FQDN) van de web-app op met de opdracht [AZ container show][az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn --output tsv
 ```
 
-Nadat u de tekst hebt opgeslagen met de app, kunt u de [Azure Portal][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] gebruiken om het bestand op te halen en te controleren dat naar de bestands share is geschreven.
+Nadat u de tekst hebt opgeslagen met de app, kunt u de [Azure Portal][portal] of een hulp programma gebruiken, zoals de [Microsoft Azure Storage Explorer][storage-explorer] om het bestand op te halen en te controleren dat is geschreven naar de bestands share.
 
 ## <a name="deploy-container-and-mount-volume---yaml"></a>Container en koppel volume implementeren-YAML
 

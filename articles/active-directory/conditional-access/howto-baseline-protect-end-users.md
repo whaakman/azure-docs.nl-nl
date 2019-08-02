@@ -1,6 +1,6 @@
 ---
-title: Basisbeleid eindgebruiker protection (preview) - Azure Active Directory
-description: Beleid voor voorwaardelijke toegang voor meervoudige verificatie vereisen voor gebruikers
+title: De beveiliging van de baseline-beleids regel voor eind gebruikers (preview)-Azure Active Directory
+description: Beleid voor voorwaardelijke toegang om multi-factor Authentication voor gebruikers te vereisen
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,69 +11,69 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2644e0e35139ac470b89f6af1b95cf510f60a0a
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: afcd9c9d3191caeabe182f499b5fd80cd8e1d8dd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561008"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608147"
 ---
-# <a name="baseline-policy-end-user-protection-preview"></a>Beleid: Eindgebruiker protection (preview)
+# <a name="baseline-policy-end-user-protection-preview"></a>Basislijn beleid: Beveiliging van eind gebruikers (preview-versie)
 
-We vaak om na te denken dat beheerdersaccounts zijn de enige accounts die u wilt met multi-factor authentication (MFA beveiligen). Beheerders hebben ruime toegang tot gevoelige informatie en kunnen wijzigingen aanbrengen in de instellingen voor brede, door het abonnement. Ongeldige actoren doorgaans echter doel eindgebruikers. Nadat u hebt toegang gekregen, kunt deze beveiligingsrisico toegang aanvragen tot vertrouwelijke informatie namens de oorspronkelijke accounteigenaar of downloaden van de gehele map om uit te voeren een phishing-aanval op de hele organisatie. Er is een veelgebruikte methode voor het verbeteren van de beveiliging voor alle gebruikers om te vereisen een sterkere vorm van verificatie-account, zoals multi-factor authentication (MFA).
+We denken meestal dat beheerders accounts de enige accounts zijn die moeten worden beveiligd met MFA (multi-factor Authentication). Beheerders hebben brede toegang tot gevoelige informatie en kunnen wijzigingen aanbrengen in instellingen voor het hele abonnement. Ongeldige Actors zijn echter vaak gericht op eind gebruikers. Na het verkrijgen van de toegang kunnen deze beschadigde actors namens de houder van het oorspronkelijke account toegang tot bevoegde informatie vragen of de volledige directory downloaden om een phishing-aanval uit te voeren op uw hele organisatie. Een gemeen schappelijke methode voor het verbeteren van de beveiliging van alle gebruikers is het vereisen van een sterkere vorm van account verificatie, zoals multi-factor Authentication (MFA).
 
-Voor het bereiken van een redelijke evenwicht tussen beveiliging en gebruiksgemak, al dan niet mogen gebruikers telkens één wanneer ze zich aanmelden bij worden gevraagd. Verificatieaanvragen die overeenkomen met normale gebruikersgedrag, zoals ze zich aanmelden vanaf het apparaat vanaf dezelfde locatie, hebben een lage kans van inbreuk. Alleen aanmeldingen die als riskant worden beschouwd en weergeven van de kenmerken van een actor slecht moet worden gevraagd MFA uitdagingen met zich mee.
+Om een redelijk evenwicht tussen beveiliging en gebruiks vriendelijkheid te krijgen, moeten gebruikers niet elke keer dat ze zich aanmelden, worden gevraagd. Verificatie aanvragen die het normale gebruikers gedrag weer spie gelen, zoals het aanmelden vanaf hetzelfde apparaat vanaf dezelfde locatie, hebben een lage kans op inbreuk. Alleen aanmeldingen die als riskant worden beschouwd en eigenschappen van een ongeldige actor weer geven, moeten worden gevraagd met MFA-uitdagingen.
 
-Beveiliging van de eindgebruiker is een risico's gebaseerde MFA [Basisbeleid](concept-baseline-protection.md) die alle gebruikers in een map, inclusief alle beheerdersrollen beveiligt. Als u dit beleid vereist dat alle gebruikers zich registreren voor MFA met behulp van de Authenticator-App. Gebruikers kunnen de prompt MFA-registratie overslaan gedurende 14 dagen, waarna ze worden geblokkeerd en aanmelden totdat ze zich voor MFA registreren. Zodra geregistreerd voor MFA, wordt gebruikers gevraagd voor MFA alleen tijdens de riskante aanmelding pogingen. Verdachte gebruikersaccounts worden geblokkeerd totdat hun wachtwoord opnieuw is ingesteld en risicogebeurtenissen is gesloten.
+Beveiliging voor eind gebruikers is een op een risico gebaseerd MFA- [basislijn beleid](concept-baseline-protection.md) dat alle gebruikers in een directory beveiligt, inclusief alle beheerders rollen. Als u dit beleid inschakelt, moeten alle gebruikers zich registreren voor MFA met de verificator-app. Gebruikers kunnen de inschrijvings prompt voor MFA voor 14 dagen negeren, waarna de aanmelding wordt geblokkeerd totdat ze zich registreren voor MFA. Wanneer de registratie voor MFA is geregistreerd, wordt gebruikers alleen om MFA gevraagd tijdens het aanmelden met een Risk ante poging. Gebruikers accounts die zijn aangetast, worden geblokkeerd totdat het wacht woord opnieuw is ingesteld en risico gebeurtenissen zijn genegeerd.
 
 > [!NOTE]
-> Dit beleid is van toepassing op alle gebruikers, met inbegrip van Gast-account en wordt geëvalueerd bij het aanmelden bij alle toepassingen.
+> Dit beleid is van toepassing op alle gebruikers, inclusief gast accounts, en wordt geëvalueerd wanneer u zich aanmeldt bij alle toepassingen.
 
-## <a name="recovering-compromised-accounts"></a>Herstellen van accounts aangetast
+## <a name="recovering-compromised-accounts"></a>Verkraakte accounts herstellen
 
-Ter bescherming van onze klanten, zoekt de service van Microsoft voor de referentie is gelekt paren met openbaar beschikbare gebruikersnaam en wachtwoord. Als ze overeenkomen met een van onze gebruikers, wij helpen om dat account direct beveiligen. Gebruikers die worden aangeduid als bestaande uit een gelekte referentie worden bevestigd aangetast. Deze gebruikers kunnen worden aangemeld totdat hun wachtwoord opnieuw is ingesteld.
+Ter bescherming van onze klanten vindt de gelekte referentie service van micro soft zoek naar openbaar beschik bare gebruikers naam/wachtwoord paren. Als ze overeenkomen met een van onze gebruikers, helpen we dat account direct te beveiligen. Gebruikers die zijn geïdentificeerd als een gelekte referentie, worden bevestigd. Deze gebruikers kunnen zich niet aanmelden totdat het wacht woord opnieuw is ingesteld.
 
-Een Azure AD Premium-licentie toegewezen gebruikers kan toegang via selfservice voor wachtwoordherstel (SSPR) kunnen herstellen als de mogelijkheid is ingeschakeld in de directory. Gebruikers zonder een premium-licentie die worden geblokkeerd, moeten contact opnemen met een beheerder een handmatige wachtwoord opnieuw kunnen instellen en de gemarkeerde gebruiker risicogebeurtenis negeren.
+Gebruikers aan wie een Azure AD Premium-licentie is toegewezen, kunnen de toegang herstellen via selfservice voor wachtwoord herstel (SSPR) als de mogelijkheid is ingeschakeld in hun Directory. Gebruikers zonder een Premium-licentie die wordt geblokkeerd, moeten contact opnemen met een beheerder om een hand matige wachtwoord herstel uit te voeren en de gemarkeerde gebruikers risico gebeurtenis te negeren.
 
 ### <a name="steps-to-unblock-a-user"></a>Stappen voor het deblokkeren van een gebruiker
 
-Bevestig dat de gebruiker is geblokkeerd door het beleid door het controleren van de gebruiker aanmelden Logboeken.
+Controleer of de gebruiker is geblokkeerd door het beleid door de aanmeldings logboeken van de gebruiker te controleren.
 
-1. Er moet een beheerder zich aanmeldt bij de **Azure-portal** en navigeer naar **Azure Active Directory** > **gebruikers** > Klik op de naam van de gebruiker en Ga aan aanmeldingen.
-1. Om te starten voor wachtwoord opnieuw instellen op een geblokkeerde gebruiker, moet een beheerder om te navigeren naar **Azure Active Directory** > **gebruikers die zijn gemarkeerd voor risico's**
-1. Klik op de gebruiker waarvan het account is geblokkeerd om informatie over recente van de gebruiker aanmelden activiteit weer te geven.
-1. Klik op wachtwoord opnieuw instellen als u wilt toewijzen van een tijdelijk wachtwoord dat moet worden gewijzigd bij de volgende aanmelding.
-1. Klik op alle gebeurtenissen om de risicoscore van de gebruiker opnieuw in te sluiten.
+1. Een beheerder moet zich aanmelden bij de **Azure Portal** en naar **Azure Active Directory** > **gebruikers** navigeren > op de naam van de gebruiker te klikken en naar aanmeldingen te gaan.
+1. Om het wacht woord opnieuw instellen voor een geblokkeerde gebruiker te initiëren, moet een beheerder navigeren naar **Azure Active Directory** > gebruikers die zijn**gemarkeerd voor risico**
+1. Klik op de gebruiker van wie het account is geblokkeerd voor het weer geven van informatie over de recente aanmeldings activiteit van de gebruiker.
+1. Klik op wacht woord opnieuw instellen om een tijdelijk wacht woord toe te wijzen dat bij de volgende aanmelding moet worden gewijzigd.
+1. Klik op alle gebeurtenissen negeren om de risico Score van de gebruiker opnieuw in te stellen.
 
-De gebruiker kan nu aanmelden, hun wachtwoord opnieuw instellen en toegang tot de toepassing.
+De gebruiker kan zich nu aanmelden, het wacht woord opnieuw instellen en toegang krijgen tot de toepassing.
 
 ## <a name="deployment-considerations"></a>Overwegingen bij de implementatie
 
-Omdat de **eindgebruiker protection** beleid wordt toegepast op alle gebruikers in uw directory, verschillende overwegingen hoeven te worden aangebracht in een probleemloze implementatie. Deze overwegingen zijn het identificeren van gebruikers en principes van de service in Azure AD die niet kunnen of moeten niet worden uitgevoerd, MFA, evenals toepassingen en clients die worden gebruikt door uw organisatie die geen ondersteuning voor moderne verificatie.
+Omdat het **beveiligings beleid voor eind gebruikers** van toepassing is op alle gebruikers in uw directory, moeten er verschillende overwegingen worden gemaakt om te zorgen voor een soepele implementatie. Deze overwegingen omvatten het identificeren van gebruikers en service principes in azure AD die geen gebruik kunnen maken van MFA en toepassingen en clients die door uw organisatie worden gebruikt en die geen ondersteuning bieden voor moderne verificatie.
 
 ### <a name="legacy-protocols"></a>Verouderde protocollen
 
-Verouderde verificatieprotocollen (IMAP, SMTP-, POP3-, enzovoort) worden gebruikt door e-mailclients verificatie-aanvragen. Deze protocollen bieden geen ondersteuning voor MFA.  De meeste van de account compromissen gezien door Microsoft worden veroorzaakt door ongewenste actoren uitvoeren van aanvallen tegen verouderde protocollen probeert om MFA over te slaan. Om ervoor te zorgen dat MFA vereist is bij het aanmelden bij een account en ongewenste actoren niet kunnen MFA overslaan, blokkeert dit beleid alle verificatieaanvragen naar administrator-accounts van verouderde protocollen.
+Verouderde verificatie protocollen (IMAP, SMTP, POP3, enz.) worden door e-mailclients gebruikt om verificatie aanvragen uit te voeren. Deze protocollen bieden geen ondersteuning voor MFA.  De meeste schendingen van het account die door micro soft worden gezien, worden veroorzaakt door ongeldige Actors die aanvallen uitvoeren op verouderde protocollen, waardoor MFA wordt omzeild. Om ervoor te zorgen dat MFA vereist is wanneer u zich aanmeldt bij een account en beschadigde actors niet in staat zijn om MFA over te slaan, blokkeert dit beleid alle verificatie aanvragen voor beheerders accounts van verouderde protocollen.
 
 > [!WARNING]
-> Voordat u dit beleid inschakelt, zorg ervoor dat uw gebruikers zijn niet verouderde verificatieprotocollen. Zie het artikel [het: Verouderde verificatie met Azure AD met voorwaardelijke toegang blokkeren](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) voor meer informatie.
+> Voordat u dit beleid inschakelt, moet u ervoor zorgen dat uw gebruikers geen verouderde verificatie protocollen gebruiken. Zie het artikel [: Blok keer verouderde verificatie voor Azure AD](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) met voorwaardelijke toegang voor meer informatie.
 
-## <a name="enable-the-baseline-policy"></a>De basislijn-beleid inschakelen
+## <a name="enable-the-baseline-policy"></a>Het basislijn beleid inschakelen
 
-Het beleid **Basisbeleid: Eindgebruiker protection (preview)** wordt al geconfigureerd geleverd en worden weergegeven aan de bovenkant wanneer u gaat u naar de blade voor voorwaardelijke toegang in Azure portal.
+Beleid voor **beleids basislijn: De beveiliging van eind gebruikers (** preview) wordt vooraf geconfigureerd en wordt bovenaan weer gegeven wanneer u navigeert naar de Blade voorwaardelijke toegang in azure Portal.
 
-Dit beleid inschakelt en Bescherm uw gebruikers:
+Om dit beleid in te scha kelen en uw gebruikers te beschermen:
 
-1. Aanmelden bij de **Azure-portal** als hoofdbeheerder, beveiligingsbeheerder of beheerder van voorwaardelijke toegang.
+1. Meld u aan bij de **Azure Portal** als globale beheerder, beveiligings beheerder of beheerder van de voorwaardelijke toegang.
 1. Blader naar **Azure Active Directory** > **voorwaardelijke toegang**.
-1. Selecteer in de lijst met beleidsregels **Basisbeleid: Eindgebruiker protection (preview)** .
-1. Stel **beleid inschakelen** naar **beleid direct gebruiken**.
-1. Klik op **opslaan**.
+1. Selecteer **basislijn beleid in de lijst met beleids regels: Beveiliging van eind gebruikers (preview**-versie).
+1. Stel **beleid inschakelen** om **beleid direct te gebruiken**in.
+1. Klik op **Opslaan**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie:
 
-* [Beleid voor voorwaardelijke toegang basislijn-beveiliging](concept-baseline-protection.md)
-* [Vijf stappen voor het beveiligen van uw infrastructuur voor identiteiten](../../security/azure-ad-secure-steps.md)
+* [Basis beveiligings beleid voor voorwaardelijke toegang](concept-baseline-protection.md)
+* [Vijf stappen voor het beveiligen van uw identiteits infrastructuur](../../security/fundamentals/steps-secure-identity.md)
 * [Wat is voorwaardelijke toegang in Azure Active Directory?](overview.md)

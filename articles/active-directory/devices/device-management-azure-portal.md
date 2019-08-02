@@ -1,6 +1,6 @@
 ---
-title: Over het beheren van apparaten met behulp van Azure portal | Microsoft Docs
-description: Leer hoe u Azure portal gebruiken om apparaten te beheren.
+title: Apparaten beheren met de Azure Portal | Microsoft Docs
+description: Meer informatie over het gebruik van de Azure Portal voor het beheren van apparaten.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,195 +11,202 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f33b52255b1401e3595687612610a4688ad026d
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 7f64beb80d1a11930fee74e669675b39087cade0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461443"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562239"
 ---
-# <a name="manage-device-identities-using-the-azure-portal"></a>Apparaat-id's met behulp van de Azure-portal beheren
+# <a name="manage-device-identities-using-the-azure-portal"></a>Apparaat-id's beheren met de Azure Portal
 
-Met Apparaatbeheer identiteit in Azure Active Directory (Azure AD), kunt u ervoor zorgen dat uw gebruikers toegang hebben tot de bronnen van apparaten die voldoen aan uw normen voor beveiliging en naleving.
+Met apparaat-id-beheer in Azure Active Directory (Azure AD) kunt u ervoor zorgen dat uw gebruikers toegang krijgen tot uw resources vanaf apparaten die voldoen aan uw normen voor beveiliging en naleving.
 
 Dit artikel:
 
-- Wordt ervan uitgegaan dat u bekend met bent de [identiteit Apparaatbeheer in Azure Active Directory-inleiding](overview.md)
-- Biedt u informatie over het beheren van uw apparaat-id's met behulp van de Azure AD-portal
+- Er wordt van uitgegaan dat u bekend bent met de [Inleiding tot apparaat-id-beheer in azure Active Directory](overview.md)
+- Biedt informatie over het beheren van uw apparaat-id's met behulp van de Azure AD-Portal
 
 ## <a name="manage-device-identities"></a>Apparaatidentiteiten beheren
 
-De Azure AD-portal biedt u een centrale locatie voor het beheren van uw apparaat-id's. U toegang hebt tot deze locatie met behulp van een [directe koppeling](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) of door de volgende handmatige stappen:
+De Azure AD-Portal biedt een centrale plek voor het beheren van uw apparaat-id's. U kunt deze locatie bereiken met behulp van een [directe koppeling](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) of door de volgende hand matige stappen te volgen:
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als administrator.
-2. Klik op de navigatiebalk links **Active Directory**.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com) als beheerder.
+2. Klik op **Active Directory**in de linkernavigatiebalk.
 
    ![Apparaatinstellingen configureren](./media/device-management-azure-portal/01.png)
 
-3. In de **beheren** sectie, klikt u op **apparaten**.
+3. Klik in de sectie **beheren** op **apparaten**.
 
    ![Apparaatinstellingen configureren](./media/device-management-azure-portal/74.png)
 
-De **apparaten** pagina kunt u naar:
+Op de pagina **apparaten** kunt u het volgende doen:
 
-- De apparaatinstellingen configureren
+- Apparaatinstellingen configureren
 - Apparaten zoeken
-- Apparaat-id-beheertaken uitvoeren
-- Apparaat-gerelateerde auditlogboeken bekijken  
+- Identiteits beheer taken voor apparaten uitvoeren
+- Audit logboeken met betrekking tot het apparaat controleren  
   
 ## <a name="configure-device-settings"></a>Apparaatinstellingen configureren
 
-Voor het beheren van uw apparaat-id's met behulp van de Azure AD-portal, de apparaten moeten zijn [geregistreerd, of deel uitmaken](overview.md) naar Azure AD. Als beheerder, kunt u het proces van het registreren en het toevoegen van apparaten door het configureren van de instellingen voor apparaten aanpassen.
+Als u uw apparaat-id's wilt beheren met de Azure AD-Portal, moeten uw apparaten zijn [geregistreerd of zijn gekoppeld](overview.md) aan Azure AD. Als beheerder kunt u het proces voor het registreren en toevoegen van apparaten nauw keurig afstemmen door de apparaatinstellingen te configureren.
 
 ![Apparaatinstellingen configureren](./media/device-management-azure-portal/22.png)
 
-De instellingenpagina voor het apparaat kunt u configureren:
+Op de pagina Apparaatinstellingen kunt u het volgende configureren:
 
-![Een Intune-apparaat beheren](./media/device-management-azure-portal/21.png)
+![Een intune-apparaat beheren](./media/device-management-azure-portal/21.png)
 
-- **Gebruikers kunnen apparaten koppelen aan Azure AD** -deze instelling kunt u de gebruikers die hun apparaten als Azure AD gekoppelde apparaten registreren kunnen te selecteren. De standaardwaarde is **alle**.
-
-> [!NOTE]
-> **Gebruikers kunnen apparaten koppelen aan Azure AD** instelling is alleen van toepassing op Azure AD join op Windows 10.
-
-- **Extra lokale beheerders op Azure AD gekoppelde apparaten** -kunt u de gebruikers die lokale beheerdersrechten op een apparaat worden verleend. Gebruikers die zijn toegevoegd, worden toegevoegd aan de *Apparaatbeheerders* rol in Azure AD. Globale beheerders in Azure AD en eigenaren van de apparaten standaard lokale beheerdersrechten worden verleend. Deze optie is een premium-editie-mogelijkheid beschikbaar via producten, zoals Azure AD Premium of Enterprise Mobility Suite (EMS).
-- **Gebruikers kunnen hun apparaten registreren bij Azure AD** -u moet deze instelling in om Windows 10 pc, iOS, Android en macOs-apparaten worden geregistreerd bij Azure AD configureren. Als u selecteert **geen**, apparaten, zijn niet toegestaan om u te registreren bij Azure AD. Registratie bij Microsoft Intune of Mobile Device Management (MDM) voor Office 365 is registratie vereist. Als u een van deze services hebt geconfigureerd **alle** is geselecteerd en **is** niet beschikbaar.
-- **Multi-factor Authentication worden toegevoegd aan apparaten vereist** -u kunt kiezen of gebruikers zijn vereist voor een extra verificatiefactor om deel te nemen van hun apparaat naar Azure AD. De standaardwaarde is **Nee**. Het is raadzaam om meervoudige verificatie vereisen bij het registreren van een apparaat. Voordat u multi-factor authentication voor deze service inschakelt, moet u ervoor zorgen dat multi-factor authentication is geconfigureerd voor de gebruikers die hun apparaten registreren. Zie voor meer informatie over de verschillende Azure multi-factor authentication-services, [aan de slag met Azure multi-factor authentication](../authentication/concept-mfa-whichversion.md). 
+- **Gebruikers kunnen apparaten toevoegen aan Azure AD** : met deze instelling kunt u de gebruikers selecteren die hun apparaten als aan Azure AD gekoppelde apparaten kunnen registreren. De standaard waarde is **alle**.
 
 > [!NOTE]
-> **Multi-factor Authentication worden toegevoegd aan apparaten vereist** instelling geldt niet voor hybride Azure AD gekoppelde apparaten.
+> **Gebruikers mogen apparaten toevoegen aan de Azure AD** -instelling is alleen van toepassing op Azure AD-deelname op Windows 10.
 
-- **Maximum aantal apparaten** -deze instelling kunt u het maximum aantal apparaten dat een gebruiker in Azure AD hebben mag selecteren. Als een gebruiker dit quotum bereikt, dat niet meer mogelijk extra apparaten worden toegevoegd totdat een of meer van de bestaande apparaten worden verwijderd. Het quotum van het apparaat wordt geteld voor alle apparaten die zijn toegevoegd aan Azure AD of Azure AD geregistreerd vandaag nog. De standaardwaarde is **20**.
+- **Aanvullende lokale beheerders op aan Azure AD gekoppelde apparaten** : u kunt de gebruikers selecteren die lokale beheerders rechten op een apparaat krijgen. Gebruikers die hier worden toegevoegd, worden toegevoegd aan de rol van het *apparaat Administrators* in azure AD. Globale beheerders in azure AD en eigen aren van apparaten krijgen standaard lokale beheerders rechten. Deze optie is een Premium Edition-mogelijkheid die beschikbaar is via producten als Azure AD Premium of de Enter prise Mobility Suite (EMS).
+- **Gebruikers kunnen hun apparaten registreren bij Azure AD** . u moet deze instelling configureren zodat Windows 10 Personal-, Ios-, Android-en macOs-apparaten kunnen worden geregistreerd bij Azure AD. Als u **geen**selecteert, mogen apparaten zich niet registreren bij Azure AD. Inschrijving met Microsoft Intune of Mobile Device Management (MDM) voor Office 365 vereist registratie. Als u een van deze services hebt geconfigureerd **alle** is geselecteerd en **is** niet beschikbaar.
+- **Multi-factor Authentication vereisen voor het toevoegen van apparaten** : u kunt kiezen of gebruikers een extra verificatie factor moeten opgeven om hun apparaat toe te voegen aan Azure AD. De standaard waarde is **Nee**. U wordt aangeraden multi-factor Authentication te vereisen bij het registreren van een apparaat. Voordat u multi-factor Authentication inschakelt voor deze service, moet u ervoor zorgen dat multi-factor Authentication is geconfigureerd voor de gebruikers die hun apparaten registreren. Zie aan de slag [met Azure multi-factor Authentication](../authentication/concept-mfa-whichversion.md)voor meer informatie over de verschillende Azure multi-factor Authentication-Services. 
 
 > [!NOTE]
-> **Maximum aantal apparaten** instelling geldt niet voor hybride Azure AD gekoppelde apparaten.
+> **Vereisen dat multi-factor Authentication wordt toegevoegd** aan de instelling apparaten is niet van toepassing op hybride apparaten die zijn toegevoegd aan Azure AD.
 
-- **Gebruikers kunnen instellingen en app-gegevens synchroniseren via apparaten** -deze instelling is standaard ingesteld op **NONE**. Specifieke gebruikers of groepen of alle selecteren, kunt van de gebruiker instellingen en app-gegevens kunnen synchroniseren via hun Windows 10-apparaten. Meer informatie over de werking van synchronisatie in Windows 10.
-Deze optie is een premium-capaciteit beschikbaar via producten, zoals Azure AD Premium of Enterprise Mobility Suite (EMS).
+- **Maximum aantal apparaten** : met deze instelling kunt u het maximum aantal apparaten selecteren dat een gebruiker in azure AD kan hebben. Als een gebruiker dit quotum bereikt, kunnen ze geen extra apparaten toevoegen totdat een of meer van de bestaande apparaten worden verwijderd. Het quotum van het apparaat wordt geteld voor alle apparaten die zijn toegevoegd aan Azure AD of Azure AD die vandaag zijn geregistreerd. De standaard waarde is **20**.
+
+> [!NOTE]
+> De instelling **maximum aantal apparaten** is niet van toepassing op hybride apparaten die zijn toegevoegd aan Azure AD.
+
+- **Gebruikers kunnen instellingen en app-gegevens synchroniseren via apparaten** -deze instelling is standaard ingesteld op **NONE**. Als u specifieke gebruikers of groepen selecteert, kunnen de instellingen en app-gegevens van de gebruiker worden gesynchroniseerd op hun Windows 10-apparaten. Meer informatie over hoe synchronisatie werkt in Windows 10.
+Deze optie is een Premium-functie die beschikbaar is via producten als Azure AD Premium of de Enter prise Mobility Suite (EMS).
 
 ## <a name="locate-devices"></a>Apparaten zoeken
 
-U hebt twee opties geregistreerd en die is toegevoegd aan apparaten vinden:
+U hebt twee opties voor het zoeken van geregistreerde en gekoppelde apparaten:
 
-- **Alle apparaten** in de **beheren** sectie van de **apparaten** pagina  
+- **Alle apparaten** in het gedeelte **beheren** van de pagina **apparaten**  
 
    ![Alle apparaten](./media/device-management-azure-portal/41.png)
 
-- **Apparaten** in de **beheren** gedeelte van een **gebruiker** pagina
+- **Apparaten** in het gedeelte **beheren** van een **gebruikers** pagina
 
    ![Alle apparaten](./media/device-management-azure-portal/43.png)
 
-Met beide opties, krijgt u een weergave die:
+Met beide opties kunt u een weer gave openen die:
 
-- Hiermee kunt u zoeken naar apparaten met behulp van de weergavenaam als filter.
-- Biedt u gedetailleerd overzicht van geregistreerde en verbonden apparaten
-- Hiermee kunt u algemene beheertaken voor apparaat uitvoeren
+- Met kunt u zoeken naar apparaten met behulp van de weergave naam of apparaat-ID als filter.
+- Biedt een gedetailleerd overzicht van geregistreerde en gekoppelde apparaten
+- Hiermee kunt u algemene beheer taken voor apparaten uitvoeren
 
 ![Alle apparaten](./media/device-management-azure-portal/51.png)
 
-Voor sommige iOS-apparaten kunnen de namen van apostroffen met verschillende tekens die lijkt op apostroffen gebruiken. Dus zoekt naar dergelijke apparaten een lastige is-als u niet ziet zoekresultaten correct ervoor te zorgen dat de zoektekenreeks overeenkomende aanhalingsteken bevat.
+>[!TIP]
+>
+>* Als u een apparaat ziet dat ' hybride Azure AD join ' met de status ' in behandeling ' heeft in de kolom geregistreerd, geeft dit aan dat het apparaat is gesynchroniseerd vanuit Azure AD Connect en wacht op het volt ooien van de registratie van de client. Meer informatie over het [plannen van uw hybride Azure AD-koppelings implementatie](hybrid-azuread-join-plan.md). Meer informatie vindt u in het artikel, [Veelgestelde vragen over apparaten](faq.md).
+>
+>   ![Apparaten in behandeling](./media/device-management-azure-portal/75.png)
+>
+>* Voor sommige iOS-apparaten kunnen de apparaatnamen die apostrofs bevatten mogelijk andere tekens gebruiken die eruitzien als apostrofs. Het is dus lastig om dergelijke apparaten te doorzoeken: als u de zoek resultaten niet op de juiste manier ziet, moet u ervoor zorgen dat de zoek reeks overeenkomt met het apostrof-teken.
 
-## <a name="device-identity-management-tasks"></a>Beheertaken voor apparaat-id
+## <a name="device-identity-management-tasks"></a>Taken voor het beheer van apparaat-id's
 
-Als een globale beheerder of cloud-apparaatbeheerder, kunt u de geregistreerde of gekoppelde apparaten beheren. Er kunnen beheerders van de Intune-Service:
+Als globale beheerder of beheerder van een Cloud apparaat kunt u de geregistreerde of gekoppelde apparaten beheren. InTune-service beheerders kunnen:
 
-- Update-apparaten - voorbeelden zijn dagelijkse bewerkingen zoals het inschakelen/uitschakelen van apparaten
-- Verwijderen van apparaten: wanneer een apparaat buiten gebruik is gesteld en moet worden verwijderd in Azure AD
+- Apparaten bijwerken: voor beelden zijn dagelijkse bewerkingen, zoals het inschakelen/uitschakelen van apparaten
+- Apparaten verwijderen: wanneer een apparaat buiten gebruik wordt gesteld en in azure AD moet worden verwijderd
 
-In deze sectie vindt u informatie over algemene beheertaken voor apparaat-id.
+In deze sectie vindt u informatie over algemene beheer taken voor identiteiten van apparaten.
 
-### <a name="manage-an-intune-device"></a>Een Intune-apparaat beheren
+### <a name="manage-an-intune-device"></a>Een intune-apparaat beheren
 
-Als u een Intune-beheerder bent, kunt u apparaten die zijn gemarkeerd als beheren **Microsoft Intune**.
+Als u intune-beheerder bent, kunt u apparaten beheren die zijn gemarkeerd als **Microsoft intune**.
 
-![Een Intune-apparaat beheren](./media/device-management-azure-portal/31.png)
+![Een intune-apparaat beheren](./media/device-management-azure-portal/31.png)
 
-### <a name="enable--disable-an-azure-ad-device"></a>Inschakelen / uitschakelen van een Azure AD-apparaat
+### <a name="enable--disable-an-azure-ad-device"></a>Een Azure AD-apparaat in-of uitschakelen
 
-Als u wilt inschakelen / uitschakelen van een apparaat, hebt u twee opties:
+Als u een apparaat wilt in-of uitschakelen, hebt u twee opties:
 
-- Het menu taken ('...') op de **alle apparaten** pagina
+- Het menu taken (...) op de pagina **alle apparaten**
 
-   ![Een Intune-apparaat beheren](./media/device-management-azure-portal/71.png)
+   ![Een intune-apparaat beheren](./media/device-management-azure-portal/71.png)
 
-- De werkbalk op de **apparaten** pagina
+- De werk balk op de pagina **apparaten**
 
-   ![Een Intune-apparaat beheren](./media/device-management-azure-portal/32.png)
+   ![Een intune-apparaat beheren](./media/device-management-azure-portal/32.png)
 
-**Opmerking:**
+**Opmerkingen**
 
-- U moet een globale beheerder of apparaatbeheerder van het in Azure AD inschakelen / uitschakelen van een apparaat in de cloud. 
-- Als u een apparaat uitschakelt, wordt voorkomen dat een apparaat is verificatie met Azure AD, waardoor het apparaat toegang krijgen tot uw Azure AD-resources die zijn beveiligd door apparaat CA of met behulp van de referenties van uw WH4B.
+- U moet een globale beheerder of een beheerder van een Cloud apparaat in azure AD zijn om een apparaat in-of uit te scha kelen. 
+- Als u een apparaat uitschakelt, kan een apparaat niet worden geverifieerd met Azure AD, waardoor het apparaat geen toegang heeft tot uw Azure AD-resources die worden beschermd door de CA van het apparaat of het gebruik van uw WH4B-referenties.
 
 ### <a name="delete-an-azure-ad-device"></a>Een Azure AD-apparaat verwijderen
 
-Als u wilt een apparaat verwijdert, hebt u twee opties:
+Als u een apparaat wilt verwijderen, hebt u twee opties:
 
-- Het menu taken ('...') op de **alle apparaten** pagina
+- Het menu taken (...) op de pagina **alle apparaten**
 
-   ![Een Intune-apparaat beheren](./media/device-management-azure-portal/72.png)
+   ![Een intune-apparaat beheren](./media/device-management-azure-portal/72.png)
 
-- De werkbalk op de **apparaten** pagina
+- De werk balk op de pagina **apparaten**
 
    ![Een apparaat verwijderen](./media/device-management-azure-portal/34.png)
 
-**Opmerking:**
+**Opmerkingen**
 
-- U moet een globale beheerder of Intune-beheerder in Azure AD te verwijderen van een apparaat.
-- Als u een apparaat verwijdert:
-   - Hiermee voorkomt dat een apparaat toegang tot uw Azure AD-resources.
-   - Hiermee verwijdert u alle details die zijn gekoppeld aan het apparaat, bijvoorbeeld, BitLocker-sleutels voor Windows-apparaten.  
-   - Hiermee geeft u een niet-herstelbare activiteit en wordt niet aanbevolen, tenzij deze vereist is.
+- Als u een apparaat wilt verwijderen, moet u een globale beheerder of intune-beheerder zijn in azure AD.
+- Een apparaat verwijderen:
+   - Hiermee voor komt u dat een apparaat toegang heeft tot uw Azure AD-resources.
+   - Hiermee verwijdert u alle details die zijn gekoppeld aan het apparaat, bijvoorbeeld BitLocker-sleutels voor Windows-apparaten.  
+   - Vertegenwoordigt een niet-herstel bare activiteit en wordt niet aanbevolen, tenzij dit vereist is.
 
-Als een apparaat wordt beheerd door een andere instantie voor beheer van (bijvoorbeeld Microsoft Intune), ervoor zorgen dat het apparaat is gewist / buiten gebruik gesteld voordat het apparaat wordt verwijderd in Azure AD.
+Als een apparaat wordt beheerd door een andere beheer instantie (bijvoorbeeld Microsoft Intune), moet u ervoor zorgen dat het apparaat is gewist/buiten gebruik is gesteld voordat het apparaat in azure AD wordt verwijderd. Lees hoe u [verouderde apparaten beheert](device-management-azure-portal.md) voordat u apparaten verwijdert.
 
-### <a name="view-or-copy-device-id"></a>Weergeven of kopiëren van apparaat-ID
+### <a name="view-or-copy-device-id"></a>Apparaat-ID weer geven of kopiëren
 
-U kunt een apparaat-ID gebruiken om te controleren of de details van de apparaat-ID op het apparaat of met behulp van PowerShell tijdens het oplossen van problemen. Voor toegang tot de optie kopiëren, klikt u op het apparaat.
+U kunt een apparaat-ID gebruiken om de details van de apparaat-ID op het apparaat te controleren of door Power shell te gebruiken tijdens het oplossen van problemen. Als u de Kopieer optie wilt openen, klikt u op het apparaat.
 
-![Een apparaat-ID weergeven](./media/device-management-azure-portal/35.png)
+![Een apparaat-ID weer geven](./media/device-management-azure-portal/35.png)
   
-### <a name="view-or-copy-bitlocker-keys"></a>Weergeven of kopiëren van BitLocker-sleutels
+### <a name="view-or-copy-bitlocker-keys"></a>BitLocker-sleutels weer geven of kopiëren
 
-U kunt bekijken en kopiëren van de BitLocker-sleutels om te helpen gebruikers om te herstellen van het versleutelde station. Deze sleutels zijn alleen beschikbaar voor Windows-apparaten die zijn versleuteld en hebben hun sleutels opgeslagen in Azure AD. Bij het openen van details van het apparaat, kunt u deze sleutels kopiëren.
+U kunt de BitLocker-sleutels weer geven en kopiëren om gebruikers te helpen hun versleutelde station te herstellen. Deze sleutels zijn alleen beschikbaar voor Windows-apparaten die zijn versleuteld en waarvan de sleutels zijn opgeslagen in azure AD. U kunt deze sleutels kopiëren bij het openen van Details van het apparaat.
 
-![BitLocker-sleutels weergeven](./media/device-management-azure-portal/36.png)
+![BitLocker-sleutels weer geven](./media/device-management-azure-portal/36.png)
 
-Als u wilt weergeven of kopieer de BitLocker-sleutels, moet u de eigenaar van het apparaat of een gebruiker die heeft ten minste één van de volgende rollen toegewezen:
+Als u de BitLocker-sleutels wilt bekijken of kopiëren, moet u eigenaar zijn van het apparaat of een gebruiker zijn die ten minste een van de volgende rollen heeft:
 
+- Cloud-apparaatbeheerder
 - Globale beheerder
-- Helpdesk-beheerder
+- Helpdeskbeheerder
+- Intune-servicebeheerder
 - Beveiligingsbeheerder
 - Beveiligingslezer
-- Intune-servicebeheerder
 
 > [!NOTE]
-> Hybrid Azure AD gekoppelde Windows 10-apparaten beschikt niet over een eigenaar. Dus als u naar een apparaat door de eigenaar zoekt en deze niet hebt gevonden, zoeken op het apparaat-ID.
+> Hybride Azure AD-gekoppelde Windows 10-apparaten hebben geen eigenaar. Als u dus op zoek bent naar een apparaat op basis van de eigenaar en niet hebt gevonden, zoekt u op de apparaat-ID.
 
-## <a name="audit-logs"></a>Auditlogboeken
+## <a name="audit-logs"></a>Controlelogboeken
 
-Apparaat-activiteiten zijn beschikbaar via de activiteitenlogboeken. Deze logboeken bevatten de activiteiten die zijn geactiveerd door de device registratieservice en door gebruikers:
+Apparaat-activiteiten zijn beschikbaar via de activiteiten Logboeken. Deze logboeken bevatten activiteiten die worden geactiveerd door de Device Registration service en door gebruikers:
 
-- Maken van het apparaat en toe te voegen eigenaars / gebruikers op het apparaat
-- Wijzigingen in de instellingen voor apparaten
-- Apparaatbewerkingen, zoals het verwijderen of bijwerken van een apparaat
+- Apparaten maken en toevoegen van eigen aren/gebruikers op het apparaat
+- Wijzigingen in Apparaatinstellingen
+- Apparaat-bewerkingen, zoals het verwijderen of bijwerken van een apparaat
 
-Uw beginpunt voor de controlegegevens is **auditlogboeken** in de **activiteit** sectie van de **apparaten** pagina.
+Uw ingangs punt voor de controle gegevens is **controle logboeken** in het gedeelte **activiteit** van de pagina **apparaten** .
 
-![Auditlogboeken](./media/device-management-azure-portal/61.png)
+![Controlelogboeken](./media/device-management-azure-portal/61.png)
 
 Een controlelogboek heeft een standaardlijstweergave die het volgende laat zien:
 
-- De datum en tijd van de gebeurtenis
+- De datum en tijd waarop de gebeurtenis is opgetreden
 - De doelen
-- De initiator / actor (wie) van een activiteit
+- De initiator/Actor (wie) van een activiteit
 - De activiteit (wat)
 
-![Auditlogboeken](./media/device-management-azure-portal/63.png)
+![Controlelogboeken](./media/device-management-azure-portal/63.png)
 
 U kunt de lijstweergave aanpassen door te klikken op **Kolommen** op de werkbalk.
 
-![Auditlogboeken](./media/device-management-azure-portal/64.png)
+![Controlelogboeken](./media/device-management-azure-portal/64.png)
 
 Als u de gerapporteerde gegevens wilt beperken tot een niveau dat geschikt is voor u, kunt u de controlegegevens filteren met de volgende velden:
 
@@ -210,10 +217,10 @@ Als u de gerapporteerde gegevens wilt beperken tot een niveau dat geschikt is vo
 - Doel
 - Gestart door (Actor)
 
-Naast de filters, kunt u zoeken naar specifieke vermeldingen.
+Naast de filters kunt u zoeken naar specifieke vermeldingen.
 
-![Auditlogboeken](./media/device-management-azure-portal/65.png)
+![Controlelogboeken](./media/device-management-azure-portal/65.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Verouderde apparaten beheren in Azure AD](manage-stale-devices.md)
+[Verouderde apparaten beheren in azure AD](manage-stale-devices.md)

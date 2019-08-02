@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: mlearned
 ms.openlocfilehash: 72f34d9711e1ba4658288bfdeb847632d32d0fcf
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68478331"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Voor beeld: meerdere knooppunt groepen maken en beheren voor een cluster in azure Kubernetes service (AKS)
@@ -32,7 +32,7 @@ U moet de Azure CLI-versie 2.0.61 of hoger hebben geïnstalleerd en geconfiguree
 
 ### <a name="install-aks-preview-cli-extension"></a>AKS-preview CLI-extensie installeren
 
-Als u meerdere nodepools wilt gebruiken, hebt u de *AKS-preview cli-* extensie versie 0.4.1 of hoger nodig. Installeer de Azure cli *-extensie AKS-preview* met behulp van de opdracht [AZ extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] :
+Als u meerdere nodepools wilt gebruiken, hebt u de *AKS-preview cli-* extensie versie 0.4.1 of hoger nodig. Installeer de Azure CLI *-extensie AKS-preview* met behulp van de opdracht [AZ extension add][az-extension-add] en controleer vervolgens of er beschik bare updates zijn met behulp van de opdracht [AZ extension update][az-extension-update] ::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -159,7 +159,7 @@ az aks nodepool upgrade \
 ```
 
 > [!Tip]
-> Als u het besturings element wilt bijwerken naar 1.13.7 `az aks upgrade -k 1.13.7`, voert u uit.
+> Als u het besturings element wiltbijwerken naar 1.13.7 `az aks upgrade -k 1.13.7`, voert u uit.
 
 Vermeld opnieuw de status van uw knooppunt groepen met de opdracht [AZ AKS node pool List][az-aks-nodepool-list] . In het volgende voor beeld ziet u dat *mynodepool* zich in de *upgrade* status bevindt op *1.13.7*:
 

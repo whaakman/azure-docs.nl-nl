@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 3d0c7c10b03169e5d78b833df5a26d83b04b9240
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 9623c4782dec6c3df5b226a3321d3750909e8369
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347838"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698922"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Vooraf gedefinieerde vaardig heden voor inhouds verrijking (Azure Search)
 
@@ -39,7 +39,7 @@ Verschillende vaardig heden zijn flexibel in wat ze gebruiken of produceren. Ove
 | [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Deze vaardigheid maakt gebruik van een voortraind model voor het instellen van entiteiten voor een vaste set categorieën: personen, locatie, organisatie, e-mails, Url's, datum/tijd-velden. |
 | [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Deze vaardigheid maakt gebruik van een pretraind model om positieve of negatieve sentiment te beoordelen op basis van een record. De Score ligt tussen 0 en 1. Er treden neutrale scores op voor de null-case wanneer sentiment niet kan worden gedetecteerd en voor tekst die als neutraal wordt beschouwd.  |
 | [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Splitst tekst op pagina's zodat u inhoud stapsgewijs kunt verrijken of uitbreiden. |
-| [Micro soft. skills. Text. TranslationSkill (preview)](cognitive-search-skill-text-translation.md) | Deze vaardigheid maakt gebruik van een voortraind model voor het vertalen van de invoer tekst in een groot aantal talen voor het gebruik van normalisatie-of lokalisatie-use cases. |
+| [Micro soft. skills. Text. TranslationSkill](cognitive-search-skill-text-translation.md) | Deze vaardigheid maakt gebruik van een voortraind model voor het vertalen van de invoer tekst in een groot aantal talen voor het gebruik van normalisatie-of lokalisatie-use cases. |
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Deze vaardigheid maakt gebruik van een algoritme voor detectie van de afbeelding om de inhoud van een afbeelding te identificeren en een beschrijving van een tekst te genereren. |
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Optische teken herkenning. |
 | [Micro soft. skills. util. ConditionalSkill](cognitive-search-skill-conditional.md) | Staat filteren toe, het toewijzen van een standaard waarde en het samen voegen van gegevens op basis van een voor waarde.|

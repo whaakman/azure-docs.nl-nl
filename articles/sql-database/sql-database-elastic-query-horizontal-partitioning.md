@@ -1,6 +1,6 @@
 ---
-title: Rapportage over uitgeschaalde clouddatabases | Microsoft Docs
-description: over het instellen van elastische query's via horizontale partities
+title: Rapportage over uitgeschaalde Cloud databases | Microsoft Docs
+description: elastische query's instellen via horizontale partities
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,44 +10,43 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 3b2b472407175df307c569704d4c7611737c4ea1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1416cbdc29d355e2ed83737140b46306de734127
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60694343"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568575"
 ---
-# <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Rapportage over uitgeschaalde clouddatabases (preview)
+# <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Rapportage over uitgeschaalde Cloud databases (preview-versie)
 
-![Query's uitvoeren voor shards][1]
+![Query's uitvoeren op Shards][1]
 
-Shard-databases rijen verdelen over een uitgeschaalde gegevens laag. Het schema is vrijwel identiek voor alle deelnemende databases, ook wel bekend als horizontale partitionering. Met behulp van een elastische query's, kunt u rapporten met betrekking alle databases in een shard-database tot maken.
+Shard-data bases verdelen rijen over een uitgeschaalde gegevenslaag. Het schema is identiek voor alle deelnemende data bases, ook wel horizon taal partitioneren genoemd. Met behulp van een elastische query kunt u rapporten maken die alle data bases in een Shard-data base omvatten.
 
-Zie voor een snel starten, [rapportage voor uitgeschaalde clouddatabases](sql-database-elastic-query-getting-started.md).
+Zie [rapportage over uitgeschaalde Cloud databases](sql-database-elastic-query-getting-started.md)voor een snelle start.
 
-Zie voor niet-shard-databases, [Query voor clouddatabases met verschillende schema's](sql-database-elastic-query-vertical-partitioning.md).
+Zie [Query's uitvoeren in Cloud databases met verschillende schema's](sql-database-elastic-query-vertical-partitioning.md)voor niet-Shard-data bases.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een shard-toewijzing met behulp van de clientbibliotheek van elastische database maken. Zie [Shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md). Of gebruik van de voorbeeld-app in [aan de slag met elastische Databasehulpprogramma's](sql-database-elastic-scale-get-started.md).
-* U kunt ook [bestaande databases migreren naar uitgeschaalde databases](sql-database-elastic-convert-to-use-elastic-tools.md).
-* De gebruiker moet beschikken over machtigingen voor een externe gegevensbron niet wijzigen. Deze machtiging is opgenomen in de machtiging ALTER DATABASE.
-* EEN externe gegevensbron ALTER machtigingen nodig om te verwijzen naar de onderliggende gegevensbron.
+* Maak een Shard-kaart met behulp van de client bibliotheek voor Elastic data base. Zie [Shard-toewijzings beheer](sql-database-elastic-scale-shard-map-management.md). U kunt ook de voor beeld-app gebruiken in aan de [slag met Elastic data base-hulpprogram ma's](sql-database-elastic-scale-get-started.md).
+* U kunt ook de [bestaande data bases migreren naar uitgeschaalde data bases](sql-database-elastic-convert-to-use-elastic-tools.md).
+* De gebruiker moet beschikken over de machtiging voor het wijzigen van externe gegevens bronnen. Deze machtiging is opgenomen in de machtiging ALTER data base.
+* Machtigingen voor externe gegevens bronnen wijzigen is nodig om te verwijzen naar de onderliggende gegevens bron.
 
 ## <a name="overview"></a>Overzicht
 
-Deze instructies uit maken de weergave van de metagegevens van de shard-gegevens-laag in de query's in elastic database.
+Deze instructies maken de meta gegevens weergave van uw Shard-gegevenslaag in de Elastic query-data base.
 
-1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [MAKEN VAN DATABASE-SCOPED REFERENTIE](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [EXTERNE GEGEVENSBRON MAKEN](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
+1. [HOOFD SLEUTEL MAKEN](https://msdn.microsoft.com/library/ms174382.aspx)
+2. [DATA BASE-SCOPED REFERENTIE MAKEN](https://msdn.microsoft.com/library/mt270260.aspx)
+3. [EXTERNE GEGEVENS BRON MAKEN](https://msdn.microsoft.com/library/dn935022.aspx)
+4. [EXTERNE TABEL MAKEN](https://msdn.microsoft.com/library/dn935021.aspx)
 
-## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 maken binnen het bereik van databasehoofdsleutel en referenties
+## <a name="11-create-database-scoped-master-key-and-credentials"></a>1,1 Create Data Base scoped Master Key and referenties
 
-De referentie op die wordt gebruikt door de elastische query's verbinding maken met uw externe databases.  
+De referentie wordt gebruikt door de elastische query om verbinding te maken met uw externe data bases.  
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
@@ -55,11 +54,11 @@ De referentie op die wordt gebruikt door de elastische query's verbinding maken 
     [;]
 
 > [!NOTE]
-> Zorg ervoor dat de *"\<gebruikersnaam\>"* omvat geen *"\@servername"* achtervoegsel.
+> Zorg ervoor dat de *'\<gebruikers\>naam '* geen achtervoegsel *\@' servername* ' bevat.
 
-## <a name="12-create-external-data-sources"></a>1.2 externe gegevensbronnen maken
+## <a name="12-create-external-data-sources"></a>1,2 externe gegevens bronnen maken
 
-Syntaxis:
+Syntaxis
 
     <External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
@@ -82,16 +81,16 @@ Syntaxis:
         SHARD_MAP_NAME='ShardMap'
     );
 
-De lijst met huidige externe gegevensbronnen ophalen:
+De lijst met huidige externe gegevens bronnen ophalen:
 
     select * from sys.external_data_sources;
 
-De externe gegevensbron verwijst naar de shard-toewijzing. Een elastische query gebruikt vervolgens de externe gegevensbron en de onderliggende shard-toewijzing om inventariseren van de databases die deel uitmaken van de gegevenslaag.
-Dezelfde referenties worden gebruikt voor het lezen van de shard-toewijzing en toegang tot de gegevens over de shards tijdens de verwerking van een elastische query's.
+De externe gegevens bron verwijst naar de Shard-kaart. Een elastische query gebruikt vervolgens de externe gegevens bron en de onderliggende Shard-toewijzing om de data bases op te sommen die deel uitmaken van de gegevenslaag.
+Dezelfde referenties worden gebruikt voor het lezen van de Shard-kaart en om toegang te krijgen tot de gegevens op de Shards tijdens de verwerking van een elastische query.
 
-## <a name="13-create-external-tables"></a>1.3 externe tabellen maken
+## <a name="13-create-external-tables"></a>1,3 externe tabellen maken
 
-Syntaxis:  
+Syntaxis  
 
     CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
         ( { <column_definition> } [ ,...n ])
@@ -127,7 +126,7 @@ Syntaxis:
         DISTRIBUTION=SHARDED(ol_w_id)
     );
 
-De lijst met externe tabellen opgehaald uit de huidige database:
+De lijst met externe tabellen ophalen uit de huidige Data Base:
 
     SELECT * from sys.external_tables;
 
@@ -137,27 +136,27 @@ Externe tabellen verwijderen:
 
 ### <a name="remarks"></a>Opmerkingen
 
-De gegevens\_bron component definieert de externe gegevensbron (een shard-toewijzing) die wordt gebruikt voor de externe tabel.  
+De component\_gegevens bron definieert de externe gegevens bron (een Shard-toewijzing) die wordt gebruikt voor de externe tabel.  
 
-Het SCHEMA\_naam en het OBJECT\_naam van de EU definitie van de externe tabel worden toegewezen aan een tabel in een ander schema. Als u dit weglaat, wordt het schema van het externe object wordt ervan uitgegaan dat 'dbo' en de naam ervan wordt uitgegaan moet gelijk zijn aan de naam van de externe tabel worden gedefinieerd. Dit is handig als de naam van uw externe tabel is al in gebruik in de database waar u wilt maken van de externe tabel. Bijvoorbeeld, u wilt definiëren van een externe tabel om een samengevoegde weergave van catalogusweergaven of DMV's op uw geschaalde gegevens laag. Aangezien lokaal catalogusweergaven en DMV's bestaat, kunt u hun namen voor de definitie van de externe tabel niet gebruiken. In plaats daarvan gebruik van een andere naam en gebruik de catalogusweergave of van de DMV naam in het SCHEMA\_naam en/of OBJECT\_naam van de EU. (Zie het voorbeeld hieronder.)
+De component\_schema naam en\_object naam wijzen de definitie van de externe tabel toe aan een tabel in een ander schema. Als u dit weglaat, wordt ervan uitgegaan dat het schema van het externe object "dbo" is en de naam ervan wordt aangenomen dat deze identiek is aan de naam van de externe tabel die wordt gedefinieerd. Dit is handig als de naam van uw externe tabel al is opgenomen in de Data Base waarin u de externe tabel wilt maken. Stel dat u een externe tabel wilt definiëren voor een geaggregeerde weer gave van catalogus weergaven of Dmv's in de geschaalde gegevenslaag. Omdat catalogus weergaven en Dmv's al lokaal bestaan, kunt u de namen niet gebruiken voor de definitie van de externe tabel. Gebruik in plaats daarvan een andere naam en gebruik de naam van de catalogus weergave of de DMV in de\_component schema naam en/\_of object naam. (Zie het onderstaande voor beeld.)
 
-De component distributie Hiermee geeft u de gegevensdistributie die worden gebruikt voor deze tabel. De queryprocessor maakt gebruik van de informatie in de component distributie naar de meest efficiënte query's bouwen.
+De distributie component geeft de gegevens distributie op die voor deze tabel wordt gebruikt. De query processor maakt gebruik van de informatie in de distributie component om de meest efficiënte query plannen te maken.
 
-1. **SHARD** betekent dat gegevens is horizontaal gepartitioneerd in de databases. De te nemen partitionerende sleutel voor de Gegevensdistributie is de **< sharding_column_name >** parameter.
-2. **GEREPLICEERD** betekent dat identieke kopieën van de tabel aanwezig op elke database zijn. Het is uw verantwoordelijkheid om ervoor te zorgen dat de replica's identiek voor de databases zijn.
-3. **RONDE\_ROBIN** betekent dat de tabel horizontaal is gepartitioneerd met behulp van een methode voor het distribueren van afhankelijk zijn van toepassing.
+1. **Shard** betekent dat gegevens Horizon taal zijn gepartitioneerd over de data bases. De partitie sleutel voor de gegevens distributie is de para meter **< sharding_column_name >** .
+2. **Gerepliceerd** betekent dat identieke kopieën van de tabel aanwezig zijn op elke Data Base. Het is uw verantwoordelijkheid om ervoor te zorgen dat de replica's identiek zijn in de data bases.
+3. **Round\_Robin** betekent dat de tabel horizon taal is gepartitioneerd met behulp van een toepassings afhankelijke distributie methode.
 
-**Gegevens in lagen verwijzing**: De externe tabel DDL verwijst naar een externe gegevensbron. De externe gegevensbron Hiermee geeft u een shard-toewijzing waarmee u de externe tabel met de informatie die nodig zijn voor alle databases in uw gegevenslaag vinden.
+**Referentie gegevenslaag**: De externe tabel DDL verwijst naar een externe gegevens bron. De externe gegevens bron bevat een Shard-toewijzing waarmee de externe tabel wordt voorzien van de informatie die nodig is om alle data bases in uw gegevenslaag te vinden.
 
 ### <a name="security-considerations"></a>Beveiligingsoverwegingen
 
-Gebruikers met toegang tot de externe tabel krijgen automatisch toegang tot de onderliggende externe tabellen onder de referentie gegeven in de definitie van de externe gegevensbron. Voorkomen dat ongewenste verhoging van bevoegdheden via de referentie van de externe gegevensbron. Gebruik GRANT of REVOKE voor een externe tabel net alsof het een gewone tabellen.  
+Gebruikers met toegang tot de externe tabel krijgen automatisch toegang tot de onderliggende externe tabellen onder de referentie die is opgegeven in de definitie van de externe gegevens bron. Voorkom ongewenste uitbrei ding van bevoegdheden via de referentie van de externe gegevens bron. Gebruik GRANT of intrekken voor een externe tabel, net alsof het een normale tabel is.  
 
-Nadat u uw externe gegevensbron en uw externe tabellen hebt gedefinieerd, kunt u nu volledige T-SQL gebruiken via uw externe tabellen.
+Wanneer u uw externe gegevens bron en uw externe tabellen hebt gedefinieerd, kunt u nu volledige T-SQL gebruiken voor uw externe tabellen.
 
-## <a name="example-querying-horizontal-partitioned-databases"></a>Voorbeeld: uitvoeren van query's horizontaal gepartitioneerde databases
+## <a name="example-querying-horizontal-partitioned-databases"></a>Voor beeld: een query uitvoeren op horizontale gepartitioneerde data bases
 
-De volgende query voert een koppeling drie richtingen tussen warehouses, orders en regels en maakt gebruik van verschillende statistische functies en een selectieve filter. Wordt ervan uitgegaan dat (1) horizontale partitionering (sharding) en (2) dat warehouses, orders en regels shard door de id-kolom van het datawarehouse zijn en dat de elastische query's kunt de wordt op de shards plaatsen en de dure deel van de query op de shards in verwerken parallelle.
+De volgende query voert een drieweg-samen voeging uit tussen magazijnen, orders en order regels en maakt gebruik van verschillende aggregaties en een selectief filter. Hierbij wordt ervan uitgegaan (1) horizontale partitionering (sharding) en (2) dat magazijnen, orders en order regels worden Shard door de kolom Warehouse id en dat de elastische query de samen voegingen op het Shards kan vinden en het dure deel van de query op de Shards in moet verwerken daarmee.
 
 ```sql
     select  
@@ -176,16 +175,16 @@ De volgende query voert een koppeling drie richtingen tussen warehouses, orders 
     group by w_id, o_c_id
 ```
 
-## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Opgeslagen procedure voor uitvoering op afstand T-SQL: sp\_execute_remote
+## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Opgeslagen procedure voor externe T-SQL-uitvoering:\_SP execute_remote
 
-Elastische query introduceert ook een opgeslagen procedure die rechtstreekse toegang tot de shards biedt. De opgeslagen procedure is aangeroepen [sp\_uitvoeren \_externe](https://msdn.microsoft.com/library/mt703714) en kan worden gebruikt voor het uitvoeren van extern opgeslagen procedures of T-SQL-code op de externe databases. Het bevat de volgende parameters:
+Met elastische query's wordt ook een opgeslagen procedure geïntroduceerd waarmee direct toegang tot de Shards wordt geboden. De opgeslagen procedure heet [\_extern uitvoeren \_](https://msdn.microsoft.com/library/mt703714) en kan worden gebruikt om externe opgeslagen procedures of T-SQL-code uit te voeren op de externe data bases. Hierbij worden de volgende para meters gebruikt:
 
-* Naam van gegevensbron (nvarchar): De naam van de externe gegevensbron van het type RDBMS.
-* Query (nvarchar): De T-SQL-query moet worden uitgevoerd op elke shard.
-* Parameterdeclaratie (nvarchar) - optionele: De tekenreeks met gegevens typedefinities voor de parameters die in de queryparameter (zoals sp_executesql) gebruikt.
-* Waarde parameterlijst - optionele: Door komma's gescheiden lijst met parameterwaarden (zoals sp_executesql).
+* Naam van de gegevens bron (nvarchar): De naam van de externe gegevens bron van het type RDBMS.
+* Query (nvarchar): De T-SQL-query die op elke Shard moet worden uitgevoerd.
+* Parameter declaratie (nvarchar)-optioneel: Teken reeks met definities van gegevens typen voor de para meters die worden gebruikt in de query parameter (zoals sp_executesql).
+* Lijst met parameter waarden-optioneel: Een door komma's gescheiden lijst met parameter waarden (zoals sp_executesql).
 
-De sp\_uitvoeren\_extern maakt gebruik van de externe gegevensbron die is opgegeven in de Aanroepparameters voor het uitvoeren van de gegeven T-SQL-instructie op de externe databases. De referentie van de externe gegevensbron maakt verbinding met de shardmap manager-database en de externe databases.  
+De extern\_uitvoeren op afstand maakt gebruik van de externe gegevens bron die in de aanroep parameters is opgegeven om de opgegeven T-SQL-instructie uit te voeren op de externe data bases.\_ De referentie van de externe gegevens bron wordt gebruikt om verbinding te maken met de shardmap manager-data base en de externe data bases.  
 
 Voorbeeld:
 
@@ -195,24 +194,24 @@ Voorbeeld:
         N'select count(w_id) as foo from warehouse'
 ```
 
-## <a name="connectivity-for-tools"></a>Connectiviteit voor hulpprogramma 's
+## <a name="connectivity-for-tools"></a>Connectiviteit voor hulpprogram ma's
 
-Normale SQL Server-verbindingsreeksen om uw toepassing verbinding te gebruiken de hulpprogramma's uw BI en data-integratie met de database met de definities van uw externe tabel. Zorg ervoor dat SQL Server wordt ondersteund als een gegevensbron voor het hulpprogramma. Vervolgens naslaginformatie over de elastische query uitvoeren op database, zoals een andere SQL Server-database verbonden met het hulpprogramma en gebruik externe tabellen uit uw hulpprogramma of de toepassing alsof deze lokaal tabellen.
+Gebruik reguliere SQL Server verbindings reeksen om uw toepassing, uw BI-en gegevens integratie Programma's te koppelen aan de data base met uw externe tabel definities. Zorg ervoor dat SQL Server wordt ondersteund als gegevens bron voor uw hulp programma. Ga vervolgens naar de Elastic query-data base, zoals alle andere SQL Server data bases die zijn verbonden met het hulp programma, en gebruik externe tabellen van uw hulp programma of toepassing alsof ze lokale tabellen zijn.
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 
-* Zorg ervoor dat de elastische query uitvoeren op database-eindpunt toegang tot de database shardmap en alle shards worden gewijzigd via de firewalls SQL-database gekregen heeft.  
-* Valideren of de verdeling van de gegevens die zijn gedefinieerd door de externe tabel af te dwingen. Als uw werkelijke gegevensdistributie van de distributie die is opgegeven in de definitie van uw tabel verschilt, kunnen uw query's, onverwachte resultaten opleveren.
-* Elastische query's werkt op dit moment niet met shard-opheffing wanneer predicaten via de sharding-sleutel wilt toestaan dat het veilig uitsluiten van bepaalde shards van de verwerking.
-* Elastische query's het beste werkt voor query's waar de meeste van de berekening kan worden uitgevoerd op de shards. Doorgaans downloadt u de beste prestaties van query's met selectieve filter predicaten die kan worden geëvalueerd op de shards of joins via de partitionering sleutels die kunnen worden uitgevoerd op een manier uitgelijnd op alle shards. Andere querypatronen mogelijk grote hoeveelheden gegevens laden vanuit de shards naar het hoofdknooppunt en slecht mag uitvoeren
+* Zorg ervoor dat de data base van het Elastic query-eind punt toegang heeft gekregen tot de shardmap-data base en alle Shards via de SQL DB-firewalls.  
+* Valideer of afdwingen van de gegevens distributie die is gedefinieerd door de externe tabel. Als uw werkelijke gegevens distributie afwijkt van de distributie die in de tabel definitie is opgegeven, kunnen de query's onverwachte resultaten opleveren.
+* Met elastische query's wordt op dit moment geen Shard-eliminatie uitgevoerd wanneer de predikaten over de sharding-sleutel beschikken, waardoor het mogelijk is om op veilige wijze bepaalde Shards uit te sluiten van verwerking.
+* Elastische query's werken het beste voor query's waarbij het meren deel van de berekening op de Shards kan worden uitgevoerd. Normaal gesp roken krijgt u de beste query prestaties met selectieve filter predikaten die kunnen worden geëvalueerd op de Shards of worden toegevoegd aan de gepartitioneerde sleutels die kunnen worden uitgevoerd in een gepartitioneerde manier op alle Shards. Andere query patronen moeten mogelijk grote hoeveel heden gegevens van de Shards naar het hoofd knooppunt laden en kunnen goed worden uitgevoerd
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een overzicht van elastische query [elastische query overzicht](sql-database-elastic-query-overview.md).
-* Zie voor een verticale partitionering zelfstudie [aan de slag met query van meerdere databases (verticale partitionering)](sql-database-elastic-query-getting-started-vertical.md).
-* Zie voor een voorbeeld en de syntaxis van query's voor verticaal gepartitioneerde gegevens [opvragen van verticaal gepartitioneerde gegevens)](sql-database-elastic-query-vertical-partitioning.md)
-* Zie voor een zelfstudie horizontale partitionering (sharding) [aan de slag met elastische query's voor horizontale partitionering (sharding)](sql-database-elastic-query-getting-started.md).
-* Zie [sp\_uitvoeren \_externe](https://msdn.microsoft.com/library/mt703714) voor een opgeslagen procedure die een Transact-SQL-instructie op een één externe SQL-Database van Azure of een set van databases die fungeren als shards in een horizontale partitionering wordt uitgevoerd.
+* Zie [overzicht van elastische query's](sql-database-elastic-query-overview.md)voor een overzicht van elastische query's.
+* Zie aan de slag [met query's tussen data bases (verticaal partitioneren)](sql-database-elastic-query-getting-started-vertical.md)voor een verticaal gepartitioneerde zelf studie.
+* Zie query's [uitvoeren op verticaal gepartitioneerde gegevens](sql-database-elastic-query-vertical-partitioning.md) voor syntaxis-en voorbeeld query's voor verticaal gepartitioneerde gegevens)
+* Zie aan de slag [met elastische query's voor horizontale partitionering (sharding)](sql-database-elastic-query-getting-started.md)voor een zelf studie over horizontale partitionering (sharding).
+* Zie [extern\_ uitvoeren\_van SP](https://msdn.microsoft.com/library/mt703714) voor een opgeslagen procedure waarmee een Transact-SQL-instructie wordt uitgevoerd op één externe Azure SQL database of een set met data bases die fungeren als Shards in een horizon taal partitie schema.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png

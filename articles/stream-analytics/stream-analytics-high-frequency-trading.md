@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 33a7b27d065fc0383e4693053f7bfb6d56e2d33b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae82c0e72287ee4c89cb3fb2294bf4bd79aec8c3
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61480065"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598640"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulatie van high-frequency trading met Stream Analytics
 Met een combinatie van SQL-taal en UDF's (door de gebruiker gedefinieerde functies) en UDA's (door de gebruiker gedefinieerde aggregaties) van JavaScript in Azure Stream Analytics kunnen gebruikers geavanceerde analyses uitvoeren. Geavanceerde analyses omvatten mogelijk onder andere onlinetraining en -scoring voor Machine Learning, evenals simulatie van het stateful-proces. In dit artikel wordt beschreven hoe u lineaire regressie kunt uitvoeren in een Azure Stream Analytics-taak met continue training en scoring in een high-frequency trading-scenario.
@@ -65,7 +65,7 @@ Hier volgt een aantal gegenereerde voorbeeldgebeurtenissen:
 >De tijdstempel van de gebeurtenis is **lastUpdated**, in tijdvak.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>Voorspellend model voor high-frequency trading
-Ter demonstratie gebruiken we een lineair model dat door Darryl Shen in [zijn verhandeling](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf) wordt beschreven.
+Ter demonstratie gebruiken we een lineair model dat door Darryl Shen in [zijn verhandeling](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html) wordt beschreven.
 
 VOI (Volume Order Imbalance) is een functie van de huidige prijs en het huidige volume voor vraag/aanbod, en de prijs en het volume voor vraag/aanbod sinds de laatste tick. In de verhandeling wordt de correlatie tussen VOI en toekomstige prijsstijgingen en -dalingen geïdentificeerd. Er wordt een lineair model gebouwd tussen de afgelopen 5 VOI-waarden en de prijswijziging in de volgende 10 ticks. Het model wordt getraind door lineaire regressie te gebruiken voor de gegevens van de vorige dag. 
 

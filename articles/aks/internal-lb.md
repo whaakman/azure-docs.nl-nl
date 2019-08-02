@@ -1,6 +1,6 @@
 ---
-title: Een interne load balancer maken in Azure Kubernetes Service (AKS)
-description: Informatie over het maken en gebruiken van een interne load balancer om uw services met Azure Kubernetes Service (AKS) zichtbaar te maken.
+title: Een interne load balancer maken in azure Kubernetes service (AKS)
+description: Leer hoe u een interne load balancer maakt en gebruikt om uw services beschikbaar te maken met Azure Kubernetes service (AKS).
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,30 +8,30 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: mlearned
 ms.openlocfilehash: 5842003d43d4268d0f663e8a57e40562a480e252
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67615141"
 ---
-# <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Een interne load balancer gebruiken met Azure Kubernetes Service (AKS)
+# <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Een interne load balancer gebruiken met Azure Kubernetes service (AKS)
 
-Om toegang te beperken tot uw toepassingen in Azure Kubernetes Service (AKS), kunt u maken en gebruiken van een interne load balancer. Een interne load balancer maakt een Kubernetes-service alleen toegankelijk is voor toepassingen die worden uitgevoerd in hetzelfde virtuele netwerk bevinden als het Kubernetes-cluster. Dit artikel leest u hoe het maken en gebruiken van een interne load balancer met Azure Kubernetes Service (AKS).
+Als u de toegang tot uw toepassingen in azure Kubernetes service (AKS) wilt beperken, kunt u een interne load balancer maken en gebruiken. Een interne load balancer maakt een Kubernetes-service alleen toegankelijk voor toepassingen die worden uitgevoerd in hetzelfde virtuele netwerk als het Kubernetes-cluster. In dit artikel wordt beschreven hoe u een intern load balancer maakt en gebruikt met Azure Kubernetes service (AKS).
 
 > [!NOTE]
-> Azure Load Balancer is beschikbaar in twee SKU's - *Basic* en *Standard*. Standaard de *Basic* SKU wordt gebruikt wanneer een servicemanifest wordt gebruikt voor het maken van een load balancer in AKS. Zie voor meer informatie, [vergelijking van Azure load balancer SKU][azure-lb-comparison].
+> Azure Load Balancer is beschikbaar in twee Sku's: *Basic* en *Standard*. Standaard wordt de *basis* -SKU gebruikt wanneer een service manifest wordt gebruikt om een Load Balancer te maken op AKS. Zie [vergelijking van Azure load BALANCER sku's][azure-lb-comparison]voor meer informatie.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+In dit artikel wordt ervan uitgegaan dat u beschikt over een bestaand AKS-cluster. Als u een AKS-cluster nodig hebt, raadpleegt u de AKS Quick Start [met behulp van de Azure cli][aks-quickstart-cli] of [met behulp van de Azure Portal][aks-quickstart-portal].
 
-U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
+Ook moet de Azure CLI-versie 2.0.59 of hoger zijn geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, raadpleegt u [Azure cli installeren][install-azure-cli].
 
-De AKS-clusterservice-principal moet de machtiging voor het beheren van netwerkbronnen als u een bestaand subnet of de resourcegroep. In het algemeen toewijzen de *Inzender voor netwerken* rol aan uw service-principal op de gedeelde resources. Zie voor meer informatie over machtigingen [AKS gemachtigde toegang tot andere Azure-resources][aks-sp].
+De AKS-Cluster service-principal moet machtigingen hebben om netwerk bronnen te beheren als u een bestaand subnet of een bestaande resource groep gebruikt. In het algemeen wijst u de rol *netwerk bijdrage* toe aan uw service-principal op de gedelegeerde resources. Zie [AKS toegang tot andere Azure-resources][aks-sp]delegeren voor meer informatie over machtigingen.
 
 ## <a name="create-an-internal-load-balancer"></a>Een interne load balancer maken
 
-Voor het maken van een interne load balancer, maakt u een servicemanifest met de naam `internal-lb.yaml` met het servicetype *LoadBalancer* en de *azure-load-balancer-interne* aantekening zoals wordt weergegeven in de volgende Voorbeeld:
+Als u een interne Load Balancer wilt maken, maakt u een `internal-lb.yaml` service manifest met de naam met de *LoadBalancer* van het Service type en de *Azure-Load Balancer-interne* aantekening, zoals wordt weer gegeven in het volgende voor beeld:
 
 ```yaml
 apiVersion: v1
@@ -48,15 +48,15 @@ spec:
     app: internal-app
 ```
 
-Implementatie van de interne load balancer met behulp van de [kubectl toepassen][kubectl-apply] en geef de naam van uw YAML-manifest:
+Implementeer de interne load balancer met behulp van de [kubectl-toepassing][kubectl-apply] en geef de naam van uw yaml-manifest op:
 
 ```console
 kubectl apply -f internal-lb.yaml
 ```
 
-Een Azure load balancer is gemaakt in de resourcegroep van het knooppunt en verbonden met hetzelfde virtuele netwerk bevinden als het AKS-cluster.
+Er wordt een Azure-load balancer gemaakt in de knooppunt resource groep en verbonden met hetzelfde virtuele netwerk als het AKS-cluster.
 
-Wanneer u de details van de service bekijkt, het IP-adres van de interne load balancer wordt weergegeven in de *externe IP-adres* kolom. In deze context *externe* zich ten opzichte van de externe interface van de load balancer, niet dat het een openbare, externe IP-adres ontvangt. Het duurt een minuut of twee voor het IP-adres te wijzigen van *\<in behandeling\>* naar een werkelijke intern IP-adres, zoals weergegeven in het volgende voorbeeld:
+Wanneer u de service details bekijkt, wordt het IP-adres van de interne load balancer weer gegeven in de kolom *extern-IP* . In deze context bevindt *extern* zich ten opzichte van de externe interface van de Load Balancer, niet dat het een openbaar, extern IP-adres ontvangt. Het kan een paar minuten duren voordat het IP-adres is gewijzigd van  *\<in\> behandeling* naar een effectief intern IP-adres, zoals wordt weer gegeven in het volgende voor beeld:
 
 ```
 $ kubectl get service internal-app
@@ -65,9 +65,9 @@ NAME           TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
 internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 ```
 
-## <a name="specify-an-ip-address"></a>Geef een IP-adres
+## <a name="specify-an-ip-address"></a>Geef een IP-adres op
 
-Als u gebruiken van een specifiek IP-adres met de interne load balancer wilt, voegt u toe de *loadBalancerIP* eigenschap in op de load balancer YAML-manifest. Het opgegeven IP-adres moet zich bevinden in hetzelfde subnet als het AKS-cluster en moet niet worden toegewezen aan een resource.
+Als u een specifiek IP-adres met de interne load balancer wilt gebruiken, voegt u de eigenschap *loadBalancerIP* toe aan het yaml-manifest van de Load Balancer. Het opgegeven IP-adres moet zich in hetzelfde subnet bevinden als het AKS-cluster en mag niet al zijn toegewezen aan een resource.
 
 ```yaml
 apiVersion: v1
@@ -85,7 +85,7 @@ spec:
     app: internal-app
 ```
 
-Bij de implementatie en weergeven van details van de service, het IP-adres in de *externe IP-adres* kolom geeft de opgegeven IP-adres:
+Wanneer u de service Details implementeert en bekijkt, wordt het IP-adres in de kolom *extern-IP* weer gegeven voor het opgegeven IP-adres:
 
 ```
 $ kubectl get service internal-app
@@ -94,11 +94,11 @@ NAME           TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
 internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 ```
 
-## <a name="use-private-networks"></a>Particuliere netwerken gebruikt
+## <a name="use-private-networks"></a>Particuliere netwerken gebruiken
 
-Wanneer u uw AKS-cluster maakt, kunt u geavanceerde netwerkinstellingen. Deze aanpak kunt u het cluster implementeren in een bestaande Azure-netwerk en subnetten. Een scenario is het implementeren van uw AKS-cluster in een particulier netwerk verbonden met uw on-premises omgeving en services die alleen toegankelijk zijn intern uitvoeren. Zie voor meer informatie, configureren van uw eigen virtuele subnetten met [Kubenet][use-kubenet] or [Azure CNI][advanced-networking].
+Wanneer u uw AKS-cluster maakt, kunt u geavanceerde netwerk instellingen opgeven. Met deze aanpak kunt u het cluster implementeren in een bestaand virtueel Azure-netwerk en-subnetten. Eén scenario is het implementeren van uw AKS-cluster in een particulier netwerk dat is verbonden met uw on-premises omgeving en voor het uitvoeren van services die alleen intern toegankelijk zijn. Zie uw eigen virtuele netwerk subnetten configureren met [Kubenet][use-kubenet] of [Azure cni][advanced-networking]voor meer informatie.
 
-Geen wijzigingen aangebracht in de vorige stappen zijn nodig voor het implementeren van een interne load balancer in een AKS-cluster dat gebruik maakt van een particulier netwerk. De load balancer is gemaakt in dezelfde resourcegroep bevinden als uw AKS-cluster, maar verbonden met uw persoonlijke virtueel netwerk en subnet, zoals wordt weergegeven in het volgende voorbeeld:
+Er zijn geen wijzigingen in de vorige stappen nodig om een interne load balancer te implementeren in een AKS-cluster dat gebruikmaakt van een particulier netwerk. De load balancer wordt gemaakt in dezelfde resource groep als uw AKS-cluster, maar is verbonden met uw particuliere virtuele netwerk en subnet, zoals wordt weer gegeven in het volgende voor beeld:
 
 ```
 $ kubectl get service internal-app
@@ -108,11 +108,11 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> Mogelijk moet u de service-principal voor uw AKS-cluster verlenen de *Inzender voor netwerken* rol aan de resourcegroep waar uw virtuele netwerk van Azure-resources worden geïmplementeerd. Weergeven van de service-principal met [az aks show][az-aks-show], zoals `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Gebruik voor het maken van een roltoewijzing de [az roltoewijzing maken][az-role-assignment-create] opdracht.
+> Mogelijk moet u de service-principal voor uw AKS-cluster de rol *Network contributor* verlenen aan de resource groep waar uw virtuele Azure-netwerk resources zijn geïmplementeerd. Bekijk de service-principal met [AZ AKS show][az-aks-show], zoals `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Als u een roltoewijzing wilt maken, gebruikt u de opdracht [AZ Role Assignment Create][az-role-assignment-create] .
 
-## <a name="specify-a-different-subnet"></a>Geef een ander subnet
+## <a name="specify-a-different-subnet"></a>Geef een ander subnet op
 
-Als u een subnet voor de load balancer, voeg de *azure-load-balancer-interne-subnet* aantekening met uw service. Het opgegeven subnet moet zich in hetzelfde virtuele netwerk bevinden als uw AKS-cluster. Bij de implementatie door de load balancer *externe IP-adres* adres deel uitmaakt van het opgegeven subnet.
+Als u een subnet voor uw load balancer wilt opgeven, voegt u de *Azure-Load-Balancer-interne-subnet* -aantekening toe aan uw service. Het opgegeven subnet moet zich in hetzelfde virtuele netwerk bevinden als uw AKS-cluster. Bij implementatie is het load balancer *externe-IP-* adres onderdeel van het opgegeven subnet.
 
 ```yaml
 apiVersion: v1
@@ -132,13 +132,13 @@ spec:
 
 ## <a name="delete-the-load-balancer"></a>De load balancer verwijderen
 
-Wanneer alle services die gebruikmaken van de interne load balancer zijn verwijderd, wordt de load balancer zelf ook verwijderd.
+Wanneer alle services die gebruikmaken van de interne load balancer worden verwijderd, wordt de load balancer zelf ook verwijderd.
 
-U kunt ook rechtstreeks een service als met een Kubernetes-resource, zoals verwijderen `kubectl delete service internal-app`, die dan ook worden de onderliggende Azure load balancer verwijderd.
+U kunt een service ook rechtstreeks verwijderen, net als bij elke Kubernetes-resource `kubectl delete service internal-app`, zoals, waardoor de onderliggende Azure-Load Balancer worden verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over Kubernetes-services op de [documentatie voor Kubernetes services][kubernetes-services].
+Meer informatie over Kubernetes Services vindt u in de [documentatie van Kubernetes Services][kubernetes-services].
 
 <!-- LINKS - External -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

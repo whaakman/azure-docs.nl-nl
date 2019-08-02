@@ -1,18 +1,19 @@
 ---
 title: Een back-up maken van een share point-Farm op Azure Stack
 description: Gebruik Azure Backup Server om een back-up te maken van uw share point-gegevens en deze te herstellen op Azure Stack. In dit artikel vindt u informatie over het configureren van uw share point-Farm zodat gewenste gegevens kunnen worden opgeslagen in Azure. U kunt beveiligde share point-gegevens herstellen vanaf schijf of Azure.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: adigan
-ms.openlocfilehash: 729b21095f14463cb6fb1615a9f61f1189a3bbce
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: ac87fa66b72f2d7eaaf1ae2cd71bfeb827469444
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465181"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688690"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Een back-up maken van een share point-Farm op Azure Stack
 U maakt een back-up van een share point-Farm op Azure Stack naar Microsoft Azure met behulp van Microsoft Azure Backup-Server (MABS) op ongeveer dezelfde manier als u een back-up maakt van andere gegevens bronnen. Azure Backup biedt flexibiliteit in het back-upschema om dagelijkse, wekelijkse, maandelijkse of jaarlijkse back-uppunten te maken en biedt u Bewaar beleidsopties voor verschillende back-uppunten. Het biedt ook de mogelijkheid om lokale schijf kopieën op te slaan voor snelle herstel tijd (RTO) en om kopieën op te slaan in azure voor een voordelige, lange termijn retentie.

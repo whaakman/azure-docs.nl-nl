@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 06/27/2019
-ms.openlocfilehash: c75b19fff478c14ff47996cf9159e48f3ff69724
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 1afe8a2e9179c768fd639b4a208de98b0789a53f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261182"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569450"
 ---
 # <a name="automated-backups"></a>Automatische back-ups
 
@@ -144,7 +143,7 @@ Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
 ```
 
-#### <a name="request-body"></a>Aanvraagtekst
+#### <a name="request-body"></a>Hoofdtekst van de aanvraag
 
 ```json
 {
@@ -156,7 +155,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 #### <a name="sample-response"></a>Voorbeeldantwoord
 
-Status code: 200
+Statuscode: 200
 
 ```json
 {

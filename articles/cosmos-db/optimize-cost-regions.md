@@ -1,62 +1,62 @@
 ---
-title: De kosten voor implementaties in meerdere regio's in Azure Cosmos DB optimaliseren
-description: In dit artikel wordt uitgelegd hoe u kosten van implementaties in meerdere regio's in Azure Cosmos DB beheren.
+title: Optimaliseer de kosten voor implementaties met meerdere regio's in Azure Cosmos DB
+description: In dit artikel wordt uitgelegd hoe u de kosten van implementaties met meerdere regio's in Azure Cosmos DB kunt beheren.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/31/2019
 ms.author: rimman
-ms.openlocfilehash: 478714f48782adb138f1ed803d53c81ec48f2efd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 233eab1fc49d7ce4cbb1e5b98b67eda9a64aa195
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967286"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667597"
 ---
-# <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Kosten voor meerdere regio's in Azure Cosmos DB optimaliseren
+# <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>De kosten voor meerdere regio's optimaliseren in Azure Cosmos DB
 
-U kunt toevoegen en verwijderen van regio's aan uw Azure Cosmos-account op elk gewenst moment. De doorvoer die u voor verschillende Azure-Cosmos-databases en containers configureert is in elke regio die is gekoppeld aan uw account gereserveerd. Als de doorvoer per uur hebt ingericht, dat is de som van RU/s is geconfigureerd voor alle databases en containers voor uw Azure Cosmos-account is `T` en het aantal Azure-regio's die zijn gekoppeld aan uw databaseaccount is `N`, klikt u vervolgens het totaal ingerichte doorvoer voor uw Cosmos-account, voor een bepaald uur is gelijk aan:
+U kunt op elk gewenst moment regio's toevoegen aan en verwijderen uit uw Azure Cosmos-account. De door u geconfigureerde door Voer voor verschillende Azure Cosmos-data bases en containers is gereserveerd in elke regio die aan uw account is gekoppeld. Als de door Voer is ingericht per uur, is dat de som van ru/s die is geconfigureerd voor alle data bases en containers voor uw `T` Azure Cosmos-account, en het aantal Azure-regio's dat `N`aan uw database account is gekoppeld, en vervolgens het totaal de ingerichte door Voer voor uw Cosmos-account voor een gegeven uur is gelijk aan:
 
-1. `T x N RU/s` Als uw Azure Cosmos-account is geconfigureerd met een enkele schrijfregio. 
+1. `T x N RU/s`Als uw Azure Cosmos-account is geconfigureerd met één schrijf regio. 
 
-1. `T x (N+1) RU/s` Als uw Azure Cosmos-account is geconfigureerd met alle regio's kunnen schrijfbewerkingen verwerken. 
+1. `T x (N+1) RU/s`Als uw Azure Cosmos-account is geconfigureerd met alle regio's die schrijf bewerkingen kunnen verwerken. 
 
-Ingerichte doorvoer met één schrijfregio kost $0.008/ uur per 100 RU/s en ingerichte doorvoer met meerdere beschrijfbare regio's, kosten $0,016 / per uur per 100 RU/s. Zie voor meer informatie, Azure Cosmos DB [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/).
+Ingerichte door Voer met enkele schrijf regio kosten $0.008/uur per 100 RU/s en ingerichte door Voer met meerdere Beschrijf bare regio's kosten $0,016/per uur per 100 RU/s. Zie Azure Cosmos DB- [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/)voor meer informatie.
 
-## <a name="costs-for-multiple-write-regions"></a>Kosten voor meerdere schrijven regio 's
+## <a name="costs-for-multiple-write-regions"></a>Kosten voor meerdere schrijf regio's
 
-In een systeem met meerdere masters, schrijft de netto beschikbare ru's voor operations toeneemt `N` tijden waar `N` is het aantal regio's schrijven. In tegenstelling tot één regio schrijfbewerkingen, elke regio kan nu worden bewerkt en moet ondersteuning bieden voor conflictoplossing. Het bedrag van de werkbelasting voor schrijvers is toegenomen. Van de kosten voor het plannen van oogpunt om uit te voeren `M` RU/s-waarde van schrijfbewerkingen over de hele wereld, moet u voor het inrichten van M `RUs` op het niveau van een container of de database. Vervolgens kunt u zoveel regio's als u wilt en ze voor schrijfbewerkingen gebruiken om uit te voeren toevoegen `M` RU-waarde van schrijfbewerkingen over de hele wereld. 
+In een systeem met meerdere masters neemt het net beschik bare RUs voor schrijf `N` bewerkingen tijden `N` toe, waarbij het aantal schrijf regio's is. In tegens telling tot de schrijf bewerkingen van één regio is elke regio nu schrijfbaar en moet er conflicten worden opgelost. De hoeveelheid werk belasting voor schrijvers is toegenomen. Van het kosten plannings punt van de weer gave `M` , voor het wereld wijd uitvoeren van ru/s voor schrijf bewerkingen, `RUs` moet u M inrichten op een container-of database niveau. U kunt vervolgens zoveel regio's toevoegen als u wilt en deze gebruiken voor schrijf bewerkingen voor het uitvoeren `M` van de wereld wijde schrijf bewerkingen van ru. 
 
 ### <a name="example"></a>Voorbeeld
 
-U kunt u een container in West-Amerika hebt ingericht met doorvoer 10 K RU/s en 1 TB aan gegevens van deze maand worden opgeslagen. Stel dat u toevoegt drie regio's: VS-Oost, Noord-Europa en Oost-Azië, elk met dezelfde opslag en doorvoer en u wilt dat de mogelijkheid om te schrijven naar de containers in alle vier regio's van uw wereldwijd gedistribueerde app. Uw totale maandfactuur (uitgaande van 31 dagen) in een maand is als volgt:
+Stel dat u een container hebt die is ingericht met een doorvoer snelheid van 10.000 RU/s en dat deze maand 1 TB aan gegevens opslaat. Stel dat u drie regio's, VS-Oost, Europa-noord en Azië-oost toevoegt, elk met dezelfde opslag en door Voer en u de mogelijkheid wilt geven om naar de containers in alle vier regio's te schrijven vanuit uw wereld wijd gedistribueerde app. Uw totale maandelijkse factuur (aangenomen 31 dagen) in een maand is als volgt:
 
-|**Item**|**Gebruik (maandelijks)**|**Snelheid**|**Maandelijkse kosten**|
+|**Item**|**Gebruik (maandelijks)**|**Malen**|**Maandelijkse kosten**|
 |----|----|----|----|
-|Doorvoerfactuur voor container in West-Amerika (meerdere regio's de schrijven) |10 K RU/s * 24 uur per dag * 31 |$0,016 per 100 RU/s per uur |$1,190.40 |
-|Doorvoerfactuur voor 3 extra regio's: VS-Oost, Noord-Europa en Oost-Azië (meerdere regio's de schrijven) |(3 + 1) * 10 K RU/s * 24 uur per dag * 31 |$0,016 per 100 RU/s per uur |$4,761.60 |
-|Opslagfactuur voor container in US - west |100 GB |$ 0,25/GB |$25 |
-|Opslagfactuur voor drie extra regio's: US - oost, Europa - noord en Azië - oost |3 * 1 TB |$ 0,25/GB |$75 |
-|**Totaal**|||**$6,052** |
+|Doorvoer factuur voor container in West-VS (meerdere schrijf regio's) |10.000 RU/s * 24 * 31 |$0,016 per 100 RU/s per uur |$1.190,40 |
+|Doorvoer factuur voor drie extra regio's: VS-Oost, Europa-noord en Azië-oost (meerdere schrijf regio's) |(3 + 1) * 10.000 RU/s * 24 * 31 |$0,016 per 100 RU/s per uur |$4.761,60 |
+|Opslagfactuur voor container in US - west |1 TB (of 1.024 GB) |$0,25/GB |$256 |
+|Opslagfactuur voor drie extra regio's: US - oost, Europa - noord en Azië - oost |3 * 1 TB (of 3.072 GB) |$0,25/GB |$768 |
+|**Eind**|||**$6.976** |
 
-## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Doorvoergebruik verbeteren op een per regio-basis
+## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Het doorvoer gebruik per regio verbeteren
 
-Hebt u inefficiënt gebruik, bijvoorbeeld, een of meer benut of te veel regio's gebruikt, u kunt de volgende stappen voor het verbeteren van doorvoergebruik:  
+Als u een inefficiënt gebruik hebt, bijvoorbeeld een of meer ondergeschikte of meer gebruikte regio's, kunt u de volgende stappen uitvoeren om het doorvoer gebruik te verbeteren:  
 
-1. Zorg ervoor dat u eerst ingerichte doorvoer (ru's) in de schrijfregio te optimaliseren en breng het maximaal gebruik van de me's in meer regio's met behulp van de feed van de leesregio enzovoort wijzigen. 
+1. Zorg ervoor dat u de ingerichte door Voer (RUs) in de schrijf regio eerst optimaliseert en maak het maximum gebruik van het RUs in Lees regio's met behulp van Change feed van het Lees gebied, enzovoort. 
 
-2. Meerdere schrijfregio's leest en schrijft kunnen worden geschaald in alle regio's die zijn gekoppeld aan Azure Cosmos-account. 
+2. Meerdere schrijf regio's Lees-en schrijf bewerkingen kunnen worden geschaald in alle regio's die zijn gekoppeld aan het Azure Cosmos-account. 
 
-3. De activiteiten in uw regio's en u kunt toevoegen en verwijderen van regio's op aanvraag schalen van uw lezen en schrijven-doorvoer.
+3. Bewaak de activiteit in uw regio's en u kunt regio's op aanvraag toevoegen en verwijderen om uw lees-en schrijf doorvoer te schalen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Vervolgens kunt u doorgaan naar meer informatie over kostenoptimalisatie in Azure Cosmos DB met de volgende artikelen:
+Daarna kunt u meer te weten komen over cost Optimization in Azure Cosmos DB met de volgende artikelen:
 
-* Meer informatie over [optimaliseren voor de ontwikkeling en testen](optimize-dev-test.md)
-* Meer informatie over [informatie over uw factuur voor Azure Cosmos DB](understand-your-bill.md)
-* Meer informatie over [doorvoer kosten optimaliseren](optimize-cost-throughput.md)
-* Meer informatie over [opslagkosten te optimaliseren](optimize-cost-storage.md)
-* Meer informatie over [optimaliseren van de kosten van lees- en schrijfbewerkingen](optimize-cost-reads-writes.md)
-* Meer informatie over [de kosten van query's optimaliseren](optimize-cost-queries.md)
+* Meer informatie over het [optimaliseren voor ontwikkeling en testen](optimize-dev-test.md)
+* Meer informatie over [uw Azure Cosmos DB factuur](understand-your-bill.md)
+* Meer informatie over het [optimaliseren van doorvoer kosten](optimize-cost-throughput.md)
+* Meer informatie over het [optimaliseren van opslag kosten](optimize-cost-storage.md)
+* Meer informatie over [het optimaliseren van de kosten van lees-en schrijf bewerkingen](optimize-cost-reads-writes.md)
+* Meer informatie over [het optimaliseren van de kosten van query's](optimize-cost-queries.md)
 

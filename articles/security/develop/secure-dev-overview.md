@@ -1,48 +1,49 @@
 ---
-title: Secure development best practices voor Microsoft Azure
-description: Aanbevolen procedures voor het ontwikkelen van veiligere code en een beter beveiligde toepassing in de cloud implementeren.
+title: Best practices voor veilige ontwikkeling op Microsoft Azure
+description: Aanbevolen procedures voor het ontwikkelen van veiligere code en het implementeren van een veiligere toepassing in de Cloud.
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
 ms.date: 06/11/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ee5c043038fbb747e90bca9530cbe2e94c8a95c2
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 4df8ff8abfeb7a6ba96ec3344407e95e0a9a3b3d
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144462"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728725"
 ---
-# <a name="secure-development-best-practices-on-azure"></a>Secure development best practices voor Azure
-Deze reeks artikelen geeft beveiligingsactiviteiten en besturingselementen om te overwegen bij het ontwikkelen van toepassingen voor de cloud. De fasen van de vragen over Microsoft Security Development Lifecycle (SDL) en beveiliging en concepten te houden tijdens elke fase van de levenscyclus worden besproken. Het doel is voor het definiëren van activiteiten en Azure-services die u in elke fase van de levenscyclus gebruiken kunt te ontwerpen, ontwikkelen en implementeren van een beter beveiligde toepassing.
+# <a name="secure-development-best-practices-on-azure"></a>Best practices voor veilige ontwikkeling op Azure
+Deze reeks artikelen bevat beveiligings activiteiten en-besturings elementen waarmee u rekening moet houden bij het ontwikkelen van toepassingen voor de Cloud. De fasen van de micro soft Security Development Lifecycle (SDL) en beveiligings vragen en concepten die u tijdens elke fase van de levens cyclus kunt overwegen, worden behandeld. Het doel is om u te helpen bij het definiëren van activiteiten en Azure-Services die u in elke fase van de levens cyclus kunt gebruiken om een veiligere toepassing te ontwerpen, ontwikkelen en implementeren.
 
-De aanbevelingen in de artikelen zijn afkomstig uit onze ervaring met Azure-beveiliging en de ervaringen van onze klanten. U kunt deze artikelen gebruiken als uitgangspunt voor wat u tijdens een specifieke fase van uw project voor de ontwikkeling overwegen moet, maar het is raadzaam dat u ook via alle artikelen lezen van begin tot eind ten minste één keer. Lezen van alle artikelen, maakt u kennis met concepten die u mogelijk hebt gemist in eerdere fasen van het project. Implementatie van deze concepten voordat u uw product een release kunt u bouwen van veilige software, adres nalevingsvereisten voor beveiliging en ontwikkelingskosten te verlagen.
+De aanbevelingen in de artikelen zijn afkomstig van onze ervaring met Azure-beveiliging en van de ervaringen van onze klanten. U kunt deze artikelen gebruiken als referentie voor wat u moet overwegen tijdens een specifieke fase van het ontwikkelings project, maar we raden u ook aan alle artikelen van het begin tot ten minste één keer te lezen. Als u alle artikelen leest, introduceert u concepten die u mogelijk hebt gemist in eerdere fasen van uw project. Als u deze concepten implementeert voordat u uw product uitgeeft, kan u helpen bij het bouwen van beveiligde software, vereisten voor de naleving van het beveiligings beleid en de ontwikkelings kosten verminderen.
 
-Deze artikelen zijn bedoeld om te worden van een resource voor softwareontwerpers van, ontwikkelaars en testers op alle niveaus die bouwen en implementeren van veilige Azure-toepassingen.
+Deze artikelen zijn bedoeld als een resource voor software ontwerpers, ontwikkel aars en testers op alle niveaus die beveiligde Azure-toepassingen bouwen en implementeren.
 
 ## <a name="overview"></a>Overzicht
 
-Security is een van de belangrijkste aspecten van elke toepassing en het is niet heel eenvoudig meteen. Gelukkig biedt Azure veel services die u kunnen helpen uw toepassing in de cloud beveiligen. Deze artikelen adres activiteiten en Azure-services kunt u implementeren in elke fase van de levenscyclus van uw software-ontwikkeling voor het ontwikkelen van veiligere code en een beter beveiligde toepassing in de cloud implementeren.
+Beveiliging is een van de belangrijkste aspecten van elke toepassing, en het is niet eenvoudig om meteen aan de slag te gaan. Gelukkig biedt Azure veel services die u kunnen helpen bij het beveiligen van uw toepassing in de Cloud. Met deze artikelen kunt u activiteiten en Azure-Services implementeren in elke fase van de levens cyclus van de software ontwikkeling om u te helpen bij het ontwikkelen van veiligere code en het implementeren van een veiligere toepassing in de Cloud.
 
-## <a name="security-development-lifecycle"></a>Security development lifecycle
+## <a name="security-development-lifecycle"></a>Security Development Lifecycle
 
-Aanbevolen procedures te volgen voor ontwikkeling van veilige software vereist integreren beveiliging in elke fase van de software development lifecycle, van een analyse van de vereiste onderhoud, ongeacht de methodologie van het project ([waterval](https://en.wikipedia.org/wiki/Waterfall_model), [flexibele](https://en.wikipedia.org/wiki/Agile_software_development), of [DevOps](https://en.wikipedia.org/wiki/DevOps)). Meer ontwikkelaars zijn in het kielzog van schendingen van belangrijke gegevens en de exploitatie van operationele beveiligingsfouten begrijpen dat beveiliging moet worden behandeld in het ontwikkelingsproces inbouwt.
+De volgende aanbevolen procedures voor het ontwikkelen van beveiligde software vereisen het integreren van de beveiliging in elke fase van de levens cyclus van software ontwikkeling, van analyse van vereisten tot onderhoud, ongeacht de project methodologie ([waterval](https://en.wikipedia.org/wiki/Waterfall_model), [Agile ](https://en.wikipedia.org/wiki/Agile_software_development)of [DevOps](https://en.wikipedia.org/wiki/DevOps)). Bij het ontwaken van gegevens schendingen met een hoog profiel en de exploitatie van operationele beveiligings fouten, zijn meer ontwikkel aars beter te weten dat de beveiliging moet worden aangepakt tijdens het ontwikkelings proces.
 
-Hoe hoger het oplossen van problemen in uw ontwikkelcyclus, hoe meer die zal verhelpen u de kosten. Beveiligingsproblemen met zich mee zijn geen uitzondering. Als u beveiligingsproblemen met zich mee in de eerste fasen van de softwareontwikkeling van uw negeren, kan elke fase die volgt op de kwetsbaarheid van de vorige fase overnemen. Uw uiteindelijke product wordt hebben verzameld, meerdere beveiligingsproblemen met zich mee en de mogelijkheid van een schending. Het inbouwen van beveiliging in elke fase van de ontwikkelingscyclus helpt u bij problemen vroegtijdig variabel en Hiermee kunt u uw ontwikkeling te verlagen.
+Hoe later u een probleem in uw ontwikkelings levenscyclus verhelpt, hoe meer deze oplossing u kunt kosten. Beveiligings problemen zijn geen uitzonde ring. Als u geen beveiligings problemen hebt in de vroege fasen van uw software ontwikkeling, kan elke fase die volgt, de beveiligings problemen van de voor gaande fase overnemen. Het uiteindelijke product heeft meerdere beveiligings problemen opgebouwd en de mogelijkheid van schending. Door beveiliging in elke fase van de ontwikkelings levenscyclus te maken, kunt u tijdig problemen ondervangen en kunt u de ontwikkelings kosten verlagen.
 
-Volgen we de fasen van de Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) om activiteiten en Azure-services die u gebruiken kunt om te voldoen aan beveiligde softwareontwikkelingsprocedures in elke fase van de levenscyclus te introduceren.
+We volgen de fasen van de micro soft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) om activiteiten en Azure-Services uit te voeren die u kunt gebruiken om in elke fase van de levens cyclus te voldoen aan de veilige procedures voor het ontwikkelen van software.
 
 De SDL-fasen zijn:
 
   - Training
   - Vereisten
-  - Ontwerp
+  - Ontwerpen
   - Implementatie
   - Verificatie
   - Release
@@ -50,33 +51,33 @@ De SDL-fasen zijn:
 
 ![Security Development Lifecycle](./media/secure-dev-overview/01-sdl-phase.png)
 
-In deze artikelen die we de SDL-fasen te in ontwerpen groeperen, ontwikkelen en implementeren.
+In deze artikelen groeperen we de SDL-fasen in ontwerpen, ontwikkelen en implementeren.
 
-## <a name="engage-your-organizations-security-team"></a>Uw organisatie beveiligingsteam betrekken
+## <a name="engage-your-organizations-security-team"></a>Het beveiligings team van uw organisatie benaderen
 
-Uw organisatie mogelijk heeft een formele aanvraag beveiligingsprogramma die u met beveiligingsactiviteiten van begin helpt tot eind tijdens de ontwikkelfase. Als uw organisatie heeft de beveiliging en naleving van teams, moet u contact opnemen met deze voordat u begint met het ontwikkelen van uw toepassing. Hierover in elke fase van de SDL of er nog andere taken die u hebt gemist.
+Uw organisatie heeft mogelijk een formeel toepassings beveiligings programma dat u helpt bij het uitvoeren van beveiligings activiteiten van begin tot eind tijdens de ontwikkelings cyclus. Als uw organisatie beveiligings-en nalevings teams heeft, zorg er dan voor dat u deze aanneemt voordat u begint met het ontwikkelen van uw toepassing. Vraag hen in elke fase van de SDL of er taken zijn die u hebt gemist.
 
-We begrijpen dat veel lezers een beveiligings- of -team contact opnemen met niet mogelijk. Deze artikelen kunnen u te helpen in de beveiligingsvragen en de beslissingen die u moet rekening houden met in elke fase van de SDL.
+We begrijpen dat veel lezers mogelijk geen beveiligings-of nalevings team hebben om deel te nemen. Deze artikelen kunnen u helpen bij de beveiligings vragen en-beslissingen die u moet overwegen bij elke fase van SDL.
 
 ## <a name="resources"></a>Resources
 
-Gebruik de volgende bronnen voor meer informatie over het ontwikkelen van beveiligde toepassingen en om te helpen beveiligen van uw toepassingen op Azure:
+Gebruik de volgende bronnen voor meer informatie over het ontwikkelen van beveiligde toepassingen en voor het beveiligen van uw toepassingen in Azure:
 
-[Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) – de SDL is een softwareontwikkelingsproces van Microsoft waarmee ontwikkelaars kunnen het bouwen van beter beveiligde software. Hiermee kunt u adres nalevingsvereisten voor beveiliging bij het terugdringen van de ontwikkeling.
+[Micro soft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) : SDL is een software ontwikkelings proces van micro soft waarmee ontwikkel aars beter beveiligde software kunnen bouwen. Het helpt u bij het oplossen van vereisten voor beveiligings naleving terwijl de ontwikkelings kosten worden verminderd.
 
-[Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page) – OWASP is een onlinecommunity die verkrijgbare artikelen, methodologieën, documentatie, hulpprogramma's en technologieën op het gebied van beveiliging van webtoepassingen produceert.
+[Open Web Application Security project (OWASP)](https://www.owasp.org/index.php/Main_Page) : OWASP is een online community die vrij beschik bare artikelen, methodologieën, Documentatie, hulpprogram ma's en technologieën produceert in het veld van de beveiliging van webtoepassingen.
 
-[Pushen naar links, zoals een baas](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca) : een reeks online artikelen die geeft een overzicht van verschillende typen toepassing beveiligingsactiviteiten die ontwikkelaars voor het maken van veiligere code moeten worden voltooid.
+[Naar links pushen, zoals een chef,](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca) een reeks online artikelen die verschillende soorten toepassings beveiligings activiteiten bevat die ontwikkel aars moeten volt ooien om veiligere code te maken.
 
-[Microsoft identity-platform](https://docs.microsoft.com/azure/active-directory/develop/) – het Microsoft identity-platform is een verbetering van de Azure AD identity-service en developer-platform. Het is een volledig functionele-platform, dat uit een authentication-service, open source-bibliotheken, registratie van toepassingen en configuratie, volledige ontwikkelaarsdocumentatie, codevoorbeelden en andere inhoud voor ontwikkelaars bestaat. Het Microsoft identity-platform biedt ondersteuning voor standaardprotocollen zoals OAuth 2.0 en OpenID Connect.
+[Micro soft Identity platform](https://docs.microsoft.com/azure/active-directory/develop/) : het micro soft Identity-platform is een evolutie van de Azure AD Identity-service en het ontwikkelaars platform. Het is een volledig uitgeruste platform dat bestaat uit een verificatie service, open source-bibliotheken, registratie en configuratie van toepassingen, volledige documentatie van ontwikkel aars, code voorbeelden en andere inhoud voor ontwikkel aars. Het micro soft-identiteits platform ondersteunt industrie-standaard protocollen zoals OAuth 2,0 en OpenID Connect Connect.
 
-[Aanbevolen beveiligingsprocedures voor Azure-oplossingen](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/) : een verzameling van aanbevolen procedures voor beveiliging moet worden gebruikt bij het ontwerpen, implementeren en beheren van oplossingen voor cloudopslag met behulp van Azure. Dit document is bedoeld als een bron voor IT-professionals. Dit kan dus ook ontwerpers, architecten, ontwikkelaars en testers die bouwen en implementeren van veilige Azure-oplossingen.
+[Aanbevolen beveiligings procedures voor Azure-oplossingen](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/) : een verzameling aanbevolen procedures voor beveiliging bij het ontwerpen, implementeren en beheren van cloud oplossingen met behulp van Azure. Dit artikel is bedoeld als een resource voor IT-professionals. Dit kan ontwerpers, architecten, ontwikkel aars en testers zijn die beveiligde Azure-oplossingen bouwen en implementeren.
 
-[Beveiliging en naleving blauwdrukken op Azure](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) – Azure-beveiliging en naleving blauwdrukken zijn resources waarmee u kunt bouwen en toepassingen met behulp van de cloud die aan de strenge regelgeving en standaarden voldoen starten.
+[Blauw drukken voor beveiliging en naleving op Azure](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) : Azure Security en nalevings schema's zijn bronnen die u kunnen helpen bij het bouwen en starten van toepassingen in de cloud die voldoen aan strenge voor schriften en standaarden.
 
 ## <a name="next-steps"></a>Volgende stappen
-In de volgende artikelen, is het raadzaam beveiligingsmaatregelen en activiteiten waarmee u kunnen ontwerpen, ontwikkelen en implementeren van veilige toepassingen.
+In de volgende artikelen raden wij aan beveiligings maatregelen en activiteiten te gebruiken die u kunnen helpen bij het ontwerpen, ontwikkelen en implementeren van beveiligde toepassingen.
 
-- [Beveiligde toepassingen ontwerpen](secure-design.md)
-- [Beveiligde toepassingen ontwikkelen](secure-develop.md)
-- [Beveiligde toepassingen implementeren](secure-deploy.md)
+- [Veilige toepassingen ontwerpen](secure-design.md)
+- [Veilige toepassingen ontwikkelen](secure-develop.md)
+- [Veilige toepassingen implementeren](secure-deploy.md)

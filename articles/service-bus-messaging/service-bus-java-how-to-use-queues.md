@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus wachtrijen gebruiken met Java | Microsoft Docs
+title: Azure Service Bus wacht rijen gebruiken met Java
 description: Informatie over het gebruiken van Service Bus-wachtrijen in Azure Code voorbeelden geschreven in Java.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: a7e6e86be8b6fc901d9637c85794cdfe1f744fd4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.custom: seo-java-july2019
+ms.openlocfilehash: 4075ceae6c40a6be8ee2b9f6580a57fafb96e17e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360808"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663431"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Service Bus wachtrijen gebruiken met Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -39,7 +40,7 @@ In deze zelf studie leert u hoe u Java-toepassingen kunt maken om berichten te v
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Uw toepassing configureren voor het gebruik van Service Bus
-Zorg ervoor dat u de [Azure SDK voor Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] hebt geïnstalleerd, inclusief de Azure SDK voor Java. U kunt vervolgens de **Microsoft Azure bibliotheken voor Java** toevoegen aan uw project:
+Zorg ervoor dat u de [Azure SDK voor Java][Azure SDK for Java] hebt geïnstalleerd voordat u dit voor beeld bouwt. Als u een eclips gebruikt, kunt u de [Azure-Toolkit voor eclipse][Azure Toolkit for Eclipse] installeren die de Azure SDK voor Java bevat. U kunt vervolgens de **Microsoft Azure bibliotheken voor Java** toevoegen aan uw project:
 
 ![Scherm afbeelding van het tabblad tape wisselaars waar u bibliotheken kunt toevoegen](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 

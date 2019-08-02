@@ -1,6 +1,6 @@
 ---
-title: Een service voor splitsen en samenvoegen implementeren | Microsoft Docs
-description: De splitsen en samenvoegen ook gebruiken om gegevens te verplaatsen tussen de shard-databases.
+title: Een service voor splitsen en samen voegen implementeren | Microsoft Docs
+description: Gebruik de Split-Merge-functie om gegevens te verplaatsen tussen Shard-data bases.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,60 +10,59 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a8c50f492c28bf1e009d15d6332e939959190a49
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60585505"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568512"
 ---
-# <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Een service voor het verplaatsen van gegevens tussen de shard-databases voor splitsen en samenvoegen implementeren
+# <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Een service voor splitsen en samen voegen implementeren om gegevens te verplaatsen tussen Shard-data bases
 
-Het hulpprogramma voor splitsen en samenvoegen kunt u gegevens verplaatsen tussen shard-databases. Zie [om gegevens te verplaatsen tussen uitgeschaalde clouddatabases](sql-database-elastic-scale-overview-split-and-merge.md)
+Met het gereedschap splitsen en samen voegen kunt u gegevens verplaatsen tussen Shard-data bases. Zie [gegevens verplaatsen tussen uitgeschaalde Cloud databases](sql-database-elastic-scale-overview-split-and-merge.md)
 
-## <a name="download-the-split-merge-packages"></a>Downloaden van de pakketten splitsen en samenvoegen
-1. Download de nieuwste versie van NuGet van [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
-2. Open een opdrachtprompt en navigeer naar de map waar u nuget.exe gedownload. De download bevat onder andere PowerShell-opdrachten.
-3. Download de meest recente pakket met splitsen en samenvoegen in de huidige map met de onderstaande opdracht:
+## <a name="download-the-split-merge-packages"></a>De pakketten voor splitsen en samen voegen downloaden
+1. Down load de nieuwste versie van NuGet van [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
+2. Open een opdracht prompt en ga naar de map waarin u nuget. exe hebt gedownload. De down load bevat Power shell-opdrachten.
+3. Down load het nieuwste pakket voor splitsen en samen voegen in de huidige map met de onderstaande opdracht:
    ```
    nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
    ```  
 
-De bestanden worden geplaatst in een map met de naam **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** waar *x.x.xxx.x* geeft het versienummer. Zoeken naar de bestanden van de Service splitsen en samenvoegen in de **content\splitmerge\service** onderliggende map en de splitsen en samenvoegen PowerShell-scripts (en vereiste client-dll's) in de **content\splitmerge\powershell** onderliggende map.
+De bestanden worden geplaatst in een map met de naam **micro soft. Azure. SqlDatabase. ElasticScale. service. SplitMerge. x. x. xxx. x** waarbij *x. x. xxx. x* het versie nummer aangeeft. Zoek de service bestanden voor splitsen en samen voegen in de **content\splitmerge\service** -submap en de Split-Merge Power shell-scripts (en de vereiste client-dll's) in de submap **content\splitmerge\powershell** .
 
 ## <a name="prerequisites"></a>Vereisten
-1. Maak een Azure SQL DB-database die wordt gebruikt als de status van splitsen en samenvoegen-database. Ga naar de [Azure Portal](https://portal.azure.com). Maak een nieuwe **SQL-Database**. Geef een naam op voor de database en maak een nieuwe beheerder en het wachtwoord. Zorg ervoor dat de naam en wachtwoord op voor later gebruik.
-2. Zorg ervoor dat uw Azure SQL-database-server kan Azure-Services tot stand te brengen. In de portal in de **Firewall-instellingen**, zorg ervoor dat de **toegang tot Azure-Services toestaan** is ingesteld op **op**. Klik op het pictogram 'opslaan'.
-3. Maak een Azure-opslagaccount voor diagnostische uitvoer.
-4. Maak een Azure-Cloudservice voor uw service voor splitsen en samenvoegen.
+1. Maak een Azure SQL DB-Data Base die wordt gebruikt als de Data Base voor splitsen en samen voegen. Ga naar de [Azure Portal](https://portal.azure.com). Maak een nieuwe **SQL database**. Geef de Data Base een naam en maak een nieuwe beheerder en een nieuw wacht woord. Zorg ervoor dat u de naam en het wacht woord noteert voor later gebruik.
+2. Zorg ervoor dat de Azure SQL DB-server verbinding kan maken met Azure-Services. Zorg er in de portal in de **firewall instellingen**voor dat de instelling **toegang tot Azure-Services toestaan** is ingesteld op **aan**. Klik op het pictogram opslaan.
+3. Maak een Azure Storage-account voor diagnostische uitvoer.
+4. Maak een Azure-Cloud service voor uw service voor splitsen en samen voegen.
 
-## <a name="configure-your-split-merge-service"></a>Configureer uw service voor splitsen en samenvoegen
-### <a name="split-merge-service-configuration"></a>Configuratie van de service voor splitsen en samenvoegen
-1. In de map waarin u de splitsen en samenvoegen-assembly's gedownload, maakt u een kopie van de **ServiceConfiguration.Template.cscfg** -bestand dat naast verzonden **SplitMergeService.cspkg** en wijzig de naam **ServiceConfiguration.cscfg**.
-2. Open **ServiceConfiguration.cscfg** in een teksteditor, zoals Visual Studio die invoer zoals de indeling van de vingerafdrukken van het certificaat worden gevalideerd.
-3. Een nieuwe database maken of kies een bestaande database om te fungeren als de database van de status voor splitsen en samenvoegen bewerkingen en de verbindingsreeks van de database op te halen. 
+## <a name="configure-your-split-merge-service"></a>Uw service voor splitsen en samen voegen configureren
+### <a name="split-merge-service-configuration"></a>Service configuratie splitsen en samen voegen
+1. Maak in de map waarnaar u de Splits-samen voegingen hebt gedownload, een kopie van het bestand **ServiceConfiguration. template. cscfg** dat naast **SplitMergeService. cspkg** is geleverd en wijzig de naam **ServiceConfiguration. cscfg**.
+2. Open **ServiceConfiguration. cscfg** in een tekst editor, zoals Visual Studio, waarmee invoer wordt gevalideerd, zoals de indeling van certificaat vingerafdrukken.
+3. Maak een nieuwe data base of kies een bestaande Data Base als de status database voor splitsen en samen voegen en haal de connection string van die data base op. 
    
    > [!IMPORTANT]
-   > Gebruik de Latijnse sortering op dit moment de status van database (SQL\_Latin1\_algemene\_CP1\_CI\_AS). Zie voor meer informatie, [Windows Collation Name (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+   > Op dit moment moet de status database de Latijnse\_sortering (SQL Latin1\_General\_CP1\_CI\_as) gebruiken. Zie [Windows Collation name (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx)voor meer informatie.
    >
 
-   Met Azure SQL DB is de verbindingsreeks doorgaans van het formulier:
+   Met Azure SQL DB is de connection string doorgaans de volgende vorm:
       ```
       Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30
       ```
 
-4. Deze verbindingsreeks invoeren in het cscfg-bestand in zowel de **SplitMergeWeb** en **SplitMergeWorker** secties van de rol in de instelling ElasticScaleMetadata.
-5. Voor de **SplitMergeWorker** rol, voert u een geldige verbindingsreeks naar Azure storage voor de **WorkerRoleSynchronizationStorageAccountConnectionString** instelling.
+4. Voer deze connection string in het cscfg-bestand in zowel de **SplitMergeWeb** -als **SplitMergeWorker** -rollen in de instelling ElasticScaleMetadata.
+5. Voer voor de rol **SplitMergeWorker** een geldige connection string in voor Azure Storage voor de instelling **WorkerRoleSynchronizationStorageAccountConnectionString** .
 
 ### <a name="configure-security"></a>Beveiliging configureren
-Raadpleeg voor gedetailleerde instructies voor het configureren van de beveiliging van de service de [beveiligingsconfiguratie splitsen en samenvoegen](sql-database-elastic-scale-split-merge-security-configuration.md).
+Raadpleeg de [beveiligings configuratie voor splitsen en samen voegen](sql-database-elastic-scale-split-merge-security-configuration.md)voor gedetailleerde instructies voor het configureren van de beveiliging van de service.
 
-Voor de toepassing van een eenvoudig test-implementatie voor deze zelfstudie wordt een minimaal aantal configuratiestappen worden uitgevoerd aan de slag van de service en wordt uitgevoerd. Deze stappen schakelt u alleen het één machine /-account om te communiceren met de service wordt uitgevoerd.
+Voor het doel van een eenvoudige test implementatie voor deze zelf studie wordt een minimale set configuratie stappen uitgevoerd om de service actief te maken. Met deze stappen wordt alleen de ene computer/het account ingeschakeld die deze uitvoert om te communiceren met de service.
 
 ### <a name="create-a-self-signed-certificate"></a>Een zelfondertekend certificaat maken
-Een nieuwe map maken en uitvoeren vanuit deze map de volgende opdracht uit via een [opdrachtprompt voor ontwikkelaars voor Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) venster:
+Maak een nieuwe map en voer vanuit deze map de volgende opdracht uit met behulp [van een opdracht prompt voor ontwikkel aars voor Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) -venster:
 
    ```
     makecert ^
@@ -74,39 +73,39 @@ Een nieuwe map maken en uitvoeren vanuit deze map de volgende opdracht uit via e
     -sv MyCert.pvk MyCert.cer
    ```
 
-U wordt gevraagd om een wachtwoord voor het beveiligen van de persoonlijke sleutel. Voer een sterk wachtwoord in en Bevestig het. U wordt vervolgens gevraagd om het wachtwoord moet worden gebruikt zodra er meer hierna. Klik op **Ja** aan het einde te importeren naar het archief Vertrouwde Certification Authorities basis.
+U wordt gevraagd om een wacht woord om de persoonlijke sleutel te beveiligen. Voer een sterk wacht woord in en bevestig dit. Vervolgens wordt u gevraagd het wacht woord nog een keer te gebruiken. Klik op **Ja** aan het einde om het te importeren in het basis archief Vertrouwde certificerings instanties.
 
 ### <a name="create-a-pfx-file"></a>Een PFX-bestand maken
-De volgende opdracht uitvoeren vanaf hetzelfde venster waar makecert is uitgevoerd. Gebruik hetzelfde wachtwoord dat u gebruikt voor het maken van het certificaat:
+Voer de volgende opdracht uit vanuit hetzelfde venster waarin makecert is uitgevoerd. Gebruik hetzelfde wacht woord dat u hebt gebruikt om het certificaat te maken:
 
     pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
 
-### <a name="import-the-client-certificate-into-the-personal-store"></a>Importeer het clientcertificaat in het persoonlijke archief
-1. Dubbelklik in Windows Verkenner op **MyCert.pfx**.
-2. In de **Wizard Certificaat importeren** Selecteer **huidige gebruiker** en klikt u op **volgende**.
-3. Controleer of het bestandspad en op **volgende**.
-4. Typ het wachtwoord, laat u **alle uitgebreide eigenschappen omvatten** ingeschakeld en klik op **volgende**.
-5. Laat **selecteert automatisch het certificaatarchief [...]**  ingeschakeld en klik op **volgende**.
-6. Klik op **voltooien** en **OK**.
+### <a name="import-the-client-certificate-into-the-personal-store"></a>Importeer het client certificaat in het persoonlijke archief
+1. Dubbel klik in Windows Verkenner op **MyCert. pfx**.
+2. Selecteer in de **wizard Certificaat importeren** de optie **huidige gebruiker** en klik op **volgende**.
+3. Bevestig het bestandspad en klik op **volgende**.
+4. Typ het wacht woord, behoud **alle uitgebreide eigenschappen zijn** ingeschakeld en klik op **volgende**.
+5. **Selecteer het certificaat archief [...] niet automatisch selecteren** en klik op **volgende**.
+6. Klik op **volt ooien** en **OK**.
 
-### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Het PFX-bestand uploaden naar de cloudservice
+### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Upload het PFX-bestand naar de Cloud service
 1. Ga naar de [Azure Portal](https://portal.azure.com).
-2. Selecteer **Cloudservices**.
-3. Selecteer de cloudservice die u hierboven hebt gemaakt voor de service voor splitsen/samenvoegen.
+2. Selecteer **Cloud Services**.
+3. Selecteer de Cloud service die u hierboven hebt gemaakt voor de service voor splitsen en samen voegen.
 4. Klik op **certificaten** in het bovenste menu.
 5. Klik op **uploaden** in de onderste balk.
-6. Selecteer het PFX-bestand en het wachtwoord invoeren als hierboven.
-7. Als voltooid, kopieert u de certificaatvingerafdruk van het van het nieuwe item in de lijst.
+6. Selecteer het PFX-bestand en voer hetzelfde wacht woord in als hierboven.
+7. Als u klaar bent, kopieert u de vinger afdruk van het certificaat uit de nieuwe vermelding in de lijst.
 
-### <a name="update-the-service-configuration-file"></a>Het configuratiebestand van de service bijwerken
-Plak de vingerafdruk van het certificaat dat hierboven wordt gekopieerd naar het kenmerk/vingerafdrukwaarde van deze instellingen.
-Voor de werkrol:
+### <a name="update-the-service-configuration-file"></a>Het service configuratie bestand bijwerken
+Plak de gekopieerde certificaat vingerafdruk hierboven in het kenmerk vinger afdruk/waarde van deze instellingen.
+Voor de worker-rol:
    ```
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
    ```
 
-Voor de Webrol:
+Voor de Web-rol:
 
    ```
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
@@ -117,107 +116,107 @@ Voor de Webrol:
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
    ```
 
-. Houd er rekening mee dat de implementaties voor productie certificaten scheiden moet worden gebruikt voor de CA voor versleuteling, het servercertificaat en clientcertificaten. Zie voor gedetailleerde instructies op deze [Beveiligingsconfiguratie](sql-database-elastic-scale-split-merge-security-configuration.md).
+Houd er rekening mee dat voor productie-implementaties afzonderlijke certificaten moeten worden gebruikt voor de CA, voor versleuteling, het server certificaat en client certificaten. Zie voor gedetailleerde instructies voor [Beveiliging configuratie](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-## <a name="deploy-your-service"></a>De service implementeert
+## <a name="deploy-your-service"></a>Uw service implementeren
 1. Ga naar [Azure Portal](https://portal.azure.com)
-2. Selecteer de cloudservice die u eerder hebt gemaakt.
+2. Selecteer de Cloud service die u eerder hebt gemaakt.
 3. Klik op **Overzicht**.
-4. Kies de faseringsomgeving en klik vervolgens op **uploaden**.
-5. Voer een implementatielabel in het dialoogvenster. Klik op 'Uit lokale' voor 'Package' en 'Configuration', en kies de **SplitMergeService.cspkg** bestands- en uw cscfg-bestand dat u eerder hebt geconfigureerd.
-6. Zorg ervoor dat het selectievakje **toch implementeren als een of meer rollen met één exemplaar** is ingeschakeld.
-7. Klik op de knop tikken in de rechterbenedenhoek om te beginnen met de implementatie. Verwacht dat het een paar minuten duren.
+4. Kies de faserings omgeving en klik vervolgens op **uploaden**.
+5. Voer in het dialoog venster een implementatie label in. Voor zowel ' package ' als ' configuratie ' klikt u op ' van lokale ' en kiest u het bestand **SplitMergeService. cspkg** en uw cscfg-bestand dat u eerder hebt geconfigureerd.
+6. Zorg ervoor dat het selectie vakje is gemarkeerd **als geïmplementeerd, zelfs als een of meer functies één exemplaar bevatten** wordt gecontroleerd.
+7. Klik op de knop met het maat streepje in de rechter benedenhoek om te beginnen met de implementatie. Het duurt enkele minuten voordat de bewerking is voltooid.
 
 
-## <a name="troubleshoot-the-deployment"></a>De implementatie oplossen
-Als uw Webrol niet online is gekomen, is het waarschijnlijk een probleem met de beveiligingsconfiguratie. Controleer of de SSL is geconfigureerd, zoals hierboven beschreven.
+## <a name="troubleshoot-the-deployment"></a>Problemen met de implementatie oplossen
+Als uw webfunctie niet online is, is er waarschijnlijk een probleem met de beveiligings configuratie. Controleer of de SSL is geconfigureerd zoals hierboven is beschreven.
 
-Als de werkrol niet online is gekomen, maar uw Webrol is geslaagd, is het zeer waarschijnlijk een probleem opgetreden bij het verbinden met de status-database die u eerder hebt gemaakt.
+Als uw werknemersrol niet online kan worden gebracht, maar uw webrole slaagt, is er waarschijnlijk een probleem met het maken van verbinding met de status database die u eerder hebt gemaakt.
 
-* Zorg ervoor dat de verbindingsreeks in uw cscfg juist is.
-* Controleer of de server en database bestaat, en dat de gebruikers-id en het wachtwoord correct zijn.
-* Voor Azure SQL DB moet de verbindingsreeks van het formulier:
+* Zorg ervoor dat de connection string in uw cscfg nauw keurig is.
+* Controleer of de server en de data base bestaan en of de gebruikers-id en het wacht woord juist zijn.
+* Voor Azure SQL DB moet de connection string de volgende indeling hebben:
 
    ```  
    Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30
    ```
 
-* Zorg ervoor dat de servernaam begint niet met **https://** .
-* Zorg ervoor dat uw Azure SQL-database-server kan Azure-Services tot stand te brengen. Om dit te doen, opent u uw database in de portal en zorg ervoor dat de **toegang tot Azure-Services toestaan** is ingesteld op **op** **.
+* Zorg ervoor dat de server naam niet begint met **https://** .
+* Zorg ervoor dat de Azure SQL DB-server verbinding kan maken met Azure-Services. Om dit te doen, opent u uw database in de portal en zorg ervoor dat de **toegang tot Azure-Services toestaan** is ingesteld op **op** **.
 
 ## <a name="test-the-service-deployment"></a>De service-implementatie testen
 ### <a name="connect-with-a-web-browser"></a>Verbinding maken met een webbrowser
-Bepaal het eindpunt van uw service voor splitsen en samenvoegen op het web. U kunt dit vinden in de portal door te gaan naar de **overzicht** van uw cloudservice en Ga naar **Site-URL** aan de rechterkant. Vervang **http://** met **https://** omdat de standaardinstellingen van de beveiliging het HTTP-eindpunt uitschakelen. Laad de pagina voor deze URL in uw browser.
+Bepaal het web-eind punt van uw service voor splitsen en samen voegen. U kunt dit vinden in de portal door naar het **overzicht** van uw Cloud service te gaan en aan de rechter kant onder **site-URL** te kijken. Vervang **http://** door **https://** omdat de standaard beveiligings instellingen het http-eind punt uitschakelen. Laad de pagina voor deze URL in uw browser.
 
-### <a name="test-with-powershell-scripts"></a>Testen met PowerShell-scripts
-De implementatie en uw omgeving kunnen worden getest door het uitvoeren van de opgenomen voorbeeld PowerShell-scripts.
+### <a name="test-with-powershell-scripts"></a>Testen met Power shell-scripts
+De implementatie en uw omgeving kunnen worden getest door de meegeleverde Power shell-voorbeeld scripts uit te voeren.
 
-De scriptbestanden zijn:
+De volgende script bestanden zijn opgenomen:
 
-1. **SetupSampleSplitMergeEnvironment.ps1** -de gegevenslaag van een test voor splitsen en samenvoegen/ingesteld (Zie onderstaande tabel voor een gedetailleerde beschrijving)
-2. **ExecuteSampleSplitMerge.ps1** -testbewerkingen op de test wordt uitgevoerd gegevens in lagen (Zie onderstaande tabel voor een gedetailleerde beschrijving)
-3. **GetMappings.ps1** : op het hoogste niveau voorbeeldscript die de huidige status van de shard-toewijzingen afgedrukt.
-4. **ShardManagement.psm1** -helper-script dat de ShardManagement-API loopt
-5. **SqlDatabaseHelpers.psm1** -helper-script voor het maken en beheren van de SQL-databases
+1. **SetupSampleSplitMergeEnvironment. ps1** : Hiermee wordt een gegevenslaag voor een test ingesteld voor splitsen/samen voegen (Zie de tabel hieronder voor een gedetailleerde beschrijving)
+2. **ExecuteSampleSplitMerge. ps1** -test bewerkingen uitvoeren op de gegevenslaag van de test (Zie de tabel hieronder voor een gedetailleerde beschrijving)
+3. **GetMappings. ps1** : het voorbeeld script op het hoogste niveau waarmee de huidige status van de Shard-toewijzingen wordt afgedrukt.
+4. **ShardManagement. psm1** -hulp script dat de SHARDMANAGEMENT-API verpakt
+5. **SqlDatabaseHelpers. psm1** -hulp script voor het maken en beheren van SQL-data bases
    
    <table style="width:100%">
      <tr>
-       <th>PowerShell-bestand</th>
+       <th>Power shell-bestand</th>
        <th>Stappen</th>
      </tr>
      <tr>
-       <th rowspan="5">SetupSampleSplitMergeEnvironment.ps1</th>
-       <td>1.    Hiermee maakt u een database voor shard-Toewijzingsbeheer</td>
+       <th rowspan="5">SetupSampleSplitMergeEnvironment. ps1</th>
+       <td>1.    Hiermee maakt u een Shard-toewijzings beheer database</td>
      </tr>
      <tr>
-       <td>2.    Hiermee maakt u 2 shard-databases.
+       <td>2.    Maakt 2 Shard-data bases.
      </tr>
      <tr>
-       <td>3.    Hiermee maakt u een shard-toewijzing voor deze databases (verwijdert alle bestaande shard-voor deze databases kaarten). </td>
+       <td>3.    Hiermee maakt u een Shard-kaart voor deze data bases (Hiermee worden bestaande Shard-kaarten voor deze data bases verwijderd). </td>
      </tr>
      <tr>
-       <td>4.    Hiermee maakt u een tabel van klein in zowel de shards en vult de tabel in een van de shards.</td>
+       <td>4.    Hiermee maakt u een kleine voorbeeld tabel in beide Shards en vult u de tabel in een van de Shards.</td>
      </tr>
      <tr>
-       <td>5.    Verklaart de waarde voor SchemaInfo voor de shard-tabel.</td>
+       <td>5.    Declareert de waarde voor de Shard-tabel.</td>
      </tr>
    </table>
    <table style="width:100%">
      <tr>
-       <th>PowerShell-bestand</th>
+       <th>Power shell-bestand</th>
        <th>Stappen</th>
      </tr>
    <tr>
        <th rowspan="4">ExecuteSampleSplitMerge.ps1 </th>
-       <td>1.    Verzendt een split-aanvraag naar de front-end van de web Service voor splitsen en samenvoegen, die wordt gesplitst halve gegevens van de eerste shard naar de tweede shard.</td>
+       <td>1.    Hiermee verzendt u een splits aanvraag naar de web-frontend van de Split-Merge-service, die de helft van de gegevens van de eerste Shard opsplitst in de tweede Shard.</td>
      </tr>
      <tr>
-       <td>2.    De webfrontend voor de status van de gesplitste worden opgevraagd en wacht totdat de aanvraag is voltooid.</td>
+       <td>2.    Hiermee wordt de web-frontend gecontroleerd op de status van de gesplitste aanvraag en wordt gewacht totdat de aanvraag is voltooid.</td>
      </tr>
      <tr>
-       <td>3.    Verzendt een samenvoegaanvraag aan de front-end van de web Service voor splitsen en samenvoegen, die de gegevens van de tweede shard terug naar de eerste shard verplaatst.</td>
+       <td>3.    Hiermee verzendt u een aanvraag voor samen voegen naar de web-frontend voor het splitsen en samen voegen van de service. Hiermee worden de gegevens van de tweede Shard terug naar de eerste Shard.</td>
      </tr>
      <tr>
-       <td>4.    De frontend van de website van de status van de aanvraag samenvoegen worden opgevraagd en wacht totdat de aanvraag is voltooid.</td>
+       <td>4.    Hiermee wordt de web-frontend voor de status van de samenvoeg aanvraag gecontroleerd en wordt gewacht totdat de aanvraag is voltooid.</td>
      </tr>
    </table>
    
-## <a name="use-powershell-to-verify-your-deployment"></a>PowerShell gebruiken om te controleren of uw implementatie
-1. Open een nieuwe PowerShell-venster en navigeer naar de map waar u de splitsen en samenvoegen-pakket hebt gedownload en navigeer vervolgens naar de map 'powershell'.
-2. Een Azure SQL Database-server (of kies een bestaande server) waar de shard-Toewijzingsbeheer en de shards worden gemaakt.
+## <a name="use-powershell-to-verify-your-deployment"></a>Power shell gebruiken om uw implementatie te controleren
+1. Open een nieuw Power shell-venster en navigeer naar de map waarin u het pakket voor splitsen en samen voegen hebt gedownload en navigeer vervolgens naar de map Power shell.
+2. Maak een Azure SQL Database Server (of kies een bestaande server) waar de Shard-kaart Manager en Shards worden gemaakt.
    
    > [!NOTE]
-   > Het script SetupSampleSplitMergeEnvironment.ps1 maakt alle deze databases op dezelfde server standaard aan het script eenvoudig te houden. Dit is geen beperking van de splitsen en samenvoegen-Service zelf.
+   > Het script SetupSampleSplitMergeEnvironment. ps1 maakt standaard al deze data bases op dezelfde server, zodat het script eenvoudig te gebruiken is. Dit is geen beperking van de service voor splitsen en samen voegen.
    >
    
-   De aanmelding voor een SQL-verificatie met lees-/ schrijftoegang tot de databases nodig voor de service voor splitsen en samenvoegen voor het verplaatsen van gegevens en de shard-toewijzing bijwerken. Omdat de Service voor splitsen en samenvoegen wordt uitgevoerd in de cloud, ondersteunt het momenteel geen geïntegreerde verificatie.
+   Er is een SQL-verificatie aanmelding met lees-/schrijftoegang tot de Db's vereist voor de Split-Merge-service om gegevens te verplaatsen en de Shard-kaart bij te werken. Omdat de service voor splitsen en samen voegen in de Cloud wordt uitgevoerd, biedt deze momenteel geen ondersteuning voor geïntegreerde verificatie.
    
-   Zorg ervoor dat de Azure SQL-server is geconfigureerd, zodat toegang vanaf het IP-adres van de machine uitvoeren van deze scripts. U vindt deze instelling onder de Azure SQL-server / configuration / IP-adressen toegestaan.
-3. Voer het script SetupSampleSplitMergeEnvironment.ps1 voor het maken van de voorbeeldomgeving.
+   Zorg ervoor dat de Azure SQL-Server zo is geconfigureerd dat toegang wordt toegestaan vanaf het IP-adres van de computer waarop deze scripts worden uitgevoerd. U kunt deze instelling vinden onder de Azure SQL-Server/configuratie/toegestane IP-adressen.
+3. Voer het script SetupSampleSplitMergeEnvironment. ps1 uit om de voorbeeld omgeving te maken.
    
-   Uitvoeren van dit script worden gewist van alle bestaande shard map management gegevens structuren op de database voor shard-manager en de shards. Het is mogelijk handig om het script opnieuw uitvoeren als u wilt opnieuw initialiseren van de shard-toewijzing of shards.
+   Als u dit script uitvoert, worden alle bestaande Shard-toewijzings beheer gegevens structuren in de Shard-toewijzings beheer database en de Shards gewist. Het kan handig zijn om het script opnieuw uit te voeren als u de Shard-kaart of Shards opnieuw wilt initialiseren.
    
-   Voorbeeld van opdrachtregel:
+   Voor beeld van opdracht regel:
 
    ```   
      .\SetupSampleSplitMergeEnvironment.ps1 
@@ -226,7 +225,7 @@ De scriptbestanden zijn:
          -Password 'MySqlPassw0rd' 
          -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```      
-4. Voer het script Getmappings.ps1 om de toewijzingen die momenteel aanwezig zijn in de voorbeeldomgeving weer te geven.
+4. Voer het script Getmappings. ps1 uit om de toewijzingen weer te geven die momenteel bestaan in de voorbeeld omgeving.
    
    ```
      .\GetMappings.ps1 
@@ -236,9 +235,9 @@ De scriptbestanden zijn:
          -ShardMapManagerServerName 'abcdefghij.database.windows.net'
 
    ```         
-5. Voer het script ExecuteSampleSplitMerge.ps1 voor het uitvoeren van een splitsbewerking (de helft van de gegevens op de eerste shard verplaatst naar de tweede shard) en vervolgens een samenvoeging (de gegevens terug verplaatsen naar de eerste shard). Als u SSL geconfigureerd en links van het http-eindpunt dat is uitgeschakeld, zorg ervoor dat u het eindpunt https:// in plaats daarvan.
+5. Voer het script ExecuteSampleSplitMerge. ps1 uit om een splits bewerking uit te voeren (waarbij de helft van de gegevens op de eerste Shard wordt verplaatst naar de tweede Shard) en vervolgens een samenvoeg bewerking (waarbij de gegevens weer naar de eerste Shard worden verplaatst). Als u SSL hebt geconfigureerd en het http-eind punt is uitgeschakeld, controleert u of u in plaats daarvan het https://-eind punt gebruikt.
    
-   Voorbeeld van opdrachtregel:
+   Voor beeld van opdracht regel:
 
    ```   
      .\ExecuteSampleSplitMerge.ps1
@@ -250,13 +249,13 @@ De scriptbestanden zijn:
          -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
    ```      
    
-   Als u de onderstaande fout, is het meest waarschijnlijk een probleem met het certificaat van uw Web-eindpunt. Probeer verbinding te maken met het eindpunt op het Web met uw favoriete webbrowser en controleer of er een certificaatfout.
+   Als de onderstaande fout wordt weer gegeven, is er waarschijnlijk een probleem met het certificaat van uw webeindpunt. Probeer verbinding te maken met het eind punt van het web met uw favoriete webbrowser en controleer of er een certificaat fout is opgetreden.
    
      ```
      Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.
      ```
    
-   Als deze is geslaagd, de uitvoer moet eruitzien als de onderstaande:
+   Als dat is gelukt, ziet de uitvoer er als volgt uit:
    
    ```
    > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' -CertificateThumbprint 0123456789abcdef0123456789abcdef01234567
@@ -292,41 +291,41 @@ De scriptbestanden zijn:
    > Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
    > 
    ```
-6. Experimenteer met andere gegevenstypen. Al deze scripts duren voordat een optionele - ShardKeyType parameter waarmee u het type sleutel opgeven. De standaardwaarde is Int32, maar u kunt ook opgeven Int64, Guid of binair.
+6. Experimenteer met andere gegevens typen. Al deze scripts hebben een optionele para meter-ShardKeyType waarmee u het sleutel type kunt opgeven. De standaard waarde is Int32, maar u kunt ook Int64, GUID of binary opgeven.
 
 ## <a name="create-requests"></a>Aanvragen maken
-De service kan worden gebruikt met behulp van de web-UI of door het importeren en het gebruik van de SplitMerge.psm1 PowerShell-module die wordt uw aanvragen via de Webrol indienen.
+De service kan worden gebruikt met behulp van de webgebruikersinterface of door de Power shell-module SplitMerge. psm1 te importeren en te gebruiken, waarmee uw aanvragen via de webfunctie worden verzonden.
 
-De service kunt verplaatsen van gegevens in shard tabellen en tabellen. Een shard-tabel heeft een sharding-sleutelkolom en andere rijgegevens in elke shard heeft. Een tabel is niet shard, zodat deze dezelfde rijgegevens in elke shard bevat. Tabellen zijn handig voor gegevens die niet vaak veranderen en wordt gebruikt om lid te worden met shard tabellen in query's.
+De service kan gegevens in zowel Shard-tabellen als referentie tabellen verplaatsen. Een Shard-tabel heeft een sharding-sleutel kolom en heeft verschillende rijgegevens op elke Shard. Een verwijzings tabel is niet Shard, zodat deze dezelfde rijgegevens op elke Shard bevat. Verwijzings tabellen zijn handig voor gegevens die niet vaak veranderen en worden gebruikt om samen te voegen met Shard-tabellen in query's.
 
-Als u wilt splitsen en samenvoegen-bewerking uitvoeren, moet u de shard tabellen en tabellen die u wilt hebt verplaatst declareren. Dit is mogelijk dankzij de **waarde voor SchemaInfo** API. Deze API is in de **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema** naamruimte.
+Als u een bewerking voor splitsen en samen voegen wilt uitvoeren, moet u de Shard-tabellen en verwijzings tabellen declareren die u wilt verplaatsen. Dit wordt bereikt met de **waarde** -API. Deze API bevindt zich in de naam ruimte **micro soft. Azure. SqlDatabase. ElasticScale. ShardManagement. schema** .
 
-1. Voor elke shard-tabel, maakt u een **ShardedTableInfo** object met een beschrijving van de tabel bovenliggende schemanaam (optioneel, standaard ingesteld op 'dbo'), naam van de tabel en de naam van de kolom in de tabel die de sharding-sleutel bevat.
-2. Voor elke tabel, maakt u een **ReferenceTableInfo** object met een beschrijving van de tabel bovenliggende schemanaam (optioneel, standaard ingesteld op 'dbo') en de naam van de tabel.
-3. De bovenstaande TableInfo objecten toevoegen aan een nieuwe **waarde voor SchemaInfo** object.
-4. Geen verwijzing ophalen naar een **ShardMapManager** object en roep **GetSchemaInfoCollection**.
-5. Toevoegen de **waarde voor SchemaInfo** naar de **SchemaInfoCollection**, geven de naam van de shard-toewijzing.
+1. Maak voor elke Shard-tabel een **ShardedTableInfo** -object dat de bovenliggende schema naam van de tabel beschrijft (optioneel, standaard ingesteld op ' dbo '), de tabel naam en de naam van de kolom in die tabel die de sharding-sleutel bevat.
+2. Maak voor elke verwijzings tabel een **ReferenceTableInfo** -object dat de naam van het bovenliggende schema van de tabel beschrijft (optioneel, standaard ingesteld op ' dbo ') en de tabel naam.
+3. Voeg de bovenstaande TableInfo-objecten toe aan een nieuw **waarde** -object.
+4. Een verwijzing naar een **ShardMapManager** -object ophalen en **GetSchemaInfoCollection**aanroepen.
+5. Voeg de **waarde** toe aan de **SchemaInfoCollection**, waarbij u de naam van de Shard-toewijzing opgeeft.
 
-Een voorbeeld hiervan kan worden weergegeven in het script SetupSampleSplitMergeEnvironment.ps1.
+Een voor beeld hiervan is te zien in het script SetupSampleSplitMergeEnvironment. ps1.
 
-De service voor splitsen en samenvoegen maakt geen de doeldatabase (of een schema voor alle tabellen in de database) voor u. Ze moeten zijn vooraf gemaakte voordat een aanvraag wordt verzonden naar de service.
+De Split-Merge-service maakt niet de doel database (of schema voor tabellen in de data base) voor u. Deze moeten vooraf worden gemaakt voordat een aanvraag naar de service wordt verzonden.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-Mogelijk ziet u de onderstaande bericht bij het uitvoeren van de powershell-voorbeeldscripts:
+Het onderstaande bericht wordt weer gegeven bij het uitvoeren van de Power shell-voorbeeld scripts:
 
    ```
    Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
    ```
 
-Deze fout betekent dat uw SSL-certificaat niet correct is geconfigureerd. Volg de instructies in de sectie 'Verbinding maken met een webbrowser'.
+Deze fout betekent dat uw SSL-certificaat niet correct is geconfigureerd. Volg de instructies in de sectie verbinding maken met een webbrowser.
 
-Als u geen aanvragen indienen ziet u mogelijk deze:
+Als u geen aanvragen kunt indienen, ziet u mogelijk het volgende:
 
 ```
 [Exception] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'. 
 ```
 
-In dit geval Controleer uw configuratiebestand, met name de instelling voor **WorkerRoleSynchronizationStorageAccountConnectionString**. Deze fout geeft meestal aan dat de werkrol niet met succes de metagegevensdatabase voor eerste keer wordt gebruikt initialiseren kan. 
+Controleer in dit geval het configuratie bestand, met name de instelling voor **WorkerRoleSynchronizationStorageAccountConnectionString**. Deze fout geeft meestal aan dat de werk rollen de meta gegevens database niet kan initialiseren bij het eerste gebruik. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

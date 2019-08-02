@@ -1,197 +1,184 @@
 ---
 title: Azure Site Recovery bewaken | Microsoft Docs
-description: Bewaken en problemen oplossen van problemen met Azure Site Recovery-replicatie en bewerkingen met behulp van de portal
+description: Azure Site Recovery replicatie problemen en-bewerkingen controleren en problemen oplossen met behulp van de portal
 author: raynew
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 07/30/2019
 ms.author: raynew
-ms.openlocfilehash: 5a659da4bcc86544c31d7a789779253a0f571f34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497549"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717354"
 ---
-# <a name="monitor-site-recovery"></a>Monitor voor Site Recovery
+# <a name="monitor-site-recovery"></a>Site Recovery bewaken
 
-In dit artikel leert u over het gebruik van Azure Site Recovery in de ingebouwde controlefuncties voor controle en probleemoplossing. 
+In dit artikel leest u hoe u Azure [site Recovery](site-recovery-overview.md)bewaakt met behulp van site Recovery ingebouwde bewaking.  U kunt het volgende controleren:
 
-## <a name="use-the-dashboard"></a>Het dashboard gebruiken
+- De status en status van computers die worden gerepliceerd door Site Recovery
+- De status van de testfailover van machines testen.
+- Problemen en fouten die van invloed zijn op de configuratie en replicatie.
+- Infrastructuur onderdelen zoals on-premises servers.
 
-1. Klik in de kluis op **overzicht** om de Site Recovery-dashboard te openen. Er zijn dashboard-pagina's voor zowel de Site Recovery en de back-up en u kunt schakelen tussen deze.
 
-    ![Site Recovery-dashboard](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
+## <a name="before-you-start"></a>Voordat u begint
 
-2.  Het dashboard worden samengevoegd voor alle controlegegevens voor de kluis op één locatie. Vanuit het dashboard, kunt u inzoomen op verschillende gebieden. 
+U kunt [algemene controle vragen](monitoring-common-questions.md) bekijken voordat u begint.
 
-    ![Site Recovery-dashboard](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
+## <a name="monitor-in-the-dashboard"></a>Bewaken in het dash board
 
-3. Op **gerepliceerde items**, klikt u op **Alles weergeven** om te zien van alle servers in de kluis.
-4. Inzoomen door te klikken op de details van de status in elke sectie. In **infrastructuurweergave**, kunt u bewakingsgegevens sorteren op het type machines u repliceert.
+1. Klik in de kluis op **overzicht**. Het Recovery Services-dash board consolideert alle bewakings gegevens voor de kluis op één locatie. Er zijn pagina's voor zowel Site Recovery als de Azure Backup-Service, en u kunt hiertussen scha kelen.
 
-## <a name="monitor-replicated-items"></a>Gerepliceerde items controleren
+    ![Site Recovery dash board](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
 
-In de sectie gerepliceerde items ziet de status van alle machines waarvoor replicatie is ingeschakeld in de kluis.
+2. In het dash board kunt u inzoomen op verschillende gebieden. 
 
-**status** | **Details**
+    ![Site Recovery dash board](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
+
+3. Klik in **gerepliceerde items**op **alles weer geven** om alle servers in de kluis weer te geven.
+4. Klik op de status Details in elke sectie om in te zoomen.
+5. In de **weer gave infra structuur**sorteert u bewakings gegevens op het type machines dat u repliceert.
+
+## <a name="monitor-replicated-items"></a>Gerepliceerde items bewaken
+
+In **gerepliceerde items**controleert u de status van alle computers in de kluis waarvoor replicatie is ingeschakeld.
+
+**Overheids** | **Details**
 --- | ---
-In orde | Replicatie wordt normaal gesproken voortgezet. Er is geen fout of waarschuwing symptomen worden gedetecteerd.
-Waarschuwing | Een of meer waarschuwing problemen die mogelijk van invloed zijn op replicatie worden gedetecteerd.
-Kritiek | Een of meer kritieke replicatie fout problemen zijn gedetecteerd.<br/><br/> Deze fout-problemen zijn doorgaans indicatoren dat replicatie vastgelopen of niet zo snel mogelijk de gegevenswijzigingssnelheid wordt uitgevoerd.
-Niet van toepassing | Servers die momenteel worden niet verwacht worden gerepliceerd. Dit kan dus ook machines die een failover zijn.
+In orde | De replicatie wordt normaal uitgevoerd. Er zijn geen fout-of waarschuwings symptomen gedetecteerd.
+Waarschuwing | Er zijn een of meer waarschuwings symptomen gedetecteerd die van invloed kunnen zijn op replicatie.
+Kritiek | Er zijn een of meer kritieke symptomen van de replicatie fout gedetecteerd.<br/><br/> Deze fout symptomen zijn doorgaans indica toren die zijn achtergebleven, of die niet zo snel als de snelheid van gegevens wijzigingen worden uitgevoerd.
+Niet van toepassing | Servers die momenteel niet naar verwachting repliceren. Dit kan ook betrekking hebben op machines waarvoor een failover is uitgevoerd.
 
-## <a name="monitor-test-failovers"></a>Testfailovers van monitor
+## <a name="monitor-test-failovers"></a>Testfailover controleren
 
-U kunt de status van de failovertest voor machines weergeven in de kluis.
+Controleer de failover-status voor computers in de kluis in de **failover-test**.
 
-- Het is raadzaam dat u een testfailover uitvoeren voor gerepliceerde machines ten minste eenmaal na zes maanden. Het is een manier om te controleren dat failover werkt zoals verwacht zonder te onderbreken van uw productieomgeving. 
-- Een testfailover wordt beschouwd als geslaagd pas nadat het opruimen van de failover- en na een failover zijn voltooid.
+- We raden u aan om ten minste één keer per zes maanden een testfailover uit te voeren op gerepliceerde machines. Het is een manier om te controleren of failover werkt zoals verwacht, zonder uw productie omgeving te onderbreken. 
+- Een testfailover wordt alleen als geslaagd beschouwd nadat de failover en het opruimen na de failover zijn voltooid.
 
-**status** | **Details**
+**Overheids** | **Details**
 --- | ---
-Test aanbevolen | Machines die nog niet een test-failover was omdat de beveiliging is ingeschakeld.
-Succesvol uitgevoerd | Testfailovers machines met of meer successen te behalen.
-Niet van toepassing | Computers die momenteel geschikt zijn voor een testfailover niet. Machines waarvoor een failover, is hebben bijvoorbeeld initiële replicatie/failover/testfailover wordt uitgevoerd.
+Test aanbevolen | Computers die geen testfailover hebben gehad sinds de beveiliging is ingeschakeld.
+Succesvol uitgevoerd | Machines met een of meer geslaagde testfailover.
+Niet van toepassing | Machines die momenteel niet in aanmerking komen voor een testfailover. Computers waarvoor failover is uitgevoerd, hebben bijvoorbeeld een initiële replicatie/testfailover/failover.
 
-## <a name="monitor-configuration-issues"></a>Problemen met de configuratie van monitor
+## <a name="monitor-configuration-issues"></a>Configuratie problemen bewaken
 
-De **configuratieproblemen** sectie ziet u een lijst met problemen die mogelijk van invloed op uw mogelijkheid is failover.
+In **configuratie problemen**bewaakt u eventuele problemen die van invloed kunnen zijn op de failover van de functie.
 
-- Problemen met configuratie (met uitzondering van software-update-beschikbaarheid), worden gedetecteerd door een bewerking periodieke validator die standaard wordt elke 12 uur wordt uitgevoerd. U kunt afdwingen dat de bewerking validatie van het direct uitvoeren door te klikken op het pictogram naast de **configuratieproblemen** sectiekop.
-- Klik op de koppelingen voor meer informatie. Voor problemen die invloed hebben op specifieke computers, klikt u op de **aandacht** in de **configuraties als doel** kolom. De details bevatten herstelaanbevelingen.
+- Configuratie problemen (met uitzonde ring van de beschik baarheid van software-updates) worden gedetecteerd door een periodieke validatie bewerking die standaard elke 12 uur wordt uitgevoerd. U kunt afdwingen dat de validatie bewerking onmiddellijk wordt uitgevoerd door te klikken op het pictogram Vernieuwen naast de sectie **configuratie problemen** .
+- Klik op de koppelingen voor meer informatie. Klik op **aandacht vereist** in de kolom **doel configuraties** voor problemen die invloed hebben op specifieke computers. Details zijn onder andere aanbevelingen voor herstel.
 
-**status** | **Details**
+**Overheids** | **Details**
 --- | ---
-Ontbrekende configuraties | Er is een vereiste instelling ontbreekt, zoals een herstelnetwerk of een resourcegroep.
-Ontbrekende resources | Een opgegeven resource kan niet worden gevonden of is niet beschikbaar in het abonnement. Bijvoorbeeld: de resource is verwijderd of gemigreerd. Bewaakte resources opgenomen de doelresourcegroep, doel-VNet/subnet, logboek-/ doelopslagaccount, doelbeschikbaarheidsset, doel-IP-adres.
-Het abonnementsquotum |  De beschikbare abonnementen quotum resourceverdeling vergeleken met het saldo die nodig is voor failover van alle machines in de kluis.<br/><br/> Als er niet voldoende resources, wordt een saldo Onvoldoende quotum gerapporteerd.<br/><br/> Quota bewaakt voor het aantal VM-kernen, VM-familie kerngeheugens, netwerkinterfaces (NIC)-kaart.
-Software-updates | De beschikbaarheid van nieuwe software-updates en informatie over het verlopen softwareversies.
+Ontbrekende configuraties | Er ontbreekt een vereiste instelling, zoals een herstel netwerk of een resource groep.
+Ontbrekende resources | Een opgegeven resource is niet gevonden of is niet beschikbaar in het abonnement. De resource is bijvoorbeeld verwijderd of gemigreerd. Bewaakte resources bevatten de doel resource groep, het doel-VNet/subnet, het logboek/het doel opslag account, de beschik baarheid van doelen, het doel-IP-adres.
+Abonnements quotum |  Het resource quotum van het beschik bare abonnement wordt vergeleken met het saldo dat nodig is voor het uitvoeren van een failover voor alle computers in de kluis.<br/><br/> Als er onvoldoende bronnen beschikbaar zijn, wordt er een ontoereikend quotum voor de quota gerapporteerd.<br/><br/> Quota worden bewaakt voor het aantal virtuele machines van de VM, de kern telling van de VM-serie, de netwerk interface kaart (NIC).
+Software-updates | De beschik baarheid van nieuwe software-updates en informatie over het verlopen van software versies.
 
 
-## <a name="monitoring-errors"></a>Bewaking van fouten 
-De **Foutensamenvatting** sectie ziet u momenteel actieve fout problemen die mogelijk van invloed zijn op servers in de kluis en het aantal betrokken machines repliceren.
+## <a name="monitor-errors"></a>Fouten bewaken
 
-- Aan het begin van de sectie worden fouten die invloed hebben op de on-premises infrastructuuronderdelen weergegeven. Bijvoorbeeld, niet-ontvangst van een heartbeat van de Azure Site Recovery Provider die wordt uitgevoerd op de on-premises configuratieserver, de VMM-server of de Hyper-V-host.
-- Volgende replicatie fout symptomen die invloed hebben op gerepliceerde servers worden weergegeven.
-- Items in de tabel worden gesorteerd op aflopende volgorde van de ernst van fout, en vervolgens op het aflopende volgorde van de telling van de betrokken computers.
-- Het aantal betrokken server is een handige manier om te begrijpen of één onderliggende probleem mogelijk van invloed zijn op meerdere machines. Bijvoorbeeld, een netwerkfout opgetreden kan mogelijk gevolgen hebben voor alle machines repliceren naar Azure. 
-- Er kunnen meerdere replicatiefouten optreden op één server. In dit geval, telt elke fout symptoom die server in de lijst van de betrokken servers. Nadat het probleem is opgelost, replicatie parameters verbeteren en de fout van de machine is uitgeschakeld.
+Controleer in **fout samenvatting**momenteel actieve fout symptomen die van invloed kunnen zijn op de replicatie van servers in de kluis en controleer het aantal betrokken machines.
 
-## <a name="monitor-the-infrastructure"></a>Controleer de infrastructuur.
+- De fouten die van invloed zijn op de onderdelen van on-premises infra structuur worden weer gegeven aan het begin van de sectie. Bijvoorbeeld een niet-ontvangst van een heartbeat van de Azure Site Recovery provider op de on-premises configuratie server of Hyper-V-host.
+- Vervolgens worden de problemen met de replicatie fout weer gegeven die van invloed zijn op gerepliceerde servers.
+- De tabel vermeldingen worden gesorteerd door de volg orde van de ernst van de fout te verlagen en vervolgens door de volg orde van het aantal betrokken machines te verminderen.
+- Het aantal betrokken servers is een handige manier om te begrijpen of één onderliggend probleem van invloed kan zijn op meerdere computers. Een netwerk fout kan bijvoorbeeld van invloed zijn op alle computers die repliceren naar Azure. 
+- Er kunnen meerdere replicatie fouten optreden op één server. In dit geval telt elk fout symptoom dat de server in de lijst met betrokken servers bevindt. Nadat het probleem is opgelost, worden de replicatie parameters verbeterd en wordt de fout van de computer gewist.
 
-De **infrastructuurweergave** ziet u de infrastructuuronderdelen die betrokken zijn in de replicatie en de status van de connectiviteit tussen servers en de Azure-services.
+## <a name="monitor-the-infrastructure"></a>Controleer de infra structuur.
 
-- Een groene lijn geeft aan of de verbinding in orde is.
-- Een rode lijn met de overlappende foutpictogram geeft aan dat het bestaan van een of meer fout symptomen die invloed op de connectiviteit.
--  Beweeg de muisaanwijzer op het foutpictogram van de om de fout en het aantal betrokken entiteiten weer te geven. Klik op het pictogram voor een gefilterde lijst met betrokken entiteiten.
+Bewaak in **infrastructuur weergave**de infrastructuur onderdelen die bij de replicatie betrokken zijn, en connectiviteits status tussen servers en de Azure-Services.
 
-    ![Weergave van de infrastructuur voor site Recovery (kluis)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
+- Een groene lijn geeft aan dat de verbinding in orde is.
+- Een rode lijn met het pictogram overlay-fout geeft het bestaan van een of meer fout symptomen die van invloed zijn op de connectiviteit.
+-  Beweeg de muis aanwijzer over het fout pictogram om de fout en het aantal betrokken entiteiten weer te geven. Klik op het pictogram voor een gefilterde lijst met betrokken entiteiten.
 
-## <a name="tips-for-monitoring-the-infrastructure"></a>Tips voor het bewaken van de infrastructuur
+    ![Site Recovery infrastructuur weergave (kluis)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
-- Zorg ervoor dat de on-premises infrastructuur-onderdelen (configuratieserver, processervers, VMM-servers, Hyper-V-hosts, VMware-machines) de meest recente versies van de Site Recovery Provider en/of agents worden uitgevoerd.
-- Voor het gebruik van alle functies in de infrastructuurweergave, u moet worden uitgevoerd [Update rollup 22](https://support.microsoft.com/help/4072852) voor deze onderdelen.
-- Voor het gebruik van de infrastructuurweergave, moet u de juiste replicatiescenario selecteren in uw omgeving. U kunt inzoomen in de weergave voor meer informatie. De volgende tabel ziet u welke scenario's worden weergegeven.
+### <a name="tips-for-monitoring-the-infrastructure"></a>Tips voor het bewaken van de infra structuur
 
-    **Scenario** | **status**  | **Weergave beschikbaar?**
+- Zorg ervoor dat de onderdelen van de on-premises infra structuur (configuratie server, proces servers, VMM-servers, Hyper-V-hosts, VMware-machines) de nieuwste versies van de Site Recovery provider en/of agents uitvoeren.
+- Als u alle functies in de infrastructuur weergave wilt gebruiken, moet u [Update pakket 22](https://support.microsoft.com/help/4072852) voor deze onderdelen uitvoeren.
+- Als u de infrastructuur weergave wilt gebruiken, selecteert u het juiste replicatie scenario in uw omgeving. U kunt inzoomen op de weer gave voor meer informatie. In de volgende tabel ziet u welke scenario's worden weer gegeven.
+
+    **Scenario** | **Overheids**  | **Weer gave beschikbaar?**
     --- |--- | ---
     **Replicatie tussen on-premises sites** | Alle statussen | Nee 
-    **Azure VM-replicatie tussen Azure-regio 's**  | Replicatie ingeschakeld/initiële replicatie wordt uitgevoerd | Ja
-    **Azure VM-replicatie tussen Azure-regio 's** | Failover / failback | Nee   
+    **Azure-VM-replicatie tussen Azure-regio's**  | Replicatie ingeschakeld/initiële replicatie wordt uitgevoerd | Ja
+    **Azure-VM-replicatie tussen Azure-regio's** | Failover/failback is voltooid | Nee   
     **VMware-replicatie naar Azure** | Replicatie ingeschakeld/initiële replicatie wordt uitgevoerd | Ja     
-    **VMware-replicatie naar Azure** | Kan niet terug via/is mislukt | Nee      
-    **Hyper-V-replicatie naar Azure** | Kan niet terug via/is mislukt | Nee
+    **VMware-replicatie naar Azure** | Failover/fail-back | Nee      
+    **Hyper-V-replicatie naar Azure** | Failover/fail-back | Nee
 
-- Voor de infrastructuurweergave voor een enkele replicerende machine, in het kluismenu, klikt u op **gerepliceerde items**, en selecteer een server.  
-
-### <a name="common-questions"></a>Veelgestelde vragen
+- Als u de weer gave van de infra structuur voor één replicerende computer wilt zien, klikt u in het menu kluis op **gerepliceerde items**en selecteert u een server.  
 
 
-**Waarom wordt het aantal virtuele machines in de kluis infrastructuurweergave verschilt van het totale aantal weergegeven in de gerepliceerde items?**
-
-De weergave kluis infrastructuur is ingedeeld per replicatiescenario's. Alleen computers in de momenteel geselecteerde replicatiescenario worden opgenomen in het aantal voor de weergave. Bovendien tellen we alleen virtuele machines die zijn geconfigureerd om te repliceren naar Azure. Failover van machines of machines die worden gerepliceerd naar een on-premises site in de weergave niet meegerekend.
-
-**Waarom is het aantal gerepliceerde items worden weergegeven in de sectie Essentials verschilt van het totale aantal gerepliceerde items op het dashboard?**
-
-Alleen machines voor waarvoor de initiële replicatie is voltooid, zijn opgenomen in het aantal die wordt weergegeven in de sectie Essentials. Op de gerepliceerde items het totaal bevat alle machines in de kluis, met inbegrip van die voor waarvoor de initiële replicatie wordt momenteel uitgevoerd.
 
 
-## <a name="monitor-recovery-plans"></a>Plannen voor herstel controleren
+## <a name="monitor-recovery-plans"></a>Herstel plannen controleren
 
-In de **herstelplannen sectie** Controleer de waarde van plannen, nieuwe abonnementen maken en bestaande wijzigen.  
+Bewaak in **herstel plannen**het aantal plannen, maak nieuwe plannen en wijzig bestaande abonnementen.  
 
 ## <a name="monitor-jobs"></a>Taken controleren
 
-De **taken** gedeelte worden de status van Site Recovery-bewerkingen.
+Bewaak de status van Site Recovery bewerkingen in **taken**.
 
-- De meeste bewerkingen in Azure Site Recovery wordt asynchroon uitgevoerd met een tracering-taak wordt gemaakt en gebruikt voor het bijhouden van de voortgang van de bewerking. 
-- Het taakobject heeft alle informatie die u nodig hebt om de status en de voortgang van de bewerking te houden. 
+- De meeste bewerkingen in Azure Site Recovery worden asynchroon uitgevoerd, waarbij een tracerings taak wordt gemaakt en gebruikt om de voortgang van de bewerking bij te houden. 
+- Het taak object bevat alle informatie die u nodig hebt om de status en de voortgang van de bewerking bij te houden. 
 
-Als volgt te werk om taken te controleren:
+Bewaak taken als volgt:
 
-1. In het dashboard > **taken** sectie ziet u een overzicht van de taken die zijn voltooid, wordt uitgevoerd, of wachten op invoer in de afgelopen 24 uur zijn. U kunt klikken op elke status voor meer informatie over de relevante taken.
-2. Klik op **weergeven van alle** om te zien van alle taken in de afgelopen 24 uur.
+1. In de sectie > **taken** in het dash board ziet u een overzicht van de taken die zijn voltooid, worden uitgevoerd of in de afgelopen 24 uur op invoer wachten. U kunt op een wille keurige status klikken voor meer informatie over de relevante taken.
+2. Klik op **alles weer geven** om alle taken in de afgelopen 24 uur weer te geven.
 
     > [!NOTE]
-    > U kunt ook informatie over taak in het kluismenu openen > **Site Recovery-taken**. 
+    > U kunt taak gegevens ook openen vanuit het menu kluis > **site Recovery taken**. 
 
-2. In de **Site Recovery-taken** lijst, een lijst met taken wordt weergegeven. Foutdetails voor een specifieke taken, filter op het bovenste menu krijgt u de takenlijst met op basis van specifieke criteria en geselecteerde taakdetails naar Excel exporteren.
+2. In de lijst **site Recovery taken** wordt een lijst met taken weer gegeven. In het bovenste menu kunt u fout gegevens voor een specifieke taken ophalen, de taken lijst filteren op basis van specifieke criteria en de geselecteerde taak details exporteren naar Excel.
 3. U kunt inzoomen op een taak door erop te klikken. 
 
 ## <a name="monitor-virtual-machines"></a>Virtuele machines bewaken
 
-In het dashboard toevoegen, kunt u machines op de pagina virtuele machines bewaken. 
+Haal in **gerepliceerde items**een lijst met gerepliceerde computers op. 
+    ![Lijst weergave van gerepliceerde items Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
-1. Klik in de kluis op **gerepliceerde items** voor een lijst van gerepliceerde machines.  U kunt ook aan een gefilterde lijst van de beveiligde items ophalen door te klikken op een van de scoped snelkoppelingen op de dashboardpagina.
+2. U kunt gegevens weer geven en filteren. In het menu Actie bovenaan kunt u acties uitvoeren voor een bepaalde machine, waaronder het uitvoeren van een testfailover of het weer geven van specifieke fouten.
+3. Klik op **kolommen** om aanvullende kolommen weer te geven, bijvoorbeeld om RPO, doel configuratie problemen en replicatie fouten weer te geven.
+4. Klik op **filter** om informatie weer te geven op basis van specifieke para meters, zoals replicatie status, of een bepaald replicatie beleid.
+5. Klik met de rechter muisknop op een machine om bewerkingen zoals een testfailover te initiëren of om specifieke fout gegevens weer te geven die eraan zijn gekoppeld.
+6. Klik op een machine om in te zoomen op meer informatie. Details zijn onder andere:
+   - **Replicatie-informatie**: Huidige status en status van de computer.
+   - **RPO** (Recovery Point Objective): Huidige RPO voor de virtuele machine en het tijdstip waarop de RPO het laatst is berekend.
+   - **Herstel punten**: Meest recente beschik bare herstel punten voor de machine.
+   - **Failover**-gereedheid: Hiermee geeft u op of er een testfailover voor de machine wordt uitgevoerd, de agent versie die op de computer wordt uitgevoerd (voor machines met de Mobility-service), en eventuele configuratie problemen.
+   - **Fouten**: Lijst met de bekende replicatie fout symptomen op de computer en mogelijke oorzaken/acties.
+   - **Gebeurtenissen**: Een chronologische lijst met recente gebeurtenissen die van invloed zijn op de computer. Fout Details worden weer gegeven met de momenteel waarneem bare fout symptomen, terwijl gebeurtenissen een historisch overzicht zijn van problemen die van invloed zijn op de computer.
+   - **Infrastructuur weergave**: Hiermee wordt de status van de infra structuur voor het scenario weer gegeven wanneer machines naar Azure worden gerepliceerd.
 
-    ![Site Recovery gerepliceerd weergave van de lijst met items](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
+     ![Details van gerepliceerde items Site Recovery/overzicht](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
-2. Op de **gerepliceerde items** pagina die u kunt weergeven en filteren van gegevens. U kunt acties uitvoeren voor een bepaalde machine, met inbegrip van een testfailover uitvoeren of het weergeven van specifieke fouten in het actiemenu aan de bovenkant.
-3. Klik op **kolommen** om extra kolommen, bijvoorbeeld om weer te geven RPO, weer te geven als doel problemen met configuratie en replicatiefouten.
-4. Klik op **Filter** om informatie op basis van specifieke parameters, zoals de replicatiestatus van of een bepaalde replicatiebeleid weer te geven.
-5. Met de rechtermuisknop op een machine bewerkingen zoals het test-failover voor het starten of om details van de specifieke fout die is gekoppeld aan deze weer te geven.
-6. Klik op een machine om te zoomen op meer informatie voor het. Details omvatten:
-   - **Replicatiegegevens**: Huidige status en integriteit van de machine.
-   - **RPO** (recovery point objective): Huidige RPO voor de virtuele machine en de tijd waarbinnen de RPO voor het laatst is berekend.
-   - **Herstelpunten**: Meest recente beschikbare herstelpunten voor de machine.
-   - **Failover-gereedheid**: Geeft aan of een test-failover is uitgevoerd voor de virtuele machine, de agent-versie die wordt uitgevoerd op de computer (voor machines waarop de Mobility-service wordt uitgevoerd) en eventuele configuratieproblemen.
-   - **Fouten**: Lijst met replicatie fout symptomen momenteel waargenomen op de machine en de mogelijke oorzaken en/of acties.
-   - **Gebeurtenissen**: Een chronologische lijst met recente gebeurtenissen die invloed hebben op de machine. Details van deze fout ziet u de symptomen momenteel waarneembare fout terwijl gebeurtenissen is een historisch overzicht van de problemen die mogelijk invloed hebben de machine.
-   - **Infrastructuurweergave**: Toont de status van de infrastructuur voor het scenario dat bij het repliceren van machines naar Azure.
+## <a name="subscribe-to-email-notifications"></a>Abonneren op e-mail meldingen
 
-     ![Site Recovery gerepliceerd item details/overzicht](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
-
-
-### <a name="common-questions"></a>Veelgestelde vragen
-
-**Hoe verschilt RPO van de meest recente beschikbare herstelpunt?**
-
-
-- Site Recovery gebruikt een asynchroon proces met meerdere stappen om de machines repliceren naar Azure.
-- Recente wijzigingen op de computer, samen met metagegevens, worden in de voorlaatste stap van de replicatie in een logboek/cache-opslagaccount gekopieerd.
-- Deze wijzigingen, samen met de code voor het identificeren van een punt hersteld, worden geschreven naar het opslagaccount in de doelregio.
--  Site Recovery kan nu een herstelbare punt voor de virtuele machine worden gegenereerd.
-- Het RPO heeft op dit moment is voldaan om de wijzigingen die zijn geüpload naar het opslagaccount dat tot nu toe. Met andere woorden, de machine RPO op dit moment is gelijk aan hoeveel tijd verstrijkt tussen de tijdstempel die overeenkomt met het herstelbare punt.
-- Nu Site Recovery kiest de geüploade gegevens uit het opslagaccount en toegepast op de replicaschijven die zijn gemaakt voor de machine.
-- Site Recovery een herstelpunt genereert, en is nu beschikbaar voor herstel na een failover. Dus de meest recente beschikbare herstelpunt geeft aan dat de tijdstempel die overeenkomt met de meest recente herstelpunt dat al is verwerkt en toegepast op de replicaschijven.
-
-> [!NOTE]
-> Een onjuiste systeemtijd op de replicerende bronmachine of op on-premises infrastructuurservers wordt de berekende RPO-waarde een verkeerd. Voor nauwkeurige RPO-rapportage, zorg ervoor dat de systeemklok nauwkeurig op alle servers en virtuele machines. 
-
-## <a name="subscribe-to-email-notifications"></a>Abonneren op e-mailmeldingen
-
-U kunt zich abonneren voor het ontvangen van e-mailmeldingen voor deze kritieke gebeurtenissen:
+U kunt zich abonneren voor het ontvangen van e-mail meldingen voor deze kritieke gebeurtenissen:
  
 - Kritieke status voor de gerepliceerde machine.
-- Er is geen connectiviteit tussen de on-premises infrastructuuronderdelen en de Site Recovery-service. Connectiviteit tussen de Site Recovery en on-premises servers die zijn geregistreerd in een kluis is gedetecteerd met een heartbeat-mechanisme.
+- Geen verbinding tussen de on-premises infrastructuur onderdelen en de Site Recovery service. De connectiviteit tussen Site Recovery en on-premises servers die zijn geregistreerd in een kluis, wordt gedetecteerd met behulp van een heartbeat-mechanisme.
 - Failover-fouten.
 
 Abonneer u als volgt:
 
-In de kluis > **bewaking** sectie, klikt u op **Site Recovery-gebeurtenissen**.
-1. Klik op **e-mailmeldingen**.
-1. In **e-mailmelding**, meldingen inschakelen en opgeven aan wie de om naar te verzenden. U kunt verzenden naar alle abonnementsbeheerders worden verzonden, meldingen en desgewenst specifieke e-mailadressen.
+Klik in de sectie kluis > **bewaking** op **site Recovery gebeurtenissen**.
+1. Klik op **e-mail meldingen**.
+1. Schakel in **e-mail melding**meldingen in en geef aan wie u wilt verzenden. U kunt verzenden naar alle abonnements beheerders die meldingen ontvangen en optioneel specifieke e-mail adressen.
 
-    ![E-mailmeldingen](./media/site-recovery-monitor-and-troubleshoot/email.png)
+    ![E-mailwaarschuwingen](./media/site-recovery-monitor-and-troubleshoot/email.png)
+
+## <a name="next-steps"></a>Volgende stappen
+
+[Meer informatie over](monitor-log-analytics.md) het bewaken van Site Recovery met Azure monitor.

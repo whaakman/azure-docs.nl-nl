@@ -1,33 +1,33 @@
 ---
-title: Maken en beheren van Azure Database voor MariaDB-VNet-service-eindpunten en regels met behulp van Azure CLI | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u maken en beheren van Azure Database voor MariaDB-VNet-service-eindpunten en regels met behulp van Azure CLI-opdrachtregel.
+title: Azure Database for MariaDB VNet-service-eind punten en-regels maken en beheren met behulp van Azure CLI | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u Azure Database for MariaDB VNet-service-eind punten en-regels maakt en beheert met behulp van de Azure CLI-opdracht regel.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: a86b755770dc59f196c57f1d86e7f29200ce25e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5e0f2bb19e5c753c5b327781774d3fd96ec58592
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171477"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609840"
 ---
-# <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Maken en beheren van Azure Database voor MariaDB-VNet-service-eindpunten met behulp van Azure CLI
+# <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Azure Database for MariaDB VNet-service-eind punten maken en beheren met Azure CLI
 
-Virtueel netwerk (VNet) services-eindpunten en regels uitbreiden privé-adresruimte van een Virtueelnetwerk met uw Azure Database voor MariaDB-server. Met behulp van handige opdrachten van Azure-opdrachtregelinterface (CLI), kunt u maken, bijwerken, verwijderen, lijst en VNet-service-eindpunten en regels voor het beheren van uw server weergeven. Zie voor een overzicht van Azure Database voor MariaDB-VNet-service-eindpunten, met inbegrip van beperkingen, [Azure Database voor MariaDB Server VNet service-eindpunten](concepts-data-access-security-vnet.md). VNet-service-eindpunten zijn beschikbaar in alle ondersteunde regio's voor Azure Database voor MariaDB.
+Virtual Network-Services (VNet)-eind punten en-regels breiden de privé-adres ruimte van een Virtual Network naar uw Azure Database for MariaDB-server uit. Met de handige CLI-opdrachten (opdracht regel Interface) van Azure kunt u VNet-service-eind punten en-regels maken, bijwerken, verwijderen en weer geven om uw server te beheren. Zie [Azure database for MariaDB server VNet-service-eind punten](concepts-data-access-security-vnet.md)voor een overzicht van Azure database for MariaDB VNet-service-eind punten, met inbegrip van beperkingen. VNet-service-eind punten zijn beschikbaar in alle ondersteunde regio's voor Azure Database for MariaDB.
 
 ## <a name="prerequisites"></a>Vereisten
-Als u wilt in deze gebruiksaanwijzing kunt doorlopen, hebt u het volgende nodig:
-- Installeer [de Azure CLI](/cli/azure/install-azure-cli) of de Azure Cloud Shell gebruiken in de browser.
-- Een [Azure Database voor MariaDB-server en database](quickstart-create-mariadb-server-database-using-azure-cli.md).
+Als u deze hand leiding wilt door lopen, hebt u het volgende nodig:
+- Installeer [de Azure cli](/cli/azure/install-azure-cli) of gebruik de Azure Cloud shell in de browser.
+- Een [Azure database for MariaDB-server en-data base](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 > [!NOTE]
 > Ondersteuning voor VNet-service-eindpunten is alleen voor algemeen gebruik en geoptimaliseerd voor geheugen-servers.
 
-## <a name="configure-vnet-service-endpoints"></a>VNet-service-eindpunten configureren
-De [az network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) opdrachten worden gebruikt om virtuele netwerken te configureren.
+## <a name="configure-vnet-service-endpoints"></a>VNet-service-eind punten configureren
+De opdracht [AZ Network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) wordt gebruikt voor het configureren van virtuele netwerken.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -42,22 +42,22 @@ az login
 
 Als u meerdere abonnementen hebt, kiest u het juiste abonnement waarin de resource moet worden gefactureerd. Selecteer de specifieke abonnements-id in uw account met de opdracht [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set). Gebruik de **id**-eigenschap uit de **az login**-uitvoer voor uw abonnement in de tijdelijke aanduiding voor de abonnement-id.
 
-- Het account moet de vereiste machtigingen om het maken van een virtueel netwerk en de service-eindpunt hebben.
+- Het account moet de benodigde machtigingen hebben voor het maken van een virtueel netwerk en een service-eind punt.
 
-Service-eindpunten kunnen afzonderlijk worden geconfigureerd op de virtuele netwerken, door een gebruiker met schrijftoegang tot het virtuele netwerk.
+Service-eind punten kunnen afzonderlijk op virtuele netwerken worden geconfigureerd door een gebruiker met schrijf toegang tot het virtuele netwerk.
 
-Voor het Azure-serviceresources aan een VNet, moet de gebruiker machtiging voor 'Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/' voor de subnetten die worden toegevoegd. Deze machtiging is standaard opgenomen in de ingebouwde service-beheerdersrollen en kan worden gewijzigd door aangepaste rollen te maken.
+Als u Azure-service resources wilt beveiligen met een VNet, moet de gebruiker over de machtiging ' micro soft. Network/virtualNetworks/subnets/joinViaServiceEndpoint/' beschikken voor de subnetten die worden toegevoegd. Deze machtiging is standaard opgenomen in de ingebouwde service-beheerdersrollen en kan worden gewijzigd door aangepaste rollen te maken.
 
 Meer informatie over [ingebouwde rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) en het toewijzen van specifieke machtigingen voor [aangepaste rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
-VNets en Azure-serviceresources kunnen in hetzelfde abonnement of in verschillende abonnementen zitten. Als het VNet en Azure-serviceresources in verschillende abonnementen zitten, moeten de resources onder dezelfde Active Directory (AD)-tenant.
+VNets en Azure-serviceresources kunnen in hetzelfde abonnement of in verschillende abonnementen zitten. Als de VNet-en Azure-service resources zich in verschillende abonnementen bevinden, moeten de resources onder dezelfde Active Directory (AD)-Tenant vallen. Zorg ervoor dat de **micro soft. SQL** -resource provider is geregistreerd voor beide abonnementen. Raadpleeg [Resource-Manager-registratie][resource-manager-portal] voor meer informatie
 
 > [!IMPORTANT]
-> Het is raadzaam om te lezen in dit artikel over de service-eindpunt configuraties en overwegingen voor het configureren van service-eindpunten. **Virtual Network service-eindpunt:** Een [service-eindpunt voor Virtueelnetwerk](../virtual-network/virtual-network-service-endpoints-overview.md) is een subnet met eigenschappen die een of meer formele Azure-service typenamen bevatten. VNet-services-eindpunten gebruikt u de naam van de service type **Microsoft.Sql**, die verwijst naar de Azure-service met de naam SQL-Database. Deze servicetag geldt ook voor de Azure SQL Database, Azure Database voor MariaDB, PostgreSQL en MySQL-services. Het is belangrijk te weten bij het toepassen van de **Microsoft.Sql** servicetag naar een VNet-service-eindpunt configureert het verkeer van de service-eindpunt voor alle Azure-Database-services, met inbegrip van Azure SQL Database, Azure Database for PostgreSQL, Azure Database voor MariaDB en Azure Database for MySQL-servers op het subnet.
+> Het is raadzaam om dit artikel te lezen over service-eindpunt configuraties en overwegingen voordat u service-eind punten configureert. **Service-eind punt Virtual Network:** Een [Virtual Network Service-eind punt](../virtual-network/virtual-network-service-endpoints-overview.md) is een subnet waarvan de eigenschaps waarden een of meer formele namen van Azure-service typen bevatten. VNet-service-eind punten gebruiken de service type naam **micro soft. SQL**, die verwijst naar de Azure-service met de naam SQL database. Deze servicetag is ook van toepassing op de Azure SQL Database-, Azure Database for MariaDB-, PostgreSQL-en MySQL-Services. Het is belang rijk te weten wanneer u de code van het **micro soft. SQL** -service toepast op een VNet-service-eind punt, waarbij service-eindpunt verkeer wordt geconfigureerd voor alle Azure Data Base-Services, waaronder Azure SQL Database, Azure database for PostgreSQL, Azure Data Base voor MariaDB en Azure Database for MySQL servers in het subnet.
 
 ### <a name="sample-script"></a>Voorbeeldscript
 
-Met dit voorbeeldscript wordt gebruikt voor het maken van een Azure Database voor MariaDB-server, een VNet, VNet-service-eindpunt maken en beveiligen van de server met het subnet met een VNet-regel. In dit voorbeeldscript wijzigen de gebruikersnaam van beheerder en het wachtwoord. Vervang de abonnement-id die wordt gebruikt de `az account set --subscription` opdracht met uw eigen abonnement-id.
+Dit voorbeeld script wordt gebruikt om een Azure Database for MariaDB server te maken, een VNet-, VNet-service-eind punt te maken en de server te beveiligen met het subnet met een VNet-regel. Wijzig in dit voorbeeld script de gebruikers naam en het wacht woord voor de beheerder. Vervang de SubscriptionID die in de `az account set --subscription` opdracht wordt gebruikt door uw eigen abonnement-id.
 
 ```azurecli-interactive
 # To find the name of an Azure region in the CLI run this command: az account list-locations
@@ -131,3 +131,6 @@ az group delete --name myresourcegroup
 <!--
 [!code-azurecli-interactive[main](../../cli_scripts/mysql/create-mysql-server-vnet/delete-mysql.sh "Delete the resource group.")]
 -->
+
+<!-- Link references, to text, Within this same GitHub repo. --> 
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

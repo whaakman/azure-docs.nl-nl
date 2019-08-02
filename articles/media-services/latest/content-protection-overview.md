@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 07/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 174184993e40b60dc89022d360f0c09fb31bc60b
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: a928640aa6d56f0a39011a2cabcf979b4d907a46
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501271"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561463"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Uw inhoud beveiligen met behulp van Media Services dynamische versleuteling
 
@@ -170,7 +170,7 @@ U kunt bepalen wie toegang heeft tot uw inhoud door het configureren van het bel
 
 Een open-beperkt beleid voor inhouds sleutels kan worden gebruikt wanneer u een licentie wilt verlenen aan iemand zonder autorisatie. Als uw omzet bijvoorbeeld op ad of op basis van een abonnement is.  
 
-Met een beleid met beperkte inhoud, wordt de inhouds sleutel alleen verzonden naar een client die een geldig JWT-token of een eenvoudig webtoken in de aanvraag voor licentie/sleutel levert. Dit token moet worden uitgegeven door een STS. 
+Met een token-beperkt beleid voor inhouds sleutels wordt de inhouds sleutel alleen verzonden naar een client die een geldige JWT-token of een eenvoudige webtoken (SWT) in de licentie/sleutel aanvraag levert. Dit token moet worden uitgegeven door een STS. 
 
 U kunt Azure AD als STS gebruiken of een aangepaste STS implementeren. De STS moeten worden geconfigureerd voor het maken van een token dat is ondertekend met de opgegeven sleutel en probleem claims die u hebt opgegeven in de configuratie van de tokenbeperking. De Media Services licentie/key delivery service retourneert de aangevraagde licentie of sleutel bij de client als aan beide volgende voor waarden wordt voldaan:
 
@@ -196,8 +196,10 @@ Met de functie voor het voor *komen* van tokens kunnen Media Services klanten ee
 
 Een klant kan ervoor kiezen om een aangepaste STS te gebruiken om tokens op te geven. Redenen zijn:
 
-* STS biedt geen ondersteuning voor de id-provider die wordt gebruikt door de klant. In dit geval een aangepaste STS mogelijk een optie.
-* De klant mogelijk meer flexibele of betere controle STS integreren met de klant abonnee factureringssysteem. Bijvoorbeeld, een operator MVPD biedt mogelijk meerdere OTT-abonnee pakketten, zoals basic, premium en sport. De operator wilt overeenkomen met de claims in een token met de abonnee pakket zodat alleen de inhoud in een specifiek pakket beschikbaar worden gesteld. In dit geval een aangepaste STS biedt de benodigde flexibiliteit en controle.
+* De ID-provider (IDP) die wordt gebruikt door de klant, biedt geen ondersteuning voor STS. In dit geval een aangepaste STS mogelijk een optie.
+* De klant mogelijk meer flexibele of betere controle STS integreren met de klant abonnee factureringssysteem. 
+
+   Een [Ott](https://en.wikipedia.org/wiki/Over-the-top_media_services) -service operator kan bijvoorbeeld meerdere abonnements pakketten aanbieden, zoals Premium, Basic en sport. De operator wilt overeenkomen met de claims in een token met de abonnee pakket zodat alleen de inhoud in een specifiek pakket beschikbaar worden gesteld. In dit geval een aangepaste STS biedt de benodigde flexibiliteit en controle.
 * Om aangepaste claims in het token op te nemen om te selecteren tussen verschillende ContentKeyPolicyOptions met verschillende DRM-licentie parameters (een abonnements licentie versus een huur licentie).
 * Om een claim op te geven met de id van de inhouds sleutel van de sleutel waartoe het token toegang verleent.
 

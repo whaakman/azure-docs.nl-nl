@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database-service - vCore | Microsoft Docs
-description: Het op vCore gebaseerde aankoopmodel kunt u onafhankelijk van elkaar schalen reken- en opslagresources, overeenkomen met de on-premises prestaties en prijs te optimaliseren.
+title: Azure SQL Database-Service-vCore | Microsoft Docs
+description: Met het op vCore gebaseerde aankoop model kunt u de reken-en opslag resources onafhankelijk van elkaar schalen, de on-premises prestaties afstemmen en de prijs optimaliseren.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,133 +10,132 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: e9d1ce3bcd3bf958be0a7837e8416300af03f5a2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e5af3803ebb4cb0a88a082d3c85d0df68da8d1b8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449736"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566613"
 ---
-# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Kies een van de vCore-servicelaag en het migreren van de DTU-Servicelagen
+# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Kies uit de vCore-service lagen en migreer vanuit de DTU-service lagen
 
-De virtuele kern (vCore)-gebaseerde aankoopmodel kunt u onafhankelijk van elkaar schalen reken- en opslagresources, overeenkomen met de on-premises prestaties en prijs te optimaliseren. Ook kunt u de generatie van de hardware kiezen:
+Met het virtuele kern (vCore) gebaseerde aankoop model kunt u de reken-en opslag resources onafhankelijk van elkaar schalen, de on-premises prestaties afstemmen en de prijs optimaliseren. U kunt er ook voor kiezen om het apparaat te genereren:
 
-- **Gen4**: Maximaal 24 logische CPU's die zijn gebaseerd op Intel E5-2673 v3-processors vCore-processors 2,4 GHz (Haswell) = 1 PP (fysieke kernen), 7 GB per kern, SSD aangesloten
-- **Gen5**: Maximaal 80 logische CPU's die zijn gebaseerd op Intel E5-2673 v4-processors vCore-processors 2,3 GHz (Broadwell) = 1 LP (hyper-thread), 5.1 GB per kern, snelle eNVM SSD
+- **Gen4**: Maxi maal 24 logische Cpu's op basis van Intel E5-2673 v3 (Haswell) 2,4-GHz processors, vCore = 1 PP (fysieke kern), 7 GB per kern, gekoppelde SSD
+- **GEN5**: Maxi maal 80 logische Cpu's op basis van Intel E5-2673 v4 (Broadwell) 2,3-GHz processors, vCore = 1 LP (Hyper-Thread), 5,1 GB per kern, Fast eNVM SSD
 
-Gen4 hardware biedt aanzienlijk meer geheugen per vCore. Gen5 hardware kunt u echter veel hoger rekenresources kan worden uitgebreid.
+Gen4 hardware biedt aanzienlijk meer geheugen per vCore. Met GEN5-hardware kunt u echter reken resources veel meer schalen.
 
 > [!IMPORTANT]
-> Nieuwe Gen4 databases worden niet meer ondersteund in de regio AustraliaEast.
+> Nieuwe Gen4-data bases worden niet meer ondersteund in de AustraliaEast-regio.
 > [!NOTE]
-> Zie voor meer informatie over het op DTU gebaseerde Servicelagen [Servicelagen voor het op DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md). Zie voor meer informatie over de verschillen tussen de Servicelagen voor het op DTU gebaseerde en aankopen modellen op vCore gebaseerde [modellen aanschaffen van Azure SQL Database](sql-database-purchase-models.md).
+> Zie [service lagen voor het op DTU gebaseerde aankoop model](sql-database-service-tiers-dtu.md)voor meer informatie over de op DTU gebaseerde service lagen. Zie [Azure SQL database-inkoop modellen](sql-database-purchase-models.md)voor informatie over de verschillen tussen de service lagen voor de op DTU gebaseerde en de op vCore gebaseerde aankoop modellen.
 
-## <a name="service-tier-characteristics"></a>Kenmerken van de service-laag
+## <a name="service-tier-characteristics"></a>Kenmerken van service tier
 
-Het vCore-aanschafmodel biedt drie Servicelagen: algemeen gebruik, flexibele en bedrijfskritiek. Deze Servicelagen van elkaar worden onderscheiden door een bereik van de compute-grootten, hoge beschikbaarheid ontwerpen, foutisolatie methoden, typen en -grootten van opslag en i/o-bereiken.
+Het op vCore gebaseerde aankoop model biedt drie service lagen: algemeen gebruik, grootschalige en bedrijfs kritiek. Deze service lagen worden gedifferentieerd met een bereik van berekenings grootten, ontwerpen met hoge Beschik baarheid, methoden voor fout isolatie, typen en grootte van opslag en I/O-bereiken.
 
-U moet de vereiste periode voor de opslag en de bewaarperiode voor back-ups afzonderlijk configureren. Aan de back-up-bewaarperiode instellen, opent u Azure portal, gaat u naar de server (niet de database) en ga vervolgens naar **back-ups beheren** > **beleid configureren**  >   **Punt In tijd herstel configuratie** > **7 en 35 dagen**.
+U moet de vereiste opslag-en bewaar periode voor back-ups afzonderlijk configureren. Als u de Bewaar periode voor back-ups wilt instellen, opent u de Azure Portal, gaat u naar de-server (niet de data base) en gaat u naar **beheer back-ups** > beheren**beleids regel** > configureren > **configuratie punt in tijd herstellen** **7- 35 dagen**.
 
-De volgende tabel bevat uitleg over de verschillen tussen de drie lagen:
+In de volgende tabel worden de verschillen tussen de drie lagen beschreven:
 
-||**Algemeen doel**|**Bedrijfskritiek**|**Zeer grootschalige**|
+||**Algemeen doel**|**Bedrijfs kritiek**|**Grootschalige**|
 |---|---|---|---|
-|Ideaal voor|Meeste zakelijke workloads. Aanbiedingen budget gebaseerde, uitgebalanceerde en schaalbare Computing- en opslagopties.|Zakelijke toepassingen met hoge i/o-vereisten. Biedt de hoogste herstelmogelijkheden bij fouten met behulp van verschillende geïsoleerde replica's.|De meeste zakelijke workloads met uiterst schaalbare opslag en lees-en schaalvereisten.|
-|Compute|**Compute ingericht**:<br/>Gen4: 1-24 vCores<br/>Gen5: 2 tot 80 vCores<br/>**Serverless Computing**:<br/>Gen5: 0,5 - 4 vCores|**Compute ingericht**:<br/>Gen4: 1-24 vCores<br/>Gen5: 2 tot 80 vCores|**Compute ingericht**:<br/>Gen4: 1-24 vCores<br/>Gen5: 2 tot 80 vCores|
-|Geheugen|**Compute ingericht**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore<br/>**Serverless Computing**:<br/>Gen5: 3 GB per vCore|**Compute ingericht**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore |**Compute ingericht**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore|
-|Opslag|Maakt gebruik van externe opslag.<br/>**Individuele database ingericht compute**:<br/>5 GB – 4 TB<br/>**Individuele database serverless Computing**:<br/>5 GB - 1 TB<br/>**Beheerd exemplaar**: 32 GB - 8 TB |Maakt gebruik van lokale SSD-opslag.<br/>**Individuele database ingericht compute**:<br/>5 GB – 4 TB<br/>**Beheerd exemplaar**:<br/>32 GB - 4 TB |Flexibele autogrow van storage naar behoefte. Biedt ondersteuning voor maximaal 100 TB aan opslag. Maakt gebruik van lokale SSD-opslag voor de buffergroep van lokale cache en de opslag van lokale gegevens. Maakt gebruik van Azure externe opslag als laatste gegevensopslag op lange termijn. |
-|I/o-doorvoer (bij benadering)|**Individuele database**: 500 IOP's per vCore met 7000 maximale IOPS.<br/>**Beheerd exemplaar**: Afhankelijk van [bestandsgrootte](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOP's per kern met 200.000 maximale IOPS|Zeer grootschalige is een architectuur met meerdere lagen met caching op meerdere niveaus. Effectieve IOP's afhankelijk van de werkbelasting.|
-|Beschikbaarheid|1 replica, geen leesschaal replica 's|3 replica's, 1 [leesschaal replica](sql-database-read-scale-out.md),<br/>zone-redundante hoge beschikbaarheid (HA)|1 replica voor lezen / schrijven, plus 0-4 [leesschaal replica's](sql-database-read-scale-out.md)|
-|Back-ups|[Geo-redundante opslag met leestoegang (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 en 35 dagen (7 dagen standaard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 en 35 dagen (7 dagen standaard)|Op basis van een momentopname van back-ups in Azure, externe opslag. Hiermee herstelt u deze momentopnamen gebruiken voor snel herstel. Back-ups zijn onmiddellijk en niet van invloed zijn op compute i/o-prestaties. Herstelbewerkingen zijn snel en niet een bewerking van de grootte van gegevens (nemen minuten in plaats van uren of dagen).|
+|Het best voor|De meeste zakelijke workloads. Biedt budget gerichte, evenwichtige en schaal bare reken-en opslag opties.|Zakelijke toepassingen met hoge I/O-vereisten. Biedt de hoogste flexibiliteit voor storingen door gebruik te maken van verschillende geïsoleerde replica's.|De meeste zakelijke workloads met zeer schaal bare opslag-en lees vereisten.|
+|Compute|**Ingerichte Compute**:<br/>Gen4 1 tot 24 vCores<br/>GEN5 2 tot 80 vCores<br/>**Serverloze Compute**:<br/>GEN5 0,5-4 vCores|**Ingerichte Compute**:<br/>Gen4 1 tot 24 vCores<br/>GEN5 2 tot 80 vCores|**Ingerichte Compute**:<br/>Gen4 1 tot 24 vCores<br/>GEN5 2 tot 80 vCores|
+|Geheugen|**Ingerichte Compute**:<br/>Gen4 7 GB per vCore<br/>GEN5 5,1 GB per vCore<br/>**Serverloze Compute**:<br/>GEN5 3 GB per vCore|**Ingerichte Compute**:<br/>Gen4 7 GB per vCore<br/>GEN5 5,1 GB per vCore |**Ingerichte Compute**:<br/>Gen4 7 GB per vCore<br/>GEN5 5,1 GB per vCore|
+|Storage|Maakt gebruik van externe opslag.<br/>**Berekenings reken single data base**:<br/>5 GB – 4 TB<br/>**Eén reken database zonder server**:<br/>5 GB - 1 TB<br/>**Beheerd exemplaar**: 32 GB - 8 TB |Maakt gebruik van lokale SSD-opslag.<br/>**Berekenings reken single data base**:<br/>5 GB – 4 TB<br/>**Beheerd exemplaar**:<br/>32 GB - 4 TB |Flexibele Automatische toename van opslag als dat nodig is. Ondersteunt Maxi maal 100 TB aan opslag ruimte. Maakt gebruik van lokale SSD-opslag voor lokale buffer-pool cache en lokale gegevens opslag. Maakt gebruik van Azure externe opslag als definitieve gegevens opslag op lange termijn. |
+|I/O-door Voer (ongeveer)|**Eén data base**: 500 IOPS per vCore met 7000 maximum aantal IOPS.<br/>**Beheerd exemplaar**: Is afhankelijk van de [grootte van het bestand](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per kern met 200.000 maximum aantal IOPS|Grootschalige is een architectuur met meerdere lagen met caching op meerdere niveaus. Effectief IOPs is afhankelijk van de werk belasting.|
+|Beschikbaarheid|1 replica, geen replica's met lees schaal|3 replica's, 1 [replica met lees grootte](sql-database-read-scale-out.md),<br/>zone-redundante hoge Beschik baarheid (HA)|1 replica met lees-en schrijf bewerkingen, plus 0-4 [replica's met lees grootte](sql-database-read-scale-out.md)|
+|Back-ups|[Geografisch redundante opslag met lees toegang (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagen (standaard 7 dagen)|[Ra-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagen (standaard 7 dagen)|Back-ups op basis van moment opnamen in azure externe opslag. Herstelt het gebruik van deze moment opnamen voor snel herstel. Back-ups zijn onmiddellijk en zijn niet van invloed op de I/O-prestaties van compute. Herstel bewerkingen zijn snel en zijn geen omvang van de gegevens bewerking (minuten in plaats van uren of dagen).|
 |In het geheugen|Niet ondersteund|Ondersteund|Niet ondersteund|
 |||
 
 > [!NOTE]
-> U krijgt een gratis Azure SQL-database op de basis-servicelaag in combinatie met een gratis Azure-account. Zie voor meer informatie, [maken van een beheerde clouddatabase met uw gratis Azure-account](https://azure.microsoft.com/free/services/sql-database/).
+> U kunt in combi natie met een gratis Azure-account een gratis Azure-SQL database in de laag basis service krijgen. Zie [een beheerde Cloud database maken met uw gratis Azure-account](https://azure.microsoft.com/free/services/sql-database/)voor meer informatie.
 
-- Zie voor meer informatie over de resourcelimieten vCore [resourcelimieten vCore in een individuele database](sql-database-vcore-resource-limits-single-databases.md) en [resourcelimieten vCore in een beheerd exemplaar](sql-database-managed-instance.md#vcore-based-purchasing-model).
-- Zie voor meer informatie over het algemeen gebruik en de bedrijfstiers van kritieke- [Servicelagen voor algemeen gebruik en bedrijfskritiek](sql-database-service-tiers-general-purpose-business-critical.md).
-- Zie voor meer informatie over de grootschalige service tier in het op vCore gebaseerde aankoopmodel [grootschalige servicelaag](sql-database-service-tier-hyperscale.md).  
+- Zie voor meer informatie over vCore-resource limieten [vCore resource limieten in één data base](sql-database-vcore-resource-limits-single-databases.md) en [vCore resource limieten in een beheerd exemplaar](sql-database-managed-instance.md#vcore-based-purchasing-model).
+- Zie [algemene en bedrijfskritische service lagen](sql-database-service-tiers-general-purpose-business-critical.md)voor meer informatie over de categorieën algemeen gebruik en bedrijfskritische service.
+- Zie [grootschalige service tier](sql-database-service-tier-hyperscale.md)(Engelstalig) voor meer informatie over de grootschalige-servicelaag in het op vCore gebaseerde aankoop model.  
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-In de ingerichte Computing-laag van de vCore gebaseerde aankoopmodel kunt u uw bestaande licenties voor gereduceerde tarieven voor SQL-Database met behulp van exchange [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Dit voordeel van Azure kunt u tot wel 30% besparen op Azure SQL Database met behulp van uw on-premises SQL Server-licenties met Software Assurance.
+In de ingerichte Compute-laag van het op vCore gebaseerde aankoop model kunt u uw bestaande licenties uitwisselen voor kortings tarieven op SQL Database met behulp van [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Met dit voor deel van Azure kunt u tot wel 30% besparen op Azure SQL Database met behulp van uw on-premises SQL Server licenties met Software Assurance.
 
-![Prijzen](./media/sql-database-service-tiers/pricing.png)
+![prijzen](./media/sql-database-service-tiers/pricing.png)
 
-Met Azure Hybrid Benefit kunt u betaalt alleen voor de onderliggende Azure-infrastructuur met behulp van uw bestaande SQL Server-licentie voor de SQL database-engine zelf (Basisrekentarief prijs) of u kunt betalen voor de onderliggende infrastructuur en de SQL-Server licentie (-prijs voor inbegrepen licentie).
+Met Azure Hybrid Benefit kunt u ervoor kiezen om alleen te betalen voor de onderliggende Azure-infra structuur met behulp van uw bestaande SQL Server licentie voor de SQL database engine zelf (prijzen voor basis berekeningen). u kunt ook betalen voor de onderliggende infra structuur en de SQL Server licentie (inbegrepen prijzen in licentie).
 
-U kunt kiezen of uw licentiemodel wijzigen met behulp van de Azure-portal of met behulp van een van de volgende API's:
+U kunt uw licentie model kiezen of wijzigen met behulp van de Azure Portal of door gebruik te maken van een van de volgende Api's:
 
-- Instellen of het licentietype bijwerken met behulp van PowerShell:
+- Het licentie type instellen of bijwerken met behulp van Power shell:
 
   - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
   - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
   - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
   - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)
 
-- Instellen of het licentietype bijwerken met behulp van de Azure CLI:
+- Het licentie type instellen of bijwerken met behulp van de Azure CLI:
 
   - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
   - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
-  - [AZ sql mi maken](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
-  - [AZ sql mi-update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+  - [AZ SQL mi Create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
+  - [AZ SQL mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
-- Instellen of het licentietype bijwerken met behulp van de REST-API:
+- Het licentie type instellen of bijwerken met behulp van de REST API:
 
-  - [Databases - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
-  - [Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)
-  - [Beheerde exemplaren - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
-  - [Beheerde exemplaren - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
+  - [Data bases: maken of bijwerken](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [Data bases-bijwerken](https://docs.microsoft.com/rest/api/sql/databases/update)
+  - [Beheerde instanties: maken of bijwerken](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
+  - [Beheerde instanties-bijwerken](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
-## <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migreren van het dtu model naar het vCore-model
+## <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migreren van het DTU-model naar het model op basis van vCore
 
 ### <a name="migrate-a-database"></a>Een database migreren
 
-Migreren van een database van het op DTU gebaseerde aankoopmodel naar het vCore-aanschafmodel is vergelijkbaar met het upgraden of downgraden tussen de Servicelagen standard en premium-in het op DTU gebaseerde aankoopmodel.
+Het migreren van een Data Base van het DTU-gebaseerde aankoop model naar het op vCore gebaseerde aankoop model is vergelijkbaar met het bijwerken of downgradeen tussen de Standard-en Premium-Service lagen in het op DTU gebaseerde aankoop model.
 
-### <a name="migrate-databases-with-geo-replication-links"></a>Migreren van databases met geo-replicatiekoppelingen
+### <a name="migrate-databases-with-geo-replication-links"></a>Data bases met geo-replicatie koppelingen migreren
 
-Migreren van het dtu model naar het vCore-aanschafmodel is vergelijkbaar met het upgraden of downgraden van de relaties geo-replicatie tussen databases in de standard en premium-servicelaag. Tijdens de migratie, u hoeft te stoppen geo-replicatie, maar u moet deze regels sequentiëren volgen:
+Migreren van het DTU-model naar het op vCore gebaseerde aankoop model is vergelijkbaar met het bijwerken of verlagen van de geo-replicatie relaties tussen data bases in de Standard-en Premium-Service lagen. Tijdens de migratie hoeft u geo-replicatie niet te stoppen, maar moet u deze regels voor volgorde bepaling volgen:
 
-- Wanneer een upgrade uitvoert, moet u eerst de secundaire database upgraden en werk vervolgens de primaire.
-- Wanneer de Downgrade uitvoert, de volgorde omgekeerd: u moet eerst downgraden van de primaire database en vervolgens gebruik maken van de secundaire server.
+- Wanneer u een upgrade uitvoert, moet u eerst de secundaire data base upgraden en vervolgens een upgrade uitvoeren van de primaire.
+- Wanneer u een downgrade uitvoert, maakt u de volg orde ongedaan: u moet eerst de primaire data base opdowngradeen en vervolgens het secundaire database downgrade verlagen.
 
-Wanneer u van geo-replicatie tussen twee elastische pools gebruikmaakt, wordt u aangeraden dat u één groep als de primaire en de andere als secundaire opgeven. In dat geval moet u dezelfde sequentiëren richtlijnen gebruiken wanneer u bij het migreren van elastische pools. Hebt u Elastische pools die zowel primaire als secundaire databases bevatten, de groep met het gebruik van de hogere behandelen als de primaire en volgt u de regels sequentiëren dienovereenkomstig.  
+Wanneer u geo-replicatie tussen twee elastische Pools gebruikt, raden we u aan om één groep als primair en als de secundaire groep aan te wijzen. In dat geval moet u bij het migreren van elastische Pools dezelfde richt lijnen voor sequentiëren gebruiken. Als u echter elastische Pools hebt die zowel primaire als secundaire data bases bevatten, behandelt u de pool met het hogere gebruik als primair en volgt u de regels voor volgorde bepaling dienovereenkomstig.  
 
-De volgende tabel bevat richtlijnen voor bepaalde migratiescenario's:
+De volgende tabel bevat richt lijnen voor specifieke migratie scenario's:
 
-|Huidige servicelaag|Gewenste servicelaag|Migratietype|Acties van de gebruiker|
+|Huidige servicelaag|Doel service-laag|Type migratie|Gebruikerssacties|
 |---|---|---|---|
-|Standard|Algemeen doel|Laterale|Kunnen in willekeurige volgorde worden gemigreerd, maar moet ervoor zorgen dat juiste vCore sizing *|
-|Premium|Bedrijfskritiek|Laterale|Kunnen in willekeurige volgorde worden gemigreerd, maar moet ervoor zorgen dat juiste vCore sizing *|
-|Standard|Bedrijfskritiek|Upgraden|Secundaire moeten eerst migreren|
-|Bedrijfskritiek|Standard|Downgrade|Primaire moeten eerst migreren|
-|Premium|Algemeen doel|Downgrade|Primaire moeten eerst migreren|
-|Algemeen doel|Premium|Upgraden|Secundaire moeten eerst migreren|
-|Bedrijfskritiek|Algemeen doel|Downgrade|Primaire moeten eerst migreren|
-|Algemeen doel|Bedrijfskritiek|Upgraden|Secundaire moeten eerst migreren|
+|Standard|Algemeen gebruik|Zij|Kan in een wille keurige volg orde worden gemigreerd, maar moet de juiste vCore-grootte worden gegarandeerd *|
+|Premium|Bedrijfskritiek|Zij|Kan in een wille keurige volg orde worden gemigreerd, maar moet de juiste vCore-grootte worden gegarandeerd *|
+|Standard|Bedrijfskritiek|Upgrade|Moet secundair eerst worden gemigreerd|
+|Bedrijfskritiek|Standard|Downgrade uitvoeren|Moet primair eerst worden gemigreerd|
+|Premium|Algemeen gebruik|Downgrade uitvoeren|Moet primair eerst worden gemigreerd|
+|Algemeen gebruik|Premium|Upgrade|Moet secundair eerst worden gemigreerd|
+|Bedrijfskritiek|Algemeen gebruik|Downgrade uitvoeren|Moet primair eerst worden gemigreerd|
+|Algemeen gebruik|Bedrijfskritiek|Upgrade|Moet secundair eerst worden gemigreerd|
 ||||
 
-\* Elke 100 dtu's in de standard-laag moeten ten minste 1 vCore en elke 125 dtu's in de premium-laag moeten ten minste 1 vCore.
+\*Elke 100-Dtu's in de laag standaard vereist ten minste 1 vCore, en voor elke 125 Dtu's in de laag Premium is ten minste 1 vCore vereist.
 
 ### <a name="migrate-failover-groups"></a>Failover-groepen migreren
 
-Migratie van failover-groepen met meerdere databases moet afzonderlijke migratie van de primaire en secundaire databases. Tijdens dat proces wordt toepassen de dezelfde overwegingen en sequentiëren regels. Nadat de databases worden geconverteerd naar het vCore-aanschafmodel, wordt de failovergroep blijft van kracht met de dezelfde beleidsinstellingen.
+Migratie van failover-groepen met meerdere data bases vereist een afzonderlijke migratie van de primaire en secundaire data bases. Tijdens dat proces gelden dezelfde aandachtspunten en sequentiëren. Nadat de data bases zijn geconverteerd naar het op vCore gebaseerde aankoop model, blijft de failovergroep van kracht met dezelfde beleids instellingen.
 
-### <a name="create-a-geo-replication-secondary-database"></a>Een secundaire geo-replicatie maken
+### <a name="create-a-geo-replication-secondary-database"></a>Een secundaire data base met geo-replicatie maken
 
-U kunt een geo-replicatie secundaire database (een geo-secundaire) alleen met behulp van dezelfde servicelaag als u voor de primaire database gebruikt maken. Voor databases met een snelheid voor het hoge log-genereren, wordt u aangeraden de geo-secundaire te maken met de dezelfde compute groot is als de primaire.
+U kunt een secundaire data base met geo-replicatie (een geo-secundair) alleen maken door dezelfde servicelaag te gebruiken als u hebt gebruikt voor de primaire data base. Voor data bases met een hoge frequentie voor het genereren van het logboek, wordt aangeraden om de geo-secundair te maken met dezelfde reken grootte als de primaire.
 
-Als u een geo-secundaire in de elastische pool voor een enkele primaire database maakt, zorg ervoor dat de `maxVCore` instellen voor de groep komt overeen met de compute-grootte van de primaire database. Als u een geo-secundaire voor een primaire in een andere elastische pool maakt, raden wij aan dat de groepen dezelfde hebben `maxVCore` instellingen.
+Als u een geo-secundair maakt in de elastische pool voor één primaire data base, moet u ervoor `maxVCore` zorgen dat de instelling voor de pool overeenkomt met de reken grootte van de primaire data base. Als u een geo-secundair maakt voor een primaire groep in een andere elastische pool, raden we aan dat de groepen dezelfde `maxVCore` instellingen hebben.
 
-### <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Database-exemplaar een database op basis van DTU te converteren naar een op vCore gebaseerde database gebruiken
+### <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Database kopie gebruiken om een DTU-gebaseerde data base te converteren naar een op vCore gebaseerde data base
 
-U kunt een database met een grootte op basis van DTU compute kopiëren naar een database met een grootte vCore gebaseerde computercapaciteit zonder beperkingen of speciale combineren, zolang de doelgrootte berekenen biedt ondersteuning voor de maximale grootte van de brondatabase. Het database-exemplaar wordt gemaakt van een momentopname van de gegevens vanaf de begintijd van de kopieerbewerking en gegevens tussen de bron en het doel niet synchroniseren.
+U kunt elke Data Base met een op DTU gebaseerde reken grootte kopiëren naar een Data Base met een op vCore gebaseerde reken grootte zonder beperkingen of speciale sequentiëren, zolang de doel berekenings grootte de maximale database grootte van de bron database ondersteunt. De kopie van de data base maakt een moment opname van de gegevens vanaf de begin tijd van de Kopieer bewerking en synchroniseert geen gegevens tussen de bron en het doel.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor de specifieke compute-grootten en opties voor opslag beschikbaar voor individuele databases, [SQL Database vCore gebaseerde resourcelimieten voor individuele databases](sql-database-vcore-resource-limits-single-databases.md).
-- Zie voor de specifieke compute-grootten en opties voor opslag beschikbaar voor elastische pools [SQL Database vCore gebaseerde resourcelimieten voor elastische pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- Zie [SQL database resource limieten op basis van vCore voor afzonderlijke data](sql-database-vcore-resource-limits-single-databases.md)bases voor de specifieke berekenings grootte en beschik bare opslag grootte voor afzonderlijke data bases.
+- Zie [SQL database op vCore gebaseerde resource limieten voor elastische Pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)voor de specifieke berekenings grootten en opties voor opslag grootte die beschikbaar zijn voor elastische Pools.

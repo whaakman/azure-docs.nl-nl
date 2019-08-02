@@ -3,7 +3,7 @@ title: Een Linux Service Fabric-cluster maken in Azure | Microsoft Docs
 description: Informatie over hoe u een Linux Service Fabric-cluster implementeert in een bestaand virtueel Azure-netwerk met behulp van Azure CLI.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 00d7e510fa43865f1427092f2f20b9847f1afa9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ba157d7bf2e6effbaf7ab129dbbbfd1ca8b9667
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60863781"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598852"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Een Linux Service Fabric-cluster implementeren in een virtueel Azure-netwerk
 
-In dit artikel leert u hoe u een Linux Service Fabric-cluster implementeren in een [Azure-netwerk (VNET)](../virtual-network/virtual-networks-overview.md) met behulp van Azure CLI en een sjabloon. Wanneer u klaar bent, wordt er in de cloud een cluster uitgevoerd waarin u toepassingen kunt implementeren. Als u met behulp van PowerShell een Windows-cluster wilt maken, raadpleegt u [Een Service Fabric Windows-cluster in een Azure-netwerk implementeren](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+In dit artikel leert u hoe u een Linux-Service Fabric cluster kunt implementeren in een [virtueel Azure-netwerk (VNET)](../virtual-network/virtual-networks-overview.md) met behulp van Azure CLI en een sjabloon. Wanneer u klaar bent, wordt er in de cloud een cluster uitgevoerd waarin u toepassingen kunt implementeren. Als u met behulp van PowerShell een Windows-cluster wilt maken, raadpleegt u [Een Service Fabric Windows-cluster in een Azure-netwerk implementeren](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,8 +33,8 @@ Voordat u begint:
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installeer de [Service Fabric CLI](service-fabric-cli.md)
 * Installeer de [Azure CLI](/cli/azure/install-azure-cli)
-* Lees voor meer van de belangrijkste concepten van clusters [overzicht van Azure-clusters](service-fabric-azure-clusters-overview.md)
-* [Plan en bereid](service-fabric-cluster-azure-deployment-preparation.md) voor de implementatie van een productie-cluster.
+* Lees [overzicht van Azure-clusters](service-fabric-azure-clusters-overview.md) voor meer informatie over de belangrijkste concepten van clusters
+* [Plan en bereid](service-fabric-cluster-azure-deployment-preparation.md) u voor op een productie cluster implementatie.
 
 Met de volgende procedures wordt er een Service Fabric-cluster met zeven knooppunten gemaakt. Gebruik de [Azure-prijscalculator](https://azure.microsoft.com/pricing/calculator/) om de kosten te berekenen voor het uitvoeren van een Service Fabric-cluster in Azure.
 
@@ -42,17 +42,17 @@ Met de volgende procedures wordt er een Service Fabric-cluster met zeven knooppu
 
 Download de volgende Resource Manager-sjabloonbestanden:
 
-* [AzureDeploy.json][template]
-* [AzureDeploy.Parameters.json][parameters]
+* [AzureDeploy. json][template]
+* [AzureDeploy. para meters. json][parameters]
 
-Deze sjabloon implementeert een beveiligd cluster van zeven virtuele machines en drie typen van de knooppunten in een virtueel netwerk.  Andere voorbeeldsjablonen zijn te vinden op [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Met [AzureDeploy.json][template] wordt een aantal resources geïmplementeerd, waaronder de volgende.
+Met deze sjabloon implementeert u een veilig cluster van zeven virtuele machines en drie knooppunt typen in een virtueel netwerk.  Andere voorbeeldsjablonen zijn te vinden op [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). De [AzureDeploy. json][template] implementeert een aantal resources, waaronder de volgende.
 
 ### <a name="service-fabric-cluster"></a>Service Fabric-cluster
 
 In de resource **Microsoft.ServiceFabric/clusters** wordt een Linux-cluster geïmplementeerd met de volgende kenmerken:
 
 * drie knooppunttypen
-* vijf knooppunten in het primaire knooppunttype (configureerbaar in de Sjabloonparameters), één knooppunt in elk van de andere knooppunttypen
+* vijf knoop punten in het primaire knooppunt type (configureerbaar in de sjabloon parameters), één knoop punt in elk van de andere knooppunt typen
 * Besturingssysteem: Ubuntu 16.04 LTS (configureerbaar in de sjabloonparameters)
 * beveiligd met een certificaat (configureerbaar in de sjabloonparameters)
 * een ingeschakelde [DNS-service](service-fabric-dnsservice.md)
@@ -81,7 +81,7 @@ Als er andere toepassingspoorten nodig zijn, moet u de resource Microsoft.Networ
 
 ## <a name="set-template-parameters"></a>De sjabloonparameters instellen
 
-In het parameterbestand [AzureDeploy.Parameters][parameters] worden veel waarden gedeclareerd die worden gebruikt om het cluster en bijbehorende resources te implementeren. Enkele van de parameters die u mogelijk moet wijzigen voor uw implementatie:
+Het [AzureDeploy. para][parameters] meters-parameter bestand declareert veel waarden die worden gebruikt voor het implementeren van het cluster en de bijbehorende resources. Enkele van de parameters die u mogelijk moet wijzigen voor uw implementatie:
 
 |Parameter|Voorbeeldwaarde|Opmerkingen|
 |---|---||
@@ -90,16 +90,16 @@ In het parameterbestand [AzureDeploy.Parameters][parameters] worden veel waarden
 |clusterName|mysfcluster123| De naam van het cluster. |
 |location|southcentralus| De locatie van het cluster. |
 |certificateThumbprint|| <p>De waarde moet leeg zijn als u een zelfondertekend certificaat maakt of als u een certificaatbestand opgeeft.</p><p>Als u een bestaand certificaat wilt gebruiken dat u eerder hebt geüpload naar een sleutelkluis, vult u de SHA1-waarde van de certificaatvingerafdruk in. Bijvoorbeeld 6190390162C988701DB5676EB81083EA608DCCF3. </p>|
-|certificateUrlValue|| <p>De waarde moet leeg zijn als u een zelfondertekend certificaat maakt of als u een certificaatbestand opgeeft.</p><p>Als u een bestaand certificaat wilt gebruiken dat u eerder hebt geüpload naar een sleutelkluis, vult u de URL van het certificaat in. Bijvoorbeeld, ' https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346 '.</p>|
+|certificateUrlValue|| <p>De waarde moet leeg zijn als u een zelfondertekend certificaat maakt of als u een certificaatbestand opgeeft.</p><p>Als u een bestaand certificaat wilt gebruiken dat u eerder hebt geüpload naar een sleutelkluis, vult u de URL van het certificaat in. Bijvoorbeeld ' https:\//mykeyvault.Vault.Azure.net:443/Secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346 '.</p>|
 |sourceVaultValue||<p>De waarde moet leeg zijn als u een zelfondertekend certificaat maakt of als u een certificaatbestand opgeeft.</p><p>Als u een bestaand certificaat wilt gebruiken dat u eerder hebt geüpload naar een sleutelkluis, vult u de waarde van de bronkluis in. Bijvoorbeeld /subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT.</p>|
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Het virtuele netwerk en het cluster implementeren
 
-Stel vervolgens de netwerktopologie in en implementeer het Service Fabric-cluster. De Resource Manager-sjabloon [AzureDeploy.json][template] maakt een virtueel netwerk (VNET) en een subnet voor Service Fabric. De sjabloon implementeert ook een cluster met certificaatbeveiliging ingeschakeld.  Gebruik voor productieclusters een certificaat van een certificeringsinstantie (CA) als clustercertificaat. Een zelfondertekend certificaat kan worden gebruikt om testclusters te beveiligen.
+Stel vervolgens de netwerktopologie in en implementeer het Service Fabric-cluster. Het Resource Manager-sjabloon [AzureDeploy. json][template] maakt een virtueel netwerk (VNET) en een subnet voor service Fabric. De sjabloon implementeert ook een cluster met certificaatbeveiliging ingeschakeld.  Gebruik voor productieclusters een certificaat van een certificeringsinstantie (CA) als clustercertificaat. Een zelfondertekend certificaat kan worden gebruikt om testclusters te beveiligen.
 
-De sjabloon in dit artikel implementeert een cluster dat gebruik maakt van de certificaatvingerafdruk van het voor het identificeren van het clustercertificaat.  Geen twee certificaten kunnen dezelfde vingerafdruk hebben, waardoor certificaatbeheer moeilijker wordt. Schakelen tussen een geïmplementeerd cluster vanuit vingerafdrukken voor certificaten naar het gebruik van gewone namen voor certificaten maakt het beheer van certificaten veel eenvoudiger.  Lees [Cluster wijzigen naar certificaatbeheer met gewone namen](service-fabric-cluster-change-cert-thumbprint-to-cn.md) voor informatie over het bijwerken van het cluster voor het gebruik van gewone namen voor certificaten voor het beheren van certificaten.
+In de sjabloon in dit artikel wordt een cluster geïmplementeerd dat gebruikmaakt van de vinger afdruk van het certificaat om het cluster certificaat te identificeren.  Geen twee certificaten kunnen dezelfde vingerafdruk hebben, waardoor certificaatbeheer moeilijker wordt. Schakelen tussen een geïmplementeerd cluster vanuit vingerafdrukken voor certificaten naar het gebruik van gewone namen voor certificaten maakt het beheer van certificaten veel eenvoudiger.  Lees [Cluster wijzigen naar certificaatbeheer met gewone namen](service-fabric-cluster-change-cert-thumbprint-to-cn.md) voor informatie over het bijwerken van het cluster voor het gebruik van gewone namen voor certificaten voor het beheren van certificaten.
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Een cluster maken met behulp van een bestaand certificaat
 
@@ -164,9 +164,9 @@ Als u niet meteen verdergaat met het volgende artikel, is het wellicht een goed 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het [een Cluster schalen](service-fabric-tutorial-scale-cluster.md).
+Meer informatie over het [schalen van een cluster](service-fabric-tutorial-scale-cluster.md).
 
-De sjabloon in dit artikel implementeert een cluster dat gebruik maakt van de certificaatvingerafdruk van het voor het identificeren van het clustercertificaat.  Geen twee certificaten kunnen dezelfde vingerafdruk hebben, waardoor certificaatbeheer moeilijker wordt. Schakelen tussen een geïmplementeerd cluster vanuit vingerafdrukken voor certificaten naar het gebruik van gewone namen voor certificaten maakt het beheer van certificaten veel eenvoudiger.  Lees [Cluster wijzigen naar certificaatbeheer met gewone namen](service-fabric-cluster-change-cert-thumbprint-to-cn.md) voor informatie over het bijwerken van het cluster voor het gebruik van gewone namen voor certificaten voor het beheren van certificaten.
+In de sjabloon in dit artikel wordt een cluster geïmplementeerd dat gebruikmaakt van de vinger afdruk van het certificaat om het cluster certificaat te identificeren.  Geen twee certificaten kunnen dezelfde vingerafdruk hebben, waardoor certificaatbeheer moeilijker wordt. Schakelen tussen een geïmplementeerd cluster vanuit vingerafdrukken voor certificaten naar het gebruik van gewone namen voor certificaten maakt het beheer van certificaten veel eenvoudiger.  Lees [Cluster wijzigen naar certificaatbeheer met gewone namen](service-fabric-cluster-change-cert-thumbprint-to-cn.md) voor informatie over het bijwerken van het cluster voor het gebruik van gewone namen voor certificaten voor het beheren van certificaten.
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json

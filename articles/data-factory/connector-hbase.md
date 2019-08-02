@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 3bc91b1c20bb4cf4ae755ca47c8d8e0581eb3a1f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc13a1d0a7710a9f96110f1516fe2e48d538fe7e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400708"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720767"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Gegevens kopiëren van HBase met Azure Data Factory 
 
@@ -42,10 +42,10 @@ De volgende eigenschappen worden ondersteund voor HBase gekoppelde service:
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **HBase** | Ja |
-| host | Het IP-adres of de hostnaam naam van de HBase-server. (d.w.z.)  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Ja |
+| host | Het IP-adres of de hostnaam naam van de HBase-server. dat wil zeggen.  `[clustername].azurehdinsight.net`, )`192.168.222.160`  | Ja |
 | port | De TCP-poort die de HBase-exemplaar gebruikt om te luisteren naar clientverbindingen. De standaardwaarde is 9090. Als u verbinding met Azure HDInsights maken, geeft u poort 443. | Nee |
 | httpPath | De gedeeltelijke URL overeenkomt met de HBase-server, bijvoorbeeld `/hbaserest0` bij het gebruik van HDInsights cluster. | Nee |
-| authenticationType | De verificatiemethode om toegang te gebruiken voor verbinding met de HBase-server. <br/>Toegestane waarden zijn: **Anonieme**, **Basic** | Ja |
+| authenticationType | De verificatiemethode om toegang te gebruiken voor verbinding met de HBase-server. <br/>Toegestane waarden zijn: **Anoniem**, **basis** | Ja |
 | username | De gebruikersnaam die wordt gebruikt voor verbinding met de HBase-exemplaar.  | Nee |
 | password | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | enableSsl | Hiermee geeft u op of de verbindingen met de server zijn versleuteld met behulp van SSL. De standaardwaarde is false.  | Nee |
@@ -132,11 +132,12 @@ Als u wilt kopiëren van gegevens van HBase, stel de eigenschap type van de gege
     "name": "HBaseDataset",
     "properties": {
         "type": "HBaseObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<HBase linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -151,7 +152,7 @@ Als u wilt kopiëren van gegevens van HBase, stelt u het brontype in de kopieera
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **HBaseSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **HBaseSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**

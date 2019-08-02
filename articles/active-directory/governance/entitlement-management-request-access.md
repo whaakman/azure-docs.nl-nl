@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578f78d1853194cad000aa2e54b40d1ac5003544
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 64a81a871d811c68f5e92822ca88446966be4d5c
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489051"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678112"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Toegang aanvragen tot een toegangs pakket in azure AD-rechts beheer (preview-versie)
 
@@ -44,7 +44,7 @@ De eerste stap is om u aan te melden bij de portal mijn toegang, waar u toegang 
 
 1. Meld u aan bij de portal van mijn toegang.
 
-    Zorg ervoor dat u uw organisatie-account gebruikt. Als u het niet zeker weet, kunt u contact met uw project of Business Manager controleren.
+    Zorg ervoor dat u uw werk-of school account voor uw organisatie gebruikt. Als u het niet zeker weet, kunt u contact met uw project of Business Manager.
 
 ## <a name="request-an-access-package"></a>Een toegangs pakket aanvragen
 
@@ -52,6 +52,9 @@ Zodra u het toegangs pakket hebt gevonden in de portal van mijn toegang, kunt u 
 
 **Vereiste rol:** Aanvrager
 
+1. Zoek het toegangs pakket in de lijst.  Als dat nodig is, kunt u zoeken door een zoek reeks te typen en vervolgens het filter **naam**, **catalogus**of **resources** te selecteren.
+
+    ![Mijn Access-Portal-zoeken naar resources](./media/entitlement-management-request-access/elm-myaccess-resource-search.png)
 1. Klik op het vinkje om het toegangs pakket te selecteren.
 
     ![Mijn Access-Portal-toegangs pakketten](./media/entitlement-management-shared/my-access-access-packages.png)

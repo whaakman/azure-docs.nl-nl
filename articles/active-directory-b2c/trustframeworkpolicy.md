@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 904893d4881de6be2c9055fefa9a8267cb045afd
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: b8b2cad95929d6132a4f0ae52597fb1633874ff1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849411"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592108"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,7 +38,7 @@ Een aangepast beleid wordt weer gegeven als een of meer XML-indelings bestanden 
 
 Het **TrustFrameworkPolicy** -element bevat de volgende kenmerken:
 
-| Kenmerk | Verplicht | Description |
+| Kenmerk | Vereist | Description |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Ja | De schema versie die moet worden gebruikt om het beleid uit te voeren. De waarde moet`0.3.0.0` |
 | TenantObjectId | Nee | De unieke object-id van de B2C-Tenant van Azure Active Directory (Azure AD). |
@@ -88,7 +88,7 @@ Als u een beleid van een ander beleid wilt overnemen, moet u een **BasePolicy** 
 
 Het **BasePolicy** -element bevat de volgende elementen:
 
-| Element | Instanties | Description |
+| Element | Gevallen | Description |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | De id van uw Azure AD B2C-Tenant. |
 | PolicyId | 1:1 | De id van het bovenliggende beleid. |
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase of B2C_1A_TrustFrameworkExtensionPolicy:
 
 Een gebruikers traject definieert de bedrijfs logica van wat een gebruiker doorloopt. Elke gebruikers traject is een set Orchestration-stappen die een reeks acties uitvoert, in volg orde van de verificatie-en informatie verzameling.
 
-Het **SocialAndLocalAccounts** -beleids bestand in het [Starter Pack](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) bevat de SignUpOrSignIn-, ProfileEdit-, PasswordReset-gebruikers ritten. U kunt meer gebruikers ritten toevoegen voor andere scenario's, zoals het wijzigen van een e-mail adres of het koppelen en ontkoppelen van een sociaal account.
+Het **SocialAndLocalAccounts** -beleids bestand in het [Starter Pack](active-directory-b2c-get-started-custom.md#custom-policy-starter-pack) bevat de SignUpOrSignIn-, ProfileEdit-, PasswordReset-gebruikers ritten. U kunt meer gebruikers ritten toevoegen voor andere scenario's, zoals het wijzigen van een e-mail adres of het koppelen en ontkoppelen van een sociaal account.
 
 De Orchestration-stappen kunnen een [technisch profiel](technicalprofiles.md)aanroepen. Een technisch profiel biedt een Framework met een ingebouwd mechanisme om te communiceren met verschillende soorten partijen. Een technisch profiel kan bijvoorbeeld onder andere de volgende acties uitvoeren:
 

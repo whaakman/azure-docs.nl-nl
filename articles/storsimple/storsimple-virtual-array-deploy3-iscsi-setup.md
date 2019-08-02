@@ -1,6 +1,6 @@
 ---
-title: Setup van Microsoft Azure StorSimple Virtual Array iSCSI-server | Microsoft Docs
-description: Beschrijft hoe u uitvoeren van de eerste configuratie, uw StorSimple-iSCSI-server te registreren en Apparaatinstelling voltooien.
+title: Setup van iSCSI-Server Microsoft Azure StorSimple virtuele matrix | Microsoft Docs
+description: Hierin wordt beschreven hoe u een initiële installatie uitvoert, uw StorSimple iSCSI-server registreert en de installatie van het apparaat voltooit.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,223 +12,225 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61417032"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516817"
 ---
-# <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implementeren StorSimple Virtual Array – Set up als een iSCSI-server via Azure portal
+# <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>StorSimple Virtual array implementeren: ingesteld als een iSCSI-server via Azure Portal
 
-![Processtroom voor iSCSI-installatie](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
+![proces stroom voor het instellen van iSCSI-installatie](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
 ## <a name="overview"></a>Overzicht
 
-In deze zelfstudie implementatie geldt voor de Microsoft Azure StorSimple Virtual Array. In deze zelfstudie wordt beschreven hoe u uitvoeren van de initiële installatie, registreren van uw StorSimple-iSCSI-server, voltooi de installatie van het apparaat, en vervolgens maken, koppelen, initialiseren en formatteren van volumes op uw StorSimple Virtual Array geconfigureerd als een iSCSI-server. 
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-De beschreven procedures duurt ongeveer 30 minuten hier naar één uur om te voltooien. De informatie die is gepubliceerd in dit artikel is alleen van toepassing op virtuele StorSimple-matrices.
+Deze implementatie-zelf studie is van toepassing op de Microsoft Azure StorSimple virtuele matrix. In deze zelf studie wordt beschreven hoe u de eerste installatie uitvoert, uw StorSimple iSCSI-server registreert, de installatie van het apparaat voltooit en vervolgens volumes maakt, koppelt, initialiseert en formatteert op de virtuele StorSimple-matrix die is geconfigureerd als een iSCSI-server. 
+
+De procedures die hier worden beschreven, nemen ongeveer 30 minuten tot 1 uur in beslag. De informatie die in dit artikel wordt gepubliceerd, is alleen van toepassing op virtuele StorSimple-matrices.
 
 ## <a name="setup-prerequisites"></a>Vereisten voor installatie
 
-Voordat u configureren en van uw StorSimple Virtual Array instellen, zorg ervoor dat:
+Voordat u de virtuele StorSimple-matrix configureert en instelt, moet u ervoor zorgen dat:
 
-* U hebt een virtuele matrix ingericht en verbonden zoals beschreven in [implementeren StorSimple Virtual Array - richt een virtuele matrix in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) of [implementeren StorSimple Virtual Array - richt een virtuele-matrix in VMware ](storsimple-virtual-array-deploy2-provision-vmware.md).
-* Hebt u de serviceregistratiesleutel uit de StorSimple Device Manager-service die u hebt gemaakt voor het beheren van uw virtuele StorSimple-matrices. Zie voor meer informatie, **stap 2: De serviceregistratiesleutel ophalen** in [implementeren StorSimple Virtual Array - voorbereiden van de portal](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
-* Als dit de tweede of volgende virtuele matrix die u met een bestaande StorSimple Device Manager-service registreert, moet u de versleutelingssleutel voor servicegegevens hebben. Deze sleutel is gegenereerd toen het eerste apparaat is geregistreerd met deze service. Als u deze sleutel hebt verloren, Zie **ophalen van de versleutelingssleutel voor servicegegevens** in [de Webgebruikersinterface gebruiken voor het beheren van uw StorSimple Virtual Array](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
+* U hebt een virtuele matrix ingericht en er verbinding mee gemaakt zoals beschreven in [de implementatie StorSimple Virtual array: een virtuele matrix inrichten in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) of [StorSimple Virtual array implementeren: een virtuele matrix inrichten in VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
+* U hebt de service registratie sleutel van de StorSimple Apparaatbeheer-service die u hebt gemaakt voor het beheren van uw StorSimple virtuele arrays. Zie **voor meer informatie stap 2: De service registratie sleutel** ophalen in [de virtuele matrix Deploy StorSimple-de portal voorbereiden](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+* Als dit de tweede of volgende virtuele matrix is die u registreert met een bestaande StorSimple-Apparaatbeheer service, moet u de versleutelings sleutel voor service gegevens hebben. Deze sleutel is gegenereerd toen het eerste apparaat is geregistreerd bij deze service. Als u deze sleutel hebt verloren, raadpleegt u de versleutelings **sleutel voor service gegevens ophalen** in [de Web-UI gebruiken om uw virtuele StorSimple-matrix te beheren](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
 
-## <a name="step-by-step-setup"></a>Stapsgewijze instelling
+## <a name="step-by-step-setup"></a>Stapsgewijze installatie
 
-Gebruik de volgende stapsgewijze instructies voor het instellen en configureren uw StorSimple Virtual Array:
+Gebruik de volgende stapsgewijze instructies voor het instellen en configureren van uw virtuele StorSimple-matrix:
 
-* [Stap 1: De lokale web-UI-installatie is voltooid en uw apparaat registreren](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
-* Stap 2: De vereiste apparaatconfiguratie voltooien
+* [Stap 1: De lokale webgebruikersinterface instellen en de registratie van uw apparaat volt ooien](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
+* Stap 2: De vereiste Apparaatinstellingen volt ooien
 * [Stap 3: Een volume toevoegen](#step-3-add-a-volume)
-* [Stap 4: Koppelen, initialiseren en formatteren van een volume](#step-4-mount-initialize-and-format-a-volume)
+* [Stap 4: Een volume koppelen, initialiseren en Format teren](#step-4-mount-initialize-and-format-a-volume)
 
-## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Stap 1: De lokale web-UI-installatie is voltooid en uw apparaat registreren
+## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Stap 1: De lokale webgebruikersinterface instellen en de registratie van uw apparaat volt ooien
 
-#### <a name="to-complete-the-setup-and-register-the-device"></a>De installatie is voltooid en het apparaat registreren
+#### <a name="to-complete-the-setup-and-register-the-device"></a>De installatie volt ooien en het apparaat registreren
 
-1. Open een browservenster. Verbinding maken met de web-UI-type:
+1. Open een browservenster. Verbinding maken met het type webgebruikersinterface:
    
     `https://<ip-address of network interface>`
    
-    Gebruik de verbindings-URL in de vorige stap hebt genoteerd. U ziet een melding dat er een probleem met het beveiligingscertificaat van de website is fout. Klik op **doorgaan naar deze webpagina**.
+    Gebruik de verbindings-URL die u in de vorige stap hebt genoteerd. Er wordt een fout bericht weer geven met de melding dat er een probleem is met het beveiligings certificaat van de website. Klik op **door gaan naar deze webpagina**.
    
-    ![beveiliging-certificaatfout](./media/storsimple-virtual-array-deploy3-iscsi-setup/image3.png)
-2. Aanmelden bij de webgebruikersinterface van uw virtueel apparaat als **StorSimpleAdmin**. Voer het beheerderswachtwoord voor het apparaat dat u hebt gewijzigd in stap 3: Starten van het virtuele apparaat in de [implementeren StorSimple Virtual Array - een virtueel apparaat in Hyper-V inrichten](storsimple-virtual-array-deploy2-provision-hyperv.md) of [implementeren StorSimple Virtual Array - inrichten van een virtueel apparaat in VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
+    ![fout in beveiligings certificaat](./media/storsimple-virtual-array-deploy3-iscsi-setup/image3.png)
+2. Meld u als **StorSimpleAdmin**aan bij de Web-UI van uw virtuele apparaat. Voer het beheerders wachtwoord voor het apparaat in die u in stap 3 hebt gewijzigd: Start het virtuele apparaat in [Deploy StorSimple Virtual array: een virtueel apparaat inrichten in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) of [StorSimple Virtual array implementeren: een virtueel apparaat inrichten in VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
-    ![Aanmeldingspagina opgeven](./media/storsimple-virtual-array-deploy3-iscsi-setup/image4.png)
-3. U gaat naar de **Start** pagina. Deze pagina beschrijft de verschillende instellingen vereist voor het configureren en het virtuele apparaat registreren bij de StorSimple Device Manager-service. Houd er rekening mee dat de **netwerkinstellingen**, **Web proxyinstellingen**, en **tijdinstellingen** zijn optioneel. De enige vereiste instellingen zijn **apparaatinstellingen** en **Cloudinstellingen**.
+    ![Aanmeldings pagina](./media/storsimple-virtual-array-deploy3-iscsi-setup/image4.png)
+3. U gaat naar de **Start** pagina. Op deze pagina worden de verschillende instellingen beschreven die nodig zijn om het virtuele apparaat te configureren en te registreren bij de StorSimple-Apparaatbeheer service. Houd er rekening mee dat de **netwerk instellingen**, **web proxy-instellingen**en **tijd instellingen** optioneel zijn. De enige vereiste instellingen zijn **Apparaatinstellingen** en **Cloud instellingen**.
    
     ![Startpagina](./media/storsimple-virtual-array-deploy3-iscsi-setup/image5.png)
-4. Op de **netwerkinstellingen** pagina onder **netwerkinterfaces**, DATA 0 wordt automatisch voor u geconfigureerd. Elke netwerkinterface is standaard ingesteld op een IP-adres automatisch ophalen (DHCP). Daarom wordt een IP-adres, subnetmasker en gateway automatisch toegewezen (voor zowel IPv4 als IPv6).
+4. Op de pagina **netwerk instellingen** onder **netwerk interfaces**wordt gegevens 0 automatisch voor u geconfigureerd. Elke netwerk interface is standaard ingesteld op het automatisch ophalen van een IP-adres (DHCP). Daarom wordt automatisch een IP-adres, subnet en gateway toegewezen (voor zowel IPv4 als IPv6).
    
-    Als u van plan bent uw apparaat implementeren als een iSCSI-server (op blokopslag inrichten), wordt aangeraden dat u CredSSP de **IP-adres automatisch ophalen** optie en configureer statische IP-adressen.
+    Als u van plan bent om uw apparaat te implementeren als een iSCSI-server (voor het inrichten van blok opslag), raden we u aan de optie **IP-adres automatisch ophalen** uit te scha kelen en statische IP-adressen te configureren.
    
-    ![Pagina netwerkinstellingen](./media/storsimple-virtual-array-deploy3-iscsi-setup/image6.png)
+    ![Pagina netwerk instellingen](./media/storsimple-virtual-array-deploy3-iscsi-setup/image6.png)
    
-    Als u meer dan één netwerkinterface tijdens het inrichten van het apparaat hebt toegevoegd, kunt u deze hier configureren. Houd er rekening mee dat kunt u de netwerkinterface configureren als IPv4 alleen of als zowel IPv4 als IPv6. Alleen IPv6-configuraties worden niet ondersteund.
-5. DNS-servers zijn vereist, omdat ze worden gebruikt wanneer uw apparaat probeert te communiceren met uw cloudserviceproviders voor opslag of oplossen door uw apparaat met de naam die is geconfigureerd als een bestandsserver. Op de **netwerkinstellingen** pagina onder de **DNS-servers**:
+    Als u meer dan één netwerk interface hebt toegevoegd tijdens het inrichten van het apparaat, kunt u deze hier configureren. Opmerking: u kunt uw netwerk interface alleen configureren als IPv4 of als IPv4 en IPv6. Alleen IPv6-configuraties worden niet ondersteund.
+5. DNS-servers zijn vereist omdat ze worden gebruikt wanneer het apparaat probeert te communiceren met uw service providers voor de Cloud opslag of als het apparaat moet worden omgezet op naam als het is geconfigureerd als een bestands server. Op de pagina **netwerk instellingen** van de **DNS-servers**:
    
-   1. Een primaire en secundaire DNS-server wordt automatisch geconfigureerd. Als u kiest voor het configureren van statische IP-adressen, kunt u DNS-servers opgeven. Voor hoge beschikbaarheid, wordt u aangeraden dat u een primaire en secundaire DNS-server configureren.
-   2. Klik op **Toepassen**. Dit zal toepassen en valideren van de netwerkinstellingen.
-6. Op de **apparaatinstellingen** pagina:
+   1. Er wordt automatisch een primaire en secundaire DNS-server geconfigureerd. Als u statische IP-adressen wilt configureren, kunt u DNS-servers opgeven. Voor maximale Beschik baarheid kunt u het beste een primaire en secundaire DNS-server configureren.
+   2. Klik op **Toepassen**. Hiermee worden de netwerk instellingen toegepast en gevalideerd.
+6. Op de pagina **Apparaatinstellingen** :
    
-   1. Toewijzen van een unieke **naam** op uw apparaat. Deze naam 1-15 tekens bestaan en mag letters, cijfers en afbreekstreepjes bevatten.
-   2. Klik op de **iSCSI-server** pictogram ![iSCSI-serverpictogram](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) voor de **Type** van apparaten die u maakt. Een iSCSI-server kunt u de blokopslag inrichten.
-   3. Opgeven of u wilt dat dit apparaat aan een domein worden toegevoegd. Als het apparaat een iSCSI-server is, is klikt u vervolgens lid worden van het domein optioneel. Als u uw iSCSI-server niet toevoegen aan een domein besluit, klikt u op **toepassen**, wacht voordat de instellingen worden toegepast en ga vervolgens verder met de volgende stap.
+   1. Wijs een unieke **naam** toe aan uw apparaat. Deze naam mag 1-15 tekens lang zijn en mag letter, cijfers en afbreek streepjes bevatten.
+   2. Klik op het iSCSI- ![server pictogram iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) -server pictogram voor het **type** apparaat dat u maakt. Een iSCSI-server biedt u de mogelijkheid om blok opslag in te richten.
+   3. Geef op of u wilt dat dit apparaat lid is van een domein. Als uw apparaat een iSCSI-server is, is het toevoegen van het domein optioneel. Als u besluit uw iSCSI-server niet aan een domein toe te voegen, klikt u op **Toep assen**, wacht u totdat de instellingen worden toegepast en gaat u verder met de volgende stap.
       
-       Als u deelnemen aan het apparaat aan een domein wilt. Voer een **domeinnaam**, en klik vervolgens op **toepassen**.
+       Als u het apparaat wilt toevoegen aan een domein. Voer een **domein naam**in en klik vervolgens op **Toep assen**.
       
       > [!NOTE]
-      > Als uw iSCSI-server toevoegen aan een domein, zorgt u ervoor dat uw virtuele array in een eigen organisatie-eenheid (OE) van Microsoft Azure Active Directory is en geen groepsbeleidsobjecten (GPO) worden toegepast op deze.
+      > Als u uw iSCSI-server lid maakt van een domein, moet u ervoor zorgen dat uw virtuele array zich in een eigen organisatie-eenheid (OE) bevindt voor Microsoft Azure Active Directory en er geen groeps beleidsobjecten (GPO) op worden toegepast.
       > 
       > 
-   4. Een dialoogvenster wordt weergegeven. Voer de domeinreferenties van uw in de indeling die is opgegeven. Klik op het vinkje ![vinkje](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). De domeinreferenties worden gecontroleerd. U ziet een foutbericht weergegeven als de referenties onjuist zijn.
+   4. Er wordt een dialoog venster weer gegeven. Voer uw domein referenties in de opgegeven indeling in. Klik op het vinkje ![vinkje](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). De domein referenties worden gecontroleerd. Er wordt een fout bericht weer gegeven als de referenties onjuist zijn.
       
-       ![Referenties](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
-   5. Klik op **Toepassen**. Dit zal toepassen en valideren van de instellingen voor apparaten.
-7. (Optioneel) Configureer uw webproxyserver. Hoewel webproxyconfiguratie optioneel is, er rekening mee dat als u een webproxy gebruikt, u alleen deze hier configureren kunt.
+       ![referenties](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
+   5. Klik op **Toepassen**. Hiermee worden de apparaatinstellingen toegepast en gevalideerd.
+7. (Optioneel) Configureer uw webproxyserver. Hoewel de configuratie van de webproxy optioneel is, moet u er rekening mee houden dat als u een webproxy gebruikt, u deze hier alleen kunt configureren.
    
-    ![Webproxy configureren](./media/storsimple-virtual-array-deploy3-iscsi-setup/image9.png)
+    ![webproxy configureren](./media/storsimple-virtual-array-deploy3-iscsi-setup/image9.png)
    
-    Op de **Web proxy** pagina:
+    Op de pagina webproxy:
    
-   1. Geef de **Web-URL van proxy** in deze indeling: *http:\//host-IP adres* of *FQDN: Port number*. Houd er rekening mee dat HTTPS-URL's worden niet ondersteund.
-   2. Geef **verificatie** als **Basic** of **geen**.
-   3. Als u van verificatie gebruikmaakt, ook moet u voor een **gebruikersnaam** en **wachtwoord**.
-   4. Klik op **Toepassen**. Dit wordt gevalideerd en de geconfigureerde web proxy-instellingen toepassen.
-8. (Optioneel) Configureer de tijdinstellingen voor uw apparaat, zoals tijdzone en de primaire en secundaire NTP-servers. NTP-servers zijn vereist, omdat het apparaat de tijd synchroniseren moet zodat deze kan worden geverifieerd met uw cloud-serviceproviders.
+   1. Geef de **URL** van de webproxy op in deze indeling: *http:\//host-IP-adres* of *FQDN: poort nummer*. Let op: HTTPS-Url's worden niet ondersteund.
+   2. Geef **verificatie** op als **basis** of **geen**.
+   3. Als u verificatie gebruikt, moet u ook een **gebruikers naam** en **wacht woord**opgeven.
+   4. Klik op **Toepassen**. Hiermee worden de geconfigureerde web proxy-instellingen gevalideerd en toegepast.
+8. (Optioneel) de tijd instellingen voor uw apparaat configureren, zoals de tijd zone en de primaire en secundaire NTP-servers. NTP-servers zijn vereist omdat uw apparaat tijd moet synchroniseren zodat het kan worden geverifieerd bij uw Cloud serviceproviders.
    
     ![Tijdinstellingen](./media/storsimple-virtual-array-deploy3-iscsi-setup/image10.png)
    
-    Op de **tijdinstellingen** pagina:
+    Op de pagina **tijd instellingen** :
    
-   1. Selecteer in de vervolgkeuzelijst de **tijdzone** op basis van de geografische locatie waar het apparaat wordt geïmplementeerd. De standaardtijdzone voor uw apparaat is PST. Het apparaat zal deze tijdzone gebruiken voor alle geplande bewerkingen.
-   2. Geef een **primaire NTP-server** voor uw apparaat in of accepteer de standaardwaarde van time.windows.com. Zorg ervoor dat in uw netwerk NTP-verkeer kan worden doorgegeven van uw datacenter naar internet.
-   3. Geef eventueel een **secundaire NTP-server** voor uw apparaat.
-   4. Klik op **Toepassen**. Dit wordt gevalideerd en de geconfigureerde time-instellingen toepassen.
-9. Configureer de cloudinstellingen voor uw apparaat. In deze stap maakt u de configuratie van het lokale apparaat voltooien en vervolgens het apparaat te registreren bij uw StorSimple Device Manager-service.
+   1. Selecteer in de vervolg keuzelijst de **tijd zone** op basis van de geografische locatie waar het apparaat wordt geïmplementeerd. De standaard tijd zone voor uw apparaat is PST. Het apparaat zal deze tijdzone gebruiken voor alle geplande bewerkingen.
+   2. Geef een **primaire NTP-server** voor uw apparaat op of accepteer de standaard waarde van time.Windows.com. Zorg ervoor dat in uw netwerk NTP-verkeer kan worden doorgegeven van uw datacenter naar internet.
+   3. Geef eventueel een **secundaire NTP-server** op voor uw apparaat.
+   4. Klik op **Toepassen**. Hiermee worden de geconfigureerde tijd instellingen gevalideerd en toegepast.
+9. Configureer de Cloud instellingen voor uw apparaat. In deze stap voltooit u de configuratie van het lokale apparaat en registreert u het apparaat met uw StorSimple-Apparaatbeheer service.
    
-   1. Voer de **serviceregistratiesleutel** die u hebt verkregen **stap 2: De serviceregistratiesleutel ophalen** in [implementeren StorSimple Virtual Array - voorbereiden van de Portal](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
-   2. Als dit niet het eerste apparaat dat u met deze service registreren wilt is, moet u voor de **versleutelingssleutel voor servicegegevens**. Deze sleutel is vereist bij de serviceregistratiesleutel extra apparaten registreren bij de StorSimple Device Manager-service. Raadpleeg voor meer informatie, [ophalen van de versleutelingssleutel voor servicegegevens](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) op de lokale webgebruikersinterface.
-   3. Klik op **registreren**. Hiermee wordt het apparaat opnieuw opgestart. Mogelijk moet u wachten op 2-3 minuten voordat het apparaat is geregistreerd. Nadat het apparaat opnieuw is opgestart, gaat u naar de aanmeldingspagina.
+   1. Voer de **service registratie sleutel** in die u in **stap 2 hebt ontvangen: De service registratie sleutel** ophalen in [de virtuele matrix Deploy StorSimple-de portal voorbereiden](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+   2. Als dit niet het eerste apparaat is dat u bij deze service registreert, moet u de versleutelings **sleutel voor de service gegevens**opgeven. Deze sleutel is vereist bij de service registratie sleutel om extra apparaten te registreren bij de StorSimple-Apparaatbeheer service. Raadpleeg voor meer informatie [de versleutelings sleutel voor service gegevens ophalen](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) op uw lokale webinterface.
+   3. Klik op **registreren**. Hiermee wordt het apparaat opnieuw opgestart. Mogelijk moet u 2-3 minuten wachten voordat het apparaat is geregistreerd. Nadat het apparaat opnieuw is opgestart, wordt u naar de aanmeldings pagina geleid.
       
       ![Apparaat registreren](./media/storsimple-virtual-array-deploy3-iscsi-setup/image11.png)
 10. Ga terug naar de Azure-portal.
-11. Navigeer naar de **apparaten** blade van uw service. Als u een groot aantal bronnen hebt, klikt u op **alle resources**, klikt u op de naam van uw service (zoek deze indien nodig) en klik vervolgens op **apparaten**.
-12. Op de **apparaten** blade controleren of het apparaat heeft is verbonden met de service door het opzoeken van de status. Het apparaat moet de status **Gereed voor configuratie** hebben.
+11. Navigeer naar de Blade **apparaten** van uw service. Als u veel resources hebt, klikt u op **alle resources**, klikt u op de naam van de service (Zoek indien nodig ernaar) en klikt u vervolgens op **apparaten**.
+12. Controleer op de Blade **apparaten** of het apparaat is verbonden met de service door de status op te zoeken. Het apparaat moet de status **Gereed voor configuratie** hebben.
     
     ![Apparaat registreren](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
 
 ## <a name="step-2-configure-the-device-as-iscsi-server"></a>Stap 2: Het apparaat configureren als iSCSI-server
 
-De volgende stappen uitvoeren in Azure portal om de installatie vereist apparaat te voltooien.
+Voer de volgende stappen uit in de Azure Portal om de vereiste apparaatinstellingen te volt ooien.
 
-#### <a name="to-configure-the-device-as-iscsi-server"></a>Het apparaat configureren als iSCSI-server
+#### <a name="to-configure-the-device-as-iscsi-server"></a>Het apparaat als iSCSI-server configureren
 
-1. Ga naar uw StorSimple Device Manager-service en ga vervolgens naar **Management > apparaten**. In de **apparaten** blade, selecteer het apparaat dat u zojuist hebt gemaakt. Dit apparaat zou worden weergegeven als **klaar om in te stellen**.
+1. Ga naar de StorSimple-Apparaatbeheer service en ga vervolgens naar **beheer > apparaten**. Selecteer op de Blade **apparaten** het apparaat dat u zojuist hebt gemaakt. Dit apparaat wordt weer gegeven als **gereed voor configuratie**.
    
     ![Apparaat configureren als iSCSI-server](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png) 
-2. Klik op het apparaat en ziet u een banner bericht waarin staat dat het apparaat gereed voor installatie is.
+2. Klik op het apparaat. er wordt een banner bericht weer gegeven dat aangeeft dat het apparaat gereed is voor installatie.
    
     ![Apparaat configureren als iSCSI-server](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis2m.png)  
-3. Klik op **configureren** op de opdrachtbalk van het apparaat. Hiermee opent u de **configureren** blade. In de **configureren** blade, doet u het volgende:
+3. Klik op **configureren** op de opdracht balk van het apparaat. Hiermee opent u de Blade **configureren** . Ga als volgt te werk op de Blade **configureren** :
    
-   * De naam van de iSCSI-server wordt automatisch ingevuld.
-   * Zorg ervoor dat de versleuteling van cloudopslag is ingesteld op **ingeschakeld**. Dit zorgt ervoor dat de gegevens van het apparaat verzonden naar de cloud is versleuteld.
-   * Geef een versleutelingssleutel van 32 tekens op en leg deze vast in een beheerapp voor toekomstig gebruik.
-   * Selecteer een opslagaccount dat moet worden gebruikt met uw apparaat. In dit abonnement, kunt u een bestaand opslagaccount selecteren of u kunt klikken op **toevoegen** een account kiezen uit een ander abonnement.
+   * De iSCSI-server naam wordt automatisch ingevuld.
+   * Zorg ervoor dat de versleuteling van de Cloud opslag is ingesteld op **ingeschakeld**. Dit zorgt ervoor dat de gegevens die van het apparaat naar de cloud worden verzonden, worden versleuteld.
+   * Geef een versleutelings sleutel van 32 tekens op en neem deze op in een app voor sleutel beheer, zodat u deze later kunt raadplegen.
+   * Selecteer een opslag account dat u wilt gebruiken met uw apparaat. In dit abonnement kunt u een bestaand opslag account selecteren, of u kunt op **toevoegen** klikken om een account uit een ander abonnement te kiezen.
      
      ![Apparaat configureren als iSCSI-server](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis4m.png)
-4. Klik op **configureren** om uit te voeren van het instellen van de iSCSI-server.
+4. Klik op **configureren** om het instellen van de iSCSI-server te volt ooien.
    
     ![Apparaat configureren als iSCSI-server](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis5m.png) 
-5. U wordt gewaarschuwd dat de iSCSI-server gemaakt wordt. Nadat de iSCSI-server is gemaakt, de **apparaten** blade wordt bijgewerkt en wordt de status van het desbetreffende apparaat **Online**.
+5. U wordt gewaarschuwd dat het maken van de iSCSI-server wordt uitgevoerd. Nadat de iSCSI-server is gemaakt, wordt de Blade **apparaten** bijgewerkt en is de bijbehorende Apparaatstatus **online**.
    
     ![Apparaat configureren als iSCSI-server](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis9m.png)
 
 ## <a name="step-3-add-a-volume"></a>Stap 3: Een volume toevoegen
 
-1. In de **apparaten** blade, selecteer het apparaat dat u zojuist hebt geconfigureerd als een iSCSI-server. Klik op **...**  (u kunt ook met de rechtermuisknop op in deze rij) en selecteer in het contextmenu **volume toevoegen**. U kunt ook klikken op **volume toevoegen** vanuit de opdrachtbalk. Hiermee opent u de **volume toevoegen** blade.
+1. Selecteer op de Blade **apparaten** het apparaat dat u zojuist hebt geconfigureerd als een iSCSI-server. Klik op **...** (in deze rij kunt u ook met de rechter muisknop klikken) en selecteer **volume toevoegen**in het context menu. U kunt ook op **+ volume toevoegen** klikken vanaf de opdracht balk. Hiermee opent u de Blade **volume toevoegen** .
    
     ![Een volume toevoegen](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis10m.png)
-2. In de **volume toevoegen** blade, doet u het volgende:
+2. Ga als volgt te werk op de Blade **volume toevoegen** :
    
-   * In de **volumenaam** veld, voer een unieke naam voor het volume. De naam moet een tekenreeks met 3 tot en met 127 tekens.
-   * In de **Type** vervolgkeuzelijst lijst, Geef op of maak een **gelaagd** of **lokaal vastgemaakt** volume. Voor workloads waarvoor lokale garanties, lage latenties en betere prestaties, selecteert u **lokaal vastgemaakt** **volume**. Voor alle andere gegevens, selecteert u **gelaagd** **volume**.
-   * In de **capaciteit** veld, geeft u de grootte van het volume. Een gelaagd volume moet liggen tussen 500 GB en 5 TB en een lokaal vastgemaakt volume moet tussen de 50 GB en 500 GB.
+   * Voer in het veld **volume naam** een unieke naam in voor het volume. De naam moet een teken reeks zijn die tussen de 3 en 127 tekens bevat.
+   * Geef in de vervolg keuzelijst **type** de keuze aan of u een **gelaagd** of **lokaal vastgemaakt** volume wilt maken. Voor werk belastingen waarvoor lokale garanties, lage latenties en hogere prestaties zijn vereist, selecteert u **lokaal vastgemaakt** **volume**. Voor alle andere gegevens selecteert u **gelaagd** **volume**.
+   * Geef in het veld **capaciteit** de grootte van het volume op. Een gelaagd volume moet tussen 500 GB en 5 TB liggen en een lokaal vastgemaakt volume moet tussen 50 GB en 500 GB liggen.
      
-     Een lokaal vastgemaakt volume is compact ingericht en zorgt ervoor dat de primaire gegevens in het volume op het apparaat blijft en wordt niet naar de cloud worden gelekt.
+     Een lokaal vastgemaakt volume is dik ingericht en zorgt ervoor dat de primaire gegevens in het volume op het apparaat blijven en niet overvloeien naar de Cloud.
      
-     Een gelaagd volume is aan de andere kant dun ingericht. Wanneer u een gelaagd volume maakt, wordt ongeveer 10% van de ruimte is ingericht op de lokale laag en 90% van de ruimte in de cloud is ingericht. Bijvoorbeeld, als u een volume van 1 TB hebt ingericht, 100 GB zou bevinden zich in de lokale ruimte en 900 GB zou in de cloud worden gebruikt wanneer de gegevenslagen. Dit impliceert op zijn beurt is dat als u van de lokale ruimte op het apparaat uitvoeren niet kan u een gelaagde share inrichten (omdat de 10% niet beschikbaar is).
+     Een gelaagd volume aan de andere kant is dun ingericht. Wanneer u een gelaagd volume maakt, wordt ongeveer 10% van de ruimte ingericht op de lokale laag en wordt 90% van de ruimte ingericht in de Cloud. Als u bijvoorbeeld een volume van 1 TB hebt ingericht, bevindt 100 GB zich in de lokale ruimte en wordt 900 GB in de Cloud gebruikt wanneer de gegevens lagen. Dit betekent dat als u alle lokale ruimte op het apparaat uitvoert, u geen gelaagde share kunt inrichten (omdat de 10% niet beschikbaar is).
      
      ![Een volume toevoegen](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis12.png)
-   * Klik op **verbonden hosts**, selecteert u een Acces controlerecord (ACR) overeenkomt met de iSCSI-initiator die u wilt verbinding maken met dit volume en klik vervolgens op **Selecteer**. <br><br> 
-3. Als u wilt een nieuw verbonden host toevoegt, klikt u op **nieuwe toevoegen**, voer een naam voor de host en de iSCSI Qualified Name (IQN) en klik vervolgens op **toevoegen**. Als u het IQN niet hebt, gaat u naar [bijlage A: Het IQN ophalen van een Windows Server-host](#appendix-a-get-the-iqn-of-a-windows-server-host).
+   * Klik op **verbonden hosts**, selecteer een Access Control record (ACR) dat overeenkomt met de iSCSI-initiator die u wilt verbinden met dit volume en klik vervolgens op **selecteren**. <br><br> 
+3. Als u een nieuwe verbonden host wilt toevoegen, klikt u op **Nieuw toevoegen**, voert u een naam in voor de host en de iSCSI QUALIFIED name (IQN), en klikt u vervolgens op **toevoegen**. Als u de IQN niet hebt, gaat [u naar bijlage A: Haal de IQN van een Windows Server-](#appendix-a-get-the-iqn-of-a-windows-server-host)host op.
    
       ![Een volume toevoegen](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis15m.png)
-4. Wanneer u klaar bent met het volume configureren, klikt u op **OK**. Een volume wordt gemaakt met de opgegeven instellingen en u ziet een melding. Standaard wordt de controle- en back-up voor het volume worden ingeschakeld.
+4. Klik op **OK**wanneer u klaar bent met het configureren van het volume. Er wordt een volume gemaakt met de opgegeven instellingen en er wordt een melding weer gegeven. Bewaking en back-up worden standaard ingeschakeld voor het volume.
    
      ![Een volume toevoegen](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis18m.png)
-5. Om te bevestigen of het volume is gemaakt, gaat u naar de **Volumes** blade. Hier ziet u het volume dat wordt vermeld.
+5. Ga naar de Blade **volumes** om te controleren of het volume is gemaakt. Het volume wordt weer gegeven.
    
    ![Een volume toevoegen](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis20m.png)
 
 ## <a name="step-4-mount-initialize-and-format-a-volume"></a>Stap 4: Een volume koppelen, initialiseren en formatteren
 
-Voer de volgende stappen uit als u wilt koppelen, initialiseren en formatteren van uw StorSimple-volumes op een Windows Server-host.
+Voer de volgende stappen uit om uw StorSimple-volumes te koppelen, initialiseren en Format teren op een Windows Server-host.
 
 #### <a name="to-mount-initialize-and-format-a-volume"></a>Een volume koppelen, initialiseren en formatteren
 
-1. Open de **iSCSI-initiator** app op de juiste server.
+1. Open de app **iSCSI-initiator** op de juiste server.
 2. Klik in het venster **Eigenschappen iSCSI-initiator** op het tabblad **Detectie** op **Portal detecteren**.
    
-    ![detecteren van de portal](./media/storsimple-virtual-array-deploy3-iscsi-setup/image22.png)
+    ![Portal ontdekken](./media/storsimple-virtual-array-deploy3-iscsi-setup/image22.png)
 3. Geef in het dialoogvenster **Doelportaal detecteren** het IP-adres op van de netwerkinterface met iSCSI-functionaliteit en klik vervolgens op **OK**.
    
     ![IP-adres](./media/storsimple-virtual-array-deploy3-iscsi-setup/image23.png)
-4. Ga in het venster **Eigenschappen iSCSI-initiator** op het tabblad **Doelen** naar **Gedetecteerde doelen**. (Elk volume worden een doel voor gedetecteerde.) De status van het apparaat moet worden weergegeven als **Inactief**.
+4. Ga in het venster **Eigenschappen iSCSI-initiator** op het tabblad **Doelen** naar **Gedetecteerde doelen**. (Elk volume zal een gedetecteerd doel zijn.) De status van het apparaat moet worden weergegeven als **Inactief**.
    
-    ![Gedetecteerde doelen](./media/storsimple-virtual-array-deploy3-iscsi-setup/image24.png)
-5. Selecteer een doelapparaat en klik vervolgens op **Connect**. Nadat het apparaat is verbonden, moet de status zijn gewijzigd in **Verbonden**. (Zie voor meer informatie over het gebruik van de Microsoft iSCSI-initiator [installeren en configureren van Microsoft iSCSI-Initiator][1].
+    ![gedetecteerde doelen](./media/storsimple-virtual-array-deploy3-iscsi-setup/image24.png)
+5. Selecteer een doel apparaat en klik vervolgens op **verbinding maken**. Nadat het apparaat is verbonden, moet de status zijn gewijzigd in **Verbonden**. (Zie [micro soft iSCSI-initiator installeren en configureren][1]voor meer informatie over het gebruik van de micro soft iSCSI-initiator.
    
-    ![Selecteer doelapparaat](./media/storsimple-virtual-array-deploy3-iscsi-setup/image25.png)
+    ![doel apparaat selecteren](./media/storsimple-virtual-array-deploy3-iscsi-setup/image25.png)
 6. Druk op uw Windows-hots op de Windows-toets + X en klik vervolgens op **Uitvoeren**.
 7. Typ in het dialoogvenster **Uitvoeren** **Diskmgmt.msc**. Klik op **OK**. Het dialoogvenster **Schijfbeheer** wordt weergegeven. In het rechterdeelvenster worden de volumes op uw host weergeven.
 8. In het venster **Schijfbeheer** worden de gekoppelde volumes weergegeven zoals in de volgende afbeelding. Klik met de rechtermuisknop op het gedetecteerde volume (klik op de naam van de schijf) en klik vervolgens op **Online**.
    
-    ![Schijfbeheer](./media/storsimple-virtual-array-deploy3-iscsi-setup/image26.png)
-9. Met de rechtermuisknop op en selecteer **schijf initialiseren**.
+    ![schijf beheer](./media/storsimple-virtual-array-deploy3-iscsi-setup/image26.png)
+9. Klik met de rechter muisknop en selecteer **schijf initialiseren**.
    
-    ![Initialiseer de schijf 1](./media/storsimple-virtual-array-deploy3-iscsi-setup/image27.png)
-10. In het dialoogvenster, selecteer de schijven voor het initialiseren en klik vervolgens op **OK**.
+    ![schijf 1 initialiseren](./media/storsimple-virtual-array-deploy3-iscsi-setup/image27.png)
+10. Selecteer in het dialoog venster de schijven die u wilt initialiseren en klik vervolgens op **OK**.
     
-    ![Initialiseer de schijf 2](./media/storsimple-virtual-array-deploy3-iscsi-setup/image28.png)
-11. De wizard Nieuw eenvoudig Volume wordt gestart. Selecteer een grootte van de schijf en klik vervolgens op **volgende**.
+    ![schijf 2 initialiseren](./media/storsimple-virtual-array-deploy3-iscsi-setup/image28.png)
+11. De wizard Nieuw eenvoudig volume wordt gestart. Selecteer een schijf grootte en klik vervolgens op **volgende**.
     
     ![wizard Nieuw volume 1](./media/storsimple-virtual-array-deploy3-iscsi-setup/image29.png)
-12. Een stationsletter toewijzen aan het volume en klik vervolgens op **volgende**.
+12. Wijs een stationsletter aan het volume toe en klik vervolgens op **volgende**.
     
     ![wizard Nieuw volume 2](./media/storsimple-virtual-array-deploy3-iscsi-setup/image30.png)
-13. Geef de parameters bij zodat het volume geformatteerd. **Op Windows Server wordt alleen NTFS ondersteund.** Stel de grootte van toewijzingseenheid tot 64 kB. Geef een label voor het volume. Het is een aanbevolen procedure voor deze naam moet gelijk zijn aan de naam van het volume dat u hebt opgegeven op de StorSimple Virtual Array. Klik op **volgende**.
+13. Geef de para meters op voor het format teren van het volume. **Op Windows Server wordt alleen NTFS ondersteund.** Stel de Allocation Unit Size in op 64 kB. Geef een label op voor uw volume. Het is een aanbevolen best practice voor deze naam gelijk te zijn aan de volume naam die u hebt ingevoerd op de virtuele StorSimple-matrix. Klik op **Volgende**.
     
     ![wizard Nieuw volume 3](./media/storsimple-virtual-array-deploy3-iscsi-setup/image31.png)
-14. Controleer de waarden voor het volume en klik vervolgens op **voltooien**.
+14. Controleer de waarden voor uw volume en klik vervolgens op **volt ooien**.
     
     ![wizard Nieuw volume 4](./media/storsimple-virtual-array-deploy3-iscsi-setup/image32.png)
     
-    De volumes worden weergegeven als **Online** op de **Schijfbeheer** pagina.
+    De volumes worden weer gegeven als **online** op de pagina **schijf beheer** .
     
     ![volumes online](./media/storsimple-virtual-array-deploy3-iscsi-setup/image33.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over het gebruik van de lokale web-UI te [beheren van uw StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Meer informatie over het gebruik van de lokale web-UI voor [het beheren van uw StorSimple-virtuele matrix](storsimple-ova-web-ui-admin.md).
 
 ## <a name="appendix-a-get-the-iqn-of-a-windows-server-host"></a>Bijlage A: Het IQN ophalen van een Windows Server-host
 

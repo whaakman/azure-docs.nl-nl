@@ -1,34 +1,32 @@
 ---
-title: Uw toepassing op Azure Disk-opslag - beheerde schijven benchmarking
-description: Meer informatie over het proces van benchmarks van uw toepassing in Azure.
-services: virtual-machines-windows,storage
+title: Benchmarking van uw toepassing op Azure Disk Storage-beheerde schijven
+description: Meer informatie over het proces van benchmarking van uw toepassing in Azure.
 author: roygara
 ms.author: rogarana
 ms.date: 01/11/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: 8db1fb3c9b3ed551cd668cf14105eb8bfb486251
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 600b456cd77d866f1365b7dadfa9ea2473db0fa4
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60679736"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698763"
 ---
-# <a name="benchmarking-a-disk"></a>Een diskette benchmarking
+# <a name="benchmarking-a-disk"></a>Een schijf benchmarken
 
-Benchmarking is het proces van het simuleren van verschillende workloads op uw toepassing en de prestaties van toepassingen voor elke werkbelasting te meten. Met behulp van de stappen in de [ontwerpen voor hoge prestaties artikel](premium-storage-performance.md), u hebt de prestatie-eisen voor toepassingen verzameld. Door het uitvoeren van hulpprogramma's voor benchmarking op de virtuele machines die als host fungeert voor de toepassing, kunt u de prestatieniveaus die binnen uw toepassing met Premium Storage bereiken kunt bepalen. In dit artikel bieden wij u voorbeelden van benchmarks van een Standard DS14-virtuele machine ingericht met Azure Premium Storage-schijven.
+Benchmarking is het proces van het simuleren van verschillende werk belastingen in uw toepassing en het meten van de toepassings prestaties voor elke werk belasting. Door de stappen te volgen die worden beschreven in het [artikel ontwerpen voor hoge prestaties](premium-storage-performance.md), hebt u de prestatie vereisten voor de toepassing verzameld. Door Bench Mark-hulpprogram ma's uit te voeren op de Vm's die de toepassing hosten, kunt u de prestatie niveaus bepalen die uw toepassing kan verzorgen met Premium Storage. In dit artikel bieden we u voor beelden van benchmarking van een standaard DS14-VM die is ingericht met Azure Premium Storage-schijven.
 
-We hebben respectievelijk algemene hulpprogramma's voor benchmarking Iometer en FIO, voor Windows en Linux gebruikt. Deze hulpprogramma's starten meerdere threads simuleren van een productie-achtige werkbelasting en meten van prestaties van het systeem. U kunt ook een parameters, zoals het block-grootte en wachtrij diepte, die u normaal gesproken niet voor een toepassing wijzigen configureren met behulp van de hulpprogramma's. Dit biedt u meer flexibiliteit om de maximale prestaties op een grote schaal VM ingericht met premium-schijven voor verschillende soorten werkbelastingen van toepassingen te stimuleren. Voor meer informatie over elke benchmarking hulpprogramma gaat u naar [Iometer](http://www.iometer.org/) en [FIO](http://freecode.com/projects/fio).
+We hebben respectievelijk gebruikgemaakt van common Bench Mark-hulpprogram ma's Iometer en FIO voor Windows en Linux. Deze hulpprogram ma's starten meerdere threads die een productie simuleren, zoals workload, en meten de systeem prestaties. Met de hulpprogram ma's kunt u ook para meters configureren, zoals blok grootte en wachtrij diepte, die normaal gesp roken niet kunnen worden gewijzigd voor een toepassing. Dit biedt u meer flexibiliteit om de maximale prestaties van een grootschalige virtuele machine die is ingericht met Premium-schijven voor verschillende typen toepassings werkbelastingen te verzorgen. Ga naar [Iometer](http://www.iometer.org/) en [FIO](http://freecode.com/projects/fio)voor meer informatie over elk Bench Mark-hulp programma.
 
-Volg de onderstaande voorbeelden, een standaard DS14-virtuele machine maken en 11 Premium-opslagschijven koppelen aan de virtuele machine. 11 schijven, 10 schijven configureren met opslaan in cache als 'Geen' en deze in een volume naam NoCacheWrites stripe. Opslaan in cache als 'Alleen-lezen' op de resterende schijf configureren en maken van een volume naam CacheReads met deze schijf. Met deze instellingen, bent u ziet de maximale prestaties voor lezen en schrijven van een Standard DS14-virtuele machine. Voor gedetailleerde stappen over het maken van een DS14-VM met premium SSD's, gaat u naar [ontwerpen voor hoge prestaties](premium-storage-performance.md).
+Als u de onderstaande voor beelden wilt volgen, maakt u een standaard DS14-VM en koppelt u elf Premium Storage schijven aan de virtuele machine. Van de 11 schijven configureert u 10 schijven met host-caching als ' geen ' en stript u deze in een volume met de naam NoCacheWrites. Configureer host-caching als ' ReadOnly ' op de resterende schijf en maak een volume met de naam CacheReads met deze schijf. Met deze installatie kunt u de maximale Lees-en schrijf prestaties van een standaard DS14-VM bekijken. Ga voor gedetailleerde stappen voor het maken van een DS14-VM met Premium Ssd's naar [ontwerp voor hoge prestaties](premium-storage-performance.md).
 
 [!INCLUDE [virtual-machines-disks-benchmarking](../../../includes/virtual-machines-managed-disks-benchmarking.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Volg de stappen in onze ontwerp voor hoge prestaties artikel. In deze maakt u een controlelijst die vergelijkbaar is met uw bestaande toepassing voor het model. Met behulp van hulpprogramma's voor Benchmarking kunt u de werkbelastingen te simuleren en meten van prestaties van de toepassing prototype. Op deze manier kunt u bepalen welke schijf aanbieding kan overeenkomen met of groter zijn dan de prestatievereisten van uw toepassing. Vervolgens kunt u dezelfde richtlijnen als voor uw productietoepassing implementeren.
+Ga door met het ontwerp van het artikel voor hoge prestaties. Hierin maakt u een controle lijst die vergelijkbaar is met uw bestaande toepassing voor het prototype. Met Bench Mark-hulpprogram ma's kunt u de werk belastingen simuleren en de prestaties meten op de prototype toepassing. Op die manier kunt u bepalen welke schijf aanbieding kan overeenkomen of de prestatie vereisten van uw toepassing overschrijden. Vervolgens kunt u dezelfde richt lijnen voor uw productie toepassing implementeren.
 
 > [!div class="nextstepaction"]
-> Zie het artikel op [ontwerpen voor hoge prestaties](premium-storage-performance.md) beginnen.
+> Zie het artikel over het [ontwerpen van geavanceerde begin prestaties](premium-storage-performance.md) .

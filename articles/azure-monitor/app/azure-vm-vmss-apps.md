@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 69ae6ab6caedd9e89d277b92558931685d2ea320
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f2c6b98fd0be2061e9d8cab5c063cafadf71476a
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877309"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597452"
 ---
 # <a name="monitor-application-performance-hosted-on-azure-vm-and-azure-virtual-machine-scale-sets"></a>De prestaties van toepassingen bewaken die worden gehost op Azure VM-en Azure virtual machine-schaal sets
 
@@ -42,7 +42,7 @@ Er zijn twee manieren om toepassings bewaking in te scha kelen voor Azure VM en 
     * Als u aangepaste API-aanroepen wilt maken voor het bijhouden van gebeurtenissen/afhankelijkheden die niet standaard worden vastgelegd met bewaking op basis van agents, moet u deze methode gebruiken. Bekijk de [API voor het artikel aangepaste gebeurtenissen en metrische gegevens](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) voor meer informatie.
 
 > [!NOTE]
-> Als zowel bewaking op basis van de agent als hand matige instrumentatie op basis van SDK wordt gedetecteerd, worden alleen de instellingen voor hand matige instrumentatie gehonoreerd. Dit is om te voor komen dat dubbele gegevens worden verzonden. Raadpleeg de [sectie probleem oplossing](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-apps#troubleshooting) hieronder voor meer informatie.
+> Als zowel bewaking op basis van de agent als hand matige instrumentatie op basis van SDK wordt gedetecteerd, worden alleen de instellingen voor hand matige instrumentatie gehonoreerd. Dit is om te voor komen dat dubbele gegevens worden verzonden. Raadpleeg de [sectie probleem oplossing](#troubleshooting) hieronder voor meer informatie.
 
 ## <a name="manage-agent-based-monitoring-for-net-applications-on-vm-using-powershell"></a>Bewaking op basis van agents voor .NET-toepassingen op virtuele machines beheren met Power shell
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 925461ba6c74fe0bcf286692c1a19bb4e7c02dfa
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 6217fe51a0231ee1bd34f9fbe8edef47ee073209
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68254423"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609702"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuratie-en beheer problemen voor Azure Cloud Services: Veelgestelde vragen (FAQ)
 
@@ -219,7 +219,7 @@ Cloud Services biedt geen ondersteuning voor het RBAC-model (op rollen gebaseerd
 
 Zie [inzicht krijgen in de verschillende rollen in azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## <a name="remote-desktop"></a>Extern bureau blad
+## <a name="remote-desktop"></a>Extern bureaublad
 
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Kunnen interne technici van micro soft extern bureau blad naar Cloud service-instanties zonder toestemming?
 Micro soft volgt een strikt proces dat interne technici niet in staat stelt om extern bureau blad in uw Cloud service te plaatsen zonder schrijf machtiging (e-mail adres of andere schriftelijke communicatie) van de eigenaar of de gebruiker.
@@ -297,7 +297,7 @@ U kunt de antimalware-uitbrei ding inschakelen met behulp van Power shell-script
 - [Een Power shell-opstart taak maken](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
 - [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
-Zie antimalware- [implementatie scenario's](../security/azure-security-antimalware.md#antimalware-deployment-scenarios)voor meer informatie over antimalware-implementatie scenario's en hoe u deze kunt inschakelen vanuit de portal.
+Zie antimalware- [implementatie scenario's](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)voor meer informatie over antimalware-implementatie scenario's en hoe u deze kunt inschakelen vanuit de portal.
 
 ### <a name="how-to-enable-server-name-indication-sni-for-cloud-services"></a>Servernaamindicatie (SNI) inschakelen voor Cloud Services?
 

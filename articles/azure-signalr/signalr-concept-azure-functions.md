@@ -1,28 +1,28 @@
 ---
-title: Ontwikkel Real-time apps met Azure Functions en Azure SignalR Service
-description: Een overzicht van het gebruik van Azure SignalR Service in serverloze toepassingen.
+title: Real-time apps bouwen met Azure Functions en Azure signalerings service
+description: Een overzicht van het gebruik van de Azure signalerings service in serverloze toepassingen.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: c88e2b012086f61aad3143c8fe6b0bd25ec333e5
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 6a71647d452597c84e0df1beb6e9c6c3932d171b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275093"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639925"
 ---
-# <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Ontwikkel real-time Apps met Azure Functions en Azure SignalR Service
+# <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Real-time apps bouwen met Azure Functions en Azure signalerings service
 
 Omdat de Azure SignalR-service en Azure Functions beide volledig beheerde, zeer schaalbare services zijn waarmee u zich kunt richten op het ontwikkelen van toepassingen in plaats van op het beheren van de infrastructuur, worden de beide services vaak samen gebruikt om realtime communicatie in een [serverloze](https://azure.microsoft.com/solutions/serverless/) omgeving te bieden.
 
 > [!NOTE]
-> Leer hoe u SignalR en Azure Functions samen gebruiken in de interactieve zelfstudie [inschakelen van automatische updates in een webtoepassing met Azure Functions en SignalR-Service](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr).
+> Meer informatie over het gebruik van de Signa lering en het Azure Functions samen in de interactieve zelf studie [inschakelen automatische updates in een webtoepassing met behulp van Azure functions en de signalerings service](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr).
 
 ## <a name="integrate-real-time-communications-with-azure-services"></a>Realtimecommunicatie integreren met Azure-services
 
-Met Azure Functions kunt u code in [verschillende talen](../azure-functions/supported-languages.md), waaronder JavaScript, C# en Java, schrijven die wordt geactiveerd als er een gebeurtenis in de cloud plaatsvindt. Voorbeelden van deze gebeurtenissen zijn:
+Met Azure Functions kunt u code schrijven in [verschillende talen](../azure-functions/supported-languages.md), waaronder Java script, python C#, en Java, die wordt geactiveerd wanneer er gebeurtenissen optreden in de Cloud. Voorbeelden van deze gebeurtenissen zijn:
 
 * HTTP- en webhook-aanvragen
 * Periodieke timers
@@ -66,10 +66,10 @@ Met SignalR-service kunt u berichten uitzenden naar alle clients of alleen naar 
 
 In dit artikel hebt u een overzicht gekregen van hoe u Azure Functions kunt gebruiken met SignalIR-service om een breed scala aan scenario’s voor serverloze realtimeberichten mogelijk te maken.
 
-Ga naar de volgende bronnen voor meer informatie over het gebruik van Azure Functions en SignalR Service samen:
+Raadpleeg de volgende bronnen voor meer informatie over het samen gebruiken van Azure Functions en de signaal service:
 
-* [Azure Functions-ontwikkeling en -configuratie met SignalR-Service](signalr-concept-serverless-development-config.md)
-* [Automatische updates in een webtoepassing met Azure Functions en SignalR-Service inschakelen](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
+* [Azure Functions ontwikkeling en configuratie met de seingevings service](signalr-concept-serverless-development-config.md)
+* [Automatische updates inschakelen in een webtoepassing met behulp van Azure Functions en de signaal service](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
 
 Volg een van deze snelstartgidsen voor meer informatie.
 

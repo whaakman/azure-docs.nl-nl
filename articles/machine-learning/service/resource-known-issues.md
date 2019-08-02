@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 206a8d9ba45dcb948dfffff86bab17b58a33e464
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 7d1bce7575272b7df185c4e261685d989f49436c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358610"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716540"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bekende problemen en oplossen van problemen met Azure Machine Learning-service
 
@@ -151,3 +151,9 @@ Als u een beheer bewerking uitvoert op een reken doel van een externe taak, word
 ```
 
 U ontvangt bijvoorbeeld een fout melding als u een reken doel probeert te maken of koppelen van een ML-pijp lijn die wordt ingediend voor externe uitvoering.
+
+## <a name="overloaded-azurefile-storage"></a>Overbelaste AzureFile-opslag
+
+Als er een fout bericht wordt weer gegeven dat er geen project bestanden kunnen worden geüpload naar de werkmap in AzureFile, omdat de opslag is overbelast, moet u de volgende tijdelijke oplossingen Toep assen.
+
+Als u bestands share gebruikt voor andere werk belastingen, zoals gegevens overdracht, is de aanbeveling om blobs te gebruiken zodat de bestands share gratis kan worden gebruikt voor het verzenden van uitvoeringen. U kunt de werk belasting ook splitsen tussen twee verschillende werk ruimten.

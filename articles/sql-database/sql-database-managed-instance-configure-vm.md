@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
-manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddcac56671e145728f02d31bf23c657ea172e4c0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60701839"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567653"
 ---
-# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Quickstart: Azure virtuele machine verbinding maken met een Azure SQL Database Managed Instance configureren
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Quickstart: Azure VM configureren om verbinding te maken met een door Azure SQL Database beheerd exemplaar
 
 In deze Quick Start laat zien hoe u een virtuele Azure-machine verbinding maken met een Azure SQL Database Managed Instance configureren met behulp van SQL Server Management Studio (SSMS). Zie voor een snelstart van hoe u verbinding maakt vanaf een on-premises clientcomputer met behulp van een punt-naar-site-verbinding [een punt-naar-site-verbinding configureren](sql-database-managed-instance-configure-p2s.md)
 
@@ -84,7 +83,7 @@ De eenvoudigste manier om een client virtuele machine maken met alle benodigde h
    |**Wachtwoord**|Een geldig wachtwoord|Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>U gebruikt dit wachtwoord telkens wanneer u [verbinding maken met de virtuele machine](#connect-to-virtual-machine).|
    | **Grootte van virtuele Machine** | Een geldige grootte | De standaardwaarde in deze sjabloon van **Standard_B2s** is voldoende voor deze Quick Start. |
    | **Locatie**|[resourceGroup () .location].| Deze waarde niet te wijzigen. |
-   | **Virtuele-netwerknaam**|Het virtuele netwerk waarin u het beheerde exemplaar gemaakt.|
+   | **Virtuele-netwerknaam**|Het virtuele netwerk waarin u het beheerde exemplaar hebt gemaakt.|
    | **Subnetnaam**|De naam van het subnet dat u in de vorige procedure hebt gemaakt| Kies geen het subnet waarin u het beheerde exemplaar gemaakt.|
    | **artefacten locatie** | [.properties.templateLink.uri implementatie ()] | Deze waarde niet te wijzigen. |
    | **artefacten locatie Sas-token** | Leeg laten | Deze waarde niet te wijzigen. |
@@ -98,7 +97,7 @@ De eenvoudigste manier om een client virtuele machine maken met alle benodigde h
 5. Selecteer het pictogram voor **Meldingen** om de status van de implementatie te bekijken.
 
 > [!IMPORTANT]
-> Ga niet verder tot ongeveer 15 minuten nadat de virtuele machine is gemaakt zodat de tijd voor de scripts voor na het maken voor het installeren van SQL Server Management Studio.
+> Ga niet verder tot ongeveer 15 minuten nadat de virtuele machine is gemaakt om tijd te geven voor het installeren van SQL Server Management Studio.
 
 ## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
 

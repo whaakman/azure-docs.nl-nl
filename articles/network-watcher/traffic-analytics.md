@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: yagup
-ms.openlocfilehash: ca3174ad69185da88bf89c843f641dd2b20d9ac5
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 03c0106d793fc7b77ccc8a9176f158a9928ab291
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872473"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620120"
 ---
-# <a name="traffic-analytics"></a>Traffic Analytics
+# <a name="traffic-analytics"></a>Verkeersanalyse
 
 Traffic Analytics is een Cloud oplossing die inzicht geeft in de activiteit van gebruikers en toepassingen in Cloud netwerken. Traffic Analytics analyseert Network Watcher-stroom logboeken voor netwerk beveiligings groepen (NSG) om inzicht te krijgen in de verkeers stroom in uw Azure-Cloud. Met Traffic Analytics kunt u het volgende doen:
 
@@ -55,7 +55,7 @@ Met Traffic Analytics worden de onbewerkte NSG-stroom logboeken onderzocht en wo
 
 ![Gegevens stroom voor de verwerking van NSG-stroom logboeken](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
-## <a name="supported-regions"></a>Ondersteunde regio’s
+## <a name="supported-regions-nsg"></a>Ondersteunde regio's: NSG 
 
 U kunt Traffic Analytics voor Nsg's gebruiken in een van de volgende ondersteunde regio's:
 
@@ -84,6 +84,8 @@ U kunt Traffic Analytics voor Nsg's gebruiken in een van de volgende ondersteund
 * Japan - oost 
 * Japan - west
 * VS (overheid) - Virginia
+
+## <a name="supported-regions-log-analytics-workspaces"></a>Ondersteunde regio's: Log Analytics-werk ruimten
 
 De Log Analytics-werk ruimte moet in de volgende regio's bestaan:
 * Canada - midden
@@ -137,7 +139,7 @@ Zie [Veelgestelde vragen over Traffic Analytics](traffic-analytics-faq.md)voor i
 
 ### <a name="enable-network-watcher"></a>Network Watcher inschakelen
 
-Als u verkeer wilt analyseren, moet u een bestaande netwerk-Watcher hebben of [een netwerk-Watcher inschakelen](network-watcher-create.md) in elke regio waarvoor u nsg's hebt waarvoor u verkeer wilt analyseren. Traffic Analytics kan worden ingeschakeld voor Nsg's die worden gehost in een van de [ondersteunde regio's](#supported-regions).
+Als u verkeer wilt analyseren, moet u een bestaande netwerk-Watcher hebben of [een netwerk-Watcher inschakelen](network-watcher-create.md) in elke regio waarvoor u nsg's hebt waarvoor u verkeer wilt analyseren. Traffic Analytics kan worden ingeschakeld voor Nsg's die worden gehost in een van de [ondersteunde regio's](#supported-regions-nsg).
 
 ### <a name="select-a-network-security-group"></a>Een netwerk beveiligings groep selecteren
 
@@ -147,7 +149,7 @@ Selecteer aan de linkerkant van de Azure Portal **monitor**, vervolgens **Networ
 
 ![Selectie van Nsg's waarvoor NSG-stroom logboek moet worden aangevraagd](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
-Als u Traffic Analytics wilt inschakelen voor een NSG die wordt gehost in een andere regio dan de [ondersteunde regio's](#supported-regions), ontvangt u de fout melding "niet gevonden".
+Als u Traffic Analytics wilt inschakelen voor een NSG die wordt gehost in een andere regio dan de [ondersteunde regio's](#supported-regions-nsg), ontvangt u de fout melding "niet gevonden".
 
 ## <a name="enable-flow-log-settings"></a>Instellingen voor stroom logboek inschakelen
 
@@ -174,17 +176,18 @@ Selecteer de volgende opties, zoals wordt weer gegeven in de afbeelding:
 
 1. Selecteren *voor* **status**
 2. Selecteer *versie 2* voor **flow logboeken versie**. Versie 2 bevat statistieken over flow sessies (bytes en pakketten)
-3. Selecteer een bestaand opslag account om de stroom logboeken op te slaan in. Als u de gegevens permanent wilt opslaan, stelt u de waarde in op *0*. U hebt Azure Storage kosten voor het opslag account.
+3. Selecteer een bestaand opslag account om de stroom logboeken op te slaan in. Als u de gegevens permanent wilt opslaan, stelt u de waarde in op *0*. U hebt Azure Storage kosten voor het opslag account. Zorg ervoor dat op uw opslag ' Data Lake Storage Gen2 hiërarchische naam ruimte is ingeschakeld ' is ingesteld op waar. Ook kunnen NSG-stroom logboeken niet worden opgeslagen in een opslag account met een firewall. 
 4. Stel de **Bewaar periode** in op het aantal dagen waarvoor u gegevens wilt opslaan.
 5. Selecteer *aan* voor **Traffic Analytics status**.
-6. Selecteer een bestaande Log Analytics (OMS)-werk ruimte of selecteer **nieuwe werk ruimte maken** om een nieuwe te maken. Een Log Analytics-werk ruimte wordt gebruikt door Traffic Analytics om de geaggregeerde en geïndexeerde gegevens op te slaan die vervolgens worden gebruikt voor het genereren van de analyse. Als u een bestaande werk ruimte selecteert, moet deze bestaan in een van de [ondersteunde regio's](#supported-regions) en zijn bijgewerkt naar de nieuwe query taal. Als u een bestaande werk ruimte niet wilt upgraden of als u geen werk ruimte in een ondersteunde regio hebt, maakt u een nieuwe. Zie [Azure log Analytics upgrade uitvoeren naar nieuwe zoek opdracht in Logboeken](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)voor meer informatie over query talen.
+6. Selecteer een verwerkings interval. Op basis van uw keuze worden de stroom logboeken verzameld van het opslag account en verwerkt door Traffic Analytics. U kunt het verwerkings interval van elke 1 uur of elke 10 minuten kiezen.
+7. Selecteer een bestaande Log Analytics (OMS)-werk ruimte of selecteer **nieuwe werk ruimte maken** om een nieuwe te maken. Een Log Analytics-werk ruimte wordt gebruikt door Traffic Analytics om de geaggregeerde en geïndexeerde gegevens op te slaan die vervolgens worden gebruikt voor het genereren van de analyse. Als u een bestaande werk ruimte selecteert, moet deze bestaan in een van de [ondersteunde regio's](#supported-regions-log-analytics-workspaces) en zijn bijgewerkt naar de nieuwe query taal. Als u een bestaande werk ruimte niet wilt upgraden of als u geen werk ruimte in een ondersteunde regio hebt, maakt u een nieuwe. Zie [Azure log Analytics upgrade uitvoeren naar nieuwe zoek opdracht in Logboeken](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)voor meer informatie over query talen.
 
     De log Analytics-werk ruimte die als host fungeert voor de Traffic Analytics-oplossing en de Nsg's hoeven zich niet in dezelfde regio te bevinden. U kunt bijvoorbeeld Traffic Analytics hebben in een werk ruimte in de Europa-west regio, terwijl u mogelijk Nsg's hebt in VS-Oost en VS-West. Meerdere Nsg's kunnen in dezelfde werk ruimte worden geconfigureerd.
-7. Selecteer **Opslaan**.
+8. Selecteer **Opslaan**.
 
-    ![Selectie van opslag account, Log Analytics werk ruimte en Traffic Analytics-activering](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
+    ![Selectie van opslag account, Log Analytics werk ruimte en Traffic Analytics-activering](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Herhaal de vorige stappen voor andere Nsg's waarvoor u Traffic Analytics wilt inschakelen voor. Gegevens uit stroom logboeken worden verzonden naar de werk ruimte, dus zorg ervoor dat de lokale wetten en voor Schriften in uw land/regio gegevens opslag toestaan in de regio waar de werk ruimte zich bevindt.
+Herhaal de vorige stappen voor andere Nsg's waarvoor u Traffic Analytics wilt inschakelen voor. Gegevens uit stroom logboeken worden verzonden naar de werk ruimte, dus zorg ervoor dat de lokale wetten en voor Schriften in uw land gegevens opslag toestaan in de regio waar de werk ruimte zich bevindt. Als u verschillende verwerkings intervallen voor verschillende Nsg's hebt ingesteld, worden de gegevens op verschillende tijdstippen verzameld. Bijvoorbeeld: U kunt ervoor kiezen om het verwerkings interval van 10 minuten voor kritieke VNETs en 1 uur voor niet-kritieke VNETs in te scha kelen.
 
 U kunt ook Traffic Analytics configureren met de Power shell [-cmdlet Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) in azure PowerShell. Voer `Get-Module -ListAvailable Az` uit om de geïnstalleerde versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-Az-ps).
 

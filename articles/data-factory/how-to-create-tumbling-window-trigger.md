@@ -1,6 +1,6 @@
 ---
-title: Tumblingvenstertriggers maken in Azure Data Factory | Microsoft Docs
-description: Informatie over het maken van een trigger in Azure Data Factory die een pijplijn op een tumblingvenster wordt uitgevoerd.
+title: Tumblingvenstertriggers-venster triggers maken in Azure Data Factory | Microsoft Docs
+description: Meer informatie over het maken van een trigger in Azure Data Factory die een pijp lijn uitvoert in een tumblingvenstertriggers-venster.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -12,26 +12,26 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: shlo
-ms.openlocfilehash: 6fbdee71ab1123c258a5191a78e38f51eb41cbab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f78136edf58e76ed478bef9c255791d256c34a5
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152943"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678483"
 ---
-# <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Een trigger die een pijplijn op een tumblingvenster uitvoert maken
-In dit artikel bevat stappen voor het maken, starten en controleren van een tumblingvenstertrigger. Raadpleeg voor algemene informatie over triggers en de ondersteunde typen [pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md).
+# <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Een trigger maken waarmee een pijp lijn wordt uitgevoerd in een tumblingvenstertriggers-venster
+Dit artikel bevat stappen voor het maken, starten en bewaken van een trigger voor een tumblingvenstertriggers-venster. Zie [pijp lijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md)voor algemene informatie over triggers en de ondersteunde typen.
 
-Tumblingvenstertriggers zijn triggers die vanaf een opgegeven begintijd worden geactiveerd met een periodiek tijdsinterval en die hun status behouden. Tumblingvensters bestaan uit een reeks niet-overlappende en aaneengesloten tijdsintervallen van vaste duur. Een tumblingvenstertrigger heeft een-op-een-relatie met een pijplijn en kan alleen verwijzen naar een enkel pijplijn.
+Tumblingvenstertriggers zijn triggers die vanaf een opgegeven begintijd worden geactiveerd met een periodiek tijdsinterval en die hun status behouden. Tumblingvensters bestaan uit een reeks niet-overlappende en aaneengesloten tijdsintervallen van vaste duur. Een tumblingvenstertriggers-venster trigger heeft een een-op-een-relatie met een pijp lijn en kan alleen verwijzen naar een enkelvoudige pijp lijn.
 
 ## <a name="data-factory-ui"></a>Gebruikersinterface van Data Factory
 
-Als u wilt een tumblingvenstertrigger maken in Azure portal, selecteert u **Trigger > tumblingvenster > volgende**, en configureer vervolgens de eigenschappen die het tumblingvenster definiëren.
+Als u een trigger voor een tumblingvenstertriggers-venster wilt maken in de Azure Portal, selecteert u **trigger > venster > volgende**en configureert u vervolgens de eigenschappen die het tumblingvenstertriggers-venster definiëren.
 
-![Een tumblingvenstertrigger maken in Azure portal](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
+![Een trigger voor een tumblingvenstertriggers-venster maken in de Azure Portal](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
 
-## <a name="tumbling-window-trigger-type-properties"></a>Tumbling venster trigger type-eigenschappen
-Een tumblingvenster heeft de volgende eigenschappen van de trigger-type:
+## <a name="tumbling-window-trigger-type-properties"></a>Eigenschappen van trigger type voor tumblingvenstertriggers-venster
+Een tumblingvenstertriggers-venster heeft de volgende trigger type-eigenschappen:
 
 ```
 {
@@ -40,16 +40,32 @@ Een tumblingvenster heeft de volgende eigenschappen van de trigger-type:
         "type": "TumblingWindowTrigger",
         "runtimeState": "<<Started/Stopped/Disabled - readonly>>",
         "typeProperties": {
-            "frequency": "<<Minute/Hour>>",
+            "frequency": <<Minute/Hour>>,
             "interval": <<int>>,
             "startTime": "<<datetime>>",
-            "endTime: "<<datetime – optional>>"",
-            "delay": "<<timespan – optional>>",
+            "endTime: <<datetime – optional>>,
+            "delay": <<timespan – optional>>,
             “maxConcurrency”: <<int>> (required, max allowed: 50),
             "retryPolicy": {
                 "count": <<int - optional, default: 0>>,
                 “intervalInSeconds”: <<int>>,
-            }
+            },
+            "dependsOn": [
+                {
+                    "type": "TumblingWindowTriggerDependencyReference",
+                    "size": <<timespan – optional>>,
+                    "offset": <<timespan – optional>>,
+                    "referenceTrigger": {
+                        "referenceName": "MyTumblingWindowDependency1",
+                        "type": "TriggerReference"
+                    }
+                },
+                {
+                    "type": "SelfDependencyTumblingWindowTriggerReference",
+                    "size": <<timespan – optional>>,
+                    "offset": <<timespan>>
+                }
+            ]
         },
         "pipeline": {
             "pipelineReference": {
@@ -72,24 +88,27 @@ Een tumblingvenster heeft de volgende eigenschappen van de trigger-type:
 }
 ```
 
-De volgende tabel bevat een overzicht van de belangrijkste JSON-elementen die betrekking hebben op het terugkeerpatroon en het schema van een tumblingvenstertrigger:
+De volgende tabel bevat een overzicht op hoog niveau van de belangrijkste JSON-elementen die betrekking hebben op het terugkeer patroon en de planning van een tumblingvenstertriggers-venster trigger:
 
-| JSON-element | Description | Type | Toegestane waarden | Vereist |
+| JSON-element | Description | type | Toegestane waarden | Vereist |
 |:--- |:--- |:--- |:--- |:--- |
-| **type** | Het type van de trigger. Het type is het vaste waarde "TumblingWindowTrigger." | String | "TumblingWindowTrigger" | Ja |
-| **runtimeState** | Uitvoeringstijd voor de huidige status van de trigger.<br/>**Opmerking**: Dit element heeft de \<readOnly >. | String | "Started," "Stopped," "Disabled" | Ja |
-| **frequency** | Een tekenreeks waarmee de frequentie-eenheid waarmee de trigger wordt uitgevoerd (minuten of uur). Als de **startTime** date-waarden zijn gedetailleerder zijn dan de **frequentie** waarde, de **startTime** datums worden beschouwd als wanneer de grenzen van het venster worden berekend. Bijvoorbeeld, als de **frequentie** waarde wordt per uur en de **startTime** waarde is 2017-09-01T10:10:10Z, het eerste venster is (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | 'minuut', 'uur'  | Ja |
-| **interval** | Een positief geheel getal dat het interval voor de waarde **frequency** aangeeft. Het bepaalt hoe vaak de trigger wordt uitgevoerd. Bijvoorbeeld, als de **interval** 3 is en de **frequentie** 'uur', wordt de trigger elke drie uur uitgevoerd. | Geheel getal | Een positief geheel getal zijn. | Ja |
-| **startTime**| De eerste instantie, die in het verleden worden kan. Het interval voor de eerste trigger is (**startTime**, **startTime** + **interval**). | DateTime | Een datum / tijdwaarde. | Ja |
-| **endTime**| Het laatste exemplaar, die in het verleden worden kan. | DateTime | Een datum / tijdwaarde. | Ja |
-| **delay** | De hoeveelheid tijd aan het begin van de verwerking van gegevens van het venster van de wachttijd. Uitvoering van de pijplijn wordt gestart na de verwachte tijd voor de uitvoering van plus het bedrag van **vertraging**. De **vertraging** wordt gedefinieerd hoe lang de trigger moet wachten na de vervaldatum tijd voordat een nieuwe uitvoering wordt geactiveerd. De **vertraging** niet van invloed op het venster **startTime**. Bijvoorbeeld, een **vertraging** waarde van 00:10:00 impliceert een vertraging van 10 minuten. | Periode<br/>(uu: mm:)  | Een timespan-waarde waar de standaardwaarde 00:00:00 is. | Nee |
-| **maxConcurrency** | Het aantal gelijktijdige triggeruitvoeringen die zijn geactiveerd voor windows die gereed zijn. Bijvoorbeeld: voor de achtergrondopvulling elk uur wordt uitgevoerd voor gisteren resulteert in 24 windows. Als **maxConcurrency** = 10, worden gebeurtenissen alleen voor de eerste 10 windows trigger (00:00:01: 00 - 09:00-10:00). Nadat de eerste 10 geactiveerde pijplijnuitvoeringen voltooid zijn, worden de triggeruitvoeringen geactiveerd voor de volgende 10 (10:00-11:00-19:00:20: 00) van windows. In dit voorbeeld van **maxConcurrency** = 10, als er 10 windows gereed is, er zijn 10 totale pijplijnuitvoeringen. Als er slechts 1 venster gereed is, is er slechts 1 pijplijnuitvoering. | Geheel getal | Een geheel getal tussen 1 en 50. | Ja |
-| **retryPolicy: Count** | Het aantal nieuwe pogingen voordat de uitvoering van de pijplijn is gemarkeerd als 'Mislukt'.  | Geheel getal | Een geheel getal, waarbij de standaardwaarde 0 (geen nieuwe pogingen is). | Nee |
-| **retryPolicy: intervalInSeconds** | De vertraging tussen nieuwe pogingen in seconden opgegeven. | Geheel getal | Het aantal seconden, waar de standaardwaarde 30 is. | Nee |
+| **type** | Het type van de trigger. Het type is de vaste waarde ' TumblingWindowTrigger '. | Reeks | "TumblingWindowTrigger" | Ja |
+| **runtimeState** | De huidige status van de uitvoerings tijd van de trigger.<br/>**Opmerking**: Dit element is \<alleen-lezen >. | Reeks | "Gestart," "gestopt," "uitgeschakeld" | Ja |
+| **frequency** | Een teken reeks die de frequentie-eenheid (minuten of uren) aangeeft waarmee de trigger wordt herhaald. Als de **datum waarden** voor de start tijd meer nauw keuriger zijn dan de **frequentie** waarde, worden de datums van de **StartTime** meegenomen wanneer de venster grenzen worden berekend. Als de waarde van de **frequentie** bijvoorbeeld elk uur is en de waarde voor **StartTime** is 2017-09-01T10:10:10Z, is het eerste venster (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Tekenreeks | "minuut," uur "  | Ja |
+| **interval** | Een positief geheel getal dat het interval voor de waarde **frequency** aangeeft. Het bepaalt hoe vaak de trigger wordt uitgevoerd. Als het **interval** bijvoorbeeld 3 is en de **frequentie** is ingesteld op ' uur ', wordt de trigger elke drie uur herhaald. | Geheel getal | Een positief geheel getal. | Ja |
+| **startTime**| De eerste instantie, die in het verleden kan zijn. Het eerste trigger interval is (**StartTime**, **StartTime** + -**interval**). | Datetime | Een datum/tijd-waarde. | Ja |
+| **endTime**| De laatste instantie, die in het verleden kan zijn. | Datetime | Een datum/tijd-waarde. | Ja |
+| **delay** | De hoeveelheid tijd die het starten van de gegevens verwerking voor het venster moet vertragen. De pijplijn uitvoering wordt gestart na de verwachte uitvoerings tijd plus de hoeveelheid **vertraging**. De **vertraging** bepaalt hoe lang de trigger na de eind tijd wacht voordat een nieuwe uitvoering wordt geactiveerd. De **vertraging** wijzigt de **StartTime**van het venster niet. Een vertragings waarde van 00:10:00 impliceert bijvoorbeeld een vertraging van 10 minuten. | Timespan<br/>(UU: mm: SS)  | Een time span-waarde waarbij de standaard instelling is 00:00:00. | Nee |
+| **maxConcurrency** | Het aantal gelijktijdige trigger uitvoeringen dat wordt geactiveerd voor Windows die gereed zijn. Als u bijvoorbeeld per uur back-upvulling voor gisteren wilt uitvoeren, worden er 24 vensters weer gegeven. Als **maxConcurrency** = 10, worden trigger gebeurtenissen alleen geactiveerd voor de eerste 10 windows (00:00-01:00-09:00-10:00). Nadat de eerste tien geactiveerde pijplijn uitvoeringen zijn voltooid, worden de trigger uitvoeringen geactiveerd voor de volgende 10 Windows (10:00-11:00-19:00-20:00). Als u doorgaat met dit voor beeld van **maxConcurrency** = 10, zijn er 10 Windows klaar, dan zijn er 10 totale pijplijn uitvoeringen. Als er slechts één venster gereed is, is er slechts één pijplijn uitvoering. | Geheel getal | Een geheel getal tussen 1 en 50. | Ja |
+| **retryPolicy: Count** | Het aantal nieuwe pogingen voordat de pijplijn uitvoering is gemarkeerd als ' mislukt '.  | Geheel getal | Een geheel getal, waarbij de standaard waarde is 0 (geen nieuwe pogingen). | Nee |
+| **retryPolicy: intervalInSeconds** | De vertraging tussen nieuwe pogingen opgegeven in seconden. | Geheel getal | Het aantal seconden, waarbij de standaard waarde is 30. | Nee |
+| **dependsOn: type** | Het type TumblingWindowTriggerReference. Vereist als er een afhankelijkheid is ingesteld. | Tekenreeks |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | Nee |
+| **dependsOn: grootte** | De grootte van het tumblingvenstertriggers-venster van de afhankelijkheid. | Timespan<br/>(UU: mm: SS)  | Een positieve time span-waarde waarbij de standaard instelling is de venster grootte van de onderliggende trigger  | Nee |
+| **dependsOn: offset** | De verschuiving van de afhankelijkheids trigger. | Timespan<br/>(UU: mm: SS) |  Een time span-waarde die negatief moet zijn in een self-afhankelijkheid. Als er geen waarde is opgegeven, is het venster hetzelfde als de trigger. | Zelf afhankelijkheid: Ja<br/>Overige: Nee  |
 
-### <a name="windowstart-and-windowend-system-variables"></a>WindowStart en WindowEnd systeemvariabelen
+### <a name="windowstart-and-windowend-system-variables"></a>Systeem variabelen WindowStart en WindowEnd
 
-U kunt de **WindowStart** en **WindowEnd** systeemvariabelen van de tumblingvenstertrigger in uw **pijplijn** definitie (dat wil zeggen, voor een deel van een query). De systeemvariabelen als parameters doorgeven aan de pijplijn in de **trigger** definitie. Het volgende voorbeeld ziet u hoe u kunt deze variabelen doorgeven als parameters:
+U kunt de systeem variabelen **WindowStart** en **WindowEnd** van de tumblingvenstertriggers-venster trigger gebruiken in uw **pijplijn** definitie (dat wil zeggen, voor een deel van een query). Geef de systeem variabelen op als para meters voor de pijp lijn in de **trigger** definitie. Het volgende voor beeld laat zien hoe u deze variabelen kunt door geven als para meters:
 
 ```
 {
@@ -117,27 +136,31 @@ U kunt de **WindowStart** en **WindowEnd** systeemvariabelen van de tumblingvens
 }
 ```
 
-Gebruik de **WindowStart** en **WindowEnd** systeemwaarden van variabelen in het pijplijndefinitie van de gebruiken de parameters "MyWindowStart" en "MyWindowEnd" dienovereenkomstig.
+Als u de waarden van de systeem variabelen **WindowStart** en **WindowEnd** in de pijplijn definitie wilt gebruiken, gebruikt u de para meters ' MyWindowStart ' en ' MyWindowEnd ' dienovereenkomstig.
 
-### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>De volgorde van uitvoering van windows in een backfill-scenario
-Wanneer er meerdere vensters voor uitvoering (met name in een backfill-scenario), is de volgorde van de uitvoering voor windows is deterministisch, van oudste naar nieuwste intervallen. Dit gedrag kan op dit moment niet worden aangepast.
+### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Uitvoerings volgorde van Windows in een backfill-scenario
+Als er meerdere vensters zijn voor uitvoering (met name in een backfill-scenario), is de volg orde van de uitvoering voor Windows deterministisch, van oudste naar nieuwste intervallen. Dit gedrag kan op dit moment niet worden aangepast.
 
-### <a name="existing-triggerresource-elements"></a>Bestaande TriggerResource elementen
-De volgende punten van toepassing op bestaande **TriggerResource** elementen:
+### <a name="existing-triggerresource-elements"></a>Bestaande TriggerResource-elementen
+De volgende punten zijn van toepassing op bestaande **TriggerResource** -elementen:
 
-* Als de waarde voor de **frequentie** -element (of venstergrootte) van de trigger-wijzigingen, de status van de vensters die al zijn verwerkt is *niet* opnieuw instellen. De trigger wordt geactiveerd voor de windows-van het laatste venster dat wordt uitgevoerd met behulp van de grootte van het nieuwe venster voortgezet.
-* Als de waarde voor de **endTime** element van de trigger wijzigingen (toegevoegd of bijgewerkt), de status van de windows die al zijn verwerkt *niet* opnieuw instellen. De trigger zich houdt aan de nieuwe **endTime** waarde. Als de nieuwe **endTime** waarde is voordat u de vensters die al worden uitgevoerd, de trigger reageert. Anders wordt de trigger reageert wanneer de nieuwe **endTime** waarde is aangetroffen.
+* Als de waarde voor het **frequentie** -element (of de venster grootte) van de trigger wordt gewijzigd, wordt de status van de Vensters die al zijn verwerkt, *niet* opnieuw ingesteld. De trigger wordt geactiveerd voor de Windows vanaf het laatste venster dat het heeft uitgevoerd met behulp van de nieuwe venster grootte.
+* Als de waarde voor het element **EndTime** van de trigger verandert (toegevoegd of bijgewerkt), wordt de status van de Windows die al is verwerkt, *niet* opnieuw ingesteld. De trigger voldoet aan de nieuwe **EndTime** -waarde. Als de nieuwe **EndTime** -waarde voor de Windows is die al wordt uitgevoerd, wordt de trigger gestopt. Anders stopt de trigger wanneer de nieuwe **EndTime** -waarde wordt aangetroffen.
 
-## <a name="sample-for-azure-powershell"></a>Voorbeeld van Azure PowerShell
+### <a name="tumbling-window-trigger-dependency"></a>Afhankelijkheid van tumblingvenstertriggers-venster trigger
+
+Als u er zeker van wilt zijn dat een trigger voor een tumblingvenstertriggers-venster wordt uitgevoerd nadat de uitvoering van een andere tumblingvenstertriggers-venster trigger in de data factory is voltooid, [maakt u een tumblingvenstertriggers-venster trigger](tumbling-window-trigger-dependency.md). 
+
+## <a name="sample-for-azure-powershell"></a>Voor beeld voor Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Deze sectie leest u hoe u Azure PowerShell gebruiken om te maken, starten en controleren van een trigger.
+In deze sectie wordt beschreven hoe u Azure PowerShell kunt gebruiken om een trigger te maken, te starten en te bewaken.
 
-1. Maak een JSON-bestand met de naam **MyTrigger.json** in de map C:\ADFv2QuickStartPSH\ met de volgende inhoud:
+1. Maak een JSON-bestand met de naam **MyTrigger. json** in de map C:\ADFv2QuickStartPSH\ met de volgende inhoud:
 
     > [!IMPORTANT]
-    > Voordat u het JSON-bestand opslaat, stel de waarde van de **startTime** element op de huidige UTC-tijd. Stel de waarde van de **endTime** element naar één uur na de huidige UTC-tijd.
+    > Voordat u het JSON-bestand opslaat, stelt u de waarde van het element **StartTime** in op de huidige UTC-tijd. Stel de waarde van het element **EndTime** in op één uur na de huidige UTC-tijd.
 
     ```json
     {
@@ -170,37 +193,39 @@ Deze sectie leest u hoe u Azure PowerShell gebruiken om te maken, starten en con
     }
     ```
 
-2. Een trigger maken met behulp van de **Set AzDataFactoryV2Trigger** cmdlet:
+2. Een trigger maken met behulp van de cmdlet **set-AzDataFactoryV2Trigger** :
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
     
-3. Controleer of de status van de trigger **gestopt** met behulp van de **Get-AzDataFactoryV2Trigger** cmdlet:
+3. Controleer of de status van de trigger is **gestopt** met behulp van de cmdlet **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Start de trigger met behulp van de **Start AzDataFactoryV2Trigger** cmdlet:
+4. Start de trigger met behulp van de cmdlet **Start-AzDataFactoryV2Trigger** :
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Controleer of de status van de trigger **gestart** met behulp van de **Get-AzDataFactoryV2Trigger** cmdlet:
+5. Controleer of de status van de trigger is **gestart** met behulp van de cmdlet **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6. Ontvang de trigger wordt uitgevoerd in Azure PowerShell met behulp van de **Get-AzDataFactoryV2TriggerRun** cmdlet. Voor informatie over de trigger wordt uitgevoerd, moet u de volgende opdracht periodiek uitvoeren. Update de **TriggerRunStartedAfter** en **TriggerRunStartedBefore** waarden zodat deze overeenkomen met de waarden in de Triggerdefinitie van de:
+6. De trigger wordt uitgevoerd in Azure PowerShell met behulp van de cmdlet **Get-AzDataFactoryV2TriggerRun** . Voer regel matig de volgende opdracht uit om informatie te krijgen over de uitvoeringen van triggers. Werk de waarden **TriggerRunStartedAfter** en **TriggerRunStartedBefore** bij zodat deze overeenkomen met de waarden in de trigger definitie:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
-Voor het bewaken van de trigger wordt uitgevoerd en de pijplijn wordt uitgevoerd in Azure portal, Zie [pijplijnuitvoeringen controleren](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+Zie [pijplijn uitvoeringen controleren](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)als u de uitvoering van triggers en pijplijn uitvoeringen wilt bewaken in de Azure Portal.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over triggers [pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md#triggers).
+
+* Zie [pijp lijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md#triggers)voor meer informatie over triggers.
+* [Een tumblingvenstertriggers-venster maken afhankelijkheid van trigger](tumbling-window-trigger-dependency.md)
